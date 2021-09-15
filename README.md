@@ -18,7 +18,7 @@ On the GitHub Docs site, you can click **make a contribution** to open a PR for 
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
-For more complex contribution, you can **open an issue** using an [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
+For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
 If you're looking for a way to contribute, you can scan through our [existing issues](https://github.com/github/docs/issues) for something to work on. When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
 

@@ -1,16 +1,16 @@
 ## Welcome to GitHub docs contributing guide
-
+## Welcome to the GitHub docs contributing guide
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
 Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
 
-Use table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
+Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
 
 ## New contributor guide
 
-  See [README.md](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution. 
+  See the [README](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
@@ -20,9 +20,9 @@ Use table of contents icon <img src="./assets/images/table-of-contents.png" widt
 
 ## Getting started
 
-See [working in docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [GitHub Markdown](contributing/content-markup-reference.md) for information on how we write our markdown files.
+See [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [the GitHub Markdown reference](contributing/content-markup-reference.md) for information on how we write our markdown files.
 
-Before making changes, see what [types contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
+Before making changes, see what [types of contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
 
 ### Issues
 
@@ -39,7 +39,7 @@ Scan through our [existing issues](https://github.com/github/docs/issues) to fin
 #### Make changes in the UI
 
 You can make small changes such as a typo, sentence fix, or broken link in the UI using **Make a contribution**
- at the bottom of any docs page to navigate directly to the `.md` file. Make your changes and [create a PR](#pull-request) for a review. 
+ at the bottom of any docs page to navigate directly to the source file. Make your changes and [create a PR](#pull-request) for a review. 
 
  <img src="./assets/images/contribution_cta.png" width="300" height="150" /> 
 
@@ -58,11 +58,11 @@ You can make small changes such as a typo, sentence fix, or broken link in the U
 - GitHub Codespaces:
   - [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
 
-3. Install or update to **Node.js v16**. For more information, see "[contributing/development.md](contributing/development.md)."
+3. Install or update to **Node.js v16**. For more information, see [the development guide](contributing/development.md).
 
 4. Create a working branch and start with your changes!
 
-### Commit your update:
+### Commit your update
 
 Commit the changes once you are happy with them. Here are some commonly used short and fun commit messages.
 
@@ -76,7 +76,7 @@ Once you are ready with your changes, don't forget to [self review](/contributin
 
 ### Pull Request
 
-When you're done making the changes, open a PR (pull request). 
+When you're done making the changes, open a pull request, often referred to as a PR. 
 - Fill out the "Ready for review" template so we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request. 
 - Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
   <!-- (This will change with the new workflow https://github.com/github/docs-team/issues/813 ) -->
