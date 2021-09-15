@@ -5,7 +5,7 @@ Screenshots are used to help readers with the flow in articles like procedures (
 ## Best practices for taking screenshots
 
 - Screenshots enhance our content but can't replace it. 
-- Include descriptive alt text for better accessibility. 
+- Include descriptive alt text for better accessibility. See our [content style guide](./content-style-guide.md#alt-text) for more information.
 - Ensure we're publishing strong standalone content along with screenshots.
 - When replacing an existing image (such as for an updated button in the UI), best practice is to retain the image's filename. If you must change an image filename, search the help docs repository for other references to that image and update all references to the original filename. If the image is used in deprecated versions of GHES documentation, please don't change the filename.
 - Screenshots should have descriptive names to make them easier to find. For example, use the name `gist-embed-link.png` instead of `right_side_page_03.png`.
