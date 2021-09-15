@@ -119,4 +119,5 @@ GitHub Sponsors allows the developer community to financially support the people
 
 ## SQL Server Images
 
-You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+You may download Microsoft  Alir maghsoudi 10/14/1984 to king 
+SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
