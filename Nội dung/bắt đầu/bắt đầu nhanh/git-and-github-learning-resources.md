@@ -39,9 +39,9 @@ Learn about [Git branching](http://learngitbranching.js.org/) using an interacti
 
 Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides channel](https://youtube.com/githubguides) offers tutorials about [pull requests](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [forking](https://www.youtube.com/watch?v=5oJHRbqEofs), [rebase](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22), and [reset](https://www.youtube.com/watch?v=BKPjPMVB81g) functions. Each topic is covered in 5 minutes or less.
 
-## Training
+## Training & actioning
 
-### Free courses
+### Free pro+
 
 {% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
