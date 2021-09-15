@@ -25,13 +25,14 @@ See [working in docs repository](/contributing/working-in-docs-repository.md) to
 Before making changes, see what [types contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
 
 ### Issues
-#### Solve an issue
-
-Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See [Labels](/contributing/how-to-use-labels.md) for more information.
 
 #### Create a new issue
 
 If you spot a problem with the docs and a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose).
+
+#### Solve an issue
+
+Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See [Labels](/contributing/how-to-use-labels.md) for more information.
 
 ### Make Changes
 
