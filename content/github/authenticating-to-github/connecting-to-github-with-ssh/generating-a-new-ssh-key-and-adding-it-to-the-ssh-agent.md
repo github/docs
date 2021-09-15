@@ -40,7 +40,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   ```
 
   {% endnote %}  
-  This creates a new ssh key, using the provided email as a label.
+  This creates a new SSH key, using the provided email as a label.
   ```shell
   > Generating public/private ed25519 key pair.
   ```
@@ -139,7 +139,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
   ```
   {% note %}
 
-  **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an ssh key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `-K` option. 
+  **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `-K` option. 
 
   If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
 

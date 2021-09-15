@@ -12,6 +12,9 @@ on:
       - synchronize
       - unlocked
 
+permissions:
+  contents: read
+
 jobs:
   build:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
@@ -19,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
-      group: staging_${{ github.head_ref }}
+      group: staging_docker_${{ github.head_ref }}
       cancel-in-progress: true
     steps:
       - name: Check out repo
@@ -49,7 +52,7 @@ jobs:
 
       # When there are changes to files we can't accept
       - name: 'Fail when not allowed files are changed'
-        if: ${{ steps.filter.outputs.notAllowed }}
+        if: ${{ steps.filter.outputs.notAllowed == 'true' }}
         run: exit 1
 
       - name: Create an archive
@@ -81,12 +84,3 @@ jobs:
         with:
           name: pr_build_docker
           path: app.tar
-
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: ${{ failure() }}
-        with:
-          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: Staging build (docker) failed for PR ${{ github.event.pull_request.html_url }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

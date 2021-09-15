@@ -89,9 +89,6 @@ export default async function deployToStaging({
       // For our many staging apps, we must use the unique appName as the environment.
       environment: appName,
 
-      // Indicate this environment will no longer exist at some point in the future.
-      transient_environment: true,
-
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a
       // deployment. To bypass checking entirely, pass an empty array. Defaults
@@ -504,7 +501,10 @@ export default async function deployToStaging({
     try {
       await got(homepageUrl, {
         timeout: 10000, // Maximum 10 second timeout per request
-        retry: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
+        retry: {
+          limit: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
+          statusCodes: [404].concat(got.defaults.options.retry.statusCodes), // 404 is extra
+        },
         hooks: {
           beforeRetry: [
             (options, error = {}, retryCount = '?') => {
