@@ -8,7 +8,10 @@ on:
   pull_request_target:
     types:
       - closed
-      - locked
+
+permissions:
+  contents: read
+  deployments: write
 
 jobs:
   undeploy:

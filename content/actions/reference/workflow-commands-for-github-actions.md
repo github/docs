@@ -77,6 +77,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
+| `core.notice`     | `notice` |
 | `core.saveState`  | `save-state` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
 | `core.setOutput`  | `set-output` |
@@ -136,6 +137,18 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 
 ``` bash
 echo "::debug::Set the Octocat variable"
+```
+
+## Setting a notice message
+
+`::notice file={name},line={line},col={col}::{message}`
+
+Creates a notice message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the notice occurred. Line and column numbers start at 1.
+
+### Example
+
+``` bash
+echo "::notice file=app.js,line=1,col=5::Spelling mistake in string"
 ```
 
 ## Setting a warning message

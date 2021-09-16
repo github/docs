@@ -7,6 +7,7 @@ import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
+import { Lead } from 'components/ui/Lead'
 
 export const LandingHero = () => {
   const { airGap } = useMainContext()
@@ -27,7 +28,7 @@ export const LandingHero = () => {
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 
-        <div className="f2 color-text-secondary" dangerouslySetInnerHTML={{ __html: intro }} />
+        {intro && <Lead>{intro}</Lead>}
 
         {introLinks &&
           Object.entries(introLinks)

@@ -3,7 +3,7 @@ name: Close issue/PR on adding invalid label
 on:
   issues:
     types: [labeled]
-  pull_request:
+  pull_request_target:
     types: [labeled]
 
 permissions:
