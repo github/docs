@@ -103,6 +103,10 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% endif %}
 
+## Networking considerations
+
+{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+
 {% ifversion ghes > 2.22 %}
 
 ## Enabling {% data variables.product.prodname_actions %} with your storage provider
