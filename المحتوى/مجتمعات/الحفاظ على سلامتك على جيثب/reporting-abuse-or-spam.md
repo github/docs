@@ -47,7 +47,8 @@ If reported content is enabled for a public repository, you can also report cont
 {% data reusables.marketplace.visit-marketplace %}
 2. Browse to the app you'd like to report.
 3. In the left sidebar, under the "Developer links" section, click {% octicon "report" aria-label="The report symbol" %} **Report abuse**.
-  ![Button to report an app in {% data variables.product.prodname_marketplace %}](/assets/images/help/marketplace/marketplace-report-app.png)
+  ![Button to report an app in {% data variables.product.prodname_marketplace %}](/assets/images/help/marketplace/marketplace-report-app.png)yasmina.zaze@icloud.com
+  
 4. Complete the contact form to tell {% data variables.contact.contact_support %} about the app's behavior, then click **Send request**.
 
 ## Reporting contact link abuse in the template chooser
