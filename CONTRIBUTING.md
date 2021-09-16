@@ -1,5 +1,5 @@
 ## Welcome to GitHub docs contributing guide
-
+## Welcome to the GitHub docs contributing guide
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
 Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
@@ -10,7 +10,7 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## New contributor guide
 
-  See [README.md](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution. 
+  See the [README](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
@@ -20,9 +20,9 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## Getting started
 
-See [working in docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [GitHub Markdown](contributing/content-markup-reference.md) for information on how we write our markdown files.
+See [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [the GitHub Markdown reference](contributing/content-markup-reference.md) for information on how we write our markdown files.
 
-Before making changes, see what [types contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
+Before making changes, see what [types of contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
 
 ### Issues
 
@@ -57,11 +57,11 @@ Click **Make a contribution** at the bottom of any docs page to make small chang
 - GitHub Codespaces:
   - [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
 
-3. Install or update to **Node.js v16**. For more information, see "[contributing/development.md](contributing/development.md)."
+3. Install or update to **Node.js v16**. For more information, see [the development guide](contributing/development.md).
 
 4. Create a working branch and start with your changes!
 
-### Commit your update:
+### Commit your update
 
 Commit the changes once you are happy with them. See [Atom's contributing guide]https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji's for commit messages.
 
@@ -69,7 +69,7 @@ Once you are ready with your changes, don't forget to [self review](/contributin
 
 ### Pull Request
 
-When you're done making the changes, open a PR (pull request). 
+When you're done making the changes, open a pull request, often referred to as a PR. 
 - Fill out the "Ready for review" template so we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request. 
 - Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
   <!-- (This will change with the new workflow https://github.com/github/docs-team/issues/813 ) -->
