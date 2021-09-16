@@ -42,13 +42,18 @@ jobs:
     # Specifically omitting a concurrency group here in case the build was not
     # successful BECAUSE a subsequent build already canceled it
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Send Slack notification if build workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: Staging build failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.BUILD_ACTIONS_RUN_LOG }}
+          text: Staging build failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.BUILD_ACTIONS_RUN_LOG }}. This run was ${{ env.ACTIONS_RUN_LOG }}.
 
   check-pr-before-prepare:
     if: >-
