@@ -87,7 +87,7 @@ You can use the `size` qualifier to search for source code based on the size of 
 
 ## Search by filename
 
-The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/articles/finding-files-on-github)."
+The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/search-github/searching-on-github/finding-files-on-github)."
 
 | Qualifier  | Example
 | ------------- | -------------
