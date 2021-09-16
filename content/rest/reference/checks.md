@@ -1,6 +1,6 @@
 ---
 title: Checks
-intro: 'With Checks API, you can request to build GitHub Apps that run powerful checks against the code changes in a repository.'
+intro: 'With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.'
 redirect_from:
   - /v3/checks
 versions:
