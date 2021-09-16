@@ -223,21 +223,35 @@ echo "::add-mask::$MY_NAME"
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-### Example stopping workflow commands
+To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
-``` bash
-echo "::stop-commands::pause-logging"
-```
+{% warning %}
 
-To start workflow commands, pass the token that you used to stop workflow commands.
+**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
+
+{% endwarning %}
 
 `::{endtoken}::`
 
-### Example starting workflow commands
+### Example stopping and starting workflow commands
 
-``` bash
-echo "::pause-logging::"
+{% raw %}
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: disable workflow commands
+        run: |
+          echo '::warning:: this is a warning'
+          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+          echo '::warning:: this will NOT be a warning'
+          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+          echo '::warning:: this is a warning again'
 ```
+
+{% endraw %}
 
 ## Sending values to the pre and post actions
 
