@@ -29,6 +29,8 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 {% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
+A token with no assigned scopes can only access public information. To use your token to access repositories from the command line, select `repo`. For more information, see “[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)”.
+
 ## Creating a token
 
 {% ifversion fpt %}1. [Verify your email address](/github/getting-started-with-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
@@ -38,7 +40,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 4. Click **Generate new token**.
    ![Generate new token button](/assets/images/help/settings/generate_new_token.png)
 5. Give your token a descriptive name.
-   ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %}
+   ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.
    ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
 7. Select the scopes, or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
@@ -76,5 +78,5 @@ Instead of manually entering your PAT for every HTTPS Git operation, you can cac
 
 ## Further reading
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
-- "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
+- "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
