@@ -50,7 +50,7 @@ You can search for the following information across all repositories you can acc
 - [Commits](/search-github/searching-on-github/searching-commits)
 - [Users](/search-github/searching-on-github/searching-users)
 - [Packages](/search-github/searching-on-github/searching-for-packages)
-- [Wikis](/articles/searching-wikis)
+- [Wikis](/search-github/searching-on-github/searching-wikis)
 
 ## Searching using a visual interface
 
