@@ -12,8 +12,6 @@ topics:
   - Billing
 ---
 
-{% data reusables.codespaces.codespaces-trial-period %}
-
 ## {% data variables.product.prodname_codespaces %} pricing
 
 {% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. Individual accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
