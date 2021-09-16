@@ -1,4 +1,4 @@
----
+Allow---
 title: Enforcing repository management policies in your enterprise account
 intro: 'Enterprise owners can enforce certain repository management policies for all organizations owned by an enterprise account, or allow policies to be set in each organization.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
