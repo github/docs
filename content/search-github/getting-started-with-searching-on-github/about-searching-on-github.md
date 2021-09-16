@@ -47,7 +47,7 @@ You can search for the following information across all repositories you can acc
 - [Issues and pull requests](/articles/searching-issues-and-pull-requests){% ifversion fpt %}
 - [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Code](/search-github/searching-on-github/searching-code)
-- [Commits](/articles/searching-commits)
+- [Commits](/search-github/searching-on-github/searching-commits)
 - [Users](/articles/searching-users)
 - [Packages](/github/searching-for-information-on-github/searching-for-packages)
 - [Wikis](/articles/searching-wikis)
