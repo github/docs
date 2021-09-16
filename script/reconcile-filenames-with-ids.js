@@ -13,13 +13,12 @@ import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
 import GithubSlugger from 'github-slugger'
-import htmlEntities from 'html-entities'
+import { decode } from 'html-entities'
 import frontmatter from '../lib/read-frontmatter.js'
 import { execSync } from 'child_process'
 import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
 
 const slugger = new GithubSlugger()
-const entities = new htmlEntities.XmlEntities()
 
 const contentDir = path.join(process.cwd(), 'content')
 
@@ -45,7 +44,7 @@ contentFiles.forEach((oldFullPath) => {
   // where title = Foo bar
   // and slug = foo-bar
   slugger.reset()
-  const slug = slugger.slug(entities.decode(data.title))
+  const slug = slugger.slug(decode(data.title))
 
   // get the basename of each file
   // where file = content/foo-bar.md

@@ -18,7 +18,7 @@ shortTitle: Remove sensitive data
 ---
 The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
-You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[Removing files from a repository's history](/articles/removing-files-from-a-repository-s-history)."
+You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
 
 {% warning %}
 
@@ -89,6 +89,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag
     - Remove the specified file, as well as any empty commits generated as a result
+    - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
     - **Overwrite your existing tags**
         ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA

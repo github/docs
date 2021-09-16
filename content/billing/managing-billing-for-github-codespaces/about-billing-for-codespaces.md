@@ -12,8 +12,6 @@ topics:
   - Billing
 ---
 
-{% data reusables.codespaces.codespaces-trial-period %}
-
 ## {% data variables.product.prodname_codespaces %} pricing
 
 {% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. Individual accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage. 
@@ -42,6 +40,8 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
 For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+
+{% data reusables.codespaces.exporting-changes %}
 
 ## How billing is handled for forked repositories
 

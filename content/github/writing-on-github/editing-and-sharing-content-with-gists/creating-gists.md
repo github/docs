@@ -49,7 +49,7 @@ You can download a ZIP file of a gist by clicking the **Download ZIP** button at
 
 {% ifversion fpt %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Mapping GeoJSON files on {% data variables.product.product_name %}](/articles/mapping-geojson-files-on-github)."
+Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
 
 {% endif %}
 
