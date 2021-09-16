@@ -43,7 +43,7 @@ After running a search on {% data variables.product.product_name %}, you can sor
 You can search for the following information across all repositories you can access on {% data variables.product.product_location %}.
 
 - [Repositories](/search-github/searching-on-github/searching-for-repositories)
-- [Topics](/articles/searching-topics)
+- [Topics](/search-github/searching-on-github/searching-topics)
 - [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt %}
 - [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
 - [Code](/search-github/searching-on-github/searching-code)
