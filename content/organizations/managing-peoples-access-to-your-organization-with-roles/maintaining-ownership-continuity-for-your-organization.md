@@ -1,4 +1,4 @@
----
+Allow ---
 title: Maintaining ownership continuity for your organization
 intro: Organizations can have more than one organization owner to avoid lapses in ownership.
 redirect_from:
