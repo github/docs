@@ -25,4 +25,4 @@ You can apply the `good first issue` label to issues in your public repository s
 ## Further reading
 
 - "[About labels](/articles/about-labels)"
-- "[Searching for repositories](/articles/searching-for-repositories)"
+- "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories)"

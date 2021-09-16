@@ -49,7 +49,7 @@ You can filter topics based when they were created using the date parameter and 
 
 ## Search repositories by topic
 
-You can use the `topic:` qualifier to find every repository connected to a particular topic. For more information, see "[Searching for repositories](/articles/searching-for-repositories/#search-by-topic)."
+You can use the `topic:` qualifier to find every repository connected to a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-by-topic)."
 
 ## Further reading
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"

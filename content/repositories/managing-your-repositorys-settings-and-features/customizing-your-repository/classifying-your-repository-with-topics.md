@@ -28,7 +28,7 @@ Repository admins can add any topics they'd like to a repository. Helpful topics
 
 {% ifversion ghae %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
-You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/articles/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/articles/searching-topics)."
+You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/articles/searching-topics)."
 
 ## Adding topics to your repository
 

@@ -12,7 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
-To show forks in [repository search](/articles/searching-for-repositories) results, add `fork:true` or `fork:only` to your query.
+To show forks in [repository search](/search-github/searching-on-github/searching-for-repositories) results, add `fork:true` or `fork:only` to your query.
 
 Forks are only indexed for [code search](/search-github/searching-on-github/searching-code) when they have more stars than the parent repository. You will not be able to search the code in a fork that has less stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query.
 
