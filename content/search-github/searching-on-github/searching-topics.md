@@ -32,7 +32,7 @@ The `is:featured` search qualifier will narrow search results to the topics with
 
 The `is:curated` search qualifier will narrow search results to topics that community members have added extra information to. For more information, see the [explore repository](https://github.com/github/explore).
 
-You can filter topics based when they were created using the date parameter and `created:` or based on how many repositories are associated with this topic using `repositories:n`. Both of these qualifiers can use the [greater than and less than range qualifiers](/articles/understanding-the-search-syntax).
+You can filter topics based when they were created using the date parameter and `created:` or based on how many repositories are associated with this topic using `repositories:n`. Both of these qualifiers can use the [greater than and less than range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 

@@ -74,5 +74,5 @@ If your site administrator enables {% data variables.product.prodname_unified_se
 
 ## Further reading
 
-- "[Understanding the search syntax](/articles/understanding-the-search-syntax)"
+- "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
 - "[Searching on GitHub](/articles/searching-on-github)"

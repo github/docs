@@ -42,7 +42,7 @@ With the `in` qualifier you can restrict your search to the username (`login`), 
 
 ## Search by number of repositories a user owns
 
-You can filter users based on the number of repositories they own, using the `repos` qualifier and [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter users based on the number of repositories they own, using the `repos` qualifier and [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -81,7 +81,7 @@ You can filter users based on when they joined {% data variables.product.product
 
 ## Search by number of followers
 
-You can filter users based on the number of followers that they have, using the `followers` qualifier with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter users based on the number of followers that they have, using the `followers` qualifier with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------

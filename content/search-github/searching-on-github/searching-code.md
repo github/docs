@@ -79,7 +79,7 @@ You can search for code based on what language it's written in. The `language` q
 
 ## Search by file size
 
-You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
+You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
 
 | Qualifier  | Example
 | ------------- | -------------

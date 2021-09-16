@@ -20,7 +20,7 @@ You can search for issues and pull requests globally across all of {% data varia
 
 **Tips:**{% ifversion ghes or ghae %}
   - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.product.product_location %}.{% endif %}
-  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
@@ -213,7 +213,7 @@ With the `language` qualifier you can search for issues and pull requests within
 
 ## Search by number of comments
 
-You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax) to search by the number of comments.
+You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to search by the number of comments.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -222,7 +222,7 @@ You can use the `comments` qualifier along with [greater than, less than, and ra
 
 ## Search by number of interactions
 
-You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax). The interactions count is the number of reactions and comments on an issue or pull request.
+You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). The interactions count is the number of reactions and comments on an issue or pull request.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -231,7 +231,7 @@ You can filter issues and pull requests by the number of interactions with the `
 
 ## Search by number of reactions
 
-You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------
