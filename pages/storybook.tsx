@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDomServer from 'react-dom/server'
 import { BumpLink, BumpLinkPropsT } from 'components/ui/BumpLink/BumpLink'
 import { Callout, CalloutPropsT } from 'components/ui/Callout/Callout'
+import { Lead, LeadPropsT } from 'components/ui/Lead/Lead'
 import {
   MarkdownContent,
   MarkdownContentPropsT,
@@ -78,9 +79,10 @@ const markdownExample = (
   </>
 )
 
+// Trying to keep these alphabetical order
 const stories = [
   {
-    name: 'BumpLink',
+    name: 'BumpLink', // {component.name} gets optimized away
     component: BumpLink,
     variants: [
       { title: 'Think basic', href: 'http://example.com' } as BumpLinkPropsT,
@@ -98,13 +100,28 @@ const stories = [
     ],
   },
   {
-    name: 'Callout', // {component.name} gets optimized away
+    name: 'Callout',
     component: Callout,
     variants: [
       { variant: 'success', children: 'Yay you did it!', className: '' } as CalloutPropsT,
       { variant: 'info', children: 'Captain I have information.', className: '' } as CalloutPropsT,
       { variant: 'warning', children: 'Warning... warning...', className: '' } as CalloutPropsT,
       { variant: 'success', children: 'I am a little font', className: 'f6' } as CalloutPropsT,
+    ],
+  },
+  {
+    name: 'Lead',
+    component: Lead,
+    variants: [
+      { children: 'Lead by example' } as LeadPropsT,
+      { children: 'Lead by blue', className: 'color-bg-info' } as LeadPropsT,
+      {
+        children: (
+          <>
+            You can personalize Codespaces by using a <code>dotfiles</code> repository on GitHub.
+          </>
+        ),
+      } as LeadPropsT,
     ],
   },
   {
@@ -128,9 +145,7 @@ export default function Storybook() {
   return (
     <div className="p-4 mx-auto" style={{ maxWidth: 1200 }}>
       <h1>GitHub Docs Storybook</h1>
-      <p className="f2 color-text-secondary">
-        This page lists React components unique to the GitHub docs.
-      </p>
+      <Lead>This page lists React components unique to the GitHub docs.</Lead>
       <div className="my-4 d-lg-flex flex-items-start">
         <nav className="menu col-12 col-lg-3 mr-4 color-bg-secondary position-lg-sticky top-0">
           {stories.map(({ name }) => (
