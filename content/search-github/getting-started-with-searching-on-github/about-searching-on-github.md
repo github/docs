@@ -48,7 +48,7 @@ You can search for the following information across all repositories you can acc
 - [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
 - [Code](/search-github/searching-on-github/searching-code)
 - [Commits](/search-github/searching-on-github/searching-commits)
-- [Users](/articles/searching-users)
+- [Users](/search-github/searching-on-github/searching-users)
 - [Packages](/search-github/searching-on-github/searching-for-packages)
 - [Wikis](/articles/searching-wikis)
 
