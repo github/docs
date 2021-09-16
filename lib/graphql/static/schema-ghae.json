@@ -44164,6 +44164,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "forkingAllowed",
+          "description": "<p>Whether this repository allows forks.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "forks",
           "description": "<p>A list of direct forked repositories.</p>",
           "type": "RepositoryConnection!",

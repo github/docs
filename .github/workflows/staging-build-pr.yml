@@ -10,7 +10,6 @@ on:
       - opened
       - reopened
       - synchronize
-      - unlocked
 
 permissions:
   contents: read
