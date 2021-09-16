@@ -12,7 +12,7 @@ topics:
 shortTitle: Encourage contributions
 ---
 
-You can apply the `good first issue` label to issues in your public repository so that people can find them when searching by labels. For more information about searching by labels, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests/#search-by-label)."
+You can apply the `good first issue` label to issues in your public repository so that people can find them when searching by labels. For more information about searching by labels, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-by-label)."
 
 {% data variables.product.prodname_dotcom %} uses an algorithm to determine the most approachable issues in each repository and surface them in various places on {% data variables.product.prodname_dotcom_the_website %}. Adding the `good first issue` label can increase the likelihood that your issues are surfaced.
 
