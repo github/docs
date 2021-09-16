@@ -39,7 +39,7 @@ jobs:
       - name: Run updater scripts
         env:
           # need to use a token from a user with access to github/github for this step
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
         run: |
           script/graphql/update-files.js
       - name: Create pull request
