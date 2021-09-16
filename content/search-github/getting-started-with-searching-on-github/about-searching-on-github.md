@@ -49,7 +49,7 @@ You can search for the following information across all repositories you can acc
 - [Code](/search-github/searching-on-github/searching-code)
 - [Commits](/search-github/searching-on-github/searching-commits)
 - [Users](/articles/searching-users)
-- [Packages](/github/searching-for-information-on-github/searching-for-packages)
+- [Packages](/search-github/searching-on-github/searching-for-packages)
 - [Wikis](/articles/searching-wikis)
 
 ## Searching using a visual interface
