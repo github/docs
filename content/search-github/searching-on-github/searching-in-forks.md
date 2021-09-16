@@ -28,4 +28,4 @@ The `fork:true` qualifier finds all results that match your search query, includ
 ## Further reading
 
 - "[About forks](/articles/about-forks)"
-- "[About searching on GitHub](/articles/about-searching-on-github)"
+- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

@@ -14,7 +14,7 @@ versions:
 topics:
   - GitHub search
 ---
-{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
@@ -106,6 +106,6 @@ The `extension` qualifier matches code files with a certain file extension.
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
 - "[Searching in forks](/articles/searching-in-forks)"{% ifversion fpt %}
 - "[Navigating code on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

@@ -16,7 +16,6 @@ children:
   - /writing-on-github
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests
-  - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /managing-security-vulnerabilities
   - /finding-security-vulnerabilities-and-errors-in-your-code
@@ -27,4 +26,3 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
-

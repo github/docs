@@ -12,7 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
-You can search for commits globally across all of {% data variables.product.product_name %}, or search for commits within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+You can search for commits globally across all of {% data variables.product.product_name %}, or search for commits within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 When you search for commits, only the [default branch](/articles/about-branches) of a repository is searched.
 
@@ -111,4 +111,4 @@ The `is` qualifier matches commits from repositories with the specified visibili
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"

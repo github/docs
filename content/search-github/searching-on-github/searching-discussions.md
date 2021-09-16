@@ -114,4 +114,4 @@ Both qualifiers take a date as a parameter. {% data reusables.time_date.date_for
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"

@@ -30,4 +30,4 @@ topics:
 
 ## Further reading
 
-- "[About searching on GitHub](/articles/about-searching-on-github)"
+- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
