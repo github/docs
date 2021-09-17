@@ -70,14 +70,14 @@ The following table shows which toolkit functions are available within a workflo
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
 | `core.addPath`    | {% ifversion fpt or ghes > 2.22 or ghae %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |
-| `core.debug`      | `debug` |
+| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
+| `core.notice`    | `notice` |{% endif %}
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
 | `core.exportVariable` | {% ifversion fpt or ghes > 2.22 or ghae %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %} |
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
-| `core.notice`     | `notice` |
 | `core.saveState`  | `save-state` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
 | `core.setOutput`  | `set-output` |
@@ -88,7 +88,9 @@ The following table shows which toolkit functions are available within a workflo
 {% ifversion ghes < 3.0 %}
 ## Setting an environment variable
 
-`::set-env name={name}::{value}`
+```
+::set-env name={name}::{value}
+```
 
 Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
@@ -101,7 +103,9 @@ echo "::set-env name=action_state::yellow"
 
 ## Setting an output parameter
 
-`::set-output name={name}::{value}`
+```
+::set-output name={name}::{value}
+```
 
 Sets an action's output parameter.
 
@@ -116,7 +120,9 @@ echo "::set-output name=action_fruit::strawberry"
 {% ifversion ghes < 3.0 %}
 ## Adding a system path
 
-`::add-path::{path}`
+```
+::add-path::{path}
+```
 
 Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
 
@@ -129,7 +135,9 @@ echo "::add-path::/path/to/dir"
 
 ## Setting a debug message
 
-`::debug::{message}`
+```
+::debug::{message}
+```
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
@@ -139,40 +147,56 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 echo "::debug::Set the Octocat variable"
 ```
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
+
 ## Setting a notice message
 
-`::notice file={name},line={line},col={col}::{message}`
+```
+::notice file={name},line={line},endLine={endLine},title={title}::{message}
+```
 
-Creates a notice message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the notice occurred. Line and column numbers start at 1.
+Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+
+{% data reusables.actions.message-parameters %}
 
 ### Example
 
 ``` bash
-echo "::notice file=app.js,line=1,col=5::Spelling mistake in string"
+echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
+
+{% endif %}
 
 ## Setting a warning message
 
-`::warning file={name},line={line},col={col}::{message}`
+```
+::warning file={name},line={line},endLine={endLine},title={title}::{message}
+```
 
-Creates a warning message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the warning occurred. Line and column numbers start at 1.
+Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+
+{% data reusables.actions.message-parameters %}
 
 ### Example
 
 ``` bash
-echo "::warning file=app.js,line=1,col=5::Missing semicolon"
+echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 ## Setting an error message
 
-`::error file={name},line={line},col={col}::{message}`
+```
+::error file={name},line={line},endLine={endLine},title={title}::{message}
+```
 
-Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column number (`col`) where the error occurred. Line and column numbers start at 1.
+Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+
+{% data reusables.actions.message-parameters %}
 
 ### Example
 
 ``` bash
-echo "::error file=app.js,line=10,col=15::Something went wrong"
+echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 ## Grouping log lines
@@ -196,7 +220,9 @@ echo "::endgroup::"
 
 ## Masking a value in log
 
-`::add-mask::{value}`
+```
+::add-mask::{value}
+```
 
 Masking a value prevents a string or variable from being printed in the log. Each masked word separated by whitespace is replaced with the `*` character. You can use an environment variable or string for the mask's `value`.
 
@@ -223,21 +249,37 @@ echo "::add-mask::$MY_NAME"
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-### Example stopping workflow commands
+To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
-``` bash
-echo "::stop-commands::pause-logging"
+{% warning %}
+
+**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
+
+{% endwarning %}
+
+```
+::{endtoken}::
 ```
 
-To start workflow commands, pass the token that you used to stop workflow commands.
+### Example stopping and starting workflow commands
 
-`::{endtoken}::`
+{% raw %}
 
-### Example starting workflow commands
-
-``` bash
-echo "::pause-logging::"
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: disable workflow commands
+        run: |
+          echo '::warning:: this is a warning'
+          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+          echo '::warning:: this will NOT be a warning'
+          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+          echo '::warning:: this is a warning again'
 ```
+
+{% endraw %}
 
 ## Sending values to the pre and post actions
 
@@ -277,7 +319,9 @@ steps:
 
 ## Setting an environment variable
 
-`echo "{name}={value}" >> $GITHUB_ENV`
+``` bash
+echo "{name}={value}" >> $GITHUB_ENV
+```
 
 Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
@@ -322,7 +366,9 @@ steps:
 
 ## Adding a system path
 
-`echo "{path}" >> $GITHUB_PATH`
+``` bash
+echo "{path}" >> $GITHUB_PATH
+```
 
 Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 

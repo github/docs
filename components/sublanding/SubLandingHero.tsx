@@ -4,6 +4,7 @@ import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { TruncateLines } from 'components/TruncateLines'
+import { Lead } from 'components/ui/Lead'
 
 export const SubLandingHero = () => {
   const { title, intro, featuredTrack } = useProductSubLandingContext()
@@ -45,7 +46,7 @@ export const SubLandingHero = () => {
         <div className="col-12">
           <Breadcrumbs />
           <h1 className="my-3">{title} guides</h1>
-          <div className="color-text-secondary f2" dangerouslySetInnerHTML={{ __html: intro }} />
+          {intro && <Lead>{intro}</Lead>}
         </div>
       </header>
       {featuredTrack && (

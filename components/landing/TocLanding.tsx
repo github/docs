@@ -8,6 +8,7 @@ import { ArticleList } from 'components/landing/ArticleList'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
+import { Lead } from 'components/ui/Lead'
 
 export const TocLanding = () => {
   const { title, introPlainText, tocItems, productCallout, variant, featuredLinks, renderedPage } =
@@ -22,9 +23,7 @@ export const TocLanding = () => {
         <ArticleGridLayout className="mt-7">
           <ArticleTitle>{title}</ArticleTitle>
 
-          <div className="f2 color-text-secondary">
-            <p>{introPlainText}</p>
-          </div>
+          {introPlainText && <Lead>{introPlainText}</Lead>}
 
           {productCallout && (
             <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />
