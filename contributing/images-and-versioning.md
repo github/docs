@@ -14,14 +14,14 @@ Screenshots are used to help readers with the flow in articles like procedures (
 - Try to avoid overly large screenshots. For example, if you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead. Crop down near the focal point of the image, but leave enough of a margin around it so that some other elements of the page are visible to provide context.
 - Ensure screenshot is always taken in light mode. 
 - Replace your username and avatar with [Octocat's](https://github.com/octocat) username and avatar. You can do this using the developer tools in your browser to edit the rendered page.
-
-Here's an example of a good cropping:
+- When taking a screenshot, select the portion of the page that needs focus instead of the entire page.
+    Here's an example of a good cropping:
   
-  ![good cropping example](../assets/images/good-screenshot-example.png)
+    ![good cropping example](../assets/images/good-screenshot-example.png)
 
-Here's an example of a bad cropping:
+    Here's an example of a bad cropping:
   
-  ![bad cropping example](../assets/images/bad-screenshot-example.png)
+    ![bad cropping example](../assets/images/bad-screenshot-example.png)
   
 
 ## Versioning images in Markdown content
