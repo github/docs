@@ -31,7 +31,6 @@ Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Ser
 ### Image locations
 Images are located in the `/assets/images` directory. This directory has some folders that can be used to organize content by plan and release number.
 
-- `/assets/images/enterprise/github-ae`: Images that are _only_ applicable to GitHub AE (and not applicable to any other plan).
 - `/assets/images/enterprise/enterprise-server`: Images that are applicable to _all_ releases of GitHub Enterprise Server or are applicable to the current release and future releases.
 - `/assets/images/enterprise/<release number>`: Ex: `/assets/images/enterprise/3.0/`. When an image is changed in a new GitHub Enterprise Server release, add the new image and move the old image to the directory corresponding to the last release that it should be displayed in.
 - `/assets/images`: Images that apply to the Free, Pro, Team plan or images that are not specific to any Enterprise plan.
@@ -62,30 +61,6 @@ Your Liquid conditional would look like this:
 When the 3.0 release is deprecated, the `/assets/images/enterprise/3.0` directory will be removed. 
 
 The numbered release directory should contain images that apply to that release number only or to that release number and earlier. For example, images in `/assets/images/enterprise/2.22` should contain images that apply to 2.22 only or 2.22 and earlier.
-
-### Example: An image used in GitHub AE changes on Dotcom after GitHub AE is released
-
-The more complex examples of versioning involve GitHub AE because GitHub AE does not necessarily have release numbers. Currently, to apply versioning for the next version of GitHub AE, a script is run that adds GitHub AE to the Liquid versioning tags that already exist for a specified Enterprise Server release and remove the old GitHub AE versioning tags. For example, if you specified 3.1 for the Enterprise Server release, the script would add GitHub AE to the Liquid conditional tags that targeted 3.1.
-
-For this example, let's say an image for a feature in free-pro-team changes after the GitHub AE and Enterprise Server have already released. In this case, the new image will apply to the next GitHub AE and Enterprise Server releases. But, because GitHub AE doesn't have numbered releases, targeting the next GitHub AE release is not possible, that work is left up to the script. So, you'll need to apply GitHub AE versioning for the current GitHub AE plan only, and allow automation to handle the updates needed in the future.
-
-In the Markdown, you'll need to version the new image for the free-pro-team docs and the old image for the GitHub AE docs and any Enterprise Server releases that the image already exists in. In this scenario, the next GitHub AE release will track Enterprise Server 3.1.
-
-Your Liquid conditional in that case could look like this:
-
-```markdown
-{% ifversion fpt or ifversion ghes > 3.0 %}
-![An image of foo bar](/assets/images/foo/bar.png){% else %}
-![An image of enterprise 3.0 foo bar](/assets/images/enterprise/3.0/foo/bar.png){% endif %}
-```
-
-When the next GitHub AE version is released, the script that updates the Liquid conditionals would change this Markdown to ensure the GitHub AE versioning tracked the 3.1+ conditionals.
-
-```markdown
-{% ifversion fpt or ifversion ghes > 3.0 or ghae %}
-![An image of foo bar](/assets/images/foo/bar.png){% else %}
-![An image of enterprise 3.0 foo bar](/assets/images/enterprise/3.0/foo/bar.png){% endif %}
-```
   
 ## Resources
 
