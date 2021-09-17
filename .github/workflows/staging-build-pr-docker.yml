@@ -33,7 +33,7 @@ jobs:
 
       # Make sure only approved files are changed if it's in github/docs
       - name: Check changed files
-        if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+        if: ${{ github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger' }}
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
         with:
@@ -47,20 +47,23 @@ jobs:
           # Returns list of changed files matching each filter
           filters: |
             notAllowed:
+              - '*.js'
               - '*.mjs'
               - '*.ts'
               - '*.tsx'
               - '*.json'
+              - '.npmrc'
+              - 'script/**'
               - 'Dockerfile*'
 
       # When there are changes to files we can't accept
-      - name: 'Fail when not allowed files are changed'
+      - name: Fail when disallowed files are changed
         if: ${{ steps.filter.outputs.notAllowed == 'true' }}
         run: exit 1
 
       - name: Create an archive
         run: |
-          tar -cf app.tar \
+          tar -c --file=app.tar \
             assets/ \
             content/ \
             stylesheets/ \
