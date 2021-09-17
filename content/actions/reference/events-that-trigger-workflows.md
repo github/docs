@@ -293,7 +293,7 @@ Runs your workflow anytime the `discussion` event occurs. {% data reusables.deve
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`discussion`](/webhooks/event-payloads/#discussion) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
+| [`discussion`](/webhooks/event-payloads/#discussion) | - `created`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `category_changed`<br/> - `answered`<br/> - `unanswered` | Last commit on default branch | Default branch |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -302,7 +302,7 @@ For example, you can run a workflow when a discussion has been `opened`, `edited
 ```yaml
 on:
   discussion:
-    types: [opened, edited, answered]
+    types: [created, edited, answered]
 ```
 
 ### `discussion_comment`
