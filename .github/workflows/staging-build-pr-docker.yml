@@ -16,7 +16,11 @@ permissions:
 
 jobs:
   build:
-    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    if: >-
+      ${{
+        (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
+        startsWith(github.head_ref, 'docker-')
+      }}
     name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 5
