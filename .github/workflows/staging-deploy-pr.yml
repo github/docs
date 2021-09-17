@@ -25,6 +25,8 @@ env:
   # array will always contain only 1 item! Specifically, it will contain the PR associated
   # with the `github.event.workflow_run.head_branch` that triggered the preceding
   # `pull_request` event that triggered the "Staging - Build PR" workflow.
+  # WARNING: However, it will contain 0 items if the associated PR has been closed.
+  PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number || '0' }}
   PR_URL: ${{ github.event.workflow_run.repository.html_url }}/pull/${{ github.event.workflow_run.pull_requests[0].number }}
   CONTEXT_NAME: '${{ github.workflow }} / deploy (${{ github.event.workflow_run.event }})'
   ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -34,6 +36,7 @@ jobs:
   notify-of-failed-builds:
     if: >-
       ${{
+        env.PR_NUMBER != '0' &&
         github.event.workflow_run.conclusion == 'failure' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
@@ -58,6 +61,7 @@ jobs:
   check-pr-before-prepare:
     if: >-
       ${{
+        env.PR_NUMBER != '0' &&
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
