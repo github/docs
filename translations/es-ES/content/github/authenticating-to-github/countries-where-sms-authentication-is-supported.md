@@ -5,6 +5,8 @@ redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:
   free-pro-team: '*'
+topics:
+  - 2fa
 ---
 
 Si no admitimos la autenticación de dos factores mediante mensaje de texto para tu país de residencia, puedes establecer la autenticación mediante una aplicación móvil TOTP. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
@@ -129,6 +131,6 @@ Si tu país no está en la lista, significa que actualmente no podemos entregar 
 <li>Venezuela</li>
 </ul>
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"

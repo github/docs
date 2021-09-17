@@ -1,6 +1,6 @@
 ---
 title: Errores de clonación de HTTPS
-intro: 'Existen algunos errores comunes cuando se utiliza HTTPS con Git. Estos errores suelen indicar que tienes una versión antigua de Git o que no tienes acceso al repositorio.'
+intro: Existen algunos errores comunes cuando se utiliza HTTPS con Git. Estos errores suelen indicar que tienes una versión antigua de Git o que no tienes acceso al repositorio.
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Aquí aparece un ejemplo de un error de HTTPS que puedes recibir:
@@ -71,10 +73,10 @@ Cuando se te solicite un nombre de usuario y contraseña, asegúrate de usar una
 
 {% tip %}
 
-**Tip**: Si no quieres ingresar tu nombre de usuario y contraseña cada vez que interactúes con el repositorio remoto, puedes activar el [almacenamiento en caché de las contraseñas](/github/using-git/caching-your-github-credentials-in-git). Si ya estás utilizando el almacenamiento de credenciales en caché, por favor, asegúrate de que tu computadora tenga las credenciales correctas almacenadas en caché. Las credenciales erróneas o desactualizadas causarán que falle la autenticación.
+**Tip**: Si no quieres ingresar tu nombre de usuario y contraseña cada vez que interactúes con el repositorio remoto, puedes activar el [almacenamiento en caché de las contraseñas](/github/getting-started-with-github/caching-your-github-credentials-in-git). Si ya estás utilizando el almacenamiento de credenciales en caché, por favor, asegúrate de que tu computadora tenga las credenciales correctas almacenadas en caché. Las credenciales erróneas o desactualizadas causarán que falle la autenticación.
 
 {% endtip %}
 
 ### Usar SSH en su lugar
 
-Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Para obtener más información, consulta "[¿Qué URL remota debo usar?](/articles/which-remote-url-should-i-use)"
+Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Para obtener más información, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".

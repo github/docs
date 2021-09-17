@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 GitHub admite la representación de documentos PDF.

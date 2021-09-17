@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% data reusables.actions.environments-beta %}

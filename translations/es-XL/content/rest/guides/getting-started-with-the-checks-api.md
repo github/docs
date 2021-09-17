@@ -4,6 +4,9 @@ intro: 'La API de Ejecuciones de Verificación te permite crear GitHub Apps que 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 ### Resumen

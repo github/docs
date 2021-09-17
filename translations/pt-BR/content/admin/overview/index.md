@@ -6,14 +6,15 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+children:
+  - /about-github-ae
+  - /about-upgrades-to-new-releases
+  - /about-data-residency
+  - /about-enterprise-accounts
+  - /managing-your-github-enterprise-license
+  - /managing-billing-for-your-enterprise
+  - /system-overview
+  - /about-the-github-enterprise-api
 ---
 
 Para obter mais informações ou comprar o {% data variables.product.prodname_enterprise %}, consulte [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
-
-### Índice
-
-{% link_in_list /about-enterprise-accounts %}
-{% link_in_list /managing-your-github-enterprise-license %}
-{% link_in_list /managing-billing-for-your-enterprise %}
-{% link_in_list /system-overview %}
-{% link_in_list /about-the-github-enterprise-api %}

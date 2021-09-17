@@ -7,7 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Los propietarios de las organizaciones pueden {% if currentVersion == "free-pro-team@latest" %}invitar usuarios para que se unan{% else %}agregar usuarios a{% endif %} éstas.
+permissions: 'Los propietarios de las organizaciones pueden {% if currentVersion == "free-pro-team@latest" %}invitar usuarios para que se unan{% else %}agregar usuarios a{% endif %} éstas.'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -35,6 +38,6 @@ Si tu organización [requiere que los miembros utilicen autenticación bifactori
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"

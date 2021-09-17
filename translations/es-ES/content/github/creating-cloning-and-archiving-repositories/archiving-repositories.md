@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
@@ -18,5 +20,5 @@ versions:
 5. Escribe el nombre del repositorio que deseas archivar o desarchivar. ![Advertencias para archivar el repositorio](/assets/images/help/repository/archive-repository-warnings.png)
 6. Haz clic en **I understand the consequences, archive this repository** (Comprendo las consecuencias, archivar este repositorio).
 
-### Further reading
+### Leer más
 - [Acerca de Archivar repositorios](/articles/about-archiving-repositories)"

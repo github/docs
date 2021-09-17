@@ -5,6 +5,13 @@ intro: 'You can use {% if enterpriseServerVersions contains currentVersion %}{% 
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Accounts
+  - Access management
+  - Authentication
+  - Enterprise
+  - Identity
 ---
 
 ### About identity and access management for your enterprise
@@ -13,7 +20,7 @@ versions:
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-After you configure the application for {% data variables.product.product_name %} on your IdP, you can grant access to {% data variables.product.product_location %} by assigning the application to users on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
+After you configure the application for {% data variables.product.product_name %} on your IdP, you can grant access to {% data variables.product.product_location %} by assigning the application to users and groups on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
 
 {% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
@@ -25,3 +32,4 @@ To learn how to configure both authentication and user provisioning for {% data 
 
 - [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
 - [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
+- [Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)

@@ -1,51 +1,51 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes = 2.22 %}
 
 {% note %}
 
-**Note**: If you enable {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}, your instance requires additional hardware resources. Minimum requirements for an instance with {% if currentVersion == "enterprise-server@2.22" %}beta{% else %}optional{% endif %} features enabled are **bold** in the following table. For more information, see "{% if currentVersion == "enterprise-server@2.22" %}[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% else %}[Optional features](#optional-features){% endif %}."
+**Note**: If you joined the beta for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} and enabled the features, your instance requires additional hardware resources. Minimum requirements for an instance with beta features enabled are **bold** in the following table. For more information, see "[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)."
 
 {% endnote %}
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 
 | User licenses | vCPUs | Memory | Attached storage | Root storage |
 | :- | -: | -: | -: | -: |
-| Trial, demo, or 10 light users | 2<br/>or [**4**](#optional-features) | 16 GB<br/>or [**32 GB**](#optional-features) | 100 GB<br/>or [**150 GB**](#optional-features) | 200 GB |
-| 10 to 3,000  | 4<br/>or [**8**](#optional-features) | 32 GB<br/>or [**48 GB**](#optional-features) | 250 GB<br/>or [**300 GB**](#optional-features) | 200 GB |
-| 3,000 to 5000 | 8<br/>or [**12**](#optional-features) | 64 GB | 500 GB | 200 GB |
-| 5,000 to 8000 | 12<br/>or [**16**](#optional-features) | 96 GB | 750 GB | 200 GB |
-| 8,000 to 10,000+ | 16<br/>or [**20**](#optional-features) | 128 GB<br/>or [**160 GB**](#optional-features) | 1000 GB | 200 GB |
+| Trial, demo, or 10 light users | 4 | 32 GB | 150 GB | 200 GB |
+| 10 to 3,000  | 8 | 48 GB | 300 GB | 200 GB |
+| 3,000 to 5000 | 12 | 64 GB | 500 GB | 200 GB |
+| 5,000 to 8000 | 16 | 96 GB | 750 GB | 200 GB |
+| 8,000 to 10,000+ | 20 | 160 GB | 1000 GB | 200 GB |
 
 {% else %}
 
 | User licenses | vCPUs | Memory | Attached storage | Root storage |
 | :- | -: | -: | -: | -: |
-| Trial, demo, or 10 light users | 2{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**4**](#beta-features-in-github-enterprise-server-222){% endif %} | 16 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
-| 10 to 3,000  | 4{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**8**](#beta-features-in-github-enterprise-server-222){% endif %} | 32 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**48 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 250 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**300 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
-| 3,000 to 5000 | 8{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**12**](#beta-features-in-github-enterprise-server-222){% endif %} | 64 GB | 500 GB | 200 GB |
-| 5,000 to 8000 | 12{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**16**](#beta-features-in-github-enterprise-server-222){% endif %} | 96 GB | 750 GB | 200 GB |
-| 8,000 to 10,000+ | 16{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**20**](#beta-features-in-github-enterprise-server-222){% endif %} | 128 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**160 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 1000 GB | 200 GB |
+| Trial, demo, or 10 light users | 2{% ifversion ghes = 2.22 %}<br/>or [**4**](#beta-features-in-github-enterprise-server-222){% endif %} | 16 GB{% ifversion ghes = 2.22 %}<br/>or [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% ifversion ghes = 2.22 %}<br/>or [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
+| 10 to 3,000  | 4{% ifversion ghes = 2.22 %}<br/>or [**8**](#beta-features-in-github-enterprise-server-222){% endif %} | 32 GB{% ifversion ghes = 2.22 %}<br/>or [**48 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 250 GB{% ifversion ghes = 2.22 %}<br/>or [**300 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
+| 3,000 to 5000 | 8{% ifversion ghes = 2.22 %}<br/>or [**12**](#beta-features-in-github-enterprise-server-222){% endif %} | 64 GB | 500 GB | 200 GB |
+| 5,000 to 8000 | 12{% ifversion ghes = 2.22 %}<br/>or [**16**](#beta-features-in-github-enterprise-server-222){% endif %} | 96 GB | 750 GB | 200 GB |
+| 8,000 to 10,000+ | 16{% ifversion ghes = 2.22 %}<br/>or [**20**](#beta-features-in-github-enterprise-server-222){% endif %} | 128 GB{% ifversion ghes = 2.22 %}<br/>or [**160 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 1000 GB | 200 GB |
 
 {% endif %}
 
-For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+{% ifversion ghes > 2.22 %}
 
-{% if currentVersion == "enterprise-server@2.22" %}
+If you plan to enable {% data variables.product.prodname_actions %} for the users of your instance, review the requirements for hardware, external storage, and runners in "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
 
-#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
+{% endif %}
 
-You can sign up for beta features available in {% data variables.product.prodname_ghe_server %} 2.22 such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22#release-2.22.0) on the {% data variables.product.prodname_enterprise %} website.
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
-If you enable beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+{% ifversion ghes = 2.22 %}
 
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
 
-#### Optional features
+{% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
 
-You can enable optional features for {% data variables.product.prodname_ghe_server %}, such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)" or "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information about minimum requirements, see "[Minimum requirements](#minimum-requirements)."
 
-If you enable optional features, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
 
 {% endif %}

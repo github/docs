@@ -8,6 +8,8 @@ redirect_from:
 shortTitle: Mejores prácticas de seguridad
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 El seguir estas mejores prácticas te ayudará a proporcionar una experiencia de usuario segura.

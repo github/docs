@@ -44,8 +44,8 @@ upcoming_changes:
     owner: antn
   - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending members consume a license
+    description: '`isUnlicensed`は削除されます。'
+    reason: 保留中の全メンバーはライセンスを消費します
     date: '2020-07-01T00:00:00+00:00'
     criticality: 破壊的
     owner: BrentWheeldon
@@ -86,29 +86,29 @@ upcoming_changes:
     owner: nholden
   - 
     location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All members consume a license
+    description: '`isUnlicensed`は削除されます。'
+    reason: すべてのメンバーはライセンスを消費します
     date: '2021-01-01T00:00:00+00:00'
     criticality: 破壊的
     owner: BrentWheeldon
   - 
     location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All outside collaborators consume a license
+    description: '`isUnlicensed`は削除されます。'
+    reason: すべての外部コラボレータはライセンスを消費します
     date: '2021-01-01T00:00:00+00:00'
     criticality: 破壊的
     owner: BrentWheeldon
   - 
     location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending collaborators consume a license
+    description: '`isUnlicensed`は削除されます。'
+    reason: すべての保留中のコラボレータはライセンスを消費します
     date: '2021-01-01T00:00:00+00:00'
     criticality: 破壊的
     owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
-    description: '`DRAFT` will be removed. Use PullRequest.isDraft instead.'
-    reason: DRAFT state will be removed from this enum and `isDraft` should be used instead
+    description: '`DRAFT`は削除されます。代わりにPullRequest.isDraftを使ってください。'
+    reason: DRAFTの状態はこのenumから削除されるので、代わりに`isDraft`を使わなければなりません。
     date: '2021-01-01T00:00:00+00:00'
     criticality: 破壊的
     owner: nplasterer

@@ -31,7 +31,7 @@ Para obtener más información acerca de cómo acceder a tus notificaciones web,
 1. En la barra lateral izquierda, haz clic en el nombre del repositorio para el cual desearías marcar todas las notificaciones como leídas.
 1. En la lista de notificaciones, en el lateral derecho del nombre del repositorio, haz clic en {% octicon "check" aria-label="The check symbol" %}. ![Botón para marcar todas las notificaciones de un repositorio como leídas](/assets/images/help/notifications/notifications_repositories_mark_all_as_read.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Acerca de las notificaciones web](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)"

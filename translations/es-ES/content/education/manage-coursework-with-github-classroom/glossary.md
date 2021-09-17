@@ -1,6 +1,6 @@
 ---
 title: Glosario
-intro: Puedes revisar las explicaciones de la terminología de {% data variables.product.prodname_classroom %}.
+intro: 'Puedes revisar las explicaciones de la terminología de {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 ---
@@ -47,6 +47,6 @@ Un registro de alumnos permite a los maestros administrar a los alumnos y emitir
 
 ---
 
-### Further reading
+### Leer más
 
 - "[Glosario de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-glossary)"

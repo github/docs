@@ -3,6 +3,8 @@ title: Administrar el contenido reportado en el repositorio de tu organización
 intro: 'Una vez que un colaborador reporta contenido ofensivo en un repositorio, los mantenedores del mismo pueden ver y administrar esta información.'
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Cualquiera con permisos de administrador para un repositorio puede ver y administrar el contenido reportado del mismo.
@@ -39,6 +41,6 @@ Cuando termines de moderar el contenido ofensivo, puedes marcar el reporte como 
 {% data reusables.repositories.reported-content-resolved-tab %}
 5. Da clic en {% octicon "kebab-horizontal" aria-label="The edit icon" %} a la derecha del reporte que quisieras marcar como no resuelto. Posteriormente, da clic en **Marcar como no resuelto**. !["Marcar como no resuelto" en el menú desplegable de Editar para el contenido reportado](/assets/images/help/repository/reported-content-mark-report-as-unresolved.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración y moderación de la comunidad](/github/building-a-strong-community/about-community-management-and-moderation)"

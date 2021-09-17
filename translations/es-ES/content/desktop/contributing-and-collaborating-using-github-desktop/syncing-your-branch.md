@@ -1,6 +1,6 @@
 ---
 title: Sincronizar tu rama
-intro: 'Conforme se suban las confirmaciones a tu proyecto en {% data variables.product.prodname_dotcom %}, podrás mantener una copia local de éste en sincornización si lo extraes del repositorio remoto.'
+intro: 'Conforme se suban las confirmaciones a tu proyecto en {% data variables.product.prodname_dotcom %}, podrás mantener una copia local de éste en sincronización si lo extraes del repositorio remoto.'
 redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
 versions:
@@ -16,7 +16,7 @@ Cuando extraes información a tu rama local, únicamente estás actualizando la 
 Para agregar cambios de una rama en otra, puedes fusionar estas ramas. Para aplicar los cambios a tu rama desde otra rama en el mismo repositorio, puedes fusionar esta otra rama con la tuya en {% data variables.product.prodname_desktop %}. Para solicitar que se fusionen los cambios de tu rama en otra rama que se encuentre en el mismo repositorio o en otro repositorio dentro de la red, puedes crear una solicitud de extracción en {% data variables.product.prodname_desktop %}. Para obtener más información, consulta las secciones "[Fusionar otra rama en tu rama de proyecto](#merging-another-branch-into-your-project-branch)" y "
 Acerca de las solicitudes de extracción".</p> 
 
-Algunos flujos de trabajo requieren o se benefician con el rebase en vez de con la fusión. Al rebasar podemos reordenar, editar o combinar confirmaciones. Para obtener más información, consulta las secciones "[Acerca del rebase de Git](/articles/about-git-rebase)" y "[rebasar tu rama de proyecto en otra rama](#rebasing-your-project-branch-onto-another-branch)".
+Algunos flujos de trabajo requieren o se benefician con el rebase en vez de con la fusión. Al rebasar podemos reordenar, editar o combinar confirmaciones. Para obtener más información, consulta las secciones "[Acerca del rebase de Git](/github/getting-started-with-github/about-git-rebase)" y "[rebasar tu rama de proyecto en otra rama](#rebasing-your-project-branch-onto-another-branch)".
 
 
 

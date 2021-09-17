@@ -3,21 +3,28 @@ title: Deploying to Azure App Service
 intro: You can deploy to Azure App Service as part of your continuous deployment (CD) workflows.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-type: 'tutorial'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+type: tutorial
+topics:
+  - CD
+  - Containers
+  - Azure App Service
+shortTitle: Deploy to Azure App Service
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Introduction
+## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy an application to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
 Azure App Service can run web apps in several languages, but this guide demonstrates deploying an existing Node.js project.
 
-### Prerequisites
+## Prerequisites
 
 Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
 
@@ -59,7 +66,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    In your {% data variables.product.prodname_dotcom %} repository, create a secret named `AZURE_WEBAPP_PUBLISH_PROFILE` that contains the contents of the publish profile. For more information on creating secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
-### Creating the workflow
+## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
 
@@ -67,8 +74,9 @@ The following example workflow demonstrates how to build, test, and deploy the N
 
 Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created.
 
-{% raw %}
 ```yaml{:copy}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 on:
   release:
     types: [created]
@@ -85,10 +93,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
+      - name: Use Node.js {% raw %}${{ env.NODE_VERSION }}{% endraw %}
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: {% raw %}${{ env.NODE_VERSION }}{% endraw %}
 
       - name: npm install, build, and test
         run: |
@@ -99,18 +107,17 @@ jobs:
           npm run test --if-present
 
       - name: 'Deploy to Azure WebApp'
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
+          publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
+          package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
-{% endraw %}
 
-### Additional resources
+## Additional resources
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/master/ci/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * The "[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

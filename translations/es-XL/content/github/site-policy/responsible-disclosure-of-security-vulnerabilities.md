@@ -5,6 +5,9 @@ redirect_from:
   - /articles/responsible-disclosure-of-security-vulnerabilities
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Deseamos mantener a GitHub seguro para todos. Si has descubierto una vulnerabilidad de seguridad en GitHub, apreciamos tu ayuda para revelárnosla de manera responsable.

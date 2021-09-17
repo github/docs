@@ -4,11 +4,14 @@ intro: Puedes utilizar etiquetas para organizar tus ejecutores auto-hospedados s
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Para obtener información sobre cómo utilizar las etiquetas para rutear jobs a tipos específicos de ejecutores auto-hospedados, consulta la sección "[Utilizar ejecutores auto-hospedados en un flujo de trabajo](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)".
 

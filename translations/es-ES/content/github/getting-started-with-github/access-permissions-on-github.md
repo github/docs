@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Permissions
+  - Accounts
 ---
 
 ### Cuentas de usuarios personales
@@ -34,6 +37,6 @@ Los *propietarios de empresa* tienen máximo poder sobre la cuenta de la empresa
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

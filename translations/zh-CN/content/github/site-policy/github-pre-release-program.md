@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-pre-release-program
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 感谢您注册参加 GitHub 预发布计划！  作为社区中深受信赖的成员，您对新增和试验性功能的反馈对我们非常重要。  为了与您分享这些新产品和服务 - 其中许多产品仍然保密并正在开发中 - 我们将需要您同意一些特殊条款。 欢迎阅读预发布程序协议（以下简称“协议”）。

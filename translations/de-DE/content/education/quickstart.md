@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Educators
-intro: In about 15 minutes, teachers can get started with discounts, training, and tools for {% data variables.product.company_short %}, then create a classroom for the students in a software development course using {% data variables.product.prodname_classroom %}.
+intro: 'In about 15 minutes, teachers can get started with discounts, training, and tools for {% data variables.product.company_short %}, then create a classroom for the students in a software development course using {% data variables.product.prodname_classroom %}.'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
@@ -82,6 +82,7 @@ You've created a classroom, and you're ready to enrich your course with {% data 
 
 - Watch some videos about {% data variables.product.prodname_classroom %}. For more information, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 - Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)."
+- Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)."
 - Create an assignment for individual students or teams. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 - Write and implement automated tests to provide immediate feedback to students directly in assignment repositories. For more information, see "[Use autograding](/education/manage-coursework-with-github-classroom/use-autograding)."
 - Participate in {% data variables.product.prodname_education_community_with_url %}.

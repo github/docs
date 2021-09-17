@@ -62,7 +62,7 @@ Puedes usar {% data variables.product.prodname_desktop %} para crear una confirm
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/articles/pushing-commits-to-a-remote-repository/)."
+El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ### Crear confirmaciones conjuntas en {% data variables.product.product_name %}
 
@@ -77,7 +77,7 @@ Una vez que hayas realizado los cambios en un archivo usando el editor web en {%
 
 La confirmación y el mensaje nuevos aparecerán en {% data variables.product.product_location %}.
 
-### Further reading
+### Leer más
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - "[Ver las contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)"
 - "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}

@@ -1,1 +1,1 @@
-You can create a branch protection rule in a repository for a specific branch, all branches, or any branch that matches a name pattern you specify with `fnmatch` syntax. For example, to protect any branches containing the word `release`, you can create a branch rule for `*release*`.
+リポジトリ内のブランチ保護ルールは、特定のブランチ、あるいはすべてのブランチや`fnmatch`構文で指定した名前のパターンにマッチするブランチに対して作成できます。 たとえば、`release`という語を含む任意のブランチを保護するには、ブランチルールを`*release*`に対して作成できます。

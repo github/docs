@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-research-program-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Willkommen beim GitHub Forschungsprogramm (das "Programm")! Um teilnehmen zu können, müssen Sie einem speziellen Satz von Bedingungen zustimmen, den Bedingungen des GitHub-Forschungsprogramms ("Vereinbarung").

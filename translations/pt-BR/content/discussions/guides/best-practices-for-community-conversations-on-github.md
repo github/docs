@@ -29,13 +29,13 @@ Você pode usar {% data variables.product.prodname_discussions %} para discutir 
 
 Os problemas são úteis para discutir detalhes específicos de um projeto, como relatórios de erros e melhorias planejadas. Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)". As pull requests permitem comentar diretamente nas alterações propostas. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)" e "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)".
 
-{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 ### Seguir diretrizes de contribuição
 
 Antes de abrir uma discussão, verifique se o repositório tem diretrizes de contribuição. O arquivo CONTRIBUTING inclui informações sobre como o mantenedor do repositório gostaria que você contribuísse com ideias para o projeto.
 
-Para obter mais informações, consulte "[Configurando seu projeto para Contribuições Úteis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+Para obter mais informações, consulte "[Configurando seu projeto para Contribuições Úteis](/communities/setting-up-your-project-for-healthy-contributions)."
 
 ### Próximas etapas
 
@@ -43,7 +43,7 @@ Para continuar aprendendo sobre {% data variables.product.prodname_discussions %
 
 ### Leia mais
 
-- "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderar comentários e conversas](/articles/moderating-comments-and-conversations)"
+- "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[Usando modelos para encorajar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
 - "[Gravar no {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

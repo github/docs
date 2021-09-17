@@ -1,1 +1,1 @@
-1. Debajo de "Dirección IP", teclea una dirección o un rango de ellas, en notación CIDR. ![Campo clave para agregar una dirección IP](/assets/images/help/security/ip-address-field.png)
+1. At the bottom of the "IP allow list" section, enter an IP address, or a range of addresses in CIDR notation. ![Campo clave para agregar una dirección IP](/assets/images/help/security/ip-address-field.png)

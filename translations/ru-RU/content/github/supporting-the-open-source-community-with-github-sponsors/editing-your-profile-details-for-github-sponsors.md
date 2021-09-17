@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-sponsored-developer-profile
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### About sponsor profiles

@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-sponsors-additional-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 「GitHub Sponsors プログラム」 (以下「プログラム」) への参加にあたっては、[GitHub 利用規約](/github/site-policy/github-terms-of-service) (以下「契約」) および以下の追加条項 (以下「追加条項」) に従うものとします。 本契約に違反する GitHub Sponsors プログラムの使用は、本追加条項の違反にもなります。 かぎ括弧に括られた用語のうち、以下に定義されていないものについては、本契約に記された意味を持つものとします。 「GitHub Sponsors」プログラムの「追加条項」は、GitHub と、本プログラムにおいて「スポンサード開発者」となるあなたとの関係について記述しています。 追加条項は、あなたがこれに同意した日 (「発効日」) から発効します。
@@ -87,7 +90,7 @@ The matching period begins after GitHub accepts an individual Sponsored Develope
 #### 3.3. コンテンツの収益化
 本プログラムおよびサービスを通じて、GitHub は「スポンサード開発者コンテンツ」を収益化できるさまざまな選択肢を提供できます。 選択肢によっては、「スポンサード開発者アカウント」の設定を一部更新することが必要な場合もあります。 また、本プログラムが収益化の各選択肢をサポートする方法はさまざまです。 そうした選択肢の 1 つ以上を利用するため、該当する設定を変更する場合は、その選択肢に適用される条項に同意することになります。 収益化の選択肢によっては、GitHub やそのサービスプロバイダーに追加情報を提供したり、追加的な GitHub の条項またはサードパーティの条項に同意しなければならない場合があります。
 
-##### 3.3.1. Subscriptions.
+##### 3.3.1. プラン
 The Program provides you with the capability to offer Subscriptions. 「プラン」を提供する場合、セクション 4 の記載に従い、GitHub はあなたに「プランスポンサーシップ」を支払います。 You are responsible for determining the nature, content, and capabilities of your Subscription offer, subject to these Additional Terms and applicable GitHub Policies.
 
 ##### 3.3.2. Other Sponsorships.
@@ -118,7 +121,7 @@ During the term, GitHub will remit to you all Sponsored Developer Payments recei
 
 - For newly created Sponsored Developer Accounts, GitHub will remit to you all Sponsored Developer Payments received in a given month within 90 days of the creation of your Sponsored Developer Account, subject to the variables below. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
 
-- If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for your balance at the end of the previous month, regardless of the amount of the balance.
+- If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors.
 
 - ACH 送金または電信送金の場合、第 3 木曜日に支払われます。 GitHub will issue a payout to you for any month that your balance reaches $100 USD. Contributions from the GitHub Sponsors Matching Fund do not count towards this threshold. 月末時点で残高が 100 USD を下回る場合には、月末時点の残高が 100 USD に達するまで、残高が翌月分に繰り越されます。 If you leave GitHub Sponsors, GitHub will issue a payout for your remaining balance even if the balance is below $100.
 
@@ -135,6 +138,22 @@ During the term, GitHub will remit to you all Sponsored Developer Payments recei
 
 #### 4.7. 必要な支払い情報
 あなたに支払いを行うためには、当社が要求する財務、税金、および銀行情報を (アカウントの作成や設定、その他の手段において) 完全かつ正確に当社に対して提供する必要があります。 当社は、あらゆる連絡手段を用いて、必要な情報の変更についてあなたに通知するものとします。 かかる情報をあなたが正確に提供 (または正確に維持) しなかった場合、(a) 当社はあなたへの「ポンサード開発者への支払い」から関連する銀行手数料を差し引くことができます。(b) 当社は「追加条項」を解約することができます。この場合、あなたは GitHub が支払うべき金額を受け取る権利を喪失する可能性があります。
+
+#### 4.8. Stripe Connect
+
+If you are paid through Stripe Connect, the following additional terms apply to your usage of GitHub Sponsors:
+
+**Full service agreement**
+
+_Applies to Sponsored Developer Accounts registered in Australia, Austria, Belgium, Canada, Denmark, Estonia, Finland, France, Germany, Greece, Hong Kong, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States._
+
+Payment processing services for Sponsored Developer Accounts on GitHub Sponsors are provided by Stripe and are subject to the [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full), which includes the [Stripe Terms of Service](https://stripe.com/legal) (collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a Sponsored Developer Account on GitHub Sponsors, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of GitHub enabling payment processing services through Stripe, you agree to provide GitHub accurate and complete information about you and your business, and you authorize GitHub to share it and transaction information related to your use of the payment processing services provided by Stripe.
+
+**Recipient service agreement**
+
+_Applies to Sponsored Developer Accounts in all other countries._
+
+We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recipient Agreement](https://stripe.com/connect-account/legal/recipient) applies to your receipt of such payouts. To receive payouts from GitHub Sponsors, you must provide us accurate and complete information about you and your business, and you authorize us to share it and transaction information related to your payout with Stripe.
 
 ### 5.  表明および保証、責任の制限、賠償
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Sobre as permissões de {% data variables.product.prodname_github_app %}
@@ -82,6 +84,7 @@ _Eventos_
 - [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 - [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
 - [`GET /repos/:owner/:repo/events`](/rest/reference/activity#list-repository-events)
+- [`GET /repos/:owner/:repo/events/issues`](/rest/reference/issues#list-issue-events-for-a-repository)
 - [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
 - [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
@@ -107,7 +110,7 @@ _Pesquisar_
 - [`GET /search/topics`](/rest/reference/search#search-topics)
 - [`GET /search/users`](/rest/reference/search#search-users)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
 ### Permissão em "ações"
 
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (:read)
@@ -118,6 +121,9 @@ _Pesquisar_
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
+{% if currentVersion == "free-pro-team@latest" %}
+- [`POST /repos/:owner/:repo/actions/runs/:run_id/approve`](/rest/reference/actions#approve-a-workflow-run-for-a-fork-pull-request) (:write)
+{% endif %}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read)
@@ -157,6 +163,9 @@ _Pesquisar_
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
 - [`DELETE /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository) (:write)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
 {% endif %}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
 - [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
@@ -202,6 +211,9 @@ _Branches_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#add-user-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#set-user-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/users`](/rest/reference/repos#remove-user-access-restrictions) (:write)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/repos#rename-a-branch) (:write)
+{% endif %}
 
 _Colaboradores_
 - [`PUT /repos/:owner/:repo/collaborators/:username`](/rest/reference/repos#add-a-repository-collaborator) (:write)
@@ -347,6 +359,9 @@ _Branches_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#add-app-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#set-app-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/rest/reference/repos#remove-user-access-restrictions) (:write)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`POST /repos/:owner/:repo/branches/:branch/rename`](/rest/reference/repos#rename-a-branch) (:write)
+{% endif %}
 
 _Comentários de commit_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/rest/reference/repos#update-a-commit-comment) (:write)
@@ -441,6 +456,14 @@ _Versões_
 - [`POST /user/gpg_keys`](/rest/reference/users#create-a-gpg-key-for-the-authenticated-user) (:write)
 - [`GET /user/gpg_keys/:gpg_key_id`](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user) (:read)
 - [`DELETE /user/gpg_keys/:gpg_key_id`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user) (:write)
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Permission on "interaction limits"
+
+- [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (:read)
+- [`PUT /user/interaction-limits`](/rest/reference/interactions#set-interaction-restrictions-for-your-public-repositories) (:write)
+- [`DELETE /user/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-from-your-public-repositories) (:write)
+{% endif %}
 
 ### Permissão em "problemas"
 
@@ -610,6 +633,10 @@ _Equipes_
 - [`DELETE /orgs/:org/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-an-organization) (:write)
 {% endif %}
 
+### Permission on "organization events"
+
+- [`GET /users/:username/events/orgs/:org`](/rest/reference/activity#list-organization-events-for-the-authenticated-user) (:read)
+
 ### Permissão em "hooks da organização"
 
 - [`GET /orgs/:org/hooks`](/rest/reference/orgs#webhooks/#list-organization-webhooks) (:read)
@@ -625,10 +652,10 @@ _Equipes_
 {% if enterpriseServerVersions contains currentVersion %}
 ### Permissão em "hooks pre-receive da organização"
 
-- [`GET /orgs/:org/pre-receive-hooks`](/v3/enterprise-admin/org_pre_receive_hooks/#list-pre-receive-hooks-for-an-organization) (:read)
-- [`GET /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/org_pre_receive_hooks/#get-a-pre-receive-hook-for-an-organization) (:read)
-- [`PATCH /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/org_pre_receive_hooks/#update-pre-receive-hook-enforcement-for-an-organization) (:write)
-- [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/org_pre_receive_hooks/#remove-pre-receive-hook-enforcement-for-an-organization) (:write)
+- [`GET /orgs/:org/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization) (:read)
+- [`GET /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization) (:read)
+- [`PATCH /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization) (:write)
+- [`DELETE /orgs/:org/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization) (:write)
 {% endif %}
 
 ### Permissão em "projetos da organização"
@@ -670,6 +697,9 @@ _Equipes_
 - [`POST /repos/:owner/:repo/pages/builds`](/rest/reference/repos#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/rest/reference/repos#get-github-pages-build) (:read)
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/repos#get-latest-pages-build) (:read)
+{% if currentVersion == "free-pro-team@latest" %}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
+{% endif %}
 
 ### Permissão em "pull requests"
 
@@ -759,6 +789,10 @@ _Revisões_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments`](/rest/reference/pulls#list-comments-for-a-pull-request-review) (:read)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (:write)
 
+### Permission on "profile"
+
+- [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (:write)
+
 ### Permissão em "hooks de repositório"
 
 - [`GET /repos/:owner/:repo/hooks`](/rest/reference/repos#list-repository-webhooks) (:read)
@@ -772,10 +806,10 @@ _Revisões_
 {% if enterpriseServerVersions contains currentVersion %}
 ### Permission on "repository pre receive hooks"
 
-- [`GET /repos/:owner/:repo/pre-receive-hooks`](/v3/enterprise-admin/repo_pre_receive_hooks/#list-pre-receive-hooks-for-a-repository) (:read)
-- [`GET /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/repo_pre_receive_hooks/#get-a-pre-receive-hook-for-a-repository) (:read)
-- [`PATCH /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/repo_pre_receive_hooks/#update-pre-receive-hook-enforcement-for-a-repository) (:write)
-- [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/repo_pre_receive_hooks/#remove-pre-receive-hook-enforcement-for-a-repository) (:write)
+- [`GET /repos/:owner/:repo/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository) (:read)
+- [`GET /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository) (:read)
+- [`PATCH /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository) (:write)
+- [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository) (:write)
 {% endif %}
 
 ### Permissão em "projetos de repositório"
@@ -822,7 +856,7 @@ _Equipes_
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Permission on "secret scanning alerts"
+### Permissão em "alertas de varredura de segredo"
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
 
@@ -831,11 +865,30 @@ _Equipes_
 - [`PATCH /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#update-a-secret-scanning-alert) (:write)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Permissão em "eventos de segurança"
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)
-- [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_id`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
+- [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#get-a-code-scanning-alert) (:read)
+- [`PATCH /repos/:owner/:repo/code-scanning/alerts/:alert_number`](/rest/reference/code-scanning#update-a-code-scanning-alert) (:write)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`GET /repos/:owner/:repo/code-scanning/alerts/:alert_number/instances`](/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert) (:read)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- [`GET /repos/:owner/:repo/code-scanning/analyses`](/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository) (:read)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`GET /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository) (:read)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- [`DELETE /repos/:owner/:repo/code-scanning/analyses/:analysis_id`](/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (:write)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- [`POST /repos/:owner/:repo/code-scanning/sarifs`](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data) (:write)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+- [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}

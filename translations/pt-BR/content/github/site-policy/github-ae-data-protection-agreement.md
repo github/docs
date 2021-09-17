@@ -328,7 +328,7 @@ Exportador de dados: Cliente é o exportador de dados.
 
 No entanto, uma vez que o importador de dados fornece serviços de armazenamento e não controla as categorias de dados que armazena, o exportador de dados pode optar por transferir as categorias especiais de dados. Consequentemente, o exportador de dados é o único responsável por assegurar que cumpre todas as obrigações impostas por leis e regulamentos aplicáveis relativos à coleta e processamento de quaisquer categorias especiais de dados, incluindo a obtenção do consentimento explícito dos dados sujeitos antes de processar dados pessoais confidenciais.
 
-**Processamento de operações:** Os dados pessoais transferidos estarão sujeitos às seguintes atividades básicas de processamento: O GitHub usa dados pessoais para fins limitados definidos na Declaração de Privacidade do GitHub, disponível em https://help.github.com/articles/github-privacy-statement/, e a seção "Processamento de Dados" da DPA.
+**Processamento de operações:** Os dados pessoais transferidos estarão sujeitos às seguintes atividades básicas de processamento: O GitHub usa dados pessoais para fins limitados definidos na Declaração de Privacidade do GitHub, disponível em https://docs.github.com/articles/github-privacy-statement/, e a seção "Processamento de Dados" da DPA.
 
 **Subcontratantes:** De acordo com a DPA, o importador de dados pode contratar outras empresas para prestar serviços limitados em nome do importador de dados, tais como fornecer suporte ao cliente. Esses subcontratantes terão a permissão de obter Dados Pessoais do Cliente apenas para fornecer os serviços que o importador de dados os manteve para fornecer, e são proibidos de usar os Dados Pessoais do Cliente para qualquer outra finalidade.
 

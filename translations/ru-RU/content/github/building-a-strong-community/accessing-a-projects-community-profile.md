@@ -6,6 +6,8 @@ redirect_from:
   - /articles/accessing-a-projects-community-profile
 versions:
   free-pro-team: '*'
+topics:
+  - сообщество
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

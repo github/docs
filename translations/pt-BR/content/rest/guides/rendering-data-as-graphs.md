@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
 
@@ -223,7 +225,7 @@ Como o guia "D3 para mortais" sugere, este não é necessariamente a melhor form
 
 Agora é hora de fazer uma confissão: o atributo da `linguagem` dentro dos repositórios identifica apenas a linguagem "primária" definida. Isso significa que se você tiver um repositório que combina várias linguagens. aquela que tiver mais bytes de código será considerada a linguagem primária.
 
-Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representação de qual linguagem tem o maior número de bytes escritos em todo o nosso código. Um [treemap][D3 treemap] deve ser uma ótima forma de visualizar os tamanhos das nossas linguagens de codificação usadas, em vez de simplesmente contar. Precisamos construir um array de objetos que se pareçam com isto:
+Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representação de qual linguagem tem o maior número de bytes escritos em todo o nosso código. A [treemap][D3 treemap] should be a great way to visualize the sizes of our coding languages used, rather than simply the count. Precisamos construir um array de objetos que se pareçam com isto:
 
 ``` json
 [ { "name": "language1", "size": 100},
@@ -232,7 +234,7 @@ Vamos combinar algumas chamadas de API para obter uma _verdadeira_ representaç�
 ]
 ```
 
-Since we already have a list of repositories above, let's inspect each one, and call [the language listing API method][language API]:
+Como já temos uma lista de repositórios acima, vamos inspecionar cada um e chamar o [método da API para listar a linguagem][language API]:
 
 ``` ruby
 repos.each do |repo|
@@ -264,7 +266,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
+(Para obter mais informações sobre um mapa de árvore do D3, confira [este tutorial simples][language API].)
 
 Para concluir, passamos esta informação JSON para o mesmo modelo de ERB:
 
@@ -332,7 +334,7 @@ Et voila! São lindos retângulos que contém suas linguagens de repositório, c
 [Octokit]: https://github.com/octokit/octokit.rb
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
 [language API]: /rest/reference/repos#list-repository-languages
 [language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs

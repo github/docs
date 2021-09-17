@@ -1,1 +1,1 @@
-Canceling an app or downgrading an app to free does not affect your [other paid subscriptions](/articles/about-billing-on-github) on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %} の有料プランをすべて停止したい場合は、それぞれの有料プランを 1 つずつダウングレードする必要があります。
+アプリケーションのキャンセルや無料へのダウングレードは、{% data variables.product.prodname_dotcom %}上の[他の有料サブスクリプション](/articles/about-billing-on-github)には影響しません。 {% data variables.product.prodname_dotcom %} の有料プランをすべて停止したい場合は、それぞれの有料プランを 1 つずつダウングレードする必要があります。

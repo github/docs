@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-trademark-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ### O que é uma violação da Política de Marca do GitHub?

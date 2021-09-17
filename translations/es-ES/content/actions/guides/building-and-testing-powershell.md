@@ -5,19 +5,28 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 authors:
   - potatoqualitee
-type: 'tutorial'
+type: tutorial
+topics:
+  - CI
+  - Powershell
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 
 Esta guía te muestra cómo utilizar PowerShell para la IC. Describimos cómo utilizar Pester, instalar dependencias, probar tu módulo y publicarlo en la galería de PowerShell.
 
-Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software pre-instalado, lo cual incluye a PowerShell y a Pester. Para encontrar una lista completa de software actualizdo y las versiones pre-instaladas de PowerShell y de Pester, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software pre-instalado, lo cual incluye a PowerShell y a Pester.
+
+{% if currentVersion == "github-ae@latest" %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %}Para encontrar una lista completa de software actualizado y de las versiones preinstaladas de PowerShell y Pester, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Prerrequisitos
 
@@ -45,15 +54,15 @@ jobs:
     name: Pester test
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Perform a Pester test from the command-line
-      shell: pwsh
-      run: Test-Path resultsfile.log | Should -Be $true
-    - name: Perform a Pester test from the Tests.ps1 file
-      shell: pwsh
-      run: |
-        Invoke-Pester Unit.Tests.ps1 -Passthru
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Perform a Pester test from the command-line
+        shell: pwsh
+        run: Test-Path resultsfile.log | Should -Be $true
+      - name: Perform a Pester test from the Tests.ps1 file
+        shell: pwsh
+        run: |
+          Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
 {% endraw %}
 
@@ -61,7 +70,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - Revisa si un archivo que se llama `resultsfile.log` está presente en el directorio raíz del repositorio.
 * `Should -Be $true` - Utiliza Pester para definir un resultado esperado. Si el resultado es inesperado, entonces {% data variables.product.prodname_actions %} lo marca como una prueba fallida. Por ejemplo:
 
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Prueba fallida de Pester](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![Prueba fallida de Pester](/assets/images/help/repository/actions-failed-pester-test.png)
@@ -107,12 +116,12 @@ jobs:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install from PSGallery
-      shell: pwsh
-      run: |
-        Set-PSRepository PSGallery -InstallationPolicy Trusted
-        Install-Module SqlServer, PSScriptAnalyzer
+      - uses: actions/checkout@v2
+      - name: Install from PSGallery
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module SqlServer, PSScriptAnalyzer
 ```
 {% endraw %}
 
@@ -161,23 +170,23 @@ El siguiente ejemplo instala `PSScriptAnalyzer` y lo utiliza para limpiar todos 
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install PSScriptAnalyzer module
-      shell: pwsh
-      run: |
-            Set-PSRepository PSGallery -InstallationPolicy Trusted
-            Install-Module PSScriptAnalyzer -ErrorAction Stop
-    - name: Lint with PSScriptAnalyzer
-      shell: pwsh
-      run: |
-            Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
-            $errors   = $issues.Where({$_.Severity -eq 'Error'})
-            $warnings = $issues.Where({$_.Severity -eq 'Warning'})
-            if ($errors) {
-                Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
-            } else {
-                Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
-            }
+      - uses: actions/checkout@v2
+      - name: Install PSScriptAnalyzer module
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -ErrorAction Stop
+      - name: Lint with PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
+          $errors   = $issues.Where({$_.Severity -eq 'Error'})
+          $warnings = $issues.Where({$_.Severity -eq 'Warning'})
+          if ($errors) {
+              Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
+          } else {
+              Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+          }
 ```
 {% endraw %}
 
@@ -198,15 +207,15 @@ jobs:
     name: Run Pester and upload results
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Test with Pester
-      shell: pwsh
-      run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
-    - name: Upload test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: ubuntu-Unit-Tests
-        path: Unit.Tests.xml
+      - uses: actions/checkout@v2
+      - name: Test with Pester
+        shell: pwsh
+        run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: ubuntu-Unit-Tests
+          path: Unit.Tests.xml
     if: ${{ always() }}
 ```
 {% endraw %}
@@ -231,13 +240,13 @@ jobs:
   publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build and publish
-      env:
-        NUGET_KEY: ${{ secrets.NUGET_KEY }}
-      shell: pwsh
-      run: |
-        ./build.ps1 -Path /tmp/samplemodule
-        Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
+      - uses: actions/checkout@v2
+      - name: Build and publish
+        env:
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        shell: pwsh
+        run: |
+          ./build.ps1 -Path /tmp/samplemodule
+          Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
 {% endraw %}

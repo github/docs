@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 ### Interrupciones potenciales
@@ -24,6 +26,6 @@ Existen algunos límites en la longitud de las consultas cuando se busca en {% d
 
 Los tipos de búsqueda específicos, como la búsqueda de código, pueden tener más limitaciones. Revisa la documentación de estos tipos de búsqueda para obtener más información.
 
-### Further reading
+### Leer más
 
 - "[Acerca de buscar en GitHub](/articles/about-searching-on-github)"

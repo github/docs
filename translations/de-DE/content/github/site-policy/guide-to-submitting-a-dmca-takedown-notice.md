@@ -1,11 +1,14 @@
 ---
 title: Leitfaden zum Absenden einer DMCA Takedown Notice
 redirect_from:
-  - /dmca-counter-notice-how-to/
+  - /dmca-notice-how-to/
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Dieser Leitfaden beschreibt die Informationen, die GitHub benötigt, um einen DMCA Takedown Request zu verarbeiten. Zu allgemeineren Fragen über die DMCA ist oder wie GitHub DMCA Takedown Requests verarbeitet, lesen Sie bitte unsere [DMCA Takedown-Richtlinie](/articles/dmca-takedown-policy).
@@ -52,7 +55,8 @@ Diese Liste ist nicht erschöpfend, weshalb es besonders wichtig ist, mit einem 
 
 2. **Das urheberrechtlich geschützte Werk, das Ihrer Meinung nach verletzt wurde, identifizieren.** Diese Informationen sind wichtig, weil sie dem betroffenen Benutzer helfen, Ihre Behauptung zu überprüfen und ihm die Möglichkeit geben, Ihr eigenes Werk mit seinem zu vergleichen. Wie genau Ihre Angaben sind, hängt von der Art des Werks ab, gegen das Ihrer Meinung nach verstoßen wurde. Wenn Sie Ihr Werk veröffentlicht haben, können Sie vielleicht einfach auf eine Webseite verlinken, auf der es sich befindet. Wenn es proprietär und nicht veröffentlicht ist, können Sie es beschreiben und erklären, dass es proprietär ist. Wenn Sie es beim Copyright Office registriert haben, sollten Sie die Registrierungsnummer angeben. Wenn Sie behaupten, dass es sich bei dem gehosteten Inhalt um eine direkte, wörtliche Kopie Ihrer Arbeit handelt, können Sie diese Tatsache auch einfach erklären.
 
-3. **Das Material identifizieren, von dem Sie behaupten, dass es das in Punkt 2 aufgeführte urheberrechtlich geschützte Werk verletzt.** Es ist wichtig, bei Ihrer Beschreibung so spezifisch wie möglich zu sein. Diese Bezeichnung muss detailliert genug sein, damit GitHub das Material ermitteln kann. Dies bedeutet, dass Sie zumindest die URL zu dem Material einfügen sollten, das angeblich Ihr Urheberrecht verletzt. Wenn Sie behaupten, dass weniger als ein ganzes Repository verletzt wird, identifizieren Sie die spezifische(n) Datei(en) oder Zeilennummern in einer Datei, die angeblich Ihr Urheberrecht verletzen. Wenn Sie behaupten, dass der gesamte Inhalt einer URL gegen das Urheberrecht verstößt, bitten wir Sie, auch dies ausdrücklich zu erwähnen. Bitte beachten Sie abschließend, dass GitHub *nicht* automatisch [Forks](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork) deaktiviert, wenn Sie ein übergeordnetes Repository deaktivieren. Wenn Sie den Fork eines Repositorys untersucht und analysiert haben und glauben, dass auch diese gegen Ihr Urheberrecht verstoßen, geben Sie bitte explizit jeden angeblich verletzenden Fork an. Bitte bestätigen Sie auch, dass Sie jeden Einzelfall untersucht haben und dass Ihre eidesstattlichen Erklärungen für jede identifizierte Fork gelten.
+3. **Das Material identifizieren, von dem Sie behaupten, dass es das in Punkt 2 aufgeführte urheberrechtlich geschützte Werk verletzt.** Es ist wichtig, bei Ihrer Beschreibung so spezifisch wie möglich zu sein. Diese Bezeichnung muss detailliert genug sein, damit GitHub das Material ermitteln kann. Dies bedeutet, dass Sie zumindest die URL zu dem Material einfügen sollten, das angeblich Ihr Urheberrecht verletzt. Wenn Sie behaupten, dass weniger als ein ganzes Repository verletzt wird, identifizieren Sie die spezifische(n) Datei(en) oder Zeilennummern in einer Datei, die angeblich Ihr Urheberrecht verletzen. Wenn Sie behaupten, dass der gesamte Inhalt einer URL gegen das Urheberrecht verstößt, bitten wir Sie, auch dies ausdrücklich zu erwähnen.
+   - Please note that GitHub will *not* automatically disable [forks](/articles/dmca-takedown-policy#b-what-about-forks-or-whats-a-fork) when disabling a parent repository. Wenn Sie den Fork eines Repositorys untersucht und analysiert haben und glauben, dass auch diese gegen Ihr Urheberrecht verstoßen, geben Sie bitte explizit jeden angeblich verletzenden Fork an. Bitte bestätigen Sie auch, dass Sie jeden Einzelfall untersucht haben und dass Ihre eidesstattlichen Erklärungen für jede identifizierte Fork gelten. In rare cases, you may be alleging copyright infringement in a full repository that is actively being forked. If at the time that you submitted your notice, you identified all existing forks of that repository as allegedly infringing, we would process a valid claim against all forks in that network at the time we process the notice. We would do this given the likelihood that all newly created forks would contain the same content. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks you have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." Your sworn statement would apply to this statement.
 
 4. **Erläutern, was der betroffene Benutzer tun müsste, um die Zuwiderhandlung zu beheben.** Auch hier sind Details sehr wichtig. Wenn wir Ihre Beschwerde an den Benutzer weiterleiten, wird ihm mitgeteilt, was er tun muss, um zu vermeiden, dass der Rest seines Inhalts deaktiviert wird. Muss der Benutzer nur eine Anerkennungserklärung beifügen? Müssen sie bestimmte Zeilen in ihrem Code oder ganze Dateien löschen? Natürlich verstehen wir, dass in manchen Fällen der gesamte Inhalt eines Benutzers als Verstoß geltend gemacht werden kann, und sie nichts anderes tun können, als alles zu löschen. Wenn das der Fall ist, weisen Sie bitte ebenfalls darauf hin.
 
@@ -68,7 +72,10 @@ Diese Liste ist nicht erschöpfend, weshalb es besonders wichtig ist, mit einem 
 
 ### Beschwerden über Anti-Umgehungstechnologie
 
-Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. Wenn Sie glauben, dass auf GitHub gehostete Inhalte gegen dieses Verbot verstoßen, senden Sie uns bitte einen Bericht über unsere {% data variables.contact.contact_dmca %}, und geben Sie spezifische Informationen darüber an, welche Inhalte gegen dieses Verbot verstoßen, welche technologischen Maßnahmen Sie ergriffen haben und warum der Inhalt gegen das Verbot verstößt.
+Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. If you believe that content hosted on GitHub violates this prohibition, please send us a report through our {% data variables.contact.contact_dmca %}. A circumvention claim must include the following details about the technical measures in place and the manner in which the accused project circumvents them. Specifically, the notice to GitHub must include detailed statements that describe:
+1. What the technical measures are;
+2. How they effectively control access to the copyrighted material; and
+3. How the accused project is designed to circumvent their previously described technological protection measures.
 
 ### So reichen Sie Ihre Beschwerde ein
 

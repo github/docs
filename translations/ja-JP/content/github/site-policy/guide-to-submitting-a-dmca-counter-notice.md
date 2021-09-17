@@ -6,6 +6,9 @@ redirect_from:
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 このガイドでは、DMCA テイクダウンリクエストに対する異議申し立て通知を処理するために GitHub が必要とする情報について説明します。 DMCA とは何かや、GitHub が DMCA テイクダウンリクエストをどのように処理するかなど、一般的な質問については [DMCA テイクダウンポリシー](/articles/dmca-takedown-policy)をご覧ください。
@@ -16,14 +19,13 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 
 ### はじめる前に
 
-*** 真実を教えてください。***DMCA では、宣誓を行い、虚偽の申し立てを行った場合には*偽証罪によって罰せられるという条件で*異議申し立て通知を行うことを義務付けています。 宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります。 (*See*U.S. （[合衆国法典、タイトル 18、セクション 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm) *を参照してください</em>。 ）虚偽の情報を提出すると、民事責任が発生する可能性もあります。 つまり、金銭的損害で訴えられる可能性があります。</p> 
+*** 真実を教えてください。***DMCA では、宣誓を行い、虚偽の申し立てを行った場合には*偽証罪によって罰せられるという条件で*異議申し立て通知を行うことを義務付けています。 宣誓宣言で意図的に虚偽の陳述を行うと連邦犯罪になります。   （[合衆国法典、タイトル 18、セクション 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm) *を参照してください</em>。 ）虚偽の情報を提出すると、民事責任が発生する可能性もあります。 つまり、金銭的損害で訴えられる可能性があります。
 
 ***調査してください。***DMCA 異議申し立て通知を提出すると、現実的な法的結果が生じる可能性があります。 苦情を申し立てた当事者がテイクダウン通知が間違っていることに同意しない場合、コンテンツを無効にし続けるためにあなたに対して訴訟を起こすことがあります。 あなたは、テイクダウン通知でなされた申し立てを徹底的に調査し、そして異議申し立て通知を提出する前に弁護士に相談するべきでしょう。
 
-***You Must Have a Good Reason to Submit a Counter Notice.*** In order to file a counter notice, you must have "a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." ([U.S. Code, Title 17, Section 512(g)](https://www.copyright.gov/title17/92chap5.html#512).) Whether you decide to explain why you believe there was a mistake is up to you and your lawyer, but you *do* need to identify a mistake before you submit a counter notice. 過去に当社が受け取った異議申し立て通知で挙げられたテイクダウン通知の間違いとしては、「苦情を申し立てた当事者に著作権がない」、「私はライセンスを持っている」、「コードは、私の使用を許可するオープンソースライセンスの下でリリースされている」、「苦情は、私の使用がフェアユースの原則によって保護されているという事実を考慮していない」などがあります。 もちろん、テイクダウン通知の欠陥には他の内容も考えられます。
+***You Must Have a Good Reason to Submit a Counter Notice.*** In order to file a counter notice, you must have "a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." ([合衆国 法典、タイトル 17 、セクション 512 (g)](https://www.copyright.gov/title17/92chap5.html#512) を参照してください。) 間違いがあったと考える理由を説明するかどうかはあなたとあなたの弁護士次第ですが、異議申し立て通知を提出する前に*必ず*間違いを特定する必要があります。 過去に当社が受け取った異議申し立て通知で挙げられたテイクダウン通知の間違いとしては、「苦情を申し立てた当事者に著作権がない」、「私はライセンスを持っている」、「コードは、私の使用を許可するオープンソースライセンスの下でリリースされている」、「苦情は、私の使用がフェアユースの原則によって保護されているという事実を考慮していない」などがあります。 もちろん、テイクダウン通知の欠陥には他の内容も考えられます。
 
 ***著作権法は複雑です。***テイクダウン通知による侵害の申し立ては、奇妙であったり直接的でないように思える場合があります。 著作権法は複雑であり、予期しない結果を招く可能性があります。 場合によっては、テイクダウン通知では、コンパイルおよび実行後にできることが理由で、あなたのソースコードが著作権を侵害していると申し立てられる場合があります。 例:
-
   - 著作物に対する[アクセス制御を迂回](https://www.copyright.gov/title17/92chap12.html)するためにあなたのソフトウェアが使用されていると申し立てられる場合があります。
   - ソフトウェアを使用して著作物を侵害するようエンドユーザを誘導した場合、ソフトウェアの配布が著作権侵害になる[場合があります](https://www.copyright.gov/docs/mgm/)。
   - 著作権侵害の申し立てが、ソースコード自体ではなく、ソフトウェアのデザイン要素の[文字通りでない複製](https://en.wikipedia.org/wiki/Substantial_similarity)に基づいている場合もあります。つまり、あなたの*デザイン*が他の誰かのデザインに酷似しているという通知を受け取る場合があります。
@@ -37,8 +39,6 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 ***GitHub は裁判官ではありません。***GitHub は、通知が DMCA の最小要件を満たしているかどうかを判断する以外、このプロセスではほとんど裁量権を行使しません。 主張の価値の評価は当事者（およびその弁護士）に委ねられます。なお、通知は偽証罪によって罰せられる対象になることにご注意ください。
 
 ***その他のリソース。***さらにサポートが必要な場合は、インターネット上に利用できるリソースが数多く用意されています。 Lumen には、[著作権](https://www.lumendatabase.org/topics/5)と [DMCA セーフハーバー](https://www.lumendatabase.org/topics/14)に関する有益なガイドがあります。 法的助言が必要なオープンソースプロジェクトに関与している場合は、[Software Freedom Law Center](https://www.softwarefreedom.org/about/contact/) に問い合わせることができます。 また、特に困難な事態に直面したと思われる場合は、[Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) などの非営利団体から直接支援を受けたり、弁護士を紹介してもらえる場合もあります。
-
-
 
 ### 異議申し立て通知は...
 
@@ -54,8 +54,6 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 
 6. **物理的または電子的な署名を含めてください。**
 
-
-
 ### 異議申し立て通知の提出方法
 
 {% data variables.contact.contact_dmca %} で情報を入力し、すべての質問に答えることで、最も早く回答を得ることができます。
@@ -63,8 +61,6 @@ GitHub のあなたのコンテンツが DMCA テイクダウンリクエスト�
 また、<copyright@github.com> にメール通知を送信することもできます。 必要に応じて添付ファイルを含めることもできますが、メッセージの本文には平文版の文書も含めてください。
 
 通知を郵送する必要がある場合は、それも可能ですが、通知の受け取りと応答には*相当な*時間がかかります。具体的には、当社が異議申し立て通知を*受領*してから 10〜14 日お待ちいただくことになります。 当社は、平文のメールで作られた通知の方が、PDF ファイルが添付されている場合や郵送の場合よりもずっと早く回答することができます。 それでも通知を郵送する場合は、当社の住所は次のとおりです。
-
-
 
 ```
 GitHub, Inc

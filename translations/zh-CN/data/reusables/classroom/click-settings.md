@@ -1,1 +1,1 @@
-1. Under the classroom name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**. !["Settings" tab for classroom](/assets/images/help/classroom/click-settings.png)
+1. 在课堂名称下，单击 {% octicon "gear" aria-label="The gear icon" %} **Settings（设置）**。 ![课堂的"Settings（设置）"选项卡](/assets/images/help/classroom/click-settings.png)

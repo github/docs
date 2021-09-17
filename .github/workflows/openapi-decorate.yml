@@ -1,9 +1,12 @@
 name: OpenAPI generate decorated schema files
 
+# **What it does**: On 'Update OpenAPI Descriptions' PRs opened by github-openapi-bot, this workflow runs the script to generate the decorated OpenAPI files and commit them to the PR.
+# **Why we have it**: So we can consume OpenAPI changes, decorate them, and publish them to the REST API docs.
+# **Who does it impact**: Anyone making OpenAPI changes in `github/github`, and wanting to get them published on the docs site.
+
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened]
 
 jobs:
   generate-decorated-files:
@@ -17,6 +20,14 @@ jobs:
           add-labels: 'github-openapi-bot'
       - name: Checkout repository code
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      - name: Setup node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.8.x
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -25,7 +36,7 @@ jobs:
         run: script/rest/update-files.js --decorate-only
 
       - name: Check in the decorated files
-        uses: EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575
+        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
         with:
           # The arguments for the `git add` command
           add: 'lib/rest/static/decorated'
@@ -34,4 +45,5 @@ jobs:
           message: 'Add decorated OpenAPI schema files'
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+          # Disable pre-commit hooks; they don't play nicely with add-and-commit
+          HUSKY: '0'

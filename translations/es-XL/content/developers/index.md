@@ -4,9 +4,11 @@ intro: 'Saca más provecho de {% data variables.product.prodname_dotcom %} integ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+children:
+  - /overview
+  - /webhooks-and-events
+  - /apps
+  - /github-marketplace
 ---
 
-{% link_with_intro /overview %}
-{% link_with_intro /webhooks-and-events %}
-{% link_with_intro /apps %}
-{% link_with_intro /github-marketplace %}

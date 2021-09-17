@@ -1,5 +1,5 @@
-To choose an online IDE for the assignment, select the **Select an online IDE** drop-down menu, then click the IDE you'd like your students to use.
+Para escolher um IDE on-line para a atividade, selecione o menu suspenso **Selecionar um IDE on-line** e, em seguida, clique no IDE que você deseja que seus alunos usem.
 
 <div class="procedural-image-wrapper">
-  <img alt="Using the 'Select an online IDE' drop-down menu to click an online IDE for the assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-online-ide.png">
+  <img alt="Usar o menu suspenso &quot;Selecionar um ID on-line&quot; para clicar em um IDE on-line para a atividade" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-online-ide.png">
 </div>

@@ -1,1 +1,1 @@
-When a student accepts an assignment with an online IDE, the assignment repository will include a _README.md_ file with a special button at the top of the file. The button links the student directly to the workspace in the online IDE.
+Quando um aluno aceita uma atividade com um IDE on-line, o repositório de atividade incluirá um arquivo _README.md_ com um botão especial na parte superior do arquivo. O botão vincula o aluno diretamente à área de trabalho no IDE on-line.

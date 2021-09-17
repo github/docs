@@ -4,6 +4,8 @@ intro: 'When {% data variables.product.prodname_codespaces %} becomes generally 
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

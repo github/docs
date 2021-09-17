@@ -6,11 +6,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Autenticação
 
-You can read public gists {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}and create them for anonymous users without a token.{% else %} anonymously, but you must be signed into GitHub to create gists.{% endif %} To read or write gists on a user's behalf, you need the gist OAuth scope and a token. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
+Você pode ler gists públicos {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contém currentVersion %}e criá-los para usuários anônimos sem um token{% else %} de forma anônima, mas você precisa entrar no GitHub para criar gists.{% endif %} Para ler ou escrever gists em nome do usuário, você precisa do escopo OAuth para gists e um token. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 

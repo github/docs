@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -146,7 +148,7 @@ GitHub App がリポジトリのコードに対して外部チェックを実行
 **カスタムメディアタイプ:** `antiope-preview` **発表日:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == enterpriseServerVersions contains currentVersion %}
 
 ### リポジトリへの匿名 Git アクセス
 

@@ -7,6 +7,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
 versions:
   enterprise-server: '*'
+type: reference
+topics:
+  - Enterprise
+  - Upgrades
 ---
 
 {% note %}
@@ -25,7 +29,7 @@ versions:
 - Si estás varias versiones desactualizado, actualiza {% data variables.product.product_location %} tanto como sea posible con cada paso de tu proceso de actualización. Utilizar la versión más reciente posible en cada actualización te permite aprovechar las mejoras de desempeño y las correcciones de errores. Por ejemplo, podrías actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.8 a 2.10, pero actualizar desde {% data variables.product.prodname_enterprise %} 2.7 a 2.9 a 2.10 utiliza una versión posterior en el segundo paso.
 - Utiliza el lanzamiento de patch más reciente cuando actualices. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - Utiliza una instancia de preparación para probar los pasos de actualización. Para obtener más información, consulta "[Configurar una instancia de preparación](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)."
-- Cuando ejecutes múltiples actualizaciones, espera por lo menos 24 horas entre las actualizaciones de características para permitir que las tareas de actualización de migraciones de datos y de datos en copias de seguridad se completen en su totalidad.
+- Cuando ejecutas varias mejoras, espera por lo menos 24 horas entre las mejoras a las características para permitir que se completen totalmente las migraciones de datos y actualizaciones de las tareas que se ejecutan en segundo plano.
 
 ### Requisitos
 
@@ -38,5 +42,9 @@ versions:
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
 Utiliza el número para estimar la cantidad de espacio de disco que los registros de auditoría de MySQL necesitarán. El script también controla tu espacio libre en disco mientras la importación está en progreso. Controlar este número es especialmente útil si tu espacio libre en disco está cerca de la cantidad de espacio en disco necesaria para la migración.
+
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
+
+### Pasos siguientes
 
 Después de revisar estas recomendaciones y requisitos, puedes actualizar el {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."

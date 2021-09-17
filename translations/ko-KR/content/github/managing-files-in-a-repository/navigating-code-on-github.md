@@ -5,11 +5,15 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
+
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 ### About navigating code on {% data variables.product.prodname_dotcom %}
 
-Navigating code functions use the open source library [`semantic`](https://github.com/github/semantic). The following languages are supported:
+Code navigation uses the open source library [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). The following languages are supported:
 - C#
 - CodeQL
 - Go

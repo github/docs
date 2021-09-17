@@ -1,0 +1,1 @@
+Você pode compartilhar seus comentários sobre {% data variables.product.prodname_sponsors %} com {% data variables.product.company_short %}. To join the conversation, see "[Sponsors Feedback](https://github.com/github/feedback/discussions/categories/sponsors-feedback)."

@@ -7,14 +7,17 @@ redirect_from:
   - /github-cookies/
   - /articles/github-subprocessors-and-cookies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Effective date: **January 21, 2021**
+Effective date: **April 2, 2021**
 
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
-### GitHub Subprocessors
+## GitHub Subprocessors
 
 When we share your information with third party subprocessors, such as our vendors and service providers, we remain responsible for it. We work very hard to maintain your trust when we bring on new vendors, and we require all vendors to enter into data protection agreements with us that restrict their processing of Users' Personal Information (as defined in the [Privacy Statement](/articles/github-privacy-statement/)).
 
@@ -27,11 +30,9 @@ When we share your information with third party subprocessors, such as our vendo
 | Discourse | Community forum software provider | United States | United States |
 | Eloqua | Marketing campaign automation | United States | United States |
 | Google Apps | Internal company infrastructure | United States | United States |
-| Google Analytics | Analytics and performance | United States | United States |
 | MailChimp | Customer ticketing mail services provider | United States | United States |
 | Mailgun | Transactional mail services provider | United States | United States |
 | Microsoft | Microsoft Services | United States | United States |
-| Monday.com | Team collaboration and project management platform | United States | Israel |
 | Nexmo | SMS notification provider | United States | United States |
 | Salesforce.com | Customer relations management | United States | United States |
 | Sentry.io | Application monitoring provider | United States | United States |
@@ -42,7 +43,7 @@ When we share your information with third party subprocessors, such as our vendo
 
 When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
 
-### Cookies on GitHub
+## Cookies on GitHub
 
 GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
  
@@ -51,6 +52,7 @@ Since the number and names of cookies may change, the table below may be updated
 | Service Provider | Cookie Name | Description | Expiration* |
 |:---|:---|:---|:---|
 | GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session. | five minutes |
+| GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | session | 
 | GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | one year |
 | GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | one year |
 | GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | two weeks | 

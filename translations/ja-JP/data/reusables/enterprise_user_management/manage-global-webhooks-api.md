@@ -1,1 +1,1 @@
-{% data variables.product.prodname_enterprise_api %}を使ってグローバルなwebhookを管理することもできます。 For a complete list of actions, see "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks)."
+{% data variables.product.prodname_enterprise_api %}を使ってグローバルなwebhookを管理することもできます。 アクションの完全なリストについては、の「[グローバルwebhook](/rest/reference/enterprise-admin#global-webhooks)」を参照してください。

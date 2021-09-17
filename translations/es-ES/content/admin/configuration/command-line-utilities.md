@@ -9,6 +9,10 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+type: reference
+topics:
+  - Enterprise
+  - SSH
 ---
 
 Puedes ejecutar estos comandos desde cualquier lugar en la VM después de iniciar sesión como usuario administrador de SSH. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
@@ -74,10 +78,10 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Detalla todos los valores de configuración
 ```
-Te permite encontrar el uuid de tu nodo en `cluster.conf`.
+Te permite encontrar el identificador único universal (UUID, por sus siglas en inglés) de tu nodo en `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -211,7 +215,7 @@ Puedes usar las siguientes opciones con la utilidad:
 
 Esta utilidad no puede promover una cuenta de usuario que no sea administrador del sitio a propietario de todas las organizaciones. Puedes promover una cuenta de usuario común a administrador del sitio con [ghe-user-promote](#ghe-user-promote).
 
-Otorga privilegios de propietario de la organización en una organización específica a un usuario único
+Otorga privilegios de propietario de organización a un administrador de sitio específico en una organización específica
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
@@ -481,15 +485,21 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 Para mostrar todos los resultados, carga útil y excepciones del gancho para la entrega:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
+{% endif %}
 
 ### Agrupación
 
 #### estado ghe-dpages
 
-Esta utilidad le permite gestionar el servidor {% data variables.product.prodname_pages %} distribuido.
+Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
 
 ```shell
 $ ghe-cluster-status
@@ -545,8 +555,8 @@ estado ghe-dpages
 ```
 
 Para evacuar un servicio de almacenamiento {% data variables.product.prodname_pages %} antes de evacuar un nodo de agrupación:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -571,16 +581,16 @@ ruta ghe-spokes
 
 Para evacuar los servicios de almacenamiento en un nodo de la agrupación:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 Esta utilidad te permite evacuar todos los servicios de almacenamiento antes de evacuar un nodo de agrupación.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git
@@ -642,14 +652,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-Esta utilidad importa desde el Control de Versiones de Team Foundation. Para obtener más información, consulta "[importar datos de sistemas de control de versiones de terceros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility imports from Team Foundation Version Control (TFVC). Para obtener más información, consulta "[importar datos de sistemas de control de versiones de terceros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-Esta utilidad reescribe el repositorio importado. Esto te permite renombrar a los autores y, en el caso de TFS y Subversion, produce ramas de Git basadas en carpetas. Para obtener más información, consulta "[importar datos de sistemas de control de versiones de terceros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Esta utilidad reescribe el repositorio importado. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. Para obtener más información, consulta "[importar datos de sistemas de control de versiones de terceros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-rewrite
 ```

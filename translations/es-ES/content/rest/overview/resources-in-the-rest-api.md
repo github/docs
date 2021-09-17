@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -32,11 +34,10 @@ envían y reciben como JSON.
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
@@ -125,11 +126,11 @@ Autenticarse con credenciales inválidas regresará el mensaje `401 Unauthorized
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
-> HTTP/1.1 401 Unauthorized
+> HTTP/2 401
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -138,10 +139,10 @@ Después de detectar varias solicitudes con credenciales inválidas dentro de un
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -158,7 +159,7 @@ En este ejemplo, los valores 'vmg' and 'redcarpet' se proporcionan para los par�
 Para las solicitudes de tipo `POST`, `PATCH`, `PUT`, and `DELETE`, los parámetros que no se incluyen en la URL deben codificarse como JSON con un Content-Type de 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Terminal raíz
@@ -180,7 +181,7 @@ Existen tres posibles tipos de errores de cliente en los llamados a la API que r
 
 1. Enviar un JSON inválido dará como resultado una respuesta de tipo `400 Bad Request`.
    
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 35
        
         {"message":"Problems parsing JSON"}
@@ -188,14 +189,14 @@ Existen tres posibles tipos de errores de cliente en los llamados a la API que r
 2. Enviar el tipo incorrecto de valores de JSON dará como resultado una respuesta de tipo `400 Bad
 Request`.
    
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 40
        
         {"message":"Body should be a JSON object"}
 
 3. Enviar campos inválidos dará como resultado una respuesta de tipo `422 Unprocessable Entity`.
    
-        HTTP/1.1 422 Unprocessable Entity
+        HTTP/2 422
         Content-Length: 149
        
         {
@@ -215,7 +216,7 @@ Todos los objetos de error tienen propiedades de campo y de recurso para que tu 
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `missing`                  | Un recurso no existe.                                                                                                                             |
 | `missing_field`            | No se ha configurado un campo requerido en un recurso.                                                                                            |
-| `no válida`                | El formato de un campo es inválido.  Review the documentation for more specific information.                                                      |
+| `no válida`                | El formato de un campo es inválido.  Revisa la documentación para encontrar información más específica.                                           |
 | `already_exists`           | Otro recurso tiene el mismo valor que este campo.  Esto puede suceder en recursos que deben tener claves únicas (tales como nombres de etiqueta). |
 | `unprocessable`            | Las entradas proporcionadas son inválidas.                                                                                                        |
 
@@ -236,14 +237,14 @@ Podrían utilizarse otros códigos de estado de redirección de acuerdo con la e
 
 Cuando sea posible, la API v3 intentará utilizar los verbos HTTP adecuados para cada acción.
 
-| Verbo    | Descripción                                                                                                                                                                                                                      |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | Puede emitirse contra cualquier recurso para obtener solo la información del encabezado HTTP.                                                                                                                                    |
-| `GET`    | Se utiliza para recuperar recursos.                                                                                                                                                                                              |
-| `POST`   | Se utiliza para crear recursos.                                                                                                                                                                                                  |
-| `PATCH`  | Se utiliza para actualizar los recursos con datos parciales de JSON. Por ejemplo, un recurso de emisión tiene los atributos `title` y `body`. A `PATCH` request may accept one or more of the attributes to update the resource. |
-| `PUT`    | Se utiliza para reemplazar recursos o colecciones. Para las solicitudes de `PUT` sin el atributo `body`, asegúrate de configurar el encabezado `Content-Length` en cero.                                                         |
-| `DELETE` | Se utiliza para borrar recursos.                                                                                                                                                                                                 |
+| Verbo    | Descripción                                                                                                                                                                                                                                  |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HEAD`   | Puede emitirse contra cualquier recurso para obtener solo la información del encabezado HTTP.                                                                                                                                                |
+| `GET`    | Se utiliza para recuperar recursos.                                                                                                                                                                                                          |
+| `POST`   | Se utiliza para crear recursos.                                                                                                                                                                                                              |
+| `PATCH`  | Se utiliza para actualizar los recursos con datos parciales de JSON. Por ejemplo, un recurso de emisión tiene los atributos `title` y `body`. Una solicitud de `PATCH` podría aceptar uno o más de los atributos para actualizar el recurso. |
+| `PUT`    | Se utiliza para reemplazar recursos o colecciones. Para las solicitudes de `PUT` sin el atributo `body`, asegúrate de configurar el encabezado `Content-Length` en cero.                                                                     |
+| `DELETE` | Se utiliza para borrar recursos.                                                                                                                                                                                                             |
 
 ### Hypermedia
 
@@ -315,6 +316,8 @@ Para los usuarios que pertenezcan a una cuenta de {% data variables.product.prod
 
 {% endif %}
 
+Cuando utilizas el `GITHUB_TOKEN` integrado en GitHub Actions, el límite de tasa es de 1,000 solicitudes por hora por repositorio. Para las organizaciones que pertenecen a una cuenta de GitHub Enterprise Cloud, este límite será de 15,000 solicitudes por hora por repositorio.
+
 Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Las solicitudes no autenticadas se asocian con la dirección IP que las origina, y no con el usuario que realiza la solicitud.
 
 {% data reusables.enterprise.rate_limit %}
@@ -325,9 +328,8 @@ Los encabezados HTTP recuperados para cualquier solicitud de la API muestran tu 
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
 > X-RateLimit-Reset: 1372700873
@@ -349,16 +351,15 @@ new Date(1372700873 * 1000)
 Si excedes el límite de tasa, se regresará una respuesta de error:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> Status: 403 Forbidden
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 0
 > X-RateLimit-Reset: 1377013266
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
 > }
 ```
 
@@ -370,9 +371,8 @@ Si tu aplicación de OAuth necesita hacer llamados no autenticados con un límit
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
 > X-RateLimit-Reset: 1372700873
@@ -397,13 +397,13 @@ El abuso de límite de tasa no pretende interferir con el uso legítimo de la AP
 Si tu aplicación activa este límite de tasa, recibirás una respuesta informativa:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Content-Type: application/json; charset=utf-8
 > Connection: close
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#abuse-rate-limits"
 > }
 ```
 
@@ -450,32 +450,29 @@ La mayoría de las respuestas regresan un encabezado de `ETag`. Muchas de las re
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/user
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 200 OK
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
@@ -490,7 +487,7 @@ Aquí hay una solicitud de ejemplo que se envió desde una consulta de buscador 
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
-HTTP/1.1 302 Found
+HTTP/2 302
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
@@ -499,7 +496,7 @@ Así se ve una solicitud de prevuelo de CORS:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
-HTTP/1.1 204 No Content
+HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE

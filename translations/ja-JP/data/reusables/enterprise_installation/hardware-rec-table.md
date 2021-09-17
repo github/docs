@@ -1,20 +1,20 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 {% note %}
 
-**Note**: If you enable {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}, your instance requires additional hardware resources. Minimum requirements for an instance with {% if currentVersion == "enterprise-server@2.22" %}beta{% else %}optional{% endif %} features enabled are **bold** in the following table. For more information, see "{% if currentVersion == "enterprise-server@2.22" %}[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% else %}[Optional features](#optional-features){% endif %}."
+**ノート**: {% data variables.product.prodname_actions %}もしくは{% data variables.product.prodname_registry %}のベータに参加してこれらの機能を有効化している場合、インスタンスには追加のハードウェアリソースが必要になります。 ベータ機能を使うインスタンスの最小要件は、以下のテーブル中の**太字**に示されています。 詳しい情報については「[{% data variables.product.prodname_ghe_server %} 2.22のベータの機能](#beta-features-in-github-enterprise-server-222)」を参照してください。
 
 {% endnote %}
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-| ユーザライセンス               |                                        vCPUs |                                                  メモリ |                                         アタッチされたストレージ | ルートストレージ |
-|:---------------------- | --------------------------------------------:| ----------------------------------------------------:| ----------------------------------------------------:| --------:|
-| トライアル、デモ、あるいは10人の軽量ユーザ |   2<br/>or [**4**](#optional-features) |   16 GB<br/>or [**32 GB**](#optional-features) | 100 GB<br/>or [**150 GB**](#optional-features) |   200 GB |
-| 10-3000                |   4<br/>or [**8**](#optional-features) |   32 GB<br/>or [**48 GB**](#optional-features) | 250 GB<br/>or [**300 GB**](#optional-features) |   200 GB |
-| 3000-5000              |  8<br/>or [**12**](#optional-features) |                                                64 GB |                                               500 GB |   200 GB |
-| 5000-8000              | 12<br/>or [**16**](#optional-features) |                                                96 GB |                                               750 GB |   200 GB |
-| 8000-10000+            | 16<br/>or [**20**](#optional-features) | 128 GB<br/>or [**160 GB**](#optional-features) |                                              1000 GB |   200 GB |
+| ユーザライセンス               | vCPUs |    メモリ | アタッチされたストレージ | ルートストレージ |
+|:---------------------- | -----:| ------:| ------------:| --------:|
+| トライアル、デモ、あるいは10人の軽量ユーザ |     4 |  32 GB |       150 GB |   200 GB |
+| 10-3000                |     8 |  48 GB |       300 GB |   200 GB |
+| 3000-5000              |    12 |  64 GB |       500 GB |   200 GB |
+| 5000-8000              |    16 |  96 GB |       750 GB |   200 GB |
+| 8000-10000+            |    20 | 160 GB |      1000 GB |   200 GB |
 
 {% else %}
 
@@ -28,22 +28,22 @@
 
 {% endif %}
 
-For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+
+インスタンスのユーザに{% data variables.product.prodname_actions %}を有効化する計画なら、ハードウェア、外部ストレージ、ランナーの要件を「[{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}を利用しはじめる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)」でレビューしてください。
+
+{% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
+#### {% data variables.product.prodname_ghe_server %} 2.22のベータの機能
 
-You can sign up for beta features available in {% data variables.product.prodname_ghe_server %} 2.22 such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22#release-2.22.0) on the {% data variables.product.prodname_enterprise %} website.
+{% data variables.product.prodname_ghe_server %} 2.22は、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_code_scanning %}といった機能をベータで提供しています。 詳しい情報については「[{% data variables.product.prodname_ghe_server %} 2.22 リリースノート](/enterprise-server@2.22/admin/release-notes#2.22.0)を参照してください。
 
-If you enable beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+{% data variables.product.prodname_ghe_server %} 2.22のベータの機能を有効化した場合、インスタンスには追加のハードウェアリソースが必要です。 最小要件に関する詳しい情報については「[最小要件](#minimum-requirements)」を参照してください。
 
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
-
-#### Optional features
-
-You can enable optional features for {% data variables.product.prodname_ghe_server %}, such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)" or "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
-
-If you enable optional features, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+{% data variables.product.prodname_actions %}のハードウェアの要件に関する詳しい情報については「[{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}を利用しはじめる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)」を参照してください。
 
 {% endif %}

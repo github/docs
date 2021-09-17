@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -41,17 +43,17 @@ Puedes verificar la versión actual a través de los encabezados de cada respues
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3
 
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
 $ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 ```
 
@@ -104,7 +106,7 @@ Devuelve los datos del blob sin procesar.
 
 La [API de confirmaciones](/rest/reference/repos#commits) y la [API de solicitudes de cambios](/rest/reference/pulls) soportan los formatos de [diff][git-diff] y de [parche][git-patch]:
 
-#### diff
+#### diferencia
 
     application/vnd.github.VERSION.diff
 

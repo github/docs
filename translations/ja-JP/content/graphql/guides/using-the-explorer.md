@@ -7,9 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
-## GraphQL Explorerについて
+### GraphQL Explorerについて
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -29,7 +31,7 @@ versions:
 
 ### GraphiQLの利用
 
-GraphiQLアプリケーションを使うには、https://github.com/skevy/graphiql-appからダウンロードしてインストールしてください。
+GraphiQLアプリケーションを使うには、https://github.com/skevy/graphiql-app からダウンロードしてインストールしてください。
 
 #### GraphiQLの設定
 

@@ -4,7 +4,7 @@
 | `-1`         | :-1:       |
 | `risa`       | :smile:    |
 | `confundido` | :confused: |
-| `corazón`    | :heart:    |
+| `heart`      | :heart:    |
 | `viva`       | :tada:     |
 | `cohete`     | :rocket:   |
 | `ojos`       | :eyes:     |

@@ -6,11 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Configurar un servidor proxy mediante variables de entorno
 
@@ -38,7 +41,7 @@ Si establecer variables de entorno no es práctico, puedes establecer las variab
 
 A continuación se muestra un ejemplo de configuración del proxy _.env_:
 
-```
+```ini
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```

@@ -1,7 +1,7 @@
 ---
 title: Utilizar GitHub
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /articles/using-github
 versions:

@@ -15,6 +15,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Upgrades
 ---
 
 ### Preparar para una actualización
@@ -28,6 +32,8 @@ versions:
   **Nota:** la ventana de mantenimiento depende del tipo de actualización que realices. Las actualizaciones que utilizan un hotpatch por lo general no necesitan una ventana de mantenimiento. A veces se necesita reiniciar; puedes hacerlo más tarde. Siguiendo el esquema de control de versiones de MAJOR.FEATURE.PATCH, los lanzamientos de patch que utilizan un paquete de actualización normalmente necesitan menos de cinco minutos de tiempo de inactividad. Los lanzamientos de funciones que incluyen migraciones de datos toman más tiempo dependiendo del desempeño del almacenamiento y de la cantidad de datos que se migran. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
   {% endnote %}
+
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ### Tomar una instantánea
 
@@ -53,7 +59,7 @@ Hay dos tipos de instantáneas:
 | Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM                    | <https://support.citrix.com/article/CTX122978>                                                                                                                                                         |
+| XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
 ### Actualizar con un hotpatch
 
@@ -61,7 +67,12 @@ Hay dos tipos de instantáneas:
 
 {% note %}
 
-**Note**: instalar un hotpatch utilizando la {% data variables.enterprise.management_console %} no está disponible en los entornos de agrupación. Para instalar un parche en un entorno de agrupación, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notas{% else %}Nota{% endif %}**:
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- Si {% data variables.product.product_location %} está ejecutando una compilación candidata a lanzamiento, no puedes actualizarla con un hotpatch.
+
+- {% endif %}No hay disponibilidad para instalar un parche utilizando la {% data variables.enterprise.management_console %} en los ambientes de clúster. Para instalar un parche en un entorno de agrupación, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 
@@ -220,7 +231,7 @@ Para obtener más información, consulta "[Herramientas de línea de comando](/e
 Para revertir un lanzamiento de característica, restaura desde una instantánea de VM para garantizar que las particiones raíz y de datos estén en un estado consistente. Para obtener más información, consulta "[Tomar una instantánea](#taking-a-snapshot)."
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Further reading
+### Leer más
 
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -16,7 +18,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% note %}
 
-**注：** 本文章适用于 {% data variables.product.prodname_ghe_cloud %}。 要查看 {% data variables.product.prodname_ghe_server %} 版本，请使用 **{% data ui.pages.article_version %}** 下拉菜单。
+**注：** 本文章适用于 {% data variables.product.prodname_ghe_cloud %}。 要查看 {% data variables.product.prodname_ghe_managed %} 或 {% data variables.product.prodname_ghe_server %} 版本，请使用 **{% data ui.pages.article_version %}** 下拉菜单。
 
 {% endnote %}
 
@@ -27,7 +29,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 REST API 端点{% if enterpriseServerVersions contains currentVersion %}— [管理控制台](#management-console) API 端点除外—{% endif %} 是以下 URL 的前缀：
 
 ```shell
-http(s)://<em>hostname</em>/api/v3/
+{% data variables.product.api_url_pre %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -76,8 +78,10 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
+
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
@@ -96,7 +100,7 @@ IdP 必须使用 `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
+**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
 
 {% endnote %}
 
@@ -147,19 +151,6 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 {% endfor %}
 
 {% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-
-## 休息时加密
-
-您可以使用休息时加密 API 来管理用于对 {% data variables.product.product_name %} 上的数据进行加密的密钥。 更多信息请参阅“[为企业配置数据加密](/admin/configuration/configuring-data-encryption-for-your-enterprise)”。
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 管理统计
 
@@ -384,7 +375,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 用户
 
-用户管理 API 允许您暂停{% if enterpriseServerVersions contains currentVersion %}、取消暂停、升级和降级{% endif %}{% if currentversion == "github-ae@latest" %} 以及取消暂停{% endif %} 企业上的用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
+用户管理 API 允许您暂停{% if enterpriseServerVersions contains currentVersion %}、取消暂停、升级和降级{% endif %}{% if currentVersion == "github-ae@latest" %}以及取消暂停{% endif %} 企业上的用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

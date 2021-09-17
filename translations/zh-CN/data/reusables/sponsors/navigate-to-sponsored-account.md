@@ -1,1 +1,1 @@
-1. On {% data variables.product.product_name %}, navigate to the sponsored account's profile.
+1. 在 {% data variables.product.product_name %} 上，导航到被赞助帐户的个人资料。

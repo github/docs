@@ -15,7 +15,7 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 2. En el ángulo superior derecho, haz clic en **Not watching (Dejar de ver)** desde el menú desplegable "Watch" (Ver). ![Ver opciones en un menú desplegable para lanzamientos](/assets/images/help/notifications/unwatch-repository.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los lanzamientos](/articles/about-releases)"
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"

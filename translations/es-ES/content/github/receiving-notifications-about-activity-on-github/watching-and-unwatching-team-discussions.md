@@ -55,7 +55,7 @@ Si no deseas recibir de forma automática las notificaciones de debates de equip
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Acerca de los debates del equipo](/articles/about-team-discussions)"

@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-trademark-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ### 何をすると GitHub トレードマークポリシーの違反になるのですか？

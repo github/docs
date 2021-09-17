@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** It's good practice to have automated tests and acceptance processes in place so that checks are carried out before the pull request is merged. This is particularly important if the suggested version to upgrade to contains additional functionality, or a change that breaks your project's code. For more information about continuous integration, see "[About continuous integration](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)."
+**ノート:** 自動テキストと受け入れプロセスを持っておき、Pull Requestがマージされる前にチェックが行われるようにしておくのは良い習慣です。 これは特に、アップグレードが提案されたバージョンに追加機能があったり、プロジェクトのコードを破壊するような変更がある場合に重要です。 継続的インテグレーションに関する詳しい情報については「[継続的インテグレーション](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)」を参照してください。
 
 {% endnote %}

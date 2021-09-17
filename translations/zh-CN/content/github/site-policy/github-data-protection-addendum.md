@@ -107,7 +107,7 @@ GitHub 将根据 GitHub 安全附录第 2.3 条提供安全合规报告，并根
 GitHub 不将受保护数据用于宣传第三方内容，也不向任何第三方销售受保护数据，因合并或收购而造成的数据转移除外。
 
 #### 5.2 GitHub 隐私声明。
-“GitHub 隐私声明”公布在 [https://help.github.com/articles/github-privacy-statement/](/articles/github-privacy-statement) 上，详细说明 GitHub 的隐私和数据使用做法，包括对 cookie 的使用、争议解决流程以及 GitHub 的 GDPR 合规的进一步详情。
+“GitHub 隐私声明”公布在 [https://docs.github.com/articles/github-privacy-statement/](/articles/github-privacy-statement) 上，详细说明 GitHub 的隐私和数据使用做法，包括对 cookie 的使用、争议解决流程以及 GitHub 的 GDPR 合规的进一步详情。
 
 ### 6. 再处理和向外传输。
 

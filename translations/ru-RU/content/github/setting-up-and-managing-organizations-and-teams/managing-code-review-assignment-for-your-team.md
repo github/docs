@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Team maintainers and organization owners can configure code review assignments.

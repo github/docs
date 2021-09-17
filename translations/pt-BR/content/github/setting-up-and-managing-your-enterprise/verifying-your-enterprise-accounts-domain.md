@@ -4,17 +4,17 @@ intro: 'Você pode confirmar a identidade das organizações pertencentes à con
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: Os proprietários das empresas podem verificar o domínio de uma conta corporativa.
+permissions: Enterprise owners can verify an enterprise account's domain.
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
+topics:
+  - Enterprise
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### Sobre a verificação do domínio
 
-Você pode confirmar que os sites e endereços de e-mail listados nos perfis de qualquer organização pertencente à sua conta corporativa são controlados pela sua empresa verificando os domínios. Os domínios verificados para uma conta corporativa aplicam-se a todas as organizações pertencentes à conta corporativa, e os proprietários da organização podem verificar domínios adicionais para suas organizações. Par obter mais informações, consulte "[Verificar o domínio da sua organização](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
+Você pode confirmar que os sites e endereços de e-mail listados nos perfis de qualquer organização pertencente à sua conta corporativa são controlados pela sua empresa verificando os domínios. Os domínios verificados para uma conta corporativa aplicam-se a todas as organizações pertencentes à conta corporativa, e os proprietários da organização podem verificar domínios adicionais para suas organizações. Par obter mais informações, consulte "[Verificar o domínio da sua organização](/organizations/managing-organization-settings/verifying-your-organizations-domain)."
 
 Depois de verificar a propriedade dos domínios da sua conta, será exibido um selo "Verificado" no perfil de cada organização com o domínio listado no seu perfil. {% data reusables.organizations.verified-domains-details %}
 
@@ -22,7 +22,7 @@ Os proprietários da organização conseguirão de verificar a identidade dos in
 
 Após verificar domínios para a sua conta corporativa, você poderá restringir notificações de e-mail para domínios verificados para todas as organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Restringir notificações de e-mail da sua conta corporativa para domínios aprovados](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains)".
 
-Mesmo se você não restringir as notificações de e-mail para a conta corporativa, se o proprietário da organização tiver restringido as notificações de e-mail para a organização, os integrantes da organização poderão receber notificações de qualquer domínio verificado pela conta corporativa, além de qualquer domínio verificado para a organização. Para obter mais informações sobre restrição de notificações para uma organização, consulte "[Restringir notificações de e-mail para um domínio aprovado](/github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain).
+Mesmo se você não restringir as notificações de e-mail para a conta corporativa, se o proprietário da organização tiver restringido as notificações de e-mail para a organização, os integrantes da organização poderão receber notificações de qualquer domínio verificado pela conta corporativa, além de qualquer domínio verificado para a organização. Para obter mais informações sobre restrição de notificações para uma organização, consulte "[Restringir notificações de e-mail para um domínio aprovado](/organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain).
 
 ### Verificar o domínio da conta corporativa
 

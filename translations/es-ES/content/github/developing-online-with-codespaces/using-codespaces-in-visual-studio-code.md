@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -35,10 +37,10 @@ Despuès de que conectas tu cuenta de {% data variables.product.product_name %} 
 ### Abrir un codespace en {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Debajo de Codespaces, da clic en el codespace en el que quieras desarrollar.
+2. Debajo de "Codespaces", da clic en el codespace en el que quieras desarrollar.
 3. Da clic en en el icono de conexión al codespace. ![Icono de conectarse al codespace en {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ### Borrar un codespace en {% data variables.product.prodname_vscode %}
 
-1. Debajo de codespaces, da clic derecho en aquèl que quieras borrar.
+1. Debajo de "Codespaces", da clic derecho en el codespace que quieras borrar.
 2. En el menù desplegable, da clic en **Borrar codespace**. ![Borrar un codespace en {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/delete-codespace-vscode.png)

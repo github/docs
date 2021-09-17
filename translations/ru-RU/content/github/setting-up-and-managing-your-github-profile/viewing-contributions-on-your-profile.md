@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
@@ -25,6 +27,8 @@ On your profile page, certain actions count as contributions:
 
 - Committing to a repository's default branch or `gh-pages` branch
 - Opening an issue
+- Opening a discussion
+- Answering a discussion
 - Proposing a pull request
 - Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
@@ -54,11 +58,11 @@ Your contributions calendar shows your contribution activity.
 #### Viewing contributions from specific times
 
 - Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that timespan.
+- Press *Shift* and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
-**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger timespan, we will only display one month of contributions.
+**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger time span, we will only display one month of contributions.
 
 {% endnote %}
 

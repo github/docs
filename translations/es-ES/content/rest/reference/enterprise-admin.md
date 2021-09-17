@@ -1,6 +1,6 @@
 ---
 title: Administración de GitHub Enterprise
-allowTitleToDifferFromFilename: verdadero
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
   - /v3/enterprise
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -16,7 +18,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% note %}
 
-**Nota:** Este artículo aplica a {% data variables.product.prodname_ghe_cloud %}. Si quieres ver la versión para {% data variables.product.prodname_ghe_server %}, utiliza el menú desplegable de **{% data ui.pages.article_version %}**.
+**Nota:** Este artículo aplica a {% data variables.product.prodname_ghe_cloud %}. Para ver la versión de {% data variables.product.prodname_ghe_managed %} o de {% data variables.product.prodname_ghe_server %}, utiliza el menú desplegable de **{% data ui.pages.article_version %}**.
 
 {% endnote %}
 
@@ -27,7 +29,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 Las terminales de la API de REST{% if enterpriseServerVersions contains currentVersion %}—excepto las terminales de la API de [Consola de Administración](#management-console)—{% endif %} se prefijan con la siguiente URL:
 
 ```shell
-http(s)://<em>hostname</em>/api/v3/
+{% data variables.product.api_url_pre %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -76,8 +78,10 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
+
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
@@ -96,7 +100,7 @@ El IdP debe utilizar `{% data variables.product.api_url_code %}/scim/v2/enterpri
 
 {% note %}
 
-**Nota:** La API empresarial de SCIM solo se encuentra disponible para las empresas en [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que cuenten con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
+**Nota:** La API empresarial de SCIM solo se encuentra disponible para las empresas en [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que cuenten con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 {% endnote %}
 
@@ -147,19 +151,6 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 {% endfor %}
 
 {% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-
-## Cifrado estático
-
-Puedes utilizar la API de cifrado estático para administrar la llave que cifra tus datos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Estadísticas de los Administradores
 
@@ -203,7 +194,7 @@ Los webhooks globales se instalan en tu empresa. Puedes utilizar los webhooks gl
 
 Puedes utilizar la API de LDAP para actualizar las relaciones de cuenta entre un usuario de {% data variables.product.product_name %} o un equipo y su entrada enlazada de LDAP o poner en cola una sincronización nueva.
 
-Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN, por sus siglas en inglés) al cual mapea un usuario o equipo. Nota que las terminales de LDAP generalmente solo son efectivas si tu aplicativo de {% data variables.product.product_name %} [habilitó la sincronización con LDAP](/enterprise/admin/authentication/using-ldap). La terminal de [mapeo de LDAP para actualización para un usuario](#update-ldap-mapping-for-a-user) puede utilizarse cuando se habilita LDAP, aún si la sincronización con LDAP está inhabilitada.
+Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN, por sus siglas en inglés) al cual mapea un usuario o equipo. Toma en cuenta que las terminales de LDAP generalmente solo son efectivas si tu aplicativo de {% data variables.product.product_name %} [habilitó la sincronización con LDAP](/enterprise/admin/authentication/using-ldap). La terminal de [mapeo de LDAP para actualización para un usuario](#update-ldap-mapping-for-a-user) puede utilizarse cuando se habilita LDAP, aún si la sincronización con LDAP está inhabilitada.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
@@ -227,7 +218,7 @@ La API de licencias proporciona información sobre tu licencia empresarial. *Sol
 
 ## Consola de administración
 
-La API de la Consola de Administración te ayuda a administrar tu {% data variables.product.product_name %} instalación.
+La API de la Consola de Administración te ayuda a administrar tu instalación de {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -235,7 +226,7 @@ Debes configurar el número de puerto explícitamente cuando haces llamadas de l
 
 Si no quieres proporcionar un número de puerto, necesitarás configurar tu herramienta para seguir automáticamente las redirecciones.
 
-También necesitas agregar el [marcador `-k`](http://curl.haxx.se/docs/manpage.html#-k) cuando utilices `curl`, ya que {% data variables.product.product_name %} utiliza un certificado auto-firmado antes de que [agregues tu propio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
+Podría que también necesites agregar el [marcador `-k`](http://curl.haxx.se/docs/manpage.html#-k) cuando utilices `curl`, ya que {% data variables.product.product_name %} utiliza un certificado auto-firmado antes de que [agregues tu propio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
@@ -312,7 +303,7 @@ La API de Ambientes de Pre-recepción te permite crear, listar, actualizar y bor
 | `name (nombre)`       | `secuencia` | El nombre del ambiente como se muestra en la IU.                                                    |
 | `image_url`           | `secuencia` | La URL del tarball que se descargará y extraerá.                                                    |
 | `default_environment` | `boolean`   | Si este es el ambiente predeterminado que viene con {% data variables.product.product_name %} o no. |
-| `descargar`           | `object`    | El estado de descarga de este ambiente.                                                             |
+| `download`            | `objeto`    | El estado de descarga de este ambiente.                                                             |
 | `hooks_count`         | `número`    | La cantidad de ganchos de pre-recepción que utilizan este ambiente.                                 |
 
 #### Descarga del Ambiente de Pre-recepción
@@ -344,8 +335,8 @@ La API de Ganchos Pre-recepción te permite crear, listar, actualizar y borrar l
 | -------------------------------- | ----------- | ----------------------------------------------------------------------------------- |
 | `name (nombre)`                  | `secuencia` | El nombre del gancho.                                                               |
 | `script`                         | `secuencia` | El script que ejecuta el gancho.                                                    |
-| `script_repository`              | `object`    | El repositorio de GitHub en donde se mantiene el script.                            |
-| `environment`                    | `object`    | El ambiente de pre-recepción en donde se ejecuta el script.                         |
+| `script_repository`              | `objeto`    | El repositorio de GitHub en donde se mantiene el script.                            |
+| `environment`                    | `objeto`    | El ambiente de pre-recepción en donde se ejecuta el script.                         |
 | `enforcement`                    | `secuencia` | El estado de las imposiciones para este gancho.                                     |
 | `allow_downstream_configuration` | `boolean`   | Si las imposiciones pueden o no ignorarse a nivel de organización o de repositorio. |
 

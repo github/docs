@@ -23,7 +23,7 @@ Ws posible que esta vista truncada no contenga la información que estás buscan
 
 Para obtener más información acerca de cómo Git considera el historial de confirmaciones, consulta la sección [ "Simplificación del historial"](https://git-scm.com/docs/git-log#_history_simplification) del artículo de ayuda de `git log`.
 
-### Further reading
+### Leer más
 
 - "[Firmar confirmaciones](/articles/signing-commits)"
 - "[Buscar confirmaciones](/articles/searching-commits)"

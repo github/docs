@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Puedes eliminar la capacidad de los miembros del equipo de administración heredado para crear repositorios al crear un nuevo equipo para esos miembros, asegurándote de que el equipo tenga el acceso necesario a los repositorios de la organización, y eliminando el equipo de administración heredado.

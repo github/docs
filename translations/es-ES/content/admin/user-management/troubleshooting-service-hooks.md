@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Obtener información sobre las entregas

@@ -1,9 +1,17 @@
 #!/usr/bin/env node
 
-const assert = require('assert')
-const { last } = require('lodash')
-const fs = require('fs')
-const { execSync } = require('child_process')
+// [start-readme]
+//
+// Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it
+// will output the new path in the content/github directory.
+//
+// [end-readme]
+
+import assert from 'assert'
+import { last } from 'lodash-es'
+import fs from 'fs'
+import { execSync } from 'child_process'
+
 const markdownExtension = '.md'
 const markdownRegex = new RegExp(`${markdownExtension}$`, 'm')
 
@@ -13,13 +21,6 @@ const oldPath = process.argv.slice(2)[0]
 assert(oldPath, 'must provide old dotcom path like "foo" or "articles/foo"')
 
 let filename = oldPath
-
-// [start-readme]
-//
-// Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it
-// will output the new path in the content/github directory.
-//
-// [end-readme]
 
 // get last part of path
 if (filename.includes('/')) filename = last(filename.split('/'))

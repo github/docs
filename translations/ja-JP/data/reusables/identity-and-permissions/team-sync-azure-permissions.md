@@ -1,4 +1,4 @@
-To enable team synchronization for Azure AD, your Azure AD installation needs the following permissions.
+Azure ADでTeam同期を有効化するには、Azure AD環境に以下の権限が必要です。
 - すべてのユーザに対するフルプロフィールの読み取り
 - サインインおよびユーザプロフィールの読み取り
 - ディレクトリデータの読み取り

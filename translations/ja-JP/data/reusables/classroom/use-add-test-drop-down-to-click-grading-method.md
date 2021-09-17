@@ -1,1 +1,1 @@
-Under "Add autograding tests", select the **Add test** drop-down menu, then click the grading method you want to use.
+"Add autograding tests（自動採点テストを追加）"の下で、**Add test（テストの追加）**ドロップダウンメニューを選択し、使いたい採点方法をクリックしてください。

@@ -7,17 +7,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
 本指南介绍如何构建、测试和发布 Python 包。
 
-{% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Python 和 PyPy。 您无需安装任何项目！ 有关最新版软件以及 Python 和 PyPy 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% if currentversion == "github-ae@latest" %} 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Python 和 PyPy。 您无需安装任何项目！ 有关最新版软件以及 Python 和 PyPy 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% endif %}
 
 ### 基本要求
 
@@ -37,7 +44,7 @@ type: 'tutorial'
 要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -51,25 +58,25 @@ jobs:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # 如果有任何 Python 语法错误或未定义的名称，停止构建
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        pytest
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest
+        run: |
+          pytest
 ```
 {% endraw %}
 
@@ -100,7 +107,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -111,19 +118,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # 例如，pypy2 和 pypy3
+      # For example, pypy2 and pypy3
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    # 您可以打印当前 Python 版本以测试矩阵
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 
 
@@ -133,12 +140,12 @@ jobs:
 
 #### 使用特定的 Python 版本
 
-您可以配置 python 的特定版本。 例如，3.8。 Alternatively, you can use semantic version syntax to get the latest minor release. 此示例使用 Python 3 最新的次要版本。
+您可以配置 python 的特定版本。 例如，3.8。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 Python 3 最新的次要版本。
 
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -149,17 +156,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v2
-      with:
-        # Semantic version range syntax or exact version of a Python version
-        python-version: '3.x'
-        # Optional - x64 or x86 architecture, defaults to x64
-        architecture: 'x64'
-    # You can test your matrix by printing the current Python version
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 
 
@@ -176,7 +183,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -223,7 +230,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -246,7 +253,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -273,7 +280,7 @@ Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Setup Python
@@ -318,7 +325,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -348,7 +355,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -377,7 +384,7 @@ steps:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -399,7 +406,7 @@ jobs:
       - name: Install Tox and any other packages
         run: pip install tox
       - name: Run Tox
-        # 使用 `PATH` 中的 Python 版本运行 tox
+        # Run tox using the version of Python in `PATH`
         run: tox -e py
 ```
 
@@ -417,7 +424,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -430,7 +437,7 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      steps:
+    steps:
       - uses: actions/checkout@v2
       - name: Setup Python # Set Python version
         uses: actions/setup-python@v2
@@ -466,7 +473,7 @@ jobs:
 {% raw %}
 
 
-```yaml
+```yaml{:copy}
 name: Upload Python Package
 
 on:
@@ -477,22 +484,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-    - name: Build and publish
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+      - name: Build and publish
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python setup.py sdist bdist_wheel
+          twine upload dist/*
 ```
 
 

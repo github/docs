@@ -1,1 +1,1 @@
-Enabling an interaction limit for a repository restricts certain users from commenting, opening issues, creating pull requests, reacting with emojis, editing existing comments, and editing titles of issues and pull requests.
+リポジトリのインタラクション制限を有効にすると、特定のユーザのコメント、Issueのオープン、Pull Requestの作成、絵文字での反応、既存のコメントの編集、Issue及びPull Requestのタイトルの編集を制限できます。

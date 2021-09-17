@@ -1,4 +1,4 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 #### Usar executores auto-hospedados no {% data variables.product.prodname_ghe_server %}
 

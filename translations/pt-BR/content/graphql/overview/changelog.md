@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 As alterações significativas incluem alterações que modificarão as consultas existentes ou podem afetar o comportamento do tempo de execução dos clientes. Para obter uma lista de alterações significativas e quando ocorrerão, consulte o nosso [registro de alterações significativas](/graphql/overview/breaking-changes).

@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 Al tener la autenticación de dos factores habilitada, necesitarás proporcionar el código de autenticación cuando accedes a {% data variables.product.product_name %} a través de tu buscador. Si accedes a {% data variables.product.product_name %} utilizando otros métodos, tales como la API o la línea de comandos, necesitarás utilizar una forma alterna de autenticación. Para obtener más información, consulta la sección "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)".
@@ -59,7 +61,7 @@ Si pierdes el acceso a tus credenciales de autenticación de dos factores, puede
 
 Si tu autenticación falla varias veces, es posible que desees sincronizar el reloj de tu teléfono con tu proveedor móvil. Frecuentemente, esto involucra la verificación de la opción "Establecer automáticamente" en el reloj de tu teléfono, en lugar de brindar tu propia zona horaria.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
 - [Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)"

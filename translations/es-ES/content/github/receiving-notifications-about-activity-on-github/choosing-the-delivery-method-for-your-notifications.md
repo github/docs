@@ -37,7 +37,7 @@ Para las cuentas personales, los correos electrónicos de notificación se enví
     - Si seleccionas **Email each time a vulnerabilidad is found** (Enviar un correo electrónico cada vez que se encuentra una vulnerabilidad) se envía un correo electrónico a tu correo electrónico predeterminado.
     - Si seleccionas **Email a digest summary of vulnerabilities** (Enviar un correo electrónico con un resumen de vulnerabilidades) envía un correo electrónico condensado con un resumen de hasta 10 alertas de seguridad de los repositorios. Usa el menú desplegable para recibir correos electrónicos condensados diariamente o semanalmente.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Acerca de las notificaciones por correo electrónico](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"

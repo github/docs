@@ -1,1 +1,1 @@
-Create and use a dedicated machine user account on your IdP to associate with the first enterprise owner account on {% data variables.product.product_name %}. Store the credentials for the user account securely in a password manager.
+{% data variables.product.product_name %}上の最初のEnterpriseオーナーアカウントと関連づけるための、専用のマシンユーザアカウントをIdPで作成して使用してください。 このユーザアカウントの認証情報は、パスワードマネージャに安全に保存してください。

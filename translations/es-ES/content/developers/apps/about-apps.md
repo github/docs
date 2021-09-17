@@ -10,11 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 Las apps en {% data variables.product.prodname_dotcom %} te permiten automatizar y mejorar tu flujo de trabajo. Puedes crear apps para mejorar tu flujo de trabajo.{% if currentVersion == "free-pro-team@latest" %} También puedes compartir o vender apps en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender sobre cómo listar una app en {% data variables.product.prodname_marketplace %}, consulta la sección "[Comenzar con GitHub Marketplace](/marketplace/getting-started/)".{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, Pero GitHub es compatible tanto con las {% data variables.product.prodname_oauth_app %} y con {% data variables.product.prodname_github_apps %}. Para obtener más información sobre cómo escoger un tipo de app, consulta las secciónes "[Acerca de las apps](/apps/about-apps/)" y "[Diferencias entre apps](/apps/differences-between-apps/)".
+{% data reusables.marketplace.github_apps_preferred %}, Pero GitHub es compatible tanto con las {% data variables.product.prodname_oauth_app %} y con {% data variables.product.prodname_github_apps %}. Para obtener más información sobre cómo elegir un tipo de app, consulta la sección "[Diferencias entre las GitHub Apps y las Apps de OAuth](/developers/apps/differences-between-github-apps-and-oauth-apps)".
 
 {% data reusables.apps.general-apps-restrictions %}
 

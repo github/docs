@@ -104,21 +104,6 @@
   owning_teams:
     - '@github/feature-lifecycle'
 - 
-  title: Visualização de Issues fixados
-  description: Esta visualização adiciona suporte para os issues fixos.
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
-- 
   title: Visualização de Etiquetas
   description: >-
     Esta visualização adiciona suporte para adicionar, atualizar, criar e excluir etiquetas.

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -22,7 +24,7 @@ Si aún no lo has hecho, deberías leer la guía de ["Conceptos Básicos de la A
 
 ### Descubre los repositorios a los cuales tu app puede acceder para un usuario
 
-Adicionalmente a tener sus propios repositorios personales, un usuario puede ser un colaborador en los repositorios que pertenezcan a otros usuarios y organizaciones. En conjunto, estos son los repositorios en donde el usuario tiene acceso privilegiado: ya sea un repositorio privado en donde el usuario tiene acceso de lectura o escritura, o un repositorio público en donde el usuario tiene acceso de escritura.
+Adicionalmente a tener sus propios repositorios personales, un usuario puede ser un colaborador en los repositorios que pertenezcan a otros usuarios y organizaciones. En conjunto, estos son los repositorios en donde el usuario tiene acceso privilegiado: ya sea que constituya un repositorio privado en donde el usuario tenga acceso de lectura o escritura, o que sea un repositorio {% if currentVersion != "github-ae@latest" %}público{% else %}interno{% endif %} en donde el usuario tenga acceso de escritura.
 
 Los [alcances de OAuth][scopes] y las [políticas de aplicación de la organización][oap] determinan a cuáles de estos repositorios puede acceder tu app para un usuario. Utiliza el siguiente flujo de trabajo para descubrir estos repositorios.
 
@@ -87,11 +89,11 @@ client.organizations.each do |organization|
 end
 ```
 
-#### No dependas de las organizaciones públicas
+#### Devuelve todas las membresías de organización del usuario
 
 Si leíste los documentos de principio a fin, tal vez hayas notado que hay un [Método de la API para listar las membrecías de organizaciones públicas de un usuario][list-public-orgs]. La mayoría de las aplicaciones deberían evitar este método de la API. Este método solo devuelve las membrecías de las organizaciones públicas del usuario y no sus membrecías de organizaciones privadas.
 
-Al fungir como una aplicación, habitualmente lo que buscas es todas las organizaciones del usuario (tanto públicas como privadas) en las cuales tu app tenga acceso autorizado. El flujo de trabajo anterior te proporcionará exactamente eso.
+Como aplicación, habitualmente querrás obtener todas las organizaciones de los usuarios a las cuales tu app tiene acceso autorizado. El flujo de trabajo anterior te proporcionará exactamente eso.
 
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user

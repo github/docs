@@ -1,5 +1,5 @@
 {% tip %}
 
-**Note**: If your site{% if currentVersion ver_lt "enterprise-server@2.23" %}'s source files are located in the default publishing source—`master` for user and organization sites or `gh-pages` for project sites—but your site{% endif %} has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.
+**ノート**： サイト{% if currentVersion ver_lt "enterprise-server@2.23" %}のソースファイルがデフォルトの公開ソース、すなわちユーザ及びOrganizationのサイトであれば`master`、プロジェクトのサイトであれば`gh-pages`にありながら、サイト{% endif %}が自動的に公開されない場合は、管理権限と認証済みメールアドレスを持つ人が公開ソースにプッシュしていることを確認してください。
 
 {% endtip %}

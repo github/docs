@@ -6,6 +6,9 @@ redirect_from:
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 {% data variables.product.product_name %} は、個人アカウントの活動からリポジトリとプロファイルのメタデータを保存します。 個人アカウントのデータは、{% data variables.product.prodname_dotcom_the_website %} での設定または User Migration API によりエクスポートできます。

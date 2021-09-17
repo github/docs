@@ -1,9 +1,13 @@
 {% if currentVersion == "free-pro-team@latest" %}
-If you want to authenticate to
-{% data variables.product.prodname_github_container_registry %} in a {% data variables.product.prodname_actions %} workflow, then you must use a personal access token (PAT). The `GITHUB_TOKEN` does not currently have the required permissions. During the {% data variables.product.prodname_github_container_registry %} beta, the only supported form of authentication is the PAT.
 
-PATs can grant broad access to your account. We recommend selecting only the necessary read, write, or delete `package` scope when creating a PAT to authenticate to the {% data variables.product.prodname_container_registry %}. Avoid including the `repo` scope in a PAT used by a GitHub Actions workflow because it gives unnecessary additional access.
+PATはアカウントに対する広汎なアクセスを許可できます。 {% data variables.product.prodname_container_registry %}での認証のためのPATを作成する際には、必要な`read:packages`、`write:packages`、`delete:packages`スコープだけを選択すべきです。
 
-If you'd like to use the {% data variables.product.prodname_container_registry %} in actions during the beta, follow our security best practices for PAT use at "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
+{% data variables.product.prodname_actions %}ワークフロー内で{% data variables.product.prodname_container_registry %}の認証を受けるには、最善のセキュリティと体験のために`GITHUB_TOKEN`を使ってください。
+
+個人アクセストークンで`ghcr.io`の認証を受けるワークフローの更新に関するガイダンスとしては、「[`ghcr.io`にアクセスするワークフローのアップグレード](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)」を参照してください。
+
+{% data reusables.package_registry.github-token-security-over-pat %}
+
+ベータの期間にアクションで{% data variables.product.prodname_container_registry %}を使いたい場合は、「[GitHub Actionsのセキュリティ強化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)」にあるPATのセキュリティベストプラクティスに従ってください。
 
 {% endif %}

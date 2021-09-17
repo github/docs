@@ -1,0 +1,1 @@
+- **Lista de ejecución de flujos de trabajo** - No se pueden poner en cola más de 100 ejecuciones de flujo de trabajo por intervalo de 10 segundos por repositorio. Si una ejecución de flujo de trabajo lelga a su límite, la ejecución de flujo de trabajo se termina y falla en completarse.

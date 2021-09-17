@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?'
+title: ¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user
@@ -49,6 +49,6 @@ Si tu configuración de Git local contiene una dirección de correo electrónico
 
 {% endwarning %}
 
-### Further reading
+### Leer más
 
 * "[Buscar confirmaciones](/articles/searching-commits)"

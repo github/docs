@@ -4,13 +4,14 @@ intro: 'Aprende sobre las API de {% data variables.product.prodname_dotcom %}, a
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+children:
+  - /about-githubs-apis
+  - /managing-deploy-keys
+  - /viewing-deployment-history
+  - /using-ssh-agent-forwarding
+  - /secret-scanning-partner-program
+  - /replacing-github-services
+  - /github-developer-program
 ---
-
 ### Índice
-
-{% link_in_list /about-githubs-apis %}
-{% link_in_list /managing-deploy-keys %}
-{% link_in_list /using-ssh-agent-forwarding %}
-{% link_in_list /secret-scanning %}
-{% link_in_list /replacing-github-services %}
-{% link_in_list /github-developer-program %}

@@ -10,5 +10,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

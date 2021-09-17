@@ -1,6 +1,6 @@
 ---
 title: Informarle a Git acerca de tu clave de firma
-intro: "Para firmar las confirmaciones localmente, necesitas informar a Git que hay una llave de GPG o X.509 que quieres utilizar."
+intro: 'Para firmar las confirmaciones localmente, necesitas informar a Git que hay una llave de GPG o X.509 que quieres utilizar.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% mac %}
@@ -28,16 +31,16 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Si no estás utilizando GPG Suite, pega el texto que aparece a continuación para agregar la llave GPG a tu perfil bash:
+1. Si no estás utilizando la suite de GPG, ejecuta el siguiente comando en el shell de `zsh` para agregar la llave GPG a tu archivo `.zshrc`, si es que existe, o a tu archivo `.zprofile`:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  {% note %}
-
-  **Nota:** Si no tienes `.bash_profile`, este comando agrega tu llave GPG al `.profile`.
-
-  {% endnote %}
+  Como alternativa, si utilizas el shell `bash`, ejecuta este comando:
+  ```shell
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+  ```
 
 {% data reusables.gpg.x-509-key %}
 
@@ -90,10 +93,10 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Para agregar tu llave GPG a tu perfil bash, pega el texto que aparece a continuación:
+1. Para agregar tu llave GPG a tu perfil bash, ejecuta el siguiente comando:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
   {% note %}
 
@@ -103,7 +106,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 - "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"

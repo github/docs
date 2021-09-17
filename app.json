@@ -2,8 +2,8 @@
   "name": "docs.github.com",
   "env": {
     "NODE_ENV": "production",
-    "NPM_CONFIG_PRODUCTION": "true",
-    "ENABLED_LANGUAGES": "en"
+    "ENABLED_LANGUAGES": "en",
+    "WEB_CONCURRENCY": "1"
   },
   "buildpacks": [
     { "url": "heroku/nodejs" }

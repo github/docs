@@ -4,6 +4,6 @@
 
 {% else %}
 
-1. To the right of the list of files, click **Releases** or **Latest release**. ![Releases section in right-hand sidebar](/assets/images/help/releases/release-link.png)
+1. ファイルのリストの右で、**Releases（リリース）**もしくは**Latest release（最新のリリース）**をクリックしてください。 ![右側のサイドバー内のリリースセクション](/assets/images/help/releases/release-link.png)
 
 {% endif %}

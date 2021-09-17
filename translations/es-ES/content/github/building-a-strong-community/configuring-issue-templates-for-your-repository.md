@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
@@ -73,7 +75,7 @@ Tu archivo de configuración personalizará el selector de plantilla cuando el a
 {% data reusables.files.propose_new_file %}
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las plantillas de propuestas y de solicitudes de extracción](/articles/about-issue-and-pull-request-templates)"
 - "[Crear de forma manual una plantilla de propuesta única para tu repositorio](/articles/manually-creating-a-single-issue-template-for-your-repository)"

@@ -32,8 +32,7 @@ Antes de que los miembros o propietarios de una organización puedan publicar im
 {% data reusables.organizations.org_settings %}
 4. A la izquierda, da clic en **Paquetes**.
 5. Debajo de "Soporte mejorado para contenedores", selecciona "Habilitar el soporte mejorado para contenedores" y da clic en **Guardar**. ![Opción para habilitar el soporte del registro de contenedores y botón de guardar](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)
-6. Debajo de "Creación de contenedores", selecciona si quieres habilitar la creación de imágenes de contenedor privadas o públicas.
+6. Debajo de "Creación de contenedores", elige si quieres habilitar la creación de imágenes de contenedor públicas, privadas o internas.
     - Para habilitar a los miembros de la organización para que creen imágenes de contenedor, da clic en **Públicas**.
     - Para habilitar a los miembros de la organización para que creen imágenes de contenedor que solo sean visibles para otros miembros de la organización, da clic en **Privadas**. Puedes personalizar aún más la visibilidad de las imagenes de contenedor privadas. Para obtener más información, consulta la sección "[Configurar el control de accesos y la visibilidad para las imagenes de contenedor](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)".
-
-    ![Opciones para habilitar los paquetes públicos o privados ](/assets/images/help/package-registry/package-creation-org-settings.png)
+    - **Únicamente para {% data variables.product.prodname_ghe_cloud %}:** Para habilitar a los miembros de la organización para que creen imágenes de contenedor internas que solo puedan ver otros miembros organizacionales, haz clic en **Interna**. ![Opciones de visibilidad para las imágenes de contenedor que publican los miembros de la organización](/assets/images/help/package-registry/container-creation-org-settings.png)

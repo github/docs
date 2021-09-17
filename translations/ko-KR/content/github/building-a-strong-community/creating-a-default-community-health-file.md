@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 커뮤니티
 ---
 
 ### About default community health files

@@ -1,1 +1,1 @@
-Users cannot push {% data variables.large_files.product_name_short %} assets to {% data variables.product.product_name %} if {% data variables.large_files.product_name_short %} is disabled on the enterprise or repository.
+Enterpriseもしくはリポジトリで{% data variables.large_files.product_name_short %}が無効化されている場合、ユーザは{% data variables.large_files.product_name_short %}アセットを{% data variables.product.product_name %}にプッシュできません。

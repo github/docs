@@ -69,11 +69,11 @@ For more information, see "[Configuring access control and visibility for contai
 
 To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
-| Scope             | Description                                                                                                                                                                                                                                    |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scope             | Description                                                                                                                                                                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `read:packages`   | Download and install container images from {% data variables.product.prodname_github_container_registry %}
 | `write:packages`  | Upload and publish container images to {% data variables.product.prodname_github_container_registry %}
-| `delete:packages` | Delete specified versions of private or public container images from {% data variables.product.prodname_github_container_registry %}. For more information, see "[Deleting a container image](/packages/guides/deleting-a-container-image)." |
+| `delete:packages` | Delete specified versions of private or public container images from {% data variables.product.prodname_github_container_registry %}. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)." |
 
 To learn about available scopes and permissions for container images, see "[Configuring access control and visibility for container images](/packages/guides/configuring-access-control-and-visibility-for-container-images)."
 

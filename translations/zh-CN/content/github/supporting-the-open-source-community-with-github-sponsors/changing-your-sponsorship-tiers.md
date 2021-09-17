@@ -5,6 +5,8 @@ redirect_from:
   - /articles/changing-your-sponsorship-tiers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于赞助等级

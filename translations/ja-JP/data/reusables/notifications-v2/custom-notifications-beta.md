@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** Custom notifications are currently in beta and subject to change.
+**ノート:** カスタム通知は現在ベータであり、変更されることがあります。
 
 {% endnote %}
 

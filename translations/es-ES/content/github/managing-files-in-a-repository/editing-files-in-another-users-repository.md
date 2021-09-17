@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 1. En el repositorio de otro usuario, dirígete a la carpeta que contiene el archivo que deseas editar. Haz clic en el nombre del archivo que deseas editar.
@@ -21,6 +23,6 @@ versions:
 7. Escribe un título y una descripción para tu solicitud de extracción. ![Página de descripción de la solicitud de extracción](/assets/images/help/pull_requests/pullrequest-description.png)
 8. Haz clic en **Create Pull Request** (Crear solicitud de extracción). ![Botón Solicitud de extracción](/assets/images/help/pull_requests/pullrequest-send.png)
 
-### Further reading
+### Leer más
 
 * "[Editar archivos en un repositorio](/articles/editing-files-in-your-repository)"

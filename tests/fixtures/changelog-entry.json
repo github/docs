@@ -2,8 +2,8 @@
   "previewChanges": [
     {
       "changes": [
-        "Field `Query.previewField` changed type from `PreviewType` to `PreviewType!`",
-        "Type for argument `changeTypeArgument` on field 'PreviewType.field1` changed from `Int` to `Float'"
+        "Type for argument `changeTypeArgument` on field 'PreviewType.field1` changed from `Int` to `Float'",
+        "Field `Query.previewField` changed type from `PreviewType` to `PreviewType!`"
       ],
       "title": "The [Test preview](/graphql/overview/schema-previews#test-preview) includes these changes:"
     }
@@ -12,10 +12,10 @@
     {
       "changes": [
         "Field `removedField` was removed from object type `Query`",
-        "Type for argument `argumentMadeRequired` on field `Query.argumentsField` changed from `Int` to `Int!`",
-        "Type for argument `argumentMadeOptional` on field `Query.argumentsField` changed from `Int!` to `Int`",
         "Argument `removedRequiredArgument: Int!` was removed from field `Query.argumentsField`",
-        "Argument `removedOptionalArgument: Int!` was removed from field `Query.argumentsField`"
+        "Argument `removedOptionalArgument: Int!` was removed from field `Query.argumentsField`",
+        "Type for argument `argumentMadeRequired` on field `Query.argumentsField` changed from `Int` to `Int!`",
+        "Type for argument `argumentMadeOptional` on field `Query.argumentsField` changed from `Int!` to `Int`"
       ],
       "title": "The GraphQL schema includes these changes:"
     }

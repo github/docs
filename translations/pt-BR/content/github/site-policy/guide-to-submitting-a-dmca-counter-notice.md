@@ -6,6 +6,9 @@ redirect_from:
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Este guia descreve as informações de que o GitHub precisa para processar um contra-aviso em uma solicitação de retirada DMCA. Se você tiver dúvidas mais gerais sobre o que é a DMCA ou como o GitHub processa solicitações de retirada DMCA, por favor, reveja nossa [Política de Aviso de Retirada DMCA](/articles/dmca-takedown-policy).

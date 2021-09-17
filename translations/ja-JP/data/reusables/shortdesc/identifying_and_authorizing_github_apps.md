@@ -1,1 +1,1 @@
-Your GitHub App can perform actions on behalf of a user, like creating an issue, creating a deployment, and using other supported endpoints.
+GitHub Appは、Issueの作成、デプロイメントの作成、サポートされている他のエンドポイントの利用など、アクションをユーザの代わりに行うことができます。

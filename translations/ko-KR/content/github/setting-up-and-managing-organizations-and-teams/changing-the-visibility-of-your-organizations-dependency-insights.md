@@ -6,6 +6,9 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization owners can set limitations for viewing organization dependency insights. All members of an organization can view organization dependency insights by default.

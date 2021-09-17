@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Excepto que configures una imagen de perfil para un equipo, la imagen de perfil del equipo coincidirá con la imagen de perfil de la organización.

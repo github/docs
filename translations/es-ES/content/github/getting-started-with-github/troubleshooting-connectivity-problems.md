@@ -21,7 +21,7 @@ Si tienes problemas de conectividad con la red de tu empresa u organización, co
 ### Solucionar problemas de captcha
 
 Si no puedes verificar con el captcha:
-- Asegúrate de que javascript esté habilitado en tu navegador.
+- Asegúrate de que tu buscador tenga JavaScript habilitado.
 - Asegúrate de que tu navegador sea compatible. Si tu navegador no es compatible, actualízalo o instala un navegador compatible. Para obtener una lista de navegadores compatibles, consulta "[Navegadores compatibles](/articles/supported-browsers)".
 - Asegúrate de que tu configuración de red no esté bloqueando https://octocaptcha.com/ o https://arkoselabs.com/. Si estás detrás de un cortafuegos corporativo, contacta a tu administrador de TI para que incluya esos dominios. Para verificar el acceso a estos dominios, visita https://octocaptcha.com/test y asegúrate de que se muestre el texto "¡La conexión se llevó a cabo exitosamente!", luego visita https://client-demo.arkoselabs.com/github y asegúrate de que puedes cargar el captcha.
 - Asegúrate de que tu navegador no tenga plug-ins o extensiones que puedan estar interfiriendo con GitHub. En tal caso, inhabilita de manera temporal los plug-ins o extensiones durante la verificación del captcha.

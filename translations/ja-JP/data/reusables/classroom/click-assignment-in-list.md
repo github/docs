@@ -1,1 +1,1 @@
-1. In the list of assignments, click the assignment you want to view. ![Assignment in list of assignments for an classroom](/assets/images/help/classroom/click-assignment-in-list.png)
+1. 課題のリスト中で、表示したい課題をクリックしてください。 ![クラスルームの課題リスト中の課題](/assets/images/help/classroom/click-assignment-in-list.png)

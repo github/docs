@@ -16,7 +16,7 @@ versions:
 
 ### 在仓库中启用 {% data variables.product.prodname_discussions %}
 
-仓库所有者和具有写入访问权限的人可在其公共仓库中为社区启用 {% data variables.product.prodname_discussions %}。
+仓库所有者和具有写入访问权限的人可在其公共和私有仓库中为社区启用 {% data variables.product.prodname_discussions %}。
 
 当您首次启用 {% data variables.product.prodname_discussions %} 时，将邀请您配置欢迎帖子。
 
@@ -24,7 +24,7 @@ versions:
 1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %} **Settings（设置）**。 ![公共设置按钮](/assets/images/help/discussions/public-repo-settings.png)
 1. 在“Features（功能）”下，单击 **Set up discussions（设置讨论）**。 ![在"Features（功能）"下设置讨论按钮，用于启用或禁用仓库的讨论](/assets/images/help/discussions/setup-discussions-button.png)
 1. 在“Start a new discussion（开始新讨论）”下，编辑模板以与要为社区设置的资源和语气保持一致。
-1. Click **Start discussion**. !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
+1. 单击 **Start discussion（开始讨论）**。 !["Start discussion（开始讨论）"按钮](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ### 欢迎参与您的讨论
 
@@ -35,7 +35,7 @@ versions:
 
 您可以设置参与指南，以鼓励协作者进行与仓库相关的有意义、有用的对话。 您还可以更新仓库的 README，以传达协作者何时应打开问题或讨论的期望。
 
-有关为项目提供指南的更多信息，请参阅“[为项目添加行为准则](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)”和“[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)”。
+有关为项目提供指南的更多信息，请参阅“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
 ### 创建新讨论
 
@@ -43,9 +43,11 @@ versions:
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### 将讨论组织到相关类别
+### 组织讨论
 
 仓库所有者和具有写入权限的人可以创建新类别来保持讨论井然有序。 参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”。
+
+{% data reusables.discussions.you-can-label-discussions %}
 
 ### 促进健康的对话
 

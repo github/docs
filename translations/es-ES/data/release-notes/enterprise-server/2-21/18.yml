@@ -1,0 +1,15 @@
+date: '2021-04-01'
+sections:
+  security_fixes:
+    - '**ALTO:** Se identificó una vulnerabilidad de control de acceso inadecuada en GitHub Enterprise Server, la cual permitió que los tokens de acceso generados desde un [flujo de autenticación web](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) de una GitHub App leyera los metadatos de un repositorio privado a través de la API de REST sin que se le hubieran otorgado los permisos adecuados. Para explotar esta vulnerabilidad, el atacante necesitaría crear una GitHub App en la instancia y hacer que un usuario autorice la aplicación mediante el flujo de autenticación web. Los metadatos del repositorio privado que se devolvió estarían limitados a los repositorios que pertenecen al usuario al cual identifica el token. Esta vulnerabilidad afectó a todas las versiones de GitHub Enterprise Server anterior a la 3.0.4 y se arregló en las versiones 3.0.4, 2.22.10 y 2.21.18. A esta vulnerabilidad se le asignó un CVE-2021-22865 y se reportó mediante el [Programa de Recompensas por Errores de GitHub](https://bounty.github.com).'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Los servicios no estaban haciendo la transición a los archivos de bitácora nuevos como parte de la rotación de bitácoras, lo cual dio como resultado un uso de disco incrementado.'
+    - 'La etiqueta de los resultados de la búsqueda para los repositorios internos se mostró como "Privada" en vez de como "Interna".'
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
+    - 'Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Las alertas de seguridad no se reportan cuando se sube a un repositorio en la línea de comandos.'

@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -22,18 +24,16 @@ Events are optimized for polling with the "ETag" header. If no new events have b
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
-
-Events support pagination, however the `per_page` option is unsupported. The fixed page size is 30 items. Fetching up to ten pages is supported, for a total of 300 events. For information, see "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
 
 Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
 
@@ -56,7 +56,7 @@ To get a feed in Atom format, you must specify the `application/atom+xml` type i
 #### Response
 
 ```shell
-Status: 200 OK
+HTTP/2 200
 ```
 
 ```xml
@@ -122,14 +122,14 @@ Notifications are optimized for polling with the `Last-Modified` header.  If the
 ``` shell
 # Add authentication to your requests
 $ curl -I {% data variables.product.api_url_pre %}/notifications
-HTTP/1.1 200 OK
+HTTP/2 200
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
 

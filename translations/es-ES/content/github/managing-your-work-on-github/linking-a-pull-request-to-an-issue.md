@@ -1,6 +1,6 @@
 ---
 title: Vincular una solicitud de cambios a una propuesta
-intro: 'Puedes vincular una solicitud de cambios a una propuesta para mostrar que una solución está en progreso y para cerrar automáticamente la propuesta cuando se fusione la solicitud de cambios.'
+intro: Puedes vincular una solicitud de cambios a una propuesta para mostrar que una solución está en progreso y para cerrar automáticamente la propuesta cuando se fusione la solicitud de cambios.
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% note %}
@@ -50,7 +52,7 @@ Puedes vincular una solicitud de cambios con una propuesta si utilizas una palab
 * fix
 * fixes
 * fixed
-* resolve
+* resolver
 * resuelve
 * resuelto
 
@@ -66,6 +68,6 @@ La sintaxis para palabras clave de cierre dependerá de si el informe de problem
 
 También puedes utilizar palabras clave de cierre en un mensaje de confirmación. La propuesta se cerrará cuando fusiones la confirmación en la rama predeterminada, pero la solicitud de cambios que contiene la confirmación no se listará como una solicitud de cambios enlazada.
 
-### Further reading
+### Leer más
 
 - "[URL y referencias auto-enlazadas](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"

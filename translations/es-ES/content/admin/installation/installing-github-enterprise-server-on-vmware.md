@@ -9,6 +9,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Prerrequisitos
@@ -46,7 +48,7 @@ versions:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Further reading
+### Leer más
 
 - "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

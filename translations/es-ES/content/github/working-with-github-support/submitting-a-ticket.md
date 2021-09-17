@@ -5,13 +5,18 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
-Si tu cuenta utiliza un producto pagado de {% data variables.product.prodname_dotcom %}, puedes contactar directamente a {% data variables.contact.github_support %}. Si tu cuenta utiliza {% data variables.product.prodname_free_user %} para cuentas organizacionales y de usuario, puedes contactar a {% data variables.contact.contact_support %} para reportar problemas con la cuenta, seguridad y abuso. Para obtener más informaciónm, consulta la sección "[Acerca de GitHub Support](/github/working-with-github-support/about-github-support)".
+### About ticket submission
+Si tu cuenta utiliza un producto pagado de {% data variables.product.prodname_dotcom %}, puedes contactar directamente a {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. Para obtener más informaciónm, consulta la sección "[Acerca de GitHub Support](/github/working-with-github-support/about-github-support)".
 
-Si utilizas {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_ghe_cloud %}, o el {% data variables.product.premium_support_plan %} deberás emitir tickets utilizando el {% data variables.contact.enterprise_portal %}.
+{% data reusables.enterprise-accounts.support-entitlements %}
 
-### Emitir un ticket utilizando el {% data variables.contact.support_portal %}
+Si no tienes una cuenta empresarial, por favor, utiliza el {% data variables.contact.enterprise_portal %} para emitir tickets. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Acerca de las cuentas empresariales](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)".
+
+### Enviar un ticket mediante el {% data variables.contact.support_portal %}
 
 1. Navega por el {% data variables.contact.contact_support_portal %}.
 2. Debajo de "Nombre", ingresa tu nombre. ![Campo de nombre](/assets/images/help/support/name-field.png)
@@ -31,7 +36,7 @@ Si utilizas {% data variables.product.prodname_ghe_server %}, {% data variables.
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Further reading
+### Leer más
 - "[Productos de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)"
 - "[Acerca de {% data variables.contact.github_support %}](/articles/about-github-support)"
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."

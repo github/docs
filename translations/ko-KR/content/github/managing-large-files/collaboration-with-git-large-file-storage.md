@@ -14,7 +14,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 {% tip %}
 
-**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)."
+**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 {% endtip %}
 

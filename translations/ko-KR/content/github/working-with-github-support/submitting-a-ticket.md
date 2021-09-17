@@ -5,11 +5,16 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
-If your account uses a paid {% data variables.product.prodname_dotcom %} product, you can directly contact {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can contact {% data variables.contact.contact_support %} to report account, security, and abuse issues. For more information, see "[About GitHub Support](/github/working-with-github-support/about-github-support)."
+### About ticket submission
+If your account uses a paid {% data variables.product.prodname_dotcom %} product, you can directly contact {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can use contact {% data variables.contact.github_support %} to report account, security, and abuse issues. For more information, see "[About GitHub Support](/github/working-with-github-support/about-github-support)."
 
-If you use {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_ghe_cloud %}, or the {% data variables.product.premium_support_plan %} you must submit tickets using the {% data variables.contact.enterprise_portal %}.
+{% data reusables.enterprise-accounts.support-entitlements %}
+
+If you do not have an enterprise account, please use the {% data variables.contact.enterprise_portal %} to submit tickets. For more information about enterprise accounts, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)."
 
 ### Submitting a ticket using the {% data variables.contact.support_portal %}
 

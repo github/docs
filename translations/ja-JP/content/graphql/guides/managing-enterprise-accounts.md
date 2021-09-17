@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### GraphQLでのEnterpriseアカウントの管理について
@@ -59,8 +61,6 @@ GraphQLを使ってEnterpriseアカウントの管理を始めるには、以下
     - `manage_billing:enterprise`: Enterpriseの支払いデータの読み書き。
     - `read:enterprise`: Enterpriseのプロフィールデータの読み取り。
 
-  ![個人アクセストークンの権限オプション](/assets/images/developer/graphql/permissions-for-access-token.png)
-
 4. 個人アクセストークンをコピーし、GraphQLクライアントに追加するまでは安全な場所に保管しておいてください。
 
 #### 2. GraphQLクライアントの選択
@@ -68,7 +68,7 @@ GraphQLを使ってEnterpriseアカウントの管理を始めるには、以下
 GraphiQLもしくはベースURLの設定ができる他のスタンドアローンのGraphQLクライアントを使うことをおすすめします。
 
 以下のGraphQLクライアントの利用を検討しても良いでしょう。
-  - [Insomnia](https://insomnia.rest/graphql/)
+  - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
   - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
   - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
@@ -93,7 +93,9 @@ GraphiQLもしくはベースURLの設定ができる他のスタンドアロー
 
 ### Enterprise Accounts APIを使ったクエリの例
 
-このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の`public`なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をお使いのEnterpriseインスタンスのスラッグで置き換えてください。
+このGraphQLクエリは、Enterprise Accounts APIを使い、アプライアンス中の各Organization内の{% if currentVersion != "github-ae@latest" %}`パブリック`{% else %}`プライベート`{% endif %}なリポジトリの総数を要求しています。 このクエリをカスタマイズするには、`<enterprise-account-name>`をお使いのEnterpriseインスタンスのスラッグで置き換えてください。
+
+{% if currentVersion != "github-ae@latest" %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -115,8 +117,42 @@ fragment repositories on Organization {
 }
 ```
 
-次のGraphQLクエリの例は、Enterprise Accounts APIを使わずに各Organization内の`public`なリポジトリの数を取得するのがいかに難しいかを示します。  単一の変数だけをカスタマイズすれば済むようになることから、EnterpriseにとってGraphQLのEnterprise Accounts APIがこのタスクをシンプルにしてくれていることに注意してください。 このクエリをカスタマイズするには、`<name-of-organization-one>`や`<name-of-organization-one>`などを 自分のインスタンス上のOrganization名で置き換えてください。
+{% else %}
 
+```graphql
+query privateRepositoriesByOrganization($slug: String!) {
+  enterprise(slug: $slug) {
+    ...enterpriseFragment
+  }
+}
+
+fragment enterpriseFragment on Enterprise {
+  ... on Enterprise{
+    name
+    organizations(first: 100){
+      nodes{
+        name
+        ... on Organization{
+          name
+          repositories(privacy: PRIVATE){
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+# Passing our Enterprise Account as a variable
+variables {
+  "slug": "<enterprise-account-name>"
+}
+```
+{% endif %}
+
+次のGraphQLクエリの例は、Enterprise Accounts APIを使わずに各Organization内の{% if currentVersion != "github-ae@latest" %}`public`{% else %}` private`{% endif %}なリポジトリの数を取得するのがいかに難しいかを示します。  単一の変数だけをカスタマイズすれば済むようになることから、EnterpriseにとってGraphQLのEnterprise Accounts APIがこのタスクをシンプルにしてくれていることに注意してください。 このクエリをカスタマイズするには、`<name-of-organization-one>`や`<name-of-organization-two>`などを 自分のインスタンス上のOrganization名で置き換えてください。
+
+{% if currentVersion != "github-ae@latest" %}
 ```graphql
 # 各organizationに対して個別にクエリを実行
 {
@@ -130,7 +166,7 @@ fragment repositories on Organization {
   # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
 
-## How to define a fragment
+## フラグメントの定義方法
 fragment repositories on Organization {
   name
   repositories(privacy: PUBLIC){
@@ -138,8 +174,33 @@ fragment repositories on Organization {
   }
 }
 ```
+{% else %}
+```graphql
+# 各organizationに対して個別にクエリを実行
+{
+  organizationOneAlias: organization(login: "name-of-organization-one") {
+    # フラグメントの使い方
+    ...repositories
+  }
+  organizationTwoAlias: organization(login: "name-of-organization-two") {
+    ...repositories
+  }
+  # organizationThreeAlias ... といったように最大でたとえば100個続く
+}
+
+## フラグメントの定義方法
+fragment repositories on Organization {
+  name
+  repositories(privacy: PRIVATE){
+    totalCount
+  }
+}
+```
+{% endif %}
 
 ### 各Organizationに対して個別にクエリを行う
+
+{% if currentVersion != "github-ae@latest" %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -150,7 +211,7 @@ query publicRepositoriesByOrganization {
   organizationTwoAlias: organization(login: "<name-of-organization-two>") {
     ...repositories
   }
-  # organizationThreeAlias ... など、最大 100 とする
+  # organizationThreeAlias ... といったように最大でたとえば100個続く
 }
 # フラグメントの定義方法
 fragment repositories on Organization {
@@ -160,6 +221,30 @@ fragment repositories on Organization {
   }
 }
 ```
+
+{% else %}
+
+```graphql
+query privateRepositoriesByOrganization {
+  organizationOneAlias: organization(login: "<name-of-organization-one>") {
+    # フラグメントの使用方法
+    ...repositories
+  }
+  organizationTwoAlias: organization(login: "<name-of-organization-two>") {
+    ...repositories
+  }
+  # organizationThreeAlias ... といったように最大でたとえば100個続く
+}
+# フラグメントの定義方法
+fragment repositories on Organization {
+  name
+  repositories(privacy: PRIVATE){
+    totalCount
+  }
+}
+```
+
+{% endif %}
 
 このGraphQLクエリは、EnterpriseのOrganizationの最新の5つのログエントリを要求します。 このクエリをカスタマイズするには、`<org-name>`と`<user-name>`を置き換えてください。
 
@@ -193,6 +278,6 @@ GraphQLの使い始め方に関する詳しい情報については「[GraphQL�
 
 Enterprise Accounts APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型の概要を以下に示します。
 
-Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/graphql)の詳細なGraphQLの定義があるサイドバーを見てください。
+Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/graphql)の詳細なGraphQLの定義があるサイドバーを参照してください。
 
 GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。 認証やレート制限の詳細など その他の情報については[ガイド](/graphql/guides)を参照してください。

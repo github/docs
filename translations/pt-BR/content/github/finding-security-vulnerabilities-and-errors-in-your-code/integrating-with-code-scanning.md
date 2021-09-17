@@ -4,10 +4,10 @@ shortTitle: Integração
 intro: 'Você pode integrar ferramentas de análise de código de terceiros com {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_code_scanning %} fazendo o upload de dados como arquivos SARIF.'
 mapTopic: true
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-results-from-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->

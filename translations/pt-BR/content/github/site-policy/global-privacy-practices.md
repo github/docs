@@ -5,6 +5,9 @@ redirect_from:
   - /articles/global-privacy-practices
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Data de entrada em vigor: 22 de Julho de 2020

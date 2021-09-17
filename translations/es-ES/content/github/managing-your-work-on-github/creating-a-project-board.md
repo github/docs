@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -66,7 +68,7 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 ### Crear un tablero de proyecto para un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under your repository name, click
+2. Debajo del nombre de tu repositorio, da clic en
 {% octicon "project" aria-label="The project board icon" %} **Proyectos**.
 ![Pestaña Project (Proyecto)](/assets/images/help/projects/repo-tabs-projects.png)
 {% data reusables.project-management.click-new-project %}
@@ -82,7 +84,7 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 
 {% data reusables.project-management.edit-project-columns %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tableros de proyectos](/articles/about-project-boards)"
 - "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}

@@ -7,6 +7,8 @@ redirect_from:
   - /articles/verifying-your-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### About email verification

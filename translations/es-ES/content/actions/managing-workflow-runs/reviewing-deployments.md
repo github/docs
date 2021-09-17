@@ -5,15 +5,17 @@ product: '{% data reusables.gated-features.environments %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de las revisiones requeridas en los flujos de trabajo
 
 Los jobs que referencian un ambiente configurado con revisores requeridos esperarán por una aprobación antes de comenzar. Mientras que un job espera su revisión, tendrá un estado de "Waiting". Si un job no se aprueba dentro de 30 días, la ejecución del flujo de trabajo se cancelará automáticamente.
 
-Para obtener más información acerca de los ambientes y aprobaciones requeridas, consulta la sección "[Ambientes](/actions/reference/environments)".
+Para obtener más información acerca de los ambientes y las aprobaciones requeridas, consulta la sección "[Ambientes](/actions/reference/environments)".{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %} Para obtener información sobre cómo revisar los despliegues con la API de REST, consulta la sección "[Ejecuciones de flujo de trabajo](/rest/reference/actions#workflow-runs)".{% endif %}
 
 ### Aprobar o rechazar un job
 

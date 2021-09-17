@@ -8,6 +8,7 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Os minutos de execução de um trabalho faturável são exibidos para trabalhos executados em repositórios privados que usam executores hospedados em {% data variables.product.prodname_dotcom %}. Não há minutos faturáveis ao usar {% data variables.product.prodname_actions %} nos repositórios públicos ou para trabalhos executados em executores auto-hospedados.
 
@@ -19,6 +20,6 @@ Os minutos de execução de um trabalho faturável são exibidos para trabalhos 
 
    {% note %}
 
-   **Observação:**O tempo faturável exibido não inclui arredondamentos ou multiplicadores de minutos. Para visualizar o uso total de {% data variables.product.prodname_actions %}, incluindo arredondamento e multiplicadores de minutos, consulte "[Visualizando o seu uso {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage)".
+   **Observação:**O tempo faturável exibido não inclui arredondamentos ou multiplicadores de minutos. Para visualizar o uso total de {% data variables.product.prodname_actions %}, incluindo arredondamento e multiplicadores de minutos, consulte "[Visualizando o seu uso {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)".
 
    {% endnote %}

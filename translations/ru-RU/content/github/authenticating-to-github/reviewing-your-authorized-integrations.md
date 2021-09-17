@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 ### Reviewing your authorized {% data variables.product.prodname_oauth_app %}s

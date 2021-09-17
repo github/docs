@@ -1,5 +1,9 @@
 name: Auto Merge Dependency Updates
 
+# **What it does**: Automatically merge pull requests from dependabot.
+# **Why we have it**: To keep our dependencies up-to-date, to avoid security issues.
+# **Who does it impact**: It helps docs engineering focus on higher value work.
+
 on:
   pull_request:
     paths:

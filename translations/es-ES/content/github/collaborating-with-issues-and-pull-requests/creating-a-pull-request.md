@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Todo usuario que tenga permisos de lectura para un repositorio puede crear una solicitud de extracción, pero tú debes tener permisos de escritura para poder crear una rama. Si deseas crear una rama nueva para tu solicitud de extracción y no tienes permisos de escritura para el repositorio, puedes bifurcar antes el repositorio. Para obtener más información, consulta "[Crear una solicitud de extracción a partir de una bifurcación](/articles/creating-a-pull-request-from-a-fork)" y "
@@ -17,6 +19,20 @@ Puedes especificar en qué rama deseas fusionar tus cambios cuando creas tu soli
 {% data reusables.pull_requests.perms-to-open-pull-request %}
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+
+
+{% tip %}
+
+**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+
+
+
+{% endif %}
 
 
 
@@ -73,7 +89,7 @@ Una vez que tu solicitud de extracción ha sido revisada, esta se puede [fusiona
 
 
 
-### Further reading
+### Leer más
 
 - "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)"
 - "[Cambiar la rama base de una solicitud de extracción](/articles/changing-the-base-branch-of-a-pull-request)"

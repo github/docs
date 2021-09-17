@@ -1,9 +1,11 @@
 ---
 title: OpenAPI 描述
-intro: OpenAPI 3.0 标准文档中全面描述了 {% data variables.product.product_name %} REST API。
+intro: 'OpenAPI 3.0 标准文档中全面描述了 {% data variables.product.product_name %} REST API。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - API
 ---
 
 ### 关于 OpenAPI 描述

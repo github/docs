@@ -1,1 +1,1 @@
-1. En el campo de búsqueda, teclea el nombre del repositorio y da clic en **Buscar**. ![Site admin settings search field](/assets/images/enterprise/site-admin-settings/search-for-things.png)
+1. En el campo de búsqueda, teclea el nombre del repositorio y da clic en **Buscar**. ![Campo de búsqueda en la configuración de administrador de sitio](/assets/images/enterprise/site-admin-settings/search-for-things.png)

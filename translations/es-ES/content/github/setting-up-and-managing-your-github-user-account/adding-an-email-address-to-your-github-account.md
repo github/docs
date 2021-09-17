@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -23,6 +26,6 @@ versions:
 {% data reusables.user_settings.add_and_verify_email %}
 {% data reusables.user_settings.select_primary_email %}
 
-### Further reading
+### Leer más
 
 - "[Administrar preferencias de correo electrónico](/articles/managing-email-preferences/)"

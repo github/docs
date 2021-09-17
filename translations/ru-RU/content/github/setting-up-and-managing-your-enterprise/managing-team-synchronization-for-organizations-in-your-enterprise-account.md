@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### About team synchronization for enterprise accounts
@@ -17,7 +19,7 @@ If you use Azure AD as your IdP, you can enable team synchronization for your en
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)."
+You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
 ### Требования
 

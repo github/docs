@@ -5,6 +5,9 @@ redirect_from:
   - /articles/github-community-guidelines
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Millones de desarrolladores albergan millones de proyectos en GitHub — tanto de código abierto como de código cerrado — y tenemos el honor de participar en la colaboración de toda la comunidad todos los días. Juntos tenemos una emocionante oportunidad y responsabilidad de hacer de esta una comunidad de la que podemos estar orgullosos.

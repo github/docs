@@ -4,6 +4,6 @@
 
 {% else %}
 
-1. En la barra lateral izquierda, haz clic en **License** (Licencia). ![Pestaña de "Licencia" en la barra lateral de configuración para la cuenta empresarial](/assets/images/enterprise/enterprises/license.png)
+1. En la barra lateral izquierda, haz clic en **License** (Licencia). ![Pestaña de "Licencia" en la barra lateral de configuración para la cuenta empresarial](/assets/images/enterprise/enterprise-server/license.png)
 
 {% endif %}

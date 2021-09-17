@@ -1,12 +1,14 @@
 ---
 title: 'Error: Permiso denegado (publickey)'
-intro: 'Un error de "Permiso denegado" significa que el servidor rechazó tu conexión. Esto puede suceder por varias razones. A continuación se explican los ejemplos más comunes.'
+intro: Un error de "Permiso denegado" significa que el servidor rechazó tu conexión. Esto puede suceder por varias razones. A continuación se explican los ejemplos más comunes.
 redirect_from:
   - /articles/error-permission-denied-publickey
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 ### ¿El comando `sudo` se debe usar con Git?
@@ -38,7 +40,7 @@ Todas las conexiones, incluidas las de URL remotas, deben hacerse como el usuari
 $ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-Si tu conexión ha fallado y estás usando una URL remota con tu nombre de usuario de {% data variables.product.product_name %}, puedes [cambiar tu URL remota para usar el usuario "git"](/articles/changing-a-remote-s-url/).
+Si tu conexión ha fallado y estás usando una URL remota con tu nombre de usuario de {% data variables.product.product_name %}, puedes [cambiar tu URL remota para usar el usuario "git"](/github/getting-started-with-github/managing-remote-repositories).
 
 Para verificar tu conexión, debes escribir:
 

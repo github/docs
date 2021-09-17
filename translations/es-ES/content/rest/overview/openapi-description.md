@@ -1,9 +1,11 @@
 ---
 title: Descripción de OpenAPI
-intro: La API de REST de {% data variables.product.product_name %} se describe íntegramente en un documento compatible con OpenAPI 3.0.
+intro: 'La API de REST de {% data variables.product.product_name %} se describe íntegramente en un documento compatible con OpenAPI 3.0.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - API
 ---
 
 ### Acerca de las descripciones de OpenAPI

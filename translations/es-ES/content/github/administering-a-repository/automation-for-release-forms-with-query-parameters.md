@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda, una plantilla de propuestas o la página del formulario de lanzamiento en {% data variables.product.prodname_dotcom %}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
@@ -19,12 +21,12 @@ Si creas una URL no válida usando los parámetros de consulta o si no tienen lo
 
 | Parámetro de consulta | Ejemplo                                                                                                                                                                                              |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tag`                 | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1` create un lanzamiento en función de la etiqueta denominada "v1.0.1".                                                                 |
-| `destino`             | `https://github.com/octo-org/octo-repo/releases/new?target=release-1.0.1` create un lanzamiento en función de la última confirmación a la rama "release-1.0.1".                                      |
+| `etiqueta`            | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1` create un lanzamiento en función de la etiqueta denominada "v1.0.1".                                                                 |
+| `target`              | `https://github.com/octo-org/octo-repo/releases/new?target=release-1.0.1` create un lanzamiento en función de la última confirmación a la rama "release-1.0.1".                                      |
 | `título`              | `https://github.com/octo-org/octo-repo/releases/new?tag=v1.0.1&title=octo-1.0.1` crea un lanzamiento denominado "octo-1.0.1" basado en una etiqueta denominada "v1.0.1".                         |
-| `body`                | `https://github.com/octo-org/octo-repo/releases/new?body=Adds+widgets+support` crea un lanzamiento con la descripción "Adds widget support" (Agrega soporte de widget) en el cuerpo del lanzamiento. |
+| `cuerpo`              | `https://github.com/octo-org/octo-repo/releases/new?body=Adds+widgets+support` crea un lanzamiento con la descripción "Adds widget support" (Agrega soporte de widget) en el cuerpo del lanzamiento. |
 | `lanzamiento previo`  | `https://github.com/octo-org/octo-repo/releases/new?prerelease=1` crea un lanzamiento que será identificado como listo para no producción.                                                           |
 
-### Further reading
+### Leer más
 
 - "[Acerca de la automatización para las propuestas y las solicitudes de extracción con parámetros de consulta ](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"

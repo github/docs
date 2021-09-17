@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Los propietarios de las organizaciones pueden configurar el SSO de SAML y SCIM utilizando Okta para su organización.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 ### Acerca de SAML y SCIM con Okta
@@ -68,7 +71,7 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 
-### Further reading
+### Leer más
 
 - "[Configurar el inicio de sesión único de SAML y SCIM para tu cuenta empresarial utilizando Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
 - "[Administrar la sincronización de equipos para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
