@@ -43,7 +43,7 @@ For more information about providing guidelines for your project, see "[Adding a
 
 ## Creating a new discussion
 
-Anyone who can view the repository can create a discussion, thus, for public repositories any logged in user start a discussion.
+Any logged-in user who can view the repository can create a discussion.
 
 {% data reusables.discussions.starting-a-discussion %}
 
