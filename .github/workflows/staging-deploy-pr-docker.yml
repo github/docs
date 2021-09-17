@@ -19,6 +19,8 @@ permissions:
   statuses: write
 
 env:
+  EARLY_ACCESS_SCRIPT_PATH: script/early-access/clone-for-build.js
+  EARLY_ACCESS_SUPPORT_FILES: script/package.json
   # In this specific workflow relationship, the `github.event.workflow_run.pull_requests`
   # array will always contain only 1 item! Specifically, it will contain the PR associated
   # with the `github.event.workflow_run.head_branch` that triggered the preceding
@@ -90,56 +92,49 @@ jobs:
       app_name: ${{ steps.create-app.outputs.app_name}}
       docker_image_id: ${{ steps.image-id.outputs.image_id}}
     steps:
-      - name: Dump event context
-        env:
-          GITHUB_EVENT_CONTEXT: ${{ toJSON(github.event) }}
-        run: echo "$GITHUB_EVENT_CONTEXT"
-
       - name: Check out repo's default branch
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
+          # For enhanced security: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
           persist-credentials: 'false'
 
-      - name: Download build artifact
-        uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          run_id: ${{ github.event.workflow_run.id }}
-          name: pr_build_docker
-          path: ./
-
-      - name: Show contents
-        run: ls -l
-
-      - name: Extract the archive
-        run: |
-          tar -xf app.tar -C ./
-          rm app.tar
-
-      - name: Show contents again
-        run: ls -l
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Setup node to clone early access
+      - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
           node-version: 16.8.x
           cache: npm
 
-      # Add any dependencies that are needed for this workflow below
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Install temporary development-only dependencies
-        run: npm install --no-save rimraf dotenv
+      - name: Install dependencies
+        run: npm ci
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
-        run: node script/early-access/clone-for-build.js
+        run: node ${{ env.EARLY_ACCESS_SCRIPT_PATH }}
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.workflow_run.head_branch }}
 
-      - name: Install one-off development-only dependencies
-        run: npm install --no-save --include=optional esm
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create an archive for early access
+        run: |
+          tar -c --file=early-access.tar \
+            assets/ \
+            content/ \
+            data/
+
+      # Download the previously built "app.tar"
+      - name: Download build artifact
+        uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr_build
+          path: ./
+
+      # Append "early-access.tar" into "app.tar"
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Concatenate the archives
+        run: tar -A --file=app.tar early-access.tar
 
       - name: Create app
         id: create-app
@@ -182,9 +177,13 @@ jobs:
               throw(err)
             }
 
+      - name: Extract user-changes to tmp directory
+        run: |
+          tar -x --file=app.tar -C ${{ runner.temp }}/
+
       - name: Build, tag, push, and release the Docker image
         run: |
-          docker image build --target production_early_access -t registry.heroku.com/${{ steps.create-app.outputs.app_name}}/web .
+          docker image build -f ${{ runner.temp }}/Dockerfile --target production_early_access -t registry.heroku.com/${{ steps.create-app.outputs.app_name}}/web ${{ runner.temp }}
           heroku container:login
           docker push registry.heroku.com/${{ steps.create-app.outputs.app_name }}/web
           heroku container:release web --app=${{ steps.create-app.outputs.app_name }}
@@ -201,9 +200,6 @@ jobs:
         run: |
           echo "::set-output name=image_id::$(docker image inspect registry.heroku.com/${{ steps.create-app.outputs.app_name }}/web --format={{.Id}})"
           exit 1 # Stop at this point, don't move on to prepare job
-
-      # TODO - heroku stuff
-      # - create a release based on the image
 
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
