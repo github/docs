@@ -15,7 +15,7 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+      GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
       REPORT_AUTHOR: docubot
       REPORT_LABEL: broken link report

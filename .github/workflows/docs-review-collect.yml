@@ -7,11 +7,15 @@ name: Add docs-reviewers request to the docs-content review board
 on:
   workflow_dispatch:
   schedule:
-    - cron: '25 4 * * *'
+    - cron: '50 */6 * * *'
+
+permissions:
+  contents: read
 
 jobs:
   add-requests-to-board:
     name: Add requests to board
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +35,7 @@ jobs:
         run: |
           node .github/actions-scripts/fr-add-docs-reviewers-requests.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT }}
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           REPO: 'github'

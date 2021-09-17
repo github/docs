@@ -10,7 +10,9 @@ on:
       - opened
       - reopened
       - synchronize
-      - unlocked
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -77,12 +79,3 @@ jobs:
         with:
           name: pr_build
           path: app.tar
-
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: ${{ failure() }}
-        with:
-          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: Staging build failed for PR ${{ github.event.pull_request.html_url }} at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

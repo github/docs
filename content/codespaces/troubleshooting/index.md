@@ -11,12 +11,13 @@ redirect_from:
   - /github/developing-online-with-codespaces/troubleshooting-your-codespace
   - /codespaces/working-with-your-codespace/troubleshooting-your-codespace
 children:
+  - /codespaces-logs
+  - /exporting-changes-to-a-branch
   - /troubleshooting-creation-and-deletion-of-codespaces
   - /troubleshooting-your-connection-to-codespaces
   - /troubleshooting-dotfiles-for-codespaces
   - /troubleshooting-port-forwarding-for-codespaces
   - /troubleshooting-codespaces-clients
-  - /codespaces-logs
   - /working-with-support-for-codespaces
 ---
 

@@ -189,9 +189,9 @@ You can restore a deleted package or version if:
 For example, if you have a deleted rubygem package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
 
 You must also meet one of these permission requirements:
-  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.
+  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt %}
   - For user-account scoped packages: Your user account owns the deleted package.
-  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.
+  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
 
 For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
@@ -199,7 +199,7 @@ Once the package is restored, the package will use the same namespace it did bef
 
 ### Restoring a package in an organization
 
-You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories or had granular permissions and was scoped to your organization account.
+You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories{% ifversion fpt %} or had granular permissions and was scoped to your organization account{% endif %}.
 
 To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
@@ -211,6 +211,8 @@ To review who can restore a package in an organization, see "[Required permissio
 5. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
   ![Restore package confirmation button](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
+{% ifversion fpt %}
+
 ### Restoring a user-account scoped package
 
 You can restore a deleted package through your user account settings, if the package was in one of your repositories or scoped to your user account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
@@ -221,6 +223,8 @@ You can restore a deleted package through your user account settings, if the pac
   ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
   ![Restore package confirmation button](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
+
+{% endif %}
 
 ### Restoring a package version
 
