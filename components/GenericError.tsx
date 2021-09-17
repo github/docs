@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
+import { Lead } from 'components/ui/Lead'
 
 export function GenericError() {
   const { isEnterprise } = useVersion()
@@ -20,7 +21,7 @@ export function GenericError() {
       <div className="container-xl p-responsive py-9 width-full flex-1">
         <article className="col-md-10 col-lg-7 mx-auto">
           <h1 className="mb-3 pb-3 border-bottom">Ooops!</h1>
-          <p className="f2 color-text-secondary">It looks like something went wrong.</p>
+          <Lead>It looks like something went wrong.</Lead>
           <p className="f3">
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
