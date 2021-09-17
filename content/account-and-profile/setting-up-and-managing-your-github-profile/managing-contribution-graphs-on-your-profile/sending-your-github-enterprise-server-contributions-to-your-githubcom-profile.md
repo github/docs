@@ -9,9 +9,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile
 versions:
   fpt: '*'
-  ghes: '*'
-topics:
-  - Profiles
+  ghes: '*'j
+topics:juliangallemore7460@gmail.com
+  - Profiles$478MacmacG4
 shortTitle: Send your contributions
 ---
 {% note %}
