@@ -32,6 +32,7 @@ Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Ser
 ### Image locations
 Images are located in the `/assets/images` directory. This directory has some folders that can be used to organize content by plan and release number.
 
+- `/assets/images/enterprise/github-ae`: Images that are _only_ applicable to GitHub AE (and not applicable to any other plan).
 - `/assets/images/enterprise/enterprise-server`: Images that are applicable to _all_ releases of GitHub Enterprise Server or are applicable to the current release and future releases.
 - `/assets/images/enterprise/<release number>`: Ex: `/assets/images/enterprise/3.0/`. When an image is changed in a new GitHub Enterprise Server release, add the new image and move the old image to the directory corresponding to the last release that it should be displayed in.
 - `/assets/images`: Images that apply to the Free, Pro, Team plan or images that are not specific to any Enterprise plan.
