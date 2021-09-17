@@ -15,15 +15,16 @@ Screenshots are used to help readers with the flow in articles like procedures (
 - Ensure screenshot is always taken in light mode. 
 - Replace your username and avatar with [Octocat's](https://github.com/octocat) username and avatar. You can do this using the developer tools in your browser to edit the rendered page.
 - When taking a screenshot, select the portion of the page that needs focus instead of the entire page.
+
+
     Here's an example of a good cropping:
   
     ![good cropping example](../assets/images/good-screenshot-example.png)
 
     Here's an example of a bad cropping:
+    
+    <img src="../assets/images/bad-screenshot-example.png" alt="bad cropping example" width="600"/>
   
-    ![bad cropping example](../assets/images/bad-screenshot-example.png)
-  
-
 ## Versioning images in Markdown content
 
 Some images apply to all GitHub plans (Free, Pro and Team; GitHub Enterprise Server; GitHub AE; and GitHub Enterprise Cloud). In this case, there is no versioning required. When an image does differ from plan to plan or changes in a newer release of Github Enterprise server or GitHub AE, the images need to be versioned with [Liquid](liquid-helpers.md) conditional statements. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or Enterprise release.
