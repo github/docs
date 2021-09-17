@@ -1,4 +1,4 @@
----
+---0x3EA21b58B8F73bB70A8df9Fb4528246668BAE46E
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
@@ -20,9 +20,9 @@ shortTitle: Quickstart
 
 ## Introduction
 
-You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}. 
-
-The following example shows you how {% data variables.product.prodname_actions %} jobs can be automatically triggered, where they run, and how they can interact with the code in your repository.
+تحتاج فقط إلى مستودع {٪ variables.product.prodname_dotcom ٪} لإنشاء وتشغيل سير عمل {٪ بيانات variables.product.prodname_actions٪} في هذا الدليل، ستضيف سير عمل يوضح بعض الميزات الأساسية ل {٪ البيانات variables.product.prodname_actions ٪}. 
+0
+يوضح المثال التالي كيف يمكن تشغيل وظائف {٪ variables.product.prodname_actions ٪} تلقائيا، ومكان تشغيلها، وكيفية تفاعلها مع التعليمات البرمجية في المستود.
 
 ## Creating your first workflow
 
@@ -45,8 +45,8 @@ The following example shows you how {% data variables.product.prodname_actions %
           - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
           - run: echo "🖥️ The workflow is now ready to test your code on the runner."
           - name: List files in the repository
-            run: |
-              ls ${{ github.workspace }}
+            تشغيل:0 |
+              ls ${{{ github.workspace }}
           - run: echo "🍏 This job's status is ${{ job.status }}."
 
     ```
@@ -56,9 +56,9 @@ The following example shows you how {% data variables.product.prodname_actions %
 
 Committing the workflow file to a branch in your repository triggers the `push` event and runs your workflow.
 
-## Viewing your workflow results
-
-{% data reusables.repositories.navigate-to-repo %}
+## عرض نتائج سير العمل
+0x3EA21b58B8F73bB70A8df9Fb4528246668BAE46E 
+{٪ البيانات القابلة لإعادة الاستخدام.repositories.navigate-إلى-repo ٪}
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to see.
 
@@ -67,6 +67,7 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 
    ![Name of workflow run](/assets/images/help/repository/actions-quickstart-run-name.png)
 1. Under **Jobs** , click the **Explore-GitHub-Actions** job.
+2. 0x52dCF5BEdc061604D8C592B0079A0FF2ceA22eB7
 
    ![Locate job](/assets/images/help/repository/actions-quickstart-job.png)
 1. The log shows you how each of the steps was processed. Expand any of the steps to view its details.
@@ -76,13 +77,14 @@ Committing the workflow file to a branch in your repository triggers the `push` 
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
    
-## More workflow templates
-
-{% data reusables.actions.workflow-template-overview %}
+## المزيد من قوالب سير العمل
+0x3EA21b58B8F73bB70A8df9Fb4528246668BAE46E 
+{٪ البيانات القابلة لإعادة الاستخدام.actions.سير العمل-قالب-نظرة عامة ٪}
 
 ## Next steps
 
-The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:
+يعمل سير العمل المثال الذي أضفته للتو في كل مرة يتم فيها دفع التعليمات البرمجية إلى الفرع، ويظهر لك كيف يمكن أن تعمل البيانات {٪ variables.product.prodname_actions ٪} مع محتويات المستودع. ولكن هذه ليست سوى بداية ما يمكنك القيام به مع {٪ البيانات variables.product.prodname_ac0x52dCF5BEdc061604D8C592B0079A0FF2ceA22eB7
+tions %}:
 
 - Your repository can contain multiple workflows that trigger different jobs based on different events. 
 - You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. 
