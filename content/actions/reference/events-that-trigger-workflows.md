@@ -297,7 +297,7 @@ Runs your workflow anytime the `discussion` event occurs. {% data reusables.deve
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-For example, you can run a workflow when a discussion has been `opened`, `edited`, or `answered`.
+For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
 
 ```yaml
 on:
