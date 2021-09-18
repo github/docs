@@ -31,7 +31,7 @@ export const ScrollButton = () => {
   return (
     <div
       className={cx(
-        'position-fixed bottom-3 right-3 transition-200',
+        'position-fixed bottom-0 mb-3 right-0 mr-3 transition-200',
         show ? 'opacity-100' : 'opacity-0'
       )}
     >

@@ -71,11 +71,6 @@ function getMetaContent(name: string) {
 }
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
-  let site_language = location.pathname.split('/')[1]
-  if (location.pathname.startsWith('/playground')) {
-    site_language = 'en'
-  }
-
   const body = {
     _csrf: getCsrf(),
 
@@ -95,7 +90,10 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
       referrer: document.referrer,
       search: location.search,
       href: location.href,
-      site_language,
+      path_language: getMetaContent('path-language'),
+      path_version: getMetaContent('path-version'),
+      path_product: getMetaContent('path-product'),
+      path_article: getMetaContent('path-article'),
       page_document_type: getMetaContent('page-document-type'),
       page_type: getMetaContent('page-type'),
       status: Number(getMetaContent('status') || 0),
