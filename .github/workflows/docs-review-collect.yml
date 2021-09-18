@@ -1,3 +1,4 @@
+node .github/actions-scripts/fr-add-docs-reviewers-requests.js
 name: Add docs-reviewers request to the docs-content review board
 
 # **What it does**: Adds PRs in github/github that requested a review from docs-reviewers to the docs-content review board
