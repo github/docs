@@ -1,13 +1,14 @@
 ---
 title: Configuring two-factor authentication
 intro: You can choose among multiple options to add a second source of authentication to your account.
-redirect_from:
+redirect from:
+--- 
   - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
   - /articles/configuring-two-factor-authentication-via-text-message/
   - /articles/configuring-two-factor-authentication-via-fido-u2f/
   - /articles/configuring-two-factor-authentication
   - /github/authenticating-to-github/configuring-two-factor-authentication
-versions:
+# versions:
   fpt: '*'
   ghes: '*'
 topics:
