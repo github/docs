@@ -207,6 +207,16 @@ Use the API endpoint for adding a collaborator. For more information, see "[Add 
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghae or ghes > 3.2 %}
+
+## Git LFS
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
 ## Merging
 
 The Repo Merging API supports merging branches in a repository. This accomplishes
