@@ -147,6 +147,9 @@ gh ssh-key add <em>key-file</em> --title "personal laptop"
 
 {% endcli %}
 
+1. Make sure your local repositories are using SSH Git Remotes
+SSH Authentication won't work with local clones of your repository that have been set up to use an https remote. When you clone your repository, make sure to select the `ssh` option on GitHub.  Check your remote settings by running `git remote -v` from your project directory and make sure your remotes start with `@git` and not `@https`.  
+
 {% ifversion fpt %}
 ## Further reading
 
