@@ -3,11 +3,11 @@ import Head from 'next/head'
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { Header } from 'components/page-header/Header'
 import { SmallFooter } from 'components/page-footer/SmallFooter'
-import { ScrollButton } from 'components/ScrollButton'
+import { ScrollButton } from 'components/ui/ScrollButton'
 import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from './hooks/useTranslation'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
@@ -23,7 +23,7 @@ export const DefaultLayout = (props: Props) => {
     fullUrl,
     status,
   } = useMainContext()
-  const { t } = useTranslation('errors')
+  const { t } = useTranslation(['errors', 'scroll_button'])
   return (
     <div className="d-lg-flex">
       <Head>
@@ -90,7 +90,10 @@ export const DefaultLayout = (props: Props) => {
 
         <SupportSection />
         <SmallFooter />
-        <ScrollButton />
+        <ScrollButton
+          className="position-fixed bottom-0 mb-3 right-0 mr-3"
+          ariaLabel={t('scroll_to_top')}
+        />
       </main>
     </div>
   )

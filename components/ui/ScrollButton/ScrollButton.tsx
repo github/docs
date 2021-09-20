@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
-import { useTranslation } from './hooks/useTranslation'
 
-export const ScrollButton = () => {
+export type ScrollButtonPropsT = {
+  className?: string
+  ariaLabel?: string
+}
+
+export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   const [show, setShow] = useState(false)
-  const { t } = useTranslation('scroll_button')
 
   useEffect(() => {
     // show scroll button only when view is scrolled down
@@ -29,19 +32,14 @@ export const ScrollButton = () => {
   }
 
   return (
-    <div
-      className={cx(
-        'position-fixed bottom-0 mb-3 right-0 mr-3 transition-200',
-        show ? 'opacity-100' : 'opacity-0'
-      )}
-    >
+    <div className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}>
       <button
         onClick={onClick}
         className={cx(
           'tooltipped tooltipped-n tooltipped-no-delay color-bg-info-inverse color-text-inverse circle border-0'
         )}
         style={{ width: 40, height: 40 }}
-        aria-label={t('scroll_to_top')}
+        aria-label={ariaLabel}
       >
         <ChevronUpIcon />
       </button>
