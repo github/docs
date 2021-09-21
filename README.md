@@ -1,12 +1,11 @@
-## GitHub Docs <!-- omit in toc -->
+# GitHub Docs <!-- omit in toc -->
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-## Table of contents
-
 Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
+
 ## Contributing
 
 See [the contributing guide](CONTRIBUTING.md) for detailed instructions of how to get started with our project. 
