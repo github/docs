@@ -12,6 +12,7 @@ import { useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
+import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
 
 // Mapping of a "normal" article to it's interactive counterpart
@@ -63,7 +64,7 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <MarkdownContent className="lead-mktg mb-3">{intro}</MarkdownContent>}
+              {intro && <Lead data-testid="lead">{intro}</Lead>}
 
               {permissions && (
                 <div

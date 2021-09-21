@@ -122,6 +122,7 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Tanzania</li>
 <li>Togo</li>
 <li>Trinidad and Tobago</li>
+<li>Turkey</li>
 <li>Turks and Caicos Islands</li>
 <li>Uganda</li>
 <li>Ukraine</li>
