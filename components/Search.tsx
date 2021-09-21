@@ -192,7 +192,7 @@ export function Search({
                         dangerouslySetInnerHTML={{ __html: breadcrumbs }}
                       />
                       <div
-                        className={cx(styles.searchResultTitle, 'd-block f4 font-weight-semibold')}
+                        className={cx(styles.searchResultTitle, 'd-block f4 text-semibold')}
                         dangerouslySetInnerHTML={{
                           __html: heading ? `${title}: ${heading}` : title,
                         }}

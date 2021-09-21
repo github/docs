@@ -191,16 +191,6 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% ifversion ghes > 3.2 %}
-
-## Git LFS
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
 {% ifversion ghae or ghes %}
 ## Organizations
 
