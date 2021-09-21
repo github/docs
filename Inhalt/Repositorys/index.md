@@ -19,3 +19,22 @@ children:
   - /archiving-a-github-repository
 ---
 
+{
+            "path": [
+                "query UserProfile",
+                "user",
+                "showProfileReadme"
+            ],
+            "extensions": {
+                "code": "undefinedField",
+                "typeName": "User",
+                "fieldName": "showProfileReadme"
+            },
+            "locations": [
+                {
+                    "line": 122,
+                    "column": 5
+                }
+            ],
+            "message": "Field 'showProfileReadme' doesn't exist on type 'User'"
+        }
