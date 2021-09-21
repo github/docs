@@ -1,4 +1,4 @@
----
+By---
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
