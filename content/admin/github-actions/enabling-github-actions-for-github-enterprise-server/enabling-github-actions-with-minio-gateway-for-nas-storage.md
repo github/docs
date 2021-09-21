@@ -12,8 +12,6 @@ shortTitle: MinIO Gateway for NAS storage
 ---
 ## Prerequisites
 
-{% data reusables.actions.enterprise-s3-support-warning %}
-
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
 * To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.product.product_location %}.
