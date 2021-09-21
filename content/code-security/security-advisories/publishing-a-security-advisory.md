@@ -78,7 +78,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Requesting a CVE identification number (Optional)
 
-Github can provide a CVE number if needed and anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
+Github can provide a CVE number if needed and the software is not under the scope of another CVE Numbering Authority (CNA). Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory. If the advisory already has a CVE number, then that can be input in the advisory form.
 
 {% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
 
