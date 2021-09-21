@@ -1,6 +1,7 @@
 // Codespaces environment for docs.github.com
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json 
 {
+ {
     "name": "docs.github.com",
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
@@ -14,4 +15,6 @@
         "yzhang.markdown-all-in-one",
         "streetsidesoftware.code-spell-checker"
     ]
+  }
 }
+
