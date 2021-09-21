@@ -37,7 +37,7 @@ A token with no assigned scopes can only access public information. To use your 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 {% data reusables.user_settings.personal_access_tokens %}
-4. Click **Generate new token**.
+4. Click **[Generate new token](https://github.com/settings/tokens/new)**.
    ![Generate new token button](/assets/images/help/settings/generate_new_token.png)
 5. Give your token a descriptive name.
    ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
