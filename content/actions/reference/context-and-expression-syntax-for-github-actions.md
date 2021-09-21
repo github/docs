@@ -108,6 +108,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
 | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
+| `github.server_url` | `string` | Returns the URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)." |
 | `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
