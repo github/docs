@@ -27,8 +27,6 @@ shortTitle: Monitor & troubleshoot
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. Under {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
-    ![Runner list](/assets/images/help/settings/actions-runner-list.png)
-
     The status can be one of the following:
 
     * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
