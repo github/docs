@@ -1,4 +1,4 @@
-### Working in the github/docs repository
+# Working in the github/docs repository
 
 Here's some information that might be helpful while working on a Docs PR:
 
