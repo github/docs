@@ -12,6 +12,7 @@ const ALLOW_LIST = new Set([
   'backup-utils',
   'codeql-action-sync-tool',
   'codeql-action',
+  'codeql-cli-binaries',
   'platform-samples',
   'github-services',
   'explore',
