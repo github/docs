@@ -77,7 +77,7 @@ For more information, see "[Installing {% data variables.product.prodname_codeql
 
 {% data reusables.code-scanning.use-codeql-runner-not-cli %}
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 
 For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 
@@ -89,7 +89,7 @@ For more information, see "[Running {% data variables.product.prodname_codeql_ru
 
 You add the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 
 To set up code scanning in your CI system, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 {% endif %}
