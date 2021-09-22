@@ -35,3 +35,6 @@
 
 - repo: react-hook-form/react-hook-form
   description: 📋 React Hooks for forms validation (Web + React Native)
+
+- repo: renovatebot/renovate
+  description: Automated dependency updates. Multi-platform and multi-language.
