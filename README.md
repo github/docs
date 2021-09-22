@@ -9,7 +9,6 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 ## Contributing
 
 See [the contributing guide](CONTRIBUTING.md) for detailed instructions of how to get started with our project. 
-<!-- info about codetour/codespaces (https://github.com/github/docs-team/issues/800) -->
 
 We accept different [types of contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
