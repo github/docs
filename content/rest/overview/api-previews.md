@@ -177,12 +177,16 @@ You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to
 **Custom media types:** `switcheroo-preview`
 **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
+{% ifversion ghes < 3.3 %}
+
 ## List branches or pull requests for a commit
 
 You can use two new endpoints in the [Commits API](/rest/reference/repos#commits) to list branches or pull requests for a commit.
 
 **Custom media types:** `groot-preview`
 **Announced:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
+
+{% endif %}
 
 ## Enable or disable vulnerability alerts for a repository
 
