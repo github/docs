@@ -131,6 +131,7 @@ When a {% data variables.product.prodname_ghe_server %} instance is in private m
 **Announced:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Project card details
 
@@ -139,6 +140,7 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Custom media type:** `starfox-preview`
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
+{% endif %}
 {% ifversion fpt %}
 
 ## GitHub App Manifests
