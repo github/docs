@@ -116,6 +116,13 @@ jobs:
             })
 
       - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Download the top-level npm manifest
+        uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
+        with:
+          files: package.json package-lock.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - if: ${{ github.repository == 'github/docs-internal' }}
         name: Setup node to clone early access
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
