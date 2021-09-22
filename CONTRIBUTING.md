@@ -1,3 +1,4 @@
+[LICENSE.txt](https://github.com/github/docs/files/6808657/LICENSE.txt)
 # Contributing to this repository <!-- omit in toc -->
 
 ## Getting started <!-- omit in toc -->
