@@ -4,10 +4,9 @@ intro: 'Learn about the different ways that {% data variables.product.product_na
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
-
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 learningTracks:
   - security_advisories
   - dependabot_alerts
@@ -18,7 +17,6 @@ learningTracks:
   - code_security_actions
   - code_security_ci
   - code_security_integration
-
 includeGuides:
   - /code-security/getting-started/adding-a-security-policy-to-your-repository
   - /code-security/getting-started/github-security-features
@@ -39,8 +37,9 @@ includeGuides:
   - /code-security/secure-coding/integrating-with-code-scanning/sarif-support-for-code-scanning
   - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
+  - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
-  - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system
+  - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
   - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
@@ -53,8 +52,9 @@ includeGuides:
   - /code-security/security-advisories/publishing-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/withdrawing-a-security-advisory
-  - /code-security/security-overview/exploring-security-alerts
+  - /code-security/security-overview/about-the-security-overview
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
@@ -76,3 +76,4 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
+

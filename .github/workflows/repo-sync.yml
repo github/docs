@@ -96,10 +96,20 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
+      # Set up npm and run npm ci to run husky to get githooks for LFS
+      - name: Setup node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.8.x
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          CI: true
         with:
           source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
           source_branch: main
@@ -135,6 +145,24 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}
+
+      # Because we get far too much spam ;_;
+      - name: Lock conversations
+        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            try {
+              await github.issues.lock({
+                ...context.repo,
+                issue_number: parseInt(${{ steps.find-pull-request.outputs.number }}),
+                lock_reason: 'spam'
+              })
+              console.log('Locked the pull request to prevent spam!')
+            } catch (error) {
+              // Log the error but don't fail the workflow
+              console.error(`Failed to lock the pull request. Error: ${error}`)
+            }
 
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch

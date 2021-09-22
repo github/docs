@@ -782,26 +782,6 @@
         ]
       },
       {
-        "name": "sponsorsListing",
-        "type": "SponsorsListing",
-        "kind": "objects",
-        "id": "sponsorslisting",
-        "href": "/graphql/reference/objects#sponsorslisting",
-        "description": "<p>Look up a single Sponsors Listing.</p>",
-        "isDeprecated": true,
-        "deprecationReason": "<p><code>Query.sponsorsListing</code> will be removed. Use <code>Sponsorable.sponsorsListing</code> instead. Removal on 2020-04-01 UTC.</p>",
-        "args": [
-          {
-            "name": "slug",
-            "type": "String!",
-            "id": "string",
-            "kind": "scalars",
-            "href": "/graphql/reference/scalars#string",
-            "description": "<p>Select the Sponsors listing which matches this slug.</p>"
-          }
-        ]
-      },
-      {
         "name": "topic",
         "type": "Topic",
         "kind": "objects",
@@ -1602,6 +1582,40 @@
       ]
     },
     {
+      "name": "cancelSponsorship",
+      "kind": "mutations",
+      "id": "cancelsponsorship",
+      "href": "/graphql/reference/mutations#cancelsponsorship",
+      "description": "<p>Cancel an active sponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CancelSponsorshipInput!",
+          "id": "cancelsponsorshipinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#cancelsponsorshipinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier",
+          "description": "<p>The tier that was being used at the time of cancellation.</p>"
+        }
+      ]
+    },
+    {
       "name": "changeUserStatus",
       "kind": "mutations",
       "id": "changeuserstatus",
@@ -1980,6 +1994,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createCommitOnBranch",
+      "kind": "mutations",
+      "id": "createcommitonbranch",
+      "href": "/graphql/reference/mutations#createcommitonbranch",
+      "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#locating-a-branch\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Locating a Branch</h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#describing-changes\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Describing Changes</h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#authorship\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Authorship</h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#commit-signing\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Commit Signing</h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateCommitOnBranchInput!",
+          "id": "createcommitonbranchinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createcommitonbranchinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "commit",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit",
+          "description": "<p>The new commit.</p>"
+        },
+        {
+          "name": "ref",
+          "type": "Ref",
+          "id": "ref",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ref",
+          "description": "<p>The ref which has been updated to point to the new commit.</p>"
         }
       ]
     },
@@ -2500,6 +2556,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The new repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createSponsorship",
+      "kind": "mutations",
+      "id": "createsponsorship",
+      "href": "/graphql/reference/mutations#createsponsorship",
+      "description": "<p>Start a new sponsorship of a maintainer in GitHub Sponsors, or reactivate a past sponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateSponsorshipInput!",
+          "id": "createsponsorshipinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createsponsorshipinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorship",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship",
+          "description": "<p>The sponsorship that was started.</p>"
         }
       ]
     },
@@ -6546,6 +6636,40 @@
       ]
     },
     {
+      "name": "updateSponsorshipPreferences",
+      "kind": "mutations",
+      "id": "updatesponsorshippreferences",
+      "href": "/graphql/reference/mutations#updatesponsorshippreferences",
+      "description": "<p>Change visibility of your sponsorship and opt in or out of email updates from the maintainer.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateSponsorshipPreferencesInput!",
+          "id": "updatesponsorshippreferencesinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updatesponsorshippreferencesinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorship",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship",
+          "description": "<p>The sponsorship that was updated.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateSubscription",
       "kind": "mutations",
       "id": "updatesubscription",
@@ -7003,6 +7127,66 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ipAllowListEntries",
+          "description": "<p>The IP addresses of the app.</p>",
+          "type": "IpAllowListEntryConnection!",
+          "id": "ipallowlistentryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#ipallowlistentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for IP allow list entries returned.</p>",
+              "type": {
+                "name": "IpAllowListEntryOrder",
+                "id": "ipallowlistentryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#ipallowlistentryorder"
+              }
+            }
+          ]
         },
         {
           "name": "logoBackgroundColor",
@@ -8527,14 +8711,6 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>ID of the object.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "name",
@@ -13541,6 +13717,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "packageLabel",
+          "description": "<p>The original name of the package, as it appears in the manifest.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "packageManager",
           "description": "<p>The dependency package manager.</p>",
           "type": "String",
@@ -13550,7 +13734,7 @@
         },
         {
           "name": "packageName",
-          "description": "<p>The required package name.</p>",
+          "description": "<p>The name of the package in the canonical form used by the package manager.\nThis may differ from the original textual form (see packageLabel), for example\nin a package manager that uses case-insensitive comparisons.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -14425,13 +14609,6 @@
       "id": "deploymentprotectionrule",
       "href": "/graphql/reference/objects#deploymentprotectionrule",
       "description": "<p>A protection rule.</p>",
-      "implements": [
-        {
-          "name": "Node",
-          "id": "node",
-          "href": "/graphql/reference/interfaces#node"
-        }
-      ],
       "fields": [
         {
           "name": "databaseId",
@@ -17269,6 +17446,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -17833,7 +18020,7 @@
         },
         {
           "name": "defaultRepositoryPermissionSettingOrganizations",
-          "description": "<p>A list of enterprise organizations configured with the provided default repository permission.</p>",
+          "description": "<p>A list of enterprise organizations configured with the provided base repository permission.</p>",
           "type": "OrganizationConnection!",
           "id": "organizationconnection",
           "kind": "objects",
@@ -18130,7 +18317,7 @@
         },
         {
           "name": "isUpdatingDefaultRepositoryPermission",
-          "description": "<p>Whether or not the default repository permission is currently being updated.</p>",
+          "description": "<p>Whether or not the base repository permission is currently being updated.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -31728,7 +31915,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The new default repository permission level for the organization.</p>",
+          "description": "<p>The new base repository permission level for the organization.</p>",
           "type": "OrgUpdateDefaultRepositoryPermissionAuditEntryPermission",
           "id": "orgupdatedefaultrepositorypermissionauditentrypermission",
           "kind": "enums",
@@ -31736,7 +31923,7 @@
         },
         {
           "name": "permissionWas",
-          "description": "<p>The former default repository permission level for the organization.</p>",
+          "description": "<p>The former base repository permission level for the organization.</p>",
           "type": "OrgUpdateDefaultRepositoryPermissionAuditEntryPermission",
           "id": "orgupdatedefaultrepositorypermissionauditentrypermission",
           "kind": "enums",
@@ -32597,6 +32784,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "hasSponsorsListing",
           "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
           "type": "Boolean!",
@@ -32857,6 +33052,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "name",
@@ -33588,6 +33791,207 @@
           "href": "/graphql/reference/objects#organizationidentityprovider"
         },
         {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsListing",
           "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
@@ -33597,11 +34001,79 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipNewsletters",
+          "description": "<p>List of sponsorship updates sent from this sponsorable to sponsors.</p>",
+          "type": "SponsorshipNewsletterConnection!",
+          "id": "sponsorshipnewsletterconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorshipnewsletterconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorship updates returned from the connection.</p>",
+              "type": {
+                "name": "SponsorshipNewsletterOrder",
+                "id": "sponsorshipnewsletterorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorshipnewsletterorder"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipsAsMaintainer",
@@ -34189,6 +34661,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             }
           ]
@@ -40583,7 +41065,7 @@
         },
         {
           "name": "isCollapsed",
-          "description": "<p>Whether or not the thread has been collapsed (outdated or resolved).</p>",
+          "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -41422,6 +41904,56 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "reactors",
+          "description": "<p>Reactors to the reaction subject with the emotion represented by this reaction group.</p>",
+          "type": "ReactorConnection!",
+          "id": "reactorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "subject",
           "description": "<p>The subject that was reacted to.</p>",
           "type": "Reactable!",
@@ -41477,7 +42009,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Reactors can now be mannequins, bots, and organizations. Use the <code>reactors</code> field instead. Removal on 2021-10-01 UTC.</p>"
         },
         {
           "name": "viewerHasReacted",
@@ -41486,6 +42020,80 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "ReactorConnection",
+      "kind": "objects",
+      "id": "reactorconnection",
+      "href": "/graphql/reference/objects#reactorconnection",
+      "description": "<p>The connection type for Reactor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ReactorEdge]",
+          "id": "reactoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Reactor]",
+          "id": "reactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#reactor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ReactorEdge",
+      "kind": "objects",
+      "id": "reactoredge",
+      "href": "/graphql/reference/objects#reactoredge",
+      "description": "<p>Represents an author of a reaction.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The author of the reaction.</p>",
+          "type": "Reactor!",
+          "id": "reactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#reactor"
+        },
+        {
+          "name": "reactedAt",
+          "description": "<p>The moment when the user made the reaction.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -42036,6 +42644,56 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mentions",
+          "description": "<p>A list of users mentioned in the release description.</p>",
+          "type": "UserConnection",
+          "id": "userconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -46716,6 +47374,14 @@
           ]
         },
         {
+          "name": "autoMergeAllowed",
+          "description": "<p>Whether or not Auto-merge can be enabled on pull requests in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRules",
           "description": "<p>A list of branch protection rules for this repository.</p>",
           "type": "BranchProtectionRuleConnection!",
@@ -47395,6 +48061,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "forkingAllowed",
+          "description": "<p>Whether this repository allows forks.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "forks",
@@ -49188,6 +49862,14 @@
           "href": "/graphql/reference/enums#subscriptionstate"
         },
         {
+          "name": "visibility",
+          "description": "<p>Indicates the repository's visibility level.</p>",
+          "type": "RepositoryVisibility!",
+          "id": "repositoryvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvisibility"
+        },
+        {
           "name": "vulnerabilityAlerts",
           "description": "<p>A list of vulnerability alerts that are on this repository.</p>",
           "type": "RepositoryVulnerabilityAlertConnection",
@@ -50131,7 +50813,7 @@
       "kind": "objects",
       "id": "repositoryvulnerabilityalert",
       "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
-      "description": "<p>A alert for a repository with an affected vulnerability.</p>",
+      "description": "<p>A Dependabot alert for a repository with a dependency affected by a security vulnerability.</p>",
       "implements": [
         {
           "name": "Node",
@@ -51656,6 +52338,72 @@
       ]
     },
     {
+      "name": "SponsorConnection",
+      "kind": "objects",
+      "id": "sponsorconnection",
+      "href": "/graphql/reference/objects#sponsorconnection",
+      "description": "<p>The connection type for Sponsor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorEdge]",
+          "id": "sponsoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Sponsor]",
+          "id": "sponsor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SponsorEdge",
+      "kind": "objects",
+      "id": "sponsoredge",
+      "href": "/graphql/reference/objects#sponsoredge",
+      "description": "<p>Represents a user or organization who is sponsoring someone in GitHub Sponsors.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsor"
+        }
+      ]
+    },
+    {
       "name": "SponsorableItemConnection",
       "kind": "objects",
       "id": "sponsorableitemconnection",
@@ -51722,6 +52470,136 @@
       ]
     },
     {
+      "name": "SponsorsActivity",
+      "kind": "objects",
+      "id": "sponsorsactivity",
+      "href": "/graphql/reference/objects#sponsorsactivity",
+      "description": "<p>An event related to sponsorship activity.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>What action this activity indicates took place.</p>",
+          "type": "SponsorsActivityAction!",
+          "id": "sponsorsactivityaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorsactivityaction"
+        },
+        {
+          "name": "previousSponsorsTier",
+          "description": "<p>The tier that the sponsorship used to use, for tier change events.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
+          "name": "sponsor",
+          "description": "<p>The user or organization who triggered this activity and was/is sponsoring the sponsorable.</p>",
+          "type": "Sponsor",
+          "id": "sponsor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#sponsor"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The user or organization that is being sponsored, the maintainer.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#sponsorable"
+        },
+        {
+          "name": "sponsorsTier",
+          "description": "<p>The associated sponsorship tier.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
+          "name": "timestamp",
+          "description": "<p>The timestamp of this event.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityConnection",
+      "kind": "objects",
+      "id": "sponsorsactivityconnection",
+      "href": "/graphql/reference/objects#sponsorsactivityconnection",
+      "description": "<p>The connection type for SponsorsActivity.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorsActivityEdge]",
+          "id": "sponsorsactivityedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorsActivity]",
+          "id": "sponsorsactivity",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivity"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityEdge",
+      "kind": "objects",
+      "id": "sponsorsactivityedge",
+      "href": "/graphql/reference/objects#sponsorsactivityedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorsActivity",
+          "id": "sponsorsactivity",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivity"
+        }
+      ]
+    },
+    {
       "name": "SponsorsGoal",
       "kind": "objects",
       "id": "sponsorsgoal",
@@ -51754,7 +52632,7 @@
         },
         {
           "name": "targetValue",
-          "description": "<p>What the goal amount is. Represents a dollar amount for monthly sponsorship\namount goals. Represents a count of unique sponsors for total sponsors count goals.</p>",
+          "description": "<p>What the goal amount is. Represents an amount in USD for monthly sponsorship\namount goals. Represents a count of unique sponsors for total sponsors count goals.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -51817,12 +52695,28 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "isPublic",
+          "description": "<p>Whether this listing is publicly visible.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "name",
           "description": "<p>The listing's full name.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "nextPayoutDate",
+          "description": "<p>A future date on which this listing is eligible to receive a payout.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
         },
         {
           "name": "shortDescription",
@@ -51839,6 +52733,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The entity this listing represents who can be sponsored on GitHub Sponsors.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#sponsorable"
         },
         {
           "name": "tiers",
@@ -51926,7 +52828,7 @@
         },
         {
           "name": "closestLesserValueTier",
-          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with a lesser cost. Returns the published tier with the\nmonthly price closest to this tier's without going over.</p>",
+          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with an equal or lesser cost. Returns the published tier with\nthe monthly price closest to this tier's without going over.</p>",
           "type": "SponsorsTier",
           "id": "sponsorstier",
           "kind": "objects",
@@ -51982,7 +52884,7 @@
         },
         {
           "name": "monthlyPriceInDollars",
-          "description": "<p>How much this tier costs per month in dollars.</p>",
+          "description": "<p>How much this tier costs per month in USD.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -52191,6 +53093,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isSponsorOptedIntoEmail",
+          "description": "<p>Check if the sponsor has chosen to receive sponsorship update emails sent from\nthe sponsorable. Only returns a non-null value when the viewer has permission to know this.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",
@@ -52301,7 +53211,7 @@
         },
         {
           "name": "totalRecurringMonthlyPriceInDollars",
-          "description": "<p>The total dollar amount of all recurring sponsorships in the connection whose\namount you can view. Does not include one-time sponsorships.</p>",
+          "description": "<p>The total amount in USD of all recurring sponsorships in the connection whose\namount you can view. Does not include one-time sponsorships.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -52331,6 +53241,136 @@
           "id": "sponsorship",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorship"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipNewsletter",
+      "kind": "objects",
+      "id": "sponsorshipnewsletter",
+      "href": "/graphql/reference/objects#sponsorshipnewsletter",
+      "description": "<p>An update sent to sponsors of a user or organization on GitHub Sponsors.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The contents of the newsletter, the message the sponsorable wanted to give.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "isPublished",
+          "description": "<p>Indicates if the newsletter has been made available to sponsors.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorable",
+          "description": "<p>The user or organization this newsletter is from.</p>",
+          "type": "Sponsorable!",
+          "id": "sponsorable",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#sponsorable"
+        },
+        {
+          "name": "subject",
+          "description": "<p>The subject of the newsletter, what it's about.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipNewsletterConnection",
+      "kind": "objects",
+      "id": "sponsorshipnewsletterconnection",
+      "href": "/graphql/reference/objects#sponsorshipnewsletterconnection",
+      "description": "<p>The connection type for SponsorshipNewsletter.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SponsorshipNewsletterEdge]",
+          "id": "sponsorshipnewsletteredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorshipnewsletteredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SponsorshipNewsletter]",
+          "id": "sponsorshipnewsletter",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorshipnewsletter"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipNewsletterEdge",
+      "kind": "objects",
+      "id": "sponsorshipnewsletteredge",
+      "href": "/graphql/reference/objects#sponsorshipnewsletteredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SponsorshipNewsletter",
+          "id": "sponsorshipnewsletter",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorshipnewsletter"
         }
       ]
     },
@@ -57396,6 +58436,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "followers",
           "description": "<p>A list of users the given user is followed by.</p>",
           "type": "FollowerConnection!",
@@ -57704,6 +58752,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isFollowingViewer",
+          "description": "<p>Whether or not this user is following the viewer. Inverse of viewer_is_following.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isGitHubStar",
           "description": "<p>Whether or not this user is a member of the GitHub Stars Program.</p>",
           "type": "Boolean!",
@@ -57936,6 +58992,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "name",
@@ -58969,6 +60033,207 @@
           ]
         },
         {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsListing",
           "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
@@ -58978,11 +60243,79 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipNewsletters",
+          "description": "<p>List of sponsorship updates sent from this sponsorable to sponsors.</p>",
+          "type": "SponsorshipNewsletterConnection!",
+          "id": "sponsorshipnewsletterconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorshipnewsletterconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorship updates returned from the connection.</p>",
+              "type": {
+                "name": "SponsorshipNewsletterOrder",
+                "id": "sponsorshipnewsletterorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorshipnewsletterorder"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipsAsMaintainer",
@@ -59321,7 +60654,7 @@
         },
         {
           "name": "viewerIsFollowing",
-          "description": "<p>Whether or not this user is followed by the viewer.</p>",
+          "description": "<p>Whether or not this user is followed by the viewer. Inverse of is_following_viewer.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -62287,6 +63620,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>Indicates the repository's visibility level.</p>",
+          "type": "RepositoryVisibility!",
+          "id": "repositoryvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvisibility"
         }
       ]
     },
@@ -62537,6 +63878,14 @@
       "description": "<p>Entities that can be sponsored through GitHub Sponsors.</p>",
       "fields": [
         {
+          "name": "estimatedNextSponsorsPayoutInCents",
+          "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "hasSponsorsListing",
           "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
           "type": "Boolean!",
@@ -62573,6 +63922,215 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "monthlyEstimatedSponsorsIncomeInCents",
+          "description": "<p>The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sponsoring",
+          "description": "<p>List of users and organizations this entity is sponsoring.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the users and organizations returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsors",
+          "description": "<p>List of sponsors for this user or organization.</p>",
+          "type": "SponsorConnection!",
+          "id": "sponsorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsors returned from the connection.</p>",
+              "type": {
+                "name": "SponsorOrder",
+                "id": "sponsororder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsororder"
+              }
+            },
+            {
+              "name": "tierId",
+              "description": "<p>If given, will filter for sponsors at the given tier. Will only return\nsponsors whose tier the viewer is permitted to see.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            }
+          ]
+        },
+        {
+          "name": "sponsorsActivities",
+          "description": "<p>Events involving this sponsorable, such as new sponsorships.</p>",
+          "type": "SponsorsActivityConnection!",
+          "id": "sponsorsactivityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorsactivityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for activity returned from the connection.</p>",
+              "type": {
+                "name": "SponsorsActivityOrder",
+                "id": "sponsorsactivityorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorsactivityorder"
+              }
+            },
+            {
+              "name": "period",
+              "defaultValue": "MONTH",
+              "description": "<p>Filter activities returned to only those that occurred in a given time range.</p>",
+              "type": {
+                "name": "SponsorsActivityPeriod",
+                "id": "sponsorsactivityperiod",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#sponsorsactivityperiod"
+              }
+            }
+          ]
+        },
+        {
           "name": "sponsorsListing",
           "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
           "type": "SponsorsListing",
@@ -62582,11 +64140,79 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The viewer's sponsorship of this entity.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipForViewerAsSponsorable",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
+          "type": "Sponsorship",
+          "id": "sponsorship",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorship"
+        },
+        {
+          "name": "sponsorshipNewsletters",
+          "description": "<p>List of sponsorship updates sent from this sponsorable to sponsors.</p>",
+          "type": "SponsorshipNewsletterConnection!",
+          "id": "sponsorshipnewsletterconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorshipnewsletterconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for sponsorship updates returned from the connection.</p>",
+              "type": {
+                "name": "SponsorshipNewsletterOrder",
+                "id": "sponsorshipnewsletterorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#sponsorshipnewsletterorder"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipsAsMaintainer",
@@ -63286,7 +64912,7 @@
       "kind": "enums",
       "id": "defaultrepositorypermissionfield",
       "href": "/graphql/reference/enums#defaultrepositorypermissionfield",
-      "description": "<p>The possible default permissions for repositories.</p>",
+      "description": "<p>The possible base permissions for repositories.</p>",
       "values": [
         {
           "name": "ADMIN",
@@ -63512,7 +65138,7 @@
       "kind": "enums",
       "id": "enterprisedefaultrepositorypermissionsettingvalue",
       "href": "/graphql/reference/enums#enterprisedefaultrepositorypermissionsettingvalue",
-      "description": "<p>The possible values for the enterprise default repository permission setting.</p>",
+      "description": "<p>The possible values for the enterprise base repository permission setting.</p>",
       "values": [
         {
           "name": "ADMIN",
@@ -63524,7 +65150,7 @@
         },
         {
           "name": "NO_POLICY",
-          "description": "<p>Organizations in the enterprise choose default repository permissions for their members.</p>"
+          "description": "<p>Organizations in the enterprise choose base repository permissions for their members.</p>"
         },
         {
           "name": "READ",
@@ -64767,6 +66393,10 @@
         {
           "name": "DISABLED",
           "description": "<p>Members will not be able to create public or private repositories.</p>"
+        },
+        {
+          "name": "INTERNAL",
+          "description": "<p>Members will be able to create only internal repositories.</p>"
         },
         {
           "name": "PRIVATE",
@@ -66247,6 +67877,23 @@
       ]
     },
     {
+      "name": "SponsorOrderField",
+      "kind": "enums",
+      "id": "sponsororderfield",
+      "href": "/graphql/reference/enums#sponsororderfield",
+      "description": "<p>Properties by which sponsor connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "LOGIN",
+          "description": "<p>Order sponsorable entities by login (username).</p>"
+        },
+        {
+          "name": "RELEVANCE",
+          "description": "<p>Order sponsors by their relevance to the viewer.</p>"
+        }
+      ]
+    },
+    {
       "name": "SponsorableOrderField",
       "kind": "enums",
       "id": "sponsorableorderfield",
@@ -66260,6 +67907,77 @@
       ]
     },
     {
+      "name": "SponsorsActivityAction",
+      "kind": "enums",
+      "id": "sponsorsactivityaction",
+      "href": "/graphql/reference/enums#sponsorsactivityaction",
+      "description": "<p>The possible actions that GitHub Sponsors activities can represent.</p>",
+      "values": [
+        {
+          "name": "CANCELLED_SPONSORSHIP",
+          "description": "<p>The activity was cancelling a sponsorship.</p>"
+        },
+        {
+          "name": "NEW_SPONSORSHIP",
+          "description": "<p>The activity was starting a sponsorship.</p>"
+        },
+        {
+          "name": "PENDING_CHANGE",
+          "description": "<p>The activity was scheduling a downgrade or cancellation.</p>"
+        },
+        {
+          "name": "REFUND",
+          "description": "<p>The activity was funds being refunded to the sponsor or GitHub.</p>"
+        },
+        {
+          "name": "SPONSOR_MATCH_DISABLED",
+          "description": "<p>The activity was disabling matching for a previously matched sponsorship.</p>"
+        },
+        {
+          "name": "TIER_CHANGE",
+          "description": "<p>The activity was changing the sponsorship tier, either directly by the sponsor or by a scheduled/pending change.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityOrderField",
+      "kind": "enums",
+      "id": "sponsorsactivityorderfield",
+      "href": "/graphql/reference/enums#sponsorsactivityorderfield",
+      "description": "<p>Properties by which GitHub Sponsors activity connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "TIMESTAMP",
+          "description": "<p>Order activities by when they happened.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorsActivityPeriod",
+      "kind": "enums",
+      "id": "sponsorsactivityperiod",
+      "href": "/graphql/reference/enums#sponsorsactivityperiod",
+      "description": "<p>The possible time periods for which Sponsors activities can be requested.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Don't restrict the activity to any date range, include all activity.</p>"
+        },
+        {
+          "name": "DAY",
+          "description": "<p>The previous calendar day.</p>"
+        },
+        {
+          "name": "MONTH",
+          "description": "<p>The previous thirty days.</p>"
+        },
+        {
+          "name": "WEEK",
+          "description": "<p>The previous seven days.</p>"
+        }
+      ]
+    },
+    {
       "name": "SponsorsGoalKind",
       "kind": "enums",
       "id": "sponsorsgoalkind",
@@ -66268,7 +67986,7 @@
       "values": [
         {
           "name": "MONTHLY_SPONSORSHIP_AMOUNT",
-          "description": "<p>The goal is about getting a certain dollar amount from sponsorships each month.</p>"
+          "description": "<p>The goal is about getting a certain amount in USD from sponsorships each month.</p>"
         },
         {
           "name": "TOTAL_SPONSORS_COUNT",
@@ -66290,6 +68008,19 @@
         {
           "name": "MONTHLY_PRICE_IN_CENTS",
           "description": "<p>Order tiers by their monthly price in cents.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipNewsletterOrderField",
+      "kind": "enums",
+      "id": "sponsorshipnewsletterorderfield",
+      "href": "/graphql/reference/enums#sponsorshipnewsletterorderfield",
+      "description": "<p>Properties by which sponsorship update connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order sponsorship newsletters by when they were created.</p>"
         }
       ]
     },
@@ -66843,6 +68574,11 @@
       "href": "/graphql/reference/unions#ipallowlistowner",
       "description": "<p>Types that can own an IP allow list.</p>",
       "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
         {
           "name": "Enterprise",
           "id": "enterprise",
@@ -68024,6 +69760,35 @@
       ]
     },
     {
+      "name": "Reactor",
+      "kind": "unions",
+      "id": "reactor",
+      "href": "/graphql/reference/unions#reactor",
+      "description": "<p>Types that can be assigned to reactions.</p>",
+      "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/objects#bot"
+        },
+        {
+          "name": "Mannequin",
+          "id": "mannequin",
+          "href": "/graphql/reference/objects#mannequin"
+        },
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
       "name": "ReferencedSubject",
       "kind": "unions",
       "id": "referencedsubject",
@@ -69040,6 +70805,57 @@
       ]
     },
     {
+      "name": "CancelSponsorshipInput",
+      "kind": "inputObjects",
+      "id": "cancelsponsorshipinput",
+      "href": "/graphql/reference/input-objects#cancelsponsorshipinput",
+      "description": "<p>Autogenerated input type of CancelSponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of the user or organization who is acting as the sponsor, paying for\nthe sponsorship. Required if sponsorLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying\nfor the sponsorship. Required if sponsorId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "ChangeUserStatusInput",
       "kind": "inputObjects",
       "id": "changeuserstatusinput",
@@ -69664,6 +71480,64 @@
       ]
     },
     {
+      "name": "CommitMessage",
+      "kind": "inputObjects",
+      "id": "commitmessage",
+      "href": "/graphql/reference/input-objects#commitmessage",
+      "description": "<p>A message to include with a new commit.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the message.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "headline",
+          "description": "<p>The headline of the message.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CommittableBranch",
+      "kind": "inputObjects",
+      "id": "committablebranch",
+      "href": "/graphql/reference/input-objects#committablebranch",
+      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\nrepository nameWithOwner and branch name.</p>\n<h3 id=\"examples\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#examples\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Examples</h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using nameWithOwner and branch name:</p>\n<pre><code>{\n  \"nameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "inputFields": [
+        {
+          "name": "branchName",
+          "description": "<p>The unqualified name of the branch to append the commit to.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Ref to be updated.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "repositoryNameWithOwner",
+          "description": "<p>The nameWithOwner of the repository to commit to.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "ContributionOrder",
       "kind": "inputObjects",
       "id": "contributionorder",
@@ -70064,6 +71938,55 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "CreateCommitOnBranchInput",
+      "kind": "inputObjects",
+      "id": "createcommitonbranchinput",
+      "href": "/graphql/reference/input-objects#createcommitonbranchinput",
+      "description": "<p>Autogenerated input type of CreateCommitOnBranch.</p>",
+      "inputFields": [
+        {
+          "name": "branch",
+          "description": "<p>The Ref to be updated.  Must be a branch.</p>",
+          "type": "CommittableBranch!",
+          "id": "committablebranch",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#committablebranch"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expectedHeadOid",
+          "description": "<p>The git commit oid expected at the head of the branch prior to the commit.</p>",
+          "type": "GitObjectID!",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "fileChanges",
+          "description": "<p>A description of changes to files in this commit.</p>",
+          "type": "FileChanges",
+          "id": "filechanges",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#filechanges"
+        },
+        {
+          "name": "message",
+          "description": "<p>The commit message the be included with the commit.</p>",
+          "type": "CommitMessage!",
+          "id": "commitmessage",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#commitmessage"
         }
       ]
     },
@@ -70906,6 +72829,98 @@
           "id": "repositoryvisibility",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryvisibility"
+        }
+      ]
+    },
+    {
+      "name": "CreateSponsorshipInput",
+      "kind": "inputObjects",
+      "id": "createsponsorshipinput",
+      "href": "/graphql/reference/input-objects#createsponsorshipinput",
+      "description": "<p>Autogenerated input type of CreateSponsorship.</p>",
+      "inputFields": [
+        {
+          "name": "amount",
+          "description": "<p>The amount to pay to the sponsorable in US dollars. Required if a tierId is not specified. Valid values: 1-12000.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRecurring",
+          "description": "<p>Whether the sponsorship should happen monthly/yearly or just this one time. Required if a tierId is not specified.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>Specify whether others should be able to see that the sponsor is sponsoring\nthe sponsorable. Public visibility still does not reveal which tier is used.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshipprivacy"
+        },
+        {
+          "name": "receiveEmails",
+          "description": "<p>Whether the sponsor should receive email updates from the sponsorable.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of the user or organization who is acting as the sponsor, paying for\nthe sponsorship. Required if sponsorLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying\nfor the sponsorship. Required if sponsorId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of one of sponsorable's existing tiers to sponsor at. Required if amount is not specified.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -71950,6 +73965,73 @@
           "id": "enterpriseserveruseraccountsuploadorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterpriseserveruseraccountsuploadorderfield"
+        }
+      ]
+    },
+    {
+      "name": "FileAddition",
+      "kind": "inputObjects",
+      "id": "fileaddition",
+      "href": "/graphql/reference/input-objects#fileaddition",
+      "description": "<p>A command to add a file at the given path with the given contents as part of a\ncommit.  Any existing file at that that path will be replaced.</p>",
+      "inputFields": [
+        {
+          "name": "contents",
+          "description": "<p>The base64 encoded contents of the file.</p>",
+          "type": "Base64String!",
+          "id": "base64string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#base64string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path in the repository where the file will be located.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "FileChanges",
+      "kind": "inputObjects",
+      "id": "filechanges",
+      "href": "/graphql/reference/input-objects#filechanges",
+      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#encoding\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Encoding</h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\"><a aria-hidden=\"\" tabindex=\"-1\" class=\"doctocat-link\" href=\"#modeling-file-changes\"><svg aria-hidden=\"\" role=\"img\" class=\"octicon-link\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" style=\"display:inline-block;user-select:none;vertical-align:middle\"><path fill-rule=\"evenodd\" d=\"M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z\"></path></svg></a>Modeling file changes</h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<p>   {\n\"additions\" [\n{\n\"path\": \"docs/README.txt\",\n\"contents\": base64encode(\"hello world\\n\")\n}\n]\n}</p>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
+      "inputFields": [
+        {
+          "name": "additions",
+          "description": "<p>File to add or change.</p>",
+          "type": "[FileAddition!]",
+          "id": "fileaddition",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#fileaddition"
+        },
+        {
+          "name": "deletions",
+          "description": "<p>Files to delete.</p>",
+          "type": "[FileDeletion!]",
+          "id": "filedeletion",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#filedeletion"
+        }
+      ]
+    },
+    {
+      "name": "FileDeletion",
+      "kind": "inputObjects",
+      "id": "filedeletion",
+      "href": "/graphql/reference/input-objects#filedeletion",
+      "description": "<p>A command to delete the file at the given path as part of a commit.</p>",
+      "inputFields": [
+        {
+          "name": "path",
+          "description": "<p>The path to delete.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -74014,6 +76096,31 @@
       ]
     },
     {
+      "name": "SponsorOrder",
+      "kind": "inputObjects",
+      "id": "sponsororder",
+      "href": "/graphql/reference/input-objects#sponsororder",
+      "description": "<p>Ordering options for connections to get sponsor entities for GitHub Sponsors.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsor entities by.</p>",
+          "type": "SponsorOrderField!",
+          "id": "sponsororderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsororderfield"
+        }
+      ]
+    },
+    {
       "name": "SponsorableOrder",
       "kind": "inputObjects",
       "id": "sponsorableorder",
@@ -74039,6 +76146,31 @@
       ]
     },
     {
+      "name": "SponsorsActivityOrder",
+      "kind": "inputObjects",
+      "id": "sponsorsactivityorder",
+      "href": "/graphql/reference/input-objects#sponsorsactivityorder",
+      "description": "<p>Ordering options for GitHub Sponsors activity connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order activity by.</p>",
+          "type": "SponsorsActivityOrderField!",
+          "id": "sponsorsactivityorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorsactivityorderfield"
+        }
+      ]
+    },
+    {
       "name": "SponsorsTierOrder",
       "kind": "inputObjects",
       "id": "sponsorstierorder",
@@ -74060,6 +76192,31 @@
           "id": "sponsorstierorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#sponsorstierorderfield"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipNewsletterOrder",
+      "kind": "inputObjects",
+      "id": "sponsorshipnewsletterorder",
+      "href": "/graphql/reference/input-objects#sponsorshipnewsletterorder",
+      "description": "<p>Ordering options for sponsorship newsletter connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order sponsorship newsletters by.</p>",
+          "type": "SponsorshipNewsletterOrderField!",
+          "id": "sponsorshipnewsletterorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshipnewsletterorderfield"
         }
       ]
     },
@@ -76471,6 +78628,73 @@
       ]
     },
     {
+      "name": "UpdateSponsorshipPreferencesInput",
+      "kind": "inputObjects",
+      "id": "updatesponsorshippreferencesinput",
+      "href": "/graphql/reference/input-objects#updatesponsorshippreferencesinput",
+      "description": "<p>Autogenerated input type of UpdateSponsorshipPreferences.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "privacyLevel",
+          "description": "<p>Specify whether others should be able to see that the sponsor is sponsoring\nthe sponsorable. Public visibility still does not reveal which tier is used.</p>",
+          "type": "SponsorshipPrivacy",
+          "id": "sponsorshipprivacy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshipprivacy"
+        },
+        {
+          "name": "receiveEmails",
+          "description": "<p>Whether the sponsor should receive email updates from the sponsorable.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorId",
+          "description": "<p>The ID of the user or organization who is acting as the sponsor, paying for\nthe sponsorship. Required if sponsorLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorLogin",
+          "description": "<p>The username of the user or organization who is acting as the sponsor, paying\nfor the sponsorship. Required if sponsorId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sponsorableId",
+          "description": "<p>The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "UpdateSubscriptionInput",
       "kind": "inputObjects",
       "id": "updatesubscriptioninput",
@@ -76802,6 +79026,13 @@
     }
   ],
   "scalars": [
+    {
+      "name": "Base64String",
+      "kind": "scalars",
+      "id": "base64string",
+      "href": "/graphql/reference/scalars#base64string",
+      "description": "<p>A (potentially binary) string encoded using base64.</p>"
+    },
     {
       "name": "Boolean",
       "description": "Represents `true` or `false` values.",

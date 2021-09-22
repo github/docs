@@ -25,11 +25,11 @@ Learning track data for a product is defined in two places:
 
     One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product sublanding page. A test will fail if this property is missing.
 
-    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
+    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
 
 ## Versioning
 
-Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `layouts/product-sublanding.html`.
+Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `components/sublanding`.
 
 Liquid conditionals do **not** have to be used for versioning in the YAML file for guides. Only the learning track guides that apply to the current version will be rendered automatically. If there aren't any tracks with guides that belong to the current version, the learning tracks section will not render at all.
 
@@ -40,7 +40,7 @@ learning_track_name:
   description: 'Learning track description'
   featured_track: true
   versions:
-    enterprise-server: '>=3.0'
+    ghes: '>=3.0'
   guides:
    - /path/to/guide1
    - /path/to/guide2

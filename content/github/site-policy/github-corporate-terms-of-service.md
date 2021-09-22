@@ -3,7 +3,7 @@ title: GitHub Corporate Terms of Service
 redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

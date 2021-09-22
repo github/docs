@@ -8,12 +8,13 @@ redirect_from:
   - /articles/viewing-your-git-large-file-storage-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - LFS
   - Organizations
   - User account
+shortTitle: View Git LFS usage
 ---
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 

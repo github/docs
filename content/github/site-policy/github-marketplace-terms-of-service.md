@@ -3,7 +3,7 @@ title: GitHub Marketplace Terms of Service
 redirect_from:
   - /articles/github-marketplace-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -39,7 +39,7 @@ All payments for Developer Products will go through GitHub. The terms of your pa
 
 **Billing Schedule; No Refunds.** Your payment schedule is determined by the payment schedule you chose when you created your GitHub account (e.g. free, monthly, annual). For monthly or yearly payment plans, Marketplace purchases are billed in advance on a monthly or yearly basis respectively and are non-refundable. There will be no refunds or credits for partial months of service, downgrade refunds, or refunds for months unused; however, the service will remain active for the length of the paid billing period. If you would like to cancel the Developer Product services, you can do so by going into your Settings in the global navigation bar at the top of the screen.
 
-If you would have a question, concern, or dispute regarding your billing, please contact [GitHub Support](https://support.github.com/contact).
+If you would have a question, concern, or dispute regarding your billing, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy).
 
 ## E. Your Data and GitHub's Privacy Policy
 
@@ -87,4 +87,4 @@ You agree to indemnify us, defend us, and hold us harmless from and against any 
 
 6. **License to GitHub Policies.** These Marketplace Terms are licensed under this [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
 
-7. **Contact Us.** Questions about the Marketplace Terms? [Contact us](https://support.github.com/contact).
+7. **Contact Us.** Questions about the Marketplace Terms? [Contact us](https://support.github.com/contact?tags=docs-policy).

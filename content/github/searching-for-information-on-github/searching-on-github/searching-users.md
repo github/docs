@@ -5,9 +5,9 @@ redirect_from:
   - /articles/searching-users
   - /github/searching-for-information-on-github/searching-users
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -86,6 +86,18 @@ You can filter users based on the number of followers that they have, using the 
 | ------------- | -------------
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) matches users with 1,000 or more followers.
 | | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) matches users with between 1 and 10 followers, with the word "sparkle" in their name.
+
+{% ifversion fpt %}
+
+## Search based on ability to sponsor
+
+You can search for users and organizations who can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+
+| Qualifier  | Example
+| ------------- | -------------
+| `is:sponsorable` | [**is:sponsorable**](https://github.com/search?q=is%3Asponsorable&type=Users) matches users and organizations who have a {% data variables.product.prodname_sponsors %} profile.
+
+{% endif %}
 
 ## Further reading
 

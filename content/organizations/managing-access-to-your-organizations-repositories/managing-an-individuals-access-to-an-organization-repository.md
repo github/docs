@@ -7,12 +7,13 @@ redirect_from:
   - /articles/managing-an-individuals-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage individual access
 ---
 
 People with admin permissions can manage the access of organization members and outside collaborators to an organization repository.
@@ -38,5 +39,5 @@ When you remove a collaborator from a repository in your organization, the colla
 
 ## Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% ifversion fpt %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

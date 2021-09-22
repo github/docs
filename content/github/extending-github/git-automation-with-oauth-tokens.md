@@ -6,9 +6,10 @@ redirect_from:
   - /articles/git-automation-with-oauth-tokens
 intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Automate with OAuth tokens
 ---
 
 ## Step 1: Get an OAuth token
@@ -17,7 +18,7 @@ Create a personal access token on your application settings page. For more infor
 
 {% tip %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 **Tips:**
 - You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -27,7 +28,7 @@ Create a personal access token on your application settings page. For more infor
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ## Step 2: Clone a repository
 

@@ -25,7 +25,7 @@ export function GHESReleaseNotePatch({
 }: Props) {
   const { t } = useTranslation('header')
   const containerRef = useRef<HTMLDivElement>(null)
-  const onScreen = useOnScreen(containerRef, '-40% 0px -50%')
+  const onScreen = useOnScreen(containerRef, { rootMargin: '-40% 0px -50%' })
   useEffect(() => {
     if (onScreen) {
       didEnterView()
@@ -64,8 +64,6 @@ export function GHESReleaseNotePatch({
               Download
             </Link>
           )}
-
-          <button className="js-print btn-link ml-3 text-small text-bold">Print</button>
         </div>
 
         <p className="color-text-secondary mt-1">{dayjs(patch.date).format('MMMM, DD, YYYY')}</p>

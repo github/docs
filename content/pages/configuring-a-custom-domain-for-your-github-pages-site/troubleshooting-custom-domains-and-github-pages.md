@@ -9,9 +9,10 @@ redirect_from:
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Troubleshoot a custom domain
 ---
 
 ## _CNAME_ errors
@@ -31,7 +32,10 @@ Then, make sure the _CNAME_ file is formatted correctly.
 
 If you have trouble pointing the default domain for your site to your custom domain, contact your DNS provider.
 
-You can also test whether your custom domain's DNS records are configured correctly. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+
+- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- An online DNS lookup tool.
 
 ## Custom domain names that are unsupported
 

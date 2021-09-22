@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
   - /admin/enterprise-management/initializing-the-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering

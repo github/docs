@@ -6,9 +6,9 @@ redirect_from:
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
   - /admin/authentication/using-cas
-intro: 'CAS is a single sign-on (SSO) protocol for multiple web applications. A CAS user account does not take up a {% if currentVersion ver_gt "enterprise-server@2.16" %}user license{% else %}seat{% endif %} until the user signs in.'
+intro: 'CAS is a single sign-on (SSO) protocol for multiple web applications. A CAS user account does not take up a {% ifversion ghes %}user license{% else %}seat{% endif %} until the user signs in.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts

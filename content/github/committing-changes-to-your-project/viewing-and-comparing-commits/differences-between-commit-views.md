@@ -1,12 +1,14 @@
 ---
 title: Differences between commit views
+intro: You might observe differences in commit history depending on the chosen viewing method.
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Commit views
 ---
 On {% data variables.product.product_name %}, you can see the commit history of a repository by:
 

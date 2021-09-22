@@ -1,8 +1,8 @@
 ---
 title: Reordering commits
-intro: "You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch's history."
+intro: 'You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch''s history.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 ## About reordering a commit
@@ -36,6 +36,7 @@ When you reorder commits, you may see one of the following notifications or erro
 
 * A message states that there are merge conflicts that you must resolve before the application can continue reordering commits on your branch.
     1. Click **View conflicts** to see the conflicts.
+      ![reorder resolve conflicts message](/assets/images/help/desktop/reorder-resolve-conflicts.png)
     {% data reusables.desktop.resolve-merge-conflicts %}
-
-  ![reorder resolve conflicts message](/assets/images/help/desktop/reorder-resolve-conflicts.png)
+   3. When all conflicts are resolved, you can reorder your commits.
+  

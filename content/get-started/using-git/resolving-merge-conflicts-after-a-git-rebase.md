@@ -7,9 +7,10 @@ redirect_from:
   - /github/getting-started-with-github/resolving-merge-conflicts-after-a-git-rebase
   - /github/getting-started-with-github/using-git/resolving-merge-conflicts-after-a-git-rebase
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Resolve conflicts after rebase
 ---
 After you reorder and manipulate commits using `git rebase`, should a merge conflict occur, Git will tell you so with the following message printed to the terminal:
 

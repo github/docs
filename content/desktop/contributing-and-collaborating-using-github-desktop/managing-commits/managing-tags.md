@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-tags
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-tags
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ## About tags in {% data variables.product.prodname_desktop %}
 

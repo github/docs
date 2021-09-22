@@ -29,16 +29,16 @@ At the moment, versioning is only supported in code examples. If an example bloc
     - Version updates
     - Pull requests
   versions:
-    'free-pro-team': '*'
+    fpt: '*'
   ```
 
-  where the syntax for `versions` is the same as the [frontmatter `versions` property](content/README.md) and can support semver notation.
+where the syntax for `versions` is the same as the [frontmatter `versions` property](content/README.md) and can support semver notation.
 
 ## Rendering
 
 The product example data is added to the `context` object in `middleware/contextualizers/product-examples.js`.
 
-The data is then rendered by `layouts/product-landing.html`.
+The data is then rendered by `components/landing`.
 
 ## Schema enforcement
 

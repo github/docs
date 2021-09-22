@@ -4,9 +4,9 @@ intro: Learn how to resolve the most common problems people encounter in the RES
 redirect_from:
   - /v3/troubleshooting
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -23,7 +23,7 @@ You might expect to see a `403 Forbidden` in these cases. However, since we don'
 want to provide _any_ information about private repositories, the API returns a
 `404` error instead.
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), and [third-party application restrictions][oap-guide] are not blocking access.
+To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 ## Not all results returned
 
@@ -38,7 +38,7 @@ API call uses the same structure. Instead, extract the pagination information fr
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Basic authentication errors
 
 On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.

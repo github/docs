@@ -7,11 +7,12 @@ redirect_from:
   - /articles/viewing-your-milestones-progress
   - /github/managing-your-work-on-github/viewing-your-milestones-progress
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: View progress to milestone
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

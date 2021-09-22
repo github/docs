@@ -6,11 +6,12 @@ redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Review proposed changes
 ---
 ## About reviewing pull requests
 
@@ -19,6 +20,10 @@ You can review changes in a pull request one file at a time. While reviewing the
 {% data reusables.search.requested_reviews_search_tip %}
 
 ## Starting a review
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -32,9 +37,25 @@ You can review changes in a pull request one file at a time. While reviewing the
 Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+{% endwebui %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
+
+{% codespaces %}
+
+You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+
+{% data reusables.codespaces.review-pr %} 
+
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+{% endif %}
+
+{% ifversion fpt or ghes > 3.1 %}
 ## Reviewing dependency changes
+
+{% data reusables.dependency-review.beta %}
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 

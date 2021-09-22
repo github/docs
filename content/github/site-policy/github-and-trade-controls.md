@@ -6,7 +6,7 @@ redirect_from:
   - /articles/github-and-trade-controls
   - /github/site-policy/github-and-export-controls
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

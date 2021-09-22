@@ -9,7 +9,7 @@ redirect_from:
   - /articles/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Discounts

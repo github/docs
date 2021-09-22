@@ -6,13 +6,14 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
   - Repositories
+shortTitle: Publish advisories
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 

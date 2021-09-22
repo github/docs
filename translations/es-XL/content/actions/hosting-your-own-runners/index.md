@@ -21,4 +21,3 @@ children:
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% link_in_list/Using-a-Proxy-Server-With-Self-Hosted-Runners%}

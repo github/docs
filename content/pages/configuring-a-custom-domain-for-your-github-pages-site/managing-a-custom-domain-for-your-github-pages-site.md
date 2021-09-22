@@ -13,9 +13,10 @@ redirect_from:
   - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Manage a custom domain
 ---
 
 People with admin permissions for a repository can configure a custom domain for a {% data variables.product.prodname_pages %} site.
@@ -71,26 +72,42 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
 {% data reusables.pages.sidebar-pages %}
 4. Under "Custom domain", type your custom domain, then click **Save**. This will create a commit that adds a _CNAME_ file in the root of your publishing source.
   ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. {% data reusables.pages.contact-dns-provider %}
+5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
     - To create an `ALIAS` or `ANAME` record, point your apex domain to the default domain for your site. {% data reusables.pages.default-domain-information %}
-    - To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}. 
+    - To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
       ```shell
       185.199.108.153
       185.199.109.153
       185.199.110.153
       185.199.111.153
       ```
+    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+      ```shell
+      2606:50c0:8000::153
+      2606:50c0:8001::153
+      2606:50c0:8002::153
+      2606:50c0:8003::153
+      ```
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _EXAMPLE.COM_ with your apex domain. Confirm that the results match the IP addresses for {% data variables.product.prodname_pages %} above.
-  ```shell
-  $ dig <em>EXAMPLE.COM</em> +noall +answer
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.109.153
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
-  ```
+   - For `A` records.
+    ```shell
+    $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.109.153
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
+    ```
+   - For `AAAA` records.
+    ```shell
+    $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8001::153
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8002::153
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8003::153
+    ```
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 

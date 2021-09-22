@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -79,4 +79,6 @@ You can also use the `ghe-ssl-acme` command line utility on {% data variables.pr
 {% data reusables.enterprise_management_console.privacy %}
 7. Click **Request TLS certificate**.
   ![Request TLS certificate button](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Click **Save configuration**.
+8. Wait for the "Status" to change from "STARTED" to "DONE".
+   ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. Click **Save configuration**.

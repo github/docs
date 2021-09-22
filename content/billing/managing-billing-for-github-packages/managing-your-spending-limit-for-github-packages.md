@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,6 +14,7 @@ topics:
   - Packages
   - Spending limits
   - User account
+shortTitle: Your spending limit
 ---
 ## About spending limits for {% data variables.product.prodname_registry %}
 
@@ -45,7 +46,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 ## Managing the spending limit for {% data variables.product.prodname_registry %} for your enterprise account
@@ -59,3 +60,6 @@ Enterprise owners and billing managers can manage the spending limit for {% data
   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+## Managing usage and spending limit email notifications
+{% data reusables.billing.email-notifications %}
