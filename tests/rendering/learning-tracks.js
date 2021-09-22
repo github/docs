@@ -3,7 +3,7 @@ import { jest } from '@jest/globals'
 
 jest.setTimeout(3 * 60 * 1000)
 
-describe('learning tracks', () => {
+describe.skip('learning tracks', () => {
   test('render first track as feature track', async () => {
     const $ = await getDOM('/en/actions/guides')
     expect($('[data-testid=feature-track]')).toHaveLength(1)
@@ -37,7 +37,7 @@ describe('learning tracks', () => {
   })
 })
 
-describe('navigation banner', () => {
+describe.skip('navigation banner', () => {
   test('render navigation banner when url includes correct learning track name', async () => {
     const $ = await getDOM(
       '/en/actions/guides/setting-up-continuous-integration-using-workflow-templates?learn=continuous_integration'
