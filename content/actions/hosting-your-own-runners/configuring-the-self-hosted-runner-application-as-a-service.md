@@ -172,9 +172,3 @@ If you don't want to use the above default `systemd` service configuration, you 
 {% endlinux %}
 
 {% mac %}
-
-## Customizing the self-hosted runner service
-
-If you don't want to use the above default launchd service configuration, you can create a customized service or use whichever service mechanism you prefer. Consider using the `plist` template at `actions-runner/bin/actions.runner.plist.template` as a reference. If you use a customized service, the self-hosted runner service must always be invoked using the `runsvc.sh` entry point.
-
-{% endmac %}
