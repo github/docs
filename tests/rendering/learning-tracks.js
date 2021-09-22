@@ -50,6 +50,18 @@ describe.skip('navigation banner', () => {
     })
   })
 
+  test('render navigation banner when url is a redirect to a learning track URL', async () => {
+    const $ = await getDOM(
+      '/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
+    )
+    expect($('[data-testid=learning-track-nav]')).toHaveLength(1)
+    const $navLinks = $('[data-testid=learning-track-nav] a')
+    expect($navLinks).toHaveLength(1)
+    $navLinks.each((i, elem) => {
+      expect($(elem).attr('href')).toEqual(expect.stringContaining('?learn=upgrade_your_instance'))
+    })
+  })
+
   test('does not include banner when url does not include `learn` param', async () => {
     const $ = await getDOM(
       '/en/actions/guides/setting-up-continuous-integration-using-workflow-templates'
