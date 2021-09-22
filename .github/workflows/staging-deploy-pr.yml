@@ -198,7 +198,7 @@ jobs:
         env:
           UPLOAD_URL: ${{ steps.build-source.outputs.upload_url }}
         run: |
-          curl '$UPLOAD_URL' \
+          curl "$UPLOAD_URL" \
             -X PUT \
             -H 'Content-Type:' \
             --data-binary @app.tar.gz
