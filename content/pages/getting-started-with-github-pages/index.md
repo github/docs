@@ -1,4 +1,4 @@
----
+---git clone
 title: Getting started with GitHub Pages
 intro: 'You can set up a basic {% data variables.product.prodname_pages %} site for yourself, your organization, or your project.'
 redirect_from:
