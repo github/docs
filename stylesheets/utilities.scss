@@ -18,9 +18,12 @@
   min-height: 100vh;
 }
 
+.outline-none {
+  outline: none;
+}
+
 /* Print utilities
 ------------------------------------------------------------------------------*/
-
 @media print {
   .no-print {
     display: none;
@@ -29,7 +32,6 @@
 
 /* Opacity utilities
 ------------------------------------------------------------------------------*/
-
 .opacity-0 {
   opacity: 0;
 }
@@ -43,38 +45,20 @@
   opacity: 1;
 }
 
-/* Text utilities
-------------------------------------------------------------------------------*/
-
-.underline-dashed {
-  padding-bottom: $spacer-1;
-  background-image: linear-gradient(
-    to right,
-    var(--color-auto-gray-3) 50%,
-    transparent 0%
-  );
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background-size: 10px 1px;
-}
-
 /* List utilities
 ------------------------------------------------------------------------------*/
-
 .list-style-inside {
   list-style: inside;
 }
 
 /* Hover utilities
 ------------------------------------------------------------------------------*/
-
 .hover\:color-bg-info:hover {
   background: var(--color-bg-info);
 }
 
 /* Z-Index utilities
 ------------------------------------------------------------------------------*/
-
 .-z-1 {
   z-index: -1;
 }
@@ -83,21 +67,6 @@
 }
 .z-2 {
   z-index: 2;
-}
-
-/* Gradient utilities
-------------------------------------------------------------------------------*/
-
-.fade-tertiary-left {
-  background: linear-gradient(to right, var(--color-bg-primary), transparent);
-}
-
-.fade-tertiary-right {
-  background: linear-gradient(to left, var(--color-bg-primary), transparent);
-}
-
-.fade-tertiary-bottom {
-  background: linear-gradient(to top, var(--color-bg-primary), transparent);
 }
 
 /* Blue primary button
@@ -114,12 +83,8 @@
   background-color: var(--color-auto-blue-6);
 }
 
-/* Semibold text
+/* Border colors
 ------------------------------------------------------------------------------*/
-.font-weight-semibold {
-  font-weight: $font-weight-semibold;
-}
-
-.outline-none {
-  outline: none;
+.color-border-transparent {
+  border-color: transparent !important;
 }

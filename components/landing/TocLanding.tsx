@@ -8,10 +8,20 @@ import { ArticleList } from 'components/landing/ArticleList'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
+import { Lead } from 'components/ui/Lead'
+import { LearningTrackNav } from '../article/LearningTrackNav'
 
 export const TocLanding = () => {
-  const { title, introPlainText, tocItems, productCallout, variant, featuredLinks, renderedPage } =
-    useTocLandingContext()
+  const {
+    title,
+    introPlainText,
+    tocItems,
+    productCallout,
+    variant,
+    featuredLinks,
+    renderedPage,
+    currentLearningTrack,
+  } = useTocLandingContext()
   const { t } = useTranslation('toc')
 
   return (
@@ -22,9 +32,7 @@ export const TocLanding = () => {
         <ArticleGridLayout className="mt-7">
           <ArticleTitle>{title}</ArticleTitle>
 
-          <div className="f2 color-text-secondary">
-            <p>{introPlainText}</p>
-          </div>
+          {introPlainText && <Lead>{introPlainText}</Lead>}
 
           {productCallout && (
             <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />
@@ -39,17 +47,12 @@ export const TocLanding = () => {
                   <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
                     <ArticleList
                       title={t('getting_started')}
-                      variant="spaced"
                       articles={featuredLinks.gettingStarted}
                     />
                   </div>
 
                   <div className="col-12 col-lg-6 float-left">
-                    <ArticleList
-                      title={t('popular')}
-                      variant="spaced"
-                      articles={featuredLinks.popular}
-                    />
+                    <ArticleList title={t('popular')} articles={featuredLinks.popular} />
                   </div>
                 </div>
               </div>
@@ -64,6 +67,12 @@ export const TocLanding = () => {
             <TableOfContents items={tocItems} variant={variant} />
           </div>
         </ArticleGridLayout>
+
+        {currentLearningTrack?.trackName ? (
+          <div className="mt-4">
+            <LearningTrackNav track={currentLearningTrack} />
+          </div>
+        ) : null}
       </div>
     </DefaultLayout>
   )

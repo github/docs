@@ -508,12 +508,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_short_desc %}
 
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation` event.  
-
-{% endnote %}
-
 ### Availability
 
 - {% data variables.product.prodname_github_apps %}
@@ -531,12 +525,6 @@ Key | Type | Description
 ## installation_repositories
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
-
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation_repositories` event.
-
-{% endnote %}
 
 ### Availability
 
@@ -1402,6 +1390,30 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
+{% ifversion fpt or ghes > 3.2 %}
+
+## workflow_job
+
+{% data reusables.webhooks.workflow_job_short_desc %}
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- Enterprise webhooks
+
+### Webhook payload object
+
+{% data reusables.webhooks.workflow_job_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.workflow_job }}
+
+{% endif %}
 {% ifversion fpt or ghes > 2.22 %}
 ## workflow_run
 
