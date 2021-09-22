@@ -2,7 +2,7 @@
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
-Read our [Code of Coduct](https://github.com/github/docs-internal/blob/main/CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Read our [Code of Coduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
 
