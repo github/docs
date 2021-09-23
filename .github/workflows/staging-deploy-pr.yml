@@ -139,14 +139,6 @@ jobs:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.workflow_run.head_branch }}
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Create an archive for early access
-        run: |
-          tar -c --file=early-access.tar \
-            assets/ \
-            content/ \
-            data/
-
       # Download the previously built "app.tar"
       - name: Download build artifact
         uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
@@ -156,10 +148,20 @@ jobs:
           name: pr_build
           path: ./
 
-      # Append "early-access.tar" into "app.tar"
       - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Concatenate the archives
-        run: tar -A --file=app.tar early-access.tar
+        name: Extract user-changes to temp directory
+        run: |
+          tar -x --file=app.tar -C "$RUNNER_TEMP/"
+          rm app.tar
+
+      # Append early access content into the temp directory
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Merge in the early access content
+        run: rsync -ai assets content data "$RUNNER_TEMP/"
+
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create an updated archive
+        run: tar -c --file app.tar "$RUNNER_TEMP/"
 
       # Create "app.tar.gz" and delete "app.tar"
       - name: Create a gzipped archive
