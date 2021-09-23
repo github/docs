@@ -241,10 +241,17 @@ export default async function deployToStaging({
         }
 
         if (appSetup && appSetup.status === 'failed') {
+          const manifestErrors = appSetup.manifest_errors || []
+          const hasManifestErrors = Array.isArray(manifestErrors) && manifestErrors.length > 0
+          const manifestErrorMessage = hasManifestErrors
+            ? `\nManifest errors:\n - ${manifestErrors.join('\n - ')}`
+            : ''
           throw new Error(
             `Failed to setup app after ${Math.round(
               (Date.now() - appSetupStartTime) / 1000
-            )} seconds. See Heroku logs for more information:\n${logUrl}`
+            )} seconds.
+Reason: ${appSetup.failure_message}${manifestErrorMessage}
+See Heroku logs for more information:\n${logUrl}`
           )
         }
 
