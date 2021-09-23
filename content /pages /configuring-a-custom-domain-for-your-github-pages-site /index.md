@@ -21,5 +21,7 @@ children:
   - /managing-a-custom-domain-for-your-github-pages-site
   - /troubleshooting-custom-domains-and-github-pages
 shortTitle: Configure a custom domain
+
+  - José Junior de Oliveira
 ---
 
