@@ -49,6 +49,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
 | [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
 | [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
+| [`ip_allow_list`](#ip_allow_list) | Contains activitites related to enabling or disabling the IP allow list for an organization. 
+| [`ip_allow_list_entry`](#ip_allow_list_entry) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization. 
 | [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% ifversion fpt %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
 | [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes > 3.0 %}
@@ -334,6 +336,23 @@ An overview of some of the most common actions that are recorded as events in th
 |------------------|-------------------
 | `create` | Triggered when an organization member requests that an organization owner install an integration for use in the organization.
 | `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
+
+### `ip_allow_list` category actions
+
+| Action | Description
+|------------------|-------------------
+| `enabled` | Triggered when an IP allow list was enabled for an organization.
+| `disable` | Triggered when an IP allow list was disabled for an organization.
+| `enable_for_installed_apps` | Triggered when an IP allow list was enabled for installed GitHub Apps.
+| `disable_for_installed_apps` | Triggered when an IP allow list was disabled for installed GitHub Apps.
+
+### `ip_allow_list_entry` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when an IP address was added to an IP allow list.
+| `update` | Triggered when an IP address or its description was changed.
+| `destroy` | Triggered when an IP address was deleted from an IP allow list.
 
 ### `issue` category actions
 
