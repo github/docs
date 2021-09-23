@@ -12,11 +12,11 @@ shortTitle: Special characters in names
 
 Most repositories use simple branch names, such as `main` or `update-icons`. Tag names also usually follow a basic format, such as a version number like `v1.2.3`. Both branch names and tag names may also use the path separator (`/`) for structure, for example `area/item` or `level-1/level-2/level-3`. Other than some exceptions &mdash; such as not starting or ending a name with a slash, or having consecutive slashes in the name &mdash; Git has very few restrictions on what characters may be used in branch and tag names. For more information, see "[git-check-ref-format](https://git-scm.com/docs/git-check-ref-format)" in the Git documentation.
 
-## Why escaping special characters is necessary
+## Why you need to escape special characters
 
-When using a CLI, you might have situations where a branch or tag name contains special characters that have a special meaning for your shell environment. These characters must be quoted or escaped for you to use them safely in a Git command, otherwise running the command may have unintended effects.
+When using a CLI, you might have situations where a branch or tag name contains special characters that have a special meaning for your shell environment. To use these characters safely in a Git command, they must be quoted or escaped, otherwise the command may have unintended effects.
 
-For example, the `$` character is used by many shells to refer to a variable. Most shells would interpret a valid branch name like `hello-$USER` as equivalent to the word "hello", followed by a hyphen, followed by the current value of the `USER` variable, rather than the literal string `hello-$USER`. If a branch name includes the `$` character, then we need to stop the shell from expanding it as a variable reference. Similarly, if a branch name contains a semi-colon (`;`), most shells interpret it as a command separator, so we need to quote or escape it appropriately.
+For example, the `$` character is used by many shells to refer to a variable. Most shells would interpret a valid branch name like `hello-$USER` as equivalent to the word "hello", followed by a hyphen, followed by the current value of the `USER` variable, rather than the literal string `hello-$USER`. If a branch name includes the `$` character, then the shell must be stopped from expanding it as a variable reference. Similarly, if a branch name contains a semi-colon (`;`), most shells interpret it as a command separator, so it needs to be quoted or escaped.
 
 ## How to escape special characters in branch and tag names
 
@@ -35,7 +35,7 @@ For these shells, the main exception is when the branch or tag name itself conta
 
 ## Naming branches and tags
 
-If possible, create branch and tag names that don't contain special characters which must be escaped. A safe default set of characters to use for branch names and tag names is:
+If possible, create branch and tag names that don't contain special characters, as these would need to be escaped. A safe default set of characters to use for branch names and tag names is:
 
 * The English alphabet (`a` to `z` and `A` to `Z`)
 * Numbers (`0` to `9`)
