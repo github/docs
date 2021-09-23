@@ -29,8 +29,6 @@ These are the supported media types for pull requests.
 
 For more information, see "[Custom media types](/rest/overview/media-types)."
 
-<a id="diff-error">
-
 If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
 
 ### Link Relations

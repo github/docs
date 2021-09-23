@@ -26,6 +26,36 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
+      # Make sure only approved files are changed if it's in github/docs
+      - name: Check changed files
+        if: ${{ github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger' }}
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            notAllowed:
+              - '*.js'
+              - '*.mjs'
+              - '*.ts'
+              - '*.tsx'
+              - '*.json'
+              - '.npmrc'
+              - 'script/**'
+              - 'Procfile'
+
+      # When there are changes to files we can't accept
+      - name: Fail when disallowed files are changed
+        if: ${{ steps.filter.outputs.notAllowed == 'true' }}
+        run: exit 1
+
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
@@ -53,7 +83,7 @@ jobs:
 
       - name: Create an archive
         run: |
-          tar -cf app.tar \
+          tar -c --file=app.tar \
             node_modules/ \
             .next/ \
             assets/ \

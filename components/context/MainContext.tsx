@@ -80,6 +80,7 @@ export type MainContextT = {
   currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
+  currentVersion?: string
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
@@ -164,6 +165,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
     currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
+    currentVersion: req.context.currentVersion,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
