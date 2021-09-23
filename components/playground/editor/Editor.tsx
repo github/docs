@@ -88,7 +88,7 @@ export const Editor: React.FC<Props> = ({ article }) => {
         <div className="border">
           {isEditorReady ? (
             <SyntaxHighlighter
-              style={theme.colorMode === 'night' ? vscDarkPlus : vs}
+              style={theme.resolvedColorMode === 'night' ? vscDarkPlus : vs}
               language={activeFile.language}
               PreTag="div"
               customStyle={{ margin: '0', padding: '1rem 0', border: 0 }}

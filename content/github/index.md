@@ -10,21 +10,15 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
-  - /authenticating-to-github
   - /copilot
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github
-  - /creating-cloning-and-archiving-repositories
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests
   - /searching-for-information-on-github
   - /importing-your-projects-to-github
-  - /administering-a-repository
-  - /visualizing-repository-data-with-graphs
   - /managing-security-vulnerabilities
   - /finding-security-vulnerabilities-and-errors-in-your-code
-  - /managing-files-in-a-repository
-  - /managing-large-files
   - /customizing-your-github-workflow
   - /extending-github
   - /working-with-github-support
