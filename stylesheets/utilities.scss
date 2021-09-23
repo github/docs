@@ -45,24 +45,6 @@
   opacity: 1;
 }
 
-/* Text utilities
-------------------------------------------------------------------------------*/
-.underline-dashed {
-  padding-bottom: $spacer-1;
-  background-image: linear-gradient(
-    to right,
-    var(--color-auto-gray-3) 50%,
-    transparent 0%
-  );
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background-size: 10px 1px;
-}
-
-.font-weight-semibold {
-  font-weight: $font-weight-semibold;
-}
-
 /* List utilities
 ------------------------------------------------------------------------------*/
 .list-style-inside {
@@ -85,20 +67,6 @@
 }
 .z-2 {
   z-index: 2;
-}
-
-/* Gradient utilities
-------------------------------------------------------------------------------*/
-.fade-tertiary-left {
-  background: linear-gradient(to right, var(--color-bg-primary), transparent);
-}
-
-.fade-tertiary-right {
-  background: linear-gradient(to left, var(--color-bg-primary), transparent);
-}
-
-.fade-tertiary-bottom {
-  background: linear-gradient(to top, var(--color-bg-primary), transparent);
 }
 
 /* Blue primary button

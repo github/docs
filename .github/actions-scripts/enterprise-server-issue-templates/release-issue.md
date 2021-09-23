@@ -9,7 +9,8 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 - [ ] Create a new branch from `main` with the name `ghes-<RELEASE>-megabranch`. e.g. `ghes-3.2-megabranch`.
 - [ ] In [lib/enterprise-server-releases.js](https://github.com/github/docs-internal/blob/main/lib/enterprise-server-releases.js):
   - [ ] Prepend the new release number to the `supported` array.
-  - [ ] Increment the `next` variable above the `supported` array (e.g., new release number + `.1`)
+  - [ ] Increment the `next` variable above the `supported` array (e.g., new release number + `.1`).
+  - [ ] Increment the `nextNext` variable above the `supported` array (e.g., new release number + `.2`).
 - [ ] Update the GHES dates file:
   - [ ] Make sure you have a `.env` file at the root directory of your local checkout, and that it contains a PAT in the format of `GITHUB_TOKEN=<token>`.
   - [ ] Run the script to update the dates file:
@@ -48,7 +49,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 
   **Note:** All of the content in this file will be updated when the release notes are created in the megabranch including the filename `PLACEHOLDER.yml`. You can update the date or leave it as-is and wait to update it when the release notes are finalized.
 
-- [ ] (Optional) Add a Release Candidate banner:
+- [ ] If this is a release candidate release, add a Release Candidate banner:
 
   ```
   script/enterprise-server-releases/release-banner.js --action create --version <PLAN@RELEASE>
@@ -63,7 +64,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   ```
 
   ☝️ This will run a workflow **on every push to the PR** that will sync **only** the English index for the new version. This will make the GHES content searchable on staging throughout content creation, and will ensure the search updates go live at the same time the content is published. See [`contributing/search.md`](https://github.com/github/docs-internal/blob/main/contributing/search.md) for details.
-
+- [ ] Get the megabranch green with passing tests as soon as possible. This typically involves fixing broken links and working with engineering to address other unexpected test failures.
 - [ ] In `github/github`, to create a new GHES release follow these steps (some of these steps may have already been done):
   - [ ] Copy the previous release's root document to a new root document for this release `cp app/api/description/ghes-<LATEST RELEASE NUMBER>.yaml app/api/description/ghes-<NEXT RELEASE NUMBER>.yaml`.
   - [ ] Update the `externalDocs.url` property in that file to use the new GHES release number.
@@ -71,6 +72,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   - [ ] Update the `variables.externalDocsUrl`, `variables.ghesVersion`, and `patch.[].value.url` in that file to use the new GHES release number.
   - [ ] Update `published` in that file to `false`. **Note:** This is important to ensure that changes for the next version of the OpenAPI schema changes are not made public until the new version is released.
   - [ ] Create a second PR based on the PR created ☝️ that toggles `published` to `true` in the `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml` file. When this PR merges it will publish the new release to the `github/rest-api-description` repo and will trigger a pull request in the `github/docs-internal` repo with the schemas for the next GHES release. There is a step in this list to merge that PR in the "Before shipping the release branch" section.
+- [ ] At least once a day until release, merge `main` into the megabranch and resolve any conflicts or failing tests.
 
 ### Troubleshooting
 
@@ -95,6 +97,9 @@ This file should be automatically updated, but you can also run `script/update-e
 ### Before shipping the release branch
 
 - [ ] Add the GHES release notes to `data/release-notes/` and update the versioning frontmatter in `content/admin/release-notes.md` to `enterprise-server: '<=<RELEASE>'`
+- [ ] Add any required smoke tests to the opening post in the megabranch PR.
+
+  Usually, we should smoke test any new GHES admin guides, any large features landing in this GHES version for the first time, and the REST and GraphQL API references.
 - [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github`, to change `published` to `true` in  `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
   - [ ] Get the required approval from `@github/ecosystem-api-reviewers` then deploy the PR to dotcom. This process generally takes 30-90 minutes.
   - [ ] Once the PR merges, make sure that the auto-generated PR titled "Update OpenAPI Descriptions" in doc-internal contains both the derefrenced and decorated JSON files for the new GHES release. If everything looks good, merge the "Update OpenAPI Description" PR into the GHES release megabranch.
@@ -104,8 +109,10 @@ This file should be automatically updated, but you can also run `script/update-e
 ### 🚢 🛳️ 🚢 Shipping the release branch
 
 - [ ] Remove `[DO NOT MERGE]` and other meta information from the PR title 😜.
-- [ ] The `github/docs-internal` repo is frozen, and the `Repo Freeze Check / Prevent merging during deployment freezes (pull_request_target)` test is expected to fail. Use admin permissions to ship the release branch with this failure.
-- [ ] Do any required smoke tests.
+- [ ] The `github/docs-internal` repo is frozen, and the `Repo Freeze Check / Prevent merging during deployment freezes (pull_request_target)` test is expected to fail.
+
+  Use admin permissions to ship the release branch with this failure. Make sure that the merge's commit title does not include anything like `[DO NOT MERGE]`, and remove all the branch's commit details from the merge's commit message except for the co-author list.
+- [ ] Do any required smoke tests listed in the opening post in the megabranch PR.
 - [ ] Push the search index LFS objects for the public `github/docs` repo. The LFS objects were already being pushed for the internal repo after the `sync-english-index-for-<PLAN@RELEASE>` was added to the megabranch. To push the LFS objects, run the [search sync workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml) with the following inputs:
   version: `enterprise-server@<RELEASE>`
   language: `en`
