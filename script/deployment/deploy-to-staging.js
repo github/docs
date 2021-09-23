@@ -224,7 +224,7 @@ export default async function deployToStaging({
       // A new Build is created as a by-product of creating an AppSetup.
       // Poll until there is a Build object attached to the AppSetup.
       let setupAcceptableErrorCount = 0
-      while (!build || !build.id) {
+      while (!appSetup || appSetup.status === 'pending' || !build || !build.id) {
         await sleep(SLEEP_INTERVAL)
         try {
           appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
@@ -238,6 +238,21 @@ export default async function deployToStaging({
             }
           }
           throw new Error(`Failed to get AppSetup status. Error: ${error}`)
+        }
+
+        if (appSetup && appSetup.status === 'failed') {
+          const manifestErrors = appSetup.manifest_errors || []
+          const hasManifestErrors = Array.isArray(manifestErrors) && manifestErrors.length > 0
+          const manifestErrorMessage = hasManifestErrors
+            ? `\nManifest errors:\n - ${manifestErrors.join('\n - ')}`
+            : ''
+          throw new Error(
+            `Failed to setup app after ${Math.round(
+              (Date.now() - appSetupStartTime) / 1000
+            )} seconds.
+Reason: ${appSetup.failure_message}${manifestErrorMessage}
+See Heroku logs for more information:\n${logUrl}`
+          )
         }
 
         console.log(
@@ -304,18 +319,19 @@ export default async function deployToStaging({
         }
         throw new Error(`Failed to get build status. Error: ${error}`)
       }
+
+      if (build && build.status === 'failed') {
+        throw new Error(
+          `Failed to build after ${Math.round(
+            (Date.now() - buildStartTime) / 1000
+          )} seconds. See Heroku logs for more information:\n${logUrl}`
+        )
+      }
+
       console.log(
         `Heroku build status: ${(build || {}).status} (after ${Math.round(
           (Date.now() - buildStartTime) / 1000
         )} seconds)`
-      )
-    }
-
-    if (build.status !== 'succeeded') {
-      throw new Error(
-        `Failed to build after ${Math.round(
-          (Date.now() - buildStartTime) / 1000
-        )} seconds. See Heroku logs for more information:\n${logUrl}`
       )
     }
 
@@ -356,18 +372,18 @@ export default async function deployToStaging({
         throw new Error(`Failed to get release status. Error: ${error}`)
       }
 
+      if (release && release.status === 'failed') {
+        throw new Error(
+          `Failed to release after ${Math.round(
+            (Date.now() - releaseStartTime) / 1000
+          )} seconds. See Heroku logs for more information:\n${logUrl}`
+        )
+      }
+
       console.log(
         `Release status: ${(release || {}).status} (after ${Math.round(
           (Date.now() - releaseStartTime) / 1000
         )} seconds)`
-      )
-    }
-
-    if (release.status !== 'succeeded') {
-      throw new Error(
-        `Failed to release after ${Math.round(
-          (Date.now() - releaseStartTime) / 1000
-        )} seconds. See Heroku logs for more information:\n${logUrl}`
       )
     }
 
@@ -508,7 +524,10 @@ export default async function deployToStaging({
     try {
       await got(homepageUrl, {
         timeout: 10000, // Maximum 10 second timeout per request
-        retry: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
+        retry: {
+          limit: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
+          statusCodes: [404].concat(got.defaults.options.retry.statusCodes), // 404 is extra
+        },
         hooks: {
           beforeRetry: [
             (options, error = {}, retryCount = '?') => {

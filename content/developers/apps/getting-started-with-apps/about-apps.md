@@ -83,8 +83,8 @@ Keep these ideas in mind when using personal access tokens:
 * You can perform one-off cURL requests.
 * You can run personal scripts.
 * Don't set up a script for your whole team or company to use.
-* Don't set up a shared user account to act as a bot user.
-* Do set an expiration for your personal access tokens, to help keep your information secure.
+* Don't set up a shared user account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
+* Do set an expiration for your personal access tokens, to help keep your information secure.{% endif %}
 
 ## Determining which integration to build
 

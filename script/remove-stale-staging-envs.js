@@ -29,6 +29,7 @@ if (!process.env.REPO) {
 const octokit = getOctokit()
 
 const protectedEnvNames = ['production']
+const maxEnvironmentsToProcess = 50
 
 // How long must a PR be closed without being merged to be considered stale?
 const ONE_HOUR = 60 * 60 * 1000
@@ -46,8 +47,8 @@ async function main() {
   }
 
   const prInfoMatch = /^(?:gha-|ghd-)?(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
-  const legacyPrInfoMatch = /^help-docs-pr-(?<pullNumber>\d+)$/
 
+  let exceededLimit = false
   let matchingCount = 0
   let staleCount = 0
   let spammyCount = 0
@@ -60,16 +61,8 @@ async function main() {
     const { data: environments } = response
 
     const envsPlusPullIds = environments.map((env) => {
-      let match = prInfoMatch.exec(env.name)
-      let { repo: repoName, pullNumber } = (match || {}).groups || {}
-
-      if (!match) {
-        match = legacyPrInfoMatch.exec(env.name)
-        if (match) {
-          repoName = repo
-          pullNumber = ((match || {}).groups || {}).pullNumber
-        }
-      }
+      const match = prInfoMatch.exec(env.name)
+      const { repo: repoName, pullNumber } = (match || {}).groups || {}
 
       return {
         env,
@@ -99,6 +92,19 @@ async function main() {
       if (isSpammy || isStale) {
         await deleteEnvironment(ewpi.env.name)
       }
+
+      if (spammyCount + staleCount >= maxEnvironmentsToProcess) {
+        exceededLimit = true
+        break
+      }
+    }
+
+    if (exceededLimit) {
+      console.log(
+        '🛑',
+        chalk.bgRed(`STOP! Exceeded limit, halting after ${maxEnvironmentsToProcess}.`)
+      )
+      break
     }
   }
 
@@ -169,39 +175,45 @@ async function main() {
 
   async function deleteEnvironment(envName) {
     try {
-      // Get the latest deployment environment to signal its deactivation
-      const { data: deployments } = await octokit.repos.listDeployments({
+      let deploymentCount = 0
+
+      // Get all of the Deployments to signal this environment's complete deactivation
+      for await (const response of octokit.paginate.iterator(octokit.repos.listDeployments, {
         owner,
         repo,
 
         // In the GitHub API, there can only be one active deployment per environment.
         // For our many staging apps, we must use the unique appName as the environment.
         environment: envName,
-      })
+      })) {
+        const { data: deployments } = response
 
-      // Deactivate ALL of the deployments
-      for (const deployment of deployments) {
-        // Deactivate this Deployment with an 'inactive' DeploymentStatus
-        await octokit.repos.createDeploymentStatus({
-          owner,
-          repo,
-          deployment_id: deployment.id,
-          state: 'inactive',
-          description: 'The app was undeployed',
-          // The 'ant-man' preview is required for `state` values of 'inactive', as well as
-          // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
-          // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
-          mediaType: {
-            previews: ['ant-man', 'flash'],
-          },
-        })
+        // Deactivate ALL of the deployments
+        for (const deployment of deployments) {
+          // Deactivate this Deployment with an 'inactive' DeploymentStatus
+          await octokit.repos.createDeploymentStatus({
+            owner,
+            repo,
+            deployment_id: deployment.id,
+            state: 'inactive',
+            description: 'The app was undeployed',
+            // The 'ant-man' preview is required for `state` values of 'inactive', as well as
+            // the use of the `log_url`, `environment_url`, and `auto_inactive` parameters.
+            // The 'flash' preview is required for `state` values of 'in_progress' and 'queued'.
+            mediaType: {
+              previews: ['ant-man', 'flash'],
+            },
+          })
 
-        // Delete this Deployment
-        await octokit.repos.deleteDeployment({
-          owner,
-          repo,
-          deployment_id: deployment.id,
-        })
+          // Delete this Deployment
+          await octokit.repos.deleteDeployment({
+            owner,
+            repo,
+            deployment_id: deployment.id,
+          })
+
+          deploymentCount++
+        }
       }
 
       // Delete this Environment
@@ -217,7 +229,12 @@ async function main() {
         }
       }
 
-      console.log('✅', chalk.green(`Removed stale deployment environment "${envName}"`))
+      console.log(
+        '✅',
+        chalk.green(
+          `Removed stale deployment environment "${envName}" (${deploymentCount} deployments)`
+        )
+      )
     } catch (error) {
       console.log(
         '❌',

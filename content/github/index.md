@@ -10,7 +10,6 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
-  - /authenticating-to-github
   - /copilot
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github

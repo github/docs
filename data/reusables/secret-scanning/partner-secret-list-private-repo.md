@@ -1,4 +1,4 @@
-Partner | Supported secret | API slug
+Provider | Supported secret | API slug
 --- | --- | ---
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Adafruit IO | Adafruit IO Key | adafruit_io_key{% endif %}
@@ -40,6 +40,8 @@ Azure | Azure Service Management Certificate | azure_management_certificate{% en
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Beamer | Beamer API Key | beamer_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
@@ -170,6 +172,10 @@ PlanetScale | PlanetScale Database Password | planetscale_database_password{% en
 PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token{% endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae-next %}
 PlanetScale | PlanetScale Service Token | planetscale_service_token{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Plivo | Plivo Auth ID | plivo_auth_id{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Plivo | Plivo Auth Token | plivo_auth_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 Postman | Postman API Key | postman_api_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
@@ -192,6 +198,10 @@ Samsara | Samsara API Token | samsara_api_token{% endif %}
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Sendinblue | Sendinblue API Key | sendinblue_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}

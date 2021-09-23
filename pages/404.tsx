@@ -2,6 +2,7 @@ import { SimpleHeader, SimpleFooter } from 'components/GenericError'
 import Head from 'next/head'
 import { CommentDiscussionIcon } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
+import { Lead } from 'components/ui/Lead'
 
 const Custom404 = () => {
   const { isEnterprise } = useVersion()
@@ -17,7 +18,7 @@ const Custom404 = () => {
       <div className="container-xl p-responsive py-6 width-full flex-1">
         <article className="col-md-10 col-lg-7 mx-auto">
           <h1 className="mb-3 pb-3 border-bottom">Ooops!</h1>
-          <p className="f2 color-text-secondary">It looks like this page doesn't exist.</p>
+          <Lead>It looks like this page doesn't exist.</Lead>
           <p className="f3">
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
