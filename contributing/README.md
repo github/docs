@@ -1,6 +1,6 @@
 # Contributing to github/docs
 
-Check out our [contributing.md](../CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
+Check out our [contributing guide](../CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
 
 Here, you'll find additional information that might be helpful as you work on a pull request in this repo.
 
