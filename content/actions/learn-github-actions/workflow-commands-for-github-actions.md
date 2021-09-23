@@ -84,7 +84,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.setOutput`  | `set-output` |
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
-| `core.warning`    | `warning file` |
+| `core.warning`    | `warning` |
 
 {% ifversion ghes < 3.0 %}
 ## Setting an environment variable
