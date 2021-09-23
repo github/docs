@@ -37,7 +37,7 @@ When migrating from Azure Pipelines, consider the following differences:
 
 - Azure Pipelines supports a legacy _classic editor_, which lets you define your CI configuration in a GUI editor instead of creating the pipeline definition in a YAML file. {% data variables.product.prodname_actions %} uses YAML files to define workflows and does not support a graphical editor.
 - Azure Pipelines allows you to omit some structure in job definitions. For example, if you only have a single job, you don't need to define the job and only need to define its steps. {% data variables.product.prodname_actions %} requires explicit configuration, and YAML structure cannot be omitted.
-- Azure Pipelines supports _stages_ defined in the YAML file, which can be used to create deployment workflows. {% data variables.product.prodname_actions %} requires you to separate stages into separate YAML workflow files. You can leverage the `workflow_run` webhook event trigger to concatenate the stages similar to Azure Pipelines.
+- Azure Pipelines supports _stages_ defined in the YAML file, which can be used to create deployment workflows. {% data variables.product.prodname_actions %} requires you to separate stages into separate YAML workflow files. You can use the `workflow_run` webhook event trigger to run the {% data variables.product.prodname_actions %} workflows one after another, similar to Azure Pipelines.
 - On-premises Azure Pipelines build agents can be selected with capabilities. {% data variables.product.prodname_actions %} self-hosted runners can be selected with labels.
 
 ## Migrating jobs and steps
