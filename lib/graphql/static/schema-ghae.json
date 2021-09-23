@@ -61116,6 +61116,10 @@
         {
           "name": "RUBYGEMS",
           "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
+        },
+        {
+          "name": "RUST",
+          "description": "<p>Rust crates.</p>"
         }
       ]
     },
