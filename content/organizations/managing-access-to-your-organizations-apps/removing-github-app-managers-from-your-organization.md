@@ -14,7 +14,7 @@ topics:
 shortTitle: Remove GitHub App managers
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#github-app-managers)."
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization#github-app-managers)."
 
 ## Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
 

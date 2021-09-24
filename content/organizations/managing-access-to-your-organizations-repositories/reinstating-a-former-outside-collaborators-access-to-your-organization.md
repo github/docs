@@ -31,7 +31,7 @@ When you reinstate a former outside collaborator, you can restore:
 {% tip %}
 
 **Tips**:
- - Only organization owners can reinstate outside collaborators' access to an organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+ - Only organization owners can reinstate outside collaborators' access to an organization. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
  - The reinstating a member flow on {% data variables.product.product_location %} may use the term "member" to describe reinstating an outside collaborator but if you reinstate this person and keep their previous privileges, they will only have their previous [outside collaborator permissions](/articles/permission-levels-for-an-organization/#outside-collaborators).{% ifversion fpt %}
  - If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."{% endif %}
 

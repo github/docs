@@ -1,4 +1,4 @@
-{% ifversion ghae %}If the policies for your enterprise permit forking internal and private repositories, you{% else %}You{% endif %} can fork a repository to your user account or any organization where you have repository creation permissions. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+{% ifversion ghae %}If the policies for your enterprise permit forking internal and private repositories, you{% else %}You{% endif %} can fork a repository to your user account or any organization where you have repository creation permissions. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
 
 {% ifversion fpt or ghes %}
 

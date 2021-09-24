@@ -32,7 +32,7 @@ Organization owners can set base permissions that apply to all members of an org
 
 Organization owners can also choose to further limit access to certain settings and actions across the organization. For more information on options for specific settings, see "[Managing organization settings](/articles/managing-organization-settings)."
 
-In addition to managing organization-level settings, organization owners have admin permissions for every repository owned by the organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+In addition to managing organization-level settings, organization owners have admin permissions for every repository owned by the organization. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
 
 {% warning %}
 

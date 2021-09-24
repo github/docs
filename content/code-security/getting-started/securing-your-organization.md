@@ -22,7 +22,7 @@ Some security features are only available {% ifversion fpt %}for public reposito
 
 ## Managing access to your organization
 
-You can use permission levels to control what actions people can take in your organization. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)."
+You can use permission levels to control what actions people can take in your organization. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
 

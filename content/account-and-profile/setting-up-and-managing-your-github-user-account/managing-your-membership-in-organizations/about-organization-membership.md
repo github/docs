@@ -13,7 +13,7 @@ topics:
   - Accounts
 shortTitle: Organization membership
 ---
-An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+An organization owner can invite you to join their organization as a member, billing manager, or owner. An organization owner or member with admin privileges for a repository can invite you to collaborate in one or more repositories as an outside collaborator. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
 
 You can access organizations you're a member of on your profile page. For more information, see "[Accessing an organization](/articles/accessing-an-organization)."
 
