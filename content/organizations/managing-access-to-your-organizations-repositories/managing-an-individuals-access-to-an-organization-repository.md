@@ -40,4 +40,4 @@ When you remove a collaborator from a repository in your organization, the colla
 ## Further reading
 
 {% ifversion fpt %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

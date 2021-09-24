@@ -14,7 +14,7 @@ topics:
   - Organizations
   - Teams
 children:
-  - /repository-permission-levels-for-an-organization
+  - /repository-roles-for-an-organization
   - /setting-base-permissions-for-an-organization
   - /viewing-people-with-access-to-your-repository
   - /managing-an-individuals-access-to-an-organization-repository

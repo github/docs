@@ -76,4 +76,4 @@ When you reinstate a former outside collaborator, you can restore:
 
 ## Further Reading
 
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

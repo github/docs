@@ -18,7 +18,7 @@ For each repository that you administer on {% data variables.product.prodname_do
 
 This overview can help you audit access to your repository, onboard or off-board contractors or employees, and effectively respond to security incidents.
 
-For more information about repository permission levels, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
+For more information about repository roles, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 ![Access management overview](/assets/images/help/repository/manage-access-overview.png)
 

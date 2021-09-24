@@ -1,11 +1,12 @@
 ---
-title: Repository permission levels for an organization
-intro: 'You can customize access to each repository in your organization with granular permission levels, giving people access to the features and tasks they need.'
+title: Repository roles for an organization
+intro: 'You can customize access to each repository in your organization by assigning granular roles, giving people access to the features and tasks they need.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/repository-permission-levels-for-an-organization-early-access-program/
   - /articles/repository-permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization
+  - /organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,25 +15,28 @@ topics:
   - Organizations
   - Teams
 shortTitle: Repository permissions
-permissions: People with admin permissions can manage individual and team access to an organization-owned repository.
 ---
 
-## Permission levels for repositories owned by an organization
+## Repository roles for organizations
 
-You can give organization members, outside collaborators, and teams of people different levels of access to repositories owned by an organization. Each permission level progressively increases access to a repository's content and settings. Choose the level that best fits each person or team's role in your project without giving people more access to the project than they need.
+You can give organization members, outside collaborators, and teams of people different levels of access to repositories owned by an organization by assigning them to roles. Each role progressively increases access to a repository's content and settings. Choose the role that best fits each person or team's function in your project without giving people more access to the project than they need.
 
-From least access to most access, the permission levels for an organization repository are:
+From least access to most access, the roles for an organization repository are:
 - **Read**: Recommended for non-code contributors who want to view or discuss your project
 - **Triage**: Recommended for contributors who need to proactively manage issues and pull requests without write access
 - **Write**: Recommended for contributors who actively push to your project
 - **Maintain**: Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
 - **Admin**: Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
 
+{% ifversion fpt%}
+If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+{% endif %}
+
 Organization owners can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. For more information, see "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
 
 Organization owners can also choose to further limit access to certain settings and actions across the organization. For more information on options for specific settings, see "[Managing organization settings](/articles/managing-organization-settings)."
 
-In addition to managing organization-level settings, organization owners have admin permissions for every repository owned by the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+In addition to managing organization-level settings, organization owners have admin access to every repository owned by the organization. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% warning %}
 
@@ -40,7 +44,7 @@ In addition to managing organization-level settings, organization owners have ad
 
 {% endwarning %}
 
-## Repository access for each permission level
+## Permissions for each role
 
 {% ifversion fpt %}
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
@@ -49,7 +53,7 @@ Some of the features listed below are limited to organizations using {% data var
 {% ifversion fpt or ghes %}
 {% note %}
 
-**Note:** Repository permissions required to use security features are listed in "[Permission requirements for security features](#permission-requirements-for-security-features)" below.
+**Note:** The roles required to use security features are listed in "[Access requirements for security features](#access-requirements-for-security-features)" below.
 
 {% endnote %}
 {% endif %}
@@ -135,9 +139,9 @@ Some of the features listed below are limited to organizations using {% data var
 | [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion) | | | | **X** | **X** |{% endif %}{% ifversion fpt %}
 | Create [codespaces](/codespaces/about-codespaces) | | | **X** | **X** | **X** |{% endif %}
 
-### Permission requirements for security features
+### Access requirements for security features
 
-In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_advanced_security %} features.
+In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:| {% ifversion fpt or ghes > 2.22 %}

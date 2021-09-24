@@ -27,4 +27,4 @@ An organization owner must allow forks of private{% ifversion fpt or ghae or ghe
 ## Further reading
 
 - "[About forks](/articles/about-forks)"
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
