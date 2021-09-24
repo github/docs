@@ -21,7 +21,19 @@ export default async function learningTrack(req, res, next) {
   const currentLearningTrack = { trackName }
 
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
-  const guideIndex = track.guides.findIndex((path) => path === guidePath)
+  let guideIndex = track.guides.findIndex((path) => path === guidePath)
+
+  if (guideIndex < 0) {
+    // Also check if the learning track URL is now a redirect to the requested
+    // page, we still want to render the learning track banner in that case.
+    for (const redirect of req.context.page.redirect_from) {
+      track.guides.forEach((path, i) => {
+        if (path === redirect) {
+          guideIndex = i
+        }
+      })
+    }
+  }
 
   if (guideIndex < 0) return noTrack()
 

@@ -4,58 +4,7 @@ Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
 
-## Table of contents <!-- omit in toc -->
-- [The GitHub Docs approach to style](#the-github-docs-approach-to-style)
-- [Callouts](#callouts)
-  - [Formatting callouts](#formatting-callouts)
-- [Code](#code)
-  - [Code blocks](#code-blocks)
-  - [Commands](#commands)
-  - [Examples](#examples)
-  - [Indentation](#indentation)
-  - [Scheduled workflows](#scheduled-workflows)
-- [Headers](#headers)
-- [Images](#images)
-  - [Alt text](#alt-text)
-  - [Filenames](#filenames)
-  - [Screenshots](#screenshots)
-- [Inclusive language](#inclusive-language)
-  - [Resources about inclusive language](#resources-about-inclusive-language)
-- [Linebreaks](#linebreaks)
-- [Links](#links)
-  - [Links to external resources](#links-to-external-resources)
-- [Lists](#lists)
-- [Procedural steps](#procedural-steps)
-- [Product names](#product-names)
-- [Punctuation](#punctuation)
-- [Reusables and variables](#reusables-and-variables)
-- [Tables](#tables)
-- [Titles](#titles)
-- [User interface elements](#user-interface-elements)
-  - [Boldface](#boldface)
-  - [Branch names](#branch-names)
-  - [Buttons](#buttons)
-  - [Checkboxes](#checkboxes)
-  - [Drop-down menus](#drop-down-menus)
-  - [Dynamic text](#dynamic-text)
-  - [Location](#location)
-  - [Radio buttons](#radio-buttons)
-  - [Repository names](#repository-names)
-  - [User interface text](#user-interface-text)
-  - [More resources](#more-resources)
-- [Voice and tone](#voice-and-tone)
-- [Word choice and terminology](#word-choice-and-terminology)
-  - [Abbreviations](#abbreviations)
-  - [Accounts](#accounts)
-  - [Acronyms](#acronyms)
-  - [Apps](#apps)
-  - [Currency](#currency)
-  - [Inclusive language](#inclusive-language-1)
-  - [Prepositions](#prepositions)
-  - [Product names](#product-names-1)
-  - [Terms to use or avoid](#terms-to-use-or-avoid)
-- [Word order](#word-order)
-  - [Strings of nouns](#strings-of-nouns)
+Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
 
 ## The GitHub Docs approach to style
 
@@ -362,6 +311,26 @@ A table’s contents should be clear from the preceding content - avoid unneeded
 Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.
 
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
+
+## Short titles
+We use short titles to populate the sidebar navigation. They should give users contextual understanding of the article, but align to the following standards:
+
+- Short titles are 2-3 words long, yet should still convey the full meaning of the title.
+- To help cut words, look at the title in context:
+  - Are there words in the breadcrumb that you can omit in the short title?
+  - Remove repeated words possible
+- Don’t introduce new words in short titles that aren’t in the full title
+- Short titles should be parallel to short titles for similar content
+  - **Use:** 
+    - Organizations and teams
+    - Enterprise accounts
+- Short titles should still mimic format of the full title
+  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
+  
+| Instead of | Use |
+|---|---|
+| Authenticating to GitHub | Authentication |
+| Installing and configuring GHE Server | Installation and configuration |
 
 ## User interface elements
 
