@@ -52,15 +52,18 @@ jobs:
         with:
           script: |
             const { owner, repo } = context.repo
-            const { data: buildJobs } = await github.actions.listJobsForWorkflowRun({
+            const { data: { jobs: buildJobs } } = await github.actions.listJobsForWorkflowRun({
               owner,
               repo,
               run_id: process.env.BUILD_RUN_ID,
               filter: 'latest'
             })
-            const wasCancelled = buildJobs.every(({ status, conclusion }) => {
-              return status === 'completed' && conclusion === 'cancelled'
-            })
+            const wasCancelled = (
+              buildJobs.length > 0 &&
+              buildJobs.every(({ status, conclusion }) => {
+                return status === 'completed' && conclusion === 'cancelled'
+              })
+            )
             core.setOutput('cancelled', wasCancelled.toString())
 
       - if: ${{ steps.check-workflow-run.outputs.cancelled == 'false' }}
