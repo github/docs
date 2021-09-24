@@ -13,7 +13,7 @@ topics:
   - Organizations
   - Teams
 children:
-  - /permission-levels-for-an-organization
+  - /roles-for-an-organization
   - /maintaining-ownership-continuity-for-your-organization
   - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
