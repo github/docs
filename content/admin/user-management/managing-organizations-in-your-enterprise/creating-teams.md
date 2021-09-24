@@ -13,7 +13,7 @@ topics:
   - Teams
   - User account
 ---
-Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
+Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 A team can represent a group within your company or include people with certain interests or expertise. For example, a team of accessibility experts on {% data variables.product.product_location %} could comprise of people from several different departments. Teams can represent functional concerns that complement a company's existing divisional hierarchy.
 

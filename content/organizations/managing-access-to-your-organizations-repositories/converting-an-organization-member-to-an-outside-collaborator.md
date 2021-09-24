@@ -25,7 +25,7 @@ After converting an organization member to an outside collaborator, they'll only
 - @mention any visible team
 - Be a team maintainer
 
-For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
+For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)."
 

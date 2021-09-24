@@ -14,7 +14,7 @@ topics:
 shortTitle: Add GitHub App managers
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization#github-app-managers)."
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Giving someone the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
 

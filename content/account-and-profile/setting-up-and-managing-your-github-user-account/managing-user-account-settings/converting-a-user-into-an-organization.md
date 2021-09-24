@@ -58,7 +58,7 @@ You can also convert your personal user account directly into an organization. C
 
 {% tip %}
 
-**Tip**: When you convert a user account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization#outside-collaborators)."
+**Tip**: When you convert a user account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% endtip %}
 

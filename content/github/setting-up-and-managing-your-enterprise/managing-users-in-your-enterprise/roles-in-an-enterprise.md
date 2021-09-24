@@ -41,9 +41,9 @@ Members of organizations owned by your enterprise are also automatically members
 
 People in your enterprise may have different levels of access to the various organizations owned by your enterprise and to repositories within those organizations. You can view the resources that each person has access to. For more information, see "[Viewing people in your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise)."
 
-For more information about organization-level permissions, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
+For more information about organization-level permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-People with outside collaborator access to repositories owned by your organization are also listed in your enterprise's People tab, but are not enterprise members and do not have any access to the enterprise. For more information about outside collaborators, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization#outside-collaborators)."
+People with outside collaborator access to repositories owned by your organization are also listed in your enterprise's People tab, but are not enterprise members and do not have any access to the enterprise. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% ifversion fpt %}
 

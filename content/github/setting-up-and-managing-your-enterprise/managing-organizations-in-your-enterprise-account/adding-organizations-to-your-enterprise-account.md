@@ -20,7 +20,7 @@ To add an organization to your enterprise account, you must create the organizat
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription. For more information on collaborating in organizations, see "[Setting up and managing organizations and teams](/categories/setting-up-and-managing-organizations-and-teams)."
 
-Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."
+Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. On the **Organizations** tab, above the list of organizations, click **New organization**.

@@ -1,10 +1,11 @@
 ---
-title: Permission levels for an organization
+title: Roles in an organization
 intro: 'After you [create an organization](/articles/creating-a-new-organization-account), you should give Owner permissions to a small group of people who will manage the organization account.'
 redirect_from:
   - /articles/permission-levels-for-an-organization-early-access-program/
   - /articles/permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization
+  - /organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization
 versions:
   fpt: '*'
   ghes: '*'

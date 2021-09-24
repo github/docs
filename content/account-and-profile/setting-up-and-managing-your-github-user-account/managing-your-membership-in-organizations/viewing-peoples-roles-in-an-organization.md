@@ -1,6 +1,6 @@
 ---
 title: Viewing people's roles in an organization
-intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see "[Roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-for-an-organization)."'
+intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
