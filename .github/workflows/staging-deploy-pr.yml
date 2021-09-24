@@ -44,7 +44,27 @@ jobs:
     # Specifically omitting a concurrency group here in case the build was not
     # successful BECAUSE a subsequent build already canceled it
     steps:
-      - name: Send Slack notification if build workflow failed
+      - name: Verify build workflow run was not cancelled
+        id: check-workflow-run
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          BUILD_RUN_ID: ${{ github.event.workflow_run.id }}
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: buildJobs } = await github.actions.listJobsForWorkflowRun({
+              owner,
+              repo,
+              run_id: process.env.BUILD_RUN_ID,
+              filter: 'latest'
+            })
+            const wasCancelled = buildJobs.every(({ status, conclusion }) => {
+              return status === 'completed' && conclusion === 'cancelled'
+            })
+            core.setOutput('cancelled', wasCancelled.toString())
+
+      - if: ${{ steps.check-workflow-run.outputs.cancelled == 'false' }}
+        name: Send Slack notification if build workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
