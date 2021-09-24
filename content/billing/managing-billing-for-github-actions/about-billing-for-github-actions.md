@@ -45,7 +45,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for  {% data variables.product.prodname_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
- If your account's usage surpasses these limits and you have set a spending limit above $0, you will pay $0.25 USD per GB of storage per month and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes each job uses up to the nearest minute.
+ If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage per month and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes each job uses up to the nearest minute.
 
 {% note %}
 
@@ -55,7 +55,7 @@ The storage used by a repository is the total storage used by {% data variables.
 
 ### Per-minute rates
 
-| Operating system | Per-minute rate |
+| Operating system | Per-minute rate (USD) |
 |------- | ---------|
 | Linux | $0.008 |
 | macOS | $0.08 |
@@ -71,11 +71,11 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
 
 ### Sample minutes cost calculation
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56, depending on the operating systems used to run jobs.
+For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 
-- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 ($24 + $32).
-  - 3,000 Linux minutes at $0.008 per minute = $24.
-  - 2,000 Windows minutes at $0.016 per minute = $32.
+- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
+  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
+  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
 
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
 

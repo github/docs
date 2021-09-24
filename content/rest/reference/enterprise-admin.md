@@ -1,5 +1,6 @@
 ---
 title: GitHub Enterprise administration
+intro: 'You can use these endpoints to administer your enterprise. Among the tasks you can perform with this API are many relating to GitHub Actions.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -13,8 +14,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 shortTitle: Enterprise administration
 ---
-
-You can use these endpoints to administer your enterprise.
 
 {% ifversion fpt %}
 
@@ -188,16 +187,6 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'management-console' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-{% ifversion ghes > 3.2 %}
-
-## Git LFS
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

@@ -13,7 +13,7 @@ shortTitle: Download workflow artifacts
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Configuring the retention period for GitHub Actions artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
+{% ifversion fpt or ghes > 2.22 or ghae %} By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
 {% ifversion ghes = 2.22 %} {% data variables.product.product_name %} stores full build logs and artifacts for 90 days.{% endif %}
 
 {% data reusables.repositories.permissions-statement-read %}
@@ -37,9 +37,7 @@ shortTitle: Download workflow artifacts
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
-
-{% data reusables.actions.actions-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 {% data variables.product.prodname_cli %} will download each artifact into separate directories based on the artifact name. If only a single artifact is specified, it will be extracted into the current directory.
 

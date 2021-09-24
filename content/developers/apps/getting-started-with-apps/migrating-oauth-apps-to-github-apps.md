@@ -10,7 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
-shortTitle: Migrate to OAuth Apps
+shortTitle: Migrate from OAuth Apps
 ---
 This article provides guidelines for existing integrators who are considering migrating from an OAuth App to a GitHub App.
 
@@ -51,7 +51,7 @@ We recommend reviewing the list of API endpoints you need as early as possible. 
 
 ### Design to stay within API rate limits
 
-GitHub Apps use [sliding rules for rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/rest#conditional-requests) or consolidate requests by using the [GraphQL API V4](/graphql).
+GitHub Apps use [sliding rules for rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/rest/overview/resources-in-the-rest-api#conditional-requests) or consolidate requests by using the [GraphQL API V4](/graphql).
 
 ### Register a new GitHub App
 

@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
-          node-version: 16.x
+          node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies
@@ -30,7 +30,7 @@ jobs:
         run: |
           node .github/actions-scripts/ready-for-docs-review.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT }}
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           PR_NODE_ID: ${{ github.event.pull_request.node_id }}
@@ -43,6 +43,6 @@ jobs:
         if: ${{ failure() }}
         uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
         with:
-          action-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          action-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           project-url: 'https://github.com/orgs/github/projects/1367'
           column-name: 'Docs-internal external contributor PRs'

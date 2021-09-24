@@ -1,1 +1,0 @@
-1. "Repository access（リポジトリアクセス）"ドロップダウンメニューを選択し、続いてシークレットへアクセスしたいリポジトリをクリックしてください。 シークレットにアクセスしたいすべてのリポジトリに対して繰り返してください。 !["リポジトリアクセス"ドロップダウンメニュー](/assets/images/help/settings/codespaces-secret-repository-access-drop-down.png)

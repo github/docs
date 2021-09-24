@@ -58,7 +58,7 @@ As you develop in your codespace, it will save any changes to your files every f
 
 ### Closing or stopping your codespace
 
-To stop your codespace you can [use the command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command, such as closing the browser tab, running processes will continue until a window of inactivity occurs. 
+To stop your codespace you can [use the command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
 
 When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
 
@@ -83,7 +83,7 @@ Git is available by default in your codespace and so you can rely on your existi
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. While you can only create one codespace for each branch, you can switch to a new or existing branch within your codespace.
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each user account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
 
 {% note %}
 
@@ -96,3 +96,9 @@ You can create a codespace from any branch, commit, or pull request in your proj
 Using {% data variables.product.prodname_vscode %} in your codespace gives you access to the {% data variables.product.prodname_vscode %} Marketplace so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode %} docs. 
 
 If you already use {% data variables.product.prodname_vscode %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
+
+## Further reading
+
+- [Enabling {% data variables.product.prodname_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)
+- [Managing billing for {% data variables.product.prodname_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)
+- [Setting up your project for Codespaces](/codespaces/setting-up-your-project-for-codespaces)

@@ -11,7 +11,7 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
-shortTitle: Configure SAML SSO
+shortTitle: Configure SAML with Okta
 ---
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
@@ -20,6 +20,8 @@ shortTitle: Configure SAML SSO
 You can control access to your enterprise account in {% data variables.product.product_name %} and other web applications from one central interface by configuring the enterprise account to use SAML SSO with Okta, an Identity Provider (IdP).
 
 SAML SSO controls and secures access to enterprise account resources like organizations, repositories, issues, and pull requests. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+
+{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
 ## Prerequisites
 

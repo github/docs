@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
+import { Lead } from 'components/ui/Lead'
 
 export function GenericError() {
   const { isEnterprise } = useVersion()
@@ -12,6 +13,7 @@ export function GenericError() {
     <div className="min-h-screen d-flex flex-column">
       <Head>
         <title>GitHub Documentation</title>
+        <meta name="status" content="500" />
       </Head>
 
       <SimpleHeader />
@@ -19,8 +21,8 @@ export function GenericError() {
       <div className="container-xl p-responsive py-9 width-full flex-1">
         <article className="col-md-10 col-lg-7 mx-auto">
           <h1 className="mb-3 pb-3 border-bottom">Ooops!</h1>
-          <p className="lead-mktg">It looks like something went wrong.</p>
-          <p className="lead-mktg">
+          <Lead>It looks like something went wrong.</Lead>
+          <p className="f3">
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
           </p>
@@ -64,7 +66,7 @@ export const SimpleHeader = () => {
 
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="h4-mktg color-text-primary no-underline no-wrap pl-2">GitHub Docs</a>
+            <a className="h4 color-text-primary no-underline no-wrap pl-2">GitHub Docs</a>
           </Link>
         </div>
       </header>

@@ -19,6 +19,8 @@ export const Header = () => {
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  // the graphiql explorer utilizes `?query=` in the url and we don't want our search bar to mess that up
+  const updateSearchParams = router.asPath !== 'graphql/overview/explorer'
   const showVersionPicker =
     relativePath === 'index.md' ||
     currentLayoutName === 'product-landing' ||
@@ -48,7 +50,7 @@ export const Header = () => {
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
             <div className="d-inline-block ml-4">
-              {router.asPath !== '/graphql/overview/explorer' && <Search />}
+              <Search updateSearchParams={updateSearchParams} isOverlay={true} />
             </div>
           )}
         </div>
@@ -63,7 +65,7 @@ export const Header = () => {
 
               <Link
                 href={`/${router.locale}`}
-                className="h4-mktg color-text-primary no-underline no-wrap pl-2"
+                className="f4 text-semibold color-text-primary no-underline no-wrap pl-2"
               >
                 {t('github_docs')}
               </Link>
@@ -90,9 +92,7 @@ export const Header = () => {
               )}
             >
               <div className="mt-3 mb-2">
-                <h4 className="text-mono f5 text-normal color-text-secondary">
-                  {t('explore_by_product')}
-                </h4>
+                <h4 className="f5 text-normal color-text-secondary">{t('explore_by_product')}</h4>
 
                 <ProductPicker />
               </div>
@@ -112,7 +112,7 @@ export const Header = () => {
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
                 <div className="pt-3 border-top">
-                  {router.asPath !== '/graphql/overview/explorer' && <Search />}
+                  <Search updateSearchParams={updateSearchParams} />
                 </div>
               )}
             </div>

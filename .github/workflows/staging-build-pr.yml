@@ -1,0 +1,111 @@
+name: Staging - Build PR
+
+# **What it does**: Builds PRs before deploying them.
+# **Why we have it**: Because it's not safe to share our deploy secrets with forked repos: https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+# **Who does it impact**: All contributors.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: staging_${{ github.head_ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      # Make sure only approved files are changed if it's in github/docs
+      - name: Check changed files
+        if: ${{ github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger' }}
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            notAllowed:
+              - '*.js'
+              - '*.mjs'
+              - '*.ts'
+              - '*.tsx'
+              - '*.json'
+              - '.npmrc'
+              - 'script/**'
+              - 'Procfile'
+
+      # When there are changes to files we can't accept
+      - name: Fail when disallowed files are changed
+        if: ${{ steps.filter.outputs.notAllowed == 'true' }}
+        run: exit 1
+
+      - name: Setup node
+        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        with:
+          node-version: 16.8.x
+          cache: npm
+
+      # Required for `npm pkg ...` command support
+      - name: Update to npm@^7.20.0
+        run: npm install --global npm@^7.20.0
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Remove development-only dependencies
+        run: npm prune --production
+
+      - name: Remove all npm scripts
+        run: npm pkg delete scripts
+
+      - name: Set npm script for Heroku build to noop
+        run: npm set-script heroku-postbuild "echo 'Application was pre-built!'"
+
+      - name: Create an archive
+        run: |
+          tar -c --file=app.tar \
+            node_modules/ \
+            .next/ \
+            assets/ \
+            content/ \
+            data/ \
+            includes/ \
+            lib/ \
+            middleware/ \
+            translations/ \
+            server.mjs \
+            package*.json \
+            .npmrc \
+            feature-flags.json \
+            next.config.js \
+            app.json \
+            Procfile
+
+      # Upload only the files needed to run this application.
+      # We are not willing to trust the rest (e.g. script/) for the remainder
+      # of the deployment process.
+      - name: Upload build artifact
+        uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
+        with:
+          name: pr_build
+          path: app.tar

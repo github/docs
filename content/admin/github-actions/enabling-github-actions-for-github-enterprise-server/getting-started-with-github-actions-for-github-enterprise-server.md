@@ -42,10 +42,18 @@ Internal testing at {% data variables.product.company_short %} demonstrated the 
 
 | vCPUs | Memory | Maximum job throughput |
 | :--- | :--- | :--- |
+{%- ifversion ghes > 3.1 %}
+| 4 | 32 GB | Demo or light testing |
+| 8 | 64 GB | 30 jobs |
+| 16 | 128 GB | 60 jobs |
+| 32 | 256 GB | 120 jobs |
+| 64 | 512 GB | 160 jobs |
+{%- else ifversion ghes < 3.2 %}
 | 4 | 32 GB | Demo or light testing |
 | 8 | 64 GB | 25 jobs |
 | 16 | 160 GB | 35 jobs |
 | 32 | 256 GB | 100 jobs |
+{%- endif %}
 
 If you {% ifversion ghes = 2.22 %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
@@ -94,6 +102,10 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 - "Hardware considerations" for your platform in "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)"
 
 {% endif %}
+
+## Networking considerations
+
+{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
 
 {% ifversion ghes > 2.22 %}
 

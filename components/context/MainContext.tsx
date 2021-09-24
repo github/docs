@@ -80,10 +80,12 @@ export type MainContextT = {
   currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
+  currentVersion?: string
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
+    type?: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     title: string
@@ -104,9 +106,12 @@ export type MainContextT = {
 
   searchVersions: Record<string, string>
   nonEnterpriseDefaultVersion: string
+
+  status: number
+  fullUrl: string
 }
 
-export const getMainContextFromRequest = (req: any): MainContextT => {
+export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
@@ -133,6 +138,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
@@ -159,12 +165,15 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
+    currentVersion: req.context.currentVersion,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
+    status: res.statusCode,
+    fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
   }
 }
 
