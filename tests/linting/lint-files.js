@@ -22,7 +22,6 @@ import { allVersions } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
-import { isExperimental } from '../helpers/is-experimental.js'
 import semver from 'semver'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -367,7 +366,7 @@ describe('lint markdown content', () => {
       isHidden,
       isEarlyAccess,
       isSitePolicy,
-      isExperimentalPage,
+      hasExperimentalAlternative,
       frontmatterErrors,
       frontmatterData,
       ifversionConditionals,
@@ -384,8 +383,7 @@ describe('lint markdown content', () => {
       isHidden = data.hidden === true
       isEarlyAccess = markdownRelPath.split('/').includes('early-access')
       isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
-      // remove leading `content/` from markdownRelpath
-      isExperimentalPage = isExperimental(markdownRelPath.split('/').slice(1).join('/'))
+      hasExperimentalAlternative = data.hasExperimentalAlternative === true
 
       links = []
       visit(ast, ['link', 'definition'], (node) => {
@@ -429,7 +427,7 @@ describe('lint markdown content', () => {
     // We need to support some non-Early Access hidden docs in Site Policy
     test('hidden docs must be Early Access, Site Policy, or Experimental', async () => {
       if (isHidden) {
-        expect(isEarlyAccess || isSitePolicy || isExperimentalPage).toBe(true)
+        expect(isEarlyAccess || isSitePolicy || hasExperimentalAlternative).toBe(true)
       }
     })
 

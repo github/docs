@@ -24,6 +24,28 @@
     }
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:hover {
+      [class~="octicon-link"] {
+        visibility: visible !important;
+      }
+    }
+    & > a[class~="doctocat-link"] {
+      padding: 8px;
+      margin-left: -32px;
+      color: var(--color-text-secondary);
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
   [class~="note"],
   [class~="tip"],
   [class~="warning"],

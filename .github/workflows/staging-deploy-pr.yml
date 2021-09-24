@@ -19,8 +19,6 @@ permissions:
   statuses: write
 
 env:
-  EARLY_ACCESS_SCRIPT_PATH: script/early-access/clone-for-build.js
-  EARLY_ACCESS_SUPPORT_FILES: script/package.json
   # In this specific workflow relationship, the `github.event.workflow_run.pull_requests`
   # array will always contain only 1 item! Specifically, it will contain the PR associated
   # with the `github.event.workflow_run.head_branch` that triggered the preceding
@@ -37,7 +35,7 @@ jobs:
   notify-of-failed-builds:
     if: >-
       ${{
-        env.PR_NUMBER != '0' &&
+        (github.event.workflow_run.pull_requests[0].number || '0') != '0' &&
         github.event.workflow_run.conclusion == 'failure' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
@@ -46,7 +44,27 @@ jobs:
     # Specifically omitting a concurrency group here in case the build was not
     # successful BECAUSE a subsequent build already canceled it
     steps:
-      - name: Send Slack notification if build workflow failed
+      - name: Verify build workflow run was not cancelled
+        id: check-workflow-run
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          BUILD_RUN_ID: ${{ github.event.workflow_run.id }}
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: buildJobs } = await github.actions.listJobsForWorkflowRun({
+              owner,
+              repo,
+              run_id: process.env.BUILD_RUN_ID,
+              filter: 'latest'
+            })
+            const wasCancelled = buildJobs.every(({ status, conclusion }) => {
+              return status === 'completed' && conclusion === 'cancelled'
+            })
+            core.setOutput('cancelled', wasCancelled.toString())
+
+      - if: ${{ steps.check-workflow-run.outputs.cancelled == 'false' }}
+        name: Send Slack notification if build workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
@@ -57,7 +75,7 @@ jobs:
   check-pr-before-prepare:
     if: >-
       ${{
-        env.PR_NUMBER != '0' &&
+        (github.event.workflow_run.pull_requests[0].number || '0') != '0' &&
         github.event.workflow_run.conclusion == 'success' &&
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
@@ -116,18 +134,18 @@ jobs:
             })
 
       - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Check out repo's default branch
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+
+      - if: ${{ github.repository == 'github/docs-internal' }}
         name: Setup node to clone early access
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
         with:
           node-version: 16.8.x
           cache: npm
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Download the script to clone early access
-        uses: Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b
-        with:
-          files: ${{ env.EARLY_ACCESS_SCRIPT_PATH }} ${{ env.EARLY_ACCESS_SUPPORT_FILES }}
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Install any dependencies that are needed for the early access script
       - if: ${{ github.repository == 'github/docs-internal' }}
@@ -136,18 +154,10 @@ jobs:
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
-        run: node ${{ env.EARLY_ACCESS_SCRIPT_PATH }}
+        run: node script/early-access/clone-for-build.js
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.workflow_run.head_branch }}
-
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Create an archive for early access
-        run: |
-          tar -c --file=early-access.tar \
-            assets/ \
-            content/ \
-            data/
 
       # Download the previously built "app.tar"
       - name: Download build artifact
@@ -158,10 +168,20 @@ jobs:
           name: pr_build
           path: ./
 
-      # Append "early-access.tar" into "app.tar"
       - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Concatenate the archives
-        run: tar -A --file=app.tar early-access.tar
+        name: Extract user-changes to temp directory
+        run: |
+          tar -x --file=app.tar -C "$RUNNER_TEMP/"
+          rm app.tar
+
+      # Append early access content into the temp directory
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Merge in the early access content
+        run: rsync -ai assets content data "$RUNNER_TEMP/"
+
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create an updated archive
+        run: tar -c --file app.tar "$RUNNER_TEMP/"
 
       # Create "app.tar.gz" and delete "app.tar"
       - name: Create a gzipped archive
@@ -200,7 +220,7 @@ jobs:
         env:
           UPLOAD_URL: ${{ steps.build-source.outputs.upload_url }}
         run: |
-          curl '$UPLOAD_URL' \
+          curl "$UPLOAD_URL" \
             -X PUT \
             -H 'Content-Type:' \
             --data-binary @app.tar.gz
