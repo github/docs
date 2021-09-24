@@ -2,8 +2,8 @@
 title: OpenAPI description
 intro: 'The {% data variables.product.product_name %} REST API is fully described in an OpenAPI 3.0 compliant document.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - API
 ---

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ![Saved replies](/assets/images/help/settings/saved-replies.png)
 

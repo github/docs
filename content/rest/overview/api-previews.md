@@ -4,9 +4,9 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -18,7 +18,7 @@ During the preview period, we may change some features based on developer feedba
 
 To access an API preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Migrations
 
 Allows you to download repositories from your GitHub user or organization account to review, backup, and [migrate](/rest/reference/migrations) data to {% data variables.product.prodname_ghe_server %}.
@@ -49,22 +49,13 @@ Get a [list of events](/rest/reference/issues#timeline) for an issue or pull req
 **Custom media type:** `mockingbird-preview`
 **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Pre-receive environments
 
 Create, list, update, and delete environments for pre-receive hooks.
 
 **Custom media type:** `eye-scream-preview`
 **Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-## Integrations
-
-Manage [integrations](/v3/integrations) through the API.
-
-**Custom media type:** `machine-man-preview`
-**Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)
 {% endif %}
 
 ## Projects
@@ -95,17 +86,7 @@ View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code 
 
 **Custom media type:** `scarlet-witch-preview`
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-## Nested teams
-
-Include nested team content in [team](/rest/reference/teams) payloads.
-
-**Custom media type:** `hellcat-preview`
-**Announced:** [2017-09-01](https://developer.github.com/changes/2017-08-30-preview-nested-teams)
-
-{% endif %}
-
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
 ## Global webhooks
 
@@ -116,23 +97,6 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-## Repository transfer
-
-Transfer a [repository](/rest/reference/repos) to an organization or user.
-
-**Custom media type:** `nightshade-preview`
-**Announced:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-## Add lock reason
-
-You can now add a reason when you [lock an issue](/rest/reference/issues#lock-an-issue).
-
-**Custom media type:** `sailor-v-preview`
-**Announced:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
-{% endif %}
 
 ## Require signed commits
 
@@ -148,17 +112,7 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
-## Retrieve hovercard information
-
-Retrieve information from [someone's hovercard](/rest/reference/users#get-contextual-information-for-a-user).
-
-**Custom media type:** `hagar-preview`
-**Announced:** [2018-03-21](https://developer.github.com/changes/2018-03-21-hovercard-api-preview)
-
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
+{% ifversion ghes < 3.0 %}
 ## Check runs and check suites API
 
 Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/rest/reference/checks#runs) and [Check suites](/rest/reference/checks#suites) APIs for more details.
@@ -167,7 +121,7 @@ Allows a GitHub App to run external checks on a repository's code. See the [Chec
 **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion == enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Anonymous Git access to repositories
 
@@ -177,6 +131,7 @@ When a {% data variables.product.prodname_ghe_server %} instance is in private m
 **Announced:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Project card details
 
@@ -185,7 +140,8 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Custom media type:** `starfox-preview`
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% endif %}
+{% ifversion fpt %}
 
 ## GitHub App Manifests
 
@@ -216,22 +172,14 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-## Draft pull requests
-
-You can use the Draft Pull Requests API and its [pull request](/rest/reference/pulls) endpoints to see whether a pull request is in draft state. To learn more about draft pull requests, see "[About pull requests](/articles/about-pull-requests/)".
-
-**Custom media types:** `shadow-cat-preview`
-**Announced:** [2019-02-14](https://developer.github.com/changes/2019-02-14-draft-pull-requests/)
-
-{% endif %}
-
 ## Enable and disable Pages
 
 You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
 
 **Custom media types:** `switcheroo-preview`
 **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
+
+{% ifversion ghes < 3.3 %}
 
 ## List branches or pull requests for a commit
 
@@ -240,12 +188,6 @@ You can use two new endpoints in the [Commits API](/rest/reference/repos#commits
 **Custom media types:** `groot-preview`
 **Announced:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-## Uninstall a GitHub App
-
-Owners of GitHub Apps can now uninstall an app using the [Apps API](/rest/reference/apps#delete-an-installation-for-the-authenticated-app).
-
-**Custom media types:** `gambit-preview`
 {% endif %}
 
 ## Enable or disable vulnerability alerts for a repository
@@ -262,7 +204,7 @@ You can use a new endpoint to [update a pull request branch](/rest/reference/pul
 **Custom media types:** `lydian-preview`
 **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Enable or disable automated security fixes
 
 You can use a new set of endpoints to [enable and disable automated security fixes](/rest/reference/repos#enable-automated-security-fixes).
@@ -278,16 +220,7 @@ You can use a new endpoint to [Create a repository using a template](/rest/refer
 **Custom media types:** `baptiste-preview`
 **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
 
-{% if currentVersion == "enterprise-server@2.20" %}
-## New OAuth Applications API endpoints
-
-You can more securely manage tokens for OAuth Apps by using OAuth tokens as input parameters instead of path parameters with the new [OAuth Applications API](/rest/reference/apps#oauth-applications) endpoints.
-
-**Custom media types:** `doctor-strange-preview`
-**Announced:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 ## New visibility parameter for the Repositories API
 
 You can set and retrieve the visibility of a repository in the [Repositories API](/rest/reference/repos).

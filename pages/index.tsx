@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 import {
   MainContextT,
   MainContext,
-  getMainContextFromRequest,
+  getMainContext,
   useMainContext,
 } from 'components/context/MainContext'
 
@@ -44,14 +44,15 @@ type LandingPageProps = {
 function LandingPage(props: LandingPageProps) {
   const router = useRouter()
   const { gettingStartedLinks, popularLinks } = props
-  const { activeProducts, isHomepageVersion } = useMainContext()
+  const { activeProducts, isFPT } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['homepage', 'search', 'toc'])
   return (
     <div>
       {/* <!-- Hero --> */}
       <section id="landing" className="color-bg-tertiary">
-        <Search isStandalone={true}>
+        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+        <Search autoFocus={true} variant="expanded" isOverlay={false}>
           {({ SearchInput, SearchResults }) => {
             return (
               <div className="container-xl px-3 px-md-6 pb-6 pb-lg-9">
@@ -60,7 +61,7 @@ function LandingPage(props: LandingPageProps) {
                     <OctocatHeader />
                   </div>
                   <div className="col-lg-5 mt-6">
-                    <h1 className="h1-mktg mb-3">{t('search:need_help')}</h1>
+                    <h1 className="text-semibold mb-3">{t('search:need_help')}</h1>
                     {SearchInput}
                   </div>
                 </div>
@@ -75,24 +76,24 @@ function LandingPage(props: LandingPageProps) {
       {/* <!-- Explore by product --> */}
       <section className="container-xl pb-lg-4 my-8 px-3 px-md-6">
         <div className="">
-          <h2 className="text-mono f5 text-normal color-text-secondary text-md-center mb-4">
+          <h2 className="f5 text-normal color-text-secondary text-md-center mb-4">
             {t('explore_by_product')}
           </h2>
           <div className="d-flex flex-wrap gutter gutter-xl-spacious">
             {activeProducts.map((product) => {
-              if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
+              if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
                 return null
               }
 
               const href = `${!product.external ? `/${router.locale}` : ''}${
-                product.versions?.includes(currentVersion)
+                product.versions?.includes(currentVersion) && !isFPT
                   ? `/${currentVersion}/${product.id}`
                   : product.href
               }`
               return (
                 <div className="d-flex flex-column col-12 col-sm-6 col-lg-3 pb-4" key={product.id}>
                   <a
-                    className="btn-mktg flex-auto d-flex flex-items-center btn-outline-mktg btn-large-mktg ws-normal "
+                    className="f4 flex-auto d-flex flex-items-center ws-normal btn btn-outline py-3"
                     href={href}
                     target={product.external ? '_blank' : undefined}
                   >
@@ -111,18 +112,14 @@ function LandingPage(props: LandingPageProps) {
       </section>
 
       <div className="px-3 px-md-6 container-xl">
-        <div className="featured-links container-xl">
+        <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
             <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
-              <ArticleList
-                title={t('toc:getting_started')}
-                variant="spaced"
-                articles={gettingStartedLinks}
-              />
+              <ArticleList title={t('toc:getting_started')} articles={gettingStartedLinks} />
             </div>
 
             <div className="col-12 col-lg-6 float-left">
-              <ArticleList title={t('toc:popular')} variant="spaced" articles={popularLinks} />
+              <ArticleList title={t('toc:popular')} articles={popularLinks} />
             </div>
           </div>
         </div>
@@ -133,10 +130,11 @@ function LandingPage(props: LandingPageProps) {
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
         ({ title, href, intro }: any) => ({ title, href, intro })
       ),

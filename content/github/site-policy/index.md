@@ -4,7 +4,7 @@ redirect_from:
   - /categories/61/articles/
   - /categories/site-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -14,8 +14,8 @@ children:
   - /github-privacy-statement
   - /github-data-protection-agreement-non-enterprise-customers
   - /global-privacy-practices
-  - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
+  - /github-codespaces-privacy-statement
   - /github-terms-for-additional-products-and-features
   - /github-logo-policy
   - /github-username-policy
@@ -37,7 +37,6 @@ children:
   - /github-registered-developer-agreement
   - /github-marketplace-terms-of-service
   - /github-marketplace-developer-agreement
-  - /github-pre-release-program
   - /github-research-program-terms
   - /github-open-source-applications-terms-and-conditions
   - /github-and-trade-controls
@@ -50,3 +49,4 @@ children:
   - /github-event-code-of-conduct
   - /github-gpl-cooperation-commitment
 ---
+

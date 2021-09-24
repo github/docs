@@ -29,6 +29,8 @@ release_notes:
 search:
   need_help: Need help?
   placeholder: Search topics, products...
+  loading: Loading
+  no_results: No results found
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -54,8 +56,6 @@ survey:
   able_to_find: Did this doc help you?
   yes: Yes
   no: No
-  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
-  no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
   comment_yes_label: Let us know what we do well
   comment_no_label: Let us know what we can do better
   optional: Optional

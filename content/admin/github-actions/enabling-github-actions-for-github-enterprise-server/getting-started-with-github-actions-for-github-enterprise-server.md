@@ -8,7 +8,7 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 
 This article explains how site administrators can configure {% data variables.product.prodname_ghe_server %} to use {% data variables.product.prodname_actions %}. It covers the hardware and software requirements, presents the storage options, and describes the security management policies.
 
@@ -26,11 +26,11 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware considerations
 
-{% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
+{% ifversion ghes = 2.22 or ghes = 3.0 %}
 
 {% note %}
 
-**Note**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} was available for {% data variables.product.prodname_ghe_server %} 2.22 as a limited beta. {% endif %}If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+**Note**: {% ifversion ghes = 2.22 %}{% data variables.product.prodname_actions %} was available for {% data variables.product.prodname_ghe_server %} 2.22 as a limited beta. {% endif %}If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 
 {% endnote %}
 
@@ -42,12 +42,20 @@ Internal testing at {% data variables.product.company_short %} demonstrated the 
 
 | vCPUs | Memory | Maximum job throughput |
 | :--- | :--- | :--- |
+{%- ifversion ghes > 3.1 %}
+| 4 | 32 GB | Demo or light testing |
+| 8 | 64 GB | 30 jobs |
+| 16 | 128 GB | 60 jobs |
+| 32 | 256 GB | 120 jobs |
+| 64 | 512 GB | 160 jobs |
+{%- else ifversion ghes < 3.2 %}
 | 4 | 32 GB | Demo or light testing |
 | 8 | 64 GB | 25 jobs |
 | 16 | 160 GB | 35 jobs |
 | 32 | 256 GB | 100 jobs |
+{%- endif %}
 
-If you {% if currentVersion == "enterprise-server@2.22" %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+If you {% ifversion ghes = 2.22 %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 
 For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
 
@@ -79,7 +87,7 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% endnote %}
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 
 ### Amazon S3 permissions
 
@@ -95,7 +103,11 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+## Networking considerations
+
+{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+
+{% ifversion ghes > 2.22 %}
 
 ## Enabling {% data variables.product.prodname_actions %} with your storage provider
 
@@ -126,3 +138,7 @@ For more information, see "[About using actions in your enterprise](/admin/githu
 If you want to learn more about security practices for {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
 
 {% endif %}
+
+## Reserved Names
+
+When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.

@@ -23,18 +23,15 @@ export const ArticleVersionPicker = () => {
           width: unset;
         }
       `}
+      data-testid="article-version-picker"
     >
-      <summary className="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <summary className="btn btn-outline p-2 outline-none">
         <span className="d-md-none d-xl-inline-block">{t('article_version')}</span>{' '}
         {allVersions[currentVersion].versionTitle}
         <Dropdown.Caret />
       </summary>
       <Dropdown.Menu direction="sw">
         {(page.permalinks || []).map((permalink) => {
-          if (permalink.pageVersion === 'homepage') {
-            return null
-          }
-
           return (
             <Dropdown.Item key={permalink.href}>
               <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>

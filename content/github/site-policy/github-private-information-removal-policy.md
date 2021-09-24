@@ -4,7 +4,7 @@ redirect_from:
   - /articles/github-sensitive-data-removal-policy
   - /github/site-policy/github-sensitive-data-removal-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

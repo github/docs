@@ -1,8 +1,9 @@
 ---
 title: Using groups to manage access to AE hosted runners
-intro: You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.
+intro: 'You can use policies to limit access to {% data variables.actions.hosted_runner %}s that have been added to an organization or enterprise.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+shortTitle: Manage AE runner groups
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -30,11 +31,7 @@ When creating a group, you must choose a policy that defines which repositories 
 
     ![Add runner group](/assets/images/help/settings/actions-hosted-runner-add-new-group.png)
 
-1. Enter a name for your runner group, and assign a policy for repository access.
-
-     You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this.
-     ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-
+ {% data reusables.github-actions.runner-group-assign-policy-repo %}
 1. Click **Save group** to create the group and apply the policy.
 
 ## Creating an {% data variables.actions.hosted_runner %} group for an enterprise
@@ -53,11 +50,8 @@ When creating a group, you must choose a policy that defines which organizations
 
     ![Add runner group](/assets/images/help/settings/actions-hosted-runner-add-new-group.png)
 
-1. Enter a name for your runner group, and assign a policy for organization access.
+ {% data reusables.github-actions.runner-group-assign-policy-org %}
 
-   You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.  By default, only private repositories can access runners in a runner group, but you can override this.
-    ![Add runner group options](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
-    
 1. Click **Save group** to create the group and apply the policy.
 
 ## Changing the access policy of an {% data variables.actions.hosted_runner %} group

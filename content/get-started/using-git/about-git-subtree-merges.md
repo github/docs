@@ -9,9 +9,9 @@ redirect_from:
   - /github/getting-started-with-github/using-git/about-git-subtree-merges
 intro: 'If you need to manage multiple projects within a single repository, you can use a *subtree merge* to handle all the references.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ## About subtree merges
 

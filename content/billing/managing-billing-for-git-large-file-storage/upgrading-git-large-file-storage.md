@@ -8,13 +8,14 @@ redirect_from:
   - /articles/upgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - LFS
   - Organizations
   - Upgrades
   - User account
+shortTitle: Upgrade Git LFS storage
 ---
 ## Purchasing additional storage and bandwidth for a personal account
 

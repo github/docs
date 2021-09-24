@@ -1,12 +1,13 @@
 ---
 title: Changing the visibility of your GitHub Pages site
-intro: 'You can manage access control for your project site by publishing the site publicly or privately.'
+intro: You can manage access control for your project site by publishing the site publicly or privately.
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
-  free-pro-team: '*'
-permissions: People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.
+  fpt: '*'
+permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+shortTitle: Change visibility of site
 ---
 
 ## About access control for {% data variables.product.prodname_pages %} sites

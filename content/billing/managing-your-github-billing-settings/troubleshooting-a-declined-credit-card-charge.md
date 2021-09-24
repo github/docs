@@ -7,10 +7,11 @@ redirect_from:
   - /articles/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Troubleshooting
+shortTitle: Declined credit card charge
 ---
 If your card is declined, we'll send you an email about why the payment was declined. You'll have a few days to resolve the problem before we try charging you again.
 

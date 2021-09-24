@@ -6,11 +6,12 @@ redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
   - /github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Incorporate feedback
 ---
 ## Applying suggested changes
 

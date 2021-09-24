@@ -1,8 +1,9 @@
 ---
 title: Packages
+intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

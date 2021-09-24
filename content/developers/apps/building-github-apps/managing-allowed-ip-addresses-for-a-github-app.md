@@ -1,16 +1,17 @@
 ---
 title: Managing allowed IP addresses for a GitHub App
-intro: You can add an IP allow list to your {% data variables.product.prodname_github_app %} to prevent your app from being blocked by an organization's own allow list.
+intro: 'You can add an IP allow list to your {% data variables.product.prodname_github_app %} to prevent your app from being blocked by an organization''s own allow list.'
 versions:
-  free-pro-team: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Manage allowed IP addresses
 ---
 
 ## About IP address allow lists for {% data variables.product.prodname_github_apps %}
 
-Enterprise and organization owners can restrict access to assets by configuring an IP address allow list. This list specifies the IP addresses that are allowed to connect. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)" and {% if currentVersion == "github-ae@latest" %}"[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)." {% endif %}
+Enterprise and organization owners can restrict access to assets by configuring an IP address allow list. This list specifies the IP addresses that are allowed to connect. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)" and {% ifversion ghae %}"[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)." {% endif %}
 
 When an organization has an allow list, third-party applications that connect via a {% data variables.product.prodname_github_app %} will be denied access unless both of the following are true:
 

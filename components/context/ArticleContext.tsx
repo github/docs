@@ -41,7 +41,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   const page = req.context.page
   return {
     title: page.titlePlainText,
-    intro: page.introPlainText,
+    intro: page.intro,
     renderedPage: req.context.renderedPage || '',
     miniTocItems:
       (req.context.miniTocItems || []).map((item: any) => {

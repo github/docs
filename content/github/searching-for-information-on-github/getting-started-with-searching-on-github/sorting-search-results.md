@@ -5,9 +5,9 @@ redirect_from:
   - /articles/sorting-search-results
   - /github/searching-for-information-on-github/sorting-search-results
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -69,5 +69,5 @@ The `sort:updated` qualifier sorts by how recently the items were updated.
 
 ## Further reading
 
-- [About searching on GitHub](/articles/about-searching-on-github)
-- [Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests/)
+- "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)"
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

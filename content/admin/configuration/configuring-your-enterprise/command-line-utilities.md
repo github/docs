@@ -9,7 +9,7 @@ redirect_from:
   - /admin/configuration/command-line-utilities
 miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -23,7 +23,7 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
 {% endif %}
 
@@ -35,6 +35,36 @@ $ ghe-announce -s MESSAGE
 $ ghe-announce -u
 > Removed the announcement message
 ```
+
+{% ifversion ghes > 3.1 %}
+<!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
+
+### ghe-aqueduct
+
+This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
+
+This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
+
+* The number of background jobs is increasing, while the active jobs remain the same.
+* The event feeds are not updating.
+* Webhooks are not being triggered.
+* The web interface is not updating after a Git push.
+
+If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+
+With this command, you can also pause or resume jobs in the queue.
+
+```shell
+$ ghe-aqueduct status
+# lists queues and the number of currently queued jobs for all queues
+$ ghe-aqueduct queue_depth --queue <em>QUEUE</em>
+# lists the number of currently queued jobs for the specified queue
+$ ghe-aqueduct pause --queue <em>QUEUE</em>
+# pauses the specified queue
+$ ghe-aqueduct resume --queue <em>QUEUE</em>
+# resumes the specified queue
+```
+{% endif %}
 
 ### ghe-check-disk-usage
 
@@ -83,7 +113,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
@@ -246,6 +276,9 @@ Use this command to immediately unlock the {% data variables.enterprise.manageme
 $ ghe-reactivate-admin-login
 ```
 
+{% ifversion ghes < 3.2 %}
+<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
+
 ### ghe-resque-info
 
 This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
@@ -269,6 +302,7 @@ $ ghe-resque-info -p <em>QUEUE</em>
 $ ghe-resque-info -r <em>QUEUE</em>
 # resumes the specified queue
 ```
+{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -315,18 +349,6 @@ start/running
 stop/waiting
   - ghe-replica-mode
 ```
-
-{% tip %}
-
-The service names returned from this command can be used with [`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html) commands to stop, start, or restart these services manually, if needed. For example:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-Stopping services will cause downtime on your installation, so we recommend you contact {% data variables.contact.contact_ent_support %} before stopping or restarting any service.
-
-{% endtip %}
 
 ### ghe-set-password
 
@@ -471,7 +493,7 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -484,7 +506,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -530,7 +552,7 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 ### ghe-cluster-failover
 
 Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."

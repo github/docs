@@ -7,12 +7,15 @@ redirect_from:
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Add issues & PRs to board
 ---
+{% data reusables.projects.project_boards_old %}
+
 You can add issue or pull request cards to your project board by:
 - Dragging cards from the **Triage** section in the sidebar.
 - Typing the issue or pull request URL in a card.

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Open Source
@@ -47,4 +47,6 @@ Donations between sponsored developers will not be matched.
 ## Further reading
 - "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
+- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

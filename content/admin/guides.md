@@ -5,16 +5,16 @@ intro: 'Learn how to increase developer productivity and code quality with {% da
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 learningTracks:
-  - '{% if currentVersion == "github-ae@latest" %}get_started_with_github_ae{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}deploy_an_instance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}upgrade_your_instance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}increase_fault_tolerance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion %}improve_security_of_your_instance{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}configure_github_actions{% endif %}'
-  - '{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}configure_github_advanced_security{% endif %}'
+  - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
+  - '{% ifversion ghes %}deploy_an_instance{% endif %}'
+  - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
+  - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
+  - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
+  - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
+  - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
@@ -102,3 +102,4 @@ includeGuides:
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/suspending-and-unsuspending-users
 ---
+

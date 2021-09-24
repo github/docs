@@ -5,7 +5,8 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: On behalf of an organization
 ---
 {% note %}
 
@@ -67,6 +68,5 @@ The new commit, message, and badge will appear on {% data variables.product.prod
 
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"
 - "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
 - "[Changing a commit message](/articles/changing-a-commit-message)"

@@ -7,12 +7,15 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
+
 Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can drag and drop or use keyboard shortcuts to reorder cards within a column, move cards from column to column, and change the order of columns.
 
 Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
@@ -63,7 +66,7 @@ For more information on automation for project boards, see "[About automation fo
 ## Further reading
 
 - "[Creating a project board](/articles/creating-a-project-board)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"

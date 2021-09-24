@@ -6,7 +6,7 @@ redirect_from:
   - /articles/github-enterprise-subscription-agreement
   - /github/site-policy/github-enterprise-subscription-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
@@ -265,7 +265,7 @@ In order to create an account, Customer must adhere to the following:
 
 #### 3.1.3 Account Security.
 
-Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly [notifying GitHub](https://support.github.com/contact) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 3.1.3.
+Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly [notifying GitHub](https://support.github.com/contact?tags=docs-policy) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 3.1.3.
 
 #### 3.1.4 Additional Terms.
 

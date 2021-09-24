@@ -1,11 +1,12 @@
 ---
 title: Gitignore
+intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
 redirect_from:
   - /v3/gitignore
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

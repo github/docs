@@ -1,12 +1,12 @@
 ---
 title: Managing discussions in your repository
-intro: You can categorize, spotlight, transfer, or delete the discussions in a repository.
+intro: 'You can categorize, spotlight, transfer, or delete the discussions in a repository.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Manage discussions
 ---
 
-{% data reusables.discussions.beta %}
 
 ## About management of discussions
 
@@ -16,13 +16,15 @@ Organization owners can choose the permissions required to create a discussion f
 
 As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
+When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
+
 For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
 
 {% data reusables.discussions.you-can-label-discussions %}
 
 ## Prerequisites
 
-To manage discussions in a repository, discussions must be enabled for the repository. For more information, see "[Enabling or disabling discussions for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
 ## Changing the category for a discussion
 
@@ -60,7 +62,7 @@ Editing a pinned discussion will not change the discussion's category. For more 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**.
-  !["Pin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+  !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
 1. Customize the look of the pinned discussion.
   ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
 1. Click **Pin discussion**.

@@ -7,11 +7,12 @@ redirect_from:
   - /articles/filtering-files-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/filtering-files-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter files
 ---
 You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
 

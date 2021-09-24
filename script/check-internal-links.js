@@ -1,11 +1,5 @@
 #!/usr/bin/env node
 
-const linkinator = require('linkinator')
-const checker = new linkinator.LinkChecker()
-const { deprecated, latest } = require('../lib/enterprise-server-releases')
-const englishRoot = 'http://localhost:4002/en'
-const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
-
 // [start-readme]
 //
 // This script runs in CI via GitHub Action to check all *internal* links in English content for a
@@ -16,6 +10,13 @@ const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 // If you want to run it locally, you must have a local server running. You can use `npm run link-check`.
 //
 // [end-readme]
+
+import linkinator from 'linkinator'
+import { deprecated, latest } from '../lib/enterprise-server-releases.js'
+
+const checker = new linkinator.LinkChecker()
+const englishRoot = 'http://localhost:4002/en'
+const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 
 const config = {
   path: englishRoot,
@@ -33,14 +34,18 @@ const config = {
     // Skip dist files
     '/dist/index.*',
     // Skip deprecated Enterprise content
-    `enterprise(-server@|/)(${deprecated.join('|')})(/|$)`
-  ]
+    `enterprise(-server@|/)(${deprecated.join('|')})(/|$)`,
+  ],
 }
 
 // Customize config for specific versions
 if (process.env.DOCS_VERSION === 'dotcom') {
   // If Dotcom, skip Enterprise Server and GitHub AE links
-  config.linksToSkip.push('^.*/enterprise-server@.*$', '^.*/enterprise/.*$', '^.*/github-ae@latest.*$')
+  config.linksToSkip.push(
+    '^.*/enterprise-server@.*$',
+    '^.*/enterprise/.*$',
+    '^.*/github-ae@latest.*$'
+  )
 } else if (process.env.DOCS_VERSION === 'enterprise-server') {
   // If Enterprise Server, skip links that are not Enterprise Server links
   config.path = `${englishRoot}/enterprise-server@${latest}`
@@ -53,7 +58,7 @@ if (process.env.DOCS_VERSION === 'dotcom') {
 
 main()
 
-async function main () {
+async function main() {
   process.env.DOCS_VERSION && allowedVersions.includes(process.env.DOCS_VERSION)
     ? console.log(`Checking internal links for version ${process.env.DOCS_VERSION}!\n`)
     : console.log('Checking internal links for all versions!\n')
@@ -63,8 +68,11 @@ async function main () {
   console.timeEnd('check')
 
   const brokenLinks = result
-    .filter(link => link.state === 'BROKEN')
-    .map(link => { delete link.failureDetails; return link })
+    .filter((link) => link.state === 'BROKEN')
+    .map((link) => {
+      delete link.failureDetails
+      return link
+    })
 
   if (brokenLinks.length === 1 && brokenLinks[0].url === englishRoot) {
     console.log(`You must be running ${englishRoot}!\n\nTry instead: npm run link-check`)
@@ -78,7 +86,9 @@ async function main () {
   }
 
   console.log('\n==============================')
-  console.log(`Found ${brokenLinks.length} total broken links: ${JSON.stringify([...brokenLinks], null, 2)}`)
+  console.log(
+    `Found ${brokenLinks.length} total broken links: ${JSON.stringify([...brokenLinks], null, 2)}`
+  )
   console.log('==============================\n')
 
   // Exit unsuccessfully if broken links are found.

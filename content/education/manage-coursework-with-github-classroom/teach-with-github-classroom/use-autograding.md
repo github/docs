@@ -3,7 +3,7 @@ title: Use autograding
 intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -79,8 +79,15 @@ You can add, edit, or delete autograding tests for an existing assignment. If yo
 1. At the bottom of the page, click **Update assignment**.
   !["Update assignment" button at the bottom of the page](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing logs from autograding tests
+## Viewing and downloading results from autograding tests
 
+### Download autograding results
+
+You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+
+!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+
+### View individual logs
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}

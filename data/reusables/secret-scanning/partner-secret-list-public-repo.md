@@ -15,8 +15,11 @@ Azure | Azure SAS Token
 Azure | Azure Service Management Certificate
 Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
+Checkout.com | Checkout.com Production Secret Key
+Checkout.com | Checkout.com Test Secret Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
+Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
 Discord | Discord Bot Token
@@ -24,6 +27,7 @@ Doppler | Doppler Personal Token
 Doppler | Doppler Service Token
 Doppler | Doppler CLI Token
 Doppler | Doppler SCIM Token
+Doppler | Doppler Audit Token
 Dropbox | Dropbox Access Token
 Dropbox | Dropbox Short Lived Access Token
 Dynatrace | Dynatrace Access Token
@@ -42,6 +46,10 @@ Google Cloud | Google API Key
 Google Cloud | Google Cloud Private Key ID
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token
 Hubspot | Hubspot API Key
+Ionic | Ionic Personal Access Token
+Ionic | Ionic Refresh Token
+Linear | Linear API Key
+Linear | Linear OAuth Access Token
 Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
 Mailgun | Mailgun API Key
@@ -50,7 +58,10 @@ npm | npm Access Token
 NuGet | NuGet API Key
 OpenAI | OpenAI API Key
 Palantir | Palantir JSON Web Token
-Plivo | Plivo Auth Token
+PlanetScale | PlanetScale Database Password
+PlanetScale | PlanetScale OAuth Token
+PlanetScale | PlanetScale Service Token
+Plivo | Plivo Auth ID and Token
 Postman | Postman API Key
 Proctorio | Proctorio Consumer Key
 Proctorio | Proctorio Linkage Key

@@ -1,21 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const { execSync } = require('child_process')
-const app = require('../../lib/app')
-const port = '4001'
-const host = `http://localhost:${port}`
-const scrape = require('website-scraper')
-const program = require('commander')
-const rimraf = require('rimraf').sync
-const version = require('../../lib/enterprise-server-releases').oldestSupported
-const archivalRepoName = 'help-docs-archived-enterprise-versions'
-const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
-const loadRedirects = require('../../lib/redirects/precompile')
-const { loadPageMap } = require('../../lib/page-data')
-const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
-
 // [start-readme]
 //
 // Run this script during the Enterprise deprecation process to download
@@ -24,8 +8,31 @@ const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 //
 // [end-readme]
 
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import { execSync } from 'child_process'
+import createApp from '../../lib/app.js'
+import scrape from 'website-scraper'
+import program from 'commander'
+import rimraf from 'rimraf'
+import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import loadRedirects from '../../lib/redirects/precompile.js'
+import { loadPageMap } from '../../lib/page-data.js'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const port = '4001'
+const host = `http://localhost:${port}`
+const version = EnterpriseServerReleases.oldestSupported
+const archivalRepoName = 'help-docs-archived-enterprise-versions'
+const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
+const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
+
 program
-  .description('Scrape HTML of the oldest supported Enterprise version and add it to the archival repository.')
+  .description(
+    'Scrape HTML of the oldest supported Enterprise version and add it to the archival repository.'
+  )
   .option('-p, --path-to-archival-repo <PATH>', `path to a local checkout of ${archivalRepoUrl}`)
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .parse(process.argv)
@@ -36,12 +43,12 @@ const dryRun = program.opts().dryRun
 main()
 
 class RewriteAssetPathsPlugin {
-  constructor (version, tempDirectory) {
+  constructor(version, tempDirectory) {
     this.version = version
     this.tempDirectory = tempDirectory
   }
 
-  apply (registerAction) {
+  apply(registerAction) {
     registerAction('onResourceSaved', async ({ resource }) => {
       // Show some activity
       process.stdout.write('.')
@@ -58,7 +65,7 @@ class RewriteAssetPathsPlugin {
       // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
       if (resource.isHtml()) {
         newBody = text.replace(
-          /(?<attribute>src|href)="(?:\.\.\/)*(?<basepath>dist|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
+          /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
           (match, attribute, basepath) => {
             let replaced = path.join('/enterprise', this.version, basepath)
             if (basepath === 'assets/images') {
@@ -77,7 +84,11 @@ class RewriteAssetPathsPlugin {
         newBody = text.replace(
           /(?<attribute>url)\("(?:\.\.\/)*(?<basepath>assets\/fonts|assets\/images)/g,
           (match, attribute, basepath) => {
-            const replaced = path.join(`${remoteImageStoreBaseURL}/enterprise`, this.version, basepath)
+            const replaced = path.join(
+              `${remoteImageStoreBaseURL}/enterprise`,
+              this.version,
+              basepath
+            )
             const returnValue = `${attribute}("${replaced}`
             return returnValue
           }
@@ -86,14 +97,12 @@ class RewriteAssetPathsPlugin {
 
       const filePath = path.join(this.tempDirectory, resource.getFilename())
 
-      await fs
-        .promises
-        .writeFile(filePath, newBody, 'binary')
+      await fs.promises.writeFile(filePath, newBody, 'binary')
     })
   }
 }
 
-async function main () {
+async function main() {
   if (!pathToArchivalRepo) {
     console.log(`Please specify a path to a local checkout of ${archivalRepoUrl}`)
     const scriptPath = path.relative(process.cwd(), __filename)
@@ -102,7 +111,9 @@ async function main () {
   }
 
   if (dryRun) {
-    console.log('This is a dry run! Creating HTML for redirects and scraping the first 10 pages only.\n')
+    console.log(
+      'This is a dry run! Creating HTML for redirects and scraping the first 10 pages only.\n'
+    )
   }
 
   // Build the production assets, to simulate a production deployment
@@ -119,12 +130,13 @@ async function main () {
 
   console.log(`Enterprise version to archive: ${version}`)
   const pageMap = await loadPageMap()
-  const permalinksPerVersion = Object.keys(pageMap)
-    .filter(key => key.includes(`/enterprise-server@${version}`))
+  const permalinksPerVersion = Object.keys(pageMap).filter((key) =>
+    key.includes(`/enterprise-server@${version}`)
+  )
 
   const urls = dryRun
-    ? permalinksPerVersion.slice(0, 10).map(href => `${host}${href}`)
-    : permalinksPerVersion.map(href => `${host}${href}`)
+    ? permalinksPerVersion.slice(0, 10).map((href) => `${host}${href}`)
+    : permalinksPerVersion.map((href) => `${host}${href}`)
 
   console.log(`found ${urls.length} pages for version ${version}`)
 
@@ -136,10 +148,10 @@ async function main () {
   const tempDirectory = path.join(__dirname, '../website-scraper-temp')
 
   // remove temp directory
-  rimraf(tempDirectory)
+  rimraf.sync(tempDirectory)
 
   // remove and recreate empty target directory
-  rimraf(finalDirectory)
+  rimraf.sync(finalDirectory)
   fs.mkdirSync(finalDirectory, { recursive: true })
 
   const scraperOptions = {
@@ -152,24 +164,23 @@ async function main () {
     directory: tempDirectory,
     filenameGenerator: 'bySiteStructure',
     requestConcurrency: 6,
-    plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)]
+    plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)],
   }
 
-  app.listen(port, async () => {
+  createApp().listen(port, async () => {
     console.log(`started server on ${host}`)
 
-    await scrape(scraperOptions).catch(err => {
+    await scrape(scraperOptions).catch((err) => {
       console.error('scraping error')
       console.error(err)
     })
 
-    fs.renameSync(
-      path.join(tempDirectory, `/localhost_${port}`),
-      path.join(finalDirectory)
-    )
-    rimraf(tempDirectory)
+    fs.renameSync(path.join(tempDirectory, `/localhost_${port}`), path.join(finalDirectory))
+    rimraf.sync(tempDirectory)
 
-    console.log(`\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`)
+    console.log(
+      `\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`
+    )
 
     // create redirect html files to preserve frontmatter redirects
     await createRedirectsFile(permalinksPerVersion, pageMap, finalDirectory)
@@ -180,22 +191,29 @@ async function main () {
   })
 }
 
-async function createRedirectsFile (permalinks, pageMap, finalDirectory) {
-  const pagesPerVersion = permalinks.map(permalink => pageMap[permalink])
+async function createRedirectsFile(permalinks, pageMap, finalDirectory) {
+  const pagesPerVersion = permalinks.map((permalink) => pageMap[permalink])
   const redirects = await loadRedirects(pagesPerVersion, pageMap)
 
   const redirectsPerVersion = {}
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
     // remove any liquid variables that sneak in
-    oldPath = oldPath
-      .replace('/{{ page.version }}', '')
-      .replace('/{{ currentVersion }}', '')
+    oldPath = oldPath.replace('/{{ page.version }}', '').replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
-    if (!(oldPath.includes(`/enterprise-server@${version}`) || oldPath.includes(`/enterprise/${version}`))) return
+    if (
+      !(
+        oldPath.includes(`/enterprise-server@${version}`) ||
+        oldPath.includes(`/enterprise/${version}`)
+      )
+    )
+      return
 
     redirectsPerVersion[oldPath] = newPath
   })
 
-  fs.writeFileSync(path.posix.join(finalDirectory, 'redirects.json'), JSON.stringify(redirectsPerVersion, null, 2))
+  fs.writeFileSync(
+    path.posix.join(finalDirectory, 'redirects.json'),
+    JSON.stringify(redirectsPerVersion, null, 2)
+  )
 }

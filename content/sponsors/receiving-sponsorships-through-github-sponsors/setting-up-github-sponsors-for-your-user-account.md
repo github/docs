@@ -6,11 +6,12 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - User account
   - Sponsors profile
+shortTitle: Set up for user account
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}
