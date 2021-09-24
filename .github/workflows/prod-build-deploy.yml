@@ -10,6 +10,10 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  deployments: write
+
 jobs:
   build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal'}}
