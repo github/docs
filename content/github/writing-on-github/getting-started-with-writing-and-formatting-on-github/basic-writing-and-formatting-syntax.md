@@ -261,6 +261,22 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 You can create a new paragraph by leaving a blank line between lines of text.
 
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Footnotes
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
 ## Ignoring Markdown formatting
 
 You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using `\` before the Markdown character.
