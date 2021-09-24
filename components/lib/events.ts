@@ -172,9 +172,13 @@ function trackScroll() {
   if (scrollPosition > maxScrollY) maxScrollY = scrollPosition
 }
 
+function sendPage() {
+  const pageEvent = sendEvent({ type: EventType.page })
+  pageEventId = pageEvent?.context?.event_id
+}
+
 function sendExit() {
   if (sentExit) return
-  if (document.visibilityState !== 'hidden') return
   sentExit = true
   const { render, firstContentfulPaint, domInteractive, domComplete } = getPerformance()
   return sendEvent({
@@ -188,9 +192,27 @@ function sendExit() {
   })
 }
 
-function initPageEvent() {
-  const pageEvent = sendEvent({ type: EventType.page })
-  pageEventId = pageEvent?.context?.event_id
+function initPageAndExitEvent() {
+  sendPage() // Initial page hit
+
+  // Regular page exits
+  window.addEventListener('scroll', trackScroll)
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      sendExit()
+    }
+  })
+
+  // Client-side routing
+  const pushState = history.pushState
+  history.pushState = function (...args) {
+    sendExit()
+    const result = pushState.call(history, ...args)
+    sendPage()
+    sentExit = false
+    maxScrollY = 0
+    return result
+  }
 }
 
 function initClipboardEvent() {
@@ -213,11 +235,6 @@ function initLinkEvent() {
   })
 }
 
-function initExitEvent() {
-  window.addEventListener('scroll', trackScroll)
-  document.addEventListener('visibilitychange', sendExit)
-}
-
 function initPrintEvent() {
   window.addEventListener('beforeprint', () => {
     sendEvent({ type: EventType.print })
@@ -225,8 +242,7 @@ function initPrintEvent() {
 }
 
 export default function initializeEvents() {
-  initPageEvent() // must come first
-  initExitEvent()
+  initPageAndExitEvent() // must come first
   initLinkEvent()
   initClipboardEvent()
   initPrintEvent()
