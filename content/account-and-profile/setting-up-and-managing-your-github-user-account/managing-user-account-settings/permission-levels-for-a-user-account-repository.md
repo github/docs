@@ -1,4 +1,4 @@
----
+Allow---
 title: Permission levels for a user account repository
 intro: 'A repository owned by a user account has two permission levels: the repository owner and collaborators.'
 redirect_from:
