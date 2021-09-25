@@ -6,11 +6,22 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
   - /actions/configuring-and-managing-workflows/creating-postgresql-service-containers
-  - /actions/guides/creating-postgresql-service-containers
+  - /actions/guides/creati
+const pgclient = new Client({
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
+    user: 'postgres',
+    password: 'postgres',
+    database: 'postgres'
+});
+
+pgclient.connect();
+
+const table = 'CREATE TABLEng-postgresql-service-containers
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghaemsSprc SpR: '*'
 type: tutorial
 topics:
   - Containers
