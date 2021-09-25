@@ -6,6 +6,7 @@ import { setOutput } from '@actions/core'
 
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
+const DELAY_FOR_PREBOOT_SWAP = 135000 // 2:15
 
 // Allow for a few 404 (Not Found) or 429 (Too Many Requests) responses from the
 // semi-unreliable Heroku API when we're polling for status updates
@@ -13,6 +14,7 @@ const ALLOWED_MISSING_RESPONSE_COUNT = 5
 
 export default async function deployToProduction({
   octokit,
+  includeDelayForPreboot = true,
   // These parameters will only be set by Actions
   sourceBlobUrl = null,
   runId = null,
@@ -332,11 +334,20 @@ export default async function deployToProduction({
       )} seconds.`
     )
 
-    //
-    // TODO:
-    // Should we consider adding an explicit 2-minute pause here to allow for
-    // Heroku Preboot to actually swap in the new dynos?
-    //
+    // IMPORTANT:
+    // If Heroku Preboot is enabled, then there is an additional delay of at
+    // least 2 minutes before the new dynos are swapped into active serving.
+    // If we move off Heroku in the future, this should be revisited and
+    // updated/removed as relevant to align with the new hosting platform.
+    if (includeDelayForPreboot) {
+      console.log(`Waiting for Heroku Preboot to swap dynos (${DELAY_FOR_PREBOOT_SWAP} ms)...`)
+      await sleep(DELAY_FOR_PREBOOT_SWAP)
+
+      // TODO:
+      // Is there a faster alternative than this arbitrary delay? For example,
+      // is there some Heroku API we can query to see when this release is
+      // considered to be the live one, or when the old dynos are shut down?
+    }
 
     // Report success!
     const successMessage = `Deployment succeeded after ${Math.round(

@@ -129,9 +129,10 @@ jobs:
           HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
           HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
           SOURCE_BLOB_URL: ${{ steps.build-source.outputs.download_url }}
+          DELAY_FOR_PREBOOT: 'true'
         with:
           script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN, SOURCE_BLOB_URL } = process.env
+            const { GITHUB_TOKEN, HEROKU_API_TOKEN, SOURCE_BLOB_URL, DELAY_FOR_PREBOOT } = process.env
 
             // Exit if GitHub Actions PAT is not found
             if (!GITHUB_TOKEN) {
@@ -158,6 +159,7 @@ jobs:
             try {
               await deployToProduction({
                 octokit,
+                includeDelayForPreboot: DELAY_FOR_PREBOOT !== 'false',
                 // These parameters will ONLY be set by Actions
                 sourceBlobUrl: SOURCE_BLOB_URL,
                 runId: context.runId
@@ -205,7 +207,6 @@ jobs:
           FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
           FASTLY_SURROGATE_KEY: 'all-the-things'
-          DELAY_FOR_PREBOOT: 'true'
         with:
           script: |
             // Workaround to allow us to load ESM files with `require(...)`
@@ -215,9 +216,7 @@ jobs:
             const { default: purgeEdgeCache } = require('./script/deployment/purge-edge-cache')
 
             try {
-              await purgeEdgeCache({
-                includeDelayForPreboot: process.env.DELAY_FOR_PREBOOT !== 'false'
-              })
+              await purgeEdgeCache()
             } catch (error) {
               console.error(`Failed to purge the edge cache: ${error.message}`)
               console.error(error)
