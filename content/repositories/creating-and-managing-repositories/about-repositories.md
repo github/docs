@@ -85,7 +85,7 @@ Most of the limits below affect both {% data variables.product.product_name %} a
 
 ### Text limits
 
-Text files over **1 MB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
+Text files over **512 KB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
 
 Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
@@ -94,7 +94,7 @@ Text files over **5 MB** are only available through their raw URLs, which are se
 Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
 - In a pull request, no total diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data.
-- No single file's diff may exceed *3,000 lines that you can load* or *100 KB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
+- No single file's diff may exceed *20,000 lines that you can load* or *500 KB* of raw diff data. *Four hundred lines* and *20 KB* are automatically loaded for a single file.
 - The maximum number of files in a single diff is limited to *300*.
 - The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to *25*.
 

@@ -19,10 +19,11 @@ import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { execSync } from 'child_process'
 import { allVersions } from '../../lib/all-versions.js'
-import { supported, next, deprecated } from '../../lib/enterprise-server-releases.js'
+import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
-import { isExperimental } from '../helpers/is-experimental.js'
+import semver from 'semver'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
@@ -365,7 +366,7 @@ describe('lint markdown content', () => {
       isHidden,
       isEarlyAccess,
       isSitePolicy,
-      isExperimentalPage,
+      hasExperimentalAlternative,
       frontmatterErrors,
       frontmatterData,
       ifversionConditionals,
@@ -382,8 +383,7 @@ describe('lint markdown content', () => {
       isHidden = data.hidden === true
       isEarlyAccess = markdownRelPath.split('/').includes('early-access')
       isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
-      // remove leading `content/` from markdownRelpath
-      isExperimentalPage = isExperimental(markdownRelPath.split('/').slice(1).join('/'))
+      hasExperimentalAlternative = data.hasExperimentalAlternative === true
 
       links = []
       visit(ast, ['link', 'definition'], (node) => {
@@ -427,7 +427,7 @@ describe('lint markdown content', () => {
     // We need to support some non-Early Access hidden docs in Site Policy
     test('hidden docs must be Early Access, Site Policy, or Experimental', async () => {
       if (isHidden) {
-        expect(isEarlyAccess || isSitePolicy || isExperimentalPage).toBe(true)
+        expect(isEarlyAccess || isSitePolicy || hasExperimentalAlternative).toBe(true)
       }
     })
 
@@ -1106,12 +1106,25 @@ function validateIfversionConditionals(conds) {
             `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
           )
         }
+        // Check nextNext is one version ahead of next
+        if (!isNextVersion(next, nextNext)) {
+          errors.push(
+            `The nextNext version: "${nextNext} is not one version ahead of the next supported version: "${next}" - check lib/enterprise-server-releases.js`
+          )
+        }
         // Check that the versions in conditionals are supported
         // versions of GHES or the first deprecated version. Allowing
         // the first deprecated version to exist in code ensures
         // allows us to deprecate the version before removing
         // the old liquid content.
-        if (!(supported.includes(release) || release === next || deprecated[0] === release)) {
+        if (
+          !(
+            supported.includes(release) ||
+            release === next ||
+            release === nextNext ||
+            deprecated[0] === release
+          )
+        ) {
           errors.push(
             `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`
           )
@@ -1121,4 +1134,24 @@ function validateIfversionConditionals(conds) {
   })
 
   return errors
+}
+
+function isNextVersion(v1, v2) {
+  const semverNext = semver.coerce(v1)
+  const semverNextNext = semver.coerce(v2)
+  const semverSupported = []
+
+  supported.forEach((el, i) => {
+    semverSupported[i] = semver.coerce(el)
+  })
+  // Check that the next version is the next version from the supported list first
+  const maxVersion = semver.maxSatisfying(semverSupported, '*').raw
+  const nextVersionCheck =
+    semverNext.raw === semver.inc(maxVersion, 'minor') ||
+    semverNext.raw === semver.inc(maxVersion, 'major')
+  return (
+    nextVersionCheck &&
+    (semver.inc(semverNext, 'minor') === semverNextNext.raw ||
+      semver.inc(semverNext, 'major') === semverNextNext.raw)
+  )
 }

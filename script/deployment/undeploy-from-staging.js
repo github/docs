@@ -60,20 +60,21 @@ export default async function undeployFromStaging({
     // that checks for stale PRs. This way, we aren't doing more cleaning than
     // necessary if someone intends to reopen the PR momentarily.
     if (wasMerged) {
-      // Get the latest deployment environment to signal its deactivation
-      const { data: deployments } = await octokit.repos.listDeployments({
+      // Get all of the Deployments to signal this environment's complete deactivation
+      for await (const response of octokit.paginate.iterator(octokit.repos.listDeployments, {
         owner,
         repo,
 
         // In the GitHub API, there can only be one active deployment per environment.
         // For our many staging apps, we must use the unique appName as the environment.
         environment: appName,
-      })
+      })) {
+        const { data: deployments } = response
 
-      if (deployments.length === 0) {
-        console.log('🚀 No deployments to deactivate!')
-      } else {
-        console.log(`Found ${deployments.length} GitHub Deployments`, deployments)
+        console.log(
+          `Found ${deployments.length} GitHub Deployments for Environment ${appName}`,
+          deployments
+        )
 
         // Deactivate ALL of the deployments
         for (const deployment of deployments) {
@@ -106,21 +107,12 @@ export default async function undeployFromStaging({
         }
       }
 
-      // Delete this Environment
-      try {
-        await octokit.repos.deleteAnEnvironment({
-          owner,
-          repo,
-          environment_name: appName,
-        })
-        console.log(`🚀 Environment (${appName}): deleted`)
-      } catch (error) {
-        if (error.status === 404) {
-          console.log(`🚀 Environment (${appName}): already deleted`)
-        } else {
-          throw error
-        }
-      }
+      // IMPORTANT:
+      // We will leave the Deployment Environment to be cleaned up later by the
+      // workflow that checks for stale PRs. This way, we are not doing more
+      // cleaning than necessary if someone intends to reopen the PR momentarily,
+      // and we do not need to use an admin PAT to run this script.
+      console.log(`🚀 Environment (${appName}) is ready to be removed (later...)`)
     }
 
     console.log(`Finished undeploying after ${Math.round((Date.now() - startTime) / 1000)} seconds`)

@@ -19,7 +19,7 @@ jobs:
         with:
           project: Docs team reviews
           column: Triage
-          repo-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
       - name: remove label
         uses: andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84
         with:
