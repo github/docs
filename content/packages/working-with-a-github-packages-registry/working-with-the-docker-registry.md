@@ -101,6 +101,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 {% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
 {% data reusables.package_registry.viewing-packages %}
+teach me some thing i beg you
 
 1. Determine the image name and ID for your docker image using `docker images`.
   ```shell
