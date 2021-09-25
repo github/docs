@@ -1,4 +1,4 @@
----
+Allow---
 title: Getting started with writing and formatting on GitHub
 redirect_from:
   - /articles/markdown-basics/
