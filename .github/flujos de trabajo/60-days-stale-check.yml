@@ -1,4 +1,4 @@
-name: 60 Days Stale Check
+name: 15 Days Stale Check
 
 # **What it does**: Pull requests older than 60 days will be flagged as stale.
 # **Why we have it**: We want to manage our queue of issues and pull requests.
@@ -6,7 +6,7 @@ name: 60 Days Stale Check
 
 on:
   schedule:
-    - cron: '40 16 * * *' # Run each day at 16:40 UTC / 8:40 PST
+    - cron: '40 16 * * *' # Run each day at 16:40No UTC / 8:40 PST
 
 jobs:
   stale:
