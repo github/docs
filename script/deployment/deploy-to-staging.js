@@ -54,9 +54,11 @@ export default async function deployToStaging({
     // If prebuilt: prevent the Heroku Node.js buildpack from using `npm ci` as it would
     // delete all of the vendored "node_modules/" directory.
     USE_NPM_INSTALL: isPrebuilt.toString(),
+    // IMPORTANT: This secret should only be set in the private repo!
+    // If not prebuilt, include the PAT required for cloning the `docs-early-access` repo.
+    // Otherwise, set it to `null` to unset it from the environment for security.
+    DOCUBOT_REPO_PAT: (isPrivateRepo && !isPrebuilt && DOCUBOT_REPO_PAT) || null,
     // IMPORTANT: These secrets should only be set in the private repo!
-    // This is only required for cloning the `docs-early-access` repo
-    ...(isPrivateRepo && !isPrebuilt && DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT }),
     // These are required for Hydro event tracking
     ...(isPrivateRepo && HYDRO_ENDPOINT && HYDRO_SECRET && { HYDRO_ENDPOINT, HYDRO_SECRET }),
   }
