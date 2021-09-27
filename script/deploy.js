@@ -11,6 +11,14 @@
 //  - Optionally, supply a GitHub PAT as the DOCUBOT_REPO_PAT environment
 //    variable if you want to support content from the `docs-early-access` repo
 //
+// For production deployment in particular, you should ideally:
+//  - Supply the aforementioned DOCUBOT_REPO_PAT environment variable to support
+//    content from the `docs-early-access` repo. In most cases, you should be
+//    able to just set this to the same value as GITHUB_TOKEN when running this
+//    script locally as it just needs read access to that repo.
+//  - Supply our Fastly API token as the FASTLY_TOKEN enviroment variable
+//  - Supply our Fastly Service ID as the FASTLY_SERVICE_ID environment variable
+//
 // Examples:
 //  - Deploy a PR to Staging and force the Heroku App to be rebuilt from scratch (by default):
 //      script/deploy.js --staging https://github.com/github/docs/pull/9876
@@ -29,10 +37,13 @@
 import dotenv from 'dotenv'
 import program from 'commander'
 import { has } from 'lodash-es'
+import yesno from 'yesno'
 import getOctokit from './helpers/github.js'
 import parsePrUrl from './deployment/parse-pr-url.js'
 import deployToStaging from './deployment/deploy-to-staging.js'
 import undeployFromStaging from './deployment/undeploy-from-staging.js'
+import deployToProduction from './deployment/deploy-to-production.js'
+import purgeEdgeCache from './deployment/purge-edge-cache.js'
 
 dotenv.config()
 
@@ -71,7 +82,7 @@ const opts = program.opts()
 const isProduction = opts.production === true
 const isStaging = has(opts, 'staging')
 const prUrl = opts.staging
-const forceRebuild = opts.rebuild !== false
+const forceRebuild = !isProduction && opts.rebuild !== false
 const destroy = opts.destroy === true
 
 //
@@ -138,12 +149,57 @@ async function deploy() {
 }
 
 async function deployProduction() {
-  // TODO: Request confirmation before deploying to production
+  const { DOCUBOT_REPO_PAT, FASTLY_TOKEN, FASTLY_SERVICE_ID } = process.env
 
-  invalidateAndExit(
-    'commander.invalidArgument',
-    `error: option '${PRODUCTION_FLAG}' is not yet implemented. SOON!`
-  )
+  // Warn if @docubot PAT is not found
+  if (!DOCUBOT_REPO_PAT) {
+    console.warn(
+      '⚠️ You did not supply a DOCUBOT_REPO_PAT environment variable.\nWithout it, this deployment will not contain any Early Access content!'
+    )
+  }
+
+  // Warn if Fastly credentials are not found
+  if (!FASTLY_TOKEN) {
+    console.warn(
+      '⚠️ You did not supply a FASTLY_TOKEN environment variable.\nWithout it, this deployment will not soft-purge the Fastly cache!'
+    )
+  }
+  if (!FASTLY_SERVICE_ID) {
+    console.warn(
+      '⚠️ You did not supply a FASTLY_SERVICE_ID environment variable.\nWithout it, this deployment will not soft-purge the Fastly cache!'
+    )
+  }
+  if (!process.env.FASTLY_SURROGATE_KEY) {
+    // Default to our current Fastly surrogate key if unspecified
+    process.env.FASTLY_SURROGATE_KEY = 'all-the-things'
+  }
+
+  // Request confirmation before deploying to production
+  const proceed = await yesno({
+    question: '\n🛑 You have selected to deploy to production. ARE YOU CERTAIN!?',
+    defaultValue: null,
+  })
+
+  if (!proceed) {
+    console.error('\n❌ User canceled the production deployment! Halting...')
+    process.exit(1)
+  }
+
+  // This helper uses the `GITHUB_TOKEN` implicitly
+  const octokit = getOctokit()
+
+  try {
+    await deployToProduction({
+      octokit,
+      includeDelayForPreboot: !!(FASTLY_TOKEN && FASTLY_SERVICE_ID),
+    })
+
+    await purgeEdgeCache()
+  } catch (error) {
+    console.error(`Failed to deploy production: ${error.message}`)
+    console.error(error)
+    process.exit(1)
+  }
 }
 
 async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, destroy = false }) {

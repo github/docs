@@ -355,6 +355,10 @@ export default async function deployToProduction({
       // Is there a faster alternative than this arbitrary delay? For example,
       // is there some Heroku API we can query to see when this release is
       // considered to be the live one, or when the old dynos are shut down?
+    } else {
+      console.warn(
+        '⚠️ Bypassing the wait for Heroku Preboot....\nPlease understand that your changes will not be visible for at least another 2 minutes!'
+      )
     }
 
     // Report success!
