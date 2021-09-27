@@ -44,7 +44,30 @@ jobs:
     # Specifically omitting a concurrency group here in case the build was not
     # successful BECAUSE a subsequent build already canceled it
     steps:
-      - name: Send Slack notification if build workflow failed
+      - name: Verify build workflow run was not cancelled
+        id: check-workflow-run
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        env:
+          BUILD_RUN_ID: ${{ github.event.workflow_run.id }}
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data: { jobs: buildJobs } } = await github.actions.listJobsForWorkflowRun({
+              owner,
+              repo,
+              run_id: process.env.BUILD_RUN_ID,
+              filter: 'latest'
+            })
+            const wasCancelled = (
+              buildJobs.length > 0 &&
+              buildJobs.every(({ status, conclusion }) => {
+                return status === 'completed' && conclusion === 'cancelled'
+              })
+            )
+            core.setOutput('cancelled', wasCancelled.toString())
+
+      - if: ${{ steps.check-workflow-run.outputs.cancelled == 'false' }}
+        name: Send Slack notification if build workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         with:
           channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
@@ -139,14 +162,6 @@ jobs:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
           GIT_BRANCH: ${{ github.event.workflow_run.head_branch }}
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Create an archive for early access
-        run: |
-          tar -c --file=early-access.tar \
-            assets/ \
-            content/ \
-            data/
-
       # Download the previously built "app.tar"
       - name: Download build artifact
         uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
@@ -156,10 +171,25 @@ jobs:
           name: pr_build
           path: ./
 
-      # Append "early-access.tar" into "app.tar"
       - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Concatenate the archives
-        run: tar -A --file=app.tar early-access.tar
+        name: Extract user-changes to temp directory
+        run: |
+          tar -x --file=app.tar -C "$RUNNER_TEMP/"
+          rm app.tar
+
+      # Append early access content into the temp directory
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Merge in the early access content
+        run: |
+          rsync -aiR \
+            assets/images/early-access \
+            content/early-access \
+            data/early-access \
+            "$RUNNER_TEMP/"
+
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create an updated archive
+        run: tar -c --file app.tar "$RUNNER_TEMP/"
 
       # Create "app.tar.gz" and delete "app.tar"
       - name: Create a gzipped archive
@@ -187,11 +217,18 @@ jobs:
             const Heroku = require('heroku-client')
             const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
-            const { source_blob: sourceBlob } = await heroku.post('/sources')
-            const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
+            try {
+              const { source_blob: sourceBlob } = await heroku.post('/sources')
+              const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
 
-            core.setOutput('upload_url', uploadUrl)
-            core.setOutput('download_url', downloadUrl)
+              core.setOutput('upload_url', uploadUrl)
+              core.setOutput('download_url', downloadUrl)
+            } catch (error) {
+              if (error.statusCode === 503) {
+                console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+              }
+              throw error
+            }
 
       # See: https://devcenter.heroku.com/articles/build-and-release-using-the-api#sources-endpoint
       - name: Upload to the Heroku build source
