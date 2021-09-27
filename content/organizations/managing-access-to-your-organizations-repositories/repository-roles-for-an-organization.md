@@ -14,12 +14,12 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Repository permissions
+shortTitle: Repository roles
 ---
 
 ## Repository roles for organizations
 
-You can give organization members, outside collaborators, and teams of people different levels of access to repositories owned by an organization by assigning them to roles. Each role progressively increases access to a repository's content and settings. Choose the role that best fits each person or team's function in your project without giving people more access to the project than they need.
+You can give organization members, outside collaborators, and teams of people different levels of access to repositories owned by an organization by assigning them to roles. Choose the role that best fits each person or team's function in your project without giving people more access to the project than they need.
 
 From least access to most access, the roles for an organization repository are:
 - **Read**: Recommended for non-code contributors who want to view or discuss your project
