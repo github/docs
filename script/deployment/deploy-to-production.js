@@ -54,7 +54,9 @@ export default async function deployToProduction({
     // If prebuilt: prevent the Heroku Node.js buildpack from using `npm ci` as it would
     // delete all of the vendored "node_modules/" directory.
     USE_NPM_INSTALL: isPrebuilt.toString(),
-    ...(!isPrebuilt && DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT }),
+    // If not prebuilt, include the PAT required for cloning the `docs-early-access` repo.
+    // Otherwise, set it to `null` to unset it from the environment for security.
+    DOCUBOT_REPO_PAT: (!isPrebuilt && DOCUBOT_REPO_PAT) || null,
   }
 
   const workflowRunLog = runId ? `https://github.com/${owner}/${repo}/actions/runs/${runId}` : null

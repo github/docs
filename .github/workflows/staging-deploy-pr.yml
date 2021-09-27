@@ -180,7 +180,12 @@ jobs:
       # Append early access content into the temp directory
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Merge in the early access content
-        run: rsync -ai assets content data "$RUNNER_TEMP/"
+        run: |
+          rsync -aiR \
+            assets/images/early-access \
+            content/early-access \
+            data/early-access \
+            "$RUNNER_TEMP/"
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Create an updated archive
