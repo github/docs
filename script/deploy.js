@@ -111,7 +111,7 @@ const { owner, repo, pullNumber } = parsePrUrl(prUrl)
 if (isStaging) {
   if (owner !== ALLOWED_OWNER || !ALLOWED_SOURCE_REPOS.includes(repo) || !pullNumber) {
     invalidateAndExit(
-      'commander.invalidOptionArgument',
+      'commander.invalidArgument',
       `error: option '${STAGING_FLAG}' argument '${prUrl}' is invalid.
 Must match URL format '${EXPECTED_PR_URL_FORMAT}'`
     )
@@ -141,7 +141,7 @@ async function deployProduction() {
   // TODO: Request confirmation before deploying to production
 
   invalidateAndExit(
-    'commander.invalidOptionArgument',
+    'commander.invalidArgument',
     `error: option '${PRODUCTION_FLAG}' is not yet implemented. SOON!`
   )
 }

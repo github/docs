@@ -37,7 +37,6 @@ You can also personalize aspects of your codespace environment by using a public
 
 ## About billing for {% data variables.product.prodname_codespaces %}
 
-{% data reusables.codespaces.codespaces-trial-period %}
+For information on billing for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
 
-For information on billing for {% data variables.product.prodname_codespaces %}, see "[About billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
-
+{% data reusables.codespaces.codespaces-spending-limit-requirement %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_codespaces %} for an organization, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."

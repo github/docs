@@ -100,7 +100,7 @@ When you set your status, you can also let people know that you have limited ava
 
 ![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy.
+If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."
 
 1. In the top right corner of {% data variables.product.product_name %}, click your profile photo, then click **Set your status** or, if you already have a status set, click your current status.
   ![Button on profile to set your status](/assets/images/help/profile/set-status-on-profile.png)
