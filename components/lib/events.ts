@@ -205,9 +205,11 @@ function initPageAndExitEvent() {
 
   // Client-side routing
   const pushState = history.pushState
-  history.pushState = function (...args) {
+  history.pushState = function (state, title, url) {
+    const newPath = url?.toString().replace(location.origin, '').split('?')[0]
+    if (newPath === location.pathname) return
     sendExit()
-    const result = pushState.call(history, ...args)
+    const result = pushState.call(history, state, title, url)
     sendPage()
     sentExit = false
     maxScrollY = 0
