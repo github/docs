@@ -194,7 +194,8 @@ export default async function deployToStaging({
             // Pass some environment variables to staging apps via Heroku
             // config variables.
             overrides: {
-              env: appConfigVars,
+              // AppSetup API cannot handle `null` values for config vars
+              env: removeEmptyProperties(appConfigVars),
             },
           },
         })
@@ -649,4 +650,8 @@ function announceIfHerokuIsDown(error) {
   if (error && error.statusCode === 503) {
     console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
   }
+}
+
+function removeEmptyProperties(obj) {
+  return Object.fromEntries(Object.entries(obj).filter(([key, val]) => val != null))
 }
