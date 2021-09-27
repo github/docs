@@ -9,10 +9,19 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
 import { Lead } from 'components/ui/Lead'
+import { LearningTrackNav } from '../article/LearningTrackNav'
 
 export const TocLanding = () => {
-  const { title, introPlainText, tocItems, productCallout, variant, featuredLinks, renderedPage } =
-    useTocLandingContext()
+  const {
+    title,
+    introPlainText,
+    tocItems,
+    productCallout,
+    variant,
+    featuredLinks,
+    renderedPage,
+    currentLearningTrack,
+  } = useTocLandingContext()
   const { t } = useTranslation('toc')
 
   return (
@@ -58,6 +67,12 @@ export const TocLanding = () => {
             <TableOfContents items={tocItems} variant={variant} />
           </div>
         </ArticleGridLayout>
+
+        {currentLearningTrack?.trackName ? (
+          <div className="mt-4">
+            <LearningTrackNav track={currentLearningTrack} />
+          </div>
+        ) : null}
       </div>
     </DefaultLayout>
   )
