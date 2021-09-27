@@ -8,6 +8,7 @@ import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { useRouter } from 'next/router'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
@@ -15,7 +16,6 @@ export const DefaultLayout = (props: Props) => {
     page,
     error,
     isHomepageVersion,
-    currentLanguage,
     currentPathWithoutLanguage,
     currentVersion,
     currentProduct,
@@ -24,6 +24,7 @@ export const DefaultLayout = (props: Props) => {
     status,
   } = useMainContext()
   const { t } = useTranslation(['errors', 'scroll_button'])
+  const router = useRouter()
   return (
     <div className="d-lg-flex">
       <Head>
@@ -52,7 +53,7 @@ export const DefaultLayout = (props: Props) => {
         {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
 
         {/* For analytics events */}
-        {currentLanguage && <meta name="path-language" content={currentLanguage} />}
+        {router.locale && <meta name="path-language" content={router.locale} />}
         {currentVersion && <meta name="path-version" content={currentVersion} />}
         {currentProduct && <meta name="path-product" content={currentProduct.id} />}
         {relativePath && (
