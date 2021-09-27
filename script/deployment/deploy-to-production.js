@@ -143,6 +143,7 @@ export default async function deployToProduction({
         body: appConfigVars,
       })
     } catch (error) {
+      announceIfHerokuIsDown(error)
       throw new Error(`Failed to update Heroku app configuration variables. Error: ${error}`)
     }
 
@@ -158,6 +159,7 @@ export default async function deployToProduction({
         },
       })
     } catch (error) {
+      announceIfHerokuIsDown(error)
       throw new Error(`Failed to create Heroku build. Error: ${error}`)
     }
 
@@ -183,6 +185,7 @@ export default async function deployToProduction({
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to get build status. Error: ${error}`)
       }
 
@@ -235,6 +238,7 @@ export default async function deployToProduction({
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to get release status. Error: ${error}`)
       }
 
@@ -293,6 +297,7 @@ export default async function deployToProduction({
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to find dynos for this release. Error: ${error}`)
       }
     }
@@ -323,6 +328,7 @@ export default async function deployToProduction({
           `Here are the last ${HEROKU_LOG_LINES_TO_SHOW} lines of the Heroku log:\n\n${logText}`
         )
       } catch (error) {
+        announceIfHerokuIsDown(error)
         // Don't fail because of this error
         console.error(`Failed to retrieve the Heroku logs for the crashed dynos. Error: ${error}`)
       }
@@ -428,4 +434,10 @@ async function getTarballUrl({ octokit, owner, repo, sha }) {
     },
   })
   return tarballUrl
+}
+
+function announceIfHerokuIsDown(error) {
+  if (error && error.statusCode === 503) {
+    console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+  }
 }
