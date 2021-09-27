@@ -12,7 +12,7 @@ versions:
   ghes: '*'
   ghae: '*'
 children:
-  - /about-actions
+  - /about-custom-actions
   - /creating-a-docker-container-action
   - /creating-a-javascript-action
   - /creating-a-composite-action

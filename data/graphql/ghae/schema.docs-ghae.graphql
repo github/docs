@@ -34084,6 +34084,11 @@ enum SecurityAdvisoryEcosystem {
   Ruby gems hosted at RubyGems.org
   """
   RUBYGEMS
+
+  """
+  Rust crates
+  """
+  RUST
 }
 
 """

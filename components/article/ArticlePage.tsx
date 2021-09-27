@@ -17,11 +17,11 @@ import { ArticleGridLayout } from './ArticleGridLayout'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/guides/building-and-testing-nodejs': {
-    href: '/actions/guides/building-and-testing-nodejs-or-python?langId=nodejs',
+  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
+    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
   },
-  '/actions/guides/building-and-testing-python': {
-    href: '/actions/guides/building-and-testing-nodejs-or-python?langId=python',
+  '/actions/automating-builds-and-tests/building-and-testing-python': {
+    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
   },
 }
 
