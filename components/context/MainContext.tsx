@@ -77,7 +77,6 @@ export type MainContextT = {
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
   currentPathWithoutLanguage: string
-  currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
   currentVersion?: string
@@ -162,7 +161,6 @@ export const getMainContext = (req: any, res: any): MainContextT => {
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
     currentVersion: req.context.currentVersion,
