@@ -137,6 +137,7 @@ export default async function deployToStaging({
     try {
       await heroku.get(`/apps/${appName}`)
     } catch (error) {
+      announceIfHerokuIsDown(error)
       appExists = false
     }
 
@@ -150,6 +151,7 @@ export default async function deployToStaging({
 
         console.log(`Heroku app '${appName}' deleted for forced rebuild`)
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(
           `Failed to delete Heroku app '${appName}' for forced rebuild. Error: ${error}`
         )
@@ -201,6 +203,7 @@ export default async function deployToStaging({
         // This probably will not be available yet
         build = appSetup.build
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to create Heroku app '${appName}'. Error: ${error}`)
       }
 
@@ -217,6 +220,7 @@ export default async function deployToStaging({
           console.log(`Added PR author @${author.login} as a Heroku app collaborator`)
         }
       } catch (error) {
+        announceIfHerokuIsDown(error)
         // It's fine if this fails, it shouldn't block the app from deploying!
         console.warn(
           `Warning: failed to add PR author as a Heroku app collaborator. Error: ${error}`
@@ -239,6 +243,7 @@ export default async function deployToStaging({
               continue
             }
           }
+          announceIfHerokuIsDown(error)
           throw new Error(`Failed to get AppSetup status. Error: ${error}`)
         }
 
@@ -278,6 +283,7 @@ See Heroku logs for more information:\n${logUrl}`
           body: appConfigVars,
         })
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to update Heroku app configuration variables. Error: ${error}`)
       }
 
@@ -293,6 +299,7 @@ See Heroku logs for more information:\n${logUrl}`
           },
         })
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to create Heroku build. Error: ${error}`)
       }
 
@@ -319,6 +326,7 @@ See Heroku logs for more information:\n${logUrl}`
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to get build status. Error: ${error}`)
       }
 
@@ -371,6 +379,7 @@ See Heroku logs for more information:\n${logUrl}`
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to get release status. Error: ${error}`)
       }
 
@@ -437,6 +446,7 @@ See Heroku logs for more information:\n${logUrl}`
           try {
             nextRelease = await heroku.get(`/apps/${appName}/releases/${release.version + 1}`)
           } catch (error) {
+            announceIfHerokuIsDown(error)
             throw new Error(
               `Could not find a secondary release to explain the disappearing dynos. Error: ${error}`
             )
@@ -475,6 +485,7 @@ See Heroku logs for more information:\n${logUrl}`
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to find dynos for this release. Error: ${error}`)
       }
     }
@@ -505,6 +516,7 @@ See Heroku logs for more information:\n${logUrl}`
           `Here are the last ${HEROKU_LOG_LINES_TO_SHOW} lines of the Heroku log:\n\n${logText}`
         )
       } catch (error) {
+        announceIfHerokuIsDown(error)
         // Don't fail because of this error
         console.error(`Failed to retrieve the Heroku logs for the crashed dynos. Error: ${error}`)
       }
@@ -631,4 +643,10 @@ async function getTarballUrl({ octokit, owner, repo, sha }) {
     },
   })
   return tarballUrl
+}
+
+function announceIfHerokuIsDown(error) {
+  if (error && error.statusCode === 503) {
+    console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+  }
 }
