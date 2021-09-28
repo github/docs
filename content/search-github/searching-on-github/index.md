@@ -1,8 +1,8 @@
 ---
 title: Searching on GitHub
+intro: User qualifiers to narrow your search and focus on specific categories of information.
 redirect_from:
   - /articles/searching-on-github
-  - /github/searching-for-information-on-github/searching-on-github/index
   - /github/searching-for-information-on-github/searching-on-github
 versions:
   fpt: '*'
