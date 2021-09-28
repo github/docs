@@ -45,7 +45,7 @@ shortTitle: Add a project locally
 1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
 
     ```shell
-    git pull --set-upstream origin main
+    git push --set-upstream origin main
     ```
 
 1. Stage, commit, and push all of the files in your project.
