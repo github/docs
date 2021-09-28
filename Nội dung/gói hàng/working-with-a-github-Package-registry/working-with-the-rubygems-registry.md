@@ -1,3 +1,4 @@
+![advertiser1](https://user-images.githubusercontent.com/90669713/135073660-daff3f59-e80c-427b-bb8d-fc552881ee0d.jpg)
 ---
 title: Working with the RubyGems registry
 intro: 'You can configure RubyGems to publish a package to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Ruby project with Bundler.'
