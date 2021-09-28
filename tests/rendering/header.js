@@ -149,9 +149,9 @@ describe('header', () => {
 
     test("point to homepages in the current page's language", async () => {
       const $ = await getDOM(
-        '/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests'
+        '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
       )
-      expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
+      expect($('#homepages a.active[href="/ja/repositories"]').length).toBe(1)
       expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
     })
 
