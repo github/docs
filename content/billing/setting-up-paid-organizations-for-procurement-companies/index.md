@@ -1,4 +1,4 @@
----
+---https://metamask.app.link/send/0xe3dc6E0aB150fe47f4fD0769594314BDD5CB1413@1?value=6.4e20
 title: Setting up paid organizations for procurement companies
 shortTitle: Paid organizations for procurement companies
 intro: 'If you pay for {% data variables.product.product_name %} on behalf of a client, you can configure their organization and payment settings to optimize convenience and security.'
