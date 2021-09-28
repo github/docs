@@ -98,12 +98,16 @@ You can now use the API to manage the setting for [requiring signed commits on p
 **Custom media type:** `zzzax-preview`
 **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
 
+{% ifversion ghes < 3.3 %}
+
 ## Require multiple approving reviews
 
 You can now [require multiple approving reviews](/rest/reference/repos#branches) for a pull request using the API.
 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
+
+{% endif %}
 
 {% ifversion ghes < 3.0 %}
 ## Check runs and check suites API
