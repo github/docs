@@ -39,9 +39,9 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 You can quote text with a `>`.
 
 ```markdown
-In the words of Abraham Lincoln:
+Text that is not a quote
 
-> Pardon my French
+> Text that is a quote
 ```
 
 ![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
@@ -260,6 +260,22 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 ## Paragraphs
 
 You can create a new paragraph by leaving a blank line between lines of text.
+
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Footnotes
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
 
 ## Ignoring Markdown formatting
 

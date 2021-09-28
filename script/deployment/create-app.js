@@ -38,7 +38,8 @@ export default async function createApp(pullRequest) {
 
   try {
     await heroku.get(`/apps/${appName}`)
-  } catch (e) {
+  } catch (error) {
+    announceIfHerokuIsDown(error)
     appExists = false
   }
 
@@ -52,6 +53,7 @@ export default async function createApp(pullRequest) {
 
       console.log('Heroku App created', newApp)
     } catch (error) {
+      announceIfHerokuIsDown(error)
       throw new Error(`Failed to create Heroku App ${appName}. Error: ${error}`)
     }
 
@@ -68,6 +70,7 @@ export default async function createApp(pullRequest) {
         console.log(`Added PR author @${author.login} as a Heroku app collaborator`)
       }
     } catch (error) {
+      announceIfHerokuIsDown(error)
       // It's fine if this fails, it shouldn't block the app from deploying!
       console.warn(`Warning: failed to add PR author as a Heroku app collaborator. Error: ${error}`)
     }
@@ -82,8 +85,15 @@ export default async function createApp(pullRequest) {
       body: appConfigVars,
     })
   } catch (error) {
+    announceIfHerokuIsDown(error)
     throw new Error(`Failed to update Heroku app configuration variables. Error: ${error}`)
   }
 
   return appName
+}
+
+function announceIfHerokuIsDown(error) {
+  if (error && error.statusCode === 503) {
+    console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+  }
 }

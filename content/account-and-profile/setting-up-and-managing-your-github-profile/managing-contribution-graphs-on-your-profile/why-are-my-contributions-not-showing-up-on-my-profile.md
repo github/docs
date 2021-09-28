@@ -1,6 +1,6 @@
 ---
 title: Why are my contributions not showing up on my profile?
-intro: 'Your profile contributions graph is a record of contributions you''ve made to {% data variables.product.product_name %} repositories. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.'
+intro: 'Learn common reasons that contributions may be missing from your contributions graph.'
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -13,6 +13,11 @@ topics:
   - Profiles
 shortTitle: Missing contributions
 ---
+
+## About your contribution graph
+
+Your profile contributions graph is a record of contributions you've made to {% data variables.product.product_name %} repositories. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
+
 ## Contributions that are counted
 
 ### Issues, pull requests and discussions
