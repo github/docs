@@ -8,9 +8,10 @@ import createStagingAppName from './create-staging-app-name.js'
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
-// Allow for a few 404 (Not Found) or 429 (Too Many Requests) responses from the
-// semi-unreliable Heroku API when we're polling for status updates
+// Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
+// the semi-unreliable Heroku API when we're polling for status updates
 const ALLOWED_MISSING_RESPONSE_COUNT = 5
+const ALLOWABLE_ERROR_CODES = [404, 429, 500]
 
 export default async function deployToStaging({
   octokit,
@@ -238,7 +239,7 @@ export default async function deployToStaging({
           build = appSetup.build
         } catch (error) {
           // Allow for a few bad responses from the Heroku API
-          if (error.statusCode === 404 || error.statusCode === 429) {
+          if (isAllowableHerokuError(error)) {
             setupAcceptableErrorCount += 1
             if (setupAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
               continue
@@ -321,7 +322,7 @@ See Heroku logs for more information:\n${logUrl}`
         build = await heroku.get(`/apps/${appName}/builds/${buildId}`)
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           buildAcceptableErrorCount += 1
           if (buildAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
             continue
@@ -374,7 +375,7 @@ See Heroku logs for more information:\n${logUrl}`
         release = result
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           releaseAcceptableErrorCount += 1
           if (releaseAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
             continue
@@ -480,7 +481,7 @@ See Heroku logs for more information:\n${logUrl}`
         )
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           dynoAcceptableErrorCount += 1
           if (dynoAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
             continue
@@ -644,6 +645,10 @@ async function getTarballUrl({ octokit, owner, repo, sha }) {
     },
   })
   return tarballUrl
+}
+
+function isAllowableHerokuError(error) {
+  return error && ALLOWABLE_ERROR_CODES.includes(error.statusCode)
 }
 
 function announceIfHerokuIsDown(error) {
