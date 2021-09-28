@@ -21,10 +21,12 @@ describe('header', () => {
 
   describe('language links', () => {
     test('lead to the same page in a different language', async () => {
-      const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
+      const $ = await getDOM(
+        '/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule'
+      )
       expect(
         $(
-          '[data-testid=language-picker] a[href="/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          '[data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
@@ -131,7 +133,9 @@ describe('header', () => {
 
   describe('mobile-only product dropdown links', () => {
     test('include github and admin, and emphasize the current product', async () => {
-      const $ = await getDOM('/en/articles/enabling-required-status-checks')
+      const $ = await getDOM(
+        '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
+      )
       const github = $('#homepages a.active[href="/en/github"]')
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub')
@@ -145,9 +149,9 @@ describe('header', () => {
 
     test("point to homepages in the current page's language", async () => {
       const $ = await getDOM(
-        '/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests'
+        '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
       )
-      expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
+      expect($('#homepages a.active[href="/ja/repositories"]').length).toBe(1)
       expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
     })
 

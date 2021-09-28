@@ -25,7 +25,7 @@ export const ArticleVersionPicker = () => {
       `}
       data-testid="article-version-picker"
     >
-      <summary className="f4 h5-mktg btn-outline-mktg btn-mktg p-2">
+      <summary className="btn btn-outline p-2 outline-none">
         <span className="d-md-none d-xl-inline-block">{t('article_version')}</span>{' '}
         {allVersions[currentVersion].versionTitle}
         <Dropdown.Caret />

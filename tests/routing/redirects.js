@@ -335,12 +335,12 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
-        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/creating-a-strong-password`
+        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
@@ -354,28 +354,28 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user/articles/creating-a-strong-password`
+        `/enterprise/${enterpriseServerReleases.latest}/user/articles/about-writing-and-formatting-on-github`
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/user/articles/creating-a-strong-password')
+      const res = await get('/en/enterprise/user/articles/about-writing-and-formatting-on-github')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/user/articles/creating-a-strong-password')
+      const res = await get('/ja/enterprise/user/articles/about-writing-and-formatting-on-github')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-ssh-keys`
-    const redirectFromPath = '/articles/reviewing-your-ssh-keys'
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github`
+    const redirectFromPath = '/articles/about-writing-and-formatting-on-github'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {

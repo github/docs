@@ -11,16 +11,17 @@ import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
-import { ArticleContent } from './ArticleContent'
+import { MarkdownContent } from 'components/ui/MarkdownContent'
+import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/guides/building-and-testing-nodejs': {
-    href: '/actions/guides/building-and-testing-nodejs-or-python?langId=nodejs',
+  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
+    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
   },
-  '/actions/guides/building-and-testing-python': {
-    href: '/actions/guides/building-and-testing-nodejs-or-python?langId=python',
+  '/actions/automating-builds-and-tests/building-and-testing-python': {
+    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
   },
 }
 
@@ -63,12 +64,7 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && (
-                <div
-                  className="lead-mktg markdown-body mb-3"
-                  dangerouslySetInnerHTML={{ __html: intro }}
-                />
-              )}
+              {intro && <Lead data-testid="lead">{intro}</Lead>}
 
               {permissions && (
                 <div
@@ -153,7 +149,9 @@ export const ArticlePage = () => {
             </>
           }
         >
-          <ArticleContent>{renderedPage}</ArticleContent>
+          <div id="article-contents">
+            <MarkdownContent>{renderedPage}</MarkdownContent>
+          </div>
         </ArticleGridLayout>
 
         {currentLearningTrack?.trackName ? (
