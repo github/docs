@@ -183,13 +183,6 @@ You can use two new endpoints in the [Commits API](/rest/reference/repos#commits
 
 {% endif %}
 
-## Enable or disable vulnerability alerts for a repository
-
-You can use two new endpoints in the [Repos API](/rest/reference/repos) to enable or disable vulnerability alerts.
-
-**Custom media types:** `dorian-preview`
-**Announced:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
-
 ## Update a pull request branch
 
 You can use a new endpoint to [update a pull request branch](/rest/reference/pulls#update-a-pull-request-branch) with changes from the HEAD of the upstream branch.
