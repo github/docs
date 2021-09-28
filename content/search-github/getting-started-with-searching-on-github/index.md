@@ -1,6 +1,6 @@
 ---
 title: Getting started with searching on GitHub
-intro: You can perform either broad or narrow searches on GitHub, utilize a wide range of syntax to build queries and troubleshoot them, sort search results based on a variety of qualifiers, and expand your search to cover GitHub.com if you are using GitHub Enterprise Server.
+intro: You can use a wide range of syntax to adjust the scope of your search, build queries, troubleshoot them, and sort search results based on qualifiers.
 redirect_from:
   - /articles/getting-started-with-searching-on-github
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github
