@@ -1,3 +1,4 @@
+[![Run Tests](https://github.com/bitcoinjs/bitcoinjs-lib/actions/workflows/main_ci.yml/badge.svg?branch=feature%2FgithubActions)](https://github.com/bitcoinjs/bitcoinjs-lib/actions/workflows/main_ci.yml)
 # Contributing to this repository <!-- omit in toc -->
 
 ## Getting started <!-- omit in toc -->
