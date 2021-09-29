@@ -1,4 +1,4 @@
----
+Index.md---
 title: GitHub
 redirect_from:
   - /articles/
