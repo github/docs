@@ -64,9 +64,16 @@ export default async function deployToProduction({
   let deploymentId = null
   let logUrl = workflowRunLog
 
-  const appName = process.env.HEROKU_PRODUCTION_APP_NAME
-  const environment = 'production'
-  const homepageUrl = 'https://docs.github.com/'
+  let appName, environment, homepageUrl
+  if (process.env.HEROKU_PRODUCTION_APP_NAME) {
+    appName = process.env.HEROKU_PRODUCTION_APP_NAME
+    environment = 'production'
+    homepageUrl = 'https://docs.github.com/'
+  } else {
+    appName = 'help-docs-prod-gha'
+    environment = appName
+    homepageUrl = `https://${appName}.herokuapp.com/`
+  }
 
   try {
     const title = `branch '${branch}' at commit '${sha}' in the '${environment}' environment`
