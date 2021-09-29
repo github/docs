@@ -4,6 +4,7 @@ intro: 'If you encounter unexpected results while searching on {% data variables
 redirect_from:
   - /articles/troubleshooting-search-queries
   - /github/searching-for-information-on-github/troubleshooting-search-queries
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/troubleshooting-search-queries
 versions:
   fpt: '*'
   ghes: '*'
@@ -29,4 +30,4 @@ Specific search types, such as code search, might have additional limitations. C
 
 ## Further reading
 
-- "[About searching on GitHub](/articles/about-searching-on-github)"
+- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

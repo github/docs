@@ -5,6 +5,7 @@ redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/understanding-the-search-syntax
 versions:
   fpt: '*'
   ghes: '*'
