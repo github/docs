@@ -64,11 +64,12 @@ export default async function deployToProduction({
   let deploymentId = null
   let logUrl = workflowRunLog
 
-  const appName = 'help-docs-prod-gha'
-  const homepageUrl = `https://${appName}.herokuapp.com/`
+  const appName = process.env.HEROKU_PRODUCTION_APP_NAME
+  const environment = 'production'
+  const homepageUrl = 'https://docs.github.com/'
 
   try {
-    const title = `branch '${branch}' at commit '${sha}' in the 'production' environment as '${appName}'`
+    const title = `branch '${branch}' at commit '${sha}' in the '${environment}' environment`
 
     console.log(`About to deploy ${title}...`)
 
@@ -81,7 +82,7 @@ export default async function deployToProduction({
       ref: sha,
 
       // In the GitHub API, there can only be one active deployment per environment.
-      environment: appName,
+      environment,
 
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a

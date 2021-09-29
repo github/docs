@@ -11,13 +11,19 @@
 //  - Optionally, supply a GitHub PAT as the DOCUBOT_REPO_PAT environment
 //    variable if you want to support content from the `docs-early-access` repo
 //
-// For production deployment in particular, you should ideally:
+// For production deployment in particular, you MUST:
+//  - Provide the name of the Heroku App we use for production as the
+//    HEROKU_PRODUCTION_APP_NAME environment variable. This must be obfuscated
+//    from our codebase for security reasons.
+//
+// ...and you SHOULD:
 //  - Supply the aforementioned DOCUBOT_REPO_PAT environment variable to support
 //    content from the `docs-early-access` repo. In most cases, you should be
 //    able to just set this to the same value as GITHUB_TOKEN when running this
 //    script locally as it just needs read access to that repo.
-//  - Supply our Fastly API token as the FASTLY_TOKEN enviroment variable
-//  - Supply our Fastly Service ID as the FASTLY_SERVICE_ID environment variable
+//  - Supply our Fastly API token and Service ID as the FASTLY_TOKEN and
+//    FASTLY_SERVICE_ID enviroment variables, respectively, to support
+//    soft-purging the Fastly cache after deploying.
 //
 // Examples:
 //  - Deploy a PR to Staging and force the Heroku App to be rebuilt from scratch (by default):
@@ -149,7 +155,13 @@ async function deploy() {
 }
 
 async function deployProduction() {
-  const { DOCUBOT_REPO_PAT, FASTLY_TOKEN, FASTLY_SERVICE_ID } = process.env
+  const { HEROKU_PRODUCTION_APP_NAME, DOCUBOT_REPO_PAT, FASTLY_TOKEN, FASTLY_SERVICE_ID } =
+    process.env
+
+  // Exit if Heroku App name is not found
+  if (!HEROKU_PRODUCTION_APP_NAME) {
+    throw new Error('You must supply a HEROKU_PRODUCTION_APP_NAME environment variable!')
+  }
 
   // Warn if @docubot PAT is not found
   if (!DOCUBOT_REPO_PAT) {
