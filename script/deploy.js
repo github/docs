@@ -158,9 +158,11 @@ async function deployProduction() {
   const { HEROKU_PRODUCTION_APP_NAME, DOCUBOT_REPO_PAT, FASTLY_TOKEN, FASTLY_SERVICE_ID } =
     process.env
 
-  // Exit if Heroku App name is not found
+  // Warn if Heroku App name is not found
   if (!HEROKU_PRODUCTION_APP_NAME) {
-    throw new Error('You must supply a HEROKU_PRODUCTION_APP_NAME environment variable!')
+    console.warn(
+      '⚠️ You did not supply a HEROKU_PRODUCTION_APP_NAME environment variable.\nWithout it, this deployment will not end up in our production environment!'
+    )
   }
 
   // Warn if @docubot PAT is not found
