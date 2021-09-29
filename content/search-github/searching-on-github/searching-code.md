@@ -6,6 +6,7 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
   - /github/searching-for-information-on-github/searching-code-for-exact-matches
   - /github/searching-for-information-on-github/searching-code
+  - /github/searching-for-information-on-github/searching-on-github/searching-code
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +14,7 @@ versions:
 topics:
   - GitHub search
 ---
-{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
@@ -25,7 +26,7 @@ Due to the complexity of searching code, there are some restrictions on how sear
 
 {% ifversion fpt or ghes %}
 - {% data reusables.search.required_login %}{% endif %}
-- Code in [forks](/articles/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/articles/searching-in-forks)."
+- Code in [forks](/articles/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
 - Only the _default branch_ is indexed for code search.{% ifversion fpt %}
 - Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
 - Only the first 500 KB of each file is searchable.{% endif %}
@@ -78,7 +79,7 @@ You can search for code based on what language it's written in. The `language` q
 
 ## Search by file size
 
-You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
+You can use the `size` qualifier to search for source code based on the size of the file where the code exists. The `size` qualifier uses [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to filter results based on the byte size of the file in which the code is found.
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -86,7 +87,7 @@ You can use the `size` qualifier to search for source code based on the size of 
 
 ## Search by filename
 
-The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/articles/finding-files-on-github)."
+The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/search-github/searching-on-github/finding-files-on-github)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -105,6 +106,6 @@ The `extension` qualifier matches code files with a certain file extension.
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
-- "[Searching in forks](/articles/searching-in-forks)"{% ifversion fpt %}
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Searching in forks](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt %}
 - "[Navigating code on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

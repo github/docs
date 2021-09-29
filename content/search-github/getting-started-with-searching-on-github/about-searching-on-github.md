@@ -9,6 +9,7 @@ redirect_from:
   - /articles/advanced-search/
   - /articles/about-searching-on-github
   - /github/searching-for-information-on-github/about-searching-on-github
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -27,13 +28,13 @@ topics:
 
 {% ifversion fpt or ghes %}
 - {% data reusables.search.required_login %}{% endif %}
-- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/articles/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
+- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/search-github/searching-on-github/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
 - Currently our search doesn't support exact matching.
 - Whenever you are searching in code files, only the first two results in each file will be returned.
 
 {% endnote %}
 
-After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[Sorting search results](/articles/sorting-search-results)."
+After running a search on {% data variables.product.product_name %}, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results)."
 
 {% data variables.product.product_name %} search uses an ElasticSearch cluster to index projects every time a change is pushed to {% data variables.product.product_name %}. Issues and pull requests are indexed when they are created or modified.
 
@@ -41,15 +42,15 @@ After running a search on {% data variables.product.product_name %}, you can sor
 
 You can search for the following information across all repositories you can access on {% data variables.product.product_location %}.
 
-- [Repositories](/articles/searching-for-repositories)
-- [Topics](/articles/searching-topics)
-- [Issues and pull requests](/articles/searching-issues-and-pull-requests){% ifversion fpt %}
-- [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
-- [Code](/articles/searching-code)
-- [Commits](/articles/searching-commits)
-- [Users](/articles/searching-users)
-- [Packages](/github/searching-for-information-on-github/searching-for-packages)
-- [Wikis](/articles/searching-wikis)
+- [Repositories](/search-github/searching-on-github/searching-for-repositories)
+- [Topics](/search-github/searching-on-github/searching-topics)
+- [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt %}
+- [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
+- [Code](/search-github/searching-on-github/searching-code)
+- [Commits](/search-github/searching-on-github/searching-commits)
+- [Users](/search-github/searching-on-github/searching-users)
+- [Packages](/search-github/searching-on-github/searching-for-packages)
+- [Wikis](/search-github/searching-on-github/searching-wikis)
 
 ## Searching using a visual interface
 
@@ -73,5 +74,5 @@ If your site administrator enables {% data variables.product.prodname_unified_se
 
 ## Further reading
 
-- "[Understanding the search syntax](/articles/understanding-the-search-syntax)"
+- "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)"
 - "[Searching on GitHub](/articles/searching-on-github)"
