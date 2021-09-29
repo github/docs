@@ -11,12 +11,13 @@ topics:
   - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
+  - /github/searching-for-information-on-github/searching-on-github/searching-for-packages
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 ## About searching for packages
 
-You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
+You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% ifversion ghes %}
 You can only search for packages on {% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.

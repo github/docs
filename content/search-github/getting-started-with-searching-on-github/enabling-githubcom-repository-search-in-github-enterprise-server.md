@@ -7,6 +7,7 @@ redirect_from:
   - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account/
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
+  - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,7 +17,7 @@ shortTitle: Enable search for GitHub.com
 ---
 If you use {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} and your {% data variables.product.prodname_ghe_server %} site administrator has enabled {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories, then you can search for designated private repositories in the connected organization.
 
-To see private repositories in your search results, you must already have access to these repositories and connect your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} accounts. For more information about the repositories you can search in, see "[Searching across {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} simultaneously](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
+To see private repositories in your search results, you must already have access to these repositories and connect your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} accounts. For more information about the repositories you can search in, see "[Searching across {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %} simultaneously](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)."
 
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
 {% data reusables.github-connect.access-profile-settings %}

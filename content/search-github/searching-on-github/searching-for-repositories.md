@@ -5,6 +5,7 @@ redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
   - /github/searching-for-information-on-github/searching-for-repositories
+  - /github/searching-for-information-on-github/searching-on-github/searching-for-repositories
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,9 +14,9 @@ topics:
   - GitHub search
 shortTitle: Search for repositories
 ---
-You can search for repositories globally across all of {% data variables.product.product_location %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
+You can search for repositories globally across all of {% data variables.product.product_location %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
-To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/articles/searching-in-forks)."
+To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/search-github/searching-on-github/searching-in-forks)."
 
 {% data reusables.search.syntax_tips %}
 
@@ -34,7 +35,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)."
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[Finding files on {% data variables.product.prodname_dotcom %}](/articles/finding-files-on-github)" and "[Searching code](/articles/searching-code)."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[Finding files on {% data variables.product.prodname_dotcom %}](/search-github/searching-on-github/finding-files-on-github)" and "[Searching code](/search-github/searching-on-github/searching-code)."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -199,5 +200,5 @@ You can search for repositories that have a funding file using the `has:funding-
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
-- "[Searching in forks](/articles/searching-in-forks)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[Searching in forks](/search-github/searching-on-github/searching-in-forks)"

@@ -32,7 +32,7 @@ To collaborate with maintainers in discussions, a repository administrator or pr
 
 ## Filtering the list of discussions
 
-You can search for discussions and filter the list of discussions in a repository. For more information, see "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+You can search for discussions and filter the list of discussions in a repository. For more information, see "[Searching discussions](/search-github/searching-on-github/searching-discussions)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

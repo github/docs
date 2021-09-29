@@ -5,6 +5,7 @@ redirect_from:
   - /categories/78/articles/
   - /categories/search/
   - /categories/searching-for-information-on-github
+  - /github/searching-for-information-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,4 +17,3 @@ children:
   - /searching-on-github
 shortTitle: Search on GitHub
 ---
-

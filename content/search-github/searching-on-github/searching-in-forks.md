@@ -4,6 +4,7 @@ intro: 'By default, [forks](/articles/about-forks) are not shown in search resul
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
+  - /github/searching-for-information-on-github/searching-on-github/searching-in-forks
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +12,9 @@ versions:
 topics:
   - GitHub search
 ---
-To show forks in [repository search](/articles/searching-for-repositories) results, add `fork:true` or `fork:only` to your query.
+To show forks in [repository search](/search-github/searching-on-github/searching-for-repositories) results, add `fork:true` or `fork:only` to your query.
 
-Forks are only indexed for [code search](/articles/searching-code) when they have more stars than the parent repository. You will not be able to search the code in a fork that has less stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query.
+Forks are only indexed for [code search](/search-github/searching-on-github/searching-code) when they have more stars than the parent repository. You will not be able to search the code in a fork that has less stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query.
 
 The `fork:true` qualifier finds all results that match your search query, including forks. The `fork:only` qualifier finds _only_ forks that match your search query.
 
@@ -27,4 +28,4 @@ The `fork:true` qualifier finds all results that match your search query, includ
 ## Further reading
 
 - "[About forks](/articles/about-forks)"
-- "[About searching on GitHub](/articles/about-searching-on-github)"
+- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
