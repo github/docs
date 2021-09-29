@@ -87,10 +87,14 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable {% data variables.product.prodname_dependabot %}, enter the following command.
-    ```shell
-    {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled true{% else %}ghe-config app.github.dependency-graph-enabled true{% endif %}
+    - To enable {% data variables.product.prodname_dependabot %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
     ```
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled true
+    ghe-config app.github.vulnerability-alerting-and-settings-enabled true
+    ```{% endif %}
 2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
@@ -102,11 +106,14 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_dependabot %}, enter the following command.
-    ```shell
-    {% ifversion ghes > 3.1 %}ghe-config app.dependency-graph.enabled false{% else %}ghe-config app.github.dependency-graph-enabled false{% endif %}
+    - To disable {% data variables.product.prodname_dependabot %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled false
     ```
-
+    {% else %}```shell
+    ghe-config app.github.dependency-graph-enabled false
+    ghe-config app.github.vulnerability-alerting-and-settings-enabled false
+    ```{% endif %}
 3. Apply the configuration.
     ```shell
     ghe-config-apply

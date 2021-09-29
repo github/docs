@@ -16,6 +16,7 @@ versions: '*'
 children:
   - get-started
   - account-and-profile
+  - authentication
   - repositories
   - github
   - admin

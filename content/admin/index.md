@@ -62,6 +62,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-goals
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-organizations
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
+  - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/system-overview{% elsif ghae %}/admin/overview/about-github-ae{% endif %}'
 changelog:

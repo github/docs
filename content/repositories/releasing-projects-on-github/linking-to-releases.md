@@ -19,4 +19,4 @@ topics:
 3. Alternatively, right click **Latest Release** and copy the URL to share it. The suffix of this URL is always `/releases/latest`.
    ![Latest release tag](/assets/images/help/releases/release_latest_release_tag.png)
 
-To link directly to a download of your latest release asset, link to `/owner/name/releases/latest/download/asset-name.zip`.
+To link directly to a download of your latest release asset that was manually uploaded, link to `/owner/name/releases/latest/download/asset-name.zip`.

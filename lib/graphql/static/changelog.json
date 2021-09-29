@@ -4,6 +4,34 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Enum value `RUST` was added to enum `SecurityAdvisoryEcosystem`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `UpdateSponsorshipPreferencesInput` was added",
+          "Type `UpdateSponsorshipPreferencesPayload` was added",
+          "Field `updateSponsorshipPreferences` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-09-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `forkingAllowed` was added to object type `Repository`"
         ]
       }

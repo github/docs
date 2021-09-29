@@ -15,8 +15,6 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Understanding billing
 ---
 
-{% data reusables.codespaces.codespaces-trial-period %}
-
 This article explains how billing works for your codespaces, and explains how your organization's billing manager can help.
 
 ## Getting access to {% data variables.product.prodname_codespaces %}

@@ -3,7 +3,7 @@ import { jest } from '@jest/globals'
 
 jest.setTimeout(3 * 60 * 1000)
 
-describe('learning tracks', () => {
+describe.skip('learning tracks', () => {
   test('render first track as feature track', async () => {
     const $ = await getDOM('/en/actions/guides')
     expect($('[data-testid=feature-track]')).toHaveLength(1)
@@ -37,7 +37,7 @@ describe('learning tracks', () => {
   })
 })
 
-describe('navigation banner', () => {
+describe.skip('navigation banner', () => {
   test('render navigation banner when url includes correct learning track name', async () => {
     const $ = await getDOM(
       '/en/actions/guides/setting-up-continuous-integration-using-workflow-templates?learn=continuous_integration'
@@ -47,6 +47,18 @@ describe('navigation banner', () => {
     expect($navLinks).toHaveLength(2)
     $navLinks.each((i, elem) => {
       expect($(elem).attr('href')).toEqual(expect.stringContaining('?learn=continuous_integration'))
+    })
+  })
+
+  test('render navigation banner when url is a redirect to a learning track URL', async () => {
+    const $ = await getDOM(
+      '/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
+    )
+    expect($('[data-testid=learning-track-nav]')).toHaveLength(1)
+    const $navLinks = $('[data-testid=learning-track-nav] a')
+    expect($navLinks).toHaveLength(1)
+    $navLinks.each((i, elem) => {
+      expect($(elem).attr('href')).toEqual(expect.stringContaining('?learn=upgrade_your_instance'))
     })
   })
 
