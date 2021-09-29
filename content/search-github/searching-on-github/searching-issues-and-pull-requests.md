@@ -5,6 +5,7 @@ redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
+  - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,13 +14,13 @@ topics:
   - GitHub search
 shortTitle: Search issues & PRs
 ---
-You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% tip %}
 
 **Tips:**{% ifversion ghes or ghae %}
   - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.product.product_location %}.{% endif %}
-  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
@@ -50,7 +51,7 @@ With the `in` qualifier you can restrict your search to the title, body, comment
 
 To search issues and pull requests in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search issues and pull requests in a specific repository, you can use the `repo` qualifier.
 
-{% data reusables.pull_requests.large-search-workaround %} 
+{% data reusables.pull_requests.large-search-workaround %}
 
 
 | Qualifier        | Example
@@ -212,7 +213,7 @@ With the `language` qualifier you can search for issues and pull requests within
 
 ## Search by number of comments
 
-You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax) to search by the number of comments.
+You can use the `comments` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax) to search by the number of comments.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -221,7 +222,7 @@ You can use the `comments` qualifier along with [greater than, less than, and ra
 
 ## Search by number of interactions
 
-You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax). The interactions count is the number of reactions and comments on an issue or pull request.
+You can filter issues and pull requests by the number of interactions with the `interactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). The interactions count is the number of reactions and comments on an issue or pull request.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -230,7 +231,7 @@ You can filter issues and pull requests by the number of interactions with the `
 
 ## Search by number of reactions
 
-You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter issues and pull requests by the number of reactions using the `reactions` qualifier along with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -344,4 +345,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
