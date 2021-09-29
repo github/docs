@@ -39,9 +39,9 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 You can quote text with a `>`.
 
 ```markdown
-In the words of Abraham Lincoln:
+Text that is not a quote
 
-> Pardon my French
+> Text that is a quote
 ```
 
 ![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)

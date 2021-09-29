@@ -105,7 +105,7 @@ jobs:
             })
             core.setOutput('state', pullRequest.state)
 
-  prepare:
+  prepare-for-deploy:
     needs: check-pr-before-prepare
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
@@ -217,11 +217,18 @@ jobs:
             const Heroku = require('heroku-client')
             const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
-            const { source_blob: sourceBlob } = await heroku.post('/sources')
-            const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
+            try {
+              const { source_blob: sourceBlob } = await heroku.post('/sources')
+              const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
 
-            core.setOutput('upload_url', uploadUrl)
-            core.setOutput('download_url', downloadUrl)
+              core.setOutput('upload_url', uploadUrl)
+              core.setOutput('download_url', downloadUrl)
+            } catch (error) {
+              if (error.statusCode === 503) {
+                console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+              }
+              throw error
+            }
 
       # See: https://devcenter.heroku.com/articles/build-and-release-using-the-api#sources-endpoint
       - name: Upload to the Heroku build source
@@ -264,7 +271,7 @@ jobs:
           text: Staging preparation failed for PR ${{ env.PR_URL }} at commit ${{ github.event.workflow_run.head_sha }}. See ${{ env.ACTIONS_RUN_LOG }}
 
   check-pr-before-deploy:
-    needs: prepare
+    needs: prepare-for-deploy
     runs-on: ubuntu-latest
     timeout-minutes: 1
     concurrency:
@@ -289,7 +296,7 @@ jobs:
             core.setOutput('state', pullRequest.state)
 
   deploy:
-    needs: [prepare, check-pr-before-deploy]
+    needs: [prepare-for-deploy, check-pr-before-deploy]
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -321,7 +328,7 @@ jobs:
           HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
           HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
           PR_URL: ${{ env.PR_URL }}
-          SOURCE_BLOB_URL: ${{ needs.prepare.outputs.source_blob_url }}
+          SOURCE_BLOB_URL: ${{ needs.prepare-for-deploy.outputs.source_blob_url }}
           CONTEXT_NAME: ${{ env.CONTEXT_NAME }}
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ env.HEAD_SHA }}

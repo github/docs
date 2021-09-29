@@ -101,11 +101,18 @@ jobs:
             const Heroku = require('heroku-client')
             const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
-            const { source_blob: sourceBlob } = await heroku.post('/sources')
-            const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
+            try {
+              const { source_blob: sourceBlob } = await heroku.post('/sources')
+              const { put_url: uploadUrl, get_url: downloadUrl } = sourceBlob
 
-            core.setOutput('upload_url', uploadUrl)
-            core.setOutput('download_url', downloadUrl)
+              core.setOutput('upload_url', uploadUrl)
+              core.setOutput('download_url', downloadUrl)
+            } catch (error) {
+              if (error.statusCode === 503) {
+                console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+              }
+              throw error
+            }
 
       # See: https://devcenter.heroku.com/articles/build-and-release-using-the-api#sources-endpoint
       - name: Upload to the Heroku build source
@@ -132,7 +139,12 @@ jobs:
           DELAY_FOR_PREBOOT: 'true'
         with:
           script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN, SOURCE_BLOB_URL, DELAY_FOR_PREBOOT } = process.env
+            const {
+              GITHUB_TOKEN,
+              HEROKU_API_TOKEN,
+              SOURCE_BLOB_URL,
+              DELAY_FOR_PREBOOT
+            } = process.env
 
             // Exit if GitHub Actions PAT is not found
             if (!GITHUB_TOKEN) {

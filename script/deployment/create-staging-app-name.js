@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import GithubSlugger from 'github-slugger'
 const slugify = GithubSlugger.slug
 
