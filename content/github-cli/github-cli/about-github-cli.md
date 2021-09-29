@@ -1,4 +1,4 @@
----
+Index.md---
 title: About GitHub CLI
 intro: '{% data reusables.cli.cli-intro %}'
 versions:
