@@ -164,7 +164,6 @@ gh pr create --web
 For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
-
 {% endif %}
 ## Further reading
 
