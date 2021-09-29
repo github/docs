@@ -62,7 +62,6 @@ export const Survey = () => {
             aria-label={t`yes`}
             hidden
             onChange={vote(ViewState.YES)}
-            defaultChecked={state === ViewState.YES}
             checked={state === ViewState.YES}
           />
           <label
@@ -82,7 +81,6 @@ export const Survey = () => {
             aria-label={t`no`}
             hidden
             onChange={vote(ViewState.NO)}
-            defaultChecked={state === ViewState.NO}
             checked={state === ViewState.NO}
           />
           <label

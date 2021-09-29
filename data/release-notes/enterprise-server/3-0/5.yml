@@ -25,3 +25,4 @@ sections:
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.
     - When a replica node is offline in a high availability configuration, {% data variables.product.product_name %} may still route {% data variables.product.prodname_pages %} requests to the offline node, reducing the availability of {% data variables.product.prodname_pages %} for users.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

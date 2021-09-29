@@ -8,9 +8,10 @@ import createStagingAppName from './create-staging-app-name.js'
 const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 
-// Allow for a few 404 (Not Found) or 429 (Too Many Requests) responses from the
-// semi-unreliable Heroku API when we're polling for status updates
+// Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
+// the semi-unreliable Heroku API when we're polling for status updates
 const ALLOWED_MISSING_RESPONSE_COUNT = 5
+const ALLOWABLE_ERROR_CODES = [404, 429, 500]
 
 export default async function deployToStaging({
   octokit,
@@ -54,9 +55,11 @@ export default async function deployToStaging({
     // If prebuilt: prevent the Heroku Node.js buildpack from using `npm ci` as it would
     // delete all of the vendored "node_modules/" directory.
     USE_NPM_INSTALL: isPrebuilt.toString(),
+    // IMPORTANT: This secret should only be set in the private repo!
+    // If not prebuilt, include the PAT required for cloning the `docs-early-access` repo.
+    // Otherwise, set it to `null` to unset it from the environment for security.
+    DOCUBOT_REPO_PAT: (isPrivateRepo && !isPrebuilt && DOCUBOT_REPO_PAT) || null,
     // IMPORTANT: These secrets should only be set in the private repo!
-    // This is only required for cloning the `docs-early-access` repo
-    ...(isPrivateRepo && !isPrebuilt && DOCUBOT_REPO_PAT && { DOCUBOT_REPO_PAT }),
     // These are required for Hydro event tracking
     ...(isPrivateRepo && HYDRO_ENDPOINT && HYDRO_SECRET && { HYDRO_ENDPOINT, HYDRO_SECRET }),
   }
@@ -135,6 +138,7 @@ export default async function deployToStaging({
     try {
       await heroku.get(`/apps/${appName}`)
     } catch (error) {
+      announceIfHerokuIsDown(error)
       appExists = false
     }
 
@@ -148,6 +152,7 @@ export default async function deployToStaging({
 
         console.log(`Heroku app '${appName}' deleted for forced rebuild`)
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(
           `Failed to delete Heroku app '${appName}' for forced rebuild. Error: ${error}`
         )
@@ -190,7 +195,8 @@ export default async function deployToStaging({
             // Pass some environment variables to staging apps via Heroku
             // config variables.
             overrides: {
-              env: appConfigVars,
+              // AppSetup API cannot handle `null` values for config vars
+              env: removeEmptyProperties(appConfigVars),
             },
           },
         })
@@ -199,6 +205,7 @@ export default async function deployToStaging({
         // This probably will not be available yet
         build = appSetup.build
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to create Heroku app '${appName}'. Error: ${error}`)
       }
 
@@ -215,6 +222,7 @@ export default async function deployToStaging({
           console.log(`Added PR author @${author.login} as a Heroku app collaborator`)
         }
       } catch (error) {
+        announceIfHerokuIsDown(error)
         // It's fine if this fails, it shouldn't block the app from deploying!
         console.warn(
           `Warning: failed to add PR author as a Heroku app collaborator. Error: ${error}`
@@ -224,20 +232,36 @@ export default async function deployToStaging({
       // A new Build is created as a by-product of creating an AppSetup.
       // Poll until there is a Build object attached to the AppSetup.
       let setupAcceptableErrorCount = 0
-      while (!build || !build.id) {
+      while (!appSetup || appSetup.status === 'pending' || !build || !build.id) {
         await sleep(SLEEP_INTERVAL)
         try {
           appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
           build = appSetup.build
         } catch (error) {
           // Allow for a few bad responses from the Heroku API
-          if (error.statusCode === 404 || error.statusCode === 429) {
+          if (isAllowableHerokuError(error)) {
             setupAcceptableErrorCount += 1
             if (setupAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
               continue
             }
           }
+          announceIfHerokuIsDown(error)
           throw new Error(`Failed to get AppSetup status. Error: ${error}`)
+        }
+
+        if (appSetup && appSetup.status === 'failed') {
+          const manifestErrors = appSetup.manifest_errors || []
+          const hasManifestErrors = Array.isArray(manifestErrors) && manifestErrors.length > 0
+          const manifestErrorMessage = hasManifestErrors
+            ? `\nManifest errors:\n - ${manifestErrors.join('\n - ')}`
+            : ''
+          throw new Error(
+            `Failed to setup app after ${Math.round(
+              (Date.now() - appSetupStartTime) / 1000
+            )} seconds.
+Reason: ${appSetup.failure_message}${manifestErrorMessage}
+See Heroku logs for more information:\n${logUrl}`
+          )
         }
 
         console.log(
@@ -261,6 +285,7 @@ export default async function deployToStaging({
           body: appConfigVars,
         })
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to update Heroku app configuration variables. Error: ${error}`)
       }
 
@@ -276,6 +301,7 @@ export default async function deployToStaging({
           },
         })
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to create Heroku build. Error: ${error}`)
       }
 
@@ -296,26 +322,28 @@ export default async function deployToStaging({
         build = await heroku.get(`/apps/${appName}/builds/${buildId}`)
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           buildAcceptableErrorCount += 1
           if (buildAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to get build status. Error: ${error}`)
       }
+
+      if (build && build.status === 'failed') {
+        throw new Error(
+          `Failed to build after ${Math.round(
+            (Date.now() - buildStartTime) / 1000
+          )} seconds. See Heroku logs for more information:\n${logUrl}`
+        )
+      }
+
       console.log(
         `Heroku build status: ${(build || {}).status} (after ${Math.round(
           (Date.now() - buildStartTime) / 1000
         )} seconds)`
-      )
-    }
-
-    if (build.status !== 'succeeded') {
-      throw new Error(
-        `Failed to build after ${Math.round(
-          (Date.now() - buildStartTime) / 1000
-        )} seconds. See Heroku logs for more information:\n${logUrl}`
       )
     }
 
@@ -347,27 +375,28 @@ export default async function deployToStaging({
         release = result
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           releaseAcceptableErrorCount += 1
           if (releaseAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to get release status. Error: ${error}`)
+      }
+
+      if (release && release.status === 'failed') {
+        throw new Error(
+          `Failed to release after ${Math.round(
+            (Date.now() - releaseStartTime) / 1000
+          )} seconds. See Heroku logs for more information:\n${logUrl}`
+        )
       }
 
       console.log(
         `Release status: ${(release || {}).status} (after ${Math.round(
           (Date.now() - releaseStartTime) / 1000
         )} seconds)`
-      )
-    }
-
-    if (release.status !== 'succeeded') {
-      throw new Error(
-        `Failed to release after ${Math.round(
-          (Date.now() - releaseStartTime) / 1000
-        )} seconds. See Heroku logs for more information:\n${logUrl}`
       )
     }
 
@@ -419,6 +448,7 @@ export default async function deployToStaging({
           try {
             nextRelease = await heroku.get(`/apps/${appName}/releases/${release.version + 1}`)
           } catch (error) {
+            announceIfHerokuIsDown(error)
             throw new Error(
               `Could not find a secondary release to explain the disappearing dynos. Error: ${error}`
             )
@@ -451,12 +481,13 @@ export default async function deployToStaging({
         )
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           dynoAcceptableErrorCount += 1
           if (dynoAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
             continue
           }
         }
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to find dynos for this release. Error: ${error}`)
       }
     }
@@ -487,6 +518,7 @@ export default async function deployToStaging({
           `Here are the last ${HEROKU_LOG_LINES_TO_SHOW} lines of the Heroku log:\n\n${logText}`
         )
       } catch (error) {
+        announceIfHerokuIsDown(error)
         // Don't fail because of this error
         console.error(`Failed to retrieve the Heroku logs for the crashed dynos. Error: ${error}`)
       }
@@ -613,4 +645,18 @@ async function getTarballUrl({ octokit, owner, repo, sha }) {
     },
   })
   return tarballUrl
+}
+
+function isAllowableHerokuError(error) {
+  return error && ALLOWABLE_ERROR_CODES.includes(error.statusCode)
+}
+
+function announceIfHerokuIsDown(error) {
+  if (error && error.statusCode === 503) {
+    console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
+  }
+}
+
+function removeEmptyProperties(obj) {
+  return Object.fromEntries(Object.entries(obj).filter(([key, val]) => val != null))
 }

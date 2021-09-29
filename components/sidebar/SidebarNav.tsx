@@ -33,7 +33,7 @@ export const SidebarNav = () => {
         </Link>
         <Link
           href={`/${router.locale}`}
-          className="f4 font-weight-semibold color-text-primary no-underline no-wrap pl-2 flex-auto"
+          className="f4 text-semibold color-text-primary no-underline no-wrap pl-2 flex-auto"
         >
           {t('github_docs')}
         </Link>

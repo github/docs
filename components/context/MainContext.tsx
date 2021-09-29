@@ -77,9 +77,9 @@ export type MainContextT = {
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
   currentPathWithoutLanguage: string
-  currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
+  currentVersion?: string
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
@@ -161,9 +161,9 @@ export const getMainContext = (req: any, res: any): MainContextT => {
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
+    currentVersion: req.context.currentVersion,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,

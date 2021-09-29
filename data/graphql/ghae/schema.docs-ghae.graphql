@@ -31041,6 +31041,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   forkCount: Int!
 
   """
+  Whether this repository allows forks.
+  """
+  forkingAllowed: Boolean!
+
+  """
   A list of direct forked repositories.
   """
   forks(
@@ -34079,6 +34084,11 @@ enum SecurityAdvisoryEcosystem {
   Ruby gems hosted at RubyGems.org
   """
   RUBYGEMS
+
+  """
+  Rust crates
+  """
+  RUST
 }
 
 """
