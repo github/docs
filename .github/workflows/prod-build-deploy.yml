@@ -139,7 +139,12 @@ jobs:
           DELAY_FOR_PREBOOT: 'true'
         with:
           script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN, SOURCE_BLOB_URL, DELAY_FOR_PREBOOT } = process.env
+            const {
+              GITHUB_TOKEN,
+              HEROKU_API_TOKEN,
+              SOURCE_BLOB_URL,
+              DELAY_FOR_PREBOOT
+            } = process.env
 
             // Exit if GitHub Actions PAT is not found
             if (!GITHUB_TOKEN) {
