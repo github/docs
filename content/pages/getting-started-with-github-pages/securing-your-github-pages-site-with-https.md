@@ -22,6 +22,12 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
+{% tip %}
+
+**Tip:** RFC3280 states that the maximum length of the common name should be 64 characters. With this in mind, the entire domain name of your Pages site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endtip %}
+
 ## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
 
 {% data reusables.pages.navigate-site-repo %}
