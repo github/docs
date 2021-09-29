@@ -36,7 +36,7 @@ Below is a list of the multiple {% data variables.product.prodname_actions %} co
 
 ### Workflows
 
-The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {% data variables.product.prodname_dotcom %}.
+The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 ### Events
 

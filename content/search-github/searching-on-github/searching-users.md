@@ -4,6 +4,7 @@ intro: 'You can search for users on {% data variables.product.product_name %} an
 redirect_from:
   - /articles/searching-users
   - /github/searching-for-information-on-github/searching-users
+  - /github/searching-for-information-on-github/searching-on-github/searching-users
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +12,7 @@ versions:
 topics:
   - GitHub search
 ---
-You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% data reusables.search.syntax_tips %}
 
@@ -41,7 +42,7 @@ With the `in` qualifier you can restrict your search to the username (`login`), 
 
 ## Search by number of repositories a user owns
 
-You can filter users based on the number of repositories they own, using the `repos` qualifier and [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter users based on the number of repositories they own, using the `repos` qualifier and [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -80,7 +81,7 @@ You can filter users based on when they joined {% data variables.product.product
 
 ## Search by number of followers
 
-You can filter users based on the number of followers that they have, using the `followers` qualifier with [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).
+You can filter users based on the number of followers that they have, using the `followers` qualifier with [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -101,4 +102,4 @@ You can search for users and organizations who can be sponsored on {% data varia
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"

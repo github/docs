@@ -7,6 +7,7 @@ topics:
   - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
+  - /github/searching-for-information-on-github/searching-on-github/searching-discussions
 ---
 
 ## About searching for discussions
@@ -113,4 +114,4 @@ Both qualifiers take a date as a parameter. {% data reusables.time_date.date_for
 
 ## Further reading
 
-- "[Sorting search results](/articles/sorting-search-results/)"
+- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"

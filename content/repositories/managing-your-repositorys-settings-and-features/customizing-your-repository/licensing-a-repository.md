@@ -73,7 +73,7 @@ License | License keyword
 | The Unlicense | `unlicense` |
 | zLib License | `zlib` |
 
-When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[Searching for repositories](/articles/searching-for-repositories/#search-by-license)."
+When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-by-license)."
 
 ## Detecting a license
 
