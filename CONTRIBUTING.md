@@ -20,9 +20,9 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## Getting started
 
-To confidently navigate our codebase, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md): confetti ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
+To confidently navigate our codebase, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md):confetti ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
 
-Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code: sparkles:.
+Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code:sparkles:.
 
 ### Issues
 
@@ -65,7 +65,7 @@ Click **Make a contribution** at the bottom of any docs page to make small chang
 
 Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emojis for commit messages.
 
-Once your changes are ready, don't forget to [self-review](/contributing/self-review.md) to speed up the review process: zap:.
+Once your changes are ready, don't forget to [self-review](/contributing/self-review.md) to speed up the review process:zap:.
 
 ### Pull Request
 
