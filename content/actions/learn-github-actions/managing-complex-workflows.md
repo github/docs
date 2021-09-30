@@ -170,6 +170,8 @@ To learn more about self-hosted runner labels, see ["Using labels with self-host
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
+{% data reusables.actions.reusable-workflows %}
+
 {% ifversion fpt or ghes > 3.0 %}
 ## Using environments
 
@@ -189,4 +191,4 @@ You can configure environments with protection rules and secrets. Each job in a 
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows, secrets, and runners with your organization](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)."

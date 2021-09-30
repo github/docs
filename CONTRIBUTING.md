@@ -10,13 +10,13 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## New contributor guide
 
-  See the [README](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
+See the [README](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
 - [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 - [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
-  
+
 
 ## Getting started
 
@@ -63,7 +63,7 @@ Click **Make a contribution** at the bottom of any docs page to make small chang
 
 ### Commit your update
 
-Commit the changes once you are happy with them. See [Atom's contributing guide]https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji's for commit messages.
+Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji's for commit messages.
 
 Once you are ready with your changes, don't forget to [self review](/contributing/self-review.md) to quicken the review process :zap:.
 

@@ -61,6 +61,12 @@ Usage limits apply to self-hosted runners. For more information, see "[About sel
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/articles/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Billing for reusable workflows
+
+If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+{% endif %}
+
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Artifact and log retention policy
 

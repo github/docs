@@ -18,15 +18,6 @@ During the preview period, we may change some features based on developer feedba
 
 To access an API preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
 
-{% ifversion fpt %}
-## Migrations
-
-Allows you to download repositories from your GitHub user or organization account to review, backup, and [migrate](/rest/reference/migrations) data to {% data variables.product.prodname_ghe_server %}.
-
-**Custom media type:** `wyandotte-preview`
-**Announced:** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
-{% endif %}
-
 ## Enhanced deployments
 
 Exercise greater control over [deployments](/rest/reference/repos#deployments) with more information and finer granularity.
@@ -58,6 +49,7 @@ Create, list, update, and delete environments for pre-receive hooks.
 **Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 ## Projects
 
 Manage [projects](/rest/reference/projects).
@@ -65,6 +57,7 @@ Manage [projects](/rest/reference/projects).
 **Custom media type:** `inertia-preview`
 **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/)
 **Update:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
+{% endif %}
 
 ## Commit search
 
@@ -80,11 +73,15 @@ View a list of [repository topics](/articles/about-topics/) in [calls](/rest/ref
 **Custom media type:** `mercy-preview`
 **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
 
+{% ifversion ghes < 3.3 %}
+
 ## Codes of conduct
 
 View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code of conduct a repository has currently.
 
 **Custom media type:** `scarlet-witch-preview`
+
+{% endif %}
 
 {% ifversion ghae or ghes %}
 
@@ -105,12 +102,16 @@ You can now use the API to manage the setting for [requiring signed commits on p
 **Custom media type:** `zzzax-preview`
 **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
 
+{% ifversion ghes < 3.3 %}
+
 ## Require multiple approving reviews
 
 You can now [require multiple approving reviews](/rest/reference/repos#branches) for a pull request using the API.
 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
+
+{% endif %}
 
 {% ifversion ghes < 3.0 %}
 ## Check runs and check suites API
@@ -190,28 +191,12 @@ You can use two new endpoints in the [Commits API](/rest/reference/repos#commits
 
 {% endif %}
 
-## Enable or disable vulnerability alerts for a repository
-
-You can use two new endpoints in the [Repos API](/rest/reference/repos) to enable or disable vulnerability alerts.
-
-**Custom media types:** `dorian-preview`
-**Announced:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
-
 ## Update a pull request branch
 
 You can use a new endpoint to [update a pull request branch](/rest/reference/pulls#update-a-pull-request-branch) with changes from the HEAD of the upstream branch.
 
 **Custom media types:** `lydian-preview`
 **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
-
-{% ifversion fpt %}
-## Enable or disable automated security fixes
-
-You can use a new set of endpoints to [enable and disable automated security fixes](/rest/reference/repos#enable-automated-security-fixes).
-
-**Custom media types:** `london-preview`
-**Announced:** [2019-06-04](https://developer.github.com/changes/2019-06-04-automated-security-fixes/)
-{% endif %}
 
 ## Create and use repository templates
 
