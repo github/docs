@@ -20,9 +20,9 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## Getting started
 
-To confidently navigate our codebase, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md):confetti ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
+To confidently navigate our codebase, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) :confetti_ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
 
-Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code:sparkles:.
+Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code :sparkles:.
 
 ### Issues
 
