@@ -1,18 +1,22 @@
 ---
-title: GitHub 上的帐单和付款
+title: Billing and payments for GitHub
 shortTitle: 计费和付款
-intro: '了解 {% data variables.product.company_short %} 提供的付费产品和订阅，并管理您帐户的计费和支付方式。'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghes or ghae %}{% data variables.product.company_short %} bills for your enterprise members'' {% ifversion ghae %}usage of {% data variables.product.product_name %}{% elsif ghes %} licence seats for {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} and any additional services that you purchase{% endif %}{% endif %}.{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /managing-your-github-billing-settings
   - /managing-billing-for-your-github-account
   - /managing-billing-for-github-actions
+  - /managing-billing-for-github-codespaces
   - /managing-billing-for-github-packages
-  - /managing-licensing-for-github-advanced-security
+  - /managing-your-license-for-github-enterprise
+  - /managing-billing-for-github-advanced-security
   - /managing-billing-for-github-sponsors
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage

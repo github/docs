@@ -1,3 +1,3 @@
 Um einen selbst-gehosteten Läufer für Deinen Auftrag anzugeben, konfiguriere `runs-on` in Deiner Workflow-Datei mit selbst gehosteten Läuferkennzeichnungen.
 
-Alle selbst gehosteten Läufer haben die Kennzeichnung `self-hosted` und Du kannst jeden selbst-gehosteten Läufer auswählen, indem Du nur die Kennzeichnung `self-hosted` bereitstellst. Alternativ kannst Du `self-hosted` in einer Matrix mit zusätzlichen Kennzeichnungen verwenden, beispielsweise Kennzeichnungen für ein bestimmtes Betriebssystem oder Systemarchitektur, um nur die von Ihnen spezifizierten Läufertypen auszuwählen.
+All self-hosted runners have the `self-hosted` label. Using only this label will select any self-hosted runner. To select runners that meet certain criteria, such as operating system or architecture, provide an array of labels that begins with `self-hosted` (this must be listed first) and then includes additional labels as needed.

@@ -3,9 +3,9 @@ title: プロジェクトボードを管理する
 shortTitle: プロジェクトボードを管理する
 intro: プロジェクトボードの作成と管理の方法を学んでください
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
   - Projects
@@ -25,3 +25,4 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

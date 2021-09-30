@@ -6,14 +6,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: 支払いについて
 ---
 
-### {% data variables.product.prodname_registry %}の支払いについて
+## {% data variables.product.prodname_registry %}の支払いについて
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -21,7 +22,7 @@ topics:
 
 {% note %}
 
-**Billing update for container image storage:** During the beta phase of the {% data variables.product.prodname_container_registry %}, Docker image storage and bandwidth are free for both the previous `docker.pkg.github.com` and current `ghcr.io` hosting services. 詳しい情報については、「[{% data variables.product.prodname_registry %} の紹介](/packages/learn-github-packages/introduction-to-github-packages)」を参照してください。
+**コンテナイメージのストレージに対する支払いの更新:** {% data variables.product.prodname_container_registry %}に対するコンテナイメージストレージと帯域幅の無料使用期間は延長されました。 {% data variables.product.prodname_container_registry %}を使用しているなら、少なくても支払い開始の1ヶ月前に通知され、支払いの予想金額の推定が示されます。 {% data variables.product.prodname_container_registry %}に関する詳しい情報については「[コンテナレジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
 
 {% endnote %}
 
@@ -46,9 +47,9 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ストレージの使用量は、ユーザ自身のアカウントで所有されているリポジトリの{% data variables.product.prodname_actions %}によって生成されるビルドアーチファクトと共有されます。 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 
-{% data variables.product.prodname_dotcom %}は、パッケージが公開されているリポジトリを所有するアカウントの利用状況に課金をします。 アカウントの利用状況がこれらの制限を超え、使用制限を$0より上に設定している場合は、ストレージ1 GBあたり0.25 USD、データ転送GBあたり0.50 USDを請求されます。
+{% data variables.product.prodname_dotcom %}は、パッケージが公開されているリポジトリを所有するアカウントの利用状況に課金をします。 If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage and $0.50 USD per GB of data transfer.
 
-たとえば、Organizationが{% data variables.product.prodname_team %}を使用し、無制限の利用を許可しており、1か月あたりのストレージ使用量が150 GB、データ転送が50GBだった場合、そのOrganizationの当月の超過分はストレージが148GB、データ転送が40GBということです。 ストレージの超過分は、GBあたり$0.25または$37です。 データ転送の超過分は、GBあたり$0.50または$20です。
+たとえば、Organizationが{% data variables.product.prodname_team %}を使用し、無制限の利用を許可しており、1か月あたりのストレージ使用量が150 GB、データ転送が50GBだった場合、そのOrganizationの当月の超過分はストレージが148GB、データ転送が40GBということです。 The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
 
 月末に、{% data variables.product.prodname_dotcom %}はデータ転送を最も近いGBに丸めます。
 
@@ -63,7 +64,9 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 あなたの{% data variables.product.prodname_registry %} 利用状況は、アカウントの既存の請求日、支払い方法、領収書を共有します。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-### 利用上限について
+{% data reusables.user_settings.context_switcher %}
+
+## 利用上限について
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 

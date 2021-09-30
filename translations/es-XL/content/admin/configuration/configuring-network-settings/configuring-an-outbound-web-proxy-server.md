@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Fundamentals

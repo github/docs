@@ -6,13 +6,14 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 使用 Octa 配置 SAML 和 SCIM
 ---
 
-### 关于 SAML 和 SCIM 与 Octa
+## 关于 SAML 和 SCIM 与 Octa
 
 您可以通过配置组织使用 SAML SSO 和 SCIM 以及身份提供程序 (IdP) Okta，从一个中心界面控制对 {% data variables.product.prodname_dotcom %} 组织及其他 web 应用程序的访问。
 
@@ -27,11 +28,11 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 | 推送个人资料更新 | 当您在 Okta 中更新某用户的个人资料时，Okta 会在您的 {% data variables.product.prodname_dotcom %} 组织中更新该用户成员资格的元数据。     |
 | 重新激活用户   | 当您在 Okta 中重新激活某用户时，Okta 会向该用户发送一封邀请电子邮件，邀请其重新加入您的 {% data variables.product.prodname_dotcom %} 组织。 |
 
-### 基本要求
+## 基本要求
 
 {% data reusables.saml.use-classic-ui %}
 
-### 在 Okta 中添加 {% data variables.product.prodname_ghe_cloud %} 应用程序
+## 在 Okta 中添加 {% data variables.product.prodname_ghe_cloud %} 应用程序
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
@@ -42,7 +43,7 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 
 6. 单击 **Done（完成）**。
 
-### 启用和测试 SAML SSO
+## 启用和测试 SAML SSO
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -51,7 +52,7 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 {% data reusables.saml.okta-view-setup-instructions %}
 6. 按照“如何配置 SAML 2.0”指南，使用登录 URL、发行机构 URL 和公共证书在 {% data variables.product.prodname_dotcom %} 上启用并测试 SAML SSO。 更多信息请参阅“[对组织启用并测试 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)”。
 
-### 在 Okta 中使用 SCIM 配置访问配置
+## 在 Okta 中使用 SCIM 配置访问配置
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -73,9 +74,9 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 
-### 延伸阅读
+## 延伸阅读
 
-- “[使用 Okta 为企业帐户配置 SAML 单点登录和 SCIM](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)”
+- “[使用 Okta 为企业帐户配置 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)”
 - "[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - Okta 文档中的[了解 SAML](https://developer.okta.com/docs/concepts/saml/)
 - Okta 文档中的[了解 SCIM](https://developer.okta.com/docs/concepts/scim/)

@@ -64,7 +64,7 @@ sections:
         - webhookイベントの配信システムは、スループットの向上、配信の高速化、遅延メッセージの減少のために再設計されました。{% data variables.product.prodname_ghe_server %} 3.0以降では、CPUとメモリの使用量も減少しています。
         - OrganizationとEnterpriseのオーナーは、TeamのメンバーがTeamのメンテナに昇格したり、メンテナから降格されたときに、新しい`team.promote_maintainer`及び`team.demote_maintainer`監査ログイベントを通じて監査ログで知ることができるようになりました。詳しい情報については「[監査対象のアクション](/enterprise-server@3.0/admin/user-management/audited-actions)」を参照してください。
         - '既存の{% data variables.product.prodname_pages %}サイトを持つリポジトリ管理者は、[以前のデフォルトブランチ名を容易に更新](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)できるようになりました。'
-        - Actions、Packages、Advanced Securityのいずれかを有効にして{% data variables.product.prodname_ghe_server %}を動作させるには、追加のハードウェアリソースが必要になります。サポートされている各プラットフォームでの最小の必要リソースに関する詳しい情報については、「[{% data variables.product.prodname_ghe_server %}インスタンスのセットアップ](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+        - Additional hardware resources are required to run {% data variables.product.prodname_ghe_server %} with any of Actions, Packages or Advanced Security enabled. For more information on the minimum required resources for each supported platform, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)."
         - 管理者は、すべてのユーザが受諾しなければならない[メッセージを公開](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for-your-enterprise)できるようになりました。これは、新しいユーザの参加と、Organization固有の情報やポリシーを示すための役に立ちます。
     - 
       heading: セキュリティの変更
@@ -135,6 +135,8 @@ sections:
     - 以前のGitHub Enterprise Serverのリリースからアップグレードされた、カスタムのタイムゾーンを持つインスタンスは、Web UIに不正確なタイムスタンプがあることがあります。
     - Pagesの古いビルドがクリーンアップされず、ユーザディスク(`/data/user/`)を使い切ってしまうことがあります。
     - Pull Requestをマージした後にブランチを削除すると、ブランチの削除は成功しているにもかかわらずエラーメッセージが表示されます。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
   deprecations:
     - 
       heading: GitHub Enterprise Server 2.19の非推奨化

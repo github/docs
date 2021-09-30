@@ -8,16 +8,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: View & manage SAML access
 ---
 
-### Über SAML Zugriff auf Dein Enterprise-Konto
+## Über SAML Zugriff auf Dein Enterprise-Konto
 
 Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes Enterprise-Mitglied seine externe Identität auf Deinem Identitätsanbieter (IdP) mit seinem bestehenden {% data variables.product.product_name %}-Konto verknüpfen. {% data reusables.saml.about-saml-access-enterprise-account %}
 
-### Eine verknüpfte Identität anschauen und widerrufen
+## Eine verknüpfte Identität anschauen und widerrufen
 
 {% data reusables.saml.about-linked-identities %}
 
@@ -40,7 +41,7 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### Eine aktive SAML-Sitzung ansehen und widerrufen
+## Eine aktive SAML-Sitzung ansehen und widerrufen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -49,7 +50,7 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### Autorisierte Anmeldeinformationen anschauen und widerrufen
+## Autorisierte Anmeldeinformationen anschauen und widerrufen
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -61,6 +62,6 @@ Wenn Du SAML Single Sign-On für Dein Enterprise-Konto aktivierst, kann jedes En
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[SAML-Zugriff eines Mitglieds auf Deine Organisation ansehen und verwalten](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

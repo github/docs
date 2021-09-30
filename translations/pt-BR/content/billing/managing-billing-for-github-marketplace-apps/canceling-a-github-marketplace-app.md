@@ -6,10 +6,9 @@ redirect_from:
   - /articles/canceling-an-app-for-your-personal-account/
   - /articles/canceling-an-app-for-your-organization/
   - /articles/canceling-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Cancellation
@@ -17,6 +16,7 @@ topics:
   - Organizations
   - Trials
   - User account
+shortTitle: Cancelar um aplicativo do Marketplace
 ---
 
 Quando você cancela um app, sua assinatura permanece ativa até o fim do ciclo de cobrança atual. O cancelamento entra em vigor na próxima data de cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
@@ -25,21 +25,21 @@ Quando você cancela uma versão de avaliação gratuita em um plano pago, a ass
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-### Cancelar um app da sua conta pessoal
+## Cancelar um app da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Cancelar a versão de avaliação gratuita de um app da sua conta pessoal
+## Cancelar a versão de avaliação gratuita de um app da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Cancelar um app da organização
+## Cancelar um app da organização
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -50,7 +50,7 @@ Quando você cancela uma versão de avaliação gratuita em um plano pago, a ass
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
-### Cancelar a versão de avaliação gratuita de um app da organização
+## Cancelar a versão de avaliação gratuita de um app da organização
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

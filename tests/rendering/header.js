@@ -147,7 +147,8 @@ describe('header', () => {
       expect(ghe.attr('class').includes('active')).toBe(false)
     })
 
-    test("point to homepages in the current page's language", async () => {
+    // Skipped. See issues/923
+    test.skip("point to homepages in the current page's language", async () => {
       const $ = await getDOM(
         '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
       )

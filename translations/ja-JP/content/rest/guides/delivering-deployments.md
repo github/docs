@@ -6,9 +6,9 @@ redirect_from:
   - /guides/automating-deployments-to-integrators/
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -29,7 +29,7 @@ topics:
 
 注釈: このプロジェクトの完全なソースコードは、[platform-samplesリポジトリ][platform samples]からダウンロードできます。
 
-### サーバーを書く
+## サーバーを書く
 
 ローカル接続が機能していることを証明するための、簡単なSinatraアプリケーションを書きます。 まずは以下のソースから始めましょう。
 
@@ -76,7 +76,7 @@ end
 
 この概念実証を試すため、テストリポジトリのブランチで何か変更を行い、プルリクエストを開いてマージします。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
 
-### デプロイメントを扱う
+## デプロイメントを扱う
 
 サーバーの準備が整い、コードがレビューされ、プルリクエストがマージされたので、プロジェクトをデプロイしたいと思います。
 
@@ -136,13 +136,13 @@ end
 
 デプロイメントが完了後、ステータスを`success`に設定します。
 
-### おわりに
+## おわりに
 
-GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]の特定のバージョンを使用してきました。 その基本的なフローは、上記で構築してきたサーバーと本質的にまったく同じです。 GitHubでは、以下を実行しています。
+GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]の特定のバージョンを使用してきました。 A common flow is essentially the same as the server we've built above:
 
-* CIのステータスについてレスポンスを待つ
-* コードが緑色なら、プルリクエストにマージする
-* Heavenはマージされたコードを取り込み、本番サーバーとステージングサーバーにデプロイする
+* Wait for a response on the state of the CI checks (success or failure)
+* If the required checks succeed, merge the pull request
+* Heaven takes the merged code, and deploys it to staging and production servers
 * その間にHeavenは、当社のチャットルームに居座っている[Hubot][hubot]を通じて全員にビルドについて通知する
 
 これで完了です。 この例を使用するために、独自のデプロイメントを構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。

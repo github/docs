@@ -1,13 +1,15 @@
 ---
 title: 项目
+intro: 项目 API 允许您在仓库中创建、列出、更新、删除和自定义项目。
 redirect_from:
   - /v3/projects
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}

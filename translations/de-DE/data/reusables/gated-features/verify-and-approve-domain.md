@@ -1,0 +1,1 @@
+Verification and approval of domains is available with {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. Weiter Informationen findest Du unter „[GitHub Produkte](/articles/githubs-products)."

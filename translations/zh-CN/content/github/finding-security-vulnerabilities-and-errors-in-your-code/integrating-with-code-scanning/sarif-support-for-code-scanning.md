@@ -4,7 +4,7 @@ shortTitle: SARIF 支持
 intro: '要在 {% data variables.product.prodname_dotcom %} 上的仓库中显示第三方静态分析工具的结果，您需要将结果存储在 SARIF 文件中，以支持用于 {% data variables.product.prodname_code_scanning %} 的 SARIF 2.1.0 JSON 架构的特定子集。 如果使用默认 {% data variables.product.prodname_codeql %} 静态分析引擎，结果将自动显示于您在 {% data variables.product.prodname_dotcom %} 上的仓库中。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -15,7 +15,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-### 关于 SARIF 支持
+## 关于 SARIF 支持
 
 SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS 标准](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)。 SARIF 标准用于简化静态分析工具分享其结果的方式。 {% data variables.product.prodname_code_scanning_capc %} 支持 SARIF 2.1.0 JSON 架构的子集。
 
@@ -27,7 +27,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 如果您是 SARIF 的新用户，想了解更多信息，请参阅 Microsoft 的[`SARIF 教程`](https://github.com/microsoft/sarif-tutorials)库。
 
-### 使用指纹防止重复警报
+## 使用指纹防止重复警报
 
 每次上传新的代码扫描结果时，都会处理结果并将警报添加到仓库中。 为防止出现针对同一问题的重复警报，{% data variables.product.prodname_code_scanning %} 使用指纹匹配各个运行的结果，使它们只会出现在所选分支的最新运行中出现一次。 这样可以在编辑文件时将警报与正确的代码行匹配。
 
@@ -37,7 +37,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 如果您使用 `/code-scaning/sarifs` API 端点上传无指纹数据的 SARIF 文件，{% data variables.product.prodname_code_scanning %} 警报将被处理并显示，但用户可能会看到重复的警报。 为了避免看到重复的警报，您应该在上传 SARIF 文件之前计算指纹数据并填充 `partialFingerprints` 属性。 您可能发现 `upload-sarif` 操作的脚本使用一个有用的起点：https://github.com/github/codeql-action/blob/main/src/fingprints。 有关 API 的更多信息，请参阅“[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”。
 
-### 验证 SARIF 文件
+## 验证 SARIF 文件
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
@@ -45,13 +45,13 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### 支持的 SARIF 输出文件属性
+## 支持的 SARIF 输出文件属性
 
 如果您使用 {% data variables.product.prodname_codeql %} 以外的代码分析引擎，则可以查看受支持的 SARIF 属性来优化您的分析结果在 {% data variables.product.prodname_dotcom %} 中的显示方式。
 
 任何有效的 SARIF 2.1.0 输出文件都可以上传，但 {% data variables.product.prodname_code_scanning %} 只使用以下受支持的属性。
 
-#### `sarifLog` 对象
+### `sarifLog` 对象
 
 | 名称        | 描述                                                                                                                                     |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `version` | **必选。** {% data variables.product.prodname_code_scanning_capc %} 只支持 SARIF 版本 `2.1.0`。                                               |
 | `runs[]`  | **必选。** SARIF 文件包含一个或多个运行的数组。 每个运行代表分析工具的一次运行。 有关 `run` 的更多信息，请参阅 [`run` 对象](#run-object)。                                             |
 
-#### `run` 对象
+### `run` 对象
 
 {% data variables.product.prodname_code_scanning_capc %} 使用 `run` 对象按工具过滤结果并提供关于结果来源的信息。 `run` 对象包含 `tool.driver` 工具组件对象，该对象包含有关生成结果的工具的信息。 每个 `run` 只能获得一个分析工具的结果。
 
@@ -71,7 +71,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `tool.driver.rules[]`         | **必需。**用于表示规则的 `reportingDescriptor` 对象数组。 分析工具使用规则来查找所分析代码中的问题。 更多信息请参阅 [`reportingDescriptor` 对象](#reportingdescriptor-object)。                                                                                                                                                               |
 | `results[]`                   | **必需。**分析工具的结果。 {% data variables.product.prodname_code_scanning_capc %} 在 {% data variables.product.prodname_dotcom %} 上显示结果。 更多信息请参阅 [`result` 对象](#result-object)。                                                                                                                       |
 
-#### `reportingDescriptor` 对象
+### `reportingDescriptor` 对象
 
 | 名称                           | 描述                                                                                                                                                                                                                                                                             |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -85,7 +85,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `properties.tags[]`          | **可选。**字符串数组。 {% data variables.product.prodname_code_scanning_capc %} 使用 `tags` 允许您在 {% data variables.product.prodname_dotcom %} 上过滤结果。 例如，可以过滤带标记 `security` 的所有结果。                                                                                                       |
 | `properties.precision`       | **推荐。**一个字符串，表示此规则指示的结果为真的频率。 例如，如果已知某项规则的误报率较高，则其准确性应为 `low`。 {% data variables.product.prodname_code_scanning_capc %} 在 {% data variables.product.prodname_dotcom %} 上按准确性对结果进行排序，使具有最高 `level` 和最高 `precision` 的结果显示在最前面。 可以是以下值之一：`very-high`、`high`、`medium` 或 `low`。 |
 
-#### `result` 对象
+### `result` 对象
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -101,7 +101,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `codeFlows[].threadFlows[].locations[]` | **可选。**`threadFlow` 对象的 `location` 对象数组，它描述程序通过执行线程的进度。 `codeFlow` 对象描述用于检测结果的代码执行模式。 如果提供了代码流，{% data variables.product.prodname_code_scanning %} 将在 {% data variables.product.prodname_dotcom %} 上扩展代码流以获取相关结果。 更多信息请参阅 [`location` 对象](#location-object)。                                                                                                                                                                                                                                    |
 | `relatedLocations[]`                    | 与此结果相关的一组位置。 当相关位置嵌入在结果消息中时，{% data variables.product.prodname_code_scanning_capc %} 将链接到这些位置。 更多信息请参阅 [`location` 对象](#location-object)。                                                                                                                                                                                                                                                                                                                                                       |
 
-#### `location` 对象
+### `location` 对象
 
 编程构件中的位置，例如仓库中的文件或在构建过程中生成的文件。
 
@@ -111,7 +111,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `location.physicalLocation` | **必选。**标识构件和区域。 更多信息请参阅 [`physicalLocation`](#physicallocation-object)。 |
 | `location.message.text`     | **可选。**与位置相关的消息。                                                        |
 
-#### `physicalLocation` 对象
+### `physicalLocation` 对象
 
 | 名称                     | 描述                                                                                                                                                                                                                                                                                                                    |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -121,11 +121,11 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `region.endLine`       | **必选。**区域中最后一个字符的行号。                                                                                                                                                                                                                                                                                                  |
 | `region.endColumn`     | **必选。**区域结束后字符的列编号。                                                                                                                                                                                                                                                                                                   |
 
-### SARIF 输出文件示例
+## SARIF 输出文件示例
 
 这些示例 SARIF 输出文件显示支持的属性和示例值。
 
-#### 具有最少必需属性的示例
+### 具有最少必需属性的示例
 
 此 SARIF 输出文件的示例值显示了 {% data variables.product.prodname_code_scanning %} 结果正常运行所需的最少属性。 如果您删除任何属性或不包含值，此数据将无法正确显示或在 {% data variables.product.prodname_dotcom %} 上同步。
 
@@ -176,7 +176,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 }
 ```
 
-#### 显示所有支持的 SARIF 属性的示例
+### 显示所有支持的 SARIF 属性的示例
 
 此 SARIF 输出文件的示例值显示了 {% data variables.product.prodname_code_scanning %} 的所有受支持 SARIF 属性。
 

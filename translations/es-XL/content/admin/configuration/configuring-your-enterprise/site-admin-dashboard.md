@@ -7,7 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Fundamentals

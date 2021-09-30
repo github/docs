@@ -56,7 +56,9 @@ async function main() {
 
   const cmd =
     'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/(content/.+.md|data/release-notes/.*.yml)$"'
-  const changedFilesRelPaths = execSync(cmd).toString().split('\n')
+
+  const maxBuffer = 1024 * 1024 * 2 // twice the default value
+  const changedFilesRelPaths = execSync(cmd, { maxBuffer }).toString().split('\n')
 
   for (const relPath of changedFilesRelPaths) {
     // Skip READMEs

@@ -1,0 +1,1 @@
+If you'd like to renew or add user licenses to {% data variables.product.prodname_enterprise %}, or if you have questions about your license, contact {% data variables.contact.contact_enterprise_sales %}. Seu novo arquivo de licença estará disponível para download logo após a conclusão do pedido.

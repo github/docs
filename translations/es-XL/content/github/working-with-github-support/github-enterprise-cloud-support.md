@@ -6,7 +6,7 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} incluye un tiempo de respuesta objetivo de ocho horas para las solicitudes de asistencia prioritarias, de lunes a viernes en tu zona horaria local.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---

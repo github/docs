@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/user-security
   - /enterprise/admin/user-management/managing-users-in-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

@@ -5,9 +5,9 @@ redirect_from:
   - /guides/building-a-ci-server/
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

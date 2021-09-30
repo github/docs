@@ -7,11 +7,12 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Fazer checkout de um PR localmente
 ---
 
 {% note %}
@@ -20,23 +21,33 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
+## Modificar uma pull request ativa no local
 
-**Dica**: Você também pode conferir um pull request localmente usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" na documentação de {% data variables.product.prodname_cli %}.
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-### Modificar uma pull request ativa no local
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. Na lista de pull requests, clique no pull request que deseja modificar.{% if currentVersion == "free-pro-team@latest" %}
+2. Na lista de pull requests, clique no pull request que você gostaria de modificar.{% ifversion fpt %}
 3. Para escolher onde você gostaria de abrir a pull request, selecione **Abrir com o menu suspenso {% octicon "triangle-down" aria-label="The down triangle icon" %}** e clique em uma das abas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. Na caixa de merge, clique em **instruções para linha de comando**. Siga a sequência de etapas para rebaixar a pull request proposta. ![Link para acessar instruções de pull request da linha de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. Como opção, para exibir as alterações propostas no {% data variables.product.prodname_desktop %}, clique em **abrir em {% data variables.product.prodname_desktop %}**. ![Link para abrir uma pull request localmente no Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
-### Modificar uma pull request inativa no local
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+
+```shell
+gh pr checkout <em>pull-request</em>
+```
+
+{% endcli %}
+
+## Modificar uma pull request inativa no local
 
 Se o autor de uma pull request não responde às solicitações ou excluiu sua bifurcação, a pull request ainda poderá ser mesclada. No entanto, se quiser fazer alterações em uma pull request e o autor não estiver respondendo, será preciso executar algumas etapas adicionais para atualizar a pull request.
 
@@ -71,7 +82,7 @@ Qualquer pessoa pode abrir uma pull request anteriormente aberta para continuar 
   ```
 9. [Crie uma pull request](/articles/creating-a-pull-request) com seu novo branch.
 
-### Erro: falha ao fazer push de algumas refs
+## Erro: falha ao fazer push de algumas refs
 
 O namespace `refs/pull/` remoto é *somente leitura*. Se você tentar fazer push de qualquer commit nele, este erro será exibido:
 ```shell

@@ -6,14 +6,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: About billing
 ---
 
-### Informationen zur Abrechnung für {% data variables.product.prodname_registry %}
+## Informationen zur Abrechnung für {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -21,7 +22,7 @@ topics:
 
 {% note %}
 
-**Billing update for container image storage:** During the beta phase of the {% data variables.product.prodname_container_registry %}, Docker image storage and bandwidth are free for both the previous `docker.pkg.github.com` and current `ghcr.io` hosting services. For more information, see "[Introduction to {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)."
+**Billing update for container image storage:** The period of free use for container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} has been extended. If you are using {% data variables.product.prodname_container_registry %} you'll be informed at least one month in advance of billing commencing and you'll be given an estimate of how much you should expect to pay. For more information about the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% endnote %}
 
@@ -46,9 +47,9 @@ Alle Daten, welche nach Auslösung durch {% data variables.product.prodname_acti
 
 Die Speichernutzung wird mit Build-Artefakten geteilt, die von {% data variables.product.prodname_actions %} für Repositorys im Besitz Deines Kontos erstellt wurden. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).“
 
-{% data variables.product.prodname_dotcom %} belastet die Nutzung auf das Konto, welches das Repository besitzt, in dem das Paket veröffentlicht wird. Wenn die Nutzung Deines Kontos diese Limits übersteigt und Du ein Ausgabenlimit über 0 $ gesetzt hast, zahlst Du 0,25 USD pro GB Speicher und 0,50 USD pro GB Datenübertragung.
+{% data variables.product.prodname_dotcom %} belastet die Nutzung auf das Konto, welches das Repository besitzt, in dem das Paket veröffentlicht wird. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage and $0.50 USD per GB of data transfer.
 
-Wenn Deine Organisation beispielsweise {% data variables.product.prodname_team %} verwendet, unbegrenzte Ausgaben erlaubt, 150 GB Speicher verwendet und 50 GB Datenübertragung nach Außen während eines Monats verbraucht, würde die Organisation Überzüge von 148 GB für die Speicherung und 40 GB für die Datenübertragung für diesen Monat haben. Die Speicher-Übernutzung würde 0,25 USD pro GB oder 37 USD total kosten. Die Überschreitung der Datenübertragung würde 0,50 USD pro GB oder 20 USD total kosten.
+Wenn Deine Organisation beispielsweise {% data variables.product.prodname_team %} verwendet, unbegrenzte Ausgaben erlaubt, 150 GB Speicher verwendet und 50 GB Datenübertragung nach Außen während eines Monats verbraucht, würde die Organisation Überzüge von 148 GB für die Speicherung und 40 GB für die Datenübertragung für diesen Monat haben. The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
 
 Am Ende jedes Monates wird {% data variables.product.prodname_dotcom %} Deine Datenübertragung auf das nächste GB aufrunden.
 
@@ -63,7 +64,9 @@ Am Ende jedes Monates wird {% data variables.product.prodname_dotcom %} Deine Sp
 
 Deine {% data variables.product.prodname_registry %}-Nutzung teilt das bestehende Rechnungsdatum, die Zahlungsmethode und die Quittung. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-### Über Ausgabenlimits
+{% data reusables.user_settings.context_switcher %}
+
+## Über Ausgabenlimits
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 
