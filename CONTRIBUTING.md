@@ -2,7 +2,7 @@
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
-Read our [Code of Coduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
 
@@ -10,7 +10,7 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## New contributor guide
 
-  See the [README](README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
+ To get an overview of the project, read the [README](README.md). Here are some resources to help you get started with open source contributions:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
@@ -20,9 +20,9 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## Getting started
 
-See [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) to navigate our codebase with confidence :confetti_ball:. See [the GitHub Markdown reference](contributing/content-markup-reference.md) for information on how we write our markdown files.
+To confidently navigate our codebase, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md): confetti ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
 
-Before making changes, see what [types of contributions](/contributing/types-of-contributions.md) we accept. Some of them don't require writing even a single line of code :sparkles:. 
+Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code: sparkles:.
 
 ### Issues
 
@@ -63,14 +63,14 @@ Click **Make a contribution** at the bottom of any docs page to make small chang
 
 ### Commit your update
 
-Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji's for commit messages.
+Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emojis for commit messages.
 
-Once you are ready with your changes, don't forget to [self review](/contributing/self-review.md) to quicken the review process :zap:.
+Once your changes are ready, don't forget to [self-review](/contributing/self-review.md) to speed up the review process: zap:.
 
 ### Pull Request
 
-When you're done making the changes, open a pull request, often referred to as a PR. 
-- Fill out the "Ready for review" template so we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request. 
+When you're finished with the changes, create a pull request, also known as a PR.
+- Fill the "Ready for review" template so that we can review your PR. This template helps reviewers in understanding your changes as well as the purpose of your pull request. 
 - Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
 - Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so the branch can be updated for a merge.
 Once you submit your PR, a Docs team member will review your proposal. We may ask questions or request for additional information.
