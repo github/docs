@@ -77,20 +77,29 @@ Name | Type | Description
 
 By default, the response takes the following form:
 
-    access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
+```
+access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&scope=repo%2Cgist&token_type=bearer
+```
 
-You can also receive the content in different formats depending on the Accept
-header:
+{% data reusables.apps.oauth-auth-vary-response %}
 
-    Accept: application/json
-    {"access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
+```json
+Accept: application/json
+{
+  "access_token":"{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "scope":"repo,gist",
+  "token_type":"bearer"
+}
+```
 
-    Accept: application/xml
-    <OAuth>
-      <token_type>bearer</token_type>
-      <scope>repo,gist</scope>
-      <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
-    </OAuth>
+```xml
+Accept: application/xml
+<OAuth>
+  <token_type>bearer</token_type>
+  <scope>repo,gist</scope>
+  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+</OAuth>
+```
 
 ### 3. Use the access token to access the API
 
@@ -138,27 +147,35 @@ Name | Type | Description
 
 #### Response
 
-{% ifversion fpt %}
-  ```JSON
-  {
-    "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
-    "user_code": "WDJB-MJHT",
-    "verification_uri": "https://github.com/login/device",
-    "expires_in": 900,
-    "interval": 5
-  }
-  ```
-{% else %}
-  ```JSON
-  {
-    "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
-    "user_code": "WDJB-MJHT",
-    "verification_uri": "http(s)://[hostname]/login/device",
-    "expires_in": 900,
-    "interval": 5
-  }
-  ```
-{% endif %}
+By default, the response takes the following form:
+
+```
+device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
+```
+
+{% data reusables.apps.oauth-auth-vary-response %}
+
+```json
+Accept: application/json
+{
+  "device_code": "3584d83530557fdd1f46af8289938c8ef79f9dc5",
+  "user_code": "WDJB-MJHT",
+  "verification_uri": "{% data variables.product.oauth_host_code %}/login/device",
+  "expires_in": 900,
+  "interval": 5
+}
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <device_code>3584d83530557fdd1f46af8289938c8ef79f9dc5</device_code>
+  <user_code>WDJB-MJHT</user_code>
+  <verification_uri>{% data variables.product.oauth_host_code %}/login/device</verification_uri>
+  <expires_in>900</expires_in>
+  <interval>5</interval>
+</OAuth>
+```
 
 #### Response parameters
 
@@ -196,12 +213,30 @@ Name | Type | Description
 
 #### Response
 
+By default, the response takes the following form:
+
+```
+access_token={% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer&scope=repo%2Cgist
+```
+
+{% data reusables.apps.oauth-auth-vary-response %}
+
 ```json
+Accept: application/json
 {
  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
-  "scope": "user"
+  "scope": "repo,gist"
 }
+```
+
+```xml
+Accept: application/xml
+<OAuth>
+  <access_token>{% ifversion fpt or ghes > 3.1 or ghae-next %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
+  <token_type>bearer</token_type>
+  <scope>gist,repo</scope>
+</OAuth>
 ```
 
 ### Rate limits for the device flow
