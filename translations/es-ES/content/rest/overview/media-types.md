@@ -4,9 +4,9 @@ intro: Aprende sobre los tipos de medios para especificar el formato de los dato
 redirect_from:
   - /v3/media
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -57,90 +57,90 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 ```
 
-### Porpiedades del cuerpo del comentario
+## Porpiedades del cuerpo del comentario
 
 El cuerpo de un comentario puede escribirse en el [Lenguaje de Marcado Enriquecido de GitHub][gfm]. Las [propuestas](/rest/reference/issues), lso [comentarios de las propuestas](/rest/reference/issues#comments), los [comentarios de las solicitudes de cambios](/rest/reference/pulls#comments), y las API de [los comentarios de un gist](/rest/reference/gists#comments) siempre aceptan los mismos tipos de medios:
 
-#### Sin procesar
+### Sin procesar
 
     application/vnd.github.VERSION.raw+json
 
 Devuelve el cuerpo en markdown sin procesar. La respuesta incluirá a `body`. Esto es lo predeterminado si no pasas ningún tipo de medios específico.
 
-#### Texto
+### Texto
 
     application/vnd.github.VERSION.text+json
 
 Devuelve una presentación únicamente de texto para el cuerpo de markdown. La respuesta incluirá a `body_text`.
 
-#### HTML
+### HTML
 
     application/vnd.github.VERSION.html+json
 
 Duevuelve el HTML interpretado del markdown del cuerpo. La respuesta incluirá a `body_html`.
 
-#### Completo
+### Completo
 
     application/vnd.github.VERSION.full+json
 
 Devuelve las representaciones de HTML, texto y sin procesar. La respuesta incluirá a `body`, `body_text`, y `body_html`:
 
-### Propiedades de los blobs de Git
+## Propiedades de los blobs de Git
 
 Los siguientes tipos de medios se permiten cuando [obtienes un blob](/rest/reference/git#get-a-blob):
 
-#### JSON
+### JSON
 
     application/vnd.github.VERSION+json
     application/json
 
 Devuelve una representación en JSON del blob con un `content` en forma de una secuencia cifrada de base64. Esto es lo predeterminado si no se pasa nada más.
 
-#### Sin procesar
+### Sin procesar
 
     application/vnd.github.VERSION.raw
 
 Devuelve los datos del blob sin procesar.
 
-### Confirmaciones, comparación de la confirmación, y solicitudes de extracción
+## Confirmaciones, comparación de la confirmación, y solicitudes de extracción
 
 La [API de confirmaciones](/rest/reference/repos#commits) y la [API de solicitudes de cambios](/rest/reference/pulls) soportan los formatos de [diff][git-diff] y de [parche][git-patch]:
 
-#### diferencia
+### diferencia
 
     application/vnd.github.VERSION.diff
 
-#### parche
+### parche
 
     application/vnd.github.VERSION.patch
 
-#### sha
+### sha
 
     application/vnd.github.VERSION.sha
 
-### Contenidos del repositorio
+## Contenidos del repositorio
 
-#### Sin procesar
+### Sin procesar
 
     application/vnd.github.VERSION.raw
 
 Devuelve el contenido sin procesar de un archivo. Esto es lo predeterminado si no pasas ningún tipo de medios específico.
 
-#### HTML
+### HTML
 
     application/vnd.github.VERSION.html
 
 Para archivos de markup tales como Markdown o AsciiDoc, puedes recuperar la interpretación en HTML si utilizas el tipo de medios `.html`. Los lenguajes de Markup se interpretan en HTML utilizando nuestra [biblioteca de Markup](https://github.com/github/markup) de código abierto.
 
-### Gists
+## Gists
 
-#### Sin procesar
+### Sin procesar
 
     application/vnd.github.VERSION.raw
 
 Devuelve el contenido sin procesar de un gist. Esto es lo predeterminado si no pasas ningún tipo de medios específico.
 
-#### base64
+### base64
 
     application/vnd.github.VERSION.base64
 

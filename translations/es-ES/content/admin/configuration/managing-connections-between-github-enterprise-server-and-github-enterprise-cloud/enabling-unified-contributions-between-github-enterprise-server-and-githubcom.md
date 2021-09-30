@@ -10,11 +10,12 @@ redirect_from:
   - /admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - GitHub Connect
+shortTitle: Habilitar las contribuciones unificadas
 ---
 
 Como un administrador del sitio, puedes habilitar a los usuarios finales para que envíen sus recuentos de contribuciones de manera anónima por sus trabajos desde {% data variables.product.prodname_ghe_server %} a sus gráficos de contribuciones {% data variables.product.prodname_dotcom_the_website %}.
@@ -28,8 +29,9 @@ Si el administrador del sitio inhabilita la funcionalidad o la opción de los pr
 Antes de habilitar {% data variables.product.prodname_unified_contributions %} en {% data variables.product.product_location_enterprise %}, debes conectar {% data variables.product.product_location_enterprise %} a {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta "[Conectarse a {% data variables.product.prodname_ghe_server %} para {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)."
 
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 4. En "Los usuarios pueden compartir recuentos de contribuciones en {% data variables.product.prodname_dotcom_the_website %}", haz clic en **Request access (Solicita acceso)**. ![Solicitud para acceder a la opción de contribuciones unificadas](/assets/images/enterprise/site-admin-settings/dotcom-ghe-connection-request-access.png)
 5. [Inicia sesión](https://enterprise.github.com/login) en el sitio {% data variables.product.prodname_ghe_server %} para recibir más instrucciones.

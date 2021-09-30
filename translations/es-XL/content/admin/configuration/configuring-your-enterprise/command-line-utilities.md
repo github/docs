@@ -7,9 +7,9 @@ redirect_from:
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - SSH

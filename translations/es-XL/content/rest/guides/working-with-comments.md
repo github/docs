@@ -5,9 +5,9 @@ redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

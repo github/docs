@@ -7,16 +7,16 @@ redirect_from:
   - /articles/file-attachments-on-issues-and-pull-requests
   - /github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
 {% warning %}
 
-**Aviso:** Se você adicionar uma imagem {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} ou vídeo {% endif %} a uma pull request ou comentário de problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo que o pull request esteja em um repositório privado{% if enterpriseServerVersions contains currentVersion %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% if currentVersion == "free-pro-team@latest" %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Aviso:** Se você adicionar uma imagem {% ifversion fpt or ghes > 3.1 or ghae-next %} ou vídeo {% endif %} a uma pull request ou comentário de problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo que o pull request esteja em um repositório privado{% ifversion ghes %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% ifversion fpt %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -31,7 +31,7 @@ Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste
 {% endtip %}
 
 O tamanho máximo do arquivo é:
-- 10MB de imagens e gifs{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+- 10MB de imagens e gifs{% ifversion fpt or ghes > 3.1 or ghae-next %}
 - 10MB para vídeos enviados para um repositório pertencentes a um usuário ou organização em um plano grátis do GitHub
 - 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% endif %}
 - 25MB para todos os outros arquivos
@@ -45,7 +45,14 @@ Arquivos compatíveis:
 * Documentos do Microsoft Word (*.docx*), Powerpoint (*.pptx*), e Excel (*.xlsx*)
 * Arquivos de texto (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-* Vídeo (*.mp4*, *.mov*){% endif %}
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae-next %}
+* Vídeo (*.mp4*, *.mov*)
+
+{% note %}
+
+**Observação:** A compatibilidade do codec de vídeo é específica do navegador, e é possível que um vídeo que você suba para um navegador não possa ser visualizado em outro navegador. No momento, recomendamos o uso do h.264 para maior compatibilidade.
+
+{% endnote %}
+{% endif %}
 
 ![Anexos GIF animados](/assets/images/help/pull_requests/dragging_images.gif)

@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/installation/updating-the-virtual-machine-and-physical-resources
   - /enterprise/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:

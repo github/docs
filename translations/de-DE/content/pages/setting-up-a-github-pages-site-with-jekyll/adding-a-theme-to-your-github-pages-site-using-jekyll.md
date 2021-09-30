@@ -8,18 +8,19 @@ redirect_from:
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Add theme to Pages site
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein Design zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.
 
 {% data reusables.pages.test-locally %}
 
-### Ein Design hinzufügen
+## Ein Design hinzufügen
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -33,7 +34,7 @@ Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein De
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Das CSS Deines Designs anpassen
+## Das CSS Deines Designs anpassen
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -51,7 +52,7 @@ Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein De
   ```
 3. Füge direkt nach der Zeile `@import` das gewünschte benutzerdefinierte CSS oder Sass (einschließlich Importe) hinzu.
 
-### Das HTML-Layout Deines Designs anpassen
+## Das HTML-Layout Deines Designs anpassen
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -66,6 +67,6 @@ Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein De
 7. Füge den zuvor kopierten Inhalt des Standardlayouts ein.
 8. Passe das Layout nach Deinen Vorstellungen an.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Neue Dateien erstellen](/articles/creating-new-files)“

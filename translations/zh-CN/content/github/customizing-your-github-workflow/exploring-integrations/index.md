@@ -4,7 +4,7 @@ intro: '您可以使用 {% data variables.product.product_name %} 社区构建�
 redirect_from:
   - /articles/exploring-integrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /about-integrations
   - /about-github-marketplace

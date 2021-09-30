@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-basic-settings
   - /desktop/installing-and-configuring-github-desktop/configuring-basic-settings
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% mac %}
 

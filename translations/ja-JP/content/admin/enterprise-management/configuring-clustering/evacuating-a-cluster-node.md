@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
   - /admin/enterprise-management/evacuating-a-cluster-node
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -19,8 +19,8 @@ topics:
 
 1. `ghe-config`コマンドでクラスタ内のノードの`uuid`を見つけてください。
 
-    ```
-    $ ghe-config cluster._hostname_.uuid
+    ```shell
+    $ ghe-config cluster.<em>HOSTNAME</em>.uuid
     ```
 
 2. データのコピー中は、ノードのステータスをモニターする必要があります。 コピーが完了するまで、ノードはオフラインにしないでください。 ノードのステータスをモニターするには、次のいずれかのコマンドを実行します。
@@ -30,11 +30,11 @@ topics:
     ghe-spokes evac-status
     ```
     {% data variables.product.prodname_pages %}:
-    {% raw %}
+
+    ```shell
+    echo "select count(*) from pages_replicas where host = 'pages-server-<em>UUID</em>'" | ghe-dbconsole -y
     ```
-    echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
-    ```
-    {% endraw %}
+
     ストレージ:
     ```
     ghe-storage evacuation-status
@@ -43,26 +43,25 @@ topics:
 3. コピーが完了したら、ストレージサービスを待避させます。 実行するコマンドは次のいずれかです。
 
     Git:
-    {% raw %}
+
+    ```shell
+    ghe-spokes server evacuate git-server-<em>UUID</em> \'<em>REASON FOR EVACUATION</em>\'
     ```
-    ghe-spokes server evacuate git-server-<uuid>
-    ```
-    {% endraw %}
+
     {% data variables.product.prodname_pages %}:
-    {% raw %}
+
+    ```shell
+    ghe-dpages evacuate pages-server-<em>UUID</em>
     ```
-    ghe-dpages evacuate pages-server-<uuid>
-    ```
-    {% endraw %}
+
     ストレージに対して、ノードをオフラインにします。
-    {% raw %}
+
+    ```shell
+    ghe-storage offline storage-server-<em>UUID</em>
     ```
-    ghe-storage offline storage-server-<uuid>
-    ```
-    {% endraw %}
+
       次に、待避を実行します。
-    {% raw %}
+
+    ```shell
+    ghe-storage evacuate storage-server-<em>UUID</em>
     ```
-    ghe-storage evacuate storage-server-<uuid>
-    ```
-    {% endraw %}

@@ -1,0 +1,17 @@
+date: '2021-08-10'
+sections:
+  bugs:
+    - 'When GitHub Actions is enabled without running regular scheduled backups the MSSQL Transaction Log could grow unbounded and can consume all available space on the appliance''s Data Disk causing a possible outage.'
+    - 'Audit log entries for changes made to "Repository creation" organization settings were inaccurate.'
+    - 'Excessive logging of `ActionController::UnknownFormat` exceptions caused unnecessary disk usage.'
+    - 'LDAP `group_dn` values longer than 255 characters would result in errors being logged: `Data truncated for column ''group_dn'' at row 1`.'
+  changes:
+    - 'Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.'
+  known_issues:
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.'

@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-saml
 intro: 'SAML es un estándar basado en XML para autenticación y autorización. {% data variables.product.prodname_ghe_server %} puede actuar como un proveedor de servicios (SP) con tu proveedor de identidad (IdP) SAML interno.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Authentication

@@ -5,9 +5,9 @@ redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -18,7 +18,7 @@ Para qualquer pull request, {% data variables.product.product_name %} fornece tr
 
 Cada um desses tipos de comentários passa por uma parte diferente da API de {% data variables.product.product_name %}. Neste guia, vamos explorar como você pode acessar e manipular cada um. Para cada exemplo, usaremos [esta amostra de Pull Request feita][sample PR] no repositório de "octocat". Como sempre, as amostras podem ser encontradas no [nosso repositório platform-samples][platform-samples].
 
-### Comentários do Pull Request
+## Comentários do Pull Request
 
 Para acessar comentários em um Pull Request, você passará [pela API de Problemas][issues]. A princípio, isso pode parecer contraintuitivo. Mas depois que você entender que um Pull Request é apenas um problema com o código, faz sentido usar a API de problemas para criar comentários em um Pull Request.
 
@@ -44,7 +44,7 @@ end
 
 Aqui, estamos especificamente chamando a API de problemas para obter os comentários (`issue_comments`), fornecendo o nome do repositório (`octocat/Spoon-Knife`) e o ID do Pull Request no qual estamos interessados (`1176`). Depois disso, trata-se simplesmente de um assunto de iteração através dos comentários para buscar informações sobre cada um.
 
-### Comentários em uma linha de Pull Request
+## Comentários em uma linha de Pull Request
 
 Na visualização de diferenças, você pode iniciar uma discussão sobre um aspecto específico de uma mudança singular feita dentro do Pull Request. Estes comentários ocorrem nas linhas individuais dentro de um arquivo alterado. A URL do ponto de extremidade para esta discussão vem da [API da revisão de pull request][PR Review API].
 
@@ -70,7 +70,7 @@ end
 
 Você perceberá que ele é incrivelmente semelhante ao exemplo acima. A diferença entre esta visualização e o comentário de Pull Request é o foco da conversa. Um comentário feito em um Pull Request deve ser reservado para discussão ou ideias sobre a direção geral do código. Um comentário feito como parte de uma revisão de Pull Request deve lidar especificamente com a forma como uma determinada alteração foi implementada em um arquivo.
 
-### Comentários de commit
+## Comentários de commit
 
 O último tipo de comentários ocorre especificamente nos commits individuais. Por esta razão, eles fazem uso de [a API de comentário de commit][commit comment API].
 

@@ -20,14 +20,15 @@ redirect_from:
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: GitHub Pages & Jekyll
 ---
 
-### Informationen zu Jekyll
+## Informationen zu Jekyll
 
 Jekyll ist ein Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %} und einem vereinfachten Build-Prozess. Jekyll erstellt aus Markdown- und HTML-Dateien eine statische Website und nutzt dabei die von Dir ausgewählten Layouts. Jekyll unterstützt Markdown und Liquid, eine Vorlagensprache, die dynamische Inhalte auf Deiner Website lädt. Weitere Informationen findest Du auf der Website zu [Jekyll](https://jekyllrb.com/).
 
@@ -35,7 +36,7 @@ Jekyll wird von Windows nicht offiziell unterstützt. For more information, see 
 
 Wir empfehlen, Jekyll mit {% data variables.product.prodname_pages %} zu verwenden. Wenn Du möchtest, kannst Du aber auch andere Generatoren für statische Websites verwenden oder Deinen eigenen Build-Prozess lokal oder auf einem anderen Server anpassen. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators).“
 
-### Jekyll in der {% data variables.product.prodname_pages %}-Website konfigurieren
+## Jekyll in der {% data variables.product.prodname_pages %}-Website konfigurieren
 
 Du kannst die meisten Jekyll-Einstellungen konfigurieren, beispielsweise das Design und die Plug-ins Deiner Website, indem Du die Datei *_config.yml* bearbeitest. Weitere Informationen findest Du unter „[Konfiguration](https://jekyllrb.com/docs/configuration/)“ in der Jekyll-Dokumentation.
 
@@ -60,26 +61,26 @@ Standardmäßig erstellt Jekyll keine Dateien und Ordner, auf die Folgendes zutr
 - sie enden mit `~`
 - sie werden von der `exclude`-Einstellung in der Konfigurationsdatei ausgeschlossen
 
-Wenn Du möchtest, dass Jekyll solche Dateien verarbeitet, kannst Du dies mit der `includes`-Einstellung in der Konfigurationsdatei festlegen.
+If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
 
-### Frontmatter
+## Frontmatter
 
 {% data reusables.pages.about-front-matter %}
 
 Du kannst `site.github` zu einem Beitrag oder einer Seite hinzufügen, um Repository-Referenz-Metadaten zu Deiner Website hinzuzufügen. Weitere Informationen findest Du unter „[`site.github` verwenden](https://jekyll.github.io/github-metadata/site.github/)“ in der Jekyll-Metadaten-Dokumentation.
 
-### Designs
+## Designs
 
 {% data reusables.pages.add-jekyll-theme %} Weitere Informationen findest Du unter „[Themes](https://jekyllrb.com/docs/themes/)“ (Designs) in der Jekyll-Dokumentation.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Sie können zu Ihrer Website auf {% data variables.product.prodname_dotcom %} ein unterstütztes Design hinzufügen. Weitere Informationen findest Du unter „[Unterstützte Designs](https://pages.github.com/themes/)“ auf der {% data variables.product.prodname_pages %}-Website und unter „[Ein Design mit dem Theme-Chooser zur {% data variables.product.prodname_pages %}-Website hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser).“
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% if currentVersion == "free-pro-team@latest" %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
 Du kannst alle Standardeinstellungen Deines Designs überschreiben, indem Du die Dateien des Designs bearbeitest. Weitere Informationen findest Du in der Dokumentation zu Deinem Design und unter „[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)“ (Standardeinstellungen Deines Designs überschreiben) in der Jekyll-Dokumentation.
 
-### Plug-ins
+## Plug-ins
 
 Du kannst Jekyll-Plug-ins herunterladen oder erstellen, um die Funktionalität von Jekyll für Deine Website zu erweitern. Mit dem Plugin [jemoji](https://github.com/jekyll/jemoji) können Sie beispielsweise {% data variables.product.prodname_dotcom %}-Emojis auf allen Seiten Ihrer Website genauso verwenden wie auf {% data variables.product.prodname_dotcom %}. Weitere Informationen findest Du unter „[Plugins](https://jekyllrb.com/docs/plugins/)“ (Plug-ins) in der Jekyll-Dokumentation.
 
@@ -106,7 +107,7 @@ Eine Liste der unterstützten Plug-ins findest Du unter „[Abhängigkeitsversio
 
 {% data variables.product.prodname_pages %} kann keine Websites mit nicht unterstützten Plug-ins erstellen. Wenn Sie nicht unterstützte Plug-ins verwenden möchten, müssen Sie Ihre Website lokal erstellen und die statischen Dateien der Website anschließend zu {% data variables.product.product_name %} pushen.
 
-### Syntaxmarkierung
+## Syntaxmarkierung
 
 Damit Ihre Website leichter lesbar ist, werden Code-Ausschnitte auf {% data variables.product.prodname_pages %}-Websites ebenso markiert wie auf {% data variables.product.product_name %}. Weitere Informationen zur Syntaxmarkierung auf {% data variables.product.product_name %} findest Du unter „[Codeblöcke erstellen und markieren](/articles/creating-and-highlighting-code-blocks).“
 
@@ -126,6 +127,6 @@ Wenn Ihr Design kein CSS für die Syntaxmarkierung enthält, können Sie das CSS
 $ rougify style github > style.css
 ```
 
-### Website lokal erstellen
+## Website lokal erstellen
 
 {% data reusables.pages.test-locally %}

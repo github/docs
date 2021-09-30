@@ -5,23 +5,23 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-tags
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-tags
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### About tags in {% data variables.product.prodname_desktop %}
+## About tags in {% data variables.product.prodname_desktop %}
 
 {% data variables.product.prodname_desktop %} allows you to create annotated tags. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[About releases](/github/administering-a-repository/about-releases)."
 
 {% data reusables.desktop.tags-push-with-commits %}
 
-### Creating a tag
+## Creating a tag
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.create-tag %}
 {% data reusables.desktop.name-tag %}
 {% data reusables.desktop.confirm-tag %}
 
-### Viewing tags
+## Viewing tags
 
 {% data reusables.desktop.history-tab %}
 2. Click the commit.
@@ -35,7 +35,7 @@ versions:
 
 3. All tags associated with the commit are visible in that commit's metadata. ![Viewing a tag in the commit](/assets/images/help/desktop/viewing-tags-in-commit.png)
 
-### Deleting tags
+## Deleting tags
 
 {% note %}
 
@@ -46,6 +46,6 @@ versions:
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.delete-tag %}
 
-### Дополнительная литература
+## Дополнительная литература
 
 - "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation

@@ -7,12 +7,14 @@ redirect_from:
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 关闭项目板时，默认情况下任何已配置的工作流程自动化都会暂停。
 
@@ -22,7 +24,7 @@ topics:
 2. 在项目列表中，在要关闭的项目板旁边单击 {% octicon "chevron-down" aria-label="The chevron icon" %}。 ![项目板名称右边的 V 形图标](/assets/images/help/projects/project-list-action-chevron.png)
 3. 单击 **Close（关闭）**。 ![关闭项目板下拉菜单中的项](/assets/images/help/projects/close-project.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
 - “[删除项目板](/articles/deleting-a-project-board)”

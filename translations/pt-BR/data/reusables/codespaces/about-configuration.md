@@ -1,0 +1,1 @@
+Você pode criar uma configuração padrão de codespace para o seu repositório que determina o ambiente de cada novo codespace que alguém criar para esse repositório. A configuração define um contêiner de desenvolvimento que pode incluir estruturas, ferramentas, extensões e encaminhamento de porta. 

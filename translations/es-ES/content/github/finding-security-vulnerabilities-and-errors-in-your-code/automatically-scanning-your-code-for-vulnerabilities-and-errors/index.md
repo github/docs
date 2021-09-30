@@ -4,7 +4,7 @@ shortTitle: Escanear automáticamente
 intro: 'Puedes encontrar vulnerabilidades y errores en el código de tu proyecto en {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

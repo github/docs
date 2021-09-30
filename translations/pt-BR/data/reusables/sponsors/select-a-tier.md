@@ -1,1 +1,1 @@
-1. To the right of the tier you want, click **Select**. If want to select a custom amount, enter the sponsorship amount before clicking "Select." ![Selecione uma caixa de camada](/assets/images/help/sponsors/select-a-tier-box.png)
+1. À direita do nível que você quiser, clique em **Selecionar**. Se você quiser selecionar um valor personalizado, digite o valor do patrocínio antes de clicar em "Selecionar". ![Selecione uma caixa de camada](/assets/images/help/sponsors/select-a-tier-box.png)

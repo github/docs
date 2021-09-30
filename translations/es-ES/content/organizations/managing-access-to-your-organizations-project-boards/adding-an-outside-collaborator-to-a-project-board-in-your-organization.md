@@ -5,12 +5,13 @@ redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Agregar un colaborador
 ---
 
 Un colaborador externo es una persona que no es explícitamente un miembro de tu organización, pero tiene permisos para un tablero de proyecto en tu organización.

@@ -2,12 +2,11 @@
 title: Acerca de los debates
 intro: 'Utiliza los debates para preguntar y responder preguntas, compartir información, hacer anuncios y moderar o participar en una conversación sobre un proyecto en {% data variables.product.product_name %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-{% data reusables.discussions.beta %}
 
-### Acerca de los debates
+## Acerca de {% data variables.product.prodname_discussions %}
 
 Con los {% data variables.product.prodname_discussions %}, la comunidad de tu proyecto puede crear y participar en conversaciones dentro del repositorio del proyecto. Los debates fotalecen a los mantenedores del proyecto, contribuyentes y visitantes para que se reunan y logren sus metas en una ubicación centralizada, sin herramientas de terceros.
 
@@ -19,11 +18,11 @@ Con los {% data variables.product.prodname_discussions %}, la comunidad de tu pr
 
 No necesitas cerrar un debate de la misma forma en que cierras una propuesta o una solicitud de cambios.
 
-Si un administrador de repositorio o mantenedor de proyecto habilita los debates en un repositorio, cualquiera que lo visite puede crear y participar en ellas. Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
+If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 Para obtener más información sobre la adminsitración de debates para tu repositorio, consulta la sección "[Administrar debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
-### Acerca de la organización de debates
+## Acerca de la organización de debates
 
 Puedes organizar debates con categorías y etiquetas.
 
@@ -37,7 +36,7 @@ Para obtener más información, consulta la sección "[Administrar las categorí
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-### Mejores prácticas para las discusiones
+## Best practices for {% data variables.product.prodname_discussions %}
 
 Como mantenedor o miembro de la comunidad, inicia un debate para hacer una pregunta o debatir información que les afecte. Para obtener más información, consulta la sección "[Colaborar con los mantenedores a través de los debates](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)".
 
@@ -47,11 +46,11 @@ Puedes destacar los debates que contengan conversaciones importantes, útiles o 
 
 {% data reusables.discussions.you-can-convert-an-issue %} Para obtener más información, consulta la sección "[Moderar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)".
 
-### Compartir retroalimentación
+## Compartir retroalimentación
 
 Puedes compartir tu retroalimentación sobre los {% data variables.product.prodname_discussions %} con {% data variables.product.company_short %}. Para unirte a la conversación, consulta la sección [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
 
-### Leer más
+## Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Buscar debates](/github/searching-for-information-on-github/searching-discussions)"

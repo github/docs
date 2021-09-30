@@ -5,20 +5,21 @@ redirect_from:
   - /articles/troubleshooting-search-queries
   - /github/searching-for-information-on-github/troubleshooting-search-queries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
+shortTitle: Troubleshoot search queries
 ---
 
-### Potential timeouts
+## Potential timeouts
 
 Some queries are computationally expensive for our search infrastructure to execute. To keep search fast for everyone, we limit how long any individual query can run. In rare situations when a query exceeds the time limit, search returns all matches that were found prior to the timeout and informs you that a timeout occurred.
 
 Reaching a timeout does not necessarily mean that search results are incomplete. It just means that the query was discontinued before it searched through all possible data.
 
-### Limitations on query length
+## Limitations on query length
 
 There are some limits to the length of the queries when searching across {% data variables.product.product_name %}:
 
@@ -27,6 +28,6 @@ There are some limits to the length of the queries when searching across {% data
 
 Specific search types, such as code search, might have additional limitations. Check the documentation for these search types for more information.
 
-### 더 읽을거리
+## 더 읽을거리
 
 - "[About searching on GitHub](/articles/about-searching-on-github)"

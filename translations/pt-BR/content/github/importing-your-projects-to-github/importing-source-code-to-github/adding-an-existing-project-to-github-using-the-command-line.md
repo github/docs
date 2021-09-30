@@ -6,10 +6,13 @@ redirect_from:
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Adicionar um projeto localmente
 ---
+
+## About adding existing projects to {% data variables.product.product_name %}
 
 {% data reusables.repositories.migrating-from-codeplex %}
 
@@ -21,9 +24,41 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
+## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+
+{% data variables.product.prodname_cli %} é uma ferramenta de código aberto para usar {% data variables.product.product_name %} a partir da linha de comando do seu computador. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+1. In the command line, navigate to the root directory of your project.
+1. Inicialize o diretório local como um repositório Git.
+
+    ```shell
+    git init -b main
+    ```
+
+1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+
+   ```shell
+   gh repo create <em>project-name</em>
+   ```
+
+1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+
+    ```shell
+    git pull --set-upstream origin main
+    ```
+
+1. Stage, commit, and push all of the files in your project.
+
+    ```shell
+    git add . && git commit -m "initial commit" && git push
+    ```
+
+## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+
 {% mac %}
 
-1. [Crie um repositório ](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *README*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
+1. [Crie um repositório ](/repositories/creating-and-managing-repositories/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *README*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
@@ -126,6 +161,6 @@ versions:
 
 {% endlinux %}
 
-### Leia mais
+## Leia mais
 
-- "[Adicionar um arquivo a um repositório usando a linha de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)"
+- "[Adicionar um arquivo a um repositório](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"

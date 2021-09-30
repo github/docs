@@ -6,13 +6,26 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+
+## Sincronizar una bifurcación desde la IU web
+
+1. En {% data variables.product.product_name %}, navega a la página principal del repositorio bifurcado que quieras sincronizar en el repositorio de nivel superior.
+1. Seleccionar el menú desplegable de **Recuperar desde el nivel superior**. ![Menú desplegable de "Recuperar el invel superior"](/assets/images/help/repository/fetch-upstream-drop-down.png)
+1. Revisa los detalles sobre las confirmaciones del repositorio de nivel superior y luego haz clic en **Recuperar y fusionar**. ![Botón de "Recuperar y fusionar"](/assets/images/help/repository/fetch-and-merge-button.png)
+
+Si los cambios del repositorio de nivel superior ocasionan conflictos, {% data variables.product.company_short %} te pedirá crear una solicitud de cambios para resolver los conflictos.
+
+## Sincronizar una bifurcación desde la línea de comandos
+
+{% endif %}
 Antes de sincronizar una bifurcación con un repositorio ascendente, debes [configurar un remoto que apunte al repositorio ascendente ](/articles/configuring-a-remote-for-a-fork) en Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

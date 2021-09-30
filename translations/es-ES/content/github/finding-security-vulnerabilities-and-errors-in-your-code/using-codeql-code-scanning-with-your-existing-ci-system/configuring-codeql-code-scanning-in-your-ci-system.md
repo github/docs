@@ -3,9 +3,9 @@ title: Configurar el escaneo de còdigo de CodeQL en tu sistema de IC
 shortTitle: Configuración en tu IC
 intro: 'Puedes configurar la forma en la que {% data variables.product.prodname_codeql_runner %} escanea el código en tu proyecto y en la que carga los resultados a {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -14,11 +14,11 @@ redirect_from:
 
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Acerca de configurar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC
+## Acerca de configurar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC
 
 Para integrar el {% data variables.product.prodname_code_scanning %} en tu sistema de IC, puedes utilizar el {% data variables.product.prodname_codeql_runner %}. Para obtener màs informaciòn, consulta la secicòn "[Ejecutar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
 
@@ -32,7 +32,7 @@ $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 
 Para personalizar la forma en la que el {% data variables.product.prodname_codeql_runner %} escanea tu código, puedes utilizar marcadores, tales como `--languages` y `--queries`,o puedes especificar configuraciones personalizadas en un archivo de configuración por separado.
 
-### Escanear las solicitudes de extracción
+## Escanear las solicitudes de extracción
 
 El escanear el código cada que se crea una solicitud de cambios previene que los desarrolladores introduzcan vulnerabilidades y errores nuevos a este.
 
@@ -48,7 +48,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% endnote %}
 
-### Invalidar la detección automática de lenguaje
+## Invalidar la detección automática de lenguaje
 
 El {% data variables.product.prodname_codeql_runner %} detecta automáticamente y escanea el código que se ha escrito en los lenguajes compatibles.
 
@@ -62,7 +62,7 @@ Para anular la detección automática de lenguajes, ejecuta el comando `init` co
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-### Ejecutar consultas adicionales
+## Ejecutar consultas adicionales
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -79,7 +79,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-### Utilizar una herramienta de escaneo de código de terceros
+## Utilizar una herramienta de escaneo de código de terceros
 
 En vez de pasar información adicional a los comandos de {% data variables.product.prodname_codeql_runner %}, puedes especificar ajustes personalizados en un archivo de configuración por separado.
 
@@ -93,11 +93,11 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-#### Ejemplos de archivos de configuración
+### Ejemplos de archivos de configuración
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### Configurar {% data variables.product.prodname_code_scanning %} para los lenguajes compilados
+## Configurar {% data variables.product.prodname_code_scanning %} para los lenguajes compilados
 
 Para los lenguajes C/C++, C#, y Java, {% data variables.product.prodname_codeql %} compila el código antes de analizarlo. {% data reusables.code-scanning.analyze-go %}
 
@@ -111,7 +111,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 Si el comando `autobuild` no puede compilar tu código, tú mismo puedes ejecutar los pasos de compilación entre los pasos de `init` y `analyze`. Para obtener màs informaciòn, consulta la secciòn "[Ejecutar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)".
 
-### Puedes escribir un archivo de configuración para {% data variables.product.prodname_code_scanning %}.
+## Puedes escribir un archivo de configuración para {% data variables.product.prodname_code_scanning %}.
 
 Predeterminadamente, el {% data variables.product.prodname_codeql_runner %} carga los resultados del {% data variables.product.prodname_code_scanning %} cuando ejecutas el comando `analyze`. También puedes cargar archivos de SARIF por separado si utilizas el comando `upload`.
 
@@ -119,11 +119,11 @@ Una vez que hayas cargado los datos, {% data variables.product.prodname_dotcom %
 - Si cargaste algo a una solicitud de cambios, por ejemplo `--ref refs/pull/42/merge` o `--ref refs/pull/42/head`, entonces los resultados aparecerán como alertas en una verificación de solicitud de cambios. Para obtener màs informaciònPara obtener más información, consulta la sección "[Clasificar las alertas del escaneo de código en las solicitudes de cambios](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
 - Si cargaste algo a la rama, por ejemplo `--ref refs/heads/my-branch`, entonces los resultados aparecerán en la pestaña de **Seguridad** de tu repositorio. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
-### Referencia de comandos de {% data variables.product.prodname_codeql_runner %}
+## Referencia de comandos de {% data variables.product.prodname_codeql_runner %}
 
 El {% data variables.product.prodname_codeql_runner %} es compatible con los siguientes comandos y marcadores.
 
-#### `init`
+### `init`
 
 Inicializa el {% data variables.product.prodname_codeql_runner %} y crea una base de datos de {% data variables.product.prodname_codeql %} para analizar cada lenguaje.
 
@@ -142,7 +142,7 @@ Inicializa el {% data variables.product.prodname_codeql_runner %} y crea una bas
 | `--debug`                        |           | Ninguno. Imprime una salida más verbosa.                                                                                                                                                                 |
 | `-h`, `--help`                   |           | Ninguno. Muestra la ayuda para el comando.                                                                                                                                                               |
 
-#### `autobuild`
+### `autobuild`
 
 Intenta compilar el código para los lenguajes compilados de C/C++, C#, y Java. Para estos lenguajes, {% data variables.product.prodname_codeql %} compila el código antes de analizarlo. Ejecuta `autobuild` entre los pasos de `init` y `analyze`.
 
@@ -153,7 +153,7 @@ Intenta compilar el código para los lenguajes compilados de C/C++, C#, y Java. 
 | `--debug`                   |           | Ninguno. Imprime una salida más verbosa.                                                                                                    |
 | `-h`, `--help`              |           | Ninguno. Muestra la ayuda para el comando.                                                                                                  |
 
-#### `analyze`
+### `analyze`
 
 Analiza el código en las bases de datos de {% data variables.product.prodname_codeql %} y carga los resultados a {% data variables.product.product_name %}.
 
@@ -174,7 +174,7 @@ Analiza el código en las bases de datos de {% data variables.product.prodname_c
 | `--debug`                          |           | Ninguno. Imprime una salida más verbosa.                                                                                                                                                                                                   |
 | `-h`, `--help`                     |           | Ninguno. Muestra la ayuda para el comando.                                                                                                                                                                                                 |
 
-#### `cargar`
+### `cargar`
 
 Carga los archivos SARIF a {% data variables.product.product_name %}.
 

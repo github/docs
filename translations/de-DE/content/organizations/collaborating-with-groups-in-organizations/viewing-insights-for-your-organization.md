@@ -6,17 +6,18 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: View organization insights
 ---
 
 Alle Mitglieder einer Organisation können Organisationseinblicke anzeigen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
 
 Mithilfe von Einblicken in Organisationsaktivitäten kannst Du besser nachvollziehen, wie die Mitglieder Deiner Organisation {% data variables.product.product_name %} verwenden, um zusammenzuarbeiten und Code zu erstellen. Mithilfe von Abhängigkeits-Einblicken kannst Du die Open-Source-Nutzung Deiner Organisation nachverfolgen, melden und entsprechend darauf reagieren.
 
-### Einblicke in Organisationsaktivitäten anzeigen
+## Einblicke in Organisationsaktivitäten anzeigen
 
 {% note %}
 
@@ -32,7 +33,14 @@ Mithilfe von Einblicken in Organisationsaktivitäten kannst Du wöchentliche, mo
 4. Wähle optional in der oberen rechten Ecke der Seite die entsprechende Option aus, um Daten für die letzte **1 Woche**, **1 Monat** oder **1 Jahr** anzuzeigen. ![Auswahl des Zeitraums zum Anzeigen der Organisationseinblicke](/assets/images/help/organizations/org-insights-time-period.png)
 5. Wähle optional in der oberen rechten Ecke der Seite die entsprechende Option aus, um Daten für bis zu drei Repositorys anzuzeigen, und klicke auf **Apply** (Anwenden). ![Auswahl von Repositorys zum Anzeigen der Organisationseinblicke](/assets/images/help/organizations/org-insights-repos.png)
 
-### Organisations-Abhängigkeits-Einblicke anzeigen
+## Organisations-Abhängigkeits-Einblicke anzeigen
+
+{% note %}
+
+**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+
+{% endnote %}
+
 Mithilfe von Abhängigkeits-Einblicken kannst Du Schwachstellen, Lizenzen und andere wichtige Informationen für die Open-Source-Projekte anzeigen, von denen Deine Organisation abhängig ist.
 
 {% data reusables.profile.access_org %}
@@ -43,7 +51,7 @@ Mithilfe von Abhängigkeits-Einblicken kannst Du Schwachstellen, Lizenzen und an
 6. Du kannst auf die Ergebnisse in den Diagrammen **Open security advisories** (Offene Sicherheitshinweise) und **Licenses** (Lizenzen) klicken, um nach einem Schwachstellenstatus, nach einer Lizenz oder nach einer Kombination aus beiden zu filtern. ![My organizations vulnerabilities and licenses graphs](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
 7. Neben der jeweiligen Schwachstelle können Sie auf {% octicon "package" aria-label="The package icon" %} **dependents** (Abhängige) klicken, um nachzuvollziehen, welche Abhängigen in Ihrer Organisation jede Bibliothek verwenden. ![Angreifbare Abhängige der eigenen Organisationen](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
  - „[Informationen zu Organisationen](/organizations/collaborating-with-groups-in-organizations/about-organizations)“
  - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
  - „[Die Sichtbarkeit der Einblicke zu den Abhängigkeiten Ihrer Organisation ändern](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)“
