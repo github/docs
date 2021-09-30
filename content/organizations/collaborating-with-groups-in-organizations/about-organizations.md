@@ -15,7 +15,7 @@ topics:
 
 {% data reusables.organizations.about-organizations %}
 
-{% data reusables.organizations.organizations_include %}
+{% data reusables.organizations.organizations_include %} 
 
 {% ifversion fpt %}
 ## Organizations and enterprise accounts
@@ -23,6 +23,8 @@ topics:
 Enterprise accounts allow owners to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations.
 
 For organizations that belong to an enterprise account, billing is managed at the enterprise account level, and billing settings are not available at the organization level. Enterprise owners can set policy for all organizations in the enterprise account or allow organization owners to set the policy at the organization level. Organization owners cannot change settings enforced for your organization at the enterprise account level. If you have questions about a policy or setting for your organization, contact the owner of your enterprise account.
+
+{% data reusables.enterprise-accounts.invite-organization %}
 
 {% data reusables.gated-features.enterprise-accounts %}
 
