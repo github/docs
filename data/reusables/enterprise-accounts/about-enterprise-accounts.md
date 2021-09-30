@@ -14,7 +14,7 @@ Organizations are shared accounts where enterprise members can collaborate acros
 
 {% ifversion fpt %}
 
-Enterprise owners can create organizations and link the organizations to the enterprise. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level. For more information, see "[Setting policies for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."
+Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Specific enforcement options vary by setting; generally, you can choose to enforce a single policy for every organization in your enterprise account or allow owners to set policy on the organization level. For more information, see "[Setting policies for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."
 
 {% elsif ghes or ghae %}
 
@@ -47,7 +47,7 @@ From your enterprise account on {% ifversion ghae %}{% data variables.product.pr
 - Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)
 - Enterprise policies for organizations owned by the enterprise account
 
-If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you can also manage the following for {% data variables.product.prodname_ghe_server %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. 
+If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you can also manage the following for {% data variables.product.prodname_ghe_server %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.
 
 - Billing and usage for {% data variables.product.prodname_ghe_server %} instances
 - Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
