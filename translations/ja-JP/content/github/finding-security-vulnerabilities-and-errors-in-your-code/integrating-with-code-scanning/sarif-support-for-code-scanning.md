@@ -4,7 +4,7 @@ shortTitle: SARIF サポート
 intro: '{% data variables.product.prodname_dotcom %} のリポジトリにあるサードパーティの静的分析ツールからの結果を表示するには、{% data variables.product.prodname_code_scanning %} 用に SARIF 2.1.0 JSON スキーマの特定のサブセットをサポートする SARIF ファイルに結果を保存する必要があります。 デフォルトの {% data variables.product.prodname_codeql %} 静的分析エンジンを使用すると、結果は {% data variables.product.prodname_dotcom %} のリポジトリに自動的に表示されます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -15,7 +15,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-### SARIF サポートについて
+## SARIF サポートについて
 
 SARIF（Static Analysis Results Interchange Format）は、出力ファイル形式を定義する [OASIS 標準](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)です。 SARIF 標準は、静的分析ツールが結果を共有する方法を合理化するために使用されます。 {% data variables.product.prodname_code_scanning_capc %} は、SARIF 2.1.0 JSON スキーマのサブセットをサポートしています。
 
@@ -27,7 +27,7 @@ SARIF ファイルに `partialFingerprints` が含まれていない場合、{% 
 
 SARIF の使用が初めてで、詳細を確認する必要がある場合は、Microsoft の [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) リポジトリを参照してください。
 
-### フィンガープリントを使用してアラートの重複を防止する
+## フィンガープリントを使用してアラートの重複を防止する
 
 {% data variables.product.prodname_actions %} ワークフローが新しいコードスキャンを実行するたびに、それぞれの実行結果が処理され、アラートがリポジトリに追加されます。 同じ問題に対するアラートの重複を防ぐために、{% data variables.product.prodname_code_scanning %} はフィンガープリントを使用してさまざまな実行結果を照合し、選択したブランチの最新の実行で 1 回だけ表示されるようにします。 これにより、ファイルが編集されたときに、アラートを適切なコードの行にマッチさせることができます。
 
@@ -37,7 +37,7 @@ SARIF の使用が初めてで、詳細を確認する必要がある場合は�
 
 `/code-scanning/sarifs` API エンドポイントを使用してフィンガープリントデータなしで SARIF ファイルをアップロードする場合、{% data variables.product.prodname_code_scanning %} アラートが処理され表示されますが、アラートが重複して表示される場合があります。 アラートが重複して表示されないようにするには、フィンガープリントデータを計算し、`partialFingerprints` プロパティを入れてから SARIF ファイルをアップロードする必要があります。 `upload-sarif` アクションが使用しているスクリプト (https://github.com/github/codeql-action/blob/main/src/fingerprints.ts) は、取っ掛かりとして役立つかもしれません。 API に関する詳しい情報については、「[解析を SARIF データとしてアップロードする](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)」を参照してください。
 
-### SARIF ファイルを検証する
+## SARIF ファイルを検証する
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
@@ -45,13 +45,13 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### サポートされている SARIF 出力ファイルのプロパティ
+## サポートされている SARIF 出力ファイルのプロパティ
 
 {% data variables.product.prodname_codeql %} 以外のコード分析エンジンを使用する場合、サポートされている SARIF プロパティを確認して、{% data variables.product.prodname_dotcom %} での分析結果の表示方法を最適化できます。
 
 有効な SARIF 2.1.0 出力ファイルはすべてアップロードできますが、{% data variables.product.prodname_code_scanning %} は以下のサポートされているプロパティのみを使用します。
 
-#### `sarifLog` オブジェクト
+### `sarifLog` オブジェクト
 
 | 名前        | 説明                                                                                                                                             |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `version` | **必須。**{% data variables.product.prodname_code_scanning_capc %} は、SARIF バージョン `2.1.0` のみをサポートしています。                                          |
 | `runs[]`  | **必須。**SARIF ファイルには、1 つ以上の実行の配列が含まれています。 各実行は、分析ツールの 1 回の実行を表します。 `run` の詳細については、「[`run` オブジェクト](#run-object)」を参照してください。                       |
 
-#### `run` オブジェクト
+### `run` オブジェクト
 
 {% data variables.product.prodname_code_scanning_capc %} は `run` オブジェクトを使用して、ツールで結果をフィルタし、結果のソースに関する情報を提供します。 `run` オブジェクトには、結果を生成したツールに関する情報を含む `tool.driver` ツールコンポーネントオブジェクトが含まれます。 `run` ごとに、1 つの分析ツールの結果のみを取得できます。
 
@@ -71,7 +71,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `tool.driver.rules[]`         | **必須。**ルールを表す `reportingDescriptor` オブジェクトの配列。 分析ツールはルールを使用して、分析対象のコードの問題を見つけます。 詳しい情報については、「[`reportingDescriptor` オブジェクト](#reportingdescriptor-object)」を参照してください。                                                                                                                                                                                                                                 |
 | `results[]`                   | **必須。**分析ツールの結果。 {% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_dotcom %} に結果を表示します。 詳しい情報については、「[`result` オブジェクト](#result-object)」を参照してください。                                                                                                                                                                                                    |
 
-#### `reportingDescriptor` オブジェクト
+### `reportingDescriptor` オブジェクト
 
 | 名前                           | 説明                                                                                                                                                                                                                                                                                                        |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -85,7 +85,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `properties.tags[]`          | **任意。**文字列の配列。 {% data variables.product.prodname_code_scanning_capc %} は、`tags` を使用して、{% data variables.product.prodname_dotcom %} の結果をフィルタできます。 たとえば、`security` タグを含むすべての結果をフィルタすることができます。                                                                                                            |
 | `properties.precision`       | **推奨。**このルールで示される結果が true である頻度を示す文字列。 たとえば、ルールに既知の高誤検知率がある場合、精度は `low` である必要があります。 {% data variables.product.prodname_code_scanning_capc %} は、{% data variables.product.prodname_dotcom %} の精度で結果を並べ替えるため、最高 `level` の精度と最高 `precision` の結果が最初に表示されます。 `very-high`、`high`、`medium`、`low` のいずれかになります。 |
 
-#### `result` オブジェクト
+### `result` オブジェクト
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -101,7 +101,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `codeFlows[].threadFlows[].locations[]` | **任意。**`threadFlow` オブジェクトに対する `location` オブジェクトの配列。実行スレッドを通してプログラムの進行状況を記述します。 `codeFlow` オブジェクトは、結果の検出に使用されるコード実行パターンを記述します。 コードフローが入力されている場合、{% data variables.product.prodname_code_scanning %} は、関連する結果の {% data variables.product.prodname_dotcom %} のコードフローを拡張します。 詳しい情報については、「[`location` オブジェクト](#location-object)」を参照してください。                                                                                                                                                                                                                                                           |
 | `relatedLocations[]`                    | この結果に関連する場所。 結果メッセージに埋め込まれている場合、{% data variables.product.prodname_code_scanning_capc %} は、関連する場所にリンクします。 詳しい情報については、「[`location` オブジェクト](#location-object)」を参照してください。                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-#### `location` オブジェクト
+### `location` オブジェクト
 
 プログラミングアーティファクト内の場所（リポジトリ内のファイルやビルド中に生成されたファイルなど）。
 
@@ -111,7 +111,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `location.physicalLocation` | **必須。**アーティファクトとリージョンを識別します。 詳しい情報については、「[`physicalLocation`](#physicallocation-object)」を参照してください。 |
 | `location.message.text`     | **任意。**場所に関連するメッセージ。                                                                               |
 
-#### `physicalLocation` オブジェクト
+### `physicalLocation` オブジェクト
 
 | 名前                     | 説明                                                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -121,11 +121,11 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `region.endLine`       | **必須。**リージョンの最後の文字の行番号。                                                                                                                                                                                                                                                                                                                                                                       |
 | `region.endColumn`     | **必須。**リージョンの末尾に続く文字の列番号。                                                                                                                                                                                                                                                                                                                                                                     |
 
-### SARIF 出力ファイルの例
+## SARIF 出力ファイルの例
 
 次の例の SARIF 出力ファイルは、サポートされているプロパティと値の例を示しています。
 
-#### 最低限必要なプロパティの例
+### 最低限必要なプロパティの例
 
 次の SARIF 出力ファイルには、{% data variables.product.prodname_code_scanning %} の結果が期待どおりに機能するために最低限必要なプロパティを示す値の例が示されています。 プロパティを削除したり、値を含めていない場合、このデータは正しく表示されないか、{% data variables.product.prodname_dotcom %} で同期されません。
 
@@ -176,7 +176,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 }
 ```
 
-#### サポートされているすべての SARIF プロパティを示す例
+### サポートされているすべての SARIF プロパティを示す例
 
 次の SARIF 出力ファイルには、{% data variables.product.prodname_code_scanning %} でサポートされているすべての SARIF プロパティを示す値の例が示されています。
 

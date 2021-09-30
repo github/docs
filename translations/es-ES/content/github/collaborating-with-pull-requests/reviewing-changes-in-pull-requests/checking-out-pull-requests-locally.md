@@ -7,11 +7,12 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Verificar una solicitud de cambios localmente
 ---
 
 {% note %}
@@ -20,23 +21,33 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
+## Modificar una solicitud de extracción activa localmente
 
-**Tip**: También puedes verificar la solicitud de cambios localmente utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta la sección "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" en la documentación de {% data variables.product.prodname_cli %}.
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-### Modificar una solicitud de extracción activa localmente
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. En la lista de solicitudes de cambios, da clic en aquella que quieras modificar.{% if currentVersion == "free-pro-team@latest" %}
+2. En la lista de solicitudes de cambios, haz clic en aquella que quieras modificar.{% ifversion fpt %}
 3. Para elegir dónde te gustaría abrir la solicitud de extracción, selecciona la opción **Abrir con {% octicon "triangle-down" aria-label="The down triangle icon" %}** del menú desplegable y da clic en una de las pestañas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. En la caja de fusión, da clic en **instrucciones para línea de comandos**. Sigue la secuencia de pasos para disminuir la solicitud de extracción propuesta. ![Enlace para acceder a las instrucciones de la solicitud de extracción de la línea de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. De manera opcional, para ver los cambios propuestos en {% data variables.product.prodname_desktop %}, da clic en **abrir en {% data variables.product.prodname_desktop %}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
-### Modificar una solicitud de extracción inactiva localmente
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+
+```shell
+gh pr checkout <em>pull-request</em>
+```
+
+{% endcli %}
+
+## Modificar una solicitud de extracción inactiva localmente
 
 Si algún autor de una solicitud de extracción no responde a las solicitudes o ha eliminado su bifurcación, dicha solicitud se fusionará de todos modos. Sin embargo, si deseas realizar cambios a una solicitud de extracción y el autor no responde, necesitarás realizar algunos pasos adicionales para actualizar la solicitud de extracción.
 
@@ -71,7 +82,7 @@ Cualquier persona puede trabajar con una solicitud de extracción abierta anteri
   ```
 9. [Crea una nueva solicitud de extracción](/articles/creating-a-pull-request) con tu nueva rama.
 
-### Error: Error al subir algunas referencias
+## Error: Error al subir algunas referencias
 
 El espacio de nombres remoto de `refs/pull/` es *read-only*. Si intentas subir alguna confirmación allí, verás este error:
 ```shell

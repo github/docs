@@ -5,7 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
   - /articles/creating-a-pull-request-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
-permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
+permissions: 'Anyone with write access to a repository can create a pull request from a user-owned fork. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 versions:
   fpt: '*'
   ghes: '*'

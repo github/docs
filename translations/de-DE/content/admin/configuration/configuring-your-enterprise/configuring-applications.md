@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
 ---
 
-### Bildzwischenspeicherung anpassen
+## Bildzwischenspeicherung anpassen
 
 Sie können auswählen, wie lange {% data variables.product.product_location %} Avatare speichert. Beim Erhöhen der Cache-Zeit erhöhen Sie die Zeit, die der Avatar eines Benutzers zum Laden benötigt. Wird die Cache-Zeit mit einem zu niedrigen Wert konfiguriert, kann dies zur Überladung von {% data variables.product.product_location %}-Arbeitsprozessen führen.
 

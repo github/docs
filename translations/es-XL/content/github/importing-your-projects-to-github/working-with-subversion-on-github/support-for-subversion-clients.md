@@ -5,8 +5,8 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 ---
 GitHub admite clientes de Subversion por medio del protocolo HTTPS. Utilizamos el puente de Subversion para comunicar los comandos svn a GitHub.
 

@@ -1,6 +1,7 @@
 ---
 title: Following people
 intro: 'You can follow people on {% data variables.product.product_name %} to receive notifications about their activity{% ifversion fpt %} and discover projects in their communities{% endif %}.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
   - /github/getting-started-with-github/following-people

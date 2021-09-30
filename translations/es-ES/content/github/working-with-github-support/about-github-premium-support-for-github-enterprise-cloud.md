@@ -5,9 +5,10 @@ redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
+shortTitle: Soporte prémium de GitHub
 ---
 
 {% note %}
@@ -22,7 +23,7 @@ topics:
 
 {% endnote %}
 
-### Acerca de {% data variables.contact.premium_support %}
+## Acerca de {% data variables.contact.premium_support %}
 
 {% data variables.contact.premium_support %} ofrece:
   - Soporte técnico por escrito, en inglés, a través del portal de soporte de 24 horas al día, 7 días a la semana.
@@ -40,13 +41,13 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### Horas de operación
+## Horas de operación
 
 {% data variables.contact.premium_support %} está disponible 24 horas al día, 7 días a la semana.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### Asignar una prioridad a un ticket de soporte
+## Asignar una prioridad a un ticket de soporte
 
 Cuando contactas a {% data variables.contact.premium_support %}, puedes escoger una de cuatro prioridades para el ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, o{% data variables.product.support_ticket_priority_low %}.
 
@@ -54,7 +55,7 @@ Cuando contactas a {% data variables.contact.premium_support %}, puedes escoger 
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### Resolver y cerrar tickets de soporte
+## Resolver y cerrar tickets de soporte
 
 {% data variables.contact.premium_support %} puede considerar un ticket como resuelto después de proporcionar una explicación, recomendación, instrucción de uso, o de solución alternativa,
 
@@ -66,6 +67,6 @@ Si usas un complemento personalizado o no compatible, módulo o código personal
 
 {% data reusables.support.accessing-premium-content %}
 
-### Leer más
+## Leer más
 
 - "[Enviar un ticket](/articles/submitting-a-ticket)"

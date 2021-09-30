@@ -5,9 +5,10 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/unblocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Unblock from your account
 ---
 
 Ein Benutzer, dessen Sperre Du aufhebst, kann Dich auch wieder als Mitarbeiter zu seinen Repositorys einladen. Wenn Du von diesem Benutzer irgendwo auf GitHub [@erwähnt](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) wirst, erhältst Du eine Benachrichtigung.
@@ -16,13 +17,13 @@ An Deinen eigenen Repositorys kann der Benutzer wieder wie gewohnt mitwirken.
 
 Du kannst eines Benutzers in Deinen Kontoeinstellungen oder auf der Profilseite des Benutzers entsperren.
 
-### Sperre eines Benutzers in Deinen Kontoeinstellungen aufheben
+## Sperre eines Benutzers in Deinen Kontoeinstellungen aufheben
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.blocked_users %}
 3. Klicke unter „Blocked users“ (Blockierte Benutzer) neben dem Benutzer, dessen Sperre Du aufheben möchtest, auf **Unblock** (Entsperren). ![Schaltfläche „Unblock User" (Sperre des Benutzers aufheben)](/assets/images/help/organizations/org-unblock-user-button.png)
 
-### Sperre eines Benutzers auf seiner Profilseite aufheben
+## Sperre eines Benutzers auf seiner Profilseite aufheben
 
 {% data reusables.profile.user_profile_page_navigation %}
 2. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click  **Unblock or report user**. ![Link „Unblock or report user" (Benutzer entsperren oder melden)](/assets/images/help/profile/profile-unblock-or-report-user.png)
@@ -34,7 +35,7 @@ Du kannst eines Benutzers in Deinen Kontoeinstellungen oder auf der Profilseite 
 
 {% endtip %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Benutzer für Dein persönliches Konto blockieren](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)“
 - „[Einen Benutzer für Deine Organisation blockieren](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)“

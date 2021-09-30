@@ -6,12 +6,15 @@ redirect_from:
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter cards on board
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 On a card, you can click any assignee, milestone, or label to filter the project board by that qualifier. To clear the search, you can click the same assignee, milestone, or label again.
 
@@ -26,7 +29,7 @@ Du kannst Tickets auch über die Suchleiste „Filter cards“ (Tickets filtern)
 - Tickets nach Prüfstatus filtern – mit `status:pending`, `status:success` oder `status:failure`
 - Tickets nach Typ filtern – mit `type:issue`, `type:pr` oder `type:note`
 - Tickets nach Status und Typ filtern – mit `is:open`, `is:closed` oder `is:merged` und `is:issue`, `is:pr` oder `is:note`
-- Tickets nach Issues filtern, die mit einer abschließenden Referenz zu einem Pull Request verbunden sind – mit `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- Tickets nach Issues filtern, die mit einer abschließenden Referenz zu einem Pull Request verbunden sind – mit `linked:pr`{% ifversion fpt or ghes or ghae %}
 - Tickets nach Repository in einem organisationsweiten Projektboard filtern – mit `repo:ORGANIZATION/REPOSITORY`{% endif %}
 
 1. Navigiere zu dem Projektboard, das die Tickets enthält, nach denen Du filtern möchtest.
@@ -38,7 +41,7 @@ Du kannst Tickets auch über die Suchleiste „Filter cards“ (Tickets filtern)
 
 {% endtip %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
 - „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board)“

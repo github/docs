@@ -181,7 +181,7 @@
 - 
   term: デフォルトブランチ
   description: >-
-    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
+    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
 - 
   term: 依存グラフ
   description: >-
@@ -213,7 +213,7 @@
   term: メール通知
   description: ユーザのメールアドレスに送信される通知。
 - 
-  term: enterprise account
+  term: Enterpriseアカウント
   description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -252,7 +252,7 @@
 - 
   term: gist
   description: >-
-    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% if currentVersion == "github-ae@latest" %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% if currentVersion == "github-ae@latest" %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
+    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% ifversion ghae %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
 - 
   term: Git
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
 - 
   term: master
   description: >-
-    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
+    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% ifversion fpt or ghes > 3.1 or ghae %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
   term: メンバーグラフ
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
@@ -654,6 +654,10 @@
   description: >-
     直近の 50 個のアクションまたは過去 90 日間に実行されたアクションを一覧表示するログ。
 - 
+  term: server-to-server request
+  description: >-
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+- 
   term: サービスフック
   description: >-
     「webhook」ともいいます。webhook により、特定のアクションがリポジトリあるいはOrganizationで発生したら必ず外部のウェブサーバへ通知を配信するための方法が得られます。
@@ -680,7 +684,7 @@
   description: >-
     コミットがコントリビューション先リポジトリに設定されている条件を満たしていることを、プルリクエスト内で視覚的に表現したもの。
 - 
-  term: ステータスチェック
+  term: status checks
   description: >-
     ステータスチェックは、継続的インテグレーションのビルドのような外部プロセスで、リポジトリにコミットを行うたびに実行されます。詳しい情報については「[ステータスチェックについて](/articles/about-status-checks)」を参照してください。
 - 
@@ -714,7 +718,7 @@
   description: >-
     GitHub で、特定の領域に関するリポジトリを調べたり、コントリビュートするプロジェクトを探したり、特定の問題に対する新たなソリューションを見つけ出したりするための方法。
 - 
-  term: トラフィックグラフ
+  term: traffic graph
   description: >-
     フルクローン（フェッチではない）、過去 14 日間の訪問者、参照サイト、人気コンテンツなど、リポジトリのトラフィックを表示するリポジトリグラフ。
 - 
@@ -736,6 +740,10 @@
 - 
   term: ユーザ名
   description: GitHub 上でのユーザのハンドル。
+- 
+  term: user-to-server request
+  description: >-
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
 - 
   term: 参照可能なチーム
   description: Organization の各メンバーが表示および @メンションできる Team。

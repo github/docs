@@ -8,7 +8,7 @@ Das Protokoll enthält die folgenden Informationen zu jeder Aktion:
 
 Beachte, dass Du nicht mit Text nach Einträgen suchen kannst. Du kannst jedoch Suchabfragen mit den verschiedensten Filtern erstellen. Viele Operatoren, die für die Abfrage des Log verwendet werden - wie z.B. `-`, `>` oder `<` - haben das gleiche Format wie die Suche über {% data variables.product.product_name %}. Weitere Informationen findest Du unter „[Suchen nach {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github).“
 
-#### Vorgangsbasierte Suche
+### Vorgangsbasierte Suche
 
 Verwende den Qualifizierer `operation` (Vorgang) um Aktionen für spezifische Typen von Vorgängen zu beschränken. Ein Beispiel:
 
@@ -20,7 +20,7 @@ Verwende den Qualifizierer `operation` (Vorgang) um Aktionen für spezifische Ty
   * `operation:restore` (Vorgangswiederherstellung) findet alle Ereignisse, bei denen eine vorhandene Ressource wiederhergestellt wurde.
   * `operation:transfer` (Vorgangsübertragung) findet alle Ereignisse, bei denen eine vorhandene Ressource übertragen wurde.
 
-#### Suche basierend auf Repository
+### Suche nach Repository
 
 Verwende den Qualifizierer `repo` (Repository) um Aktionen auf ein spezifisches Repository einzuschränken. Ein Beispiel:
 
@@ -30,7 +30,7 @@ Verwende den Qualifizierer `repo` (Repository) um Aktionen auf ein spezifisches 
 
 Beachte, dass Du den Kontonamen im Qualifizierer `repo` einfügen musst; nur nach `repo:our-repo` zu suchen, wird nicht funktionieren.
 
-#### Suche nach Benutzer
+### Suche nach Benutzer
 
 Der Qualifizierer `actor` (Akteur) kann Ereignisse einschränken basierend darauf, wer die Aktion durchgeführt hat. Ein Beispiel:
 

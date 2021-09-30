@@ -5,9 +5,9 @@ redirect_from:
   - /guides/building-a-ci-server/
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -27,7 +27,7 @@ Se você ainda não tiver, certifique-se de [fazer o download do ngrok][ngrok]e 
 
 Observação: você pode baixar o código-fonte completo para este projeto [no repositório de amostra de plataforma][platform samples].
 
-### Escrever o seu servidor
+## Escrever o seu servidor
 
 Vamos escrever um aplicativo rápido do Sinatra para provar que nossas conexões locais estão funcionando. Vamos começar com isso:
 
@@ -79,7 +79,7 @@ O que está acontecendo? Cada evento que {% data variables.product.product_name 
 
 Para testar esta prova de conceito, faça algumas alterações em um branch no repositório de teste e abra um pull request. Seu servidor deve responder de acordo!
 
-### Trabalhar com status
+## Trabalhar com status
 
 Já que configuramos o nosso servidor, estamos prontos para iniciar nosso primeiro requisito, que é configurar (e atualizar) os status de CI. Observe que a sempre que você atualizar o seu servidor, você poderá clicar em **Entregar novamente** para enviar a mesma carga. Não há necessidade de fazer um novo pull request toda vez que você fizer uma alteração!
 
@@ -121,7 +121,7 @@ def process_pull_request(pull_request)
 end
 ```
 
-### Conclusão
+## Conclusão
 
 No GitHub, usamos uma versão do [Janky][janky] para gerenciar a nossa CI durante anos. O fluxo básico é essencialmente o mesmo que o servidor que construímos acima. No GitHub, nós:
 

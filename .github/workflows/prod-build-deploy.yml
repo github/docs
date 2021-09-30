@@ -27,6 +27,10 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
           persist-credentials: 'false'
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
 
       - name: Setup node
         uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
@@ -139,7 +143,12 @@ jobs:
           DELAY_FOR_PREBOOT: 'true'
         with:
           script: |
-            const { GITHUB_TOKEN, HEROKU_API_TOKEN, SOURCE_BLOB_URL, DELAY_FOR_PREBOOT } = process.env
+            const {
+              GITHUB_TOKEN,
+              HEROKU_API_TOKEN,
+              SOURCE_BLOB_URL,
+              DELAY_FOR_PREBOOT
+            } = process.env
 
             // Exit if GitHub Actions PAT is not found
             if (!GITHUB_TOKEN) {

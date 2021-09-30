@@ -51,8 +51,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 9. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
 10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
-![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png)
-11. Click **Save changes**.
+![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}
+14. Click **Save changes**.
 
 ## Disabling code review assignment
 {% data reusables.profile.access_org %}

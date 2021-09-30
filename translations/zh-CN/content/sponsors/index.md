@@ -9,6 +9,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors
 changelog:
   label: sponsors
+examples_source: data/product-examples/sponsors/user-examples.yml
 featuredLinks:
   guides:
     - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship
@@ -26,13 +27,16 @@ featuredLinks:
     - /sponsors/about-github-sponsors-for-open-source-contributors
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /getting-started-with-github-sponsors
   - /sponsoring-open-source-contributors
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
   - /guides
+community_redirect:
+  name: Provide GitHub Feedback
+  href: 'https://github.com/github/feedback/discussions/categories/sponsors-feedback'
 ---
 
 <!---->

@@ -14,6 +14,6 @@ La siguiente información **se debe incluir** en tu solicitud de crédito:
 - **Fecha** (la fecha debe estar comprendida en un plazo de 30 días a partir del cierre del trimestre de acuerdo con el cierre del año fiscal de {% data variables.product.company_short %} durante el que cual se produjeron los créditos que se reclaman [31 de enero, 30 de abril, 31 de julio o 31 de octubre])
 - **Contacto del cliente** (Debes especificar tanto el nombre como la dirección de correo electrónico)
 - **Domicilio del cliente**
-- **Créditos de calificación** (Debes proporcionar la fecha de cada crédito de calificación y el número de ticket asociado.){% if currentVersion == "free-pro-team@latest" %}
+- **Créditos calificados**(Debes indicar la fecha de cada crédito calificado y el número de ticket asociado){% ifversion fpt %}
 - **Nombre de la organización {% data variables.product.prodname_ghe_cloud %}**{% endif %}
 - **Número de ticket**

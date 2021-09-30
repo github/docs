@@ -7,10 +7,9 @@ redirect_from:
   - /articles/redeeming-a-coupon-for-your-personal-account/
   - /articles/redeeming-a-coupon-for-organizations/
   - /articles/redeeming-a-coupon
-  - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Discounts
@@ -25,13 +24,13 @@ topics:
 
 クーポンは {% data variables.product.prodname_marketplace %}アプリケーションの有料プランには適用できません。
 
-### 個人アカウントでクーポンを利用する
+## 個人アカウントでクーポンを利用する
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. [Redeem your coupon] の下で、*個人*アカウントのユーザ名の横にある [**Choose**] をクリックします。 ![選択ボタン](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-### Organization でクーポンを利用する
+## Organization でクーポンを利用する
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

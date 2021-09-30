@@ -7,9 +7,9 @@ redirect_from:
   - /articles/managing-users-in-your-enterprise-account
   - /articles/managing-users-in-your-enterprise
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -18,5 +18,6 @@ children:
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise
   - /viewing-and-managing-a-users-saml-access-to-your-enterprise
+shortTitle: Manage users
 ---
 

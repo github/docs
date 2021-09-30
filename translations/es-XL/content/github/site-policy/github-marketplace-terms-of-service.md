@@ -3,7 +3,7 @@ title: Términos de servicio de Mercado GitHub
 redirect_from:
   - /articles/github-marketplace-terms-of-service
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

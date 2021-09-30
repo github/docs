@@ -15,6 +15,8 @@ shortTitle: Configure SAML with Okta
 ---
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## About SAML with Okta
 
 You can control access to your enterprise account in {% data variables.product.product_name %} and other web applications from one central interface by configuring the enterprise account to use SAML SSO with Okta, an Identity Provider (IdP).

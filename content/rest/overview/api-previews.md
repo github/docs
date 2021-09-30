@@ -73,11 +73,15 @@ View a list of [repository topics](/articles/about-topics/) in [calls](/rest/ref
 **Custom media type:** `mercy-preview`
 **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
 
+{% ifversion ghes < 3.3 %}
+
 ## Codes of conduct
 
 View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code of conduct a repository has currently.
 
 **Custom media type:** `scarlet-witch-preview`
+
+{% endif %}
 
 {% ifversion ghae or ghes %}
 
@@ -98,12 +102,16 @@ You can now use the API to manage the setting for [requiring signed commits on p
 **Custom media type:** `zzzax-preview`
 **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
 
+{% ifversion ghes < 3.3 %}
+
 ## Require multiple approving reviews
 
 You can now [require multiple approving reviews](/rest/reference/repos#branches) for a pull request using the API.
 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
+
+{% endif %}
 
 {% ifversion ghes < 3.0 %}
 ## Check runs and check suites API
@@ -182,13 +190,6 @@ You can use two new endpoints in the [Commits API](/rest/reference/repos#commits
 **Announced:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
 {% endif %}
-
-## Enable or disable vulnerability alerts for a repository
-
-You can use two new endpoints in the [Repos API](/rest/reference/repos) to enable or disable vulnerability alerts.
-
-**Custom media types:** `dorian-preview`
-**Announced:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
 
 ## Update a pull request branch
 

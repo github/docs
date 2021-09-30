@@ -1,11 +1,13 @@
 ---
 title: SCIM
+intro: 'Você pode controlar e gerenciar seu acesso dos integrantes de {% data variables.product.product_name %} da organização usando a API SCIM.'
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Provisionamento de SCIM para Organizações
@@ -14,7 +16,7 @@ A API do SCIM é usada pelos provedores de identidade (IdPs) habilitados pelo SC
 
 {% note %}
 
-**Observação:** A API do SCIM está disponível apenas para organizações em [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) com [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+**Observação:** A API do SCIM está disponível apenas para organizações em [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) com [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. {% data reusables.scim.enterprise-account-scim %} Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 {% endnote %}
 

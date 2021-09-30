@@ -1,3 +1,3 @@
 {% data reusables.package_registry.packages-spending-limit-brief %}
 
-如果您的支出限额无限或高于 0 美元，您将会收到额外存储或数据传输的帐单，也称为超限费用，最高可达到您的支出限额。 您帐户中的任何优惠券都不适用于 {% data variables.product.prodname_registry %} 超额费用。
+If you have an unlimited spending limit or a spending limit set higher than $0 USD, you will be billed for any additional storage or data transfer, also called overages, up to your spending limit. 您帐户中的任何优惠券都不适用于 {% data variables.product.prodname_registry %} 超额费用。

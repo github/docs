@@ -8,9 +8,9 @@ redirect_from:
   - /articles/importing-your-project-to-github/
   - /articles/importing-source-code-to-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-github-importer
   - /importing-a-repository-with-github-importer

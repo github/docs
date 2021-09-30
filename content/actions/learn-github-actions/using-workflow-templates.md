@@ -23,15 +23,19 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-Anyone with write permission to a repository can set up continuous integration (CI) using {% data variables.product.prodname_actions %}.
+Anyone with write permission to a repository can set up continuous integration (CI) using {% data variables.product.prodname_actions %}. 
+
+You can use workflow templates to create new workflows in an organization's public repository. To use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
 
 After you set up CI, you can customize the workflow to meet your needs.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. Find the template that matches the language and tooling you want to use, then click **Set up this workflow**.
+1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
+  ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
+2. Find the template that matches the language and tooling you want to use, then click **Set up this workflow**.
   ![Setup workflow button](/assets/images/help/repository/setup-workflow-button.png)
-5. Click **Start commit**.
+1. Click **Start commit**.
   ![Start commit button](/assets/images/help/repository/start-commit.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

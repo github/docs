@@ -1,1 +1,1 @@
-当 Git 提示您输入密码时，请输入您的个人访问令牌 (PAT)。{% if currentVersion != "github-ae@latest" %} 基于密码的身份验证对 Git 已弃用，使用 PAT 更安全。{% endif %} 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+When Git prompts you for your password, enter your personal access token (PAT) instead.{% ifversion not ghae %} Password-based authentication for Git has been removed, and using a PAT is more secure.{% endif %} For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."

@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
   - /admin/configuration/configuring-tls
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -18,7 +18,7 @@ topics:
   - Security
 ---
 
-### Acerca de la Seguridad de la capa de transporte
+## Acerca de la Seguridad de la capa de transporte
 
 El TLS, que reemplazó al SSL, se habilita y configura con un certificado autofirmado cuando se inicia el {% data variables.product.prodname_ghe_server %} por primera vez. Como los certificados autofirmados no son confiables para los navegadores web y los clientes de Git, estos clientes informarán advertencias de certificados hasta que inhabilites TLS o cargues un certificado firmado por una entidad confiable, como Let's Encrypt.
 
@@ -28,7 +28,7 @@ El aparato {% data variables.product.prodname_ghe_server %} enviará encabezados
 
 Para permitir que los usuarios utilicen FIDO U2F para la autenticación de dos factores, debes habilitar TLS para tu instancia. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)".
 
-### Prerrequisitos
+## Prerrequisitos
 
 Para utilizar TLS en la producción, debes tener un certificado en un formato de PEM no cifrado firmado por una entidad de certificación confiable.
 
@@ -36,7 +36,7 @@ Tu certificado también deberá tener configurados Nombres alternativos de sujet
 
 Puedes generar una solicitud de firma de certificados (CSR) para tu instancia usando el comando `ghe-ssl-generate-csr`. Para obtener más información, consulta "[Utilidades de la línea de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)."
 
-### Cargar un certificado TLS personalizado
+## Cargar un certificado TLS personalizado
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -53,7 +53,7 @@ Puedes generar una solicitud de firma de certificados (CSR) para tu instancia us
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Acerca de la asistencia de Let's Encrypt
+## Acerca de la asistencia de Let's Encrypt
 
 Let's Encrypt es una entidad de certificación pública que emite certificados TLS gratuitos y automáticos que son confiables para los navegadores que usan el protocolo ACME. De hecho, puedes obtener y renovar los certificados de Let's Encrypt para tu aparato sin la necesidad de realizar ningún mantenimiento manual.
 
@@ -63,7 +63,7 @@ Cuando habilites la automatización de la gestión de certificado TLS con Let's 
 
 También puedes usar la utilidad de la línea de comando `ghe-ssl-acme` en {% data variables.product.product_location %} para generar un certificado de Let's Encrypt de manera automática. Para obtener más información, consulta "[Utilidades de la línea de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
 
-### Configurar TLS usando Let's Encrypt
+## Configurar TLS usando Let's Encrypt
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
@@ -75,4 +75,5 @@ También puedes usar la utilidad de la línea de comando `ghe-ssl-acme` en {% da
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
 7. Haz clic en **Request TLS certificate** (Solicitar certificado TLS). ![Botón para solicitar certificado TLS](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Haz clic en **Save configuration** (Guardar configuración).
+8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+9. Haz clic en **Save configuration** (Guardar configuración).

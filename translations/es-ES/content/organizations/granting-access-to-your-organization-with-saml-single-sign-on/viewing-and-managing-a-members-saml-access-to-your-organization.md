@@ -8,19 +8,20 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Administrar el acceso de SAML
 ---
 
-### Acerca del acceso de SAML a tu organización
+## Acerca del acceso de SAML a tu organización
 
 Cuando habilitas el inicio de sesión único de SAML para tu organización, cada miembro de ella puede vincular su identidad externa con tu proveedor de identidad (IdP) a su cuenta existente de {% data variables.product.product_name %}. Para acceder a los recursos de tu organización en {% data variables.product.product_name %}, el miembro debe tener una sesión activa de SAML en su buscador. Para acceder a los recursos de tu organización utilizando Git o la API, el miembro debe utilizar un token de acceso personal o llave SSH que se le haya autorizado para su uso con tu organización.
 
 Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y credenciales auotrizadas en la misma página.
 
-### Visualizar y revocar una identidad vinculada
+## Visualizar y revocar una identidad vinculada
 
 {% data reusables.saml.about-linked-identities %}
 
@@ -35,7 +36,7 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### Visualizar y revocar una sesión activa de SAML
+## Visualizar y revocar una sesión activa de SAML
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -45,7 +46,7 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### Visualizar y revocar credenciales autorizadas
+## Visualizar y revocar credenciales autorizadas
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -58,7 +59,7 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Visualizar y administrar el acceso de SAML de un usuario a tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
