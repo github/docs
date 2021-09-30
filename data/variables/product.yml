@@ -123,6 +123,7 @@ prodname_security_center: 'Security Center'
 # Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
+prodname_serverless: 'web-based editor'
 
 # GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
