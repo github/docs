@@ -44,6 +44,7 @@ children:
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
   - /troubleshooting
+  - /the-githubdev-web-based-editor
   - /guides
 ---
 
