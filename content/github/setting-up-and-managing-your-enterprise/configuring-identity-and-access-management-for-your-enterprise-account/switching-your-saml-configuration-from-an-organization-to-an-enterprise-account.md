@@ -10,6 +10,8 @@ topics:
 shortTitle: Switching from organization
 ---
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## About SAML single sign-on for enterprise accounts
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %}

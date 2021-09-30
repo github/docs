@@ -58,6 +58,14 @@ For more information about the differences between {% data variables.product.pro
 
 {% endif %}
 
+{% ifversion fpt %}
+
+## About {% data variables.product.prodname_emus %}
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
+
+{% endif %}
+
 ## About billing for your enterprise account
 
 The bill for your enterprise account includes the monthly cost for each member of your enterprise. The bill includes {% ifversion fpt %}any paid licenses in organizations outside of your enterprise account, subscriptions to apps in {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion fpt or ghae %}additional paid services for your enterprise{% ifversion fpt %} like data packs for {% data variables.large_files.product_name_long %},{% endif %} and{% endif %} usage for {% data variables.product.prodname_GH_advanced_security %}.
