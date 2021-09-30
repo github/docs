@@ -7,11 +7,12 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
 permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Check out a PR locally
 ---
 
 {% note %}
@@ -20,23 +21,33 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
+## アクティブなプルリクエストをローカルで修正する
 
-**Tip**: You can also check out a pull request locally using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" in the {% data variables.product.prodname_cli %} documentation.
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-### アクティブなプルリクエストをローカルで修正する
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. プルリクエストのリストで、変更するプルリクエストをクリックします。{% if currentVersion == "free-pro-team@latest" %}
+2. プルリクエストのリストで、変更するプルリクエストをクリックします。{% ifversion fpt %}
 3. プルリクエストをオープンする場所を選択するには、[**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**] ドロップダウンを選択して、いずれかのタブをクリックします。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. マージボックスで、[**command line instructions**] をクリックします。 手順に従い、提案されたプルリクエストをローカルにダウンロードしてください。 ![コマンドラインのプルリクエスト手順へのリンク](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. オプションで、提案された変更を {% data variables.product.prodname_desktop %} で表示するには、[**open this in {% data variables.product.prodname_desktop %}**] をクリックします。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
-### アクティブではないプルリクエストをローカルで修正する
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+
+```shell
+gh pr checkout <em>pull-request</em>
+```
+
+{% endcli %}
+
+## アクティブではないプルリクエストをローカルで修正する
 
 プルリクエストの作者がリクエストに応答しない場合や、フォークを削除した場合でも、プルリクエストをマージできます。 一方、プルリクエストを変更したくても作者が応答しないという場合、プルリクエストを更新するには追加的な手順を踏まなければなりません。
 
@@ -71,7 +82,7 @@ topics:
   ```
 9. 新しいブランチで[新しいプルリクエストを作成](/articles/creating-a-pull-request)します。
 
-### エラー: 一部の ref をプッシュできませんでした
+## エラー: 一部の ref をプッシュできませんでした
 
 リモートの `refs/pull/` 名前空間は *読み取り専用*です。 ここにコミットをプッシュしようとすると、以下のエラーが表示されます。
 ```shell

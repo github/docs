@@ -4,13 +4,14 @@ intro: '{% data variables.product.prodname_marketplace %} からのアプリケ�
 redirect_from:
   - /articles/github-marketplace-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
+shortTitle: GitHub Marketplace
 ---
 
 
-### アプリケーションのプロバイダに連絡してサポートを依頼します
+## アプリケーションのプロバイダに連絡してサポートを依頼します
 
 {% data variables.product.prodname_marketplace %} にある各アプリケーションには、アプリケーションのサポートチームへの連絡先のリンクが含まれています。
 
@@ -19,7 +20,7 @@ topics:
 3. 左サイドバーの [Developer tools] で、[**Support**] をクリックします。
 4. アプリケーションのサポートページにある説明に従い、アプリケーションのサポートチームに連絡してください。
 
-### 参考リンク
+## 参考リンク
 
 - [{% data variables.product.prodname_marketplace %}について](/articles/about-github-marketplace)
 - [{% data variables.product.prodname_marketplace %}でのアプリケーションの購入とインストール](/articles/purchasing-and-installing-apps-in-github-marketplace)

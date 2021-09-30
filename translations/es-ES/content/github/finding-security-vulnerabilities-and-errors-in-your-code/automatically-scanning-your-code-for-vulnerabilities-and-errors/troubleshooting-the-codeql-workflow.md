@@ -4,7 +4,7 @@ shortTitle: Solucionar problemas de CodeQL
 intro: 'Si tienes problemas con el {% data variables.product.prodname_code_scanning %}, puedes solucionarlos si utilizas estos tips para resolver estos asuntos.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -16,11 +16,11 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### Producir bitácoras detalladas para la depuración
+## Producir bitácoras detalladas para la depuración
 
 Para producir una salida más detallada de bitácoras, puedes habilitar el registro de depuración de pasos. Para obtener más información, consulta la sección "[Habilitar el registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
-### Compilación automática para los fallos de un lenguaje compilado
+## Compilación automática para los fallos de un lenguaje compilado
 
 Si una compilación automática de código para un lenguaje compilado dentro de tu proyecto falla, intenta los siguientes pasos de solución de problemas.
 
@@ -32,10 +32,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-      permissions:
-        security-events: write
-        actions: read{% endif %}
+    analyze:
       ...
       strategy:
         fail-fast: false
@@ -52,7 +49,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
 
   Para obtener más información acerca de editar el flujo de trabajo, consulta la sección "[Configurar el escaneo de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)".
 
-### No se encontró código durante la compilación
+## No se encontró código durante la compilación
 
 Si tu flujo de trabajo falla con un error de `No source code was seen during the build` o de `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`, esto indica que {% data variables.product.prodname_codeql %} no pudo monitorear tu código. Hay muchas razones que podrían explicar esta falla:
 
@@ -90,23 +87,23 @@ Para obtener más información, consulta el extracto de flujo de trabajo en la s
 
 Para obtener más información acerca de especificar los pasos de compilación, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### Algunas porciones de mi repositorio no se analizaron con `autobuild`
+## Algunas porciones de mi repositorio no se analizaron con `autobuild`
 
 La característica de `autobuild` de {% data variables.product.prodname_codeql %} utiliza la heurística para compilar el código en un repositorio, sin embargo, algunas veces este acercamiento da como resultado un análisis incompleto de un repositorio. Por ejemplo, cuando existen comandos múltiples de `build.sh` en un solo repositorio, el análisis podría no completarse, ya que el paso de `autobuild` solo se ejecutará en uno de los comandos. La solución es reemplazar el paso de `autobuild` con los pasos de compilación que compilarán todo el código fuente que quieras analizar. Para obtener más información, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### La compilación tarda demasiado
+## La compilación tarda demasiado
 
 Si tu compilación con análisis de {% data variables.product.prodname_codeql %} toma demasiado para ejecutarse, hay varios acercamientos que puedes intentar para reducir el tiempo de compilación.
 
-#### Incrementar la memoria o los núcleos
+### Incrementar la memoria o los núcleos
 
 Si utilizas ejecutores auto-hospedados para ejecutar el análisis de {% data variables.product.prodname_codeql %}, puedes incrementar la memoria o la cantidad de núcleos en estos ejecutores.
 
-#### Utilizar matrices de compilación para paralelizar el análisis
+### Utilizar matrices de compilación para paralelizar el análisis
 
 El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza una matriz de lenguajes, la cual causa que el análisis de cada uno de ellos se ejecute en paralelo. Si especificaste los lenguajes que quieres analizar directamente en el paso de "Inicializar CodeQL", el análisis de cada lenguaje ocurrirá de forma secuencial. Para agilizar el análisis de lenguajes múltiples, modifica tu flujo de trabajo para utilizar una matriz. Para obtener más información, consulta el extracto de flujo de trabajo en la sección "[Compilación automática para los fallos de un lenguaje compilado](#automatic-build-for-a-compiled-language-fails)" que se trata anteriormente.
 
-#### Reducir la cantidad de código que se está analizando en un solo flujo de trabajo
+### Reducir la cantidad de código que se está analizando en un solo flujo de trabajo
 
 El tiempo de análisis es habitualmente proporcional a la cantidad de código que se esté analizando. Puedes reducir el tiempo de análisis si reduces la cantidad de código que se analice en cada vez, por ejemplo, si excluyes el código de prueba o si divides el análisis en varios flujos de trabajo que analizan únicamente un subconjunto de tu código a la vez.
 
@@ -116,19 +113,19 @@ Para los lenguajes interpretados como Go, JavaScript, Python y TypeScript que an
 
 Si divides tu análisis en varios flujos de trabajo como se describió anteriormente, aún te recomendamos que por lo menos tengas un flujo de trabajo que se ejecute con un `schedule` que analice todo el código en tu repositorio. Ya que {% data variables.product.prodname_codeql %} analiza los flujos de datos entre componentes, algunos comportamientos de seguridad complejos podrían detectarse únicamente en una compilación completa.
 
-#### Ejecutar únicamente durante un evento de `schedule`
+### Ejecutar únicamente durante un evento de `schedule`
 
 Si tu análisis aún es muy lento como para ejecutarse durante eventos de `push` o de `pull_request`, entonces tal vez quieras activar el análisis únicamente en el evento de `schedule`. Para obtener más información, consulta la sección "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".
 
-### Error: "Error de servidor"
+## Error: "Error de servidor"
 
 Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_code_scanning %} falla debido a un error de servidor, trata de ejecutar el flujo de trabajo nuevamente. Si el problema persiste, contaca a {% data variables.contact.contact_support %}.
 
-### Error: "Out of disk" o "Out of memory"
+## Error: "Out of disk" o "Out of memory"
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the hosted {% data variables.product.prodname_actions %} runner. Si te encuetnras con este problema, trata de incrementar la memoria del ejecutor.
 
-### Warning: "git checkout HEAD^2 is no longer necessary"
+## Warning: "git checkout HEAD^2 is no longer necessary"
 
 Si estás utilizando un flujo de trabajo de {% data variables.product.prodname_codeql %} antiguo, podrías obtener el siguiente mensaje de advertencia en la salida "inicializar {% data variables.product.prodname_codeql %}" de la acción:
 

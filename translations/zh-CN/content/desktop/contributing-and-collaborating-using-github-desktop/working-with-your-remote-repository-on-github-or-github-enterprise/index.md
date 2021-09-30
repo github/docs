@@ -4,10 +4,11 @@ intro: '在本地更改项目时，可以通过远程仓库持续更新它们。
 redirect_from:
   - /desktop/contributing-to-projects/working-with-your-remote-repository-on-github-or-github-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /creating-an-issue-or-pull-request
   - /viewing-a-pull-request-in-github-desktop
   - /changing-a-remotes-url-from-github-desktop
+shortTitle: 使用远程仓库
 ---
 

@@ -7,9 +7,9 @@ redirect_from:
   - /apps/differences-between-apps
   - /developers/apps/differences-between-github-apps-and-oauth-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
   - OAuth Apps

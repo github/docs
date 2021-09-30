@@ -7,11 +7,12 @@ redirect_from:
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 解决 Git 中的合并冲突
 ---
 
 当对文件的同一行进行竞争更改时，或者当一个人编辑文件而另一个人删除同一文件时，会发生合并冲突。 更多信息请参阅“[关于合并冲突](/articles/about-merge-conflicts/)”。
@@ -22,7 +23,7 @@ topics:
 
 {% endtip %}
 
-### 竞争行更改合并冲突
+## 竞争行更改合并冲突
 
 要解决由竞争行更改导致的合并冲突，您必须从新提交的不同分支中选择要合并的更改。
 
@@ -74,7 +75,7 @@ topics:
 
 现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
-### 删除的文件合并冲突
+## 删除的文件合并冲突
 
 要解决由对文件进行竞争更改而导致的合并冲突，对于一个人删除分支中的文件而另一个人编辑同一文件的情况，您必须选择是删除还是将删除的文件保留在新提交中。
 
@@ -124,7 +125,7 @@ topics:
 
 现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于合并冲突](/articles/about-merge-conflicts)”
 - “[本地检出拉取请求](/articles/checking-out-pull-requests-locally/)”

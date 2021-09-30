@@ -697,9 +697,9 @@ describe('URLs by language', () => {
   test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/actions/using-github-hosted-runners/about-github-hosted-runners')
     expect($.res.statusCode).toBe(200)
-    expect($('h3[id="further-reading"]').length).toBe(1)
+    expect($('h2[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
-    expect($('h3 a[href="#further-reading"]').length).toBe(1)
+    expect($('h2 a[href="#further-reading"]').length).toBe(1)
   })
 })
 

@@ -6,11 +6,12 @@ redirect_from:
   - /articles/viewing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/viewing-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: View a PR review
 ---
 
 {% data reusables.search.requested_reviews_search %}
@@ -21,7 +22,7 @@ topics:
 {% data reusables.repositories.choose-pr-review %}
 3. [Conversation] タブで、表示したいレビューまでスクロールし、[**View changes**] をクリックします。 ![完全なレビューへのリンクを持つレビューヘッダ](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
-### 参考リンク
+## 参考リンク
 
 - "[プルリクエストのレビューについて](/articles/about-pull-request-reviews)"
 - [プルリクエストで提案された変更のレビュー](/articles/reviewing-proposed-changes-in-a-pull-request)

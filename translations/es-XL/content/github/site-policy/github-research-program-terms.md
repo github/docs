@@ -3,7 +3,7 @@ title: Términos del programa de investigación de GitHub
 redirect_from:
   - /articles/github-research-program-terms
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

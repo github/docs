@@ -7,11 +7,12 @@ redirect_from:
   - /articles/filtering-files-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/filtering-files-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Filter files
 ---
 
 プルリクエスト内のファイルは、`.html` や `.js` などのファイル拡張子の種類、拡張子の欠如、コードの所有権、ドットファイルでフィルタリングできます。
@@ -28,7 +29,7 @@ topics:
 4. [File filter] ドロップダウンメニュードロップダウンメニュー使って、目的のフィルタを選択、選択解除、またはクリックします。 ![プルリクエスト diff の上のファイルのフィルタオプション](/assets/images/help/pull_requests/file-filter-option.png)
 5. オプションで、フィルタの選択をクリアするには、 [**Files changed**] タブの下で [**Clear**] をクリックします。 ![ファイルのフィルタの選択のクリア](/assets/images/help/pull_requests/clear-file-filter.png)
 
-### 参考リンク
+## 参考リンク
 
 - 「[プルリクエスト内のブランチの比較について](/articles/about-comparing-branches-in-pull-requests)」
 - 「[プルリクエストで変更されたメソッドや機能を見つける](/articles/finding-changed-methods-and-functions-in-a-pull-request)」

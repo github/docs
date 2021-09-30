@@ -5,9 +5,9 @@ redirect_from:
   - /apps/building-github-apps/creating-custom-badges-for-github-apps
   - /developers/apps/creating-a-custom-badge-for-your-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

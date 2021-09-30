@@ -1,8 +1,8 @@
 ---
 title: Reordering commits
-intro: "You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch's history."
+intro: 'You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch''s history.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 ## About reordering a commit

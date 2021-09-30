@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Clonar repositorios
 Los repositorios en {% data variables.product.prodname_dotcom %} son remotos.  Puedes clonar repositorios públicos de otros dueños. Puedes clonar tu propio repositorio para crear una copia local en tu computadora y sincronizarla entre las dos ubicaciones.

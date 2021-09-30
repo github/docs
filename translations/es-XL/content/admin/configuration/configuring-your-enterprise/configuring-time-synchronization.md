@@ -10,7 +10,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Fundamentals

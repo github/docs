@@ -6,11 +6,12 @@ redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Comparar ramas
 ---
 
 {% note %}
@@ -20,13 +21,13 @@ topics:
 {% endnote %}
 
 Puedes ver los cambios propuestos en una solicitud de extracción en la pestaña Archivos modificados.
-{% if currentVersion ver_lt "github-enterprise@3.0" %}
+{% ifversion ghes < 3.0 %}
 ![Pestaña Archivos modificados de la solicitud de extracción](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
 ![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 En lugar de ver las confirmaciones de cambios, puedes ver los cambios propuestos ya que aparecerán en los archivos una vez que se fusiona la solicitud de extracción. Los archivos aparecen en orden alfabético dentro de la pestaña Archivos modificados. Las adiciones a los archivos aparecen en verde y están precedidas por un signo `+`, mientras que el contenido que ha sido eliminado aparece en rojo y está precedido por un signo `-`.
 
-### Opciones de diferentes vistas
+## Opciones de diferentes vistas
 
 {% tip %}
 
@@ -48,7 +49,7 @@ Para simplificar la revisión de cambios en una solicitud de cambios grande, pue
 
   ![Menú desplegable Filtro de archivo](/assets/images/help/pull_requests/file-filter-menu.png)
 
-### Comparaciones de diferencias de Git de tres puntos y de dos puntos
+## Comparaciones de diferencias de Git de tres puntos y de dos puntos
 
 Por defecto, las solicitudes de extracción en {% data variables.product.prodname_dotcom %} muestran una diferencia de tres puntos o una comparación entre la versión más reciente de la rama de tema y la confirmación donde la rama de tema fue sincronizada por última vez con la rama base.
 
@@ -62,11 +63,11 @@ Si quieres simular una diferenciación de dos puntos en una solicitud de extracc
 
 Para obtener más información acerca de los comandos de Git para comparar los cambios, consulta "[Opciones de los diffs de Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" en el sitio del libro de _Pro Git_.
 
-### No se mostrarán las diferencias de motivos
-- Has excedido el límite total de archivos o de ciertos tipos de archivos. Para obtener más información, consulta "[Límites para ver el contenido y las diferencias en un repositorio](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)".
+## No se mostrarán las diferencias de motivos
+- Has excedido el límite total de archivos o de ciertos tipos de archivos. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)".
 - Tus archivos coinciden con una regla en el archivo *.gitattributes* del repositorio para bloquear ese archivo de mostrarse por defecto. Para obtener más información, consulta "[Personalizar cómo aparecen los archivos modificados en GitHub](/articles/customizing-how-changed-files-appear-on-github)".
 
-### Leer más
+## Leer más
 
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"
 - "[Acerca de las bifurcaciones](/articles/about-forks)"

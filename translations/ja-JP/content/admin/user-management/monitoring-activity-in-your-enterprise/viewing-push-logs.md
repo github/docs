@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -27,7 +27,7 @@ topics:
 - プッシュするために使った Git クライアント
 - 操作前と操作後の SHA ハッシュ
 
-### リポジトリのプッシュログを表示する
+## リポジトリのプッシュログを表示する
 
 1. サイト管理者として {% data variables.product.prodname_ghe_server %} にサインインします。
 1. リポジトリにアクセスします。
@@ -35,8 +35,8 @@ topics:
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 左のサイドバーで、**Push Log（プッシュログ）** をクリックしてください。 ![プッシュログのタブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
-### コマンドラインでリポジトリのプッシュログを表示する
+{% ifversion ghes %}
+## コマンドラインでリポジトリのプッシュログを表示する
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. 適切な Git リポジトリで Audit log ファイルを開いてください。

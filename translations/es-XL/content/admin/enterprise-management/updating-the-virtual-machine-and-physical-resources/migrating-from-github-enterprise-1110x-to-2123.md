@@ -12,7 +12,7 @@ redirect_from:
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: 'Para migrar desde {% data variables.product.prodname_enterprise %} 11.10.x a 2.1.23, deberás configurar una nueva instancia de aparato y migrar los datos de la instancia anterior.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Migration

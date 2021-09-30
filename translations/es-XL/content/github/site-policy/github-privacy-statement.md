@@ -8,7 +8,7 @@ redirect_from:
   - /articles/github-privacy-policy/
   - /articles/github-privacy-statement/
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

@@ -8,16 +8,17 @@ redirect_from:
   - /github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pages
+shortTitle: Configurar el sitio localmente con Jekyll
 ---
 
 Cualquier persona con permisos de lectura para un repositorio puede probar un sitio de {% data variables.product.prodname_pages %} localmente.
 
-### Prerrequisitos
+## Prerrequisitos
 
 Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
   - Instalar [Jekyll](https://jekyllrb.com/docs/installation/).
@@ -27,7 +28,7 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-### Construyendo tu sitio localmente
+## Construyendo tu sitio localmente
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
@@ -48,7 +49,7 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
   ```
 3. Para previsualizar tu sitio, en tu navegador web, navega hasta `http://localhost:4000`.
 
-### Actualizar la gema de {% data variables.product.prodname_pages %}
+## Actualizar la gema de {% data variables.product.prodname_pages %}
 
 Jekyll es un proyecto de código abierto activo que se actualiza de manera frecuente. Si la gema de `github-pages` de tu computadora está desactualizada con respecto a la gema de `github-pages` del servidor de {% data variables.product.prodname_pages %}, tu sitio puede verse diferente cuando se compile localmente en comparación a cómo se vea cuando se publique en {% data variables.product.product_name %}. Para evitar esto, actualiza de manera regular la gema de `github-pages` en tu computadora.
 
@@ -57,6 +58,6 @@ Jekyll es un proyecto de código abierto activo que se actualiza de manera frecu
     - Si instalaste Bundler, ejecuta `bundle update github-pages`.
     - Si no tienes instalado Bundler, ejecuta `gem update github-pages`.
 
-### Leer más
+## Leer más
 
 - [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) en la documentación de Jekyll

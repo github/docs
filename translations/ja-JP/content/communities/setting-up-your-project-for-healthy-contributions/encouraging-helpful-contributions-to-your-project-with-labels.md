@@ -6,9 +6,10 @@ redirect_from:
   - /articles/helping-new-contributors-find-your-project-with-labels
   - /github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: コントリビューションの奨励
 ---
 
 ラベルで検索した際に見つけられるよう、パブリックリポジトリの Issue に `good first issue` ラベルを適用できます。 ラベル別検索についての詳細は、「[Issue およびプルリクエストを検索する](/articles/searching-issues-and-pull-requests/#search-by-label)」を参照してください。
@@ -20,7 +21,7 @@ topics:
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. 右上隅で [**Label**] をクリックし、`good first issue` と入力します。 ラベルの名前をクリックして、選択されたアイテムに関連付けてください。 ![Issue のマイルストーン割り当てドロップダウンメニュー](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
-### 参考リンク
+## 参考リンク
 
 - [ラベルについて](/articles/about-labels)
 - 「[リポジトリの検索](/articles/searching-for-repositories)」

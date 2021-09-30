@@ -8,9 +8,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Política para las perspecitvas de las dependencias
 ---
 
 En las organizaciones que son propiedad de una cuenta de empresa, los propietarios de la organización pueden establecer limitaciones para la visualización de la información de dependencias de la organización. Para obtener más información, consulta "[Cambiar la visibilidad de la información de dependencias de la organización](/articles/changing-the-visibility-of-your-organizations-dependency-insights)".

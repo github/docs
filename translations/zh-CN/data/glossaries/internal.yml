@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard。可用于加密（和解密）包含敏感数据的文件的加密软件。
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and decrypt) files that contain sensitive data
 - 
   term: GPG 密钥
   description: 用于 GPG 的加密密钥。

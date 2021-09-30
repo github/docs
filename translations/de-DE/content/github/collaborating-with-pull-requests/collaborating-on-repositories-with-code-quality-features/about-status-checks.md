@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -24,18 +24,18 @@ Du kannst den Gesamtzustand des letzten Commits an einen Branch auf der Branch-S
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### Arten von Statuschecks auf {% data variables.product.product_name %}
+## Arten von Statuschecks auf {% data variables.product.product_name %}
 
 Es gibt zwei Arten von Statuschecks auf {% data variables.product.product_name %}:
 
 - Prüfungen
 - Status
 
-_Prüfungen_ unterscheiden sich von _Status_ dadurch, dass sie Zeilenanmerkungen und detailliertere Meldungen enthalten und nur für die Verwendung mit {% data variables.product.prodname_github_app %}s verfügbar sind.
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
 Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
-### Prüfungen
+## Prüfungen
 
 Wenn _Prüfungen_ in einem Repository eingerichtet sind, weisen Pull Requests die Registerkarte **Checks** (Prüfungen) auf, auf der Du detaillierte Buildausgabe von Statuschecks ansehen und fehlgeschlagene Prüfungen wiederholen kannst.
 
@@ -49,7 +49,7 @@ Du kannst zwischen den Prüfungszusammenfassungen für verschiedene Commits in e
 
 ![Prüfungszusammenfassungen für verschiedene Commits in einem Dropdownmenü](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-#### Prüfungen für einzelne Commits überspringen und anfordern
+### Prüfungen für einzelne Commits überspringen und anfordern
 
 Wenn ein Repository so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du die Prüfungen für einen einzelnen Commit überspringen, den Du überträgst. Wenn ein Repository _nicht_ so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du Prüfungen für einen einzelnen Commit anfordern, den Du überträgst. For more information on these settings, see "[Check Suites](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)."
 

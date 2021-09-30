@@ -1,0 +1,1 @@
+{% data variables.contact.github_support %} puede ayudarte a solucionar los problemas con los que te encuentres cuando utilices {% data variables.product.prodname_dotcom %}. For more information, see “[About {% data variables.contact.github_support %}](/github/working-with-github-support/about-github-support)."

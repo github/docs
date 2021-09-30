@@ -10,14 +10,15 @@ redirect_from:
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Administrar las páginas de wiki
 ---
 
-### Agregar páginas wiki
+## Agregar páginas wiki
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -27,7 +28,7 @@ topics:
 6. Escribe un mensaje de confirmación que describa el nuevo archivo que agregaste. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
 
-### Editar páginas wiki
+## Editar páginas wiki
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -36,11 +37,11 @@ topics:
 6. Escribe un mensaje de confirmación que describa tus cambios. ![Mensaje de confirmación de la wiki](/assets/images/help/wiki/wiki_commit_message.png)
 7. Para confirmar tus cambios en la wiki, haz clic en **Guardar página**.
 
-### Agregar o editar páginas wiki localmente
+## Agregar o editar páginas wiki localmente
 
 Las wikis son parte de los repositorios Gift, de manera que puedes hacer cambios localmente y subirlos a tu repositorio mediante un flujo de trabajo de Git.
 
-#### Clonar wikis en tu computadora
+### Clonar wikis en tu computadora
 
 Cada wiki brinda una manera sencilla de clonar sus contenidos en tu computadora. Puedes clonar el repositorio a tu computadora con la URL proporcionada:
 
@@ -51,7 +52,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 
 Una vez que has clonado la wiki, puedes agregar archivos nuevos, editar los existentes y confirmar tus cambios. Tus colaboradores y tú pueden crear ramas cuando trabajen en wikis, pero solo los cambios que se suban a la rama predeterminada estarán productivos y disponibles para tus lectores.
 
-### Acerca de los nombres de archivo wiki
+## Acerca de los nombres de archivo wiki
 
 El nombre de archivo determina el título de tu página wiki, y la extensión del archivo determina cómo se presenta el contenido wiki.
 
