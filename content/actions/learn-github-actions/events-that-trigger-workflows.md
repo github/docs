@@ -165,6 +165,26 @@ on:
     types: [opened, deleted]
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Workflow reuse events
+
+`workflow_call` is a keyword used as the value of `on` in a workflow, in the same way as an event. It indicates that a workflow can be called from another workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+### `workflow_call`
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+| ------------------ | ------------ | ------------ | ------------------|
+| Same as the caller workflow | n/a | Same as the caller workflow | Same as the caller workflow |
+
+#### Example
+
+To make a workflow reusable it must include `workflow_call` as one of the values of `on`. The example below only runs the workflow when it's called from another workflow:
+
+```yaml
+on: workflow_call
+```
+{% endif %}
+
 ## Webhook events
 
 You can configure your workflow to run when webhook events are generated on {% data variables.product.product_name %}. Some events have more than one activity type that triggers the event. If more than one activity type triggers the event, you can specify which activity types will trigger the workflow to run. For more information, see "[Webhooks](/webhooks)."

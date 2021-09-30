@@ -1,33 +1,37 @@
 ---
-title: Sharing workflows with your organization
-shortTitle: Sharing workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, and self-hosted runners.'
+title: Creating workflow templates
+shortTitle: Creating templates
+intro: 'Learn how you can create workflow templates to help people in your team add new workflows more easily.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-type: how_to
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
 ## Overview
 
-If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
+{% data reusables.actions.workflow-organization-templates %}
 
 ## Creating a workflow template
 
 Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
 {% note %}
 
-**Note:** Workflow templates can be used to create new workflows in an organization' s public repository; to use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
+**Note:** To avoid duplication in workflows created from a template you can call reusable workflows from within a workflow template. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 {% endnote %}
+{% endif %}
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the template is presented to users when they are creating a new workflow.
 
@@ -84,42 +88,6 @@ To add another workflow template, add your files to the same `workflow-templates
 
 ![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-## Using a workflow template from your organization
-
-This procedure demonstrates how a member of your organization can find and use a workflow template to create a new workflow. An organization's workflow templates can be used by anyone who is a member of the organization.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
-  ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
-1. Your organization's workflow templates are located in their own section titled "Workflows created by _organization name_". Under the name of the template you'd like to use, click **Set up this workflow**.
-  ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)
-
-
-## Sharing secrets within an organization
-
-You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
-
-When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
-
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. Click **New secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the **Value** for your secret.
-1. From the **Repository access** dropdown list, choose an access policy.
-1. Click **Add secret**.
-
-## Share self-hosted runners within an organization
-
-Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
-
-For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
-
-
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Using workflow templates](/actions/learn-github-actions/using-workflow-templates)."

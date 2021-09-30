@@ -7,6 +7,7 @@ topics:
   - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
+  - /github/searching-for-information-on-github/searching-on-github/searching-github-marketplace
 shortTitle: Search GitHub Marketplace
 ---
 ## About searching {% data variables.product.prodname_marketplace %}
@@ -31,7 +32,7 @@ Anytime you search across all of {% data variables.product.prodname_dotcom_the_w
 1. Navigate to https://github.com/search.
 2. Type any keywords and press **Enter**.
   ![search field](/assets/images/help/search/search-field.png)
-3. In the left sidebar, click **Marketplace**. 
+3. In the left sidebar, click **Marketplace**.
   ![Search results for linter with Marketplace side-menu option highlighted](/assets/images/help/search/marketplace-left-side-navigation.png)
 
 ## Further reading

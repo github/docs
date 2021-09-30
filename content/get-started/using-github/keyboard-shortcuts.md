@@ -23,7 +23,7 @@ Below is a list of some of the available keyboard shortcuts.
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+|<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 |<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
