@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard。機密データを含むファイルを暗号化（および復号化）するのに使用できる暗号化ソフトウェア
+    GNU Privacy Guard. Encryption software that you can use to encrypt (and decrypt) files that contain sensitive data
 - 
   term: GPGキー
   description: GPG で使用する暗号化キー。

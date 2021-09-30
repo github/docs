@@ -3,9 +3,9 @@ title: プロジェクトボードで作業を整理する
 shortTitle: プロジェクトボード
 intro: 'プロジェクトボードを使って{% data variables.product.prodname_dotcom %}上の作業を管理してください'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
   - Projects
@@ -20,3 +20,4 @@ redirect_from:
   - /archiving-cards-on-a-project-board
 ---
 
+{% data reusables.projects.project_boards_old %}

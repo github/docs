@@ -1,8 +1,9 @@
 ---
 title: 使用 GraphQL API for Discussions
-intro: 了解如何使用 GitHub Discussions GraphQL API。
+intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 使用 GraphQL 进行讨论
 ---
 
 {% data variables.product.prodname_discussions %} GraphQL API 允许您获取、创建、编辑和删除讨论帖子。 有关 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。

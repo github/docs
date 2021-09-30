@@ -2,15 +2,16 @@
 title: 限制用户帐户的交互
 intro: 您可以在用户帐户拥有的所有公共仓库中对某些用户临时限制活动一段时间。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
 topics:
   - Community
+shortTitle: 限制帐户中的交互
 ---
 
-### 关于临时交互限制
+## 关于临时交互限制
 
 限制用户帐户的交互可对用户帐户拥有的所有公共仓库启用临时交互限制。 {% data reusables.community.interaction-limits-restrictions %}
 
@@ -22,7 +23,7 @@ topics:
 
 您还可以阻止用户。 更多信息请参阅“[阻止用户访问个人帐户](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)”。
 
-### 限制用户帐户的交互
+## 限制用户帐户的交互
 
 {% data reusables.user_settings.access_settings %}
 1. 在在用户设置侧边栏中的“Moderation settings（管理设置）”下，单击 **Interaction limits（交互限制）**。 ![用户设置侧边栏中的"交互限制"选项卡](/assets/images/help/settings/settings-sidebar-interaction-limits.png)

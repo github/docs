@@ -4,7 +4,7 @@ shortTitle: Integración
 intro: 'Puedes integrar las herramientas de análisis de código de terceros con el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_dotcom %} su cargas datos como archivos SARIF.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

@@ -6,7 +6,7 @@ redirect_from:
   - /articles/about-scim
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
@@ -21,9 +21,9 @@ topics:
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %}更多信息请参阅“[关于企业帐户中组织的用户配置](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)”。
+{% data reusables.scim.enterprise-account-scim %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[将身份提供程序连接到组织](/articles/connecting-your-identity-provider-to-your-organization)"

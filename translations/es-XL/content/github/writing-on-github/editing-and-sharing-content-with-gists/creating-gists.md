@@ -8,9 +8,9 @@ redirect_from:
   - /articles/creating-gists
   - /github/writing-on-github/creating-gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ### Acerca de los gists
 

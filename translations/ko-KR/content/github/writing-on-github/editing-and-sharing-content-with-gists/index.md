@@ -6,11 +6,12 @@ redirect_from:
   - /categories/gists/
   - /articles/editing-and-sharing-content-with-gists
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /creating-gists
   - /forking-and-cloning-gists
+shortTitle: Share content with gists
 ---
 

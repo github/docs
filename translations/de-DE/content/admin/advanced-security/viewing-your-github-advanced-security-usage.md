@@ -4,14 +4,17 @@ intro: 'You can view usage of your {% data variables.product.prodname_GH_advance
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
+  ghes: '>=3.1'
 topics:
   - Enterprise
+shortTitle: View Advanced Security usage
 ---
 
-{% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)."
+## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
-### Viewing license usage for {% data variables.product.prodname_GH_advanced_security %}
+{% data reusables.advanced-security.about-ghas-license-seats %} Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)“.
+
+## Viewing license usage for {% data variables.product.prodname_GH_advanced_security %}
 
 You can check how many seats your license includes and how many seats are currently in use.
 

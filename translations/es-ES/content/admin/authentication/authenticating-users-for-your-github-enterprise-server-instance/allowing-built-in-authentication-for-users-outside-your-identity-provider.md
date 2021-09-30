@@ -6,16 +6,17 @@ redirect_from:
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Authentication outside IdP
 ---
 
-### Acerca de la autenticación integrada para usuarios fuera de tu proveedor de identidad
+## Acerca de la autenticación integrada para usuarios fuera de tu proveedor de identidad
 
 Puedes utilizar la autenticación integrada para usuarios externos cuando no puedes agregar cuentas específicas a tu proveedor de identidad (IdP), como cuentas para contratistas o usuarios de equipos. También puedes usar la autenticación integrada para acceder a una cuenta de reserva si el proveedor de identidad no está disponible.
 
@@ -29,7 +30,7 @@ La autenticación integrada para un IdP se desactiva por defecto.
 
 {% endwarning %}
 
-### Configurar autenticación integrada para usuarios fuera de tu proveedor de identidad
+## Configurar autenticación integrada para usuarios fuera de tu proveedor de identidad
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -41,7 +42,7 @@ La autenticación integrada para un IdP se desactiva por defecto.
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Invitar a usuarios fuera de tu proveedor de identidad a autenticar tu instancia
+## Invitar a usuarios fuera de tu proveedor de identidad a autenticar tu instancia
 
 Cuando un usuario acepta la invitación, puede utilizar su nombre de usuario y contraseña para iniciar sesión en lugar de iniciar sesión a través del IdP.
 
@@ -50,7 +51,7 @@ Cuando un usuario acepta la invitación, puede utilizar su nombre de usuario y c
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
-### Leer más
+## Leer más
 
 - "[Usar LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap)"
 - "[Usar SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"

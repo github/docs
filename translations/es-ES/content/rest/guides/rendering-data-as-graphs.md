@@ -5,9 +5,9 @@ redirect_from:
   - /guides/rendering-data-as-graphs/
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -20,7 +20,7 @@ Si aún no lo has hecho, deberías leer la guía de ["Fundamentos de la Autentic
 
 ¡Comencemos de inmediato!
 
-### Configurar una aplicación de OAuth
+## Configurar una aplicación de OAuth
 
 Primero, [registra una aplicación nueva][new oauth application] en {% data variables.product.product_name %}. Configura la URL principal y la de rellamado como `http://localhost:4567/`. Tal como lo hemos hecho [antes][basics-of-authentication], vamos a gestionar la autenticación para la API implementando un recurso intermedio de Rack utilizando [sinatra-auth-github][sinatra auth github]:
 
@@ -73,7 +73,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### Obtener la información del repositorio
+## Obtener la información del repositorio
 
 En esta ocasión, para poder hablar con la API de {% data variables.product.product_name %}, vamos a utilizar la [Biblioteca de Ruby, Octokit][Octokit]. Esto es mucho más fácil que hacer un montón de llamadas de REST directamente. Además, un Githubber desarrolló Octokit, y se mantiene activamente, así que sabes que funcionará.
 
@@ -119,7 +119,7 @@ Cuando reinicias tu servidor, tu página web debe mostrar más o menos esto:
 
 Hasta ahora vamos bien, pero no se ve muy amigable para un humano. Sería genial poder tener algún tipo de visualización para entender cómo se distribuye este conteo de lenguajes. Vamos a alimentar a D3 con nuestros conteos para obtener una gráfica de barras clara que represente la popularidad de los lenguajes que utilizamos.
 
-### Visualizar los conteos de los lenguajes
+## Visualizar los conteos de los lenguajes
 
 D3.js, o simplemente D3, es una biblioteca completa para crear muchos tipos de gráficos, tablas, y visualizaciones interactivas. El utilizarlo a detalle va más allá del alcance de esta guía, pero para ver un buen artículo introductorio al respecto, revisa ["D3 para mortales"][D3 mortals].
 
@@ -221,7 +221,7 @@ Ahora, _lang_freq.erb_ va a necesitar algo de JavaScript para apoyar a que se in
 
 Tal como sugiere la guía de "D3 para Mortales", esto no es necesariamente la mejor forma de utilizar D3. Pero nos sirve para ilustrar cómo puedes utilizar la biblioteca, junto con Octokit, para hacer algunas cosas verdaderamente increíbles.
 
-### Combinar las diferentes llamadas de la API
+## Combinar las diferentes llamadas de la API
 
 Ahora es el momento de hacer una confesión: el atributo de `language` dentro de los repositorios solo identifica el lenguaje "primario" que se definió. Esto significa que, si tienes un repositorio que combine varios lenguajes, el que tenga más bytes de código se considera comoel primario.
 

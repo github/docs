@@ -1,7 +1,7 @@
 ---
 title: Configuring Dependabot security updates
 intro: 'Puedes utilizar las {% data variables.product.prodname_dependabot_security_updates %} o las solicitudes de extracción manuales para actualizar fácilmente las dependencias vulnerables.'
-shortTitle: Configuring Dependabot security updates
+shortTitle: Configurar las actualizaciones de seguridad
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -10,7 +10,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot
@@ -23,7 +23,7 @@ topics:
 
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
-### Acerca de la configuración de las {% data variables.product.prodname_dependabot_security_updates %}
+## Acerca de la configuración de las {% data variables.product.prodname_dependabot_security_updates %}
 
 Puedes habilitar las {% data variables.product.prodname_dependabot_security_updates %} para cualquier repositorio que utilice {% data variables.product.prodname_dependabot_alerts %} y la gráfica de dependencias. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 
@@ -31,7 +31,7 @@ Puedes inhabilitar las {% data variables.product.prodname_dependabot_security_up
 
 {% data reusables.dependabot.dependabot-tos %}
 
-### Repositorios compatibles
+## Repositorios compatibles
 
 {% data variables.product.prodname_dotcom %} habilita las {% data variables.product.prodname_dependabot_security_updates %} automáticamente para cada repositorio que cumpla con estos pre-requisitos.
 
@@ -50,9 +50,9 @@ Puedes inhabilitar las {% data variables.product.prodname_dependabot_security_up
 | Las {% data variables.product.prodname_dependabot_security_updates %} no se han inhabilitado para el repositorio                                                                                                                     | "[Administrar las {% data variables.product.prodname_dependabot_security_updates %} para tu repositorio](#managing-dependabot-security-updates-for-your-repositories)"                           |
 | Que el repositorio no esté utilizando ya una integración para administración de dependencias                                                                                                                                           | "[Acerca de las integraciones](/github/customizing-your-github-workflow/about-integrations)"                                                                                                       |
 
-Si no se habilitan las actualizaciones de seguridad para tu repositorio y no sabes por qué, intenta primero habilitarles de acuerdo con las instrucciones que se encuentran en los procedimientos siguientes. Si las actualizaciones aún no funcionan, puedes [contactar a soporte](https://support.github.com/contact).
+Si no se habilitan las actualizaciones de seguridad para tu repositorio y no sabes por qué, intenta primero habilitarles de acuerdo con las instrucciones que se encuentran en los procedimientos siguientes. Si las actualizaciones aún no funcionan, puedes [contactar a soporte](https://support.github.com/contact?tags=docs-security).
 
-### Administrar las {% data variables.product.prodname_dependabot_security_updates %} para tus repositorios
+## Administrar las {% data variables.product.prodname_dependabot_security_updates %} para tus repositorios
 
 Puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual (ver a continuación).
 
@@ -60,14 +60,14 @@ También puedes habilitar o inhabilitar las {% data variables.product.prodname_d
 
 Las {% data variables.product.prodname_dependabot_security_updates %} requieren de configuraciones de repositorio específicas. Para obtener más información, consulta "[Repositorios soportados](#supported-repositories)".
 
-#### Habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual.
+### Habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Debajo de "Configurar las características de seguridad y análisis", a la derecha de "actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}", da clic en **Habilitar** o **Inhabilitar**. ![Sección "Configurar las características de seguridad y análisis" con botón para habilitar las {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
-### Leer más
+## Leer más
 
 - "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[Administrar la configuración de uso de datos para tu repositorio privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".
