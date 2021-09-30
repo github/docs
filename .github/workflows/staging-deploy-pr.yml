@@ -142,6 +142,10 @@ jobs:
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
+          lfs: 'true'
+
+      - name: Check out LFS objects
+        run: git lfs checkout
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Setup node to clone early access
@@ -171,24 +175,25 @@ jobs:
           name: pr_build
           path: ./
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Extract user-changes to temp directory
+      - name: Extract user-changes to temp directory
         run: |
           tar -x --file=app.tar -C "$RUNNER_TEMP/"
           rm app.tar
 
-      # Append early access content into the temp directory
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Merge in the early access content
+      # Move the LFS content into the temp directory in chunks (destructively)
+      - name: Move the LFS objects
         run: |
-          rsync -aiR \
-            assets/images/early-access \
-            content/early-access \
-            data/early-access \
-            "$RUNNER_TEMP/"
+          git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/$(dirname {})"; mv {} "$RUNNER_TEMP/$(dirname {})/"'
 
+      # Move the early access content into the temp directory (destructively)
       - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Create an updated archive
+        name: Move the early access content
+        run: |
+          mv assets/images/early-access "$RUNNER_TEMP/assets/images/"
+          mv content/early-access "$RUNNER_TEMP/content/"
+          mv data/early-access "$RUNNER_TEMP/data/"
+
+      - name: Create an updated archive
         run: tar -c --file app.tar "$RUNNER_TEMP/"
 
       # Create "app.tar.gz" and delete "app.tar"
