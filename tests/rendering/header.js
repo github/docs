@@ -7,7 +7,7 @@ describe('header', () => {
 
   test('includes localized meta tags', async () => {
     const $ = await getDOM('/en')
-    expect($('meta[name="next-head-count"]').length).toBe(1)
+    expect($('link[rel="alternate"]').length).toBeGreaterThan(2)
   })
 
   test("includes a link to the homepage (in the current page's language)", async () => {
@@ -26,26 +26,30 @@ describe('header', () => {
       )
       expect(
         $(
-          '[data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          '[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=language-picker] a[href="/en/"]').text().trim()).toBe('English')
-      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe(
-        '简体中文 (Simplified Chinese)'
-      )
-      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe(
-        '日本語 (Japanese)'
-      )
+
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/en"]').text().trim()
+      ).toBe('English')
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/cn"]').text().trim()
+      ).toBe('简体中文 (Simplified Chinese)')
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja"]').text().trim()
+      ).toBe('日本語 (Japanese)')
     })
 
     test('emphasize the current language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=language-picker] a[href="/en/"]').length).toBe(1)
-      expect($('[data-testid=language-picker] a[href="/ja/"]').length).toBe(1)
+      expect($('[data-testid=desktop-header] [data-testid=language-picker] summary').text()).toBe(
+        'English'
+      )
     })
   })
 
@@ -136,15 +140,15 @@ describe('header', () => {
       const $ = await getDOM(
         '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const github = $('#homepages a.active[href="/en/github"]')
+      const github = $('[data-testid=current-product][data-current-product-path="/github"]')
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub')
-      expect(github.attr('class').includes('active')).toBe(true)
 
-      const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
+      const ghe = $(
+        `[data-testid=product-picker-list] a[href="/en/enterprise-server@${latest}/admin"]`
+      )
       expect(ghe.length).toBe(1)
       expect(ghe.text().trim()).toBe('Enterprise administrators')
-      expect(ghe.attr('class').includes('active')).toBe(false)
     })
 
     // Skipped. See issues/923
@@ -152,17 +156,21 @@ describe('header', () => {
       const $ = await getDOM(
         '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
       )
-      expect($('#homepages a.active[href="/ja/repositories"]').length).toBe(1)
-      expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
+      expect(
+        $('[data-testid=current-product][data-current-product-path="/repositories"]').length
+      ).toBe(1)
+      expect(
+        $(`[data-testid=product-picker-list] a[href="/ja/enterprise-server@${latest}/admin"]`)
+          .length
+      ).toBe(1)
     })
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise/${oldestSupported}/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
+        `/en/enterprise-server@${oldestSupported}/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
-      expect($(`#homepages a.active[href="/en/enterprise-server@${latest}/admin"]`).length).toBe(0)
-      expect($('#homepages a[href="/en/github"]').length).toBe(1)
-      expect($('#homepages a.active[href="/en/github"]').length).toBe(1)
+
+      expect($('[data-testid=current-product]').text()).toBe('GitHub')
     })
   })
 })

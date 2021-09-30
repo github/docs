@@ -1,7 +1,8 @@
 import { DefaultLayout } from 'components/DefaultLayout'
 import { TableOfContents } from 'components/landing/TableOfContents'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
-import { ArticleTopper } from 'components/article/ArticleTopper'
+import { VersionPicker } from 'components/VersionPicker'
+import { Breadcrumbs } from 'components/Breadcrumbs'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { ArticleList } from 'components/landing/ArticleList'
@@ -9,7 +10,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
 import { Lead } from 'components/ui/Lead'
-import { LearningTrackNav } from '../article/LearningTrackNav'
+import { LearningTrackNav } from 'components/article/LearningTrackNav'
 
 export const TocLanding = () => {
   const {
@@ -26,10 +27,8 @@ export const TocLanding = () => {
 
   return (
     <DefaultLayout>
-      <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-        <ArticleTopper />
-
-        <ArticleGridLayout className="mt-7">
+      <div className="container-xl px-3 px-md-6 my-4">
+        <ArticleGridLayout topper={<Breadcrumbs />} topperSidebar={<VersionPicker />}>
           <ArticleTitle>{title}</ArticleTitle>
 
           {introPlainText && <Lead>{introPlainText}</Lead>}
