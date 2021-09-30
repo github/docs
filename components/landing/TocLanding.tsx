@@ -58,7 +58,7 @@ export const TocLanding = () => {
             )}
 
             {renderedPage && (
-              <div id="article-contents">
+              <div id="article-contents" className="mb-5">
                 <MarkdownContent>{renderedPage}</MarkdownContent>
               </div>
             )}
