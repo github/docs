@@ -73,11 +73,15 @@ View a list of [repository topics](/articles/about-topics/) in [calls](/rest/ref
 **Custom media type:** `mercy-preview`
 **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
 
+{% ifversion ghes < 3.3 %}
+
 ## Codes of conduct
 
 View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code of conduct a repository has currently.
 
 **Custom media type:** `scarlet-witch-preview`
+
+{% endif %}
 
 {% ifversion ghae or ghes %}
 

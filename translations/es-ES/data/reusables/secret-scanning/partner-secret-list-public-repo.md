@@ -9,13 +9,17 @@
 | Amazon Web Services (AWS) | Par de ID y Secreto de Clave de Acceso a AWS de Amazon      |
 | Atlassian                 | Token de API de Atlassian                                   |
 | Atlassian                 | Token Web de JSOn de Atlazzian                              |
+| Azure                     | Secreto de aplicación de Azure Active Directory             |
 | Azure                     | Token de Acceso Personal de Azure DevOps                    |
 | Azure                     | Token de Azure SAS                                          |
 | Azure                     | Certificado de Administración de Servicios de Azure         |
 | Azure                     | Secuencia de Conexión de Azure SQL                          |
 | Azure                     | Clave de Cuenta de Almacenamiento de Azure                  |
+| Checkout.com              | Checkout.com Production Secret Key                          |
+| Checkout.com              | Checkout.com Test Secret Key                                |
 | Clojars                   | Token de Despliegue de Clojars                              |
 | CloudBees CodeShip        | Credencial de Codeship de CloudBees                         |
+| Contributed Systems       | Contributed Systems Credentials                             |
 | Databricks                | Token de Acceso de Databricks                               |
 | Datadog                   | Clave de API de Datadog                                     |
 | Discord                   | Token de Bot de Discord                                     |
@@ -23,6 +27,7 @@
 | Doppler                   | Token de Servicio de Doppler                                |
 | Doppler                   | Token de CLI de Doppler                                     |
 | Doppler                   | Token de SCIM de Doppler                                    |
+| Doppler                   | Doppler Audit Token                                         |
 | Dropbox                   | Token de Acceso de Dropbox                                  |
 | Dropbox                   | Token de Acceso de Vida Corta de Dropbox                    |
 | Dynatrace                 | Token de Acceso de Dynatrace                                |
@@ -41,6 +46,10 @@
 | Google Cloud              | ID de Clave Privada de Google Cloud                         |
 | Hashicorp Terraform       | Token de API de Terraform Cloud / Enterprise                |
 | Hubspot                   | Clave de API de Hubspot                                     |
+| Ionic                     | Token de Acceso Personal de Ionic                           |
+| Ionic                     | Token de Actualización de Ionic                             |
+| Linear                    | Llave de la API de Linear                                   |
+| Linear                    | Token de Acceso Oauth de Linear                             |
 | Mailchimp                 | Clave de API de Mailchimp                                   |
 | Mailchimp                 | Clave de API de Mandrill                                    |
 | Mailgun                   | Clave de API de Mailgun                                     |
@@ -49,7 +58,10 @@
 | NuGet                     | Clave de API de NuGet                                       |
 | OpenAI                    | Clave de la API de OpenAI                                   |
 | Palantir                  | Token Web de JSON de Palantir                               |
-| Plivo                     | Token de Plivo Auth                                         |
+| PlanetScale               | PlanetScale Database Password                               |
+| PlanetScale               | PlanetScale OAuth Token                                     |
+| PlanetScale               | PlanetScale Service Token                                   |
+| Plivo                     | Plivo Auth ID and Token                                     |
 | Postman                   | Clave de API de Postman                                     |
 | Proctorio                 | Clave de Consumidor de Proctorio                            |
 | Proctorio                 | Clave de Enlace de Proctorio                                |

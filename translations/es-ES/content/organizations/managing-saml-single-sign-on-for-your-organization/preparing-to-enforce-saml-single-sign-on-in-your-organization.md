@@ -6,22 +6,21 @@ redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Prepararse para requerir el SSO de SAML
 ---
 
-Cuando [aplicas el inicio de sesión único de SAML](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) en tu organización, los miembros que no se han autenticado por medio de tu proveedor de identidad (IdP) serán eliminados de la organización y recibirán un correo electrónico informándoles acerca de la eliminación.
+{% data reusables.saml.when-you-enforce %} Before enforcing SAML SSO in your organization, you should review organization membership, enable SAML SSO, and review organization members' SAML access. For more information, see the following.
 
-Antes de aplicar un SSO de SAML en tu organización, deberías:
+| Task                                                                                                      | Más información           |
+|:--------------------------------------------------------------------------------------------------------- |:------------------------- |
+| Add or remove members from your organization                                                              | <ul><li>"[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"</li><li>"[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"</li></ul> |
+| Connect your IdP to your organization by enabling SAML SSO                                                | <ul><li>"[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)"</li><li>"[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)"</li></ul> |
+| Asegurar que los miembros de tu organización se hayan registrado y hayan vinculado sus cuentas con tu IdP | <ul><li>"[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"</li></ul> |
 
-- [Agregar](/articles/inviting-users-to-join-your-organization) o [eliminar](/articles/removing-a-member-from-your-organization) miembros de tu organización si es necesario.
-- Si no lo has hecho, conectar tu IdP a tu organización. Para obtener más información, consulta "[Conectar tu proveedor de identidad a tu organización](/articles/connecting-your-identity-provider-to-your-organization)."
-- Asegurar que los miembros de tu organización se hayan registrado y hayan vinculado sus cuentas con tu IdP.
+After you finish these tasks, you can enforce SAML SSO for your organization. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML en tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)".
 
 {% data reusables.saml.outside-collaborators-exemption %}
-
-### Leer más
-
-- "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

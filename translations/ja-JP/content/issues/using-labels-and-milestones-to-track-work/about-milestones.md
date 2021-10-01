@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-milestones
   - /github/managing-your-work-on-github/about-milestones
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -27,7 +27,7 @@ topics:
 
 ![マイルストーンページ](/assets/images/help/issues/milestone-info-page.png)
 
-### マイルストーン中のIssueとプルリクエストの優先順位付け
+## マイルストーン中のIssueとプルリクエストの優先順位付け
 
 マイルストーン中のオープンのIssueとプルリクエストは、Issueもしくはプルリクエストのチェックボックスの左をクリックし、新しい場所へドラッグし、ドロップすることによって、優先順位付けできます。
 
@@ -39,7 +39,7 @@ topics:
 
 ![並べ替えられたマイルストーン](/assets/images/help/issues/milestone-reordered.gif)
 
-### 参考リンク
+## 参考リンク
 
 - [Issueやプルリクエストのためのマイルストーンの作成と編集](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)
 - [Issue及びプルリクエストとのマイルストーンの関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)

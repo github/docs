@@ -3,7 +3,7 @@ title: Finding security vulnerabilities and errors in your code
 shortTitle: Finding vulnerabilities and coding errors
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

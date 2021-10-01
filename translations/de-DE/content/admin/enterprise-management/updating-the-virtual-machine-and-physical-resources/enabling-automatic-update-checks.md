@@ -6,11 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
   - /admin/enterprise-management/enabling-automatic-update-checks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: Enable automatic update checks
 ---
 
 Wenn ein Upgrade-Pakete für {% data variables.product.product_location %} automatisch heruntergeladen wird, wird in einer Meldung angezeigt, dass Sie ein Upgrade von {% data variables.product.prodname_ghe_server %} durchführen können. Pakete werden auf {% data variables.product.product_location %} in das Verzeichnis `/var/lib/ghe-updates` heruntergeladen. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)“.

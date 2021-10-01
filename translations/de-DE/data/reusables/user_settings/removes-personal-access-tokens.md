@@ -1,1 +1,1 @@
-Als eine Sicherheitsvorkehrung entfernt {% data variables.product.prodname_dotcom %} automatisch die persönlichen Zugriffstokens, die während einem Jahr nicht verwendet wurden.
+As a security precaution, {% data variables.product.company_short %} automatically removes personal access tokens that haven't been used in a year.{% ifversion fpt or ghes > 3.1 or ghae-issue-4374 %} To provide additional security, we highly recommend adding an expiration to your personal access tokens.{% endif %}

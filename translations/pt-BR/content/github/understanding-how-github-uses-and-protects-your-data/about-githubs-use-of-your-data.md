@@ -5,13 +5,14 @@ redirect_from:
   - /articles/about-githubs-use-of-your-data
 intro: 'O {% data variables.product.product_name %} usa os dados do seu repositório para conectar você a ferramentas, pessoas, projetos e informações relevantes.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
+shortTitle: Uso dos seus dados pelo GitHub
 ---
  
-### Sobre o uso de seus dados pelo {% data variables.product.product_name %}
+## Sobre o uso dos seus dados de {% data variables.product.product_name %}
 
 O {% data variables.product.product_name %} agrega metadados e analisa padrões de conteúdo com a finalidade de fornecer insights genéricos sobre o produto. Ele usa dados de repositórios públicos, além de usar metadados e agregar dados de repositórios privados quando o proprietário de um repositório opta por compartilhar os dados com o {% data variables.product.product_name %} por meio de aceitação. Se você optar por um repositório privado no uso de dados, será feita uma análise somente leitura desse repositório privado específico.
 
@@ -23,7 +24,7 @@ Se você aceitar o uso de dados para um repositório privado, continuaremos trat
 
 Anunciaremos novos recursos importantes que usam metadados ou dados agregados no [blog do {% data variables.product.prodname_dotcom %}](https://github.com/blog).
 
-### Como os dados melhoram as recomendações de segurança
+## Como os dados melhoram as recomendações de segurança
 
 Para dar um exemplo de como os dados podem ser usados, podemos detectar e alertar você para uma vulnerabilidade de segurança nas dependências do seu repositório público. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
 
@@ -31,7 +32,7 @@ Para detectar possíveis vulnerabilidades de segurança, o {% data variables.pro
 
 O {% data variables.product.product_name %} também aprende com as alterações que você faz no manifesto de dependência. Por exemplo, se você atualizar uma dependência vulnerável para uma versão segura após receber um alerta de segurança e outras pessoas fizerem o mesmo, o {% data variables.product.product_name %} aprenderá como corrigir a vulnerabilidade e poderá recomendar um patch semelhante aos repositórios afetados.
 
-### Compartilhamento de dados e privacidade
+## Compartilhamento de dados e privacidade
 
 Os dados do repositório privada são verificados por máquina e nunca lidos pela equipe do {% data variables.product.product_name %}. Os olhos humanos nunca verão o conteúdo dos repositórios privados, exceto conforme descrito em nossos [Termos de serviço](/articles/github-terms-of-service/#3-access).
 

@@ -1,21 +1,23 @@
 ---
 title: 组织
+intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## 阻止用户
 
 用于对调用进行身份验证的令牌必须具有 `admin:org` 作用域才可对组织进行任何阻止调用。 否则，响应将返回 `HTTP 404`。
@@ -40,7 +42,9 @@ topics:
 
 ## Web 挂钩
 
-组织 web 挂钩允许您在组织内发生特定事件时接收 HTTP `POST` 有效负载。 订阅这些事件可以构建对 {% data variables.product.product_name %} 上的事件做出反应的集成。 有关您可以订阅的操作的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+有关您可以订阅的操作的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。
 
 ### 范围和限制
 

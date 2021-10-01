@@ -4,15 +4,13 @@ intro: 'Con {% data variables.product.prodname_enterprise %} puedes administrar 
 redirect_from:
   - /enterprise/admin/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-github-ae
   - /about-upgrades-to-new-releases
   - /about-data-residency
   - /about-enterprise-accounts
-  - /managing-your-github-enterprise-license
-  - /managing-billing-for-your-enterprise
   - /system-overview
   - /about-the-github-enterprise-api
 ---

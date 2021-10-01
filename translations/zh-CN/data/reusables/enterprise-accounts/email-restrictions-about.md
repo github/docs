@@ -2,7 +2,13 @@
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
+{% ifversion fpt %}
 可以从企业帐户继承域，也可以为特定组织配置域。 更多信息请参阅“[验证或批准企业帐户的域](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)”和“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”。
+{% endif %}
+
+{%  ifversion ghes > 3.1 %}
+可以从企业帐户继承域，也可以为特定组织配置域。 For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 

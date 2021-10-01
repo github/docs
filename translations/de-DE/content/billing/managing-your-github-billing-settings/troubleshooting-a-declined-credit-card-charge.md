@@ -5,28 +5,28 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
   - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
-  - /github/setting-up-and-managing-billing-and-payments-on-github/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Troubleshooting
+shortTitle: Declined credit card charge
 ---
 
 Bei einer Ablehnung Deiner Kreditkarte senden wir Dir eine E-Mail mit dem Grund der Ablehnung. Du hast dann einige Tage Zeit, das Problem zu beheben, bevor wir erneut versuchen, Deine Kreditkarte zu belasten.
 
-### Überprüfen das Gültigkeitsdatum Deiner Kreditkarte
+## Überprüfen das Gültigkeitsdatum Deiner Kreditkarte
 
 Wenn Deine Kreditkarte nicht mehr gültig ist, musst Du die Zahlungsinformationen Deines Kontos aktualisieren. Weitere Informationen finden Sie unter „[Zahlungsmethode hinzufügen oder bearbeiten](/articles/adding-or-editing-a-payment-method)“.
 
-### Überprüfe die Richtlinien Deiner Bank zu Kreditkarteneinschränkungen
+## Überprüfe die Richtlinien Deiner Bank zu Kreditkarteneinschränkungen
 
 Einige internationale Bankinstitute schränken internationale, E-Commerce- und automatisch wiederkehrende Transaktionen ein. Bei Problemen mit einer Zahlung mit Deiner internationalen Kreditkarte erkundige Dich bei Deiner Bank nach geltenden Einschränkungen für Deine Kreditkarte.
 
 Wir unterstützen auch die Zahlung per PayPal. Weitere Informationen finden Sie unter „[Zahlungsmethode hinzufügen oder bearbeiten](/articles/adding-or-editing-a-payment-method)“.
 
-### Frage Deine Bank nach den Transaktionsdetails
+## Frage Deine Bank nach den Transaktionsdetails
 
 Deine Bank kann Dir genau sagen, weshalb eine Zahlung abgelehnt wurde. Frage sie bei einer nicht durchgeführten Transaktion nach dem spezifischen Grund. Falls für Deine Karte Einschränkungen gelten, bereite vor einem Anruf bei Deiner Bank die folgenden Informationen vor:
 

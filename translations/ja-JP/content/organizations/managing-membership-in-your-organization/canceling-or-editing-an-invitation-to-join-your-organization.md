@@ -5,10 +5,11 @@ redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 招待のキャンセルあるいは編集
 ---
 
 {% data reusables.profile.access_org %}
@@ -22,9 +23,9 @@ topics:
     - ユーザの招待を編集するには、別のロールまたは Team を選択して、[**Update invitation**] をクリックします。
     - ユーザの Organization への招待をキャンセルするには、[**Cancel invitation**] をクリックします。
 
-### 参考リンク
+## 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - [Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization)"
 {% endif %}
 - [Team へのOrganization メンバーの追加](/articles/adding-organization-members-to-a-team)

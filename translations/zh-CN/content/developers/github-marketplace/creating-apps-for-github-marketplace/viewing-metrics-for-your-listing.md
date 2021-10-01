@@ -8,9 +8,10 @@ redirect_from:
   - /marketplace/github-marketplace-insights
   - /developers/github-marketplace/viewing-metrics-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: 查看列表指标
 ---
 
 您可以查看 {% data variables.product.prodname_github_app %} 在过去一天（24 小时）、一周、一月或整个上架期间的指标。
@@ -21,7 +22,7 @@ topics:
 
 {% endnote %}
 
-### 性能指标
+## 性能指标
 
 Insights 页面显示选定时段的以下性能指标：
 
@@ -35,7 +36,7 @@ Insights 页面显示选定时段的以下性能指标：
 
 {% endnote %}
 
-#### 转化性能
+### 转化性能
 
 * **Unique visitors to landing page（登录页面的绝对访客数）：**查看过 GitHub 应用程序登录页面的人数。
 * **Unique visitors to checkout page（结账页面的绝对访客数）：**查看过 GitHub 应用程序结账页面的人数。
