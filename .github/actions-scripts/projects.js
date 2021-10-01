@@ -125,11 +125,14 @@ export function formatDateForProject(date) {
 export function calculateDueDate(datePosted, turnaround = 2) {
   let daysUntilDue
   switch (datePosted.getDay()) {
-    case 0: // Sunday
-      daysUntilDue = turnaround + 1
+    case 4: // Thursday
+      daysUntilDue = turnaround + 2
+      break
+    case 5: // Friday
+      daysUntilDue = turnaround + 2
       break
     case 6: // Saturday
-      daysUntilDue = turnaround + 2
+      daysUntilDue = turnaround + 1
       break
     default:
       daysUntilDue = turnaround
