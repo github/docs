@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
+import { Heading } from '@primer/components'
 
 import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
-import { ArticleTopper } from 'components/article/ArticleTopper'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -14,6 +14,8 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
+import { VersionPicker } from 'components/VersionPicker'
+import { Breadcrumbs } from 'components/Breadcrumbs'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -44,12 +46,11 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout>
-      <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-        <ArticleTopper />
-
+      <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          className="mt-7"
-          head={
+          topper={<Breadcrumbs />}
+          topperSidebar={<VersionPicker />}
+          intro={
             <>
               <ArticleTitle>{title}</ArticleTitle>
 
@@ -124,11 +125,11 @@ export const ArticlePage = () => {
               )}
               {miniTocItems.length > 1 && (
                 <>
-                  <h2 id="in-this-article" className="f5 mb-2">
+                  <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
                     <a className="Link--primary" href="#in-this-article">
                       {t('miniToc')}
                     </a>
-                  </h2>
+                  </Heading>
                   <ul className="list-style-none pl-0 f5 mb-0">
                     {miniTocItems.map((item) => {
                       return (
