@@ -5,18 +5,19 @@ redirect_from:
   - /articles/adding-support-resources-to-your-project
   - /github/building-a-strong-community/adding-support-resources-to-your-project
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Add support resources
 ---
 
 Um Personen auf bestimmte Support-Ressourcen zu verweisen, kannst Du eine SUPPORT-Datei zum Root-, `docs`- oder `.github`-Ordner Deines Repositorys hinzufügen. Wenn jemand einen Issue in Deinem Repository erstellt, wird ihm ein Link zur SUPPORT-Datei Deines Projekts angezeigt.
 
 ![Support-Richtlinien](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 You can create default support resources for your organization or user account. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
@@ -28,7 +29,7 @@ You can create default support resources for your organization or user account. 
 
 {% endtip %}
 
-### Support-Ressourcen zu Deinem Projekt hinzufügen
+## Support-Ressourcen zu Deinem Projekt hinzufügen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

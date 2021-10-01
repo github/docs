@@ -186,6 +186,8 @@ export function generateUpdateProjectNextItemFieldMutation({
       $reviewDueDateID: ID!
       $contributorTypeID: ID!
       $contributorType: String!
+      $sizeTypeID: ID!
+      $sizeType: String!
       $featureID: ID!
       $authorID: ID!
     ) {
@@ -210,6 +212,11 @@ export function generateUpdateProjectNextItemFieldMutation({
         item: item,
         fieldID: '$contributorTypeID',
         value: '$contributorType',
+      })}
+      ${generateMutationToUpdateField({
+        item: item,
+        fieldID: '$sizeTypeID',
+        value: '$sizeType',
       })}
       ${generateMutationToUpdateField({
         item: item,

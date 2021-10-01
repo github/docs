@@ -1,8 +1,9 @@
 ---
 title: ディスカッションでのGraphQL APIの利用
-intro: GitHub Discussions GraphQL APIの使い方を学んでください。
+intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: ディスカッションでのGraphQLの利用
 ---
 
 {% data variables.product.prodname_discussions %} GraphQL APIを使うと、ディスカッションのポストの取得、作成、編集、削除ができます。 {% data variables.product.prodname_discussions %}に関する詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。

@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -24,18 +24,18 @@ topics:
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### {% data variables.product.product_name %} 上的状态检查类型
+## {% data variables.product.product_name %} 上的状态检查类型
 
 {% data variables.product.product_name %} 上的状态检查有两种类型：
 
 - 检查
 - 状态
 
-_检查_与_状态_的不同之处在于它们提供行注解、更详细的信息，并且只适用于 {% data variables.product.prodname_github_app %}。
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
 组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 更多信息请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/repos#statuses)”。
 
-### 检查
+## 检查
 
 在仓库中设置_检查_时，拉取请求会有一个 **Checks（检查）**选项卡，从中可以查看状态检查的详细构建输出和重新运行失败的检查。
 
@@ -49,7 +49,7 @@ _检查_与_状态_的不同之处在于它们提供行注解、更详细的信�
 
 ![下拉菜单中不同提交的检查摘要](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-#### 跳过和申请个别提交的检查
+### 跳过和申请个别提交的检查
 
 当仓库设置为自动申请检查推送时，您可以选择跳过所推送的个别提交的检查。 当仓库_未_设置为自动申请检查推送时，您可以申请检查您推送的个别提交。 有关这些设置的更多信息，请参阅“[检查套件](/rest/reference/checks#update-repository-preferences-for-check-suites)”。
 

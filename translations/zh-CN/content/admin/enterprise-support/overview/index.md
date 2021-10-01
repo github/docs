@@ -4,8 +4,8 @@ intro: '了解可用于 {% data variables.product.product_name %} 的支持选�
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

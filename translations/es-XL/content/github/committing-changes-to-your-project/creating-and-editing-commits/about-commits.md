@@ -6,9 +6,9 @@ redirect_from:
   - /github/committing-changes-to-your-project/why-are-my-commits-in-the-wrong-order
   - /github/committing-changes-to-your-project/about-commits
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ### Acerca de las confirmaciones
 

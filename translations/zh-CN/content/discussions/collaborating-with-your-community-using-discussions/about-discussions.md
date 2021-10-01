@@ -2,12 +2,11 @@
 title: 关于讨论
 intro: '使用讨论来提问和回答问题、共享信息、发布公告以及进行或参与有关 {% data variables.product.product_name %} 上项目的对话。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-{% data reusables.discussions.beta %}
 
-### 关于讨论
+## 关于 {% data variables.product.prodname_discussions %}
 
 使用 {% data variables.product.prodname_discussions %}，项目的社区可以创建和参与项目仓库中的对话。 讨论使项目的维护者、参与者和访问者能够在没有第三方工具的情况下，在中心位置收集和完成以下目标。
 
@@ -19,11 +18,11 @@ versions:
 
 您不需要像关闭议题或拉取请求那样结束讨论。
 
-如果仓库管理员或项目维护者支持存储库的讨论，则访问仓库的任何人都可以创建和参与仓库的讨论。 仓库管理员和项目维护者可以管理仓库中的讨论和讨论类别，并固定讨论以提高讨论的可见性。 主持人和协作者可以将评论标记为答案、锁定讨论并将议题转换为讨论。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
+If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. 仓库管理员和项目维护者可以管理仓库中的讨论和讨论类别，并固定讨论以提高讨论的可见性。 主持人和协作者可以将评论标记为答案、锁定讨论并将议题转换为讨论。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
 有关管理仓库讨论的更多信息，请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)”。
 
-### 关于讨论组织
+## 关于讨论组织
 
 您可以使用类别和标签组织讨论。
 
@@ -37,7 +36,7 @@ versions:
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-### 讨论的最佳实践
+## Best practices for {% data variables.product.prodname_discussions %}
 
 作为社区成员或维护者，发起讨论以提出问题或讨论影响社区的信息。 更多信息请参阅“[使用讨论与维护者协作](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)”。
 
@@ -47,11 +46,11 @@ versions:
 
 {% data reusables.discussions.you-can-convert-an-issue %}更多信息请参阅“[主持仓库中的讨论](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)”。
 
-### 分享反馈
+## 分享反馈
 
 您可以与 {% data variables.product.company_short %} 分享您对 {% data variables.product.prodname_discussions %} 的反馈。 要加入对话，请参阅 [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22)。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于 {% data variables.product.prodname_dotcom %} 上的书写和格式化](/github/writing-on-github/about-writing-and-formatting-on-github)”
 - "[搜索讨论](/github/searching-for-information-on-github/searching-discussions)"

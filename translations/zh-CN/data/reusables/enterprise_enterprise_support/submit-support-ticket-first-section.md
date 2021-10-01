@@ -4,12 +4,12 @@
     - 重现问题的步骤
     - 与发现问题相关的任何特殊情况（例如，首次发生或特定活动后发生、发生频率、问题的业务影响以及建议的紧迫程度）
     - 错误消息的准确表述
-1. 从 {% data variables.product.prodname_enterprise %} 产品下拉菜单，选择 {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}。 ![优先级下拉菜单](/assets/images/enterprise/support/support-ticket-ghe-product.png)
-1. 从“Priority（优先级）”下拉菜单，选择适当的紧迫程度。 更多信息请参阅“[分配支持事件单的优先级]{% if currentVersion == "free-pro-team@latest" %}(/articles/about-github-premium-support-for-github-enterprise-cloud#assigning-a-priority-to-a-support-ticket){% else %}(/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket){% endif %}”。 ![优先级下拉菜单](/assets/images/enterprise/support/support-ticket-priority.png)
-    - 选择 **{% data variables.product.support_ticket_priority_urgent %}** 以报告 {% if currentVersion == "free-pro-team@latest" %}关键系统故障{% else %}致命系统故障、影响关键系统运行的中断、安全事件和许可证过期{% endif %}。
-    - 选择 **{% data variables.product.support_ticket_priority_high %}** 以报告影响业务运营的问题，包括 {% if currentVersion == "free-pro-team@latest" %}从您自己的帐户和组织还原中删除敏感数据（提交、议题、拉取请求、上传的附件）{% else %}系统性能问题{% endif %}，或报告严重漏洞。
-    - 选择 **{% data variables.product.support_ticket_priority_normal %}** 以{% if currentVersion == "free-pro-team@latest" %}请求帐户恢复或垃圾邮件取消标识、报告用户登录问题{% else %}发出技术请求，如配置更改和第三方集成{% endif %}，以及报告非关键漏洞。
-    - 选择 **{% data variables.product.support_ticket_priority_low %}**，提出一般问题并提交关于新功能、购买、培训或状态检查的请求。{% if enterpriseServerVersions contains currentVersion %}
+1. 从 {% data variables.product.prodname_enterprise %} 产品下拉菜单，选择 {% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}。 ![优先级下拉菜单](/assets/images/enterprise/support/support-ticket-ghe-product.png)
+1. 从“Priority（优先级）”下拉菜单，选择适当的紧迫程度。 更多信息请参阅“[分配支持事件单的优先级]{% ifversion fpt %}(/articles/about-github-premium-support-for-github-enterprise-cloud#assigning-a-priority-to-a-support-ticket){% else %}(/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket){% endif %}”。 ![优先级下拉菜单](/assets/images/enterprise/support/support-ticket-priority.png)
+    - 选择 **{% data variables.product.support_ticket_priority_urgent %}** 以报告{% ifversion fpt %}关键系统故障{% else %}致命系统故障、影响关键系统运行的中断、安全事件和许可证过期{% endif %}。
+    - 选择 **{% data variables.product.support_ticket_priority_high %}** 以报告影响业务运营的问题，包括 {% ifversion fpt %}从您自己的帐户和组织还原中删除敏感数据（提交、议题、拉取请求、上传的附件）{% else %}系统性能问题{% endif %}，或报告严重漏洞。
+    - 选择 **{% data variables.product.support_ticket_priority_normal %}** 以{% ifversion fpt %}请求帐户恢复或垃圾邮件取消标识、报告用户登录问题{% else %}发出技术请求，如配置更改和第三方集成{% endif %}，以及报告非关键漏洞。
+    - 选择 **{% data variables.product.support_ticket_priority_low %}**，提出一般问题并提交关于新功能、购买、培训或状态检查的请求。{% ifversion ghes %}
 1. 从
 “{% data variables.product.prodname_enterprise %} Series（系列）”下拉菜单，选择您使用的 {% data variables.product.prodname_ghe_server %} 的版本。
   ![{% data variables.product.prodname_enterprise %} 系列下拉菜单](/assets/images/enterprise/support/support-ticket-ghes-series.png)

@@ -5,9 +5,9 @@ redirect_from:
   - /guides/rendering-data-as-graphs/
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -20,7 +20,7 @@ topics:
 
 それでは早速始めましょう！
 
-### OAuthアプリケーションの設定
+## OAuthアプリケーションの設定
 
 まず、{% data variables.product.product_name %}で[新しいアプリケーションを登録][new oauth application]します。 コールバックURLは`http://localhost:4567/`と設定してください。 [以前][basics-of-authentication]行ったように、[sinatra-auth-github][sinatra auth github]を使用してRackミドルウェアを実装することにより、APIの認証を処理します。
 
@@ -73,7 +73,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### リポジトリ情報のフェッチ
+## リポジトリ情報のフェッチ
 
 今回は、{% data variables.product.product_name %} APIと通信を行うため、[Octokit Rubyライブラリ][Octokit]を使用します。 これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
 
@@ -119,7 +119,7 @@ languages.to_s
 
 ここまではうまくいきましたが、ちょっと取っつきにくいですね。 これらの言語数がどのような分布をしているかを把握するには、視覚化がとても役立つでしょう。 数えたものをD3にフィードし、使用する言語の人気を表す棒グラフを取得しましょう。
 
-### 言語数の視覚化
+## 言語数の視覚化
 
 D3.js (単にD3と表記することもある) は、多様なチャート、グラフ、インタラクティブな視覚化を作成するための包括的なライブラリです。 D3の詳細はこのガイドが扱う範囲を超えていますが、いい入門記事としては、[「D3 for Mortals」][D3 mortals]をご覧ください。
 
@@ -221,7 +221,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 
 「D3 for Mortals」のガイドが示すように、これは必ずしもD3の最善の利用法ではありません。 ただ、Octokitと一緒にライブラリを使って、とっても素晴らしいものを作る方法を説明するには役立ちます。
 
-### さまざまなAPI呼び出しの組み合わせ
+## さまざまなAPI呼び出しの組み合わせ
 
 さて、ここで本当のことを言いましょう。リポジトリの`language`属性が識別するのは、「主な」言語として定義されたものだけです。 つまり、複数の言語が混ざったリポジトリでは、コードのバイト数が最も多い言語が主言語とみなされます。
 

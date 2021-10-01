@@ -2,7 +2,13 @@ When you restrict email notifications, enterprise members can only use an email 
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
+{% ifversion fpt %}
 The domains can be inherited from the enterprise account or configured for the specific organization. For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% endif %}
+
+{%  ifversion ghes > 3.1 %}
+The domains can be inherited from the enterprise account or configured for the specific organization. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 

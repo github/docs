@@ -1,13 +1,15 @@
 ---
 title: Pulls
+intro: 'A API Pulls permite que você liste, veja, edite, crie e até mesmo faça merge de pull requests.'
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 A API do Pull Request permite que você liste, visualize, edite, crie e até mesmo faça merge de pull requests. Comentários em pull requests podem ser gerenciados através da [API de Comentários do Problema](/rest/reference/issues#comments).
@@ -26,8 +28,6 @@ Estes são os tipos de mídia compatíveis com pull requests.
     application/vnd.github.VERSION.patch
 
 Para obter mais informações, consulte "[tipos de mídia personalizados](/rest/overview/media-types)".
-
-<a id="diff-error">
 
 Se um diff estiver corrompido, entre em contato com {% data variables.contact.contact_support %}. Inclua o nome e o ID do pull request do repositório na sua mensagem.
 

@@ -16,7 +16,7 @@ export const SubLandingHero = () => {
   const guideItems = featuredTrack?.guides?.map((guide) => (
     <li className="px-2 d-flex flex-shrink-0" key={guide.href} style={{ width: cardWidth }}>
       <Link
-        href={`${guide.href}?learn=${featuredTrack.trackName}`}
+        href={`${guide.href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
         className="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline"
       >
         <div className="d-flex flex-justify-between flex-items-center">
@@ -71,7 +71,7 @@ export const SubLandingHero = () => {
                   <Link
                     className="d-inline-flex flex-items-center flex-justify-center btn px-4 py-2 f5 no-underline text-bold"
                     role="button"
-                    href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}`}
+                    href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
                   >
                     {t(`start_path`)}
                     <ArrowRightIcon size={20} className="ml-2" />

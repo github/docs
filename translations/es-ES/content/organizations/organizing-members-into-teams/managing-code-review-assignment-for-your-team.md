@@ -5,23 +5,27 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
 product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Tarea de revisión de código
+permissions: Team maintainers and organization owners can configure code review assignments.
 ---
 
-Los mantenedores de equipo y propietarios de organización pueden configurar tareas de revisión de código.
-
-### Acerca de las tareas de revisión de código
+## Acerca de las tareas de revisión de código
 
 Al utilizar tareas de revisión de código, cada que se pida a tu equipo revisar una solicitud de extracción, éste se eliminará como revisor y se asignará un subconjunto de miembros específicos del mismo en sustitución. Las tareas de revisión de código te permiten decidir si se notificará a todo el equipo o solo a un subconjunto de miembros del mismo cuando se solicite que éste realice una revisión.
 
 Cuando se les solicita automáticamente una revisión a los propietarios del código, el equipo se eliminará y reemplazará con los individuos de todos modos. Las aprobaciones individuales no satisfacen el requisito de aprobación del propietario del código en una rama protegida. Para obtener más información, consulta "[Acerca de los propietarios del código](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
 
-### Rutear algoritmos
+{% ifversion fpt %}
+To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
+
+## Rutear algoritmos
 
 Las asignaciones de revisión de código eligen y asignan revisores automáticamente con base en uno de dos algoritmos posibles.
 
@@ -29,7 +33,9 @@ El algoritmo de round robin (turno rotativo) escoge revisores basándose en qui�
 
 El algoritmo de balanceo de carga escoge a los revisores basándose en la cantidad total de solicitudes de revisión recientes para cada miembro, y considera el número de revisiones pendientes para cada uno de ellos. El algoritmo de balanceo de carga intenta asegurarse de que cada miembro del equipo revise una cantidad igual de solicitudes de extracción en cualquier periodo de 30 días.
 
-### Configurar una tarea de revisión de código
+Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+
+## Configurar una tarea de revisión de código
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -42,7 +48,7 @@ El algoritmo de balanceo de carga escoge a los revisores basándose en la cantid
 10. De manera opcional, para notificar únicamente a los miembros del equipo que se escogieron por tarea de revisión en cada solicitud revisión de código, selecciona **No notificar a todo el equipo si se asignan miembros específicos** debajo de "Notificaciones". ![Notificaciones de tarea de revisión de código](/assets/images/help/teams/review-assignment-notifications.png)
 11. Haz clic en **Guardar cambios**.
 
-### Inhabilitar una tarea de revisión de código
+## Inhabilitar una tarea de revisión de código
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}

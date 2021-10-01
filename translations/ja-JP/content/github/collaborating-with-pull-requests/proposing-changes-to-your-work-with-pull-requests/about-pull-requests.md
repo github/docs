@@ -7,14 +7,14 @@ redirect_from:
   - /articles/about-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### プルリクエストについて
+## プルリクエストについて
 
 {% note %}
 
@@ -24,14 +24,16 @@ topics:
 
 {% endnote %}
 
+You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+
 プルリクエストを初期化すると、あなたのブランチ（比較ブランチ）とリポジトリのベースブランチとの差異の高レベルの概要を示すレビューページが表示されます。 提案した変更の概要を追加したり、コミットによる変更をレビューしたり、ラベルやマイルストーン、アサインされた人を追加したり、個人のコントリビューターやTeamに@メンションできます。 詳しい情報については[プルリクエストの作成](/articles/creating-a-pull-request)を参照してください。
 
 プルリクエストを作成したら、トピックブランチからコミットをプッシュして、それらを既存のプルリクエストに追加できます。 それらのコミットは、プルリクエスト内で時系列順に表示され、変更は"Files changed（変更されたファイル）"タブで見ることができます。
 
 他のコントリビューターは、あなたが提案した変更をレビューしたり、レビューコメントを追加したり、プルリクエストのディスカッションにコントリビュートしたり、さらにはプルリクエストにコメントを追加したりできます。
 
-{% if currentVersion == "free-pro-team@latest" %}
-[Conversation] タブで、ブランチの現在のデプロイメントステータスや過去のデプロイメントのアクティビティに関する情報を確認することができます。 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/articles/viewing-deployment-activity-for-your-repository)」を参照してください。
+{% ifversion fpt %}
+[Conversation] タブで、ブランチの現在のデプロイメントステータスや過去のデプロイメントのアクティビティに関する情報を確認することができます。 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)」を参照してください。
 {% endif %}
 
 提案された変更に満足したなら、プルリクエストをマージできます。 共有リポジトリモデルで作業している場合は、プルリクエストを作成し、あなたか他のユーザが、プルリクエストで指定したベースブランチにフィーチャブランチからの変更をマージします。 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
@@ -50,7 +52,7 @@ topics:
 
 ダッシュボードにアクセスすれば、作業しているかサブスクライブしている最近更新されたプルリクエストへのリンクを素早く見つけることができます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
-### ドラフトプルリクエスト
+## ドラフトプルリクエスト
 
 {% data reusables.gated-features.draft-prs %}
 
@@ -58,19 +60,16 @@ topics:
 
 {% data reusables.pull_requests.mark-ready-review %} プルリクエストはいつでもドラフトに変換できます。 詳しい情報については、「[プルリクエストのステージの変更](/articles/changing-the-stage-of-a-pull-request)」を参照してください。
 
-### 比較とプルリクエストページのコミットの違い
+## 比較とプルリクエストページのコミットの違い
 
 比較とプルリクエストページは、次のような異なる方法で、変更されたファイルの diff を計算します。
 
 - 比較ページには、head ref のヒントと、head およびベース ref の現在の共通の先祖 (マージベース) との diff が表示されます。
 - プルリクエストページには、プルリクエストが作成されたときの head ref のヒントと、head およびベース ref の共通の先祖との diff が表示されます。 したがって、比較に使用されるマージベースは異なる場合があります。
 
-### 参考リンク
+## 参考リンク
 
 - {% data variables.product.prodname_dotcom %} 用語集中の[プルリクエスト](/articles/github-glossary/#pull-request)
 - [ブランチについて](/articles/about-branches)
 - [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)
-- [プルリクエストのマージ](/articles/merging-a-pull-request)
 - [プルリクエストのクローズ](/articles/closing-a-pull-request)
-- [使われていないブランチの削除](/articles/deleting-unused-branches)
-- [プルリクエストのマージについて](/articles/about-pull-request-merges)

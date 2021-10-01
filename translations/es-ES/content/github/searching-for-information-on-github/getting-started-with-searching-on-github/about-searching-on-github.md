@@ -10,9 +10,9 @@ redirect_from:
   - /articles/about-searching-on-github
   - /github/searching-for-information-on-github/about-searching-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -26,7 +26,7 @@ topics:
 
 **Notas:**
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 - {% data reusables.search.required_login %}{% endif %}
 - Los sitios {% data variables.product.prodname_pages %} no se pueden buscar en {% data variables.product.product_name %}. Sin embargo, puedes buscar el contenido fuente si existe en la rama por defecto de un repositorio, usando la búsqueda de código. Para obtener más información, consulta "[Código de búsqueda](/articles/searching-code)". Para obtener más información acerca de {% data variables.product.prodname_pages %}, consulta "[¿Qué son las Páginas de GitHub?](/articles/what-is-github-pages/)"
 - Actualmente, nuestra búsqueda no es compatible con las coincidencias exactas.
@@ -38,21 +38,21 @@ Después de ejecutar una búsqueda en {% data variables.product.product_name %},
 
 La búsqueda de {% data variables.product.product_name %} usa una agrupación ElasticSearch para indexar los proyectos cada vez que se sube un cambio a {% data variables.product.product_name %}. Las propuestas y las solicitudes de extracción son indexadas cuando son creadas o modificadas.
 
-### Tipos de búsquedas en {% data variables.product.prodname_dotcom %}
+## Tipos de búsquedas en {% data variables.product.prodname_dotcom %}
 
 Puedes buscar la siguiente información a través de todos los repositorios a los que puedes acceder en {% data variables.product.product_location %}.
 
 - [Repositorios](/articles/searching-for-repositories)
 - [Temas](/articles/searching-topics)
-- [propuestas y solicitudes de cambios](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
+- [propuestas y solicitudes de cambios](/articles/searching-issues-and-pull-requests){% ifversion fpt %}
 - [Debates](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Código](/articles/searching-code)
 - [Confirmaciones](/articles/searching-commits)
-- [Usuarios](/articles/searching-users){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
-- [Paquetes](/github/searching-for-information-on-github/searching-for-packages){% endif %}
+- [Usuarios](/articles/searching-users)
+- [Paquetes](/github/searching-for-information-on-github/searching-for-packages)
 - [Wikis](/articles/searching-wikis)
 
-### Buscar usando una interfaz visual
+## Buscar usando una interfaz visual
 
 Alternativamente, puedes buscar {% data variables.product.product_name %} usando {% data variables.search.search_page_url %} o {% data variables.search.advanced_url %}.
 
@@ -60,8 +60,8 @@ Alternativamente, puedes buscar {% data variables.product.product_name %} usando
 
 ![Búsqueda avanzada](/assets/images/help/search/advanced_search_demo.gif)
 
-{% if currentVersion != "github-ae@latest" %}
-### Buscar en todo {% data variables.product.prodname_enterprise %} y {% data variables.product.prodname_dotcom_the_website %} simultáneamente
+{% ifversion not ghae %}
+## Buscar en todo {% data variables.product.prodname_enterprise %} y {% data variables.product.prodname_dotcom_the_website %} simultáneamente
 
 Si usas {% data variables.product.prodname_enterprise %} y eres miembro de una organización de {% data variables.product.prodname_dotcom_the_website %} que usa {% data variables.product.prodname_ghe_cloud %}, tu administrador del sitio {% data variables.product.prodname_enterprise %} puede activar {% data variables.product.prodname_github_connect %} para que puedas buscar en ambos entornos al mismo tiempo. Para obtener más información, consulta "[Activar {% data variables.product.prodname_unified_search %} entre {% data variables.product.prodname_enterprise %} y {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com)".
 
@@ -72,7 +72,7 @@ El administrador de tu sitio {% data variables.product.prodname_enterprise %} pu
 Si el administrador de tu sitio activa {% data variables.product.prodname_unified_search %} en los repositorios privados, solo puedes buscar en los repositorios privados para los que el administrador activó {% data variables.product.prodname_unified_search %} y para los que tienes acceso en la organización de {% data variables.product.prodname_dotcom_the_website %} conectada. Los administradores de {% data variables.product.prodname_enterprise %} y los propietarios de la organización en {% data variables.product.prodname_dotcom_the_website %} no pueden buscar en repositorios privados que son propiedad de tu cuenta. Para buscar los repositorios privados aplicables, debes activar la búsqueda de repositorio privado para tus cuentas personales en {% data variables.product.prodname_dotcom_the_website %} y {% data variables.product.prodname_enterprise %}. Para obtener más información, consulta "[Activar la búsqueda de repositorio privado de {% data variables.product.prodname_dotcom_the_website %} en tu cuenta de {% data variables.product.prodname_enterprise %} account](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)".
 {% endif %}
 
-### Leer más
+## Leer más
 
 - "[Comprender la sintaxis de búsqueda](/articles/understanding-the-search-syntax)"
 - "[Búsqueda en GitHub](/articles/searching-on-github)"

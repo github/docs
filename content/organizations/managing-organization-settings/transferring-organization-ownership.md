@@ -14,6 +14,12 @@ topics:
   - Teams
 shortTitle: Transfer ownership
 ---
+{% ifversion fpt %}
+{% note %}
+
+**Note:** {% data reusables.enterprise-accounts.invite-organization %}
+
+{% endnote %}{% endif %}
 
 1. If you're the only member with *owner* privileges, give another organization member the owner role. For more information, see "[Appointing an organization owner](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
 2. Contact the new owner and make sure he or she is able to [access the organization's settings](/articles/accessing-your-organization-s-settings).

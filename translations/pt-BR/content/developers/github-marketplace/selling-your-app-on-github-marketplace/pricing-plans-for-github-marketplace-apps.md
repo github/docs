@@ -6,9 +6,10 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Preços de planos para os aplicativos
 ---
 
 Os planos de preços de {% data variables.product.prodname_marketplace %} podem ser grátis, fixos ou por unidade. Os preços são definidos, exibidos e processados em dólares. Os planos pagos são restritos a aplicativos publicados por editores verificados. Para obter mais informações sobre como se tornar um editor verificado, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
@@ -21,9 +22,9 @@ Para obter mais informações sobre como criar um plano de preços, consulte "[C
 
 {% data reusables.marketplace.free-plan-note %}
 
-### Tipos de planos de preços
+## Tipos de planos de preços
 
-#### Planos de preços grátis
+### Planos de preços grátis
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
@@ -33,7 +34,7 @@ Todos os aplicativos precisam gerenciar eventos para novas compras e cancelament
 
 Se você adicionar um plano pago a um aplicativo que já esteja listado em {% data variables.product.prodname_marketplace %} como um serviço grátis, você precisará solicitar verificação para o aplicativo e passar pela integração financeira.
 
-#### Planos de preços pagos
+### Planos de preços pagos
 
 Existem dois tipos de planos de preços pagos:
 
@@ -43,7 +44,7 @@ Existem dois tipos de planos de preços pagos:
 
 Você também pode oferecer testes grátis. Eles fornecem gratuitamente testes de 14 dias referentes aos aplicativos OAuth ou GitHub para os clientes. Ao configurar um plano de preços do Marketplace você poderá selecionar a opção de fornecer um teste gratuito para planos de taxa fixa ou por unidade de preços
 
-### Testes grátis
+## Testes grátis
 
 Os clientes podem iniciar uma avaliação gratuita para qualquer plano pago de um anúncio do Marketplace que inclui testes grátis. No entanto, os clientes não podem criar mais de um teste grátis por produto no marketplace.
 

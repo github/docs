@@ -60,17 +60,6 @@ Ubuntu 18.04
 </tr>
 <tr>
 <td>
-Ubuntu 16.04<sup>[deprecated]</sup>
-</td>
-<td>
-<code>ubuntu-16.04</code>
-</td>
-<td>
-Deprecated and limited to existing customers only. Migrate to Ubuntu 20.04. For more information, see  <A href="https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021">the blog post</A>.
-</td>
-</tr>
-<tr>
-<td>
 macOS Big Sur 11
 </td>
 <td>

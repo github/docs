@@ -4,14 +4,17 @@ intro: '您可以查看 {% data variables.product.prodname_GH_advanced_security 
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
+  ghes: '>=3.1'
 topics:
   - Enterprise
+shortTitle: 查看高级安全用法
 ---
 
-{% data reusables.advanced-security.about-ghas-license-seats %}更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的许可](/admin/advanced-security/about-licensing-for-github-advanced-security)”。
+## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
-### 查看 {% data variables.product.prodname_GH_advanced_security %} 的许可证使用情况
+{% data reusables.advanced-security.about-ghas-license-seats %} 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。
+
+## 查看 {% data variables.product.prodname_GH_advanced_security %} 的许可证使用情况
 
 您可以检查您的许可证包含多少个座位以及当前使用的座位数。
 

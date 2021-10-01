@@ -3,7 +3,7 @@ title: Código de conducta del evento de GitHub
 redirect_from:
   - /articles/github-event-code-of-conduct
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

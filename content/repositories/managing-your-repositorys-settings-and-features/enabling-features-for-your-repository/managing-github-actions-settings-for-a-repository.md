@@ -124,6 +124,30 @@ The default permissions can also be configured in the organization settings. If 
 1. Click **Save** to apply the settings.
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Allowing access to components in an internal repository
+
+{% note %}
+
+**Note:** {% data reusables.gated-features.internal-repos %}
+
+{% endnote %}
+
+Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)." 
+
+To configure whether workflows in an internal repository can be accessed from outside the repository:
+
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
+1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
+{% data reusables.repositories.settings-sidebar-actions %}
+1. Under **Access**, choose one of the access settings:
+   ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
+   * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
+   * **Accessible by any repository in the organization** - Workflows in other repositories can use workflows in this repository as long as they are part of the same organization.
+   * **Accessible by any repository in the enterprise** - Workflows in other repositories can use workflows in this repository as long as they are part of the same enterprise.
+1. Click **Save** to apply the settings.
+{% endif %}
+
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 

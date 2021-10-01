@@ -6,6 +6,7 @@ getting_started:
     - /actions/learn-github-actions/finding-and-customizing-actions
     - /actions/learn-github-actions/essential-features-of-github-actions
     - /actions/learn-github-actions/managing-complex-workflows
+    - /actions/learn-github-actions/reusing-workflows
     - /actions/learn-github-actions/security-hardening-for-github-actions
   featured_track: true
 continuous_integration:

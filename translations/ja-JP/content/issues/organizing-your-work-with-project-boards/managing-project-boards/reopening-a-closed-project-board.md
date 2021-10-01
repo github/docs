@@ -6,12 +6,15 @@ redirect_from:
   - /articles/reopening-a-closed-project-board
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: プロジェクトボードの再オープン
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 プロジェクトボードをクローズすると、プロジェクトボードに設定されているワークフロー自動化はデフォルトで一時停止されます。 詳しい情報については[プロジェクトボードのクローズ](/articles/closing-a-project-board)を参照してください。
 
@@ -23,6 +26,6 @@ topics:
     - プロジェクトボードを再びオープンして自動化を同期するには、[**Reopen and sync project**] をクリックします。 !["Reopen and resync project" ボタンの選択](/assets/images/help/projects/reopen-and-sync-project.png)
     - プロジェクトボードを自動化の同期なしで再びオープンするには、再オープンドロップダウンメニューで [**Reopen only**] をクリックします。 続いて、[**Reopen only**] をクリックします。 ![クローズ済みプロジェクトボード再オープンドロップダウンメニュー](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-### 参考リンク
+## 参考リンク
 
 - 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」

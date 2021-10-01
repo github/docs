@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-team
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,14 +24,14 @@ topics:
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 1. （可选）如果您的组织或企业帐户使用团队同步，要将身份提供程序组连接到您的团队，请使用“Identity Provider Groups（身份提供程序组）”下拉菜单，并选择最多 5 个身份提供程序组。 更多信息请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。 ![用于选择身份提供程序组的下拉菜单](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 9. （可选）[授予团队访问组织仓库的权限](/articles/managing-team-access-to-an-organization-repository)。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于团队](/articles/about-teams)"
 - “[更改团队可见性](/articles/changing-team-visibility)”

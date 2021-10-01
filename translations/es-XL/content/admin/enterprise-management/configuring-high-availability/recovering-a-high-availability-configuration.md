@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
   - /admin/enterprise-management/recovering-a-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - High availability
