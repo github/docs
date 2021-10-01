@@ -6,18 +6,19 @@ redirect_from:
   - /enterprise/admin/authentication/using-built-in-authentication
   - /admin/authentication/using-built-in-authentication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: Utilizar la autenticación integrada
 ---
 
 Puedes crear mensajes personalizados que los usuarios verán en las páginas de inicio de sesión y de cierre de sesión. Para obtener más información, consulta "[Personalizar mensajes de usuario en tu instancia](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)."
 
-### Configurar la autenticación integrada
+## Configurar la autenticación integrada
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -27,12 +28,25 @@ Puedes crear mensajes personalizados que los usuarios verán en las páginas de 
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### Crear tu cuenta y agregar usuarios
+## Creating your account
 
-Una vez que se ha creado tu instancia, necesitarás crear tu propia cuenta de administrador y usarla para aprovisionar usuarios.
+Once your instance has been created, you'll need to create your own admin account.
 
 1. En la página "Crear cuenta de administrador " en `http(s)://[hostname]/join`, elige tu nombre de usuario, contraseña y dirección de correo electrónico, luego haz clic en **Crear una cuenta**. ![Crear cuenta de administrador](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
 {% data reusables.enterprise_site_admin_settings.sign-in %}
+
+## Inviting users
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
+
+{% tip %}
+
+**Tip:** If email for notifications is configured on the appliance, an invite will also be sent to the provided email address.
+
+{% endtip %}
+
+## Leer más
+
+- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

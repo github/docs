@@ -6,9 +6,9 @@ redirect_from:
   - /guides/automating-deployments-to-integrators/
   - /v3/guides/delivering-deployments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -29,7 +29,7 @@ Si aún no lo has hecho, asegúrate de [descargar ngrok][ngrok], y de aprender a
 
 Nota: puedes descargar todo el código fuente para este proyecto [del repo platform-samples][platform samples].
 
-### Escribir tu servidor
+## Escribir tu servidor
 
 Escribiremos una app de Sinatra rápidamente para probar que nuestras conexiones locales estén funcionando. Comencemos con esto:
 
@@ -76,7 +76,7 @@ end
 
 Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repositorio de pruebas, y abre una solicitud de extracción y fusiónala. ¡Tu servidor deberá responder de acuerdo con los casos!
 
-### Trabajar con despliegues
+## Trabajar con despliegues
 
 Como ya tenemos nuestro servidor configurado, el código ya se revisó, y nuestras solicitudes de extracción se fusionaron, entonces queremos desplegar nuestro proyecto.
 
@@ -136,13 +136,13 @@ Bamos a explicar lo que está pasando. `start_deployment` creó un despliegue nu
 
 Después de que termine el despliegue, configuramos el estado como `success`.
 
-### Conclusión
+## Conclusión
 
-En GitHub siempre hemos utilizado una versión de [Heaven][heaven] durante años para administrar nuestros despliegues. El flujo básico es esencial y exactamente el mismo que en el servidor que acabamos de crear. En GitHub, nosotros:
+En GitHub siempre hemos utilizado una versión de [Heaven][heaven] durante años para administrar nuestros despliegues. Un flujo común es esencialmente el mismo que en el servidor que creamos anteriormente:
 
-* Esperamos una respuesta del estado de la IC
-* Si el código tiene luz verde, lo fusionamos con la solicitud de extracción
-* Heaven toma el código fusionado y lo despliega en nuestros servidores productivos y de pruebas
+* Espera obtener una respuesta con base en el estado de las verificaciones de IC (éxito o fallo)
+* Si las verificaciones requeridas tienen éxito, fusiona la solicitud de cambios
+* Heaven toma el código fusionado y lo despliega a los servidores de prueba y producción
 * Mientras tanto, Heaven también notifica a todos acerca de la compilación, a través de [Hubot][hubot] que espera en nuestras salas de chat
 
 ¡Listo! No necesitas crear tu propia configuración de despliegue para utilizar este ejemplo. Siempre puedes confiar en las [Integraciones de GitHub][integrations].

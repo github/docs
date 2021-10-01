@@ -4,16 +4,17 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /v3/actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.ae-beta %}
 
-La API de {% data variables.product.prodname_actions %} te permite administrar las {% data variables.product.prodname_actions %} utilizando la API de REST. La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_app %} necesitan los mismos permisos que se mencionan en cada terminal. Para obtener más información, consulta la sección "[Documentación de {% data variables.product.prodname_actions %}](/actions)".
+La API de {% data variables.product.prodname_actions %} te permite administrar las {% data variables.product.prodname_actions %} utilizando la API de REST. La {% data reusables.actions.actions-authentication %} de las {% data variables.product.prodname_github_apps %} requieren los permisos que se mencionan en cada terminal. Para obtener más información, consulta la sección "[Documentación de {% data variables.product.prodname_actions %}](/actions)".
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -31,7 +32,7 @@ La API de Artefactos te permite descargar, borrar y recuperar información acerc
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Permisos
 
 {% data reusables.actions.ae-beta %}
@@ -51,7 +52,7 @@ También puedes configurar permisos para una empresa. Para obtener más informac
 
 La API de Secretos te permite crear, actualizar, borrar y recuperar información acerca de los secretos cifrados. {% data reusables.actions.about-secrets %} Para obtener más información, consulta la sección "[Crear y utilizar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_app %} debe contar con el permiso de `secrets` para utilizar esta API. Los usuarios autenticados deben tener acceso de colaborador en el repositorio para crear, actualizar o leer los secretos.
+La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_apps %} debe contar con el permiso de `secrets` para utilizar esta API. Los usuarios autenticados deben tener acceso de colaborador en el repositorio para crear, actualizar o leer los secretos.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'secrets' %}{% include rest_operation %}{% endif %}
@@ -64,7 +65,7 @@ La {% data reusables.actions.actions-authentication %} en las {% data variables.
 
 La API de Ejecutores auto-hospedados te permite registrar, ver, y borrar estos ejecutores. {% data reusables.actions.about-self-hosted-runners %} Para obtener más información, consulta "[Alojar tus propios ejecutores](/actions/hosting-your-own-runners)".
 
-La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_app %} debe contar con el permiso de `administration` para los repositorios o aquél de `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben tener acceso administrativo al repositorio o a la organización para utilizar esta API.
+La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_apps %} debe contar con el permiso de `administration` para los repositorios o aquél de `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben tener acceso administrativo al repositorio o a la organización para utilizar esta API.
 
 Puedes administrar los ejecutores auto-programados para una empresa. Para obtener más información, consulta la API de REST para la "[ Administración de {% data variables.product.prodname_dotcom %} Enterprise](/rest/reference/enterprise-admin#github-actions)".
 
@@ -79,7 +80,7 @@ Puedes administrar los ejecutores auto-programados para una empresa. Para obtene
 
 La API de Grupos de Ejecutores Auto-Hospedados te permite administrar grupos para los ejecutores auto-hospedados. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
-La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_app %} debe contar con el permiso de `administration` para los repositorios o aquél de `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben tener acceso administrativo al repositorio o a la organización para utilizar esta API.
+La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_apps %} debe contar con el permiso de `administration` para los repositorios o aquél de `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben tener acceso administrativo al repositorio o a la organización para utilizar esta API.
 
 Puedes administrar los grupos de ejecutores auto-hospedados para una empresa. Para obtener más información, consulta la API de REST para la "[ Administración de {% data variables.product.prodname_dotcom %} Enterprise](/rest/reference/enterprise-admin##github-actions)".
 

@@ -4,7 +4,7 @@ shortTitle: Sobre a integração
 intro: 'Você pode executar {% data variables.product.prodname_code_scanning %} externamente e depois exibir os resultados em {% data variables.product.prodname_dotcom %} ou configurar webhooks que escutem a atividade de {% data variables.product.prodname_code_scanning %} no seu repositório.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -20,11 +20,11 @@ Como alternativa para executar o {% data variables.product.prodname_code_scannin
 
 Se você usar uma ferramenta de análise estática de terceiros que pode produzir dados de resultados como Formato de Intercâmbio de Resultados de Análise Estática (SARIF) 2.1.0, você pode fazer o upload desses dados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF para o GitHub](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)".
 
-### Integrações com webhooks
+## Integrações com webhooks
 
-Você pode usar {% data variables.product.prodname_code_scanning %} webhooks para criar ou configurar integrações, tais como [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) ou [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), que assinam os eventos {% data variables.product.prodname_code_scanning %} no seu repositório. Por exemplo, você poderia criar uma integração que criasse um problema no {% data variables.product.product_name %} ou que envia uma notificação do Slack quando um novo alerta de {% data variables.product.prodname_code_scanning %} for adicionado ao seu repositório. Para obter mais informações, consulte "[Criar webhooks](/developers/webhooks-and-events/creating-webhooks)" e "[Eventos de Webhook e cargas](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".
+You can use {% data variables.product.prodname_code_scanning %} webhooks to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. Por exemplo, você poderia criar uma integração que criasse um problema no {% data variables.product.product_name %} ou que envia uma notificação do Slack quando um novo alerta de {% data variables.product.prodname_code_scanning %} for adicionado ao seu repositório. Para obter mais informações, consulte "[Criar webhooks](/developers/webhooks-and-events/creating-webhooks)" e "[Eventos de Webhook e cargas](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".
 
-### Leia mais
+## Leia mais
 
 * "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)"
 * "[Usar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} com seu sistema CI existente](/github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system)"

@@ -1,0 +1,1 @@
+Puedes crear más de un codespace por repositorio o incluso por rama. However, each user account has a limit of 10 codespaces. Si has alcanzado el límite y quieres crear un codespace nuevo, primero debes borrar un codespace.

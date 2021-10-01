@@ -10,7 +10,7 @@ redirect_from:
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'Si un usuario se va o se traslada a un lugar diferente de la empresa, deberías eliminar o modificar su posibilidad de acceder a {% data variables.product.product_location_enterprise %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Access management
   - Enterprise

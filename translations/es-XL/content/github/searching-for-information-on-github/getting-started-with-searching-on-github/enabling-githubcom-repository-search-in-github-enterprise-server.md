@@ -8,8 +8,8 @@ redirect_from:
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - GitHub search
 ---

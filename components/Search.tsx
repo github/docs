@@ -171,7 +171,7 @@ export function Search({
         )}
       >
         {results.length > 0 ? (
-          <ol data-testid="search-results" className="d-block mt-2">
+          <ol data-testid="search-results" className="d-block mt-4">
             {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
               const isActive = index === activeHit
               return (

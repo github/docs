@@ -6,15 +6,16 @@ redirect_from:
   - /articles/can-i-create-accounts-for-people-in-my-organization
   - /github/setting-up-and-managing-organizations-and-teams/can-i-create-accounts-for-people-in-my-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Create accounts for people
 ---
 
 Da der Zugriff auf eine Organisation durch die Anmeldung bei einem persönlichen Konto erfolgt, benötigt jedes Teammitglied ein persönliches Konto. Wenn Du die Benutzernamen aller Personen hast, die Du zu Deiner Organisation hinzufügen möchtest, kannst Du sie zu Teams hinzufügen.
 
-### Benutzer zu Deiner Organisation hinzufügen
+## Benutzer zu Deiner Organisation hinzufügen
 
 1. Stelle allen Personen Anleitungen zum [Erstellen eines persönlichen Kontos](/articles/signing-up-for-a-new-github-account) bereit.
 2. Frage alle Personen, die Mitglied Deiner Organisation werden sollen, nach ihrem Benutzernamen.

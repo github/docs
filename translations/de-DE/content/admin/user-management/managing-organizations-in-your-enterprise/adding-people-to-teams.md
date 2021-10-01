@@ -8,7 +8,7 @@ redirect_from:
   - /admin/user-management/adding-people-to-teams
 intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Benutzer von {% data variables.product.product_location %} zum Team hinzufügen und festlegen, auf welche Repositorys sie zugreifen dürfen.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -22,7 +22,7 @@ Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigunge
 - Mitglieder mit der Inhaberrolle können Organisationsmitglieder aus allen Teams hinzufügen oder entfernen.
 - Teammitglieder, die Administratorberechtigungen erteilen, können nur die Teammitgliedschaft und die Repositorys für das jeweilige Team ändern.
 
-### Team einrichten
+## Team einrichten
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -30,7 +30,7 @@ Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigunge
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-### Teams zu LDAP-Gruppen (für Instanzen mit LDAP-Synchronisierung für die Benutzerauthentifizierung) zuordnen
+## Teams zu LDAP-Gruppen (für Instanzen mit LDAP-Synchronisierung für die Benutzerauthentifizierung) zuordnen
 
 {% data reusables.enterprise_management_console.badge_indicator %}
 

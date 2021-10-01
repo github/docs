@@ -15,7 +15,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Upgrades

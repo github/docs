@@ -15,7 +15,7 @@ redirect_from:
   - /admin/configuration/configuring-backups-on-your-appliance
 intro: 'Como parte de un plan de recuperación ante desastres, puedes proteger los datos de producción en {% data variables.product.product_location_enterprise %} configurando copias de seguridad automáticas.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Backups
   - Enterprise

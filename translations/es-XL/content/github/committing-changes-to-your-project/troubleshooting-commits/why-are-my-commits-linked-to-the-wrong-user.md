@@ -6,9 +6,9 @@ redirect_from:
   - /github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user
 intro: '{% data variables.product.product_name %} usa la dirección de correo electrónico en el encabezado de la confirmación para vincular la confirmación con un usuario de GitHub. Si tus confirmaciones se están vinculando con otro usuario, o no se están vinculando con ningún usuario, es posible que necesites cambiar tus parámetros de configuración de Git local, agregar una dirección de correo electrónico a las configuraciones de tu cuenta de correo electrónico, o ambos.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% tip %}
 

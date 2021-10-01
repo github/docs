@@ -3,7 +3,7 @@ title: Política de marca registrada de GitHub
 redirect_from:
   - /articles/github-trademark-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

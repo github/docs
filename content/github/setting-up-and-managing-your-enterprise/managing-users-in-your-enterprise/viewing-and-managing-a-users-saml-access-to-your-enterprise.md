@@ -17,9 +17,13 @@ shortTitle: View & manage SAML access
 
 When you enable SAML single sign-on for your enterprise account, each enterprise member can link their external identity on your identity provider (IdP) to their existing {% data variables.product.product_name %} account. {% data reusables.saml.about-saml-access-enterprise-account %}
 
+If your enterprise is uses {% data variables.product.prodname_emus %}, your members will use accounts provisioned through your IdP. {% data variables.product.prodname_managed_users_caps %} will not use their existing user account on {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
 ## Viewing and revoking a linked identity
 
 {% data reusables.saml.about-linked-identities %}
+
+If your enterprise uses {% data variables.product.prodname_emus %}, you will not be able to deprovision or remove user accounts from the enterprise on {% data variables.product.product_name %}. Any changes you need to make to your enterprise's {% data variables.product.prodname_managed_users %} should be made through your IdP.
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 

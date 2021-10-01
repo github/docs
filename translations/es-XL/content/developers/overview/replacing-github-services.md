@@ -6,8 +6,8 @@ redirect_from:
   - /v3/guides/automating-deployments-to-integrators/
   - /v3/guides/replacing-github-services
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - API
 ---

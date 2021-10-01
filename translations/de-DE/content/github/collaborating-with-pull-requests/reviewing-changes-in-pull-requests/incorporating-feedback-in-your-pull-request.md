@@ -6,14 +6,15 @@ redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
   - /github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Incorporate feedback
 ---
 
-### Vorgeschlagene Änderungen anwenden
+## Vorgeschlagene Änderungen anwenden
 
 Andere Personen können spezifische Änderungen für Deinen Pull Request vorschlagen. Du kannst diese vorgeschlagenen Änderungen direkt in einem Pull Request anwenden, wenn Du Schreibzugriff auf das Repository hast. Wenn der Pull Request von einem Fork erstellt wurde und der Autor Bearbeitungen durch Betreuer zugelassen hat, kannst Du vorgeschlagene Änderungen auch dann anwenden, wenn Du Schreibzugriff auf das vorgelagerte Repository besitzt. Weitere Informationen findest Du unter „[Einen Pull Request kommentieren](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)“ und „[Änderungen an einem Pull-Request-Branch zulassen, der von einem Fork erstellt wurde](/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork).“
 
@@ -29,15 +30,15 @@ Jede Person, die eine der Änderungen des Commits vorgeschlagen hat, wird Co-Aut
 4. Gib im Feld für die Commit-Mitteilung eine kurze, aussagekräftige Commit-Mitteilung ein, die die Änderung beschreibt, die Du an der Datei oder den Dateien vorgenommen hast. ![Feld für Commit-Mitteilung](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Klicke auf **Commit changes** (Änderungen freigeben). ![Schaltfläche „Commit changes“ (Änderungen freigeben)](/assets/images/help/pull_requests/commit-changes-button.png)
 
-### Re-requesting a review
+## Re-requesting a review
 
 {% data reusables.pull_requests.re-request-review %}
 
-### Öffnen eines Issue für Vorschläge außerhalb des Geltungsbereichs
+## Öffnen eines Issue für Vorschläge außerhalb des Geltungsbereichs
 
 Wenn jemand Änderungen an Deinem Pull Request vorschlägt und die Änderungen nicht in den Pull-Request-Geltungsbereich fallen, kannst Du einen neuen Issue öffnen, um das Feedback zu verfolgen. Weitere Informationen findest Du unter „[Öffnen eines Issue aus einem Kommentar](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Pull-Request-Reviews](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)"
 - „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"

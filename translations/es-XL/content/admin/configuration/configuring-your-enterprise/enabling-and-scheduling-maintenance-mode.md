@@ -12,7 +12,7 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Fundamentals

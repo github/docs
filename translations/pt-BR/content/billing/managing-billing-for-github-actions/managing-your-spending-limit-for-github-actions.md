@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Actions
@@ -14,9 +14,10 @@ topics:
   - Organizations
   - Spending limits
   - User account
+shortTitle: Limites de gastos para ações
 ---
 
-### Sobre sintaxe limites de gastos para o {% data variables.product.prodname_actions %}
+## Sobre sintaxe limites de gastos para o {% data variables.product.prodname_actions %}
 
 {% data reusables.github-actions.actions-billing %}
 
@@ -30,7 +31,7 @@ Assim que você definir um limite de gastos diferente de $ 0, você será respon
 
 Como você não habilitou os excedentes, a sua próxima tentativa de criar um artefato de fluxo de trabalho falhará. Você não receberá uma fatura pelo excesso de 0.1GB naquele mês. No entanto, se você habilitar os excedentes, a sua primeira conta incluirá o 0,1 GB do excedente existente para o ciclo de cobrança atual, bem como qualquer superação adicional que você acumular.
 
-### Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua conta de usuário
+## Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua conta de usuário
 
 Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.prodname_actions %} para sua própria conta de usuário.
 
@@ -40,16 +41,16 @@ Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.p
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua organização
+## Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua organização
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_actions %} para uma organização.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua conta corporativa
+## Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_actions %} para uma conta corporativa.
 
@@ -59,3 +60,7 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 1. Acima de "{% data variables.product.prodname_actions %} e pacotes de uso mensal", clique em **Limite de gastos**. ![Aba limite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+
+## Managing usage and spending limit email notifications
+{% data reusables.billing.email-notifications %}

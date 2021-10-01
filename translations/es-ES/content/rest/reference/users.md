@@ -1,22 +1,24 @@
 ---
 title: Usuarios
+intro: La API de Usuarios te permite obtener información pública y privada sobre el usuario autenticado.
 redirect_from:
   - /v3/users
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
-Muchos de los recursos en la API de los usuarios proporcionan un atajo para obtener información acerca del usuario autenticado actualmente. Si una URL de solicitud no incluye un parámetro de `{username}`, entonces la respuesta será para el usuario que inició sesión (y debes pasar la [información de autenticación](/rest/overview/resources-in-the-rest-api#authentication) con tu solicitud).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} La información privada adicional tal como si un usuario tiene habilitada la autenticación bifactorial se incluye cuando se está autenticado a través de la autenticación básica o a través de OAuth con el alcance de `user`.{% endif %}
+Muchos de los recursos en la API de los usuarios proporcionan un atajo para obtener información acerca del usuario autenticado actualmente. Si una URL de solicitud no incluye un parámetro de `{username}`, entonces la respuesta será para el usuario que inició sesión (y debes pasar la [información de autenticación](/rest/overview/resources-in-the-rest-api#authentication) con tu solicitud).{% ifversion fpt or ghes %} La información privada adicional, tal como si un usuario tiene habilitada la autenticación bifactorial, se incluye cuando se está autenticado con la autenticación básica o a través de OAuth, con el alcance de `user`.{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Bloquear usuarios
 
 {% for operation in currentRestOperations %}
@@ -25,7 +27,7 @@ Muchos de los recursos en la API de los usuarios proporcionan un atajo para obte
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 ## Emails (Correos electrónicos)
 
 Administrar las direcciones de correo electrónico a través de la API requiere que ingreses con la autenticación básica o con OAuth con un alcance correcto para la terminal.

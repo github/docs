@@ -5,23 +5,27 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
 product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: コードレビューの割り当て
+permissions: Team maintainers and organization owners can configure code review assignments.
 ---
 
-チームメンテナと Organization のオーナーは、コードレビューの割り当てを設定できます。
-
-### コードレビューの割り当てについて
+## コードレビューの割り当てについて
 
 コードレビューの割り当てを使用すると、Team がプルリクエストのレビューをリクエストされたときいつでも、その Team がレビュー担当者として削除され、指定した Team メンバーサブセットが Team のかわりに割り当てられます。 コードレビューの割り当てでは、Team がレビューをリクエストされたとき、Team の全体に通知するか、Team メンバーのサブセットのみに通知するかを決めることができます。
 
 コードオーナーが自動的にレビューをリクエストされる場合、Team は引き続き削除され、個人に置き換えられます。 個別の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳細は「[コードオーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」を参照してください。
 
-### ルーティングアルゴリズム
+{% ifversion fpt %}
+To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
+
+## ルーティングアルゴリズム
 
 コードレビューの割り当てでは、2 つの可能なアルゴリズムのいずれかに基づいて、レビュー担当者が自動的に選択されて割り当てられます。
 
@@ -29,7 +33,9 @@ topics:
 
 ロードバランスアルゴリズムは、各メンバーの最近のレビューリクエスト合計数に基づいてレビュー担当者を選択し、メンバーごとの未処理レビューの数を考慮します。 ロードバランスアルゴリズムは、各 Teamメンバーが 30 日間に等しい数のプルリクエストをレビューすることを保証しようとします。
 
-### コードレビューの割り当ての設定
+Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+
+## コードレビューの割り当ての設定
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -42,7 +48,7 @@ topics:
 10. オプションで、プルレビューリクエストごとのコードレビュー割り当てによって選択された Teamメンバーのみに通知する場合は、[Notifications] で[**If assigning team members, don't notify the entire team.**] を選択します。 ![コードレビューの割当ての通知](/assets/images/help/teams/review-assignment-notifications.png)
 11. [**Save changes**] をクリックします。
 
-### コードレビューの割り当てを無効化する
+## コードレビューの割り当てを無効化する
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}

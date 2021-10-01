@@ -6,9 +6,9 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'Si un mensaje de confirmación contiene información poco clara, incorrecta o confidencial, puedes modificarlo localmente y subir una nueva confirmación con un nuevo mensaje para {% data variables.product.product_name %}. También puedes cambiar un mensaje de confirmación para agregar la información faltante.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ### Volver a escribir el mensaje de confirmación más reciente
 

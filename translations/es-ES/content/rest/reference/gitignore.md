@@ -1,13 +1,15 @@
 ---
 title: Gitignore
+intro: La API de Gitignore recupera las plantillas de `.gitignore` que pueden utilizarse para ignorar archivos y directorios.
 redirect_from:
   - /v3/gitignore
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 Cuando creas un repositorio de {% data variables.product.product_name %} nuevo a través de la API, puedes especificar una [plantilla de .gitignore](/github/getting-started-with-github/ignoring-files) para que aplique al repositorio cuando éste se cree. La API de plantillas de .gitignore lista y recupera plantillas del [repositorio de .gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.

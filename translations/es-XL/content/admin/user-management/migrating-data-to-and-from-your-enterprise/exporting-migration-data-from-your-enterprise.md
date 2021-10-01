@@ -11,7 +11,7 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - API
   - Enterprise

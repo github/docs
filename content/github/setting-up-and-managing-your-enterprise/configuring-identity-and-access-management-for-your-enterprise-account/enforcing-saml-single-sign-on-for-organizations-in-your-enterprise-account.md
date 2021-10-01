@@ -12,6 +12,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
 shortTitle: Enforce SAML
 ---
+
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## About SAML single sign-on for enterprise accounts
 
 {% data reusables.saml.dotcom-saml-explanation %} For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."

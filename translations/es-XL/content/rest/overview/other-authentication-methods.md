@@ -4,9 +4,9 @@ intro: Puedes utilizar la autenticación básica para hacer pruebas en un ambien
 redirect_from:
   - /v3/auth
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

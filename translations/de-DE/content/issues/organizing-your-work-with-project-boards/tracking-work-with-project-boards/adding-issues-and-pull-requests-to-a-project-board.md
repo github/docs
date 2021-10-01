@@ -7,12 +7,15 @@ redirect_from:
   - /articles/adding-issues-and-pull-requests-to-a-project-board
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Add issues & PRs to board
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Issues oder Pull Requests kannst Du zu Deinem Projektboard hinzufügen, indem Du:
 - Tickets aus dem Bereich **Triage** (Einteilung) in die Seitenleiste ziehst.
@@ -33,7 +36,7 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
 
 {% data reusables.project-management.link-repos-to-project-board %} Wenn Du nach Issues und Pull Requests suchst, die Du zu Deinem Projektboard hinzufügen möchtest, reduziert sich die Suche automatisch auf Deine verlinkten Repositorys. Du kannst diese Qualifizierer entfernen, um die Suche in allen Repositorys der Organisation auszuführen. Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
 
-### Issues und Pull Requests zu einem Projektboard hinzufügen
+## Issues und Pull Requests zu einem Projektboard hinzufügen
 
 1. Navigiere zu dem Projektboard, zu dem Du Issues und Pull Requests hinzufügen möchtest.
 2. Klicke im Projektboard auf {% octicon "plus" aria-label="The plus icon" %} **Add cards** (Tickets hinzufügen). ![Schaltfläche „Add cards“ (Tickets hinzufügen)](/assets/images/help/projects/add-cards-button.png)
@@ -54,7 +57,7 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
 
     {% endtip %}
 
-### Issues und Pull Requests über die Seitenleiste zu einem Projekt hinzufügen
+## Issues und Pull Requests über die Seitenleiste zu einem Projekt hinzufügen
 
 1. Klicke rechts neben einem Issue oder Pull Request auf **Projects {% octicon "gear" aria-label="The Gear icon" %}** (Projekte). ![Projektboard-Schaltfläche in Seitenleiste](/assets/images/help/projects/sidebar-project.png)
 2. Klicke auf die Registerkarte **Recent** (Zuletzt verwendet), **Repository** (Repository),**User** (Benutzer) oder **Organization** (Organisation) für das Projektboard, zu dem Du etwas hinzufügen möchtest. ![Registerkarten „Recent“ (Zuletzt verwendet), „Repository“ (Repository) und „Organization“ (Organisation)](/assets/images/help/projects/sidebar-project-tabs.png)
@@ -62,7 +65,7 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
 4. Select one or more project boards where you want to add the issue or pull request. ![Ausgewähltes Projektboard](/assets/images/help/projects/sidebar-select-project.png)
 5. Klicke auf {% octicon "triangle-down" aria-label="The down triangle icon" %} und anschließend auf die Spalte, die den Issue oder Pull Request enthalten soll. Das Ticket wird unten in der ausgewählten Projektboard-Spalte platziert. ![Menü „Move card to column“ (Ticket in Spalte verschieben)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
 - „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“

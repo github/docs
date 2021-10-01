@@ -4,7 +4,7 @@ intro: '{% data variables.product.product_name %} sends {% if currentVersion == 
 redirect_from:
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
 versions:
-  enterprise-server: <=2.22
+  ghes: <=2.22
 topics:
   - Security
 ---
