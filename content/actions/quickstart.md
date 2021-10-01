@@ -29,7 +29,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
 2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
 3. Copy the following YAML contents into the `github-actions-demo.yml` file:
-    {% raw %}
+    {% raw %}m
     ```yaml{:copy}
     name: GitHub Actions Demo
     on: [push]
