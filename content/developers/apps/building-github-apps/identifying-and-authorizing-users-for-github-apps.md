@@ -41,6 +41,7 @@ Using the web application flow, the process to identify users on your site is:
 If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
 
 ### 1. Request a user's GitHub identity
+Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -75,6 +76,8 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
 Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+
+Make a request to the following endpoint to receive an access token in the JSON of the response:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
