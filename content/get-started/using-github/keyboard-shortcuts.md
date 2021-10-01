@@ -210,3 +210,4 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>shift + →</kbd> or <kbd>shift + l</kbd> | Scroll all the way right
 |<kbd>shift + ↑</kbd> or <kbd>shift + k</kbd> | Scroll all the way up
 |<kbd>shift + ↓</kbd> or <kbd>shift + j</kbd> | Scroll all the way down
+"null"
