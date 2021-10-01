@@ -32,6 +32,31 @@ env:
   HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump info about the originating workflow run
+        env:
+          PR_NUMBER: ${{ env.PR_NUMBER }}
+          PR_URL: ${{ env.PR_URL }}
+          HEAD_SHA: ${{ env.HEAD_SHA }}
+          HEAD_REF: ${{ github.event.workflow_run.head_branch }}
+          BUILD_ACTIONS_RUN_ID: ${{ github.event.workflow_run.id }}
+          BUILD_ACTIONS_RUN_LOG: ${{ env.BUILD_ACTIONS_RUN_LOG }}
+        run: |
+          echo "Originating workflow info:"
+          echo " - PR_NUMBER = $PR_NUMBER"
+          echo " - PR_URL = $PR_URL"
+          echo " - HEAD_SHA = $HEAD_SHA"
+          echo " - HEAD_REF = $HEAD_REF"
+          echo " - BUILD_ACTIONS_RUN_ID = $BUILD_ACTIONS_RUN_ID"
+          echo " - BUILD_ACTIONS_RUN_LOG = $BUILD_ACTIONS_RUN_LOG"
+
+      - name: Dump full context for debugging
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
   notify-of-failed-builds:
     if: >-
       ${{

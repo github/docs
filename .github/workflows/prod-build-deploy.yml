@@ -14,14 +14,15 @@ permissions:
   contents: read
   deployments: write
 
+concurrency:
+  group: '${{ github.workflow }}'
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal'}}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    concurrency:
-      group: prod_deploy
-      cancel-in-progress: true
     steps:
       - name: Check out repo
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
@@ -137,6 +138,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+          HEROKU_PRODUCTION_APP_NAME: ${{ secrets.HEROKU_PRODUCTION_APP_NAME }}
           HYDRO_ENDPOINT: ${{ secrets.HYDRO_ENDPOINT }}
           HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
           SOURCE_BLOB_URL: ${{ steps.build-source.outputs.download_url }}
@@ -146,6 +148,7 @@ jobs:
             const {
               GITHUB_TOKEN,
               HEROKU_API_TOKEN,
+              HEROKU_PRODUCTION_APP_NAME,
               SOURCE_BLOB_URL,
               DELAY_FOR_PREBOOT
             } = process.env
@@ -158,6 +161,11 @@ jobs:
             // Exit if Heroku API token is not found
             if (!HEROKU_API_TOKEN) {
               throw new Error('You must supply a HEROKU_API_TOKEN environment variable!')
+            }
+
+            // Exit if Heroku App name is not found
+            if (!HEROKU_PRODUCTION_APP_NAME) {
+              throw new Error('You must supply a HEROKU_PRODUCTION_APP_NAME environment variable!')
             }
 
             // Workaround to allow us to load ESM files with `require(...)`
