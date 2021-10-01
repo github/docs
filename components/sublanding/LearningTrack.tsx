@@ -33,7 +33,9 @@ export const LearningTrack = ({ track }: Props) => {
           <a
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
             role="button"
-            href={`${track?.guides && track?.guides[0].href}?learn=${track?.trackName}`}
+            href={`${track?.guides && track?.guides[0].href}?learn=${
+              track?.trackName
+            }&learnProduct=${track?.trackProduct}`}
           >
             <span>{t('start')}</span>
             <ArrowRightIcon size={20} className="ml-2" />
@@ -44,7 +46,7 @@ export const LearningTrack = ({ track }: Props) => {
           <div key={guide.href + track?.trackName}>
             <a
               className="Box-row d-flex flex-items-center color-text-primary no-underline"
-              href={`${guide.href}?learn=${track?.trackName}`}
+              href={`${guide.href}?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
             >
               <div
                 className="color-bg-tertiary d-inline-flex mr-4 circle flex-items-center flex-justify-center"
