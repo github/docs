@@ -6,14 +6,15 @@ redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
   - /github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Incorporar feedback
 ---
 
-### Aplicar alterações sugeridas
+## Aplicar alterações sugeridas
 
 Outras pessoas podem sugerir alterações específicas em sua pull request. É possível aplicar essas alterações sugeridas diretamente em uma pull request, se você tiver acesso de gravação no repositório. Se a pull request foi criada a partir de uma bifurcação e o autor permitir edições de mantenedores, você também pode aplicar as alterações sugeridas, caso tenha acesso ao repositório upstream. Para obter mais informações, consulte "[Comentar em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)" e "[Permitir alterações em um branch da pull request criado a partir de uma bifurcação](/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)".
 
@@ -29,15 +30,15 @@ Cada pessoa que sugeriu uma alteração incluída no commit será uma coautora d
 4. No campo de mensagem do commit, digite uma mensagem curta e relevante que descreva a alteração que você fez no arquivo ou arquivos. ![Campo Commit message (Mensagem do commit)](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Clique em **Commit changes** (Fazer commit das alterações). ![Botão Commit changes (Fazer commit de alterações)](/assets/images/help/pull_requests/commit-changes-button.png)
 
-### Ressolicitar uma revisão
+## Ressolicitar uma revisão
 
 {% data reusables.pull_requests.re-request-review %}
 
-### Abrir um problema para uma sugestão fora do escopo
+## Abrir um problema para uma sugestão fora do escopo
 
 Se alguém sugerir alterações na sua pull request que estão fora do escopo dela, abra um novo problema para acompanhar o feedback. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-### Leia mais
+## Leia mais
 
 - "[Sobre revisões de solicitação pull](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)"
 - "[Revisando alterações propostas em uma pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"

@@ -12,7 +12,7 @@ async function run() {
   // Get info about the docs-content review board project
   const data = await graphql(
     `
-      query ($organization: String!, $projectNumber: Int!) {
+      query ($organization: String!, $projectNumber: Int!, $id: ID!) {
         organization(login: $organization) {
           projectNext(number: $projectNumber) {
             id
@@ -25,9 +25,22 @@ async function run() {
             }
           }
         }
+        item: node(id: $id) {
+          __typename
+          ... on PullRequest {
+            files(first: 100) {
+              nodes {
+                additions
+                deletions
+                path
+              }
+            }
+          }
+        }
       }
     `,
     {
+      id: process.env.ITEM_NODE_ID,
       organization: process.env.ORGANIZATION,
       projectNumber: parseInt(process.env.PROJECT_NUMBER),
       headers: {
@@ -46,6 +59,7 @@ async function run() {
   const statusID = findFieldID('Status', data)
   const featureID = findFieldID('Feature', data)
   const contributorTypeID = findFieldID('Contributor type', data)
+  const sizeTypeID = findFieldID('Size', data)
   const authorID = findFieldID('Author', data)
 
   // Get the ID of the single select values that we want to set
@@ -53,22 +67,115 @@ async function run() {
   const hubberTypeID = findSingleSelectID('Hubber or partner', 'Contributor type', data)
   const docsMemberTypeID = findSingleSelectID('Docs team', 'Contributor type', data)
   const osContributorTypeID = findSingleSelectID('OS contributor', 'Contributor type', data)
+  const sizeXS = findSingleSelectID('XS', 'Size', data)
+  const sizeS = findSingleSelectID('S', 'Size', data)
+  const sizeM = findSingleSelectID('M', 'Size', data)
+  const sizeL = findSingleSelectID('L', 'Size', data)
 
   // Add the PR to the project
-  const newItemID = await addItemToProject(process.env.PR_NODE_ID, projectID)
+  const newItemID = await addItemToProject(process.env.ITEM_NODE_ID, projectID)
 
+  // If the item is a PR, determine the feature and size
+  let feature = ''
+  let sizeType = '' // You don't need to use a field ID if you want the value to be empty
+  if (data.item.__typename === 'PullRequest') {
+    // Get the
+    // - number of files changed
+    // - total number of additions/deletions
+    // - affected docs sets (not considering changes to data/assets)
+    let numFiles = 0
+    let numChanges = 0
+    let features = new Set([])
+    const files = data.item.files.nodes.forEach((node) => {
+      numFiles += 1
+      numChanges += node.additions
+      numChanges += node.deletions
+      // To determine the feature, we are only looking at `content/*` paths
+      // and then pulling out the second part of the path, which corresponds to the docs set
+      const pathComponents = node.path.split('/')
+      if (pathComponents[0] === 'content') {
+        features.add(pathComponents[1])
+      }
+    })
+
+    // Determine the size
+    if (numFiles < 5 && numChanges < 25) {
+      sizeType = sizeXS
+    } else if (numFiles < 5 && numChanges < 25) {
+      sizeType = sizeS
+    } else if (numFiles < 5 && numChanges < 25) {
+      sizeType = sizeM
+    } else {
+      sizeType = sizeL
+    }
+
+    // Set the feature
+    feature = Array.from(features).join()
+  }
+
+  // If this is the OS repo, determine if this is a first time contributor
+  // If yes, set the author to 'first time contributor' instead of to the author login
+  let firstTimeContributor
+  if (process.env.REPO === 'github/docs') {
+    const contributorData = await graphql(
+      `
+        query ($author: String!) {
+          user(login: $author) {
+            contributionsCollection {
+              pullRequestContributionsByRepository {
+                contributions {
+                  totalCount
+                }
+                repository {
+                  nameWithOwner
+                }
+              }
+              issueContributionsByRepository {
+                contributions {
+                  totalCount
+                }
+                repository {
+                  nameWithOwner
+                }
+              }
+            }
+          }
+        }
+      `,
+      {
+        author: process.env.AUTHOR_LOGIN,
+        headers: {
+          authorization: `token ${process.env.TOKEN}`,
+        },
+      }
+    )
+    const prCount =
+      contributorData.user.contributionsCollection.pullRequestContributionsByRepository.filter(
+        (item) => item.repository.nameWithOwner === 'github/docs'
+      )[0].contributions.totalCount
+    const issueCount =
+      contributorData.user.contributionsCollection.issueContributionsByRepository.filter(
+        (item) => item.repository.nameWithOwner === 'github/docs'
+      )[0].contributions.totalCount
+
+    if (prCount + issueCount <= 1) {
+      firstTimeContributor = true
+    }
+  }
+  const turnaround = process.env.REPO === 'github/docs' ? 3 : 2
   // Generate a mutation to populate fields for the new project item
   const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation({
     item: newItemID,
-    author: process.env.AUTHOR_LOGIN,
-    turnaround: 2,
+    author: firstTimeContributor ? 'first time contributor' : process.env.AUTHOR_LOGIN,
+    turnaround: turnaround,
+    feature: feature,
   })
 
   // Determine which variable to use for the contributor type
   let contributorType
   if (await isDocsTeamMember(process.env.AUTHOR_LOGIN)) {
     contributorType = docsMemberTypeID
-  } else if (process.env.PR_REPO === 'github/docs') {
+  } else if (process.env.REPO === 'github/docs') {
     contributorType = osContributorTypeID
   } else {
     contributorType = hubberTypeID
@@ -84,6 +191,8 @@ async function run() {
     reviewDueDateID: reviewDueDateID,
     contributorTypeID: contributorTypeID,
     contributorType: contributorType,
+    sizeTypeID: sizeTypeID,
+    sizeType: sizeType,
     featureID: featureID,
     authorID: authorID,
     headers: {

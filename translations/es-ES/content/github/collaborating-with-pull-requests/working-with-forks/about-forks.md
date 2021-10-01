@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-forks
   - /github/collaborating-with-issues-and-pull-requests/about-forks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -22,17 +22,17 @@ Bifurcar un repositorio es similar a copiar un repositorio, con dos diferencias 
 
 {% data reusables.repositories.desktop-fork %}
 
-Eliminar una bifurcación no eliminará el repositorio ascendente original. Puedes hacer cualquier cambio que quieras a tu bifurcación—agregar colaboradores, renombrar archivos, generar {% data variables.product.prodname_pages %}—sin que haya efecto alguno en el original.{% if currentVersion == "free-pro-team@latest" %} No puedes restablecer un repositorio bifurcado que se haya borrado. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/articles/restoring-a-deleted-repository)".{% endif %}
+Eliminar una bifurcación no eliminará el repositorio ascendente original. Puedes hacer tantos cambios como quieras a tu bifurcación—añadir colaboradores, renombrar archivos, generar {% data variables.product.prodname_pages %}—sin que esto afecte el repositorio original.{% ifversion fpt %} no puedes restablecer un repositorio bifurcado previamente eliminado. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/articles/restoring-a-deleted-repository)".{% endif %}
 
 En proyectos de código abierto, las bifurcaciones suelen iterar en ideas o cambios antes de que se presenten al repositorio ascendente. Cuando realizas cambios en la bifurcación que es propiedad de tu usuario y abres una solicitud de extracción que compara tu trabajo con el repositorio ascendente, puedes dar permiso a cualquiera con permiso de escritura en el repositorio ascendente para subir cambios a tu rama de solicitudes de extracción. Esto agiliza la colaboración permitiendo que los mantenedores del repositorio puedan hacer confirmaciones de cambios o ejecutar pruebas locales a tu rama de solicitud de extracción desde una bifurcación propiedad de un usuario antes de fusionarlas. No puedes otorgar permisos de escritura a una bifurcación que sea propiedad de una organización.
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-Si quieres crear un repositorio nuevo desde el contenido de uno existente pero no quieres fusionar tus cambios ascendentemente en ocasiones futuras, puedes duplicar el repositorio o, si éste es una plantilla, utilizarlo como plantilla. Para obtener más información, consulta "[Duplicar un repositorio](/articles/duplicating-a-repository)" y [Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
+Si quieres crear un repositorio nuevo desde el contenido de uno existente pero no quieres fusionar tus cambios ascendentemente en ocasiones futuras, puedes duplicar el repositorio o, si éste es una plantilla, utilizarlo como plantilla. Para obtener más información, consulta la sección "[Duplicar un repositorio](/articles/duplicating-a-repository)" y "[Crear un repositorio desde una plantilla](/articles/creating-a-repository-from-a-template)".
 
-### Leer más
+## Leer más
 
 - "[Acerca de los modelos de desarrollo colaborativo](/articles/about-collaborative-development-models)"
 - "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
+- [Guías de código abierto](https://opensource.guide/){% ifversion fpt %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

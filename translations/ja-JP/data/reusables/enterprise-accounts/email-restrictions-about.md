@@ -2,7 +2,13 @@
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
+{% ifversion fpt %}
 ドメインは、Enterprise アカウントから継承することも、特定の Organization 用に設定することもできます。 詳しい情報については「[Enterpriseアカウントのためのドメインの検証あるいは承認](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)」及び「[Organizationのメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。
+{% endif %}
+
+{%  ifversion ghes > 3.1 %}
+ドメインは、Enterprise アカウントから継承することも、特定の Organization 用に設定することもできます。 For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 

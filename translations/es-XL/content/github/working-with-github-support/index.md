@@ -4,7 +4,7 @@ redirect_from:
   - /categories/working-with-github-support
   - /forum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 children:

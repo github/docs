@@ -3,7 +3,7 @@ title: Código de conducta del foro de la comunidad GitHub
 redirect_from:
   - /articles/github-community-forum-code-of-conduct
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

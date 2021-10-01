@@ -4,9 +4,9 @@ intro: 'Aprende como navegar en los recursos que proporciona la API de {% data v
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

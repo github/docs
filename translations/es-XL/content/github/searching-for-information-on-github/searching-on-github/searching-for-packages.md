@@ -4,9 +4,9 @@ intro: 'Puedes buscar paquetes en {% data variables.product.product_name %} y ac
 product: '{% data reusables.gated-features.packages %}'
 permissions: Anyone can search for packages they have access to.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 redirect_from:

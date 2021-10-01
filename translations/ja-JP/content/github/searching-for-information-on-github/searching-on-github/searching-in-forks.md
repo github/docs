@@ -5,9 +5,9 @@ redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -25,7 +25,7 @@ topics:
 | `fork:only` | [**github fork:only**](https://github.com/search?q=github+fork%3Aonly&type=Repositories) は、「github」という単語を含むすべてのフォークリポジトリにマッチします。                                              |
 |             | [**forks:>500 fork:only**](https://github.com/search?q=forks%3A%3E500+fork%3Aonly&type=Repositories) は、フォークが 500 超の、フォークであるリポジトリのみを表示します。                                     |
 
-### 参考リンク
+## 参考リンク
 
 - [フォークについて](/articles/about-forks)
 - "[GitHub での検索について](/articles/about-searching-on-github)"

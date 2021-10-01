@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Access management
   - Enterprise

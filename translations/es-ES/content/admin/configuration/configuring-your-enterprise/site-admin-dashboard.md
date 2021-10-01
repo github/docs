@@ -7,7 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Enterprise
@@ -16,37 +17,37 @@ topics:
 
 Para acceder al tablero, en la esquina superior derecha de cualquier página, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}. ![Icono de cohete para acceder a la configuración de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes or ghae %}
 
-### Buscar
+## Buscar
 
 Aquí puedes iniciar la {{ site.data.variables.enterprise.management_console }} para administrar las configuraciones del aparato virtual como el dominio, la autenticación y SSL.
 
 {% else %}
 
-### Información de la licencia & buscar
+## Información de la licencia & buscar
 
 Consulta esta sección del tablero de administración del sitio para controlar tu licencia {% data variables.product.prodname_enterprise %} actual, para buscar usuarios y repositorios y para consultar el [registro de auditoría](#audit-log).
 
 {% endif %}
-
-### {% data variables.enterprise.management_console %}
+{% ifversion ghes %}
+## {% data variables.enterprise.management_console %}
 
 Aquí puedes iniciar la {% data variables.enterprise.management_console %} para administrar las configuraciones del aparato virtual como el dominio, la autenticación y SSL.
-
-### Explorar
+{% endif %}
+## Explorar
 
 Los datos para la [página de tendencia][] de GitHub se calculan en lapsos de tiempo diarios, semanales y mensuales para ambos repositorios y programadores. Puedes ver cuándo estos datos fueron almacenados en caché por última vez y poner en cola las tareas nuevas de cálculo de tendencia desde la sección **Explore (Explorar)**.
 
-### Registro de auditoría
+## Registro de auditoría
 
-{% data variables.product.prodname_enterprise %} mantiene un registro continuo de las acciones auditadas que puedes consultar.
+{% data variables.product.product_name %} mantiene un registro continuo de las acciones auditadas que puedes consultar.
 
 Por defecto, el registro de auditoría te muestra una lista de todas las acciones auditadas en orden cronológico reverso. Puedes filtrar esta lista al ingresar pares de valores clave en el casillero de texto de **Query (Consulta)** y después hacer clic en **Search (Buscar)**, como se explicó en "[Buscar el registro de auditoría](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
 
 Para obtener más información acerca de las bitácoras de auditoria en general, consulta "[Bitácoras de Auditoría](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)". Para encontrar una lista completa de las acciones auditadas, consulta la sección "[Acciones auditadas](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)".
 
-### Informes
+## Informes
 
 Si necesitas obtener información sobre los usuarios, organizaciones y repositorios en {% data variables.product.product_location %}, comúnmente extraerías datos JSON a través de la [API de GitHub](/rest). Lamentablemente, es posible que la API no proporcione todos los datos que deseas y se requiera algo de conocimiento técnico para usarla. Este tablero de administración del sitio ofrece una sección de **Reports (Informes)** como una alternativa, haciendo que sea fácil descargar informes CSV con la mayoría de la información que probablemente necesites para los usuarios, las organizaciones y los repositorios.
 
@@ -75,7 +76,7 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 
 {% endnote %}
 
-#### Informes del usuario
+### Informes del usuario
 
 |                    Clave | Descripción                                                                       |
 | ------------------------:| --------------------------------------------------------------------------------- |
@@ -94,7 +95,7 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 |              `raw_login` | Información de inicio de sesión sin procesar (en formato JSON)                    |
 |           `2fa_enabled?` | Si el usuario ha habilitado autenticación de dos factores                         |
 
-#### Informes de la organización
+### Informes de la organización
 
 |                    Clave | Descripción                                                  |
 | ------------------------:| ------------------------------------------------------------ |
@@ -108,7 +109,7 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 |                  `repos` | Cantidad de repositorios de la organización                  |
 |          `2fa_required?` | Si la organización requiere autenticación de dos factores    |
 
-#### Informes del repositorio
+### Informes del repositorio
 
 |                    Clave | Descripción                                                        |
 | ------------------------:| ------------------------------------------------------------------ |
@@ -125,15 +126,16 @@ Para acceder a otros informes mediante programación, reemplaza `all_users` con 
 |                  `fork?` | Si el repositorio es una bifurcación                               |
 |               `deleted?` | Si el repositorio ha sido borrado                                  |
 
-### Indexar
+{% ifversion ghes %}
+## Indexar
 
 Las funciones de [búsqueda de código][] de GitHub son propulsadas por [ElasticSearch][]. Esta sección del tablero de administración del sitio muestra el estado actual de tu agrupación de ElasticSearch y brinda diversas herramientas para controlar el comportamiento de búsqueda e indexación. Estas herramientas están separadas en las siguientes tres categorías.
 
-#### Búsqueda de código
+### Búsqueda de código
 
 Esto te permite habilitar o deshabilitar tanto las operaciones de búsqueda como de indexación en el código fuente.
 
-#### Reparación del índice de búsqueda de código
+### Reparación del índice de búsqueda de código
 
 Esto controla cómo se repara el índice de búsqueda de código. Puedes
 
@@ -155,23 +157,37 @@ Una barra de progreso muestra el estado actual de la tarea de reparación a trav
 
 Puedes comenzar una nueva tarea de reparación de índice de búsqueda de código en cualquier momento. Utilizará una CPU única ya que compagina el índice de búsqueda con la base de datos y los datos del repositorio de Git. Para minimizar los efectos que esto tendrá en el desempeño de I/O y reducir las posibilidades de que las operaciones queden inactivas, trata de ejecutar una tarea de reparación durante las horas valle en primer lugar. Controla las cargas promedio de tu sistema y el uso de tu CPU con una herramienta como `top`; si no notas cambios significativos, debería ser seguro ejecutar una tarea de reparación de índice también durante las horas pico.
 
-#### Reparación de índice de propuestas
+### Reparación de índice de propuestas
 
 Esto controla de qué manera se repara el [índice de propuestas][]. Puedes
 
 - habilitar o inhabilitar tareas de reparación de índices
 - comenzar una nueva tarea de reparación de índice
 - restablecer todos los estados de reparación de índices
+{% endif %}
+## Reserved logins
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
 
-### Todos los usuarios
+For example, the following words are reserved, among others:
+
+- `admin`
+- `empresa`
+- `login`
+- `staff`
+- `asistencia`
+
+For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+
+{% ifversion ghes or ghae %}
+
+## Todos los usuarios
 
 Aquí puedes ver todos los usuarios que han sido suspendidos en {{ site.data.variables.product.product_location_enterprise }}, e [iniciar una auditoría clave de SSH](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys).
 
 {% endif %}
 
-### Repositorios
+## Repositorios
 
 Es una lista de los repositorios en {% data variables.product.product_location %}. Puedes hacer clic en un nombre de repositorio y acceder a las funciones para administrar el repositorio.
 
@@ -179,17 +195,21 @@ Es una lista de los repositorios en {% data variables.product.product_location %
 - [Configurar {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [Archivar y desarchivar repositorios](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-### Todos los usuarios
+## Todos los usuarios
 
-Aquí puedes ver todos los usuarios en {% data variables.product.product_location %}—, e [iniciar una auditoría clave de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-### Administrador del sitio
+## Administrador del sitio
 
 Aquí puedes ver todos los administradores en {% data variables.product.product_location %}, e [iniciar una auditoría clave en SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-### Usuarios inactivos
-
+## Usuarios inactivos
+{% ifversion ghes %}
 Aquí puedes ver y [suspender](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) todos los usuarios inactivos en {% data variables.product.product_location %}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
+{% endif %}
+{% ifversion ghae %}
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
+{% endif %}
 
 - Ha existido durante más tiempo del umbral de inactividad que está establecido para {% data variables.product.product_location %}.
 - No ha generado ninguna actividad dentro de ese período.
@@ -197,7 +217,7 @@ Aquí puedes ver y [suspender](/enterprise/{{ currentVersion }}/admin/guides/use
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %} Para obtener más información, consulta "[Administrar usuarios inactivos](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
 
-### Usuarios suspendidos
+## Usuarios suspendidos
 
 Aquí puedes ver todos los usuarios que han sido suspendidos en {% data variables.product.product_location %}, e [iniciar una auditoría clave de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 

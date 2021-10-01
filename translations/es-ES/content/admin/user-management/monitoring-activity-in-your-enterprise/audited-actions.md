@@ -1,15 +1,15 @@
 ---
 title: Acciones auditadas
 intro: Puedes buscar el registro de auditoría para una gran variedad de acciones.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/articles/audited-actions/
   - /enterprise/admin/installation/audited-actions
   - /enterprise/admin/user-management/audited-actions
   - /admin/user-management/audited-actions
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Auditing
@@ -17,29 +17,29 @@ topics:
   - Security
 ---
 
-### Autenticación
+## Autenticación
 
-| Acción                               | Descripción                                                                                                                                                   |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `oauth_access.create`                | Un [Token de acceso de OAuth][] fue [generado][generate token] para la cuenta de un usuario.                                                                  |
-| `oauth_access.destroy`               | Un [Token de acceso de OAuth][] se eliminó de la cuenta de un usuario.                                                                                        |
-| `oauth_application.destroy`          | Una [Aplicación de OAuth][] se eliminó de la cuenta de un usuario o de una organización.                                                                      |
-| `oauth_application.reset_secret`     | Se restableció una [clave secreta de una aplicación de OAuth][].                                                                                              |
-| `oauth_application.transfer`         | Una [aplicación de OAuth][] se transfirió de una cuenta de usuario o de organización a otra.                                                                  |
-| `public_key.create`                  | Una clave SSH se [agregó][add key] a una cuenta de usuario o una [llave de implementación][] se agregó a un repositorio.                                      |
-| `public_key.delete`                  | Una clave SSH se eliminó de una cuenta de usuario o una [llave de implementación][] se eliminó de un repositorio.                                             |
-| `public_key.update`                  | Se actualizó una llave SSH de una cuenta de usuario o una [llave de despliegue][] de un repositorio.{% if enterpriseServerVersions contains currentVersion %}
-| `two_factor_authentication.enabled`  | [Se habilitó la autenticación de dos factores][2fa] para una cuenta de usuario.                                                                               |
+| Acción                               | Descripción                                                                                                              |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `oauth_access.create`                | Un [Token de acceso de OAuth][] fue [generado][generate token] para la cuenta de un usuario.                             |
+| `oauth_access.destroy`               | Un [Token de acceso de OAuth][] se eliminó de la cuenta de un usuario.                                                   |
+| `oauth_application.destroy`          | Una [Aplicación de OAuth][] se eliminó de la cuenta de un usuario o de una organización.                                 |
+| `oauth_application.reset_secret`     | Se restableció una [clave secreta de una aplicación de OAuth][].                                                         |
+| `oauth_application.transfer`         | Una [aplicación de OAuth][] se transfirió de una cuenta de usuario o de organización a otra.                             |
+| `public_key.create`                  | Una clave SSH se [agregó][add key] a una cuenta de usuario o una [llave de implementación][] se agregó a un repositorio. |
+| `public_key.delete`                  | Una clave SSH se eliminó de una cuenta de usuario o una [llave de implementación][] se eliminó de un repositorio.        |
+| `public_key.update`                  | Se actualizó una llave SSH de una cuenta de usuario o una [llave de despliegue][] de un repositorio.{% ifversion ghes %}
+| `two_factor_authentication.enabled`  | [Se habilitó la autenticación de dos factores][2fa] para una cuenta de usuario.                                          |
 | `two_factor_authentication.disabled` | Se inhabilitó la [Autenticación bifactorial][2fa] para una cuenta de usuario.{% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_actions %}
+{% ifversion ghes %}
+## {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
 
 {% endif %}
 
-### Ganchos
+## Ganchos
 
 | Acción                | Descripción                                         |
 | --------------------- | --------------------------------------------------- |
@@ -48,19 +48,21 @@ topics:
 | `hook.destroy`        | Se eliminó un enlace.                               |
 | `hook.events_changed` | Se cambiaron los eventos configurados de un enlace. |
 
-### Configuración de ajustes de empresa
+## Configuración de ajustes de empresa
 
 | Acción                                                  | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae-next %}
 | `business.advanced_security_policy_update`              | Un adminsitrador de sitio crea, actualiza o elimina una política para la {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta la sección "[Requerir políticas para la {% data variables.product.prodname_advanced_security %} en tu empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".{% endif %}
-| `business.clear_members_can_create_repos`               | Un administrador de sitio elimina una restricción para la creación de repositorios en las organizciones de la empresa. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".                                                                              |
-| `business.update_member_repository_creation_permission` | Un administrador de sitio restringe la creación de repositorios en las organizaciones de la empresa. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".{% if enterpriseServerVersions contains currentVersion %}
+| `business.clear_members_can_create_repos`               | Un administrador de sitio elimina una restricción para la creación de repositorios en las organizciones de la empresa. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".{% ifversion ghes > 3.1 %}
+| `business.referrer_override_enable`                     | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."                                                                                                                                                                                                         |
+| `business.referrer_override_disable`                    | A site admin disables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."{% endif %}
+| `business.update_member_repository_creation_permission` | Un administrador de sitio restringe la creación de repositorios en las organizaciones de la empresa. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)".{% ifversion ghes %}
 | `enterprise.config.lock_anonymous_git_access`           | Un administrador de sitio bloquea el acceso de lectura anónima a Git para prevenir que los administradores de repositorio cambien dicha configuración para los repositorios de la empresa. Para obtener más información consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)".              |
 | `enterprise.config.unlock_anonymous_git_access`         | Un administrador de sitio desbloquea el acceso de lectura anónima a Git para permitir que los administradores de repositorio cambien dicha configuración en los repositorios de la empresa. Para obtener más información, consulta la sección "[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)".{% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
-### Listas de IP permitidas
+## Listas de IP permitidas
 
 |                                     Nombre | Descripción                                                                                                       |
 | ------------------------------------------:| ----------------------------------------------------------------------------------------------------------------- |
@@ -74,24 +76,28 @@ topics:
 
 {% endif %}
 
-### Propuestas y solicitudes de extracción
+## Problemas
 
-| Acción                               | Descripción                                                                                                                                                                 |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `issue.update`                       | Cambió el texto del cuerpo de un problema (comentario inicial).                                                                                                             |
-| `issue_comment.update`               | Cambió un comentario sobre un problema (diferente al inicial).                                                                                                              |
-| `pull_request_review_comment.delete` | Se detectó un comentario en una solicitud de extracción.                                                                                                                    |
-| `issue.destroy`                      | Se eliminó un problema del repositorio. Para obtener más información, consulta la sección "[Borrar una propuesta](/github/managing-your-work-on-github/deleting-an-issue)". |
+| Acción                 | Descripción                                                                                                                                                                 |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `issue.update`         | Cambió el texto del cuerpo de un problema (comentario inicial).                                                                                                             |
+| `issue_comment.update` | Cambió un comentario sobre un problema (diferente al inicial).                                                                                                              |
+| `issue.destroy`        | Se eliminó un problema del repositorio. Para obtener más información, consulta la sección "[Borrar una propuesta](/github/managing-your-work-on-github/deleting-an-issue)". |
 
-### Organizaciones
+
+## Organizaciones
 
 | Acción             | Descripción                                                                                                                                                                                                                                                           |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `org.async_delete` | Un usuario inició una tarea en segundo plano para eliminar una organización.                                                                                                                                                                                          |
-| `org.delete`       | Un job en segundo plano que inició un usuario ocasionó que una organización se borrara.{% if currentVersion != "github-ae@latest" %}
+| `org.delete`       | Un job en segundo plano que inició un usuario ocasionó que una organización se borrara.{% ifversion not ghae %}
 | `org.transform`    | Una cuenta de usuario se convirtió en una organización. Para obtener más información, consulta la sección "[Convertir a un usuario en una organización](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)".{% endif %}
 
-### Ramas protegidas
+## Solicitudes de cambios
+
+| Action | Description | | :- | :- |{% ifversion ghes > 3.1 or ghae-next %} | `pull_request.create` | A pull request was created. Para obtener más información, consulta la sección"[Crear una solicitud de extracción](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." | | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." | | `pull_request.reopen` | A pull request was reopened after previously being closed. | | `pull_request.merge` | A pull request was merged. Para obtener más información, consulta "[Fusionar una solicitud de extracción](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)". | | `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. | | `pull_request.ready_for_review` | A pull request was marked as ready for review. Para obtener más información, consulta la sección "[Cambiar el estado de una solicitud de extracción](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)". | | `pull_request.converted_to_draft` | A pull request was converted to a draft. Para obtener más información, consulta la sección "[Cambiar el estado de una solicitud de extracción](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)". | | `pull_request.create_review_request` | A review was requested on a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)". | | `pull_request.remove_review_request` | A review request was removed from a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)". | | `pull_request_review.submit` | A review was submitted for a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)". | | `pull_request_review.dismiss` | A review on a pull request was dismissed. Para obtener más información, consulta "[Descartar una revisión de solicitud de extracción](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)". | | `pull_request_review.delete` | A review on a pull request was deleted. | | `pull_request_review_comment.create` | A review comment was added to a pull request. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)". | | `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %} | `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
+
+## Ramas protegidas
 
 | Acción                                                             | Descripción                                                                                            |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
@@ -106,11 +112,11 @@ topics:
 | `protected_branch.rejected_ref_update`                             | Se rechaza el intento de actualización de una rama.                                                    |
 | `protected_branch.policy_override`                                 | Un administrador de repositorios anula el requisito de protección de una rama.                         |
 
-### Repositorios
+## Repositorios
 
 | Acción                                     | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.access`                              | La visbilidad de un repositorio cambió a privado{% if enterpriseServerVersions contains currentVersion %}, público,{% endif %} o interno.                                                                                                                                                                                                                                                                                                                                  |
+| `repo.access`                              | La visbilidad de un repositorio cambió a privado{% ifversion ghes %}, público,{% endif %} o interno.                                                                                                                                                                                                                                                                                                                                                                       |
 | `repo.archived`                            | Se archivó un repositorio. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".                                                                                                                                                                                                                               |
 | `repo.add_member`                          | Se agregó un colaborador a un repositorio.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `repo.config`                              | Un administrador de sitio bloqueó los empujes forzados. Para obtener más información, consulta [Bloquear los empujes forzados para un repositorio](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/) para un repositorio.                                                                                                                                                                                           |
@@ -120,13 +126,13 @@ topics:
 | `repo.rename`                              | Se renombró un repositorio.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `repo.transfer`                            | Un usuario aceptó una solicitud para recibir un repositorio transferido.                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `repo.transfer_start`                      | Un usuario envió una solicitud para transferir un repositorio a otro usuario u organización.                                                                                                                                                                                                                                                                                                                                                                               |
-| `repo.unarchived`                          | Un repositorio dejó de estar archivado. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".{% if enterpriseServerVersions contains currentVersion %}
+| `repo.unarchived`                          | Un repositorio dejó de estar archivado. Para obtener más información, consulta la sección "[Archivar un repositorio de {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)".{% ifversion ghes %}
 | `repo.config.disable_anonymous_git_access` | El acceso de lectura anónima de Git se encuentra inhabilitado para un repositorio. Para obtener más información, consulta la sección "[Habilitar el acceso de lectura anónima en Git para un repositorio](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".                                                                                                                                                            |
 | `repo.config.enable_anonymous_git_access`  | El acceso de lectura anónima de Git se encuentra habilitado para un repositorio. Para obtener más información, consulta la sección "[Habilitar el acceso de lectura anónima en Git para un repositorio](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".                                                                                                                                                              |
 | `repo.config.lock_anonymous_git_access`    | La configuración del acceso de lectura anónimo de Git para un repositorio está bloqueada, lo cual evita que los administradores de repositorios cambien (habiliten o deshabiliten) esta configuración. Para obtener más información, consulta la sección "[Prevenir que los usuarios cambien el acceso de lectura anónimo de Git](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)".                |
 | `repo.config.unlock_anonymous_git_access`  | La configuración del acceso de lectura anónimo de Git para un repositorio está desbloqueada, lo cual permite que los administradores del repositorio cambien (habiliten o inhabiliten) esta configuración. Para obtener más información, consulta la sección "[Prevenir que los usuarios cambien el acceso de lectura anónimo de Git](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)".{% endif %}
 
-### Herramientas del admin del sitio
+## Herramientas del admin del sitio
 
 | Acción               | Descripción                                                                                                                     |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -136,38 +142,43 @@ topics:
 | `staff.repo_unlock`  | Un administrador del sitio desbloqueó (obtuvo acceso total de manera temporaria) uno de los repositorios privados del usuario.  |
 | `staff.unlock`       | Un administrador del sitio desbloqueó (obtuvo acceso total de manera temporaria) todos los repositorios privados de un usuario. |
 
-### Equipos
+## Equipos
 
-| Acción                    | Descripción                                                                                                                                                 |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `team.create`             | Se agregó una cuenta de usuario o repositorio a un equipo.                                                                                                  |
-| `team.delete`             | Se eliminó una cuenta de usuario o repositorio de un equipo.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| Acción                    | Descripción                                                                                     |
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
+| `team.create`             | Se agregó una cuenta de usuario o repositorio a un equipo.                                      |
+| `team.delete`             | Se eliminó una cuenta de usuario o repositorio de un equipo.{% ifversion ghes > 2.22 or ghae %}
 | `team.demote_maintainer`  | Se bajó de categoría a un usuario de mantenedor de equipo a miembro de equipo.{% endif %}
-| `team.destroy`            | Se borró un equipo.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `team.destroy`            | Se borró un equipo.{% ifversion ghes > 2.22 or ghae %}
 | `team.promote_maintainer` | Se promovió a un usuario de miembro de equipo a mantenedor de equipo.{% endif %}
 
-
-### Usuarios
+## Usuarios
 
 | Acción                          | Descripción                                                                                                                                                                                            |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `user.add_email`                | Se agregó una dirección de correo electrónico a una cuenta de usuario.                                                                                                                                 |
-| `user.async_delete`             | Se inició un job asincrónico para destruir una cuenta de usuario, lo cual finalmente activó a `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
+| `user.async_delete`             | Se inició un job asincrónico para destruir una cuenta de usuario, lo cual finalmente activó a `user.delete`.{% ifversion ghes %}
 | `user.change_password`          | Un usuario cambió su contraseña.{% endif %}
 | `user.create`                   | Se creó una cuenta de usuario nueva.                                                                                                                                                                   |
 | `user.delete`                   | Se destruyó una cuenta de usuario mediante una tarea asincrónica.                                                                                                                                      |
 | `user.demote`                   | Se disminuyó el nivel de un administrador del sitio a cuenta de usuario común.                                                                                                                         |
-| `user.destroy`                  | Un usuario borró su cuenta, lo cual activó a `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
+| `user.destroy`                  | Un usuario borró su cuenta, lo cual activó a `user.async_delete`.{% ifversion ghes %}
 | `user.failed_login`             | Un usuario intentó registrarse con un nombre de usuario, contraseña o código de autenticación de dos factores incorrecto.                                                                              |
 | `user.forgot_password`          | Un usuario solicitó el restablecimiento de una contraseña a través de la página de inicio de sesión.{% endif %}
-| `user.login`                    | Un usuario inició sesión.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `user.login`                    | Un usuario inició sesión.{% ifversion ghes > 2.22 or ghae %}
 | `user.mandatory_message_viewed` | Un usuario vió un mensaje mandatorio (consulta "[Personalizar los mensajes de usuario](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obtener más detalles) | {% endif %}
 | `user.promote`                  | Se ascendió una cuenta de usuario común a administrador del sitio.                                                                                                                                     |
 | `user.remove_email`             | Se eliminó una dirección de correo electrónico de una cuenta de usuario.                                                                                                                               |
 | `user.rename`                   | Se cambió un nombre de usuario.                                                                                                                                                                        |
-| `user.suspend`                  | Un administrador de sitio suspendió una cuenta de usuario.{% if enterpriseServerVersions contains currentVersion %}
+| `user.suspend`                  | Un administrador de sitio suspendió una cuenta de usuario.{% ifversion ghes %}
 | `user.two_factor_requested`     | Se solicitó a un usuario ingresar un código de autenticación bifactorial.{% endif %}
 | `user.unsuspend`                | Un administrador del sitió dejó de suspender una cuenta de usuario.                                                                                                                                    |
+
+{% ifversion ghes > 3.1 or ghae-issue-1157 %}
+## Flujos de trabajo
+
+{% data reusables.actions.actions-audit-events-workflow %}
+{% endif %}
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [llave de implementación]: /guides/managing-deploy-keys/#deploy-keys

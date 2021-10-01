@@ -6,9 +6,9 @@ redirect_from:
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -18,7 +18,7 @@ versions:
 4. 在“ Edit saved reply”（已保存回复）下，您可以编辑已保存回复的标题和内容。 ![编辑标题和内容](/assets/images/help/settings/saved-replies-edit-existing-content.png)
 5. 单击 **Update saved reply（更新已保存回复）**。 ![更新已保存回复](/assets/images/help/settings/saved-replies-save-edit.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[创建已保存回复](/articles/creating-a-saved-reply)"
 - "[删除已保存回复](/articles/deleting-a-saved-reply)"

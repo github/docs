@@ -4,13 +4,14 @@ intro: Você pode obter lembretes no Slack para todos os pull requests que as eq
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Gerenciar lembretes agendados
 ---
 
-### Sobre lembretes agendados para pull requests
+## Sobre lembretes agendados para pull requests
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -18,7 +19,7 @@ Os proprietários da organização podem agendar um lembrete para uma ou mais eq
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Criar um lembrete agendado para uma organização
+## Criar um lembrete agendado para uma organização
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -41,7 +42,7 @@ Os proprietários da organização podem agendar um lembrete para uma ou mais eq
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-### Gerenciar um lembrete agendado para uma organização
+## Gerenciar um lembrete agendado para uma organização
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -50,14 +51,14 @@ Os proprietários da organização podem agendar um lembrete para uma ou mais eq
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Excluir um lembrete agendado para uma organização
+## Excluir um lembrete agendado para uma organização
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}
 
-### Leia mais
+## Leia mais
 
 - "[Gerenciar seus lembretes agendados](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"
 - "[Gerenciar lembretes agendados para a sua equipe](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

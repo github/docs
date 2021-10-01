@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Policies

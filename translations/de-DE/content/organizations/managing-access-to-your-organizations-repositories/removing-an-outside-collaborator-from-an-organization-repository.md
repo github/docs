@@ -5,15 +5,16 @@ redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Remove collaborator
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% warning %}
 
@@ -28,7 +29,7 @@ topics:
 
 Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys gelöscht, seine lokalen Klone Deiner Repositorys behält er aber.
 
-### Externe Mitarbeiter von allen Repositorys einer Organisation entfernen
+## Externe Mitarbeiter von allen Repositorys einer Organisation entfernen
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -38,7 +39,7 @@ Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys 
 6. Klicke im Dropdownmenü über der Liste der externen Mitarbeiter auf **Remove from all repositories** (Von allen Repositorys entfernen). ![Dropdownmenü mit Option zum Entfernen externer Mitarbeiter ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
 7. Prüfe die Liste der externen Mitarbeiter, die aus der Organisation entfernt werden, und klicke dann auf **Remove outside collaborators** (Externe Mitarbeiter entfernen). ![Liste der externen Mitarbeiter, die entfernt werden, und Schaltfläche „Remove outside collaborators“ (Externe Mitarbeiter entfernen)](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
 
-### Externen Mitarbeiter von einem bestimmten Repository einer Organisation entfernen
+## Externen Mitarbeiter von einem bestimmten Repository einer Organisation entfernen
 
 Wenn Du einen externen Mitarbeiter nur von bestimmten Repositorys Deiner Organisation entfernen möchtest, kannst Du dessen Zugriff auf die einzelnen Repositorys nacheinander entziehen.
 
@@ -51,7 +52,7 @@ Wenn Du einen externen Mitarbeiter nur von bestimmten Repositorys Deiner Organis
 7. Wenn Du den Zugriff des externen Mitarbeiters auf das Repository vollständig entziehen möchtest, klicke in der rechten oberen Ecke auf **Remove access to this repository** (Zugriff auf dieses Repository entfernen). ![Schaltfläche „Remove access to this repository“ (Zugriff auf dieses Repository entfernen)](/assets/images/help/organizations/remove-access-to-this-repository.png)
 8. Klicke zur Bestätigung auf **Remove access** (Zugriff entfernen). ![Bestätigung des Entfernens des externen Mitarbeiters vom Repository](/assets/images/help/teams/confirm-remove-outside-collaborator-from-a-repository.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Externe Mitarbeiter zu Organisations-Repositorys hinzufügen](/articles/adding-outside-collaborators-to-repositories-in-your-organization)“
 - „[Ein Organisationsmitglied in einen externen Mitarbeiter umwandeln](/articles/converting-an-organization-member-to-an-outside-collaborator)“

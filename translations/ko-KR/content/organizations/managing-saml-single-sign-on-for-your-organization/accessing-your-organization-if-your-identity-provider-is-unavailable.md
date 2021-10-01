@@ -6,13 +6,14 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Unavailable identity provider
 ---
 
-Organization administrators can use [one of their downloaded or saved recovery codes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) to bypass single sign-on. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/).
+Organization administrators can use [one of their downloaded or saved recovery codes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) to bypass single sign-on. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% note %}
 
@@ -26,6 +27,6 @@ Organization administrators can use [one of their downloaded or saved recovery c
 
 After you've used a recovery code, make sure to note that it's no longer valid. You will not be able to reuse the recovery code.
 
-### 더 읽을거리
+## 더 읽을거리
 
 - "[About identity and access management with SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

@@ -11,7 +11,7 @@ redirect_from:
   - /apps/marketplace/listing-on-github-marketplace/
   - /marketplace/listing-on-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 children:

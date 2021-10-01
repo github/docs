@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/setting-up-a-github-enterprise-instance/
   - /enterprise/admin/installation/setting-up-a-github-enterprise-server-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -20,5 +20,6 @@ children:
   - /installing-github-enterprise-server-on-vmware
   - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
+shortTitle: Set up an instance
 ---
 

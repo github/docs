@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 {% data variables.product.prodname_desktop %} utiliza la dirección de correo electrónico que configuraste en tus ajustes locales de Git para conectar las confirmaciones con tu cuenta en {% data variables.product.product_name %}.
@@ -55,7 +55,7 @@ versions:
 
 {% endwindows %}
 
-### Leer más
+## Leer más
 
 - [Agregar una dirección de correo electrónico a tu cuenta de GitHub](/articles/adding-an-email-address-to-your-github-account/)"
 - "[Establecer tu dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)."

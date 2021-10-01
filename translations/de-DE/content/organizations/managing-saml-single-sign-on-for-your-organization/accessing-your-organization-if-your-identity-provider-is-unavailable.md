@@ -6,13 +6,14 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Unavailable identity provider
 ---
 
-Administratoren von Organisationen können [einen ihrer heruntergeladenen oder gespeicherten Wiederherstellungscodes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) verwenden, um Single-Sign-On zu umgehen. Möglicherweise hast Du diese in einem Passwort-Manager wie [LastPass](https://lastpass.com/), [1Password](https://1password.com/) oder [Keeper](https://keepersecurity.com/) gespeichert.
+Administratoren von Organisationen können [einen ihrer heruntergeladenen oder gespeicherten Wiederherstellungscodes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) verwenden, um Single-Sign-On zu umgehen. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% note %}
 
@@ -26,6 +27,6 @@ Administratoren von Organisationen können [einen ihrer heruntergeladenen oder g
 
 Denke daran, dass ein Wiederherstellungscode nicht mehr gültig ist, nachdem Du ihn verwendet hast. Du kannst den Wiederherstellungscode nicht erneut verwenden.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zum Identitäts- und Zugriffsmanagement mit SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)“

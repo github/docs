@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/differences-between-clustering-and-high-availability-ha
   - /admin/enterprise-management/differences-between-clustering-and-high-availability-ha
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Clustering
   - Enterprise

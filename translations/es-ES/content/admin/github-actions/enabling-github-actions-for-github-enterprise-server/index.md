@@ -2,7 +2,7 @@
 title: Habilitar GitHub Actions para GitHub Enterprise Server
 intro: 'Aprende cómo configurar el almacenamiento y habilita las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}.'
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -11,5 +11,6 @@ children:
   - /enabling-github-actions-with-amazon-s3-storage
   - /enabling-github-actions-with-minio-gateway-for-nas-storage
   - /enforcing-github-actions-policies-for-your-enterprise
+shortTitle: Habiligar GitHub Actions
 ---
 

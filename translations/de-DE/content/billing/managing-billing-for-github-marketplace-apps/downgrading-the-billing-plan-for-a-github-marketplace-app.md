@@ -6,23 +6,23 @@ redirect_from:
   - /articles/downgrading-an-app-for-your-personal-account/
   - /articles/downgrading-an-app-for-your-organization/
   - /articles/downgrading-the-billing-plan-for-a-github-marketplace-app
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-the-billing-plan-for-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/downgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Downgrades
   - Marketplace
   - Organizations
   - User account
+shortTitle: Downgrade billing plan
 ---
 
 Wenn Du eine App herabstufst, bleibt Dein Abonnement bis zum Ende des aktuellen Abrechnungszeitraums aktiv. Die Herabstufung tritt zum nächsten Abrechnungsdatum in Kraft. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-### Eine App für Dein persönliches Konto herabstufen
+## Eine App für Dein persönliches Konto herabstufen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -31,7 +31,7 @@ Wenn Du eine App herabstufst, bleibt Dein Abonnement bis zum Ende des aktuellen 
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Eine App für Deine Organisation herabstufen
+## Eine App für Deine Organisation herabstufen
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
@@ -43,6 +43,6 @@ Wenn Du eine App herabstufst, bleibt Dein Abonnement bis zum Ende des aktuellen 
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Eine {% data variables.product.prodname_marketplace %}-App kündigen](/articles/canceling-a-github-marketplace-app/)“

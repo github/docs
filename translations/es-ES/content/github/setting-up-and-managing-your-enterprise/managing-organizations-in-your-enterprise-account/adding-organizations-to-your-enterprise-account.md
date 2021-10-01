@@ -7,16 +7,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Agregar organizaciones
 ---
 
 Los propietarios de la empresa pueden crear nuevas organizaciones dentro de los parámetros de la cuenta de empresa.
 
 Para agregar una organización a tu cuenta de empresa, debes crear la organización desde el interior de los parámetros de la cuenta de empresa. Si quieres transferir una organización existente a tu cuenta empresarial, contacta a tu representante de ventas para tu cuenta de {% data variables.product.prodname_dotcom %}.
 
-### Crear una organización en tu cuenta de empresa
+## Crear una organización en tu cuenta de empresa
 
 Las organizaciones nuevas que crees dentro de los parámetros de la cuenta de empresa se incluyen en la suscripción de la cuenta de empresa de {% data variables.product.prodname_ghe_cloud %}. Para más información sobre la colaboración en organizaciones, consulta "[Configurar y administrar organizaciones y equipo](/categories/setting-up-and-managing-organizations-and-teams)".
 

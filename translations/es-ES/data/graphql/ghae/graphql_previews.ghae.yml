@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - Información más detallada sobre un estado de fusión de una solicitud de extracción.

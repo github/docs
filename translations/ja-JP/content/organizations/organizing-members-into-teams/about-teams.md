@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,7 +24,7 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 
 ![Team のメンションの画像](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 また、LDAP Sync を使って {% data variables.product.product_location %}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location %}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 
@@ -32,11 +32,11 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 
 {% data reusables.organizations.team-synchronization %}
 
-### Team の可視性
+## Team の可視性
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### Team のページ
+## Team のページ
 
 各 Team は、Organization 内に独自のページを持ちます。 Team のページでは、Team メンバー、子チーム、Team のリポジトリを見ることができます。 Organization のオーナーとチームメンテナは、Team のページから Team の設定にアクセスし、Team の説明とプロフィール画像を更新できます。
 
@@ -44,7 +44,7 @@ Organization のメンバーは、Team 内のディスカッションを作成�
 
 ![メンバーとディスカッションのリストがある Team ページ](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### 入れ子チーム
+## 入れ子チーム
 
 {% data variables.product.product_name %}の Organization では、複数レベルの入れ子チームでグループや会社の階層を反映させることができます。 親チームは複数の子チームを持つことができます。それぞれの子チームが持つことができる親チームは 1 つだけです。 シークレットチームを入れ子にすることはできません。
 
@@ -62,7 +62,7 @@ Team を作るときには親を選択できます。あるいは、作成済み
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### Organization 内で Team を入れ子にする準備
+## Organization 内で Team を入れ子にする準備
 
 Organization がすでに既存の Team を持っている場合、その Team の上あるいは下に Team を入れ子にする前に、各 Team のリポジトリのアクセス権限を監査しておくべきです。 また、Organization に実装したい新しい構造についても考慮しておくべきです。
 
@@ -73,7 +73,7 @@ Team 階層の最上位では、親チームとその子チームのすべての
 3. 必要な新しい Team を作成し、それぞれの新 Team の親を選択し、それらにリポジトリのアクセス権を与える
 4. Team に直接人を追加する
 
-### 参考リンク
+## 参考リンク
 
 - [Team の作成](/articles/creating-a-team)
 - [Team へのOrganization メンバーの追加](/articles/adding-organization-members-to-a-team)

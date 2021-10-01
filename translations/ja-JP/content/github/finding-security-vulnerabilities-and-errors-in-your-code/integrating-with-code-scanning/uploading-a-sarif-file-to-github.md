@@ -5,7 +5,7 @@ intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
 permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### {% data variables.product.prodname_code_scanning %} に対する SARIF ファイルのアップロードについて
+## {% data variables.product.prodname_code_scanning %} に対する SARIF ファイルのアップロードについて
 
 SARIF ファイルに `partialFingerprints` が含まれていない場合、`upload-sarif` アクションは、`partialFingerprints` フィールドを計算し、アラートの重複を防止しようと試みます。 {% data variables.product.prodname_dotcom %} は、リポジトリに SARIF ファイルと静的分析で使用されるソースコードの両方が含まれている場合にのみ、`partialFingerprints` を作成できます。 詳しい情報については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートを管理する](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)」を参照してください。
 
@@ -32,7 +32,7 @@ SARIF ファイルは、{% data variables.product.prodname_codeql %} を含む�
 
 {% data reusables.code-scanning.not-available %}
 
-### {% data variables.product.prodname_actions %} での {% data variables.product.prodname_code_scanning %} 分析をアップロードする
+## {% data variables.product.prodname_actions %} での {% data variables.product.prodname_code_scanning %} 分析をアップロードする
 
 サードパーティの SARIF ファイルを {% data variables.product.prodname_dotcom %} にアップロードするには、{% data variables.product.prodname_actions %} ワークフローが必要です。 詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/getting-started-with-github-actions/about-github-actions)」および「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
 
@@ -44,7 +44,7 @@ SARIF ファイルに `partialFingerprints` が含まれていない場合、`up
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-#### リポジトリ外で生成された SARIF ファイルのワークフロー例
+### リポジトリ外で生成された SARIF ファイルのワークフロー例
 
 SARIF ファイルをリポジトリにコミットした後でアップロードする新しいワークフローを作成できます。 これは、SARIF ファイルがリポジトリ外のアーティファクトとして生成される場合に役立ちます。
 
@@ -66,7 +66,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -80,7 +80,7 @@ jobs:
           sarif_file: results.sarif
 ```
 
-#### ESLint 分析ツールを実行するワークフローの例
+### ESLint 分析ツールを実行するワークフローの例
 
 継続的インテグレーション（CI）ワークフローの一部としてサードパーティの SARIF ファイルを生成する場合は、CI テストの実行後のステップとして、`upload-sarif` アクションを追加できます。 CI ワークフローがない場合は、{% data variables.product.prodname_actions %} テンプレートを使用して作成できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
 
@@ -100,7 +100,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -118,7 +118,7 @@ jobs:
           sarif_file: results.sarif
 ```
 
-### 参考リンク
+## 参考リンク
 
 - [{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions)
 - 「[ワークフロー履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」

@@ -133,6 +133,13 @@ sections:
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - 以前は2.14リリースではなく2.13リリースを実行していたインスタンスをアップグレードすると、`AddRepositoryIdToCheckRuns`データ転送に関係するデータベースの移行エラーが生じます。
+    - |
+      3.0.xから3.1.xにアップグレードすると、GitHub Actionsが`An unexpected error occurred when executing this workflow`というエラーで失敗する場合があります。この問題を回避するには、管理シェル（ssh）を接続して以下を実行してください。
+      ```
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
+      ```
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
   deprecations:
     - 
       heading: GitHub Enterprise Server 2.20の非推奨化

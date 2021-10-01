@@ -5,25 +5,25 @@ redirect_from:
   - /articles/searching-topics
   - /github/searching-for-information-on-github/searching-topics
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
 
-### Buscar temas en {% data variables.product.product_name %}
+## Buscar temas en {% data variables.product.product_name %}
 
 Puedes buscar temas en {% data variables.product.product_name %}, explorar temas relacionados y ver cuántos repositorios están asociados con un tema determinado.
 
 1. Navega hasta https://github.com/search.
 2. Escribe una palabra clave del tema. ![campo buscar](/assets/images/help/search/search-field.png)
 3. En la barra lateral de la izquierda, para acotar tu búsqueda por temas, haz clic en **Topics (Temas)**.
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
   ![La página de resultados de búsqueda de repositorios de Jekyll con la opción de menú lateral de temas resaltada](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 
-### Acotar tu búsqueda con calificadores de búsqueda
+## Acotar tu búsqueda con calificadores de búsqueda
 
 Si deseas explorar repositorios sobre un determinado tema, encontrar proyectos en los que contribuir, o conocer qué temas son más populares en {% data variables.product.product_name %}, puedes buscar temas con los calificadores de búsqueda `is:featured`, `is:curated`, `repositories:n` y `created:YYYY-MM-DD`.
 
@@ -46,9 +46,9 @@ Puedes filtrar temas en base a cuándo se crearon utilizando el parámetro de fe
 | `repositories:n`          | [**repositories:&gt;5000**](https://github.com/search?q=repositories%3A%3E5000) encuentra temas que tienen más de 5000 repositorios.                                                                                                    |
 | <code>created:<em>YYYY-MM-DD</em></code> | [**Serverless created:&gt;2019-01-01**](https://github.com/search?q=Serverless+created%3A%3E2019-01-01&type=Topics) encuentra temas con la palabra "serverless" que fueron creados después de 2018.                                     |
 
-### Buscar repositorios por tema
+## Buscar repositorios por tema
 
 Puedes utilizar el calificador `topic:` (tema) para encontrar cada repositorio conectado a un tema particular. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-by-topic)."
 
-### Leer más
+## Leer más
 - "[Clasificar tu repositorio con temas](/articles/classifying-your-repository-with-topics)"

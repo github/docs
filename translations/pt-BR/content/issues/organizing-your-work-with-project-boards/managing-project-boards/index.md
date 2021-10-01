@@ -3,9 +3,9 @@ title: Gerenciar quadros de projeto
 shortTitle: Gerenciar quadros de projeto
 intro: Aprenda como criar e gerenciar quadros de projetos
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
   - Projects
@@ -25,3 +25,4 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

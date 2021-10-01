@@ -6,13 +6,26 @@ redirect_from:
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+
+## Sincronizando uma bifurcação a partir da interface de usuário da web
+
+1. Em {% data variables.product.product_name %}, acesse a página principal do repositório bifurcado que você deseja sincronizar com o repositório upstream.
+1. Selecione o menu suspenso **Buscar a upstream**. ![Menu suspenso "Buscar upstream"](/assets/images/help/repository/fetch-upstream-drop-down.png)
+1. Revise as informações sobre os commits do repositório upstream e, em seguida, clique em **Buscar e merge**. ![Botão "Buscar e fazer merge"](/assets/images/help/repository/fetch-and-merge-button.png)
+
+Se as alterações do repositório a upstream gerarem conflitos, {% data variables.product.company_short %} solicitará a criação de um pull request para resolver os conflitos.
+
+## Sincronizando uma bifurcação a partir da linha de comando
+
+{% endif %}
 Para poder sincronizar a bifurcação com o repositório upstream, você deve [configurar um remote que aponte para o repositório upstream](/articles/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

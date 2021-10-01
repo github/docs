@@ -10,15 +10,17 @@ header:
     early_access: '📣 Por favor, <b>no compartas</b> esta URL públicamente. Esta página tiene contenido sobre una característica de acceso temprano.'
     release_notes_use_latest: Por favor, utiliza el lanzamiento más reciente para las últimas correcciones de seguridad, rendimiento y errores.
     #GHES release notes
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_only: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de Enterprise Server.'
     ghes_release_notes_upgrade_release_only: '📣 Este no es el <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">lanzamiento más reciente </a> de Enterprise Server.'
     ghes_release_notes_upgrade_patch_and_release: '📣 Este no es el <a href="#{{ latestPatch }}">lanzamiento de parche más reciente</a> de esta serie de lanzamientos, y no es el<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">último lanzamiento</a> de Enterprise Server.'
 release_notes:
-  banner_text_current: These changes will roll out over the next one week.
-  banner_text_past: These changes rolled out to enterprises during the week of
+  banner_text_current: Estos cam bios se implementarán en la siguiente semana.
+  banner_text_past: Estos cambios se implementarán en las empresas durante la semana de
 search:
   need_help: '¿Necesitas ayuda?'
   placeholder: Busca temas, productos...
+  loading: Cargando
+  no_results: No se encontró ningún resultado
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión
@@ -44,17 +46,15 @@ survey:
   able_to_find: '¿Te ayudó este documento?'
   yes: true
   no: false
-  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
-  no_feedback: Estamos mejorando nuestros documentos constantemente. Nos encantaría saber cómo crees que podemos hacerlo aún mejor.
-  comment_yes_label: Let us know what we do well
+  comment_yes_label: Dinos qué estamos haciendo bien
   comment_no_label: Déjanos saber lo que podemos mejorar
   optional: Opcional
   required: Requerido
   email_placeholder: email@ejemplo.com
   email_label: '¿Podemos contactarte si tenemos más preguntas?'
   send: Enviar
-  feedback: Thank you! We received your feedback.
-  not_support: If you need a reply, please contact support instead.
+  feedback: '¡Gracias! Recibimos tus comentarios.'
+  not_support: Si necesitas una respuesta, por favor, mejor contacta a soporte.
   privacy_policy: Política de privacidad
 contribution_cta:
   title: '¡Ayúdanos a hacer geniales estos documentos!'
@@ -138,7 +138,7 @@ product_landing:
   sorry: Lo sentimos, no hay respultados para
   no_example: Parece que no tenemos un ejemplo que se ajuste a tu filtro.
   try_another: Inténtalo con otro archivo o agrega tu ejemplo de código.
-  no_result: Lo sentimos, no hay una guía que coincida con tu filtro.
+  no_result: Lo sentimos, no hay guías que coincidan con tu filtro.
   learn: Aprende cómo agregar un ejemplo de código
   communities_using_discussions: Comunidades que utilizan debates
   add_your_community: Agrega tu comunidad
@@ -155,6 +155,7 @@ product_sublanding:
   learning_paths_desc: Las rutas de aprendizaje son una recopilación de guías que te ayudan a dominar un tema en particular.
   guides: 'Guías de {{ productMap[currentProduct].name }}'
   more_guides: más guías
+  no_result: Lo sentimos, no hay guías que coincidan con tu filtro.
   load_more: Carga más guías
   all_guides: 'Todas las guías de {{ productMap[currentProduct].name }}'
   filters:

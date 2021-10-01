@@ -12,15 +12,15 @@ redirect_from:
   - /articles/how-can-i-add-extra-information-to-my-organization-s-receipts/
   - /articles/adding-information-to-your-organization-s-receipts/
   - /articles/adding-information-to-your-receipts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-information-to-your-receipts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Receipts
   - User account
+shortTitle: Adicionar aos seus recibos
 ---
 
 Seus recibos incluem sua assinatura do {% data variables.product.prodname_dotcom %}, bem como qualquer assinatura para [outros recursos e produtos pagos](/articles/about-billing-on-github).
@@ -31,14 +31,14 @@ Seus recibos incluem sua assinatura do {% data variables.product.prodname_dotcom
 
 {% endwarning %}
 
-### Adicionar informações aos recibos da sua conta pessoal
+## Adicionar informações aos recibos da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-### Adicionar informações ao recibos da sua organização
+## Adicionar informações ao recibos da sua organização
 
 {% note %}
 

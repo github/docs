@@ -6,22 +6,23 @@ redirect_from:
   - /articles/about-pull-request-reviews
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 关于 PR 审查
 ---
 
-### 关于拉取请求审查
+## 关于拉取请求审查
 
 打开拉取请求后，具有*读取*权限的任何人都可以查看该拉取请求提议的更改并进行评论。 您也可以建议对代码行的具体更改，作者可直接从拉取请求应用这些更改。 更多信息请参阅“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。
 
-仓库所有者和协作者可向具体的个人申请拉取请求审查。 组织成员也可向具有仓库读取权限的团队申请拉取请求审查。 更多信息请参阅“[申请拉取请求审查](/articles/requesting-a-pull-request-review)”。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}您可以指定自动分配一部分团队成员，而不是分配整个团队。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
+仓库所有者和协作者可向具体的个人申请拉取请求审查。 组织成员也可向具有仓库读取权限的团队申请拉取请求审查。 更多信息请参阅“[申请拉取请求审查](/articles/requesting-a-pull-request-review)”。 {% ifversion fpt or ghae or ghes %}您可以指定自动分配一部分团队成员，而不是分配整个团队。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
 审查允许讨论提议的更改，帮助确保更改符合仓库的参与指南及其他质量标准。 您可以在 CODEOWNERS 文件中定义哪些个人或团队拥有代码的特定类型或区域。 当拉取请求修改定义了所有者的代码时，该个人或团队将自动被申请为审查者。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners/)”。
 
-{% if currentVersion == "free-pro-team@latest" %}您可以对需要审查的拉取请求预定提醒。 更多信息请参阅“[管理拉取请求的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)”。{% endif %}
+{% ifversion fpt %}您可以对需要审查的拉取请求预定提醒。 更多信息请参阅“[管理拉取请求的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)”。{% endif %}
 
 ![包含行注释的拉取请求更改的标头](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
@@ -42,11 +43,11 @@ topics:
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### 重新请求审核
+## 重新请求审核
 
 {% data reusables.pull_requests.re-request-review %}
 
-### 必要的审查
+## 必要的审查
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。
 
@@ -56,7 +57,7 @@ topics:
 
 {% endtip %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[查看拉取请求审查](/articles/viewing-a-pull-request-review)"

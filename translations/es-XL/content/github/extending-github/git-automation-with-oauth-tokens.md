@@ -6,9 +6,9 @@ redirect_from:
   - /articles/git-automation-with-oauth-tokens
 intro: 'Puedes utilizar tokens de OAuth para interactuar con {% data variables.product.product_name %} a través de scripts automatizados.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 ### Paso 1: Obtener un token de OAuth

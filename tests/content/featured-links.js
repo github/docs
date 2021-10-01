@@ -32,7 +32,8 @@ describe('featuredLinks', () => {
       )
     })
 
-    test('localized intro links link to localized pages', async () => {
+    // Skipped. See issues/923
+    test.skip('localized intro links link to localized pages', async () => {
       const $ = await getDOM('/ja')
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(9)

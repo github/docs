@@ -8,9 +8,9 @@ redirect_from:
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
 ---

@@ -3,9 +3,9 @@ title: Managing project boards
 shortTitle: Managing project boards
 intro: Learn how to create and manage project boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
   - Projects
@@ -25,3 +25,4 @@ redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
 ---
 
+{% data reusables.projects.project_boards_old %}

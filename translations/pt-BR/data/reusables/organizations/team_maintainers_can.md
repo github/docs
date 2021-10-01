@@ -10,6 +10,6 @@ Os membros com permissões de mantenedor da equipe podem:
 - [Adicionar integrantes da organização à equipe](/articles/adding-organization-members-to-a-team)
 - [Remover membros da organização da equipe](/articles/removing-organization-members-from-a-team)
 - [Promover um membro da equipe existente para um mantenedor de equipe](/articles/giving-team-maintainer-permissions-to-an-organization-member)
-- Remover o acesso da equipe aos repositórios{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-- [Gerencie a atribuição de código de revisão para a equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- Remover acesso da equipe aos repositórios{% ifversion fpt or ghes or ghae %}
+- [Gerenciar atribuição de código para a equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt %}
 - [Gerenciar lembretes agendados para pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

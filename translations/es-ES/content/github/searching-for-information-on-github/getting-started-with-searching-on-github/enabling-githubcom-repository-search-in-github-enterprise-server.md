@@ -8,10 +8,11 @@ redirect_from:
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - GitHub search
+shortTitle: Habilitar la búsqueda para GitHub.com
 ---
 
 Si usas {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_dotcom_the_website %} tu administrador del sitio {% data variables.product.prodname_ghe_server %} ha habilitado {% data variables.product.prodname_github_connect %} y {% data variables.product.prodname_unified_search %} para repositorios privados, podrás buscar repositorios privados designados en la organización conectada.

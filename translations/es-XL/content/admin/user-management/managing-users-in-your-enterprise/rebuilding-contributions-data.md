@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/rebuilding-contributions-data
   - /admin/user-management/rebuilding-contributions-data
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Repositories

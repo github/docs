@@ -14,6 +14,12 @@ let maxScrollY = 0
 let pauseScrolling = false
 let sentExit = false
 
+function resetPageParams() {
+  maxScrollY = 0
+  pauseScrolling = false
+  sentExit = false
+}
+
 export function getUserEventsId() {
   if (cookieValue) return cookieValue
   cookieValue = Cookies.get(COOKIE_NAME)
@@ -206,13 +212,17 @@ function initPageAndExitEvent() {
   // Client-side routing
   const pushState = history.pushState
   history.pushState = function (state, title, url) {
+    // Don't trigger page events on query string or hash changes
     const newPath = url?.toString().replace(location.origin, '').split('?')[0]
-    if (newPath === location.pathname) return
-    sendExit()
+    const shouldSendEvents = newPath !== location.pathname
+    if (shouldSendEvents) {
+      sendExit()
+    }
     const result = pushState.call(history, state, title, url)
-    sendPage()
-    sentExit = false
-    maxScrollY = 0
+    if (shouldSendEvents) {
+      sendPage()
+      resetPageParams()
+    }
     return result
   }
 }
