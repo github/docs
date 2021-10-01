@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react'
 
 export type LearningTrack = {
   trackName?: string
+  trackProduct?: string
   prevGuide?: { href: string; title: string }
   nextGuide?: { href: string; title: string }
 }
