@@ -60,6 +60,7 @@ shortTitle: Associate text editors
 ## Using Atom as your editor
 
 1. Install [Atom](https://atom.io/). For more information, see "[Installing Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" in the Atom documentation.
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Type this command:
   ```shell
   $ git config --global core.editor "atom --wait"
