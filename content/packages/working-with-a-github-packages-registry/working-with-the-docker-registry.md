@@ -10,7 +10,7 @@ redirect_from:
   - /packages/guides/container-guides-for-github-packages/configuring-docker-for-use-with-github-packages
   - /packages/guides/configuring-docker-for-use-with-github-packages
 versions:
-  fpt: '*'
+  fpt: '*' 
   ghes: '*'
   ghae: '*'
 shortTitle: Docker registry
