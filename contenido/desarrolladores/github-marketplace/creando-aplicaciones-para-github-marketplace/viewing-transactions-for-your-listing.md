@@ -31,9 +31,9 @@ You can view or download the transaction data to keep track of your subscription
 * **renewal_frequency:** The subscription renewal frequency, either `Monthly` or `Yearly`.
 * **marketplace_listing_plan_id:** The `id` of the subscription plan.
 * **region:** The name of the region present in billing address.
-* **postal_code:** The postal code value present in billing address.
+* ** código_ postal: ** El valor del código postal presente en la dirección de facturación.
 
-![Marketplace insights](/assets/images/marketplace/marketplace_transactions.png)
+! [Estadísticas del mercado] (/assets/images/marketplace/marketplace_transactions.png
 
 ## Accessing {% data variables.product.prodname_marketplace %} transactions
 
@@ -46,4 +46,4 @@ To access {% data variables.product.prodname_marketplace %} transactions:
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Click the **Transactions** tab.
 7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page.
-![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)
+! [Periodo de tiempo del mercado] (/assets/images/marketplace/marketplace_insights_time_period.png)
