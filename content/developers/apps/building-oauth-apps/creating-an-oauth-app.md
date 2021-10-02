@@ -55,3 +55,4 @@ topics:
 {% endif %}
 10. Click **Register application**.
 ![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)
+Authorized mit meine Account Sjenica1 github.com reufrujevic750@gmail.com 
