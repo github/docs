@@ -6,13 +6,14 @@ redirect_from:
   - /articles/limiting-interactions-in-your-organization
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community
+shortTitle: 限制组织中的交互
 ---
 
-### 关于临时交互限制
+## 关于临时交互限制
 
 限制组织中的交互可对组织拥有的所有公共仓库启用临时交互限制。 {% data reusables.community.interaction-limits-restrictions %}
 
@@ -26,7 +27,7 @@ topics:
 
 组织所有者也可在特定的时间段内阻止用户。 在阻止到期后，该用户会自动解除阻止。 更多信息请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
 
-### 限制组织中的交互
+## 限制组织中的交互
 
 
 {% data reusables.profile.access_org %}
@@ -36,7 +37,7 @@ topics:
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
-### 延伸阅读
+## 延伸阅读
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"

@@ -11,15 +11,16 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
   - /admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Exportar desde tu empresa
 ---
 
-### Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}
+## Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}
 
 1. Verifica que eres un administrador del sitio en el origen {% data variables.product.prodname_ghe_server %}. La mejor manera de hacerlo es verificar que puedes usar [SSH en la instancia](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 
@@ -27,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exportar los repositorios origen de {% data variables.product.prodname_ghe_server %}
+## Exportar los repositorios origen de {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

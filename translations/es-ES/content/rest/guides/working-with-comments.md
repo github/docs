@@ -5,9 +5,9 @@ redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -18,7 +18,7 @@ Para cualquier solicitud de extracción, {% data variables.product.product_name 
 
 Cada uno de estos tipos de comentario pasa por una porción diferente de la API de {% data variables.product.product_name %}. En esta guía exploraremos cómo puedes acceder y manipular cada uno de ellos. En cada ejemplo utilizaremos [esta muestra de Solicitud de Extracción que se hizo][sample PR] en el repositorio de "octocat". Como siempre, puedes encontrar las muestras en [nuestro repositorio de platform-samples][platform-samples].
 
-### Comentarios de las Solicitudes de Extracción
+## Comentarios de las Solicitudes de Extracción
 
 Para acceder a loscomentarios de una solicitud de cambios, deberás de pasar por la [API de propuestas][issues]. Esto puede parecer contraintuitivo al principio. Pero una vez que entiendes que una Solicitud de Extracción es solo un informe de problemas con código, tendrá sentido utuilizar la API de Informes de Problemas para crear comentarios en una solicitud de extracción.
 
@@ -44,7 +44,7 @@ end
 
 Aquí estamos llamando específicamente a la API de Informes de problemas para obtener los comentarios (`issue_comments`), proporcionando tanto el nombre del repositorio (`octocat/Spoon-Knife`) como la ID de la solicitud de extracción en la que estamos interesados (`1176`). Después, solo es cuestión de iterar a través de los comentarios para obtener la información sobre cada uno.
 
-### Comentarios en una línea de una solicitud de extracción
+## Comentarios en una línea de una solicitud de extracción
 
 Dentro de la vista de diferencias, puedes iniciar un debate sobre algún aspecto específico de un cambio particular que se haya hecho dentro de la solicitud de extracción. Estos comentarios ocurren en las líneas individuales dentro de un archivo que ha cambiado. La URL de la terminal para este debate veien de [la API de Revisión de Solicitudes de Cambios][PR Review API].
 
@@ -70,7 +70,7 @@ end
 
 Te darás cuenta de que es increíblemente similar al ejemplo anterior. La diferencia entre esta vista y el comentario de la solicitud de extracción es el enfoque de la conversación. El comentario que se haga en una solicitud de extracción deberá reservarse para debatir ideas sobre el enfoque general del código. Cualquier comentario que se haga como parte de una revisión de una Solicitud de Extracción deberá tratar específicamente la forma en la que se implementa un cambio específico dentro de un archivo.
 
-### Comentarios de las confirmaciones
+## Comentarios de las confirmaciones
 
 El último tipo de comentarios suceden específicamente en confirmaciones individuales. Es por esto que utilizan [la API de comentarios de las confirmaciones][commit comment API].
 

@@ -2,12 +2,13 @@
 title: 使用官方捆绑操作的最新版本
 intro: '您可以更新与企业捆绑的操作，或直接从 {% data variables.product.prodname_dotcom_the_website %} 使用操作。'
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
+shortTitle: 使用最新的捆绑操作
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,11 +19,11 @@ redirect_from:
 
 这些捆绑的操作是在 https://github.com/actions 上找到的正式操作的即时快照；因此，这些操作可能有更新的版本。 您可以使用 `actions-sync` 工具更新这些操作，也可以配置 {% data variables.product.prodname_github_connect %} 允许访问 {% data variables.product.prodname_dotcom_the_website %} 上的最新操作。 以下各节介绍了这些选项。
 
-### 使用 `actions-sync` 更新捆绑的操作
+## 使用 `actions-sync` 更新捆绑的操作
 
 要更新捆绑的操作，您可以使用 `actions-sync` 工具来更新快照。 有关使用 `actions-sync` 的更多信息，请参阅“[手动从 {% data variables.product.prodname_dotcom_the_website %} 同步选项](/admin/github-actions/manually-syncing-actions-from-githubcom)”。
 
-### 使用 {% data variables.product.prodname_github_connect %} 访问最新操作
+## 使用 {% data variables.product.prodname_github_connect %} 访问最新操作
 
 您可以使用 {% data variables.product.prodname_github_connect %} 允许 {% data variables.product.product_name %} 使用来自 {% data variables.product.prodname_dotcom_the_website %} 的操作。 更多信息请参阅“[启用使用 {% data variables.product.prodname_github_connect %} 自动访问 {% data variables.product.prodname_dotcom_the_website %} 操作](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
 

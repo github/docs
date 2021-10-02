@@ -4,14 +4,14 @@ redirect_from:
   - /v4/enum
   - /v4/reference/enum
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于枚举
+## 关于枚举
 
 [枚举](https://graphql.github.io/graphql-spec/June2018/#sec-Enums)表示可能的字段值集。
 

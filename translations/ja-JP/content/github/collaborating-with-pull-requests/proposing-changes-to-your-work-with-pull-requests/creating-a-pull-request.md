@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -21,15 +21,7 @@ topics:
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
-
-**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
-### ブランチの範囲と宛先リポジトリの変更
+## ブランチの範囲と宛先リポジトリの変更
 
 デフォルトでは、プルリクエストは親リポジトリの[デフォルトブランチ](/articles/setting-the-default-branch)に基づいています。 詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
@@ -51,13 +43,11 @@ base リポジトリを変更するとき、プルリクエストの通知も変
 
 {% endtip %}
 
-### プルリクエストの作成
+## プルリクエストの作成
 
-{% tip %}
+{% include tool-switcher %}
 
-**ヒント**: {% data variables.product.prodname_desktop %} を使用してプルリクエストを作成することもできます。 詳しい情報については、{% data variables.product.prodname_desktop %} ドキュメントにある「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」を参照してください。
-
-{% endtip %}
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. [Branch] メニューで、自分のコミットが含まれるブランチを選択します。 ![ブランチのドロップダウンメニュー](/assets/images/help/pull_requests/branch-dropdown.png)
@@ -70,11 +60,110 @@ base リポジトリを変更するとき、プルリクエストの通知も変
 
 プルリクエストのレビューが済むと、そのプルリクエストを[リポジトリにマージ](/articles/merging-a-pull-request)できます。
 
-### 参考リンク
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To create a pull request, use the `gh pr create` subcommand.
+
+```shell
+gh pr create
+```
+
+To assign a pull request to an individual, use the `--assignee` or `-a` flags. You can use `@me` to self-assign the pull request.
+
+```shell
+gh pr create --assignee "@octocat"
+```
+
+To specify the branch into which you want the pull request merged, use the `--base` or `-B` flags. To specify the branch that contains commits for your pull request, use the `--head` or `-H` flags.
+
+```shell
+gh pr create --base my-base-branch --head my-changed-branch
+```
+
+To include a title and body for the new pull request, use the `--title` and `--body` flags.
+
+```shell
+gh pr create --title "The bug is fixed" --body "Everything works again"
+```
+
+To mark a pull request as a draft, use the `--draft` flag.
+
+```shell
+gh pr create --draft
+```
+
+To add a labels or milestones to the new pull request, use the `--label` and `--milestone`  flags.
+
+```shell
+gh pr create --label "bug,help wanted" --milestone octocat-milestone
+```
+
+To add the new pull request to a specific project, use the `--project` flag.
+
+```shell
+gh pr create --project octocat-project
+```
+
+To assign an individual or team as reviewers, use the `--reviewer` flag.
+
+```shell
+gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
+```
+
+To create the pull request in your default web browser, use the `--web` flag.
+
+```shell
+gh pr create --web
+```
+
+{% endcli %}
+
+{% desktop %}
+
+{% mac %}
+
+1. プルリクエストを作成するブランチに切り替えます。 詳しい情報については、「[ブランチの切り替え](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)」を参照してください。
+2. **Create Pull Request**をクリックします {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開いて {% data variables.product.prodname_dotcom %} に移動します。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/mac-create-pull-request.png)
+4. {% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。 ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% endmac %}
+
+{% windows %}
+
+1. プルリクエストを作成するブランチに切り替えます。 詳しい情報については、「[ブランチの切り替え](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)」を参照してください。
+2. **Create Pull Request**をクリックします {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開いて {% data variables.product.prodname_dotcom %} に移動します。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/windows-create-pull-request.png)
+3. {% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。 ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
+
+{% endwindows %}
+
+{% enddesktop %}
+
+{% ifversion fpt %}
+
+{% codespaces %}
+
+1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+1. マージ元のローカルブランチとリポジトリ、およびマージ先のリモートブランチとリポジトリが正しいことを確認します。 そして、プルリクエストにタイトルと説明を付けます。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-pr.png)
+1. ** Create（作成）**をクリックしてください。
+
+For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+
+{% endif %}
+## 参考リンク
 
 - [フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)
 - [プルリクエストのベースブランチを変更する](/articles/changing-the-base-branch-of-a-pull-request)
 - 「[サイドバーからプロジェクトボードへ Issue およびプルリクエストを追加する](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)」
 - 「[クエリパラメータによる Issue およびプルリクエストの自動化について](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)」
 - "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
-- "[Writing on GitHub](/github/writing-on-github)"
+- [GitHubでの執筆](/github/writing-on-github)

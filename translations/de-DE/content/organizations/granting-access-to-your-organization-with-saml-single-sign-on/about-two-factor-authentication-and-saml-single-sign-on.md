@@ -6,10 +6,11 @@ redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 2FA & SAML single sign-on
 ---
 
 Die Zwei-Faktor-Authentifizierung (2FA) bietet die grundlegende Authentifizierung für Organisationsmitglieder. Durch die Aktivierung der Zwei-Faktor-Authentifizierung begrenzen Organisationsadministratoren die Wahrscheinlichkeit, dass das {% data variables.product.product_name %}-Konto eines Mitglieds kompromittiert werden könnte. Weitere Informationen zur Zwei-Faktor-Authentifizierung findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication).“
@@ -21,6 +22,6 @@ Wenn sowohl die Zwei-Faktor-Authentifizierung als auch SAML SSO aktiviert sind, 
 - Mit Single Sign-On auf die Organisation zugreifen
 - Ein autorisiertes Token für den API- oder Git-Zugriff verwenden und Single-Sign-On zur Autorisierung des Tokens verwenden
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[SAML Single Sign-On für Deine Organisation erzwingen](/articles/enforcing-saml-single-sign-on-for-your-organization)“

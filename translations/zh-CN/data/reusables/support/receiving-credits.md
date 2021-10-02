@@ -14,6 +14,6 @@
 - **日期**（日期必须基于 {% data variables.product.company_short %}财政年度的季度结束 [1 月 31 日、4 月 30 日、7 月 31 日或 10月 31 日] 后 30 天内。)
 - **客户联系**（您必须同时指定姓名和电子邮件地址。）
 - **客户地址**
-- **合格信用**（您必须提供每个合格信用的日期和关联的事件单编号。）{% if currentVersion == "free-pro-team@latest" %}
+- **合格信用**（您必须提供每个合格信用的日期和关联的事件单编号。）{% ifversion fpt %}
 - **{% data variables.product.prodname_ghe_cloud %} 组织的名称**{% endif %}
 - **事件单编号**

@@ -2,7 +2,8 @@
 title: Usar etiquetas com executores hospedados de AE
 intro: 'Você pode usar etiquetas para organizar seus {% data variables.actions.hosted_runner %}s com base em suas características.'
 versions:
-  github-ae: '*'
+  ghae: '*'
+shortTitle: Etiquetar executores hospedados no AE
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -16,7 +17,7 @@ Para informações sobre como usar as etiquetas para etiquetar trabalhos para ti
 
 {% endnote %}
 
-### Visualizar as etiquetas para seus {% data variables.actions.hosted_runner %}s
+## Visualizar as etiquetas para seus {% data variables.actions.hosted_runner %}s
 {% data reusables.github-actions.hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.hosted-runner-list %}
 {% data reusables.github-actions.hosted-runner-list-group %}

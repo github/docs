@@ -5,7 +5,7 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

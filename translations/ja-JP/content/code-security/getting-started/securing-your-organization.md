@@ -1,112 +1,113 @@
 ---
-title: Securing your organization
-intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure.'
+title: Organizationの保護
+intro: 'Organizationをセキュアに保つために、いくつもの{% data variables.product.prodname_dotcom %}の機能が利用できます。'
 permissions: Organization owners can configure organization security settings.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.0'
+  ghae: '*'
 type: how_to
 topics:
   - Organizations
   - Dependencies
   - Vulnerabilities
   - Advanced Security
+shortTitle: Organizationの保護
 ---
 
-### はじめに
-This guide shows you how to configure security features for an organization. Your organization's security needs are unique and you may not need to enable every security feature. For more information, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
+## はじめに
+このガイドは、Organizationでのセキュリティ機能の設定方法を紹介します。 Organizationのセキュリティの要件は固有のものであり、すべてのセキュリティの機能を有効化する必要はないかもしれません。 詳しい情報については「[{% data variables.product.prodname_dotcom %}のセキュリティ機能](/code-security/getting-started/github-security-features)」を参照してください。
 
-Some security features are only available {% if currentVersion == "free-pro-team@latest" %}for public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
+セキュリティの機能の中には、{% data variables.product.prodname_advanced_security %}ライセンスを持っている{% ifversion fpt %}Organizationが所有するプライベートリポジトリとパブリックリポジトリでのみ{% else %}場合にのみ{% endif %}利用できるものがあります。 {% data reusables.advanced-security.more-info-ghas %}
 
-### Managing access to your organization
+## Organizationへのアクセス管理
 
-You can use permission levels to control what actions people can take in your organization. 詳しい情報については、「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)」を参照してください。
+権限レベルを使って、人々がOrganizationに対して行えるアクションを制御できます。 詳しい情報については、「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
 
-### Creating a default security policy
+## デフォルトのセキュリティポリシーの作成
 
-You can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Managing {% data variables.product.prodname_dependabot_alerts %} and the dependency graph
-
-By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %} and a dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all repositories owned by your organization.
-
-1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to the feature that you want to manage.
-5. Optionally, select **Automatically enable for new repositories**.
-
-For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)," "[Exploring the dependencies of a repository](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)," and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+独自のセキュリティポリシーを持たないOrganization内のパブリックリポジトリで表示される、デフォルトのセキュリティポリシーを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% ifversion fpt or ghes > 2.22 %}
+## {% data variables.product.prodname_dependabot_alerts %}及び依存関係グラフの管理
 
-### Managing dependency review
+デフォルトで、{% data variables.product.prodname_dotcom %}はパブリックリポジトリ内の脆弱性を検出し、{% data variables.product.prodname_dependabot_alerts %}及び依存関係グラフを生成します。 {% data variables.product.prodname_dependabot_alerts %}と依存関係グラフは、Organizationが所有するすべてのリポジトリで有効化あるいは無効化できます。
 
-Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. Dependency review is available in all public repositories and in repositories owned by organizations with an {% data variables.product.prodname_advanced_security %} license that have the dependency graph enabled. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+1. 自分のプロフィール写真をクリックし、続いて** Organizations**をクリックしてください。
+2. Organizationの隣の** Settings（設定）**をクリックしてください。
+3. **Security & analysis（セキュリティと分析）**をクリックしてください。
+4. 管理したい機能の隣の**Enable all（すべてを有効化）**あるいは**Disable all（すべてを無効化**をクリックしてください。
+5. あるいは**Automatically enable for new repositories（自動的に新しいリポジトリで有効化**を選択してください。
 
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-### Managing {% data variables.product.prodname_dependabot_security_updates %}
-
-For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected. You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories across your organization.
-
-1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_dependabot_security_updates %}.
-5. Optionally, select **Automatically enable for new repositories**.
-
-For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/about-dependabot-security-updates)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
-
-### Managing {% data variables.product.prodname_dependabot_version_updates %}
-
-You can enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)."
-
-To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a *dependabot.yml* configuration file. For more information, see "[Enabling and disabling version updates](/code-security/supply-chain-security/enabling-and-disabling-version-updates)."
+詳しい情報については「[脆弱な依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」、「[リポジトリの依存関係の調査](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)」、「[Organizationのセキュリティと分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Managing {% data variables.product.prodname_GH_advanced_security %}
+{% ifversion fpt or ghes > 3.1 %}
 
-If your organization has an {% data variables.product.prodname_advanced_security %} license, you can enable or disable {% data variables.product.prodname_advanced_security %} features.
+## 依存関係レビューの管理
 
-1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_GH_advanced_security %}.
-5. Optionally, select **Automatically enable for new private repositories**.
+依存関係レビューを使うと、Pull Requestがリポジトリにマージされる前に、Pull Request内での依存関係の変化を可視化できます。 依存関係レビューは、すべてのパブリックリポジトリと、依存関係グラフが有効化された{% data variables.product.prodname_advanced_security %}ライセンスを持つOrganizationが所有するリポジトリで利用できます。 詳しい情報については「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」を参照してください。
 
-For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% endif %}
 
-### Configuring {% data variables.product.prodname_secret_scanning %}
-{% data variables.product.prodname_secret_scanning_caps %} is available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license.
+{% ifversion fpt %}
+## {% data variables.product.prodname_dependabot_security_updates %}の管理
 
-You can enable or disable {% data variables.product.prodname_secret_scanning %} for all repositories across your organization that have {% data variables.product.prodname_advanced_security %} enabled.
+{% data variables.product.prodname_dependabot_alerts %}を使用するリポジトリでは、{% data variables.product.prodname_dependabot_security_updates %}を有効化して脆弱性が検出された際にセキュリティ更新でPull Requestを発行させることができます。 Organization全体で、すべてのリポジトリで{% data variables.product.prodname_dependabot_security_updates %}を有効化あるいは無効化することもできます。
 
-1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_secret_scanning_caps %} ({% data variables.product.prodname_GH_advanced_security %} repositories only).
-5. Optionally, select **Automatically enable for private repositories added to {% data variables.product.prodname_advanced_security %}**.
+1. 自分のプロフィール写真をクリックし、続いて** Organizations**をクリックしてください。
+2. Organizationの隣の** Settings（設定）**をクリックしてください。
+3. **Security & analysis（セキュリティと分析）**をクリックしてください。
+4. {% data variables.product.prodname_dependabot_security_updates %}の隣の**Enable all（すべてを有効化）**あるいは**Disable all（すべてを無効化）**をクリックしてください。
+5. あるいは**Automatically enable for new repositories（自動的に新しいリポジトリで有効化**を選択してください。
+
+詳しい情報については「[{% data variables.product.prodname_dependabot_security_updates %}について](/code-security/supply-chain-security/about-dependabot-security-updates)」及び「[Organizationのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
+
+## {% data variables.product.prodname_dependabot_version_updates %}の管理
+
+{% data variables.product.prodname_dependabot %}を有効化して、依存関係を最新の状態に保つためのPull Requestを自動的に発行するようにできます。 詳しい情報については「[{% data variables.product.prodname_dependabot_version_updates %}について](/code-security/supply-chain-security/about-dependabot-version-updates)」を参照してください。
+
+{% data variables.product.prodname_dependabot_version_updates %}を有効化するには、設定ファイルの*dependabot.yml*を作成しなければなりません。 詳しい情報については「[バージョンアップデートの有効化と無効化](/code-security/supply-chain-security/enabling-and-disabling-version-updates)」を参照してください。
+
+{% endif %}
+
+{% ifversion fpt or ghes > 2.22 or ghae %}
+## {% data variables.product.prodname_GH_advanced_security %}の管理
+
+Organizationが{% data variables.product.prodname_advanced_security %}のライセンスを持っているなら、{% data variables.product.prodname_advanced_security %}の機能を有効化あるいは無効化できます。
+
+1. 自分のプロフィール写真をクリックし、続いて** Organizations**をクリックしてください。
+2. Organizationの隣の** Settings（設定）**をクリックしてください。
+3. **Security & analysis（セキュリティと分析）**をクリックしてください。
+4. {% data variables.product.prodname_GH_advanced_security %}の隣の**Enable all（すべてを有効化）**あるいは**Disable all（すべてを無効化）**をクリックしてください。
+5. あるいは**Automatically enable for new private repositories（自動的に新しいプライベートリポジトリで有効化**を選択してください。
+
+詳しい情報については「[{% data variables.product.prodname_GH_advanced_security %}について](/github/getting-started-with-github/about-github-advanced-security)」及び「[Organizationのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
+
+## {% data variables.product.prodname_secret_scanning %}の設定
+{% data variables.product.prodname_secret_scanning_caps %}は、{% data variables.product.prodname_advanced_security %}のライセンスを{% ifversion fpt %}持つOrganizationが所有するプライベートリポジトリと、すべてのパブリックリポジトリで{% else %}持っていれば{% endif %}利用できます。
+
+{% data variables.product.prodname_advanced_security %}が有効化されているOrganizationのすべてのリポジトリで、{% data variables.product.prodname_secret_scanning %}を有効化あるいは無効化できます。
+
+1. 自分のプロフィール写真をクリックし、続いて** Organizations**をクリックしてください。
+2. Organizationの隣の** Settings（設定）**をクリックしてください。
+3. **Security & analysis（セキュリティと分析）**をクリックしてください。
+4. {% data variables.product.prodname_secret_scanning_caps %}の隣の**Enable all（すべてを有効化）**あるいは**Disable all（すべてを無効化）**をクリックしてください（{% data variables.product.prodname_GH_advanced_security %}リポジトリのみ）。
+5. あるいは**Automatically enable for private repositories added to {% data variables.product.prodname_advanced_security %}**を選択してください。
 
 詳しい情報については「[Organizatonのためのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
 {% endif %}
 
-### 次のステップ
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" %}You can view, filter, and sort security alerts for repositories owned by your organization in the security overview. For more information, see "[Exploring security alerts](/code-security/security-overview/exploring-security-alerts)."{% endif %}
+## 次のステップ
+{% ifversion fpt or ghes > 3.1 or ghae-next %}You can view, filter, and sort security alerts for repositories owned by your organization in the security overview. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% endif %}
 
-You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} "[Viewing and updating vulnerable dependencies in your repository](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% if currentVersion == "free-pro-team@latest" %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+セキュリティの機能からのアラートを表示及び管理して、コード中の依存関係と脆弱性に対処できます。 詳しい情報については{% ifversion fpt or ghes > 2.22 %}「[リポジトリ中の脆弱な依存関係の表示と更新](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)」、{% endif %}{% ifversion fpt %}「[依存関係の更新のためのPull Requestの管理](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)」、{% endif %}「[リポジトリの{% data variables.product.prodname_code_scanning %}の管理](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)」、「[{% data variables.product.prodname_secret_scanning %}からのアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" and "[Creating a security advisory](/code-security/security-advisories/creating-a-security-advisory)."
+{% ifversion fpt %}セキュリティの脆弱性があるなら、セキュリティアドバイザリを作成して非公開で議論し、脆弱性を修正できます。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/code-security/security-advisories/about-github-security-advisories)」及び「[セキュリティアドバイザリの作成](/code-security/security-advisories/creating-a-security-advisory)」を参照してください。
 {% endif %}

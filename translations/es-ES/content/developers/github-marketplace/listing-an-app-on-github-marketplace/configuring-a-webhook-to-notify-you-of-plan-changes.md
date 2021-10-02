@@ -9,34 +9,35 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook
   - /developers/github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Webhooks para planear cambios
 ---
 
 El webhook de evento de {% data variables.product.prodname_marketplace %} solo puede configurarse desde la página de listado de {% data variables.product.prodname_marketplace %} de tu aplicación. Puedes configurar el resto de los eventos desde la [página de configuración del desarrollador de la aplicación](https://github.com/settings/developers). Si no has creado un listado de {% data variables.product.prodname_marketplace %}, lee la sección "[Crear un borrador de listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)" para aprender cómo hacerlo.
 
-### Crear un webhook
+## Crear un webhook
 
 Para crear un webhook para tu listado de {% data variables.product.prodname_marketplace %}, da clic en **Webhooks** en la barra lateral de tu [página de listado de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/manage). Verás las siguientes opciones que se necesitan para configurar tu webhook:
 
-#### URL de la carga útil
+### URL de la carga útil
 
 {% data reusables.webhooks.payload_url %}
 
-#### Tipo de contenido
+### Tipo de contenido
 
 {% data reusables.webhooks.content_type %} GitHub te recomienda utilizar el tipo de contenido `application/json`.
 
-#### Secreto
+### Secreto
 
 {% data reusables.webhooks.secret %}
 
-#### Activo
+### Activo
 
 Predeterminadamente, las entregas de webhook están "Activas". También puedes elegir inhabilitar la entrega de cargas útiles de webhooks durante el desarrollo si deseleccionas "Activo". Si inhabilitaste las entregas de los webhooks, necesitarás seleccionar "Activo" antes de que emitas tu app para su revisión.
 
-### Visualizar las entregas de los webhooks
+## Visualizar las entregas de los webhooks
 
 Una vez que hayas configurado tu webhook de {% data variables.product.prodname_marketplace %}, podrás inspecionar las cargas útiles de las solicitudes de tipo `POST` desde la página del **Webhooks** del [listado de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/manage) de tu aplicación. GitHub no reenvía los intentos fallidos de entrega. Asegúrate de que tu app pueda recibir toda la carga útil del webhook que envíe GitHub.
 

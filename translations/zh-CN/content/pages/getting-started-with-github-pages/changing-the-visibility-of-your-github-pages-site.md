@@ -3,13 +3,14 @@ title: 更改 GitHub Pages 站点的可见性
 intro: 您可以通过公开或私下发布站点来管理项目站点的访问控制。
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+shortTitle: 更改站点可见性
 ---
 
-### 关于 {% data variables.product.prodname_pages %} 站点的访问控制
+## 关于 {% data variables.product.prodname_pages %} 站点的访问控制
 
 如果您的项目站点是从使用 {% data variables.product.prodname_ghe_cloud %} 的组织拥有的私有或内部仓库发布的，您可以管理站点的访问控制。 通过访问控制，您可以选择将站点公开发布给互联网上的任何人，也可以选择私下发布给对仓库拥有读取权限的人。 私下发布的站点可用于与企业成员分享您的内部文档或知识库。 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
@@ -22,7 +23,7 @@ redirect_from:
 
 要为您的私有 {% data variables.product.prodname_pages %} 站点使用更短、更令人难忘的域名，您可以配置自定义域名。 更多信息请参阅“[为 {% data variables.product.prodname_pages %} 站点配置自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site)”。
 
-### 更改 {% data variables.product.prodname_pages %} 站点的可见性
+## 更改 {% data variables.product.prodname_pages %} 站点的可见性
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -1,18 +1,19 @@
 ---
 title: Revisar las bitácoras de seguridad de los Codespaces
-shortTitle: Revisar tus bitácoras de seguridad
+shortTitle: Security logs
 intro: 'Puedes utilizar la bitácora de seguridad para revisar todas las acciones relacionadas con los {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
   - Developer
   - Security
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### Acerca de las bitácoras de seguridad para los {% data variables.product.prodname_codespaces %}
+## Acerca de las bitácoras de seguridad para los {% data variables.product.prodname_codespaces %}
 
 Cuando realizas una acción relacionada con {% data variables.product.prodname_codespaces %} en los repositorios que le pertenecen a tu cuenta de usuario, puedes revisar las acciones en la bitácora de seguridad. Para obtener más información sobre acceder a la bitácora, consulta la sección "[Revisar tu bitácora de seguridad](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
 

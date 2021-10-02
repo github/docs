@@ -57,6 +57,13 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
+{% ifversion fpt or ghes > 3.2 %}
+## Autoscaling your self-hosted runners
+
+You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+
+{% endif %}
+
 ## Usage limits
 
 There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
@@ -148,6 +155,7 @@ codeload.github.com
 pkg-cache.githubusercontent.com
 pkg-containers.githubusercontent.com
 pkg-containers-az.githubusercontent.com
+*.blob.core.windows.net
 ```
 
 If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".

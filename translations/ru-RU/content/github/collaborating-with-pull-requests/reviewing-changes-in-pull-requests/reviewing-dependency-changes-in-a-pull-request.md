@@ -2,7 +2,9 @@
 title: Reviewing dependency changes in a pull request
 intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -13,23 +15,22 @@ topics:
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
+shortTitle: Review dependency changes
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% note %}
+{% data reusables.dependency-review.beta %}
 
-**Note:** Dependency review is currently in beta and subject to change.
-
-{% endnote %}
-
-### About dependency review
+## About dependency review
 
 {% data reusables.dependency-review.feature-overview %}
 
+{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+
 Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
-### Reviewing dependencies in a pull request
+## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

@@ -18,15 +18,18 @@ This guide will walk you through setting up, configuring and managing your {% da
 
 The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
-Within the {% data variables.product.prodname_ghe_cloud %} product, there are two different types of account that you can use:
+With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
+
+If you choose to let your members create and manage their own user accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
 - A single organization account
 - An enterprise account that contains multiple organizations
 
-In either scenario, your users will use their own self-created user account and you'll invite them to join.
 ### 1. Understanding the differences between an organization account and enterprise account
 
 Both organization and enterprise accounts are available with {% data variables.product.prodname_ghe_cloud %}. An organization is a shared account where groups of people can collaborate across many projects at once, and owners and administrators can manage access to data and projects. An enterprise account enables collaboration between multiple organizations, and allows owners to centrally manage policy, billing and security for these organizations. For more information on the differences, see "[Organizations and enterprise accounts](/organizations/collaborating-with-groups-in-organizations/about-organizations#organizations-and-enterprise-accounts)."
+
+
 
 If you choose an enterprise account, keep in mind that some policies can be set only at an organization level, while others can be enforced for all organizations in an enterprise.
 
@@ -86,6 +89,11 @@ You can set permissions and member roles, create and manage teams, and give peop
 
 ### Managing members of an enterprise account
 Managing members of an enterprise is separate from managing members or teams in an organization. It is important to note that enterprise owners or administrators cannot access organization-level settings or manage members for organizations in their enterprise unless they are made an organization owner. For more information, see the above section, "[Managing members and teams in your organization](#managing-members-and-teams-in-your-organization)."
+
+If your enterprise uses {% data variables.product.prodname_emus %}, your members are fully managed through your identity provider. Adding members, making changes to their membership, and assigning roles is all managed using your IdP. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+If your enterprise does not use {% data variables.product.prodname_emus %}, follow the steps below.
+
 #### 1. Assigning roles in an enterprise
 By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 #### 2. Inviting people to manage your enterprise
@@ -96,6 +104,10 @@ You can also grant enterprise members the ability to manage support tickets in t
 To audit access to enterprise-owned resources or user license usage, you can view every enterprise administrator, enterprise member, and outside collaborator in your enterprise. You can see the organizations that a member belongs to and the specific repositories that an outside collaborator has access to. For more information, see "[Viewing people in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
 ## Part 4: Managing security with {% data variables.product.prodname_ghe_cloud %}
+
+* [Managing security for a single organization](#managing-security-for-a-single-organization)
+* [Managing security for an {% data variables.product.prodname_emu_enterprise %}](#managing-security-for-an-enterprise-with-managed-users)
+* [Managing security for an enterprise account without {% data variables.product.prodname_managed_users %}](#managing-security-for-an-enterprise-account-without-managed-users)
 
 ### Managing security for a single organization
 You can help keep your organization secure by requiring two-factor authentication, configuring security features, reviewing your organization's audit log and integrations, and enabling SAML single sign-on and team synchronization.
@@ -113,8 +125,28 @@ Organization owners can choose to disable, enable but not enforce, or enable and
 #### 5. Managing team synchronization for your organization
 Organization owners can enable team synchronization between your identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organization owners and team maintainers to connect teams in your organization with IdP groups. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
-### Managing security for an enterprise account with multiple organizations
+### Managing security for an {% data variables.product.prodname_emu_enterprise %}
+
+With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other login requirements should be enabled and enforced on your IdP. 
+
+#### 1. Enabling and SAML single sign-on and provisioning in your {% data variables.product.prodname_emu_enterprise %}
+
+In an {% data variables.product.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SAML SSO and SCIM provisioning before you can start using your enterprise. For more information on configuring SAML SSO and provisioning for an {% data variables.product.prodname_emu_enterprise %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+
+#### 2. Managing teams in your {% data variables.product.prodname_emu_enterprise %} with your identity provider
+
+You can connect teams in your organizations to security groups in your identity provider, managing membership of your teams and access to repositories through your IdP. For more information, see "[Managing team memberships with identity provider groups](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
+
+#### 3. Managing allowed IP addresses for organizations in your {% data variables.product.prodname_emu_enterprise %}
+
+You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your {% data variables.product.prodname_emu_enterprise %}. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
+
+#### 4. Enforcing policies for Advanced Security features in your {% data variables.product.prodname_emu_enterprise %}
+{% data reusables.getting-started.enterprise-advanced-security %}
+
+### Managing security for an enterprise account without {% data variables.product.prodname_managed_users %}
 To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features. 
+
 #### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
 Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 
 
@@ -126,7 +158,7 @@ You can centrally manage access to your enterprise's resources, organization mem
 You can enable and manage team sychronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
 
 #### 4. Enforcing policies for Advanced Security features in your enterprise account
-If you have a GitHub Advanced Security license for your enterprise account, you can enforce policies to manage {% data variables.product.prodname_dotcom %} Advanced Security features for organizations owned by an enterprise account. For more information, see "[Enforcing policies for Advanced Security in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account)."
+{% data reusables.getting-started.enterprise-advanced-security %}
 
 ## Part 5: Managing organization and enterprise level policies and settings
 

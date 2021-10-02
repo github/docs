@@ -3,8 +3,8 @@ title: GitHub Actions Documentation
 shortTitle: GitHub Actions
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
+  overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
-  reference: /actions/reference
 featuredLinks:
   guides:
     - /actions/learn-github-actions
@@ -16,12 +16,13 @@ featuredLinks:
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
-    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/learn-github-actions/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
-    - /actions/reference/events-that-trigger-workflows
-    - /actions/reference/context-and-expression-syntax-for-github-actions
-    - /actions/reference/environment-variables
-    - /actions/reference/encrypted-secrets
+    - /actions/learn-github-actions/events-that-trigger-workflows
+    - /actions/learn-github-actions/contexts
+    - /actions/learn-github-actions/expressions
+    - /actions/learn-github-actions/environment-variables
+    - /actions/security-guides/encrypted-secrets
 changelog:
   label: actions
   prefix: 'GitHub Actions: '
@@ -34,6 +35,8 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
+  - /actions/guides
+  - /actions/reference
 layout: product-landing
 versions:
   fpt: '*'
@@ -41,13 +44,18 @@ versions:
   ghae: '*'
 children:
   - /quickstart
-  - /guides
   - /learn-github-actions
-  - /managing-workflow-runs
   - /creating-actions
+  - /security-guides
+  - /automating-builds-and-tests
+  - /deployment
+  - /managing-issues-and-pull-requests
+  - /publishing-packages
+  - /using-containerized-services
+  - /advanced-guides
+  - /managing-workflow-runs
   - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
-  - /reference
+  - /migrating-to-github-actions
 ---
-

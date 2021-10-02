@@ -19,3 +19,4 @@ sections:
     - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。（2020-06-23更新）{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - '複数のRedisノードでのクラスタ設定にデプロイされた際に、依存関係グラフが依存関係を検出しません。（2020-06-30更新）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'
+    - 'High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。'

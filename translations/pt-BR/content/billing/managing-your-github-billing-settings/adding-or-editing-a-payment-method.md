@@ -16,33 +16,34 @@ redirect_from:
   - /articles/updating-your-organization-s-payment-method/
   - /articles/switching-payment-methods-for-your-organization/
   - /articles/adding-or-editing-a-payment-method
-  - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-or-editing-a-payment-method
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - User account
+shortTitle: Gerenciar um método de pagamento
 ---
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 Não fornecemos fatura nem damos suporte a ordens de compra para contas pessoais. Enviamos recibos por e-mail mensal ou anualmente na data de cobrança da sua conta. Se seu país, empresa ou contador exigir que seus recibos forneçam mais detalhes, você também pode [adicionar informações extras](/articles/adding-information-to-your-personal-account-s-receipts).
 
-### Atualizar a forma de pagamento da sua conta pessoal
+## Atualizar a forma de pagamento da sua conta pessoal
 
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Se sua conta tiver um cartão de crédito existente que você deseja atualizar, clique em **Novo Cartão**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-new-card-button.png)
+1. If your account has existing billing information that you want to update, click **Edit**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-information-edit-button.png)
+{% data reusables.dotcom_billing.enter-billing-info %}
+1. If your account has an existing payment method that you want to update, click **Edit**. ![Botão de Cobrança de novo cartão](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
-### Atualizar a forma de pagamento da sua organização
+## Atualizar a forma de pagamento da sua organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 Se sua organização estiver fora dos EUA ou se você estiver usando uma conta de verificação corporativa para pagar pelo {% data variables.product.product_name %}, o PayPal pode ser uma forma prática de pagamento.
-
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}

@@ -1,13 +1,15 @@
 ---
 title: ライセンス
+intro: The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file.
 redirect_from:
   - /v3/licenses
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ライセンス API は、広く利用されているオープンソースライセンスに関するメタデータと、特定のプロジェクトのライセンスファイルに関する情報を返します。

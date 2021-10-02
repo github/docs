@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 Wenn Du einen vorherigen Commit rückgängig machst, ist das Rückgängigmachen ebenfalls ein Commit. Der ursprüngliche Commit verbleibt ebenfalls im Verlauf des Repositorys.

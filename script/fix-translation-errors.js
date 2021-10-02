@@ -18,7 +18,7 @@ import fm from '../lib/frontmatter.js'
 import matter from 'gray-matter'
 import chalk from 'chalk'
 import yaml from 'js-yaml'
-import ghesReleaseNotesSchema from '../tests/helpers/schemas/release-notes-schema.js'
+import ghesReleaseNotesSchema from '../tests/helpers/schemas/ghes-release-notes-schema.js'
 import revalidator from 'revalidator'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -56,7 +56,9 @@ async function main() {
 
   const cmd =
     'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/(content/.+.md|data/release-notes/.*.yml)$"'
-  const changedFilesRelPaths = execSync(cmd).toString().split('\n')
+
+  const maxBuffer = 1024 * 1024 * 2 // twice the default value
+  const changedFilesRelPaths = execSync(cmd, { maxBuffer }).toString().split('\n')
 
   for (const relPath of changedFilesRelPaths) {
     // Skip READMEs

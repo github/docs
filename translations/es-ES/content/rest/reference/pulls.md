@@ -1,13 +1,15 @@
 ---
 title: Extracciones
+intro: 'La API de extracciones te permite listar, ver editar, crear e incluso fusionar las solicitudes de cambios.'
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 La API de Solicitudes de Extracción te permite listar, ver, editar, crear e incluso fusionar solicitudes de extracción. Los comentarios en las solicitudes de extracción se pueden administrar a través de la [API de Comentarios de los Informes de Problemas](/rest/reference/issues#comments).
@@ -26,8 +28,6 @@ Estos son los tipos de medios compatibles para las solicitudes de extracción.
     application/vnd.github.VERSION.patch
 
 Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
-
-<a id="diff-error">
 
 Si existe alguna diff que se haya dañado, contacta a {% data variables.contact.contact_support %}. Incluye el nombre del repositorio y la ID de la solicitud de extracción en tu mensaje.
 
