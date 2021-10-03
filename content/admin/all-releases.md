@@ -3,7 +3,7 @@ title: GitHub Enterprise Server releases
 intro: 'Documentation for the currently supported and previously deprecated versions of {{ site.data.variables.product.prodname_ghe_server }}.'
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '*'
+  ghes: 'ekkaratproductcompany.onmicrosoft.com'
 topics:
   - Enterprise
 shortTitle: Releases
