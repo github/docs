@@ -79,4 +79,4 @@ You can check which access policies are applied to a secret in your organization
 
 ## Further Reading
 
-  * [Managing encrypted secrets for your codespaces.](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)
+  * [Managing encrypted secrets for your codespaces.](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
