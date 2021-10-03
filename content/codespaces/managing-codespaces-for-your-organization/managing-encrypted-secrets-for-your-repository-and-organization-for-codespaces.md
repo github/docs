@@ -76,3 +76,7 @@ You can check which access policies are applied to a secret in your organization
 1. The list of secrets includes any configured permissions and policies. For example:
 ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
+
+## Further Reading
+
+  * [Managing encrypted secrets for your codespaces.](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)
