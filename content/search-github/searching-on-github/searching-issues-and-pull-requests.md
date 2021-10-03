@@ -136,6 +136,11 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
 {% ifversion fpt or ghes or ghae %}
+
+## Searching for your issues and pull requests
+
+<!-- TODO -->
+
 ## Search for linked issues and pull requests
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
 
