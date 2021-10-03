@@ -5,7 +5,7 @@ intro: 'Aprende a sacar el mayor provecho de {% data variables.product.prodname_
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 includeGuides:
   - /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
   - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization

@@ -5,9 +5,10 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Block from your org
 ---
 
 You can block a user from within your organization's settings or from a specific comment made by the user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
@@ -38,7 +39,7 @@ In your organization's repositories, blocked users also cannot:
 - Comment on issues, pull requests, or commits
 - Add or edit wiki pages
 
-### Blocking a user in a comment
+## Blocking a user in a comment
 
 1. Navigate to the comment whose author you would like to block.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block user**. ![The horizontal kebab icon and comment moderation menu showing the block user option](/assets/images/help/repository/comment-menu-block-user.png)
@@ -47,7 +48,7 @@ In your organization's repositories, blocked users also cannot:
 5. If you'd like to notify the user why they're being blocked, select **Send a notification to this user**. ![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
 6. To block the user, click **Block user from organization** or **Block user from organization and send message**. ![Block user button](/assets/images/help/organizations/org-block-user-button-in-comment.png)
 
-### Blocking a user in the organization settings
+## Blocking a user in the organization settings
 
 1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
 
@@ -58,7 +59,7 @@ In your organization's repositories, blocked users also cannot:
 7. If you'd like to set a time limit for the block, use the Block options drop-down menu, and select the amount of time you'd like to block the user. ![Block options drop-down menu](/assets/images/help/organizations/org-block-options-menu.png)
 8. Click **Block user**. ![Block button](/assets/images/help/organizations/org-block-user-button.png)
 
-### Дополнительная литература
+## Дополнительная литература
 
 - "[Viewing users who are blocked from your organization](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
 - "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"

@@ -1,7 +1,7 @@
-Opcionalmente, você pode escolher um repositório de modelo como código inicial para a atividade. For more information about template repositories, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
+Opcionalmente, você pode escolher um repositório de modelo como código inicial para a atividade. Para obter mais informações sobre repositórios de modelos, consulte "[Criar um repositório de modelo](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
 
 {% note %}
 
-**Note:** The template repository must belong to your organization or be a public repository on {% data variables.product.product_name %}.
+**Observação:** O repositório de modelo deve pertencer à sua organização ou ser um repositório público em {% data variables.product.product_name %}.
 
 {% endnote %}

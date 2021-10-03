@@ -1,4 +1,4 @@
-Available scopes and access values:
+Valores de acesso e escopos disponíveis:
 
 ```yaml
 permissions:
@@ -7,6 +7,7 @@ permissions:
   contents: read|write|none
   deployments: read|write|none
   issues: read|write|none
+  discussions: read|write|none
   packages: read|write|none
   pull-requests: read|write|none
   repository-projects: read|write|none
@@ -14,9 +15,9 @@ permissions:
   statuses: read|write|none
 ```
 
-If you specify the access for any of these scopes, all of those that are not specified are set to `none`.
+Se você especificar o acesso para qualquer um desses escopos, todos os que não são especificados são definidos como `nenhum`.
 
-You can use the following syntax to define read or write access for all of the available scopes:
+Você pode usar a sintaxe a seguir para definir o acesso de leitura ou gravação para todos os escopos disponíveis:
 
 ```yaml
 permissions: read-all|write-all

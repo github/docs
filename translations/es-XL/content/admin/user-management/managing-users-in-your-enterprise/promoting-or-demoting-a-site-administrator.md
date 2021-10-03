@@ -7,7 +7,7 @@ redirect_from:
   - /admin/user-management/promoting-or-demoting-a-site-administrator
 intro: 'Los administradores del sitio pueden promover cualquier cuenta de usuarios normales a un administrador del sitio, así como degradar a otros administradores del sitio a usuarios normales.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Access management
   - Accounts

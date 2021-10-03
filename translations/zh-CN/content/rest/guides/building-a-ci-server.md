@@ -5,9 +5,9 @@ redirect_from:
   - /guides/building-a-ci-server/
   - /v3/guides/building-a-ci-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -27,7 +27,7 @@ topics:
 
 注：您可以[从平台样本仓库][platform samples]下载此项目的完整源代码。
 
-### 编写服务器
+## 编写服务器
 
 我们将编写一个快速的 Sinatra 应用程序，以证明我们的本地连接工作正常。 首先编写以下代码：
 
@@ -79,7 +79,7 @@ end
 
 要测试此概念验证，请在测试仓库的分支中进行一些更改，然后打开拉取请求。 您的服务器应该会做出相应的响应！
 
-### 处理状态
+## 处理状态
 
 服务器就位后，我们就可以开始实现第一个要求，即设置（和更新）CI 状态。 请注意，无论何时更新服务器，都可以单击 **Redeliver（重新交付）**以发送相同的有效负载。 不需要每次进行更改时都发出新的拉取请求！
 
@@ -121,7 +121,7 @@ def process_pull_request(pull_request)
 end
 ```
 
-### 结论
+## 结论
 
 在 GitHub，我们多年来一直使用 [Janky][janky] 版本来管理 CI。 基本流程本质上与我们上面构建的服务器完全相同。 在 GitHub，我们：
 

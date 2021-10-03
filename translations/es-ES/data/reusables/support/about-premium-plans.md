@@ -10,7 +10,7 @@ Existen dos planes de {% data variables.contact.premium_support %}: Premium y Pr
 | Canales de soporte técnico  | <ul><li>Emisión de ticket en línea</li><li>Soporte vía telefónica</li></ul>                            | <ul><li>Emisión de ticket en línea</li><li>Soporte vía telefónica</li><li>Compartir pantalla en problemas críticos</li></ul>                                |
 | Capacitación                | Acceso a contenido prémium.                          | <ul><li>Acceso a contenido prémium.</li><li>1 clase de capacitación virtual por año</li></ul>                                |
 | Contactos autorizados       | 10                                                   | 25                                                       |
-| Recursos                    | Procesamiento de ticket con prioridad                | <ul><li>Procesamiento de ticket con prioridad</li><li>Gerente de Cuenta de Soporte Técnico Nombrado</li></ul>                                |
+| Recursos                    | Procesamiento de ticket con prioridad                | <ul><li>Procesamiento de ticket con prioridad</li><li>Ingeniero Denominado para la Confiabilidad del Cliente</li></ul>                                |
 | Revisiones programadas      | Revisión de estado y elaboración de informes bianual | <ul><li>Reporte y verificación de salud trimestral</li><li>Revisiones de cuenta trimestrales</li></ul>                                |
 | Administración              |                                                      | 4 horas de Servicios administrados por mes               |
 

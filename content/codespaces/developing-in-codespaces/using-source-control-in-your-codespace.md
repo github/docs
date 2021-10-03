@@ -30,11 +30,7 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 ## Creating or switching branches
 
-1. If the current branch is not shown in the status bar, at the bottom of your codespace, right-click the status bar and select **Source control**.
-1. Click the branch name in the status bar.
-![The branch in the status bar](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. In the drop-down, either click the branch you want to switch to, or enter the name for a new branch and click **Create new branch**.
-![Choose from the branch menu](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
@@ -70,21 +66,11 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 
 ## Committing your changes 
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
-![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. Type a commit message describing the change you've made.
-![Source control side bar with a commit message](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
-1. To commit your staged changes, click the check mark at the top the source control side bar.
-![Click the check mark icon](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)  
+{% data reusables.codespaces.source-control-commit-changes %} 
 
 ## Raising a pull request
 
-1. After you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. 
-![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description. 
-![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. Click **Create**.
+{% data reusables.codespaces.source-control-pull-request %} 
 
 ## Pushing changes to your remote repository
 

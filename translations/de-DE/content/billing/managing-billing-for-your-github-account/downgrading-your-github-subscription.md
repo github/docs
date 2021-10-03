@@ -16,23 +16,23 @@ redirect_from:
   - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
   - /articles/downgrading-your-github-billing-plan/
   - /articles/downgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - Repositories
   - User account
+shortTitle: Downgrade subscription
 ---
 
-### Dein {% data variables.product.product_name %}-Abonnement herunterstufen
+## Dein {% data variables.product.product_name %}-Abonnement herunterstufen
 
 Wenn Du das Abonnement Deines Benutzerkonto oder Deiner Organisation herabstufst, werden die neuen Preise und Kontofunktionen am nächsten Abrechnungsdatum wirksam. Änderungen an Deinem bezahlten Abonnement für Benutzerkonten oder Organisationen beeinflussen Abonnements oder Zahlungen für andere, bezahlte {% data variables.product.prodname_dotcom %}-Funktionen nicht. Weitere Informationen findest Du auf „[Wie beeinflusst das Herauf- oder Herabstufen den Abrechnungsprozess?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
-### Das Abonnement Deines Benutzerkonto herabstufen
+## Das Abonnement Deines Benutzerkonto herabstufen
 
 Wenn Du Dein Benutzerkonto von {% data variables.product.prodname_pro %} nach {% data variables.product.prodname_free_user %} herunterstufst, wird Dein Konto den Zugriff auf die erweiterten Code-Prüfwerkzeuge auf privaten Repositorys verlieren. {% data reusables.gated-features.more-info %}
 
@@ -43,7 +43,7 @@ Wenn Du Dein Benutzerkonto von {% data variables.product.prodname_pro %} nach {%
 
 Wenn Du eine {% data variables.product.prodname_pages %}-Website in einem privaten Repository veröffentlicht und eine benutzerdefinierte Domäne hinzugefügt hast, entferne oder aktualisiere Deine DNS-Einträge vor dem Herabstufen von {% data variables.product.prodname_pro %} nach {% data variables.product.prodname_free_user %}, um das Risiko einer Domänenübernahme zu verhindern. Weitere Informationen findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site).“
 
-### Das Abonnement Deiner Organisation herabstufen
+## Das Abonnement Deiner Organisation herabstufen
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -55,7 +55,7 @@ Wenn Du Deine Organisation von {% data variables.product.prodname_ghe_cloud %} n
 1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want. ![Schaltfläche „Downgrade“ (Herabstufen)](/assets/images/help/billing/downgrade-option-button.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
-### Abonnement einer Organisation mit älteren Repository-abhängiger Preisgestaltung herabstufen
+## Abonnement einer Organisation mit älteren Repository-abhängiger Preisgestaltung herabstufen
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -66,7 +66,7 @@ Wenn Du Deine Organisation von {% data variables.product.prodname_ghe_cloud %} n
 1. Klicke unter "Abrechnung/Pläne" neben dem Plan, den Du ändern möchtest, auf **Downgrade** (Herabstufen). ![Schaltfläche „Downgrade“ (Herabstufen)](/assets/images/help/billing/downgrade-plan-option-button.png)
 1. Enter the reason you're downgrading your account, then click **Downgrade plan**. ![Text box for downgrade reason and downgrade button](/assets/images/help/billing/downgrade-plan-button.png)
 
-### Bezahlte Benutzer aus Deiner Organisation entfernen
+## Bezahlte Benutzer aus Deiner Organisation entfernen
 
 Um die Anzahl an bezahlten Benutzern, die Ihre Organisation verwendet, zu reduzieren, können Sie Mitglieder aus Ihrer Organisation entfernen oder Mitglieder in externe Mitarbeiter umwandeln und ihnen nur den Zugriff auf öffentliche Repositorys gewähren. Weitere Informationen findest Du unter:
 - „[Ein Mitglied aus Deiner Organisation entfernen](/articles/removing-a-member-from-your-organization)“
@@ -78,7 +78,7 @@ Um die Anzahl an bezahlten Benutzern, die Ihre Organisation verwendet, zu reduzi
 1. Wählen Sie unter „Remove seats“ (Benutzer entfernen) die Anzahl an Benutzern aus, auf die Sie reduzieren möchten. ![remove seats option](/assets/images/help/billing/remove-seats-amount.png)
 1. Lies die Informationen zur neuen Preisgestaltung an Deinem nächsten Abrechnungsdatum durch, und klicke dann auf **Remove seats** (Benutzer entfernen). ![remove seats button](/assets/images/help/billing/remove-seats-button.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products)“
 - „[Wie wirkt sich das Herauf- oder Herabstufen auf den Abrechnungsprozess aus?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)“

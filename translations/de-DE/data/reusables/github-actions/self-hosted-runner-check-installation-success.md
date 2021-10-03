@@ -1,7 +1,7 @@
 
-#### Überprüfung dass Dein selbst-gehosteter Läufer erfolgreich hinzugefügt wurde
+### Überprüfung dass Dein selbst-gehosteter Läufer erfolgreich hinzugefügt wurde
 
-Nach Abschluss der Schritte zum Hinzufügen eines selbst-gehosteten Läufers werden der Läufer und sein Status nun unter "Selbst-gehostete Läufer" aufgeführt.
+After completing the steps to add a self-hosted runner, the runner and its status are now listed under {% ifversion fpt %}"Runners"{% elsif ghae or ghes %}"Self-hosted runners"{% endif %}.
 
 Die selbst-gehostete Läuferanwendung muss aktiv sein, damit der Läufer Aufträge annehmen kann. Wenn die Läuferanwendung mit {% data variables.product.product_name %} verbunden und bereit ist, Aufträge zu empfangen, siehst Du die folgende Meldung auf dem Terminal der Maschine.
 

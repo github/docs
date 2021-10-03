@@ -2,12 +2,13 @@
 title: Utilizar la última versión de las acciones empaquetadas oficiales
 intro: 'Puedes actualizar las acciones que vienen en paquete para tu empresa o utilizarlas directamente desde {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
+shortTitle: Utilizar las acciones empaquetadas más recientes
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -18,11 +19,11 @@ Tu instancia empresarial incluye varias acciones integradas que puedes utilizar 
 
 Estas acciones que vienen en paquete son una captura de un punto en el tiempo de las acciones oficiales que se encuentran en https://github.com/actions, así que podría haber versiones nuevas disponibles de estas. Puedes utilizar la herramienta de `actions-sync` para actualizar estas acciones o puedes configurar {% data variables.product.prodname_github_connect %} para permitir el acceso a las últimas acciones en {% data variables.product.prodname_dotcom_the_website %}. Estas opciones se describen en las siguietnes secciones.
 
-### Utilizar `actions-sync` para actualizar las acciones que vienen en paquete
+## Utilizar `actions-sync` para actualizar las acciones que vienen en paquete
 
 Para actualizar las acciones que vienen en paquete, puedes utilizar la herramienta `actions-sync` para actualizar esta captura. Para obtener más información sobre cómo utilizar `actions-sync`, consulta la sección "[Sincronizar manualmente las acciones desde {% data variables.product.prodname_dotcom_the_website %}](/admin/github-actions/manually-syncing-actions-from-githubcom)".
 
-### Utilizar {% data variables.product.prodname_github_connect %} para acceder a las últimas acciones
+## Utilizar {% data variables.product.prodname_github_connect %} para acceder a las últimas acciones
 
 Puedes utilizar {% data variables.product.prodname_github_connect %} para permitir que {% data variables.product.product_name %} utilice acciones desde {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Habilitar el acceso automático a las acciones de {% data variables.product.prodname_dotcom_the_website %} utilizando{% data variables.product.prodname_github_connect %}](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 

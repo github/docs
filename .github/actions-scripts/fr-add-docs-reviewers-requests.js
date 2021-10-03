@@ -119,6 +119,7 @@ async function run() {
   const statusID = findFieldID('Status', data)
   const featureID = findFieldID('Feature', data)
   const contributorTypeID = findFieldID('Contributor type', data)
+  const sizeTypeID = findFieldID('Size', data)
   const authorID = findFieldID('Author', data)
 
   // Get the ID of the single select values that we want to set
@@ -169,6 +170,8 @@ async function run() {
       reviewDueDateID: reviewDueDateID,
       contributorTypeID: contributorTypeID,
       contributorType: contributorType,
+      sizeTypeID: sizeTypeID,
+      sizeType: '', // Although we aren't populating size, we are passing the variable so that we can use the shared mutation function
       featureID: featureID,
       authorID: authorID,
       headers: {

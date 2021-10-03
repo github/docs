@@ -6,7 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,9 +14,10 @@ topics:
   - Packages
   - Spending limits
   - User account
+shortTitle: Tu límite de gastos
 ---
 
-### Acerca de los límites de gastos para {% data variables.product.prodname_registry %}
+## Acerca de los límites de gastos para {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -30,7 +31,7 @@ Tan pronto como configures un límite de gastos diferente a $0, serás responsab
 
 Ya que no has habilitado los excedentes, tu siguiente intento de publicar una versión del paquete no será exitosa. No recibirás una cuenta por esos 0.1GB extras en ese mes. Sin embargo, si habilitas los excedentes, tu primer factura incluirá el excedente de 0.1GB del ciclo de facturación actual, así como cualquier otro excedente que acumules.
 
-### Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu cuenta de usuario
+## Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu cuenta de usuario
 
 Cualquiera puede administrar el límite de gastos de {% data variables.product.prodname_registry %} para su propia cuenta de usuario.
 
@@ -40,16 +41,16 @@ Cualquiera puede administrar el límite de gastos de {% data variables.product.p
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu organización
+## Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu organización
 
 Los propietarios de las organizaciones pueden administrar el límite de gastos de {% data variables.product.prodname_registry %} para una organización.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-### Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu cuenta empresarial
+## Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu cuenta empresarial
 
 Los propietarios de la empresa y gerentes de facturación pueden administrar el límite de gastos para {% data variables.product.prodname_registry %} para una cuenta empresarial.
 
@@ -59,3 +60,6 @@ Los propietarios de la empresa y gerentes de facturación pueden administrar el 
 1. Sobre "uso mensual de paquetes y {% data variables.product.prodname_actions %}", haz clic en **Límite de gastos**. ![Pestaña de límite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+## Managing usage and spending limit email notifications
+{% data reusables.billing.email-notifications %}

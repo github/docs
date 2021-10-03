@@ -1,12 +1,13 @@
 利用できるスコープとアクセスの値は以下のとおりです。
 
 ```yaml
-権限:
+permissions:
   actions: read|write|none
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none
   issues: read|write|none
+  discussions: read|write|none
   packages: read|write|none
   pull-requests: read|write|none
   repository-projects: read|write|none

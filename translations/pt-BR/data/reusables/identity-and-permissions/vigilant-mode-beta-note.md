@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Vigilant mode is currently in beta and subject to change.
+**Observação:** O modo vigilante está atualmente na versão beta e sujeito a alterações.
 
 {% endnote %}

@@ -10,6 +10,6 @@ Members with team maintainer permissions can:
 - [Add organization members to the team](/articles/adding-organization-members-to-a-team)
 - [Remove organization members from the team](/articles/removing-organization-members-from-a-team)
 - [Promote an existing team member to team maintainer](/articles/giving-team-maintainer-permissions-to-an-organization-member)
-- Remove the team's access to repositories{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-- [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- Remove the team's access to repositories{% ifversion fpt or ghes or ghae %}
+- [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt %}
 - [Manage scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

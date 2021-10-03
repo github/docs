@@ -5,7 +5,7 @@ redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot
@@ -13,9 +13,10 @@ topics:
   - Secret store
   - Repositories
   - Dependencies
+shortTitle: Administrar los secretos cifrados
 ---
 
-### Acerca de los secretos cifrados para los {% data variables.product.prodname_dependabot %}
+## Acerca de los secretos cifrados para los {% data variables.product.prodname_dependabot %}
 
 Los secretos del {% data variables.product.prodname_dependabot %} son credenciales cifradas que creas ya sea a nivel de la organización o del repositorio.
 Cuando agregas un secreto a nivel de la organización, puedes especificar qué repositorios pueden acceder a éste. Puedes utilizar secretos para permitir que el {% data variables.product.prodname_dependabot %} actualice las dependencias que se ubiquen en los registros del paquete. Cuando agregas un secreto que está cifrado antes de llegar a {% data variables.product.prodname_dotcom %} y permanece cifrado hasta que lo utiliza el {% data variables.product.prodname_dependabot %} para acceder a un registro de paquetes privado.
@@ -30,14 +31,14 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 Para obtener más información, consulta la sección "[Opciones de configuración para las actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)".
 
-#### Nombrar tus secretos
+### Nombrar tus secretos
 
 El nombre de un secreto del {% data variables.product.prodname_dependabot %}:
 * Solo puede contener caracteres alfanuméricos (`[A-Z]`, `[0-9]`) o guiones bajos (`_`). No se permiten espacios. Si escribes en minúscula, se cambiará todo a mayúsculas.
 * No puede iniciar con el prefijo `GITHUB_`.
 * No puede iniciar con un número.
 
-### Agregar un secreto de repositorio para el {% data variables.product.prodname_dependabot %}
+## Agregar un secreto de repositorio para el {% data variables.product.prodname_dependabot %}
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
@@ -54,7 +55,7 @@ El nombre de un secreto del {% data variables.product.prodname_dependabot %}:
 
    ![Actualizar o eliminar un secreto del repositorio](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-### Agregar un secreto de organización para el {% data variables.product.prodname_dependabot %}
+## Agregar un secreto de organización para el {% data variables.product.prodname_dependabot %}
 
 Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
 
@@ -79,3 +80,7 @@ Cuando creas un secreto en una organización, puedes utilizar una política para
    El nombre del secreto se lista en la página de secretos del Dependabot. Puedes hacer clic en **Actualizar** para cambiar el valor del secreto o su política de acceso. Puedes hacer clic en **Eliminar** para borrar el secreto.
 
    ![Actualiza o elimina un secreto de organización](/assets/images/help/dependabot/update-remove-repo-secret.png)
+
+## Agregar al {% data variables.product.prodname_dependabot %} a tu lista de direcciones IP permitidas de tus registros
+
+Si tu registro privado se configura con una lista de direcciones IP permitidas, puedes encontrar las direcciones IP que utiliza el {% data variables.product.prodname_dependabot %} para acceder al registro en la terminal API del meta, bajo la clave `dependabot`. Para obtener más información, consulta la sección "[Meta](/rest/reference/meta)".

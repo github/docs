@@ -1,6 +1,6 @@
 ---
-title: Introduction to GitHub Packages
-intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% if currentVersion == "github-ae@latest" %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
+title: GitHub Packagesの紹介
+intro: '{% data variables.product.prodname_registry %}はソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージを{% ifversion ghae %}特定のユーザや社内に対し{% else %}非公開または公開でホストでき、{% endif %}パッケージをプロジェクト中で依存関係として使えるようになります。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/about-github-package-registry
@@ -11,121 +11,124 @@ redirect_from:
   - /packages/learn-github-packages/core-concepts-for-github-packages
   - /packages/guides/about-github-container-registry
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: はじめに
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About {% data variables.product.prodname_registry %}
+## {% data variables.product.prodname_registry %} について
 
-{% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% if currentVersion != "github-ae@latest" %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
+{% data variables.product.prodname_registry %}はパッケージホスティングサービスで、{% data variables.product.prodname_dotcom %}と完全に統合されています。 {% data variables.product.prodname_registry %}は、ソースコードとパッケージを一カ所にまとめ、統合された権限管理{% ifversion not ghae %}と支払い{% endif %}を提供し、{% data variables.product.product_name %}上でのソフトウェア開発を一元化できるようにします。
 
-You can integrate {% data variables.product.prodname_registry %} with {% data variables.product.product_name %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
+{% data variables.product.prodname_registry %}は、{% data variables.product.product_name %} API、{% data variables.product.prodname_actions %}、webhookと統合して、コード、CI、デプロイメントのソリューションを含むエンドツーエンドのDevOpsワークフローを作成できます。
 
-{% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% if currentVersion == "free-pro-team@latest" %}The {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+{% data variables.product.prodname_registry %}は、nmp、RubyGems、Apache Maven、Gradle、Docker、NuGetといった、広く使われているパッケージマネージャーに対する様々なパッケージレジストリを提供しています。 {% ifversion fpt %}{% data variables.product.prodname_dotcom %}の{% data variables.product.prodname_container_registry %}はコンテナに特化しており、DockerとOCIイメージをサポートします。{% endif %} {% data variables.product.prodname_registry %}がサポートする様々なパッケージレジストリに関する詳しい情報については「[{% data variables.product.prodname_registry %}レジストリの利用](/packages/working-with-a-github-packages-registry)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
+![コンテナレジストリ、RubyGems、npm、Apache Maven、NuGet、Gradle のパッケージサポートを示す図](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 
 {% else %}
 
-![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
+![Dockerレジストリ、RubyGems、npm、Apache Maven、Gradle、Nuget、Dockerに対するパッケージサポートを示す図](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
 
 {% endif %}
 
-You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
+{% data variables.product.product_name %}では、ライセンスのようなメタデータやパッケージのREADMEを表示したり、統計をダウンロードしたり、バージョン履歴を見たりできます。 詳しい情報については「[パッケージの表示](/packages/manage-packages/viewing-packages)」を参照してください。
 
-#### Overview of package permissions and visibility
+### パッケージの権限と可視性の概要
 
-|                    |        |
-|--------------------|--------------------|
-| Permissions        | {% if currentVersion == "free-pro-team@latest" %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.product.prodname_container_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
-| Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| 権限                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                  |
+| {% ifversion fpt %}パッケージの権限は、パッケージがホストされているリポジトリから継承したり、{% data variables.product.prodname_container_registry %}中のパッケージであれば特定のユーザあるいはOrganizationアカウントに対して定義したりできます。 詳しい情報については「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。 {% else %}それぞれのパッケージは、ホストされているリポジトリの権限を継承します。 <br> <br> たとえば、リポジトリの読み取り権限を持つ人であれば、プロジェクトに依存関係としてパッケージをインストールでき、書き込み権限を持つ人であれば、新しいパッケージバージョンを公開できます。{% endif %} |                                                                  |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                  |
+| 可視性                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | {% data reusables.package_registry.public-or-private-packages %}
 
-For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}
-### About billing for {% data variables.product.prodname_registry %}
+{% ifversion fpt %}
+## {% data variables.product.prodname_registry %}の支払いについて
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} 詳しい情報については「[{% data variables.product.prodname_registry %}の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
 
 {% endif %}
 
-### Supported clients and formats
+## サポートされているクライアントとフォーマット
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported clients or formats. -->
 
-{% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
-#### Support for package registries
+{% data variables.product.prodname_registry %}は、パッケージのバージョンの公開とインストールに、すでにおなじみのネイティブのパッケージツールコマンドを使います。
+### パッケージレジストリのサポート
 
-| Language | Description | Package format | Package client |
-| --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` |
-| Ruby |  RubyGems package manager | `Gemfile` |  `gem` |
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` |
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  |
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI |
-| N/A | Docker container management | `Dockerfile` | `Docker` |
+| 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  |
+| ---------- | ----------------------------- | ------------------------------------- | ------------ |
+| JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        |
+| Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        |
+| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        |
+| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     |
+| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI |
+| なし         | Dockerコンテナ管理プラットフォーム          | `Dockerfile`                          | `Docker`     |
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 {% note %}
 
-**Note:** Docker is not supported when subdomain isolation is disabled.
+**注釈:** Subdomain Isolation が無効化されている場合、Docker はサポートされません。
 
 {% endnote %}
 
-For more information about subdomain isolation, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)."
+Subdomain Isolation の詳しい情報については、「[Subdomain Isolation を有効化する](/enterprise/admin/configuration/enabling-subdomain-isolation)」を参照してください。
 
 {% endif %}
 
-For more information about configuring your package client for use with {% data variables.product.prodname_registry %}, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+{% data variables.product.prodname_registry %}と使うためのパッケージクライアントの設定に関する詳しい情報については「[{% data variables.product.prodname_registry %}レジストリの利用](/packages/working-with-a-github-packages-registry)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}
-For more information about Docker and the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
+{% ifversion fpt %}
+Dockerと{% data variables.product.prodname_container_registry %}に関する詳しい情報については「[コンテナレジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
 {% endif %}
-### Authenticating to {% data variables.product.prodname_registry %}
+## {% data variables.product.prodname_registry %} への認証を行う
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Managing packages
+## パッケージの管理
 
-{% if currentVersion == "free-pro-team@latest" %}
-You can delete a package in the {% data variables.product.product_name %} user interface or using the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+{% ifversion fpt %}
+パッケージの削除は、{% data variables.product.product_name %}のユーザインターフェースから、もしくはREST APIを使って行えます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@3.0" %}
-You can delete a private or public package in the {% data variables.product.product_name %} user interface. Or for repo-scoped packages, you can delete a version of a private package using GraphQL.
+{% ifversion ghes > 3.0 %}
+{% data variables.product.product_name %}のユーザインターフェースでは、プライベートあるいはパブリックパッケージを削除できます。 また、repoスコープのパッケージでは、GraphQLを使用してプライベートパッケージのバージョンを削除できます。
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@3.1" %}
-You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
+{% ifversion ghes < 3.1 %}
+プライベートパッケージのバージョンは、{% data variables.product.product_name %}上で、またはGraphQL APIを使って削除できます。
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
-You can delete a version of a package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
+{% ifversion ghae %}
+パッケージのバージョンは、{% data variables.product.product_name %}上で、またはGraphQL APIを使って削除できます。
 {% endif %}
 
-When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、 「{% ifversion fpt or ghes > 3.0 %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」および「"[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
-You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
+webhookを設定して、パッケージの公開や更新といったパッケージ関連のイベントにサブスクライブできます。 詳しい情報については、「[`package` webhookイベント](/webhooks/event-payloads/#package)」を参照してください。
 
-### Contacting support
+## サポートへの連絡
 
-{% if currentVersion == "free-pro-team@latest" %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use the [feedback form for {% data variables.product.prodname_registry %}](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages).
+{% ifversion fpt %}
+{% data variables.product.prodname_registry %}についてのフィードバックあるいは機能リクエストがある場合は、[{% data variables.product.prodname_registry %}のフィードバックフォーム](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages)を利用してください。
 
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
+[連絡フォーム](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages)を使い、{% data variables.product.prodname_registry %}について{% data variables.contact.github_support %}に連絡してください。
 
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+* ドキュメンテーションに反する何らかの体験をした時
+* 漠然とした、あるいは不明確なエラーを体験した時
+* GDPR違反、APIキー、個人を識別する情報といったセンシティブなデータを含むパッケージを公開した時
 
 {% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
+{% data variables.product.prodname_registry %}のサポートが必要な場合は、サイト管理者に連絡してください。
 
 {% endif %}

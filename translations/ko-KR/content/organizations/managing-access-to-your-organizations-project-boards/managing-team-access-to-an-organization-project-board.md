@@ -5,12 +5,13 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage team access
 ---
 
 {% warning %}
@@ -21,7 +22,7 @@ topics:
 
 {% endwarning %}
 
-### Giving a team access to a project board
+## Giving a team access to a project board
 
 You can give an entire team the same permission level to a project board.
 
@@ -41,7 +42,7 @@ You can give an entire team the same permission level to a project board.
 9. To add a team, click **Add a team: Select team**. Then, choose a team from the drop-down menu or search for the team you'd like to add. ![Add a team drop-down menu with list of teams in organization](/assets/images/help/projects/add-a-team.png)
 10. Next to the team name, use the drop-down menu to select the desired permission level: **Read**, **Write**, or **Admin**. ![Team permissions drop-down menu with read, write, and admin options](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
-### Configuring a team's access to a project board
+## Configuring a team's access to a project board
 
 If a team's access to a project board is inherited from a parent team, you must change the parent team's access to the project board to update access to the child teams.
 

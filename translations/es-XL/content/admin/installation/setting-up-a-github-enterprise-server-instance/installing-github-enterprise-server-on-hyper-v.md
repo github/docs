@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
   - /admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 ---

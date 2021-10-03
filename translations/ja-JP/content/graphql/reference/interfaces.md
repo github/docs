@@ -4,14 +4,14 @@ redirect_from:
   - /v4/interface
   - /v4/reference/interface
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### インターフェースについて
+## インターフェースについて
 
 [インターフェース](https://graphql.github.io/graphql-spec/June2018/#sec-Interfaces)は、他のオブジェクトが継承できる親オブジェクトとして働きます。
 

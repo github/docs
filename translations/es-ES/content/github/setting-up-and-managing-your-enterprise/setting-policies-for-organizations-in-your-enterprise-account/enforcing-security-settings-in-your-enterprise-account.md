@@ -2,7 +2,7 @@
 title: Hacer cumplir los parámetros de seguridad en tu cuenta de empresa
 intro: Los propietarios de empresa pueden hacer cumplir determinadas políticas de seguridad para todas las organizaciones que son propiedad de una cuenta de empresa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
@@ -11,12 +11,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Requerir la configuración de seguridad
 ---
 
-### Requerir autenticación de dos factores para las organizaciones en tu cuenta de empresa
+## Requerir autenticación de dos factores para las organizaciones en tu cuenta de empresa
 
 Los propietarios de empresa pueden requerir que los miembros de la organización, gerentes de facturación y colaboradores externos en todas las organizaciones que sean propiedad de una cuenta de empresa usen autenticación de dos factores para proteger sus cuentas personales.
 
@@ -42,7 +43,7 @@ Antes de solicitar el uso de la autenticación de dos factores, te recomendamos 
 6. Si se lo solicita, lee la información acerca de los miembros y colaboradores externos que serán eliminados de las organizaciones que son propiedad de tu cuenta de empresa. Para confirmar el cambio, escribe el nombre de tu cuenta de empresa y luego haz clic en **Eliminar miembros y requerir autenticación de dos factores**. ![Cuadro Confirmar aplicación obligatoria de dos factores](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. Si algún miembro o colaborador externo es eliminado de las organizaciones que son propiedad de tu cuenta de empresa, también te recomendamos enviarle una invitación para reinstalar sus privilegios anteriores y su acceso a tu organización. Cada persona debe habilitar la autenticación de dos factores para poder aceptar tu invitación.
 
-### Administrar direcciones IP permitidas para organizaciones en su cuenta de empresa
+## Administrar direcciones IP permitidas para organizaciones en su cuenta de empresa
 
 Los propietarios de empresa pueden restringir el acceso a los activos que pertenezcan a las organizaciones dentro de la cuenta empresarial mediante la configuración de una lista de direcciones IP permitidas. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
@@ -52,7 +53,7 @@ Los propietarios de empresa pueden restringir el acceso a los activos que perten
 
 También puedes configurar las direcciones IP permitidas para una organización individual. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
-#### Agregar una dirección IP permitida
+### Agregar una dirección IP permitida
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -61,11 +62,11 @@ También puedes configurar las direcciones IP permitidas para una organización 
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-#### Allowing access by {% data variables.product.prodname_github_apps %}
+### Permitir el acceso mediante {% data variables.product.prodname_github_apps %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
-#### Habilitar direcciones IP permitidas
+### Habilitar direcciones IP permitidas
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -73,7 +74,7 @@ También puedes configurar las direcciones IP permitidas para una organización 
 3. En "IP allow list" (Lista de permisos de IP), seleccione **Enable IP allow list** (Habilitar lista de permisos de IP). ![Realizar una marca de verificación para permitir direcciones IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
 4. Haz clic en **Save ** (guardar).
 
-#### Editar una dirección IP permitida
+### Editar una dirección IP permitida
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -83,7 +84,7 @@ También puedes configurar las direcciones IP permitidas para una organización 
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Da clic en **Actualizar**.
 
-#### Eliminar una dirección IP permitida
+### Eliminar una dirección IP permitida
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -91,17 +92,17 @@ También puedes configurar las direcciones IP permitidas para una organización 
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-#### Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
+### Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### Administrar las autoridades de los certificados de SSH de tu cuenta de empresa
+## Administrar las autoridades de los certificados de SSH de tu cuenta de empresa
 
 Los propietarios de empresa pueden agregar y eliminar las autoridades de los certificados de SSH de una cuenta de empresa (CA).
 
 Al agregar una CA de SSH a tu cuenta de empresa, puedes permitir que los miembros de cualquier organización que sea propiedad de tu cuenta de empresa acceda a los repositorios de esa organización usando los certificados de SSH proporcionados por ti. {% data reusables.organizations.can-require-ssh-cert %}Para obtener más información, consulta "[Acerca de las autoridades de certificados de SSH](/articles/about-ssh-certificate-authorities)".
 
-#### Agregar una autoridad de certificado de SSH
+### Agregar una autoridad de certificado de SSH
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -111,7 +112,7 @@ Al agregar una CA de SSH a tu cuenta de empresa, puedes permitir que los miembro
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-#### Eliminar una autoridad de certificado de SSH
+### Eliminar una autoridad de certificado de SSH
 
 La eliminación de un CA no se puede deshacer. Si deseas usar la misma CA en el futuro, deberás cargarla nuevamente.
 
@@ -120,6 +121,6 @@ La eliminación de un CA no se puede deshacer. Si deseas usar la misma CA en el 
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-### Leer más
+## Leer más
 
 - "[Configurar la administración de accesos e identidades para tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

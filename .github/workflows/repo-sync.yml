@@ -18,7 +18,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '10,25,40,55 * * * *' # every 15 minutes
+    - cron: '10,40 * * * *' # every 30 minutes
 
 jobs:
   close-invalid-repo-sync:

@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-visibility-for-organization-membership
   - /admin/user-management/configuring-visibility-for-organization-membership
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Organizations

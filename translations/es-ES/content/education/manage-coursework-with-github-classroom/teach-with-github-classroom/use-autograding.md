@@ -1,16 +1,16 @@
 ---
 title: Utiliza las calificaciones automáticas
 intro: Puedes proporcionar retroalimentación automáticamente en las emisiones de código de tus alumnos si configuras las pruebas para que se ejecuten en el repositorio de tareas.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
 
-### Acerca de las calificaciones automáticas
+## Acerca de las calificaciones automáticas
 
 {% data reusables.classroom.about-autograding %}
 
@@ -22,11 +22,11 @@ Puedes ver un resumen de qué estudiantes están pasando las pruebas con calific
 
 ![Resumen de una tarea con resultados de calificación automática](/assets/images/help/classroom/autograding-hero.png)
 
-### Métodos para calificar
+## Métodos para calificar
 
 Hay dos métodos para calificar: pruebas de entrada/salida y pruebas de ejecución de comandos.
 
-#### Prueba de entrada/salida
+### Prueba de entrada/salida
 
 Una prueba de entrada/salida ejecuta un comando de configuración opcionalmente y proporciona una entrada estándar de un comando de prueba. {% data variables.product.prodname_classroom %} evalúa la salida del comando de prueba contra un resultado esperado.
 
@@ -41,7 +41,7 @@ Una prueba de entrada/salida ejecuta un comando de configuración opcionalmente 
 | **Tiempo excedido**          | En minutos, lo que tarda una prueba en ejecutarse antes de que resulte en un fallo                                                     |
 | **Puntos**                   | _Opcional_. La cantidad de puntos que vale la prueba contra una puntuación total                                                       |
 
-#### Prueba de comando de ejecución
+### Prueba de comando de ejecución
 
 Una prueba de comando de ejecución ejecuta un comando de configuración y luego un comando de prueba. {% data variables.product.prodname_classroom %} verifica el estado de salida del comando de prueba. Un código de salida de `0` resultará en éxito y cualquier otro código de salida resultara en un fallo.
 
@@ -55,7 +55,7 @@ Una prueba de comando de ejecución ejecuta un comando de configuración y luego
 | **Tiempo excedido**          | En minutos, lo que tarda una prueba en ejecutarse antes de que resulte en un fallo             |
 | **Puntos**                   | _Opcional_. La cantidad de puntos que vale la prueba contra una puntuación total               |
 
-### Configurar las pruebas de calificación automática para una tarea
+## Configurar las pruebas de calificación automática para una tarea
 
 Puedes agregar pruebas de calificación automática durante la creación de una tarea nueva. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
@@ -71,14 +71,21 @@ Puedes agregar, editar o borrar las pruebas de calificación automática para un
     - Para borrar una prueba, a la derecha del nombre de ésta, da clic en {% octicon "trash" aria-label="The trash icon" %}. ![Icono de cesta de basura para borrar una prueba de calificación automática](/assets/images/help/classroom/autograding-click-trash.png)
 1. En la parte inferior de la página, da clic en **Actualizar tarea**. ![Botón de "Actualizar tarea" en la parte inferior de la página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-### Visualizar las bitácoras desde las pruebas de calificación automática
+## Viewing and downloading results from autograding tests
 
+### Download autograding results
+
+You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+
+!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+
+### View individual logs
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
 1. A la derecha de una emisión, da clic en **Ver prueba**. ![Botón de "Ver tarea" para una emisión de una tarea](/assets/images/help/classroom/assignments-click-view-test.png)
 1. Revisa la salida de la prueba. Para obtener más información, consulta la sección "[Utilizar bitácoras de ejecución de flujos de trabajo](/actions/managing-workflow-runs/using-workflow-run-logs)".
 
-### Leer más
+## Leer más
 
 - [Documentación de {% data variables.product.prodname_actions %}](/actions)

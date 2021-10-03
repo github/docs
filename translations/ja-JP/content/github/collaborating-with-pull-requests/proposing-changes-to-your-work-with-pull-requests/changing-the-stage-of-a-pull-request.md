@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのステージの変更
-intro: 'ドラフトのプルリクエストをレビューの準備完了 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} としてマークするか、プルリクエストをドラフトに変換することができます{% endif %}。'
+intro: 'プルリクエストのドラフトをレビュー準備完了としてマークしたり{% ifversion fpt or ghae or ghes %}、プルリクエストをドラフトに変換したりすることができます{% endif %}。'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -8,18 +8,19 @@ redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Change the state
 ---
 
-### プルリクエストをレビュー準備完了としてマークする
+## プルリクエストをレビュー準備完了としてマークする
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghae or ghes %}
 {% tip %}
 
 **Tip**: You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
@@ -31,9 +32,9 @@ topics:
 2. プルリクエストのリストで、レビューの準備ができたことを示すマークを付けたいプルリクエストクリックします。
 3. マージボックスで、[**Ready for review**] をクリックします。 ![[Ready for review] ボタン](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% ifversion fpt or ghae or ghes %}
 
-### プルリクエストをドラフトに変換する
+## プルリクエストをドラフトに変換する
 
 プルリクエストはいつでもドラフトに変換できます。 たとえば、ドラフトではなくプルリクエストを誤ってオープンした場合、または対処の必要があるプルリクエストについてのフィードバックを受け取った場合、プルリクエストをドラフトに変換して、さらなる変更が必要であることを示すことができます。 プルリクエストをレビューの準備完了として再度マークするまで、プルリクエストをマージすることはできません。 プルリクエストの通知をすでにサブスクライブしているユーザは、プルリクエストをドラフトに変換するときにサブスクライブ解除されません。
 
@@ -44,6 +45,6 @@ topics:
 
 {% endif %}
 
-### 参考リンク
+## 参考リンク
 
 - [プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)

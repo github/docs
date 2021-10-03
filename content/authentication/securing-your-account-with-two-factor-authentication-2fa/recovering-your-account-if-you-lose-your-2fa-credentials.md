@@ -78,6 +78,12 @@ You can use your two-factor authentication credentials or two-factor authenticat
 
 ## Authenticating with an account recovery token
 
+{% warning %}
+
+**Warning:** Account recovery tokens are deprecated and will be disabled on **December 1st, 2021**. Please ensure you have configured other two-factor recovery methods. For more information, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
+
+{% endwarning %}
+
 If you lose access to the two-factor authentication methods for your {% data variables.product.product_name %} account, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
 
 If you don't have access to your two-factor authentication methods or recovery codes and you've stored an account recovery token with Facebook using Recover Accounts Elsewhere, you may be able to use your token to regain access to your account.

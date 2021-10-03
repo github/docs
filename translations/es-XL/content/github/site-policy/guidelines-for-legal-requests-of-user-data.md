@@ -4,7 +4,7 @@ redirect_from:
   - /law-enforcement-guidelines/
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

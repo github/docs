@@ -6,11 +6,12 @@ redirect_from:
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: 创建议题模板
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -36,19 +37,19 @@ assignees: octocat
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-### 添加议题模板
+## 添加议题模板
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -66,7 +67,7 @@ assignees: octocat
 {% data reusables.files.choose_commit_branch %} 模板可供协作者用来合并到仓库的默认分支。
 {% data reusables.files.propose_new_file %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)"
 - "[为仓库配置议题模板](/articles/configuring-issue-templates-for-your-repository)"

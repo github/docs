@@ -3,12 +3,12 @@ title: Participando de uma discussão
 intro: 'Você pode conversar com a comunidade e mantenedores em um fórum do repositório para um projeto em {% data variables.product.product_name %}.'
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Participar da discussão
 ---
 
-{% data reusables.discussions.beta %}
 
-### Sobre a participação em uma discussão
+## Sobre a participação em uma discussão
 
 {% data reusables.discussions.about-discussions %} Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
@@ -16,15 +16,15 @@ Além de começar ou visualizar uma discussão, você pode comentar em resposta 
 
 Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Manter sua segurança em {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)".
 
-### Pré-requisitos
+## Pré-requisitos
 
-As discussões devem ser habilitadas para o repositório para que você possa participar de uma discussão no repositório. Para obter mais informações, consulte "[Habilitar ou desabilitar discussões para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository). ".
+{% data variables.product.prodname_discussions %} must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
 
-### Criar uma discussão
+## Criar uma discussão
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Marcar um comentário como uma resposta
+## Marcar um comentário como uma resposta
 
 Os autores de discussões e usuários com função de triagem ou superior para um repositório podem marcar um comentário como a resposta para uma discussão no repositório.
 

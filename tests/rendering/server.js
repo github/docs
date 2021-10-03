@@ -545,7 +545,7 @@ describe('server', () => {
         $(
           `[data-testid=article-version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
         ).length
-      ).toBe(2)
+      ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
         $(`[data-testid=article-version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`)
@@ -697,9 +697,9 @@ describe('URLs by language', () => {
   test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/actions/using-github-hosted-runners/about-github-hosted-runners')
     expect($.res.statusCode).toBe(200)
-    expect($('h3[id="further-reading"]').length).toBe(1)
+    expect($('h2[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
-    expect($('h3 a[href="#further-reading"]').length).toBe(1)
+    expect($('h2 a[href="#further-reading"]').length).toBe(1)
   })
 })
 

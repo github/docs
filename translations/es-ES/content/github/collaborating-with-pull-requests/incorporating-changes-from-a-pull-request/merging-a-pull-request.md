@@ -6,14 +6,14 @@ redirect_from:
   - /articles/merging-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/merging-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### Acerca de las fusiones de las solicitudes de extracción
+## Acerca de las fusiones de las solicitudes de extracción
 
 En una solicitud de extracción, propones que los cambios que hayas hecho en una rama de encabezado se fusionen en una rama base. Por defecto, cualquier solicitud de extracción se puede fusionar en cualquier momento, a menos que la rama de encabezado esté en conflicto con la rama base. Sin embargo, puede que existan restricciones sobre cuándo puedes fusionar una solicitud de cambios en una rama específica. Por ejemplo, puede que solo puedas fusionar una solicitud de extracción en la rama predeterminada si están pasando las verificaciones de estado requeridas. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
 
@@ -23,19 +23,25 @@ Si la solicitud de extracción tiene conflictos de fusión, o si deseas probar l
 
 No puedes fusionar un borrador de solicitud de cambios. Para obtener más información acerca de las solicitudes de extracción en borrador "[Acerca de las solicitudes de extracción](/articles/about-pull-requests#draft-pull-requests)".
 
-{% data reusables.pull_requests.automatically-delete-branches %}
+El repositorio podría configurarse para que la rama de encabezado para una solicitud de cambios se borre automáticamente cuando fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Administrar el borrado automático de ramas](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)".
+
+{% note %}
+
+**Nota:** {% data reusables.pull_requests.retargeted-on-branch-deletion %} Para obtener más información, consulta la sección "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".
+
+{% endnote %}
+
+Las solicitudes de extracción se fusionan utilizando [la opción `--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge), excepto [las solicitudes de extracción con confirmaciones de rebase y combinación](/articles/about-pull-request-merges), que se fusionan utilizando la opción de avance rápido.
+
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 Si decides que no deseas que los cambios en una rama de tema se fusionen con la rama ascendente, puedes [cerrar la solicitud de extracción](/articles/closing-a-pull-request) sin fusionar.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% tip %}
+## Fusionar una solicitud de extracción
 
-**Tip**: También puedes fusionar una solicitud de cambios utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta la sección "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" en la documentación de {% data variables.product.prodname_cli %}.
+{% include tool-switcher %}
 
-{% endtip %}
-{% endif %}
-
-### Fusionar una solicitud de extracción en {% data variables.product.prodname_dotcom %}
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. En la lista "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas fusionar.
@@ -65,22 +71,29 @@ Si decides que no deseas que los cambios en una rama de tema se fusionen con la 
 6. Haz clic en **Confirm merge** (Confirmar fusión), **Confirm squash and merge** (Confirmar combinación y fusión) o **Confirm rebase and merge** (Confirmar rebase y fusión).
 6. De forma opcional, [elimina la rama](/articles/deleting-unused-branches). Esto mantiene ordenado el listado de ramas en tu repositorio.
 
-El repositorio podría configurarse para que la rama de encabezado para una solicitud de cambios se borre automáticamente cuando fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Administrar el borrado automático de ramas](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)".
+{% endwebui %}
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-   {% note %}
+{% cli %}
 
-   **Nota:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-   Para obtener más información, consulta la sección "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".
+{% data reusables.cli.cli-learn-more %}
 
-   {% endnote %}
-   {% endif %}
+To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
 
-Las solicitudes de extracción se fusionan utilizando [la opción `--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge), excepto [las solicitudes de extracción con confirmaciones de rebase y combinación](/articles/about-pull-request-merges), que se fusionan utilizando la opción de avance rápido.
+```shell
+gh pr merge <em>pull-request</em>
+```
 
-{% data reusables.pull_requests.close-issues-using-keywords %}
+Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
-### Leer más
+Alternatively, you can use flags to skip the interactive prompts. For example, this command will squash the commits into a single commit with the commit message "my squash commit", merge the squashed commit into the base branch, and then delete the local and remote branch.
+
+```shell
+gh pr merge 523 --squash --body "my squash commit" --delete-branch
+```
+
+{% endcli %}
+
+## Leer más
 
 - "[Revertir una solicitud de extracción](/articles/reverting-a-pull-request)"
 - "[Sincronizar tu rama](/desktop/guides/contributing-to-projects/syncing-your-branch/)" utilizando {% data variables.product.prodname_desktop %}

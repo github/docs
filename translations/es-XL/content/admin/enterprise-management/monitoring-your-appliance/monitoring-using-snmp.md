@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Infrastructure

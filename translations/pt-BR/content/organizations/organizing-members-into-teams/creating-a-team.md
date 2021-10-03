@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-team
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,14 +24,14 @@ Apenas os proprietários e mantenedores de uma equipe principal podem criar uma 
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 1. Opcionalmente, se sua conta de organização ou empresa usar a sincronização de equipes, para conectar um grupo de provedor de identidade à sua equipe, use o menu suspenso "Grupos de provedores de identidade" e selecione até 5 grupos de provedores de identidade. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Menu suspenso para escolher grupos de provedores de identidade](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 9. Se desejar, [forneça à equipe acesso aos repositórios da organização](/articles/managing-team-access-to-an-organization-repository).
 
-### Leia mais
+## Leia mais
 
 - "[Sobre equipes](/articles/about-teams)"
 - "[Alterar a visibilidade da equipe](/articles/changing-team-visibility)"
