@@ -19,3 +19,7 @@ When any member of your organization performs an action related to {% data varia
 ![Audit log with Codespaces information](/assets/images/help/settings/codespaces-audit-log-org.png)
 
 The audit log includes details such as who performed the action, what the action was, and when the action was performed. For information on {% data variables.product.prodname_codespaces %} actions, see "[{% data variables.product.prodname_codespaces %} category actions](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)."
+
+## Further Reading
+
+  * [Reviewing your organization's audit logs for Codespaces.](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces)
