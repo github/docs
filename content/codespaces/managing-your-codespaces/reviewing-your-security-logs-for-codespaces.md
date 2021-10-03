@@ -20,3 +20,7 @@ When you perform an action related to {% data variables.product.prodname_codespa
 ![security log with Codespaces information](/assets/images/help/settings/codespaces-audit-log.png)
 
 The security log includes details on what action occurred and when you performed it. For information about {% data variables.product.prodname_codespaces %} actions, see "[{% data variables.product.prodname_codespaces %} category actions](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".
+
+## Further Reading
+
+  * [Reviewing your organization's audit logs for Codespaces.](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)
