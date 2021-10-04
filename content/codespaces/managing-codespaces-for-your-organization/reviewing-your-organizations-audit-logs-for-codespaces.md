@@ -22,4 +22,4 @@ The audit log includes details such as who performed the action, what the action
 
 ## Further Reading
 
-  * [Reviewing your organization's audit logs for Codespaces.](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces)
+- "[Reviewing your security logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces)"

@@ -31,4 +31,4 @@ To manage which users in your organization can use {% data variables.product.pro
 
 ## Further Reading
 
-  * [Managing repository access for your codespaces.](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)
+- "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"

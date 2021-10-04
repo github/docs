@@ -25,4 +25,4 @@ When you enable access and security for a repository owned by your user account,
 
 ## Further Reading
 
-  * [Managing repository access for your organization's codespaces.](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)
+- "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"

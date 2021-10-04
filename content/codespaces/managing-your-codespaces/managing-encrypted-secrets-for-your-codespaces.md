@@ -83,4 +83,4 @@ You can update the value of an existing secret, and you can change which reposit
 
 ## Further Reading
 
-  * [Managing encrypted secrets for your repository and organization for Codespaces.](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"
