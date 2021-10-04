@@ -1,4 +1,4 @@
----
+--- 
 title: Codespaces guides
 shortTitle: Guides
 product: '{% data reusables.gated-features.codespaces %}'
