@@ -145,6 +145,7 @@ Reason Name | Description
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
 `comment` | You commented on the thread.
+`ci_activity` | A GitHub Actions workflow run that you triggered was completed.
 `invitation` | You accepted an invitation to contribute to the repository.
 `manual` | You subscribed to the thread (via an issue or pull request).
 `mention` | You were specifically **@mentioned** in the content.
