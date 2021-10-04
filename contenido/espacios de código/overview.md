@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub Codespaces overview
 shortTitle: Overview
 product: '{% data reusables.gated-features.codespaces %}'
