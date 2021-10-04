@@ -1,4 +1,4 @@
----
+--- 
 title: Quickstart for GitHub Packages
 intro: 'Publish to {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
