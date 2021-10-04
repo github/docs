@@ -56,11 +56,15 @@ You can reorder the items in a task list by clicking to the left of a task's che
 
 ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
 
+{% ifversion fpt %}
+
 ## Navigating tracked issues
 
 Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
 
 ![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
+
+{% endif %}
 
 ## Further reading
 
