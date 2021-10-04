@@ -343,7 +343,7 @@ An overview of some of the most common actions that are recorded as events in th
 |------------------|-------------------
 | `enabled` | Triggered when an IP allow list was enabled for an organization.
 | `disable` | Triggered when an IP allow list was disabled for an organization.
-| `enable_for_installed_apps` | Triggered when an IP allow list was enabled for installed GitHub Apps.
+| `enable_for_installed_apps` | Triggered when an IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
 | `disable_for_installed_apps` | Triggered when an IP allow list was disabled for installed GitHub Apps.
 
 ### `ip_allow_list_entry` category actions
