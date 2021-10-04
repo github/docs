@@ -1,4 +1,4 @@
----
+--- 
 title: Configuring automation for project boards
 intro: You can set up automatic workflows to move issues and pull requests to a project board column when a specified event occurs.
 redirect_from:
