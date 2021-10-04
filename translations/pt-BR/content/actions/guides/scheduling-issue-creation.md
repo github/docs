@@ -67,18 +67,18 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     ```
 
 4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
-   - Altere o valor de `on.schagen` para ditar quando você deseja que este fluxo de trabalho seja executado. No exemplo acima, o fluxo de trabalho será executado todas as segundas às 7h20 UTC. Para obter mais informações sobre fluxos de trabalho agendados, consulte "[Eventos agendados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
-   - Altere o valor de `responsáveis` para a lista de nomes de usuário de {% data variables.product.prodname_dotcom %} que você deseja atribuir ao problema.
-   - Altere o valor das etiquetas de `` para a lista de etiquetas que você deseja aplicar ao problema.
-   - Altere o valor do `título` para o título que você deseja que o problema tenha.
-   - Altere o valor do `texto` para o texto que você quer no texto do problema. O caractere `|` permite que você use um valor de linhas múltiplas para este parâmetro.
-   - Se quiser fixar este problema no seu repositório, defina `fixado` como `verdadeiro`. Para obter mais informações sobre problemas fixos, consulte "[Fixar um problema no seu repositório](/articles/pinning-an-issue-to-your-repository)".
-   - Se você deseja fechar o problema anterior gerado por este fluxo de trabalho, cada vez que um novo problema for criado, defina `close-previous` como `verdadeiro`. O fluxo de trabalho fechará o problema mais recente que tem as etiquetas definidas no campo de `etiquetas`. Para evitar o fechamento do problema errado, use uma etiqueta exclusiva ou uma combinação de etiquetas.
+   - Altere o valor de `on.schedule` para ditar quando você deseja que este fluxo de trabalho seja executado. No exemplo acima, o fluxo de trabalho será executado todas as segundas às 7h20 UTC. Para obter mais informações sobre fluxos de trabalho agendados, consulte "[Eventos agendados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
+   - Altere o valor de `assignees` para a lista de nomes de usuário de {% data variables.product.prodname_dotcom %} que você deseja atribuir ao problema.
+   - Altere o valor das etiquetas em `labels` de `` para a lista de etiquetas que você deseja aplicar ao problema.
+   - Altere o valor de `title` para o título que você deseja que o problema tenha.
+   - Altere o valor de `body` para o texto que você quer no texto do problema. O caractere `|` permite que você use um valor de linhas múltiplas para este parâmetro.
+   - Se quiser fixar este problema no seu repositório, defina `pinned` como `true`. Para obter mais informações sobre problemas fixos, consulte "[Fixar um problema no seu repositório](/articles/pinning-an-issue-to-your-repository)".
+   - Se você deseja fechar o problema anterior gerado por este fluxo de trabalho, cada vez que um novo problema for criado, defina `close-previous` como `true`. O fluxo de trabalho fechará o problema mais recente que tem as etiquetas definidas no campo de `labels`. Para evitar o fechamento do problema errado, use uma etiqueta exclusiva ou uma combinação de etiquetas.
 5. {% data reusables.actions.commit-workflow %}
 
 ### Resultados esperados
 
-Baseado no parâmetro `agendar` (por exemplo, toda segunda-feira às 7h20 UTC), seu fluxo de trabalho criará um novo problema com os responsáveis, etiquetas, título e texto que você especificou. Se você definir `fixado` como `verdadeiro`, o fluxo de trabalho irá fixar o problema no repositório. Se você definir `close-previous` como verdadeiro, o fluxo de trabalho fechará o problema mais recente com etiquetas correspondentes.
+Baseado no parâmetro `schedule` (por exemplo, toda segunda-feira às 7h20 UTC), seu fluxo de trabalho criará um novo problema com os responsáveis, etiquetas, título e texto que você especificou. Se você definir `pinned` como `true`, o fluxo de trabalho irá fixar o problema no repositório. Se você definir `close-previous` como `true`, o fluxo de trabalho fechará o problema mais recente com etiquetas correspondentes.
 
 {% data reusables.actions.schedule-delay %}
 
