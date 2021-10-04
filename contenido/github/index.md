@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub
 redirect_from:
   - /articles/
