@@ -493,9 +493,13 @@ describe('server', () => {
 
     test('dotcom-only links on GHE are dotcom-only', async () => {
       const $ = await getDOM(
-        `${latestEnterprisePath}/github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile`
+        `${latestEnterprisePath}/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud`
       )
-      expect($('a[href="/en/articles/github-privacy-statement"]').length).toBe(1)
+      expect(
+        $(
+          'a[href="/en/github/site-policy/github-terms-for-additional-products-and-features#connect"]'
+        ).length
+      ).toBe(1)
     })
 
     test('desktop links on GHE are dotcom-only', async () => {
