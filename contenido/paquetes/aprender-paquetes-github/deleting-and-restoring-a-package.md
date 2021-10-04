@@ -1,4 +1,4 @@
----
+--- 
 title: Deleting and restoring a package
 intro: Learn how to delete or restore a package.
 product: '{% data reusables.gated-features.packages %}'
