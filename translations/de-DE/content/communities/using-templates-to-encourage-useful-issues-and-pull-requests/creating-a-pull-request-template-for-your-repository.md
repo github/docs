@@ -5,24 +5,25 @@ redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Create a PR template
 ---
 
 Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/articles/about-issue-and-pull-request-templates)“
 
 Du kannst in einem der unterstützten Ordner ein Unterverzeichnis *PULL_REQUEST_TEMPLATE* erstellen, um mehrere Pull-Request-Vorlagen zu speichern. Mit dem Abfrageparameter `template` kannst Du die Vorlage wählen, mit der der Pull-Request-Text ausgefüllt werden soll. Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Issues und Pull Requests mit Abfrageparametern](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters).“
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 
-You can create default pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Du kannst Standardvorlagen für Pull Request für Deine Organisation{% ifversion fpt or ghes %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
-### Eine Pull-Request-Vorlage hinzufügen
+## Eine Pull-Request-Vorlage hinzufügen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -39,7 +40,7 @@ You can create default pull request templates for your organization{% if current
 {% data reusables.files.choose_commit_branch %} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
 {% data reusables.files.propose_new_file %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Vorlagen für Issues und Pull-Requests](/articles/about-issue-and-pull-request-templates)“
 - „[Informationen zur Automatisierung für Issues und Pull-Requests mit Abfrageparametern](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)“

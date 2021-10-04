@@ -11,6 +11,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
 shortTitle: Manage team synchronization
 ---
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## About team synchronization for enterprise accounts
 
 If you use Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.

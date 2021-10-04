@@ -1,1 +1,1 @@
-Cuando un alumno acepta una tarea con un IDE en línea, dicho repositorio incluirá un archivo _README.md_ con un botón especial en la parte superior del archivo. El botón enlaza al alumno directamente con el espacio de trabajo en el IDE en línea.
+When a student accepts an assignment with an IDE, the assignment repository will include a _README.md_ file with a special button at the top of the file. The button links the student directly to the workspace in the IDE.

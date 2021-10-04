@@ -7,12 +7,13 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
 intro: 'Wenn Sie die integrierte Authentifizierung verwenden, können Sie nicht authentifizierte Personen mittels Blockierung daran hindern, ein Konto zu erstellen.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
+shortTitle: Block account creation
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

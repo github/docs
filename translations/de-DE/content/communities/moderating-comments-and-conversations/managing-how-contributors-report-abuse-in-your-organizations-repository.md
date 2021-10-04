@@ -2,11 +2,12 @@
 title: 'Verwalten, wie Mitwirkende Missbrauch im Repository Deiner Organisation melden'
 intro: 'Du kannst Mitwirkenden erlauben, störendes Verhalten direkt an die Repository-Betreuer zu melden.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
   - Community
+shortTitle: Manage abuse in your org
 ---
 
 Personen mit Administratorberechtigungen auf ein Repository können verwalten, wie Mitwirkende Missbrauch im Repository melden.
@@ -18,7 +19,7 @@ Du kannst „gemeldete Inhalte" für öffentliche Repositorys im Besitz einer Or
 {% data reusables.repositories.sidebar-moderation-reported-content %}
 4. Unter „Gemeldeter Inhalt", aktiviere oder deaktiviere **Inhaltsberichte von Mitarbeitern und ehemaligen Mitwirkenden akzeptieren**. ![Kontrollkästchen, um „gemeldete Inhalte" für ein Repository ein- oder auszuschalten](/assets/images/help/repository/reported-content-opt-in-checkbox.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Gemeldete Inhalte im Repository Deiner Organisation verwalten](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)"
 - „[Kommentare und Unterhaltungen moderieren](/communities/moderating-comments-and-conversations)“

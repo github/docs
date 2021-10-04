@@ -1,3 +1,3 @@
 ジョブでセルフホストランナーを指定するには、ワークフローファイル中でセルフホストランナーのラベルで`runs-on`を設定してください。
 
-すべてのセルフホストランナーは`self-hosted`ラベルを持ち、`self-hosted`ラベルだけを提供すれば任意のセルフホストランナーを選択できます。 あるいは、特定のオペレーティングシステムやシステムアーキテクチャのラベルといった追加のラベルと合わせて配列中で`self-hosted`を使い、指定した種類のランナーだけを選択することもできます。
+All self-hosted runners have the `self-hosted` label. Using only this label will select any self-hosted runner. To select runners that meet certain criteria, such as operating system or architecture, provide an array of labels that begins with `self-hosted` (this must be listed first) and then includes additional labels as needed.

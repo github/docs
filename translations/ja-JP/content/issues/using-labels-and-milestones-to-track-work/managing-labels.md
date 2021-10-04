@@ -1,6 +1,6 @@
 ---
 title: ラベルを管理する
-intro: 'ラベルの作成、編集、適用、削除によって、{% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueとPull Request{% endif %}を分類できます。'
+intro: 'ラベルの作成、編集、適用、削除によって、{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueとPull Request{% endif %}を分類できます。'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -20,43 +20,43 @@ redirect_from:
   - /github/managing-your-work-on-github/deleting-a-label
   - /github/managing-your-work-on-github/managing-labels
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
-  ### ラベルについて
+  ## ラベルについて
 
-{% data variables.product.product_name %}上の作業を、{% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueとPull Request{% endif %}を分類するためのラベルを作成することによって管理できます。 ラベルが作成されたリポジトリ内にラベルを適用できます。 ラベルがあれば、そのリポジトリ内の任意の{% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}にそのラベルを使用できます。
+{% data variables.product.product_name %}上の作業を、{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueとPull Request{% endif %}を分類するためのラベルを作成することによって管理できます。 ラベルが作成されたリポジトリ内にラベルを適用できます。 ラベルがあれば、そのリポジトリ内の任意の{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}にそのラベルを使用できます。
 
 リポジトリへの読み取りアクセスを持つ人は、誰でもリポジトリのラベルを表示・検索できます。 リポジトリへのトリアージアクセスを持つすべてのユーザは、既存のラベルを適用/却下できます。 ラベルの作成、編集、適用、削除をするためには、リポジトリに書き込みアクセスができなければなりません。
 
-### デフォルトラベルについて
+## デフォルトラベルについて
 
 {% data variables.product.product_name %} は、すべての新しいリポジトリにデフォルトのラベルを提供します。 これらのデフォルトラベルを使用して、リポジトリに標準のワークフローを作成しやすくすることができます。
 
-| ラベル                | 説明                                                                                                                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | 予期しない問題または意図しない動作を示します{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+| ラベル                | 説明                                                                                                         |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `bug`              | 予想外の問題あるいは意図しない振る舞いを示します{% ifversion fpt or ghes %}
 | `documentation`    | ドキュメンテーションに改善や追加が必要であることを示します{% endif %}
-| `duplicate`        | 同様の{% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}を示します。             |
-| `enhancement`      | 新しい機能のリクエストを示します                                                                                                                         |
-| `good first issue` | 初回のコントリビューターに適した Issue を示します                                                                                                             |
-| `help wanted`      | メンテナーが Issue もしくはプルリクエストに助けを求めていることを示します                                                                                                 |
-| `invalid`          | {% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}が関係なくなっていることを示します。    |
-| `question`         | {% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}にさらに情報が必要であることを示します。  |
-| `wontfix`          | {% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}に対する作業が継続されないことを示します。 |
+| `duplicate`        | 同様の{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}を示します。             |
+| `enhancement`      | 新しい機能のリクエストを示します                                                                                           |
+| `good first issue` | 初回のコントリビューターに適した Issue を示します                                                                               |
+| `help wanted`      | メンテナーが Issue もしくはプルリクエストに助けを求めていることを示します                                                                   |
+| `invalid`          | {% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}が関係なくなっていることを示します。    |
+| `question`         | {% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}にさらに情報が必要であることを示します。  |
+| `wontfix`          | {% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}に対する作業が継続されないことを示します。 |
 
 リポジトリの作成時に、すべての新しいリポジトリにデフォルトのラベルが含められますが、後でそのラベルを編集または削除できます。
 
 `good first issue`ラベル付きのIssueは、リポジトリの`contribute`ページを展開するために使われます。 `contribute`ページの例については[github/docs/contribute](https://github.com/github/docs/contribute)を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% ifversion fpt or ghes %}
 Organization のオーナーは、Organization 内のリポジトリのためのデフォルトラベルをカスタマイズできます。 詳しい情報については、「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照してください。
 {% endif %}
 
-### ラベルの作成
+## ラベルの作成
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -67,12 +67,12 @@ Organization のオーナーは、Organization 内のリポジトリのための
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-### ラベルの適用
+## Applying a label
 
-1. {% if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、ディスカッション{% else %}IssueあるいはPull Request{% endif %}にアクセスしてください。
+1. {% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueあるいはPull Request{% endif %}にアクセスしてください。
 1. 右のサイドバーで、"Labels（ラベル）"の右の{% octicon "gear" aria-label="The gear icon" %}をクリックし、続いてラベルをクリックしてください !["ラベル" ドロップダウンメニュー](/assets/images/help/issues/labels-drop-down.png)
 
-### ラベルの編集
+## ラベルの編集
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -83,7 +83,7 @@ Organization のオーナーは、Organization 内のリポジトリのための
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-### ラベルの削除
+## ラベルの削除
 
 ラベルを削除すると、Issue とプルリクエストからラベルが削除されます。
 
@@ -92,7 +92,7 @@ Organization のオーナーは、Organization 内のリポジトリのための
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-### 参考リンク
-- 「[Issue およびプルリクエストをラベルでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-labels)」{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- 「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+## 参考リンク
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes %}
+- 「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」{% endif %}{% ifversion fpt %}
 - 「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」{% endif %}

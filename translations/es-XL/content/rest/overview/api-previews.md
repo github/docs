@@ -4,9 +4,9 @@ intro: Puedes utilizar las vistas previas de la API para probar características
 redirect_from:
   - /v3/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

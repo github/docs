@@ -6,12 +6,15 @@ redirect_from:
   - /articles/about-automation-for-project-boards
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Automation for project boards
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.automate-project-board-permissions %}  Weitere Informationen findest Du unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization).“
 
@@ -25,7 +28,7 @@ Durch die Automatisierung von Projektboards können Teams auch ein gemeinsames V
 
 {% data reusables.project-management.resync-automation %}
 
-### Automatisierungsoptionen
+## Automatisierungsoptionen
 
 | Spaltenvoreinstellung | Konfigurationsoptionen    |
 | --------------------- | ------------------------- |
@@ -33,12 +36,12 @@ Durch die Automatisierung von Projektboards können Teams auch ein gemeinsames V
 | In progress           | <ul><li>Alle erneut geöffneten Pull Requests hierhin verschieben</li><li>Alle erneut geöffneten Issues hierhin verschieben</li><li>Alle erneut geöffneten Pull Requests hierhin verschieben</li><li>Alle Pull Requests, die der Mindestanzahl der erforderlichen Reviews des Basis-Branch entsprechen, hierhin verschieben</li><li>Alle Pull Requests, die der Mindestanzahl der erforderlichen Reviews des Basis-Branch nicht mehr entsprechen, hierhin verschieben</li></ul> |
 | Done (Erledigt)       | <ul><li>Alle abgeschlossenen Issues hierhin verschieben</li><li>Alle zusammengeführten Pull Requests hierhin verschieben</li><li>Alle abgeschlossenen, nicht zusammengeführten Pull Requests hierhin verschieben</li></ul> |
 
-### Projektfortschrittsverfolgung
+## Projektfortschrittsverfolgung
 
 You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
 
 For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
-### Weiterführende Informationen
-- „[Automatisierung für Projektboards konfigurieren](/articles/configuring-automation-for-project-boards)“{% if currentVersion == "free-pro-team@latest" %}
+## Weiterführende Informationen
+- „[Automatisierung für Projektboards konfigurieren](/articles/configuring-automation-for-project-boards)“{% ifversion fpt %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}

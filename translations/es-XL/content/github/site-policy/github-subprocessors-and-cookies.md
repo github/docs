@@ -7,7 +7,7 @@ redirect_from:
   - /github-cookies/
   - /articles/github-subprocessors-and-cookies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

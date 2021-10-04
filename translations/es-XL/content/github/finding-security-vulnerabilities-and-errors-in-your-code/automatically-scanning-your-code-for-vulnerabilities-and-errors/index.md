@@ -3,7 +3,7 @@ title: Escanear tu código automáticamente para encontrar vulnerabilidades y er
 shortTitle: Escanear automáticamente
 intro: 'Puedes encontrar vulnerabilidades y errores en el código de tu proyecto en {% data variables.product.prodname_dotcom %}.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 children:

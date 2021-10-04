@@ -154,6 +154,14 @@ Mailchimp | Mailchimp API Key | mailchimp_api_key{% endif %}
 Mailgun | Mailgun API Key | mailgun_api_key{% endif %}
 {%- ifversion fpt or ghes > 3.1 or ghae-next %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+New Relic | New Relic REST API Key | new_relic_rest_api_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+New Relic | New Relic Insights Query Key | new_relic_insights_query_key{% endif %}
+{%- ifversion fpt or ghes > 3.2 or ghae-next %}
+New Relic | New Relic License Key | new_relic_license_key{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}
 npm | npm Access Token | npm_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae-next %}

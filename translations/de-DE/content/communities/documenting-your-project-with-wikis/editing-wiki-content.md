@@ -13,21 +13,21 @@ redirect_from:
   - /github/building-a-strong-community/editing-wiki-content
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 ---
 
-### Links hinzufügen
+## Links hinzufügen
 
 In Wikis kannst Du Links mit dem standardmäßig von Deiner Webseite unterstützten Markup oder mit der MediaWiki-Syntax erstellen. Ein Beispiel:
 
 - Wenn Deine Seiten mit Markdown formatiert sind, ist die Link-Syntax `[Link Text](full-URL-of-wiki-page)`.
 - Wenn Du die MediaWiki-Syntax verwenden, ist die Link-Syntax `[[Link Text|nameofwikipage]]`.
 
-### Bilder hinzufügen
+## Bilder hinzufügen
 
 Wikis können Bilder im PNG-, JPEG- und GIF-Format anzeigen.
 
@@ -38,13 +38,13 @@ Wikis können Bilder im PNG-, JPEG- und GIF-Format anzeigen.
 5. Gib im Dialogfeld „Insert Image“ (Bild einfügen) die Bild-URL und den alt-Text ein. Letzterer wird von Suchmaschinen und Bildschirmlesern genutzt werden.
 6. Klicke auf **OK**.
 
-#### Auf Bilder in einem Repository verknüpfen
+### Auf Bilder in einem Repository verknüpfen
 
 Du kannst auf ein Bild verknüpfen, das in einem Repository auf {% data variables.product.product_name %} gespeichert ist, indem Du die URL im Browser kopierst und sie als Pfad für das Bild verwendest. Die Einbindung eines Bildes in einem Wiki mit Markdown sieht in etwa wie folgt aus:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-### Unterstützte MediaWiki-Formate
+## Unterstützte MediaWiki-Formate
 
 Unabhängig davon, in welcher Markup-Sprache Deine Wiki-Seite geschrieben wurde, wird eine bestimmte MediaWiki-Syntax immer für Dich verfügbar sein.
 - Links ([mit Ausnahme von Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))

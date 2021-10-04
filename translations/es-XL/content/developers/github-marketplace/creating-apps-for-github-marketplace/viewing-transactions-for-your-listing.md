@@ -5,7 +5,7 @@ redirect_from:
   - /marketplace/github-marketplace-transactions
   - /developers/github-marketplace/viewing-transactions-for-your-listing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---

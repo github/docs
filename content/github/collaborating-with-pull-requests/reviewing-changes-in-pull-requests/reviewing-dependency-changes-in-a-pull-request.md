@@ -1,10 +1,10 @@
 ---
 title: Reviewing dependency changes in a pull request
 intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -38,18 +38,19 @@ Dependency review allows you to "shift left". You can use the provided predictiv
 1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
 
    ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+
+  {% note %}
+
+   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+
+   {% endnote %}
 
 1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
    ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-  {% note %}
-
-   **Note:** The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
-
-   {% endnote %}
-
-1. Check the dependencies listed in the dependency review.
+2. Check the dependencies listed in the dependency review.
 
    ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

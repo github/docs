@@ -8,6 +8,7 @@ import {
 } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
 
 import { Link } from 'components/Link'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
@@ -18,7 +19,8 @@ type Props = {
   context: GHESReleaseNotesContextT
 }
 export function GHESReleaseNotes({ context }: Props) {
-  const { currentLanguage, currentProduct } = useMainContext()
+  const router = useRouter()
+  const { currentProduct } = useMainContext()
   const [focusedPatch, setFocusedPatch] = useState('')
   const {
     prevRelease,
@@ -37,7 +39,7 @@ export function GHESReleaseNotes({ context }: Props) {
           {prevRelease ? (
             <Link
               className="btn btn-outline"
-              href={`/${currentLanguage}/${currentVersion.plan}@${prevRelease}/${currentProduct?.id}/release-notes`}
+              href={`/${router.locale}/${currentVersion.plan}@${prevRelease}/${currentProduct?.id}/release-notes`}
             >
               <ChevronLeftIcon /> {prevRelease}
             </Link>
@@ -52,7 +54,7 @@ export function GHESReleaseNotes({ context }: Props) {
           {nextRelease ? (
             <Link
               className="btn btn-outline"
-              href={`/${currentLanguage}/${currentVersion.plan}@${nextRelease}/${currentProduct?.id}/release-notes`}
+              href={`/${router.locale}/${currentVersion.plan}@${nextRelease}/${currentProduct?.id}/release-notes`}
             >
               {nextRelease} <ChevronRightIcon />
             </Link>
@@ -87,7 +89,7 @@ export function GHESReleaseNotes({ context }: Props) {
           <MarkdownContent data-search="article-content">
             <ul className="list-style-none pl-0 text-bold">
               {releases.map((release) => {
-                const releaseLink = `/${currentLanguage}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
+                const releaseLink = `/${router.locale}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
 
                 if (!release.patches || release.patches.length === 0) {
                   return (

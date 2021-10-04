@@ -5,14 +5,14 @@ redirect_from:
   - /articles/locking-conversations
   - /github/building-a-strong-community/locking-conversations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 ---
 
-会話が全体的に非建設的になったときや、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %} または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %} に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。
+会話が全体的に非建設的になったときや、コミュニティの行動規範{% ifversion fpt %}または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。
 
 会話をロックすると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、会話をロックしたユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 
@@ -28,11 +28,11 @@ topics:
 4. 会話のロックに関する情報を読み、[**Lock conversation on this issue**]、[**Lock conversation on this pull request**]、または [ **Lock conversation on this commit**] をクリックします。 ![ロックを確定するダイアログ ボックス](/assets/images/help/repository/lock-conversation-confirm-with-reason.png)
 5. 会話のロックを解除できるようになったら、[**Unlock conversation**] をクリックします。 ![[Unlock conversation] リンク](/assets/images/help/repository/unlock-conversation.png)
 
-### 参考リンク
+## 参考リンク
 
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)
 - 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」
-- 「[混乱を生むコメントを管理する](/communities/moderating-comments-and-conversations/managing-disruptive-comments)」{% if currentVersion == "free-pro-team@latest" %}
+- 「[混乱を生むコメントを管理する](/communities/moderating-comments-and-conversations/managing-disruptive-comments)」{% ifversion fpt %}
 - 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」
 - [悪用あるいはスパムのレポート](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 - 「[リポジトリでのインタラクションを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」
