@@ -1,4 +1,4 @@
----
+--- 
 title: Installing a package
 intro: 'You can install a package from {% data variables.product.prodname_registry %} and use the package as a dependency in your own project.'
 product: '{% data reusables.gated-features.packages %}'
