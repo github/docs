@@ -1,4 +1,4 @@
----
+--- 
 title: System overview
 intro: '{% data variables.product.prodname_ghe_server %} is your organization''s private copy of {% data variables.product.prodname_dotcom %} contained within a virtual appliance, hosted on premises or in the cloud, that you configure and control.'
 redirect_from:
