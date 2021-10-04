@@ -1,4 +1,4 @@
----
+--- 
 title: Organizations and teams
 shortTitle: Organizations
 intro: Collaborate across many projects while managing access to projects and data and customizing settings for your organization.
