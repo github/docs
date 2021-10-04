@@ -1,4 +1,4 @@
----
+--- 
 title: Quickstart for Codespaces
 intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes.'
 allowTitleToDifferFromFilename: true
