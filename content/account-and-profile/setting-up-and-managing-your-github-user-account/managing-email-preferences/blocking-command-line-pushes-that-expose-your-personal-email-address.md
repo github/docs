@@ -1,3 +1,4 @@
+![2021-09-30](https://user-images.githubusercontent.com/91356545/135917541-a30a68b9-3296-4a90-b032-8875680278da.png)
 ---
 title: Blocking command line pushes that expose your personal email address
 intro: 'If you''ve chosen to keep your email address private when performing web-based operations, you can also choose to block command line pushes that may expose your personal email address.'
