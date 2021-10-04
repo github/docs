@@ -6,9 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-topics:
+topics:'*'
   - API
-children:
+children:'*'
   - /resources-in-the-rest-api
   - /media-types
   - /other-authentication-methods
