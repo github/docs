@@ -1,0 +1,6 @@
+{
+    "name": "Stale",
+    "description": "Checks for stale issues and pull requests",
+    "iconName": "octicon clock",
+    "categories": ["Automation", "SDLC"]
+}
