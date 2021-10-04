@@ -40,6 +40,8 @@ jobs:
       url: ${{ steps.pr.outputs.url }}
       state: ${{ steps.pr.outputs.state }}
       head_sha: ${{ steps.pr.outputs.head_sha }}
+      head_branch: ${{ steps.pr.outputs.head_branch }}
+      head_label: ${{ steps.pr.outputs.head_label }}
       head_ref: ${{ steps.pr.outputs.head_ref }}
     steps:
       - name: Find the originating pull request
@@ -61,16 +63,14 @@ jobs:
 
             // Gather PR-identifying information from the workflow run
             const {
-              head: {
-                label: headLabel,
-                ref: headBranch,
-                sha: headSha,
-                repo: {
-                  owner: { login: prRepoOwner },
-                  name: prRepoName
-                }
+              head_branch: headBranch,
+              head_sha: headSha,
+              head_repository: {
+                owner: { login: prRepoOwner },
+                name: prRepoName
               }
             } = run
+            const headLabel = `${prRepoOwner}:${headBranch}`
 
             const prIsInternal = owner === prRepoOwner && repo === prRepoName
 
@@ -99,6 +99,8 @@ jobs:
             core.setOutput('url', pullUrl)
             core.setOutput('state', pullState)
             core.setOutput('head_sha', headSha)
+            core.setOutput('head_branch', headBranch)
+            core.setOutput('head_label', headLabel)
             core.setOutput('head_ref', headRef)
 
   debug-originating-trigger:
@@ -111,6 +113,8 @@ jobs:
           PR_URL: ${{ needs.pr-metadata.outputs.url }}
           PR_STATE: ${{ needs.pr-metadata.outputs.state }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
+          HEAD_BRANCH: ${{ needs.pr-metadata.outputs.head_branch }}
+          HEAD_LABEL: ${{ needs.pr-metadata.outputs.head_label }}
           HEAD_REF: ${{ needs.pr-metadata.outputs.head_ref }}
           BUILD_ACTIONS_RUN_ID: ${{ env.BUILD_ACTIONS_RUN_ID }}
           BUILD_ACTIONS_RUN_LOG: ${{ env.BUILD_ACTIONS_RUN_LOG }}
@@ -120,6 +124,8 @@ jobs:
           echo " - PR_URL = $PR_URL"
           echo " - PR_STATE = $PR_STATE"
           echo " - HEAD_SHA = $HEAD_SHA"
+          echo " - HEAD_BRANCH = $HEAD_BRANCH"
+          echo " - HEAD_LABEL = $HEAD_LABEL"
           echo " - HEAD_REF = $HEAD_REF"
           echo " - BUILD_ACTIONS_RUN_ID = $BUILD_ACTIONS_RUN_ID"
           echo " - BUILD_ACTIONS_RUN_LOG = $BUILD_ACTIONS_RUN_LOG"
