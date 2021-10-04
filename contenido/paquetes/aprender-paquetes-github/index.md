@@ -1,4 +1,4 @@
----
+--- 
 title: Learn GitHub Packages
 shortTitle: Learn GitHub Packages
 intro: 'You can find out more about using packages in GitHub, including publishing new packages to {% data variables.product.prodname_registry %}, view and install existing packages, and, in special circumstances, delete existing packages.'
