@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub CLI
 shortTitle: GitHub CLI
 intro: '{% data reusables.cli.about-cli %}'
