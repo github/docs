@@ -8,9 +8,9 @@ export type LearningTrack = {
 }
 
 export type MiniTocItem = {
-  indentationLevel: number
   platform: string
   contents: string
+  items?: MiniTocItem[]
 }
 
 export type ArticleContextT = {
@@ -44,14 +44,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     title: page.titlePlainText,
     intro: page.intro,
     renderedPage: req.context.renderedPage || '',
-    miniTocItems:
-      (req.context.miniTocItems || []).map((item: any) => {
-        return {
-          indentationLevel: item.indentationLevel || 0,
-          platform: item.platform || '',
-          contents: item.contents || '',
-        }
-      }) || [],
+    miniTocItems: req.context.miniTocItems || [],
     contributor: page.contributor || null,
     permissions: page.permissions || '',
     includesPlatformSpecificContent: page.includesPlatformSpecificContent || false,

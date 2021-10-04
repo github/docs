@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `repositories` was added to object type `Topic`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Enum value `RUST` was added to enum `SecurityAdvisoryEcosystem`"
         ]
       }

@@ -57533,6 +57533,117 @@
           ]
         },
         {
+          "name": "repositories",
+          "description": "<p>A list of repositories.</p>",
+          "type": "RepositoryConnection!",
+          "id": "repositoryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryconnection",
+          "arguments": [
+            {
+              "name": "affiliations",
+              "description": "<p>Array of viewer's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\ncurrent viewer owns.</p>",
+              "type": {
+                "name": "[RepositoryAffiliation]",
+                "id": "repositoryaffiliation",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryaffiliation"
+              }
+            },
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isLocked",
+              "description": "<p>If non-null, filters repositories according to whether they have been locked.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repositories returned from the connection.</p>",
+              "type": {
+                "name": "RepositoryOrder",
+                "id": "repositoryorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#repositoryorder"
+              }
+            },
+            {
+              "name": "ownerAffiliations",
+              "description": "<p>Array of owner's affiliation options for repositories returned from the\nconnection. For example, OWNER will include only repositories that the\norganization or user being viewed owns.</p>",
+              "type": {
+                "name": "[RepositoryAffiliation]",
+                "id": "repositoryaffiliation",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryaffiliation"
+              }
+            },
+            {
+              "name": "privacy",
+              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "type": {
+                "name": "RepositoryPrivacy",
+                "id": "repositoryprivacy",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "sponsorableOnly",
+              "defaultValue": false,
+              "description": "<p>If true, only repositories whose owner can be sponsored via GitHub Sponsors will be returned.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
+        },
+        {
           "name": "stargazerCount",
           "description": "<p>Returns a count of how many stargazers there are on this object.</p>",
           "type": "Int!",

@@ -8,7 +8,7 @@ import { Callout } from 'components/ui/Callout'
 import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
-import { useArticleContext } from 'components/context/ArticleContext'
+import { MiniTocItem, useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
@@ -43,6 +43,17 @@ export const ArticlePage = () => {
   } = useArticleContext()
   const { t } = useTranslation('pages')
   const currentPath = router.asPath.split('?')[0]
+
+  const renderTocItem = (item: MiniTocItem) => {
+    return (
+      <li key={item.contents} className={cx(item.platform, 'mb-2 lh-condensed')}>
+        <div className="mb-2 lh-condensed" dangerouslySetInnerHTML={{ __html: item.contents }} />
+        {item.items && item.items.length > 0 ? (
+          <ul className="list-style-none pl-0 f5 mb-0 ml-3">{item.items.map(renderTocItem)}</ul>
+        ) : null}
+      </li>
+    )
+  }
 
   return (
     <DefaultLayout>
@@ -131,19 +142,7 @@ export const ArticlePage = () => {
                     </a>
                   </Heading>
                   <ul className="list-style-none pl-0 f5 mb-0">
-                    {miniTocItems.map((item) => {
-                      return (
-                        <li
-                          key={item.contents}
-                          className={cx(
-                            `ml-${item.indentationLevel * 3}`,
-                            item.platform,
-                            'mb-2 lh-condensed'
-                          )}
-                          dangerouslySetInnerHTML={{ __html: item.contents }}
-                        />
-                      )
-                    })}
+                    {miniTocItems.map(renderTocItem)}
                   </ul>
                 </>
               )}
