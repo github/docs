@@ -1,4 +1,4 @@
----
+--- 
 title: Quickstart for GitHub Discussions
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository and start conversations with your community.'
 allowTitleToDifferFromFilename: true
