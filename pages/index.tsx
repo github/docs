@@ -61,7 +61,7 @@ function LandingPage(props: LandingPageProps) {
                     <OctocatHeader />
                   </div>
                   <div className="col-lg-5 mt-6">
-                    <h1 className="font-weight-semibold mb-3">{t('search:need_help')}</h1>
+                    <h1 className="text-semibold mb-3">{t('search:need_help')}</h1>
                     {SearchInput}
                   </div>
                 </div>
@@ -115,15 +115,11 @@ function LandingPage(props: LandingPageProps) {
         <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
             <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
-              <ArticleList
-                title={t('toc:getting_started')}
-                variant="spaced"
-                articles={gettingStartedLinks}
-              />
+              <ArticleList title={t('toc:getting_started')} articles={gettingStartedLinks} />
             </div>
 
             <div className="col-12 col-lg-6 float-left">
-              <ArticleList title={t('toc:popular')} variant="spaced" articles={popularLinks} />
+              <ArticleList title={t('toc:popular')} articles={popularLinks} />
             </div>
           </div>
         </div>

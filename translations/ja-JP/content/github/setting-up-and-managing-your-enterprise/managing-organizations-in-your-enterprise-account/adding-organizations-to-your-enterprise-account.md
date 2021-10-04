@@ -7,16 +7,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Add organizations
 ---
 
 Enterprise のオーナーは、Enterprise アカウント内に新しい Organization を作成できます。
 
 Organization を Enterprise アカウントに追加するには、 Enterprise アカウント設定から Organization を作成する必要があります。 既存の Organization を Enterprise アカウントに移行する場合は、{% data variables.product.prodname_dotcom %} セールス顧客担当にお問い合わせください。
 
-### Enterprise アカウント内で Organization を作成する
+## Enterprise アカウント内で Organization を作成する
 
 Enterprise アカウント設定内で作成した新しい Organization は、Enterprise アカウントの {% data variables.product.prodname_ghe_cloud %} プランに含められます。 Organization でのコラボレーションに関する詳しい情報については「[Organization と Team のセットアップと管理](/categories/setting-up-and-managing-organizations-and-teams)」を参照してください。
 

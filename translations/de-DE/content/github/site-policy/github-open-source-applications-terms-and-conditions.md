@@ -3,7 +3,7 @@ title: Nutzungsbedingungen für GitHub-Open-Source-Anwendungen
 redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -11,13 +11,13 @@ topics:
 
 Diese Nutzungsbedingungen für GitHub-Open-Source-Anwendungen ("Anwendungsbedingungen") sind eine rechtliche Vereinbarung zwischen Ihnen (entweder als Einzelperson oder im Namen eines Unternehmens) und GitHub, Inc. in Bezug auf Ihre Nutzung von GitHub-Anwendungen wie GitHub Desktop™ und zugehöriger Dokumentation ("Software"). Diese Anwendungsbedingungen gelten für die ausführbare Codeversion der Software. Der Quellcode für die Software ist im Rahmen von Open-Source-Software-Lizenzverträgen separat und kostenlos verfügbar. Wenn Sie nicht mit allen Bedingungen dieser Anwendungsbedingungen einverstanden sind, laden Sie die Software nicht herunter und installieren, verwenden oder kopieren Sie sie nicht.
 
-### Verbindung mit GitHub herstellen
+## Verbindung mit GitHub herstellen
 
 Wenn Sie die Software so konfigurieren, dass sie mit einem oder mehreren Konten auf der GitHub.com-Website oder mit einer Instanz von GitHub Enterprise ausgeführt werden kann, unterliegt Ihre Nutzung der Software auch den für Sie geltenden GitHub.com Website-Nutzungsbedingungen bzw. der für Ihre Instanz von GitHub Enterprise gültigen Lizenzvereinbarung ("GitHub-Nutzungsbedingungen").
 
 Jede Nutzung der Software, die gegen die für Sie geltenden GitHub-Nutzungsbedingungen verstößt, stellt ebenfalls einen Verstoß gegen diese Anwendungsbedingungen dar.
 
-### Open-Source-Lizenzen und Hinweise
+## Open-Source-Lizenzen und Hinweise
 
 Die Open-Source-Lizenz für die Software ist in der der Software beiliegenden Dokumentation "Open-Source-Hinweise" enthalten. Diese Dokumentation enthält auch Kopien aller anwendbaren Open-Source-Lizenzen.
 
@@ -25,17 +25,17 @@ Soweit die auf Open-Source-Komponenten anwendbaren Lizenzbedingungen GitHub zur 
 
 Sofern nicht anderweitig schriftlich mit GitHub vereinbart, umfasst Ihr Vertrag mit GitHub grundsätzlich mindestens die vorliegenden Anwendungsbedingungen. Open-Source-Softwarelizenzen für den Quellcode der Software stellen gesonderte schriftliche Vereinbarungen dar. Soweit die Open-Source-Softwarelizenzen diese Anwendungsbedingungen ausdrücklich ablösen, regeln die Open-Source-Lizenzen Ihre Vereinbarung mit GitHub über die Nutzung der Software oder bestimmter enthaltener Komponenten der Software.
 
-### GitHub-Logos
+## GitHub-Logos
 
 Die in der Software enthaltene Lizenzerteilung gilt nicht für die Marken von GitHub, zu denen auch die Software-Logo-Designs gehören. GitHub behält sich alle Marken- und Urheberrechte an allen Marken von GitHub vor. Zu den Logos von GitHub gehören beispielsweise die stilisierten Designs, die "Logo" im Dateititel im Ordner "Logos" enthalten.
 
 Die Namen GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, Atom, Octocat und verwandte GitHub-Logos bzw. stilisierte Namen sind Marken von GitHub. Sie erklären sich damit einverstanden, diese Marken ohne die vorherige schriftliche Genehmigung von GitHub in keiner Weise abzubilden oder zu verwenden, es sei denn, dies ist durch die GitHub-Nutzungsrichtlinie für Logos zulässig: https://github.com/logos.
 
-### Datenschutz
+## Datenschutz
 
 Die Software kann personenbezogene Daten erfassen. Sie können im Einstellungsfenster festlegen, welche Informationen die Software erfasst. Wenn die Software personenbezogene Daten im Auftrag von GitHub erfasst, verarbeitet GitHub diese Informationen gemäß der [GitHub-Datenschutzerklärung](/articles/github-privacy-statement/).
 
-### Weitere Dienste
+## Weitere Dienste
 
 **Auto-Update-Dienste**
 
@@ -49,7 +49,7 @@ SIE VERSTEHEN UND ERKLÄREN SICH AUSDRÜCKLICH DAMIT EINVERSTANDEN, DASS GITHUB 
 
 GitHub behält sich das Recht vor, den Dienst (oder einen Teil davon) zu gegebener Zeit und ohne Ankündigung vorübergehend oder dauerhaft zu modifizieren oder einzustellen. GitHub haftet Ihnen oder Dritten gegenüber nicht für Preisänderungen, Aussetzungen oder die Einstellung des Dienstes.
 
-### Diverses
+## Diverses
 
 1. Keine Verzichtserklärung. Das Versäumnis von GitHub, ein Recht oder eine Bestimmung dieser Nutzungsbedingungen auszuüben oder durchzusetzen, stellt keinen Verzicht auf ein solches Recht oder eine solche Bestimmung dar.
 
@@ -63,4 +63,4 @@ GitHub behält sich das Recht vor, den Dienst (oder einen Teil davon) zu gegeben
 
 6. Lizenz für GitHub-Richtlinien. Diese Anwendungsbedingungen sind unter dieser [Creative Commons-Zero-Lizenz](https://creativecommons.org/publicdomain/zero/1.0/) lizenziert. Weitere Informationen finden Sie in unserem [ Websiterichtlinien-Repository](https://github.com/github/site-policy#license).
 
-7. Kontaktieren Sie uns. Fragen zu den Nutzungsbedingungen? [Kontaktieren Sie uns](https://support.github.com/contact).
+7. Kontaktieren Sie uns. Fragen zu den Nutzungsbedingungen? [Contact us](https://support.github.com/contact?tags=docs-policy).

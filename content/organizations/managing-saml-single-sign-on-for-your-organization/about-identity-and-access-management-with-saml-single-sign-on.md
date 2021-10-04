@@ -13,6 +13,8 @@ topics:
 shortTitle: IAM with SAML SSO
 ---
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## About SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
@@ -35,7 +37,7 @@ To access the organization's protected resources using the API and Git on the co
 
 The first time a member uses SAML SSO to access your organization, {% data variables.product.prodname_dotcom %} automatically creates a record that links your organization, the member's {% data variables.product.prodname_dotcom %} account, and the member's account on your IdP. You can view and revoke the linked SAML identity, active sessions, and authorized credentials for members of your organization or enterprise account. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" and "[Viewing and managing a user's SAML access to your enterprise account](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)."
 
-If members are signed in with a SAML SSO session when they create a new repository, the default visibility of that repository is private. Otherwise, the default visibility is public. For more information on repository visibility, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+If members are signed in with a SAML SSO session when they create a new repository, the default visibility of that repository is private. Otherwise, the default visibility is public. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 Organization members must also have an active SAML session to authorize an {% data variables.product.prodname_oauth_app %}. You can opt out of this requirement by contacting {% data variables.contact.contact_support %}. {% data variables.product.product_name %} does not recommend opting out of this requirement, which will expose your organization to a higher risk of account takeovers and potential data loss.
 

@@ -1,13 +1,15 @@
 ---
 title: Licencias
+intro: La API de Licencias te permite recuperar las licencias populares de código abierto y la información sobre un archivo de licencia de un proyecto en particular.
 redirect_from:
   - /v3/licenses
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 La API de licencias devuelve metadatos acerca de las liciencias de código abierto populares y acerca de la información sobre un archivo de licencia específico de un proyecto.
@@ -29,7 +31,7 @@ Si una licencia empata, la llave de licencia y el nombre devuelto se apegan a la
 
 GitHub puede ser muchas cosas, pero no es un buró legal. Como tal, GitHub no proporcional consejo legal. Al utilizar la API de licencias o al enviarnos un mensaje de correo electrónico acerca de ellas no estás incurriendo en ningún consejo legal ni creando una relación abogado-cliente. Si tienes cualquier pregunta acerca de lo que puedes o no hacer con una licencia específica, debes acudir a tu propio consejero legal antes de continuar. De hecho, siempre debes consultar con tu propio abogado antes de que decidas tomar cualquier decisión que pudiera tener implicaciones legales o que pudiera impactar tus derechos.
 
-GitHub creó la API de Licencias para ayudar a los usuarios a obtener información acerca de las licencias de código abierto y de los proyectos que las utilizan. Esperamos que te sea útil, pero ten presente que no somos abogados (por lo menos, la mayoría de nosotros no lo son) y que cometemos errores como todo el mundo. Es por esto que GitHub te proporciona una API "tal y como está" y no garantiza nada con respecto a la información o a las licencias que se proporcionan en o a través de ella, y se desllinda de cualquier responsabilidad derivada de los daños que pudiesen resultar de su uso.
+GitHub creó la API de Licencias para ayudar a los usuarios a obtener información acerca de las licencias de código abierto y de los proyectos que las utilizan. Esperamos que te sea útil, pero ten presente que no somos abogados (por lo menos, la mayoría de nosotros no lo somos) y que cometemos errores como todo el mundo. Es por esto que GitHub te proporciona una API "tal y como está" y no garantiza nada con respecto a la información o a las licencias que se proporcionan en o a través de ella, y se desllinda de cualquier responsabilidad derivada de los daños que pudiesen resultar de su uso.
 
 {% endwarning %}
 

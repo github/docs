@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Auditing
   - Enterprise

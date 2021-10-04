@@ -6,9 +6,9 @@ redirect_from:
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---

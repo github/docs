@@ -8,7 +8,8 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: GitHub 校园计划
 ---
 
 {% data variables.product.prodname_campus_program %} 是授予学位、文凭或证书、以教学为重点的机构的高级 {% data variables.product.prodname_dotcom %} 访问包。 {% data variables.product.prodname_campus_program %} 包括：
@@ -21,7 +22,7 @@ versions:
 
 要阅读关于教师如何使用 GitHub 的信息，请参阅 [GitHub Education 故事](https://education.github.com/stories)
 
-### {% data variables.product.prodname_campus_program %} terms and conditions
+## {% data variables.product.prodname_campus_program %} terms and conditions
 
 - 许可证免费一年，每两年自动续订一次。 只要您继续在协议条款范围内运作，您就可以继续使用免费许可证。 只要同意[计划条款](https://education.github.com/schools/terms)，欢迎任何学校加入。
 
@@ -34,7 +35,7 @@ versions:
 
 要阅读更多关于 {% data variables.product.prodname_dotcom %} 隐私实践的信息，请参阅[“全球隐私实践”](/github/site-policy/global-privacy-practices)
 
-### {% data variables.product.prodname_campus_program %} 申请资格
+## {% data variables.product.prodname_campus_program %} 申请资格
 
 - 通常，校园首席技术官/首席信息官、院长、系主任或技术官代表校园签署课程条款。
 

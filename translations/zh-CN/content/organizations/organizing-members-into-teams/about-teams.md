@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,7 +24,7 @@ topics:
 
 ![团队提及图像](/assets/images/help/teams/team-mention.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
@@ -32,11 +32,11 @@ topics:
 
 {% data reusables.organizations.team-synchronization %}
 
-### 团队可见性
+## 团队可见性
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-### 团队页面
+## 团队页面
 
 每个团队都在组织中有自己的页面。 在团队的页面上，您可以查看团队成员、子团队和团队的仓库。 组织所有者和团队维护员可从团队页面访问团队设置以及更新团队的说明和头像。
 
@@ -44,7 +44,7 @@ topics:
 
 ![列出团队成员和讨论的团队页面](/assets/images/help/organizations/team-page-discussions-tab.png)
 
-### 嵌套团队
+## 嵌套团队
 
 您可以在 {% data variables.product.product_name %} 组织中通过多级嵌套团队反映您的组或公司的层级。 一个父团队可有多个子团队，而每个子团队只能有一个父团队。 您无法嵌套机密团队。
 
@@ -62,7 +62,7 @@ topics:
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
-### 准备在组织中嵌套团队
+## 准备在组织中嵌套团队
 
 如果您的组织已经有团队，则在其上面或下面嵌套团队之前，应审计每个团队的仓库访问权限。 也应考虑要为组织实施的新结构。
 
@@ -73,7 +73,7 @@ topics:
 3. 创建需要的任何新团队，为每个新团队选择一个父团队，并向他们授予仓库访问权限
 4. 直接向团队添加人员
 
-### 延伸阅读
+## 延伸阅读
 
 - "[创建团队](/articles/creating-a-team)"
 - "[向团队添加组织成员](/articles/adding-organization-members-to-a-team)"

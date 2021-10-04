@@ -70,3 +70,4 @@ sections:
     - 'Las alertas de seguridad no se reportan cuando se sube información a un repositorio en la líneade comandos. (actualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - 'Las bitácoras de auditoría pueden atribuirse a la 127.0.0.1 en vez de a la dirección IP origen real. (actualizado 2020-11-02) {% comment %}https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
     - 'El configurar el permiso de un repositorio en `Triage` or `Maintain` falla con un mensaje de error.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'

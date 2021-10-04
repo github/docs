@@ -5,9 +5,9 @@ intro: 了解如何通过共享工作流模板、机密和自托管运行器，�
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 ---
 
@@ -15,13 +15,19 @@ type: how_to
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### 概览
+## 概览
 
 如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 您也可以在 `.github` 仓库中创建工作流程模板，并与您组织中的其他用户共享。
 
-### 创建工作流程模板
+## 创建工作流程模板
 
-对组织的 `.github` 仓库具有写入权限的用户可以创建工作流程模板。 然后，有权限创建工作流程的组织成员便可使用这些模板。 工作流程模板可用于在组织的公共仓库中创建新的工作流程；要使用模板在私有仓库中创建工作流程，该组织必须是企业计划的一部分。
+对组织的 `.github` 仓库具有写入权限的用户可以创建工作流程模板。 然后，有权限创建工作流程的组织成员便可使用这些模板。
+
+{% note %}
+
+**注意：**工作流程模板可用于在组织的公共仓库中创建新的工作流程；要使用模板在私有仓库中创建工作流程，该组织必须是企业计划的一部分。
+
+{% endnote %}
 
 此过程展示如何创建工作流程模板和元数据文件。 元数据文件描述在用户新建工作流程时如何向其显示模板。
 
@@ -78,7 +84,7 @@ type: how_to
 
 ![工作流程模板文件](/assets/images/help/images/workflow-template-files.png)
 
-### 使用组织的工作流程模板
+## 使用组织的工作流程模板
 
 此程序展示组织成员如何查找并使用工作流程模板来创建新的工作流程。 只要是组织成员，都可以使用组织的工作流程模板。
 
@@ -88,7 +94,7 @@ type: how_to
 1. 组织的工作流程模板位于其自己名为“_组织名称_创建的工作流程”的区域中。 在您想要使用的模板名称下，单击 **Set up this workflow（设置此工作流程）**。 ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 
-### 在组织内共享机密
+## 在组织内共享机密
 
 您可以在组织内集中管理您的机密，然后将其提供给选定的仓库。 这也意味着您可以在一个位置更新机密，并且将更改应用于使用该机密的所有仓库工作流程。
 
@@ -105,13 +111,13 @@ type: how_to
 1. 从 **Repository access（仓库访问权限）**下拉列表，选择访问策略。
 1. 单击 **Add secret（添加密码）**。
 
-### 在组织内共享自托管运行器
+## 在组织内共享自托管运行器
 
 组织管理员可以将其自托管的运行器添加到组，然后创建控制哪些仓库可访问该组的策略。
 
 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
 
-### 后续步骤
+## 后续步骤
 
 要继续了解 {% data variables.product.prodname_actions %}，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/learn-github-actions/security-hardening-for-github-actions)”。

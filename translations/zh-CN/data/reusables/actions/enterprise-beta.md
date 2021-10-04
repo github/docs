@@ -1,4 +1,4 @@
-{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 {% note %}
 
 **注：**{% data variables.product.prodname_ghe_server %} 2.22 上的 {% data variables.product.prodname_actions %} 支持是有限的公测版。 测试已结束。 {% data variables.product.prodname_actions %} 现在一般可用于 {% data variables.product.prodname_ghe_server %} 3.0 或更新版本。 更多信息请参阅 [{% data variables.product.prodname_ghe_server %} 3.0 发行说明](/enterprise-server@3.0/admin/release-notes)。

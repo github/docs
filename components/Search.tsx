@@ -171,7 +171,7 @@ export function Search({
         )}
       >
         {results.length > 0 ? (
-          <ol data-testid="search-results" className="d-block mt-2">
+          <ol data-testid="search-results" className="d-block mt-4">
             {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
               const isActive = index === activeHit
               return (
@@ -192,7 +192,7 @@ export function Search({
                         dangerouslySetInnerHTML={{ __html: breadcrumbs }}
                       />
                       <div
-                        className={cx(styles.searchResultTitle, 'd-block f4 font-weight-semibold')}
+                        className={cx(styles.searchResultTitle, 'd-block f4 text-semibold')}
                         dangerouslySetInnerHTML={{
                           __html: heading ? `${title}: ${heading}` : title,
                         }}

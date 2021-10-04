@@ -1,11 +1,13 @@
 ---
 title: インタラクション
+intro: 'With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.'
 redirect_from:
   - /v3/interactions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 リポジトリに対するインタラクションには、コミット、Issueのオープン、プルリクエストの作成があります。 インタラクションAPIを使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリの操作を一時的に特定のユーザのタイプに制限することができます。

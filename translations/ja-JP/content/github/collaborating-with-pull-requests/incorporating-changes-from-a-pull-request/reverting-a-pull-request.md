@@ -6,18 +6,18 @@ redirect_from:
   - /articles/reverting-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### プルリクエストの打ち消しについて
+## プルリクエストの打ち消しについて
 
 {% data variables.product.product_name %} で Pull Request を打ち消すと、マージされた元の Pull Request からマージ コミットを 1 回元に戻した、新しい Pull Request が作成されます。
 
-### Pull Request を打ち消す
+## Pull Request を打ち消す
 
 {% note %}
 

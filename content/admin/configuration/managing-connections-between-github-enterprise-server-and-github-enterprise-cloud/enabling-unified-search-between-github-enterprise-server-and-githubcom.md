@@ -19,13 +19,14 @@ shortTitle: Enable unified search
 ---
 When you enable unified search, users can view search results from public and private content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.product.product_location_enterprise %}.
 
-Users will not be able to search {% data variables.product.product_location_enterprise %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments. Users can only search private repositories you've enabled {% data variables.product.prodname_unified_search %} for and that they have access to in the connected {% data variables.product.prodname_ghe_cloud %} organizations. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)" and "[Enabling private {% data variables.product.prodname_dotcom_the_website %} repository search in your {% data variables.product.prodname_ghe_server %} account](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)."
+Users will not be able to search {% data variables.product.product_location_enterprise %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments. Users can only search private repositories you've enabled {% data variables.product.prodname_unified_search %} for and that they have access to in the connected {% data variables.product.prodname_ghe_cloud %} organizations. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github/#searching-across-github-enterprise-and-githubcom-simultaneously)" and "[Enabling private {% data variables.product.prodname_dotcom_the_website %} repository search in your {% data variables.product.prodname_ghe_server %} account](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)."
 
 Searching via the REST and GraphQL APIs does not include {% data variables.product.prodname_dotcom_the_website %} search results. Advanced search and searching for wikis in {% data variables.product.prodname_dotcom_the_website %} are not supported.
 
 {% data reusables.github-connect.access-dotcom-and-enterprise %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 5. Under "Users can search {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
   ![Enable search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)

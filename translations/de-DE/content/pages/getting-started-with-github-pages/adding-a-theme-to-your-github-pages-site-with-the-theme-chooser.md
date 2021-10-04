@@ -8,14 +8,15 @@ redirect_from:
   - /github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Add theme to a Pages site
 ---
 
 Personen mit Administratorberechtigungen für ein Repository können mit dem Theme Chooser ein Design zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.
 
-### Informationen zum Theme Chooser
+## Informationen zum Theme Chooser
 
 Der Theme Chooser fügt ein Jekyll-Design zu Deinem Repository hinzu. Weitere Informationen zu Jekyll findest Du unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll).“
 
@@ -28,7 +29,7 @@ Weitere Informationen zu Veröffentlichungsquellen findest Du unter „[Informat
 
 Wenn Du in der Vergangenheit manuell ein Jekyll-Design zu Deinem Repository hinzugefügt hast, werden diese Dateien möglicherweise auch nach der Verwendung des Theme Chooser noch angewendet. Um Konflikte zu vermeiden, solltest Du alle manuell hinzugefügten Design-Ordner und -Dateien entfernen, bevor Du den Theme Chooser verwendest. Weitere Informationen findest Du unter „[Ein Design zur {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).“
 
-### Ein Design mit dem Theme Chooser hinzufügen
+## Ein Design mit dem Theme Chooser hinzufügen
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -37,10 +38,10 @@ Wenn Du in der Vergangenheit manuell ein Jekyll-Design zu Deinem Repository hinz
 4. Klicke oben auf der Seite auf das gewünschte Design und anschließend auf **Select theme** (Design auswählen). ![Designoptionen und Schaltfläche „Select theme“ (Design auswählen)](/assets/images/help/pages/select-theme.png)
 5. Möglicherweise wirst Du dazu aufgefordert, die *README.md*-Datei Deiner Website zu bearbeiten.
    - Um die Datei zu einem späteren Zeitpunkt zu bearbeiten, klicke auf **Cancel** (Abbrechen). ![Link „Cancel“ (Abbrechen) beim Bearbeiten einer Datei](/assets/images/help/pages/cancel-edit.png)
-   - Wenn Du die Datei jetzt bearbeiten möchtest, findest Du Informationen hierzu unter „[Dateien in Deinem Repository bearbeiten](/articles/editing-files-in-your-repository/).“
+   - To edit the file now, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
 
 Das ausgewählte Design wird automatisch auf Markdown-Dateien in Deinem Repository angewendet. Um Dein Design auf die HTML-Dateien in Deinem Repository anzuwenden, musst Du YAML-Frontmatter hinzufügen, um ein Layout für jede Datei festzulegen. Weitere Informationen findest Du unter „[Frontmatter](https://jekyllrb.com/docs/front-matter/)“ auf der Jekyll-Website.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - [Designs](https://jekyllrb.com/docs/themes/) auf der Jekyll-Website

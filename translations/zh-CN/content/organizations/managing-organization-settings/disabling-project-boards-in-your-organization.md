@@ -6,11 +6,12 @@ redirect_from:
   - /articles/disabling-project-boards-in-your-organization
   - /github/managing-your-work-on-github/disabling-project-boards-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 禁用项目板
 ---
 
 禁用组织范围的项目板后，将无法在组织级别创建新的项目板，并且将无法通过其先前的 URL 访问任何现有组织级别项目板。 组织仓库中的项目板不受影响。
@@ -29,7 +30,7 @@ topics:
 
 {% data reusables.organizations.disable_project_board_results %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
 - "[关闭项目板](/articles/closing-a-project-board)"

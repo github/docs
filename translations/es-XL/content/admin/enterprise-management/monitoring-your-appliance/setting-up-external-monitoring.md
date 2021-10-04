@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/setting-up-external-monitoring
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Infrastructure

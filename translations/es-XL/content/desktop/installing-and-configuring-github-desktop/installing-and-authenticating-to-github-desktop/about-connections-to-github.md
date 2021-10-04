@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 {% data variables.product.prodname_desktop %} se conecta a {% data variables.product.prodname_dotcom %} cuando extraes, subes, clonas y bifurcas repositorios remotos. Para conectarse a {% data variables.product.prodname_dotcom %} desde {% data variables.product.prodname_desktop %}, debes autenticar tu cuenta. Para obtener más información, consulta "[Autenticar a {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
 

@@ -8,50 +8,51 @@ redirect_from:
   - /apps/building-github-apps/understanding-rate-limits-for-github-apps
   - /developers/apps/rate-limits-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Limites de taxa
 ---
 
-### Solicitações de servidor para servidor
+## Solicitações de servidor para servidor
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-Aplicam-se diferentes limites de solicitação de servidor para servidor aos {% data variables.product.prodname_github_app %}s se o aplicativo estiver instalado em organizações ou repositórios pertencentes a uma conta do {% data variables.product.prodname_ghe_cloud %}.
+Different server-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
 
-#### Limites de taxa normais de servidor a servidor
+### Limites de taxa normais de servidor a servidor
 
 {% endif %}
 
 {% data reusables.apps.api-rate-limits-non-ghec %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-#### Limites de taxa de servidor a servidor de {% data variables.product.prodname_ghe_cloud %}
+### Limites de taxa de servidor a servidor de {% data variables.product.prodname_ghe_cloud %}
 
-Os {% data variables.product.prodname_github_app %}s que estão instalados em uma organização ou repositório pertencente a uma conta do {% data variables.product.prodname_ghe_cloud %} e fazem requisições do servidor para servidor têm um limite de taxa de 15.000 solicitações por hora.
-
-{% endif %}
-
-### Solicitações de usuário para servidor
-
-{% data variables.product.prodname_github_app %}s também podem agir [em nome de um usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), fazendo solicitações de usuário para servidor.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-Aplicam-se diferentes limites de taxa de solicitação de usuário para servidor aos {% data variables.product.prodname_github_app %}s se o aplicativo estiver instalado em organizações ou repositórios pertencentes a uma conta de {% data variables.product.prodname_ghe_cloud %} e o usuário autenticado também pertencer à mesma conta de {% data variables.product.prodname_ghe_cloud %} .
-
-#### Limites de taxa normais de usuário para servidor
+{% data variables.product.prodname_github_apps %} that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
 
 {% endif %}
 
-As solicitações usuário para servidor são limitadas a 5.000 solicitações por hora e por usuário autenticado. Todos os aplicativos OAuth autorizados por esse usuário, tokens de acesso pessoal pertencentes a esse usuário e solicitações autenticadas com o usuário {% if currentVersion == "github-ae@latest" %} token{% else %} usuário e senha{% endif %} compartilham a mesma cota de 5.000 solicitações por hora para esse usuário.
+## Solicitações de usuário para servidor
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% data variables.product.prodname_github_apps %} can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
 
-#### Limites de taxa de usuário para servidor de {% data variables.product.prodname_ghe_cloud %}
+{% ifversion fpt %}
+
+Different user-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
+
+### Limites de taxa normais de usuário para servidor
+
+{% endif %}
+
+As solicitações usuário para servidor são limitadas a 5.000 solicitações por hora e por usuário autenticado. Todos os aplicativos OAuth autorizados por esse usuário, tokens de acesso pessoal pertencentes a esse usuário e solicitações autenticadas com o usuário {% ifversion ghae %} token{% else %} usuário e senha{% endif %} compartilham a mesma cota de 5.000 solicitações por hora para esse usuário.
+
+{% ifversion fpt %}
+
+### Limites de taxa de usuário para servidor de {% data variables.product.prodname_ghe_cloud %}
 
 Quando um usuário pertence a uma conta de {% data variables.product.prodname_ghe_cloud %}, as solicitações de usuário para servidor para recursos pertencentes à mesma conta de {% data variables.product.prodname_ghe_cloud %} são limitadas em 15.000 solicitações por hora e por usuário autenticado. Todos os aplicativos OAuth autorizados por esse usuário, tokens de acesso pessoal pertencentes a esse usuário e solicitações de {% data variables.product.prodname_ghe_cloud %} autenticadas com o usuário e senha desse usuário compartilham a mesma cota de 5.000 solicitações por hora para esse usuário.
 

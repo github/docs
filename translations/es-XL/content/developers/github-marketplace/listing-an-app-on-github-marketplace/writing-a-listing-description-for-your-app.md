@@ -12,7 +12,7 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---

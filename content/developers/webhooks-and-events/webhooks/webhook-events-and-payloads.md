@@ -508,12 +508,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.installation_short_desc %}
 
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation` event.  
-
-{% endnote %}
-
 ### Availability
 
 - {% data variables.product.prodname_github_apps %}
@@ -531,12 +525,6 @@ Key | Type | Description
 ## installation_repositories
 
 {% data reusables.webhooks.installation_repositories_short_desc %}
-
-{% note %}
-
-**Note:** This event replaces the deprecated `integration_installation_repositories` event.
-
-{% endnote %}
 
 ### Availability
 
@@ -1044,10 +1032,15 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 Key | Type | Description
 ----|------|-------------
-`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.
+`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main` or `refs/tags/v3.14.1`.
 `before`|`string` | The SHA of the most recent commit on `ref` before the push.
 `after`|`string` | The SHA of the most recent commit on `ref` after the push.
-`commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
+`created`|`boolean` | Whether this push created the `ref`.
+`deleted`|`boolean` | Whether this push deleted the `ref`.
+`forced`|`boolean` | Whether this push was a force push of the `ref`.
+`head_commit`|`object` | For pushes where `after` is or points to a commit object, an expanded representation of that commit. For pushes where `after` refers to an annotated tag object,  an expanded representation of the commit pointed to by the annotated tag.
+`compare`|`string` | URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
+`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
 `commits[][id]`|`string` | The SHA of the commit.
 `commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.
@@ -1402,6 +1395,30 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
+{% ifversion fpt or ghes > 3.2 %}
+
+## workflow_job
+
+{% data reusables.webhooks.workflow_job_short_desc %}
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- Enterprise webhooks
+
+### Webhook payload object
+
+{% data reusables.webhooks.workflow_job_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.workflow_job }}
+
+{% endif %}
 {% ifversion fpt or ghes > 2.22 %}
 ## workflow_run
 

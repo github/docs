@@ -1,9 +1,10 @@
 ---
 title: Revisar las bitácoras de auditoría de tu organización para los codespaces
-shortTitle: Revisar las bitácoras de auditoría de tu organización
+shortTitle: Registros de auditoría
 intro: 'Puedes utilizar la bitácora de auditoría para revisar todas las acciones relacionadas con los {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -11,7 +12,7 @@ topics:
   - Administrator
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 Cuando algún miembro de tu organización lleva a cabo una acción relacionada con los {% data variables.product.prodname_codespaces %}, puedes revisar las acciones en la bitácora de auditoría. Para obtener más información sobre cómo acceder a la bitácora, consulta la sección "[Revisar tu bitácora de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".
 

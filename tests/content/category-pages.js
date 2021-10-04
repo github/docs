@@ -5,7 +5,7 @@ import walk from 'walk-sync'
 import matter from '../../lib/read-frontmatter.js'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
-import { XmlEntities } from 'html-entities'
+import { decode } from 'html-entities'
 import readFileAsync from '../../lib/readfile-async.js'
 import loadSiteData from '../../lib/site-data.js'
 import renderContent from '../../lib/render-content/index.js'
@@ -13,7 +13,6 @@ import getApplicableVersions from '../../lib/get-applicable-versions.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const slugger = new GithubSlugger()
-const entities = new XmlEntities()
 
 const contentDir = path.join(__dirname, '../../content')
 
@@ -160,7 +159,7 @@ describe('category pages', () => {
           const categoryDirName = path.basename(categoryDirPath)
 
           slugger.reset()
-          const expectedSlug = slugger.slug(entities.decode(indexTitle))
+          const expectedSlug = slugger.slug(decode(indexTitle))
 
           // Check if the directory name matches the expected slug
           expect(categoryDirName).toBe(expectedSlug)

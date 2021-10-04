@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/configuration/validating-your-domain-settings
   - /admin/configuration/validating-your-domain-settings
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Fundamentals

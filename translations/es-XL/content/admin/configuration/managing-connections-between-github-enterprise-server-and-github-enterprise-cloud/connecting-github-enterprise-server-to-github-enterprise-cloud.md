@@ -10,7 +10,7 @@ redirect_from:
   - /admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - GitHub Connect

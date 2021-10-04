@@ -5,9 +5,9 @@ redirect_from:
   - /articles/about-writing-and-formatting-on-github
   - /github/writing-on-github/about-writing-and-formatting-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 [Markdown](http://daringfireball.net/projects/markdown/) es una sintáxis fácil de leer y fácil de escribir para el texto simple con formato.
 
