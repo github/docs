@@ -1,4 +1,4 @@
----
+--- 
 title: Setting up a GitHub Pages site with Jekyll
 intro: 'You can use Jekyll, a popular static site generator, to further customize your {% data variables.product.prodname_pages %} site.'
 redirect_from:
