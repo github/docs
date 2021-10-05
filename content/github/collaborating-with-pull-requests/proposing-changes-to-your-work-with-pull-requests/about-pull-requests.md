@@ -22,6 +22,7 @@ topics:
 * When pushing commits to a pull request, don't force push. Force pushing can corrupt your pull request.
 
 {% endnote %}
+its very important to know the subject of the website that you want to pull request
 
 You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
 
