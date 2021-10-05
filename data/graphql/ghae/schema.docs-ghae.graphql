@@ -37002,6 +37002,60 @@ type Topic implements Node & Starrable {
   ): [Topic!]!
 
   """
+  A list of repositories.
+  """
+  repositories(
+    """
+    Array of viewer's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    current viewer owns.
+    """
+    affiliations: [RepositoryAffiliation]
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    If non-null, filters repositories according to whether they have been locked
+    """
+    isLocked: Boolean
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repositories returned from the connection
+    """
+    orderBy: RepositoryOrder
+
+    """
+    Array of owner's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    organization or user being viewed owns.
+    """
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
+    """
+    If non-null, filters repositories according to privacy
+    """
+    privacy: RepositoryPrivacy
+  ): RepositoryConnection!
+
+  """
   Returns a count of how many stargazers there are on this object
   """
   stargazerCount: Int!
