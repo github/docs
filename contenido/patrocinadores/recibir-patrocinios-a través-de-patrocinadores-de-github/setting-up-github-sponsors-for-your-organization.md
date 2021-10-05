@@ -1,4 +1,4 @@
----
+--- 
 title: Setting up GitHub Sponsors for your organization
 intro: 'Your organization can join {% data variables.product.prodname_sponsors %} to receive payments for your work.'
 redirect_from:
