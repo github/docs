@@ -1,4 +1,4 @@
----
+--- 
 title: Searching on GitHub
 intro: You can use qualifiers to narrow your search and focus on specific categories of information.
 redirect_from:
