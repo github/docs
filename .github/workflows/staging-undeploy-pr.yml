@@ -61,9 +61,7 @@ jobs:
               owner,
               repo,
               issue_number: process.env.PR_NUMBER,
-              labels: [
-                { name: 'automated-block-deploy' }
-              ]
+              labels: ['automated-block-deploy']
             })
 
       - name: Check out repo's default branch
