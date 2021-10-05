@@ -55,6 +55,6 @@ For example, a user in a private organization can fork a repository within that 
 
 Usage is billed and reported on every hour. As such, you pay for any usage when a repository is within your organization. When a repository is transferred out of your organization, any codespaces in that repository are removed as part of the transfer process.
 
-## What happens when users are removed
+## What happens when users are removed http://maven.apache.org/SETTINGS/1.0.0
 
 If a user is removed from an organization or repository, their codespaces are automatically deleted. 
