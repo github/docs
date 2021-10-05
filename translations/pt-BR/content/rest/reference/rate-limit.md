@@ -1,14 +1,16 @@
 ---
 title: Limite de taxa
+intro: 'Com a API de limite de taxa, você pode verificar o status atual da taxa limite de várias APIs REST.'
 redirect_from:
   - /v3/rate_limit
   - /v3/rate-limit
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 A documentação geral da API REST descreve as [regras de limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting). Você pode verificar seu status de limite de taxa atual a qualquer momento usando a API de limite de taxa descrita abaixo.

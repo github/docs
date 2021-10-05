@@ -3,11 +3,12 @@ title: 活动
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -147,7 +148,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 | `邀请`               | 您接受了参与仓库的邀请。                                                                                                                                                 |
 | `manual`           | 您订阅了帖子（通过议题或拉取请求）                                                                                                                                            |
 | `提及`               | 您在内容中被特别 **@提及**。                                                                                                                                            |
-| `review_requested` | 您或您所属的团队被请求审查拉取请求。{% if currentVersion == "free-pro-team@latest" %}
+| `review_requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} 在您的仓库中发现了[安全漏洞](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。{% endif %}
 | `state_change`     | 您更改了帖子主题（例如关闭议题或合并拉取请求）。                                                                                                                                     |
 | `subscribed`       | 您在关注仓库。                                                                                                                                                      |

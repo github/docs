@@ -3,7 +3,7 @@ title: Política de Desarrolladores para el Mercado de Github
 redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

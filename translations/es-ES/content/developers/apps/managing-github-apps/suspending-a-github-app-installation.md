@@ -5,18 +5,21 @@ redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
   - /developers/apps/suspending-a-github-app-installation
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Suspender la instalación de una app
 ---
 
-### Suspender una GitHub App
+## Suspender una GitHub App
 
 El integrador que mantiene y al que le pertenece la GitHub app, también llamado propietario de la GitHub App, puede suspender o dejar de suspender una instalación de la GitHub App utilizando las terminales de la API de REST con JWT. Para obtener más información, consulta la [API de REST para las GitHub Apps](/rest/reference/apps).
 
 Las personas que han instalado una GitHub App, también llamadas propietarias de la instalación, solo podrán suspender o dejar de suspendar una GitHub App a través de la configuración de instalación de la app. Los propietarios de la instalación no pueden usar la API para suspender o dejar de suspender su instalación de la app.
+
+If an installation has been suspended by the {% data variables.product.prodname_github_app %} owner, installation owners cannot unsuspend their installations of the {% data variables.product.prodname_github_app %}. However, installation owners can change other settings, such as repository selection, while the app is suspended.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

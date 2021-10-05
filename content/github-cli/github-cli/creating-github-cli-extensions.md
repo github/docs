@@ -48,7 +48,7 @@ You can use the `gh extension create` command to create a project for your exten
 1. Write your script in the executable file. For example:
 
   ```bash
-  #!/bin/bash
+  #!/usr/bin/env bash
   set -e
   exec gh api user --jq '"You are @\(.login) (\(.name))."'
   ```
@@ -84,7 +84,7 @@ All command line arguments following a `gh my-extension-name` command will be pa
 For example, this script handles multiple flags. When the script is called with the `-h` or `--help` flag, the script prints help text instead of continuing execution. When the script is called with the `--name` flag, the script sets the next value after the flag to `name_arg`. When the script is called with the `--verbose` flag, the script prints a different greeting.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
 verbose=""

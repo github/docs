@@ -27,3 +27,10 @@ Once you enable GPG verification, it will immediately take effect for all your c
   ![Radio buttons to manage GPG verification](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png) 
 1. If you chose "Selected repositories", select the drop-down menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
   !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
+
+
+{% note %}
+
+**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_codespaces %}, you also must append `-s` to each commit in order for it to be signed. To do this in {% data variables.product.prodname_vscode %}, ensure the "Git: Enable Commit Signing" option is enabled from the Settings.
+
+{% endnote %}

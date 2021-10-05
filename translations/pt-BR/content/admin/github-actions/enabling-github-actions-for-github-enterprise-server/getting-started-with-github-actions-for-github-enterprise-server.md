@@ -8,7 +8,7 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -19,19 +19,19 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 
 Este artigo explica como os administradores do site podem configurar {% data variables.product.prodname_ghe_server %} para usar {% data variables.product.prodname_actions %}. Ele abrange os requisitos de hardware e software, apresenta as opções de armazenamento e descreve as políticas de gestão de segurança.
 
 {% endif %}
 
-### Revise as considerações de hardware
+## Revise as considerações de hardware
 
-{% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
+{% ifversion ghes = 2.22 or ghes = 3.0 %}
 
 {% note %}
 
-**Observação**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} estava disponível para {% data variables.product.prodname_ghe_server %} 2.22 como beta limitada. {% endif %}Se você estiver fazendo a atualização de uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e desejar configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
+**Observação**: {% ifversion ghes = 2.22 %}{% data variables.product.prodname_actions %} estava disponível para {% data variables.product.prodname_ghe_server %} 2.22 como beta limitada. {% endif %}Se você estiver fazendo a atualização de uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e desejar configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
 
 {% endnote %}
 
@@ -41,14 +41,16 @@ Os recursos da CPU e memória disponíveis para {% data variables.product.produc
 
 O teste interno em {% data variables.product.company_short %} demonstrou o rendimento máximo a seguir para instâncias de {% data variables.product.prodname_ghe_server %} com um intervalo de configurações da CPU e memória. Você pode ver diferentes tipos de transferência, dependendo dos níveis gerais de atividade na sua instância.
 
-| vCPUs | Memória | Rendimento máximo do trabalho  |
-|:----- |:------- |:------------------------------ |
-| 4     | 32 GB   | Demonstração ou testes rápidos |
-| 8     | 64 GB   | 25 trabalhos                   |
-| 16    | 160 GB  | 35 trabalhos                   |
-| 32    | 256 GB  | 100 trabalhos                  |
+| vCPUs | Memória | Rendimento máximo do trabalho |
+|:----- |:------- |:----------------------------- |
+|       |         |                               |
+{%- ifversion ghes > 3.1 %}
+| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 30 jobs | | 16 | 128 GB | 60 jobs | | 32 | 256 GB | 120 jobs | | 64 | 512 GB | 160 jobs |
+{%- else ifversion ghes < 3.2 %}
+| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 25 jobs | | 16 | 160 GB | 35 jobs | | 32 | 256 GB | 100 jobs |
+{%- endif %}
 
-Se você{% if currentVersion == "enterprise-server@2.22" %}habilitou o plano beta de{% else %}plano para habilitar{% endif %} {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garantir que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
+Se você{% ifversion ghes = 2.22 %}habilitou o plano beta de{% else %}plano para habilitar{% endif %} {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garantir que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
 Para obter mais informações sobre os requisitos mínimos de hardware para {% data variables.product.product_location %}, consulte as considerações sobre hardware para a plataforma da sua instância.
 
@@ -62,7 +64,7 @@ Para obter mais informações sobre os requisitos mínimos de hardware para {% d
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
-### Requisitos de armazenamento externo
+## Requisitos de armazenamento externo
 
 Para habilitar o {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, você deve ter acesso ao armazenamento externo do blob.
 
@@ -80,25 +82,29 @@ O {% data variables.product.prodname_actions %} usa armazenamento do blob para a
 
 {% endnote %}
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% ifversion ghes = 2.22 %}
 
-#### Permissões do Amazon S3
+### Permissões do Amazon S3
 
 {% data reusables.actions.enterprise-s3-permission %}
 
-### Habilitar {% data variables.product.prodname_actions %}
+## Habilitar {% data variables.product.prodname_actions %}
 
 O suporte de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22 estava disponível como uma versão beta limitada. Para configurar {% data variables.product.prodname_actions %} para sua instância, atualize para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior. Para obter mais informações, consulte as observações da versão de [{% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes) e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)".
 
-### Leia mais
+## Leia mais
 
 - "Considerações de hardware" para sua plataforma em "[Configurando uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)"
 
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+## Networking considerations
 
-### Habilitar {% data variables.product.prodname_actions %} com o seu provedor de armazenamento
+{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+
+{% ifversion ghes > 2.22 %}
+
+## Habilitar {% data variables.product.prodname_actions %} com o seu provedor de armazenamento
 
 Siga um dos procedimentos abaixo para habilitar {% data variables.product.prodname_actions %} com o seu provedor de armazenamento escolhido:
 
@@ -106,24 +112,28 @@ Siga um dos procedimentos abaixo para habilitar {% data variables.product.prodna
 * [Habilitar o GitHub Actions com armazenamento do Amazon S3](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
 * [Habilitar o GitHub Actions com MinIO Gateway para armazenamento NAS](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
-### Gerenciar as permissões de acesso para {% data variables.product.prodname_actions %} na sua empres
+## Gerenciar as permissões de acesso para {% data variables.product.prodname_actions %} na sua empres
 
 Você pode usar políticas para gerenciar o acesso a {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Aplicando as políticas do GitHub Actions para sua empresa](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)".
 
-### Adicionar executores auto-hospedados
+## Adicionar executores auto-hospedados
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 Para executar fluxos de trabalho de {% data variables.product.prodname_actions %}, você deve adicionar executores auto-hospedados. Você pode adicionar executores auto-hospedados nos níveis da empresa, organização ou repositório. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-### Gerenciar quais ações podem ser usadas na sua empresa
+## Gerenciar quais ações podem ser usadas na sua empresa
 
 Você pode controlar quais ações os usuários têm permissão para usar na sua empresa. Isso inclui a configuração de {% data variables.product.prodname_github_connect %} para acesso automático às ações de {% data variables.product.prodname_dotcom_the_website %}, ou a sincronização manual das ações de {% data variables.product.prodname_dotcom_the_website %}.
 
 Para obter mais informações, consulte "[Sobre o uso de ações na sua empresa](/admin/github-actions/about-using-actions-in-your-enterprise)".
 
-### Fortalecimento geral de segurança para {% data variables.product.prodname_actions %}
+## Fortalecimento geral de segurança para {% data variables.product.prodname_actions %}
 
 Se você quiser saber mais sobre as práticas de segurança para {% data variables.product.prodname_actions %}, consulte "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)".
 
 {% endif %}
+
+## Reserved Names
+
+When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.

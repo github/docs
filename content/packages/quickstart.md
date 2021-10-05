@@ -10,8 +10,6 @@ shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introduction
 

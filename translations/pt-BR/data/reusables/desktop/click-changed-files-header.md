@@ -1,13 +1,13 @@
-1. Right click the **changed files** header.
+1. Clique com o botão direito no cabeçalho **arquivos alterados**.
 
   {% mac %}
 
-  ![The changed files header](/assets/images/help/desktop/mac-changed-file-header.png)
+  ![O cabeçalho dos arquivos alterados](/assets/images/help/desktop/mac-changed-file-header.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The changed files header](/assets/images/help/desktop/windows-changed-file-header.png)
+  ![O cabeçalho dos arquivos alterados](/assets/images/help/desktop/windows-changed-file-header.png)
 
   {% endwindows %}

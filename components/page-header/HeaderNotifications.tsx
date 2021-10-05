@@ -21,14 +21,8 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const {
-    relativePath,
-    allVersions,
-    data,
-    currentLanguage,
-    userLanguage,
-    currentPathWithoutLanguage,
-  } = useMainContext()
+  const { relativePath, allVersions, data, userLanguage, currentPathWithoutLanguage } =
+    useMainContext()
   const { languages } = useLanguages()
   const { t } = useTranslation('header')
 
@@ -39,12 +33,12 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
-    } else if (languages[currentLanguage].wip !== true) {
+    } else if (router.locale && languages[router.locale].wip !== true) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_complete'),
       })
-    } else if (languages[currentLanguage].wip) {
+    } else if (router.locale && languages[router.locale].wip) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_in_progress'),

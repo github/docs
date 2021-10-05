@@ -4,6 +4,13 @@ The day after a GHES version's [deprecation date](https://github.com/github/docs
 
 **Note**: Do each step below in a separate PR. Only move on to the next step when the previous PR has been merged.
 
+## Step 0: Remove deprecated version numbers from docs-content issue forms
+
+**Note**: This step can be performed independently of all other steps, and can be done several days before or along with the other steps. 
+
+- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the "Specific GHES version(s)" section in the following files (in the `.github/ISSUE_TEMPLATE/` directory): [`release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml).
+- [ ] When the PR is approved, merge it in. This can be merged independently from all other steps. 
+
 ## Step 1: Scrape the docs and archive the files
 
 - [ ] In your checkout of the [repo with archived GHES content](https://github.com/github/help-docs-archived-enterprise-versions), create a new branch: `git checkout -b deprecate-<version>`
@@ -58,3 +65,4 @@ In your `docs-internal` checkout:
     - [ ] Open a PR with the results. The diff may be large and complex, so make sure to get a review from `@github/docs-content`.
     - [ ] Debug any test failures or unexpected results. 
 - [ ] When the PR is approved, merge it in to complete the deprecation. This can be merged independently from step 5. 
+

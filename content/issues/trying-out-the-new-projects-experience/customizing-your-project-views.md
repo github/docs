@@ -75,7 +75,13 @@ Follow similar steps to remove a sort.
 
 ## Group
 
-In table layout, you can group items by a custom field value. You cannot group by fields that contain {% data variables.product.company_short %} data (such as: title, assignees, repository, labels, milestone). When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by `Status` and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
+In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by `Status` and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
+
+{% note %}
+
+**Note:** Currently, you cannot group by title, assignees, repository or labels.
+
+{% endnote %}
 
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing "Group by" or the name of the field you want to group by.
