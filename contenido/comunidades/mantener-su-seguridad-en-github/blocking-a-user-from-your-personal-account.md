@@ -1,4 +1,4 @@
----
+--- 
 title: Blocking a user from your personal account
 intro: 'You can block a user to deny them access to your activity and repositories, and to prevent them from sending you notifications.'
 redirect_from:
