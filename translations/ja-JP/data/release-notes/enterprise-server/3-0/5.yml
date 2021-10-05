@@ -25,3 +25,5 @@ sections:
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - Pull Requestをマージした後にブランチを削除すると、ブランチの削除は成功しているにもかかわらずエラーメッセージが表示されます。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

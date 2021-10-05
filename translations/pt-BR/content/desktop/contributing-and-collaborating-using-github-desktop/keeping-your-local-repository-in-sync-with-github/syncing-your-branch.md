@@ -5,10 +5,10 @@ redirect_from:
   - /desktop/contributing-to-projects/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Sobre a sincronização do branch
+## Sobre a sincronização do branch
 
 Você pode sincronizar o seu branch local com o repositório remoto, puxando quaisquer commits adicionados ao branch no {% data variables.product.product_name %} desde a última vez que você sincronizou. Se você fizer commits de outro dispositivo ou se várias pessoas contribuem para um projeto, você precisará sincronizar seu branch local para mantê-lo atualizado.
 
@@ -18,14 +18,14 @@ Para adicionar alterações de um branch para outro branch, você fazer merge do
 
 Alguns fluxos de trabalho exigem ou beneficiam-se da rebase em vez de merge. Ao fazer o rebase, é possível reordenar, editar ou juntar commits. Para obter mais informações, consulte "[Sobre o rebase do Git](/github/getting-started-with-github/about-git-rebase)" e "[Fazer rebase do branch do projeto em outro branch](#rebasing-your-project-branch-onto-another-branch)".
 
-### Puxar para o seu branch local a partir do remoto
+## Puxar para o seu branch local a partir do remoto
 
 1. Em {% data variables.product.prodname_desktop %}, use o menu suspenso {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual** e selecione o branch local que deseja atualizar.
 2.  Para verificar se há commits no branch remoto, clique em **Buscar origem** ![Botão Fetch origin (Fetch de origem)](/assets/images/help/desktop/fetch-button.png)
 3. Para extrair quaisquer commits do branch remoto, clique em **Extrair origem** ou **Extrair origem com rebase**. ![Botão Pull origin (Origem do pull)](/assets/images/help/desktop/pull-button.png)
 {% data reusables.desktop.resolve-merge-conflicts %}
 
-### Fazer merge de outro branch no branch do projeto
+## Fazer merge de outro branch no branch do projeto
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.choose-a-branch-to-merge %}
@@ -40,7 +40,7 @@ Alguns fluxos de trabalho exigem ou beneficiam-se da rebase em vez de merge. Ao 
    ![Botão Merge](/assets/images/help/desktop/merge-branch-button.png)
 {% data reusables.desktop.push-origin %}
 
-### Fazer rebase entre o branch do projeto e outro branch
+## Fazer rebase entre o branch do projeto e outro branch
 
 {% mac %}
 
@@ -62,7 +62,18 @@ Alguns fluxos de trabalho exigem ou beneficiam-se da rebase em vez de merge. Ao 
 
 {% endwindows %}
 
-### Leia mais
+## Fazer combinação por squash e merge de outro branch no branch do seu projeto
+
+1. Use o menu suspenso **Branch** e clique em **Squash e Merge no Branch atual**. ![Combinação por squash e merge no menu suspenso do branch](/assets/images/help/desktop/squash-and-merge-menu.png)
+2. Clique no branch que deseja fazer merge no branch atual e clique em **Combinação por squash e merge**. ![Botão de combinação por squash e merge](/assets/images/help/desktop/squash-and-merge-selection.png)
+   {% note %}
+
+   **Observação:** Se houver conflitos de merge, {% data variables.product.prodname_desktop %} avisará você acima do botão **Combinação por squash e merge**. Você não poderá fazer combinação por squash e merge do branch até resolver todos os conflitos.
+
+   {% endnote %}
+{% data reusables.desktop.push-origin %}
+
+## Leia mais
 - "[Pull](/github/getting-started-with-github/github-glossary#pull)" no glossário {% data variables.product.prodname_dotcom %}
 - "[Merge](/github/getting-started-with-github/github-glossary#merge)" no glossário de {% data variables.product.prodname_dotcom %}
 - "[Rebase](/github/getting-started-with-github/github-glossary#rebase)" no glossário de {% data variables.product.prodname_dotcom %}

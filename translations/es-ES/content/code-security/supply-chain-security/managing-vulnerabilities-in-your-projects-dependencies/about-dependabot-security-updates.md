@@ -1,13 +1,13 @@
 ---
 title: About Dependabot security updates
 intro: '{% data variables.product.prodname_dependabot %} puede arreglar tus dependencias vulnerables levantando solicitudes de extracción con actualizaciones de seguridad.'
-shortTitle: About Dependabot security updates
+shortTitle: Actualizaciones de seguridad del dependabot
 redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Dependabot
@@ -20,7 +20,7 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
-### Acerca de las {% data variables.product.prodname_dependabot_security_updates %}
+## Acerca de las {% data variables.product.prodname_dependabot_security_updates %}
 
 Las {% data variables.product.prodname_dependabot_security_updates %} te facilitan el arreglar las dependencias vulnerables en tu repositorio. Si habilitas esta característica, cuando se levante una alerta del {% data variables.product.prodname_dependabot %} para una dependencia vulnerable en la gráfica de dependencias de tu repositorio, {% data variables.product.prodname_dependabot %} intentará arreglarla automáticamente. Para obtener más información, consulta las secciones "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" y "[Configurar las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 
@@ -41,7 +41,7 @@ Puedes habilitar una característica relacionada, {% data variables.product.prod
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-### Acerca de las solicitudes de cambios para las actualizaciones de seguridad
+## Acerca de las solicitudes de cambios para las actualizaciones de seguridad
 
 Cada solicitud de cambios contiene todo lo que necesitas para revisar y fusionar de forma rápida y segura un arreglo propuesto en tu proyecto. Esto incluye la información acerca de la vulnerabilidad, como las notas de lanzamiento, las entradas de bitácora de cambios, y los detalles de confirmación. Los detalles de qué vulnerabilidad resuelve una solicitud de cambios se encuentran ocultos para cualquiera que no tenga acceso a las {% data variables.product.prodname_dependabot_alerts %} del repositorio en cuestión.
 
@@ -49,10 +49,10 @@ Cuando fusionas una solicitud de cambios que contiene una actualización de segu
 
 {% data reusables.dependabot.automated-tests-note %}
 
-### Acerca de las puntuaciones de compatibilidad
+## Acerca de las puntuaciones de compatibilidad
 
-Las {% data variables.product.prodname_dependabot_security_updates %} podrían incuir puntuaciones de compatibilidad para hacerte saber si el actualizar una vulnerabilidad podría causar cambios sustanciales en tu proyecto. Estos se calculan de las pruebas de IC en otros repositorios públicos en donde se ha generado la misma actualización de seguridad. La puntuación de compatibilidad de una actualización es el porcentaje de ejecuciones de IC que pasaron cuando se hicieron actualizaciones en versiones específicas de la dependencia.
+{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. Estos se calculan de las pruebas de IC en otros repositorios públicos en donde se ha generado la misma actualización de seguridad. La puntuación de compatibilidad de una actualización es el porcentaje de ejecuciones de IC que pasaron cuando se hicieron actualizaciones en versiones específicas de la dependencia.
 
-### Acerca de las notificaciones para las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}
+## Acerca de las notificaciones para las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}
 
 Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".

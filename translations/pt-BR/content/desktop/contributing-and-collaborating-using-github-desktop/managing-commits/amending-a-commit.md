@@ -1,22 +1,20 @@
 ---
-title: Amending a commit
-intro: 'You can use {% data variables.product.prodname_desktop %} to amend your last commit.'
+title: Alterando um commit
+intro: 'Você pode usar {% data variables.product.prodname_desktop %} para alterar seu último commit.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-## About amending a commit
+## Sobre alteração de um commit
 
-Amending a commit is a way to modify the most recent commit you have made in your current branch. This can be helpful if you need to edit the commit message or if you forgot to include changes in the commit.
+Alterar um commit é uma maneira de modificar o commit mais recente que você criou no seu branch atual. Isso pode ser útil se você precisar editar a mensagem de commit ou se esqueceu de incluir alterações no commit.
 
-You can continue to amend a commit until you push it to the remote repository. After you push a commit, the option to amend it is disabled in {% data variables.product.prodname_desktop %}. When you amend a commit, you replace the previous commit with a new commit to your current branch. Amending a commit that has been pushed to the remote repository could cause confusion for other collaborators working with the repository.
+Você pode continuar alterando um commit até que ele seja enviado para o repositório remoto. Depois de fazer push de um commit, a opção de alterá-lo fica desabilitada em {% data variables.product.prodname_desktop %}. Ao alterar um commit, você substitui o commit anterior por um novo commit para o seu branch atual. Alterar um commit que foi enviado por push para o repositório remoto pode causar confusão para outros colaboradores que trabalham com o repositório.
 
-## Amending a commit
+## Alterando um commit
 
 {% data reusables.desktop.history-tab %}
-2. Right-click on the most recent commit and select **Amend commit**.
-  ![Amend commit context menu](/assets/images/help/desktop/amend-commit-context-menu.png)
-3. Click the **Summary** field to modify the commit message. Optionally, you can modify or add information about the commit in the **Description** field.
-4. Select any uncommitted changes that you would like to add to the commit. For more information about selecting changes, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
-5. Once you have finalized your changes, click **Amend last commit**.
-  ![Amend last commit overview](/assets/images/help/desktop/amend-last-commit-overview.png)
+2. Clique com o botão direito no commit mais recente e selecione **Alterar commit**. ![Menu alterar o contexto do commit](/assets/images/help/desktop/amend-commit-context-menu.png)
+3. Clique no campo **Resumo** para modificar a mensagem de commit. Opcionalmente, você pode modificar ou adicionar informações sobre o commit no campo **Descrição**.
+4. Selecione qualquer alteração não confirmada que você gostaria de adicionar ao commit. Para obter mais informações sobre a seleção de alterações, consulte "[Fazendo commit e revisando as alterações no seu projeto](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)".
+5. Depois de finalizar as alterações, clique **Alterar o último commit**. ![Alterar resumo do último commit](/assets/images/help/desktop/amend-last-commit-overview.png)

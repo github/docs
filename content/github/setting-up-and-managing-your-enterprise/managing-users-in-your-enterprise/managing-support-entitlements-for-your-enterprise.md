@@ -28,9 +28,9 @@ Enterprise owners and billing managers automatically have a support entitlement.
 3. Under "Settings", click **Support**.
 ![Support menu item](/assets/images/help/enterprises/settings-support.png)
 4. Under "Add support member", start typing the name or username of the person you want to give a support entitlement. Click their name in the list of matches.
-![Add support entitlement](/assets/images/help/enterprises/settings-support-entitlement-search.png)
+![Add support entitlement search](/assets/images/help/enterprises/settings-support-entitlement-search.png)
 5. Click **Add support entitlement**.
-![Add support entitlement](/assets/images/help/enterprises/settings-support-add-entitlement.png)
+![Add support entitlement button](/assets/images/help/enterprises/settings-support-add-entitlement.png)
 
 ## Removing a support entitlement from an enterprise member
 

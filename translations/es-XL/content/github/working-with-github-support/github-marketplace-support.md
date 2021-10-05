@@ -4,7 +4,7 @@ intro: 'Para recibir ayuda con la compra o el pago de una app desde {% data vari
 redirect_from:
   - /articles/github-marketplace-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---

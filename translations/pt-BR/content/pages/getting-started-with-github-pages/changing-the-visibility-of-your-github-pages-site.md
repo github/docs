@@ -3,13 +3,14 @@ title: Alterar a visibilidade do site do GitHub Pages
 intro: Você pode gerenciar o controle de acesso no seu site de projeto publicando o site publicamente ou privadamente.
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+shortTitle: Alterar a visibilidade do site
 ---
 
-### Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
+## Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
 
 Se o seu site de projeto for publicado de um repositório privado ou interno, pertencente a uma organização que usa {% data variables.product.prodname_ghe_cloud %}, você poderá gerenciar o controle de acesso para o site. Com controle de acesso, você pode optar por publicar o site publicamente para qualquer pessoa na internet ou em particular para pessoas com acesso de leitura ao seu repositório. Um site publicado de forma privada pode ser usado para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa. Você não pode gerenciar o controle de acesso para um site da organização. Para obter mais informações sobre os tipos de sites do {% data variables.product.prodname_pages %}, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
@@ -22,7 +23,7 @@ Você pode visualizar o subdomínio único do site na aba páginas das configura
 
 Para usar um domínio mais curto e mais memorável no seu site privado de {% data variables.product.prodname_pages %}, você pode configurar um domínio personalizado. Para obter mais informações, consulte "[Configurar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site)""
 
-### Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}
+## Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

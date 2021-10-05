@@ -1,13 +1,31 @@
 ---
 title: 建设社区
-intro: 无论您的项目是开源项目还是私有项目，您都可以创建一个健康和高效的协作环境。
+shortTitle: 建设社区
+intro: 'Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub’s community-tested tools.'
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
+changelog:
+  label: wikis
+featuredLinks:
+  guides:
+    - /communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors
+    - /communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project
+    - /communities/moderating-comments-and-conversations/managing-disruptive-comments
+  guideCards:
+    - /communities/documenting-your-project-with-wikis/editing-wiki-content
+    - /communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account
+    - /communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization
+  popular:
+    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository
+    - /communities/maintaining-your-safety-on-github/reporting-abuse-or-spam
+    - /communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
+    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 children:

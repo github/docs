@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 在还原到上一个提交时，还原本身也是提交。 原提交仍会保留在仓库的历史记录中。

@@ -4,18 +4,18 @@ intro: 'Sie können im Namen eines Kunden eine {% data variables.product.prodnam
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
-  - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: quick_start
 topics:
   - User account
   - Organizations
   - Upgrades
+shortTitle: On behalf of a client
 ---
 
-### Anforderungen
+## Anforderungen
 
 Bevor Du startest, stelle sicher, dass Dir Folgendes vorliegt:
 - Der {% data variables.product.prodname_dotcom %}-Benutzername des Kunden, der Inhaber der Organisation werden soll, die Du erstellst
@@ -24,7 +24,7 @@ Bevor Du startest, stelle sicher, dass Dir Folgendes vorliegt:
 - Das [Produkt](/articles/github-s-products), das Dein Kunde erwerben möchte
 - Die Anzahl an [bezahlten Benutzern](/articles/about-per-user-pricing/), die Du für Deinen Kunden für die Organisation erwerben sollst
 
-### Schritt 1: Erstelle Dein persönliches {% data variables.product.prodname_dotcom %}-Konto
+## Schritt 1: Erstelle Dein persönliches {% data variables.product.prodname_dotcom %}-Konto
 
 Du wirst Dein persönliches Konto benutzen, um die Organisation einzurichten. Du musst Dich bei diesem Konto anmelden, um in Zukunft das Abonnement Deines Kunden zu verlängern oder zu ändern.
 
@@ -35,7 +35,7 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 3. Wähle {% data variables.product.prodname_free_user %} für Dein persönliches Konto aus.
 4. Klicke auf **Finish sign up** (Registrierung fertigstellen).
 
-### Schritt 2: Die Organisation erstellen
+## Schritt 2: Die Organisation erstellen
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
@@ -46,7 +46,7 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 {% data reusables.dotcom_billing.owned_by_business %}
 8. Klicke auf **Next** (Weiter).
 
-### Schritt 3: Die Organisation auf ein jährlich bezahltes Abonnement hochstufen
+## Schritt 3: Die Organisation auf ein jährlich bezahltes Abonnement hochstufen
 
 
 {% data reusables.profile.access_org %}
@@ -58,7 +58,7 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Schritt 4: Die Anzahl an bezahlten Benutzern in der Organisation hochstufen
+## Schritt 4: Die Anzahl an bezahlten Benutzern in der Organisation hochstufen
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -67,7 +67,7 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### Schritt 5: Deinen Kunden zum Beitritt in die Organisation einladen
+## Schritt 5: Deinen Kunden zum Beitritt in die Organisation einladen
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -77,7 +77,7 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 6. Wähle die *Inhaber*-Rolle für Deinen Kunden aus, und klicke dann auf **Send invitation** (Einladung versenden). ![Optionsfeld „Owner“ (Inhaber) und Schaltfläche „Send invitation“ (Einladung versenden)](/assets/images/help/organizations/add-owner-send-invite-reseller.png)
 7. Dein Kunde erhält per E-Mail eine Einladung zur Organisation. Er muss die Einladung annehmen, bevor Du mit dem nächsten Schritt fortfahren kannst.
 
-### Schritt 6: Die Organisationsinhaberschaft an Deinen Kunden übertragen
+## Schritt 6: Die Organisationsinhaberschaft an Deinen Kunden übertragen
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -87,13 +87,13 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 6. Klicke links auf **Remove from organization** (Aus Organisation entfernen). ![Schaltfläche „Remove from organization“ (Aus Organisation entfernen)](/assets/images/help/organizations/remove-from-org-button.png)
 7. Bestätige Deine Auswahl, und klicke auf **Remove members** (Mitglieder entfernen). ![Schaltfläche „Remove members“ (Mitglieder entfernen) zum Bestätigen der Löschung von Mitgliedern](/assets/images/help/organizations/confirm-remove-from-org.png)
 
-### Nächste Schritte:
+## Nächste Schritte:
 
 1. Bitte Deinen Kunden darum, Dich [als Abrechnungsmanager zur Organisation hinzuzufügen](/articles/adding-a-billing-manager-to-your-organization). Du musst Abrechnungsmanager für die Organisation sein, um in Zukunft das Abonnement Deines Kunden verlängern oder ändern zu können.
 2. Wenn Sie die Kreditkarte Ihrer Organisation aus der Organisation entfernen möchten, damit sie nicht mehr belastet wird, wenden Sie sich an {% data variables.contact.contact_support %}.
 3. Informationen zum Verlängern des bezahlten Abonnements Deines Kunden findest Du unter „[Eine bezahlte Organisation Deines Kunden erneuern](/articles/renewing-your-client-s-paid-organization).“
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Organisationen für Beschaffungsunternehmen](/articles/about-organizations-for-procurement-companies)“
 - „[Eine bezahlte Organisation Ihres Kunden hoch- oder herabstufen](/articles/upgrading-or-downgrading-your-client-s-paid-organization)“
