@@ -4,9 +4,9 @@ intro: Aprende sobre los tipos de medios para especificar el formato de los dato
 redirect_from:
   - /v3/media
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

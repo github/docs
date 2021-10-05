@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-team
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -24,14 +24,14 @@ Nur Organisationsinhaber und Betreuer eines übergeordneten Teams können ein ne
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 1. Wenn Deine Organisations oder Dein Enterprise-Konto optional die Teamsynchronisierung verwendet, kannst Du für das Verbinden einer Identitätsanbieter-Gruppe mit Deinem Team das Dropdownmenü „Identity Provider Groups" (Identitätsanbieter-Gruppen) benutzen und bis zu 5 Gruppen auswählen. Weitere Informationen findest Du unter „[Ein Team mit einer Identitätsanbieter-Gruppe synchronisieren](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Dropdownmenü zur Auswahl einer Identitätsanbieter-Gruppe](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 9. Optional kannst Du [dem Team Zugriff auf die Repositorys der Organisation gewähren](/articles/managing-team-access-to-an-organization-repository)“.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Teams](/articles/about-teams)“
 - „[Team-Sichtbarkeit ändern](/articles/changing-team-visibility)“

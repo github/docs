@@ -4,12 +4,13 @@ shortTitle: Visão geral da segurança
 intro: 'Visualize, ordene e filtre os alertas de segurança de toda a sua organização em um só lugar.'
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  free-pro-team: '*'
-  github-ae: next
+  fpt: '*'
+  ghes: '>3.1'
+  ghae: next
 topics:
   - Security overview
   - Advanced Security
 children:
-  - /exploring-security-alerts
+  - /about-the-security-overview
 ---
 

@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability
 intro: 'O {% data variables.product.prodname_ghe_server %} dá suporte ao modo de alta disponibilidade da operação visando minimizar o tempo de inatividade do serviço em caso de falha de hardware ou interrupção prolongada da rede.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -18,5 +18,6 @@ children:
   - /recovering-a-high-availability-configuration
   - /removing-a-high-availability-replica
   - /about-geo-replication
+shortTitle: Configurar alta disponibilidade
 ---
 

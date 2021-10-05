@@ -5,7 +5,7 @@ redirect_from:
   - /articles/updating-commit-author-attribution-with-github-importer
   - /github/importing-your-projects-to-github/updating-commit-author-attribution-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 El Importador GitHub busca los usuarios de GitHub cuyas direcciones de correo electrónico coincidan con los autores de las confirmaciones del repositorio que estás importando. Luego puedes conectar una confirmación con su autor utilizando su dirección de correo electrónico o el nombre de usuario de GitHub del autor.
 

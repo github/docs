@@ -7,8 +7,8 @@ redirect_from:
   - /admin/user-management/preventing-users-from-creating-organizations
 intro: 'Puedes hacer que los miembros no puedan crear organizaciones en tu aparato {% data variables.product.prodname_ghe_server %}.'
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Organizations

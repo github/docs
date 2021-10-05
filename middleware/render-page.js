@@ -6,6 +6,10 @@ import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
 
 export default async function renderPage(req, res, next) {
+  if (req.path.startsWith('/storybook')) {
+    return nextHandleRequest(req, res)
+  }
+
   const page = req.context.page
   // render a 404 page
   if (!page) {

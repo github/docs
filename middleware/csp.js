@@ -12,6 +12,7 @@ export default function csp(req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],
+      prefetchSrc: ["'self'"],
       connectSrc: ["'self'"],
       fontSrc: ["'self'", 'data:', AZURE_STORAGE_URL],
       imgSrc: [

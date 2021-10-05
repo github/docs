@@ -6,26 +6,27 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
   - Repositories
+shortTitle: Publish advisories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können den Hinweis veröffentlichen.
 
-### Vorrausetzungen
+## Vorrausetzungen
 
 Bevor Du einen Sicherheitshinweis veröffentlichen oder eine CVE-Identifikationsnummer anfordern kannst, musst Du einen Entwurf des Sicherheitshinweises erstellen und Informationen über die Versionen Deines Projekts bereitstellen, die von der Sicherheitslücke betroffen sind. Weitere Informationen findest Du unter „[Einen Sicherheitshinweis erstellen](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
 
 Wenn Du einen Sicherheitshinweis erstellt hast, aber noch keine Details über die Versionen Deines Projekts angegeben hast, die von der Sicherheitslücke betroffen sind, kannst Du den Sicherheitshinweis bearbeiten. Weitere Informationen findest Du unter „[Einen Sicherheitshinweis bearbeiten](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
 
-### Über das Veröffentlichen eines Sicherheitshinweises
+## Über das Veröffentlichen eines Sicherheitshinweises
 
 Wenn Du einen Sicherheitshinweis veröffentlichst, informierst Du Deine Community über die Sicherheitslücke, die im Sicherheitshinweis adressiert wird. Die Veröffentlichung eines Sicherheitshinweises erleichtert es Deiner Community, die Paket-Abhängigkeiten zu aktualisieren und die Auswirkungen der Sicherheitslücke zu untersuchen.
 
@@ -60,7 +61,7 @@ Die Veröffentlichung eines Sicherheitshinweises verändert die URL für diesen 
 
 Wenn Du Informationen in einem von Dir veröffentlichten Sicherheitshinweis aktualisieren oder korrigieren musst, kannst Du den Hinweis bearbeiten. Weitere Informationen findest Du unter „[Einen Sicherheitshinweis bearbeiten](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
 
-### CVE-Identifikationsnummer anfordern
+## CVE-Identifikationsnummer anfordern
 
 Personen mit Administratorberechtigungen auf einem Sicherheitshinweis können einen CVE-Identifikationsnummer für den Hinweis anfordern.
 
@@ -73,7 +74,7 @@ Personen mit Administratorberechtigungen auf einem Sicherheitshinweis können ei
 5. Benutze das **Publish advisory** (Hinweis veröffentlichen) Dropdownmenü und klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![CVE-Identifikationsnummer im Dropdownmenü anfordern](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. Klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![Dropdownmenü „Request CVE" (CVE-Identifikationsnummer anfordern)](/assets/images/help/security/security-advisory-request-cve-button.png)
 
-### Einen Sicherheitshinweis veröffentlichen
+## Einen Sicherheitshinweis veröffentlichen
 
 Die Veröffentlichung eines Sicherheitshinweises löscht den temporären privaten Fork für den Sicherheitshinweis.
 
@@ -83,10 +84,10 @@ Die Veröffentlichung eines Sicherheitshinweises löscht den temporären private
 4. Klicke in der Liste „Security Advisories“ (Sicherheitshinweise) auf den Hinweis, den Du veröffentlichen möchtest. ![Sicherheitshinweis in der Liste](/assets/images/help/security/security-advisory-in-list.png)
 5. Klicke unten auf der Seite auf **Publish advisory** (Hinweis veröffentlichen). ![Schaltfläche „Publish advisory“ (Hinweis veröffentlichen)](/assets/images/help/security/publish-advisory-button.png)
 
-### {% data variables.product.prodname_dependabot_alerts %} for published security advisories
+## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Einen Sicherheitshinweis zurückziehen](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"

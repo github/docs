@@ -32,7 +32,7 @@ Once you've created a pull request, you can push commits from your topic branch 
 Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
 
 {% ifversion fpt %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/articles/viewing-deployment-activity-for-your-repository)."
+You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)."
 {% endif %}
 
 After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
@@ -71,7 +71,4 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
-- "[Merging a pull request](/articles/merging-a-pull-request)"
 - "[Closing a pull request](/articles/closing-a-pull-request)"
-- "[Deleting unused branches](/articles/deleting-unused-branches)"
-- "[About pull request merges](/articles/about-pull-request-merges)"

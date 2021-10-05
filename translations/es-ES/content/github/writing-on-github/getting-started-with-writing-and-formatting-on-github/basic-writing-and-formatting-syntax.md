@@ -5,12 +5,13 @@ redirect_from:
   - /articles/basic-writing-and-formatting-syntax
   - /github/writing-on-github/basic-writing-and-formatting-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Sintaxis de formato básica
 ---
 
-### Encabezados
+## Encabezados
 
 Para crear un encabezado, agrega uno a seis símbolos `#` antes del encabezado del texto. La cantidad de `#`</code> que usas determinará el tamaño del ecanbezado.
 
@@ -22,7 +23,7 @@ Para crear un encabezado, agrega uno a seis símbolos `#` antes del encabezado d
 
 ![Encabezados H1, H2 y H6 representados](/assets/images/help/writing/headings-rendered.png)
 
-### Estilo de texto
+## Estilo de texto
 
 Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
 
@@ -34,7 +35,7 @@ Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campo
 | Cursiva en negrita y anidada | `** **` y `_ _`   |                     | `**Este texto es _extremadamente_ importante**` | **Este texto es _extremadamente_ importante** |
 | Todo en negrita y cursiva    | `*** ***`         |                     | `***Todo este texto es importante***`           | ***Todo este texto es importante***           |
 
-### Cita de texto
+## Cita de texto
 
 Puedes citar texto con un `>`.
 
@@ -52,9 +53,9 @@ Tal como dice Abraham Lincoln:
 
 {% endtip %}
 
-### Código de cita
+## Código de cita
 
-Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto dentro de las comillas simples no será formateado.
+Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto entre las comillas simples no se formateará.{% ifversion fpt or ghae-next or ghes > 3.1 %} También puedes presionar el atajo de teclado `command` o `Ctrl` + `e` para insertar las comillas simples para un bloque de código dentro de una línea o texto de marcado.{% endif %}
 
 ```markdown
 Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
@@ -77,9 +78,9 @@ git commit
 
 Para obtener más información, consulta "[Crear y resaltar bloques de código](/articles/creating-and-highlighting-code-blocks)".
 
-### Enlaces
+## Enlaces
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. También puedes usar el atajo del teclado `command + k` para crear un enlace.
+Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 %}También puedes utilizar el atajo de teclado `command + k` para crear un enlace.{% endif %}
 
 `Este sitio se construyó usando [GitHub Pages](https://pages.github.com/).`
 
@@ -87,19 +88,54 @@ Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes
 
 {% tip %}
 
-**Sugerencias:** {% data variables.product.product_name %} automáticamente crea enlaces cuando las direcciones URL válidas están escritas en un comentario. Para obtener más información, consulta "[Referencias autovinculadas y direcciones de URL](/articles/autolinked-references-and-urls)".
+**Sugerencias:** {% data variables.product.product_name %} automáticamente crea enlaces cuando las direcciones URL válidas están escritas en un comentario. Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
 
 {% endtip %}
 
-### Enlaces de sección
+## Enlaces de sección
 
 {% data reusables.repositories.section-links %}
 
-### Enlaces relativos
+## Enlaces relativos
 
 {% data reusables.repositories.relative-links %}
 
-### Listas
+## Images
+
+You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+
+`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+
+![Rendered Image](/assets/images/help/writing/image-rendered.png)
+
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+
+{% tip %}
+
+**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+
+{% endtip %}
+
+Here are some examples for using relative links to display an image.
+
+| Contexto                                                    | Relative Link                                                          |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
+| In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
+| In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
+| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
+| In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+
+{% note %}
+
+**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+
+{% endnote %}
+
+For more information, see "[Relative Links](#relative-links)."
+
+
+## Listas
 
 Puedes realizar una lista desordenada al anteceder una o más líneas de texto con `-` o `*`.
 
@@ -121,7 +157,7 @@ Para ordenar tu lista, antecede cada línea con un número.
 
 ![Lista ordenada representada](/assets/images/help/writing/ordered-list-rendered.png)
 
-#### Listas anidadas
+### Listas anidadas
 
 Puedes crear una lista anidada al dejar sangría en uno o más elementos de la lista debajo de otro elemento.
 
@@ -160,7 +196,7 @@ Puedes crear múltiples niveles de listas anidadas mediante el mismo método. Po
 
 Para conocer más ejemplos, consulta las [Especificaciones de formato Markdown de GitHub](https://github.github.com/gfm/#example-265).
 
-### Listas de tareas
+## Listas de tareas
 
 {% data reusables.repositories.task-list-markdown %}
 
@@ -170,9 +206,9 @@ Si una descripción de los elementos de la lista de tareas comienza con un paré
 
 Para obtener más información, consulta "[Acerca de las listas de tareas](/articles/about-task-lists)".
 
-### Mencionar personas y equipos
+## Mencionar personas y equipos
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir `@` más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
+Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir `@` más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% ifversion fpt or ghes or ghae %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
 
 `@github/support ¿Qué piensas sobre estas actualizaciones?`
 
@@ -184,33 +220,33 @@ Si escribes un símbolo `@` aparecerá una lista de personas o equipos en el pro
 
 Los resultados autocompletados se restringen a los colaboradores del repositorio y a otros participantes en el hilo.
 
-### Hacer referencia a propuestas y solicitudes de extracción
+## Hacer referencia a propuestas y solicitudes de extracción
 
 Puedes mencionar una lista de las propuestas y las solicitudes de extracción sugeridas dentro del repositorio al escribir `#`. Escribe el número o el título de la propuesta o la solicitud de extracción para filtrar la lista, y luego presiona cada pestaña o ingresa para completar el resultado resaltado.
 
 Para obtener más información, consulta "[Referencias y direcciones URL autovinculadas](/articles/autolinked-references-and-urls)".
 
-### Hacer referencia a recursos externos
+## Hacer referencia a recursos externos
 
 {% data reusables.repositories.autolink-references %}
 
-### Adjuntos de contenido
+## Adjuntos de contenido
 
-Algunas {% data variables.product.prodname_github_app %} brindan información en {% data variables.product.product_name %} para las URL que se vinculan con sus dominios registrados. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
+Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
 
 ![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
 
-Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que utilice la API de adjuntos de contenido instalada en el repositorio.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
+Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que use la API de los adjuntos de contenido instalada en el repositorio.{% ifversion fpt %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
 
 Para obtener más información sobre el desarrollo de una {% data variables.product.prodname_github_app %} que utilice adjuntos de contenido, consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments)".
 
-### Cargar activos
+## Cargar activos
 
 Puedes cargar activos como imágenes si las arrastras y sueltas, las seleccionas de un buscador de archivos o si las pegas. Puedes cargar activos a las propuestas, solicitudes de cambios, comentarios y archivos `.md` en tu repositorio.
 
-### Usar emojis
+## Usar emojis
 
 Puedes agregar emojis a tu escritura al escribir `:EMOJICODE:`.
 
@@ -222,11 +258,11 @@ Si escribes `:` aparecerá una lista con los emojis sugeridos. La lista filtrar�
 
 Para encontrar una lista completa de emojis y códigos disponibles, consulta el [listado de emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
-### Párrafos
+## Párrafos
 
 Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas de texto.
 
-### Importar formato de Markdown
+## Importar formato de Markdown
 
 Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) el formato de Markdown usando `\` antes del carácter de Markdown.
 
@@ -236,7 +272,15 @@ Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) 
 
 Para obtener más información, consulta "[Sintaxis de Markdown" de Daring Fireball](https://daringfireball.net/projects/markdown/syntax#backslash),
 
-### Leer más
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
+## Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - "[Acerca de escritura y formato en GitHub](/articles/about-writing-and-formatting-on-github)"

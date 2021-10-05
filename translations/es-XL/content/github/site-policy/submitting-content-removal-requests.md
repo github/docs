@@ -3,7 +3,7 @@ title: Enviar solicitudes de eliminación de contenido
 redirect_from:
   - /articles/submitting-content-removal-requests
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

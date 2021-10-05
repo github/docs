@@ -4,8 +4,8 @@ intro: 'Puedes usar la autenticación integrada de {% data variables.product.pro
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

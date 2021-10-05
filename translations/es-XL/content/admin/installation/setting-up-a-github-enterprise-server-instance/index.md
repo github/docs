@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/setting-up-a-github-enterprise-instance/
   - /enterprise/admin/installation/setting-up-a-github-enterprise-server-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
