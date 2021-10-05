@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub Sponsors Documentation
 shortTitle: GitHub Sponsors
 intro: 'Invest in the open source projects you depend on, support digital infrastructure, and make open source careers possible by sponsoring open source contributors and their projects. Build a {% data variables.product.prodname_sponsors %} profile and receive compensation for your open source work.'
