@@ -396,7 +396,7 @@ jobs:
               target_url: ACTIONS_RUN_LOG
             })
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if deployment preparation job failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:
@@ -587,7 +587,7 @@ jobs:
               target_url: ACTIONS_RUN_LOG
             })
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if deployment job failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:
