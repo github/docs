@@ -6,9 +6,9 @@ redirect_from:
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -6,22 +6,21 @@ redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 准备执行 SAML SSO
 ---
 
-当您在组织中[实施 SAML 单点登录](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)时，未通过身份提供程序 (IdP) 验证的成员将从组织中删除，并且会收到通知删除的电子邮件。
+{% data reusables.saml.when-you-enforce %} Before enforcing SAML SSO in your organization, you should review organization membership, enable SAML SSO, and review organization members' SAML access. For more information, see the following.
 
-在组织中实施 SAML SSO 之前，您应该：
+| Task                                                                                        | 更多信息                      |
+|:------------------------------------------------------------------------------------------- |:------------------------- |
+| Add or remove members from your organization                                                | <ul><li>"[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"</li><li>"[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"</li></ul> |
+| Connect your IdP to your organization by enabling SAML SSO                                  | <ul><li>"[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)"</li><li>"[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)"</li></ul> |
+| Ensure that your organization members have signed in and linked their accounts with the IdP | <ul><li>"[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"</li></ul> |
 
-- 根据需要[添加](/articles/inviting-users-to-join-your-organization)或[删除](/articles/removing-a-member-from-your-organization)组织中的成员。
-- 如果您尚未将 IdP 连接到组织，请连接。 更多信息请参阅“[将身份提供程序连接到组织](/articles/connecting-your-identity-provider-to-your-organization)”。
-- 确保组织成员已登录并且将其帐户与 IdP 链接。
+After you finish these tasks, you can enforce SAML SSO for your organization. 更多信息请参阅“[对组织实施 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}
-
-### 延伸阅读
-
-- "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

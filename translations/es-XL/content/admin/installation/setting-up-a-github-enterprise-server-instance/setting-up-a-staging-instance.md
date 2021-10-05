@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Infrastructure

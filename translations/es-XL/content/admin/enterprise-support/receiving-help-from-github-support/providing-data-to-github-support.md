@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Support

@@ -1,7 +1,7 @@
 ---
 title: Facturación
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
 ---

@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Fundamentals

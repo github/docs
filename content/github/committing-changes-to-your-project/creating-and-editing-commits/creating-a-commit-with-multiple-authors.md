@@ -83,7 +83,6 @@ The new commit and message will appear on {% data variables.product.product_loca
 {% ifversion ghes or ghae %}
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-- "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"
 - "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
 - "[Changing a commit message](/articles/changing-a-commit-message)"
 - "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation

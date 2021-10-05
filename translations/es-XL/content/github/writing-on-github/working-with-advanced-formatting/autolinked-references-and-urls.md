@@ -5,9 +5,9 @@ redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ### Direcciones URL
 

@@ -5,28 +5,30 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: quick_start
 topics:
   - Fundamentals
+shortTitle: クイックスタート
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### はじめに
+## はじめに
 
 {% data variables.product.prodname_actions %} ワークフローを作成して実行するには、{% data variables.product.prodname_dotcom %} リポジトリのみが必要になります。 このガイドでは、{% data variables.product.prodname_actions %} の重要な機能のいくつかを示すワークフローを追加します。
 
 次の例は、{% data variables.product.prodname_actions %} ジョブを自動的にトリガーする方法、実行する場所、およびリポジトリ内のコードとやり取りする方法を示しています。
 
-### 最初のワークフローを作成する
+## 最初のワークフローを作成する
 
-1. {% data variables.product.prodname_dotcom %} のリポジトリから、`github-actions-demo.yml` という名前の新しいファイルを `.github/workflows` ディレクトリに作成します。 詳細は「[新しいファイルを作成する](/github/managing-files-in-a-repository/creating-new-files)」を参照してください。
-2. 次の YAML コンテンツを `github-actions-demo.yml` ファイルにコピーします。
+1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
+2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. 詳細は「[新しいファイルを作成する](/github/managing-files-in-a-repository/creating-new-files)」を参照してください。
+3. 次の YAML コンテンツを `github-actions-demo.yml` ファイルにコピーします。
     {% raw %}
     ```yaml{:copy}
     name: GitHub Actions Demo
@@ -53,7 +55,7 @@ topics:
 
 リポジトリ内のワークフローファイルをブランチにコミットすると、`push` イベントがトリガーされ、ワークフローが実行されます。
 
-### ワークフローの結果を表示する
+## ワークフローの結果を表示する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -72,11 +74,11 @@ topics:
 
    たとえば、リポジトリ内のファイルのリストを確認できます。 ![アクションの詳細の例](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-### さらなるワークフローテンプレート
+## さらなるワークフローテンプレート
 
 {% data reusables.actions.workflow-template-overview %}
 
-### 次のステップ
+## 次のステップ
 
 追加したワークフロー例では、コードがブランチにプッシュされるたびに実行され、{% data variables.product.prodname_actions %} がリポジトリのコンテンツを処理できる方法が示されます。 ただし、これは {% data variables.product.prodname_actions %} で可能なことの一部にすぎません。
 
@@ -86,4 +88,3 @@ topics:
 {% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 始める準備はできましたか？ {% data variables.product.prodname_actions %} で次のステップに進む際に役立つ、以下のようなリソースを参照してください。
 
 - 詳細なチュートリアルは、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」をご覧ください。
-- 特定の使用例とサンプルについては「[ガイド](/actions/guides)」をご覧ください。

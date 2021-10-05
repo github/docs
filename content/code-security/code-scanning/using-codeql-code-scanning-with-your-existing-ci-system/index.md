@@ -24,5 +24,7 @@ children:
   - /running-codeql-runner-in-your-ci-system
   - /configuring-codeql-runner-in-your-ci-system
   - /troubleshooting-codeql-runner-in-your-ci-system
+  - /migrating-from-the-codeql-runner-to-codeql-cli
+
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->

@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-milestones
   - /github/managing-your-work-on-github/about-milestones
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -27,7 +27,7 @@ Darüber hinaus kannst Du den Meilenstein auf der Meilenstein-Seite bearbeiten u
 
 ![Meilenstein-Seite](/assets/images/help/issues/milestone-info-page.png)
 
-### Issues und Pull Requests in Meilensteinen priorisieren
+## Issues und Pull Requests in Meilensteinen priorisieren
 
 Du kannst offene Issues und Pull Requests in einem Meilenstein priorisieren, indem Du links neben das Kontrollkästchen eines Issues oder Pull Requests klickst, und den Meilenstein so an eine andere Stelle ziehst und dort ablegst.
 
@@ -39,7 +39,7 @@ Du kannst offene Issues und Pull Requests in einem Meilenstein priorisieren, ind
 
 ![Neu angeordneter Meilenstein](/assets/images/help/issues/milestone-reordered.gif)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Meilensteine für Issues und Pull Requests erstellen und bearbeiten](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)“
 - „[Meilensteine mit Issues und Pull Requests verknüpfen](/articles/associating-milestones-with-issues-and-pull-requests)“

@@ -7,14 +7,17 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configurar un proxy saliente
 ---
+
+## About proxies with {% data variables.product.product_name %}
 
 Cuando se habilita un servidor proxy para {% data variables.product.product_location %}, primero {% data variables.product.prodname_ghe_server %} envía mensajes fuera de banda a través del servidor proxy, a menos que el host de destino se agregue como una exclusión de servidor proxy HTTP. Los tipos de mensajes fuera de banda incluyen webhooks salientes, carga de paquetes y extracción de avatares heredados. La URL del servidor proxy es el protocolo, dominio o dirección IP más el número de puerto, por ejemplo `http://127.0.0.1:8123`.
 
@@ -23,6 +26,10 @@ Cuando se habilita un servidor proxy para {% data variables.product.product_loca
 **Nota:**  Para conectarte a {% data variables.product.product_location %} para {% data variables.product.prodname_dotcom_the_website %}, tu configuración proxy debe permitir la conectividad a `github.com` y a `api.github.com`. Para obtener más información, consulta "[Conectarse a {% data variables.product.prodname_ghe_server %} para {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)."
 
 {% endnote %}
+
+{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+
+## Configurar un servidor proxy web fuera de banda
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

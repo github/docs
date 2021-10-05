@@ -4,14 +4,17 @@ intro: 'Puedes ver el uso de tu licencia de {% data variables.product.prodname_G
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
+  ghes: '>=3.1'
 topics:
   - Enterprise
+shortTitle: Visualizar el uso de la Seguridad Avanzada
 ---
 
-{% data reusables.advanced-security.about-ghas-license-seats %}Para obtener más información, consulta la sección "[Acerca del licenciamiento de {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security)".
+## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
-### Visualizar el uso de licencia para la {% data variables.product.prodname_GH_advanced_security %}
+{% data reusables.advanced-security.about-ghas-license-seats %} Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".
+
+## Visualizar el uso de licencia para la {% data variables.product.prodname_GH_advanced_security %}
 
 Puedes verificar cuántas plazas incluye tu licencia y cuántas plazas se utilizan actualmente.
 

@@ -1,6 +1,7 @@
 ---
 title: Following people
 intro: 'You can follow people on {% data variables.product.product_name %} to receive notifications about their activity{% ifversion fpt %} and discover projects in their communities{% endif %}.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
   - /github/getting-started-with-github/following-people
@@ -22,8 +23,8 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 ## Following a user on {% data variables.product.product_name %}
 
 1. Click a user image to display that user's profile.
-   
-  ![User image](/assets/images/help/profile/user-profile-image.png) 
+
+  ![User image](/assets/images/help/profile/user-profile-image.png)
 
 2. Click **Follow** under their profile image.
 
@@ -33,12 +34,31 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 1.  Click a user image to display that user's profile.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png) 
+  ![User image](/assets/images/help/profile/user-profile-image.png)
 
 2.  Click **Unfollow** under their profile image.
 
-  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png) 
+  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png)
 
+## Viewing followed users on {% data variables.product.product_name %}
+
+1. Click a user image to display that user's profile.
+
+  ![User image](/assets/images/help/profile/user-profile-image.png)
+
+2. Click **following** under their profile image.
+
+  ![User following](/assets/images/help/profile/user-profile-following.png)
+
+## Viewing followers on {% data variables.product.product_name %}
+
+1. Click a user image to display that user's profile.
+
+  ![User image](/assets/images/help/profile/user-profile-image.png)
+
+2. Click **followers** under their profile image.
+
+  ![User following](/assets/images/help/profile/user-profile-followers.png)
 
 
 

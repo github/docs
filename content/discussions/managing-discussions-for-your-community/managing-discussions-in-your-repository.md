@@ -14,7 +14,7 @@ shortTitle: Manage discussions
 
 Organization owners can choose the permissions required to create a discussion for repositories owned by the organization. For more information, see "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
 
-As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)." 
+As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
 
@@ -62,7 +62,7 @@ Editing a pinned discussion will not change the discussion's category. For more 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**.
-  !["Pin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+  !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
 1. Customize the look of the pinned discussion.
   ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
 1. Click **Pin discussion**.

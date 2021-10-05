@@ -1,16 +1,16 @@
 ---
 title: Usar avaliação automática
 intro: É possível fornecer feedback automaticamente sobre envios de código de seus alunos configurando testes para serem executados no repositório de atividade.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
 ---
 
-### Sobre a avaliação automática
+## Sobre a avaliação automática
 
 {% data reusables.classroom.about-autograding %}
 
@@ -22,11 +22,11 @@ Você pode ter uma visão geral dos alunos que estão passando testes de avalia�
 
 ![Visão geral de uma atividade com resultados de avaliação automática](/assets/images/help/classroom/autograding-hero.png)
 
-### Métodos de avaliação
+## Métodos de avaliação
 
 Há dois métodos de avaliação: testes de entrada/saída e testes de comando de execução.
 
-#### Teste de entrada/saída
+### Teste de entrada/saída
 
 Um teste de entrada/saída opcionalmente executa um comando de configuração e, em seguida, fornece a entrada padrão para um comando de teste. {% data variables.product.prodname_classroom %} avalia a saída do comando de teste para um resultado esperado.
 
@@ -41,7 +41,7 @@ Um teste de entrada/saída opcionalmente executa um comando de configuração e,
 | **Tempo esgotado**          | Quanto tempo um teste deve ser executado em minutos antes de resultar em falha                                              |
 | **Pontos**                  | _Opcional_. O número de pontos que o teste vale para uma pontuação total                                                    |
 
-#### Executar teste de comando
+### Executar teste de comando
 
 Um comando de execução executa um comando de configuração e, em seguida, executa um comando de teste. {% data variables.product.prodname_classroom %} verifica o status de saída do comando de teste. Um código de saída de `0` resulta em sucesso e qualquer outro código de saída resulta em falha.
 
@@ -55,7 +55,7 @@ Um comando de execução executa um comando de configuração e, em seguida, exe
 | **Tempo esgotado**          | Quanto tempo um teste deve ser executado em minutos antes de resultar em falha         |
 | **Pontos**                  | _Opcional_. O número de pontos que o teste vale para uma pontuação total               |
 
-### Configurar testes de avaliação automática para uma atribuição
+## Configurar testes de avaliação automática para uma atribuição
 
 Você pode adicionar testes de avaliação automática durante a criação de uma nova atividade. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
@@ -71,14 +71,21 @@ Você pode adicionar, editar ou excluir testes de avaliação automática para u
     - Para excluir um teste, à direita do nome do teste, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Ícone da lixeira para excluir um teste de avaliação automática](/assets/images/help/classroom/autograding-click-trash.png)
 1. Na parte inferior da página, clique em **Atualizar atividade**. ![Botão "Atualizar a atividade" na parte inferior da página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-### Visualizar registros dos testes da avaliação automática
+## Viewing and downloading results from autograding tests
 
+### Download autograding results
+
+You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+
+!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+
+### View individual logs
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
 1. À direita de um envio, clique em **Visualizar teste**. ![Botão "Visualizar teste" para envio de uma atividade](/assets/images/help/classroom/assignments-click-view-test.png)
 1. Revise a saída de teste. Para obter mais informações, consulte "[Usar registros de execução do fluxo de trabalho](/actions/managing-workflow-runs/using-workflow-run-logs)".
 
-### Leia mais
+## Leia mais
 
 - [Documentação de {% data variables.product.prodname_actions %}](/actions)

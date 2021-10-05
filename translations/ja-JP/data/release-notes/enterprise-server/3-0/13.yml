@@ -1,0 +1,18 @@
+---
+date: '2021-08-10'
+sections:
+  bugs:
+    - When GitHub Actions is enabled without running regular scheduled backups the MSSQL Transaction Log could grow unbounded and can consume all available space on the appliance's Data Disk causing a possible outage.
+    - Audit log entries for changes made to "Repository creation" organization settings were inaccurate.
+    - Excessive logging of `ActionController::UnknownFormat` exceptions caused unnecessary disk usage.
+    - "LDAP `group_dn` values longer than 255 characters would result in errors being logged: `Data truncated for column 'group_dn' at row 1`."
+  changes:
+    - Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

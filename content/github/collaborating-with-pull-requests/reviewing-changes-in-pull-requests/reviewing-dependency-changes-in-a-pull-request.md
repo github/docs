@@ -1,8 +1,10 @@
 ---
 title: Reviewing dependency changes in a pull request
 intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
+  ghes: '>= 3.2'
 type: how_to
 topics:
   - Pull requests
@@ -17,15 +19,13 @@ shortTitle: Review dependency changes
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% note %}
-
-**Note:** Dependency review is currently in beta and subject to change.
-
-{% endnote %}
+{% data reusables.dependency-review.beta %}
 
 ## About dependency review
 
 {% data reusables.dependency-review.feature-overview %} 
+
+{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
 Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
@@ -38,18 +38,19 @@ Dependency review allows you to "shift left". You can use the provided predictiv
 1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
 
    ![The file filter menu](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+
+  {% note %}
+
+   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+
+   {% endnote %}
 
 1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
    ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-  {% note %}
-
-   **Note:** The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
-
-   {% endnote %}
-
-1. Check the dependencies listed in the dependency review.
+2. Check the dependencies listed in the dependency review.
 
    ![Vulnerability warnings in a dependency review](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

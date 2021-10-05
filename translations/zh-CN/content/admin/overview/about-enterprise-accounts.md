@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
 versions:
-  enterprise-server: '>=2.20'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Enterprise

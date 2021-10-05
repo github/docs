@@ -6,16 +6,17 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-packages-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/viewing-your-github-packages-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Enterprise
   - Packages
   - Organizations
   - User account
+shortTitle: View your usage
 ---
 
-### {% data variables.product.prodname_registry %}-Nutzung für Dein Benutzerkonto anzeigen
+## {% data variables.product.prodname_registry %}-Nutzung für Dein Benutzerkonto anzeigen
 
 Jeder kann die Nutzung von {% data variables.product.prodname_registry %} für sein eigenes Benutzerkonto anzeigen.
 
@@ -25,7 +26,7 @@ Jeder kann die Nutzung von {% data variables.product.prodname_registry %} für s
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### {% data variables.product.prodname_registry %}-Nutzung für Deine Organisation anzeigen
+## {% data variables.product.prodname_registry %}-Nutzung für Deine Organisation anzeigen
 
 Organization owners and billing managers can view {% data variables.product.prodname_registry %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_registry %} usage in the organization billing page.
 
@@ -34,7 +35,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### {% data variables.product.prodname_registry %}-Nutzung für Dein Enterprise-Konto anzeigen
+## {% data variables.product.prodname_registry %}-Nutzung für Dein Enterprise-Konto anzeigen
 
 Enterprise-Inhaber und Abrechnungsmanager können die Nutzung von {% data variables.product.prodname_registry %} für ein Enterprise-Konto anzeigen.
 

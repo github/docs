@@ -399,7 +399,7 @@ describe('code examples', () => {
 
 describe('filter cards', () => {
   it('works with select input', async () => {
-    await page.goto('http://localhost:4001/en/actions/guides')
+    await page.goto('http://localhost:4001/en/code-security/guides')
     await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
     const shownCards = await page.$$('[data-testid=article-card]')
     const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
@@ -410,7 +410,7 @@ describe('filter cards', () => {
   })
 
   it('works with select input on an Enterprise version', async () => {
-    await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
+    await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/code-security/guides`)
     await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
     const shownCards = await page.$$('[data-testid=article-card]')
     const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>

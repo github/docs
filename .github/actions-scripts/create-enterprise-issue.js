@@ -85,9 +85,8 @@ async function run() {
     ),
     'utf8'
   )
-  const issueLabels = milestone === 'release'
-    ? ['enterprise release']
-    : ['enteprise deprecation', 'priority-3']
+  const issueLabels =
+    milestone === 'release' ? ['enterprise release'] : ['enterprise deprecation', 'priority-3']
   const issueTitle = `[${nextMilestoneDate}] Enterprise Server ${versionNumber} ${milestone} (technical steps)`
 
   const issueBody = `GHES ${versionNumber} ${milestone} occurs on ${nextMilestoneDate}.

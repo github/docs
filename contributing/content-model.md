@@ -383,7 +383,7 @@ Check the source files and `gated-features` to see how source content is written
 
 ### Permissions statements
 
-Every procedure includes a permissions statement explaining the roles or permissions needed to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
+Every procedure includes a permissions statement explaining the role required to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
 
 Occasionally, it's relevant to mention required permissions in conceptual content, especially in standalone conceptual articles. Make sure to also include a permissions statement in related procedures (or write a longer article combining all of the content).
 
@@ -391,9 +391,11 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 - When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions). 
 - When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure. 
 - Don't include permissions in an article’s intro.
+- Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
 - Language to use in a permissions statement:
-  - [ROLE] can [ACTION].
-  - People with [ROLE] permissions for [FEATURE] can [ACTION].
+  - [ACCOUNT ROLE] can [ACTION].
+  - People with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
+  - AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
 
 #### Examples of permissions statements
 - Article with separate permissions statements for each procedure: [Upgrading your GitHub subscription](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription)

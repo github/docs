@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
   - /admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Accounts
   - Auditing

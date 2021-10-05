@@ -7,14 +7,14 @@ redirect_from:
   - /articles/about-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### 关于拉取请求
+## 关于拉取请求
 
 {% note %}
 
@@ -24,14 +24,16 @@ topics:
 
 {% endnote %}
 
+You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+
 在初始化拉取请求后，您会看到一个审查页面，其中简要概述您的分支（整个分支）与仓库基本分支之间的更改。 您可以添加提议的更改摘要，审查提交所做的更改，添加标签、里程碑和受理人，以及 @提及个人贡献者或团队。 更多信息请参阅“[创建拉取请求](/articles/creating-a-pull-request)”。
 
 在创建拉取请求后，您可以从主题分支推送提交，以将它们添加到现有的拉取请求。 这些提交将以时间顺序显示在您的拉取请求中，在 "Files changed"（更改的文件）选项卡中可以看到更改。
 
 其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。
 
-{% if currentVersion == "free-pro-team@latest" %}
-您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/articles/viewing-deployment-activity-for-your-repository)”。
+{% ifversion fpt %}
+您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)”。
 {% endif %}
 
 对提议的更改感到满意后，您可以合并拉取请求。 如果您在使用共享仓库模型，可以创建一个拉取请求，然后您或其他人将您的功能分支中的更改合并到您在拉取请求中指定的基础分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
@@ -50,7 +52,7 @@ topics:
 
 您可以访问仪表板，快速找到操作或订阅的最近更新的拉取请求链接。 更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 
-### 草稿拉取请求
+## 草稿拉取请求
 
 {% data reusables.gated-features.draft-prs %}
 
@@ -58,19 +60,16 @@ topics:
 
 {% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
 
-### 比较页和拉取请求页上的提交之间的差异
+## 比较页和拉取请求页上的提交之间的差异
 
 比较页和拉取请求页使用不同的方法来计算已更改文件的差异：
 
 - 比较页显示头部引用的提示与头部及基础引用当前的共同上层节点（即合并基础）之间的差异。
 - 拉请求页面显示在创建拉取请求时头部引用头与头部和基础的共同上层节点之间的差异。 因此，用于比较的合并基础可能不同。
 
-### 延伸阅读
+## 延伸阅读
 
 - {% data variables.product.prodname_dotcom %} 词汇中的“[拉取请求](/articles/github-glossary/#pull-request)”
 - "[关于分支](/articles/about-branches)"
 - "[评论拉取请求](/articles/commenting-on-a-pull-request)"
-- "[合并拉取请求](/articles/merging-a-pull-request)"
 - "[关闭拉取请求](/articles/closing-a-pull-request)"
-- "[删除未使用的分支](/articles/deleting-unused-branches)"
-- "[关于拉取请求合并](/articles/about-pull-request-merges)"
