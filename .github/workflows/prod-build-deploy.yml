@@ -247,7 +247,7 @@ jobs:
               throw error
             }
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:

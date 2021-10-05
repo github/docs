@@ -192,7 +192,8 @@ jobs:
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    # This timeout should match or exceed the value of the timeout for Undeploy
+    timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
     concurrency:
@@ -208,12 +209,33 @@ jobs:
           PR_NUMBER: ${{ needs.pr-metadata.outputs.number }}
         with:
           script: |
+            const sleep = require('await-sleep') // Does not require ESM
+
+            const blockingLabel = 'automated-block-deploy'
             const { owner, repo } = context.repo
-            const { data: pullRequest } = await github.pulls.get({
-              owner,
-              repo,
-              pull_number: process.env.PR_NUMBER
-            })
+            const startTime = Date.now()
+
+            let pullRequest = {}
+            let blocked = true
+
+            // Keep polling the PR until the blocking label has been removed
+            while (blocked) {
+              const { data: pr } = await github.pulls.get({
+                owner,
+                repo,
+                pull_number: process.env.PR_NUMBER
+              })
+
+              blocked = pr.labels.some(({ name }) => name === blockingLabel)
+              if (blocked) {
+                console.warn(`WARNING! PR currently has blocking label "${blockingLabel}" (after ${Date.now() - startTime} ms). Will check again soon...`)
+                await sleep(15000) // Wait 15 seconds and check again
+              } else {
+                console.log(`PR was unblocked (after ${Date.now() - startTime} ms)!`)
+                pullRequest = pr
+              }
+            }
+
             core.setOutput('state', pullRequest.state)
 
   prepare-for-deploy:
@@ -374,7 +396,7 @@ jobs:
               target_url: ACTIONS_RUN_LOG
             })
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if deployment preparation job failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:
@@ -565,7 +587,7 @@ jobs:
               target_url: ACTIONS_RUN_LOG
             })
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if deployment job failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:

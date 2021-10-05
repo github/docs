@@ -44,9 +44,16 @@ jobs:
   undeploy:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
     # IMPORTANT: Intentionally OMIT a `concurrency` configuration from this job!
     steps:
+      - name: Add a label to the PR to block deployment during undeployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr edit $PR_NUMBER --add-label "automated-block-deploy"
+
       - name: Check out repo's default branch
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
@@ -107,3 +114,20 @@ jobs:
               console.error(error)
               throw error
             }
+
+      - if: ${{ always() }}
+        name: Remove the label from the PR to unblock deployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr edit $PR_NUMBER --remove-label "automated-block-deploy"
+
+      - name: Send Slack notification if workflow failed
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_STAGING_DEPLOYMENT_FAILURES_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Staging undeployment failed for PR ${{ github.event.pull_request.html_url }} at commit ${{ github.head_sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.
