@@ -19,6 +19,7 @@ children:
   - /approving-workflow-runs-from-public-forks
   - /reviewing-deployments
   - /disabling-and-enabling-a-workflow
+  - /skipping-workflow-runs
   - /deleting-a-workflow-run
   - /downloading-workflow-artifacts
   - /removing-workflow-artifacts
