@@ -24,7 +24,11 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
+{% ifversion fpt or ghae or ghes > 3.0 %}
+
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
+
+{% endif %}
 
 ## Web application flow
 
@@ -112,19 +116,21 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
+{% ifversion fpt or ghae or ghes > 3.0 %}
+
 ## Device flow
 
-{% ifversion ghes < 3.1 %}
 {% note %}
 
 **Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
-{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
 For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)".
+
+{% endif %}
 
 ## Check which installation's resources a user can access
 

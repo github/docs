@@ -11,6 +11,7 @@ children:
   - /enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
   - /configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
   - /managing-team-synchronization-for-organizations-in-your-enterprise-account
+  - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
 shortTitle: Configure IAM
 ---
 

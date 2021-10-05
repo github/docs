@@ -7,7 +7,7 @@ const article: PlaygroundArticleT = {
   topics: ['CI', 'Node', 'JavaScript'],
   type: 'tutorial',
   slug: 'building-and-testing-nodejs',
-  originalArticle: '/actions/guides/building-and-testing-nodejs',
+  originalArticle: '/actions/automating-builds-and-tests/building-and-testing-nodejs',
   codeLanguageId: 'nodejs',
   intro: dedent`
     This guide shows you how to create a continuous integration (CI) workflow that builds and tests Node.js code. If your CI tests pass, you may want to deploy your code or publish a package.

@@ -61,7 +61,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes > 2.22 %}
-1. Under "{% data variables.product.prodname_advanced_security %}," select the features that you want to enable and deselect any features you want to disable.
+1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," select the features that you want to enable and deselect any features you want to disable.
 ![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% else %}
 1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
 ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
@@ -69,7 +69,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 
 When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance)."
 
-## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} via the administrative shell (SSH)
+## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
 
 You can enable or disable features programmatically on {% data variables.product.product_location %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[Command-line utilities](/admin/configuration/command-line-utilities#ghe-config)."
 
@@ -79,21 +79,22 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
-
     ```shell
     ghe-config app.minio.enabled true
-  ghe-config app.code-scanning.enabled true
+    ghe-config app.code-scanning.enabled true
     ```
     - To enable {% data variables.product.prodname_secret_scanning_caps %}, enter the following command.
-
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable {% data variables.product.prodname_dependabot %}, enter the following commands.
-    ```shell
+    - To enable {% data variables.product.prodname_dependabot %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled true
+    ```
+    {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
     ghe-config app.github.vulnerability-alerting-and-settings-enabled true
-    ```
+    ```{% endif %}
 2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
@@ -105,12 +106,14 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable {% data variables.product.prodname_dependabot %}, enter the following commands.
-    ```shell
+    - To disable {% data variables.product.prodname_dependabot %}, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    {% ifversion ghes > 3.1 %}```shell
+    ghe-config app.dependency-graph.enabled false
+    ```
+    {% else %}```shell
     ghe-config app.github.dependency-graph-enabled false
     ghe-config app.github.vulnerability-alerting-and-settings-enabled false
-    ```
-
+    ```{% endif %}
 3. Apply the configuration.
     ```shell
     ghe-config-apply

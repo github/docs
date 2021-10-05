@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Actions**{% if currentVersion == "free-pro-team@latest" %}, then click **Runners**{% endif %}.
+1. Na barra lateral esquerda, clique em **Ações**{% ifversion fpt %} e, em seguida, clique em **Executores**{% endif %}.

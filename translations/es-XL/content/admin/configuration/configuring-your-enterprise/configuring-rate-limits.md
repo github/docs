@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Infrastructure

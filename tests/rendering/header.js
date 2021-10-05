@@ -7,7 +7,7 @@ describe('header', () => {
 
   test('includes localized meta tags', async () => {
     const $ = await getDOM('/en')
-    expect($('meta[name="next-head-count"]').length).toBe(1)
+    expect($('link[rel="alternate"]').length).toBeGreaterThan(2)
   })
 
   test("includes a link to the homepage (in the current page's language)", async () => {
@@ -21,29 +21,35 @@ describe('header', () => {
 
   describe('language links', () => {
     test('lead to the same page in a different language', async () => {
-      const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
+      const $ = await getDOM(
+        '/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule'
+      )
       expect(
         $(
-          '[data-testid=language-picker] a[href="/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
+          '[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]'
         ).length
       ).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=language-picker] a[href="/en/"]').text().trim()).toBe('English')
-      expect($('[data-testid=language-picker] a[href="/cn/"]').text().trim()).toBe(
-        '简体中文 (Simplified Chinese)'
-      )
-      expect($('[data-testid=language-picker] a[href="/ja/"]').text().trim()).toBe(
-        '日本語 (Japanese)'
-      )
+
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/en"]').text().trim()
+      ).toBe('English')
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/cn"]').text().trim()
+      ).toBe('简体中文 (Simplified Chinese)')
+      expect(
+        $('[data-testid=desktop-header] [data-testid=language-picker] a[href="/ja"]').text().trim()
+      ).toBe('日本語 (Japanese)')
     })
 
     test('emphasize the current language', async () => {
       const $ = await getDOM('/en')
-      expect($('[data-testid=language-picker] a[href="/en/"]').length).toBe(1)
-      expect($('[data-testid=language-picker] a[href="/ja/"]').length).toBe(1)
+      expect($('[data-testid=desktop-header] [data-testid=language-picker] summary').text()).toBe(
+        'English'
+      )
     })
   })
 
@@ -131,33 +137,40 @@ describe('header', () => {
 
   describe('mobile-only product dropdown links', () => {
     test('include github and admin, and emphasize the current product', async () => {
-      const $ = await getDOM('/en/articles/enabling-required-status-checks')
-      const github = $('#homepages a.active[href="/en/github"]')
+      const $ = await getDOM(
+        '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
+      )
+      const github = $('[data-testid=current-product][data-current-product-path="/github"]')
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub')
-      expect(github.attr('class').includes('active')).toBe(true)
 
-      const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
+      const ghe = $(
+        `[data-testid=product-picker-list] a[href="/en/enterprise-server@${latest}/admin"]`
+      )
       expect(ghe.length).toBe(1)
       expect(ghe.text().trim()).toBe('Enterprise administrators')
-      expect(ghe.attr('class').includes('active')).toBe(false)
     })
 
-    test("point to homepages in the current page's language", async () => {
+    // Skipped. See issues/923
+    test.skip("point to homepages in the current page's language", async () => {
       const $ = await getDOM(
-        '/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests'
+        '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
       )
-      expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
-      expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
+      expect(
+        $('[data-testid=current-product][data-current-product-path="/repositories"]').length
+      ).toBe(1)
+      expect(
+        $(`[data-testid=product-picker-list] a[href="/ja/enterprise-server@${latest}/admin"]`)
+          .length
+      ).toBe(1)
     })
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise/${oldestSupported}/user/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
+        `/en/enterprise-server@${oldestSupported}/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
-      expect($(`#homepages a.active[href="/en/enterprise-server@${latest}/admin"]`).length).toBe(0)
-      expect($('#homepages a[href="/en/github"]').length).toBe(1)
-      expect($('#homepages a.active[href="/en/github"]').length).toBe(1)
+
+      expect($('[data-testid=current-product]').text()).toBe('GitHub')
     })
   })
 })

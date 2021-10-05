@@ -125,11 +125,14 @@ export function formatDateForProject(date) {
 export function calculateDueDate(datePosted, turnaround = 2) {
   let daysUntilDue
   switch (datePosted.getDay()) {
-    case 0: // Sunday
-      daysUntilDue = turnaround + 1
+    case 4: // Thursday
+      daysUntilDue = turnaround + 2
+      break
+    case 5: // Friday
+      daysUntilDue = turnaround + 2
       break
     case 6: // Saturday
-      daysUntilDue = turnaround + 2
+      daysUntilDue = turnaround + 1
       break
     default:
       daysUntilDue = turnaround
@@ -161,8 +164,10 @@ export function generateUpdateProjectNextItemFieldMutation({
   function generateMutationToUpdateField({ item, fieldID, value, literal = false }) {
     const parsedValue = literal ? `value: "${value}"` : `value: ${value}`
 
+    // Strip "=" out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
+    // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.substr(1)}_item_${item}: updateProjectNextItemField(input: {
+      set_${fieldID.substr(1)}_item_${item.replaceAll('=', '')}: updateProjectNextItemField(input: {
         projectId: $project
         itemId: "${item}"
         fieldId: ${fieldID}
@@ -184,6 +189,8 @@ export function generateUpdateProjectNextItemFieldMutation({
       $reviewDueDateID: ID!
       $contributorTypeID: ID!
       $contributorType: String!
+      $sizeTypeID: ID!
+      $sizeType: String!
       $featureID: ID!
       $authorID: ID!
     ) {
@@ -208,6 +215,11 @@ export function generateUpdateProjectNextItemFieldMutation({
         item: item,
         fieldID: '$contributorTypeID',
         value: '$contributorType',
+      })}
+      ${generateMutationToUpdateField({
+        item: item,
+        fieldID: '$sizeTypeID',
+        value: '$sizeType',
       })}
       ${generateMutationToUpdateField({
         item: item,

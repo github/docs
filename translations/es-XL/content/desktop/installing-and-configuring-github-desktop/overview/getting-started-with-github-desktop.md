@@ -1,9 +1,9 @@
 ---
 title: Comenzar con GitHub Desktop
 intro: 'Aprende cómo ajustar, autenticar y configurar {% data variables.product.prodname_desktop %} para permitirte contribuir en proyectos directamente desde tu máquina.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
 ---

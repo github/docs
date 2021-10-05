@@ -2,9 +2,9 @@
 title: Empezar con la API de Verificaciones
 intro: 'La API de Ejecuciones de Verificación te permite crear GitHub Apps que ejecuten verificaciones poderosas contra los cámbios de código en un repositorio. Puedes crear apps que lleven a cabo integración contínua, limpieza de código, o servicios de escaneo de código y que proporcionen retroalimentación detallada en las confirmaciones.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

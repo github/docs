@@ -5,9 +5,9 @@ redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -22,14 +22,10 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion ver_lt "enterprise-server@2.22" %}
-2. Debajo del nombre del repositorio, haz clic en **Buscar archivo**. ![Botón Buscar archivo](/assets/images/help/search/find-file-button.png)
-{% else %}
 2. Sobre la lista de archivos, da clic en **Ir al archivo**. ![Botón Buscar archivo](/assets/images/help/search/find-file-button.png)
-{% endif %}
 3. En el campo de búsqueda, escribe el nombre del archivo que deseas buscar. ![Campo de búsqueda Buscar archivo](/assets/images/help/search/find-file-search-field.png)
 4. En la lista de resultados, haz clic en el archivo que deseas buscar.
 
-### Leer más
+## Leer más
 
 - "[Acerca de buscar en GitHub](/articles/about-searching-on-github)"

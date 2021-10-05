@@ -1,6 +1,6 @@
 ---
 title: Explorar las dependencias de un repositorio
-intro: 'Puedes utilizar la gráfica de dependencias para ver los paquetes de los que depende tu proyecto en {% if currentVersion == "free-pro-team@latest" %} y los repositorios que dependen de él{% endif %}. Adicionalmente, puedes ver cualquier vulnerabilidad que se detecte en sus dependencias.'
+intro: 'Puedes utilizar la gráfica de dependencias para ver los paquetes de los que depende tu proyecto en {% ifversion fpt %} y los repositorios que dependen de él{% endif %}. Adicionalmente, puedes ver cualquier vulnerabilidad que se detecte en sus dependencias.'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -10,31 +10,32 @@ redirect_from:
   - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository
   - /code-security/supply-chain-security/exploring-the-dependencies-of-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '>=3.0'
 type: how_to
 topics:
   - Dependency graph
   - Dependencies
   - Repositories
+shortTitle: Explorar las dependencias
 ---
 
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 
-### Visualizar la gráfica de dependencias
+## Visualizar la gráfica de dependencias
 
 {% data reusables.repositories.enable-security-alerts %}
 
-La gráfica de dependencias muestra las dependencias{% if currentVersion == "free-pro-team@latest" %} y los dependientes{% endif %} de tu repositorio. Para obtener más información acerca de la detección de dependencias y de cuáles ecosistemas son compatibles, consulta la sección [Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
+La gráfica de dependencias muestra las dependencias{% ifversion fpt %} y los dependientes{% endif %} de tu repositorio. Para obtener más información acerca de la detección de dependencias y de cuáles ecosistemas son compatibles, consulta la sección [Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.click-dependency-graph %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.repositories.click-dependency-graph %}{% ifversion fpt %}
 4. Opcionalmente, debajo de "Gráfica de dependencias", da clic en **Dependientes**. ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-#### Vista de dependencias
+### Vista de dependencias
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Las dependencias se agrupan por ecosistema. Puedes expandir una dependencia para ver a su vez sus dependencias. Para las dependencias en repositorios públicos hospedadas en {% data variables.product.product_name %}, también puedes dar clic en una de ellas para ver el repositorio. Las dependencias en los repositorios privados, paquetes privados, o archivos no reconocidos se muestran en texto simple.
 
 Si se han detectado vulnerabilidades en el repositorio, estas se muestran en la parte superior de la vista para los usuarios con acceso a {% data variables.product.prodname_dependabot_alerts %}.
@@ -43,7 +44,7 @@ Si se han detectado vulnerabilidades en el repositorio, estas se muestran en la 
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 Se listará cualquier dependencia directa e indirecta que se especifique en los archivos de bloqueo o de manifiesto del repositorio, agrupadas por ecosistema. Si se han detectado vulnerabilidades en el repositorio, estas se muestran en la parte superior de la vista para los usuarios con acceso a {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Gráfico de dependencias](/assets/images/help/graphs/dependencies_graph_server.png)
@@ -56,14 +57,14 @@ Se listará cualquier dependencia directa e indirecta que se especifique en los 
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### Vista de dependientes
+{% ifversion fpt %}
+### Vista de dependientes
 
 Para los repositorios públicos, la vista de dependientes muestra cómo otros repositorios utilizan este repositorio. Para mostrar únicamente los repositorios que contienen una biblioteca en un administrador de paquetes, da cilc en **CANTIDAD de paquetes** inmediatamente sobre la lista de repositorios dependientes. La cantidad de dependientes es aproximada y podría no siempre empatar con los dependientes listados.
 
 ![Gráfico de dependencias](/assets/images/help/graphs/dependents_graph.png)
 
-### Habilitar e inhabilitar la gráfica de dependencias para un repositorio privado
+## Habilitar e inhabilitar la gráfica de dependencias para un repositorio privado
 
 Los administradores del repositorio pueden habilitar o inhabilitar la gráfica de dependencias para los repositorios privados.
 
@@ -76,7 +77,7 @@ También puedes habilitar o inhabilitar la gráfica de dependencias para todos l
 
 Puedes inhabilitar la gráfica de dependencias en cualquier momento si das clic en **Inhabilitar** junto a "Gráfica de Dependencias" en la pestaña de Seguridad & análisis.
 
-### Cambiar el paquete "Utilizado por"
+## Cambiar el paquete "Utilizado por"
 
 Si está habilitada la gráfica de dependencias y tu repositorio contiene un paquete que se publica en un ecosistema de paquetes compatible, {% data variables.product.prodname_dotcom %} muestra una sección de "Utilizado por" en la barra lateral de la pestaña de **Código** de tu repositorio. Para obtener más información sobre los ecosistemas de paquetes compatibles, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
@@ -95,19 +96,19 @@ La sección de "Utilizado por" representa un solo paquete del repositorio. Si ti
 
 {% endif %}
 
-### Solución de problemas del gráfico de dependencias
+## Solución de problemas del gráfico de dependencias
 
 Si tu gráfica de dependencias está vacía, puede que haya un problema con el archivo que contiene tus dependencias. Revisa el archivo para asegurarte de que tiene el formato correcto para el tipo de archivo.
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Si este archivo tiene el formato correcto, entonces revisa su tamaño. La gráfica de dependencias ignora los archivos individuales de manifiesto y de bloqueo que pesen más de 0.5 Mb, a menos de que seas un usuario de {% data variables.product.prodname_enterprise %}. Este procesa hasta 20 archivos de manifiesto o de bloqueo por repositorio predeterminadamente, así que puedes dividir las dependencias en archivos más pequeños en los subdirectorios del repositorio.{% endif %}
 
 Si un archivo de manifiesto o de bloqueo no se procesa, sus dependencias se omiten de la gráfica de dependencias y no podrán verificar si hay dependencias vulnerables.
 
-### Leer más
+## Leer más
 
 - "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt %}
 - "[Ver la información de tu organización](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "
 Entender cómo {% data variables.product.product_name %} utiliza y protege tus datos" </p> 
