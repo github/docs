@@ -15,7 +15,7 @@ topics:
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
 
@@ -23,7 +23,7 @@ topics:
 
 ## Creating a workflow template
 
-Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows. You can share workflow templates if your organization's repository is public or if the repository is private and on an Enterprise plan.
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
 {% note %}

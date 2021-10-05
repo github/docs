@@ -1,7 +1,7 @@
 ---
 title: Using workflow templates
 shortTitle: Using templates
-intro: You can set up CI using a workflow template that matches the language and tooling you want to use.
+intro: '{% data variables.product.product_name %} provides workflow templates for a variety of languages and tooling.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
@@ -17,40 +17,37 @@ type: tutorial
 topics:
   - Workflows
   - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-Anyone with write permission to a repository can set up continuous integration (CI) using {% data variables.product.prodname_actions %}. 
+## About workflow templates
 
-You can use workflow templates to create new workflows in an organization's public repository. To use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
+{% data variables.product.product_name %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a template file that installs your Node.js packages and runs your tests.
 
-After you set up CI, you can customize the workflow to meet your needs.
+You can also create your own workflow templates to share with your organization. For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+
+## Using workflow templates
+
+Anyone with write permission to a repository can set up {% data variables.product.prodname_actions %} workflows for CI/CD or other automation.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
-  ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
-2. Find the template that matches the language and tooling you want to use, then click **Set up this workflow**.
-  ![Setup workflow button](/assets/images/help/repository/setup-workflow-button.png)
+1. If you already have a workflow in your repository, click **New workflow**.
+1. Find the template that you want to use, then click **Set up this workflow**.
+1. If the workflow template contains comments detailing additional setup steps, follow these steps.
+1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
 1. Click **Start commit**.
-  ![Start commit button](/assets/images/help/repository/start-commit.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
-
-Once a push is made to your repository, you can follow the status and detailed logs of your continuous integration workflow run on {% data variables.product.prodname_dotcom %} and receive customized notifications. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)" and "[Managing a workflow run](/articles/managing-a-workflow-run)."
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## Further reading
 
 - "[About continuous integration](/articles/about-continuous-integration)"
-- "[Managing a workflow run](/articles/managing-a-workflow-run)"
+- "[Managing workflow runs](/actions/managing-workflow-runs)"
+- "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 {% ifversion fpt %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
