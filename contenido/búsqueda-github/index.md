@@ -1,4 +1,4 @@
----
+--- 
 title: Searching for information on GitHub
 intro: Use different types of searches to find the information you want.
 redirect_from:
