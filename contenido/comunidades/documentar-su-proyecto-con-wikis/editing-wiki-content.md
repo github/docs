@@ -1,4 +1,4 @@
----
+--- 
 title: Editing wiki content
 intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
 redirect_from:
