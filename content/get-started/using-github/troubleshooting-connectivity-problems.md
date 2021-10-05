@@ -29,7 +29,7 @@ If you're unable to verify with the captcha:
 
 ## Switching cloning methods
 
-Switching from cloning via SSH to cloning via HTTPS, or vice versa may improve connectivity. For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %}](/articles/cloning-a-repository-from-github)."
+Switching from cloning via SSH to cloning via HTTPS, or vice versa may improve connectivity. For more information, see "[Troubleshooting cloning errors](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
 
 If you're encountering timeouts with SSH, see "[Error: Bad file number](/articles/error-bad-file-number)."
 

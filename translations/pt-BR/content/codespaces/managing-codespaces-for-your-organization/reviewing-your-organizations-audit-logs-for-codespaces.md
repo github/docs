@@ -1,9 +1,10 @@
 ---
 title: Revisando os logs de auditoria da sua organização para os codespaces
-shortTitle: Revisando os logs de auditoria da sua organização
+shortTitle: Logs de auditoria
 intro: 'Você pode usar o log de auditoria para revisar todas as ações relacionadas a {% data variables.product.prodname_codespaces %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -11,7 +12,7 @@ topics:
   - Administrator
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 Quando qualquer integrante da sua organização executa uma ação relacionada a {% data variables.product.prodname_codespaces %}, você poderá revisar as ações no log de auditoria. Para obter informações sobre acesso ao registro, consulte "[Revisar seu log de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)".
 

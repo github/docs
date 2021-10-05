@@ -5,12 +5,13 @@ redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Block from your account
 ---
 
-### Informationen zum Blockieren von Benutzern
+## Informationen zum Blockieren von Benutzern
 
 Du kannst einen Benutzer in Deinen Kontoeinstellungen oder über das Profil des Benutzers blockieren. {% data variables.product.prodname_dotcom %} wird dem Benutzer nicht mitteilen, wenn Du ihn blockierst. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
@@ -51,14 +52,14 @@ In Deine Repositorys können blockierte Benutzer außerdem Folgendes nicht tun:
 - Kommentare auf Issues, Pull Requests oder Commits erstellen
 - Wiki-Seiten hinzufügen oder bearbeiten
 
-### Einen Benutzer in Deinen Kontoeinstellungen blockieren
+## Einen Benutzer in Deinen Kontoeinstellungen blockieren
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.blocked_users %}
 3. Gib unter „Block a user“ (Einen Benutzer blockieren) den Benutzernamen der Person ein, die Du blockieren möchtest. Klicke dann auf **Block user** (Benutzer blockieren). ![Feld „Username" (Benutzernamen) und Schaltfläche „Block" (Blockieren)](/assets/images/help/settings/user-settings-block-user.png)
 4. Um eine Warnung zu sehen, wenn Du ein Repository aufrufst, bei dem ein blockierter Benutzer Mitarbeiter ist, kannst Du optional **Warn me when a blocked user is a prior contributor to a repository** (Mich warnen, wenn ein blockierter Benutzer bereits an einem Repository mitgearbeitet hat) auswählen. ![Option zum Warnen bei blockierten Benutzern](/assets/images/help/settings/warn-block-user.png)
 
-### Einen Benutzer über seine Profilseite blockieren
+## Einen Benutzer über seine Profilseite blockieren
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
@@ -70,7 +71,7 @@ Benutze {% data variables.contact.report_abuse %}, um uns zu kontaktieren, wenn 
 
 {% endnote %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Benutzer anzeigen, die Du für Dein persönliches Konto blockiert hast](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)“
 - „[Sperre eines Benutzers für Dein persönliches Konto aufheben](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)“

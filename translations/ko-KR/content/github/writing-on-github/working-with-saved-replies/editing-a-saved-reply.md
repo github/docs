@@ -6,9 +6,9 @@ redirect_from:
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -18,7 +18,7 @@ versions:
 4. Under "Edit saved reply", you can edit the title and the content of the saved reply. ![Edit title and content](/assets/images/help/settings/saved-replies-edit-existing-content.png)
 5. Click **Update saved reply**. ![Update saved reply](/assets/images/help/settings/saved-replies-save-edit.png)
 
-### 더 읽을거리
+## 더 읽을거리
 
 - "[Creating a saved reply](/articles/creating-a-saved-reply)"
 - "[Deleting a saved reply](/articles/deleting-a-saved-reply)"

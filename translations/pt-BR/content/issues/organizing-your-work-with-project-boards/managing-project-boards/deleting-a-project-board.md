@@ -7,12 +7,14 @@ redirect_from:
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +28,7 @@ topics:
 4. Clique em **Delete project** (Excluir projeto). ![Botão Delete project (Excluir projeto)](/assets/images/help/projects/delete-project-button.png)
 5. Para confirmar que você deseja excluir o quadro de projeto, clique em **OK**.
 
-### Leia mais
+## Leia mais
 
 - "[Fechar um quadro de projeto](/articles/closing-a-project-board)"
 - "[Desabilitar quadros de projeto em um repositório](/articles/disabling-project-boards-in-a-repository)"

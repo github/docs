@@ -1,12 +1,12 @@
 ---
 title: Sistemas operativos compatibles
 intro: 'Puedes utilizar {% data variables.product.prodname_desktop %} en cualquier sistema operativo compatible.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /desktop/getting-started-with-github-desktop/supported-operating-systems
   - /desktop/installing-and-configuring-github-desktop/supported-operating-systems
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Acerca de los sistemas operativos compatibles
 

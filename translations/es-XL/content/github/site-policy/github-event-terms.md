@@ -3,7 +3,7 @@ title: Términos del evento de GitHub
 redirect_from:
   - /articles/github-event-terms
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

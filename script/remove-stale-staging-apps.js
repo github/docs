@@ -41,7 +41,7 @@ async function main() {
     .orderBy('name')
     .value()
 
-  const prInfoMatch = /^(?:gha-)?(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
+  const prInfoMatch = /^(?:gha-|ghd-)?(?<repo>docs(?:-internal)?)-(?<pullNumber>\d+)--.*$/
 
   const appsPlusPullIds = apps.map((app) => {
     const match = prInfoMatch.exec(app.name)

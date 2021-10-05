@@ -7,16 +7,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: 添加组织
 ---
 
 企业所有者可在企业帐户的设置中创建新组织。
 
 要将组织添加到企业帐户，必须在企业帐户设置中创建组织。 如果您想将现有组织转移到您的企业帐户，请联系您的 {% data variables.product.prodname_dotcom %} 销售客户代表。
 
-### 在企业帐户中创建组织
+## 在企业帐户中创建组织
 
 在企业帐户设置中创建的新组织包含在企业帐户的 {% data variables.product.prodname_ghe_cloud %} 订阅中。 有关在组织中协作的更多信息，请参阅“[设置和管理组织与团队](/categories/setting-up-and-managing-organizations-and-teams)”。
 

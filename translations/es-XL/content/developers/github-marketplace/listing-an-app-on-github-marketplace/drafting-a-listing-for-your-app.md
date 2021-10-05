@@ -14,7 +14,7 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
   - /developers/github-marketplace/drafting-a-listing-for-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---

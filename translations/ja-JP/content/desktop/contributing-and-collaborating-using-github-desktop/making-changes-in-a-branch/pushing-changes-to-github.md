@@ -7,10 +7,10 @@ redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### {% data variables.product.prodname_dotcom %} への変更のプッシュについて
+## {% data variables.product.prodname_dotcom %} への変更のプッシュについて
 
 変更をプッシュすると、ローカルリポジトリ内のコミットされた変更が {% data variables.product.prodname_dotcom %} のリモートリポジトリに送信されます。 プロジェクトをローカルで変更し、他のユーザが変更にアクセスできるようにするには、変更を {% data variables.product.prodname_dotcom %} にプッシュする必要があります。
 
@@ -18,7 +18,7 @@ versions:
 
 {% data reusables.desktop.protected-branches %}
 
-### {% data variables.product.prodname_dotcom %} への変更をプッシュする
+## {% data variables.product.prodname_dotcom %} への変更をプッシュする
 
 {% note %}
 
@@ -35,6 +35,6 @@ versions:
 2. {% data variables.product.prodname_desktop %} からリモートから新しいコミットをフェッチするように求められたら、[**Fetch**] をクリックします。 ![[Fetch] ボタン](/assets/images/help/desktop/fetch-newer-commits.png)
 3. 必要に応じて、[**Create Pull Request**] をクリックしてプルリクエストを開き、変更を共同で行います。 詳しい情報については、「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」を参照してください。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/create-pull-request.png)
 
-### 参考リンク
+## 参考リンク
 - {% data variables.product.prodname_dotcom %} 用語集の「[プッシュ](/github/getting-started-with-github/github-glossary/#push)」
 - 「[プロジェクトの変更をコミットしてレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)」

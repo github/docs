@@ -7,17 +7,19 @@ featuredLinks:
     - /actions/learn-github-actions
     - /actions/guides/about-continuous-integration
     - /actions/guides/about-packaging-with-github-actions
+    - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
     - /actions/guides/setting-up-continuous-integration-using-workflow-templates
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
-    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/learn-github-actions/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
-    - /actions/reference/events-that-trigger-workflows
-    - /actions/reference/context-and-expression-syntax-for-github-actions
-    - /actions/reference/environment-variables
-    - /actions/reference/encrypted-secrets
+    - /actions/learn-github-actions/events-that-trigger-workflows
+    - /actions/learn-github-actions/contexts
+    - /actions/learn-github-actions/expressions
+    - /actions/learn-github-actions/environment-variables
+    - /actions/security-guides/encrypted-secrets
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -25,25 +27,35 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
+  - /actions/guides
+  - /actions/reference
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 introLinks:
+  overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
-  reference: /actions/reference
 changelog:
   label: actions
   prefix: 'GitHub Actions: '
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 children:
   - /quickstart
-  - /guides
   - /learn-github-actions
-  - /managing-workflow-runs
   - /creating-actions
+  - /security-guides
+  - /automating-builds-and-tests
+  - /deployment
+  - /managing-issues-and-pull-requests
+  - /publishing-packages
+  - /using-containerized-services
+  - /advanced-guides
+  - /managing-workflow-runs
+  - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
-  - /reference
+  - /migrating-to-github-actions
 ---
+

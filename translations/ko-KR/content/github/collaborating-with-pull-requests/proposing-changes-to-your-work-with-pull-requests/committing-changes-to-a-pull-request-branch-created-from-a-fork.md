@@ -6,11 +6,12 @@ redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Commit to PR branch from fork
 ---
 
 You can only make commits on pull request branches that:
@@ -86,6 +87,6 @@ Only the user who created the pull request can give you permission to push commi
 
 Your new commits will be reflected on the original pull request on {% data variables.product.product_location %}.
 
-### 더 읽을거리
+## 더 읽을거리
 
 - "[About forks](/articles/about-forks)"

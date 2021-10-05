@@ -36,6 +36,36 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
+{% ifversion ghes > 3.1 %}
+<!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
+
+### ghe-aqueduct
+
+This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
+
+This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
+
+* The number of background jobs is increasing, while the active jobs remain the same.
+* The event feeds are not updating.
+* Webhooks are not being triggered.
+* The web interface is not updating after a Git push.
+
+If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+
+With this command, you can also pause or resume jobs in the queue.
+
+```shell
+$ ghe-aqueduct status
+# lists queues and the number of currently queued jobs for all queues
+$ ghe-aqueduct queue_depth --queue <em>QUEUE</em>
+# lists the number of currently queued jobs for the specified queue
+$ ghe-aqueduct pause --queue <em>QUEUE</em>
+# pauses the specified queue
+$ ghe-aqueduct resume --queue <em>QUEUE</em>
+# resumes the specified queue
+```
+{% endif %}
+
 ### ghe-check-disk-usage
 
 This utility checks the disk for large files or files that have been deleted but still have open file handles. This should be run when you're trying to free up space on the root partition.
@@ -246,6 +276,9 @@ Use this command to immediately unlock the {% data variables.enterprise.manageme
 $ ghe-reactivate-admin-login
 ```
 
+{% ifversion ghes < 3.2 %}
+<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
+
 ### ghe-resque-info
 
 This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
@@ -269,6 +302,7 @@ $ ghe-resque-info -p <em>QUEUE</em>
 $ ghe-resque-info -r <em>QUEUE</em>
 # resumes the specified queue
 ```
+{% endif %}
 
 ### ghe-saml-mapping-csv
 
@@ -315,18 +349,6 @@ start/running
 stop/waiting
   - ghe-replica-mode
 ```
-
-{% tip %}
-
-The service names returned from this command can be used with [`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html) commands to stop, start, or restart these services manually, if needed. For example:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-Stopping services will cause downtime on your installation, so we recommend you contact {% data variables.contact.contact_ent_support %} before stopping or restarting any service.
-
-{% endtip %}
 
 ### ghe-set-password
 
@@ -773,7 +795,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)."
+This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
 

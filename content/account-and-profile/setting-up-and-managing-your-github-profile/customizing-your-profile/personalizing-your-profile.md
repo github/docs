@@ -52,6 +52,14 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. Under "Name", type the name you want to be displayed on your profile.
   ![Name field in profile settings](/assets/images/help/profile/name-field.png)
@@ -100,7 +108,7 @@ When you set your status, you can also let people know that you have limited ava
 
 ![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy.
+If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."
 
 1. In the top right corner of {% data variables.product.product_name %}, click your profile photo, then click **Set your status** or, if you already have a status set, click your current status.
   ![Button on profile to set your status](/assets/images/help/profile/set-status-on-profile.png)

@@ -47,7 +47,7 @@ jobs:
         name: Approve Pull Request
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.pr.outputs.number }}
       - if: ${{ !steps.has-label.outputs.result }}
         name: Add automerge label

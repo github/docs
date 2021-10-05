@@ -33,6 +33,8 @@ The round robin algorithm chooses reviewers based on who's received the least re
 
 The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
 
+Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+
 ## Configuring code review assignment
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -49,8 +51,11 @@ The load balance algorithm chooses reviewers based on each member's total number
 9. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
 10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
-![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png)
-11. Click **Save changes**.
+![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}
+14. Click **Save changes**.
 
 ## Disabling code review assignment
 {% data reusables.profile.access_org %}

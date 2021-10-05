@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/creating-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -22,23 +22,9 @@ Puedes especificar en qué rama deseas fusionar tus cambios cuando creas tu soli
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
 
-
-{% tip %}
-
-**Tip**: Puedes crear una solicitud de cambios utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta la sección "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" en la documentación de {% data variables.product.prodname_cli %}.
-
-{% endtip %}
-
-
-
-{% endif %}
-
-
-
-### Cambiar el rango de la rama y el repositorio de destino
+## Cambiar el rango de la rama y el repositorio de destino
 
 Predeterminadamente, las solicitudes de cambios se basan en la rama predeterminada del repositorio padre. Para obtener más información, consulta "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
@@ -63,13 +49,11 @@ Cuando cambies alguna información en el rango de la rama, las áreas de vista p
 
 
 
-### Crear una solicitud de extracción
+## Crear una solicitud de extracción
 
-{% tip %}
+{% include tool-switcher %}
 
-**Tip**: También puedes utilizar {% data variables.product.prodname_desktop %} para crear una solicitud de extracción. Para obtener más información, consulta la sección “[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" en la documentación de {% data variables.product.prodname_desktop %}.
-
-{% endtip %}
+{% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 
@@ -89,9 +73,147 @@ Cuando cambies alguna información en el rango de la rama, las áreas de vista p
 
 Una vez que tu solicitud de extracción ha sido revisada, esta se puede [fusionar en un repositorio](/articles/merging-a-pull-request).
 
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+Para crear una solicitud de cambios, utiliza el subcomando `gh pr create`.
 
 
-### Leer más
+
+```shell
+gh pr create
+```
+
+
+Para asignar una solicitud de cambios a un individuo, utiliza los marcadores `--assignee` o `-a`. Puedes utilizar `@me` para auto-asignar la solicitud de cambios.
+
+
+
+```shell
+gh pr create --assignee "@octocat"
+```
+
+
+Para especificar la rama en la que quieres que se fusione la solicitud de cambios, utiliza los marcadores `--base` o `-B`. Para especificar la rama que contiene confirmaciones para tu solicitud de cambios, utiliza los marcadores `--head` o `-H`.
+
+
+
+```shell
+gh pr create --base my-base-branch --head my-changed-branch
+```
+
+
+Para incluir el título y cuerpo de la solicitud de cambios nueva, utiliza los marcadores `--title` y `--body`.
+
+
+
+```shell
+gh pr create --title "The bug is fixed" --body "Everything works again"
+```
+
+
+Para marcar una solicitud de cambios como borrador, utiliza el marcador `--draft`.
+
+
+
+```shell
+gh pr create --draft
+```
+
+
+Para agregar etiquetas o hitos a la solicitud de cambios nueva, utiliza los marcadores `--label` y `--milestone`.
+
+
+
+```shell
+gh pr create --label "bug,help wanted" --milestone octocat-milestone
+```
+
+
+Para agregar la solicitud de cambios nueva a un proyecto específico, utiliza el marcador `--project`.
+
+
+
+```shell
+gh pr create --project octocat-project
+```
+
+
+Para asignar a un individuo como revisor, utiliza el marcador `--reviewer`.
+
+
+
+```shell
+gh pr create --reviewer monalisa,hubot  --reviewer myorg/team-name
+```
+
+
+Para crear la solicitud de cambios en tu buscador web predeterminado, utiliza el marcador `--web`.
+
+
+
+```shell
+gh pr create --web
+```
+
+
+{% endcli %}
+
+{% desktop %}
+
+{% mac %}
+
+1. Cambia a la rama para la cual quieras crear una solicitud de extracción. Para obtener más información, consulta la sección "[Cambiar entre ramas](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)".
+2. Haz clic en **Create Pull Request** (Crear solicitud de extracción). {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado para llevarte a {% data variables.product.prodname_dotcom %}. ![El botón de crear solicitud de extracción](/assets/images/help/desktop/mac-create-pull-request.png)
+
+4. En {% data variables.product.prodname_dotcom %}, confirma que la rama en el menú desplegable de **base:** se aquella en donde quieres fusionar tus cambios. Confirma que la rama en el menú desplegable de **comparar:** es la rama de tema en donde realizaste tus cambios. ![Menús desplegables para elegir la base y comparar ramas](/assets/images/help/desktop/mac-create-pull-request.png) 
+   
+   {% data reusables.repositories.pr-title-description %}
+   
+   
+   
+   {% data reusables.repositories.create-pull-request %}
+
+{% endmac %}
+
+{% windows %}
+
+1. Cambia a la rama para la cual quieras crear una solicitud de extracción. Para obtener más información, consulta la sección "[Cambiar entre ramas](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)".
+2. Haz clic en **Create Pull Request** (Crear solicitud de extracción). {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado para llevarte a {% data variables.product.prodname_dotcom %}. ![El botón de crear solicitud de extracción](/assets/images/help/desktop/windows-create-pull-request.png)
+
+3. En {% data variables.product.prodname_dotcom %}, confirma que la rama en el menú desplegable de **base:** se aquella en donde quieres fusionar tus cambios. Confirma que la rama en el menú desplegable de **comparar:** es la rama de tema en donde realizaste tus cambios. ![Menús desplegables para elegir la base y comparar ramas](/assets/images/help/desktop/mac-create-pull-request.png) 
+   
+   {% data reusables.repositories.pr-title-description %}
+   
+   
+   
+   {% data reusables.repositories.create-pull-request %}
+
+{% endwindows %}
+
+{% enddesktop %}
+
+{% ifversion fpt %}
+
+{% codespaces %}
+
+1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
+
+1. Verifica que el repositorio y la rama local desde la que estás haciendo la fusión y la rama y repositorio remotos hacia los que estés haciendo la fusión sean correctos. Después, asigna un nombre y descripción a la solicitud de cambios. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr.png)
+
+1. Da clic en **Crear**.
+
+For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+
+{% endif %}
+
+
+## Leer más
 
 - "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)"
 - "[Cambiar la rama base de una solicitud de extracción](/articles/changing-the-base-branch-of-a-pull-request)"

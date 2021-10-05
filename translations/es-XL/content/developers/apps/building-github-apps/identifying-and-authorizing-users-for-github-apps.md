@@ -7,9 +7,9 @@ redirect_from:
   - /apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/identifying-and-authorizing-users-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

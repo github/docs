@@ -6,7 +6,7 @@ redirect_from:
   - /apps/marketplace/
   - /marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 children:

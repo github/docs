@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ Sie müssen alle Mergekonflikte lösen, bevor Sie einen Pull Request auf {% data
 
 ![Fehlermeldung bei Mergekonflikten](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-### Mergekonflikte beheben
+## Mergekonflikte beheben
 
 Um einen Mergekonflikt zu beheben, musst Du die Konfliktdatei manuell bearbeiten, um die Änderungen auszuwählen, die Du beim endgültigen Merge beibehalten möchtest. Es gibt verschiedene Möglichkeiten, einen Mergekonflikt zu beheben:
 
@@ -34,7 +34,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zum Zusammenführen von Pull Requests](/articles/about-pull-request-merges/)“
 - „[Informationen zu Pull Requests](/articles/about-pull-requests/)“

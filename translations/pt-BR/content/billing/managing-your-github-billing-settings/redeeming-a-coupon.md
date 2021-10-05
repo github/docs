@@ -7,10 +7,9 @@ redirect_from:
   - /articles/redeeming-a-coupon-for-your-personal-account/
   - /articles/redeeming-a-coupon-for-organizations/
   - /articles/redeeming-a-coupon
-  - /github/setting-up-and-managing-billing-and-payments-on-github/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Discounts
@@ -25,13 +24,13 @@ O {% data variables.product.product_name %} não poderá efetuar um reembolso se
 
 Não é possível aplicar cupons em planos pagos para apps {% data variables.product.prodname_marketplace %}.
 
-### Resgatar um cupom na conta pessoal
+## Resgatar um cupom na conta pessoal
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. Em "Redeem your coupon" (Resgatar um cupom), clique em **Choose** (Escolher) ao lado do nome de usuário da sua conta *pessoal*. ![Botão Choose (Escolher)](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-### Resgatar um cupom na organização
+## Resgatar um cupom na organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
