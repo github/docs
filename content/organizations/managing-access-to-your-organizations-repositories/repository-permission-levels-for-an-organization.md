@@ -67,8 +67,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Submit reviews on pull requests | **X** | **X** | **X** | **X** | **X** |
 | View published releases | **X** | **X** | **X** | **X** | **X** |{% ifversion fpt %}
 | View [GitHub Actions workflow runs](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run) | **X** | **X** | **X** | **X** | **X** |{% endif %}
-| Edit wikis in public repos | **X** | **X** | **X** | **X** | **X** |{% ifversion fpt %}
-| Edit wikis in private repos | | | **X** | **X** | **X** |
+| Edit wikis in public repositories | **X** | **X** | **X** | **X** | **X** |
+| Edit wikis in private repositories | | | **X** | **X** | **X** |{% ifversion fpt %}
 | [Report abusive or spammy content](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Apply/dismiss labels | | **X** | **X** | **X** | **X** |
 | Create, edit, delete labels | | | **X** | **X** | **X** |
