@@ -49,6 +49,7 @@ jobs:
     steps:
       - name: Add a label to the PR to block deployment during undeployment
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           gh pr edit $PR_NUMBER --add-label "automated-block-deploy"
@@ -117,6 +118,7 @@ jobs:
       - if: ${{ always() }}
         name: Remove the label from the PR to unblock deployment
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           gh pr edit $PR_NUMBER --remove-label "automated-block-deploy"
