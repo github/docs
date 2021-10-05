@@ -29,4 +29,4 @@ If you use Zendesk to track user-reported tickets, for example, you can referenc
 6. Under "Target URL", type the link to the external system you want to link to. Make sure to keep `<num>` as a variable for the reference number.
 ![Field to type URL to external system](/assets/images/help/repository/add-target-url-field.png)
 7. Click **Add autolink reference**.
-![Button to add autolink reference](/assets/images/help/repository/add-autolink-reference.png)
+![Button to add autolink reference](/assets/images/help/repository/add-autolink-reference. configuring-autolinks-to-reference-external-resources.md
