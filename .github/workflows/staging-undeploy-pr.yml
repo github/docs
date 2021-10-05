@@ -51,9 +51,9 @@ jobs:
       - name: Add a label to the PR to block deployment during undeployment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          gh pr edit $PR_NUMBER --add-label "automated-block-deploy"
+          gh pr edit "$PR_URL" --add-label "automated-block-deploy"
 
       - name: Check out repo's default branch
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
@@ -120,9 +120,9 @@ jobs:
         name: Remove the label from the PR to unblock deployment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          gh pr edit $PR_NUMBER --remove-label "automated-block-deploy"
+          gh pr edit "$PR_URL" --remove-label "automated-block-deploy"
 
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
