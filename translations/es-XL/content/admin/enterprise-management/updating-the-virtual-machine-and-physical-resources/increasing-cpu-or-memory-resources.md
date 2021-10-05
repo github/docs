@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Infrastructure

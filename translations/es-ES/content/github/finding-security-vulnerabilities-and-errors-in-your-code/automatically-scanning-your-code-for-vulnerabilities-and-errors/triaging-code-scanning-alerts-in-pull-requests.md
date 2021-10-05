@@ -5,7 +5,7 @@ intro: 'Cuando el {% data variables.product.prodname_code_scanning %} identifica
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -16,7 +16,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-### Acerca de los resultados del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios
+## Acerca de los resultados del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios
 
 En los repositorios donde se configura el {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambios, éste verificará el código en dicha solicitud. Predeterminadamente, esto se limita a solicitudes de cambios que apuntan a la rama predeterminada, pero puedes cambiar esta configuración dentro de {% data variables.product.prodname_actions %} o en un sistema de IC/EC de terceros. Si el fusionar los cambios puede introducir alertas nuevas de {% data variables.product.prodname_code_scanning %} a la rama destino, éstas se reportarán como resultados de verificación en la solicitud de cambios. Las alertas también se muestran como anotaciones en la pestaña de **Archivos que cambiaron** de la solicitud de cambios. Si tienes permisos de escritura para el repositorio, puedes ver cualquier alerta del {% data variables.product.prodname_code_scanning %} existente en la pestaña de **Seguridad**. Para obtener más información sobre las alertas de los repositorios, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_code_scanning %} para tu repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
 
@@ -24,13 +24,13 @@ Si el {% data variables.product.prodname_code_scanning %} presenta cualquier res
 
 ![Verificación fallida del {% data variables.product.prodname_code_scanning %} en una solicitud de cambios](/assets/images/help/repository/code-scanning-check-failure.png)
 
-### Acerca del {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambio
+## Acerca del {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambio
 
 Hay muchas opciones para configurar el {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambio, así que la configuración de cada repositorio variará y algunas tendrán más de una verificación. La verificación que contiene los resultados del {% data variables.product.prodname_code_scanning %} se llama: **Resultados del escaneo de código**.
 
 Si el repositorio utiliza el {% data variables.product.prodname_codeql_workflow %}, se ejecutará una verificación de **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** para cada lenguaje antes de que la verificación de resultados se ejecute. La verificación del análisis podría fallar si existieran problemas de configuración o si la solicitud de cambios impide la compilación para un lenguaje que el análisis necesita compilar (por ejemplo, C/C++, C# o Java). Así como con otras verificaciones de solicitudes de cambios, puedes ver todos los detalles de la falla de la verificación en la pestaña de **Verificaciones**. Para obtener más información acerca de la configuración y la soución de problemas, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" o "[Solucionar problemas del flujo de trabajo de {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)".
 
-### Clasificar una alerta en tu solicitud de cambios
+## Clasificar una alerta en tu solicitud de cambios
 
 Cuando ves la pestaña de **Archivos que cambiaron** en una solicitud de cambios, puedes ver anotaciones de cualquier línea de código que haya activado la alerta.
 
@@ -44,7 +44,7 @@ En la vista detallada de una alerta, algunas herramientas del {% data variables.
 
 ![Descripción de alerta y enlace para mostrar más información](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### Resolver una alerta en tu solicitud de extracción
+## Resolver una alerta en tu solicitud de extracción
 
 Cualquiera con acceso de subida a una solicitud de cambios puede arreglar una alerta del {% data variables.product.prodname_code_scanning %}, la cual se identifique en dicha solicitud. Si confirmas cambios en la solicitud de extracción, esto activará una ejecución nueva de las verificaciones de dicha solicitud. Si tus cambios arreglan el problema, la alerta se cierra y la anotación se elimina.
 

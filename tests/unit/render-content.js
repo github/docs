@@ -165,43 +165,24 @@ describe('renderContent', () => {
 
   test('renders headings at the right level', async () => {
     const template = nl(`
-# This is a level one
+# This is a level 1
 
-## This is a level two
+## This is a level 2
 
-### This is a level three
+### This is a level 3
 
-#### This is a level four
+#### This is a level 4
 
-##### This is a level five
+##### This is a level 5
 `)
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
-    expect(
-      $.html().includes(
-        '<h1 id="this-is-a-level-one"><a href="#this-is-a-level-one">This is a level one</a></h1>'
-      )
-    ).toBeTruthy()
-    expect(
-      $.html().includes(
-        '<h2 id="this-is-a-level-two"><a href="#this-is-a-level-two">This is a level two</a></h2>'
-      )
-    ).toBeTruthy()
-    expect(
-      $.html().includes(
-        '<h3 id="this-is-a-level-three"><a href="#this-is-a-level-three">This is a level three</a></h3>'
-      )
-    ).toBeTruthy()
-    expect(
-      $.html().includes(
-        '<h4 id="this-is-a-level-four"><a href="#this-is-a-level-four">This is a level four</a></h4>'
-      )
-    ).toBeTruthy()
-    expect(
-      $.html().includes(
-        '<h5 id="this-is-a-level-five"><a href="#this-is-a-level-five">This is a level five</a></h5>'
-      )
-    ).toBeTruthy()
+
+    ;[1, 2, 3, 4, 5].forEach((level) => {
+      expect(
+        $(`h${level}#this-is-a-level-${level} a[href="#this-is-a-level-${level}"]`).length
+      ).toBe(1)
+    })
   })
 
   test('does syntax highlighting', async () => {

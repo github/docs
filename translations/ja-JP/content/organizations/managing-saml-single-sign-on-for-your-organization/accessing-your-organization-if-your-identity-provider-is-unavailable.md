@@ -6,13 +6,14 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 利用不可能なアイデンティティプロバイダ
 ---
 
-Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 そうしたリカバリコードを、すでに [ LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[ Keeper](https://keepersecurity.com/) などのパスワードマネージャーに保存しているかもしれません。
+Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% note %}
 
@@ -26,6 +27,6 @@ Organization の管理者は、シングルサインオンをバイパスする�
 
 一度使用したリカバリコードは二度と使用できないということを覚えておいてください。 リカバリコードは再利用できません。
 
-### 参考リンク
+## 参考リンク
 
 - [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)

@@ -2,7 +2,9 @@
 title: Revendo alterações de dependência em um pull request
 intro: 'Se um pull request tiver alterações nas dependências, você poderá ver um resumo do que alterou e se há vulnerabilidades conhecidas em qualquer uma das dependências.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -13,23 +15,22 @@ topics:
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
+shortTitle: Revisar alterações de dependência
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% note %}
+{% data reusables.dependency-review.beta %}
 
-**Observação:** A revisão de dependências está atualmente em fase beta e sujeita a alterações.
-
-{% endnote %}
-
-### Sobre revisão de dependências
+## Sobre revisão de dependências
 
 {% data reusables.dependency-review.feature-overview %}
 
+{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
+
 Revisão de dependência permite a você "desloque para a esquerda". Você pode usar as informações preditivas fornecidas para capturar dependências vulneráveis antes que elas cheguem à produção. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 
-### Revisar as dependências em um pull request
+## Revisar as dependências em um pull request
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

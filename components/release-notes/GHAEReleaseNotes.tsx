@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { ChevronDownIcon } from '@primer/octicons-react'
 import { GHAEReleaseNotePatch } from './GHAEReleaseNotePatch'
 import { GHAEReleaseNotesContextT } from './types'
+import { MarkdownContent } from 'components/ui/MarkdownContent'
 
 type GitHubAEProps = {
   context: GHAEReleaseNotesContextT
@@ -20,7 +21,7 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
           <div></div>
         </div>
 
-        <div className="markdown-body">
+        <MarkdownContent data-search="article-content">
           {releaseNotes.map((patch) => {
             return (
               <GHAEReleaseNotePatch
@@ -30,25 +31,27 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
               />
             )
           })}
-        </div>
+        </MarkdownContent>
       </article>
 
       <aside
-        className="markdown-body position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
+        className="position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
         style={{ width: 260, height: '100vh' }}
       >
         <nav className="height-full overflow-auto">
-          <ul className="list-style-none pl-0 text-bold">
-            {releases.map((release) => {
-              return (
-                <CollapsibleReleaseSection
-                  key={release.version}
-                  release={release}
-                  focusedPatch={focusedPatch}
-                />
-              )
-            })}
-          </ul>
+          <MarkdownContent data-search="article-content">
+            <ul className="list-style-none pl-0 text-bold">
+              {releases.map((release) => {
+                return (
+                  <CollapsibleReleaseSection
+                    key={release.version}
+                    release={release}
+                    focusedPatch={focusedPatch}
+                  />
+                )
+              })}
+            </ul>
+          </MarkdownContent>
         </nav>
       </aside>
     </div>
@@ -78,10 +81,10 @@ const CollapsibleReleaseSection = ({
         open={defaultIsOpen}
         onToggle={onToggle}
       >
-        <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
+        <summary className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between outline-none">
           {release.version}
           <div className="d-flex">
-            <span className="color-text-tertiary text-mono text-small text-normal mr-1">
+            <span className="color-text-tertiary text-small text-normal mr-1">
               {release.patches.length} releases
             </span>
             <ChevronDownIcon className={isOpen ? 'rotate-180' : ''} />

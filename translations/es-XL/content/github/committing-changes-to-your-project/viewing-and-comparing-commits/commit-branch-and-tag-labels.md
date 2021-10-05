@@ -5,9 +5,9 @@ redirect_from:
   - /articles/commit-branch-and-tag-labels
   - /github/committing-changes-to-your-project/commit-branch-and-tag-labels
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 Si tu confirmación no está en la rama predeterminada, un indicador mostarará las ramas que contienen la confirmación. Si la confirmación es parte de una solicitud de extracción no fusionada, mostrará un enlace.
 

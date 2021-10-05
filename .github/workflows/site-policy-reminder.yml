@@ -10,7 +10,7 @@ on:
 
 jobs:
   run:
-    if: |
+    if: >-
       github.event.label.name == 'Site Policy' &&
       github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest

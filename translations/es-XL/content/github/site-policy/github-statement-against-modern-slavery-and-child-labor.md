@@ -3,7 +3,7 @@ title: Acuerdo de GitHub contra la esclavitud moderna y el trabajo infantil
 redirect_from:
   - /articles/github-statement-against-modern-slavery-and-child-labor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

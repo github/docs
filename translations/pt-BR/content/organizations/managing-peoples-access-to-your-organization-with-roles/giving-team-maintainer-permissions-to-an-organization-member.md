@@ -6,17 +6,18 @@ redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Permissões de mantenedor da equipe
 ---
 
 {% data reusables.organizations.team_maintainers_can %}
 
-### Promover um integrante de organização a mantenedor de equipe
+## Promover um integrante de organização a mantenedor de equipe
 
 Antes de promover um integrante de organização a mantenedor de equipe, a pessoa já deve ser um integrante da equipe.
 

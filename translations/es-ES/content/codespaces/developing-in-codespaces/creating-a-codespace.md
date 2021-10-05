@@ -1,12 +1,13 @@
 ---
 title: Crear un codespace
 intro: Puedes crear un codespace para una rama en un repositorio para desarrollar en línea.
-permissions: 'Anyone can create a codespace for any public repository, or for any repository owned by their user account.'
+product: '{% data reusables.gated-features.codespaces %}'
+permissions: '{% data reusables.codespaces.availability %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -14,48 +15,59 @@ topics:
   - Developer
 ---
 
-{% data reusables.codespaces.release-stage %}
-
-### Acerca de la creación de codespaces
+## Acerca de la creación de codespaces
 
 Puedes crear un codespace ya sea en {% data variables.product.prodname_dotcom_the_website %} o en {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.codespaces-are-personal %}
 
 Los codespaces se asocian con una rama específica de un repositorio y este repositorio no puede estar vacío. {% data reusables.codespaces.concurrent-codespace-limit %} Para obtener más información, consulta la sección "[Borrar un codespace](/github/developing-online-with-codespaces/deleting-a-codespace)".
 
 
-Cuando creas un codespace, suceden ciertos pasos para habilitar el acceso completo a tu ambiente de desarrollo.
+When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
-- Se asignan los recursos tales como MV y almacenamiento para tu contenedor. Se crea una MV cada vez que creas o inicias un codespace para garantizar que siempre tengas las versiones y parches de seguridad más recientes.
-- {% data variables.product.prodname_codespaces %} recibe información de tu repositorio, rama, confirmaciones, tu repositorio de dotfiles público y de cualquier secreto que hayas creado.
-- {% data variables.product.prodname_codespaces %} ejecuta un clon llano del repositorio.
-- Si tienes uno en tu repositorio, {% data variables.product.prodname_codespaces %} ejecutará el archivo `devcontainer.json`. Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_codespaces %} para tu proyecto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)".
-- Se ejecuta tu contenedor de Docker, `docker-compose` u otra inicialización.
-- En este punto, el codespace se marca como disponible y puedes conectarte.
-- Una vez que el codespace se hace disponible, dependiendo de los comandos del contenedor dev, el codespace seguirá con algunas configuraciones.
-  - El codespace comparte los puertos que se agregaron en el archivo `devcontainer.json`.
-  - El codespace ejecuta lo que sea que se haya especificado en `postCreateCommand`.
-  - Los {% data variables.product.prodname_codespaces %} clonan tu repositorio de dotfiles en el ambiente de codespaces y buscan un archivo de instalación. Para obtener más información, consulta la sección "[Personalizar {% data variables.product.prodname_codespaces %} para tu cuenta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
-  - Por fin, el codespace hace un clone integral del repositorio para que tengas acceso total a él.
+- Step 1: VM and storage are assigned to your codespace.
+- Step 2: Container is created and your repository is cloned.
+- Step 3: You can connect to the codespace.
+- Step 4: Codespace continues with post-creation setup.
 
+For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
-### Crear un codespace
+## Access to {% data variables.product.prodname_codespaces %}
+
+{% data reusables.codespaces.availability %}
+
+When you have access to {% data variables.product.prodname_codespaces %}, you'll see a "Codespaces" tab within the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu when you view a repository.
+
+You'll have access to codespaces under the following conditions:
+
+* You are a member of an organization that has enabled {% data variables.product.prodname_codespaces %} and set a spending limit.
+* An organization owner has granted you access to {% data variables.product.prodname_codespaces %}.
+* The repository is owned by the organization that has enabled {% data variables.product.prodname_codespaces %}.
+
+{% note %}
+
+**Note:** Individuals who have already joined the beta with their personal {% data variables.product.prodname_dotcom %} account will not lose access to {% data variables.product.prodname_codespaces %}, however {% data variables.product.prodname_codespaces %} for individuals will continue to remain in beta.
+
+{% endnote %}
+
+Organization owners can allow all members of the organization to create codespaces, limit codespace creation to selected organization members, or disable codespace creation. For more information about managing access to codespaces within your organization, see "[Enable Codespaces for users in your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#enable-codespaces-for-users-in-your-organization)."
+
+Before {% data variables.product.prodname_codespaces %} can be used in an organization, an owner or billing manager must have set a spending limit. For more information, see "[About spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces#about-spending-limits-for-codespaces)."
+
+If you would like to create a codespace for a repository owned by your personal account or another user, and you have permission to create repositories in an organization that has enabled {% data variables.product.prodname_codespaces %}, you can fork user-owned repositories to that organization and then create a codespace for the fork.
+
+## Crear un codespace
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Debajo del nombre de repositorio, utiliza el menú desplegable de "Rama" y selecciona aquella en la que quieras crear un codespace.
 
   ![Menú desplegable de rama](/assets/images/help/codespaces/branch-drop-down.png)
 
-3. Debajo del nombre del repositorio, utiliza el menú desplegable {% octicon "download" aria-label="The download icon" %} **Código**, y selecciona **Abrir con codespaces**.
-
-  ![Botón de abrir con codespaces](/assets/images/help/codespaces/open-with-codespaces-button.png)
-
-4. Para crear un codespace utilizando un tipo de máquina estándar, haz clic en {% octicon "plus" aria-label="The plus icon" %}**Codespace nuevo**.
+3. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
 
   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
-
-   
+   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog, choose a machine type and then click **Create codespace**. ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)

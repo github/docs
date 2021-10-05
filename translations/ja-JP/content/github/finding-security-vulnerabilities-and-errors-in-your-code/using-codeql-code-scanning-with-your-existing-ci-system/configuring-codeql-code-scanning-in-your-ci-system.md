@@ -3,9 +3,9 @@ title: CI システムで CodeQL コードスキャンを設定する
 shortTitle: CI での設定
 intro: '{% data variables.product.prodname_codeql_runner %} がプロジェクトのコードをスキャンして、その結果を {% data variables.product.prodname_dotcom %} にアップロードする方法を設定できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -14,11 +14,11 @@ redirect_from:
 
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### CI システムにおける {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} の設定について
+## CI システムにおける {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} の設定について
 
 {% data variables.product.prodname_code_scanning %} をお使いの CI システムに統合するには、{% data variables.product.prodname_codeql_runner %} を使用できます。 詳しい情報については、「[CI システムで {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を実行する](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)」を参照してください。
 
@@ -33,7 +33,7 @@ $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 
 {% data variables.product.prodname_codeql_runner %} がコードをスキャンする方法をカスタマイズするには、`--languages` や `--queries` などのフラグを用いるか、別の設定ファイルでカスタム設定を指定します。
 
-### プルリクエストをスキャンする
+## プルリクエストをスキャンする
 
 プルリクエストが作成されるたびにコードをスキャンすることで、開発者がコードに新しい脆弱性やエラーを持ち込むことを防げます。
 
@@ -49,7 +49,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% endnote %}
 
-### 自動言語検出をオーバーライドする
+## 自動言語検出をオーバーライドする
 
 {% data variables.product.prodname_codeql_runner %} は、サポートされている言語で記述されたコードを自動的に検出してスキャンします。
 
@@ -57,13 +57,13 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-自動言語検出をオーバーライドするには、`init` コマンドに `--languages` フラグを付け、その後に言語のキーワードリストをカンマ区切りで追加して、実行します。 The keywords for the supported languages are {% data reusables.code-scanning.codeql-languages-keywords %}.
+自動言語検出をオーバーライドするには、`init` コマンドに `--languages` フラグを付け、その後に言語のキーワードリストをカンマ区切りで追加して、実行します。 サポートされている言語に対するキーワードは{% data reusables.code-scanning.codeql-languages-keywords %}です。
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-### 追加のクエリを実行する
+## 追加のクエリを実行する
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -80,7 +80,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-### サードパーティのコードスキャンツールを使用する
+## サードパーティのコードスキャンツールを使用する
 
 {% data variables.product.prodname_codeql_runner %} コマンドに追加情報を渡すかわりに、別の設定ファイルでカスタム設定を指定できます。
 
@@ -94,11 +94,11 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-#### 設定ファイルの例
+### 設定ファイルの例
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### コンパイルされた言語の {% data variables.product.prodname_code_scanning %} を設定する
+## コンパイルされた言語の {% data variables.product.prodname_code_scanning %} を設定する
 
 コンパイル言語の C/C++、C#、および Java では、{% data variables.product.prodname_codeql %} は解析前にコードをビルドします。 {% data reusables.code-scanning.analyze-go %}
 
@@ -112,7 +112,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 `autobuild` コマンドがコードをビルドできない場合、`init` と`analyze` のステップの間にビルドのステップを手動で実行できます。 詳しい情報については、「[CI システムで {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を実行する](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)」を参照してください。
 
-### {% data variables.product.prodname_code_scanning %} 用の設定ファイルを作成できます。
+## {% data variables.product.prodname_code_scanning %} 用の設定ファイルを作成できます。
 
 デフォルトでは、{% data variables.product.prodname_codeql_runner %} は `analyze` コマンドを実行した際の {% data variables.product.prodname_code_scanning %} による結果をアップロードします。 また、`upload` コマンドを使用して、SARIF ファイルを別にアップロードすることもできます。
 
@@ -120,11 +120,11 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 - `--ref refs/pull/42/merge` や `--ref refs/pull/42/head` などのようにプルリクエストにアップロードした場合、結果はプルリクエストのチェックでアラートとして表示されます。 詳しい情報については、「[プルリクエストでコードスキャンアラートをトリアージする](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
 - `--ref refs/heads/my-branch` といったようにブランチにアップロードした場合、結果はリポジトリの [**Security**] タブに表示されます。 詳しい情報については、「[リポジトリの コードスキャンアラートを管理する](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
-### {% data variables.product.prodname_codeql_runner %} コマンドのリファレンス
+## {% data variables.product.prodname_codeql_runner %} コマンドのリファレンス
 
 {% data variables.product.prodname_codeql_runner %} は、次のコマンドおよびフラグをサポートしています。
 
-#### `init`
+### `init`
 
 {% data variables.product.prodname_codeql_runner %} を初期化し、解析する各言語用の {% data variables.product.prodname_codeql %} データベースを作成します。
 
@@ -143,7 +143,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--debug`                        |    | なし. より詳細な出力を表示します。                                                                                                                                 |
 | `-h`, `--help`                   |    | なし. コマンドのヘルプを表示します。                                                                                                                                |
 
-#### `autobuild`
+### `autobuild`
 
 コンパイル型言語である C/C++、C#、および Java のコードのビルドを試行します。 これらの言語では、{% data variables.product.prodname_codeql %} は解析前にコードをビルドします。 `autobuild` を、`init` と `analyze` のステップの間に実行します。
 
@@ -154,7 +154,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--debug`                   |    | なし. より詳細な出力を表示します。                                                                                 |
 | `-h`, `--help`              |    | なし. コマンドのヘルプを表示します。                                                                                |
 
-#### `analyze`
+### `analyze`
 
 {% data variables.product.prodname_codeql %} データベースにあるコードを解析し、結果を {% data variables.product.product_name %} にアップロードします。
 
@@ -175,7 +175,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--debug`                          |    | なし. より詳細な出力を表示します。                                                                                                                                            |
 | `-h`, `--help`                     |    | なし. コマンドのヘルプを表示します。                                                                                                                                           |
 
-#### `アップロード`
+### `アップロード`
 
 SARIF ファイルを {% data variables.product.product_name %} にアップロードします。
 

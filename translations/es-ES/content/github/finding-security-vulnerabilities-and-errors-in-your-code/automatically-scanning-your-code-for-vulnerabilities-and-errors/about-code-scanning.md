@@ -3,7 +3,7 @@ title: Acerca del escaneo de código
 intro: 'Puedes utilizar {% data variables.product.prodname_code_scanning %} para encontrar vulnerabilidades de seguridad y errores en el código de tu proyecto en {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -15,7 +15,7 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Acerca de {% data variables.product.prodname_code_scanning %}
+## Acerca de {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %}
 
@@ -27,7 +27,7 @@ Para monitorear los resultados del {% data variables.product.prodname_code_scann
 
 Para iniciar con el {% data variables.product.prodname_code_scanning %}, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
-### Acerca de {% data variables.product.prodname_codeql %}
+## Acerca de {% data variables.product.prodname_codeql %}
 
 Puedes ver y contribuir con las consultas para {% data variables.product.prodname_code_scanning %} en el repositorio [`github/codeql`](https://github.com/github/codeql). {% data variables.product.prodname_codeql %} trata el código como datos, lo cual te permite encontrar vulenrabilidades potenciales en tu código con más confianza que en los anallizadores estáticos trandicionales.
 
@@ -39,7 +39,7 @@ Para obtener más información acerca de las terminales de la API para {% data v
 
 Puedes ver y contribuir con las consultas para {% data variables.product.prodname_code_scanning %} en el repositorio [`github/codeql`](https://github.com/github/codeql). Para obtener más información, consulta la sección [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) en la documentación de {% data variables.product.prodname_codeql %}.
 
-### Acerca de las herramientas de escaneo de código de terceros
+## Acerca de las herramientas de escaneo de código de terceros
 
 {% data reusables.code-scanning.you-can-upload-third-party-analysis %}
 
@@ -47,7 +47,7 @@ Puedes ver y contribuir con las consultas para {% data variables.product.prodnam
 
 {% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### Leer más
+## Leer más
 
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) en el sitio web del Comité OASIS

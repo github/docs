@@ -1,10 +1,10 @@
 ---
 title: Resumen
-intro: 'Aprende sobre las API de {% data variables.product.prodname_dotcom %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} y asegura tus despliegues.{% else %}, asegura tus despliegues y únete al Programa de Desarrolladores de {% data variables.product.prodname_dotcom %}.{% endif %}'
+intro: 'Aprende sobre las API de {% data variables.product.prodname_dotcom %}{% ifversion ghes or ghae %} y asegura tus despliegues.{% else %}, asegura tus despliegues y únete al Programa de Desarrolladores de {% data variables.product.prodname_dotcom %}.{% endif %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-githubs-apis
   - /managing-deploy-keys

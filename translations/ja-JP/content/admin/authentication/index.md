@@ -4,8 +4,8 @@ intro: 'ユーザが {% data variables.product.product_name %} にサインイ�
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
