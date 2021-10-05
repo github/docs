@@ -4,7 +4,7 @@ redirect_from:
   - /law-enforcement-guidelines/
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -18,7 +18,7 @@ In diesen Richtlinien geben wir einen kleinen Hintergrund darüber, was GitHub i
 - Wir werden **Standortverfolgungsdaten** nicht ohne einen [gültigen Gerichtsbeschluss oder einen Druchsuchungsbefehl](#with-a-court-order-or-a-search-warrant) weitergeben.
 - Wir werden keine **privaten Benutzerinhalte**, einschließlich des Inhalts privater Repositorys ,ohne einen gültigen [Durchsuchungsbefehl](#only-with-a-search-warrant) offen legen.
 
-### Über diese Richtlinien
+## Über diese Richtlinien
 
 Unsere Benutzer vertrauen uns ihre Softwareprojekte und ihren Code an - oft einige ihrer wertvollsten geschäftlichen oder persönlichen Ressourcen. Die Aufrechterhaltung dieses Vertrauens ist für uns von wesentlicher Bedeutung, was bedeutet, dass Benutzerdaten sicher, geschützt und privat bleiben müssen.
 
@@ -26,7 +26,7 @@ Während die überwältigende Mehrheit unserer Benutzer die Dienste von GitHub n
 
 Durch die Bereitstellung von Richtlinien für das Personal von Strafverfolgungsbehörden hoffen wir, einen Ausgleich zwischen den oftmals entgegengesetzten Interessen der Privatsphäre der Benutzer und der Rechtsprechung zu schaffen. Wir hoffen, dass diese Richtlinien dazu beitragen werden, Erwartungen auf beiden Seiten zu setzen und die internen Prozesse von GitHub transparenter zu gestalten. Unsere Benutzer sollten wissen, dass wir ihre privaten Informationen schätzen und dass wir alles in unserer Macht Stehende tun, um sie zu schützen. Dies bedeutet zumindest, dass Daten nur dann an Dritte weitergegeben werden, wenn die entsprechenden gesetzlichen Anforderungen erfüllt sind. Aus dem gleichen Grund hoffen wir auch, die Mitarbeiter der Strafverfolgungsbehörden über die Systeme von GitHub aufzuklären, damit sie ihre Datenanfragen effizienter formulieren und genau auf die Informationen abzielen können, die sie für ihre Ermittlungen benötigen.
 
-### GitHub-Terminologie
+## GitHub-Terminologie
 
 Bevor Sie uns auffordern, Daten offenzulegen, kann es nützlich sein, zu verstehen, wie unser System implementiert wird. GitHub hostet Millionen von Datenrepositorys mit dem [Git-Versionskontollsystem](https://git-scm.com/video/what-is-version-control). Repositorys auf GitHub - die öffentlich oder privat sein können - werden am häufigsten für Softwareentwicklungsprojekte verwendet, aber auch zur Bearbeitung unterschiedlichster Inhalte.
 
@@ -42,7 +42,7 @@ Bevor Sie uns auffordern, Daten offenzulegen, kann es nützlich sein, zu versteh
 
 - [**Gists**](/articles/creating-gists) — Gists sind Ausschnitte von Quellcode oder anderem Text, mit dem Benutzer Ideen speichern oder mit Freunden teilen können. Wie normale GitHub-Repositorys werden Gists mit Git erstellt, so dass sie automatisch versioniert, forkbar und herunterladbar sind. Gists können entweder öffentlich oder geheim (nur über eine bekannte URL zugänglich) sein. Öffentliche Gists können nicht in geheime Gists umgewandelt werden.
 
-### Benutzerdaten auf GitHub.com
+## Benutzerdaten auf GitHub.com
 
 Im Folgenden finden Sie eine nicht allumfassende Liste der verschiedenen Typen von Daten, die wir über Benutzer und Projekte auf GitHub führen.
 
@@ -102,11 +102,11 @@ Im Folgenden finden Sie eine nicht allumfassende Liste der verschiedenen Typen v
 - <a name="other-data"></a>
 **Sonstige Daten** — Darüber hinaus sammelt GitHub Analysedaten wie Seitenbesuche und Informationen, die gelegentlich von unseren Nutzern freiwillig zur Verfügung gestellt werden (z. B. Kommunikation mit unserem Support-Team, Umfrageinformationen und/oder Website-Registrierungen).
 
-### Wir werden alle betroffenen Kontoinhaber benachrichtigen
+## Wir werden alle betroffenen Kontoinhaber benachrichtigen
 
-Es ist unsere Richtlinie, Benutzer über ausstehende Anfragen in Bezug auf ihre Konten oder Repositorys zu informieren, es sei denn, uns ist dies per Gesetz oder Gerichtsbeschluss untersagt. Vor der Offenlegung von Benutzerinformationen werden wir uns bemühen, betroffene Kontoinhaber zu benachrichtigen, indem wir eine Nachricht an ihre verifizierte E-Mail-Adresse senden, die eine Kopie der Vorladung, eines Gerichtsbeschlusses oder eines Haftbefehls enthält, damit sie die Möglichkeit haben, das Gerichtsverfahren anzufechten, wenn sie dies wünschen. Unter (seltenen) Umständen können wir die Benachrichtigung verzögern, wenn wir feststellen, dass eine Verzögerung notwendig ist, um Tod oder schweren Schaden zu verhindern.
+Es ist unsere Richtlinie, Benutzer über ausstehende Anfragen in Bezug auf ihre Konten oder Repositorys zu informieren, es sei denn, uns ist dies per Gesetz oder Gerichtsbeschluss untersagt. Vor der Offenlegung von Benutzerinformationen werden wir uns bemühen, betroffene Kontoinhaber zu benachrichtigen, indem wir eine Nachricht an ihre verifizierte E-Mail-Adresse senden, die eine Kopie der Vorladung, eines Gerichtsbeschlusses oder eines Haftbefehls enthält, damit sie die Möglichkeit haben, das Gerichtsverfahren anzufechten, wenn sie dies wünschen. In (rare) exigent circumstances, we may delay notification if we determine delay is necessary to prevent death or serious harm or due to an ongoing investigation.
 
-### Offenlegung nicht öffentlicher Informationen
+## Offenlegung nicht öffentlicher Informationen
 
 Es ist unsere Richtlinie, nicht öffentliche Benutzerinformationen im Zusammenhang mit einer zivil- oder strafrechtlichen Untersuchung mit der Zustimmung des Benutzers oder nach Erhalt einer gültigen Vorladung, eines zivilen Ermittlungsantrags, eines Gerichtsbeschlusses, eines Durchsuchungsbefehls oder eines anderen ähnlich gültigen rechtlichen Verfahrens offenzulegen. Unter bestimmten dringenden Umständen (siehe unten) können wir auch begrenzte Informationen weitergeben, allerdings nur entsprechend der Art der Umstände, wobei für alle weiteren Informationen ein Gerichtsverfahren erforderlich wäre. GitHub behält sich das Recht vor, Anfragen nach nicht öffentlichen Informationen abzulehnen. Sofern GitHub zustimmt, nicht öffentliche Informationen als Antwort auf eine rechtmäßige Anfrage bereitzustellen, werden wir eine angemessene Suche nach den angeforderten Informationen durchführen. Nachstehend finden Sie die verschiedenen Arten von Informationen, die wir je nach Art des Gerichtsverfahrens, das uns vorgelegt wird, zur Verfügung stellen werden:
 
@@ -147,7 +147,7 @@ Bitte beachten Sie, dass die verfügbaren Informationen von Fall zu Fall variier
 - <a name="in-exigent-circumstances"></a>
 **Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
 
-### Kostenerstattung
+## Kostenerstattung
 
 Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
 
@@ -158,11 +158,11 @@ While we do not charge in emergency situations or in other exigent circumstances
 - Production of subscriber information/data for more than 5 accounts: $20 per account
 - Secondary searches: $10 per search
 
-### Datenaufbewahrung
+## Datenaufbewahrung
 
 We will take steps to preserve account records for up to 90 days upon formal request from U.S. law enforcement in connection with official criminal investigations, and pending the issuance of a court order or other process.
 
-### Einreichen von Anfragen
+## Einreichen von Anfragen
 
 Bitte stellen Sie Anfragen an:
 
@@ -172,6 +172,8 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505, USA.
 ```
+
+Courtesy copies may be emailed to legal@support.github.com.
 
 Bitte formulieren Sie Ihre Wünsche so spezifisch und begrenzt wie möglich, einschließlich der folgenden Informationen:
 
@@ -184,10 +186,10 @@ Bitte formulieren Sie Ihre Wünsche so spezifisch und begrenzt wie möglich, ein
 
 Bitte geben Sie uns mindestens zwei Wochen Zeit, um wir Ihre Anfrage zu überprüfen.
 
-### Anfragen von ausländischen Strafverfolgungsbehörden
+## Anfragen von ausländischen Strafverfolgungsbehörden
 
 Als US-amerikanisches Unternehmen mit Sitz in Kalifornien ist GitHub nicht verpflichtet, aufgrund von Rechtsverfahren, die von ausländischen Behörden eingeleitet wurden, Daten an ausländische Regierungen zu übermitteln. Ausländische Strafverfolgungsbeamte, die Informationen von GitHub anfordern möchten, sollten sich an das Office of International Affairs des United States Department of Justice Criminal Division wenden. GitHub wird umgehend auf Anfragen reagieren, die über ein US-Gericht mittels eines Rechtshilfeabkommens ("MLAT") bzw. eines Rechtshilfeersuchens gestellt werden. court by way of a mutual legal assistance treaty (“MLAT”) or letter rogatory.
 
-### Fragen
+## Fragen
 
 Haben Sie weitere Fragen, Kommentare oder Anregungen? Bitte kontaktieren Sie uns über {% data variables.contact.contact_support %}.

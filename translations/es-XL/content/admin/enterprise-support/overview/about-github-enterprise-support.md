@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
   - /admin/enterprise-support/about-github-enterprise-support
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Support

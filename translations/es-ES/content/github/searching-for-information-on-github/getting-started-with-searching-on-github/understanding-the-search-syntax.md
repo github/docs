@@ -6,14 +6,15 @@ redirect_from:
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
+shortTitle: Entender la sintaxis de búsqueda
 ---
 
-### Consulta para valores mayores o menores que otro valor
+## Consulta para valores mayores o menores que otro valor
 
 Puedes utilizar `>`, `>=`, `<` y `<=` para buscar valores que sean mayores, mayores o iguales, menores y menores o iguales a otro valor.
 
@@ -31,7 +32,7 @@ También puedes utilizar [consultas por rango](#query-for-values-between-a-range
 | <code><em>n</em>..*</code> | **[gatos estrellas:10..*](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..*&type=Repositories)** equivale a `estrellas:>=10` y busca repositorios con la palabra "gatos" que tengan 10 o más estrellas.         |
 | <code>*..<em>n</em></code> | **[gatos estrellas:*..10](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A%22*..10%22&type=Repositories)** equivale a `estrellas:<=10` y busca repositorios con la palabra "gatos" que tengan 10 o menos estrellas. |
 
-### Consulta para valores entre un rango
+## Consulta para valores entre un rango
 
 Puedes utilizar la sintaxis de rango <code><em>n</em>..<em>n</em></code> para buscar valores dentro de un rango, en los que el primer número _n_ sea el valor más bajo y el segundo sea el valor más alto.
 
@@ -39,7 +40,7 @@ Puedes utilizar la sintaxis de rango <code><em>n</em>..<em>n</em></code> para bu
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code><em>n</em>..<em>n</em></code> | **[gatos estrellas:10..50](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..50&type=Repositories)** busca repositorios con la palabra "gatos" que tengan entre 10 y 50 estrellas. |
 
-### Consulta por fechas
+## Consulta por fechas
 
 Puedes buscar fechas que sean anteriores o posteriores a otra fecha o que entren en un rango de fechas, utilizando `>`, `>=`, `<`, `<=` y [consultas por rango](#query-for-values-between-a-range). {% data reusables.time_date.date_format %}
 
@@ -60,7 +61,7 @@ Puedes buscar fechas que sean anteriores o posteriores a otra fecha o que entren
 | <code><em>AAAA</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[gatos creados:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** busca propuestas creadas entre el 1 de enero de 2017 a la 1 a. m. con una compensación de UTC de `07:00` y el 1 de marzo de 2017 a las 3 p. Con un desplazamiento UTC de `07:00` y 1 de marzo de 2017 a las 3 p.m. m. con una compensación de UTC de `07:00`. |
 | <code><em>AAAA</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[gatos creados:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** busca propuestas creadas entre el 21 de marzo de 2016 a las 2:11 p. m. y el 7 de abril de 2106 a las 8:45 p. m.                                                                                                                                                                           |
 
-### Excluye determinados resultados
+## Excluye determinados resultados
 
 Puedes excluir resultados que contengan una determinada palabra utilizando la sintaxis `NOT` (NO). El operador `NOT` solo se puede utilizar para las palabras clave en cadena. No funciona para números o fechas.
 
@@ -75,7 +76,7 @@ Otra manera de reducir los resultados de búsqueda es excluir determinados subco
 | <code>-<em>CALIFICADOR</em></code> | **[cats stars:>10 -language:javascript](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** coincidirá con los repositorios que tengan la palabra "cats" y tengan más de 10 estrellas, pero no se hayan escrito en JavaScript. |
 |                            | **[menciones:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** busca propuestas que mencionan a @defunkt y no estén en repositorios de la organización de GitHub                                      |
 
-### Utiliza comillas para las consultas con espacios en blanco
+## Utiliza comillas para las consultas con espacios en blanco
 
 Si tu consulta de búsqueda contiene espacios en blanco, tendrás que encerrarla entre comillas. Por ejemplo:
 
@@ -84,8 +85,8 @@ Si tu consulta de búsqueda contiene espacios en blanco, tendrás que encerrarla
 
 Algunos símbolos que no son alfanuméricos, como los espacios, se quitan de las consultas de búsqueda de código que van entre comillas; por lo tanto, los resultados pueden ser imprevistos.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-### Consultas con nombres de usuario
+{% ifversion fpt or ghes or ghae %}
+## Consultas con nombres de usuario
 
 Si tu consulta de búsqueda contiene un calificador que requiere un nombre de usuario, tal como `user`, `actor`, o `assignee`, puedes utilizar cualquier nombre de usuario de {% data variables.product.product_name %} para especificar una persona en concreto, o utilizar `@me`, para especificar el usuario actual.
 

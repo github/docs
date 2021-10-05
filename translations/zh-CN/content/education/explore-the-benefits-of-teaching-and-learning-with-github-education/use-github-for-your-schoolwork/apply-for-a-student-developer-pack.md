@@ -7,12 +7,13 @@ redirect_from:
   - /articles/applying-for-a-student-developer-pack
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 申请学生包
 ---
 
 {% data reusables.education.about-github-education-link %}
 
-### 要求
+## 要求
 
 要获得申请 {% data variables.product.prodname_student_pack %} 的资格，必须：
 - 现正攻读学位或文凭授予课程，如高中、初中、大专、大学、自主学习或类似教育机构
@@ -32,7 +33,7 @@ versions:
 
 有关续订 {% data variables.product.prodname_student_pack %} 的信息，请参阅“[到期和续订](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)”。
 
-### 申请 {% data variables.product.prodname_student_pack %}
+## 申请 {% data variables.product.prodname_student_pack %}
 
 {% data reusables.education.benefits-page %}
 3. 在 "Which best describes your academic status?"（哪一项最准确描述了您的学业身份？）下，选择 **Student（学生）**。 ![选择学籍](/assets/images/help/education/academic-status-student.png)
@@ -42,13 +43,13 @@ versions:
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### 到期和续订
+## 到期和续订
 
 在您的 {% data variables.product.prodname_student_pack %} 访问权限到期后，如果您仍有资格，您可以重新申请，但有些合作伙伴可能不提供续订服务。 合作伙伴的大多数计时特惠在您设置后便开始。 更多信息请参阅 [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) 页面。
 
 要查看您对 {% data variables.product.prodname_student_pack %} 的免费访问何时到期，请访问您帐户的[帐单设置](https://github.com/settings/billing)。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[我的 {% data variables.product.prodname_student_pack %} 申请为什么未获得批准？](/articles/why-wasn-t-my-application-for-a-student-developer-pack-approved)"
 - "[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)"

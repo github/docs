@@ -5,9 +5,10 @@ redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Adicionar um código de conduta
 ---
 
 Um *código de conduta* define padrões de como se engajar em uma comunidade. Ele sinaliza um ambiente inclusivo que respeita todas as contribuições. Ele também descreve procedimentos para solucionar problemas entre integrantes da comunidade do projeto. Para obter mais informações sobre por que um código de conduta define padrões e expectativas de como se engajar em uma comunidade, consulte [Open Source Guide](https://opensource.guide/code-of-conduct/) (Guia de código aberto).
@@ -21,7 +22,7 @@ Você pode adicionar um código de conduta ao seu projeto usando um modelo ou cr
 
 Você pode criar um código de conduta padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
-### Adicionar um código de conduta usando um modelo
+## Adicionar um código de conduta usando um modelo
 
 O {% data variables.product.product_name %} fornece modelos para códigos de conduta comuns de modo a ajudar você a adicionar rapidamente um código de conduta ao seu projeto.
 
@@ -37,7 +38,7 @@ O {% data variables.product.product_name %} fornece modelos para códigos de con
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Adicionar um código de conduta manualmente
+## Adicionar um código de conduta manualmente
 
 Se o código de conduta que você deseja usar não estiver disponível nos modelos fornecidos, você pode adicionar um código de conduta manualmente.
 

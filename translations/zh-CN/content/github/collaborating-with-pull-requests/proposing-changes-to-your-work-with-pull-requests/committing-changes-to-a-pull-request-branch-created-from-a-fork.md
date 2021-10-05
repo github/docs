@@ -6,11 +6,12 @@ redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 从复刻提交到 PR 分支
 ---
 
 在拉取请求分支上进行提交必须满足以下条件：
@@ -86,6 +87,6 @@ topics:
 
 您的新提交将反映在 {% data variables.product.product_location %} 上的原始拉取请求中。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于复刻](/articles/about-forks)"

@@ -6,7 +6,8 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Utilizar el importador de GitHub
 ---
 
 {% tip %}
@@ -32,6 +33,6 @@ Si quieres hacer coincidir las confirmaciones de tu repositorio con las cuentas 
 
 Recibirás un correo electrónico cuando se haya importado todo el repositorio.
 
-### Leer más
+## Leer más
 
 - "[Actualizar la atribución del autor de la confirmación con Importador GitHub ](/articles/updating-commit-author-attribution-with-github-importer)"

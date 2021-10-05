@@ -2,7 +2,9 @@
 title: Revisar los cambios de las dependencias en una solicitud de cambios
 intro: 'Si una solicitud de cambios contiene cambios a las dependencias, puedes ver un resumen de lo que ha cambiado y si es que existen vulnerabilidades conocidas en cualquiera de estas dependencias.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -13,23 +15,22 @@ topics:
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
+shortTitle: Revisar los cambios de dependencia
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% note %}
+{% data reusables.dependency-review.beta %}
 
-**Nota:** Las revisiones de dependencias se encuentran actualmente en beta y están sujetas a cambios.
-
-{% endnote %}
-
-### Acerca de la revisión de dependencias
+## Acerca de la revisión de dependencias
 
 {% data reusables.dependency-review.feature-overview %}
 
+{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Habilitar las alertas para las dependencias vulnerables en {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
+
 La revisión de dependencias te permite "desplazarte a la izquierda". Puedes utilizar la información predictiva que se te proporciona para detectar dependencias vulnerables antes de que lleguen a tu ambiente productivo. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
 
-### Revisar las dependencias en una solicitud de cambios
+## Revisar las dependencias en una solicitud de cambios
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

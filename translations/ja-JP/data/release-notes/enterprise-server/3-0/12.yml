@@ -1,0 +1,22 @@
+---
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - 'Custom pre-receive hooks could lead to an error like `error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates`.'
+    - Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.
+    - A significant number of 503 errors were logged every time a user visited a repository''s `/settings` page if the dependency graph was not enabled.
+    - Internal repositories were only returned when a user had affiliations with the repository through a team or through collaborator status, or queried with the `?type=internal` parameter.
+    - Failed background jobs had unlimited retries which could cause large queue depths.
+    - A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.
+  changes:
+    - The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.
+  known_issues:
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

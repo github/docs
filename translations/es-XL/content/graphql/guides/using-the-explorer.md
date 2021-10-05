@@ -4,9 +4,9 @@ intro: 'Puedes ejecutar consultas en datos reales de {% data variables.product.p
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

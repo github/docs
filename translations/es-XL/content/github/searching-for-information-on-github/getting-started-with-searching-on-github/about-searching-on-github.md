@@ -10,9 +10,9 @@ redirect_from:
   - /articles/about-searching-on-github
   - /github/searching-for-information-on-github/about-searching-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---

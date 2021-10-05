@@ -19,6 +19,8 @@ release_notes:
 search:
   need_help: Precisa de ajuda?
   placeholder: Pesquisar tópicos, produtos...
+  loading: Carregando
+  no_results: Nenhum resultado encontrado
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
@@ -44,8 +46,6 @@ survey:
   able_to_find: Esse documento ajudou você?
   yes: true
   no: false
-  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
-  no_feedback: Estamos constantemente melhorando nossos documentos. Adoraríamos ouvir como podemos melhorar.
   comment_yes_label: Let us know what we do well
   comment_no_label: Conte-nos como podemos melhorar
   optional: Opcional
@@ -138,7 +138,7 @@ product_landing:
   sorry: Desculpe, não há resultados para
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Desculpe, não há nenhum guia que corresponda ao seu filtro.
+  no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
   communities_using_discussions: Comunidades que usam discussões
   add_your_community: Add your community
@@ -155,6 +155,7 @@ product_sublanding:
   learning_paths_desc: Os caminhos de aprendizado são uma coleção de guias que ajudam você a dominar um assunto específico.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: mais guias
+  no_result: Sorry, there are no guides that match your filter.
   load_more: Carregar mais guias
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
   filters:

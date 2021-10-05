@@ -2,7 +2,9 @@
 title: プルリクエスト内の依存関係の変更をレビューする
 intro: プルリクエストに依存関係への変更が含まれている場合は、変更内容の概要と、依存関係に既知の脆弱性があるかどうかを確認できます。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -13,23 +15,22 @@ topics:
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
+shortTitle: Review dependency changes
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
 
-{% note %}
+{% data reusables.dependency-review.beta %}
 
-**注釈:** 依存関係のレビューは現在ベータであり、変更される可能性があります。
-
-{% endnote %}
-
-### 依存関係のレビューについて
+## 依存関係のレビューについて
 
 {% data reusables.dependency-review.feature-overview %}
 
+{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. 詳しい情報については、「[{% data variables.product.prodname_ghe_server %}の脆弱性のある依存関係に関するセキュリティアラートの有効化](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。 {% endif %}
+
 依存関係のレビューでは、「左にシフト」することができます。 提供された予測情報を使用して、本番環境に至る前に脆弱性のある依存関係をキャッチできます。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
-### プルリクエスト内の依存関係を確認する
+## プルリクエスト内の依存関係を確認する
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

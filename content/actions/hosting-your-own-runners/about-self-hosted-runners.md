@@ -14,7 +14,6 @@ type: overview
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About self-hosted runners
 
@@ -170,7 +169,9 @@ You can also use self-hosted runners with a proxy server. For more information, 
 
 ## Self-hosted runner security with public repositories
 
+{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
+{% endif %}
 
 This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
 

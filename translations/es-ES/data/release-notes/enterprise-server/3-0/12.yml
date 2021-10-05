@@ -1,0 +1,21 @@
+date: '2021-07-27'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Custom pre-receive hooks could lead to an error like `error: object directory /data/user/repositories/0/nw/12/34/56/7890/network.git/objects does not exist; check .git/objects/info/alternates`.'
+    - 'Unauthenticated HTTP proxy for the pages containers build was not supported for any users that use HTTP proxies.'
+    - 'A significant number of 503 errors were logged every time a user visited a repository''''s `/settings` page if the dependency graph was not enabled.'
+    - 'Internal repositories were only returned when a user had affiliations with the repository through a team or through collaborator status, or queried with the `?type=internal` parameter.'
+    - 'Failed background jobs had unlimited retries which could cause large queue depths.'
+    - 'A significant number of 503 errors were being created if the scheduled job to sync vulnerabilities with GitHub.com attempted to run when dependency graph was not enabled and content analysis was enabled.'
+  changes:
+    - 'The logs for `babeld` now include a `cmd` field for HTTP ref advertisement requests instead of only including it during the negotiation requests.'
+  known_issues:
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.'

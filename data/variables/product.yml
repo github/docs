@@ -99,6 +99,15 @@ prodname_debug: 'GitHub Debug'
 # GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
 
+# GitHub Enterprise Managed Users
+prodname_emu_idp_application: 'GitHub Enterprise Managed User'
+prodname_emus: 'Enterprise Managed Users'
+prodname_managed_user: 'managed user'
+prodname_managed_users: 'managed users'
+prodname_managed_users_caps: 'Managed users'
+prodname_emu_enterprise: 'enterprise with managed users'
+prodname_emu_org: 'organization with managed users'
+
 # GitHub Issues
 prodname_github_issues: 'GitHub Issues'
 
@@ -172,6 +181,9 @@ prodname_dependabot_version_updates: 'Dependabot version updates'
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
+
+# GitHub Copilot
+prodname_copilot: 'GitHub Copilot'
 
 # Links
 product_url: >-

@@ -6,11 +6,12 @@ redirect_from:
   - /articles/finding-changed-methods-and-functions-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/finding-changed-methods-and-functions-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Métodos & funções
 ---
 
 Qualquer pessoa com acesso de leitura em um repositório pode visualizar uma lista das modificações de funções e métodos em determinados arquivos de uma pull request.
@@ -36,7 +37,7 @@ O resumo da lista de métodos e funções é criado a partir destes tipos de arq
 
 6. Você será redirecionado à primeira linha da função ou método selecionado. ![visualizar função ou método em arquivos modificados](/assets/images/help/pull_requests/view-selected-function-or-method.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre comparar branches em uma pull request](/articles/about-comparing-branches-in-pull-requests)"
 - "[Filtrar arquivos em uma pull request por tipo de arquivo](/articles/filtering-files-in-a-pull-request)"

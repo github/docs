@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ You must resolve all merge conflicts before you can merge a pull request on {% d
 
 ![merge conflict error message](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-### Resolving merge conflicts
+## Resolving merge conflicts
 
 To resolve a merge conflict, you must manually edit the conflicted file to select the changes that you want to keep in the final merge. There are a couple of different ways to resolve a merge conflict:
 
@@ -34,7 +34,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### Дополнительная литература
+## Дополнительная литература
 
 - "[About pull request merges](/articles/about-pull-request-merges/)"
 - "[About pull requests](/articles/about-pull-requests/)"

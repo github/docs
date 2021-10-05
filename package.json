@@ -11,7 +11,7 @@
   "dependencies": {
     "@alex_neo/jest-expect-message": "^1.0.5",
     "@hapi/accept": "^5.0.2",
-    "@primer/components": "^28.5.0",
+    "@primer/components": "^29.1.1",
     "@primer/css": "^17.9.0",
     "@primer/octicons": "^15.1.0",
     "@primer/octicons-react": "^15.1.0",
@@ -214,7 +214,7 @@
     "prevent-pushes-to-main": "node script/prevent-pushes-to-main.js",
     "rest-dev": "script/rest/update-files.js && npm run dev",
     "start": "run-script-os",
-    "start:win32": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' --signal SIGKILL nodemon server.mjs",
+    "start:win32": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --signal SIGKILL server.mjs",
     "start:default": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.mjs",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.mjs",
     "sync-search": "start-server-and-test sync-search-server 4002 sync-search-indices",

@@ -1,7 +1,7 @@
 ---
 title: Aviso de GitHub acerca de la Ley de Privacidad del Consumidor de California
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

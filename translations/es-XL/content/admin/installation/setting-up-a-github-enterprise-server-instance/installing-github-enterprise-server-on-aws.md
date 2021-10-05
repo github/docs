@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 ---

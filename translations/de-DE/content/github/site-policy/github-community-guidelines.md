@@ -4,7 +4,7 @@ redirect_from:
   - /community-guidelines/
   - /articles/github-community-guidelines
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -16,7 +16,7 @@ Die weltweiten GitHub-Benutzer verfügen über völlig unterschiedliche Perspekt
 
 Wir sind darauf angewiesen, dass unsere Community-Mitglieder Erwartungen kommunizieren, ihre Projekte [moderieren ](#what-if-something-or-someone-offends-you)und {% data variables.contact.report_abuse %} oder {% data variables.contact.report_content %}. By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices), which include our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). Wir werden allen Meldungen über Missbrauch nachgehen und können öffentliche Inhalte auf unserer Website moderieren, bei denen wir feststellen, dass sie gegen unsere Nutzungsbedingungen verstoßen.
 
-### Eine starke Community aufbauen
+## Eine starke Community aufbauen
 
 Der Hauptzweck der GitHub-Community ist die Zusammenarbeit bei Softwareprojekten. Wir wollen die Zusammenarbeit zwischen den Menschen verbessern. Die Website wird zwar von uns betrieben, doch diese Community wird von uns allen *gemeinsam* aufgebaut, und wir brauchen Ihre Hilfe, um das Beste aus ihr zu machen.
 
@@ -32,7 +32,7 @@ Der Hauptzweck der GitHub-Community ist die Zusammenarbeit bei Softwareprojekten
 
    Zudem kann die Kommunikation mit Fremden im Internet schwierig sein. Es ist schwierig, den Umgangston richtig zu übermitteln oder zu interpretieren, und Sarkasmus wird häufig missverstanden. Versuchen Sie, eine klare Sprache zu verwenden, und denken Sie darüber nach, wie Ihr Beitrag von der anderen Person aufgenommen wird.
 
-### Was tun, wenn etwas oder jemand Sie beleidigt?
+## Was tun, wenn etwas oder jemand Sie beleidigt?
 
 Wir verlassen uns darauf, dass die Community uns mitteilt, wann ein Problem angegangen werden muss. Wir überwachen die Website nicht aktiv auf anstößige Inhalte. Wenn Sie auf etwas oder jemanden auf der Website stoßen, das bzw. den Sie anstößig finden, sind hier einige Tools, die GitHub bietet, um Ihnen zu helfen, sofort Maßnahmen zu ergreifen:
 
@@ -46,7 +46,7 @@ Wir verlassen uns darauf, dass die Community uns mitteilt, wann ein Problem ange
 
 Selbstverständlich können Sie uns jederzeit kontaktieren, um {% data variables.contact.report_abuse %}, wenn Sie mehr Hilfe bei der Bewältigung einer Situation benötigen.
 
-### Was ist nicht erlaubt?
+## Was ist nicht erlaubt?
 
 Wir setzen uns für die Aufrechterhaltung einer Community ein, in der es den Benutzer freisteht, sich auszudrücken und die Ideen des anderen in Frage zu stellen, sowohl technisch als auch anderweitig. Solche Diskussionen fördern jedoch keinen fruchtbaren Dialog, wenn Ideen zum Schweigen gebracht werden, weil Community-Mitglieder niedergeschrien werden oder Angst haben, sich zu äußern. Das bedeutet, dass Sie jederzeit respektvoll und höflich sein und andere nicht auf der Grundlage ihrer Identität angreifen sollten. Wir tolerieren kein Verhalten, das Grenzen in den folgenden Bereichen überschreitet:
 
@@ -58,7 +58,7 @@ Wir setzen uns für die Aufrechterhaltung einer Community ein, in der es den Ben
 
 - #### Disrupting the experience of other users Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
 
-- #### Impersonation You may not seek to mislead others as to your identity by copying another person's avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonifizierung ist eine Form der Belästigung.
+- #### Impersonation You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonifizierung ist eine Form der Belästigung.
 
 - #### Doxxing and invasion of privacy Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. Je nach Kontext, z. B. bei Einschüchterung oder Belästigung, können wir andere Informationen, wie Fotos oder Videos, die ohne Zustimmung des Betreffenden aufgenommen oder verbreitet wurden, als Eingriff in die Privatsphäre betrachten, insbesondere wenn dieses Material ein Sicherheitsrisiko für das Thema darstellt.
 
@@ -84,7 +84,7 @@ Wir setzen uns für die Aufrechterhaltung einer Community ein, in der es den Ben
   *GitHub considers the npm registry to be a platform used primarily for installation and run-time use of code, and not for research.*
 
 
-### Was passiert, wenn jemand die Regeln verletzt?
+## Was passiert, wenn jemand die Regeln verletzt?
 
 Es gibt eine Reihe von Maßnahmen, die wir ergreifen können, wenn ein Benutzer unangemessenes Verhalten oder unangemessene Inhalte meldet. Es hängt in der Regel von den genauen Umständen eines bestimmten Falles ab. Wir sind uns darüber im Klaren, dass Personen manchmal aus verschiedenen Gründen unangemessene Dinge sagen oder tun. Vielleicht war ihnen nicht bewusst, wie ihre Worte aufgenommen werden würden. Oder vielleicht haben sie sich einfach von ihren Emotionen leiten lassen. Natürlich gibt es manchmal Leute, die nur Spam verbreiten oder Ärger verursachen wollen.
 
@@ -97,11 +97,11 @@ Maßnahmen, die wir als Reaktion auf eine Missbrauchsmeldung ergreifen können, 
 * Kontosperrung
 * Kündigung des Kontos
 
-### Appeal and Reinstatement
+## Appeal and Reinstatement
 
-In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact).
+In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact?tags=docs-policy).
 
-### Rechtliche Hinweise
+## Rechtliche Hinweise
 
 Wir möchten diese Community-Richtlinien der Öffentlichkeit zur Nutzung, Wiederverwendung, Anpassung oder zum sonstigem Gebrauch durch jedermann, unter den Bedingungen von [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/), zur Verfügung stellen.
 
