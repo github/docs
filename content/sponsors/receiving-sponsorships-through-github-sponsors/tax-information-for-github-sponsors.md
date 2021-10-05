@@ -37,6 +37,8 @@ The W-8 BEN and W-8 BEN-E tax forms ask for a "U.S. taxpayer identification numb
 
 If you are not a U.S. citizen or other U.S. person, including a resident alien individual, then you will usually need to provide the "Foreign tax identifying number". This is a tax identification number that your country of residence has issued you.
 
+If your country of residence or billing country is India, then you can use your Permanent Account Number (PAN) as your tax identification number.
+
 {% note %}
 
 **Note:** If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".  
@@ -48,7 +50,7 @@ The IRS allows non-resident and resident aliens to request an [Individual Taxpay
 
 ## 1099 forms
 
-If you are a taxpayer in the United States and earn more than $600 USD in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. We do not provide tax forms for international taxpayers.
+If you are a taxpayer in the United States and earn more than 600 US dollars in a tax year, {% data variables.product.prodname_dotcom %} will send you a [1099-NEC](https://www.irs.gov/forms-pubs/about-form-1099-nec) before January 31 of the next calendar year. We do not provide tax forms for international taxpayers.
 
 ## General tax information
 

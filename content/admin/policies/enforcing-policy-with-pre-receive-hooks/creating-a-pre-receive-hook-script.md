@@ -83,7 +83,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | Value | Action | More information |
 | :- | :- | :- |
 | <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[Repositories](/rest/reference/repos#create-a-deployment)" in the REST API documentation |
-| <pre>blob#save</pre> | Change to a file's contents in the web interface | "[Editing files in your repository](/github/managing-files-in-a-repository/editing-files-in-your-repository)" |
+| <pre>blob#save</pre> | Change to a file's contents in the web interface | "[Editing files](/repositories/working-with-files/managing-files/editing-files)" |
 | <pre>branch merge api</pre> | Merge of a branch via the API | "[Repositories](/rest/reference/repos#merge-a-branch)" in the REST API documentation |
 | <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |
 | <pre>git refs create api</pre> | Creation of a ref via the API | "[Git database](/rest/reference/git#create-a-reference)" in the REST API documentation |

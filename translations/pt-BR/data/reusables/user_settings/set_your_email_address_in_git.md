@@ -1,1 +1,1 @@
-Definir um endereço de e-mail no Git. Você pode usar {% if currentVersion == "free-pro-team@latest"%}seu endereço de e-mail `no-reply` fornecido por [{% data variables.product.product_name %} ](/articles/setting-your-commit-email-address) ou {% endif %}qualquer endereço de e-mail.
+Definir um endereço de e-mail no Git. Você pode usar {% ifversion fpt %}seu endereço de e-mail `no-reply` fornecido por [{% data variables.product.product_name %} ](/articles/setting-your-commit-email-address) ou {% endif %}qualquer endereço de e-mail.

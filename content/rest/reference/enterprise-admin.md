@@ -84,7 +84,6 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
@@ -187,16 +186,6 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'management-console' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-{% ifversion ghes > 3.2 %}
-
-## Git LFS
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

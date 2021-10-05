@@ -5,9 +5,9 @@ redirect_from:
   - /guides/managing-deploy-keys/
   - /v3/guides/managing-deploy-keys
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

@@ -6,18 +6,18 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'Si un mensaje de confirmación contiene información poco clara, incorrecta o confidencial, puedes modificarlo localmente y subir una nueva confirmación con un nuevo mensaje para {% data variables.product.product_name %}. También puedes cambiar un mensaje de confirmación para agregar la información faltante.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
-### Volver a escribir el mensaje de confirmación más reciente
+## Volver a escribir el mensaje de confirmación más reciente
 
 Puedes cambiar el mensaje de confirmación más reciente usando el comando `git commit --amend`.
 
 En Git, el texto del mensaje de confirmación es parte de la confirmación. Cambiar el mensaje de la confirmación cambiará la commit ID-- es decir, el checksum de SHA1 que designa la confirmación. Efectivamente, estás creando una nueva confirmación que reemplaza a la anterior.
 
-### La confirmación no se ha subido en línea
+## La confirmación no se ha subido en línea
 
 Si la confirmación solo existe en tu repositorio local y no se ha subido a {% data variables.product.product_location %}, puedes modificar el mensaje de confirmación con el comando `git commit --amend`.
 
@@ -25,7 +25,7 @@ Si la confirmación solo existe en tu repositorio local y no se ha subido a {% d
 2. Escribe `git commit --amend` y presiona **Enter** (Intro).
 3. En tu editor de texto, edita el mensaje de confirmación y guarda la confirmación.
     - Puedes agregar un coautor al agregar una introducción a la confirmación. Para obtener más información, consulta "[Crear una confirmación con múltiples autores](/articles/creating-a-commit-with-multiple-authors)".
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - Puedes crear confirmaciones en nombre de tu organización agregando una introducción al mensaje de la confirmación. Para obtener más información, consulta "[Crear una confirmación en nombre de una organización](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
@@ -37,7 +37,7 @@ Puedes cambiar el editor de texto predeterminado para Git si cambias el parámet
 
 {% endtip %}
 
-### Medificar mensajes de confirmación antiguos o múltiples
+## Medificar mensajes de confirmación antiguos o múltiples
 
 Si ya subiste la confirmación a {% data variables.product.product_location %}, tendrás que subir forzadamente una confirmación con un mensaje modificado.
 
@@ -50,7 +50,7 @@ Desalentamos enfáticamente que se realicen subidas forzadas, dado que esto camb
 **Cambiar el mensaje de la confirmaciòn subida màs recientemente**
 
 1. Sigue los [pasos anteriores](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para modificar el mensaje de confirmación.
-2. Use the `push --force-with-lease` command to force push over the old commit.
+2. Utilizar el comando `push --force-with-lease` para hacer una subida forzada sobre la confirmación antigua.
   ```shell
   $ git push --force-with-lease <em>example-branch</em>
   ```
@@ -117,6 +117,6 @@ Si incluiste información sensible en un mensaje de confirmación, el subir dich
 
 {% endwarning %}
 
-### Leer más
+## Leer más
 
 * "[Firmar confirmaciones](/articles/signing-commits)"

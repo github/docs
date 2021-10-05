@@ -8,19 +8,20 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage SAML access
 ---
 
-### Über SAML Zugriff auf Deine Organisation
+## Über SAML Zugriff auf Deine Organisation
 
 Wenn Du SAML Single Sign-On für Deine Organisation aktivierst, kann jedes Organisations-Mitglied seine externe Identität auf Deinem Identitätsanbieter (IdP) mit seinem bestehenden {% data variables.product.product_name %}-Konto verknüpfen. Um auf die Ressourcen Deiner Organisation auf {% data variables.product.product_name %} zuzugreifen, muss das Mitglied eine aktive SAML-Sitzung in seinem Browser haben. Um über API und Git auf die Ressourcen Deiner Organisation zugreifen zu können, muss das Mitglied ein persönliches Zugriffstoken oder einen SSH-Schlüssel verwenden, den das Mitglied für die Verwendung mit Deiner Organisation autorisiert hat.
 
 Du kannst die verknüpfte Identität, die aktiven Sitzungen und die autorisierten Anmeldeinformationen auf der gleichen Seite anzeigen und widerrufen.
 
-### Eine verknüpfte Identität anschauen und widerrufen
+## Eine verknüpfte Identität anschauen und widerrufen
 
 {% data reusables.saml.about-linked-identities %}
 
@@ -35,7 +36,7 @@ Du kannst die verknüpfte Identität, die aktiven Sitzungen und die autorisierte
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### Eine aktive SAML-Sitzung ansehen und widerrufen
+## Eine aktive SAML-Sitzung ansehen und widerrufen
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -45,7 +46,7 @@ Du kannst die verknüpfte Identität, die aktiven Sitzungen und die autorisierte
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### Autorisierte Anmeldeinformationen anschauen und widerrufen
+## Autorisierte Anmeldeinformationen anschauen und widerrufen
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -58,7 +59,7 @@ Du kannst die verknüpfte Identität, die aktiven Sitzungen und die autorisierte
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zum Identitäts- und Zugriffsmanagement mit SAML Single-Sign-On](/articles/about-identity-and-access-management-with-saml-single-sign-on)“
 - „[Anzeigen und Verwalten des SAML-Zugriffs eines Benutzers auf Dein Enterprise-Konto](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"

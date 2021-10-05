@@ -6,17 +6,18 @@ redirect_from:
   - /articles/reviewing-your-organizations-installed-integrations
   - /github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: インストールされたインテグレーションのレビュー
 ---
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. 左サイドバーで [**Installed {% data variables.product.prodname_github_app %}s**] をクリックします。 ![Organization の Settings サイドバーでの [Installed {% data variables.product.prodname_github_app %}s] タブ](/assets/images/help/organizations/org-settings-installed-github-apps.png)
+4. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**. ![Installed {% data variables.product.prodname_github_apps %} tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. レビューする {% data variables.product.prodname_github_app %}の横にある [**Configure**] をクリックします。 ![[Configure] ボタン](/assets/images/help/organizations/configure-installed-integration-button.png)
 6. {% data variables.product.prodname_github_app %} の権限とリポジトリのアクセス権をレビューします。 ![{% data variables.product.prodname_github_app %} にすべてのリポジトリまたは特定のリポジトリへのアクセス権を付与するためのオプション](/assets/images/help/organizations/toggle-integration-repo-access.png)
     - {% data variables.product.prodname_github_app %} に Organization のすべてのリポジトリへのアクセス権を付与するには、[**All repositories**] をクリックします。

@@ -5,17 +5,18 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 topics:
   - Enterprise
+shortTitle: Tool cache for offline runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### 含まれているセットアップアクションとランナーツールキャッシュについて
+## 含まれているセットアップアクションとランナーツールキャッシュについて
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
@@ -31,13 +32,13 @@ topics:
 
 {% endnote %}
 
-### 必要な環境
+## 必要な環境
 
 * セルフホストランナーに必要な開発環境を決定します。 次の例は、Node.js バージョン 10 および 12 を使用して、`setup-node` アクションのツールキャッシュにデータを入力する方法を示しています。
 * ワークフロー実行に使用できる {% data variables.product.prodname_dotcom_the_website %} のリポジトリへのアクセス。
 * セルフホストのランナーのファイルシステムにアクセスして、ツールのキャッシュフォルダーにデータを入力します。
 
-### セルフホストランナーのツールキャッシュに入力する
+## セルフホストランナーのツールキャッシュに入力する
 
 1. {% data variables.product.prodname_dotcom_the_website %} で、{% data variables.product.prodname_actions %} ワークフローの実行に使用できるリポジトリに移動します。
 1. {% data variables.product.prodname_dotcom %} ホストランナーのツールキャッシュを含むアーティファクトをアップロードする、リポジトリの `.github/workflows` フォルダに新しいワークフローファイルを作成します。
@@ -57,11 +58,11 @@ topics:
              mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
              mkdir -p "${{ runner.tool_cache }}"
          - name: Setup Node 10
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 12.x
          - name: Archive tool cache

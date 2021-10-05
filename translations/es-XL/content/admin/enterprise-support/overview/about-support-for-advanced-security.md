@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
   - /admin/enterprise-support/about-support-for-advanced-security
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Support
