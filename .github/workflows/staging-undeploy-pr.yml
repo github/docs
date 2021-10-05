@@ -42,6 +42,7 @@ jobs:
           echo 'Cancelling other deployment runs (if any)...'
 
   undeploy:
+    needs: cancel-jobs-before-undeploy
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
