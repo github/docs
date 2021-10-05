@@ -3,9 +3,9 @@ title: 审查部署
 intro: 您可以批准或拒绝等待审查的作业。
 product: '{% data reusables.gated-features.environments %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '>=3.1'
+  ghae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}

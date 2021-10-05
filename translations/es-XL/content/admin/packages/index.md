@@ -5,7 +5,7 @@ intro: 'You can enable {% data variables.product.prodname_registry %} for your e
 redirect_from:
   - /enterprise/admin/packages
 versions:
-  enterprise-server: '>=2.22'
+  ghes: '*'
 topics:
   - Enterprise
 children:

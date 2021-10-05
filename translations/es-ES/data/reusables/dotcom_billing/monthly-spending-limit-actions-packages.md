@@ -1,0 +1,1 @@
+1. Under "Monthly spending limit", scroll down to "Actions & Packages" and choose to limit spending or allow unlimited spending. ![Botones radiales para limitar los gastos o permitir gastos ilimitados](/assets/images/help/billing/limit-or-unlimited.png)

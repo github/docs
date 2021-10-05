@@ -10,16 +10,17 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-time-synchronization
   - /admin/configuration/configuring-time-synchronization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configurar los ajustes de hora
 ---
 
-### Cambiar los servidores NTP predeterminados
+## Cambiar los servidores NTP predeterminados
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -28,7 +29,7 @@ topics:
 4. Al final de la página, haz clic en **Save settings** (Guardar configuraciones). ![El botón de guardar en la {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/save-settings.png)
 5. Espera a que la configuración se ejecute por completo.
 
-### Corregir un desface de tiempo prolongado
+## Corregir un desface de tiempo prolongado
 
 El protocolo NTP corrige permanentemente las pequeñas discrepancias de sincronización de hora. Puedes usar el shell administrativo para sincronizar la hora de inmediato.
 

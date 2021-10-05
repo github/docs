@@ -15,37 +15,37 @@ describe('breadcrumbs', () => {
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
       const $ = await getDOM(
-        '/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
+        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
-      expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Troubleshooting SSH')
-      expect($breadcrumbs[3].attribs.title).toBe('article: Use SSH over HTTPS port')
+      expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
+      expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
+      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
+      expect($breadcrumbs[3].attribs.title).toBe('article: Add an email address')
     })
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
       const $ = await getDOM(
-        '/github/authenticating-to-github/keeping-your-account-and-data-secure'
+        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
-      expect($breadcrumbs[1].attribs.title).toBe('category: Authentication')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Account security')
+      expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
+      expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
+      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
       expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
       const $ = await getDOM(
-        '/en/enterprise-server/github/authenticating-to-github/troubleshooting-ssh/recovering-your-ssh-key-passphrase'
+        '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub')
+      expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
     })
 
     test('parses Liquid variables inside titles', async () => {
@@ -107,17 +107,24 @@ describe('breadcrumbs', () => {
     })
 
     test('works on category index pages', async () => {
-      const breadcrumbs = await getJSON('/en/github/authenticating-to-github?json=breadcrumbs')
+      const breadcrumbs = await getJSON(
+        '/en/issues/tracking-your-work-with-issues/quickstart?json=breadcrumbs'
+      )
       const expected = [
         {
           documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/issues',
+          title: 'GitHub Issues',
         },
         {
           documentType: 'category',
-          href: '/en/github/authenticating-to-github',
-          title: 'Authentication',
+          href: '/en/issues/tracking-your-work-with-issues',
+          title: 'Issues',
+        },
+        {
+          documentType: 'article',
+          href: '/en/issues/tracking-your-work-with-issues/quickstart',
+          title: 'Quickstart for GitHub Issues',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -125,23 +132,23 @@ describe('breadcrumbs', () => {
 
     test('works on maptopic pages', async () => {
       const breadcrumbs = await getJSON(
-        '/en/github/authenticating-to-github/keeping-your-account-and-data-secure?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings?json=breadcrumbs'
       )
       const expected = [
         {
           documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/account-and-profile',
+          title: 'Account and profile',
         },
         {
           documentType: 'category',
-          href: '/en/github/authenticating-to-github',
-          title: 'Authentication',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
+          title: 'User accounts',
         },
         {
           documentType: 'mapTopic',
-          href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Account security',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
+          title: 'User account settings',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -149,28 +156,28 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/en/github/authenticating-to-github/creating-a-strong-password?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard?json=breadcrumbs'
       )
       const expected = [
         {
           documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
+          href: '/en/account-and-profile',
+          title: 'Account and profile',
         },
         {
           documentType: 'category',
-          href: '/en/github/authenticating-to-github',
-          title: 'Authentication',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
+          title: 'User accounts',
         },
         {
           documentType: 'mapTopic',
-          href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure',
-          title: 'Account security',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
+          title: 'User account settings',
         },
         {
           documentType: 'article',
-          href: '/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-strong-password',
-          title: 'Create a strong password',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard',
+          title: 'Your personal dashboard',
         },
       ]
       expect(breadcrumbs).toEqual(expected)

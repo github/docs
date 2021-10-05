@@ -3,7 +3,7 @@ title: Acerca de los ejecutores hospedados en AE
 intro: '{% data variables.product.prodname_ghe_managed %} ofrece máquinas virtuales hospedadas, personalizables y con seguridad robustecida, para ejecutar los flujos de trabajo de {% data variables.product.prodname_actions %}. Puedes seleccionar el hardware, traer tu propia imagen de máquina, y habilitar una dirección IP para trabajar en red con tu {% data variables.actions.hosted_runner %}.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
 
@@ -11,7 +11,7 @@ versions:
 
 {% data reusables.actions.ae-beta %}
 
-### Acerca de las {% data variables.actions.hosted_runner %}
+## Acerca de las {% data variables.actions.hosted_runner %}
 
 Un {% data variables.actions.hosted_runner %} es una máquina virtual hospedada en {% data variables.product.prodname_dotcom %} que tiene instalado el servicio de ejecutor de {% data variables.product.prodname_actions %}.
 
@@ -25,15 +25,15 @@ Los {% data variables.actions.hosted_runner %} son los únicos disponibles para 
 
 Para agregar {% data variables.actions.hosted_runner %} a tu organización o empresa, consulta la sección ["Agregar {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/adding-ae-hosted-runners)".
 
-### Asignaciones de agrupaciones para los {% data variables.actions.hosted_runner %}
+## Asignaciones de agrupaciones para los {% data variables.actions.hosted_runner %}
 
 Tus {% data variables.actions.hosted_runner %} se distribuyen en la misma agrupación que tu instancia de {% data variables.product.prodname_ghe_managed %}. Ningún otro cliente tiene acceso a dicha agrupación y, como resultado, los {% data variables.actions.hosted_runner %} no se comparten con ningún otro cliente.
 
-### Administrar tus {% data variables.actions.hosted_runner %}
+## Administrar tus {% data variables.actions.hosted_runner %}
 
 Durante el beta de los {% data variables.actions.hosted_runner %}, puedes administrar tus {% data variables.actions.hosted_runner %} si contactas al soporte de {% data variables.product.prodname_dotcom %}. Por ejemplo, el soporte de {% data variables.product.prodname_dotcom %} puede ayudarte para agregar un {% data variables.actions.hosted_runner %} nuevo, asignar etiquetas, o mover un {% data variables.actions.hosted_runner %} a un grupo diferente.
 
-### Facturación
+## Facturación
 
 {% data variables.product.prodname_actions %} se encuentra acutalmente en beta para {% data variables.product.prodname_ghe_managed %}. Durante este periodo beta, los {% data variables.actions.hosted_runner %} no se facturan, y pueden utilizarse gratuitamente.
 
@@ -43,7 +43,7 @@ Una vez que termine el beta, el uso facturable incluirá el tiempo total de acti
 
 Los precios aumentarán linearmente con los núcleos. Por ejemplo, 4 núcleos costarán lo doble que 2 núcleos. Las MV de Windows tendrán un precio más alto que las de Linux.
 
-### Especificaciones del Hardware
+## Especificaciones del Hardware
 
 Los {% data variables.actions.hosted_runner %} se encuentran disponibles en diversas máquinas virtuales hospedadas en Microsoft Azure. Dependiendo de la disponibilidad regional, puedes elegir entre `Standard_Das_v4`, `Standard_DS_v2`, `Standard_Fs_v2 series`. Algunas regiones también incluyen ejecutores de GPU basados en `Standard_NCs_v3`.
 
@@ -51,11 +51,11 @@ Para obtener más información acercfa de los recursos de máquina de Azure, con
 
 Para determinar quém ejecutor ejecutó un job, puedes revisar las bitácoras de flujo de trabajo. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-### Especificaciones de software
+## Especificaciones de software
 
 Puedes utilizar los {% data variables.actions.hosted_runner %} con imágenes de sistema operativo estándar, o puedes agregar imágenes que hayas creado.
 
-#### Imágenes predeterminadas de sistema operativo
+### Imágenes predeterminadas de sistema operativo
 
 Estas imágenes solo incluyen las herramientas estándar del sistema operativo:
 
@@ -64,11 +64,11 @@ Estas imágenes solo incluyen las herramientas estándar del sistema operativo:
 - Windows Server 2019 (Microsoft)
 - Windows Server 2016 (Microsoft)
 
-#### Imágenes personalizadas de sistema operativo
+### Imágenes personalizadas de sistema operativo
 
 Puedes crear tus propias imágenes de SO en Azure y agregarlas a {% data variables.product.prodname_ghe_managed %} en forma de {% data variables.actions.hosted_runner %}. Para obtener más información, consulta la sección "[Agregar un {% data variables.actions.hosted_runner %} con una imagen personalizada"](/actions/using-github-hosted-runners/adding-ae-hosted-runners#adding-an-ae-hosted-runner-with-a-custom-image).
 
-### Especificaciones de red
+## Especificaciones de red
 
 Opcionalmente, puedes habilitar una dirección IP estática pública para tu {% data variables.actions.hosted_runner %}. Si se habilitan, todos los {% data variables.actions.hosted_runner %} en tu instancia compartirán un rango de 2 a 4 direcciones IP y se comunicarán utilizando los puertos de esas direcciones.
 
@@ -78,13 +78,13 @@ Para obtener una lista de rangos de direcciones IP que utilizan las {% data vari
 
 La lista de direcciones IP permitidas de {% data variables.product.prodname_actions %} que devuelve la API se actualiza una vez por semana.
 
-### Privilegios adminsitrativos para los {% data variables.actions.hosted_runner %}
+## Privilegios adminsitrativos para los {% data variables.actions.hosted_runner %}
 
 Las máquinas virtuales Linux se ejecutan utilizando un `sudo` sin contraseña. Cuando necesitas ejecutar comandos o instalar herramientas que requieren más privilegios que el usuario actual, puedes usar `sudo` sin la necesidad de brindar una contraseña. Para obtener más información, consulta "[Manual de sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)."
 
 Las máquinas virtuales de Windows están configuradas para ejecutarse como administradores con el control de cuentas de usuario (UAC) inhabilitado. Para obtener más información, consulta "[Cómo funciona el control de cuentas de usuario](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)" en la documentación de Windows.
 
-### Sistemas de archivos
+## Sistemas de archivos
 
 {% data variables.product.prodname_dotcom %} ejecuta acciones y comandos de shell en directorios específicos en la máquina virtual. Las rutas de archivo en las máquinas virtuales no son estáticas. Usa las variables de entorno que proporciona {% data variables.product.prodname_dotcom %} para construir rutas de archivo para los directorios `home`, `workspace` y `workflow`.
 
@@ -96,7 +96,7 @@ Las máquinas virtuales de Windows están configuradas para ejecutarse como admi
 
 Para obtener una lista de las variables de entorno que crea {% data variables.product.prodname_dotcom %} para cada flujo de trabajo, consulta "[Usar variables de entorno](/github/automating-your-workflow-with-github-actions/using-environment-variables)".
 
-#### Sistema de archivos del contenedor de Docker
+### Sistema de archivos del contenedor de Docker
 
 Las acciones que se ejecutan en contenedores Docker tienen directorios estáticos en la ruta `/github`. Sin embargo, te recomendamos encarecidamente que uses las variables de entorno predeterminadas para construir rutas de archivos en contenedores de Docker.
 

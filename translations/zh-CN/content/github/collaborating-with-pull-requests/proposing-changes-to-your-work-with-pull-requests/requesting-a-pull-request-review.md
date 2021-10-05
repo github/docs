@@ -6,16 +6,17 @@ redirect_from:
   - /articles/requesting-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 请求 PR 审查
 ---
 
 用户帐户拥有的仓库的所有者和协作者可以分配拉取请求审查。 拥有仓库查验漏洞权限的组织成员可以分配拉取请求审查。
 
-所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
+所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% ifversion fpt or ghae or ghes %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
 {% note %}
 
@@ -33,6 +34,6 @@ topics:
 6. （可选）如果您知道想要其审查的人员或团队的名称，请单击 **Reviewers（审查者）**，然后输入您请求审查更改的人员用户名或团队名称。 单击其团队名称或用户名以请求审查。 ![用于输入审查者用户名的字段和带审查者姓名的下拉菜单](/assets/images/help/pull_requests/choose-pull-request-reviewer.png)
 7. 审查您的拉取请求并且您已进行必要的更改后，可以请求审查者重新审查您的拉取请求。 导航到右侧边栏中的 **Reviewers（审查者）**，然后单击您想要其审查的审查者姓名旁边的 {% octicon "sync" aria-label="The sync icon" %}。 ![重新审查右侧边栏中的同步图标](/assets/images/help/pull_requests/request-re-review.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于拉取请求审查](/articles/about-pull-request-reviews)”

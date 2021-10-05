@@ -5,16 +5,17 @@ product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
 versions:
-  free-pro-team: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage allowed IP addresses
 ---
 
 Organisationsinhaber können erlaubte IP-Adressen für eine Organisation verwalten.
 
-### Informationen zu zulässigen IP-Adressen
+## Informationen zu zulässigen IP-Adressen
 
 Du kannst den Zugriff auf Organisations-Objekte beschränken, indem Du eine Genehmigungsliste für bestimmte IP-Adressen konfigurierst. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
@@ -24,9 +25,9 @@ Du kannst den Zugriff auf Organisations-Objekte beschränken, indem Du eine Gene
 
 If you set up an allow list you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that you install in your organization. The creator of a {% data variables.product.prodname_github_app %} can configure an allow list for their application, specifying the IP addresses at which the application runs. By inheriting their allow list into yours, you avoid connection requests from the application being refused. For more information, see "[Allowing access by {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)."
 
-Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-Konto konfigurieren. For more information, see {% if currentVersion == "github-ae@latest" %}"[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
+Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-Konto konfigurieren. For more information, see {% ifversion ghae %}"[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)." {% else %}"[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."{% endif %}
 
-### Eine zulässige IP-Adresse hinzufügen
+## Eine zulässige IP-Adresse hinzufügen
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -35,7 +36,7 @@ Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-### Zulässige IP-Adressen aktivieren
+## Zulässige IP-Adressen aktivieren
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -43,7 +44,7 @@ Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-
 1. Wähle unter „IP allow list“ (Liste der zulässigen IP-Adressen) **Enable IP allow list** (Liste der zulässigen IP-Adressen aktivieren) aus. ![Kontrollkästchen, um IP-Adressen zuzulassen](/assets/images/help/security/enable-ip-allowlist-organization-checkbox.png)
 1. Klicke auf **Save** (Speichern).
 
-### Allowing access by {% data variables.product.prodname_github_apps %}
+## Allowing access by {% data variables.product.prodname_github_apps %}
 
 If you're using an allow list, you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that you install in your organization.
 
@@ -59,7 +60,7 @@ For more information about how to create an allow list for a {% data variables.p
 1. Under "IP allow list", select **Enable IP allow list configuration for installed GitHub Apps**. ![Checkbox to allow GitHub App IP addresses](/assets/images/help/security/enable-ip-allowlist-githubapps-checkbox.png)
 1. Klicke auf **Save** (Speichern).
 
-### Eine zulässige IP-Adresse bearbeiten
+## Eine zulässige IP-Adresse bearbeiten
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -69,7 +70,7 @@ For more information about how to create an allow list for a {% data variables.p
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 1. Klicke auf **Update** (Aktualisieren).
 
-### Eine zulässige IP-Adresse löschen
+## Eine zulässige IP-Adresse löschen
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -77,9 +78,9 @@ For more information about how to create an allow list for a {% data variables.p
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-### {% data variables.product.prodname_actions %} mit einer IP-Zulassungsliste verwenden
+## {% data variables.product.prodname_actions %} mit einer IP-Zulassungsliste verwenden
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.github-actions.ip-allow-list-hosted-runners %}
 

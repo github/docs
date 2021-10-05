@@ -6,20 +6,25 @@ redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Review proposed changes
 ---
 
-### Informationen zum Review von Pull Requests
+## Informationen zum Review von Pull Requests
 
 Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen überprüfen. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. Dadurch wird die Datei ausgeblendet, so dass Du die noch nicht geprüften Dateien leichter findest. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-### Review starten
+## Review starten
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -32,9 +37,25 @@ Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen übe
 Vor dem Absenden Deines Reviews haben Deine Zeilenkommentare den Status _Ausstehend_ und sind nur für Dich sichtbar. Ausstehende Kommentare kannst Du vor dem Absenden des Reviews jederzeit bearbeiten. Zum Abbrechen eines noch nicht abgesendeten Reviews einschließlich der ausstehenden Kommentare blättere auf der Registerkarte „Conversation“ (Unterhaltung) an das Ende der Zeitleiste und klicke auf **Cancel review** (Review abbrechen).
 
 ![Schaltfläche „Cancel review“ (Review abbrechen)](/assets/images/help/pull_requests/cancel-review-button.png)
+{% endwebui %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Reviewing dependency changes
+{% ifversion fpt %}
+
+{% codespaces %}
+
+You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+
+{% data reusables.codespaces.review-pr %}
+
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+{% endif %}
+
+{% ifversion fpt or ghes > 3.1 %}
+## Reviewing dependency changes
+
+{% data reusables.dependency-review.beta %}
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
@@ -47,14 +68,14 @@ If the pull request contains changes to dependencies you can use the dependency 
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
-### Datei als „gesehen“ markieren
+## Datei als „gesehen“ markieren
 
 Wenn Sie den Review einer Datei abgeschlossen haben, können Sie sie als „gesehen“ markieren, um sie auszublenden. Falls die Datei nach Ihrer Überprüfung geändert wird, wird die Markierung aufgehoben und die Datei wird wieder eingeblendet.
 
 {% data reusables.repositories.changed-files %}
 2. Aktiviere rechts neben dem Header der überprüften Datei das Kontrollkästchen **Viewed** (Gesehen). ![Kontrollkästchen „Viewed“ (Gesehen)](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-### Review absenden
+## Review absenden
 
 Wenn Sie den Review der Dateien des Pull Requesta abgeschlossen haben, senden Sie den Review ab.
 
@@ -69,7 +90,7 @@ Wenn Sie den Review der Dateien des Pull Requesta abgeschlossen haben, senden Si
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)“
 - „[Pull Requests nach Review-Status filtern](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)“

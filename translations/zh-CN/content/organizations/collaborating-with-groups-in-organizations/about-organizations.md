@@ -5,18 +5,20 @@ redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
 ---
 
+{% data reusables.organizations.about-organizations %}
+
 {% data reusables.organizations.organizations_include %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 组织和企业帐户
+{% ifversion fpt %}
+## 组织和企业帐户
 
 企业帐户允许所有者集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。
 
@@ -26,7 +28,7 @@ topics:
 
 {% data reusables.organizations.org-ownership-recommendation %} 更多信息请参阅“[管理组织的所有权连续性](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)”。
 
-### 组织的服务条款和数据保护
+## 组织的服务条款和数据保护
 
 实体（如公司、非营利组织或集团）可同意用于其组织的标准服务条款或公司服务条款。 更多信息请参阅“[升级到公司服务条款](/articles/upgrading-to-the-corporate-terms-of-service)”。
 

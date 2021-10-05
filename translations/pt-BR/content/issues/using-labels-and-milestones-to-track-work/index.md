@@ -1,11 +1,11 @@
 ---
 title: Usando etiquetas e marcos para monitorar o trabalho
 shortTitle: Etiquetas e marcos
-intro: 'Etiquetas e marcos para categorizar e acompanhar o trabalho em {% data variables.product.prodname_dotcom %}'
+intro: 'Use etiquetas e marcos para categorizar e acompanhar o trabalho em {% data variables.product.prodname_dotcom %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Issues
 children:

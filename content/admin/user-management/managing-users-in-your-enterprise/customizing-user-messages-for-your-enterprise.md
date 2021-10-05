@@ -67,7 +67,7 @@ You can use Markdown to format your message. For more information, see "[About w
 {% ifversion ghes > 2.22 or ghae %}
 ## Creating a mandatory message
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}. 
+You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}.
 
 Mandatory messages have a variety of uses.
 
@@ -89,9 +89,9 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Mandatory message", click **Add message**.
-  ![Add message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+  ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
 1. Under "Mandatory message", in the text box, type your message.
-  ![Add message button](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+  ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}

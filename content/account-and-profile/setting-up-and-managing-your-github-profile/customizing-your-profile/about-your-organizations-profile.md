@@ -14,7 +14,7 @@ topics:
   - Profiles
 shortTitle: Organization's profile
 ---
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories to the top of the page.
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories. You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
 
 {% ifversion fpt %}To confirm your organization's identity and display a "Verified" badge on your organization profile page, you must verify your organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."{% endif %}
 

@@ -1,9 +1,10 @@
 ---
 title: 查看组织的代码空间审核日志
-shortTitle: 查看组织的审核日志
+shortTitle: 审核日志
 intro: '您可以使用审核日志查看与 {% data variables.product.prodname_codespaces %} 相关的所有操作。'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Codespaces
@@ -11,7 +12,7 @@ topics:
   - Administrator
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 当组织的任何成员执行与 {% data variables.product.prodname_codespaces %} 相关的操作时，您可以在审核日志中查看这些操作。 有关访问日志的信息，请参阅“[查看您的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)”。
 

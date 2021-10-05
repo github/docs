@@ -3,9 +3,9 @@ title: Comenzar con la API
 redirect_from:
   - /articles/getting-started-with-the-api
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 Para automatizar las tareas comunes, respaldar tus datos, o crear integraciones que se extienden {% data variables.product.product_name %}, puedes utilizar la API de {% data variables.product.product_name %}.

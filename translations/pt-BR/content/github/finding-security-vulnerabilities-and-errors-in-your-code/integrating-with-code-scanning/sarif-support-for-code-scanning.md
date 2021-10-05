@@ -4,7 +4,7 @@ shortTitle: Suporte SARIF
 intro: 'Para exibir os resultados de uma ferramenta de análise estática de terceiros no seu repositório no {% data variables.product.prodname_dotcom %}, você precisará dos resultados armazenados em um arquivo SARIF que seja compatível com um subconjunto específico do esquema SARIF 2.1.0 JSON para varredura de código. Se você usar o mecanismo de análise estática padrão do {% data variables.product.prodname_codeql %}, os resultados aparecerão automaticamente no seu repositório no {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -15,7 +15,7 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-### Sobre o suporte SARIF
+## Sobre o suporte SARIF
 
 SARIF (Formato de Intercâmbio de Resultados de Análise Estática) é um [OASIS Padrão](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html) que define um formato do arquivo de saída. O padrão SARIF é usado para simplificar como as ferramentas de análise estáticas compartilham seus resultados. O {% data variables.product.prodname_code_scanning_capc %} é compatível com um subconjunto do esquema SARIF 2.1.0 JSON.
 
@@ -27,7 +27,7 @@ Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFinge
 
 Se você for novo no SARIF e quiser saber mais, consulte o repositório da Microsoft de[`Tutoriais do SARIF`](https://github.com/microsoft/sarif-tutorials).
 
-### Impedir alertas duplicados usando impressões digitais
+## Impedir alertas duplicados usando impressões digitais
 
 Cada vez que um fluxo de trabalho do {% data variables.product.prodname_actions %} executa uma nova varredura de código, os resultados de cada execução são processados e os alertas são adicionados ao repositório. Para evitar alertas duplicados para o mesmo problema, {% data variables.product.prodname_code_scanning %} usa impressões digitais para corresponder aos resultados em várias execuções, para que apareçam apenas uma vez na última execução do ramo selecionado. Isto torna possível combinar alertas com a linha de código correta quando os arquivos são editados.
 
@@ -37,7 +37,7 @@ OS arquivos do SARIF criados pelo {% data variables.product.prodname_codeql_work
 
 Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para evitar ver alertas duplicados, você deve calcular dados de impressão digital e preencher a propriedade `partialFingerprints` antes de enviar o arquivo SARIF. Você pode encontrar o script que a ação `upload-sarif` usa como um ponto inicial útil: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. Para obter mais informações sobre a API, consulte "[Fazer o upload de uma análise como dados do SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)".
 
-### Validar seu arquivo SARIF
+## Validar seu arquivo SARIF
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
@@ -45,13 +45,13 @@ Você pode marcar um arquivo SARIF compatível com {% data variables.product.pro
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### Propriedades compatíveis do arquivo de saída SARIF
+## Propriedades compatíveis do arquivo de saída SARIF
 
 Se você usar um mecanismo de análise de código diferente de {% data variables.product.prodname_codeql %}, você poderá revisar as propriedades do SARIF compatíveis para otimizar como seus resultados de análise aparecerão em {% data variables.product.prodname_dotcom %}.
 
 É possível fazer o upload de qualquer arquivo de saída SARIF 2.1.0 válido, no entanto, {% data variables.product.prodname_code_scanning %} usará apenas as seguintes propriedades compatíveis.
 
-#### Objeto `sarifLog`
+### Objeto `sarifLog`
 
 | Nome      | Descrição                                                                                                                                                                                                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ Se você usar um mecanismo de análise de código diferente de {% data variables
 | `versão`  | **Obrigatório.** {% data variables.product.prodname_code_scanning_capc %} é compatível apenas com a versão `2.1.0` do SARIF.                                                                                                                       |
 | `runs[]`  | **Obrigatório.** Um arquivo SARIF contém um array de uma ou mais execuções. Cada execução representa uma execução única de uma ferramenta de análise. Para obter mais informações sobre uma `execução`, consulte o objeto [`executar`](#run-object). |
 
-#### Objeto `run`
+### Objeto `run`
 
 O {% data variables.product.prodname_code_scanning_capc %} usa o objeto `executar` para filtrar resultados por ferramenta e fornecer informações sobre a fonte de um resultado. O objeto `executar` contém o objeto `tool.driver` do componente da ferramenta, que contém informações sobre a ferramenta que gerou os resultados. Cada `execução` pode ter resultados apenas para uma ferramenta de análise.
 
@@ -71,7 +71,7 @@ O {% data variables.product.prodname_code_scanning_capc %} usa o objeto `executa
 | `tool.driver.rules[]`         | **Obrigatório.** Um array de objetos `reportingDescriptor` que representam regras. A ferramenta de análise usa regras para encontrar problemas no código que está sendo analisado. Para obter mais informações, consulte o objeto [`reportingDescriptor`](#reportingdescriptor-object).                                                                                                                                                                                                                                                                                                                                         |
 | `results[]`                   | **Obrigatório.** Os resultados da ferramenta de análise. {% data variables.product.prodname_code_scanning_capc %} exibe os resultados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte o objeto [`resultado`](#result-object).                                                                                                                                                                                                                                                                                                                                                        |
 
-#### Objeto `reportingDescriptor`
+### Objeto `reportingDescriptor`
 
 | Nome                         | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -85,7 +85,7 @@ O {% data variables.product.prodname_code_scanning_capc %} usa o objeto `executa
 | `properties.tags[]`          | **Opcional.** Um array de strings. {% data variables.product.prodname_code_scanning_capc %} usa `tags` para permitir que você filtre resultados em {% data variables.product.prodname_dotcom %}. Por exemplo, é possível filtrar para todos os resultados que têm a tag `segurança`.                                                                                                                                                                                                                                    |
 | `properties.precision`       | **Recomendado.** Uma string que indica quantas vezes os resultados indicados por esta regra são verdadeiros. Por exemplo, se uma regra tem uma alta taxa conhecida de falsos-positivos, a precisão deve ser `baixa`. {% data variables.product.prodname_code_scanning_capc %} ordena os resultados por precisão em {% data variables.product.prodname_dotcom %} de modo que os resultados com o mais alto `nível` e a mais alta `precisão` sejam exibidos primeiro. Pode ser: `very-high`, `high`, `medium` ou `low`. |
 
-#### Objeto `resultado`
+### Objeto `resultado`
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -101,7 +101,7 @@ O {% data variables.product.prodname_code_scanning_capc %} usa o objeto `executa
 | `codeFlows[].threadFlows[].locations[]` | **Opcional.** Uma array de objetos `local` para um objeto `threadFlow`, que descreve o progresso de um programa por meio de um thread de execução. Um objeto `codeFlow` descreve um padrão de execução de código usado para detectar um resultado. Se forem fornecidos fluxos de código, {% data variables.product.prodname_code_scanning %} irá expandir os fluxos de código em {% data variables.product.prodname_dotcom %} para o resultado relevante. Para obter mais informações, consulte o objeto [`local`](#location-object).                                                                                                                                                                                                                                                                                                                 |
 | `relatedLocations[]`                    | Um conjunto de locais relevantes para este resultado. {% data variables.product.prodname_code_scanning_capc %} irá vincular a locais relacionados quando forem incorporados à mensagem do resultado. Para obter mais informações, consulte o objeto [`local`](#location-object).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-#### Objeto `local`
+### Objeto `local`
 
 Um local dentro de um artefato de programação, como, por exemplo, um arquivo no repositório ou um arquivo gerado durante uma criação.
 
@@ -111,7 +111,7 @@ Um local dentro de um artefato de programação, como, por exemplo, um arquivo n
 | `location.physicalLocation` | **Obrigatório.** Identifica o artefato e a região. Para obter mais informações, consulte [`physicalLocation`](#physicallocation-object). |
 | `location.message.text`     | **Opcional.** Uma mensagem relevante para o local.                                                                                       |
 
-#### Objeto `physicalLocation`
+### Objeto `physicalLocation`
 
 | Nome                   | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -121,11 +121,11 @@ Um local dentro de um artefato de programação, como, por exemplo, um arquivo n
 | `region.endLine`       | **Requerido.** O número da linha do último caractere na região.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `region.endColumn`     | **Obrigatório.** O número da coluna do caractere após o final da região.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-### Exemplos de arquivos de saída SARIF
+## Exemplos de arquivos de saída SARIF
 
 Estes exemplos de arquivos de saída SARIF mostram as propriedades compatíveis e os valores de exemplo.
 
-#### Exemplo com as propriedades mínimas necessárias
+### Exemplo com as propriedades mínimas necessárias
 
 Este arquivo de saída SARIF tem exemplo de valores para mostrar as propriedades mínimas necessárias para que os resultados de {% data variables.product.prodname_code_scanning %} funcionem conforme esperado. Se você remover qualquer propriedade ou não incluir valores, esses dados não serão exibidos corretamente e não serão sincronizados em {% data variables.product.prodname_dotcom %}.
 
@@ -176,7 +176,7 @@ Este arquivo de saída SARIF tem exemplo de valores para mostrar as propriedades
 }
 ```
 
-#### Exemplo que mostra todas as propriedades compatíveis como SARIF
+### Exemplo que mostra todas as propriedades compatíveis como SARIF
 
 Este arquivo de saída SARIF tem valores de exemplo para mostrar todas as propriedades do SARIF compatíveis com {% data variables.product.prodname_code_scanning %}.
 

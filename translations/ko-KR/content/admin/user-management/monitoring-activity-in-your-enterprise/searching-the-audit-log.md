@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/searching-the-audit-log
   - /admin/user-management/searching-the-audit-log
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -16,7 +16,7 @@ topics:
   - Logging
 ---
 
-### Search query syntax
+## Search query syntax
 
 Compose a search query from one or more key:value pairs separated by AND/OR logical operators.
 
@@ -43,7 +43,7 @@ For example, to see all actions that have affected the repository `octocat/Spoon
 
 For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
 
-### Searching the audit log
+## Searching the audit log
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

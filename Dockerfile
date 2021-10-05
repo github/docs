@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.9.0-alpine as base
+FROM node:16.9-alpine as base
 
 RUN apk add --no-cache make g++ git
 
@@ -18,6 +18,7 @@ WORKDIR /usr/src/docs
 FROM base as all_deps
 
 COPY package*.json ./
+COPY .npmrc ./
 
 RUN npm ci
 
@@ -57,7 +58,7 @@ RUN npm run build
 # MAIN IMAGE
 # --------------------------------------------------------------------------------
 
-FROM node:16.9.0-alpine as production
+FROM node:16.9-alpine as production
 
 # Let's make our home
 WORKDIR /usr/src/docs
@@ -96,4 +97,15 @@ COPY --chown=node:node next.config.js ./
 EXPOSE 80
 EXPOSE 443
 EXPOSE 4000
+CMD ["node", "server.mjs"]
+
+
+# --------------------------------------------------------------------------------
+# MAIN IMAGE WITH EARLY ACCESS
+# --------------------------------------------------------------------------------
+
+FROM production as production_early_access
+
+COPY --chown=node:node content/early-access ./content/early-access
+
 CMD ["node", "server.mjs"]

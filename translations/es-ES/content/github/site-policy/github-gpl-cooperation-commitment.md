@@ -3,7 +3,7 @@ title: Compromiso de Cooperación de GPL de GitHub
 redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -13,7 +13,7 @@ Este compromiso se refiere a las contribuciones de GitHub a Git, el kernel de Li
 
 Basamos nuestra proposición en la plantilla [](https://github.com/gplcc/gplcc/blob/master/Company/GPL%20Cooperation%20Commitment-Company-Template.md) para empresas. Consulta el [sitio del Comité de Cooperación GPL](https://gplcc.github.io/gplcc/) para conocer cómo otras empresas, individuos y proyectos pueden adoptar este compromiso.
 
-### Nuestro compromiso
+## Nuestro compromiso
 
 Antes de presentar o continuar procesando cualquier procedimiento legal o reclamación (excepto una acción defensiva) que surja de la terminación de una licencia cubierta, GitHub se compromete a extenderse a la persona o entidad (“tú”) acusada de violar la Licencia Cubierta, las siguientes disposiciones relativas a la subsanación y la reincorporación, tomado de la versión 3 de GPL. Tal y como se utiliza aquí, el término "esta Licencia" se refiere a la Licencia cubierta específica que se está cumpliendo.
 

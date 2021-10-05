@@ -5,9 +5,9 @@ redirect_from:
   - /apps/building-github-apps/creating-github-apps-using-url-parameters
   - /developers/apps/creating-a-github-app-using-url-parameters
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

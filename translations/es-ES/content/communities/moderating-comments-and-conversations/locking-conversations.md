@@ -5,14 +5,14 @@ redirect_from:
   - /articles/locking-conversations
   - /github/building-a-strong-community/locking-conversations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 ---
 
-Es adecuado fijar una conversación cuando toda ella carece de comentarios constructivos o cuando viola el código de conducta de tu comunidad{% if currentVersion == "free-pro-team@latest" %} o los [Lineamientos comunitarios](/articles/github-community-guidelines) de GitHub{% endif %}. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.
+Corresponde bloquear una conversación cuando en su conjunto no es constructiva o viola el código de conducta de tu comunidad {% ifversion fpt %} o las [Pautas de la comunidad](/articles/github-community-guidelines){% endif %} de GitHub. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.
 
 Bloquear una conversación genera un evento de cronología que queda visible para cualquiera que tenga acceso de lectura al repositorio. Sin embargo, el nombre de usuario de la persona que bloqueó la conversación solo lo pueden ver las personas con acceso de escritura al repositorio. Para cualquiera que no tenga acceso de escritura, el evento de cronología es anónimo.
 
@@ -28,11 +28,11 @@ Para buscar conversaciones bloqueadas en un repositorio que no está archivado, 
 4. Lee la información acerca de bloquear conversaciones y haz clic en **Lock conversation on this issue** (Bloquear conversación sobre esta propuesta), **Lock conversation on this pull request** (Bloquear conversación sobre esta solicitud de extracción) o **Lock conversation on this commit** (Bloquear conversación sobre esta confirmación). ![Cuadro de diálogo Confirm lock with a reason (Confirmar bloqueo con motivo)](/assets/images/help/repository/lock-conversation-confirm-with-reason.png)
 5. Cuando estés listo para desbloquear la conversación, haz clic en **Unlock conversation** (Desbloquear conversación). ![Enlace Unlock conversation (Anular bloqueo de la conversación)](/assets/images/help/repository/unlock-conversation.png)
 
-### Leer más
+## Leer más
 
 - "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
 - [Utilizar plantillas para promover informes de problemas y solicitudes de extracción útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Administrar comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- [Administrar los comentarios ofensivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Limitar interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"
