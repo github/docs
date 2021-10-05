@@ -4,16 +4,17 @@ sections:
   security_fixes:
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - 'A warning message `jq: error (at <stdin>:0): Cannot index number with string "settings"` could occur during replica promotion.'
-    - Continuously restoring backups to a cluster could fail due to MySQL replicas failing to connect to the primary.
-    - Syntax highlighting could fail due to the Treelights container running out of memory.
-    - Visiting the `/settings/emails` page would store state that could cause improper redirects when logging out and logging back in.
-    - Dependency graph alerts weren't shown for some components whose advisories have upper case package names in `vulnerable_version_ranges`.
-    - GitHub integration apps were not able to notify teams when mentioned directly via an at-mention in an issue comment.
-    - When ghe-migrator encountered import errors, it would sometimes abort the entire process, and the logs did not include enough context.
+    - 'Uma mensagem de aviso `jq: error (at <stdin>:0): Cannot index number with string "settings"`pode ocorrer durante a réplica de promoção.'
+    - A restauração contínua de backups para um cluster pode falhar devido a falhas na conexão com o primário.
+    - O destaque de sintaxe pode falhar devido à falta de memória do contêiner de Treelights.
+    - O acesso à página `/settings/emails` armazenaria o estado que pode causar redirecionamentos impróprios ao efetuar o logout e o login novamente.
+    - Os alertas de gráfico de dependência não foram exibidos para alguns componentes cujos consultores têm nomes de pacotes maiúsculos em `vulnerable_version_ranges`.
+    - Os aplicativos de integração do GitHub não foram capazes de notificar equipes quando mencionadas diretamente por meio de uma menção em um comentário do problema.
+    - Quando o ghe-migrator encontrou erros na importação, às vezes abortaria todo o processo e os logs não incluíam contexto suficiente.
   known_issues:
-    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras personalizadas de firewall não são mantidas durante uma atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório onde o caminho do arquivo tem mais de 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.

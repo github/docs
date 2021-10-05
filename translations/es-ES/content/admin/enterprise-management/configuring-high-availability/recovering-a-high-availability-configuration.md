@@ -6,17 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
   - /admin/enterprise-management/recovering-a-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Recuperar una configuración de HA
 ---
 
 Puedes utilizar el aparato principal antiguo como el nuevo aparato de réplica si la conmutación por error fue planeada o no estaba relacionada con la salud del aparato. Si la conmutación por error estaba relacionado con un problema con el aparato primario, es posible que prefieras crear un nuevo aparato de réplica. Para obtener más información, consulta "[Crear una réplica de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)."
 
-### Configurar un aparato principal antiguo como una nueva réplica
+## Configurar un aparato principal antiguo como una nueva réplica
 
 1. Conéctate a la dirección IP del aparato principal antiguo utilizando SSH.
   ```shell

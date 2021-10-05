@@ -8,16 +8,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Visualizar & gerenciar acesso SAML
 ---
 
-### Sobre o acesso de SAML à sua conta corporativa
+## Sobre o acesso de SAML à sua conta corporativa
 
 Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante da empresa pode vincular sua identidade externa no seu provedor de identidade (IdP) à sua conta de {% data variables.product.product_name %} existente. {% data reusables.saml.about-saml-access-enterprise-account %}
 
-### Visualizar e revogar uma identidade vinculada
+## Visualizar e revogar uma identidade vinculada
 
 {% data reusables.saml.about-linked-identities %}
 
@@ -40,7 +41,7 @@ Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante d
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### Visualizar e revogar uma sessão ativa de SAML
+## Visualizar e revogar uma sessão ativa de SAML
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -49,7 +50,7 @@ Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante d
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### Visualizar e revogar credenciais autorizadas
+## Visualizar e revogar credenciais autorizadas
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -61,6 +62,6 @@ Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante d
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### Leia mais
+## Leia mais
 
 - "[Visualizar e gerenciar acesso de SAML de um integrante à sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

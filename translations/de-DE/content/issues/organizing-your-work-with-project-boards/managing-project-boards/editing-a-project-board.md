@@ -8,12 +8,14 @@ redirect_from:
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +28,7 @@ topics:
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Ändere den Namen und die Beschreibung des Projektboards wie gewünscht, und klicke dann auf **Save project** (Projekt ändern). ![Feld mit dem Namen und der Beschreibung des Projektboards und Schaltfläche „Save project“ (Projekt speichern)](/assets/images/help/projects/edit-project-board-save-button.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
 - „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board)“

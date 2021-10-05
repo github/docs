@@ -16,7 +16,7 @@ export default async function createApp(pullRequest) {
     user: author,
   } = pullRequest
 
-  const appName = createAppName({ prefix: 'ghd', repo, pullNumber, branch })
+  const appName = createAppName({ prefix: 'ghd-', repo, pullNumber, branch })
 
   // Put together application configuration variables
   const isPrivateRepo = owner === 'github' && repo === 'docs-internal'

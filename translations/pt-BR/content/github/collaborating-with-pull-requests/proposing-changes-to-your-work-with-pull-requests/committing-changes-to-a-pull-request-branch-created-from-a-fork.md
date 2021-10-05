@@ -6,11 +6,12 @@ redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Faça o commit do branch PR a partir da bifurcação
 ---
 
 Só é possível fazer commits em branches da pull request que:
@@ -86,6 +87,6 @@ Somente o usuário que criou a pull request pode dar a você permissão para faz
 
 Seus novos commits serão refletidos na pull request original do {% data variables.product.product_location %}.
 
-### Leia mais
+## Leia mais
 
 - "[Sobre bifurcações](/articles/about-forks)"

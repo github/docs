@@ -79,34 +79,6 @@ You can use a fallback number regardless of whether you've configured authentica
 
 After setup, the backup device will receive a confirmation SMS.
 
-## Adding a fallback authentication method with Recover Accounts Elsewhere
-
-You can generate an extra authentication credential for your account and store it with a partner recovery provider.
-
-### About Recover Accounts Elsewhere
-
-With Recover Accounts Elsewhere, you can add an extra security factor to your {% data variables.product.product_name %} account in case you lose access to your two-factor authentication method or recovery codes.
-
-Recover Accounts Elsewhere lets you associate your {% data variables.product.product_name %} account with your Facebook account. You can store an authentication credential in the form of an _account recovery token_ for your {% data variables.product.product_name %} account with Facebook.
-
-If you lose access to your {% data variables.product.product_name %} account because you no longer have access to your two-factor authentication method or recovery codes, you can retrieve your account recovery token from the recovery provider to help prove that you're the owner of your {% data variables.product.product_name %} account.
-
-After you retrieve your token, {% data variables.contact.contact_support %} may be able to disable two-factor authentication for your account. Then, you can provide or reset your password to regain access to your account.
-
-When you generate or retrieve an account recovery token, an event is added to your account's audit log. For more information, see "[Reviewing your security log](/articles/reviewing-your-security-log)."
-
-### Generating and storing an account recovery token
-
-You can generate an account recovery token and store it with a partner recovery provider.
-
-1. Sign in to your Facebook account, then return to {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-4. To generate a new token, under "Recovery tokens," click **Store new token**. ![Button for storing a new recovery token](/assets/images/help/settings/store-new-recovery-token.png)
-5. Read the information about account recovery tokens, then click **Connect with https://www.facebook.com**. ![Button for connecting a recovery token with Facebook](/assets/images/help/settings/connect-recovery-token-with-facebook.png)
-6. After you're redirected to Facebook, read the information about turning on account recovery with Facebook before you click **Save as [_YOUR NAME_]**. (If you save multiple tokens within a short period of time, Facebook may skip this confirmation step after you save your first token.)
-  ![Facebook page with button for turning on account recovery](/assets/images/help/settings/security-turn-on-rae-facebook.png)
-
 {% endif %}
 
 ## Further reading

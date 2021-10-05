@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,11 +14,11 @@ topics:
   - Performance
 ---
 
-### Habilitar límites de tasa para {% data variables.product.prodname_enterprise_api %}
+## Habilitar límites de tasa para {% data variables.product.prodname_enterprise_api %}
 
 Habilitar límites de tasa en {% data variables.product.prodname_enterprise_api %} puede evitar el uso excesivo de recursos por parte de usuarios individuales o sin autenticación. Para obtener más información, consulta la sección "[Limites de tasa](/enterprise/{{ page.version }}/v3/#rate-limiting)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 Puedes eximir a una lista de usuarios para que no tomen los límites de tasa de la API si utilizas la utilidad `ghe-config` en el shell administrativo. Para obtener más información, consulta la sección "[Utilidades de la línea de comandos](/enterprise/admin/configuration/command-line-utilities#ghe-config)".
 {% endif %}
 
@@ -30,21 +30,25 @@ Puedes eximir a una lista de usuarios para que no tomen los límites de tasa de 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. En "Limitación de tasa", selecciona **Enable API Rate Limiting** (Habilitar la limitación de tasa de API). ![Casilla para habilitar la limitación de tasa de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**. ![Casilla para habilitar la limitación de tasa de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Escribe los límites para las solicitudes autenticadas y no autenticadas para cada API o acepta los límites predeterminados que aparecen completados.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Habilitar límites de tasa de abuso
+## Enabling secondary rate limits
 
-Establecer límites de tasa de abuso protege el nivel general de servicio en {% data variables.product.product_location %}.
+Setting secondary rate limits protects the overall level of service on {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
+{% ifversion ghes > 3.1 %}
+2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**. ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+{% else %}
 2. En "Limitación de tasa", selecciona **Enable Abuse Rate Limiting** (Habilitar limitación de tasa de abuso). ![Casilla para habilitar la limitación de tasa de abuso](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
+{% endif %}
 3. Escribe límites para las solicitudes totales, límite de CPU y límite de CPU para búsquedas, o acepta los límites predeterminados que aparecen completados.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Habilitar límites de tasa de Git
+## Habilitar límites de tasa de Git
 
 Puedes aplicar límites de tasa de Git por red de repositorios o por Id. de usuario. Los límites de tasa de Git se expresan en operaciones simultáneas por minuto y se adaptan en función de la carga de CPU actual.
 

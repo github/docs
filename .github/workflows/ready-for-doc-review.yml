@@ -33,9 +33,9 @@ jobs:
           TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
-          PR_NODE_ID: ${{ github.event.pull_request.node_id }}
+          ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}
           AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
-          PR_REPO: ${{ github.event.pull_request.base.repo.full_name }}
+          REPO: ${{ github.event.pull_request.base.repo.full_name }}
 
         # Since the projects API is still in beta, use the old workflow if something fails
         # so that we don't miss these PRs

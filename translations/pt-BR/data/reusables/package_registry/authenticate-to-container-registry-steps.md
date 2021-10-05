@@ -1,7 +1,7 @@
 1. Crie um novo token de acesso pessoal (PAT) com os escopos apropriados para as tarefas que você deseja realizar. Se sua organização exigir SSO, você deverá habilitar o SSO para seu novo token.
   {% warning %}
 
-  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://github.com/settings/tokens/new?scopes=write:packages`.
+  **Observação:** Por padrão, quando você selecionar o escopo `write: pacotes` para o seu token de acesso pessoal (PAT) na interface do usuário. O escopo do `repositório` também será selecionado. O escopo de `repo` oferece acesso desnecessário e amplo, o qual recomendamos que você evite usar para fluxos de trabalho do GitHub Actions em particular. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)". Como uma alternativa, você pode selecionar apenas o escopo `write:packages` para seu PAT na interface de usuário com esta URL: `https://github. om/settings/tokens/new?scopes=write:packages`.
 
   {% endwarning %}
 

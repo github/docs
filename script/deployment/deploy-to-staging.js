@@ -11,7 +11,7 @@ const HEROKU_LOG_LINES_TO_SHOW = 25
 // Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
 // the semi-unreliable Heroku API when we're polling for status updates
 const ALLOWED_MISSING_RESPONSE_COUNT = 5
-const ALLOWABLE_ERROR_CODES = [404, 429, 500]
+const ALLOWABLE_ERROR_CODES = [404, 429, 500, 503]
 
 export default async function deployToStaging({
   octokit,

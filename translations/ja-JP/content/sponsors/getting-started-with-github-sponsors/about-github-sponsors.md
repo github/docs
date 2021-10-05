@@ -5,14 +5,14 @@ redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
 ---
 
-### {% data variables.product.prodname_sponsors %} について
+## {% data variables.product.prodname_sponsors %} について
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -24,7 +24,7 @@ topics:
 
 スポンサード開発者またはスポンサード Organization になると、{% data variables.product.prodname_sponsors %}に対する追加条項が適用されます。 詳細は、「[GitHub Sponsors に関する追加条項](/github/site-policy/github-sponsors-additional-terms)」を参照してください。
 
-### {% data variables.product.prodname_matching_fund %} について
+## {% data variables.product.prodname_matching_fund %} について
 
 {% note %}
 
@@ -40,11 +40,13 @@ topics:
 
 {% data reusables.sponsors.legal-additional-terms %}
 
-### {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
+## {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
 
 {% data reusables.sponsors.feedback %}
 
-### 参考リンク
+## 参考リンク
 - 「[オープンソースコントリビューターをスポンサーする](/sponsors/sponsoring-open-source-contributors)」
 - 「[{% data variables.product.prodname_sponsors %} を通じてスポンサーシップを獲得する](/sponsors/receiving-sponsorships-through-github-sponsors)」
+- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - {% data variables.product.prodname_blog %} の「[{% data variables.product.prodname_sponsors %} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」

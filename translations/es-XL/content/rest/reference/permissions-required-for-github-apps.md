@@ -4,9 +4,9 @@ intro: 'Puedes encontrar los permisos que requiere cada terminal compatible con 
 redirect_from:
   - /v3/apps/permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

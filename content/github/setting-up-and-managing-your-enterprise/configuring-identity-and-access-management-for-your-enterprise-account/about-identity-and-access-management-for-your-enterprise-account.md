@@ -20,6 +20,12 @@ If you use Azure AD as your IDP, you can use team synchronization to manage team
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
+## About {% data variables.product.prodname_emus %}
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
+
+Configuring {% data variables.product.prodname_emus %} for SAML single-sign on and user provisioning involves following a different process than you would for an enterprise that isn't using {% data variables.product.prodname_managed_users %}. If your enterprise uses {% data variables.product.prodname_emus %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+
 ## Supported IdPs
 
 We test and officially support the following IdPs. For SAML SSO, we offer limited support for all identity providers that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
@@ -31,4 +37,3 @@ Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="T
 OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
 Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %}  | |
-
