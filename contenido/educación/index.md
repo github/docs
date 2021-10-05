@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub Education Documentation
 shortTitle: Education
 intro: '{% data variables.product.prodname_education %} helps you teach or learn software development with the tools and support of {% data variables.product.company_short %}''s platform and community.'
