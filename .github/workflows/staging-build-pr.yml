@@ -14,13 +14,28 @@ on:
 permissions:
   contents: read
 
+# This allows one Build workflow run to interrupt another
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  cancel-in-progress: true
+
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump full context for debugging
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
+    # progress for this PR branch.
     concurrency:
-      group: staging_${{ github.head_ref }}
+      group: 'PR Staging @ ${{ github.event.pull_request.head.label }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo

@@ -143,7 +143,7 @@ jobs:
         if: ${{ steps.find-pull-request.outputs.number }}
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.find-pull-request.outputs.number }}
 
       # Because we get far too much spam ;_;

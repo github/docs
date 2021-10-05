@@ -90,8 +90,8 @@ For more information, see "[Running {% data variables.product.prodname_codeql_ru
 
 {% endif %}
 
-<!--Content for GHAE and GHES 3.0 only. Only CodeQL runner is available -->
-{% ifversion ghes = 3.0 or ghae %}
+<!--Content for GHES 3.0 only. Only CodeQL runner is available -->
+{% ifversion ghes = 3.0 %}
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 You add the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
