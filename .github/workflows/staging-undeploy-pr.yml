@@ -50,11 +50,21 @@ jobs:
     # IMPORTANT: Intentionally OMIT a `concurrency` configuration from this job!
     steps:
       - name: Add a label to the PR to block deployment during undeployment
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit "$PR_URL" --add-label "automated-block-deploy"
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            await github.issues.addLabels({
+              owner,
+              repo,
+              issue_number: process.env.PR_NUMBER,
+              labels: [
+                { name: 'automated-block-deploy' }
+              ]
+            })
 
       - name: Check out repo's default branch
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
@@ -119,11 +129,19 @@ jobs:
 
       - if: ${{ always() }}
         name: Remove the label from the PR to unblock deployment
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit "$PR_URL" --remove-label "automated-block-deploy"
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            await github.issues.removeLabel({
+              owner,
+              repo,
+              issue_number: process.env.PR_NUMBER,
+              name: 'automated-block-deploy'
+            })
 
       - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
