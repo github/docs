@@ -8,7 +8,6 @@ versions:
   ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## About required reviews in workflows
 
