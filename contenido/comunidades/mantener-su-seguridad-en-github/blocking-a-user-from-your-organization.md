@@ -1,4 +1,4 @@
----
+--- 
 title: Blocking a user from your organization
 intro: Organization owners can block a user to remove the user's ability to collaborate in the organization's repositories.
 redirect_from:
