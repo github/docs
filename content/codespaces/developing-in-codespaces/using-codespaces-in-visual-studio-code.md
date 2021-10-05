@@ -94,5 +94,6 @@ You can use the [Insider Build of Visual Studio Code](https://code.visualstudio.
 
 1. In bottom left of your {% data variables.product.prodname_codespaces %} window, select **{% octicon "gear" aria-label="The settings icon" %} Settings**.
 2. From the list, select "Switch to Insiders Version".
-     <!-- TODO Image -->
+
+   ![Clicking on "Insiders Build" in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
 3. Once selected, {% data variables.product.prodname_codespaces %} will continue to open in Insiders Version.
