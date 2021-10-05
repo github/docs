@@ -281,3 +281,18 @@ If you don't see your public key in {% data variables.product.product_name %}, y
 **Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
 
 {% endwarning %}
+
+## Make sure keys for correct user are being used
+
+If you are connected to remote server as user other than `root` using `sudo git pull` will look for keys inside `/root/.ssh` directory. This directory may not contain keys you created which are located at `/home/(user)/.ssh` therefore you will be getting this error.
+
+Solution is fairly easy, you just need to copy keys you created into `root` directory that is holding keys :
+
+```shell
+$ cp /home/(user)/.ssh/(FILE_THAT_CONTAINS_YOUR_KEY) /root/.ssh/
+```
+
+Things to do so you avoid this problem :
+
+1. Do not create directory using `sudo` as this will require super user privileges whenever you do something with this directory. (`.git` directory)
+2. Do not use `sudo git pull` as this will check for keys in `/root/.ssh`, instead use `git pull`
