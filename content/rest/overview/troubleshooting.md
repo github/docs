@@ -23,7 +23,7 @@ You might expect to see a `403 Forbidden` in these cases. However, since we don'
 want to provide _any_ information about private repositories, the API returns a
 `404` error instead.
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), and [third-party application restrictions][oap-guide] are not blocking access.
+To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 ## Not all results returned
 

@@ -9,7 +9,7 @@ redirect_from:
   - /apps/marketplace/selling-your-app/
   - /marketplace/selling-your-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 children:

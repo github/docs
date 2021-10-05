@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
   - /admin/enterprise-management/recommended-alert-thresholds
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Infrastructure

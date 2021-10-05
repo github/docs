@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Acerca de administrar ramas
 Puedes utilizar las ramas para experimentar de forma segura con los cambios de tu proyecto. Las ramas aislan tu trabajo de desarrollo de otras ramas en el repositorio. Por ejemplo, puedes utilizar una rama para desarrollar una nueva característica o para corregir un error.

@@ -18,19 +18,19 @@ redirect_from:
   - /articles/adding-seats-to-your-organization/
   - /articles/upgrading-your-github-billing-plan/
   - /articles/upgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Troubleshooting
   - Upgrades
   - User account
+shortTitle: 升级订阅
 ---
 
-### 升级个人帐户的订阅
+## 升级个人帐户的订阅
 
 您可以将个人帐户从 {% data variables.product.prodname_free_user %} 升级到 {% data variables.product.prodname_pro %}，以获得私有仓库中的高级代码审查工具。 {% data reusables.gated-features.more-info %}
 
@@ -40,10 +40,11 @@ topics:
 2. 在“Compare plans（比较计划）”页面的 "Pro" 下，单击 **Upgrade to Pro（升级到 Pro）**。
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
+{% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### 升级组织的订阅
+## 升级组织的订阅
 
 您可以将组织从 {% data variables.product.prodname_free_team %} 升级到 {% data variables.product.prodname_team %}，以访问团队的高级协作和管理工具，也可以将组织升级到 {% data variables.product.prodname_ghe_cloud %} 以使用更多的安全性、合规性和部署控件。 {% data reusables.gated-features.more-info-org-products %}
 
@@ -58,13 +59,13 @@ topics:
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-#### 使用 {% data variables.product.prodname_ghe_cloud %} 的组织的后续步骤
+### 使用 {% data variables.product.prodname_ghe_cloud %} 的组织的后续步骤
 
 如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization)”。
 
 如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 更多信息请参阅“[关于企业帐户](/articles/about-enterprise-accounts)”。
 
-### 将席位添加到您的组织
+## 将席位添加到您的组织
 
 如果希望其他用户能够访问您 {% data variables.product.prodname_team %} 组织的私有仓库，您可以随时购买更多席位。
 
@@ -73,7 +74,7 @@ topics:
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### 将组织从按仓库定价切换为按用户定价
+## 将组织从按仓库定价切换为按用户定价
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。
 
@@ -85,11 +86,11 @@ topics:
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### 升级时对 500 错误进行故障排除
+## 升级时对 500 错误进行故障排除
 
 {% data reusables.dotcom_billing.500-error %}
 
-### 延伸阅读
+## 延伸阅读
 
 - “[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”
 - "[升级或降级对结算过程有何影响？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

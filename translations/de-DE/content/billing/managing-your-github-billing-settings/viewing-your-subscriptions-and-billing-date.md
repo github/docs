@@ -10,27 +10,28 @@ redirect_from:
   - /articles/viewing-your-plans-and-billing-date/
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Accounts
   - Organizations
   - User account
+shortTitle: Subscriptions & billing date
 ---
 
-### Nächstes Abrechnungsdatum Deines persönlichen Kontos finden
+## Nächstes Abrechnungsdatum Deines persönlichen Kontos finden
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Nächstes Abrechnungsdatum Deiner Organisation finden
+## Nächstes Abrechnungsdatum Deiner Organisation finden
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zur Abrechnung für {% data variables.product.product_name %}-Konten](/articles/about-billing-for-github-accounts)“

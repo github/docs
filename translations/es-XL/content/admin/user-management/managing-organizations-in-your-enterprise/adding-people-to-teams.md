@@ -8,7 +8,7 @@ redirect_from:
   - /admin/user-management/adding-people-to-teams
 intro: 'Una vez que se ha creado un equipo, los administradores de la organización pueden agregar usuarios desde {% data variables.product.product_location_enterprise %} al equipo y determinar a qué repositorios tienen acceso.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Access management
   - Enterprise

@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /admin/enterprise-management/removing-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Clustering
   - High availability

@@ -7,7 +7,7 @@ const article: PlaygroundArticleT = {
   topics: ['CI', 'Python'],
   type: 'tutorial',
   slug: 'building-and-testing-python',
-  originalArticle: '/actions/guides/building-and-testing-python',
+  originalArticle: '/actions/automating-builds-and-tests/building-and-testing-python',
   codeLanguageId: 'py',
   intro: dedent`
     This guide shows you how to build, test, and publish a Python package.

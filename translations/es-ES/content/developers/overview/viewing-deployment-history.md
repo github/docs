@@ -2,19 +2,19 @@
 title: Visualizar el historial de despliegues
 intro: Ver los despliegues actuales y previos de tu repositorio.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Ver el historial de despliegue
 ---
 
-{% data reusables.actions.environments-beta %}
 
-Puedes entregar despliegues a través de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_actions %} y de ambientes o con {% endif %}la API de REST y apps de terceros. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[{% data variables.product.prodname_actions %}](/actions)". {% endif %}Para obtener más información acerca de los despliegues con la API de REST, consulta la sección "[Repositorios](/rest/reference/repos#deployments)".
+Puedes entregar despliegues a través de {% ifversion fpt or ghes > 3.0 %}{% data variables.product.prodname_actions %} y de ambientes o con {% endif %}la API de REST y apps de terceros. {% ifversion fpt or ghes > 3.0 %}Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[{% data variables.product.prodname_actions %}](/actions)". {% endif %}Para obtener más información acerca de los despliegues con la API de REST, consulta la sección "[Repositorios](/rest/reference/repos#deployments)".
 
 Para ver los despliegues actuales y pasados, da clic en **Ambientes** en la página principal de tu repositorio.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghae or ghes < 3.0 %}
 ![Ambientes](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
 ![Environments](/assets/images/environments-sidebar.png){% endif %}
 

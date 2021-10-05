@@ -6,22 +6,23 @@ redirect_from:
   - /articles/about-pull-request-reviews
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: About PR reviews
 ---
 
-### Informationen zu Pull-Request-Reviews
+## Informationen zu Pull-Request-Reviews
 
 Nachdem ein Pull-Request geöffnet wurde, kann jeder mit *Lese*-Zugriff die vorgeschlagenen Änderungen überprüfen und kommentieren. Du kannst auch spezifische Änderungen an Codezeilen vorschlagen, die der Autor direkt aus dem Pull-Request anwenden kann. Weitere Informationen findest Du unter „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/articles/reviewing-proposed-changes-in-a-pull-request).“
 
-Repository-Inhaber und -Mitarbeiter können von einer bestimmten Person einen Review des Pull Requests anfordern. Organisationsmitglieder können auch einen Review eines Pull Requests von einem Team mit Lesezugriff auf das Repository anfordern. Weitere Informationen findest Du unter „[Einen Pull-Request-Review anfordern](/articles/requesting-a-pull-request-review).“ {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Du kannst anstelle des gesamten Teams auch nur eine Teilmenge von Teammitgliedern angeben, die automatisch zugewiesen werden sollen. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Repository-Inhaber und -Mitarbeiter können von einer bestimmten Person einen Review des Pull Requests anfordern. Organisationsmitglieder können auch einen Review eines Pull Requests von einem Team mit Lesezugriff auf das Repository anfordern. Weitere Informationen findest Du unter „[Einen Pull-Request-Review anfordern](/articles/requesting-a-pull-request-review).“ {% ifversion fpt or ghae or ghes %}Du kannst anstelle des gesamten Teams auch nur eine Teilmenge von Teammitgliedern angeben, die automatisch zugewiesen werden sollen. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 Reviews ermöglichen eine Diskussion der vorgeschlagenen Änderungen und tragen dazu bei, dass die Änderungen den Beitragsrichtlinien des Repositorys wie auch anderen Qualitätsstandards entsprechen. Du kannst definieren, welche Personen oder Teams bestimmte Codetypen oder -bereiche in einer CODEOWNERS-Datei besitzen. Wenn durch einen Pull Request Code mit einem definierten Inhaber geändert wird, wird diese Person oder dieses Team automatisch als Reviewer angefordert. Weitere Informationen finden Sie unter „[Informationen zu Codeinhabern](/articles/about-code-owners/)“.
 
-{% if currentVersion == "free-pro-team@latest" %}Du kannst Erinnerungen für Pull Requests planen, die überprüft werden müssen. Weitere Informationen findest Du unter „[Geplante Erinnerungen für Pull-Requests verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
+{% ifversion fpt %}Du kannst Erinnerungen für Pull Requests planen, die überprüft werden müssen. Weitere Informationen findest Du unter „[Geplante Erinnerungen für Pull-Requests verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
 
 ![Header eines Reviews, der Änderungen mit Zeilenkommentaren anfordert](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 
@@ -42,11 +43,11 @@ Du kannst alle Reviews eines Pull Requests in der Zeitleiste der Unterhaltung an
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Re-requesting a review
+## Re-requesting a review
 
 {% data reusables.pull_requests.re-request-review %}
 
-### Erforderliche Reviews
+## Erforderliche Reviews
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
@@ -56,7 +57,7 @@ Du kannst alle Reviews eines Pull Requests in der Zeitleiste der Unterhaltung an
 
 {% endtip %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Vorgeschlagene Änderungen in einem Pull Request prüfen](/articles/reviewing-proposed-changes-in-a-pull-request)“
 - „[Einen Pull-Request-Review anzeigen](/articles/viewing-a-pull-request-review)“

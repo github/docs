@@ -2,9 +2,9 @@
 title: Utilizar los ejecutores hospedados en GitHub
 intro: Puedes utilizar los ejecutores de GitHub para ejecutar tus flujos de trabajo de las GitHub Actions.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-github-hosted-runners
   - /customizing-github-hosted-runners
@@ -14,6 +14,7 @@ children:
   - /using-labels-with-ae-hosted-runners
   - /using-groups-to-manage-access-to-ae-hosted-runners
   - /creating-custom-images
+shortTitle: Utilizar los ejecutores hospedados en GitHub
 ---
 
 {% data reusables.actions.enterprise-beta %}

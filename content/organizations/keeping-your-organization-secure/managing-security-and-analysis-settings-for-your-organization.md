@@ -120,7 +120,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
 1. Under "{% data variables.product.prodname_dependabot %} private repository access", click **Add private repositories** or **Add internal and private repositories**.
    ![Add repositories button](/assets/images/help/organizations/dependabot-private-repository-access.png)
 1. Start typing the name of the repository you want to allow.
-   ![Add repositories button](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+   ![Repository search field with filtered dropdown](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 1. Click the repository you want to allow.
 
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.

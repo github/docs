@@ -54,7 +54,7 @@ These queries must belong to a published {% data variables.product.prodname_code
 
 For more information, see "[About {% data variables.product.prodname_codeql %} packs](https://codeql.github.com/docs/codeql-cli/about-codeql-packs/)" and "[About {% data variables.product.prodname_ql %} packs](https://codeql.github.com/docs/codeql-cli/about-ql-packs/)" in the {% data variables.product.prodname_codeql %} documentation.
 
-{% data reusables.code-scanning.beta-codeql-packs-actions %}
+{% data reusables.code-scanning.beta-codeql-packs-cli %}
 
 {%- else %}
 The queries you want to run must belong to a QL pack in a repository. Queries must only depend on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same QL pack as the query. For more information, see "[About {% data variables.product.prodname_ql %} packs](https://codeql.github.com/docs/codeql-cli/about-ql-packs/)."

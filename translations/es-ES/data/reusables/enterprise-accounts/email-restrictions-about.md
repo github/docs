@@ -2,7 +2,13 @@ Cuando restringes las notificaciones por correo electrónico, los miembros empre
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 
+{% ifversion fpt %}
 Los dominios se pueden heredar desde la cuenta empresarial, o los puedes configurar una organización específica. Para obtener más información, consulta las secciones "[Verificar o aprobar un dominio para tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)" y "[Restringir las notificaciones por correo electrónico para tu organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
+{% endif %}
+
+{%  ifversion ghes > 3.1 %}
+Los dominios se pueden heredar desde la cuenta empresarial, o los puedes configurar una organización específica. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+{% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 

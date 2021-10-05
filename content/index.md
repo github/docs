@@ -4,7 +4,7 @@ featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
     - /github/authenticating-to-github/connecting-to-github-with-ssh
-    - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
+    - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
   popular:
     - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
@@ -16,6 +16,8 @@ versions: '*'
 children:
   - get-started
   - account-and-profile
+  - authentication
+  - repositories
   - github
   - admin
   - billing
@@ -25,6 +27,7 @@ children:
   - actions
   - codespaces
   - packages
+  - search-github
   - developers
   - rest
   - graphql
@@ -53,4 +56,3 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
-
