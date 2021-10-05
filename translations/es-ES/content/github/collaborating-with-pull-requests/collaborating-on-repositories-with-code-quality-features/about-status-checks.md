@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -24,18 +24,18 @@ Puedes ver el estado general de la última confirmación para una rama en la pá
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### Tipos de verificaciones de estado en {% data variables.product.product_name %}
+## Tipos de verificaciones de estado en {% data variables.product.product_name %}
 
 Hay dos tipos de verificaciones de estado en {% data variables.product.product_name %}:
 
 - Verificaciones
 - Estados
 
-Las _verificaciones_ son diferentes de los _estados_, porque brindan anotaciones por línea, mensajes más detallados y solo están disponibles para el uso con {% data variables.product.prodname_github_app %}s.
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
 Los propietarios de la organización y los usuarios con acceso de escritura a un repositorio pueden crear verificaciones y estados con la API de {% data variables.product.product_name %}. Para obtener más información, consulta la secciónes "[Verificaciones](/rest/reference/checks)" y "[Estados](/rest/reference/repos#statuses)".
 
-### Verificaciones
+## Verificaciones
 
 Cuando se configuran las _verificaciones_ en un repositorio, las solicitudes de extracción tienen una pestaña **Checks** (Verificaciones) en la que puedes ver los resultados detallados de la compilación desde las verificaciones de estado y volver a ejecutar las verificaciones fallidas.
 
@@ -49,7 +49,7 @@ Puedes navegar entre los resúmenes de las verificaciones para varias confirmaci
 
 ![Resúmenes de verificación para diferentes confirmaciones en un menú desplegable](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-#### Omitir y solicitar verificaciones para confirmaciones individuales
+### Omitir y solicitar verificaciones para confirmaciones individuales
 
 Cuando un repositorio se configura para que solicite automáticamente las verificaciones para las subidas, puedes elegir omitir las verificaciones para una confirmación indvidual que subes. Cuando un repositorio _no_ se configura para que solicite automáticamente las verificaciones para las subidas, puedes solicitar verificaciones para una confirmación indvidual que subes. Para obtener más información acerca de estas configuraciones, consulta la sección "[Suites de verificación](/rest/reference/checks#update-repository-preferences-for-check-suites)".
 

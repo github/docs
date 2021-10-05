@@ -4,9 +4,9 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /v3/actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

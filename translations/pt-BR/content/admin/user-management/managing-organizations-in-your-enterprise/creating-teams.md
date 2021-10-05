@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -20,7 +20,7 @@ Uma equipe pode representar um grupo dentro da empresa ou incluir pessoas com de
 
 As organizações podem criar vários níveis de equipes aninhadas para refletir a estrutura hierárquica de uma empresa ou grupo. Para obter mais informações, consulte "[Sobre equipes](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)".
 
-### Criar equipes
+## Criar equipes
 
 Fazer uma combinação prudente de equipes é uma forma poderosa de controlar o acesso ao repositório. Por exemplo, se a sua organização permitir que somente a equipe de engenharia da versão faça push do código para o branch de qualquer repositório, você poderia conceder permissões de **administração** aos repositórios da organização somente à equipe de engenharia, enquanto todas as outras equipes teriam permissão de **leitura**.
 
@@ -33,7 +33,7 @@ Fazer uma combinação prudente de equipes é uma forma poderosa de controlar o 
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
 
-### Criar equipes com a Sincronização LDAP habilitada
+## Criar equipes com a Sincronização LDAP habilitada
 
 Instâncias que usam o LDAP para fazer autenticação de usuários podem usar a Sincronização LDAP para gerenciar os integrantes de uma equipe. Configurar o **Distinguished Name (DN)** (nome diferenciado) no campo **LDAP group** (grupo LDAP) mapeará uma equipe a um grupo LDAP ou servidor LDAP. Se você usar a Sincronização LDAP para gerenciar os integrantes de uma equipe, não será possível gerenciar a sua equipe na {% data variables.product.product_location %}. Quando a Sincronização LDAP estiver habilitada, a equipe mapeada sincronizará seus integrantes em segundo plano e periodicamente no intervalo configurado. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
 

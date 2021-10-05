@@ -11,6 +11,7 @@ versions:
 children:
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
+  - /autoscaling-with-self-hosted-runners
   - /configuring-the-self-hosted-runner-application-as-a-service
   - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners
@@ -22,4 +23,3 @@ children:
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}

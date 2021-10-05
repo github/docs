@@ -1,4 +1,4 @@
-import { ClippyIcon, CheckIcon } from '@primer/octicons-react'
+import { CopyIcon, CheckIcon } from '@primer/octicons-react'
 import { Tooltip } from '@primer/components'
 
 import useClipboard from 'components/hooks/useClipboard'
@@ -32,7 +32,7 @@ export const ActionBar = ({ code }: Props) => {
           aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}
         >
           <button className="btn-octicon" onClick={() => setCopied()}>
-            {isCopied ? <CheckIcon /> : <ClippyIcon />}
+            {isCopied ? <CheckIcon /> : <CopyIcon />}
           </button>
         </Tooltip>
       </div>

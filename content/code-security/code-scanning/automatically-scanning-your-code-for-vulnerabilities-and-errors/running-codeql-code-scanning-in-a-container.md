@@ -24,6 +24,7 @@ topics:
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 
 ## About {% data variables.product.prodname_code_scanning %} with a containerized build
 

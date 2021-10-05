@@ -6,18 +6,19 @@ redirect_from:
   - /articles/source-code-migration-tools
   - /github/importing-your-projects-to-github/source-code-migration-tools
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Ferramentas de migração de código
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Recomendamos usar o [Importador do GitHub](/articles/about-github-importer) para importar projetos de Subversion, Mercurial, Controle de versão do Team Foundation (TFVC) ou outro repositório Git. Você também pode usar essas ferramentas externas para converter o projeto em Git.
 
 {% endif %}
 
-### Importar do Subversion
+## Importar do Subversion
 
 Em um ambiente típico do Subversion, vários projetos são armazenados em um único repositório raiz. No GitHub, cada um desses projetos é associado a um repositório do Git separado para uma conta de usuário ou organização. Sugerimos que você importe cada parte do repositório do Subversion para um repositório separado do GitHub se:
 
@@ -29,13 +30,15 @@ Recomendamos estas ferramentas para converter repositórios do Subversion em Git
 - [`git-svn`](https://git-scm.com/docs/git-svn)
 - [svn2git](https://github.com/nirvdrum/svn2git)
 
-### Importar do Mercurial
+## Importar do Mercurial
 
 Recomendamos o [hg-fast-export](https://github.com/frej/fast-export) para converter repositórios do Mercurial em Git.
 
-### Importando do TFVC
+## Importando do TFVC
 
 Recomendamos [git-tfs](https://github.com/git-tfs/git-tfs) para transferir alterações entre TFVC e Git.
+
+For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
 
 {% tip %}
 
@@ -43,9 +46,9 @@ Recomendamos [git-tfs](https://github.com/git-tfs/git-tfs) para transferir alter
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre o Importador do GitHub](/articles/about-github-importer)"
 - "[Importar um repositório com o Importador do GitHub](/articles/importing-a-repository-with-github-importer)"

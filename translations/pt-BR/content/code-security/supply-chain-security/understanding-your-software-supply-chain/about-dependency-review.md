@@ -1,8 +1,11 @@
 ---
 title: Sobre revisão de dependências
 intro: 'A revisão de dependências permite que você capture dependências vulneráveis antes de introduzi-las no seu ambiente e fornece informações sobre licença, dependências e idade das dependências.'
+shortTitle: Revisão de dependência
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghes: '>= 3.2'
+  product: '{% data reusables.gated-features.dependency-review %}'
 type: overview
 topics:
   - Advanced Security
@@ -14,13 +17,9 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
 ---
 
-{% note %}
+{% data reusables.dependency-review.beta %}
 
-**Observação:** A revisão de dependências está atualmente em fase beta e sujeita a alterações.
-
-{% endnote %}
-
-### Sobre revisão de dependências
+## Sobre revisão de dependências
 
 {% data reusables.dependency-review.feature-overview %}
 
@@ -38,3 +37,7 @@ Ao verificar as revisões de dependências em um pull request e alterar todas as
 {% data variables.product.prodname_dependabot_alerts %} encontrará vulnerabilidades que já estão nas suas dependências, mas é muito melhor evitar a introdução de possíveis problemas do que corrigir problemas em uma data posterior. Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
 
 A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+
+## Enabling dependency review
+
+The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}

@@ -5,7 +5,7 @@ intro: 'Puedes configurar el {% data variables.product.prodname_code_scanning %}
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -17,13 +17,13 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Opciones para configurar el {% data variables.product.prodname_code_scanning %}
+## Opciones para configurar el {% data variables.product.prodname_code_scanning %}
 
 Tú decides cómo generar las alertas del {% data variables.product.prodname_code_scanning %} y qué herramientas utilizar a nivel de repositorio. {% data variables.product.product_name %} te proporciona compatibilidad total e integrada para el análisis de {% data variables.product.prodname_codeql %} y también es compatible con el análisis de herramientas de terceros. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)".
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Configurar el {% data variables.product.prodname_code_scanning %} utilizando acciones
+## Configurar el {% data variables.product.prodname_code_scanning %} utilizando acciones
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -40,10 +40,11 @@ Tú decides cómo generar las alertas del {% data variables.product.prodname_cod
 
 En el {% data variables.product.prodname_codeql_workflow %} predeterminado, el {% data variables.product.prodname_code_scanning %} se configura para analizar tu código cada vez que ya sea subas un cambio a la rama predeterminada o a cualquier rama protegida, o que levantes una solicitud de cambios contra la rama predeterminada. Como resultado, el {% data variables.product.prodname_code_scanning %} comenzarà ahora.
 
-### Configuración del {% data variables.product.prodname_code_scanning %} por lotes
-Puedes configurar el {% data variables.product.prodname_code_scanning %} en muchos repositorios al mismo tiempo utilizando un script. Para encontrar un ejemplo de un script que levanta solicitudes de cambio para agregar un flujo de trabajo de {% data variables.product.prodname_actions %} a varios repositorios, consulta el repositorio [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs).
+## Configuración del {% data variables.product.prodname_code_scanning %} por lotes
 
-### Visualizar la salida de registro del {% data variables.product.prodname_code_scanning %}
+Puedes configurar el {% data variables.product.prodname_code_scanning %} en muchos repositorios al mismo tiempo utilizando un script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS.
+
+## Visualizar la salida de registro del {% data variables.product.prodname_code_scanning %}
 
 Después de configurar el {% data variables.product.prodname_code_scanning %} para tu repositorio, puedes observar la salida de las acciones mientras se ejecutan.
 
@@ -71,7 +72,7 @@ Después de configurar el {% data variables.product.prodname_code_scanning %} pa
 
 {% endnote %}
 
-### Entender las verificaciones de la solicitud de cambios
+## Entender las verificaciones de la solicitud de cambios
 
 Cada flujo de trabajo del {% data variables.product.prodname_code_scanning %} que configuras para que se utilice en las solicitudes de cambios siempre tiene por lo menos dos entradas listadas en la sección de verificaciones de una solicitud de cambios. Solo hay una entrada para cada uno de los jobs de anàlisis en el flujo de trabajo y uno final para los resultados del anàlisis.
 
@@ -83,7 +84,7 @@ Cuando se completan los jobs del {% data variables.product.prodname_code_scannin
 
   ![Falta el análisis para el mensaje de confirmación](/assets/images/help/repository/code-scanning-missing-analysis.png)
 
-#### Razones para recibir un mensaje de "missing analysis"
+### Razones para recibir un mensaje de "missing analysis"
 
 Despuès de que el {% data variables.product.prodname_code_scanning %} analiza el còdigo en una solicitud de cambios, necesita comparar el anàlisis de la rama de tema (la rama que utilizaste para crear la silicolicitud de cambios) con el anàlisis de la rama base (la rama en la cual quieres fusionar la solicitud de cambios). Esto permite al {% data variables.product.prodname_code_scanning %} calcular què alertas introdujo la solicitud de cambios recientemente, cuàles ya estaban presentes en la rama base y si es que cualquiera de las alertas existentes se arreglan con los cambios que lleva la solicitud. Inicialmente, si utilizas una solicitud de cambios para agregar el {% data variables.product.prodname_code_scanning %} a un repositorio, la rama base no se ha analizado, asì que no es posible calcular estos detalles. En este caso, cuando das clic en la verificaciòn de los resultados de la solicitud de cambios, veràs el mensaje "Missing analysis for base commit SHA-HASH".
 
@@ -105,7 +106,7 @@ Existen otras situaciones en donde puede que no haya un anàlisis para la ùltim
 
   Fusiona un cambio trivial en la rama base para activar el {% data variables.product.prodname_code_scanning %} en esta ùltima confirmaciòn, luego sube un cambio a la solicitud de extracciòn para volver a activar el {% data variables.product.prodname_code_scanning %}.
 
-### Pasos siguientes
+## Pasos siguientes
 
 Después de configurar el {% data variables.product.prodname_code_scanning %} y permitir que se completen sus acciones, puedes:
 

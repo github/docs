@@ -8,20 +8,21 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### Einführung
+## Einführung
 
 In dieser Anleitung erfährst Du mehr über die grundlegenden Komponenten, die benötigt werden, um eine paketierte Docker-Container-Aktion zu erstellen und zu verwenden. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. Die Aktion schreibt „Hello World“ in die Logs oder "Hello [who-to-greet]" wenn du einen benutzerdefinierten Namen angibst.
 
@@ -33,7 +34,7 @@ Nach dem Abschluss dieses Projekts solltest Du verstehen, wie Du Deine eigene Ja
 
 {% data reusables.github-actions.context-injection-warning %}
 
-### Vorrausetzungen
+## Vorrausetzungen
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
@@ -57,7 +58,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
   npm init -y
   ```
 
-### Eine Datei für die Metadaten der Aktion erstellen
+## Eine Datei für die Metadaten der Aktion erstellen
 
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. Weitere Informationen findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)“.
 
@@ -79,7 +80,7 @@ runs:
 
 Diese Datei definiert die Eingabe `who-to-greet` und die Ausgabe `time`. Sie gibt dem Action-Runner auch an, wie diese JavaScript-Aktion ausgeführt werden soll.
 
-### Toolkit-Pakete für Aktionen hinzufügen
+## Toolkit-Pakete für Aktionen hinzufügen
 
 Das Toolkit für Aktionen ist eine Node.js-Paketsammlung, mit der Sie JavaScript-Aktionen schnell und konsistenter erstellen können.
 
@@ -98,7 +99,7 @@ npm install @actions/github
 
 Nun sollte das Verzeichnis `node_modules` mit den soeben von Dir installierten Modulen und die Datei `package-lock.json` mit den installierten Modulabhängigkeiten sowie die Version des jeweils installierten Moduls angezeigt werden.
 
-### Aktions-Code schreiben
+## Aktions-Code schreiben
 
 Diese Aktion verwendet das Toolkit, um die in der Metadatendatei der Aktion erforderliche Eingabevariable `who-to-greet` abzurufen, und gibt „Hello [who-to-greet]“ im Protokoll in einer Debugging-Meldung aus. Als Nächstes ruft das Skript die aktuelle Zeit ab und legt sie als eine Ausgabevariable fest, die von später in einem Auftrag ausgeführten Aktionen verwendet werden kann.
 
@@ -129,7 +130,7 @@ try {
 Wenn im o. g. `index.js`-Beispiel ein Fehler ausgegeben wird, nutzt `core.setFailed(error.message);` das Aktions-Toolkit-Paket [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core), um eine Meldung zu protokollieren und einen Fehler-Exit-Code festzulegen. Weitere Informationen findest Du unter "[Exit Codes für Aktionen setzen](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
-### Eine README erstellen
+## Eine README erstellen
 
 Sie können eine README-Datei erstellen, um Person dahingehend zu informieren, wie sie Ihre Aktion verwenden sollen. Eine README ist am hilfreichsten, wenn Sie vorhaben, Ihre Aktion öffentlich freizugeben. Zudem eignet sie sich dafür, Sie oder Ihr Team dahingehend zu erinnern, wie die Aktion verwendet wird.
 
@@ -149,15 +150,15 @@ Diese Aktion gibt „Hello World“ oder „Hello“ + den Namen einer Person au
 
 ## Inputs
 
-### `who-to-greet`
+## `who-to-greet`
 
-**Erforderlich** Der Name der zu grüßenden Person. Der Standardwert lautet „World“.
+**Required** The name of the person to greet. Der Standardwert lautet „World“.
 
 ## Outputs
 
-### `time`
+## `time`
 
-Die Zeit, zu der Sie gegrüßt wurden.
+The time we greeted you.
 
 Beispielverwendung
 
@@ -166,7 +167,7 @@ mit:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### Committe, tagge und pushe Deine Aktion auf GitHub
+## Committe, tagge und pushe Deine Aktion auf GitHub
 
 {% data variables.product.product_name %} lädt jede Aktion, die in einem Workflow während der Laufzeit ausgeführt wird, herunter und führt sie als komplettes Codepaket aus, bevor Du Workflow-Befehle wie `run` zur Interaktion mit der Runner-Maschine verwenden kannst. Folglich musst Du alle zum Ausführen des JavaScript-Codes erforderlichen Paketabhängigkeiten einschließen. Sie müssen die Pakete `core` und `github` in das Repository Ihrer Aktion einchecken.
 
@@ -202,13 +203,13 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-### Deine Aktion in einem Workflow testen
+## Deine Aktion in einem Workflow testen
 
 Nun sind Sie bereit, Ihre Aktion in einem Workflow zu testen. Wenn eine Aktion in einem privaten Repository vorliegt, kann die Aktion nur in Workflows im selben Repository verwendet werden. Öffentliche Aktionen können von Workflows aus jedem Repository verwendet werden.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-#### Beispiel mit einer öffentlichen Aktion
+### Beispiel mit einer öffentlichen Aktion
 
 This example demonstrates how your new public action can be run from within an external repository.
 
@@ -236,7 +237,7 @@ jobs:
 
 When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
 
-#### Beispiel mit einer privaten Aktion
+### Beispiel mit einer privaten Aktion
 
 Kopieren Sie den Workflow-Code im Repository Ihrer Aktion in eine `.github/workflows/main.yml`-Datei. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
 
@@ -265,11 +266,11 @@ Jobs:
 ```
 {% endraw %}
 
-Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. {% ifversion fpt or ghes > 3.0 or ghae %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+{% elsif ghes > 2.22 %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run.png)

@@ -19,11 +19,11 @@ shortTitle: Invite collaborators
 ---
 Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.product_name %}](/articles/access-permissions-on-github)."
 
-{% ifversion fpt or ghes or ghae %}
 {% data reusables.organizations.org-invite-expiration %}
-{% endif %}
 
 {% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% note %}
 
@@ -51,7 +51,7 @@ Repositories owned by an organization can grant more granular access. For more i
 7. Select the collaborator's username from the drop-down menu.
    ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
 8. Click **Add collaborator**.
-   ![Add button](/assets/images/help/repository/repo-settings-collab-add.png)
+   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
 {% ifversion fpt %}
 9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.

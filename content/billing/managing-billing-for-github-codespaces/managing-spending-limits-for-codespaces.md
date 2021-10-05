@@ -45,3 +45,12 @@ Enterprise owners and billing managers can manage the spending limit for {% data
   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+
+## Exporting changes when you have reached your spending limit
+
+{% data reusables.codespaces.exporting-changes %}
+## Managing usage and spending limit email notifications
+
+Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit. 
+
+You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
