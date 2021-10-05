@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/activity-dashboard
   - /admin/user-management/activity-dashboard
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 ---

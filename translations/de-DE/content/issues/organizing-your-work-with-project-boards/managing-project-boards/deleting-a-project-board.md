@@ -7,12 +7,14 @@ redirect_from:
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +28,7 @@ topics:
 4. Klicke auf **Delete project** (Projekt löschen). ![Schaltfläche „Delete project“ (Projekt löschen)](/assets/images/help/projects/delete-project-button.png)
 5. Um zu bestätigen, dass Du das Projektboard löschen möchtest, klicke auf **OK**.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Ein Projektboard schließen](/articles/closing-a-project-board)“
 - „[Projektboards in einem Repository deaktivieren](/articles/disabling-project-boards-in-a-repository)“

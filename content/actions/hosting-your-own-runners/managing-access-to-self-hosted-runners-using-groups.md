@@ -14,7 +14,6 @@ shortTitle: Manage runner groups
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About self-hosted runner groups
 
@@ -173,14 +172,13 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## Moving a self-hosted runner to a group
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 1. In the "Runners" list, click the runner that you want to configure.
 1. Select the Runner group dropdown menu.
 1. In "Move runner to group", choose a destination group for the runner.
-{% endif %}
-{% ifversion ghae or ghes %}
-1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
+{% else %}
+1. In the "Self-hosted runners" section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
     ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Select the checkbox next to the self-hosted runner, and then click **Move to group** to see the available destinations.
     ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move.png)
@@ -191,14 +189,13 @@ If you don't specify a runner group during the registration process, your new se
 
 Self-hosted runners are automatically returned to the default group when their group is removed.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 1. To remove the group, click **Remove group**.
 1. Review the confirmation prompts, and click **Remove this runner group**.
-{% endif %}
-{% ifversion ghae or ghes %}
-1. In the {% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button.
+{% else %}
+1. In the "Self-hosted runners" section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button.
     ![View runner group settings](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. To remove the group, click **Remove group**.

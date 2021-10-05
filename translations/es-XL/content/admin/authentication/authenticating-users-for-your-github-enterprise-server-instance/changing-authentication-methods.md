@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
   - /admin/authentication/changing-authentication-methods
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Authentication

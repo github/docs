@@ -1,43 +1,44 @@
 ---
-title: Managing support entitlements for your enterprise
-intro: You can grant enterprise members the ability to manage support tickets for your enterprise account.
+title: Gerenciando direitos de suporte para sua empresa
+intro: Você pode conceder aos integrantes da empresa a capacidade de gerenciar tíquetes de suporte para a conta corporativa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
   - Support
+shortTitle: Gerenciar titularidades de suporte
 ---
 
-### About support entitlements
+## Sobre titularidades de suporte
 
-People with support entitlements for your enterprise account can use the support portal to open, view, and comment on support tickets associated with the enterprise account.
+As pessoas com suporte titulares de direitos para a conta corporativa podem usar o portal de suporte para abrir, visualizar e comentar tíquetes de suporte associados à conta corporativa.
 
-Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account.
+Os proprietários das empresas e os gerentes de cobrança têm automaticamente direito a suporte. Os proprietários das empresas podem adicionar direitos de suporte aos integrantes de organizações pertencentes à sua conta corporativa.
 
-### Adding a support entitlement to an enterprise member
+## Adicionar um direito de suporte a um integrante da empresa
 
 {% note %}
 
-**Note**: After you add a support entitlement, the enterprise member may need to sign out and sign in again to manage tickets.
+**Observação**: Depois de adicionar um direito de suporte, o integrante da empresa poderá precisar assinar e fazer login novamente para gerenciar os tíquetes.
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. Under "Settings", click **Support**. ![Support menu item](/assets/images/help/enterprises/settings-support.png)
-4. Under "Add support member", start typing the name or username of the person you want to give a support entitlement. Click their name in the list of matches. ![Add support entitlement](/assets/images/help/enterprises/settings-support-entitlement-search.png)
-5. Click **Add support entitlement**. ![Add support entitlement](/assets/images/help/enterprises/settings-support-add-entitlement.png)
+3. Em "Configurações", clique em **Suporte**. ![Item do Menu Suporte](/assets/images/help/enterprises/settings-support.png)
+4. Em "Adicionar integrante de suporte", comece a digitar o nome ou nome de usuário da pessoa que você deseja conceder o direito de suporte. Clique no nome deles na lista de correspondência. ![Add support entitlement search](/assets/images/help/enterprises/settings-support-entitlement-search.png)
+5. Clique em **Adicionar direito de suporte**. ![Add support entitlement button](/assets/images/help/enterprises/settings-support-add-entitlement.png)
 
-### Removing a support entitlement from an enterprise member
+## Removendo o direito de suporte de um integrante da empresa
 
-You can remove a support entitlement from an enterprise member. You cannot remove a support entitlement from enterprise owners or billing managers.
+Você pode remover o direito de suporte de um integrante da empresa. Você não pode remover o direito de suporte de proprietários corporativos ou gerentes de cobrança.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. In the sidebar under "Settings", click **Support**. ![Support menu item](/assets/images/help/enterprises/settings-support.png)
-4. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="The trash icon" %}. ![Remove support entitlement](/assets/images/help/enterprises/settings-support-remove-entitlement.png)
+3. Na barra lateral em "Configurações", clique em **Suporte**. ![Item do Menu Suporte](/assets/images/help/enterprises/settings-support.png)
+4. Em "Integrantes de suporte", à direita da pessoa que você deseja remover o direito de suporte, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Remover direito de suporte](/assets/images/help/enterprises/settings-support-remove-entitlement.png)
 
-### Leia mais
+## Leia mais
 
-- "[Working with GitHub support](/github/working-with-github-support)"
+- "[Trabalhando com suporte do GitHub](/github/working-with-github-support)"

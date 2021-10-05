@@ -1,7 +1,7 @@
 
-#### Revisar que tu ejecutor auto-hospedado se haya agregado exitosamente
+### Revisar que tu ejecutor auto-hospedado se haya agregado exitosamente
 
-Después de completar los pasos para agregar un ejecutor autoalojado, el ejecutor y su estado se enumeran ahora en "Self-hosted runners" (Ejecutores autoalojados).
+After completing the steps to add a self-hosted runner, the runner and its status are now listed under {% ifversion fpt %}"Runners"{% elsif ghae or ghes %}"Self-hosted runners"{% endif %}.
 
 La aplicación del ejecutor autoalojado debe estar activa para que el ejecutor acepte trabajos. Cuando la aplicación del ejecutor está conectada a {% data variables.product.product_name %} y lista para recibir trabajos, verás el siguiente mensaje en la terminal de la máquina.
 

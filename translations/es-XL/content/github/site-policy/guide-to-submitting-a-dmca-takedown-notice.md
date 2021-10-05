@@ -5,7 +5,7 @@ redirect_from:
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

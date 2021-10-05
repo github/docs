@@ -6,14 +6,14 @@ redirect_from:
   - /enterprise/admin/user-management/about-migrations
   - /admin/user-management/about-migrations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Migration
 ---
 
-### 迁移类型
+## 迁移类型
 
 您可以执行三种类型的迁移：
 
@@ -21,7 +21,7 @@ topics:
 - 从 {% data variables.product.prodname_dotcom_the_website %} 组织迁移到 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移由组织拥有的任意数量的仓库。 在执行迁移前，您必须拥有 {% data variables.product.prodname_dotcom_the_website %} 组织的[管理访问权限](/enterprise/user/articles/permission-levels-for-an-organization/)和目标实例的站点管理员访问权限。
 - *试运行*是将数据导入[暂存实例](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)的迁移。 这些试运行非常有用，可用于查看在向 {% data variables.product.product_location %} 应用迁移后*将要*发生的变化。 **我们强烈建议您先在暂存实例上执行试运行，然后再将数据导入生产实例。**
 
-### 迁移的数据
+## 迁移的数据
 
 在迁移中，一切都围绕仓库进行。 与仓库关联的大多数数据都可以迁移。 例如，组织内的仓库将迁移仓库*和*组织，以及与该仓库关联的任何用户、团队、问题和拉取请求。
 

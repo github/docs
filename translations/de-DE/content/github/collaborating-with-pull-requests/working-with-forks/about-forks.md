@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-forks
   - /github/collaborating-with-issues-and-pull-requests/about-forks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -22,17 +22,17 @@ Das Forking eines Repositorys ist ähnlich wie das Kopieren eines Repositorys, m
 
 {% data reusables.repositories.desktop-fork %}
 
-Das Löschen eines Forks wird das ursprüngliche vorgelagerte Repository nicht löschen. Du kannst beliebige Änderungen an Deiner Fork vornehmen – Mitarbeiter hinzufügen, Dateien umbenennen, {% data variables.product.prodname_pages %} generieren –, ohne Auswirkungen auf das Original.{% if currentVersion == "free-pro-team@latest" %} Du kannst ein geforktes Repository nach dem Löschen nicht wiederherstellen. Weitere Informationen findest Du unter „[Ein gelöschtes Repository wiederherstellen](/articles/restoring-a-deleted-repository)“.{% endif %}
+Das Löschen eines Forks wird das ursprüngliche vorgelagerte Repository nicht löschen. Du kannst beliebige Änderungen an Deiner Fork vornehmen – Mitarbeiter hinzufügen, Dateien umbenennen, {% data variables.product.prodname_pages %} generieren –, ohne Auswirkungen auf das Original.{% ifversion fpt %} Du kannst ein geforktes Repository nach dem Löschen nicht wiederherstellen. Weitere Informationen findest Du unter „[Ein gelöschtes Repository wiederherstellen](/articles/restoring-a-deleted-repository)“.{% endif %}
 
 In Open-Source-Projekten werden Forks oft verwendet, um mehrfach Ideen oder Änderungen durchzuspielen, bevor sie an das vorgelagerte Repository zurückgesendet werden. Wenn Du Änderungen in Deiner benutzereigenen Fork vornimmst und einen Pull Request öffnest, die Deine Arbeit mit dem vorgelagerten Repository vergleicht, kannst Du jedem mit Push-Zugriff auf das vorgelagerte Repository die Erlaubnis geben, Änderungen in deinen Pull-Request-Branch zu übertragen. Dies beschleunigt die Zusammenarbeit, indem es den Repository-Betreuern erlaubt, Commits zu erstellen oder Tests vor dem Zusammenführen lokal aus einer benutzereigenen Fork zu Deinem Pull-Request-Branch auszuführen. Du kannst keine Push-Berechtigungen an eine Fork geben, die einer Organisation gehört.
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. Weitere Informationen finden Sie unter „[Ein Repository duplizieren](/articles/duplicating-a-repository)“ und „[Ein Repository anhand einer Vorlage erstellen](/articles/creating-a-repository-from-a-template)“.
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu gemeinschaftlichen Entwicklungsmodellen](/articles/about-collaborative-development-models)“
 - „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“
-- [Open-Source-Leitfäden](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
+- [Open-Source-Leitfäden](https://opensource.guide/){% ifversion fpt %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -15,3 +15,4 @@ sections:
     - 'Os alertas de segurança não são relatados ao fazer envio por push em um repositório na linha de comando. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - 'Os logs de auditoria podem ser atribuídos a 127.0.0.1 ao invés do endereço IP de origem real. (atualizado 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
     - 'Ocorre uma falha na configuração da permissão de um repositório para "Triagem" ou "Manter" com uma mensagem de erro.'
+    - 'Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.'

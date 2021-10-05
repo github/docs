@@ -1,8 +1,9 @@
 ---
 title: Utilizar la API de GraphQL para los debates
-intro: Aprende cómo utilizar la API de GraphQL para los debates de GitHub.
+intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Utilizar GraphQL para los debates
 ---
 
 La API de GraphQL de {% data variables.product.prodname_discussions %} te permite obtener, crear, editar y borrar las publicaciones de debate. Para obtener más información sobre los {% data variables.product.prodname_discussions %}, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".

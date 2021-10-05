@@ -5,9 +5,9 @@ redirect_from:
   - /apps/building-github-apps/refreshing-user-to-server-access-tokens
   - /developers/apps/refreshing-user-to-server-access-tokens
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

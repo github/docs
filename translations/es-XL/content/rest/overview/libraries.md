@@ -5,9 +5,9 @@ redirect_from:
   - /libraries/
   - /v3/libraries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

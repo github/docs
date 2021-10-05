@@ -7,12 +7,14 @@ redirect_from:
   - /articles/deleting-a-project-board
   - /github/managing-your-work-on-github/deleting-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +28,7 @@ topics:
 4. [**Delete project**] をクリックします。 ![[Delete project] ボタン](/assets/images/help/projects/delete-project-button.png)
 5. プロジェクトボードの削除を確定するには [**OK**] をクリックします。
 
-### 参考リンク
+## 参考リンク
 
 - "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"
 - [リポジトリ内のプロジェクトボードを無効化](/articles/disabling-project-boards-in-a-repository)

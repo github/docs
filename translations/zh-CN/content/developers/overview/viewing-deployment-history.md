@@ -2,19 +2,19 @@
 title: 查看部署历史记录
 intro: 查看仓库的当前和先前部署。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: 查看部署历史记录
 ---
 
-{% data reusables.actions.environments-beta %}
 
-您可以通过 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_actions %} 和环境或使用 {% endif %} REST API 和第三方应用程序来交付部署。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅“[{% data variables.product.prodname_actions %}](/actions)”。 {% endif %}有关使用 REST API 进行部署的更多信息，请参阅“[仓库](/rest/reference/repos#deployments)”。
+您可以通过 {% ifversion fpt or ghes > 3.0 %}{% data variables.product.prodname_actions %} 和环境或使用 {% endif %} REST API 和第三方应用程序来交付部署。 {% ifversion fpt or ghes > 3.0 %}有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅“[{% data variables.product.prodname_actions %}](/actions)”。 {% endif %}有关使用 REST API 进行部署的更多信息，请参阅“[仓库](/rest/reference/repos#deployments)”。
 
 要查看当前和过去的部署，请在仓库的主页上单击 **Environments（环境）**。
-{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghae or ghes < 3.0 %}
 ![环境](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
 ![Environments](/assets/images/environments-sidebar.png){% endif %}
 

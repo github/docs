@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability
 intro: '{% data variables.product.prodname_ghe_server %} unterstützt eine Hochverfügbarkeits-Betriebsart, die darauf ausgelegt ist, Dienstunterbrechungen im Falle von Hardwareausfällen oder größeren Netzwerkausfällen, welche die primäre Appliance betreffen, zu minimieren.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -18,5 +18,6 @@ children:
   - /recovering-a-high-availability-configuration
   - /removing-a-high-availability-replica
   - /about-geo-replication
+shortTitle: Configure high availability
 ---
 

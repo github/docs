@@ -4,9 +4,9 @@ intro: 'La bitácora de cambios del modelo de GraphQL es una lista de cambios re
 redirect_from:
   - /v4/changelog
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
