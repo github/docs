@@ -12,6 +12,7 @@ on:
 permissions:
   contents: read
   deployments: write
+  pull-requests: write
 
 # This prevents one Undeploy workflow run from interrupting another
 concurrency:
