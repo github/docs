@@ -1,7 +1,7 @@
 ---
 title: Gerenciar fluxos de trabalhos complexos
 shortTitle: Gerenciar fluxos de trabalhos complexos
-intro: 'Este guia mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredo, trabalhos dependentes, cache, matrizes de compilação{{% ifversion fpt or ghes > 3.0 or ghae %} ambientes,{% endif %} e etiquetas.'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% ifversion fpt or ghes > 3.0 or ghae %} environments,{% endif %} and labels.'
 versions:
   fpt: '*'
   ghes: '*'

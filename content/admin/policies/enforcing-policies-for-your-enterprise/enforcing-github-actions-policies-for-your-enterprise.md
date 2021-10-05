@@ -4,6 +4,7 @@ intro: 'Enterprise administrators can manage access to {% data variables.product
 redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
+  - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise
 versions:
   ghes: '*'
   ghae: '*'
@@ -12,9 +13,9 @@ topics:
   - Actions
   - Enterprise
   - Policies
-shortTitle: Enforce enterprise policies
+shortTitle: GitHub Actions policies
 ---
-{% data reusables.actions.ae-beta %}
+
 {% data reusables.actions.enterprise-beta %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your enterprise
@@ -28,7 +29,7 @@ shortTitle: Enforce enterprise policies
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes > 2.22 or ghae %}
 ## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -37,7 +38,11 @@ shortTitle: Enforce enterprise policies
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
+   {%- ifversion ghes or ghae-issue-5094 %}
    ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+   {%- elsif ghae %}
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   {%- endif %}
 {% endif %}
 
 {% ifversion ghes > 2.22 or ghae %}

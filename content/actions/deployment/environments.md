@@ -10,7 +10,6 @@ versions:
   ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## About environments
 

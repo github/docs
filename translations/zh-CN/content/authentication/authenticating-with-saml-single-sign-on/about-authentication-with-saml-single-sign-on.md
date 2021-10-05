@@ -1,6 +1,6 @@
 ---
 title: 关于使用 SAML 单点登录进行身份验证
-intro: '您可以通过使用 SAML 单点登录 (SSO) {% endif %}通过身份提供程序 (IdP)验证 {% elsif fpt %}，来访问 {% ifversion ghae %}{% data variables.product.product_location %}{% ifversion ghae %}使用 SAML 单点登录 (SSO) 的组织{% endif %}。{% ifversion fpt %}从 {% data variables.product.product_name %} 使用 IdP 成功验证后，您必须授权要用于访问组织资源的的任何个人访问令牌、SSH 密钥或 {% data variables.product.prodname_oauth_app %}。{% endif %}'
+intro: 'You can access {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% ifversion ghae %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% ifversion fpt %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on

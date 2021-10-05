@@ -6,5 +6,4 @@
 
 {% elsif ghes or ghae %}1. In the top-right corner of {% data variables.product.product_name %}, click your profile photo, then click **Enterprise settings**.
     !["Enterprise settings" in drop-down menu for profile photo on {% data variables.product.product_name %}](/assets/images/enterprise/settings/enterprise-settings.png)
-
 {% endif %}

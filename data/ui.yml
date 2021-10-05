@@ -166,13 +166,17 @@ product_sublanding:
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
-  no_result: Sorry, there are no guides that match your filter.
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: Type
     topic: Topic
     all: All
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: Overview
     quick_start: Quickstart
