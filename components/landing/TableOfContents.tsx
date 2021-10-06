@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 
 import { Link } from 'components/Link'
+import { BumpLink } from 'components/ui/BumpLink'
 import type { TocItem } from 'components/context/ProductLandingContext'
 
 type Props = {
@@ -39,12 +40,7 @@ export const TableOfContents = (props: Props) => {
                   }
                   return (
                     <li key={childItem.fullPath} className="f4 mt-1">
-                      <Link
-                        href={childItem.fullPath}
-                        className="Bump-link--hover no-underline py-1 color-border-primary"
-                      >
-                        {childItem.title}
-                      </Link>
+                      <Link href={childItem.fullPath}>{childItem.title}</Link>
                     </li>
                   )
                 })}
@@ -52,17 +48,15 @@ export const TableOfContents = (props: Props) => {
             )}
           </li>
         ) : (
-          <li key={href} className={cx('mb-5', isActive && 'color-auto-gray-4')}>
-            <Link
-              href={href}
-              className="Bump-link--hover no-underline d-block py-1 border-bottom color-border-primary"
-            >
-              <h2 className="h4">
-                {title}
-                <span className="Bump-link-symbol">→</span>
-              </h2>
-            </Link>
-            {intro && <p className="f4 mt-3" dangerouslySetInnerHTML={{ __html: intro }} />}
+          <li key={href} className={cx('mb-3 border-bottom pb-2', isActive && 'color-auto-gray-4')}>
+            <BumpLink as={Link} href={href} title={<h2 className="h4">{title}</h2>}>
+              {intro && (
+                <p
+                  className="f4 color-text-secondary"
+                  dangerouslySetInnerHTML={{ __html: intro }}
+                />
+              )}
+            </BumpLink>
           </li>
         )
       })}

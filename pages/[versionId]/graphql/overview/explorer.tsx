@@ -1,10 +1,6 @@
 import { GetServerSideProps } from 'next'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Breadcrumbs } from 'components/Breadcrumbs'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useEffect, useRef } from 'react'
@@ -55,10 +51,11 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       graphqlExplorerUrl: req.context.graphql.explorerUrl,
     },
   }

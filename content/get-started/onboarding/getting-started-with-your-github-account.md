@@ -150,13 +150,11 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 ### {% ifversion fpt %}2.{% else %}1.{% endif %} Using the {% data variables.product.prodname_dotcom %} API
 {% data reusables.getting-started.api %}
 
-{% ifversion fpt or ghae or ghes > 2.21 %}
 ### {% ifversion fpt %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
 ### {% ifversion fpt %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 2.22 %}
 ## Part 5: Building securely on {% data variables.product.product_name %}

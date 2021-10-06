@@ -6,8 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script
   - /admin/policies/creating-a-pre-receive-hook-script
 versions:
-  enterprise-server: '*'
-miniTocMaxHeadingLevel: 4
+  ghes: '*'
+miniTocMaxHeadingLevel: 3
 topics:
   - Enterprise
   - Policies

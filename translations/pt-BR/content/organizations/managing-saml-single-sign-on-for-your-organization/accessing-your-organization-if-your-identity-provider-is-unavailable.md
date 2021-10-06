@@ -6,13 +6,14 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Provedor de identidade indisponível
 ---
 
-Os administradores da organização podem usar [um de seus códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. Você pode ter salvado eles em um gerenciador de senhas, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/) ou [Keeper](https://keepersecurity.com/).
+Os administradores da organização podem usar [um de seus códigos de recuperação baixados ou salvos](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) para ignorar o logon único. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% note %}
 
@@ -26,6 +27,6 @@ Os administradores da organização podem usar [um de seus códigos de recupera�
 
 Depois de ter usado um código de recuperação, certifique-se de anotar que ele não é mais válido. Você não poderá reutilizar o código de recuperação.
 
-### Leia mais
+## Leia mais
 
 - "[Sobre gerenciamento de identidade e acesso com o SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

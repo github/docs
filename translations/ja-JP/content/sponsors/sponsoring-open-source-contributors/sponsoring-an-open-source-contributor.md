@@ -7,17 +7,18 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Sponsor a contributor
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### スポンサーシップについて
+## スポンサーシップについて
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,7 +28,7 @@ topics:
 - オープンソースを大切にする Organization としてブランド認知度を確立する
 - Organization が提供する製品を補完するライブラリを構築しているオープンソース開発者に感謝する
 
-{% data variables.product.product_name %} でアカウントをスポンサーするときは、クレジットカードを使用できます。 Organization が請求書で支払いしたい場合は、[お問い合わせ](https://support.github.com/contact/org-sponsors-waitlist)ください。
+{% data variables.product.product_name %} でアカウントをスポンサーするときは、クレジットカードを使用できます。 If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %}詳細は「[{% data variables.product.prodname_sponsors %} の支払いについて](/articles/about-billing-for-github-sponsors)」を参照してください。
 
@@ -47,7 +48,7 @@ topics:
 
 {% endnote %}
 
-### アカウントをスポンサーする
+## アカウントをスポンサーする
 
 アカウントをスポンサーするには、認証済みメールアドレスが必要です。 詳細は「[メールアドレスを検証する](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。
 

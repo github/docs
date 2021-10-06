@@ -5,9 +5,9 @@ redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

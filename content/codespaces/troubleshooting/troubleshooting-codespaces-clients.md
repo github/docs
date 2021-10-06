@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Codespaces clients
-intro: You can use {% data variables.product.prodname_codespaces %} in your browser or through {% data variables.product.prodname_vscode %}. This article provides troubleshooting steps for common client issues.
+intro: 'You can use {% data variables.product.prodname_codespaces %} in your browser or through {% data variables.product.prodname_vscode %}. This article provides troubleshooting steps for common client issues.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

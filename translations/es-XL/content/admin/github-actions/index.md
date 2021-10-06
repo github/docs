@@ -4,8 +4,8 @@ intro: 'Enable {% data variables.product.prodname_actions %} on {% data variable
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

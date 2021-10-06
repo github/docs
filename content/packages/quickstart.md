@@ -4,14 +4,12 @@ intro: 'Publish to {% data variables.product.prodname_registry %} with {% data v
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introduction
 

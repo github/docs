@@ -337,13 +337,11 @@ describe('Page class', () => {
 
     test('permalinks for dotcom-only pages', async () => {
       const page = await Page.init({
-        relativePath:
-          'github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port.md',
+        relativePath: 'authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en',
       })
-      const expectedPath =
-        '/en/github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port'
+      const expectedPath = '/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
@@ -381,25 +379,6 @@ describe('Page class', () => {
           .href
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page.permalinks.length).toBe(1)
-    })
-
-    test('permalinks for non-GitHub.com products with Enterprise versions', async () => {
-      const page = await Page.init({
-        relativePath:
-          '/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights.md',
-        basePath: path.join(__dirname, '../../content'),
-        languageCode: 'en',
-      })
-      const expectedPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
-      expect(
-        page.permalinks.find(
-          (permalink) =>
-            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`
-        ).href
-      ).toBe(expectedPath)
-      const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
-      expect(pageVersions.length).toBeGreaterThan(1)
-      expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
   })
 

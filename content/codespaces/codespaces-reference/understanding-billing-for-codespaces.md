@@ -15,17 +15,15 @@ product: '{% data reusables.gated-features.codespaces %}'
 shortTitle: Understanding billing
 ---
 
-{% data reusables.codespaces.codespaces-trial-period %}
-
 This article explains how billing works for your codespaces, and explains how your organization's billing manager can help.
 
 ## Getting access to {% data variables.product.prodname_codespaces %}
 
 Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific user accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
 
-## How spending limits work
+## How much it costs to use {% data variables.product.prodname_codespaces %}
 
-Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing billing for Codespaces in your organization](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+To see the pricing for {% data variables.product.prodname_codespaces %} usage, see "[{% data variables.product.prodname_codespaces %} pricing](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
 
 ## How your codespace usage is billed
 
@@ -37,9 +35,13 @@ Your codespace is billed for the number of minutes that it's active. If your cod
 ### Understanding how codespace storage is billed
 For {% data variables.product.prodname_codespaces %}, storage is defined to include any files relating to your codespace, such as the cloned repository, configuration files, and extensions, among others. This storage is billed while your codespace is shutdown. The storage billing for a codespace ends when you manually delete it from https://github.com/codespaces.
 
-## How much it costs to use {% data variables.product.prodname_codespaces %}
+## How spending limits work
 
-To see the pricing for {% data variables.product.prodname_codespaces %} usage, see "[{% data variables.product.prodname_codespaces %} pricing](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)." 
+
+## Exporting changes when you have reached your spending limit
+
+{% data reusables.codespaces.exporting-changes %}
 
 ## Checking your current usage and limits
 If you need to check your current usage or spending limit, contact your organization's billing manager. For more information, see "[Viewing your Codespaces usage](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)."

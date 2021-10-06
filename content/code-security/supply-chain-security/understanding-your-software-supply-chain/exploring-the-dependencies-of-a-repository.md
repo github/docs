@@ -44,7 +44,7 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 {% endif %}
 
-{% ifversion ghes > 2.21 %}
+{% ifversion ghes %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)

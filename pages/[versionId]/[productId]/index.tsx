@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
@@ -8,11 +9,7 @@ import displayToolSpecificContent from 'components/lib/display-tool-specific-con
 import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
@@ -42,6 +39,14 @@ import {
 } from 'components/context/TocLandingContext'
 import { useEffect } from 'react'
 
+function initiateArticleScripts() {
+  copyCode()
+  displayPlatformSpecificContent()
+  displayToolSpecificContent()
+  localization()
+  wrapCodeTerms()
+}
+
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
@@ -57,14 +62,16 @@ const GlobalPage = ({
   articleContext,
 }: Props) => {
   const { currentLayoutName, relativePath } = mainContext
+  const router = useRouter()
 
   useEffect(() => {
-    copyCode()
-    displayPlatformSpecificContent()
-    displayToolSpecificContent()
-    localization()
-    wrapCodeTerms()
-  }, [])
+    // https://stackoverflow.com/a/67063998
+    initiateArticleScripts() // on initiate page
+    router.events.on('routeChangeComplete', initiateArticleScripts) // on client side route
+    return () => {
+      router.events.off('routeChangeComplete', initiateArticleScripts)
+    }
+  }, [router.events])
 
   let content
   if (currentLayoutName === 'product-landing') {
@@ -100,10 +107,11 @@ export default GlobalPage
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       productLandingContext: getProductLandingContextFromRequest(req),
       productSubLandingContext: getProductSubLandingContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),

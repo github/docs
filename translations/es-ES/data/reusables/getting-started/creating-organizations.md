@@ -1,0 +1,1 @@
+You can create new organizations in {% data variables.product.product_location %} to reflect your company or group's structure. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".

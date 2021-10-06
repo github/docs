@@ -5,18 +5,20 @@ redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
 ---
 
+{% data reusables.organizations.about-organizations %}
+
 {% data reusables.organizations.organizations_include %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Organisationen und Enterprise-Konten
+{% ifversion fpt %}
+## Organisationen und Enterprise-Konten
 
 Mit Enterprise-Konten können Inhaber Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen zentral verwalten.
 
@@ -26,7 +28,7 @@ Bei Organisationen, die einem Enterprise-Konto angehören, wird die Abrechnung a
 
 {% data reusables.organizations.org-ownership-recommendation %} Weitere Informationen findest Du unter „[Die Inhaber-Kontinuität für Deine Organisation aufrechterhalten](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
 
-### Nutzungsbedingungen und Datenschutz für Organisationen
+## Nutzungsbedingungen und Datenschutz für Organisationen
 
 Eine Entität, beispielsweise ein Unternehmen, eine gemeinnützige Organisation oder eine Gruppe, kann die Standardnutzungsbedingungen oder die Unternehmensnutzungsbedingungen für ihre Organisation akzeptieren. Weitere Informationen findest Du unter „[Auf Unternehmensnutzungsbedingungen umstellen](/articles/upgrading-to-the-corporate-terms-of-service).“
 

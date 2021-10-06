@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Iniciar la recuperación de fallos para el aplicativo
 ---
 
 El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 2 y 10 minutos.
@@ -46,6 +47,6 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### Leer más
+## Leer más
 
 - "[Utilidades para la gestión de replicaciones](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

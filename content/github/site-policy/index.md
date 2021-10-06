@@ -14,7 +14,6 @@ children:
   - /github-privacy-statement
   - /github-data-protection-agreement-non-enterprise-customers
   - /global-privacy-practices
-  - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
   - /github-codespaces-privacy-statement
   - /github-terms-for-additional-products-and-features

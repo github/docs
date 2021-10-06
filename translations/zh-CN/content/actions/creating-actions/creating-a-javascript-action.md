@@ -8,20 +8,21 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
+shortTitle: JavaScript 操作
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### 简介
+## 简介
 
 在本指南中，您将了解创建和使用打包的 JavaScript 操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 操作将在日志文件中打印“Hello World”或“Hello [who-to-greet]”（如果您提供自定义名称）。
 
@@ -33,7 +34,7 @@ topics:
 
 {% data reusables.github-actions.context-injection-warning %}
 
-### 基本要求
+## 基本要求
 
 在开始之前，您需要下载 Node.js 并创建公共 {% data variables.product.prodname_dotcom %} 仓库。
 
@@ -57,7 +58,7 @@ topics:
   npm init -y
   ```
 
-### 创建操作元数据文件
+## 创建操作元数据文件
 
 使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
 
@@ -79,7 +80,7 @@ runs:
 
 此文件定义 `who-to-greet` 输入和 `time` 输出。 它还告知操作运行程序如何开始运行此 JavaScript 操作。
 
-### 添加操作工具包
+## 添加操作工具包
 
 操作工具包是 Node.js 包的集合，可让您以更高的一致性快速构建 JavaScript 操作。
 
@@ -98,7 +99,7 @@ npm install @actions/github
 
 现在，您应看到 `node_modules` 目录（包含您刚安装的模块）和 `package-lock.json` 文件（包含已安装模块的依赖项和每个已安装模块的版本）。
 
-### 编写操作代码
+## 编写操作代码
 
 此操作使用工具包获取操作元数据文件中所需的 `who-to-greet` 输入变量，然后在日志的调试消息中打印 "Hello [who-to-greet]"。 接下来，该脚本会获取当前时间并将其设置为作业中稍后运行的操作可以使用的输出变量。
 
@@ -129,7 +130,7 @@ try {
 如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
 
 
-### 创建自述文件
+## 创建自述文件
 
 要让人们了解如何使用您的操作，您可以创建自述文件。 自述文件在您计划公开分享操作时最有用，但也是提醒您或您的团队如何使用该操作的绝佳方式。
 
@@ -149,13 +150,13 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+## `who-to-greet`
 
 **Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
-### `time`
+## `time`
 
 The time we greeted you.
 
@@ -166,7 +167,7 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-### 提交、标记和推送操作到 GitHub
+## 提交、标记和推送操作到 GitHub
 
 {% data variables.product.product_name %} 下载运行时在工作流程中运行的每个操作，并将其作为完整的代码包执行，然后才能使用 `run` 等工作流程命令与运行器机器交互。 这意味着您必须包含运行 JavaScript 代码所需的所有包依赖项。 您需要将工具包 `core` 和 `github` 包检入到操作的仓库中。
 
@@ -202,13 +203,13 @@ git tag -a -m "My first action release" v1.1
 git push --follow-tags
 ```
 
-### 在工作流程中测试您的操作
+## 在工作流程中测试您的操作
 
 现在，您已准备好在工作流程中测试您的操作。 如果操作位于私有仓库，则该操作只能在同一仓库的工作流程中使用。 公共操作可供任何仓库中的工作流程使用。
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-#### 使用公共操作的示例
+### 使用公共操作的示例
 
 此示例显示您的新公共操作如何从外部仓库中运行。
 
@@ -236,7 +237,7 @@ jobs:
 
 当触发此工作流程时，运行器将从您的公共仓库下载 `hello-world-javascript-action` 操作，然后执行它。
 
-#### 使用私有操作的示例
+### 使用私有操作的示例
 
 将工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
@@ -265,11 +266,11 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+{% elsif ghes > 2.22 %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)

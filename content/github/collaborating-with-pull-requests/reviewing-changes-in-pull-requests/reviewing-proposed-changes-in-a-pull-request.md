@@ -50,9 +50,12 @@ You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overv
 For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
+{% endif %}
 
-
+{% ifversion fpt or ghes > 3.1 %}
 ## Reviewing dependency changes
+
+{% data reusables.dependency-review.beta %}
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 

@@ -32,8 +32,11 @@ export default async function genericToc(req, res, next) {
 
   // Do not include hidden child items on a TOC page unless it's an Early Access category page.
   req.context.showHiddenTocItems =
-    req.context.page.documentType === 'category' &&
-    req.context.currentPath.includes('/early-access/')
+    (req.context.page.documentType === 'category' &&
+      req.context.currentPath.includes('/early-access/')) ||
+    (req.context.page.documentType === 'product' &&
+      req.context.currentPath.includes('/early-access/') &&
+      req.context.page.shortTitle === 'GitHub Insights')
 
   // Conditionally run getTocItems() recursively.
   let isRecursive

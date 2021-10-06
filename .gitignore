@@ -10,7 +10,6 @@ coverage/
 /data/early-access
 .next
 .eslintcache
-/storybook/
 
 # blc: broken link checker
 blc_output.log

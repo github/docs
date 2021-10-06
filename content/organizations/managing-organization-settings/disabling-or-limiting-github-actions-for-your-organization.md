@@ -5,7 +5,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 topics:
   - Organizations
@@ -37,7 +37,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
@@ -66,7 +66,11 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
-  ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+   {%- ifversion ghes %}
+   ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+   {%- else %}
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   {%- endif %}
 1. Click **Save**.
 
 {% endif %}

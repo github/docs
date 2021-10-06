@@ -12,6 +12,7 @@ export default function csp(req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],
+      prefetchSrc: ["'self'"],
       connectSrc: ["'self'"],
       fontSrc: ["'self'", 'data:', AZURE_STORAGE_URL],
       imgSrc: [
@@ -68,11 +69,6 @@ export default function csp(req, res, next) {
   // Exception for search in deprecated Enterprise docs <=2.12 (static site era)
   if (versionSatisfiesRange(requestedVersion, '<=2.12')) {
     csp.directives.scriptSrc.push("'unsafe-inline'")
-  }
-
-  if (req.path.startsWith('/storybook')) {
-    csp.directives.scriptSrc.push("'unsafe-eval'", "'unsafe-inline'")
-    csp.directives.frameSrc.push("'self'")
   }
 
   return contentSecurityPolicy(csp)(req, res, next)

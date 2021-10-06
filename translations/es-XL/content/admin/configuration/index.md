@@ -5,8 +5,8 @@ intro: 'Una vez que se haya instalado y configurado {% data variables.product.pr
 redirect_from:
   - /enterprise/admin/configuration
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

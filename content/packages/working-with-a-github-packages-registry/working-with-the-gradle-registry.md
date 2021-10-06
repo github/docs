@@ -10,7 +10,7 @@ redirect_from:
   - /packages/guides/configuring-gradle-for-use-with-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Gradle registry
 ---

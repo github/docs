@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_sponsors %} を最大限に活用す�
 allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 includeGuides:
   - /sponsors/getting-started-with-github-sponsors/quickstart-for-finding-contributors-to-sponsor
   - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization

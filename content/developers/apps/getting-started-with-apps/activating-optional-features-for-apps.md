@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
-  ghes: '>=2.22'
+  ghes: '*'
 topics:
   - GitHub Apps
 shortTitle: Activate optional features

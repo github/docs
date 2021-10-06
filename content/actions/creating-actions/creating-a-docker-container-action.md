@@ -9,7 +9,7 @@ redirect_from:
   - /actions/building-actions/creating-a-docker-container-action
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: tutorial
 topics:
@@ -20,7 +20,6 @@ shortTitle: Docker container action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
