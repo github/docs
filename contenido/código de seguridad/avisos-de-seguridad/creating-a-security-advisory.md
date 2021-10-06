@@ -1,4 +1,4 @@
----
+--- 
 title: Creating a security advisory
 intro: You can create a draft security advisory to privately discuss and fix a security vulnerability in your open source project.
 redirect_from:
