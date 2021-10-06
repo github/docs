@@ -1,4 +1,4 @@
----
+--- 
 title: Authentication
 intro: 'You can configure how users sign into {% data variables.product.product_name %}.'
 redirect_from:
