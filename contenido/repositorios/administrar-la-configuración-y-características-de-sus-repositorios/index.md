@@ -1,4 +1,4 @@
----
+--- 
 title: Managing your repository’s settings and features
 intro: "You can customize your repository, enable or disable optional features for your repository, and manage your repository’s settings."
 redirect_from:
