@@ -1,4 +1,4 @@
----
+--- 
 title: Configuring notifications
 intro: 'Choose the type of activity on {% data variables.product.product_name %} that you want to receive notifications for and how you want these updates delivered.'
 redirect_from:
