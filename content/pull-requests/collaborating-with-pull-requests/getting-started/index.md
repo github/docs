@@ -5,6 +5,7 @@ intro: 'Learn about the {% data variables.product.prodname_dotcom %} flow and di
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/
   - /github/collaborating-with-issues-and-pull-requests/overview
+  - /github/collaborating-with-pull-requests/getting-started
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,4 +18,3 @@ topics:
 children:
   - /about-collaborative-development-models
 ---
-

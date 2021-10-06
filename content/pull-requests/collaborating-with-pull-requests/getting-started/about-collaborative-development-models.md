@@ -6,6 +6,7 @@ redirect_from:
   - /articles/types-of-collaborative-development-models/
   - /articles/about-collaborative-development-models
   - /github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models
+  - /github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models
 versions:
   fpt: '*'
   ghes: '*'

@@ -31,7 +31,7 @@ If you want to create a new repository from the contents of an existing reposito
 
 ## Further reading
 
-- "[About collaborative development models](/articles/about-collaborative-development-models)"
+- "[About collaborative development models](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
 - "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)"
 - [Open Source Guides](https://opensource.guide/){% ifversion fpt %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
