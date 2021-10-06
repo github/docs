@@ -1,4 +1,4 @@
----
+--- 
 title: Creating and managing repositories
 intro: "You can create a repository on {% data variables.product.product_name %} to store and collaborate on your project's files, then manage the repository's name and location."
 redirect_from:
