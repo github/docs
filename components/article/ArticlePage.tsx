@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { Heading } from '@primer/components'
 
-import { ZapIcon, InfoIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
@@ -79,10 +79,12 @@ export const ArticlePage = () => {
               {intro && <Lead data-testid="lead">{intro}</Lead>}
 
               {permissions && (
-                <div
-                  className="permissions-statement"
-                  dangerouslySetInnerHTML={{ __html: permissions }}
-                />
+                <div className="permissions-statement d-table">
+                  <div className="d-table-cell pr-2">
+                    <ShieldLockIcon size={16} />
+                  </div>
+                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
+                </div>
               )}
 
               {includesPlatformSpecificContent && (
