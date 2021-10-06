@@ -1,4 +1,4 @@
----
+--- 
 title: Managing GitHub Actions for your enterprise
 intro: 'Enable {% data variables.product.prodname_actions %} on {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
 redirect_from:
