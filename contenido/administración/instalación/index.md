@@ -1,4 +1,4 @@
----
+--- 
 title: 'Installing {% data variables.product.prodname_enterprise %}'
 shortTitle: Installing
 intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
