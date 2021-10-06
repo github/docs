@@ -1,4 +1,4 @@
----
+--- 
 title: Adding an existing project to GitHub using the command line
 intro: 'Putting your existing work on {% data variables.product.product_name %} can let you share and collaborate in lots of great ways.'
 redirect_from:
