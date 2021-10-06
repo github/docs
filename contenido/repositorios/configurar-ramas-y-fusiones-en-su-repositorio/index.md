@@ -1,4 +1,4 @@
----
+---B
 title: Configuring branches and merges in your repository
 intro: 'You can manage branches in your repository, configure the way branches are merged in your repository, and protect important branches by definining the mergeability of pull requests.'
 versions:
