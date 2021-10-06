@@ -43,4 +43,4 @@ If an enterprise uses {% data variables.product.prodname_emus %}, members are pr
 
 ## Further reading
 
-- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+- "[Types of { data variables.product.prodname_dotcom } accounts](/articles/types-of-github-accounts)"
