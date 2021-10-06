@@ -1,4 +1,4 @@
----
+---  
 title: Authenticating with SAML single sign-on
 intro: 'You can authenticate to {% ifversion fpt %}a {% data variables.product.product_name %} organization {% elsif ghae %}{% data variables.product.product_location %} {% endif %}with SAML single sign-on (SSO){% ifversion fpt %} and view your active sessions{% endif %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
