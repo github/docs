@@ -77,7 +77,7 @@ Exchange this `code` for an access token.  When expiring tokens are enabled, the
 
 Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
 
-Make a request to the following endpoint to receive an access token in the JSON of the response:
+Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
