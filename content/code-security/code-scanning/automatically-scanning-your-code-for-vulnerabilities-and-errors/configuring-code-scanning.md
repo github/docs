@@ -71,8 +71,6 @@ If you scan on push, then the results appear in the **Security** tab for your re
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
 Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."  
-
-Note that alerts identified using a pull request's merge commit, as done with the `pull_request` trigger, are more accurate and efficient than alerts identified using the head of the branch. If you use a CI/CD system that can only be configured to trigger when code is pushed, you can use `on:push` scans to detect alerts on your pull requests.
 {% endif %}
 
 ### Scanning pull requests
@@ -84,7 +82,7 @@ For more information about the `pull_request` event, see "[Workflow syntax for {
 If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
-It can be more efficient and accurate to use the `pull_request` trigger instead of scanning code on each push, since alerts are identified by comparing the results for the pull request merge commit against the target branch baseline. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+ Using the `pull_request` trigger, as long as it is configured to scan the pull request's merge commit instead of the head commit, will produce more efficient and accurate results than scanning code on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
