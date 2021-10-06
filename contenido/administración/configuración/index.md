@@ -1,4 +1,4 @@
----
+--- 
 title: Configuring GitHub Enterprise
 shortTitle: Configuring GitHub Enterprise
 intro: You can configure your enterprise to suit your organization's needs.
