@@ -1,4 +1,4 @@
----
+--- 
 title: Keeping your account and data secure
 intro: 'To protect your personal information, you should keep both your {% data variables.product.product_name %} account and any associated data secure.'
 redirect_from:
