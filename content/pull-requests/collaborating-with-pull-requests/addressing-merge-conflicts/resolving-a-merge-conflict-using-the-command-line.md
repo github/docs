@@ -125,5 +125,5 @@ You can now merge the branches on the command line or [push your changes to your
 
 ## Further reading
 
-- "[About merge conflicts](/articles/about-merge-conflicts)"
+- "[About merge conflicts](/articlespull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)"
 - "[Checking out pull requests locally](/articles/checking-out-pull-requests-locally/)"

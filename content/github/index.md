@@ -13,8 +13,6 @@ children:
   - /copilot
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github
-  - /committing-changes-to-your-project
-  - /collaborating-with-pull-requests
   - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /managing-security-vulnerabilities
@@ -26,4 +24,3 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
-

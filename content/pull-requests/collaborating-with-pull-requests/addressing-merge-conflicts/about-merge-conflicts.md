@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/about-merge-conflicts
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
+  - /github/about-merge-conflicts
 versions:
   fpt: '*'
   ghes: '*'

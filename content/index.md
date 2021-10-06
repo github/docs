@@ -7,7 +7,6 @@ featuredLinks:
     - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
   popular:
-    - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
     - /github/authenticating-to-github
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
     - /github/getting-started-with-github/managing-remote-repositories
@@ -23,6 +22,7 @@ children:
   - billing
   - organizations
   - code-security
+  - pull-requests
   - issues
   - actions
   - codespaces
@@ -55,4 +55,3 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
-

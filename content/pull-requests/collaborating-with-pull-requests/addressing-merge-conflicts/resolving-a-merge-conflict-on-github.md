@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github
   - /articles/resolving-a-merge-conflict-on-github
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github
+  - /github/resolving-a-merge-conflict-on-github
 versions:
   fpt: '*'
   ghes: '*'
@@ -44,15 +45,15 @@ If a site administrator disables the merge conflict editor for pull requests bet
  ![Select next conflicting file if applicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
 1. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
  ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png)
-1. If prompted, review the branch that you are committing to. 
+1. If prompted, review the branch that you are committing to.
 
    If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
  ![Prompt to review the branch that will be updated](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
-   
+
    If you choose to create a new branch, enter a name for the branch.
-   
+
    If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
-   
+
    Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
 1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
 
