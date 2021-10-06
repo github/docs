@@ -1,4 +1,4 @@
----
+--- 
 title: Working with files
 intro: 'Learn how to manage and use files in repositories.'
 redirect_from:
