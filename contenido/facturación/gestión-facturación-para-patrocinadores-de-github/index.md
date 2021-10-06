@@ -1,4 +1,4 @@
----
+--- 
 title: Managing billing for GitHub Sponsors
 shortTitle: GitHub Sponsors
 intro: You can upgrade or downgrade the tier for each of your sponsorships.
