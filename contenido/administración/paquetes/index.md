@@ -1,4 +1,4 @@
----
+--- 
 title: Managing GitHub Packages for your enterprise
 intro: 'You can enable {% data variables.product.prodname_registry %} for your enterprise and manage {% data variables.product.prodname_registry %} settings and allowed packaged types.'
 redirect_from:
