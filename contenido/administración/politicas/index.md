@@ -1,4 +1,4 @@
----
+--- 
 title: Setting policies for your enterprise
 intro: 'You can set policies in {% data variables.product.product_name %} to reduce risk and increase quality.'
 redirect_from:
