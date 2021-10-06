@@ -1,4 +1,4 @@
----
+--- 
 title: Why are my contributions not showing up on my profile?
 intro: 'Learn common reasons that contributions may be missing from your contributions graph.'
 redirect_from:
