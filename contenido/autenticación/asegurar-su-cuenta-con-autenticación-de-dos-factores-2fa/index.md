@@ -1,4 +1,4 @@
----
+--- 
 title: Securing your account with two-factor authentication (2FA)
 intro: 'You can set up your {% data variables.product.product_name %} account to require an authentication code in addition to your password when you sign in.'
 redirect_from:
