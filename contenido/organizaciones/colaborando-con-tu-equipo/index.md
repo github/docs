@@ -1,4 +1,4 @@
----
+--- 
 title: Collaborating with your team
 intro: 'Within an organization, your team can work together across projects using team discussions.'
 redirect_from:
