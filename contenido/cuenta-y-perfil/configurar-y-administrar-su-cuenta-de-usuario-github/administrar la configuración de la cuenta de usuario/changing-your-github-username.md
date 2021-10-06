@@ -1,4 +1,4 @@
----
+--- 
 title: Changing your GitHub username
 intro: 'You can change your {% data variables.product.product_name %} username at any time.'
 redirect_from:
