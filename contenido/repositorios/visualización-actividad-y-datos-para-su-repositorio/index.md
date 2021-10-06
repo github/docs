@@ -1,4 +1,4 @@
----
+--- 
 title: Viewing activity and data for your repository
 intro: 'Gain insight into your repository by viewing activity and data.'
 redirect_from:
