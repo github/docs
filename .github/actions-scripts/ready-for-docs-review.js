@@ -99,11 +99,11 @@ async function run() {
     })
 
     // Determine the size
-    if (numFiles < 5 && numChanges < 25) {
+    if (numFiles < 5 && numChanges < 10) {
       sizeType = sizeXS
-    } else if (numFiles < 5 && numChanges < 10) {
+    } else if (numFiles < 10 && numChanges < 50) {
       sizeType = sizeS
-    } else if (numFiles < 5 && numChanges < 25) {
+    } else if (numFiles < 10 && numChanges < 250) {
       sizeType = sizeM
     } else {
       sizeType = sizeL

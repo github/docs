@@ -182,6 +182,9 @@ prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
 
+# GitHub Copilot
+prodname_copilot: 'GitHub Copilot'
+
 # Links
 product_url: >-
   {% ifversion fpt %}github.com{% else %}[hostname]{% endif %}
