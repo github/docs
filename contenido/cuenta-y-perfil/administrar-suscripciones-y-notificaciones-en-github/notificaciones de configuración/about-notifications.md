@@ -1,4 +1,4 @@
----
+--- 
 title: About notifications
 intro: 'Notifications provide updates about the activity on {% data variables.product.product_name %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
