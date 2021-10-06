@@ -193,12 +193,16 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
+{% ifversion ghes < 3.3 %}
+
 ## Enable and disable Pages
 
 You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
 
 **Custom media types:** `switcheroo-preview`
 **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
+
+{% endif %}
 
 {% ifversion ghes < 3.3 %}
 
