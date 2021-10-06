@@ -4,6 +4,7 @@ intro: 'If your changes have merge conflicts with the base branch, you must addr
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/
   - /articles/addressing-merge-conflicts
+  - /github/collaborating-with-pull-requests/addressing-merge-conflicts
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,4 +17,3 @@ children:
   - /resolving-a-merge-conflict-using-the-command-line
 shortTitle: Address merge conflicts
 ---
-

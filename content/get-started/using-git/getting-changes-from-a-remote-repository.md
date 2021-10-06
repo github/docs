@@ -76,7 +76,7 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 Because `pull` performs a merge on the retrieved changes, you should ensure that
 your local work is committed before running the `pull` command. If you run into
-[a merge conflict](/articles/resolving-a-merge-conflict-using-the-command-line)
+[a merge conflict](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
 you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort`
 to take the branch back to where it was in before you pulled.
 

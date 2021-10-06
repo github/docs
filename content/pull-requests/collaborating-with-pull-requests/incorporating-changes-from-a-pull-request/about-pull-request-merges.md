@@ -32,7 +32,7 @@ More than one commit | The pull request title, followed by the pull request numb
 
 If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
 
-When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit. 
+When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit.
 
 Because this commit is only on the base branch and not the head branch, the common ancestor of the two branches remains unchanged. If you continue to work on the head branch, then create a new pull request between the two branches, the pull request will include all of the commits since the common ancestor, including commits that you squashed and merged in the previous pull request. If there are no conflicts, you can safely merge these commits. However, this workflow makes merge conflicts more likely. If you continue to squash and merge pull requests for a long-running head branch, you will have to resolve the same conflicts repeatedly.
 
@@ -55,4 +55,4 @@ Anyone with write permissions in the repository, can then [merge the changes](/a
 ## Further reading
 
 - "[About pull requests](/articles/about-pull-requests/)"
-- "[Addressing merge conflicts](/articles/addressing-merge-conflicts)"
+- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts"

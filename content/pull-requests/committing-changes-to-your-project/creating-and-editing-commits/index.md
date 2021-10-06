@@ -3,6 +3,7 @@ title: Creating and editing commits
 intro: ''
 redirect_from:
   - /articles/creating-and-editing-commits
+  - /github/committing-changes-to-your-project/creating-and-editing-commits
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,4 +15,3 @@ children:
   - /changing-a-commit-message
 shortTitle: Create & edit commits
 ---
-
