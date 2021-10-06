@@ -1,0 +1,21 @@
+date: '2021-08-24'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'Attaching very large images or animated GIFs to images or pull requests would fail.'
+    - 'Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.'
+    - 'Custom pre-receive hooks that used a bash subshell would return an error: `No such file or directory`.'
+    - 'Custom pre-receive hooks that created named pipes (FIFOs) would crash or hang, resulting in a timeout error.'
+    - 'Adding filters to the audit log advanced search page did not populate the query text box in real-time with the correct facet prefix and value.'
+    - 'Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.'
+    - 'When an integration was removed, it was possible for an unrelated OAuth application or integration to also be removed.'
+    - 'When a mandatory message containing an emoji character was added, attempting to view or change the message would return a 500 Internal Server Error.'
+  known_issues:
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.'

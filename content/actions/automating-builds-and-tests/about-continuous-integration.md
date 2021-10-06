@@ -1,6 +1,6 @@
 ---
 title: About continuous integration
-intro: 'You can create custom continuous integration (CI) and continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
@@ -15,13 +15,11 @@ versions:
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: Continuous integration
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About continuous integration
 
@@ -49,44 +47,11 @@ In addition to helping you set up CI workflows for your project, you can use {% 
 
 For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
-## Supported languages
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Workflow templates
 
 {% data variables.product.product_name %} offers CI workflow templates for a variety of languages and frameworks.
 
 Browse the complete list of CI workflow templates offered by {% data variables.product.product_name %} in the {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## Skipping workflow runs
-
-If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-Alternatively, you can end the commit message with two empty lines followed by either `skip-checks: true` or `skip-checks:true`.
-
-You won't be able to merge the pull request if your repository is configured to require specific checks to pass first. To allow the pull request to be merged you can push a new commit to the pull request without the skip instruction in the commit message.
-
-{% note %}
-
-**Note:** Skip instructions only apply to the `push` and `pull_request` events. For example, adding `[skip ci]` to a commit message won't stop a workflow that's triggered `on: pull_request_target` from running.
-
-{% endnote %}
-{% endif %}
-
-## Notifications for workflow runs
-
-{% data reusables.repositories.workflow-notifications %}
-
-## Status badges for workflow runs
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
 ## Further reading
 

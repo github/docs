@@ -18,32 +18,33 @@ redirect_from:
   - /articles/adding-seats-to-your-organization/
   - /articles/upgrading-your-github-billing-plan/
   - /articles/upgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Troubleshooting
   - Upgrades
   - User account
+shortTitle: サブスクリプションのアップグレード
 ---
 
-### 個人アカウントのプランをアップグレードする
+## 個人アカウントのプランをアップグレードする
 
 個人アカウントを {% data variables.product.prodname_free_user %} から {% data variables.product.prodname_pro %} にアップグレードして、プライベートリポジトリの高度なコードレビューツールを手に入れることができます。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
-1. Next to "Current plan", click **Upgrade**. ![アップグレードボタン](/assets/images/help/billing/settings_billing_user_upgrade.png)
-2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
+1. "Current plan（現在のプラン）"の隣で**Upgrade（アップグレード）**をクリックしてください。 ![アップグレードボタン](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. "Compare plans（プランの比較）"ページの"Pro（プロ）"の下で、**Upgrade to Pro（プロにアップグレード）**をクリックしてください。
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
+{% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### Organization のプランをアップグレードする
+## Organization のプランをアップグレードする
 
 Organization を {% data variables.product.prodname_free_team %} から {% data variables.product.prodname_team %} にアップグレードすると、チーム用の高度なコラボレーションおよび管理ツールにアクセスできます。また、{% data variables.product.prodname_ghe_cloud %} にアップグレードすると、セキュリティ、コンプライアンス、およびデプロイメントの管理を強化できます。 {% data reusables.gated-features.more-info-org-products %}
 
@@ -58,13 +59,13 @@ Organization を {% data variables.product.prodname_free_team %} から {% data 
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-#### {% data variables.product.prodname_ghe_cloud %} を使用する Organization の次のステップ
+### {% data variables.product.prodname_ghe_cloud %} を使用する Organization の次のステップ
 
 Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳細は「[Organization で SAML シングルサインオンを管理する](/organizations/managing-saml-single-sign-on-for-your-organization)」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 詳細は「[Enterprise アカウントについて](/articles/about-enterprise-accounts)」を参照してください。
 
-### Organization にシートを追加する
+## Organization にシートを追加する
 
 {% data variables.product.prodname_team %} Organization のプライベートリポジトリにアクセスできるユーザを追加したい場合、いつでもシートを買い足すことができます。
 
@@ -73,7 +74,7 @@ Organization を {% data variables.product.prodname_ghe_cloud %} にアップグ
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-### Organization をリポジトリごとからユーザごとに切り替える
+## Organization をリポジトリごとからユーザごとに切り替える
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。
 
@@ -85,11 +86,11 @@ Organization を {% data variables.product.prodname_ghe_cloud %} にアップグ
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-### アップグレード時の 500 エラーのトラブルシューティング
+## アップグレード時の 500 エラーのトラブルシューティング
 
 {% data reusables.dotcom_billing.500-error %}
 
-### 参考リンク
+## 参考リンク
 
 - "[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)"
 - [アップグレードあるいはダウングレードの支払いプロセスへの影響は？](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)

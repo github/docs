@@ -237,7 +237,6 @@ Alternatively, you can install Python dependencies manually on any operating sys
 ```yaml
 jobs:
   CodeQL-Build:
-
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write
@@ -269,7 +268,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## Configuring a category for the analysis
 
 Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file. 

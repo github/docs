@@ -5,9 +5,9 @@ redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---

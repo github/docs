@@ -2,7 +2,6 @@ import { useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/octicons-react'
-import { ButtonOutline } from '@primer/components'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
@@ -10,8 +9,8 @@ import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ProductPicker } from 'components/page-header/ProductPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { HomepageVersionPicker } from 'components/landing/HomepageVersionPicker'
 import { Search } from 'components/Search'
+import { VersionPicker } from 'components/VersionPicker'
 
 export const Header = () => {
   const router = useRouter()
@@ -31,25 +30,23 @@ export const Header = () => {
     <div className="border-bottom color-border-secondary no-print">
       {error !== '404' && <HeaderNotifications />}
 
-      <header
-        className="container-xl px-3 px-md-6 pt-3 pb-3 position-relative"
-        style={{ zIndex: 2 }}
-      >
+      <header className={cx('container-xl px-3 px-md-6 pt-3 pb-3 position-relative z-3')}>
         {/* desktop header */}
-        <div className="d-none d-lg-flex flex-justify-end" data-testid="desktop-header">
+        <div
+          className="d-none d-lg-flex flex-justify-end flex-items-center"
+          data-testid="desktop-header"
+        >
           {showVersionPicker && (
-            <div className="py-2 mr-4">
-              <HomepageVersionPicker />
+            <div className="mr-2">
+              <VersionPicker hideLabel={true} variant="compact" />
             </div>
           )}
 
-          <div className="py-2">
-            <LanguagePicker />
-          </div>
+          <LanguagePicker />
 
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
-            <div className="d-inline-block ml-4">
+            <div className="d-inline-block ml-3">
               <Search updateSearchParams={updateSearchParams} isOverlay={true} />
             </div>
           )}
@@ -72,14 +69,14 @@ export const Header = () => {
             </div>
 
             <div>
-              <ButtonOutline
+              <button
+                className="btn"
                 data-testid="mobile-menu-button"
-                css
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Navigation Menu"
               >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
-              </ButtonOutline>
+              </button>
             </div>
           </div>
 
@@ -87,31 +84,33 @@ export const Header = () => {
           <div className="relative">
             <div
               className={cx(
-                'width-full position-absolute left-0 right-0 color-shadow-large color-bg-primary px-3 px-md-6 pb-3',
+                'width-full position-absolute left-0 right-0 color-shadow-large color-bg-primary px-2 px-md-4 pb-3',
                 isMenuOpen ? 'd-block' : 'd-none'
               )}
             >
               <div className="mt-3 mb-2">
-                <h4 className="f5 text-normal color-text-secondary">{t('explore_by_product')}</h4>
+                <h4 className="f5 text-normal color-text-secondary ml-3">
+                  {t('explore_by_product')}
+                </h4>
 
                 <ProductPicker />
               </div>
 
               {/* <!-- Versions picker that only appears in the header on landing pages --> */}
               {showVersionPicker && (
-                <div className="border-top py-2">
-                  <HomepageVersionPicker variant="inline" />
-                </div>
+                <>
+                  <div className="border-top my-2 mx-3" />
+                  <VersionPicker hideLabel={true} variant="inline" popoverVariant={'inline'} />
+                </>
               )}
 
               {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
-              <div className="border-top py-2">
-                <LanguagePicker variant="inline" />
-              </div>
+              <div className="border-top my-2 mx-3" />
+              <LanguagePicker variant="inline" />
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
-                <div className="pt-3 border-top">
+                <div className="my-2 pt-3 mx-3">
                   <Search updateSearchParams={updateSearchParams} />
                 </div>
               )}

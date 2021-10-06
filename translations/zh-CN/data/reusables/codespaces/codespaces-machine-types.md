@@ -1,0 +1,1 @@
+You can run your codespace on a choice of remote machine, from 2 cores to 32 cores. 每种类型都有不同的资源水平和不同的计费等级。 For information, see "[About billing for Codespaces](/github/developing-online-with-codespaces/about-billing-for-codespaces)."

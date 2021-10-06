@@ -3,7 +3,7 @@ title: Administrar vulnerabilidades de seguridad
 redirect_from:
   - /categories/managing-security-vulnerabilities
 versions:
-  enterprise-server: <=2.22
+  ghes: <=2.22
 topics:
   - Security
 children:

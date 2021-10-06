@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/accessing-a-pull-request-locally
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Acerca de las solicitudes de extracción en {% data variables.product.prodname_desktop %}
 Puedes ver las solicitudes de extracción que tú o tus colaboradores hayan propuesto en {% data variables.product.prodname_desktop %}. Las solicitude de extracción te permiten proponer cambios a los proyectos, proporcionar retroalimentación y revisiones, y fusionar cambios en los proyectos. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."

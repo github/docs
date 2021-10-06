@@ -4,11 +4,12 @@ intro: '将现有仓库从本地计算机添加至 {% data variables.product.pro
 redirect_from:
   - /desktop/contributing-to-projects/adding-and-cloning-repositories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /adding-a-repository-from-your-local-computer-to-github-desktop
   - /adding-an-existing-project-to-github-using-github-desktop
   - /cloning-and-forking-repositories-from-github-desktop
   - /cloning-a-repository-from-github-to-github-desktop
+shortTitle: 添加和克隆仓库
 ---
 

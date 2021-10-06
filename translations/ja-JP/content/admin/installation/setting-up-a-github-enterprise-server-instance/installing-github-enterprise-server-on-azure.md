@@ -6,24 +6,25 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on Azure
 ---
 
 {% data variables.product.prodname_ghe_server %} をグローバル Azure または Azure Government にデプロイできます。
 
-### 必要な環境
+## 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
 - 新しいコンピューターをプロビジョニングできる Azure アカウントを所有していなければなりません。 詳しい情報については [Microsoft Azure のウェブサイト](https://azure.microsoft.com)を参照してください。
 - 仮想マシン（VM）を起動するのに必要なアクションのほとんどは、Azureポータルを使っても行えます。 とはいえ、初期セットアップ用にはAzureコマンドラインインターフェース（CLI）をインストールすることをお勧めします。 以下の例では、Azure CLI 2.0が使われています。 詳しい情報については、Azure のガイド「[Azure CLI 2.0 のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)」を参照してください。
 
-### ハードウェアについて
+## ハードウェアについて
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### 仮想マシンタイプの決定
+## 仮想マシンタイプの決定
 
 Azure で{% data variables.product.product_location %} を起動する前に、Organization のニーズに最適なマシンタイプを決定する必要があります。 {% data variables.product.product_name %} の最小要件を確認するには、「[最小要件](#minimum-requirements)」を参照してください。
 
@@ -35,7 +36,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
 {% data variables.product.prodname_ghe_server %} は、VM タイプをサポートするあらゆる地域をサポートします。 各 VM でサポートされているリージョンの詳細については、Azure の「[リージョン別の利用可能な製品](https://azure.microsoft.com/regions/services/)」を参照してください。
 
-### {% data variables.product.prodname_ghe_server %} 仮想マシンを作成する
+## {% data variables.product.prodname_ghe_server %} 仮想マシンを作成する
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -76,7 +77,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
 
    {% endnote %}
 
-### {% data variables.product.prodname_ghe_server %} 仮想マシンを設定する
+## {% data variables.product.prodname_ghe_server %} 仮想マシンを設定する
 
 1. VM を設定する前に、VMがReadyRole ステータスになるのを待つ必要があります。 VM のステータスを `vm list` コマンドで確認します。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm list](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)」を参照してください。
   ```shell
@@ -98,7 +99,7 @@ Azure で{% data variables.product.product_location %} を起動する前に、O
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 参考リンク
+## 参考リンク
 
-- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% ifversion ghes > 2.22 %}
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

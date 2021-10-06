@@ -354,8 +354,8 @@ describe('server', () => {
         '/en/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account'
       )
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + ul li').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + ul li ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -493,9 +493,13 @@ describe('server', () => {
 
     test('dotcom-only links on GHE are dotcom-only', async () => {
       const $ = await getDOM(
-        `${latestEnterprisePath}/github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile`
+        `${latestEnterprisePath}/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud`
       )
-      expect($('a[href="/en/articles/github-privacy-statement"]').length).toBe(1)
+      expect(
+        $(
+          'a[href="/en/github/site-policy/github-terms-for-additional-products-and-features#connect"]'
+        ).length
+      ).toBe(1)
     })
 
     test('desktop links on GHE are dotcom-only', async () => {
@@ -545,7 +549,7 @@ describe('server', () => {
         $(
           `[data-testid=article-version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
         ).length
-      ).toBe(2)
+      ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
         $(`[data-testid=article-version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`)
@@ -697,9 +701,9 @@ describe('URLs by language', () => {
   test('heading IDs and links on translated pages are in English', async () => {
     const $ = await getDOM('/ja/actions/using-github-hosted-runners/about-github-hosted-runners')
     expect($.res.statusCode).toBe(200)
-    expect($('h3[id="further-reading"]').length).toBe(1)
+    expect($('h2[id="further-reading"]').length).toBe(1)
     expect($('h3[id="参考リンク"]').length).toBe(0)
-    expect($('h3 a[href="#further-reading"]').length).toBe(1)
+    expect($('h2 a[href="#further-reading"]').length).toBe(1)
   })
 })
 

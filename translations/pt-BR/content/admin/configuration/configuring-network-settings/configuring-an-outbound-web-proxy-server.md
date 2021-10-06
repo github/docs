@@ -7,14 +7,17 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configurar um proxy de saída
 ---
+
+## About proxies with {% data variables.product.product_name %}
 
 Quando houver um servidor proxy habilitado para a {% data variables.product.product_location %}, as mensagens de saída enviadas para o {% data variables.product.prodname_ghe_server %} sairão primeiramente pelo servidor proxy, a menos que o host de destino seja adicionado como exclusão de proxy HTTP. Os tipos de mensagens de saída incluem webhooks de saída, pacotes para upload e fetch de avatares herdados. A URL do servidor proxy é o protocolo, domínio ou endereço IP e o número da porta, por exemplo: `http://127.0.0.1:8123`.
 
@@ -23,6 +26,10 @@ Quando houver um servidor proxy habilitado para a {% data variables.product.prod
 **Observação:** para conectar a {% data variables.product.product_location %} ao {% data variables.product.prodname_dotcom_the_website %}, a sua configuração de proxy deve permitir conectividade com `github.com` e `api.github.com`. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)".
 
 {% endnote %}
+
+{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+
+## Configurar servidor proxy web de saída
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

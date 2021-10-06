@@ -1,6 +1,7 @@
 ---
 title: Managing labels
 intro: 'You can classify {% ifversion fpt %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -30,8 +31,6 @@ topics:
 
 You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
-Anyone with read access to a repository can view and search the repository’s labels. Anyone with triage access to a repository can apply/dismiss existing labels. To create, edit, apply, or delete a label, you must have write access to the repository.
-
 ## About default labels
 
 {% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
@@ -58,6 +57,8 @@ Organization owners can customize the default labels for repositories in their o
 
 ## Creating a label
 
+Anyone with write access to a repository can create a label.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
@@ -69,11 +70,15 @@ Organization owners can customize the default labels for repositories in their o
 
 ## Applying a label
 
+Anyone with triage access to a repository can apply and dismiss labels.
+
 1. Navigate to the {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
 1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label.
   !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
 
 ## Editing a label
+
+Anyone with write access to a repository can edit existing labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -85,6 +90,8 @@ Organization owners can customize the default labels for repositories in their o
 {% data reusables.project-management.save-label %}
 
 ## Deleting a label
+
+Anyone with write access to a repository can delete existing labels.
 
 Deleting a label will remove the label from issues and pull requests.
 

@@ -1,0 +1,1 @@
+You can run your codespace on a choice of remote machine, from 2 cores to 32 cores. Cada una de estas tiene un nivel de recursos y de facturación diferentes. For information, see "[About billing for Codespaces](/github/developing-online-with-codespaces/about-billing-for-codespaces)."

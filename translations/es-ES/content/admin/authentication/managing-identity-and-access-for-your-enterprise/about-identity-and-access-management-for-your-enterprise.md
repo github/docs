@@ -1,10 +1,10 @@
 ---
 title: Acerca de la administración de identidades y de accesos para tu empresa
 shortTitle: Acerca de la administración de identidad y de acceso
-intro: 'Puedes utilizar la autenticación incluida en {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}, o elegir entre CAS, LDAP, o SAML{% else %}el inicio de sesión único de SAML (SSO) y el Sistema para la Administración de Identidad entre Dominios (SCIM){% endif %} para administrar el acceso centralmente {% if currentVersion == "free-pro-team@latest" %}para las organizaciones que pertenezcan a tu empresa en {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} a{% data variables.product.product_location %}{% endif %}.'
+intro: 'Puedes utilizar la autenticación incluida en {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}, o elegir entre CAS, LDAP, o SAML{% else %}el inicio de sesión único de SAML (SSO) y el Sistema para la Administración de Identidad entre Dominios (SCIM){% endif %} para administrar el acceso centralmente {% ifversion fpt %}para las organizaciones que pertenezcan a tu empresa en {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghes or ghae %} a{% data variables.product.product_location %}{% endif %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -16,9 +16,9 @@ redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
 
-### Acerca de la administración de identidades y de accesos para tu empresa
+## Acerca de la administración de identidades y de accesos para tu empresa
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %}{% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -30,7 +30,7 @@ Para aprender cómo configurar tanto la autenticación como el aprovisionamiento
 
 {% endif %}
 
-### Leer más
+## Leer más
 
 - [Wiki de SAML](https://wiki.oasis-open.org/security) en el sitio de OASIS
 - [Sistema para la Administración de Identidad entre Dominios: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) en el sitio web de IETF

@@ -7,11 +7,12 @@ redirect_from:
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Convert Owners team
 ---
 
 Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
@@ -19,7 +20,7 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 - Gib dem Team einen neuen Namen, der die Mitglieder kennzeichnet, die einen besonderen Status in der Organisation haben.
 - Lösche das Team, nachdem Du sichergestellt hast, dass alle Mitglieder zu Teams hinzugefügt wurden, die den benötigten Zugriff auf die Repositorys der Organisation haben.
 
-### Dem Inhaberteam einen neuen Namen geben
+## Dem Inhaberteam einen neuen Namen geben
 
 {% tip %}
 
@@ -37,7 +38,7 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 6. Klicke unter der Teambeschreibung auf **Save and continue** (Speichern und fortfahren). ![Schaltfläche „Save and continue“ (Speichern und fortfahren)](/assets/images/help/teams/owners-team-save-and-continue.png)
 7. Optional kannst Du [das Team auch *öffentlich* machen](/articles/changing-team-visibility).
 
-### Das alte Inhaberteam löschen
+## Das alte Inhaberteam löschen
 
 {% warning %}
 

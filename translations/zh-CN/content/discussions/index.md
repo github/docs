@@ -1,6 +1,5 @@
 ---
 title: GitHub Discussions 文档
-beta_product: true
 shortTitle: GitHub Discussions
 intro: '{% data variables.product.prodname_discussions %} 是一个围绕开源项目为社区提供协作沟通的论坛。 社区成员可以提出和回答问题，分享更新，进行开放式对话，并关注影响社区工作方式的决策。'
 introLinks:
@@ -24,10 +23,11 @@ featuredLinks:
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
 changelog:
   label: discussions
+examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /quickstart
   - /guides
