@@ -209,7 +209,8 @@ jobs:
           PR_NUMBER: ${{ needs.pr-metadata.outputs.number }}
         with:
           script: |
-            const sleep = require('await-sleep') // Does not require ESM
+            // Equivalent of the 'await-sleep' module without the install
+            const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
             const blockingLabel = 'automated-block-deploy'
             const { owner, repo } = context.repo
