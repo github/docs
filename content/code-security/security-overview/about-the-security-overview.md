@@ -1,4 +1,4 @@
----
+--- 
 title: About the security overview
 intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in one place: the Security Overview page.'
 product: '{% data reusables.gated-features.security-center %}'
