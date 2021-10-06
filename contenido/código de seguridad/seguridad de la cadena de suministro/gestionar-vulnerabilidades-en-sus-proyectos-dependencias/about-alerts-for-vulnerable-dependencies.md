@@ -1,4 +1,4 @@
----
+--- 
 title: About alerts for vulnerable dependencies
 intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository.'
 redirect_from:
