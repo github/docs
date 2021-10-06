@@ -1,3 +1,4 @@
+![2021-09-30](https://user-images.githubusercontent.com/91356545/136231419-e26cef61-9178-4165-86b2-aa4d260ca683.png)
 ---
 title: Checking for existing SSH keys
 intro: 'Before you generate an SSH key, you can check to see if you have any existing SSH keys.'
