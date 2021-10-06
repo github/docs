@@ -1,4 +1,4 @@
----
+--- 
 title: Granting access to your organization with SAML single sign-on
 intro: 'Organization administrators can grant access to their organization with SAML single sign-on. This access can be granted to organization members, bots, and service accounts.'
 redirect_from:
