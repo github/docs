@@ -6,17 +6,18 @@ redirect_from:
   - /articles/reviewing-your-organizations-installed-integrations
   - /github/setting-up-and-managing-organizations-and-teams/reviewing-your-organizations-installed-integrations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Revisar integrações instaladas
 ---
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Na barra lateral esquerda, clique em **Installed {% data variables.product.prodname_github_app %}s** ({% data variables.product.prodname_github_app %}s instalados). ![Guia Installed {% data variables.product.prodname_github_app %}s ({% data variables.product.prodname_github_app %}s instalados) na barra lateral de configurações da organização](/assets/images/help/organizations/org-settings-installed-github-apps.png)
+4. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**. ![Installed {% data variables.product.prodname_github_apps %} tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. Próximo do {% data variables.product.prodname_github_app %} que deseja revisar, clique em **Configure** (Configurar). ![Botão Configure (Configurar)](/assets/images/help/organizations/configure-installed-integration-button.png)
 6. Revise o acesso ao repositório e as permissões de {% data variables.product.prodname_github_app %}. ![Opção para fornecer ao {% data variables.product.prodname_github_app %} acesso a todos os repositórios ou a repositórios específicos](/assets/images/help/organizations/toggle-integration-repo-access.png)
     - Para fornecer acesso ao {% data variables.product.prodname_github_app %} em todos os repositórios da organização, selecione **All repositories** (Todos os repositórios).

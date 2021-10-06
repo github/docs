@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop
   - /desktop/installing-and-configuring-github-desktop/creating-your-first-repository-using-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Introducción
 {% data variables.product.prodname_desktop %} se extiende y simplifica tu flujo de trabajo {% data variables.product.prodname_dotcom_the_website %}, usando una interfaz visual en lugar de comandos de texto en la línea de comandos. Al final de esta guía, habrás utilizado {% data variables.product.prodname_desktop %} para crear un repositorio, hacer cambios en éste y publicarlos en {% data variables.product.product_name %}.

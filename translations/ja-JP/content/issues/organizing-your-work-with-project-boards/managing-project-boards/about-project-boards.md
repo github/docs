@@ -7,12 +7,14 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 プロジェクトボードは、Issue、プルリクエスト、選択した列内でカードとして分類されるノートから構成されます。 列内のカードの並び替え、列から列へのカードの移動、および列の順序の変更には、ドラッグアンドドロップまたはキーボードショートカットが利用できます。
 
@@ -26,7 +28,7 @@ topics:
 - **Organization内プロジェクトボード**は、Organizationに属する任意のリポジトリからのIssueやプルリクエストを含むことができます。  {% data reusables.project-management.link-repos-to-project-board %}詳細は「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
 - **リポジトリプロジェクトボード**は、単一のリポジトリ内の Issue とプルリクエストを対象とします。 他のリポジトリの Issue やプルリクエストを参照するノートも含まれます。
 
-### プロジェクトボードの作成と表示
+## プロジェクトボードの作成と表示
 
 Organization にプロジェクトボードを作成するには、Organization のメンバーでなければなりません。 Organization のオーナーおよびプロジェクトボードの管理者権限を持っている人は、プロジェクトボードへのアクセスをカスタマイズできます。
 
@@ -44,7 +46,7 @@ Organization が所有するプロジェクトボードに、あなたが表示�
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### プロジェクトボードのテンプレート
+## プロジェクトボードのテンプレート
 
 テンプレートを使って、新しいプロジェクトボードを素早くセットアップできます。 テンプレートを使用してプロジェクトボードを作成すると、新しいボードには、列だけでなく、プロジェクトボードの便利な利用方法が書かれたカードが付きます。 また、自動化が設定済みのテンプレートを選択することもできます。
 
@@ -61,10 +63,10 @@ Organization が所有するプロジェクトボードに、あなたが表示�
 
 {% data reusables.project-management.copy-project-boards %}
 
-### 参考リンク
+## 参考リンク
 
 - [プロジェクトボードの作成](/articles/creating-a-project-board)
-- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの編集](/articles/editing-a-project-board){% ifversion fpt %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)

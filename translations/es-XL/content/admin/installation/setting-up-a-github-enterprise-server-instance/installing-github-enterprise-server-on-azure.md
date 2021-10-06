@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 ---

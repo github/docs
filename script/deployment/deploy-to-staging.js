@@ -11,7 +11,7 @@ const HEROKU_LOG_LINES_TO_SHOW = 25
 // Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
 // the semi-unreliable Heroku API when we're polling for status updates
 const ALLOWED_MISSING_RESPONSE_COUNT = 5
-const ALLOWABLE_ERROR_CODES = [404, 429, 500]
+const ALLOWABLE_ERROR_CODES = [404, 429, 500, 503]
 
 export default async function deployToStaging({
   octokit,
@@ -70,10 +70,11 @@ export default async function deployToStaging({
   let appIsNewlyCreated = false
 
   const appName = createStagingAppName({ repo, pullNumber, branch })
+  const environment = appName
   const homepageUrl = `https://${appName}.herokuapp.com/`
 
   try {
-    const title = `branch '${branch}' at commit '${sha}' in the 'staging' environment as '${appName}'`
+    const title = `branch '${branch}' at commit '${sha}' in the '${environment}' staging environment`
 
     console.log(`About to deploy ${title}...`)
 
@@ -91,7 +92,7 @@ export default async function deployToStaging({
 
       // In the GitHub API, there can only be one active deployment per environment.
       // For our many staging apps, we must use the unique appName as the environment.
-      environment: appName,
+      environment,
 
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a

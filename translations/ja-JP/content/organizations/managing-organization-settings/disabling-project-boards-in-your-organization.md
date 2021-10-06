@@ -6,11 +6,12 @@ redirect_from:
   - /articles/disabling-project-boards-in-your-organization
   - /github/managing-your-work-on-github/disabling-project-boards-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: プロジェクトボードの無効化
 ---
 
 Organization 全体でプロジェクトボードを無効化すると、Organization レベルでプロジェクトボードを新たに作成することができなくなり、既存の Organization レベルのプロジェクトボードはそれまでの URL ではアクセスできなくなります。 Organization 内にあるリポジトリのプロジェクトボードは影響を受けません。
@@ -29,7 +30,7 @@ Organization 内にあるリポジトリのプロジェクトボードを無効�
 
 {% data reusables.organizations.disable_project_board_results %}
 
-### 参考リンク
+## 参考リンク
 
 - [プロジェクトボードについて](/articles/about-project-boards)
 - "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"

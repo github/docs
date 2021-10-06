@@ -6,9 +6,9 @@ redirect_from:
   - /v3/guides/basics-of-authentication
   - /rest/basics-of-authentication
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -22,7 +22,7 @@ Você pode fazer o download do código-fonte completo para este projeto[no repos
 
 {% endtip %}
 
-### Registrar seu aplicativo
+## Registrar seu aplicativo
 
 Primeiro, você precisará [registrar o seu aplicativo][new oauth app]. A cada aplicativo OAuth registrado recebe um ID de Cliente único e um Segredo de Cliente. O Segredo do Cliente não deve ser compartilhado! Isso inclui verificar o string de caracteres no seu repositório.
 
@@ -30,7 +30,7 @@ Você pode preencher cada informação da forma que preferir, exceto a **URL de 
 
 Como estamos executando um servidor regular Sinatra, a localidade da instância local está definido como `http://localhost:4567`. Vamos preencher a URL de chamada de retorno como `http://localhost:4567/callback`.
 
-### Aceitar a autorização do usuário
+## Aceitar a autorização do usuário
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
 
@@ -50,7 +50,7 @@ end
 ```
 
 O seu ID de cliente e as chaves secretas de cliente vêm da [página de configuração do seu aplicativo][app settings].
-{% if currentVersion == "free-pro-team@latest" %} Você **nunca, __** deve armazenar esses valores em
+{% ifversion fpt %} Você **nunca __** deve armazenar esses valores em
 {% data variables.product.product_name %}--ou qualquer outro lugar público, para essa questão.{% endif %}Recomendamos armazená-los como
 [Variáveis de ambiente][about env vars]--que é exatamente o que fizemos aqui.
 
@@ -85,7 +85,7 @@ Se você confiar em você, clique em **Autorizar aplicativo**. Ah ha! O Sinatra 
 
 Bem, lembre-se de quando especificamos uma URL de retorno de chamada para ser `retorno de chamada`? Não fornecemos um encaminhamento para isso. Portanto o {% data variables.product.product_name %} não sabe onde soltar o usuário depois que ele autorizar o aplicativo. Vamos consertar isso agora!
 
-#### Fornecer um retorno de chamada
+### Fornecer um retorno de chamada
 
 Em _server.rb_, adicione um encaminhamento para especificar o que o retorno de chamada deve fazer:
 
@@ -108,7 +108,7 @@ end
 
 Após uma autenticação de aplicativo bem-sucedida, o {% data variables.product.product_name %} fornecerá um valor `temporário de código`. Você precisará fazer `POST` deste código de volta para {% data variables.product.product_name %} em troca de um `access_token`. Para simplificar nossas solicitações HTTP de GET e POST, estamos usando o [rest-client][REST Client]. Observe que você provavelmente nunca terá acesso à API através de REST. Para aplicar de modo mais sério, você deve provavelmente usar [uma biblioteca escrita na sua linguagem preferida][libraries].
 
-#### Verificar os escopos concedidos
+### Verificar os escopos concedidos
 
 Os usuários podem editar os escopos que você solicitou alterando diretamente a URL. Isso pode conceder ao seu aplicativo menos acesso do que o que você solicitou originalmente. Antes de fazer qualquer solicitação com o token, verifique os escopos que foram concedidos para o token pelo usuário. Para obter mais informações sobre escopos solicitados e concedidos, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)".
 
@@ -132,9 +132,9 @@ Além disso, uma vez que existe uma relação hierárquica entre os escopos, voc
 
 Verificar escopos apenas antes de fazer solicitações não é suficiente, já que é possível que os usuários mudem os escopos entre a sua verificação e a solicitação real. Caso isso aconteça, as chamadas par a API que você espera ter sucesso podem falhar com o status `404` ou `401` ou retornar um subconjunto diferente de informações.
 
-Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. Além disso, a API de aplicativos OAuth fornece um ponto de extremidade para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [verifica se há validade do token](/rest/reference/apps#check-a-token){% else %}[verifica se há validade do token](/rest/reference/apps#check-an-authorization){% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
+Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. Além disso, a API de aplicativos OAuth fornece um ponto de extremidade para {% ifversion fpt or ghes %} [verifica se há validade do token](/rest/reference/apps#check-a-token){% else %}[verifica se há validade do token](/rest/reference/apps#check-an-authorization){% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
 
-#### Fazer solicitações autenticadas
+### Fazer solicitações autenticadas
 
 Finalmente, com esse token de acesso, você será capaz de fazer solicitações autenticadas como o usuário conectado:
 
@@ -172,7 +172,7 @@ Podemos fazer o que quisermos com os nossos resultados. Nesse caso, vamos simple
 </p>
 ```
 
-### Implementar autenticação "persistente"
+## Implementar autenticação "persistente"
 
 Seria um modelo muito ruim se exigíssemos que os usuários se conectassem ao aplicativo todas as vezes que eles precisassem para acessar a página web. Por exemplo, tente acessar diretamente `http://localhost:4567/basic`. Você receberá uma mensagem de erro.
 

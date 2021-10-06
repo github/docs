@@ -1,0 +1,21 @@
+---
+date: '2021-08-10'
+sections:
+  bugs:
+    - 'Custom pre-receive hooks that used a bash subshell would return an error: `No such file or directory`.'
+    - When GitHub Actions is enabled without running regular scheduled backups the MSSQL Transaction Log could grow unbounded and can consume all available space on the appliance's Data Disk causing a possible outage.
+    - Unnecessary database logging consumed a large amount of disk space on instances with heavy LFS usage.
+    - Audit log entries for changes made to "Repository creation" organization settings were inaccurate.
+    - Excessive logging of `ActionController::UnknownFormat` exceptions caused unnecessary disk usage.
+    - "LDAP `group_dn` values longer than 255 characters would result in errors being logged: `Data truncated for column 'group_dn' at row 1`."
+  changes:
+    - Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.
+  known_issues:
+    - '{% data variables.product.prodname_registry %}のnpmレジストリは、メタデータのレスポンス中で時間の値を返さなくなります。これは、大きなパフォーマンス改善のために行われました。メタデータレスポンスの一部として時間の値を返すために必要なすべてのデータは保持し続け、既存のパフォーマンスの問題を解決した将来に、この値を返すことを再開します。'
+    - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
+    - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

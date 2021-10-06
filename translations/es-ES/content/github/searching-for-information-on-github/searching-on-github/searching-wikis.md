@@ -5,9 +5,9 @@ redirect_from:
   - /articles/searching-wikis
   - /github/searching-for-information-on-github/searching-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -16,7 +16,7 @@ Puedes buscar wikis globalmente a través de todos los {% data variables.product
 
 {% data reusables.search.syntax_tips %}
 
-### Buscar dentro de los repositorios de un usuario u organización
+## Buscar dentro de los repositorios de un usuario u organización
 
 Para encontrar páginas wiki de todos los repositorios propiedad de un determinado usuario u organización, utiliza el calificador `user` u `org`. Para buscar páginas wiki en un repositorio específico, utiliza el calificador `repo`.
 
@@ -26,7 +26,7 @@ Para encontrar páginas wiki de todos los repositorios propiedad de un determina
 | <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=Wikis&utf8=%E2%9C%93) encuentra wikis en repositorios propiedad de la organización de GitHub. |
 | <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:defunkt/gibberish**](https://github.com/search?q=user%3Adefunkt&type=Wikis) encuentra páginas wiki del repositorio "gibberish" de @defunkt.          |
 
-### Buscar dentro del título o el texto del cuerpo de una página wiki
+## Buscar dentro del título o el texto del cuerpo de una página wiki
 
 El calificador `in` acota la búsqueda al título o al texto del cuerpo de la página wiki. Sin el calificador, se busca tanto en el título como en el texto del cuerpo.
 
@@ -35,7 +35,7 @@ El calificador `in` acota la búsqueda al título o al texto del cuerpo de la p�
 | `in:title` | [**usage in:title**](https://github.com/search?q=usage+in%3Atitle&type=Wikis) encuentra títulos de página wiki con la palabra "usage."                                             |
 | `in:body`  | [**installation in:body**](https://github.com/search?q=installation+in%3Abody&type=Wikis) encuentra páginas wiki con la palabra "installation" en el texto de su cuerpo principal. |
 
-### Buscar por la última fecha de actualización
+## Buscar por la última fecha de actualización
 
 El calificador `updated` (actualizada) empareja páginas wiki que fueron actualizadas por última vez dentro de un rango específico de fechas.
 
@@ -45,6 +45,6 @@ El calificador `updated` (actualizada) empareja páginas wiki que fueron actuali
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**usage updated:>2016-01-01**](https://github.com/search?q=usage+updated%3A>2016-01-01&type=Wikis) coincidirá con las páginas de wiki con la palabra "uso" que se actualizaron por última vez después del 2016-01-01. |
 
-### Leer más
+## Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"

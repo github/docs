@@ -11,7 +11,7 @@ const DELAY_FOR_PREBOOT_SWAP = 135000 // 2:15
 // Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
 // the semi-unreliable Heroku API when we're polling for status updates
 const ALLOWED_MISSING_RESPONSE_COUNT = 5
-const ALLOWABLE_ERROR_CODES = [404, 429, 500]
+const ALLOWABLE_ERROR_CODES = [404, 429, 500, 503]
 
 export default async function deployToProduction({
   octokit,
@@ -64,11 +64,19 @@ export default async function deployToProduction({
   let deploymentId = null
   let logUrl = workflowRunLog
 
-  const appName = 'help-docs-prod-gha'
-  const homepageUrl = `https://${appName}.herokuapp.com/`
+  let appName, environment, homepageUrl
+  if (process.env.HEROKU_PRODUCTION_APP_NAME) {
+    appName = process.env.HEROKU_PRODUCTION_APP_NAME
+    environment = 'production'
+    homepageUrl = 'https://docs.github.com/'
+  } else {
+    appName = 'help-docs-prod-gha'
+    environment = appName
+    homepageUrl = `https://${appName}.herokuapp.com/`
+  }
 
   try {
-    const title = `branch '${branch}' at commit '${sha}' in the 'production' environment as '${appName}'`
+    const title = `branch '${branch}' at commit '${sha}' in the '${environment}' environment`
 
     console.log(`About to deploy ${title}...`)
 
@@ -81,7 +89,7 @@ export default async function deployToProduction({
       ref: sha,
 
       // In the GitHub API, there can only be one active deployment per environment.
-      environment: appName,
+      environment,
 
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a

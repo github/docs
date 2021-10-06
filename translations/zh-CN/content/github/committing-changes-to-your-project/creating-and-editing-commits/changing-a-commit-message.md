@@ -6,18 +6,18 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: '如果提交消息中包含不明确、不正确或敏感的信息，您可以在本地修改它，然后将含有新消息的新提交推送到 {% data variables.product.product_name %}。 您还可以更改提交消息以添加遗漏的信息。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
-### 重写最近的提交消息
+## 重写最近的提交消息
 
 您可以使用 `git commit --amend` 命令更改最近的提交消息。
 
 在 Git 中，提交消息的文本是提交的一部分。 更改提交消息将更改提交 ID - 即用于命名提交的 SHA1 校验和。 实际上，您是创建一个新提交以替换旧提交。
 
-### 提交尚未推送上线
+## 提交尚未推送上线
 
 如果提交仅存在于您的本地仓库中，尚未推送到 {% data variables.product.product_location %}，您可以使用 `git commit --amend` 命令修改提交消息。
 
@@ -25,7 +25,7 @@ versions:
 2. 键入 `git commit --amend`，然后按 **Enter** 键。
 3. 在文本编辑器中编辑提交消息，然后保存该提交。
     - 通过在提交中添加尾行可添加合作作者。 更多信息请参阅“[创建有多个作者的提交](/articles/creating-a-commit-with-multiple-authors)”。
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - 通过在提交中添加尾行可创建代表组织的提交。 更多信息请参阅“[创建代表组织的提交](/articles/creating-a-commit-on-behalf-of-an-organization)”
 {% endif %}
 
@@ -37,7 +37,7 @@ versions:
 
 {% endtip %}
 
-### 修改旧提交或多个提交的消息
+## 修改旧提交或多个提交的消息
 
 如果您已将提交推送到 {% data variables.product.product_location %}，则必须强制推送含有修正消息的提交。
 
@@ -118,6 +118,6 @@ $ git push --force <em>example-branch</em>
 
 {% endwarning %}
 
-### 延伸阅读
+## 延伸阅读
 
 * "[对提交签名](/articles/signing-commits)"
