@@ -1,4 +1,4 @@
----
+--- 
 title: Contributing and collaborating using GitHub Desktop
 shortTitle: Contributing and collaborating
 intro: 'Use GitHub Desktop to manage your projects, create meaningful commits, and track the project''s history in an app instead of on the command line.'
