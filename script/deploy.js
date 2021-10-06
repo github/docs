@@ -234,7 +234,7 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
         pullRequest,
       })
     } else {
-      await octokit.repos.createStatus({
+      await octokit.repos.createCommitStatus({
         owner,
         repo,
         sha: pullRequest.head.sha,
@@ -249,7 +249,7 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
         forceRebuild,
       })
 
-      await octokit.repos.createStatus({
+      await octokit.repos.createCommitStatus({
         owner,
         repo,
         sha: pullRequest.head.sha,
@@ -264,7 +264,7 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
     console.error(error)
 
     if (!destroy) {
-      await octokit.repos.createStatus({
+      await octokit.repos.createCommitStatus({
         owner,
         repo,
         sha: pullRequest.head.sha,

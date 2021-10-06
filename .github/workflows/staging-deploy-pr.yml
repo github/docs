@@ -472,6 +472,7 @@ jobs:
           CONTEXT_NAME: ${{ env.CONTEXT_NAME }}
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
+          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
         with:
           script: |
             const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env

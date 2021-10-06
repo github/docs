@@ -143,6 +143,7 @@ jobs:
           HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
           SOURCE_BLOB_URL: ${{ steps.build-source.outputs.download_url }}
           DELAY_FOR_PREBOOT: 'true'
+          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
         with:
           script: |
             const {
