@@ -71,7 +71,7 @@ To see if your pull request can be merged, look in the merge box at the bottom o
 When a branch is protected:
 
 - You won't be able to delete or force push to the branch.
-- If required status checks are enabled on the branch, you won't be able to merge changes into the branch until all of the required CI tests pass. For more information, see "[About status checks](/articles/about-status-checks)."
+- If required status checks are enabled on the branch, you won't be able to merge changes into the branch until all of the required CI tests pass. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 - If required pull request reviews are enabled on the branch, you won't be able to merge changes into the branch until all requirements in the pull request review policy have been met. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
 - If required review from a code owner is enabled on a branch, and a pull request modifies code that has an owner, a code owner must approve the pull request before it can be merged. For more information, see "[About code owners](/articles/about-code-owners)."
 - If required commit signing is enabled on a branch, you won't be able to push any commits to the branch that are not signed and verified. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."

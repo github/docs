@@ -87,7 +87,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
 | Submit reviews that affect a pull request's mergeability | | | **X** | **X** | **X** |
 | [Apply suggested changes](/articles/incorporating-feedback-in-your-pull-request) to pull requests | | | **X** | **X** | **X** |
-| Create [status checks](/articles/about-status-checks) | | | **X** | **X** | **X** |{% ifversion fpt %}
+| Create [status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) | | | **X** | **X** | **X** |{% ifversion fpt %}
 | Create, edit, run, re-run, and cancel [GitHub Actions workflows](/actions/automating-your-workflow-with-github-actions/) | | | **X** | **X** | **X** |{% endif %}
 | Create and edit releases | | | **X** | **X** | **X** |
 | View draft releases | | | **X** | **X** | **X** |

@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/working-with-pre-receive-hooks
   - /articles/working-with-pre-receive-hooks
   - /github/collaborating-with-issues-and-pull-requests/working-with-pre-receive-hooks
+  - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/working-with-pre-receive-hooks
 versions:
   ghes: '*'
 shortTitle: Pre-receive hooks

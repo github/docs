@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/collaborating-on-repositories-with-code-quality-features/
   - /articles/collaborating-on-repositories-with-code-quality-features-enabled/
   - /articles/collaborating-on-repositories-with-code-quality-features
+  - /github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,4 +17,3 @@ children:
   - /working-with-pre-receive-hooks
 shortTitle: Code quality features
 ---
-
