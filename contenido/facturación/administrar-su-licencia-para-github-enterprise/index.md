@@ -1,4 +1,4 @@
----
+---b
 title: Managing your license for GitHub Enterprise
 shortTitle: GitHub Enterprise license
 intro: 'You can view, manage, and update your license for {% data variables.product.prodname_enterprise %}, which unlocks the application on {% data variables.product.product_location_enterprise %}.'
