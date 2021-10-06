@@ -59,7 +59,7 @@ When you change any of the information in the branch range, the Commit and Files
 
 {% data reusables.repositories.asking-for-review %}
 
-After your pull request has been reviewed, it can be [merged into the repository](/articles/merging-a-pull-request).
+After your pull request has been reviewed, it can be [merged into the repository](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request).
 
 {% endwebui %}
 
@@ -155,9 +155,9 @@ gh pr create --web
 
 {% codespaces %}
 
-1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. 
+1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
 ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description. 
+1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
 ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 

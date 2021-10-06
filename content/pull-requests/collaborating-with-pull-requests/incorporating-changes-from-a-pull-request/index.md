@@ -4,6 +4,7 @@ intro: 'You can propose changes to your work on {% data variables.product.produc
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/
   - /articles/incorporating-changes-from-a-pull-request
+  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,4 +19,3 @@ children:
   - /reverting-a-pull-request
 shortTitle: Incorporate changes
 ---
-

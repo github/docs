@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request
   - /articles/merging-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/merging-a-pull-request
+  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request
 versions:
   fpt: '*'
   ghes: '*'
@@ -31,11 +32,11 @@ For more information, see "[About branches](/github/collaborating-with-issues-an
 
 {% endnote %}
 
-Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/articles/about-pull-request-merges), which are merged using the fast-forward option.
+Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges), which are merged using the fast-forward option.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/articles/closing-a-pull-request) without merging.
+If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request) without merging.
 
 ## Merging a pull request
 
@@ -100,5 +101,5 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 
 - "[Reverting a pull request](/articles/reverting-a-pull-request)"
 - "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {% data variables.product.prodname_desktop %}
-- "[About pull request merges](/articles/about-pull-request-merges)"
+- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
 - "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts"

@@ -33,4 +33,4 @@ For more information about using Git to manually revert individual commits, see 
 2. In the "Pull Requests" list, click the pull request you'd like to revert.
 3. Near the bottom of the pull request, click **Revert**.
   ![Revert pull request link](/assets/images/help/pull_requests/revert-pull-request-link.png)
-4. Merge the resulting pull request. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)."
+4. Merge the resulting pull request. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."

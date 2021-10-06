@@ -60,4 +60,4 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
 ## Further reading
 
-- "[About pull request merges](/articles/about-pull-request-merges)"
+- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"

@@ -45,7 +45,7 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 **Tips:**
 - To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
-- You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/articles/about-pull-request-merges)."
+- You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 {% endtip %}
 
@@ -71,4 +71,4 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
-- "[Closing a pull request](/articles/closing-a-pull-request)"
+- "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"
