@@ -1,4 +1,4 @@
----
+--- 
 title: Managing your GitHub billing settings
 shortTitle: Billing settings
 intro: 'Your account''s billing settings apply to every paid feature or product you add to the account. You can manage settings like your payment method, billing cycle, and billing email. You can also view billing information such as your subscription, billing date, payment history, and past receipts.'
