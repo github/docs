@@ -1,4 +1,4 @@
----
+--- 
 title: Releasing projects on GitHub
 intro: 'You can create a release to package software, release notes, and binary files for other people to download.'
 redirect_from:
