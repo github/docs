@@ -1,4 +1,4 @@
----
+--- 
 title: Keeping your organization secure
 intro: 'Organization owners have several features to help them keep their projects and data secure. If you''re the owner of an organization, you should regularly review your organization''s audit log{% ifversion not ghae %}, member 2FA status,{% endif %} and application settings to ensure that no unauthorized or malicious activity has occurred.'
 redirect_from:
