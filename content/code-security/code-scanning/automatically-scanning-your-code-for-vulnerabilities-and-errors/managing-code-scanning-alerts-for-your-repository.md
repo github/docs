@@ -108,7 +108,7 @@ You can filter the alerts shown in the {% data variables.product.prodname_code_s
 
 The benefit of using keyword filters is that only values with results are shown in the drop-down lists. This makes it easy to avoid setting filters that find no results.
 
-If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch.
+If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
 
 ### Restricting results to application code only
 

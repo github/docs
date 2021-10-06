@@ -125,9 +125,7 @@ Be descriptive when naming image files: include the name, action, and UI element
 
 ### Screenshots
 
-When you take a screenshot, avoid overly wide images. If you're trying to bring attention to a button, don't take a shot of the entire page. Focus on the area around the button instead and crop near the focal point of the image. Leave enough of a margin around the focal point so that some other elements of the page are visible, helping the viewer find the area of the screenshot when looking at the user interface.
-
-Do not include your username or avatar in any images. If a screenshot must include a username or avatar, use the Inspect function in your browser to add the [Octocat](https://github.com/octocat)'s username or avatar instead.
+To learn about creating and versioning images, see "[Creating and updating screenshots](./images-and-versioning.md)."
 
 ## Inclusive language
 
