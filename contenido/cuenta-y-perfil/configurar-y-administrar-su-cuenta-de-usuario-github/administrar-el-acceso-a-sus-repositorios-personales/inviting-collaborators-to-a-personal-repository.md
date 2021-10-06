@@ -1,4 +1,4 @@
----
+--- 
 title: Inviting collaborators to a personal repository
 intro: 'You can {% ifversion fpt %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
 redirect_from:
