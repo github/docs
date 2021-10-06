@@ -1,4 +1,4 @@
----
+--- 
 title: 'Monitoring, managing, and updating your enterprise'
 intro: 'You can monitor your appliance, upgrade to a newer version, and configure clustering or high availability'
 redirect_from:
