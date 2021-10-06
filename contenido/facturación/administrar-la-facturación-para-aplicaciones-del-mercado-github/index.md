@@ -1,4 +1,4 @@
----
+--- 
 title: Managing billing for GitHub Marketplace apps
 shortTitle: GitHub Marketplace apps
 intro: 'You can upgrade, downgrade, or cancel {% data variables.product.prodname_marketplace %} apps at any time.'
