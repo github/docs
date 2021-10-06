@@ -1,4 +1,4 @@
----
+--- 
 title: Securing your repository
 intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your repository secure.'
 permissions: Repository administrators and organization owners can configure repository security settings.
