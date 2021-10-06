@@ -1,4 +1,4 @@
----
+--- 
 title: Managing notifications from your inbox
 intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes > 2.22 %} and mobile{% endif %}.'
 redirect_from:
