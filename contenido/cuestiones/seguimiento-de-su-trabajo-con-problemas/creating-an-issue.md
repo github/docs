@@ -1,4 +1,4 @@
----
+--- 
 title: Creating an issue
 intro: 'Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.'
 permissions: People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}
