@@ -1,4 +1,4 @@
----
+--- 
 title: Withdrawing a security advisory
 intro: You can withdraw a security advisory that you've published.
 redirect_from:
