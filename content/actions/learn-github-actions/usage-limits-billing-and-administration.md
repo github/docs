@@ -16,7 +16,6 @@ shortTitle: Workflow billing & limits
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About billing for {% data variables.product.prodname_actions %}
 
