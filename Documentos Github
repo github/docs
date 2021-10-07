@@ -1,0 +1,30 @@
+Qué artículo de docs.github.com se ve afectado?
+Este será un nuevo artículo en la parte de GitHub Classroom del sitio de documentos, llamado "Acerca de las tareas".
+
+El artículo "Acerca de las tareas" se puede colocar como el segundo artículo en el tema del mapa "Enseñar con GitHub Classroom", en "Administrar aulas".
+
+¿Qué parte (s) del artículo le gustaría ver actualizado?
+Por qué
+Actualmente, los documentos de GitHub Classroom incluyen algunos artículos sobre la creación de asignaciones: " Creación de asignaciones individuales " y " Creación de asignaciones de grupo ".
+
+Sin embargo, no hay un artículo conceptual sobre las asignaciones, que presente a los usuarios lo que son, cómo funcionan en GitHub Classroom, los diferentes tipos y los siguientes pasos para comenzar con las asignaciones. Entonces queremos agregar uno.
+
+Casos de uso y audiencia
+Esta página es necesaria para ofrecer una introducción sobre cómo funcionan las asignaciones para futuros maestros, estudiantes o incluso administradores de escuelas u organizaciones. Les proporciona un lugar al que pueden ir para aprender sobre los diferentes tipos de tareas y cómo funcionan en GitHub Classroom.
+
+Empezando
+Puede comenzar aprendiendo más sobre el contenido conceptual en nuestro modelo de contenido.
+
+Luego puede ver nuestra plantilla de contenido conceptual y seguirla para crear el artículo.
+
+El artículo debe crearse en el directorio education / manage-your-coursework .
+
+El artículo "Acerca de las asignaciones" debe tener las siguientes secciones, como mínimo:
+
+Acerca de las asignaciones : esto debería presentar a los usuarios las asignaciones que hay en GitHub y brindar una descripción general de alto nivel de los requisitos previos y las características. Podemos reutilizar el contenido de " Creación de asignaciones individuales " y " Creación de asignaciones de grupo".”, En particular las secciones 'Acerca de' y los requisitos previos, además de parte de la información sobre las funciones que podríamos querer destacar, como elegir y configurar un IDE, proporcionar código de inicio en un repositorio de plantillas y proporcionar comentarios. Solo debemos mencionar brevemente los dos tipos de asignaciones, y luego quizás vincularnos a la siguiente sección sobre "Tipos de asignaciones" para obtener más información, así que trate de no profundizar demasiado en esta sección sobre las características específicas del grupo frente a las individuales. También podemos mencionar que el requisito previo para crear asignaciones es crear un aula, y un enlace a la sección " Creación de un aula " del artículo "Administrar aulas".
+Tipos de asignaciones : aquí es donde debemos discutir los diferentes tipos de asignaciones, individuales o grupales. Deberíamos aclarar las diferencias entre ellos y dar casos de uso o ejemplos de para qué se podría utilizar mejor cada uno. También podemos reutilizar el contenido de " Creación de asignaciones individuales " y " Creación de asignaciones de grupo ", en particular la sección Acerca de, para explicar cómo funciona cada una.
+Lectura adicional (o Próximos pasos) : Deberíamos tener una sección aquí que indique a los usuarios dónde ir para los próximos pasos o lecturas adicionales. Definitivamente deberíamos vincularnos a " Creación de asignaciones individuales " y " Creación de asignaciones de grupo ". También podemos vincularnos a " Administrar aulas ", que es un requisito previo antes de crear asignaciones, y vincularnos a "Configurar GitHub Classroom con un IDE ( https://docs.github.com/en/education/manage-coursework-with-github -clase / integrar-github-aula-con-un-ide) ” . Tenga en cuenta que también puede incluir algunos de estos enlaces específicos a características notables en las secciones anteriores cuando los menciona, entonces es posible que no los necesite en esta sección.
+También deberá actualizar el archivo de índice " Administrar el trabajo del curso con GitHub Classroom " con un enlace al artículo. Puede ser después de "Administrar aulas" y antes de "Crear una tarea individual", en el tema del mapa "Enseñar con GitHub Classroom".
+
+Información adicional
+Este número es para un proyecto especial y actualmente no está disponible para que los contribuyentes trabajen en él.
