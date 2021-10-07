@@ -58,8 +58,8 @@ For some example queries, see "[An example query using the Enterprise Accounts A
     - `admin:enterprise`
 
   The enterprise account specific scopes are:
-    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes < 3.3 %}`manage_runners:enteprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes < 3.3 %}
+    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enteprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
     - `manage_runners:enteprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Read enterprise profile data.
 
