@@ -38,4 +38,4 @@ You can also give the upstream repository's maintainers permission to push commi
 ## Further reading
 
 - "[Working with forks](/articles/working-with-forks)"
-- "[Allowing changes to a pull request branch created from a fork](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

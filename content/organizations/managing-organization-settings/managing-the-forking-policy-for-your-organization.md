@@ -31,5 +31,5 @@ If you allow forking of private{% ifversion fpt or ghes or ghae %} and internal{
 
 ## Further reading
 
-- "[About forks](/articles/about-forks)"
+- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

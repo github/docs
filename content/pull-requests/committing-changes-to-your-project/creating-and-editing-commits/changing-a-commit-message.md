@@ -4,6 +4,7 @@ redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
+  - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
 intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
 versions:
   fpt: '*'
@@ -23,9 +24,9 @@ If the commit only exists in your local repository and has not been pushed to {%
 1. On the command line, navigate to the repository that contains the commit you want to amend.
 2. Type `git commit --amend` and press **Enter**.
 3. In your text editor, edit the commit message, and save the commit.
-    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/articles/creating-a-commit-with-multiple-authors)."
+    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/articles/creating-a-commit-on-behalf-of-an-organization)"
+    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
 The new commit and message will appear on {% data variables.product.product_location %} the next time you push.
@@ -71,7 +72,7 @@ If you need to amend the message for multiple commits or an older commit, you ca
     pick e499d89 Delete CNAME
     pick 0c39034 Better README
     pick f7fde4a Change the commit message but push the same commit.
-    
+
     # Rebase 9fdb3bd..f7fde4a onto 9fdb3bd
     #
     # Commands:
@@ -101,7 +102,7 @@ If you need to amend the message for multiple commits or an older commit, you ca
 6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
 ```shell
 $ git push --force <em>example-branch</em>
-``` 
+```
 
 For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
 

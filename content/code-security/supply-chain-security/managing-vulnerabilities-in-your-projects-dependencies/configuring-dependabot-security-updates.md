@@ -42,7 +42,7 @@ You can disable {% data variables.product.prodname_dependabot_security_updates %
 
 | Automatic enablement prerequisite | More information |
 | ----------------- | ----------------------- |
-| Repository is not a fork | "[About forks](/github/collaborating-with-issues-and-pull-requests/about-forks)" |
+| Repository is not a fork | "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)" |
 | Repository is not archived | "[Archiving repositories](/github/creating-cloning-and-archiving-repositories/archiving-repositories)" |
 | Repository is public, or repository is private and you have enabled read-only analysis by {% data variables.product.prodname_dotcom %}, dependency graph, and vulnerability alerts in the repository's settings | "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)." |
 | Repository contains dependency manifest file from a package ecosystem that {% data variables.product.prodname_dotcom %} supports | "[Supported package ecosystems](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)" |

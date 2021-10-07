@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
   - /github/collaborating-with-issues-and-pull-requests/about-forks
+  - /github/collaborating-with-pull-requests/working-with-forks/about-forks
 versions:
   fpt: '*'
   ghes: '*'

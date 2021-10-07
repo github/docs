@@ -8,6 +8,7 @@ redirect_from:
   - /categories/collaborating-on-projects-using-pull-requests/
   - /categories/collaborating-on-projects-using-issues-and-pull-requests/
   - /categories/collaborating-with-issues-and-pull-requests/
+  - /github/collaborating-with-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,4 +25,3 @@ children:
   - /incorporating-changes-from-a-pull-request
 shortTitle: Collaborate with pull requests
 ---
-

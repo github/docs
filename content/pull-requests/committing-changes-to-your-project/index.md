@@ -5,6 +5,7 @@ redirect_from:
   - /categories/21/articles/
   - /categories/commits/
   - /categories/committing-changes-to-your-project
+  - /github/committing-changes-to-your-project
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,4 +16,3 @@ children:
   - /troubleshooting-commits
 shortTitle: Commit changes to your project
 ---
-

@@ -70,4 +70,4 @@ For more information about Git commands to compare changes, see "[Git diff optio
 ## Further reading
 
 - "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[About forks](/articles/about-forks)"
+- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

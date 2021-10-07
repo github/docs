@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
   - /articles/merging-an-upstream-repository-into-your-fork
   - /github/collaborating-with-issues-and-pull-requests/merging-an-upstream-repository-into-your-fork
+  - /github/collaborating-with-pull-requests/working-with-forks/merging-an-upstream-repository-into-your-fork
 versions:
   fpt: '*'
   ghes: '*'
