@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review
   - /articles/dismissing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review
+  - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review
 versions:
   fpt: '*'
   ghes: '*'
@@ -28,6 +29,6 @@ This changes the status of the review to a review comment. When you dismiss a re
 
 ## Further reading
 
-- "[About pull request reviews](/articles/about-pull-request-reviews)"
-- "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
+- "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
+- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
 - "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"

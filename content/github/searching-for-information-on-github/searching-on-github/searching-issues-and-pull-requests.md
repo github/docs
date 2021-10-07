@@ -248,7 +248,7 @@ You can filter for draft pull requests. For more information, see "[About pull r
 
 ## Search by pull request review status and reviewer
 
-You can filter pull requests based on their [review status](/articles/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
+You can filter pull requests based on their [review status](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
 
 | Qualifier        | Example
 | ------------- | -------------

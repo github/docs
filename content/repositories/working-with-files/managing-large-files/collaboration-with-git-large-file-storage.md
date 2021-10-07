@@ -28,7 +28,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
 {% ifversion fpt %}
 

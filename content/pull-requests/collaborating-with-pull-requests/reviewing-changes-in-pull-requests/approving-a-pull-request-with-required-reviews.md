@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews
   - /articles/approving-a-pull-request-with-required-reviews
   - /github/collaborating-with-issues-and-pull-requests/approving-a-pull-request-with-required-reviews
+  - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,13 +16,13 @@ shortTitle: Required reviews
 ---
 For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-You can comment on a pull request, approve the changes, or request improvements before approving. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
+You can comment on a pull request, approve the changes, or request improvements before approving. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 {% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
-**Tip**: If a pull request you approved has changed significantly, you can dismiss your review. The pull request will need a new review before it can be merged. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
+**Tip**: If a pull request you approved has changed significantly, you can dismiss your review. The pull request will need a new review before it can be merged. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 {% endtip %}
 
@@ -38,5 +39,5 @@ You can comment on a pull request, approve the changes, or request improvements 
 
 ## Further reading
 
-- "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
+- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+- "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"

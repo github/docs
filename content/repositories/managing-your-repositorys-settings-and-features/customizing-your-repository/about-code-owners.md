@@ -143,4 +143,4 @@ Repository owners can add branch protection rules to ensure that changed code is
 - "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)"
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
+- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

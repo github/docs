@@ -7,6 +7,7 @@ redirect_from:
   - /articles/commenting-on-differences-between-files/
   - /articles/commenting-on-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
+  - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request
 intro: 'After you open a pull request in a repository, collaborators or team members can comment on the comparison of files between the two specified branches, or leave general comments on the project as a whole.'
 versions:
   fpt: '*'
@@ -22,9 +23,9 @@ You can comment on a pull request's **Conversation** tab to leave general commen
 
 ![Pull Request conversation](/assets/images/help/pull_requests/conversation.png)
 
-You can also comment on specific sections of a file on a pull request's **Files changed** tab in the form of individual line comments or as part of a [pull request review](/articles/about-pull-request-reviews). Adding line comments is a great way to discuss questions about implementation or provide feedback to the author.
+You can also comment on specific sections of a file on a pull request's **Files changed** tab in the form of individual line comments or as part of a [pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Adding line comments is a great way to discuss questions about implementation or provide feedback to the author.
 
-For more information on adding line comments to a pull request review, see ["Reviewing proposed changes in a pull request."](/articles/reviewing-proposed-changes-in-a-pull-request)
+For more information on adding line comments to a pull request review, see ["Reviewing proposed changes in a pull request."](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
 
 {% note %}
 

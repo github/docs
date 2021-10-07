@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
   - /articles/about-pull-request-reviews
   - /github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews
+  - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,7 +16,7 @@ shortTitle: About PR reviews
 ---
 ## About pull request reviews
 
-After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
+After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 Repository owners and collaborators can request a pull request review from a specific person. Organization members can also request a pull request review from a team with read access to the repository. For more information, see "[Requesting a pull request review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)." {% ifversion fpt or ghae or ghes %}You can specify a subset of team members to be automatically assigned in the place of the whole team. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
@@ -52,12 +53,12 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% tip %}
 
-**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
+**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 {% endtip %}
 
 ## Further reading
 
-- "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
+- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
 - "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"

@@ -40,4 +40,4 @@ You can request a review from either a suggested or specific person. Suggested r
 
 ## Further reading
 
-- "[About pull request reviews](/articles/about-pull-request-reviews)"
+- "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"

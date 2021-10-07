@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
+  - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
   fpt: '*'
   ghes: '*'
@@ -45,7 +46,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
-{% data reusables.codespaces.review-pr %} 
+{% data reusables.codespaces.review-pr %}
 
 For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
 
@@ -57,7 +58,7 @@ For more information on reviewing pull requests in {% data variables.product.pro
 
 {% data reusables.dependency-review.beta %}
 
-If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)."
 
 {% data reusables.repositories.changed-files %}
 

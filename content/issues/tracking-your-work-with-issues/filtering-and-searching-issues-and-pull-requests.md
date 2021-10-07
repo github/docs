@@ -101,7 +101,7 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 You can use filters to list pull requests by review status and to find pull requests that you've reviewed or other people have asked you to review.
 
 You can filter a repository's list of pull requests to find:
-- Pull requests that haven't been [reviewed](/articles/about-pull-request-reviews) yet
+- Pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet
 - Pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
 - Pull requests that a reviewer has approved
 - Pull requests in which a reviewer has asked for changes
@@ -185,7 +185,7 @@ For issues, you can also use search to:
 
 For pull requests, you can also use search to:
 - Filter [draft](/articles/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
-- Filter pull requests that haven't been [reviewed](/articles/about-pull-request-reviews) yet: `state:open type:pr review:none`
+- Filter pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet: `state:open type:pr review:none`
 - Filter pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`

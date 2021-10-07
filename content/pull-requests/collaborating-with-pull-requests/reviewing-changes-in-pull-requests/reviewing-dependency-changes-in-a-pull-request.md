@@ -15,6 +15,7 @@ topics:
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
+  - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->
@@ -23,7 +24,7 @@ shortTitle: Review dependency changes
 
 ## About dependency review
 
-{% data reusables.dependency-review.feature-overview %} 
+{% data reusables.dependency-review.feature-overview %}
 
 {% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
@@ -60,7 +61,7 @@ Dependency review allows you to "shift left". You can use the provided predictiv
    Other information includes:
 
    * The version, or version range, of the new, updated, or deleted dependency.
-   * For a specific version of a dependency: 
+   * For a specific version of a dependency:
       * The age of that release of the dependency.
       * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
       * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.

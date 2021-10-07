@@ -19,7 +19,7 @@ In a pull request, you propose that changes you've made on a head branch should 
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/articles/checking-out-pull-requests-locally) and merge it using the command line.
+If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally) and merge it using the command line.
 
 You can't merge a draft pull request. For more information about draft pull requests, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
 
