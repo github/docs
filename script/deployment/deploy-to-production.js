@@ -10,7 +10,8 @@ const DELAY_FOR_PREBOOT_SWAP = 135000 // 2:15
 
 // Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
 // the semi-unreliable Heroku API when we're polling for status updates
-const ALLOWED_MISSING_RESPONSE_COUNT = 5
+const ALLOWED_MISSING_RESPONSE_COUNT =
+  parseInt(process.env.ALLOWED_POLLING_FAILURES_PER_PHASE, 10) || 10
 const ALLOWABLE_ERROR_CODES = [404, 429, 500, 503]
 
 export default async function deployToProduction({
@@ -64,16 +65,9 @@ export default async function deployToProduction({
   let deploymentId = null
   let logUrl = workflowRunLog
 
-  let appName, environment, homepageUrl
-  if (process.env.HEROKU_PRODUCTION_APP_NAME) {
-    appName = process.env.HEROKU_PRODUCTION_APP_NAME
-    environment = 'production'
-    homepageUrl = 'https://docs.github.com/'
-  } else {
-    appName = 'help-docs-prod-gha'
-    environment = appName
-    homepageUrl = `https://${appName}.herokuapp.com/`
-  }
+  const appName = process.env.HEROKU_PRODUCTION_APP_NAME
+  const environment = 'production'
+  const homepageUrl = 'https://docs.github.com/'
 
   try {
     const title = `branch '${branch}' at commit '${sha}' in the '${environment}' environment`
@@ -182,7 +176,7 @@ export default async function deployToProduction({
 
     // Poll until the Build's status changes from "pending" to "succeeded" or "failed".
     let buildAcceptableErrorCount = 0
-    while (!build || build.status === 'pending' || !build.release || !build.release.id) {
+    while (!build || !build.release || !build.release.id) {
       await sleep(SLEEP_INTERVAL)
       try {
         build = await heroku.get(`/apps/${appName}/builds/${buildId}`)
@@ -191,6 +185,9 @@ export default async function deployToProduction({
         if (isAllowableHerokuError(error)) {
           buildAcceptableErrorCount += 1
           if (buildAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${buildAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -217,6 +214,7 @@ export default async function deployToProduction({
       `Finished Heroku build after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds.`,
       build
     )
+    console.log('Heroku release detected', build.release)
 
     const releaseStartTime = Date.now() // Close enough...
     const releaseId = build.release.id
@@ -244,6 +242,9 @@ export default async function deployToProduction({
         if (isAllowableHerokuError(error)) {
           releaseAcceptableErrorCount += 1
           if (releaseAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${releaseAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -303,6 +304,9 @@ export default async function deployToProduction({
         if (isAllowableHerokuError(error)) {
           dynoAcceptableErrorCount += 1
           if (dynoAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${dynoAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
