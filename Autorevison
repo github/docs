@@ -1,0 +1,12 @@
+Autorevisión
+Siempre debe revisar primero su propio PR.
+
+Para cambios de contenido, asegúrese de que:
+
+ Confirme que los cambios cumplen con la experiencia del usuario y los objetivos descritos en el plan de diseño de contenido (si lo hay).
+Compare los cambios de la fuente de su solicitud de extracción con la puesta en escena para confirmar que la salida coincide con la fuente y que todo se está procesando como se esperaba. Esto ayuda a detectar problemas como errores tipográficos, contenido que no sigue la guía de estilo o contenido que no se procesa debido a problemas de versiones. Recuerde que las listas y tablas pueden ser complicadas.
+ Revise el contenido para verificar la precisión técnica.
+Revise toda la solicitud de extracción utilizando la lista de verificación de localización .
+Copie y edite los cambios de gramática, ortografía y adherencia a la guía de estilo .
+ Verifique las declaraciones de Liquid nuevas o actualizadas para confirmar que el control de versiones sea correcto.
+ Si hay algún cheque fallido en su RP, resuélvalo hasta que todos pasen.
