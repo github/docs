@@ -1,4 +1,4 @@
----
+--- 
 title: Adding a collaborator to a security advisory
 intro: You can add other users or teams to collaborate on a security advisory with you.
 redirect_from:
