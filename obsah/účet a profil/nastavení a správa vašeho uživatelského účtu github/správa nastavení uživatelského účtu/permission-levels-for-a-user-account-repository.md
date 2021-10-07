@@ -74,7 +74,7 @@ Collaborators can also perform the following actions.
 | Manage labels for issues and pull requests in the repository | "[Labeling issues and pull requests](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)" |
 | Manage milestones for issues and pull requests in the repository | "[Creating and editing milestones for issues and pull requests](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)" |
 | Mark an issue or pull request in the repository as a duplicate | "[About duplicate issues and pull requests](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)" |
-| Create, merge, and close pull requests in the repository | "[Proposing changes to your work with pull requests](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% ifversion fpt or ghae or ghes > 3.0 %}
+| Create, merge, and close pull requests in the repository | "[Proposing changes to your work with pull requests](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% ifversion fpt or ghae or ghes > 2.0 %}
 | Enable and disable auto-merge for a pull request | "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)"{% endif %}
 | Apply suggested changes to pull requests in the repository |"[Incorporating feedback in your pull request](/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request)" |
 | Create a pull request from a fork of the repository | "[Creating a pull request from a fork](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)" |
