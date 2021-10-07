@@ -143,6 +143,7 @@ jobs:
           HYDRO_SECRET: ${{ secrets.HYDRO_SECRET }}
           SOURCE_BLOB_URL: ${{ steps.build-source.outputs.download_url }}
           DELAY_FOR_PREBOOT: 'true'
+          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
         with:
           script: |
             const {
@@ -247,7 +248,7 @@ jobs:
               throw error
             }
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if workflow failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:

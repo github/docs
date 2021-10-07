@@ -60,16 +60,27 @@ The {% data variables.search.advanced_url %} provides a visual interface for con
 
 ![Advanced Search](/assets/images/help/search/advanced_search_demo.gif)
 
-{% ifversion not ghae %}
-## Searching across {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_dotcom_the_website %} simultaneously
+{% ifversion fpt or ghes or ghae-next %}
 
-If you use {% data variables.product.prodname_enterprise %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, your {% data variables.product.prodname_enterprise %} site administrator can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time. For more information, see "[Enabling {% data variables.product.prodname_unified_search %} between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com)."
+## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
 
-You can only search across both environments from {% data variables.product.prodname_enterprise %}. To scope your search by environment, you can use a filter option on the {% data variables.search.advanced_url %} or you can use the `environment:` search prefix. To only search for content on {% data variables.product.prodname_enterprise %}, use the search syntax `environment:local`. To only search for content on {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
+If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. For more information, see the following.
 
-Your {% data variables.product.prodname_enterprise %} site administrator can enable {% data variables.product.prodname_unified_search %} for all public repositories, all private repositories, or only certain private repositories in the connected {% data variables.product.prodname_ghe_cloud %} organization.
+{% ifversion fpt or ghes %}
+- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/{% ifversion ghes %}{{ currentVersion }}{% else %}github-enterprise@latest{% endif %}/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghae-next %}<!-- Remove ghae-next condition entirely when toggling feature flag -->
+- "[Enabling {% data variables.product.prodname_unified_search %} between your enterprise account and {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-search-between-your-enterprise-account-and-githubcom)" in the {% data variables.product.prodname_ghe_managed %} documentation
+{% endif %}
 
-If your site administrator enables {% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Your {% data variables.product.prodname_enterprise %} administrators and organization owners on {% data variables.product.prodname_dotcom_the_website %} cannot search private repositories owned by your account. To search the applicable private repositories, you must enable private repository search for your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_enterprise %}. For more information, see "[Enabling private {% data variables.product.prodname_dotcom_the_website %} repository search in your {% data variables.product.prodname_enterprise %} account](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)."
+{% ifversion ghes or ghae-next %}
+
+To scope your search by environment, you can use a filter option on the {% data variables.search.advanced_url %} or you can use the `environment:` search prefix. To only search for content on {% data variables.product.product_name %}, use the search syntax `environment:local`. To only search for content on {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
+
+Your enterprise owner on {% data variables.product.product_name %} can enable {% data variables.product.prodname_unified_search %} for all public repositories, all private repositories, or only certain private repositories in the connected {% data variables.product.prodname_ghe_cloud %} organization.
+
+When you search from {% data variables.product.product_name %}, you can only search in the private repositories that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Enterprise owners for {% data variables.product.product_name %} and organization owners on {% data variables.product.prodname_dotcom_the_website %} cannot search private repositories owned by your account on {% data variables.product.prodname_dotcom_the_website %}. To search the applicable private repositories, you must enable private repository search for your personal accounts on {% data variables.product.product_name %}. For more information, see "[Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from your private enterprise environment](/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment)."
+
+{% endif %}
+
 {% endif %}
 
 ## Further reading
