@@ -1,4 +1,4 @@
----
+--- 
 title: Editing a security advisory
 intro: You can edit the metadata and description for a security advisory if you need to update details or correct errors.
 redirect_from:
