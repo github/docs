@@ -2,14 +2,15 @@
 title: Sobre gerenciamento e moderação da comunidade
 intro: '{% data variables.product.prodname_dotcom %} oferece ferramentas que ajudam os mantenedores de repositório a estabelecer e aplicar padrões de comportamento em suas comunidades em {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
   - Community
+shortTitle: Gerenciamento & moderação
 ---
 
-### Sobre gerenciamento e moderação da comunidade
+## Sobre gerenciamento e moderação da comunidade
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
@@ -17,7 +18,7 @@ topics:
 
 Depois de estabelecer padrões de comportamento para sua comunidade, você pode incentivar um ambiente agradável e produtivo, respondendo ao comportamento perturbador de maneira rápida e justa. A moderação eficaz cria confiança em sua comunidade e ajuda os colaboradores a se sentirem seguros e bem-vindos.
 
-### Ferramentas para moderar sua comunidade
+## Ferramentas para moderar sua comunidade
 
 As ferramentas {% data variables.product.prodname_dotcom %} agilizam as tarefas de gerenciamento e moderação em sua comunidade sem exigir uma ampla experiência de moderação.
 
@@ -27,7 +28,7 @@ Como mantenedor de repositório, você pode criar diretrizes para contribuir com
 
 Os contribuidor sempre podem reportar conteúdo disruptivo para {% data variables.contact.github_support %}. Se você optar pelo conteúdo relatado para um repositório público em sua organização, os colaboradores também poderão relatar comentários contendo comportamento disruptivo diretamente aos mantenedores do repositório. Para obter mais informações, consulte "[Gerenciando conteúdo denunciado no repositório de sua organização](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)."
 
-### Leia mais
+## Leia mais
 
 - "[Seu Código de Conduta](https://opensource.guide/code-of-conduct/)" nos Guias de Código Aberto
 - "[Construindo comunidades acolhedoras](https://opensource.guide/building-community/)" nos Guias de Código Aberto

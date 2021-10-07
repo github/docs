@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
   - /admin/authentication/changing-authentication-methods
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: 更改身份验证方法
 ---
 
 在您更改身份验证方法时，{% data variables.product.product_location %} 上的用户帐户将保留，只要他们的用户名没有发生变化，用户就可以继续登录原来的帐户。

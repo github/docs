@@ -35,3 +35,4 @@ sections:
         ```
 
       2. Si muestra que uno o más nodos están afectados, reinícialos.
+    - Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.

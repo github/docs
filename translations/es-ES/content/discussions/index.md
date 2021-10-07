@@ -27,7 +27,7 @@ changelog:
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /quickstart
   - /guides

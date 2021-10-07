@@ -10,7 +10,7 @@ redirect_from:
   - /packages/guides/configuring-apache-maven-for-use-with-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: Apache Maven registry
 ---
@@ -106,7 +106,7 @@ If your instance has subdomain isolation disabled:
         </repository>
         <repository>
           <id>github</id>
-          <url>https://maven.pkg.github.com/OWNER/*</url>
+          <url>HOSTNAME/_registry/maven/OWNER/*</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>

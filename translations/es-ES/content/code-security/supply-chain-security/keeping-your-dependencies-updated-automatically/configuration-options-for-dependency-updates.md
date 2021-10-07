@@ -5,9 +5,9 @@ permissions: 'People with write permissions to a repository can configure {% dat
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: reference
 topics:
   - Dependabot
@@ -15,9 +15,10 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+shortTitle: Opciones de configuración
 ---
 
-### Acerca del archivo *dependabot.yml*
+## Acerca del archivo *dependabot.yml*
 
 El archivo de configuración del {% data variables.product.prodname_dependabot %}, *dependabot.yml*, utiliza la sintaxis YAML. Si eres nuevo en YAML y deseas conocer más, consulta "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
@@ -25,7 +26,7 @@ Debes almacenar este archivo en el directorio `.github` de tu repositorio. Cuand
 
 El archivo *dependabot.yml* tiene dos claves mandatorias de nivel superior: `version`, y `updates`. Opcionalmente, puedes incluir una clave de `registries` de nivel superior. El archivo debe comenzar con `version: 2`.
 
-### Opciones de configuración para las actualizaciones
+## Opciones de configuración para las actualizaciones
 
 La clave `updates` de nivel superior es obligatoria. La utilizas para configurar la forma en que el {% data variables.product.prodname_dependabot %} actualiza las versiones o las dependencias de tu proyecto. Cada entrada configura los ajustes de actualización para un administrador de paquetes en particular. Puedes utilizar las siguientes opciones.
 
@@ -73,7 +74,7 @@ En general, las actualizaciones de seguridad utilizan cualquier opción de confi
 
 {% endnote %}
 
-#### `package-ecosystem`
+### `package-ecosystem`
 
 **Requerido**. Agregarás un elemento de `package-ecosystem` para cada administrador de paquetes que quieras que monitoree el {% data variables.product.prodname_dependabot %} para encontrar versiones nuevas. El repositorio también debe contener un archivo bloqueado o de manifiesto de dependencias para cada uno de estos administradores de paquetes. Si quieres habilitar la delegación a proveedores para un administrador de paquetes que sea compatible con ella, las dependencias delegadas a proveedores deben ubicarse en el directorio requerido. Para obtener más información, consulta la sección [`vendor`](#vendor) a continuación.
 
@@ -104,7 +105,7 @@ updates:
       interval: "daily"
 ```
 
-#### `directorio`
+### `directorio`
 
 **Requerido**. Debes definir la ubicación de los manifiestos de los paquetes para cada administrador de paquetes (por ejemplo, el *package.json* o *Gemfile*). Tú definierás el directorio relativo a la raíz del repositorio para todos los ecosistemas, menos para GitHub Actions. Para GitHub Actions, configura el directorio para que sea `/` y así revisar los archivos de flujo de trabajo en `.github/workflows`.
 
@@ -133,9 +134,9 @@ updates:
       interval: "daily"
 ```
 
-#### `schedule.interval`
+### `schedule.interval`
 
-**Requerido**. Debes definir la frecuencia en la que se verificará si hay versiones nuevas para cada administrador de paquetes. Predeterminadamente, esto ocurre a las 5am UTC. Para modificar esto, utiliza [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+**Requerido**. Debes definir la frecuencia en la que se verificará si hay versiones nuevas para cada administrador de paquetes. Predeterminadamente, el {% data variables.product.prodname_dependabot %} asigna una hora aleatoria para aplicar todas las actualizaciones en el archivo de configuración. Para configurar una hora específica, puedes utilizar [`schedule.time`](#scheduletime) y [`schedule.timezone`](#scheduletimezone).
 
 - `daily`—se ejecuta en cada día de la semana, de Lunes a Viernes.
 - `weekly`—se ejecuta una vez cada semana. Predeterminadamente, esto ocurre los lunes. Para modificar esto, utiliza [`schedule.day`](#scheduleday).
@@ -166,7 +167,7 @@ updates:
 
 {% endnote %}
 
-#### `allow`
+### `allow`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
@@ -180,7 +181,7 @@ Utiliza la opción `allow` para personalizar qué dependencias se actualizan. Es
   | `direct`             | Todas                                               | Todas las dependencias definidas explícitamente.                                                                                                    |
   | `indirect`           | `bundler`, `pip`, `composer`, `cargo`               | Las dependencias de las dependencias directas (también conocidas como sub-dependencias, o dependencias transitorias).                               |
   | `all`                | Todas                                               | Todas las dependencias definidas explícitamente. Para `bundler`, `pip`, `composer`, `cargo`, también las dependencias de las dependencias directas. |
-  | `production`         | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Únicamente las dependencias en el "Grupo de dependencias del producto".                                                                             |
+  | `production`         | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group".                                                                                             |
   | `development`        | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Únicamente las dependencias en el "Grupo de dependencias de desarrollo".                                                                            |
 
 ```yaml
@@ -220,7 +221,7 @@ updates:
         dependency-type: "production"
 ```
 
-#### `asignatarios`
+### `asignatarios`
 
 Utiliza `assignees` para especificar a los asignados individuales para todas las solicitudes de extracción levantadas para un administrador de paquete.
 
@@ -240,7 +241,7 @@ updates:
       - "octocat"
 ```
 
-#### `commit-message`
+### `commit-message`
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} intenta detectar tus preferencias de mensajes de confirmación y utiliza patrones similares. Utiliza la opción`commit-message` para especificar tus preferencias explícitamente.
 
@@ -287,13 +288,13 @@ updates:
       include: "scope"
 ```
 
-#### `ignore`
+### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Las dependencias pueden ignorarse ya sea agregándolas a `ignore` o utilizando el comando `@dependabot ignore` en una solicitud de cambios que haya abierto el {% data variables.product.prodname_dependabot %}.
 
-##### Crear condiciones de `ignore` desde `@dependabot ignore`
+#### Crear condiciones de `ignore` desde `@dependabot ignore`
 
 Las dependencias que se ignoran utilizando el comando `@dependabot ignore` se almacenan centralmente para cada administrador de paquete. Si comienzas a ignorar las dependencias en el archivo `dependabot.yml`, estas preferencias existentes se consideran junto con las dependencias de `ignore` en la configuración.
 
@@ -301,13 +302,13 @@ Puedes verificar si un repositorio tiene preferencias de `ignore` almacenadas si
 
 Para obtener más información acerca de los comandos de `@dependabot ignore`, consulta la sección "[Administrar las solicitudes de extracción para las actualizaciones de dependencias](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)".
 
-##### Especificar dependencias y versiones para ignorar
+#### Especificar dependencias y versiones para ignorar
 
 Puedes utilizar la opción `ignore` para personalizar qué dependencias se actualizarán. La opción `ignore` es compatible con las siguientes opciones.
 
 - `dependency-name`—se utiliza para ignorar actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId` (por ejemplo: `org.kohsuke:github-api`).
 - `versions`—se utiliza para ignorar versiones o rangos específicos de las versiones. Si quieres definir un rango, utiliza el patrón estándar del administrador de paquetes (por ejemplo: `^1.0.0` para npm, o `~> 2.0` para Bundler).
-- `update-types`—Se utiliza para ignorar tipos de actualizaciones tales como las de tipo `major`, `minor`, o `patch` en actualizaciones de versión (por ejemplo: `version-update:semver-patch` ignorará las actualizaciones de parche). Puedes combinar esto con `dependency-name: *` para ignorar algún `update-types` en particular en todas las dependencias. Actualmente, `version-update:semver-major`, `version-update:semver-minor`, y `version-update:semver-patch` son las únicas opciones compatibles. Este ajuste no afectará a las actualizaciones de seguridad.
+- `update-types`—Se utiliza para ignorar tipos de actualizaciones tales como las de tipo `major`, `minor`, o `patch` en actualizaciones de versión (por ejemplo: `version-update:semver-patch` ignorará las actualizaciones de parche). Puedes combinar esto con `dependency-name: "*"` para ignorar algún `update-types` en particular en todas las dependencias. Actualmente, `version-update:semver-major`, `version-update:semver-minor`, y `version-update:semver-patch` son las únicas opciones compatibles. Este ajuste no afectará a las actualizaciones de seguridad.
 
 Si las `versions` y los `update-types` se utilizan juntos, el {% data variables.product.prodname_dependabot %} ignorará todas las actualizaciones en cualquiera que se configure.
 
@@ -340,7 +341,7 @@ updates:
 
 {% endnote %}
 
-#### `insecure-external-code-execution`
+### `insecure-external-code-execution`
 
 Los administradores de paquetes con los valores `bundler`, `mix`, y `pip` de `package-ecosystem` pueden ejecutar el código externo en el manifiesto como parte del proceso de actualización de la versión. Esto podría permitir que un paquete que se haya puesto en riesgo borre las credenciales u obtenga acceso a los registros configurados. Cuando agregas un ajuste de [`registries`](#registries) dentro de una configuración de `updates`, el {% data variables.product.prodname_dependabot %} prevendrá automáticamente la ejecución de código externo, en cuyo caso, la actualización de versión podría fallar. Puedes elegir ignorar este comportamiento y permitir la ejecución de código externo para los administradores de paquetes `bundler`, `mix`, y `pip` si configuras a `insecure-external-code-execution` en `allow`.
 
@@ -366,7 +367,7 @@ updates:
 ```
 {% endraw %}
 
-#### `etiquetas`
+### `etiquetas`
 
 {% data reusables.dependabot.default-labels %}
 
@@ -389,7 +390,7 @@ updates:
       - "dependencies"
 ```
 
-#### `hito`
+### `hito`
 
 Utiliza `milestone` para asociar todas las solicitudes de extracción que se han levantado para un administrador de paquete con un hito. Necesitas especificar el identificador numérico del hito y, no así, su etiqueta. Si ves un hito, la parte final de la URL de la página, después de `milestone`, es el identificador. Por ejemplo: `https://github.com/<org>/<repo>/milestone/3`.
 
@@ -408,7 +409,7 @@ updates:
     milestone: 4
 ```
 
-#### `open-pull-requests-limit`
+### `open-pull-requests-limit`
 
 Predeterminadamente, {% data variables.product.prodname_dependabot %} abre un máximo de cinco solicitudes de extracción para las actualizaciones de versión. Una vez que hayan cinco solicitudes de cambio abiertas, las solicitudes nuevas se bloquearán hasta que fusiones o cierres algunas de las sollicitudes abiertas, después de lo cual, las solicitudes de cambiso nuevas pueden abrirse en actualizaciones subsecuentes. Utiliza `open-pull-requests-limit` para cambiar este límite. Esto también proporciona una forma simple de inhabilitar temporalmente las actualizaciones de versión para un administrador de paquete.
 
@@ -434,7 +435,7 @@ updates:
     open-pull-requests-limit: 10
 ```
 
-#### `pull-request-branch-name.separator`
+### `pull-request-branch-name.separator`
 
 El {% data variables.product.prodname_dependabot %} genera una rama para cada solicitud de extracción. Cada nombre de rama incluye `dependabot`, y el administrador de paquete y la dependencia que se actualizaron. Predeterminadamente, estas partes están separadas por un símbolo de `/`, por ejemplo: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
 
@@ -457,7 +458,7 @@ updates:
       separator: "-"
 ```
 
-#### `rebase-strategy`
+### `rebase-strategy`
 
 Predeterminadamente, el{% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de cambios abiertas y detecta cualquier cambio en ellas. Utiliza `rebase-strategy` para inhabilitar este comportamiento.
 
@@ -481,7 +482,7 @@ updates:
     rebase-strategy: "disabled"
 ```
 
-#### `registries`
+### `registries`
 
 Para permitir que el {% data variables.product.prodname_dependabot %} acceda a un registro de paquete privado cuando esté realizando una actualización de versión, debes incluir un ajuste de `registries` dentro de la configuración relevante de `updates`. Puedes permitir que se utilicen todos los registros definidos si configuras a `registries` en `"*"`. Como alternativa, puedes listar los registros que puede utilizar la actualización. Para hacerlo, utiliza el nombre del registro como se define en la sección `registries` de nivel superior en el archivo _dependabot.yml_.
 
@@ -497,7 +498,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -513,7 +515,7 @@ updates:
 {% endraw %}
 ```
 
-#### `reviewers`
+### `reviewers`
 
 Utiliza `reviewers` para especificar los revisores o equipos individuales de revisores para las solicitudes de extracción que se levantaron para un administrador de paquete. Debes utilizar el nombre completo del equipo, incluyendo la organización, como si lo estuvieras @mencionando.
 
@@ -535,9 +537,9 @@ updates:
       - "my-org/python-team"
 ```
 
-#### `schedule.day`
+### `schedule.day`
 
-Cuando configuras un calendario de actualización en `weekly`, predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa las nuevas versiones los lunes a las 05:00 UTC. Utiliza `schedule.day` para especificar un día alterno para revisar si hay actualizaciones.
+When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at a random set time for the repository. Utiliza `schedule.day` para especificar un día alterno para revisar si hay actualizaciones.
 
 Valores compatibles
 
@@ -562,9 +564,9 @@ updates:
       day: "sunday"
 ```
 
-#### `schedule.time`
+### `schedule.time`
 
-Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones a las 05:00 UTC. Utiliza `schedule.time` para especificar una hora alterna para revisar si hay actualizaciones (formato: `hh:mm`).
+By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Utiliza `schedule.time` para especificar una hora alterna para revisar si hay actualizaciones (formato: `hh:mm`).
 
 ```yaml
 # Set a time for checks
@@ -578,9 +580,9 @@ updates:
       time: "09:00"
 ```
 
-#### `schedule.timezone`
+### `schedule.timezone`
 
-Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones a las 05:00 UTC. Utiliza `schedule.timezone` para especificar un huso horario alternativo. El identificador de zona debe ser tomado de la base de datos de Husos Horarios que mantiene [iana](https://www.iana.org/time-zones). Para obtener más información, consulta la [Lista de bases de datos tz para husos horarios](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Utiliza `schedule.timezone` para especificar un huso horario alternativo. El identificador de zona debe ser tomado de la base de datos de Husos Horarios que mantiene [iana](https://www.iana.org/time-zones). Para obtener más información, consulta la [Lista de bases de datos tz para husos horarios](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Specify the timezone for checks
@@ -596,7 +598,7 @@ updates:
       timezone: "Asia/Tokyo"
 ```
 
-#### `target-branch`
+### `target-branch`
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay archivos de manifiesto en las ramas predeterminadas y levanta solicitudes de extracción para las actualizaciones de versión contra dicha rama. Utiliza `target-branch` para especificar una rama diferente para los archivos de manifiesto y para las solicitudes de extracción. Cuando utilizas esta opción, la configuración para este administrador de paquete ya no afectará ninguna solicitud de extracción que se haya levantado para las actualizaciones de seguridad.
 
@@ -627,7 +629,7 @@ updates:
       - "npm dependencies"
 ```
 
-#### `vendor`
+### `vendor`
 
 Utiliza la opción `vendor` para indicar al {% data variables.product.prodname_dependabot %} delegar las dependencias a los proveedores cuando se actualicen. No utilices esta opción si estás usando `gomod`, ya que el {% data variables.product.prodname_dependabot %} detecta la delegación a vendedores automáticamente para esta herramienta.
 
@@ -652,7 +654,7 @@ El {% data variables.product.prodname_dependabot %} solo actualiza las dependenc
 | `gomod`                    | No hay requisitos de ruta (las dependencias se ubican habitualmente en el directorio _vendor_)               | [documentación de `go mod vendor`](https://golang.org/ref/mod#go-mod-vendor)  |
 
 
-#### `versioning-strategy`
+### `versioning-strategy`
 
 Cuando el {% data variables.product.prodname_dependabot %} edita un archivo de manifiesto para actualizar una versión, utiliza las siguientes estrategias generales:
 
@@ -703,7 +705,7 @@ updates:
     versioning-strategy: lockfile-only
 ```
 
-### Opciones de configuración para los registros privados
+## Opciones de configuración para los registros privados
 
 La clave de nivel superior `registries` es opcional. Esta te permite especificar los detalles de autenticación que el {% data variables.product.prodname_dependabot %} puede utilizar para acceder a los registros de paquetes privados.
 
@@ -751,7 +753,7 @@ Utilizarás las siguientes opciones para especificar la configuración de acceso
 
 Cada `type` de configuración requiere que proporciones ajustes en particular. Algunos tipos permiten más de una forma de conectarse. Las siguientes secciones proporcionan detalles de las configuraciones que deberías utilizar para cada `type`.
 
-#### `composer-repository`
+### `composer-repository`
 
 El tipo `composer-repository` es compatible con nombre de usuario y contraseña.
 
@@ -766,7 +768,7 @@ registries:
 ```
 {% endraw %}
 
-#### `docker-registry`
+### `docker-registry`
 
 El tipo `docker-registry` es compatible con nombre de usuario y contraseña.
 
@@ -794,7 +796,7 @@ registries:
 ```
 {% endraw %}
 
-#### `git`
+### `git`
 
 El tipo `git` es compatible con nombre de usuario y contraseña.
 
@@ -809,7 +811,7 @@ registries:
 ```
 {% endraw %}
 
-#### `hex-organization`
+### `hex-organization`
 
 El tipo `hex-organization` es compatible con organizaciones y claves.
 
@@ -823,9 +825,9 @@ registries:
 ```
 {% endraw %}
 
-#### `maven-repository`
+### `maven-repository`
 
-El tipo `maven-repository` es compatible con nombre de usuario y contraseña, o token.
+The `maven-repository` type supports username and password.
 
 {% raw %}
 ```yaml
@@ -838,19 +840,11 @@ registries:
 ```
 {% endraw %}
 
-{% raw %}
-```yaml
-registries:
-  maven-github:
-    type: maven-repository
-    url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-{% endraw %}
-
-#### `npm-registry`
+### `npm-registry`
 
 El tipo `npm-registry` es compatible con nombre de usuario y contraseña, o token.
+
+When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
 {% raw %}
 ```yaml
@@ -859,7 +853,7 @@ registries:
     type: npm-registry
     url: https://registry.npmjs.org
     username: octocat
-    password: ${{secrets.MY_NPM_PASSWORD}}
+    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
 ```
 {% endraw %}
 
@@ -873,7 +867,7 @@ registries:
 ```
 {% endraw %}
 
-#### `nuget-feed`
+### `nuget-feed`
 
 El tipo `nuget-feed` es compatible con nombre de usuario y contraseña, o token.
 
@@ -898,7 +892,7 @@ registries:
 ```
 {% endraw %}
 
-#### `python-index`
+### `python-index`
 
 El tipo `python-index` es compatible con nombre de usuario y contraseña, o token.
 
@@ -925,7 +919,7 @@ registries:
 ```
 {% endraw %}
 
-#### `rubygems-server`
+### `rubygems-server`
 
 El tipo `rubygems-server` es compatible con nombre de usuario y contraseña, o token.
 
@@ -950,9 +944,9 @@ registries:
 ```
 {% endraw %}
 
-#### `terraform-registry`
+### `terraform-registry`
 
-The `terraform-registry` type supports a token.
+El tipo `terraform-registry` es comatible con un token.
 
 {% raw %}
 ```yaml

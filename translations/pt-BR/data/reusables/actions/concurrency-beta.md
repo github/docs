@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Concurrency is currently in beta and subject to change.
+**Observação:** A concorrência está atualmente na versão beta e está sujeita a alterações.
 
 {% endnote %}

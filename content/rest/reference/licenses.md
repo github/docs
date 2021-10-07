@@ -1,5 +1,6 @@
 ---
 title: Licenses
+intro: The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file.
 redirect_from:
   - /v3/licenses
 versions:

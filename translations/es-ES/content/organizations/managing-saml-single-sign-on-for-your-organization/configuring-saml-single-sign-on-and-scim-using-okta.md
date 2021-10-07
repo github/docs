@@ -6,13 +6,14 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Configurar SAML & SCIM con Okta
 ---
 
-### Acerca de SAML y SCIM con Okta
+## Acerca de SAML y SCIM con Okta
 
 Puedes controlar el acceso a tu organización de {% data variables.product.prodname_dotcom %} y a otras aplicaciones web desde una interface central si configuras la organización para que utilice el SSO de SAML con Okta, un Proveedor de Identidad (IdP).
 
@@ -27,11 +28,11 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 | Subir Actualizaciones de Perfil   | Cuando actualizas el perfil de un usuario en Okta, Okta actualizará los metadatos de su membrecía en tu organización de {% data variables.product.prodname_dotcom %}.                  |
 | Reactivar Usuarios                | Cuando reactivas un usuario en Okta, Okta le enviará una invitación por correo electrónico para que vuelva a unirse a tu organización de {% data variables.product.prodname_dotcom %}. |
 
-### Prerrequisitos
+## Prerrequisitos
 
 {% data reusables.saml.use-classic-ui %}
 
-### Agregar la aplicación {% data variables.product.prodname_ghe_cloud %} en Okta
+## Agregar la aplicación {% data variables.product.prodname_ghe_cloud %} en Okta
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.add-okta-application %}
@@ -42,7 +43,7 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 
 6. Haz clic en **Done** (listo).
 
-### Habilitar y probar el SSO de SAML
+## Habilitar y probar el SSO de SAML
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -51,7 +52,7 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 {% data reusables.saml.okta-view-setup-instructions %}
 6. Habilita y prueba el SSO de SAML en {% data variables.product.prodname_dotcom %} utilizando la URL de registro, URL del emisor, y certificados pùblicos de la guìa "Còmo configurar SAML 2.0". Para obtener más información, consulta "[Habilitar y probar el inicio de sesión único para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)".
 
-### Configurar el aprovisionamiento de acceso con SCIM en Okta
+## Configurar el aprovisionamiento de acceso con SCIM en Okta
 
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
@@ -73,9 +74,9 @@ Después de que habilites SCIM, las siguientes características de aprovisionami
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
 
-### Leer más
+## Leer más
 
-- "[Configurar el inicio de sesión único de SAML y SCIM para tu cuenta empresarial utilizando Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configurar el inicio de sesión único de SAML para tu cuenta empresarial utilizando Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)"
 - "[Administrar la sincronización de equipos para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) en la documentación de Okta
 - [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) en la documentación de Okta

@@ -1,6 +1,6 @@
 ---
 title: Planning and tracking work for your team or project
-intro: "The essentials for using {% data variables.product.prodname_dotcom %}'s planning and tracking tools to manage work on a team or project."
+intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -79,7 +79,7 @@ You can create labels for a repository to categorize issues, pull requests, and 
 
 For more information, see "[Creating a label](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)."
 
-Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see "[Filtering issues and pull requests by labels](/github/administering-a-repository/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-labels)."
+Once you have created a label in a repository, you can apply it on any issue, pull request or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
 ### Label example
 Below is an example of a `front-end` label that we created and added to the issue.
 

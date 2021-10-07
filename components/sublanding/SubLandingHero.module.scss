@@ -1,0 +1,7 @@
+.fadeLeft {
+  background: linear-gradient(to right, var(--color-bg-primary), transparent);
+}
+
+.fadeRight {
+  background: linear-gradient(to left, var(--color-bg-primary), transparent);
+}

@@ -10,14 +10,15 @@ redirect_from:
   - /github/building-a-strong-community/adding-or-editing-wiki-pages
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Manage wiki pages
 ---
 
-### Wiki-Seiten hinzufügen
+## Wiki-Seiten hinzufügen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -27,7 +28,7 @@ topics:
 6. Erstelle eine Commit-Mitteilung, welche die neue Datei beschreibt, die Du hinzufügst. ![Wiki-Commit-Mitteilung](/assets/images/help/wiki/wiki_commit_message.png)
 7. Um Deine Änderungen an das Wiki zu freizugeben, klicke auf **Save Page** (Seite speichern).
 
-### Wiki-Seiten bearbeiten
+## Wiki-Seiten bearbeiten
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
@@ -36,11 +37,11 @@ topics:
 6. Erstelle eine Commit-Mitteilung, in der Du Deine Änderungen beschreibst. ![Wiki-Commit-Mitteilung](/assets/images/help/wiki/wiki_commit_message.png)
 7. Um Deine Änderungen an das Wiki zu freizugeben, klicke auf **Save Page** (Seite speichern).
 
-### Wiki-Seiten lokal hinzufügen oder bearbeiten
+## Wiki-Seiten lokal hinzufügen oder bearbeiten
 
 Wikis sind Teil der Git-Repositorys. Du kannst also Änderungen lokal vornehmen und sie dann mit einem Git-Workflow per Push an Dein Repository übergeben.
 
-#### Wikis auf Deinen Computer klonen
+### Wikis auf Deinen Computer klonen
 
 Jedes Wiki bietet eine einfache Möglichkeit, seinen Inhalt auf Deinen Computer zu klonen. Du kannst das Repository mit der zur Verfügung gestellten URL zu Deinem Computer klonen:
 
@@ -51,7 +52,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 
 Wenn Du das Wiki geklont hast, kannst Du neue Dateien hinzufügen, vorhandene bearbeiten und Deine Änderungen freigeben. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
 
-### Informationen zu Wiki-Dateinamen
+## Informationen zu Wiki-Dateinamen
 
 Der Dateiname bestimmt den Titel Deiner Wiki-Seite und die Dateierweiterung bestimmt, wie Dein Wiki-Inhalt dargestellt wird.
 

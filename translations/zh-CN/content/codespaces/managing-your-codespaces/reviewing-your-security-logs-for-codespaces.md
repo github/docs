@@ -1,18 +1,19 @@
 ---
 title: 查看代码空间的安全日志
-shortTitle: 审查您的安全日志
+shortTitle: Security logs
 intro: '您可以使用安全日志查看与 {% data variables.product.prodname_codespaces %} 相关的所有操作。'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
   - Developer
   - Security
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
-### 关于 {% data variables.product.prodname_codespaces %} 的安全日志
+## 关于 {% data variables.product.prodname_codespaces %} 的安全日志
 
 当您在用户帐户拥有的仓库中执行与 {% data variables.product.prodname_codespaces %} 相关的操作时，您可以查看安全日志中的操作。 有关访问日志的信息，请参阅“[查看您的安全日志](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)”。
 

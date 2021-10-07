@@ -6,7 +6,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 type: quick_start
 topics:
@@ -16,7 +16,6 @@ shortTitle: Quickstart
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -26,8 +25,9 @@ The following example shows you how {% data variables.product.prodname_actions %
 
 ## Creating your first workflow
 
-1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copy the following YAML contents into the `github-actions-demo.yml` file:
+1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
+2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+3. Copy the following YAML contents into the `github-actions-demo.yml` file:
     {% raw %}
     ```yaml{:copy}
     name: GitHub Actions Demo
@@ -89,4 +89,3 @@ The example workflow you just added runs each time code is pushed to the branch,
 {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
-- "[Guides](/actions/guides)" for specific uses cases and examples.

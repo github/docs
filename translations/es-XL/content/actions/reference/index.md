@@ -20,4 +20,3 @@ children:
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% link_in_list/context-and-expression-syntax-for-github-actions%}

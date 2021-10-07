@@ -44,7 +44,7 @@ For more information, see "[Inviting users to join your organization](/organizat
 
 ## Viewing {% data variables.product.prodname_enterprise %} licensing
 
-After assigning a license for {% data variables.product.prodname_vss_ghe %} in {% data variables.product.prodname_vss_admin_portal_with_url %}, you can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise account. For more information, see "[Viewing the subscription and usage for your enterprise account](/github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+After assigning a license for {% data variables.product.prodname_vss_ghe %} in {% data variables.product.prodname_vss_admin_portal_with_url %}, you can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise account. For more information, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.product.prodname_vss_admin_portal_with_url %}. The list of pending invitations includes subscribers who are not yet members of at least one organization in your enterprise account. For more information, see "[Viewing people in your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)."
 

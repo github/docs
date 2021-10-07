@@ -4,7 +4,7 @@ intro: Learn about how to manage permissions for your packages.
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
 shortTitle: About permissions
 ---

@@ -13,7 +13,7 @@ redirect_from:
 
 Before you can initialize your enterprise, you must purchase {% data variables.product.product_name %}. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
-After you purchase {% data variables.product.product_name %}, we'll ask you to provide an email address and username for the person you want to initialize the enterprise. Your dedicated technical account manager in {% data variables.contact.enterprise_support %} will create an account for the enterprise owner and send the enterprise owner an email to log into {% data variables.product.product_name %} and complete the initialization. Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
 {% note %}
 
