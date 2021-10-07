@@ -1,4 +1,4 @@
----
+--- 
 title: About the dependency graph
 intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
 redirect_from:
