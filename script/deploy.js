@@ -158,11 +158,9 @@ async function deployProduction() {
   const { HEROKU_PRODUCTION_APP_NAME, DOCUBOT_REPO_PAT, FASTLY_TOKEN, FASTLY_SERVICE_ID } =
     process.env
 
-  // Warn if Heroku App name is not found
+  // Exit if Heroku App name is not found
   if (!HEROKU_PRODUCTION_APP_NAME) {
-    console.warn(
-      '⚠️ You did not supply a HEROKU_PRODUCTION_APP_NAME environment variable.\nWithout it, this deployment will not end up in our production environment!'
-    )
+    throw new Error('You must supply a HEROKU_PRODUCTION_APP_NAME environment variable!')
   }
 
   // Warn if @docubot PAT is not found
@@ -236,7 +234,7 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
         pullRequest,
       })
     } else {
-      await octokit.repos.createStatus({
+      await octokit.repos.createCommitStatus({
         owner,
         repo,
         sha: pullRequest.head.sha,
@@ -251,7 +249,7 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
         forceRebuild,
       })
 
-      await octokit.repos.createStatus({
+      await octokit.repos.createCommitStatus({
         owner,
         repo,
         sha: pullRequest.head.sha,
@@ -266,7 +264,7 @@ async function deployStaging({ owner, repo, pullNumber, forceRebuild = false, de
     console.error(error)
 
     if (!destroy) {
-      await octokit.repos.createStatus({
+      await octokit.repos.createCommitStatus({
         owner,
         repo,
         sha: pullRequest.head.sha,

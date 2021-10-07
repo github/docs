@@ -74,17 +74,17 @@ changelog:
     authors:
       - octocat
   categories:
-  - title: Breaking Changes 🛠
-    labels:
-    - Semver-Major
-    - breaking-change
-  - title: Exciting New Features 🎉
-    labels:
-    - Semver-Minor
-    - enhancement
-  - title: Other Changes
-    labels:
-       - "*"
+    - title: Breaking Changes 🛠
+      labels:
+        - Semver-Major
+        - breaking-change
+    - title: Exciting New Features 🎉
+      labels:
+        - Semver-Minor
+        - enhancement
+    - title: Other Changes
+      labels:
+        - "*"
 ```
 {% endraw %}
 
@@ -92,7 +92,7 @@ changelog:
 
 | Parameter | Description |Required | Value |
 | :- | :- | :- | :- |
-|`changelog` | Defines the contents within it as the custom template for your release notes.|Required. | No value accpeted.|
+|`changelog` | Defines the contents within it as the custom template for your release notes.|Required. | No value accepted.|
 |`exclude`| Creates a category of pull requests to be excluded from the release. Can be set at the top-level of the changelog to apply to all categories or applied on a per-category basis. |Optional | No value accepted.|
 |`authors`| Specifies authors to be excluded from the release.| Optional for `exclude` category.| Accepts usernames and bots as values.|
 |`categories`| Defines the nested contents as custom categories to be included in the template. |Optional | No value accepted.|
