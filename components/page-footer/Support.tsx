@@ -7,7 +7,7 @@ import { useMainContext } from 'components/context/MainContext'
 export const Support = () => {
   const { isEnterprise } = useVersion()
   const { t } = useTranslation('support')
-  const { community_redirect } = useMainContext()
+  const { communityRedirect } = useMainContext()
 
   return (
     <div>
@@ -15,13 +15,11 @@ export const Support = () => {
       <div className="mb-2">
         <a
           id="ask-community"
-          href={community_redirect.href || 'https://github.community/'}
+          href={communityRedirect.href || 'https://github.community/'}
           className="Link—secondary text-bold"
         >
           <PeopleIcon size="small" className="octicon mr-1" />
-          {Object.keys(community_redirect).length === 0
-            ? t`ask_community`
-            : community_redirect.name}
+          {Object.keys(communityRedirect).length === 0 ? t`ask_community` : communityRedirect.name}
         </a>
       </div>
       <div>
