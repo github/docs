@@ -7,18 +7,7 @@ import { useMainContext } from 'components/context/MainContext'
 export const Support = () => {
   const { isEnterprise } = useVersion()
   const { t } = useTranslation('support')
-  const { relativePath } = useMainContext()
-
-  let updatedCommunityLink = ''
-
-  if (
-    relativePath?.startsWith('codespaces') ||
-    relativePath?.startsWith('discussions') ||
-    relativePath?.startsWith('sponsors')
-  ) {
-    const product = relativePath.substring(0, relativePath.indexOf('/'))
-    updatedCommunityLink = `https://github.com/github/feedback/discussions/categories/${product}-feedback`
-  }
+  const { community_redirect } = useMainContext()
 
   return (
     <div>
@@ -26,11 +15,13 @@ export const Support = () => {
       <div className="mb-2">
         <a
           id="ask-community"
-          href={updatedCommunityLink === '' ? 'https://github.community/' : updatedCommunityLink}
+          href={community_redirect.href || 'https://github.community/'}
           className="Link—secondary text-bold"
         >
           <PeopleIcon size="small" className="octicon mr-1" />
-          {updatedCommunityLink === '' ? t`ask_community` : 'Provide GitHub Feedback'}
+          {Object.keys(community_redirect).length === 0
+            ? t`ask_community`
+            : community_redirect.name}
         </a>
       </div>
       <div>
