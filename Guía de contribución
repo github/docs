@@ -1,0 +1,83 @@
+Bienvenido a la guía de contribución de documentos de GitHub
+¡Gracias por invertir su tiempo en contribuir a nuestro proyecto! Cualquier contribución que haga se reflejará en docs.github.com ✨.
+
+Lea nuestro Código de conducta para mantener nuestra comunidad accesible y respetable.
+
+En esta guía, obtendrá una descripción general del flujo de trabajo de contribución al abrir un problema, crear un RP, revisar y fusionar el RP.
+
+Utilice el icono de la tabla de contenido en la esquina superior izquierda de este documento para acceder rápidamente a una sección específica de esta guía.
+
+Guía para nuevos colaboradores
+Para obtener una descripción general del proyecto, lea el archivo README . A continuación, se muestran algunos recursos que lo ayudarán a comenzar con las contribuciones de código abierto:
+
+Encontrar formas de contribuir al código abierto en GitHub
+Configurar Git
+Flujo de GitHub
+Colaborar con solicitudes de extracción
+Empezando
+Para navegar por nuestro código base con confianza, consulte la introducción al trabajo en el repositorio de documentos. 🎊. Para obtener más información sobre cómo escribimos nuestros archivos de rebajas, consulte la referencia de rebajas de GitHub .
+
+Verifique qué tipos de contribuciones aceptamos antes de realizar cambios. Algunos de ellos ni siquiera requieren escribir una sola línea de código.✨.
+
+Cuestiones
+Crear un problema nuevo
+Si detecta un problema con los documentos, busque si ya existe un problema . Si no existe un problema relacionado, puede abrir un nuevo problema utilizando un formulario de problema relevante .
+
+Resuelve un problema
+Examine nuestros problemas existentes para encontrar uno que le interese. Puede acotar la búsqueda utilizando labelscomo filtros. Consulte Etiquetas para obtener más información.
+
+Hacer cambios
+Realizar cambios en la interfaz de usuario
+Haga clic en Realizar una contribución en la parte inferior de cualquier página de documentos para realizar pequeños cambios, como un error tipográfico, corrección de una oración o un enlace roto. Esto lo lleva al .mdarchivo donde puede realizar sus cambios y crear una solicitud de extracción para una revisión.
+
+
+
+Realizar cambios a nivel local
+Instale Git LFS .
+
+Bifurca el repositorio.
+
+Usando GitHub Desktop:
+
+Comenzar con GitHub Desktop lo guiará a través de la configuración de Desktop.
+Una vez que Desktop está configurado, ¡puede usarlo para bifurcar el repositorio !
+Usando la línea de comando:
+
+Bifurque el repositorio para que pueda realizar sus cambios sin afectar el proyecto original hasta que esté listo para fusionarlos.
+Espacios de códigos de GitHub:
+
+Bifurque, edite y obtenga una vista previa usando los espacios de código de GitHub sin tener que instalar y ejecutar el proyecto localmente.
+Instale o actualice a Node.js v16 . Para obtener más información, consulte la guía de desarrollo .
+
+¡Cree una rama funcional y comience con sus cambios!
+
+Confirma tu actualización
+Confirme los cambios una vez que esté satisfecho con ellos. Consulte la guía de contribución de Atom para saber cómo usar emoji para los mensajes de confirmación.
+
+Una vez que los cambios estén listos, no se olvide de realizar una autoevaluación para acelerar el proceso de revisión.⚡.
+
+Solicitud de extracción
+Cuando haya terminado con los cambios, cree una solicitud de extracción, también conocida como PR.
+
+Complete la plantilla "Listo para revisión" para que podamos revisar su RP. Esta plantilla ayuda a los revisores a comprender sus cambios, así como el propósito de su solicitud de extracción.
+No olvide vincular PR al problema si está resolviendo uno.
+Habilite la casilla de verificación para permitir las ediciones del mantenedor para que la rama se pueda actualizar para una fusión. Una vez que envíe su RP, un miembro del equipo de Documentos revisará su propuesta. Podemos hacer preguntas o solicitar información adicional.
+Es posible que solicitemos que se realicen cambios antes de que se pueda fusionar un RP, ya sea mediante cambios sugeridos o comentarios de solicitud de extracción. Puede aplicar los cambios sugeridos directamente a través de la interfaz de usuario. Puede realizar otros cambios en su bifurcación y luego enviarlos a su rama.
+A medida que actualice su RP y aplique los cambios, marque cada conversación como resuelta .
+Si tiene algún problema de fusión, consulte este tutorial de git para ayudarlo a resolver conflictos de fusión y otros problemas.
+¡Tu RP está fusionado!
+Felicidades 🎉🎉 El equipo de GitHub te agradece ✨.
+
+Una vez que se haya fusionado su RP, sus contribuciones serán visibles públicamente en los documentos de GitHubs .
+
+Ahora que forma parte de la comunidad de documentos de GitHub, vea de qué otra forma puede contribuir a los documentos .
+
+Ventanas
+Este sitio se puede desarrollar en Windows, sin embargo, se deben tener en cuenta algunas posibles trampas:
+
+Expresiones regulares: Windows usa \r\npara finales de línea, mientras que los sistemas basados ​​en Unix usan \n. Por lo tanto, cuando trabaje con expresiones regulares, utilice en \r?\nlugar de \npara admitir ambos entornos. La os.EOLpropiedad Node.js se puede utilizar para obtener un marcador de fin de línea específico del sistema operativo.
+Rutas: los sistemas de Windows utilizan \para el separador de ruta, que sería devuelto por path.joiny otros. Puede usar path.posix, path.posix.joinetc. , y el módulo de barra , si necesita barras hacia adelante, como para construir URL, o asegurarse de que su código funcione con cualquiera.
+Bash: no todos los desarrolladores de Windows tienen un terminal que sea totalmente compatible con Bash, por lo que generalmente se prefiere escribir scripts en JavaScript en lugar de Bash.
+Error de nombre de archivo demasiado largo: hay un límite de 260 caracteres para un nombre de archivo cuando se compila con Git msys. Si bien no se garantiza que las sugerencias a continuación funcionen y posiblemente podrían causar otros problemas, algunas soluciones incluyen:
+Actualiza la configuración de Git: git config --system core.longpaths true
+Considere usar un cliente Git diferente en Windows
