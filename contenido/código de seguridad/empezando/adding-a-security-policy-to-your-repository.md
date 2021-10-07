@@ -1,4 +1,4 @@
----
+--- 
 title: Adding a security policy to your repository
 intro: You can give instructions for how to report a security vulnerability in your project by adding a security policy to your repository.
 redirect_from:
