@@ -1,15 +1,16 @@
 ---
 title: Secret scanning partner program
 intro: 'サービスプロバイダーは、{% data variables.product.prodname_dotcom %}とパートナーになり、シークレットスキャンニングを通じてシークレットトークンのフォーマットを保護できます。シークレットスキャンニングは、そのシークレットのフォーマットで誤って行われたコミットを検索し、サービスプロバイダーの検証用エンドポイントに送信します。'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
   - /developers/overview/secret-scanning
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+shortTitle: Secret scanning
 ---
 
 {% data variables.product.prodname_dotcom %}は、既知のシークレットフォーマットに対してリポジトリをスキャンし、誤ってコミットされたクレデンシャルが不正利用されることを防ぎます。 {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
@@ -20,15 +21,15 @@ When a match of your secret format is found in a private repository configured f
 
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
-### The {% data variables.product.prodname_secret_scanning %} process
+## The {% data variables.product.prodname_secret_scanning %} process
 
-##### How {% data variables.product.prodname_secret_scanning %} works in a public repository
+#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
 
 The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
 
 ![シークレットのスキャンニングと、サービスプロバイダーの検証エンドポイントへの一致の送信のプロセスのフロー図。](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
 
-### Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
+## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
 1. プロセスを開始するために、{% data variables.product.prodname_dotcom %}に連絡してください。
 1. スキャンしたい関連シークレットを特定し、それらを捕捉するための正規表現を作成してください。
@@ -37,13 +38,13 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 1. シークレットアラートサービスに、シークレットの破棄とユーザへの通知を実装してください。
 1. Provide feedback for false positives (optional).
 
-#### プロセスを開始するための{% data variables.product.prodname_dotcom %}への連絡
+### プロセスを開始するための{% data variables.product.prodname_dotcom %}への連絡
 
 To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
 
-#### シークレットの特定と正規表現の作成
+### シークレットの特定と正規表現の作成
 
 To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
 
@@ -53,11 +54,11 @@ To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the
 
 Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-#### シークレットアラートサービスの作成
+### シークレットアラートサービスの作成
 
 提供したURLに、パブリックでインターネットからアクセスできるHTTPエンドポイントを作成してください。 When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
-##### エンドポイントに送信されるPOSTの例
+#### エンドポイントに送信されるPOSTの例
 
 ```http
 POST / HTTP/2
@@ -68,7 +69,7 @@ GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681
 GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/blob/12345600b9cbe38a219f39a9941c9319b600c002/foo/bar.txt"}]
 ```
 
 メッセージのボディはJSONの配列で、以下の内容を持つ1つ以上のオブジェクトを含みます。 複数の一致が見つかった場合には、{% data variables.product.prodname_dotcom %}は複数のシークレットの一致を含む1つのメッセージを送信することがあります。 エンドポイントは、タイムアウトすることなく大量の一致を含むリクエストを処理できなければなりません。
@@ -77,7 +78,7 @@ Content-Length: 0123
 * **Type**: 正規表現を特定するために渡されたユニークな名前。
 * **URL**: マッチが見つかったパブリックなコミットURL。
 
-#### シークレットアラートサービスへの署名検証の実装
+### シークレットアラートサービスへの署名検証の実装
 
 シークレットサービスには署名検証サービスを実装して、受信したメッセージが本当に{% data variables.product.prodname_dotcom %}からのものであり、悪意がないことを保証することを強くおすすめします。
 
@@ -314,11 +315,11 @@ const verify_signature = async (payload, signature, keyID) => {
 };
 ```
 
-#### シークレットアラートサービスへのシークレットの破棄とユーザ通知の実装
+### シークレットアラートサービスへのシークレットの破棄とユーザ通知の実装
 
 For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. これをシークレットアラートサービスへどのように実装するかは実装者に任されていますが、{% data variables.product.prodname_dotcom %}がメッセージを送信したすべてのシークレットは、公開され、侵害されたものと考えることをおすすめします。
 
-#### Provide feedback for false positives
+### Provide feedback for false positives
 
 We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 

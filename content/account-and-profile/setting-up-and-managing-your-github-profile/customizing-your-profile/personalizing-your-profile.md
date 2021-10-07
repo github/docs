@@ -52,6 +52,14 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. Under "Name", type the name you want to be displayed on your profile.
   ![Name field in profile settings](/assets/images/help/profile/name-field.png)

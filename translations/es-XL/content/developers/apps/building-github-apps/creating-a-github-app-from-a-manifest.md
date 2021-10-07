@@ -5,9 +5,9 @@ redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
   - /developers/apps/creating-a-github-app-from-a-manifest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

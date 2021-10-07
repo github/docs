@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
   - /admin/configuration/enabling-subdomain-isolation
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Fundamentals

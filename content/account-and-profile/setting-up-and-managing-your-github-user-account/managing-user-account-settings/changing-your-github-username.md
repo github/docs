@@ -30,6 +30,12 @@ After changing your username, your old username becomes available for anyone els
 - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
 - Links to [gists](/articles/creating-gists) that include your old username
 
+{% ifversion fpt %} 
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endif %}
+
 ## Repository references
 
 After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.

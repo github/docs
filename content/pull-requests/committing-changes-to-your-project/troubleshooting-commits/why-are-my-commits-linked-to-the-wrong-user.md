@@ -54,4 +54,4 @@ If your local Git configuration contained a generic email address, or an email a
 
 ## Further reading
 
-* "[Searching commits](/articles/searching-commits)"
+* "[Searching commits](/search-github/searching-on-github/searching-commits)"

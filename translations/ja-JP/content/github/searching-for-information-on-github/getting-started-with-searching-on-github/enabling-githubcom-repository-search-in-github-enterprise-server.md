@@ -8,10 +8,11 @@ redirect_from:
   - /articles/enabling-githubcom-repository-search-in-github-enterprise-server
   - /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - GitHub search
+shortTitle: Enable search for GitHub.com
 ---
 
 {% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_dotcom_the_website %} を使用しており、{% data variables.product.prodname_ghe_server %} のサイト管理者が {% data variables.product.prodname_github_connect %} および {% data variables.product.prodname_unified_search %} をプライベートリポジトリ向けに有効化している場合、接続された Organization で指定のプライベートリポジトリを検索できます。

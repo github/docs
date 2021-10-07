@@ -7,14 +7,17 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: 配置出站代理
 ---
+
+## About proxies with {% data variables.product.product_name %}
 
 为 {% data variables.product.product_location %} 启用代理服务器后，除非已将目标主机添加为 HTTP 代理排除项，否则会先通过代理服务器发送由 {% data variables.product.prodname_ghe_server %} 发送的出站消息。 出站消息类型包括传出 web 挂钩、上传包和提取旧头像。 代理服务器的 URL 为协议、域或 IP 地址外加端口号，例如 `http://127.0.0.1:8123`。
 
@@ -23,6 +26,10 @@ topics:
 **注**：要将 {% data variables.product.product_location %} 连接到 {% data variables.product.prodname_dotcom_the_website %}，您的代理配置必须允许连接到 `github.com` 和 `api.github.com`。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)”。
 
 {% endnote %}
+
+{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+
+## 配置出站 Web 代理服务器
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

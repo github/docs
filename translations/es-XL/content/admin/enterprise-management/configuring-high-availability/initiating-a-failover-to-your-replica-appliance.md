@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - High availability

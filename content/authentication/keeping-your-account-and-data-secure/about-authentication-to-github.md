@@ -27,6 +27,10 @@ You can access your resources in {% data variables.product.product_name %} in a 
 
 You can authenticate to {% data variables.product.product_name %} in your browser {% ifversion ghae %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
 
+- {% ifversion fpt %}
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)". If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}. 
+{% endif %}
+
 - **Username and password only**
     - You'll create a password when you create your user account on {% data variables.product.product_name %}. We recommend that you use a password manager to generate a random and unique password. For more information, see "[Creating a strong password](/github/authenticating-to-github/creating-a-strong-password)."
 - **Two-factor authentication (2FA)** (recommended)

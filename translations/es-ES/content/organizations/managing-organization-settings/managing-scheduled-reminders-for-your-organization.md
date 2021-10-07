@@ -4,13 +4,14 @@ intro: Puedes obtener recordatorios en Slack para todas las solicitudes de extra
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Administrar los recordatorios programados
 ---
 
-### Acerca de los recordatorios programados para las solicitudes de extracción
+## Acerca de los recordatorios programados para las solicitudes de extracción
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -18,7 +19,7 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Crear un recordatorio programado para una organización
+## Crear un recordatorio programado para una organización
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -41,7 +42,7 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-### Administrar un recordatorio programado para una organización
+## Administrar un recordatorio programado para una organización
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -50,14 +51,14 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Borrar un recordatorio programado para una organización
+## Borrar un recordatorio programado para una organización
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}
 
-### Leer más
+## Leer más
 
 - "[Administrar tus recordatorios programados](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"
 - "[Administrar los recordatorios programados para tu equipo](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

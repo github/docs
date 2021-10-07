@@ -5,18 +5,20 @@ redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
 ---
 
+{% data reusables.organizations.about-organizations %}
+
 {% data reusables.organizations.organizations_include %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Organizações e contas corporativas
+{% ifversion fpt %}
+## Organizações e contas corporativas
 
 As contas corporativas permitem que proprietários gerenciem centralmente a política e a cobrança para várias organizações do {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -26,7 +28,7 @@ Para organizações que pertencem a uma conta corporativa, a cobrança é gerenc
 
 {% data reusables.organizations.org-ownership-recommendation %} Para obter mais informações, consulte "[Manter a continuidade da propriedade para sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
 
-### Termos de serviços e proteção de dados para organizações
+## Termos de serviços e proteção de dados para organizações
 
 Uma entidade, como uma empresa, não lucrativa, ou um grupo, pode concordar com os Termos de serviço padrão ou os Termos de serviço corporativos para a respectiva organização. Para obter mais informações, consulte "[Atualizar para os Termos de serviço corporativos](/articles/upgrading-to-the-corporate-terms-of-service)".
 

@@ -3,7 +3,7 @@ title: Aceptar o rechazar el ingreso al Prgrama de GitHub Archive para tu reposi
 intro: 'Puedes gestionar si {% data variables.product.prodname_dotcom %} incluye tu repositorio público en el {% data variables.product.prodname_archive %} para ayudarte a garantizar la preservación a largo plazo del código abierto global.'
 permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

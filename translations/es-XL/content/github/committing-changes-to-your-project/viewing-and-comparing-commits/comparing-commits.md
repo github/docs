@@ -5,9 +5,9 @@ redirect_from:
   - /github/committing-changes-to-your-project/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 Puedes comparar el estado de tu repositorio a través de ramas, etiquetas, confirmaciones de cambios y fechas. Para comparar versiones diferentes de tu repositorio, añade `/compare` a la ruta del mismo.
 

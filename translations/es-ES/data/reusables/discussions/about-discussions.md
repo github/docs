@@ -1,1 +1,1 @@
-Los debates son un foro abierto para tener conversaciones entre los mantenedores y la comunidad de un proyecto en {% data variables.product.product_name %}.
+{% data variables.product.prodname_discussions %} is an open forum for conversation among maintainers and the community for a project on {% data variables.product.product_name %}.

@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Acerca de los informes de problemas y solicitudes de extracción
 

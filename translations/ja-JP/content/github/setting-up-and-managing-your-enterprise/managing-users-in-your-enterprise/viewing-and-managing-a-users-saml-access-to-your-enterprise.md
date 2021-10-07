@@ -8,16 +8,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: View & manage SAML access
 ---
 
-### Enterprise アカウントへの SAML アクセスについて
+## Enterprise アカウントへの SAML アクセスについて
 
 Enterprise アカウントに対する SAML シングルサインオンを有効にすると、各 Enterprise メンバーは ID プロバイダ (IdP) での外部アイデンティティを、既存の {% data variables.product.product_name %} アカウントにリンクできます。 {% data reusables.saml.about-saml-access-enterprise-account %}
 
-### リンクされているアイデンティティの表示と取り消し
+## リンクされているアイデンティティの表示と取り消し
 
 {% data reusables.saml.about-linked-identities %}
 
@@ -40,7 +41,7 @@ Enterprise アカウントに対する SAML シングルサインオンを有効
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-### アクティブな SAML セッションの表示と取り消し
+## アクティブな SAML セッションの表示と取り消し
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -49,7 +50,7 @@ Enterprise アカウントに対する SAML シングルサインオンを有効
 {% data reusables.saml.view-saml-sessions %}
 {% data reusables.saml.revoke-saml-session %}
 
-### 認可されたクレデンシャルの表示と取り消し
+## 認可されたクレデンシャルの表示と取り消し
 
 {% data reusables.saml.about-authorized-credentials %}
 
@@ -61,6 +62,6 @@ Enterprise アカウントに対する SAML シングルサインオンを有効
 {% data reusables.saml.revoke-authorized-credentials %}
 {% data reusables.saml.confirm-revoke-credentials %}
 
-### 参考リンク
+## 参考リンク
 
 - [組織へのメンバーの SAML アクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)
