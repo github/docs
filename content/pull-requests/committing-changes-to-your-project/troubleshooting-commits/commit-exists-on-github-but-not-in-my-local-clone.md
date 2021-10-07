@@ -4,6 +4,7 @@ intro: 'Sometimes a commit will be viewable on {% data variables.product.product
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
+  - /github/committing-changes-to-your-project/troubleshooting-commits/commit-exists-on-github-but-not-in-my-local-clone
 versions:
   fpt: '*'
   ghes: '*'

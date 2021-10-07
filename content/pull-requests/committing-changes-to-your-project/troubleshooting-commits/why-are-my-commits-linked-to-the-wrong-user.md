@@ -4,6 +4,7 @@ redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user
   - /github/committing-changes-to-your-project/why-are-my-commits-linked-to-the-wrong-user
+  - /github/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user
 intro: '{% data variables.product.product_name %} uses the email address in the commit header to link the commit to a GitHub user. If your commits are being linked to another user, or not linked to a user at all, you may need to change your local Git configuration settings{% ifversion not ghae %}, add an email address to your account email settings, or do both{% endif %}.'
 versions:
   fpt: '*'
