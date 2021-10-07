@@ -1,4 +1,4 @@
----
+--- 
 title: Troubleshooting the detection of vulnerable dependencies
 intro: 'If the dependency information reported by {% data variables.product.product_name %} is not what you expected, there are a number of points to consider, and various things you can check.'
 shortTitle: Troubleshoot detection
