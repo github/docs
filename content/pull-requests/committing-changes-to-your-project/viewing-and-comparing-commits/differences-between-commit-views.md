@@ -4,6 +4,7 @@ intro: You might observe differences in commit history depending on the chosen v
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
+  - /github/committing-changes-to-your-project/viewing-and-comparing-commits/differences-between-commit-views
 versions:
   fpt: '*'
   ghes: '*'
@@ -23,7 +24,7 @@ decide whether it touched the file, Git will omit a whole branch if that branch,
 when merged, did not impact the final contents of the file. Any commits on the
 branch that touched the file will not be shown.
 
-For a file's commit history, {% data variables.product.product_name %} explicitly follows this simple strategy. It makes the history simpler by removing commits that didn't contribute to the final result. For example, if a side branch made a change and then reverted it, that commit would not show up in the branch history. This makes reviewing branches more efficient, since you only see the commits that affect the file. 
+For a file's commit history, {% data variables.product.product_name %} explicitly follows this simple strategy. It makes the history simpler by removing commits that didn't contribute to the final result. For example, if a side branch made a change and then reverted it, that commit would not show up in the branch history. This makes reviewing branches more efficient, since you only see the commits that affect the file.
 
 This truncated view might not always contain the information you're
 after. If you want to see the entire history, {% data variables.product.product_name %} provides a view with more

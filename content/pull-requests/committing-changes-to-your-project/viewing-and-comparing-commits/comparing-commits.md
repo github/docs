@@ -5,6 +5,7 @@ redirect_from:
   - /articles/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits
+  - /github/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits
 versions:
   fpt: '*'
   ghes: '*'

@@ -4,6 +4,7 @@ intro: You can easily see what branch a commit is in by looking at the labels be
 redirect_from:
   - /articles/commit-branch-and-tag-labels
   - /github/committing-changes-to-your-project/commit-branch-and-tag-labels
+  - /github/committing-changes-to-your-project/viewing-and-comparing-commits/commit-branch-and-tag-labels
 versions:
   fpt: '*'
   ghes: '*'
