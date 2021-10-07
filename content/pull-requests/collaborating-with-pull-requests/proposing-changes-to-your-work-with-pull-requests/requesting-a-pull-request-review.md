@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review
   - /articles/requesting-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review
 versions:
   fpt: '*'
   ghes: '*'

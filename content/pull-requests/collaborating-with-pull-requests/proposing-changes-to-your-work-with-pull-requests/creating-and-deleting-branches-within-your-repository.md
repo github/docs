@@ -47,6 +47,6 @@ For more information, see "[About branches](/github/collaborating-with-issues-an
 
 ## Further reading
 
-- "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)"
+- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Viewing branches in your repository](/github/administering-a-repository/viewing-branches-in-your-repository)"
 - "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"

@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request
   - /articles/changing-the-base-branch-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-base-branch-of-a-pull-request
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request
 versions:
   fpt: '*'
   ghes: '*'
@@ -34,5 +35,5 @@ shortTitle: Change the base branch
 ## Further reading
 
 - "[Creating a pull request](/articles/creating-a-pull-request)"
-- "[About pull requests](/articles/about-pull-requests)"
+- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"

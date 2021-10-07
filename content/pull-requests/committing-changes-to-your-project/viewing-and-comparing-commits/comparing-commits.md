@@ -63,4 +63,4 @@ Here's an example of a [comparison using the `^` notation](https://github.com/oc
 
 ## Further reading
 
-- "[Changing the base branch of a pull request](/articles/changing-the-base-branch-of-a-pull-request)"
+- "[Changing the base branch of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)"

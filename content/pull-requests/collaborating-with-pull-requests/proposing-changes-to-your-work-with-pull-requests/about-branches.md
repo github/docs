@@ -6,6 +6,7 @@ redirect_from:
   - /articles/working-with-protected-branches/
   - /articles/about-branches
   - /github/collaborating-with-issues-and-pull-requests/about-branches
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
 versions:
   fpt: '*'
   ghes: '*'
@@ -39,7 +40,7 @@ By default, {% data variables.product.product_name %} names the default branch {
 
 ## Working with branches
 
-Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the *head* branch) into another branch (the *base* branch). For more information, see "[About pull requests](/articles/about-pull-requests)."
+Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the *head* branch) into another branch (the *base* branch). For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
 After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
 
@@ -79,6 +80,6 @@ When a branch is protected:
 
 ## Further reading
 
-- "[About pull requests](/articles/about-pull-requests)"
+- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
 - "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation

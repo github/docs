@@ -32,5 +32,5 @@ You can filter files in a pull request by file extension type, such as `.html` o
 
 ## Further reading
 
-- "[About comparing branches in a pull request](/articles/about-comparing-branches-in-pull-requests)"
+- "[About comparing branches in a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)"
 - "[Finding changed methods and functions in a pull request](/articles/finding-changed-methods-and-functions-in-a-pull-request)"

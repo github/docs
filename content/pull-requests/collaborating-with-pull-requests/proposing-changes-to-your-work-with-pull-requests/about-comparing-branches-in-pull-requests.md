@@ -5,6 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests
   - /articles/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
@@ -68,5 +69,5 @@ For more information about Git commands to compare changes, see "[Git diff optio
 
 ## Further reading
 
-- "[About pull requests](/articles/about-pull-requests)"
+- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
 - "[About forks](/articles/about-forks)"

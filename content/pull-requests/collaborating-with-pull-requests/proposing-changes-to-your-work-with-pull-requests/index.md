@@ -4,6 +4,7 @@ intro: 'After you add changes to a topic branch or fork, you can open a pull req
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/
   - /articles/proposing-changes-to-your-work-with-pull-requests
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,4 +25,3 @@ children:
   - /committing-changes-to-a-pull-request-branch-created-from-a-fork
 shortTitle: Propose changes
 ---
-

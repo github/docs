@@ -194,7 +194,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 You can make any changes to a fork, including:
 
 - **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
-- **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/articles/about-pull-requests).
+- **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Find another repository to fork
 Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}

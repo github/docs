@@ -15,7 +15,7 @@ topics:
 ---
 {% tip %}
 
-**Tip**: If you opened a pull request with the wrong base branch, rather than closing it out and opening a new one, you can instead change the base branch. For more information, see "[Changing the base branch of a pull request](/articles/changing-the-base-branch-of-a-pull-request)."
+**Tip**: If you opened a pull request with the wrong base branch, rather than closing it out and opening a new one, you can instead change the base branch. For more information, see "[Changing the base branch of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-base-branch-of-a-pull-request)."
 
 {% endtip %}
 

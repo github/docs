@@ -16,9 +16,9 @@ shortTitle: Allow changes to a branch
 ---
 Only pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. To learn more about upstream repositories, see "[About forks](/articles/about-forks)."
 
-Pull request authors can give these permissions when they initially create a pull request from a user-owned fork or after they create the pull request. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)."
+Pull request authors can give these permissions when they initially create a pull request from a user-owned fork or after they create the pull request. For more information, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
-You can set commit permissions when you first create a pull request from a fork. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)." Additionally, you can modify an existing pull request to let repository maintainers make commits to your branch.
+You can set commit permissions when you first create a pull request from a fork. For more information, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)." Additionally, you can modify an existing pull request to let repository maintainers make commits to your branch.
 
 ## Enabling repository maintainer permissions on existing pull requests
 
@@ -32,4 +32,4 @@ You can set commit permissions when you first create a pull request from a fork.
 
 ## Further reading
 
-- "[Committing changes to a pull request branch created from a fork](/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[Committing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

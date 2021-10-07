@@ -7,6 +7,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request
   - /articles/changing-the-stage-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +18,7 @@ shortTitle: Change the state
 ---
 ## Marking a pull request as ready for review
 
-{% data reusables.pull_requests.mark-ready-review %} 
+{% data reusables.pull_requests.mark-ready-review %}
 
 {% ifversion fpt or ghae or ghes %}
 {% tip %}

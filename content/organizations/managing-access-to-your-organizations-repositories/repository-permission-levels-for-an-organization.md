@@ -75,7 +75,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Enable and disable auto-merge on a pull request](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository) | | | **X** | **X** | **X** |{% endif %}
 | Apply milestones |  | **X** | **X** | **X** | **X** |
 | Mark [duplicate issues and pull requests](/articles/about-duplicate-issues-and-pull-requests)| | **X** | **X** | **X** | **X** |
-| Request [pull request reviews](/articles/requesting-a-pull-request-review) | | **X** | **X** | **X** | **X** |
+| Request [pull request reviews](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) | | **X** | **X** | **X** | **X** |
 | Merge a [pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges) | | | **X** | **X** | **X** |
 | Push to (write) the person or team's assigned repositories | | | **X** | **X** | **X** |
 | Edit and delete anyone's comments on commits, pull requests, and issues | | | **X** | **X** | **X** |
@@ -83,8 +83,8 @@ Some of the features listed below are limited to organizations using {% data var
 | [Lock conversations](/communities/moderating-comments-and-conversations/locking-conversations) | | | **X** | **X** | **X** |
 | Transfer issues (see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)" for details) |  | | **X** | **X** | **X** |
 | [Act as a designated code owner for a repository](/articles/about-code-owners) | | | **X** | **X** | **X** |
-| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
-| [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
+| [Mark a draft pull request as ready for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
+| [Convert a pull request to a draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
 | Submit reviews that affect a pull request's mergeability | | | **X** | **X** | **X** |
 | [Apply suggested changes](/articles/incorporating-feedback-in-your-pull-request) to pull requests | | | **X** | **X** | **X** |
 | Create [status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks) | | | **X** | **X** | **X** |{% ifversion fpt %}

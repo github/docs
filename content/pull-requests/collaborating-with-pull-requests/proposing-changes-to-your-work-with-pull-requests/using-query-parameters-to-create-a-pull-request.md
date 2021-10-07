@@ -1,6 +1,8 @@
 ---
 title: Using query parameters to create a pull request
 intro: Use query parameters to create custom URLs to open pull requests with pre-populated fields.
+redirect_from:
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request
 versions:
   fpt: '*'
   ghes: '*'
