@@ -78,7 +78,9 @@ You can disable all workflows for an organization or set a policy that configure
 {% ifversion fpt %}
 ## Configuring required approval for workflows from public forks
 
-{% data reusables.actions.workflow-run-approve-public-fork %} You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for an organization using the procedure below. Modifying this setting overrides the configuration set at the enterprise level.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
