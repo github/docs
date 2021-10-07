@@ -1,4 +1,4 @@
----
+--- 
 title: Removing a collaborator from a security advisory
 intro: 'When you remove a collaborator from a security advisory, they lose read and write access to the security advisory''s discussion and metadata.'
 redirect_from:
