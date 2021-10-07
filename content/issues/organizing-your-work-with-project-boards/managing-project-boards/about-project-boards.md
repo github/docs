@@ -66,6 +66,7 @@ For more information on automation for project boards, see "[About automation fo
 ## Further reading
 
 - "[Creating a project board](/articles/creating-a-project-board)"
+- "[Getting Started with GitHub project tools](/12505/getting-started-with-github-project-tools/)
 - "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
 - "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
