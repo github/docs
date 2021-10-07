@@ -1,0 +1,22 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: "21 4 * * *"
+
+jobs:
+  stale:
+
+    permissions:
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/stale@v3
+      with:
+        stale-issue-message: 'This issue has become stale and will be closed automatically within a period of time. Sorry about that.'
+        stale-pr-message: 'This pull request has become stale and will be closed automatically within a period of time. Sorry about that.'
+        stale-issue-label: 'no-issue-activity'
+        stale-pr-label: 'no-pr-activity'
+        days-before-stale: 90 
