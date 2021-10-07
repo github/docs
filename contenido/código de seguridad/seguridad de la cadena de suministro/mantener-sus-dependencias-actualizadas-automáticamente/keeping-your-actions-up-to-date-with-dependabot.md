@@ -1,4 +1,4 @@
----
+--- 
 title: Keeping your actions up to date with Dependabot
 intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the actions you use updated to the latest versions.'
 redirect_from:
