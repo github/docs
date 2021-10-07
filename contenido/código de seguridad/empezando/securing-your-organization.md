@@ -1,4 +1,4 @@
----
+--- 
 title: Securing your organization
 intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure.'
 permissions: Organization owners can configure organization security settings.
