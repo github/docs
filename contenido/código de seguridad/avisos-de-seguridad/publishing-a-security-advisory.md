@@ -1,4 +1,4 @@
----
+--- 
 title: Publishing a security advisory
 intro: You can publish a security advisory to alert your community about a security vulnerability in your project.
 redirect_from:
