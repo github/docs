@@ -269,12 +269,27 @@ You can add footnotes to your content by using this bracket syntax:
 ```
 Here is a simple footnote[^1].
 
+A footnote can also have multiple lines[^2].  
+Finally, can you also use names as links, to fit your writing style more closely[^note].
+
 [^1]: My reference.
+[^2]: Every new line should be prefixed with 2 spaces.  
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still show with numbers instead of the text, but they allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
 The footnote will render like this:
 
 ![Rendered footnote](/assets/images/site/rendered-footnote.png)
+
+{% tip %}
+
+The position of a footnote does not influence where it will be shown.  
+This means that you can put a footnote right next to the refernce and it will still render at the bottom of the file.
+
+{% endtip %}
 {% endif %}
 
 ## Hiding content with comments
