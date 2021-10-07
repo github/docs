@@ -139,7 +139,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "event-to-promise": "^0.8.0",
-    "glob": "^7.1.7",
+    "glob": "^7.2.0",
     "graphql": "^15.5.3",
     "heroku-client": "^3.1.0",
     "http-status-code": "^2.1.0",
