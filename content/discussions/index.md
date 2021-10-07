@@ -28,7 +28,7 @@ product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
   fpt: '*'
-community_redirect: 
+communityRedirect: 
   name: 'Provide GitHub Feedback'
   href: 'https://github.com/github/feedback/discussions/categories/discussions-feedback'
 children:
