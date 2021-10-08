@@ -27,7 +27,7 @@ $ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock
 El *nombre de usuario* que aparece en la respuesta es la cuenta de {% data variables.product.product_name %} a la que la clave se encuentra actualmente vinculada. Si la respuesta se parece a "username/repo", la llave se ha vinculado a un repositorio como [*llave de implementación*](/guides/managing-deploy-keys#deploy-keys).
 
 
-To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
+Para forzar a SSH a que utilice solo la clave que se proporcionó en la línea de comandos, utiliza `-o` para agregar la opción `IdentitiesOnly=yes`:
 
 ```shell
 $ ssh -v -o "IdentitiesOnly=yes" -i <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}

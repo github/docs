@@ -122,10 +122,10 @@ $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/use
 
 出现提示时，您可以输入 OAuth 令牌，但我们建议您为它设置一个变量：
 
-您可以使用 `-u "username:$token"` 并为 `token` 设置一个变量，以避免您的令牌留在 shell 历史记录中，这种情况应尽量避免。
+You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
+$ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 

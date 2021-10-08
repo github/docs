@@ -78,7 +78,7 @@ Temos algumas regras simples para Contas de Usuário no Serviço do GitHub.
 Você é responsável por manter sua Conta segura enquanto usa nosso Serviço. Nós oferecemos ferramentas como a autenticação de dois fatores para ajudá-lo a manter a segurança de sua Conta, mas o conteúdo de sua Conta e sua segurança são de sua responsabilidade.
 - Você é responsável por todos os conteúdos postados e atividades que ocorrem em sua Conta (mesmo quando o conteúdo é postado por outros que têm Contas em sua Conta).
 - Você é responsável por manter a segurança de sua Conta e senha. O GitHub não pode e não será responsabilizado por qualquer perda ou dano causado por sua falha em cumprir com esta obrigação de segurança.
-- You will promptly [notify GitHub](https://support.github.com/contact?tags=docs-policy) if you become aware of any unauthorized use of, or access to, our Service through your Account, including any unauthorized use of your password or Account.
+- Você irá rapidamente [notificar o GitHub](https://support.github.com/contact?tags=docs-policy) se estiver ciente de qualquer uso não autorizado de, ou acesso a, nosso Serviço através de sua Conta, incluindo qualquer uso não autorizado de sua senha ou Conta.
 
 ### 5. Termos adicionais
 Em algumas situações, os termos de terceiros podem ser aplicados ao seu uso do GitHub.  Por exemplo, você pode ser integrante de uma organização no GitHub com seus próprios termos ou contratos de licença. Você poderá baixar um aplicativo que se integra ao GitHub; ou utilizar o GitHub para autenticar em outro serviço. Por favor, esteja ciente de que, embora esses Termos representem nosso acordo total com você, os termos de terceiros governam suas relações com você.
@@ -183,7 +183,7 @@ O GitHub pode oferecer acesso baseado em assinaturas à nossa API para os Usuár
 Alguns recursos do Serviço podem estar sujeitos a termos adicionais específicos para aquele recurso ou produto, conforme definido nos Termos de Produto Adicionais no GitHub. Ao acessar ou utilizar os Serviços, você também concorda com os [Termos de Produto Adicionais do GitHub](/github/site-policy/github-additional-product-terms).
 
 ## J. Visualizações Beta
-**Short version:** *Beta Previews may not be supported or may change at any time. You may receive confidential information through those programs that must remain confidential while the program is private. We'd love your feedback to make our Beta Previews better.*
+**Versão curta:** Pré-visualizações Beta de *podem não ser compatíveis ou podem ser alteradas a qualquer momento. Você pode receber informações confidenciais por meio dos programas que devem permanecer confidenciais enquanto o programa for privado. Adoraríamos ouvir seu feedback para pode melhorar as nossas visualizações beta.*
 
 ### 1. Sujeito a alterações
 
@@ -224,12 +224,12 @@ Nossos termos de preços e pagamento estão disponíveis em [github.com/pricing]
 Ao concordar com estes Termos, você está nos dando permissão para cobrar seu cartão de crédito registrado, sua conta do PayPal, ou outros métodos de pagamento aprovados para as taxas que você autorizou para o GitHub.
 
 ### 5. Responsabilidade do pagamento
-Você é responsável por todas as taxas, incluindo impostos associados com seu uso do Serviço. Ao usar o Serviço, você concorda em pagar ao GitHub qualquer cobrança incorrida em relação ao seu uso do Serviço.  If you dispute the matter, contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). Você é responsável por nos fornecer um meio de pagamento válido para Contas pagas. Contas Grátis não são precisam fornecer informações de pagamento.
+Você é responsável por todas as taxas, incluindo impostos associados com seu uso do Serviço. Ao usar o Serviço, você concorda em pagar ao GitHub qualquer cobrança incorrida em relação ao seu uso do Serviço.  Se você não concorda com a cobrança, entre em contato com [Suporte do GitHub](https://support.github.com/contact?tags=docs-policy). Você é responsável por nos fornecer um meio de pagamento válido para Contas pagas. Contas Grátis não são precisam fornecer informações de pagamento.
 
 ## L. Cancelamento e Rescisão
 **Versão curta:** *Você pode encerrar sua Conta a qualquer momento. Se o fizer, trataremos suas informações de forma responsável.*
 
-### 1. Account Cancellation
+### 1. Cancelamento de conta
 É sua responsabilidade cancelar corretamente sua Conta com o GitHub. Você pode [cancelar sua Conta a qualquer momento](/articles/how-do-i-cancel-my-account/) indo em suas Configurações na barra global de navegação no topo da tela. A tela da Conta fornece um link simples, sem questionamentos, para você efetuar o cancelamento. Não cancelamos Contas por solicitações via e-mail ou telefone.
 
 ### 2. Após Cancelamento
@@ -312,4 +312,4 @@ Se alguma parte deste Contrato for considerada inválida ou inaplicável, essa p
 Este Contrato só pode ser modificado por uma alteração escrita assinada por um representante autorizado do GitHub, ou pela postagem pelo GitHub de uma versão revisada de acordo com [Seção Q. Alterações nestes Termos](#q-changes-to-these-terms). Estes Termos de Serviço, juntamente com a Declaração de Privacidade do GitHub, representam a declaração completa e exclusiva do acordo entre você e nós. Este Contrato substitui qualquer proposta ou acordo prévio oral ou escrito, e quaisquer outras comunicações entre você e o GitHub relacionadas com o assunto desses termos, incluindo quaisquer acordos de confidencialidade ou de não divulgação.
 
 ### 6. Perguntas
-Perguntas sobre os Termos de Serviço? [Contact us](https://support.github.com/contact?tags=docs-policy).
+Perguntas sobre os Termos de Serviço? [Fale conosco](https://support.github.com/contact?tags=docs-policy).

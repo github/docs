@@ -18,7 +18,7 @@ redirect_from:
 
 Cuando trabajas localmente en tu computadora, Git te permite configurar el autor de tus cambios y la identidad del confirmante. Esto, potencialmente, dificulta que otras personas tengan la confimansa de que realmente hayas creado tus etiquetas y confirmaciones. Para ayudarte a resolver este problema, puedes firmar tus confirmaciones y etiquetas. Para obtener más información, consulta la sección "[Firmar confirmaciones](/github/authenticating-to-github/signing-commits)" y "[Firmar etiquetas](/github/authenticating-to-github/signing-tags)". {% data variables.product.prodname_dotcom %} marca las etiquetas y confirmaciones firmadas con un estado de verificación.
 
-Predeterminadamente, las confirmaciones y etiquetas se marcan como "Verificadas" si se firman con una llave GPG o S/MIME que se verificó con éxito. If a commit or tag has a signature that can't be verified by {% data variables.product.prodname_dotcom %}, we mark the commit or tag "Unverified." En el resto de los casos, no se muestra un estado de verificación.
+Predeterminadamente, las confirmaciones y etiquetas se marcan como "Verificadas" si se firman con una llave GPG o S/MIME que se verificó con éxito. Si una confirmación o etiqueta tiene una firma que no puede verificar {% data variables.product.prodname_dotcom %}, la marcaremos como "No verificada". En el resto de los casos, no se muestra un estado de verificación.
 
 Sin embargo, puedes proporcionar aún más confianza a otros usuarios sobre la identidad que se atribuye a tus confirmaciones y etiquetas si habilitas el modo vigilanten en tu configuración de {% data variables.product.prodname_dotcom %}. Cuando tienes habilitado el modo vigilante, todas tus confirmaciones y etiquetas se marcan con uno de tres estados de verificación.
 
@@ -26,7 +26,7 @@ Sin embargo, puedes proporcionar aún más confianza a otros usuarios sobre la i
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
-You should only enable vigilant mode if you sign all of your commits and tags and use an email address that is verified for your account on {% data variables.product.product_name %} as your committer email address. Después de habilitar este modo, cualquier confirmación o etiqueta sin firmar que generes localmente y subas a {% data variables.product.prodname_dotcom %} se marcará como "Sin verificar".
+Deberías habilitar el modo vigilante únicamente si firmas todas tus confirmaciones y etiqueta y utilizas una dirección de correo electrónico que esté verificada para tu cuenta en {% data variables.product.product_name %} como tu dirección de correo electrónico de confirmante. Después de habilitar este modo, cualquier confirmación o etiqueta sin firmar que generes localmente y subas a {% data variables.product.prodname_dotcom %} se marcará como "Sin verificar".
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 

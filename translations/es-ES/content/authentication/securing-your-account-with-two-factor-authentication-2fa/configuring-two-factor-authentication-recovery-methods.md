@@ -76,33 +76,6 @@ Selecciona tu código de país y escribe el número de teléfono móvil, incluid
 
 Después de la configuración, el dispositivo de copia de seguridad recibirá un SMS de confirmación.
 
-## Agregar un método de autenticación de reserva con Recuperar cuentas en otro lugar
-
-Puedes generar una credencial de autenticación adicional para tu cuenta y almacenarla con un proveedor de recuperación asociado.
-
-### Acerca de Recuperar cuentas en otro lugar
-
-Con Recuperar cuentas en otro lugar, puedes agregar un factor de seguridad adicional a tu cuenta {% data variables.product.product_name %} en caso de que pierdas acceso al método de autenticación de dos factores o los códigos de recuperación.
-
-Recuperar cuentas en otro lugar te permite asociar tu cuenta {% data variables.product.product_name %} con tu cuenta de Facebook. Puedes almacenar una credencial de autenticación en la forma de un _token de recuperación de cuenta_ para tu cuenta {% data variables.product.product_name %} con Facebook.
-
-Si pierdes acceso a tu cuenta {% data variables.product.product_name %} porque ya no tienes acceso a tu método de autenticación de dos factores o códigos de recuperación, puedes recuperar tu token de recuperación de cuenta del proveedor de recuperación para demostrar que eres el propietario de tu cuenta {% data variables.product.product_name %}.
-
-Después de que recuperes tu token, {% data variables.contact.contact_support %} puede inhabilitar la autenticación de dos factores para tu cuenta. Luego, puedes proporcionar o restablecer tu contraseña para recuperar el acceso a tu cuenta.
-
-Cuando generas o recuperas un token de recuperación de cuenta, se agrega un evento a tu registro de auditoría de la cuenta. Para obtener más información, consulta "[Revisar tu registro de seguridad](/articles/reviewing-your-security-log)".
-
-### Generar y almacenar un token de recuperación de cuenta
-
-Puedes generar un token de recuperación de cuenta y almacenarlo con un proveedor de recuperación asociado.
-
-1. Inicia sesión con tu cuenta de Facebook, luego regresa a tu {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-4. Para generar un token nuevo, en "Recovery tokens" (Tokens de recuperación), haz clic en **Store new token** (Almacenar token nuevo). ![Botón para almacenar un nuevo token de recuperación](/assets/images/help/settings/store-new-recovery-token.png)
-5. Obtén más información sobre tokens de recuperación de cuenta, luego haz clic en **Connect with https://www.facebook.com** (Conectar con https://www.facebook.com). ![Botón para conectar un token de recuperación con Facebook](/assets/images/help/settings/connect-recovery-token-with-facebook.png)
-6. Una vez que eres redirigido a Facebook, lee la información sobre cómo activar la recuperación de cuenta con Facebook antes de hacer clic en **Save as [_YOUR NAME_]** (Guardar como [_TU NOMBRE_]. (Si guardas múltiples tokens dentro de un período breve, Facebook puede omitir este paso de confirmación después de que guardes tu primer token). ![Página de Facebook con botón para activar la recuperación de la cuenta](/assets/images/help/settings/security-turn-on-rae-facebook.png)
-
 {% endif %}
 
 ## Leer más

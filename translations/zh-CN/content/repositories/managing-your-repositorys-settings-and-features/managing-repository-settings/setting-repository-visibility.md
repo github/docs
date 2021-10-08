@@ -21,6 +21,12 @@ shortTitle: 仓库可见性
 
 组织所有者可以限制只有组织所有者才能更改仓库可见性。 更多信息请参阅“[限制组织的仓库可见性更改](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)”。
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, your repositories owned by your user account can only be private, and repositories in your enterprise's organizations can only be private or internal.
+
+{% endif %}
+
 我们建议在您更改仓库可见性之前审查以下注意事项。
 
 {% ifversion ghes or ghae %}

@@ -1,5 +1,5 @@
 ---
-title: Onboarding
+title: Integração
 intro: ''
 versions:
   fpt: '*'

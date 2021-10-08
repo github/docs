@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
 intro: 'Ein Fork ist eine Kopie eines Repositorys. Durch das Forken eines Repositorys kannst Du Änderungen uneingeschränkt testen, ohne Auswirkungen auf das Originalprojekt.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
   ghes: '*'

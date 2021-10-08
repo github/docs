@@ -16,6 +16,8 @@ shortTitle: Sincronizar con un IdP
 
 {% data reusables.gated-features.okta-team-sync %}
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## Acerca de la sincronización de equipo
 
 {% data reusables.identity-and-permissions.about-team-sync %}
@@ -25,6 +27,8 @@ shortTitle: Sincronizar con un IdP
 {% ifversion fpt %}La sincronización de equipos no es compatible con grupos de IdP con más de 5000 miembros.{% endif %}
 
 Una vez que un equipo de {% data variables.product.prodname_dotcom %} se conecta a un grupo de IdP, tu administrador de IdP debe hacer cambios en la membrecía del equipo a través del proveedor de identidad. No puedes administrar las membrecías de equipo en {% data variables.product.product_name %}{% ifversion fpt %} ni utilizando la API{% endif %}.
+
+{% ifversion fpt %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion fpt %}
 Todos los cambios a la membrecía de equipo que se hagan con tu IdP aparecerán en la bitácora de auditoría en {% data variables.product.product_name %} como cambios que realiza el bot de sincronización de equipos. Tu IdP enviará datos de la membresía de equipo a {% data variables.product.prodname_dotcom %} una vez por hora. Conectar un equipo a un grupo IdP puede eliminar a algunos miembros del equipo. Para obtener más información, consulta "[Requisitos para los miembros de los equipos sincronizados](#requirements-for-members-of-synchronized-teams)."
@@ -52,9 +56,7 @@ Los equipos o miembros del grupo existentes que no cumplan con estos criterios s
 
 Puedes volver a agregar automáticamente a aquellos miembros del equipo que hayas eliminado una vez que se autentiquen en la cuenta empresarial u organizacional utilizando el SSO y así se migren al grupo de IdP conectado.
 
-Para evitar eliminar miembros del equipo accidentalmente, te recomendamos requerir el SSO de SAML en tu cuenta organizacional o empresarial mediante la creación de nuevos equipos para sincronizar datos de membrecías y revisar la membrecía del grupo de IdP antes de que sincronices a los equipos existentes. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-
-Si tu organización pertenece a una cuenta empresarial, habilitar la sincronización de equipos para la cuenta empresarial anulará la configuración de sincronización de equipos a nivel organizacional. Para obtener más información, consulta la sección "[Administrar la sincronización de equipos para las organizaciones en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)".
+Para evitar eliminar miembros del equipo accidentalmente, te recomendamos requerir el SSO de SAML en tu cuenta organizacional o empresarial mediante la creación de nuevos equipos para sincronizar datos de membrecías y revisar la membrecía del grupo de IdP antes de que sincronices a los equipos existentes. Para obtener más información, consulta las secciones "[Requerir el inicio de sesión único de SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)" y "[Requerir el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 {% endif %}
 

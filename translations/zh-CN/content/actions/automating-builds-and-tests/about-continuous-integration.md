@@ -1,6 +1,6 @@
 ---
 title: 关于持续集成
-intro: '您可以直接在 {% data variables.product.prodname_dotcom %} 仓库中通过 {% data variables.product.prodname_actions %} 创建自定义持续集成 (CI) 和持续部署 (CD) 工作流程。'
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
@@ -15,13 +15,11 @@ versions:
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: 持续集成
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于持续集成
 
@@ -49,44 +47,11 @@ shortTitle: 持续集成
 
 有关常用术语的定义，请参阅“[{% data variables.product.prodname_actions %} 的核心概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)”。
 
-## 支持的语言
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Workflow templates
 
 {% data variables.product.product_name %} 提供各种不同语言和框架的 CI 工作流程模板。
 
 在 {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) 仓库{% else %}{% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览 {% data variables.product.product_name %} 提供的 CI 工作流程模板的完整列表。
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## 跳过工作流程运行
-
-如果您想暂时阻止触发工作流程，可以对提交消息添加跳过指令。 本来会触发 `on: push` 或 `on: pull_request` 的工作流程，如果您将以下任何字符串添加到推送中的提交消息或者拉取请求的 HEAD 提交，则不会触发：
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-或者，您也可以使用两个空行后接 `skip-checks: true` 或 `skip-checks:true` 来结束提交消息。
-
-如果您的仓库配置为需要先通过特定检查，则无法合并拉取请求。 要允许合并拉取请求，您可以将新提交推送到拉取请求，而无需提交消息中的跳过指令。
-
-{% note %}
-
-**注意：**跳过指令仅适用于 `push` 和 `pull_request` 事件。 例如，将 `[skip ci]` 添加到提交消息不会停止触发 `on: pull_request_target` 的工作流程运行。
-
-{% endnote %}
-{% endif %}
-
-## 工作流程运行通知
-
-{% data reusables.repositories.workflow-notifications %}
-
-## 工作流程运行的状态徽章
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-更多信息请参阅“[添加工作流程状态徽章](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
 
 ## 延伸阅读
 

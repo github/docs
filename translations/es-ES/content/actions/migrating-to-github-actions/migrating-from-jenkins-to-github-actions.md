@@ -19,7 +19,6 @@ shortTitle: Migrarse desde Jenkins
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -43,7 +42,7 @@ Para obtener más información, consulta la sección "[Conceptos esenciales para
 
 Jenkis te permite enviar compilaciones a un agente de compilación sencilla, o puedes distribuirlas a través de varios agentes. También puedes clasificar estos agentes de acuerdo con diversos atributos, tales como los tipos de sistema operativo.
 
-De forma similar, las {% data variables.product.prodname_actions %} pueden enviar jobs a los ejecutores auto-hospedados u hospedados en {% data variables.product.prodname_dotcom %}, y puedes utilizar etiquetas para clasificar los ejecutores de acuerdo con diversos atributos. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+De forma similar, las {% data variables.product.prodname_actions %} pueden enviar jobs a los ejecutores auto-hospedados u hospedados en {% data variables.product.prodname_dotcom %}, y puedes utilizar etiquetas para clasificar los ejecutores de acuerdo con diversos atributos. Para obtener más información, consulta las secciones "[Entender las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".
 
 ### Utilizar secciones para organizar mapas
 

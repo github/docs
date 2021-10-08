@@ -45,7 +45,7 @@ shortTitle: Manage your subscriptions
 
 {% data reusables.notifications.access_notifications %}
 1. 通知インボックスから、サブスクライブ解除する通知を選択します。
-2. **選択した** {% octicon "triangle-down" aria-label="The down triangle icon" %} ドロップダウンを使用して、[**Unsubscribe**] をクリックします。 ![メインインボックスの [Unsubcribe] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Click **Unsubscribe.** ![メインインボックスの [Unsubcribe] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## サブスクリプションページで通知をサブスクライブ解除する
 
@@ -61,13 +61,12 @@ shortTitle: Manage your subscriptions
 {% data reusables.notifications.access_notifications %}
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Watch しているリポジトリのページで、Watchしているリポジトリを評価した後、次のいずれかを選択します。
-  {% ifversion ghae or ghes < 3.1 %}
-    - リポジトリの Watch 解除
-    - Only watch releases for a repository
-    - Ignore all notifications for a repository
-  {% endif %}
   {% ifversion fpt or ghes > 3.0 or ghae-next %}
     - リポジトリの Watch 解除
     - Ignore all notifications for a repository
     - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% else %}
+    - リポジトリの Watch 解除
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
   {% endif %}

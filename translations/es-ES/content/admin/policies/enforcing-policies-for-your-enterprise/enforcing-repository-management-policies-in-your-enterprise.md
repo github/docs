@@ -34,12 +34,12 @@ topics:
   - Enterprise
   - Policies
   - Security
-shortTitle: Requerir políticas de repositorio
+shortTitle: Políticas de administración de repositorio
 ---
 
 ## Configurar la visibilidad predeterminada para los repositorios nuevos en tu empresa
 
-Cada vez que alguien crea un repositorio nuevo en tu empresa, esta persona debe elegir una visibilidad para el mismo. Cuando configuras una visibilidad predeterminada para la empresa, eliges qué vsibilidad se seleccina predeterminadamente. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Cada vez que alguien crea un repositorio nuevo en tu empresa, esta persona debe elegir una visibilidad para el mismo. Cuando configuras una visibilidad predeterminada para la empresa, eliges qué vsibilidad se seleccina predeterminadamente. Para obtener más información sobre la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 Si un propietario de empresa deja de permitir que los miembros de ésta creen ciertos tipos de repositorios, estos no podrán crear este tipo de repositorio aún si la configuración de visibilidad lo tiene como predeterminado. Para obtener más información, consulta la sección "[Configurar una política para la creación de repositorios](#setting-a-policy-for-repository-creation)".
 

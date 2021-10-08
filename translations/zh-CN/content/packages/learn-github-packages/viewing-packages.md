@@ -64,4 +64,4 @@ versions:
 
 ## 延伸阅读
 
-- “[搜索包](/github/searching-for-information-on-github/searching-for-packages)”
+- “[搜索包](/search-github/searching-on-github/searching-for-packages)”

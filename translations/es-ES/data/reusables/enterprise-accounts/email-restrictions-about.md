@@ -7,7 +7,7 @@ Los dominios se pueden heredar desde la cuenta empresarial, o los puedes configu
 {% endif %}
 
 {%  ifversion ghes > 3.1 %}
-Los dominios se pueden heredar desde la cuenta empresarial, o los puedes configurar una organización específica. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)."
+Los dominios se pueden heredar desde la cuenta empresarial, o los puedes configurar una organización específica. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" y "[Restringir las notificaciones por correo electrónico para tu organización](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)".
 {% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}

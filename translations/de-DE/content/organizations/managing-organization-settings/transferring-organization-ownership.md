@@ -15,6 +15,13 @@ topics:
 shortTitle: Transfer ownership
 ---
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** {% data reusables.enterprise-accounts.invite-organization %}
+
+{% endnote %}{% endif %}
+
 1. Wenn Du das einige Mitglied mit *Inhaber*-Berechtigungen bist, gib einem anderen Organisationsmitglied ebenfalls die Inhaberrolle. Weitere Informationen findest Du unter „[Ernennung eines Organisationsinhabers](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
 2. Kontaktiere den neuen Inhaber, um sicherzustellen, dass dieser [auf die Organisationseinstellungen zugreifen kann](/articles/accessing-your-organization-s-settings).
 {% ifversion fpt %}

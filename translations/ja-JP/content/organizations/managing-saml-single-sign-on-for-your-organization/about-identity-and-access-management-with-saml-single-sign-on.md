@@ -13,6 +13,8 @@ topics:
 shortTitle: SAML SSOを使うIAM
 ---
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## SAML SSO について
 
 {% data reusables.saml.dotcom-saml-explanation %}

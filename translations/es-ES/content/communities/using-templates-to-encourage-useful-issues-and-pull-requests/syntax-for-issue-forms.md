@@ -16,7 +16,7 @@ Puedes crear formatos de propuesta personalizados agregando un archivo de defini
 
 Cuando un colaborador llega un formato de propuesta, sus respuestas para cada entrada se convierten en lenguaje de marcado y se agregan al cuerpo de una propuesta. Los contribuyentes pueden editar las propuestas que se crearon con estos formatos de propuesta y otras personas pueden interactuar con las propuestas como con una de ellas que se creó mediante otros métodos.
 
-Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. Para obtener más información, consulta [Crear plantillas de solicitud de extracción para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)".
+Los formatos de propuesta no son compatibles para las solicitudes de cambios. Puedes crear plantillas de solicitudes de cambios en tus repositorios para que las utilicen los colaboradores. Para obtener más información, consulta [Crear plantillas de solicitud de extracción para tu repositorio](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)".
 
 Este archivo de configuración YAML define un formato de propuesta utilizando varias entradas para reportar un error.
 

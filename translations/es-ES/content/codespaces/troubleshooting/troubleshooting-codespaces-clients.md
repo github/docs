@@ -1,25 +1,25 @@
 ---
-title: Troubleshooting Codespaces clients
-intro: 'You can use {% data variables.product.prodname_codespaces %} in your browser or through {% data variables.product.prodname_vscode %}. This article provides troubleshooting steps for common client issues.'
+title: Solucionar problemas de los clientes de Codespaces
+intro: 'Puedes utilizar {% data variables.product.prodname_codespaces %} en tu buscador o a través de {% data variables.product.prodname_vscode %}. Este artículo proporciona pasos de solución de problemas para los problemas comunes de los clientes.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 type: reference
 topics:
   - Codespaces
-shortTitle: Codespaces clients
+shortTitle: Clientes de codespaces
 ---
 
 ## Solución de problemas de {% data variables.product.prodname_vscode %}
 
-When you connect a desktop version of {% data variables.product.prodname_vscode %} to a codespace, you will notice few differences compared with working in a normal workspace but the experience will be fairly similar.
+Cuando conectas a una versión de escritorio de {% data variables.product.prodname_vscode %} a un codespace, notarás algunas cuantas diferencias en comparación con trabajar en un espacio de trabajo normal, pero la experiencia será bastante similar.
 
-When you open a codespace in your browser using {% data variables.product.prodname_vscode %} in the web, you will notice more differences. For example, some key bindings will be different or missing, and some extensions may behave differently. For a summary, see: "[Known limitations and adaptions](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" in the {% data variables.product.prodname_vscode %} docs.
+Cuando abres un codespace en tu buscador utilizando {% data variables.product.prodname_vscode %} en la web, notarás más diferencias. Por ejemplo, algunas uniones de teclas serán diferentes o no estarán y algunas extensiones podrían comportarse de forma diferente. Para obtener un resumen, consulta la sección "[Adaptaciones y limitaciones conocidas](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" en los documentos de {% data variables.product.prodname_vscode %}.
 
-You can check for known issues and log new issues with the {% data variables.product.prodname_vscode %} experience in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
+Puedes revisar si hay problemas conocidos y registrar problemas nuevos con la experiencia de {% data variables.product.prodname_vscode %} en el repositorio [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces).
 
 ## Solución de problemas del buscador
 
-If you encounter issues using codespaces in a browser that is not Chromium-based, try switching to a Chromium-based browser, or check for known issues with your browser in the `microsoft/vscode` repository by searching for issues labeled with the name of your browser, such as [`firefox`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+label%3Afirefox) or [`safari`](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Asafari).
+Si encuentras problemas para utilizar los codespaces en un buscador que no esté basado en Chromium, intenta cambiar a uno que sí lo esté o revisa si hay problemas conocidos con tu buscador en el repositorio de `microsoft/vscode` buscando aquellos etiquetados con el nombre de dicho buscador, tal como [`firefox`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+label%3Afirefox) o [`safari`](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Asafari).
 
-If you encounter issues using codespaces in a Chromium-based browser, you can check if you're experiencing another known issue with {% data variables.product.prodname_vscode %} in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues) repository.
+Si encuentras problemas al utilizar codespaces en un buscador basado en Chromium, puedes verificar si estás experimentando algún otro problema conocido de {% data variables.product.prodname_vscode %} en el repositorio [`microsoft/vscode`](https://github.com/microsoft/vscode/issues).

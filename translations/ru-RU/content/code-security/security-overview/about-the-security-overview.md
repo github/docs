@@ -6,8 +6,8 @@ redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
+  ghae: issue-4554
   ghes: '>3.1'
-  ghae: next
 type: how_to
 topics:
   - Security overview

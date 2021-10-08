@@ -1,1 +1,1 @@
-1. In the list of runners, click the runner you'd like to configure.
+1. En la lista de ejecutores, haz clic en el que te gustaría configurar.

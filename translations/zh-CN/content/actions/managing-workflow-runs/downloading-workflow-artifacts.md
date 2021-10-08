@@ -11,7 +11,6 @@ shortTitle: 下载工作流程构件
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% ifversion fpt or ghes > 2.22 or ghae %} 默认情况下，{% data variables.product.product_name %} 存储 90 天内的构建日志和构件，并且您可以根据仓库类型自定义此保留期。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
 {% ifversion ghes = 2.22 %} {% data variables.product.product_name %} 存储 90 天的完整构建日志和构件。{% endif %}

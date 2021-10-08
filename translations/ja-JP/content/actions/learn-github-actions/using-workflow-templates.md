@@ -1,7 +1,7 @@
 ---
 title: Using workflow templates
 shortTitle: Using templates
-intro: You can set up CI using a workflow template that matches the language and tooling you want to use.
+intro: '{% data variables.product.product_name %} provides workflow templates for a variety of languages and tooling.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
@@ -17,34 +17,37 @@ type: tutorial
 topics:
   - Workflows
   - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-リポジトリへの書き込み権限があるユーザなら誰でも {% data variables.product.prodname_actions %} を使用して継続的インテグレーション (CI) を設定することができます。
+## ワークフローテンプレートについて
 
-CIを設定すると、必要に応じてワークフローをカスタマイズすることができます。
+{% data variables.product.product_name %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. たとえば、[Node.js](https://nodejs.org/en/) を使用する場合、{% data variables.product.product_name %} は、Node.js パッケージをインストールしてテストを実行するテンプレートファイルを提案します。
+
+You can also create your own workflow templates to share with your organization. For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+
+## Using workflow templates
+
+Anyone with write permission to a repository can set up {% data variables.product.prodname_actions %} workflows for CI/CD or other automation.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. 使用したい言語とツールにマッチするテンプレートを探し、[**Set up this workflow**] をクリックします。 ![[Setup workflow] ボタン](/assets/images/help/repository/setup-workflow-button.png)
-5. [**Start commit**] をクリックします。 ![[Start commit]ボタン](/assets/images/help/repository/start-commit.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
-
-リポジトリへのプッシュを実行すると、{% data variables.product.prodname_dotcom %}で実行された継続的インテグレーションワークフローのステータスと詳細ログを追跡し、カスタマイズした通知を受け取ることができます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)」及び「[ワークフローの実行の管理](/articles/managing-a-workflow-run)」を参照してください。
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+1. If you already have a workflow in your repository, click **New workflow**.
+1. Find the template that you want to use, then click **Set up this workflow**.
+1. If the workflow template contains comments detailing additional setup steps, follow these steps.
+1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
+1. [**Start commit**] をクリックします。
+1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## 参考リンク
 
 - [継続的インテグレーションについて](/articles/about-continuous-integration)
-- "[ワークフロー実行の管理](/articles/managing-a-workflow-run)"
+- "[Managing workflow runs](/actions/managing-workflow-runs)"
+- "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 - 「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」
 {% ifversion fpt %}
 - 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」

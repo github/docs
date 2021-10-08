@@ -70,10 +70,10 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉菜单单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. 评估您正在关注的仓库，确定它们更新是否仍然相关和有用。 关注某仓库后，您将收到该仓库所有对话的通知。
-{% ifversion ghae or ghes < 3.1 %}
-  ![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
   ![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% else %}
+  ![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications.png)
 {% endif %}
 
   {% tip %}

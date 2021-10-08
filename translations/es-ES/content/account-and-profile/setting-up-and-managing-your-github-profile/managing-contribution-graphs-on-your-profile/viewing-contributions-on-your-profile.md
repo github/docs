@@ -83,7 +83,7 @@ Las marcas horarias se calculan de forma diferente para las confirmaciones y las
 
 ![Sección de resumen de actividad en el perfil](/assets/images/help/profile/activity-overview-section.png)
 
-Las organizaciones que se muestran en el resumen de la actividad se priorizan de acuerdo con qué tan activo estés en la organización. Si mencionas una organización en tu biografía de perfil y eres miembro de una organización, entonces esa organización se prioriza en el resumen de la actividad. Para obtener más información, consulta “[Mencionar personas y equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” o "[Agregar una biografía en tu perfil](/articles/adding-a-bio-to-your-profile/)."
+Las organizaciones que se muestran en el resumen de la actividad se priorizan de acuerdo con qué tan activo estés en la organización. Si mencionas una organización en tu biografía de perfil y eres miembro de una organización, entonces esa organización se prioriza en el resumen de la actividad. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
 ## Actividad de contribución
 
@@ -91,15 +91,14 @@ La sección de actividad de contribuciones incluye una cronología detallada de 
 
 ![Filtro de tiempo de actividad de contribuciones](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion not ghae %}
-## Ver contribuciones de {% data variables.product.product_location_enterprise %} en {% data variables.product.prodname_dotcom_the_website %}
+{% ifversion fpt or ghes or ghae-next %}
 
-Si el administrador de tu sitio ha habilitado {% data variables.product.prodname_unified_contributions %}, puedes enviar conteos de contribuciones {% data variables.product.prodname_enterprise %} a tu perfil {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta "[Enviar tus contribuciones {% data variables.product.prodname_ghe_server %} a tu {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+## Ver contribuciones de {% data variables.product.prodname_enterprise %} en {% data variables.product.prodname_dotcom_the_website %}
+
+If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+
 {% endif %}
 
 ## Leer más
 
 - "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"
-- "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Divulgar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- "[Mostrar una revisión de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)."

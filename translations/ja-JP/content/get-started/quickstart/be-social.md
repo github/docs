@@ -6,6 +6,7 @@ redirect_from:
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
 intro: '{% data variables.product.prodname_dotcom %} 上で、人々、リポジトリ、Organization と関わることができます。 個人ダッシュボードから、他の人々がどんな作業をしていて、何とつながっているのかを見てください。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
   ghes: '*'

@@ -16,7 +16,6 @@ shortTitle: Workflow billing & limits
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_actions %}の支払いについて
 
@@ -59,6 +58,12 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 ## 利用のポリシー
 
 使用制限に加えて、{% data variables.product.prodname_actions %}を[GitHubの利用規約](/articles/github-terms-of-service/)内で使っていることを確認しなければなりません。 {% data variables.product.prodname_actions %}の固有の規約に関する詳しい情報については、[GitHubの追加製品規約](/github/site-policy/github-additional-product-terms#a-actions-usage)を参照してください。
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Billing for reusable workflows
+
+If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
 {% ifversion fpt or ghes > 2.22 or ghae %}

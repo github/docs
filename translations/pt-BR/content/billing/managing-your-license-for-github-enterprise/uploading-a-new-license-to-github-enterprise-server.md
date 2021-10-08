@@ -1,22 +1,22 @@
 ---
-title: Uploading a new license to GitHub Enterprise Server
-intro: 'You can upload your license file for {% data variables.product.prodname_enterprise %} to {% data variables.product.product_location_enterprise %} to validate your application.'
+title: Fazer o upload uma nova licença para o GitHub Enterprise Server
+intro: 'Você pode fazer o upload do arquivo da sua licença para {% data variables.product.prodname_enterprise %} para {% data variables.product.product_location_enterprise %} a fim de validar seu aplicativo.'
 versions:
   ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Licensing
-shortTitle: Upload a new license
+shortTitle: Fazer o upload de uma nova licença
 ---
 
-## About license files for {% data variables.product.prodname_enterprise %}
+## Sobre os arquivos de licença para {% data variables.product.prodname_enterprise %}
 
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must upload the new license file to {% data variables.product.product_location_enterprise %} to unlock your new user licenses. For more information about licenses for {% data variables.product.product_name %}, see "[About licenses for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)" and "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
+Após comprar ou atualizar uma licença para {% data variables.product.prodname_enterprise %} de {% data variables.contact.contact_enterprise_sales %}, você deverá fazer o upload do novo arquivo de licença para {% data variables.product.product_location_enterprise %} para desbloquear suas novas licenças de usuário. Para obter mais informações sobre licenças para {% data variables.product.product_name %}, consulte "[Sobre licenças para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)" e "[Fazer o download da sua licença para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)".
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
-## Uploading your license to {% data variables.product.product_location_enterprise %}
+## Fazendo o upload da sua licença para {% data variables.product.product_location_enterprise %}
 
 1. Efetue o login em {% data variables.product.product_location_enterprise %} como administrador do site.
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -28,7 +28,7 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 {% ifversion ghes < 3.0 %}
 
-If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."
+Se a interface web para {% data variables.product.prodname_ghe_server %} não refletir sua licença atualizada imediatamente, consulte "[Solução de problemas](#troubleshooting). "
 
 ## Solução de Problemas
 

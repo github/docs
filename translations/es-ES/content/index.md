@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Documentación de Ayuda'
+title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} Documentación de Ayuda'
 featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
@@ -27,6 +27,7 @@ children:
   - actions
   - codespaces
   - packages
+  - search-github
   - developers
   - rest
   - graphql

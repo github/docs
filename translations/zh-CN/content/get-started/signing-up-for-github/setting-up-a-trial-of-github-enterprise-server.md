@@ -18,7 +18,7 @@ shortTitle: Enterprise Server 试用版
 
 您可以申请 45 天试用版来试用 {% data variables.product.prodname_ghe_server %}。 您的试用版将作为虚拟设备安装，带有内部或云部署选项。 有关支持的可视化平台列表，请参阅“[设置 GitHub Enterprise Server 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”。
 
-{% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}安全{% endif %}警报和 {% data variables.product.prodname_github_connect %} 目前在 {% data variables.product.prodname_ghe_server %} 试用版中不可用。 要获取这些功能的演示，请联系 {% data variables.contact.contact_enterprise_sales %}。 有关这些功能的更多信息，请参阅“[关于对有漏洞的依赖项发出警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)”。
+{% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}安全{% endif %}警报和 {% data variables.product.prodname_github_connect %} 目前在 {% data variables.product.prodname_ghe_server %} 试用版中不可用。 要获取这些功能的演示，请联系 {% data variables.contact.contact_enterprise_sales %}。 For more information about these features, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 试用版也可用于 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/articles/setting-up-a-trial-of-github-enterprise-cloud)”。
 

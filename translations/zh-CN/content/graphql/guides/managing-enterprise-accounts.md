@@ -58,8 +58,9 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
     - `admin:enterprise`
 
   企业帐户特定作用域包括：
-    - `admin:enterprise`：全面控制企业（包括 `manage_billing:enterprise` 和 `read:enterprise`）
-    - `manage_billing:enterprise`：读取和写入企业帐单数据。
+    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`：读取企业简介数据。
 
 4. 复制个人访问令牌并保存在安全的位置，直到将其添加至您的 GraphQL 客户端。

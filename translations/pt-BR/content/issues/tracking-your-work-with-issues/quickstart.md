@@ -19,7 +19,7 @@ Este guia demonstra como usar {% data variables.product.prodname_github_issues %
 
 ## Pré-requisitos
 
-Para criar um problema, você precisa de um repositório. Você pode usar um repositório existente ao qual você tem acesso de gravação ou criar um novo repositório. O repositório deve ter problemas habilitados. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)". Para obter mais informações sobre problemas de habilitação se eles estiverem desabilitados no seu repositório, consulte "[Desabilitar problemas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
+Para criar um problema, você precisa de um repositório. Você pode usar um repositório existente ao qual você tem acesso de gravação ou criar um novo repositório. {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)". Para obter mais informações sobre problemas de habilitação se eles estiverem desabilitados no seu repositório, consulte "[Desabilitar problemas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
 
 ## Abrir um problema em branco
 

@@ -160,7 +160,11 @@ Puedes instalar paquetes desde {% data variables.product.prodname_registry %} al
 
 Por defecto, puedes agregar paquetes de una organización. Para obtener más información, consulta la sección "[Instalar paquetes de otras organizaciones](#installing-packages-from-other-organizations)".
 
-También debes agregar el archivo *.npmrc* a tu proyecto por lo que todas las solicitudes de instalación de paquetes pasarán por {% data variables.product.prodname_registry %}. Cuando enrutas todas las solicitudes de paquete a través de {% data variables.product.prodname_registry %}, puedes usar paquetes con alcance definido y sin alcance definido de *npmjs.com*. Para obtener más información, consulta "[npm-scope](https://docs.npmjs.com/misc/scope)" en la documentación de npm.
+También necesitas agregar el archivo *.npmrc* a tu proyecto para que todas las solicitudes para instalar paquetes se {% ifversion ghae %}enruten a{% else %}pasen por{% endif %} el {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes > 2.21 %}Cuando enrutas todas las solicitudes de paquetes a través del {% data variables.product.prodname_registry %}, puedes utilizar tanto los paquetes dentro como fuera del alcance de *npmjs.org*. Para obtener más información, consulta la sección de "[npm-scope](https://docs.npmjs.com/misc/scope)" en la documentación de npm.{% endif %}
+
+{% ifversion ghae %}
+Predeterminadamente, solo puedes utilizar paquetes de npm hospedados en tu empresa y no podrás utilizar paquetes fuera del alcance. Para obtener más información sobre el alcance de los paquetes, consulta la sección de "[npm-scope](https://docs.npmjs.com/misc/scope)" en la documentación de npm. En caso de que se requiera, se puede habilitar el {% data variables.product.prodname_dotcom %} en un proxy de nivel superior como npmjs.org. Una vez que se habilite un proxy de nivel superior, si un paquete que se haya solicitado no se encuentra en tu empresa, el {% data variables.product.prodname_registry %} hará una solicitud de proxy a npmjs.org.
+{% endif %}
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}

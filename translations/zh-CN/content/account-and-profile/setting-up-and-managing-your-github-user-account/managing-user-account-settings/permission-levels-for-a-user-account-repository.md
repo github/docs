@@ -35,7 +35,7 @@ shortTitle: 权限用户仓库
 | {% ifversion fpt %}邀请协作者{% else %}添加协作者{% endif %}                                                                       |                                                                                                                                                                                                                             |
 | "[邀请个人仓库的协作者](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)" |                                                                                                                                                                                                                             |
 | 更改仓库的可见性                                                                                                                 | “[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)” |{% ifversion fpt %}
-| 限制与仓库的交互                                                                                                                 | “[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”|{% endif %}{% ifversion fpt or ghes > 3.0 %}
+| 限制与仓库的交互                                                                                                                 | “[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”|{% endif %}{% ifversion fpt or ghes > 3.0 or ghae-next %}
 | 重命名分支，包括默认分支                                                                                                             | "[重命名分支](/github/administering-a-repository/renaming-a-branch)" 
 {% endif %}
 | 合并受保护分支上的拉取请求（即使没有批准审查）                                                                                                  | "[关于受保护分支](/github/administering-a-repository/about-protected-branches)"                                                                                                                                                    |
@@ -73,7 +73,7 @@ shortTitle: 权限用户仓库
 
 | 操作                          | 更多信息                                                                                                                                                               |
 |:--------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 复刻仓库                        | "[关于复刻](/github/collaborating-with-issues-and-pull-requests/about-forks)" |{% ifversion fpt or ghes > 3.1 %}
+| 复刻仓库                        | "[关于复刻](/github/collaborating-with-issues-and-pull-requests/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae-next %}
 | 重命名除默认分支以外的分支               | "[重命名分支](/github/administering-a-repository/renaming-a-branch)" 
 {% endif %}
 | 在仓库中创建、编辑和删除关于提交、拉取请求和议题的评论 | <ul><li>"[关于议题](/github/managing-your-work-on-github/about-issues)"</li><li>"[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)"</li><li>"[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul>                                                                                                                                          |

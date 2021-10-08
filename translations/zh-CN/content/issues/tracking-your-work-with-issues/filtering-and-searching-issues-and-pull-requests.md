@@ -102,7 +102,8 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 - [需要审查](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)后才能合并的拉取请求
 - 审查者已批准的拉取请求
 - 审查者要求更改的拉取请求
-- 您已审查的拉取请求
+- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 %}
+- Pull requests that someone has asked you directly to review{% endif %}
 - [有人要求您或您所属团队进行审查](/articles/requesting-a-pull-request-review)的拉取请求
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -185,7 +186,8 @@ gh pr list --search "team:octo-org/octo-team"
 - 过滤审查者已批准的拉取请求：`state:open type:pr review:approved`
 - 过滤审查者要求更改的拉取请求：`state:open type:pr review:changes_requested`
 - 按[审查者](/articles/about-pull-request-reviews/)过滤拉取请求：`state:open type:pr reviewed-by:octocat`
-- 按[请求审查](/articles/requesting-a-pull-request-review)的特定用户过滤拉取请求：`state:open type:pr review-requested:octocat`
+- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
 - 按申请审查的团队过滤拉取请求：`state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
 - 过滤链接到拉取请求可能关闭的议题的拉取请求：`linked:issue`{% endif %}
 

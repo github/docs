@@ -13,7 +13,7 @@ topics:
 
 {% data variables.product.product_name %} está constantemente melhorando, com novas funcionalidades e correções de erros introduzidas por meio de versões maiores e menores. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado. Portanto, {% data variables.product.company_short %} conclui o processo de atualização da sua empresa.{% endif %}
 
-As principais versões incluem novas funcionalidades e atualizações de recursos e, de modo geral, ocorrem {% ifversion ghae %}a cada algumas semanas ou meses{% else %} trimestralmente{% endif %}. {% ifversion ghae %}{% data variables.product.company_short %} irá atualizar a empresa para a última versão principal. Você será avisado antecipadamente de qualquer período de inatividade planejado para sua empresa.{% endif %}
+As principais versões incluem novas funcionalidades e atualizações de recursos e normalmente ocorrem a cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} irá atualizar a empresa para a última versão principal. Você será avisado antecipadamente de qualquer período de inatividade planejado para sua empresa.{% endif %}
 
 {% ifversion ghes %}
 
@@ -43,7 +43,6 @@ Para atualizar a sua empresa para uma nova versão, consulte "[Liberar notas](/e
 
 ## Leia mais
 
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) no repositório  `github/roadmap`
-{% ifversion ghae %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) no repositório `github/roadmap` {% ifversion ghae %}
 - [ Observações da versão de {% data variables.product.prodname_ghe_managed %}](/admin/release-notes)
 {% endif %}

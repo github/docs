@@ -1,7 +1,7 @@
 ---
 date: '2021-09-09'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: Se {% data variables.product.product_location %} estiver executando a criação de um candidato a versão, você não pode fazer a atualização com um hotpatch. Recomendamos apenas executar candidatos em ambientes de teste.
 sections:
   features:

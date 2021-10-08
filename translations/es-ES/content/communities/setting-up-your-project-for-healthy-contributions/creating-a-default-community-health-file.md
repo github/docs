@@ -15,7 +15,7 @@ shortTitle: Archivo de salud de la comunidad
 
 ## Acerca de los archivos predeterminados del estado de la comunidad
 
-You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders.
+Puedes agregar archivos de salud comunitaria predeterminados a un repositorio público llamado `.github` en la raíz del repositorio o en las carpetas de `docs` o de `.github` .
 
 {% data variables.product.product_name %} utilizará y mostrará los archivos predeterminados para cualquier repositorio que pertenezca a la cuenta que no tenga su propio archivo de ese tipo en cualquiera de los siguientes lugares:
 - la raíz del repositorio
@@ -49,4 +49,4 @@ No puedes crear un archivo de licencia predeterminado. Los archivos de licencia 
 4. Asegúrate de que el estado del repositorio se encuentre configurado en **Público** (los repositorios para los archivos predeterminados no pueden ser privados). ![Botones de selección para seleccionar el estado público o privado](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. En el repositorio, crea uno de los archivos admitidos de estado de la comunidad. Las plantillas de reporte de problemas{% ifversion fpt or ghae or ghes %} y su archivo de configuración{% endif %} deben estar en una carpeta llamada `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. Para obtener más información, consulta "[Crear nuevos archivos](/articles/creating-new-files/)."
+7. En el repositorio, crea uno de los archivos admitidos de estado de la comunidad. Las plantillas de reporte de problemas{% ifversion fpt or ghae or ghes %} y su archivo de configuración{% endif %} deben estar en una carpeta llamada `.github/ISSUE_TEMPLATE`. El resto de los archivos compatibles podrían estar en la raíz del repositorio, en la carpeta de `.github` o en la de `docs`. Para obtener más información, consulta "[Crear nuevos archivos](/articles/creating-new-files/)."

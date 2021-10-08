@@ -1,7 +1,7 @@
 ---
 title: Publicar paquetes
 shortTitle: Publicar paquetes
-intro: 'You can automatically publish packages using {% data variables.product.prodname_actions %}.'
+intro: 'Puedes publicar paquetes automáticamente utilizando las {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
