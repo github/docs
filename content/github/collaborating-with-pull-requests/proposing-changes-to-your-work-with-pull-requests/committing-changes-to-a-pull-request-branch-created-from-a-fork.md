@@ -35,15 +35,15 @@ Only the user who created the pull request can give you permission to push commi
  **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[Cloning a repository to {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
 
  {% endtip %}
-4. Change the current working directory to the location where you want to download the cloned directory.
+5. Change the current working directory to the location where you want to download the cloned directory.
   ```shell
   $ cd open-source-projects
   ```
-5. Type `git clone`, and then paste the URL you copied in Step 3.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
-6. Press **Enter**. Your local clone will be created.
+7. Press **Enter**. Your local clone will be created.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
@@ -57,11 +57,11 @@ Only the user who created the pull request can give you permission to push commi
  **Tip:** The error message "fatal: destination path 'REPOSITORY-NAME' already exists and is not an empty directory" means that your current working directory already contains a repository with the same name. To resolve the error, you must clone the fork in a different directory.
 
  {% endtip %}
-7. Navigate into your new cloned repository.
+8. Navigate into your new cloned repository.
   ```shell
   $ cd <em>FORK-OF-THE-REPOSITORY</em>
   ```
-7. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
+9. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
 ![compare-branch-example](/assets/images/help/pull_requests/compare-branch-example.png)
  In this example, the compare branch is `test-branch`:
   ```shell
@@ -73,8 +73,8 @@ Only the user who created the pull request can give you permission to push commi
  **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."
 
  {% endtip %}
-8. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
-9. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
+10. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
+11. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
   ```shell
   $ git push origin <em>test-branch</em>
   > Counting objects: 32, done.
