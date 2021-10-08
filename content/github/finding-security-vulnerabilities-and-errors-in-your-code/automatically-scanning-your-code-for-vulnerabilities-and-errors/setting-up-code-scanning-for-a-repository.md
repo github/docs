@@ -85,7 +85,7 @@ The names of the {% data variables.product.prodname_code_scanning %} analysis ch
 
 When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis. If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see a "Missing analysis" message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
 
-  ![Missing analysis for commit message](/assets/images/help/repository/code-scanning-missing-analysis.png)
+  ![Missing analysis for commit message](/assets/images/enterprise/2.22/repository/code-scanning-missing-analysis.png)
 
 ### Reasons for the "missing analysis" message
 
