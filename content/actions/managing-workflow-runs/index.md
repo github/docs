@@ -14,7 +14,7 @@ versions:
   ghae: '*'
 children:
   - /manually-running-a-workflow
-  - /re-running-a-workflow
+  - /re-running-workflows-and-jobs
   - /canceling-a-workflow
   - /approving-workflow-runs-from-public-forks
   - /reviewing-deployments
