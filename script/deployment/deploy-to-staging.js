@@ -558,7 +558,7 @@ See Heroku logs for more information:\n${logUrl}`
         timeout: 10000, // Maximum 10 second timeout per request
         retry: {
           limit: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
-          statusCodes: [404].concat(got.defaults.options.retry.statusCodes), // 404 is extra
+          statusCodes: [404, 421].concat(got.defaults.options.retry.statusCodes), // prepend extras
         },
         hooks: {
           beforeRetry: [
