@@ -34,4 +34,4 @@ Você pode editar wikis diretamente no {% data variables.product.product_name %}
 - "[Criar um footer ou uma barra lateral para seu wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
 - "[Editar conteúdo do wiki](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
 - "[Exibir histórico de alterações de um wiki](/articles/viewing-a-wiki-s-history-of-changes)"
-- "[Pesquisar wikis](/articles/searching-wikis)"
+- "[Pesquisar wikis](/search-github/searching-on-github/searching-wikis)"

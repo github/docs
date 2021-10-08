@@ -70,12 +70,14 @@ Las notificaciones por correo electrónico también permiten la flexibilidad con
 Cuando observas un repositorio, te suscribes a las actualizaciones de la actividad en el mismo. De forma similar, cuando observas las discusiones específicas de un equipo, te suscribes a todas las actualizaciones de la conversación en la página de ese equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 Para ver los repositorios que estás observando, dirígete a tu [página de observados](https://github.com/watching). Para obtener más información, consulta la sección "[Administrar suscricpiones y notificaciones en GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
+
 {% ifversion ghae or ghes < 3.1 %}
 ### Configurar notificaciones
 {% endif %}
-Puedes configurar las notificaciones de un repositorio en la página del mismo o en tu página de observados.{% ifversion ghae or ghes < 3.1 %} puedes elegir solo recibir notificaciones para los lanzamientos de un repositorio o ignorar todas las notificaciones de este.{% endif %}
+Puedes configurar las notificaciones de un repositorio en la página del mismo o en tu página de observados.{% ifversion ghes < 3.1 %} puedes elegir solo recibir notificaciones para los lanzamientos de un repositorio o ignorar todas las notificaciones de este.{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ### Acerca de las notificaciones personalizadas
 Puedes personalizar las notificaciones de un repositorio. Por ejemplo, puedes elegir que solo se te notifique cuando suceden las actualizaciones a uno o más eventos ({% data reusables.notifications-v2.custom-notification-types %}) dentro de un repositorio o ignorar todas las notificaciones de este.
 {% endif %} Para obtener más información, consulta la sección "[Configurar tus ajustes de observación para un repositorio individual](#configuring-your-watch-settings-for-an-individual-repository)" a continuación.
@@ -158,25 +160,18 @@ Si inhabilitas la opción de "Observar los repositorios automáticamente", no po
 
 ## Configurar los ajustes de observación para un repositorio individual
 
-Puedes elegir si quieres observar o dejar de observar un repositorio individual. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository){% else %}new releases{% endif %}, or completely ignore an individual repository.
+Puedes elegir si quieres observar o dejar de observar un repositorio individual. También puedes elegir que solo se te notifique sobre {% ifversion fpt or ghes > 3.0 or ghae-next %}algunos tipos de evento tales como {% data reusables.notifications-v2.custom-notification-types %} (si es que se habilitó en el repositorio) {% else %}lanzamientos nuevos{% endif %}, o ignorar completamente un repositorio individual.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. En la esquina superior derecha, da clic en el menú desplegable "Observar" para seleccionar una opción de observación.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
    ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
-La opción **Personalizar** te permite personalizar aún más las notificaciones para que solo se te notifique cuando suceden eventos específicos en el repositorio, adicionalmente a participar y tener @menciones.
-
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
-   ![Opciones de observación personalizada en un menú desplegable de un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+   La opción **Personalizar** te permite personalizar aún más las notificaciones para que solo se te notifique cuando suceden eventos específicos en el repositorio, adicionalmente a participar y tener @menciones.
 {% else %}
-   ![Opciones de observación personalizada en un menú desplegable de un repositorio](/assets/images/enterprise/3.1/help/notifications-v2/watch-repository-options-custom2.png)
-{% endif %}
-
-Si seleccionas "propuestas", se te notificará sobre y suscribirá a las actualizaciones de cada propuesta (incluyendo aquellas que existieron antes de que seleccionaras esta opción) del repositorio. Si se te @menciona en una solicitud de cambios de este repositorio, también recibirás notificaciones por este evento y se te suscribirá a las actualizaciones de esa solicitud de cambios específica adicionalmente a las notificaciones que tendrás sobre las propuestas.
-
+     ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+   ![Opciones de observación personalizada en un menú desplegable de un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) Si seleccionas "propuestas", se te notificará sobre y suscribirá a las actualizaciones de cada propuesta (incluyendo aquellas que existieron antes de que seleccionaras esta opción) del repositorio. Si se te @menciona en una solicitud de cambios de este repositorio, también recibirás notificaciones por este evento y se te suscribirá a las actualizaciones de esa solicitud de cambios específica adicionalmente a las notificaciones que tendrás sobre las propuestas.
 {% endif %}
 
 ## Elegir a dónde se envían las notificaciones por correo electrónico de tu organización

@@ -16,7 +16,7 @@ versions:
 shortTitle: Manusear delimitadores
 ---
 
-## About line endings
+## Sobre os delimitadores de linha
 Toda vez que você pressionar <kbd>retornar</kbd> no seu teclado, você insere um caractere invisível denominado delimitador. Os diferentes sistemas operacionais gerenciam os delimitadores de formas diferentes.
 
 Ao colaborar em projetos com Git e {% data variables.product.product_name %}, o Git pode produzir resultados inesperados se, por exemplo, você estiver trabalhando em uma máquina que use o Windows e o seu colaborador dizer uma mudança no macOS.

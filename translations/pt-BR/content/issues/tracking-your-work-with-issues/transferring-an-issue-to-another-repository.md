@@ -42,7 +42,7 @@ As pessoas ou equipes mencionadas no problema receberão uma notificação infor
 
 {% data reusables.cli.cli-learn-more %}
 
-To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+Para transferir um problema, use o subcomando `gh issue transfer`. Substitua o parâmetro `problema` pelo número ou URL do problema. Substitua o parâmetro `{% ifversion ghes %}nome do host/{% endif %}proprietário/repositório` pelo {% ifversion ghes %}URL{% else %}nome{% endif %} do repositório para o qual você deseja transferir o problema como, por exemplo, `{% ifversion ghes %}https://ghe. o/{% endif %}octocat/octo-repo`.
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>

@@ -15,7 +15,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de las variables de entorno
 
@@ -73,6 +72,7 @@ Te recomendamos encarecidamente que las acciones usen variables de entorno para 
 | `GITHUB_SERVER_URL`  | Devuelve la URL del servidor de {% data variables.product.product_name %}. Por ejemplo: `https://{% data variables.product.product_url %}`.                                                                                                                                                                                                          |
 | `GITHUB_API_URL`     | Devuelve la URL de la API. Por ejemplo: `{% data variables.product.api_url_code %}`.                                                                                                                                                                                                                                                                 |
 | `GITHUB_GRAPHQL_URL` | Devuelve la URL de la API de GraphQL. Por ejemplo: `{% data variables.product.graphql_url_code %}`.                                                                                                                                                                                                                                                  |
+| `RUNNER_NAME`        | {% data reusables.actions.runner-name-description %}
 | `RUNNER_OS`          | {% data reusables.actions.runner-os-description %}
 | `RUNNER_TEMP`        | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}

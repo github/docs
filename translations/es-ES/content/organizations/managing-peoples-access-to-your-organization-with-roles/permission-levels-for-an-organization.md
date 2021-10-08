@@ -26,7 +26,7 @@ Los miembros de la organización pueden tener roles de *propietario*{% ifversion
 - El acceso como **Miembros** es el rol por defecto para todo el resto.
 
 {% ifversion fpt %}
-Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+Algunas de las características que se listan a continuación se limitan a las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 {% ifversion fpt %}
@@ -135,9 +135,9 @@ Some of the features listed below are limited to organizations using {% data var
 
 ## {% data variables.product.prodname_github_app %} administadores
 
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+Predeterminadamente, solo los propietarios de la organización pueden administrar la configuración de las {% data variables.product.prodname_github_apps %} que pertenezcan a una organización. Para permitir que más usuarios administren las {% data variables.product.prodname_github_apps %} que le pertenecen a una organización, un propietario puede otorgarles permisos de administrador de {% data variables.product.prodname_github_app %}.
 
-When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. Para obtener más información, consulta:
+Cuando designas un usuario como administrador de {% data variables.product.prodname_github_app %} en tu organización, puedes otorgarle acceso para administrar las configuraciones de algunas o todas las {% data variables.product.prodname_github_apps %} que le pertenecen a la organización. Para obtener más información, consulta:
 
 - "[Agregar administradores de GitHub App en tu organización](/articles/adding-github-app-managers-in-your-organization)"
 - "[Eliminar administradores de GitHub App de tu organización](/articles/removing-github-app-managers-from-your-organization)"

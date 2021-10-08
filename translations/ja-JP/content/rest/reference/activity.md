@@ -145,6 +145,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 | `assign`           | Issue に割り当てられた。                                                                                                                                                        |
 | `作者`               | スレッドを作成した。                                                                                                                                                             |
 | `コメント`             | スレッドにコメントした。                                                                                                                                                           |
+| `ci_activity`      | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.                                                                         |
 | `招待`               | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
 | `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                  |
 | `メンション`            | コンテンツで具体的に**@メンション**された。                                                                                                                                               |

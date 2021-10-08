@@ -13,16 +13,15 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
-shortTitle: Deploy to Kubernetes (GKE)
+shortTitle: Deploy to Google Kubernetes Engine
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE).
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when a release is created.
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
@@ -61,7 +60,7 @@ $ gcloud services enable \
 
 ### Configuring a service account and storing its credentials
 
-This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded [encrypted repository secret](/actions/reference/encrypted-secrets) named `GKE_SA_KEY`.
+This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
 
 1. Create a new service account:
   {% raw %}
@@ -97,15 +96,28 @@ This procedure demonstrates how to create the service account for your GKE integ
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
+  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
+### Storing your project name
+
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ### (Optional) Configuring kustomize
 Kustomize is an optional tool used for managing YAML specs. After creating a _kustomization_ file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
+
+### (Optional) Configure a deployment environment
+
+{% data reusables.actions.about-environments %}
 
 ## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
 
 The following example workflow demonstrates how to build a container image and push it to GCR. It then uses the Kubernetes tools (such as `kubectl` and `kustomize`) to pull the image into the cluster deployment.
+
+Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -127,8 +139,9 @@ jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    steps:
+    environment: production
 
+    steps:
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -138,7 +151,8 @@ jobs:
         service_account_key: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
         project_id: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
 
-    # Configure docker to use the gcloud command-line tool as a credential helper
+    # Configure Docker to use the gcloud command-line tool as a credential
+    # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
 
@@ -166,7 +180,7 @@ jobs:
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
-        curl --location https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_linux_amd64.tar.gz | tar xz
+        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
 
     # Deploy the Docker image to the GKE cluster

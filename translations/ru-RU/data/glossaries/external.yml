@@ -9,7 +9,7 @@
 - 
   term: токен восстановления учетной записи
   description: >-
-    Учетные данные для проверки подлинности, хранящиеся в настройках восстановления учетной записи и называемые «Восстановление учетной записи в любом месте», позволяют сохранять эту резервную копию учетных данных.
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: предпросмотр API
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: Восстановление учетных записей в любом месте
   description: >-
-    Позволяет пользователям настроить дополнительный уровень безопасности своей учетной записи GitHub на случай утери данных для двухфакторной аутентификации или кодов восстановления доступа. Пользователи могут связать свою учетную запись GitHub со своей учетной записью Facebook, сохранив данные для аутентификации в виде токена восстановления учетной записи для своей учетной записи GitHub, связанной с Facebook.
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: код восстановления
   description: Код для восстановления доступа к учетной записи GitHub пользователя.

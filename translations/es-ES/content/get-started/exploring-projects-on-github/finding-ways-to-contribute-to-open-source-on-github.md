@@ -1,6 +1,7 @@
 ---
 title: Encontrar maneras para colaborar con el código abierto en GitHub
 intro: 'Puedes encontrar maneras de contribuir a los proyectos de código abierto en {% data variables.product.product_name %} que te parezcan relevantes.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
   - /articles/finding-interesting-projects-on-github/
@@ -19,7 +20,7 @@ shortTitle: Contribuir al código abierto
 
 ## Descubrir proyectos relevantes
 
-Si hay un tema en particular que te interese, visita `github.com/topics/<topic>`. Por ejemplo, si te interesa el aprendizaje automático, puedes encontrar proyectos relevantes e informes de problemas iniciales si visitas https://github.com/topics/machine-learning. Puedes buscar temas populares si visitas [Temas](https://github.com/topics). También puedes buscar repositorios que empaten con algún tema que te interese. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-by-topic)".
+Si hay un tema en particular que te interese, visita `github.com/topics/<topic>`. Por ejemplo, si te interesa el aprendizaje automático, puedes encontrar proyectos relevantes e informes de problemas iniciales si visitas https://github.com/topics/machine-learning. Puedes buscar temas populares si visitas [Temas](https://github.com/topics). También puedes buscar repositorios que empaten con algún tema que te interese. Para obtener más información, consulta "[Buscar repositorios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
 
 Si has tenido actividad en {% data variables.product.product_name %} recientemente, puedes encontrar recomendaciones personalizadas para proyectos e informes de problemas iniciales que se basen en tus contribuciones, estrellas y otras actividades previas en [Explore](https://github.com/explore). También puedes registrarte para el boletín Explore para recibir correos electrónicos sobre las oportunidades disponibles para colaborar con {% data variables.product.product_name %} de acuerdo a tus intereses. Para registrarte, consulta [Boletín Explore por correo](https://github.com/explore/subscribe).
 

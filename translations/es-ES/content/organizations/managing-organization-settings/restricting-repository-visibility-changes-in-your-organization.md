@@ -31,4 +31,4 @@ Puedes restringir la habilidad de cambiar la visibilidad de un repositorio para 
 
 ## Leer más
 
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

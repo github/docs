@@ -1,6 +1,7 @@
 ---
 title: Atribuir problemas e pull requests a outros usuários do GitHub
 intro: Os responsáveis esclarecem quem está trabalhando em problemas e pull requests específicos.
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -14,8 +15,6 @@ topics:
   - Pull requests
 shortTitle: Atribuir problemas & PRs
 ---
-
-Qualquer pessoa com permissões de gravação em um repositório pode atribuir problemas e pull requests.
 
 ## Sobre o problema e os responsáveis por pull request
 

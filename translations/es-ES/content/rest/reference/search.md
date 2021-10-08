@@ -50,7 +50,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-Consulta la sección "[Buscar en GitHub](/articles/searching-on-github/)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas, o para que excluyan resultados, consulta "[Entender la sintaxis de búsqueda](/articles/understanding-the-search-syntax/)".
+Consulta la sección "[Buscar en GitHub](/articles/searching-on-github/)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas o para que excluyan resultados, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitaciones sobre la longitud de la consulta
 

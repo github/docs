@@ -61,5 +61,5 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-## Managing usage and spending limit email notifications
+## Gerenciamento de notificações por e-mail e limite de gastos
 {% data reusables.billing.email-notifications %}

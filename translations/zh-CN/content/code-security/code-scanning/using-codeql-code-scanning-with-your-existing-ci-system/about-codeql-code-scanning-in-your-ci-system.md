@@ -91,8 +91,8 @@ redirect_from:
 
 {% endif %}
 
-<!--Content for GHAE and GHES 3.0 only. Only CodeQL runner is available -->
-{% ifversion ghes = 3.0 or ghae %}
+<!--Content for GHES 3.0 only. Only CodeQL runner is available -->
+{% ifversion ghes = 3.0 %}
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 将 {% data variables.product.prodname_codeql_runner %} 添加到第三方系统，然后调用工具分析代码并将 SARIF 结果上传到 {% data variables.product.product_name %}。 由此产生的 {% data variables.product.prodname_code_scanning %} 警报与 {% data variables.product.product_name %} 内生成的任何警报一起显示。

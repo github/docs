@@ -1,11 +1,11 @@
 ---
 title: Sobre revisão de dependências
 intro: 'A revisão de dependências permite que você capture dependências vulneráveis antes de introduzi-las no seu ambiente e fornece informações sobre licença, dependências e idade das dependências.'
+product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Revisão de dependência
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: overview
 topics:
   - Advanced Security
@@ -38,6 +38,6 @@ Ao verificar as revisões de dependências em um pull request e alterar todas as
 
 A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-## Enabling dependency review
+## Habilitar revisão de dependências
 
-The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. {% ifversion fpt %}Para obter mais informações, consulte "[Habilitar o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).{% endif %}{% ifversion ghes > 3.1 %}Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}

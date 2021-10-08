@@ -18,13 +18,7 @@ API プレビューを使用すると、正式に GitHub API の一部になる�
 
 API プレビューにアクセスするには、リクエストの ` Accept` ヘッダー内でカスタムの[メディアタイプ](/rest/overview/media-types)を提供しなければなりません。 各プレビューの機能ドキュメントに、どのカスタムメディアタイプを提供するのかが示されています。
 
-{% ifversion fpt %}
-## 移行
-
-GitHub ユーザまたは Organization アカウントからリポジトリをダウンロードして、データの確認、バックアップ、{% data variables.product.prodname_ghe_server %} への[移行](/rest/reference/migrations)ができます。
-
-**カスタムメディアタイプ:** `wyandotte-preview` **発表日:** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
-{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## 強化されたデプロイメント
 
@@ -32,17 +26,27 @@ GitHub ユーザまたは Organization アカウントからリポジトリを�
 
 **カスタムメディアタイプ:** `ant-man-preview` **発表日:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
+
 ## リアクション
 
 コミット、Issue、コメントに対する[リアクション](/rest/reference/reactions)を管理します。
 
 **カスタムメディアタイプ:** `squirrel-girl-preview` **発表日:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **更新日:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
 
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
+
 ## タイムライン
 
 Issue またはプルリクエストの[イベントのリスト](/rest/reference/issues#timeline)を取得します。
 
 **カスタムメディアタイプ:** `mockingbird-preview` **発表日:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
+
+{% endif %}
 
 {% ifversion ghes %}
 ## pre-receive 環境
@@ -52,11 +56,13 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 **カスタムメディアタイプ:** `eye-scream-preview` **発表日:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 ## プロジェクト
 
 [プロジェクト](/rest/reference/projects)を管理します。
 
 **カスタムメディアタイプ:** `inertia-preview` **発表日:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **更新日:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
+{% endif %}
 
 ## コミット検索
 
@@ -70,11 +76,15 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 
 **カスタムメディアタイプ:** `mercy-preview` **発表日:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
 
+{% ifversion ghes < 3.3 %}
+
 ## 行動規範
 
 すべての[行動規範](/rest/reference/codes-of-conduct)を表示するか、リポジトリに現在ある行動規範を取得します。
 
 **カスタムメディアタイプ:** `scarlet-witch-preview`
+
+{% endif %}
 
 {% ifversion ghae or ghes %}
 
@@ -93,11 +103,15 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 
 **カスタムメディアタイプ:** `zzzax-preview` **発表日:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
 
+{% ifversion ghes < 3.3 %}
+
 ## 複数の承認レビューの必須化
 
 API を使用して、プルリクエストに対して[複数の承認レビューを必須にする](/rest/reference/repos#branches)ことができるようになりました。
 
 **カスタムメディアタイプ:** `luke-cage-preview` **発表日:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
+
+{% endif %}
 
 {% ifversion ghes < 3.0 %}
 ## チェック実行とチェックスイート API
@@ -135,11 +149,17 @@ GitHub App マニフェストを使用すると、事前設された GitHub App 
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
+
 ## デプロイメントステータス
 
 [デプロイメントステータス](/rest/reference/repos#create-a-deployment-status)の`環境`を更新し、`in_progress` および `queued` ステータスを使用できるようになりました。 デプロイメントステータスを作成するときに、`auto_inactive` パラメータを使用して、古い`本番`デプロイメントを `inactive` としてマークできるようになりました。
 
 **カスタムメディアタイプ:** `flash-preview` **発表日:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
+
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
 
 ## リポジトリの作成権限
 
@@ -147,17 +167,23 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 **カスタムメディアタイプ:** `surtur-preview` **発表日:** [2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
 
+{% endif %}
+
 ## コンテンツの添付
 
 {% data variables.product.prodname_unfurls %} API を使用して、登録されたドメインにリンクする URL の詳細情報を GitHub で提供できるようになりました。 詳細については、「[添付コンテンツを使用する](/apps/using-content-attachments/)」を参照してください。
 
 **カスタムメディアタイプ:** `corsair-preview` **発表日:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
+{% ifversion ghes < 3.3 %}
+
 ## Pages の有効化と無効化
 
 [Pages API](/rest/reference/repos#pages) の新しいエンドポイントを使用して、Pages を有効または無効にできます。 Pages の詳細については、「[GitHub Pages の基本](/categories/github-pages-basics) 」を参照してください。
 
 **カスタムメディアタイプ:** `switcheroo-preview` **発表日:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
+
+{% endif %}
 
 {% ifversion ghes < 3.3 %}
 
@@ -169,11 +195,7 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 {% endif %}
 
-## リポジトリの脆弱性アラートの有効化または無効化
-
-[Repos API](/rest/reference/repos) で 2 つの新しいエンドポイントを使用して、脆弱性アラートを有効化または無効化できます。
-
-**カスタムメディアタイプ:** `dorian-preview` **発表日:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
+{% ifversion ghes < 3.3 %}
 
 ## プルリクエストブランチの更新
 
@@ -181,12 +203,6 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 **カスタムメディアタイプ:** `lydian-preview` **発表日:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
-{% ifversion fpt %}
-## 自動セキュリティ修正の有効化または無効化
-
-新しいエンドポイントを使用して、[自動セキュリティ修正を有効化または無効化](/rest/reference/repos#enable-automated-security-fixes)することができます。
-
-**カスタムメディアタイプ:** `london-preview` **発表日:** [2019-06-04](https://developer.github.com/changes/2019-06-04-automated-security-fixes/)
 {% endif %}
 
 ## リポジトリテンプレートの作成および使用
@@ -195,7 +211,8 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 **カスタムメディアタイプ:** `baptiste-preview` **発表日:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion ghes < 3.3 %}
+
 ## Repositories API の新しい可視性パラメータ
 
 [Repositories API](/rest/reference/repos) でリポジトリの可視性を設定および取得できます。

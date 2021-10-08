@@ -16,7 +16,7 @@ You can discover, browse, and install free and paid tools, including {% data var
 
 ## 在 {% data variables.product.prodname_marketplace %} 上查找工具
 
-您可以发现、浏览和安装其他人在 {% data variables.product.prodname_marketplace %} 上创建的 应用程序和操作，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)”。
+您可以发现、浏览和安装其他人在 {% data variables.product.prodname_marketplace %} 上创建的 应用程序和操作，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)”。
 
 {% data reusables.actions.actions-not-verified %}
 

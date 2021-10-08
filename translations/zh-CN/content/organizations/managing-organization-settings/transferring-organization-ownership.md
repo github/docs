@@ -15,6 +15,13 @@ topics:
 shortTitle: 转移所有权
 ---
 
+{% ifversion fpt %}
+{% note %}
+
+**注：**{% data reusables.enterprise-accounts.invite-organization %}
+
+{% endnote %}{% endif %}
+
 1. 如果您是具有*所有者*权限的唯一成员，则授予其他组织成员所有者角色。 更多信息请参阅“[任命组织所有者](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)”。
 2. 联系新的所有者，确保其能够[访问组织的设置](/articles/accessing-your-organization-s-settings)。
 {% ifversion fpt %}

@@ -18,7 +18,9 @@ shortTitle: Add an email address
 
 {% note %}
 
-**Hinweis:** {% data reusables.user_settings.no-verification-disposable-emails %}
+**Hinweise**:
+  - {% data reusables.user_settings.no-verification-disposable-emails %}
+  -  If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your email address on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 

@@ -68,6 +68,8 @@ Die Anzahl der Aufträge, die Du gleichzeitig über alle Repositories in Deinem 
 
 ## Minuten- und Speicherausgaben berechnen
 
+{% data reusables.dotcom_billing.pricing_cal %}
+
 Am Ende des Monats berechnet {% data variables.product.prodname_dotcom %} die Minuten- und Speicherkosten, die über den in Deinem Konto enthaltenen Kontingent liegen.
 
 ### Sample minutes cost calculation

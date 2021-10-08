@@ -22,7 +22,7 @@ shortTitle: 查看代码扫描日志
 
 您可以使用各种工具在仓库中设置 {% data variables.product.prodname_code_scanning %} 。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)”。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 您可用的日志和诊断信息取决于您在 {% data variables.product.prodname_code_scanning %} 中使用的方法。 您可以使用警报列表中的 **Tool（工具）**下拉菜单，检查仓库的 **Security（安全）**选项卡中使用的 {% data variables.product.prodname_code_scanning %} 类型。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
 ## 关于分析和诊断信息
@@ -35,7 +35,7 @@ shortTitle: 查看代码扫描日志
 
 如果您在 {% data variables.product.prodname_dotcom %} 外部使用 {% data variables.product.prodname_codeql_cli %} ，您将在数据库分析期间生成的输出中看到诊断信息。 此信息也包含在您随 {% data variables.product.prodname_code_scanning %} 结果上传到 {% data variables.product.prodname_dotcom %} 的 SARIF 结果文件中。
 
-有关 {% data variables.product.prodname_codeql_cli %} 的信息，请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)”。
+For information about the {% data variables.product.prodname_codeql_cli %}, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)."
 
 ### 关于摘要指标
 
@@ -72,7 +72,7 @@ shortTitle: 查看代码扫描日志
 
 **注意：** 如果您提出拉取请求以将 {% data variables.product.prodname_code_scanning %} 工作流程添加到仓库，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。 如果发现任何警报，您可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面上的横幅中点击**发现的 _n_ 条警报**链接。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae %}
   ![点击"发现的 n 条警报"链接](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 {% else %}
   ![点击"发现的 n 条警报"链接](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)

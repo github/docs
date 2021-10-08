@@ -14,7 +14,6 @@ type: overview
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Informationen zu selbst-gehosteten Runnern
 
@@ -25,7 +24,7 @@ You can add self-hosted runners at various levels in the management hierarchy:
 - Organization-level runners can process jobs for multiple repositories in an organization.
 - Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-Your runner machine connects to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_actions %} self-hosted runner application. {% data reusables.github-actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+Your runner machine connects to {% data variables.product.product_name %} using the {% data variables.product.prodname_actions %} self-hosted runner application. {% data reusables.github-actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
 {% data reusables.github-actions.self-hosted-runner-auto-removal %}
 
@@ -172,7 +171,9 @@ You can also use self-hosted runners with a proxy server. For more information, 
 
 ## Sicherheit von selbst-gehosteten Runner mit öffentlichen Repositories
 
+{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
+{% endif %}
 
 This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
 

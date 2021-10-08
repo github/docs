@@ -8,7 +8,7 @@ versions:
   fpt: '*'
 ---
 
-You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
+En [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), puedes descubrir, buscar e instalar herramientas de pago y gratuitas, incluyendo {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %} y {% data variables.product.prodname_actions %}.
 
 Si compras una herramienta paga, pagarás por tu suscripción a la herramienta con la misma información de facturación que usas para pagar la suscripción de {% data variables.product.product_name %} y recibirás una factura en tu fecha de facturación regular. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
@@ -16,7 +16,7 @@ También puedes tener la opción de seleccionar una prueba gratuita de 14 días 
 
 ## Encontrar herramientas en {% data variables.product.prodname_marketplace %}
 
-Puedes descubrir, buscar e instalar apps y acciones que otros hayan creado en {% data variables.product.prodname_marketplace %}, consulta la sección "[Buscar en {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)".
+Puedes descubrir, buscar e instalar apps y acciones que otros hayan creado en {% data variables.product.prodname_marketplace %}, consulta la sección "[Buscar en {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)".
 
 {% data reusables.actions.actions-not-verified %}
 

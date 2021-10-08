@@ -16,7 +16,7 @@ topics:
   - Repositories
 ---
 
-## About repository archival
+## Acerca del archivamiento de repositorios
 
 {% ifversion fpt %}
 {% note %}
@@ -32,7 +32,7 @@ Una vez que se archiva un repositorio, no puedes agregar ni eliminar colaborador
 
 Cuando se archiva un repositorio, sus propuestas, solicitudes de cambios, còdigo, etiquetas, hitos, proyectos, wiki, lanzamientos, confirmaciones, etiquetas, ramas, reacciones, alertas de escaneo de còdigo y comentarios se hacen de solo lectura. Para realizar cambios en un repositorio archivado, primero debes desarchivar el repositorio.
 
-Puedes buscar repositorios archivados. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obtener más información, consulta "[Buscar propuestas y solicitudes de extracción](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
+Puedes buscar repositorios archivados. Para obtener más información, consulta "[Buscar repositorios](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obtener más información, consulta "[Buscar propuestas y solicitudes de extracción](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
 
 ## Archivar un repositorio
 

@@ -29,7 +29,7 @@
 
 ## バージョン管理
 
-学習トラックのバージョン付けは、ページのレンダリングの時点で処理されます。 コードは[`lib/learning-tracks.js`](lib/learning-tracks.js)にあり、これは`page.render()`によって呼ばれます。 The processed learning tracks are then rendered by `components/sublanding`.
+学習トラックのバージョン付けは、ページのレンダリングの時点で処理されます。 コードは[`lib/learning-tracks.js`](lib/learning-tracks.js)にあり、これは`page.render()`によって呼ばれます。 そして処理された学習トラックは、`components/sublanding`によってレンダリングされます。
 
 ガイドのためのYAMLファイルのバージョン付けでLiquid条件文を使う必要は**ありません**。 現在のバージョンに適用される学習トラックのガイドだけが自動的にレンダリングされます。 現在のバージョンに属するガイドを持つトラックがない場合、その学習トラックのセクションはまったくレンダリングされません。
 

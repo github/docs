@@ -70,12 +70,14 @@ As notificações de e-mail também permitem flexibilidade com os tipos de notif
 Quando você inspeciona um repositório, você assina atualizações de atividade nesse repositório. Da mesma forma, quando você inspeciona as discussões de uma equipe específica, você está inscrito em todas as atualizações de conversa na página daquela equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 Para ver repositórios que você está inspecionando, acesse a sua [página de inspeção](https://github.com/watching). Para obter mais informações, consulte "[Gerenciando assinaturas e notificações do GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
+
 {% ifversion ghae or ghes < 3.1 %}
 ### Configurar notificações
 {% endif %}
-É possível configurar as notificações para um repositório na página do repositório ou na página de inspeção.{% ifversion ghae or ghes < 3.1 %} Você pode optar por receber apenas notificações de versões em um repositório ou ignorar todas as notificações de um repositório.{% endif %}
+É possível configurar as notificações para um repositório na página do repositório ou na página de inspeção.{% ifversion ghes < 3.1 %} Você pode optar por receber apenas notificações de versões em um repositório ou ignorar todas as notificações de um repositório.{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ### Sobre as notificações personalizadas
 É possível personalizar notificações para um repositório. Por exemplo, você pode optar por receber notificação apenas quando atualizações de um ou mais tipos de eventos ({% data reusables.notifications-v2.custom-notification-types %}) ocorrerem em um repositório, ou ignorar todas as notificações de um repositório.
 {% endif %} Para obter mais informações, consulte "[Definir as suas configurações de inspeção para um repositório individual](#configuring-your-watch-settings-for-an-individual-repository)" abaixo.
@@ -158,25 +160,18 @@ Se "Inspecionar repositórios automaticamente" estiver desativado, então você 
 
 ## Configurando as configurações de inspeção para um repositório individual
 
-É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository){% else %}new releases{% endif %}, or completely ignore an individual repository.
+É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por ser notificado apenas de {% ifversion fpt or ghes > 3.0 or ghae-next %}certos tipos de eventos como {% data reusables.notifications-v2.custom-notification-types %} (se habilitado para o repositório) {% else %}novas versões{% endif %}, ou ignorar completamente um repositório individual.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. No canto superior direito, clique no menu suspenso "Inspecionar" para selecionar uma opção de inspeção.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
    ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
-A opção **Personalizar** permite que você personalize ainda mais as notificações para que você seja notificado apenas quando eventos específicos ocorrerem no repositório, além de participar e @mentions.
-
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
-   ![Opções de inspeção personalizadas em um menu suspenso para um repositório](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+   A opção **Personalizar** permite que você personalize ainda mais as notificações para que você seja notificado apenas quando eventos específicos ocorrerem no repositório, além de participar e @mentions.
 {% else %}
-   ![Opções de inspeção personalizadas em um menu suspenso para um repositório](/assets/images/enterprise/3.1/help/notifications-v2/watch-repository-options-custom2.png)
-{% endif %}
-
-Se você selecionar "Problemas", você será notificado e irá inscrever-se para receber atualizações sobre cada problema (incluindo aqueles que existiam antes de você selecionar esta opção) no repositório. Se você for @mentioned em um pull request neste repositório, você receberá notificações sobre isso também e será inscrito em atualizações desse pull request específico, além de ser notificado sobre problemas.
-
+     ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+   ![Opções de inspeção personalizadas em um menu suspenso para um repositório](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) Se você selecionar "Problemas", você será notificado e irá inscrever-se para receber atualizações sobre cada problema (incluindo aqueles que existiam antes de você selecionar esta opção) no repositório. Se você for @mentioned em um pull request neste repositório, você receberá notificações sobre isso também e será inscrito em atualizações desse pull request específico, além de ser notificado sobre problemas.
 {% endif %}
 
 ## Escolhendo para onde as notificações de e-mail da sua organização são enviadas

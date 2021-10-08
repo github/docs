@@ -20,7 +20,6 @@ shortTitle: JavaScript 操作
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -103,7 +102,7 @@ npm install @actions/github
 
 此操作使用工具包获取操作元数据文件中所需的 `who-to-greet` 输入变量，然后在日志的调试消息中打印 "Hello [who-to-greet]"。 接下来，该脚本会获取当前时间并将其设置为作业中稍后运行的操作可以使用的输出变量。
 
-GitHub 操作提供有关 web 挂钩实践、Git 引用、工作流程、操作和触发工作流程的人员的上下文信息。 要访问上下文信息，您可以使用 `github` 包。 您将编写的操作将打印 web 挂钩事件有效负载日志。
+GitHub Actions 提供有关 web 挂钩实践、Git 引用、工作流程、操作和触发工作流程的人员的上下文信息。 要访问上下文信息，您可以使用 `github` 包。 您将编写的操作将打印 web 挂钩事件有效负载日志。
 
 使用以下代码添加名为 `index.js` 的新文件。
 

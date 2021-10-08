@@ -18,11 +18,10 @@ shortTitle: Deploy to Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when a release is created.
 
 On every new release in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
@@ -66,6 +65,8 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 
+5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+
 ## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
@@ -73,6 +74,8 @@ Once you've completed the prerequisites, you can proceed with creating the workf
 The following example workflow demonstrates how to build a container image and push it to Amazon ECR. It then updates the task definition with the new image ID, and deploys the task definition to Amazon ECS.
 
 Ensure that you provide your own values for all the variables in the `env` key of the workflow.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -93,17 +96,11 @@ env:
   CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
-    permissions:
-      packages: write
-      contents: read{% endif %}
+    runs-on: ubuntu-latest
+    environment: production
 
     {% raw %}steps:
       - name: Checkout
@@ -150,8 +147,9 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-
 ## Additional resources
+
+For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 
 For more information on the services used in these examples, see the following documentation:
 

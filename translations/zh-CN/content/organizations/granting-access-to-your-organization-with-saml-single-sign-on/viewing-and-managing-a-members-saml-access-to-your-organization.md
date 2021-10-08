@@ -25,6 +25,18 @@ shortTitle: 管理 SAML 访问
 
 {% data reusables.saml.about-linked-identities %}
 
+如果可用，该条目将包含 SCIM 数据。 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+
+{% warning %}
+
+**警告：**对于使用 SCIM 的组织：
+- 撤销 {% data variables.product.product_name %} 上链接的用户身份也会删除 SAML 和 SCIM 元数据。 因此，身份提供商无法同步或解除预配已链接的用户身份。
+- 管理员必须通过身份提供商撤销链接的身份。
+- 要撤销链接的身份并通过身份提供商链接其他帐户，管理员可以删除用户并重新分配给 {% data variables.product.product_name %} 应用程序。 For more information, see your identity provider's documentation.
+
+{% endwarning %}
+
+
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}

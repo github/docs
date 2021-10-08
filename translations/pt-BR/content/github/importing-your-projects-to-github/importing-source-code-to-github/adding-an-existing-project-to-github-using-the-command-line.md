@@ -12,7 +12,7 @@ versions:
 shortTitle: Adicionar um projeto localmente
 ---
 
-## About adding existing projects to {% data variables.product.product_name %}
+## Sobre a adição de projetos existentes para {% data variables.product.product_name %}
 
 {% data reusables.repositories.migrating-from-codeplex %}
 
@@ -24,37 +24,37 @@ shortTitle: Adicionar um projeto localmente
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+## Adicionando um projeto a {% data variables.product.product_name %} com {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} é uma ferramenta de código aberto para usar {% data variables.product.product_name %} a partir da linha de comando do seu computador. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} é uma ferramenta de código aberto para usar {% data variables.product.product_name %} a partir da linha de comando do seu computador. {% data variables.product.prodname_cli %} pode simplificar o processo de adicionar um projeto existente a {% data variables.product.product_name %} usando a linha de comando. Para saber mais sobre {% data variables.product.prodname_cli %}, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-1. In the command line, navigate to the root directory of your project.
+1. Na linha de comando, acesse o diretório raiz do seu projeto.
 1. Inicialize o diretório local como um repositório Git.
 
     ```shell
     git init -b main
     ```
 
-1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+1. Para criar um repositório para o seu projeto em {% data variables.product.product_name %}, use o subcomando `gh repo create`. Substitua `project-name` pelo nome desejado para o repositório. Se você quiser que o seu projeto pertença a uma organização em vez de sua conta de usuário, especifique o nome da organização e o nome do projeto com `organization-name/project-name`.
 
    ```shell
    gh repo create <em>project-name</em>
    ```
 
-1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
-1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+1. Siga as instruções interativas. Como alternativa, você pode especificar argumentos para pular essas instruções. Para obter mais informações sobre possíveis argumentos, consulte [o manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_repo_create).
+1. Faça pull das alterações do novo repositório que você criou. (Se você criou um arquivo `.gitignore` ou `LICENSE` na etapa anterior, isso irá fazer pull dessas alterações para seu diretório local.)
 
     ```shell
     git pull --set-upstream origin main
     ```
 
-1. Stage, commit, and push all of the files in your project.
+1. Stage, commit e push de todos os arquivos do seu projeto.
 
     ```shell
     git add . && git commit -m "initial commit" && git push
     ```
 
-## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+## Adicionando um projeto a {% data variables.product.product_name %} sem {% data variables.product.prodname_cli %}
 
 {% mac %}
 

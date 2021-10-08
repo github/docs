@@ -11,7 +11,6 @@ shortTitle: Inhabilitar & habilitar un flujo de trabajo
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Inhabilitar un flujo de trabajo te permite impedir que se active sin tener que borrar el archivo del repositorio. Puedes habilitar el flujo de trabajo de nuevo fácilmente en {% data variables.product.prodname_dotcom %}.
 

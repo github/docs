@@ -83,7 +83,7 @@ Zeitstempel werden für Commits und Pull Requests unterschiedlich berechnet:
 
 ![Aktivitätsübersicht im Profil](/assets/images/help/profile/activity-overview-section.png)
 
-Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv Sie in der Organisation sind. Wenn Sie in Ihrer Profil-Bio eine Organisation @erwähnen und Sie ein Organisationsmitglied sind, wird diese Organisation in der Aktivitätsübersicht priorisiert. Weitere Informationen finden Sie unter „[Personen und Teams erwähnen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)“ oder „[Eine Biografie zu Ihrem Profil hinzufügen](/articles/adding-a-bio-to-your-profile/)“.
+Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv Sie in der Organisation sind. Wenn Sie in Ihrer Profil-Bio eine Organisation @erwähnen und Sie ein Organisationsmitglied sind, wird diese Organisation in der Aktivitätsübersicht priorisiert. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
 ## Beitragsaktivität
 
@@ -91,15 +91,14 @@ Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste 
 
 ![Zeitfilter für Beitragsaktivität](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion not ghae %}
-## Beiträge von {% data variables.product.product_location_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen
+{% ifversion fpt or ghes or ghae-next %}
 
-Wenn Ihr Websiteadministrator {% data variables.product.prodname_unified_contributions %} aktiviert hat, können Sie die {% data variables.product.prodname_enterprise %}-Beitragsanzahl an Ihr {% data variables.product.prodname_dotcom_the_website %}-Profil senden. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_ghe_server %}-Beiträge an Deine {% data variables.product.prodname_dotcom_the_website %} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
+## Beiträge von {% data variables.product.prodname_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen
+
+If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+
 {% endif %}
 
 ## Weiterführende Informationen
 
 - „[Beiträge auf Ihrer Profilseite anzeigen](/articles/viewing-contributions-on-your-profile-page)“
-- „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)“
-- „[Private Beiträge in Deinem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“
-- „[Übersicht über Deine Aktivitäten in Deinem Profil anzeigen](/articles/showing-an-overview-of-your-activity-on-your-profile)“

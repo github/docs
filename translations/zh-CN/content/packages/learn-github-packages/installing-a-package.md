@@ -18,7 +18,7 @@ versions:
 
 ## 关于包的安装
 
-您可以搜索 {% data variables.product.product_name %}，在 {% data variables.product.prodname_registry %} 中找到可安装在自己项目中的包。 更多信息请参阅“[搜索 {% data variables.product.prodname_registry %} 中的包](/github/searching-for-information-on-github/searching-for-packages)”。
+您可以搜索 {% data variables.product.product_name %}，在 {% data variables.product.prodname_registry %} 中找到可安装在自己项目中的包。 更多信息请参阅“[搜索 {% data variables.product.prodname_registry %} 中的包](/search-github/searching-on-github/searching-for-packages)”。
 
 找到包后，您可以在包页面上阅读包的说明以及安装和使用说明。
 
