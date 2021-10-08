@@ -26,3 +26,7 @@ Data collected is described in the "[{% data variables.product.prodname_copilot 
 
 The telemetry data is stored securely on {% data variables.product.company_short %} systems, with appropriate encryption in place. We know user edit actions,  source code snippets, and URLs of repositories and file paths  are sensitive data. Consequently, access is strictly controlled. The data can only be accessed by (1) named {% data variables.product.company_short %} personnel (employees and contractors) working on the {% data variables.product.prodname_copilot %} team or on the {% data variables.product.company_short %} platform health team, (2) Microsoft personnel (employees and contractors) working on or with the Azure and/or {% data variables.product.prodname_copilot %} teams, and (3) employees of OpenAI who work on {% data variables.product.prodname_copilot %}.
 
+## Still Watch for the progress
+
+
+
