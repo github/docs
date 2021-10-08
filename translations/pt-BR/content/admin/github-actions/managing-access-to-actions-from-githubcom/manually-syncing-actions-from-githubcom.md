@@ -14,13 +14,14 @@ shortTitle: Sincronizar ações manualmente
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-A abordagem recomendada de habilitar o acesso a ações a partir de {% data variables.product.prodname_dotcom_the_website %} é permitir o acesso automático para todas as ações. Você pode fazer isso usando {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.product_name %} com {% data variables.product.prodname_ghe_cloud %} . Para obter mais informações, consulte "[Habilitar acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+{% ifversion ghes or ghae-next %}
 
-No entanto, se você quer ter um controle mais rigoroso sobre quais as ações permitidas na sua empresa, você pode seguir esse guia para usar a ferramenta de código aberto de {% data variables.product.company_short %}de [`actions-sync`](https://github.com/actions/actions-sync) para sincronizar repositórios de ações individuais de {% data variables.product.prodname_dotcom_the_website %} da sua empresa.
+A abordagem recomendada de habilitar o acesso a ações a partir de {% data variables.product.prodname_dotcom_the_website %} é permitir o acesso automático para todas as ações. Você pode fazer isso usando {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.product_name %} com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações de {% data variables.product.prodname_dotcom_the_website %} usando o {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+
+No entanto, se você quiser um controle mais rigoroso sobre quais as ações são permitidas na sua empresa, você{% else %}Você{% endif %} poderá seguir este guia para usar a ferramenta de código aberto de {% data variables.product.company_short %} [`ação-sincronização`](https://github.com/actions/actions-sync) para sincronizar repositórios de ações individuais de {% data variables.product.prodname_dotcom_the_website %} para a sua empresa.
 
 ## Sobre a ferramenta `actions-sync`
 
@@ -33,7 +34,7 @@ A ferramenta `actions-sync` só pode fazer download de ações de {% data variab
 ## Pré-requisitos
 
 * Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino existem na sua empresa. O exemplo a seguir demonstra como sincronizar ações com uma organização com o nome de `synced-actions`. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
-* Você deve criar um token de acesso pessoal (PAT) na sua empresa que pode criar e gravar em repositórios nas organizações de destino. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+* Você deve criar um token de acesso pessoal (PAT) na sua empresa que pode criar e gravar em repositórios nas organizações de destino. Para obter mais informações, consulte[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion ghes %}
 * Se você deseja sincronizar as ações empacotadas na organização das `ações` em {% data variables.product.product_location %}, você deverá ser proprietário da organização das `ações`.
 
   {% note %}
@@ -46,21 +47,21 @@ A ferramenta `actions-sync` só pode fazer download de ações de {% data variab
 
   ```shell
   ghe-org-admin-promote -u <em>USERNAME</em> -o actions
-  ```
+  ```{% endif %}
 
-## Exemplo: Usando a ferramenta de `actions-sync`
+## Example: Using the `actions-sync` tool
 
-Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar uma ação individual do {% data variables.product.prodname_dotcom_the_website %} com uma instância corporativa.
+Este exemplo demonstra o uso da ferramenta `actions-sync` para sincronizar uma ação individual a partir de {% data variables.product.prodname_dotcom_the_website %} para a instância de uma empresa.
 
 {% note %}
 
-**Observação:** Este exemplo usa o comando `actions-sync`, que requer acesso simultâneo à API de {% data variables.product.prodname_dotcom_the_website %} e à API da instância empresarial a partir da sua máquina. Se você só puder acessar um sistema de cada vez, pode usar os comandos `actions-sync pull` e `push`. Para obter mais informações, consulte o README de [`actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
+**Observação:** Este exemplo usa o comando `actions-sync sync`, que exige acesso simultâneo à API de {% data variables.product.prodname_dotcom_the_website %} e à API da instância empresarial da sua máquina. Se você puder acessar apenas um sistema de cada vez, você poderá usar os comandos `actions-sync pull` e `push`. Para obter mais informações, consulte [README de `actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
 
 {% endnote %}
 
-1. Faça o download e extraia as últimas versões [`actions-sync`](https://github.com/actions/actions-sync/releases) para o sistema operacional da sua máquina.
+1. Faça o download e extraia a versão mais recente [`actions-sync`](https://github.com/actions/actions-sync/releases) para o sistema operacional da sua máquina.
 1. Crie um diretório para armazenar arquivos de cache para a ferramenta.
-1. Execute o comando `actions-sync sync`:
+1. Run the `actions-sync sync` command:
 
    ```shell
    ./actions-sync sync \

@@ -30,9 +30,10 @@ toc:
   guides: ガイド
   whats_new: 更新情報
 pages:
-  article_version: '記事のバージョン：'
+  article_version: 'Article version'
   miniToc: 'ここには以下の内容があります:'
   contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
+  all_enterprise_releases: All Enterprise releases
 errors:
   oops: 問題が発生しています。
   something_went_wrong: 何か問題が生じています。
@@ -155,13 +156,17 @@ product_sublanding:
   learning_paths_desc: 学習パスは、特定の課題をマスターするのに役立つガイド集です。
   guides: '{{ productMap[currentProduct].name }}のガイド'
   more_guides: その他のガイド
-  no_result: 申し訳ありませんが、指定されたフィルタにマッチするガイドはありません。
   load_more: さらにガイドをロード
   all_guides: 'すべての{{ productMap[currentProduct].name }}のガイド'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: 種類
     topic: トピック
     all: すべて
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: 概要
     quick_start: クイックスタート

@@ -64,4 +64,4 @@ Puedes encontrar y ver cualquier paquete que hayas publicado en cualquier organi
 
 ## Leer más
 
-- "[Buscar paquetes](/github/searching-for-information-on-github/searching-for-packages)"
+- "[Buscar paquetes](/search-github/searching-on-github/searching-for-packages)"

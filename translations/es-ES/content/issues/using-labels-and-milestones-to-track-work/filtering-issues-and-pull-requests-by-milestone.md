@@ -31,5 +31,5 @@ shortTitle: Filtrar por hito
 
 ## Leer más
 
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[Filtrar y buscar propuestas y solicitudes de cambios](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - "[Filtrar tarjetas en un tablero de proyecto](/articles/filtering-cards-on-a-project-board)"

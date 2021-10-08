@@ -32,10 +32,10 @@ Luego, asegúrate de que el archivo _CNAME_ tenga el formato correcto.
 
 Si tienes problemas para apuntar el dominio predeterminado para tu sitio a tu dominio personalizado, contáctate con tu proveedor DNS.
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+También puedes utilizar uno de los siguientes métodos para probar si los registros de DNS de tus dominios personalizados están configurados correctamente:
 
-- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- Una herramienta de CLI tal como `dig`. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- Una herramienta de búsqueda de DNS en línea.
 
 ## Nombres de dominios personalizados que no son compatibles
 

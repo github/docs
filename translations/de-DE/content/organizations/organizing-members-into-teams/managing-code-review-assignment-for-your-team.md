@@ -45,8 +45,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 7. Benutze unter „How many team members should be assigned to review?" (Wie viele Teammitglieder sollen dem Review zugewiesen werden?) das Dropdownmenü und wähle die Anzahl der Prüfer, die jedem Pull Request zugewiesen werden sollen. ![Dropdownmenü „Number of reviewers" (Anzahl der Prüfer)](/assets/images/help/teams/review-assignment-number.png)
 8. Benutze unter „Routing algorithm" (Routing-Algorithmen) das Dropdownmenü und wähle den Algorithmus, den Du benutzen möchtest. Weitere Informationen findest Du unter „[Routing-Algorithmen](#routing-algorithms)." ![Dropdownmenü „Routing algorithm" (Routing-Algorithmus)](/assets/images/help/teams/review-assignment-algorithm.png)
 9. Um optional bestimmte Teammitglieder immer auszulassen, wähle **Never assign certain team members** (Weise bestimmte Teammitglieder nie zu). Dann wähle eines oder mehrere Teammitglieder, die Du immer auslassen willst. ![Kontrollkästchen und Dropdownmenü „Never assign certain team members" (Weise bestimmte Teammitglieder nie zu)](/assets/images/help/teams/review-assignment-skip-members.png)
-10. Um optional nur diejenigen Teammitglieder zu informieren, die durch die Code-Review-Zuweisung für einen Pull-Request-Review betroffen sind, wähle unter „Notifications" (Benachrichtigungen) die Option **If assigning team members, don't notify the entire team** (Benachrichtige bei der Zuweisung einzelner Teammitglieder nicht das gesamte Team). ![Benachrichtigungen „Code review assignment" (Code-Review-Zuweisung)](/assets/images/help/teams/review-assignment-notifications.png)
-11. Klicke auf **Save changes** (Änderungen speichern).
+10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}
+14. Klicke auf **Save changes** (Änderungen speichern).
 
 ## Code-Review-Zuweisungen deaktivieren
 {% data reusables.profile.access_org %}

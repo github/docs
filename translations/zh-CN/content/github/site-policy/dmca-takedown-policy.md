@@ -15,7 +15,7 @@ topics:
 
 欢迎阅读 GitHub 的《千禧年数字版权法案》（通常称为 "DMCA"）指南。 本页面并非该法案的综合入门读物。 但是，如果您收到针对您在 GitHub 上所发布内容的 DMCA 删除通知，或者您是要发出此类通知的权利持有者，此页面将有助于您了解该法案以及我们遵守该法案的政策。
 
-(If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
+（如果只想提交通知，您可以跳到“[G. 提交通告](#g-submitting-notices)。”）
 
 与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 

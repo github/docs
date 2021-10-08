@@ -70,7 +70,7 @@ Puedes alentar a los colaboradores para que utilicen plantillas de informe de pr
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. Si inhabilitas los reportes de problemas en blanco, la plantilla nunca se utilizará.
+**Nota:**Si utilizaste el flujo de trabajo tradicional para crear un archivo de `issue_template.md` manualmente en la carpeta de `.github` y habilitar así las propuestas en blanco en tu archivo de *config.yml*, la plantilla en el archivo `issue_template.md` se utilizará cuando las personas decidan abrir una propuesta en blanco. Si inhabilitas los reportes de problemas en blanco, la plantilla nunca se utilizará.
 
 {% endnote %}
 

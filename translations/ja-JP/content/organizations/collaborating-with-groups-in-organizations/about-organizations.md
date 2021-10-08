@@ -24,6 +24,8 @@ Enterprise アカウントは、複数の {% data variables.product.prodname_dot
 
 enterprise アカウントに属する Organization では、支払いは enterprise アカウントのレベルで管理され、Organization のレベルでは支払い設定は利用できません。 Enterprise のオーナーは、Enterprise アカウントですべての Organization に対するポリシーを設定することも、Organization のオーナーに Organization のレベルでポリシーを設定することを許可することもできます。 Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
 
+{% data reusables.enterprise-accounts.invite-organization %}
+
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% data reusables.organizations.org-ownership-recommendation %}詳細は、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」を参照してください。

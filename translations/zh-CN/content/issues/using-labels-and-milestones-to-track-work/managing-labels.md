@@ -1,6 +1,7 @@
 ---
 title: 管理标签
 intro: '您可以通过创建、编辑、应用和删除标签，对 {% ifversion fpt %} 议题、拉取请求和讨论{% else %}议题和拉取请求{% endif %}进行分类。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -30,8 +31,6 @@ topics:
 
 您可以通过创建标签来分类{% ifversion fpt %}议题、拉取请求和讨论{% else %}议题和拉取请求{% endif %}，管理您在 {% data variables.product.product_name %} 上的工作。 您可以在创建标签的仓库中应用标签。 有了标签后，您可以在该仓库内的任何{% ifversion fpt %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}上使用标签、
 
-对仓库具有读取权限的任何人都能查看和搜索仓库的标签。 对仓库具有鉴定权限的任何人都可以应用/忽略现有标签。 要创建、编辑、应用或删除标签，必须对仓库具有写入权限。
-
 ## 关于默认标签
 
 {% data variables.product.product_name %} 在每个新仓库中提供默认标签。 您可以使用这些默认标签帮助在仓库中创建标准工作流程。
@@ -58,6 +57,8 @@ topics:
 
 ## 创建标签
 
+Anyone with write access to a repository can create a label.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
@@ -69,10 +70,14 @@ topics:
 
 ## 应用标记
 
+Anyone with triage access to a repository can apply and dismiss labels.
+
 1. 导航到{% ifversion fpt %}议题、拉取请求或讨论{% else %}议题或拉取请求{% endif %}。
 1. 在右侧边栏中“Labels（标签）”的右侧，单击 {% octicon "gear" aria-label="The gear icon" %}，然后单击标签。 !["标签"下拉菜单](/assets/images/help/issues/labels-drop-down.png)
 
 ## 编辑标签
+
+Anyone with write access to a repository can edit existing labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -84,6 +89,8 @@ topics:
 {% data reusables.project-management.save-label %}
 
 ## 删除标签
+
+Anyone with write access to a repository can delete existing labels.
 
 删除标签将从议题和拉取请求中删除标签。
 

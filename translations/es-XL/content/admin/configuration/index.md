@@ -12,7 +12,7 @@ topics:
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
+  - /managing-connections-between-your-enterprise-accounts
 ---
 ### Índice
 <!-- if currentVersion ver_gt "enterprise-server@2.15" -->

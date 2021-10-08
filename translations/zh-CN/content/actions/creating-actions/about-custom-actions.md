@@ -20,7 +20,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About custom actions
 
@@ -36,11 +35,11 @@ topics:
 
 您可以创建 Docker 容器和 JavaScript 操作。 操作需要元数据文件来定义操作的输入、输出和主要进入点。 元数据文件名必须是 `action.yml` 或 `action.yaml`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions)”。
 
-| 类型                | 操作系统                |
-| ----------------- | ------------------- |
-| Docker 容器         | Linux               |
-| JavaScript        | Linux、macOS、Windows |
-| Composite Actions | Linux、macOS、Windows |
+| 类型         | 操作系统                |
+| ---------- | ------------------- |
+| Docker 容器  | Linux               |
+| JavaScript | Linux、macOS、Windows |
+| 复合操作       | Linux、macOS、Windows |
 
 ### Docker 容器操作
 
@@ -58,9 +57,9 @@ JavaScript 操作可以直接在运行器计算机上运行，并将操作代码
 
 如果您正在开发 Node.js 项目，{% data variables.product.prodname_actions %} 工具包提供可用于项目中加速开发的软件包。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
-### Composite Actions
+### 复合操作
 
-A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)".
+_复合_操作允许您在一个操作中组合多个工作流程步骤。 例如，您可以使用此功能将多个运行命令捆绑到一个操作中，然后获得使用该操作在单一步骤中执行捆绑命令的工作流程。 要看到示例，请参阅“[创建复合操作](/actions/creating-actions/creating-a-composite-action)”。
 
 ## 选择操作的位置
 
@@ -152,7 +151,7 @@ steps:
 
 ### GitHub Actions 和 GitHub 应用程序的设置
 
-While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
+尽管 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_github_apps %} 都提供了构建自动化和工作流程工具的方法，但它们各有优点，使其以不同的方式发挥作用。
 
 {% data variables.product.prodname_github_apps %}：
 * 持续运行并且能够对事件迅速做出反应。

@@ -17,6 +17,8 @@ topics:
 shortTitle: Administrar la sincronización de equipos
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 {% data reusables.gated-features.okta-team-sync %}
 
 ## Acerca de la sincronización de equipo
@@ -30,6 +32,8 @@ Puedes habilitar la sincronización de equipos entre tu IdP y {% data variables.
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
 También puedes habilitar la sincronización de equipos para las organizaciones que pertenezcan a tu cuenta empresarial. Para obtener más información, consulta la sección "[Requerir los parámetros de seguridad en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)".
+
+{% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 

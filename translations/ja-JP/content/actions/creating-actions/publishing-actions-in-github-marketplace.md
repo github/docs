@@ -12,8 +12,6 @@ type: how_to
 shortTitle: Publish in GitHub Marketplace
 ---
 
-{% data reusables.actions.ae-beta %}
-
 {% data variables.product.prodname_marketplace %}でアクションを公開するには、利用規約に同意していなければなりません。
 
 ## アクションの公開について

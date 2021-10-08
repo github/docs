@@ -1,7 +1,7 @@
 ---
 title: Participar en un debate
 intro: 'Puedes conversar con la comunidad y con los mantenedores en un foro dentro del repositorio de un proyecto en {% data variables.product.product_name %}.'
-permissions: People with read permissions to a repository can participate in discussions in the repository.
+permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
 shortTitle: Participa en un debate
@@ -18,7 +18,7 @@ Puedes bloquear usuarios y reportar el contenido perjudicial para mantener un am
 
 ## Prerrequisitos
 
-{% data variables.product.prodname_discussions %} must be enabled for the repository for you to participate in a discussion in the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+Los {% data variables.product.prodname_discussions %} deben estar habilitados en el repositorio para que participes en un debate de este. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para un repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
 ## Crear un debate
 

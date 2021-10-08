@@ -1,6 +1,6 @@
 ---
 title: Administrar el acceso a las aplicaciones de tu organización
-intro: 'As an organization owner, you can allow individual organization members to manage {% data variables.product.prodname_github_apps %} in your organization.'
+intro: 'Como propietario de una organización, puedes permitir a los miembros individuales de la misma que administren las {% data variables.product.prodname_github_apps %} en tu organización.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-apps
   - /articles/managing-access-to-your-organizations-apps

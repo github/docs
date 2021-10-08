@@ -31,6 +31,12 @@ Für Folgendes kann {% data variables.product.product_name %} keine Weiterleitun
 - [@Erwähnungen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) des alten Benutzernamens
 - Links zu [Gists](/articles/creating-gists), die Deinen alten Benutzernamen enthalten
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endif %}
+
 ## Repository-Verweise
 
 Wenn Du Deinen Benutzernamen geändert hast, leitet {% data variables.product.product_name %} Verweise auf Deine Repositorys automatisch weiter.

@@ -14,7 +14,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
-shortTitle: Delete & restore branches
+shortTitle: Borrar & restablecer las ramas
 ---
 
 ## Borrar la rama utilizada para una solicitud de extracción

@@ -14,13 +14,14 @@ shortTitle: Sincronziar acciones manualmente
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-El acercamiento recomendado para habilitar el acceso a las acciones de {% data variables.product.prodname_dotcom_the_website %} es habilitar el acceso automático para todas las acciones. Puedes hacer esto si utilizas {% data variables.product.prodname_github_connect %} para integrar a {% data variables.product.product_name %} con {% data variables.product.prodname_ghe_cloud %} . Para obtener más información, consulta la sección "[Habilitar el acceso automático a las acciones de {% data variables.product.prodname_dotcom_the_website %} utilizando {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+{% ifversion ghes or ghae-next %}
 
-Sin embargo, si quieres tener un control más estricto sobre qué acciones se permiten en tu empresa, puedes seguir esta guía para utilizar la herramienta de código abierto [`actions-sync`](https://github.com/actions/actions-sync) de {% data variables.product.company_short %} para sincronizar los repositorios de acción individual desde {% data variables.product.prodname_dotcom_the_website %} hacia tu empresa.
+El acercamiento recomendado para habilitar el acceso a las acciones de {% data variables.product.prodname_dotcom_the_website %} es habilitar el acceso automático para todas las acciones. Puedes hacer esto si utilizas {% data variables.product.prodname_github_connect %} para integrar a {% data variables.product.product_name %} con {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta la sección "[Habilitar el acceso automático a las acciones de {% data variables.product.prodname_dotcom_the_website %} utilizando{% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+
+Sin embargo, si quieres tener un control más estricto sobre qué acciones se permiten en tu empresa, puedes{% else %}Puedes{% endif %} seguir esta guía para utilizar la herramienta [`actions-sync`](https://github.com/actions/actions-sync) de código abierto de {% data variables.product.company_short %} para sincronizar los repositorios de acciones individuales desde {% data variables.product.prodname_dotcom_the_website %} hacia tu empresa.
 
 ## Acerca de la herramienta `actions-sync`
 
@@ -33,7 +34,7 @@ La herramienta `actions-sync` solo puede descargar acciones de {% data variables
 ## Prerrequisitos
 
 * Antes de utilizar la herramienta `actions-sync`, debes asegurarte de que todas las organizaciones de destino ya existan en tu empresa. El siguiente ejemplo demuestra cómo sincronizar acciones a una organización que se llama `synced-actions`. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
-* Debes crear un token de acceso personal (PAT) en tu empresa que pueda crear y escribir en los repositorios de las organizaciones destino. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+* Debes crear un token de acceso personal (PAT) en tu empresa que pueda crear y escribir en los repositorios de las organizaciones destino. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".{% ifversion ghes %}
 * Si quieresSi quieres sincronizar las acciones incluidas en la organización `actions` en {% data variables.product.product_location %}, debes ser un propietario de la organización `actions`.
 
   {% note %}
@@ -46,21 +47,21 @@ La herramienta `actions-sync` solo puede descargar acciones de {% data variables
 
   ```shell
   ghe-org-admin-promote -u <em>USERNAME</em> -o actions
-  ```
+  ```{% endif %}
 
-## Ejemplo: Utilizar la herramienta `actions-sync`
+## Example: Using the `actions-sync` tool
 
-Este ejemplo demuestra el uso de la herramienta `actions-sync` para sincronizar una acción individual de {% data variables.product.prodname_dotcom_the_website %} con una instancia empresarial.
+This example demonstrates using the `actions-sync` tool to sync an individual action from {% data variables.product.prodname_dotcom_the_website %} to an enterprise instance.
 
 {% note %}
 
-**Nota:** Este ejemplo utiliza el comando `actions-sync sync`, el cual requiere tener acceso concurrente tanto a la API de {% data variables.product.prodname_dotcom_the_website %} como a la API de tu instancia empresarial desde tu máquina. Si sólo puedes acceder a un sistema a la vez, puedes utilizar los comandos `actions-sync pull` y `push`. Para obtener más información, consulta el [README de `actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
+**Note:** This example uses the `actions-sync sync` command, which requires concurrent access to both the {% data variables.product.prodname_dotcom_the_website %} API and your enterprise instance's API from your machine. If you can only access one system at a time, you can use the `actions-sync pull` and `push` commands. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#not-connected-instances).
 
 {% endnote %}
 
-1. Descarga y extrae el [lanzamiento más reciente de `actions-sync`](https://github.com/actions/actions-sync/releases) para el sistema operativo de tu máquina.
+1. Download and extract the latest [`actions-sync` release](https://github.com/actions/actions-sync/releases) for your machine's operating system.
 1. Crea un directorio para almacenar los archivos de caché para la herramienta.
-1. Ejecuta el comando `actions-sync sync`:
+1. Run the `actions-sync sync` command:
 
    ```shell
    ./actions-sync sync \

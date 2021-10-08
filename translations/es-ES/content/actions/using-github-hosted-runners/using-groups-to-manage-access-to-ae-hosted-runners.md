@@ -6,7 +6,7 @@ versions:
 shortTitle: Administrar los grupos de ejecución de AE
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## Acerca de los gupos de {% data variables.actions.hosted_runner %}
 

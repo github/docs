@@ -1,6 +1,7 @@
 ---
 title: ラベルを管理する
 intro: 'ラベルの作成、編集、適用、削除によって、{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueとPull Request{% endif %}を分類できます。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -30,8 +31,6 @@ topics:
 
 {% data variables.product.product_name %}上の作業を、{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueとPull Request{% endif %}を分類するためのラベルを作成することによって管理できます。 ラベルが作成されたリポジトリ内にラベルを適用できます。 ラベルがあれば、そのリポジトリ内の任意の{% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueやPull Request{% endif %}にそのラベルを使用できます。
 
-リポジトリへの読み取りアクセスを持つ人は、誰でもリポジトリのラベルを表示・検索できます。 リポジトリへのトリアージアクセスを持つすべてのユーザは、既存のラベルを適用/却下できます。 ラベルの作成、編集、適用、削除をするためには、リポジトリに書き込みアクセスができなければなりません。
-
 ## デフォルトラベルについて
 
 {% data variables.product.product_name %} は、すべての新しいリポジトリにデフォルトのラベルを提供します。 これらのデフォルトラベルを使用して、リポジトリに標準のワークフローを作成しやすくすることができます。
@@ -50,13 +49,15 @@ topics:
 
 リポジトリの作成時に、すべての新しいリポジトリにデフォルトのラベルが含められますが、後でそのラベルを編集または削除できます。
 
-`good first issue`ラベル付きのIssueは、リポジトリの`contribute`ページを展開するために使われます。 `contribute`ページの例については[github/docs/contribute](https://github.com/github/docs/contribute)を参照してください。
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. `contribute`ページの例については[github/docs/contribute](https://github.com/github/docs/contribute)を参照してください。
 
 {% ifversion fpt or ghes %}
 Organization のオーナーは、Organization 内のリポジトリのためのデフォルトラベルをカスタマイズできます。 詳しい情報については、「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照してください。
 {% endif %}
 
 ## ラベルの作成
+
+Anyone with write access to a repository can create a label.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -69,10 +70,14 @@ Organization のオーナーは、Organization 内のリポジトリのための
 
 ## Applying a label
 
+Anyone with triage access to a repository can apply and dismiss labels.
+
 1. {% ifversion fpt %}Issue、Pull Request、ディスカッション{% else %}IssueあるいはPull Request{% endif %}にアクセスしてください。
 1. 右のサイドバーで、"Labels（ラベル）"の右の{% octicon "gear" aria-label="The gear icon" %}をクリックし、続いてラベルをクリックしてください !["ラベル" ドロップダウンメニュー](/assets/images/help/issues/labels-drop-down.png)
 
 ## ラベルの編集
+
+Anyone with write access to a repository can edit existing labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -84,6 +89,8 @@ Organization のオーナーは、Organization 内のリポジトリのための
 {% data reusables.project-management.save-label %}
 
 ## ラベルの削除
+
+Anyone with write access to a repository can delete existing labels.
 
 ラベルを削除すると、Issue とプルリクエストからラベルが削除されます。
 

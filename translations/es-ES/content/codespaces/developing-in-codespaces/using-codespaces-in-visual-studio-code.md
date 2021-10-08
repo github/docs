@@ -68,7 +68,7 @@ Puedes cambiar el tipo de máquina de tu codespace en cualquier momento.
 1. En {% data variables.product.prodname_vscode %}, abre la paleta de comandos (`shift command P` / `shift control P`).
 2. Busca y selecciona "Codespaces: Cambiar mi tipo de máquina". ![Buscar una rama para crear un {% data variables.product.prodname_codespaces %} nuevo](/assets/images/help/codespaces/vscode-change-machine-type-option.png)
 3. Haz clic en el codespace que quieras cambiar. ![Buscar una rama para crear un {% data variables.product.prodname_codespaces %} nuevo](/assets/images/help/codespaces/vscode-change-machine-choose-repo.png)
-4. Choose the machine type you want to use.
+4. Elige el tipo de máquina que quieres utilizar.
 
 Si el codespace se está ejecutando actualmente, se mostrará un mensaje que pregunta si te gustaría reiniciar y reconectarte con tu codespace ahora. Haz clic en **Sí** en caso de que quieras cambiar el tipo de máquina que se utiliza para este codespace inmediatamente. Si haces clic en **No** o si el codespace no se está ejecutando actualmente, el cambio se reflejará la próxima vez que este se reinicie.
 

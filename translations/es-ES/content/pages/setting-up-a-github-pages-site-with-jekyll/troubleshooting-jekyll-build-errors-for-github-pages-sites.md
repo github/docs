@@ -157,7 +157,7 @@ Este error significa que tienes enlaces permanentes relativos que no son compati
 
 Los enlaces permanentes son URL permanentes que hacen referencia a una página particular en tu sitio. Los enlaces permanentes absolutos comienzan con la raíz del sitio, mientras que los enlaces permanentes relativos comienzan con la carpeta que contiene la página referenciada. {% data variables.product.prodname_pages %} y Jekyll ya no admiten enlaces permanentes relativos. Para obtener más información acerca de los enlaces permanentes, consulta "[Enlaces permanentes](https://jekyllrb.com/docs/permalinks/)" en la documentación de Jekyll.
 
-Para solucionar el problema, elimina la línea `relativa_permalinks` de tu archivo *_config.yml* y vuelve a formatear cualquier enlace permanente relativo de tu sitio con enlaces permanentes absolutos. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+Para solucionar el problema, elimina la línea `relativa_permalinks` de tu archivo *_config.yml* y vuelve a formatear cualquier enlace permanente relativo de tu sitio con enlaces permanentes absolutos. Para obtener más información, consulta la sección "[Editar archivos](/repositories/working-with-files/managing-files/editing-files)".
 
 ## El enlace simbólico no existe dentro del repositorio de tu sitio
 

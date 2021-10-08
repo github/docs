@@ -19,7 +19,6 @@ shortTitle: Fazer a migração a partir do Jenkins
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -43,7 +42,7 @@ Para obter mais informações, consulte "[Conceitos básicos para {% data variab
 
 O Jenkins permite que se envie criações para um único agente de criação, ou você pode distribuí-las entre vários agentes. Você também pode classificar esses agentes de acordo com vários atributos, como, por exemplo, tipos de sistema operacional.
 
-De modo similar, o {% data variables.product.prodname_actions %} pode enviar trabalhos para executores hospedados em {% data variables.product.prodname_dotcom %} ou executores auto-hospedados, e você pode usar as etiquetas para classificar os executores de acordo com vários atributos. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+De modo similar, o {% data variables.product.prodname_actions %} pode enviar trabalhos para executores hospedados em {% data variables.product.prodname_dotcom %} ou executores auto-hospedados, e você pode usar as etiquetas para classificar os executores de acordo com vários atributos. Para obter mais informações, consulte "[Entender {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)" e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".
 
 ### Usar seções para organizar pipelines
 

@@ -72,7 +72,7 @@ Sim, o gráfico de dependências tem duas categorias de limites:
 
     Manifestos com tamanho superior a 0.5 MB são processados apenas para contas corporativas. Para outras contas, manifestos acima de 0,5 MB são ignorados e não criarão {% data variables.product.prodname_dependabot_alerts %}.
 
-    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de 20 manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}.
+    Por padrão, o {% data variables.product.prodname_dotcom %} não processará mais de 20 manifestos por repositório. {% data variables.product.prodname_dependabot_alerts %} não foi criado para manifestos acima deste limite. Se você precisar aumentar o limite, entre em contato com {% data variables.contact.contact_support %}.
 
 2. **Limites de visualização**
 

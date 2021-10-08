@@ -15,7 +15,7 @@ shortTitle: Arquivo de integridade da comunidade
 
 ## Sobre arquivos padrão de integridade da comunidade
 
-You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders.
+Você pode adicionar arquivos padrão de saúde da comunidade a um repositório público denominado `git.hub` na raiz do repositório ou nas pastas `docs` ou `.github`.
 
 {% data variables.product.product_name %} usará e exibirá arquivos padrão para qualquer repositório pertencente à conta que não tem seu próprio arquivo desse tipo em nenhum dos seguintes lugares:
 - a raiz do repositório
@@ -49,4 +49,4 @@ Você não pode criar um arquivo de licença padrão. Os arquivos de licença de
 4. Certifique-se de que o status do repositório está definido como **Público** (um repositório-padrão para arquivos não pode ser privado). ![Botões de opção para selecionar status privado ou público](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. No repositório, crie um dos arquivos compatíveis de integridade da comunidade. Modelos de problema{% ifversion fpt or ghae or ghes %} e seu arquivo de configuração{% endif %} devem estar em uma pasta chamada `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. Para obter mais informações, consulte "[Criar arquivos](/articles/creating-new-files/)".
+7. No repositório, crie um dos arquivos compatíveis de integridade da comunidade. Modelos de problema{% ifversion fpt or ghae or ghes %} e seu arquivo de configuração{% endif %} devem estar em uma pasta chamada `.github/ISSUE_TEMPLATE`. Todos os outros arquivos compatíveis podem estar na raiz do repositório, na pasta `.github` ou na pasta `docs`. Para obter mais informações, consulte "[Criar arquivos](/articles/creating-new-files/)".

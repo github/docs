@@ -36,7 +36,7 @@ Os servidores de nomes que você especificar devem resolver o nome de host da {%
   ```
 3. Adicione quaisquer entradas `nameserver` e salve o arquivo.
 4. Depois de verificar suas alterações, salve o arquivo.
-5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+5. Para adicionar as suas novas entradas de nameserver para {% data variables.product.product_location %}, execute o seguinte:
   ```shell
   $ sudo service resolvconf restart
   $ sudo service dnsmasq restart

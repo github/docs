@@ -74,7 +74,7 @@ Todos los miembros de las empresas tienen permiso de lectura para los repositori
 
 {% data reusables.repositories.internal-repo-default %}
 
-Si se elimina a un usuario de todas las organizaciones que pertenezcan a la empresa, las bifurcaciones de dicho usuario para los repositorios internos se eliminarán automáticamente.
+Cualquier miembro de la empresa puede bifurcar cualquier repositorio interno que pertenezca a una organización de esta. El repositorio bifurcado pertenecerá a la cuenta de usuario del miembro y la visibilidad de este será privada. Si se elimina a un usuario de todas las organizaciones que pertenezcan a la empresa, las bifurcaciones de dicho usuario para los repositorios internos se eliminarán automáticamente.
 {% endif %}
 
 ## Límites para ver contenido y diferencias en un repositorio
@@ -85,7 +85,7 @@ La mayoría de los límites que aparecen a continuación afectan tanto {% data v
 
 ### Límites de texto
 
-Text files over **512 KB** are always displayed as plain text. El código no es de sintaxis resaltada, y los archivos de prosa no se convierten a HTML (como Markdown, AsciiDoc, *etc.*).
+Los archivos de texto de más de **512 KB** siempre se mostrarán como texto simple. El código no es de sintaxis resaltada, y los archivos de prosa no se convierten a HTML (como Markdown, AsciiDoc, *etc.*).
 
 Los archivos de texto de más de **5 MB** están disponibles solo a través de sus URL originales, que se ofrecen a través de `{% data variables.product.raw_github_com %}`; por ejemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Haz clic en el botón **Raw** (Original) para obtener la URL original de un archivo.
 
@@ -93,9 +93,9 @@ Los archivos de texto de más de **5 MB** están disponibles solo a través de s
 
 Como las diferencias se pueden volver muy grandes, imponemos los siguientes límites en las diferencias para las confirmaciones, las solicitudes de extracción y las vistas comparadas:
 
-- In a pull request, no total diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data.
-- No single file's diff may exceed *20,000 lines that you can load* or *500 KB* of raw diff data. *Cuatrocientas líneas* y *20 KB* se cargan de forma automática para un archivo único.
-- The maximum number of files in a single diff is limited to *300*.
+- En una solicitud de cambios, ningún diff total podrá exceder las *20,000 líneas que puedes cargar* o *1 MB* de datos de diff sin procesar.
+- El diff de un archivo único no puede superar las *20.000 líneas que puedes cargar* o *500 KB* de datos de la diferencia original. *Cuatrocientas líneas* y *20 KB* se cargan de forma automática para un archivo único.
+- La cantidad máxima de archivos en diff único se limita a *300*.
 - La cantidad máxima de archivos de representación (como PDF y archivos GeoJSON) en una diferencia única está limitada a *25*.
 
 Se pueden mostrar algunas partes de una diferencia limitada, pero no se muestra nada que supere el límite.
@@ -107,6 +107,7 @@ Las páginas de vista comparada y de solicitudes de extracción muestran una lis
 ## Leer más
 
 - "[Crear un repositorio nuevo](/articles/creating-a-new-repository)"
+- "[Acerca de las bifurcaciones](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Colaborar con propuestas y solicitudes de extracción](/categories/collaborating-with-issues-and-pull-requests)"
 - "[Administrar tu trabajo en {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administrar un repositorio](/categories/administering-a-repository)"

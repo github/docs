@@ -13,7 +13,7 @@ topics:
 
 {% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through major and minor releases. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
 
-Major releases include new functionality and feature upgrades and typically occur {% ifversion ghae %}every few weeks or months{% else %} quarterly{% endif %}. {% ifversion ghae %}{% data variables.product.company_short %} will upgrade your enterprise to the latest major release. You will be given advance notice of any planned downtime for your enterprise.{% endif %}
+Major releases include new functionality and feature upgrades and typically occur quarterly. {% ifversion ghae %}{% data variables.product.company_short %} will upgrade your enterprise to the latest major release. You will be given advance notice of any planned downtime for your enterprise.{% endif %}
 
 {% ifversion ghes %}
 
@@ -43,7 +43,6 @@ To upgrade your enterprise to a new release, see "[Release notes](/enterprise-se
 
 ## Дополнительная литература
 
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository
-{% ifversion ghae %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository{% ifversion ghae %}
 - [ {% data variables.product.prodname_ghe_managed %} release notes](/admin/release-notes)
 {% endif %}

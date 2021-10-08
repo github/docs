@@ -22,7 +22,7 @@ shortTitle: Code scanningログの表示
 
 リポジトリでの{% data variables.product.prodname_code_scanning %}のセットアップには、様々なツールを使うことができます。 詳しい情報については「[リポジトリに対する{% data variables.product.prodname_code_scanning %}のセットアップ](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#options-for-setting-up-code-scanning)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 利用できるログと診断情報は、リポジトリ中での{% data variables.product.prodname_code_scanning %}の利用方法によります。 使用している{% data variables.product.prodname_code_scanning %}の種類は、リポジトリの**Security（セキュリティ）**タブで、アラートリスト中の**Tool（ツール）**ドロップダウンメニューを使ってチェックできます。 詳しい情報については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートを管理する](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
 ## 分析と診断情報について
@@ -35,7 +35,7 @@ shortTitle: Code scanningログの表示
 
 {% data variables.product.prodname_dotcom %}の外部で{% data variables.product.prodname_codeql_cli %}を使っているなら、診断情報はデータベース分析の間に生成された出力中に示されます。 この情報は、{% data variables.product.prodname_code_scanning %}の結果とともに{% data variables.product.prodname_dotcom %}にアップロードするSARIF結果ファイル中にも含まれています。
 
-{% data variables.product.prodname_codeql_cli %}に関する情報については「[CIシステムでの{% data variables.product.prodname_codeql_cli %}の実行](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)」を参照してください。
+For information about the {% data variables.product.prodname_codeql_cli %}, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#viewing-log-and-diagnostic-information)."
 
 ### サマリメトリクスについて
 
@@ -72,7 +72,7 @@ shortTitle: Code scanningログの表示
 
 **注釈:** {% data variables.product.prodname_code_scanning %} ワークフローを追加するためのプルリクエストをリポジトリに発行すると、そのプルリクエストからのアラートは、そのプルリクエストがマージされるまで {% data variables.product.prodname_code_scanning_capc %} ページに直接表示されません。 アラートが見つかった場合は、プルリクエストがマージされる前に、{% data variables.product.prodname_code_scanning_capc %} ページのバナーにある [**_(数字)_ alerts found**] をクリックしてそのアラートを表示できます。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae %}
   ![[n alerts found] のリンクをクリック](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 {% else %}
   ![[n alerts found] のリンクをクリック](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)

@@ -18,18 +18,13 @@ shortTitle: Visualizar & gerenciar acesso SAML
 
 Ao ativar o logon único do SAML para a sua conta corporativa, cada integrante da empresa pode vincular sua identidade externa no seu provedor de identidade (IdP) à sua conta de {% data variables.product.product_name %} existente. {% data reusables.saml.about-saml-access-enterprise-account %}
 
+Se sua empresa usar {% data variables.product.prodname_emus %}, seus integrantes usarão contas fornecidas por meio de seu IdP. {% data variables.product.prodname_managed_users_caps %} não usará a sua conta de usuário existente em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
 ## Visualizar e revogar uma identidade vinculada
 
 {% data reusables.saml.about-linked-identities %}
 
-{% warning %}
-
-**Aviso:** Para organizações que usam SCIM:
-- A revogação de uma identidade de usuário vinculada em {% data variables.product.product_name %} também removerá os metadados SAML e SCIM. Como resultado, o provedor de identidade não poderá sincronizar ou desprovisionar a identidade do usuário vinculada.
-- Um administrador deverá revogar uma identidade vinculada por meio do provedor de identidade.
-- Para revogar uma identidade vinculada e vincular uma conta diferente por meio do provedor de identidade, um administrador pode remover e reatribuir o usuário ao aplicativo de {% data variables.product.product_name %}. Para obter mais informações, consulte a documentação do seu provedor de identidade.
-
-{% endwarning %}
+Se o a sua empresa usar {% data variables.product.prodname_emus %}, você não poderá cancelar o provisionamento ou remover contas de usuário da empresa em {% data variables.product.product_name %}. Todas as alterações necessárias a fazer no {% data variables.product.prodname_managed_users %} da sua empresa devem ser feitas por meio do seu IdP.
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 

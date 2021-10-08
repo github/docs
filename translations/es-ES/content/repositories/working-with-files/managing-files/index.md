@@ -1,6 +1,6 @@
 ---
 title: Administrar archivos
-intro: 'You can create, edit, move, and delete files in a repository, directly on {% data variables.product.product_name %} or on the command line.'
+intro: 'Puedes crear, editar, mover y borrar archivos en un repositorio, directamente en {% data variables.product.product_name %} o en la línea de comandos.'
 redirect_from:
   - /articles/managing-files-on-github
   - /github/managing-files-in-a-repository/managing-files-on-github

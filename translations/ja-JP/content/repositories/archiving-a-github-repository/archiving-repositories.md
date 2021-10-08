@@ -32,7 +32,7 @@ topics:
 
 リポジトリがアーカイブされると、その Issue、プルリクエスト、コード、ラベル、マイルストーン、プロジェクト、wiki、リリース、コミット、タグ、ブランチ、リアクション、コードスキャンアラート、およびコメントが読み取り専用になります。 アーカイブされたリポジトリに変更を加えるには、まずそのリポジトリのアーカイブ解除をしなければなりません。
 
-アーカイブされたリポジトリに対して検索ができます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[Issueやプルリクエストの検索](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)を参照してください。
+アーカイブされたリポジトリに対して検索ができます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[Issueやプルリクエストの検索](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)を参照してください。
 
 ## リポジトリをアーカイブへ保管
 

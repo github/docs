@@ -70,10 +70,10 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" e clique em **Repositórios inspecionados**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Avalie os repositórios que você está inspecionando e decida se suas atualizações ainda são relevantes e úteis. Quando você inspeciona um repositório, você será notificado de todas as conversas desse repositório.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
   ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% else %}
+  ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications.png)
 {% endif %}
 
   {% tip %}

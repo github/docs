@@ -1,4 +1,4 @@
-#### フォークしたリポジトリのPull Requestイベント
+### フォークしたリポジトリのPull Requestイベント
 
 {% note %}
 

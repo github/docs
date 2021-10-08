@@ -28,6 +28,12 @@ Você pode configurar a autenticação de dois fatores usando um app móvel{% if
 
 {% endwarning %}
 
+{% ifversion fpt %}
+
+Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, você não poderá configurar a 2FA para sua conta de {% data variables.product.prodname_managed_user %}. A 2FA deve ser configurado por meio do seu provedor de identidade.
+
+{% endif %}
+
 ## Configurar a autenticação de dois fatores usando um app móvel TOTP
 
 Um aplicativo de senhas avulsas por tempo limitado (TOTP, Time-based One-Time Password) gera automaticamente um código de autenticação que é alterado após um determinado período. É recomendável usar apps TOTP baseados na nuvem, como:

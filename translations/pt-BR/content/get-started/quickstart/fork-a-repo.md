@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
 intro: Uma bifurcação é uma cópia de um repositório. Bifurcar um repositório permite que você faça experiências à vontade sem comprometer o projeto original.
+permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -83,7 +84,7 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 ## Clonando o seu repositório bifurcado
 
-Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
+Agora, você tem uma bifurcação do repositório Spoon-Knife, mas você não tem os arquivos nesse repositório localmente no seu computador.
 
 {% include tool-switcher %}
 {% webui %}

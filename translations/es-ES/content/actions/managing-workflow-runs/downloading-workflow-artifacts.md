@@ -11,9 +11,8 @@ shortTitle: Descargar artefactos de flujo de trabajo
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} Predeterminadamente, {% data variables.product.product_name %} almacena las bitácoras de compilación y los artefactos por 90 días, y puedes personalizar este periodo de retención dependiendo del tipo de repositorio. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
+{% ifversion fpt or ghes > 2.22 or ghae %} Predeterminadamente, {% data variables.product.product_name %} almacena las bitácoras de compilación y los artefactos por 90 días, y puedes personalizar este periodo de retención dependiendo del tipo de repositorio. Para obtener más información, consulta la sección "[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".{% endif %}
 {% ifversion ghes = 2.22 %} Las {% data variables.product.product_name %} almacenan las bitácoras y los artefactos por 90 días.{% endif %}
 
 {% data reusables.repositories.permissions-statement-read %}

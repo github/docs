@@ -40,8 +40,8 @@ Tú decides cómo generar las alertas del {% data variables.product.prodname_cod
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. A la derecha de "alertas del {% data variables.product.prodname_code_scanning_capc %}", haz clic en **Configurar el {% data variables.product.prodname_code_scanning %}**. {% ifversion fpt or ghes > 3.0 %}Si falta el {% data variables.product.prodname_code_scanning %}, necesitas pedir al propietario de la organización o adminsitrador del repositorio que habilite la {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y análisis en tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" o "[Administrar la configuración de seguridad y análisis en tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".{% endif %} ![Botón de "Configurar el {% data variables.product.prodname_code_scanning %}" a la derecha de "{% data variables.product.prodname_code_scanning_capc %}" en el resumen de seguridad](/assets/images/help/security/overview-set-up-code-scanning.png)
-4. Debajod e "Iniciar con el {% data variables.product.prodname_code_scanning %}", da clic en **Configurar este flujo de trabajo** en el {% data variables.product.prodname_codeql_workflow %} o en el flujo de trabajo de terceros. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% ifversion fpt or ghes > 2.22 %}Los flujos de trabajo solo se muestran si son relevantes para los lenguajes de programación que se detectan en el repositorio. El {% data variables.product.prodname_codeql_workflow %} siempre se muestra, pero el botón de "Configurar este flujo de trabajo" solo se habilita si el análisis de {% data variables.product.prodname_codeql %} es compatible con los lenguajes presentes en el repositorio.{% endif %}
+3. A la derecha de "alertas del {% data variables.product.prodname_code_scanning_capc %}", haz clic en **Configurar el {% data variables.product.prodname_code_scanning %}**. {% ifversion fpt or ghes > 3.0 or ghae-next %}Si falta el {% data variables.product.prodname_code_scanning %}, necesitas pedir al propietario de la organización o adminsitrador del repositorio que habilite la {% data variables.product.prodname_GH_advanced_security %}. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y análisis en tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" o "[Administrar la configuración de seguridad y análisis en tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".{% endif %} ![Botón de "Configurar el {% data variables.product.prodname_code_scanning %}" a la derecha de "{% data variables.product.prodname_code_scanning_capc %}" en el resumen de seguridad](/assets/images/help/security/overview-set-up-code-scanning.png)
+4. Debajod e "Iniciar con el {% data variables.product.prodname_code_scanning %}", da clic en **Configurar este flujo de trabajo** en el {% data variables.product.prodname_codeql_workflow %} o en el flujo de trabajo de terceros. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% ifversion fpt or ghes > 2.22 or ghae-next %}Los flujos de trabajo solo se muestran si son relevantes para los lenguajes de programación que se detectan en el repositorio. El {% data variables.product.prodname_codeql_workflow %} siempre se muestra, pero el botón de "Configurar este flujo de trabajo" solo se habilita si el análisis de {% data variables.product.prodname_codeql %} es compatible con los lenguajes presentes en el repositorio.{% endif %}
 5. Para personalizar la forma en que el {% data variables.product.prodname_code_scanning %} escanea tu còdigo, edita el flujo de trabajo.
 
    Generalmente, puedes confirmar el {% data variables.product.prodname_codeql_workflow %} sin hacerle ningùn cambio. Sin embargo, muchos de los flujos de trabajo de terceros requieren de configuraciones adicionales, asì que lee los comentarios en el flujo de trabajo antes de confirmar.
@@ -53,9 +53,42 @@ Tú decides cómo generar las alertas del {% data variables.product.prodname_cod
 
 En el {% data variables.product.prodname_codeql_workflow %} predeterminado, el {% data variables.product.prodname_code_scanning %} se configura para analizar tu código cada vez que ya sea subas un cambio a la rama predeterminada o a cualquier rama protegida, o que levantes una solicitud de cambios contra la rama predeterminada. Como resultado, el {% data variables.product.prodname_code_scanning %} comenzarà ahora.
 
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[Scanning pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-pull-requests)" and "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
 ## Configuración del {% data variables.product.prodname_code_scanning %} por lotes
 
-Puedes configurar el {% data variables.product.prodname_code_scanning %} en muchos repositorios al mismo tiempo utilizando un script. If you'd like to use a script to raise pull requests that add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS.
+Puedes configurar el {% data variables.product.prodname_code_scanning %} en muchos repositorios al mismo tiempo utilizando un script. Si te gustaría utilizar un script para levantar solicitudes de cambios que agreguen un flujo de trabajo de {% data variables.product.prodname_actions %} a varios repositorios, consulta el repositorio de [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para encontrar un ejemplo utilizando Powershell o el de [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para los equipos que no tengan Powershell y quieran utilizar NodeJS en su lugar.
+
+## Visualizar la salida de registro del {% data variables.product.prodname_code_scanning %}
+
+Después de configurar el {% data variables.product.prodname_code_scanning %} para tu repositorio, puedes observar la salida de las acciones mientras se ejecutan.
+
+{% data reusables.repositories.actions-tab %}
+
+  Veràs una lista que incluye una entrada para ejecutar el flujo de trabajo del {% data variables.product.prodname_code_scanning %}. El texto de la entrada es el título que le diste a tu mensaje de confirmación.
+
+  ![Lista de acciones que muestran el flujo de trabajo del {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-actions-list.png)
+
+1. Da clic en la entrada para el flujo de trabajo de {% data variables.product.prodname_code_scanning %}.
+
+1. Da clic en el nombre del job situado a la izquierda. Por ejemplo, **Analizar (IDIOMA)**.
+
+  ![Registro de salida del flujo de trabajo del {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+
+1. Revisa la salida de registro de las acciones en este flujo de trabajo conforme se ejecutan.
+
+1. Una vez que todos los jobs se completen, puedes ver los detalles de cualquier alerta del {% data variables.product.prodname_code_scanning %} que se hayan identificado. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
+
+{% note %}
+
+**Nota:** Si levantaste una solicitud de cambios para agregar el flujo de trabajo del {% data variables.product.prodname_code_scanning %} a las alertas del repositorio, las alertas de esa solicitud de cambios no se mostraràn directamente en la pàgina del {% data variables.product.prodname_code_scanning_capc %} hasta que se fusione dicha solicitud. Si se encontrò alguna de las alertas, puedes verlas antes de que se fusione la solicitud de extracciòn dando clic en el enlace de **_n_ alertas encontradas** en el letrero de la pàgina del {% data variables.product.prodname_code_scanning_capc %}.
+
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+  ![Da clic en el enlace de "n alertas encontradas" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+{% else %}
+  ![Da clic en el enlace de "n alertas encontradas" link](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
+{% endif %}
+
+{% endnote %}
 
 ## Entender las verificaciones de la solicitud de cambios
 
@@ -65,13 +98,25 @@ Los nombres de las verificaciones del anàlisis del {% data variables.product.pr
 
   ![Verificaciones de solicitudes de cambios del {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-pr-checks.png)
 
-Cuando se completan los jobs del {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dotcom %} averigua si la solicitud de cambios agregò alguna alerta y agrega la entrada "resultados del {% data variables.product.prodname_code_scanning_capc %} / NOMBRE DE LA HERRAMIENTA" a la lista de verificaciones. Despuès de que se lleve a cabo el {% data variables.product.prodname_code_scanning %} por lo menos una vez, puedes dar clic en **Detalles** para ver los resultados del anàlisis. Si utilizaste una solicitud de cambios para agregar el {% data variables.product.prodname_code_scanning %} al repositorio, veràs inicialmente un mensaje de "Missing analysis" cuando des clic en la parte de **Detalles** de la verificaciòn "resultados del {% data variables.product.prodname_code_scanning_capc %} / NOMBRE DE LA HERRAMIENTA".
+Cuando se completan los jobs del {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dotcom %} averigua si la solicitud de cambios agregò alguna alerta y agrega la entrada "resultados del {% data variables.product.prodname_code_scanning_capc %} / NOMBRE DE LA HERRAMIENTA" a la lista de verificaciones. Despuès de que se lleve a cabo el {% data variables.product.prodname_code_scanning %} por lo menos una vez, puedes dar clic en **Detalles** para ver los resultados del anàlisis. If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}an "Analysis not found"{% else %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
 
-  ![Falta el análisis para el mensaje de confirmación](/assets/images/help/repository/code-scanning-missing-analysis.png)
+{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}
+  ![Analysis not found for commit message](/assets/images/help/repository/code-scanning-analysis-not-found.png)
 
-### Razones para recibir un mensaje de "missing analysis"
+The table lists one or more categories. Each category relates to specific analyses, for the same tool and commit, performed on a different language or a different part of the code. For each category, the table shows the two analyses that {% data variables.product.prodname_code_scanning %} attempted to compare to determine which alerts were introduced or fixed in the pull request.
 
-Despuès de que el {% data variables.product.prodname_code_scanning %} analiza el còdigo en una solicitud de cambios, necesita comparar el anàlisis de la rama de tema (la rama que utilizaste para crear la silicolicitud de cambios) con el anàlisis de la rama base (la rama en la cual quieres fusionar la solicitud de cambios). Esto permite al {% data variables.product.prodname_code_scanning %} calcular què alertas introdujo la solicitud de cambios recientemente, cuàles ya estaban presentes en la rama base y si es que cualquiera de las alertas existentes se arreglan con los cambios que lleva la solicitud. Inicialmente, si utilizas una solicitud de cambios para agregar el {% data variables.product.prodname_code_scanning %} a un repositorio, la rama base no se ha analizado, asì que no es posible calcular estos detalles. En este caso, cuando das clic en la verificaciòn de los resultados de la solicitud de cambios, veràs el mensaje "Missing analysis for base commit SHA-HASH".
+For example, in the screenshot above, {% data variables.product.prodname_code_scanning %} found an analysis for the merge commit of the pull request, but no analysis for the head of the main branch.
+{% else %}
+  ![Falta el análisis para el mensaje de confirmación](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
+{% endif %}
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}
+### Reasons for the "Analysis not found" message
+{% else %}
+### Reasons for the "Missing analysis" message
+{% endif %}
+
+Despuès de que el {% data variables.product.prodname_code_scanning %} analiza el còdigo en una solicitud de cambios, necesita comparar el anàlisis de la rama de tema (la rama que utilizaste para crear la silicolicitud de cambios) con el anàlisis de la rama base (la rama en la cual quieres fusionar la solicitud de cambios). Esto permite al {% data variables.product.prodname_code_scanning %} calcular què alertas introdujo la solicitud de cambios recientemente, cuàles ya estaban presentes en la rama base y si es que cualquiera de las alertas existentes se arreglan con los cambios que lleva la solicitud. Inicialmente, si utilizas una solicitud de cambios para agregar el {% data variables.product.prodname_code_scanning %} a un repositorio, la rama base no se ha analizado, asì que no es posible calcular estos detalles. In this case, when you click through from the results check on the pull request you will see the {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}"Analysis not found"{% else %}"Missing analysis for base commit SHA-HASH"{% endif %} message.
 
 Existen otras situaciones en donde puede que no haya un anàlisis para la ùltima confirmaciòn hacia la rama base para una solicitud de cambios. Entre estas se incluyen cuando:
 
@@ -79,7 +124,7 @@ Existen otras situaciones en donde puede que no haya un anàlisis para la ùltim
 
   Para verificar si se ha escaneado una rama, ve a la pàgina de {% data variables.product.prodname_code_scanning_capc %}, da clic en el menù desplegable de **Rama** y selecciona la rama relevante.
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
   ![Elige una rama del menú desplegable de Rama](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 {% else %}
   ![Elige una rama del menú desplegable de Rama](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)

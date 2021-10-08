@@ -61,6 +61,7 @@ shortTitle: 关联文本编辑器
 ## 使用 Atom 作为编辑器
 
 1. 安装 [Atom](https://atom.io/)。 更多信息请参阅 Atom 文档中的“[安装 Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)”。
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 输入此命令：
   ```shell
   $ git config --global core.editor "atom --wait"
