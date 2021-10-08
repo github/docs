@@ -1,6 +1,6 @@
 ---
 title: Roles in an organization
-intro: 'After you [create an organization](/articles/creating-a-new-organization-account), you should give Owner permissions to a small group of people who will manage the organization account.'
+intro: 'Organization owners can assign roles to individuals and teams giving them different sets of permissions in the organization.'
 redirect_from:
   - /articles/permission-levels-for-an-organization-early-access-program/
   - /articles/permission-levels-for-an-organization
@@ -13,18 +13,46 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Permissions for organization
+shortTitle: Roles in an organization
 ---
+## About roles
+{% data reusables.organizations.about-roles %}
 
-## Permission levels for an organization
+Within an organization, you can assign roles at the organization, team, and repository level. This article is about organization-level roles, but you can learn more about each level below. 
+### Repository-level roles
+You can give organization members, outside collaborators and teams of people varying levels of access to repositories by assigning them to roles. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% endif %} or *member* roles:
+### Team-level roles
 
-- **Owners** have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
-{% ifversion fpt %}
-- **Billing managers** allow a person to manage billing settings. For more information, see "[Adding a billing manager to your organization](/articles/adding-a-billing-manager-to-your-organization)".
+Team-level roles are roles that give permissions specific to a team. You can give any individual member of a team the *team maintainer* role, which gives them a number of administrative permissions over a team. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
+
+### Organization-level roles
+Organization-level roles are different sets of permissions that can be assigned to individuals or teams to manage an organization and the repositories, teams and settings within it. For more information on each organization-level role, see the sections below.
+## Organization owners
+Organization owners have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
+
+## Organization members
+The default, non-administrative role for people in an organization is the organization member. Organization members have a number of permissions, including being able to create repositories and project boards. 
+
+## Billing managers
+Billing managers are users who can manage the billing settings for your organization, such as payment information. This is a useful option if members of your organization don't usually have access to billing resources. For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4999 %}
+## Security managers
+Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team  the same set of security management permissions, including *read* permissions for all repositories in an organization and *write* permission on security alerts. This role is useful for organizations with security teams, as it gives members of the team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
 {% endif %}
-- **Members** are the default role for everyone else.
+## {% data variables.product.prodname_github_app %} managers
+By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+
+When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. For more information, see:
+
+- "[Adding GitHub App managers in your organization](/articles/adding-github-app-managers-in-your-organization)"
+- "[Removing GitHub App managers from your organization](/articles/removing-github-app-managers-from-your-organization)"
+
+## Outside collaborators
+To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
+
+## Permissions for organization roles
 
 {% ifversion fpt %}
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
@@ -33,7 +61,7 @@ Some of the features listed below are limited to organizations using {% data var
 {% ifversion fpt %}
 <!--Dotcom version has extra column for Billing managers-->
 
-| Organization action | Owners | Members | Billing managers |
+| Organization permission | Owners | Members | Billing managers |
 |:--------------------|:------:|:-------:|:----------------:|
 | Create repositories (see "[Restricting repository creation in your organization](/articles/restricting-repository-creation-in-your-organization)" for details) | **X** | **X** |  |
 | View and edit billing information | **X** |  | **X** |
@@ -131,19 +159,6 @@ Some of the features listed below are limited to organizations using {% data var
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |{% endif %}
 
 {% endif %}
-
-## {% data variables.product.prodname_github_app %} managers
-
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
-
-When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. For more information, see:
-
-- "[Adding GitHub App managers in your organization](/articles/adding-github-app-managers-in-your-organization)"
-- "[Removing GitHub App managers from your organization](/articles/removing-github-app-managers-from-your-organization)"
-
-## Outside collaborators
-
-To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}
 
 ## Further reading
 

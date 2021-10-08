@@ -1,6 +1,6 @@
 ---
 title: Managing people's access to your organization with roles
-intro: 'You can control access to your organizations's settings and repositories by giving people organization, repository, and team roles.'
+intro: 'You can control access to your organizations''s settings and repositories by giving people organization, repository, and team roles.'
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
@@ -18,6 +18,7 @@ children:
   - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
+  - /managing-the-security-manager-role-in-your-organization
 shortTitle: Manage access with roles
 ---
 
