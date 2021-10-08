@@ -10,7 +10,7 @@ export default [
   'actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f', // v2.2.0
   'actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa', // v4.0.0
   'actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074', // v2.2.4
-  'alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9',
+  'alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488', // v0.8.1
   'andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84',
   'crowdin/github-action@d7f217268068f1244883a993379d62d816f84f25', // v1.4.0
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
