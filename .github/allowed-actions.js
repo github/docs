@@ -16,7 +16,7 @@ export default [
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
   'cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa', // uses github-actions-parser v0.23.0
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911', // v3.0.2
-  'dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74', // v2.14.0
+  'dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126', // v2.15.0
   'docker://chinthakagodawita/autoupdate-action:v1',
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58',
   'github/codeql-action/analyze@v1',
