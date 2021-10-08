@@ -38,7 +38,7 @@ where the syntax for `versions` is the same as the [frontmatter `versions` prope
 
 The product example data is added to the `context` object in `middleware/contextualizers/product-examples.js`.
 
-The data is then rendered by `layouts/product-landing.html`.
+The data is then rendered by `components/landing`.
 
 ## Schema enforcement
 

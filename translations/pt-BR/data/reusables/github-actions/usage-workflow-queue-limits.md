@@ -1,1 +1,1 @@
-- **Workflow run queue** - No more than 100 workflow runs can be queued in a 10 second interval per repository. If a workflow run reaches this limit, the workflow run is terminated and fails to complete.
+- **Fila de execução do fluxo de trabalho** - Apenas 500 execuções do fluxo de trabalho podem ser enfileiradas em um segundo intervalo de 10 segundos por repositório. Se a execução de um fluxo de trabalho atingir esse limite, a execução do fluxo de trabalho terminará e falhará em ser concluída.

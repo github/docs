@@ -31,10 +31,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
-      permissions:
-        security-events: write
-        actions: read{% endif %}
+    analyze:
       ...
       strategy:
         fail-fast: false

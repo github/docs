@@ -5,9 +5,9 @@ redirect_from:
   - /guides/using-ssh-agent-forwarding/
   - /v3/guides/using-ssh-agent-forwarding
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---

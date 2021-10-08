@@ -5,20 +5,21 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Políticas para las GitHub Actions
 ---
 
-### Acerca de los permisos de las {% data variables.product.prodname_actions %} para tu cuenta empresarial
+## Acerca de los permisos de las {% data variables.product.prodname_actions %} para tu cuenta empresarial
 
 Predeterminadamente, {% data variables.product.prodname_actions %} se habilita en todas las organizaciones que pertenezcan a una cuenta empresarial. Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para todas las organizaciones que pertenezcan a una cuenta empresarial, o permitirlas únicamente para una organización epecífica. También puedes limitar el uso de acciones públicas, para que las personas solo puedan utilizar acciones locales que existen en tu organización.
 
 Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)".
 
-### Adminsitrar los permisos de {% data variables.product.prodname_actions %} para tu cuenta empresarial
+## Adminsitrar los permisos de {% data variables.product.prodname_actions %} para tu cuenta empresarial
 
 Puedes inhabilitar todos los flujos de trabajo de una empresa o configurar una política que configure qué acciones pueden utilizarse en una organización.
 
@@ -30,7 +31,7 @@ Puedes inhabilitar todos los flujos de trabajo de una empresa o configurar una p
 {% data reusables.actions.enterprise-actions-permissions %}
 1. Haz clic en **Save ** (guardar).
 
-### Permitir que se ejecuten acciones específicas
+## Permitir que se ejecuten acciones específicas
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
@@ -39,18 +40,29 @@ Puedes inhabilitar todos los flujos de trabajo de una empresa o configurar una p
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista. ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
-### Habilitar flujos de trabajo para las bifurcaciones de repositorios privados
+## Configurar las aprobaciones requeridas para los flujos de trabajo desde las bifurcaciones pùblicas
+
+{% data reusables.actions.workflow-run-approve-public-fork %} Puedes configurar este comportamiento para tu empresa utilizando el siguiente procedimiento.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.github-actions.workflows-from-public-fork-setting %}
+
+{% data reusables.actions.workflow-run-approve-link %}
+
+## Habilitar flujos de trabajo para las bifurcaciones de repositorios privados
 
 {% data reusables.github-actions.private-repository-forks-overview %}
 
-#### Configurar la política de bifurcaciones privadas para tu cuenta empresarial
+### Configurar la política de bifurcaciones privadas para tu cuenta empresarial
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}
 
-### Cnfigurar los permisos para el `GITHUB_TOKEN` para tu empresa
+## Cnfigurar los permisos para el `GITHUB_TOKEN` para tu empresa
 
 {% data reusables.github-actions.workflow-permissions-intro %}
 
@@ -58,7 +70,7 @@ Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la con
 
 {% data reusables.github-actions.workflow-permissions-modifying %}
 
-#### Configurar los permisos predeterminados del `GITHUB_TOKEN`
+### Configurar los permisos predeterminados del `GITHUB_TOKEN`
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

@@ -1,7 +1,8 @@
 ---
 title: Developing in a codespace
 intro: 'You can open a codespace on {% data variables.product.product_name %}, then develop using {% data variables.product.prodname_vscode %}''s features.'
-permissions: Anyone can develop in a codespace owned by their user account.
+product: '{% data reusables.gated-features.codespaces %}'
+permissions: 'You can develop in codespaces you''ve created for repositories owned by organizations using {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
@@ -14,7 +15,7 @@ topics:
   - Developer
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 ## About development with {% data variables.product.prodname_codespaces %}
 
@@ -32,7 +33,7 @@ For more information on using {% data variables.product.prodname_vscode %}, see 
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting your codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)."
+{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
 
 ### Personalizing your codespace
 
@@ -57,4 +58,4 @@ The Command Palette allows you to access and manage many features for {% data va
 2. Click the name of the codespace you want to develop in.
   ![Name of codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
-Alternatively, you can see any active codespaces for a repository by navigating to the repository in which it was made and selecting **{% octicon "codespaces" aria-label="The codespaces icon" %} Codespaces**.
+Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.

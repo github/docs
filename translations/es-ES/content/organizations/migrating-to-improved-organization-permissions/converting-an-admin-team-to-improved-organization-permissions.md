@@ -6,11 +6,12 @@ redirect_from:
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Convertir el equipo de administradores
 ---
 
 Puedes eliminar la capacidad de los miembros del equipo de administración heredado para crear repositorios al crear un nuevo equipo para esos miembros, asegurándote de que el equipo tenga el acceso necesario a los repositorios de la organización, y eliminando el equipo de administración heredado.

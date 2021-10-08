@@ -1,4 +1,5 @@
-module.exports = require('cors')({
+import cors from 'cors'
+export default cors({
   origin: '*',
-  methods: ['GET', 'HEAD']
+  methods: ['GET', 'HEAD'],
 })

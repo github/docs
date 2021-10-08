@@ -24,7 +24,7 @@ For more information on configuring two-factor authentication, see "[About two-f
 
 ## Requiring a password manager
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/)--on any computer they use to connect to your enterprise. Doing so ensures that passwords are stronger and much less likely to be compromised or stolen.
+We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/)--on any computer they use to connect to your enterprise. Doing so ensures that passwords are stronger and much less likely to be compromised or stolen.
 
 ## Restrict access to teams and repositories
 

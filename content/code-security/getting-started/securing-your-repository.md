@@ -49,7 +49,7 @@ For more information, see "[Adding a security policy to your repository](/code-s
 {% ifversion fpt or ghes > 2.22 %}
 ## Managing the dependency graph
 
-The dependency graph is automatically generated for {% ifversion fpt or ghes > 2.22 %} all public repositories and you can choose to enable it for private repositories.{% else %} all repositories.{% endif %}
+Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for {% ifversion fpt or ghes > 2.22 %} all public repositories, and you can choose to enable it for private repositories.{% else %} all repositories.{% endif %}
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
 2. Click **Security & analysis**.

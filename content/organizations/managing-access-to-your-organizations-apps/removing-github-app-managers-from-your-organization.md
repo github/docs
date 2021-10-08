@@ -29,7 +29,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_app %}s", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
+1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
 ![Select {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Under "App managers", find the username of the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, and click **Revoke**.

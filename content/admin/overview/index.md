@@ -11,8 +11,6 @@ children:
   - /about-upgrades-to-new-releases
   - /about-data-residency
   - /about-enterprise-accounts
-  - /managing-your-github-enterprise-license
-  - /managing-billing-for-your-enterprise
   - /system-overview
   - /about-the-github-enterprise-api
 ---

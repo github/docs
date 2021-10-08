@@ -6,18 +6,18 @@ redirect_from:
   - /articles/reverting-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
 
-### About reverting a pull request
+## About reverting a pull request
 
 Durch das Rückgängigmachen eines Pull Requests auf {% data variables.product.product_name %} wird ein neuer Pull Request erstellt, der ein „Revert“ des Merge-Commits des ursprünglich gemergten Pull Requests enthält.
 
-### Pull Request rückgängig machen
+## Pull Request rückgängig machen
 
 {% note %}
 

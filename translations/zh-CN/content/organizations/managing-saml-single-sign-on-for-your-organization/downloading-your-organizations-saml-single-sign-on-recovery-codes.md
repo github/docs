@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 下载 SAML 恢复代码
 ---
 
-恢复代码不应共享或分发。 我们建议使用一个密码管理器保存它们，例如 [LastPass](https://lastpass.com/)、 [1Password](https://1password.com/) 或 [Keeper](https://keepersecurity.com/)。
+恢复代码不应共享或分发。 We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -29,7 +30,7 @@ topics:
 
 7. 使用恢复代码重新获得 {% data variables.product.product_name %} 的访问权限后，无法重复使用该恢复代码。 对 {% data variables.product.product_name %} 的访问权限将仅在 24 小时内可用，之后系统会要求您使用单点登录进行登录。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - “[在身份提供程序不可用的情况下访问组织](/articles/accessing-your-organization-if-your-identity-provider-is-unavailable)”

@@ -6,20 +6,21 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors profile
+shortTitle: Manage payment tiers
 ---
 
-### Informationen zu Sponsoring-Stufen
+## Informationen zu Sponsoring-Stufen
 
 {% data reusables.sponsors.tier-details %}
 
 {% data reusables.sponsors.maximum-tier %}
 
-### Eine Stufe hinzufügen
+## Eine Stufe hinzufügen
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
@@ -32,7 +33,7 @@ topics:
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 
-### Editing or retiring a tier
+## Editing or retiring a tier
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
@@ -46,12 +47,12 @@ topics:
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
-### Enabling tiers with custom amounts
+## Enabling tiers with custom amounts
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.enable-custom-amounts %}
 
-### Disabling tiers with custom amounts
+## Disabling tiers with custom amounts
 
 You can disable tiers with custom amounts by deselecting the **Enable custom amounts** option on the **Sponsor tiers** tab. If you disable custom amounts, all custom tiers are retired.

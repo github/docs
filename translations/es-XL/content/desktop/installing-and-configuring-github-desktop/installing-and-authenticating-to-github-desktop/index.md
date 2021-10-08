@@ -4,7 +4,7 @@ intro: Instalar GitHub Desktop y conectar tus cuentas de GitHub y GitHub Enterpr
 redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /setting-up-github-desktop
   - /installing-github-desktop

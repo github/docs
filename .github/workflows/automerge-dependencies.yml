@@ -1,7 +1,11 @@
 name: Auto Merge Dependency Updates
 
-# **What it does**: Automatically merge pull requests from dependabot.
-# **Why we have it**: To keep our dependencies up-to-date, to avoid security issues.
+# **What it does**:
+#  - automerge-internal: Automatically merge dependabot's pull requests in the internal repository.
+#  - close-external: Automatically close dependabot's pull requests in the open-source repository.
+# **Why we have it**:
+#  - automerge-internal: To keep our dependencies up-to-date, to avoid security issues.
+#  - close-external: To avoid duplicating updates against the internal repository.
 # **Who does it impact**: It helps docs engineering focus on higher value work.
 
 on:
@@ -16,12 +20,42 @@ on:
       - edited
       - submitted
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
-  run:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+  automerge-internal:
+    if: >-
+      ${{
+        github.repository == 'github/docs-internal' &&
+        github.event.pull_request.number &&
+        github.event.pull_request.base.ref == 'main' &&
+        github.event.pull_request.user.login == 'dependabot[bot]' &&
+        github.event.pull_request.state == 'open'
+      }}
     runs-on: ubuntu-latest
     steps:
       - uses: tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           allowed-actors: dependabot[bot]
+
+  close-external:
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.pull_request.number &&
+        github.event.pull_request.base.ref == 'main' &&
+        github.event.pull_request.user.login == 'dependabot[bot]' &&
+        github.event.pull_request.state == 'open'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close and comment on the pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr close "$PR_URL"
+          gh pr comment "$PR_URL" --body "This dependency update will be handled internally by our engineering team."

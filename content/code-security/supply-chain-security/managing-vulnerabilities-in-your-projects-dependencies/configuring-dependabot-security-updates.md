@@ -49,7 +49,7 @@ You can disable {% data variables.product.prodname_dependabot_security_updates %
 | {% data variables.product.prodname_dependabot_security_updates %} are not disabled for the repository | "[Managing {% data variables.product.prodname_dependabot_security_updates %} for your repository](#managing-dependabot-security-updates-for-your-repositories)" |
 | Repository is not already using an integration for dependency management | "[About integrations](/github/customizing-your-github-workflow/about-integrations)" |
 
-If security updates are not enabled for your repository and you don't know why, first try enabling them using the instructions given in the procedural sections below. If security updates are still not working, you can [contact support](https://support.github.com/contact).
+If security updates are not enabled for your repository and you don't know why, first try enabling them using the instructions given in the procedural sections below. If security updates are still not working, you can [contact support](https://support.github.com/contact?tags=docs-security).
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
 

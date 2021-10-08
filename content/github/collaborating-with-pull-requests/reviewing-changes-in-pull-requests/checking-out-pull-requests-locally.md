@@ -20,15 +20,11 @@ shortTitle: Check out a PR locally
 
   {% endnote %}
 
-{% ifversion fpt or ghae or ghes %}
-{% tip %}
-
-**Tip**: You can also check out a pull request locally using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
-{% endif %}
-
 ## Modifying an active pull request locally
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request you'd like to modify.{% ifversion fpt %}
@@ -38,6 +34,20 @@ shortTitle: Check out a PR locally
   ![Link to access command line pull request instructions](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, click **open this in {% data variables.product.prodname_desktop %}**.
   ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+
+```shell
+gh pr checkout <em>pull-request</em>
+```
+
+{% endcli %}
 
 ## Modifying an inactive pull request locally
 

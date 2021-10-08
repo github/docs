@@ -181,7 +181,7 @@
 - 
   term: Standardbranch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
   term: abhängigkeitsdiagramm
   description: >-
@@ -252,7 +252,7 @@
 - 
   term: gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: Master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% ifversion fpt or ghes > 3.1 or ghae %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
   term: mitgliederdiagramm
   description: Ein Repository-Diagramm, in dem alle Forks eines Repositorys gezeigt werden.
@@ -654,6 +654,10 @@
   description: >-
     Ein Protokoll, in dem die letzten 50 Aktionen oder die Aktionen aufgelistet werden, die in den letzten 90 Tagen durchgeführt wurden.
 - 
+  term: server-to-server request
+  description: >-
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+- 
   term: Dienst-Hook
   description: >-
     Wird auch als „Webhook“ bezeichnet. Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen Webserver zu senden, wenn bestimmte Aktionen in einem Repository oder in einer Organisation auftreten.
@@ -680,7 +684,7 @@
   description: >-
     Eine visuelle Darstellung innerhalb eines Pull Requests dahingehend, dass Ihre Commits die für das Repository festgelegten Bedingungen erfüllen, an dem Sie mitwirken.
 - 
-  term: statuschecks
+  term: status checks
   description: >-
     Statusprüfungen sind externe Prozesse, z. B. kontinuierliche Integrations-Builds, die für jeden Commit ausgeführt werden, den Du in einem Repository erstellst. Weitere Informationen findest Du unter „[Über Statusprüfungen](/articles/about-status-checks)."
 - 
@@ -714,7 +718,7 @@
   description: >-
     Eine Möglichkeit, Repositorys in einem bestimmten Themenbereich zu erkunden, nach Projekten zu suchen, zu denen beigetragen werden soll, und neue Lösungen zu einem spezifischen Problem auf GitHub zu finden.
 - 
-  term: traffic-Diagramm
+  term: traffic graph
   description: >-
     Ein Repository-Diagramm, das den Traffic eines Repositorys anzeigt, darunter die vollständigen Klone (nicht Abrufe), Besucher der letzten 14 Tage, verweisende Websites und beliebte Inhalte.
 - 
@@ -736,6 +740,10 @@
 - 
   term: Benutzername
   description: Der Handle eines Benutzers auf GitHub.
+- 
+  term: user-to-server request
+  description: >-
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
 - 
   term: öffentliches Team
   description: Ein Team, das von jedem Organisationsmitglied angesehen und @erwähnt werden kann.

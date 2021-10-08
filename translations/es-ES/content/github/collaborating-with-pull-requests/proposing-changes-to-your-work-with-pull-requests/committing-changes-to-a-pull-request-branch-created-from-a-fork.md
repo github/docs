@@ -1,16 +1,17 @@
 ---
-title: Confirmar cambios a una rama de solicitud de extracción desde una bifurcación
+title: Confirmar cambios a una rama de solicitud de cambios desde una bifurcación
 intro: Puedes confirmar cambios en una rama de solicitud de extracción que se creó desde una bifurcación de tu repositorio con permiso del creador de la solicitud de extracción.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Confirmar una Solicitud de Cambios de una rama desde una bifurcación
 ---
 
 Solo puedes realizar confirmaciones en las ramas de la solicitud de extracción que:
@@ -86,6 +87,6 @@ Solo el usuario que creó la solicitud de extracción puede darte permiso para s
 
 Tus nuevas confirmaciones se reflejarán en la solicitud de extracción original en {% data variables.product.product_location %}.
 
-### Leer más
+## Leer más
 
 - "[Acerca de las bifurcaciones](/articles/about-forks)"

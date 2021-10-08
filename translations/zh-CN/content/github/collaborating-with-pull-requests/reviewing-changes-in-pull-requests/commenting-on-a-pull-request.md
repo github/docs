@@ -9,14 +9,15 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
 intro: 在仓库中打开拉取请求后，协作者或团队成员可以评论两个指定分支之间的文件比较，或者对整个项目做出总体评论。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: 对 PR 的评论
 ---
 
-### 关于拉取请求评论
+## 关于拉取请求评论
 
 您可以在拉取请求的 **Conversation（对话）**选项卡上发表评论，以留下总评、疑问或提议。 您还可以提出拉取请求的作者可直接从您的注释中应用的更改。
 
@@ -42,7 +43,7 @@ topics:
 
 {% endtip %}
 
-### 向拉取请求添加行注释
+## 向拉取请求添加行注释
 
 {% data reusables.repositories.sidebar-pr %}
 2. 1. 在拉取请求列表中，单击要留下行注释的拉取请求。
@@ -56,8 +57,8 @@ topics:
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[在 GitHub 上编写](/github/writing-on-github)"
-{% if currentVersion == "free-pro-team@latest" %}- "[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
+{% ifversion fpt %}-“[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 {% endif %}

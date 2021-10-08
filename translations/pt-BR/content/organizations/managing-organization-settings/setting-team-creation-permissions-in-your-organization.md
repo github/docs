@@ -5,12 +5,13 @@ redirect_from:
   - /articles/setting-team-creation-permissions-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/setting-team-creation-permissions-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Restringir criação de equipe
 ---
 
 Os proprietários da organização podem configurar permissões de criação de equipes.

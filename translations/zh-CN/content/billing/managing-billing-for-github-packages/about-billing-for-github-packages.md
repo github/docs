@@ -6,14 +6,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: overview
 topics:
   - Packages
   - Spending limits
+shortTitle: 关于计费
 ---
 
-### 关于 {% data variables.product.prodname_registry %} 的计费
+## 关于 {% data variables.product.prodname_registry %} 的计费
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -21,7 +22,7 @@ topics:
 
 {% note %}
 
-**容器映像存储的计费更新：** 在 {% data variables.product.prodname_container_registry %} 的测试版阶段，Docker 映像存储和带宽对以前的 `docker.pkg.github.com` 和当前的 `ghcr.io` 托管服务是免费的。 更多信息请参阅“[{% data variables.product.prodname_registry %} 简介](/packages/learn-github-packages/introduction-to-github-packages)”。
+**容器映像存储的计费更新：**容器映像存储和带宽的 {% data variables.product.prodname_container_registry %} 的免费使用期已经延长。 如果您正在使用 {% data variables.product.prodname_container_registry %} ，您将在开始计费之前至少一个月收到通知，并且会收到您预计要支付多少款项的预估。 有关 {% data variables.product.prodname_container_registry %} 的更多信息，请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
 
 {% endnote %}
 
@@ -46,9 +47,9 @@ topics:
 
 存储使用情况与 {% data variables.product.prodname_actions %} 为您的帐户所拥有的仓库产生的构件共享。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 
-{% data variables.product.prodname_dotcom %} 向拥有其中发布软件包的仓库的帐户收取使用费。 如果您的帐户使用量超过这些限制，并且您设定的支出限额超过 $0，那么您将为每 GB 存储量支付 0.25 美元，每 GB 数据传输量支付 0.50 美元。
+{% data variables.product.prodname_dotcom %} 向拥有其中发布软件包的仓库的帐户收取使用费。 If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage and $0.50 USD per GB of data transfer.
 
-例如，如果您的组织使用 {% data variables.product.prodname_team %}，允许无限制的支出，使用了 150GB 的存储量，一个月内还传输了 50GB 的数据，则组织在当月的存储量超限 148GB，数据传输量为 40GB。 超限的存储量费用每 GB 为 0.25 美元，总共 37 美元。 超限的数据传输费用每 GB 为 0.50 美元，总共 20 美元。
+例如，如果您的组织使用 {% data variables.product.prodname_team %}，允许无限制的支出，使用了 150GB 的存储量，一个月内还传输了 50GB 的数据，则组织在当月的存储量超限 148GB，数据传输量为 40GB。 The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
 
 到月底，{% data variables.product.prodname_dotcom %} 会将您的数据传输舍入到最接近的 GB。
 
@@ -63,7 +64,9 @@ topics:
 
 您的 {% data variables.product.prodname_registry %} 使用将共用帐户的现有计费日期、付款方式和收据。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-### 关于支出限制
+{% data reusables.user_settings.context_switcher %}
+
+## 关于支出限制
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 

@@ -9,7 +9,10 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
   return (
     <div data-testid="article-card" className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8">
       <a className="no-underline d-flex flex-column py-3 border-bottom" href={card.href}>
-        <h4 className="h4 color-text-primary mb-1">{card.title}</h4>
+        <h4
+          className="h4 color-text-primary mb-1"
+          dangerouslySetInnerHTML={{ __html: card.title }}
+        />
         <div className="h6 text-uppercase" data-testid="article-card-type">
           {typeLabel}
         </div>
@@ -21,7 +24,7 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
                 <span
                   data-testid="article-card-topic"
                   key={topic}
-                  className="IssueLabel bg-gradient--pink-blue color-text-inverse mr-1"
+                  className="IssueLabel color-bg-info-inverse color-text-inverse mr-1"
                 >
                   {topic}
                 </span>

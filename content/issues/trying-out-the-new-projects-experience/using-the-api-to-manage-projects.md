@@ -28,7 +28,7 @@ In all of the following cURL examples, replace `TOKEN` with a token that has the
 
 {% cli %}
 
-{% data reusables.cli.download-cli %}
+{% data reusables.cli.cli-learn-more %}
 
 Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login` and providing an authentication token that has the `read:org` scope (for queries) or `write:org` scope (for queries and mutations). During the beta, you will not be able to authenticate using a web browser. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)." For more information about creating a token, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 

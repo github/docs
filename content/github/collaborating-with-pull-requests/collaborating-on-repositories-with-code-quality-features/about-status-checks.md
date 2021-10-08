@@ -30,7 +30,7 @@ There are two types of status checks on {% data variables.product.product_name %
 - Checks
 - Statuses
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_app %}s.
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
 Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
@@ -39,6 +39,12 @@ Organization owners and users with push access to a repository can create checks
 When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
 
 ![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
+
+{% note %}
+
+**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+
+{% endnote %}
 
 When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 

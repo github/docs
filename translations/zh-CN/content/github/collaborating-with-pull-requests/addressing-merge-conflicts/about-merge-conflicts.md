@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-merge-conflicts
   - /github/collaborating-with-issues-and-pull-requests/about-merge-conflicts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -19,7 +19,7 @@ Git 通常可以自动解决分支之间的冲突并合并它们。 通常，更
 
 ![合并冲突错误消息](/assets/images/help/pull_requests/merge_conflict_error_on_github.png)
 
-### 解决合并冲突
+## 解决合并冲突
 
 要解决合并冲突，必须手动编辑冲突的文件以选择要保留在最终合并中的更改。 解决合并冲突有多种不同的方式：
 
@@ -34,7 +34,7 @@ $ git merge <em>BRANCH-NAME</em>
 > Automatic merge failed; fix conflicts and then commit the result
 ```
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于拉取请求合并](/articles/about-pull-request-merges/)"
 - "[关于拉取请求](/articles/about-pull-requests/)"

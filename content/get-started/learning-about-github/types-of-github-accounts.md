@@ -63,6 +63,14 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 {% endif %}
 
+{% ifversion fpt %}
+### {% data variables.product.prodname_emus %}
+
+With {% data variables.product.prodname_emus %}, instead of using your personal account, members of an {% data variables.product.prodname_emu_enterprise %} are provisioned accounts using the enterprise's identity provider (IdP). {% data variables.product.prodname_managed_users_caps %} authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password.
+
+{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)." 
+{% endif %}
+
 ## Organization accounts
 
 Organizations are shared accounts where groups of people can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.

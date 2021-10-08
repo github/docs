@@ -1,37 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const walk = require('walk-sync')
-const path = require('path')
-const astFromMarkdown = require('mdast-util-from-markdown')
-const visit = require('unist-util-visit')
-const { loadPages, loadPageMap } = require('../lib/page-data')
-const loadSiteData = require('../lib/site-data')
-const loadRedirects = require('../lib/redirects/precompile')
-const { getPathWithoutLanguage, getPathWithoutVersion } = require('../lib/path-utils')
-const allVersions = Object.keys(require('../lib/all-versions'))
-const frontmatter = require('../lib/read-frontmatter')
-const renderContent = require('../lib/render-content')
-const patterns = require('../lib/patterns')
-
-const walkFiles = (pathToWalk) => {
-  return walk(path.posix.join(__dirname, '..', pathToWalk), { includeBasePath: true, directories: false })
-    .filter(file => file.endsWith('.md') && !file.endsWith('README.md'))
-    .filter(file => !file.includes('/early-access/')) // ignore EA for now
-}
-
-const allFiles = walkFiles('content').concat(walkFiles('data'))
-
-// The script will throw an error if it finds any markup not represented here.
-// Hacky but it captures the current rare edge cases.
-const linkInlineMarkup = {
-  emphasis: '*',
-  strong: '**'
-}
-
-const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
-const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
-
 // [start-readme]
 //
 // Run this script to find internal links in all content and data Markdown files, check if either the title or link
@@ -46,9 +14,46 @@ const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
 //
 // [end-readme]
 
+import { fileURLToPath } from 'url'
+import path from 'path'
+import fs from 'fs'
+import walk from 'walk-sync'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import visit from 'unist-util-visit'
+import { loadPages, loadPageMap } from '../lib/page-data.js'
+import loadSiteData from '../lib/site-data.js'
+import loadRedirects from '../lib/redirects/precompile.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
+import { allVersionKeys } from '../lib/all-versions.js'
+import frontmatter from '../lib/read-frontmatter.js'
+import renderContent from '../lib/render-content/index.js'
+import patterns from '../lib/patterns.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const walkFiles = (pathToWalk) => {
+  return walk(path.posix.join(__dirname, '..', pathToWalk), {
+    includeBasePath: true,
+    directories: false,
+  })
+    .filter((file) => file.endsWith('.md') && !file.endsWith('README.md'))
+    .filter((file) => !file.includes('/early-access/')) // ignore EA for now
+}
+
+const allFiles = walkFiles('content').concat(walkFiles('data'))
+
+// The script will throw an error if it finds any markup not represented here.
+// Hacky but it captures the current rare edge cases.
+const linkInlineMarkup = {
+  emphasis: '*',
+  strong: '**',
+}
+
+const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
+const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
+
 main()
 
-async function main () {
+async function main() {
   console.log('Working...')
   const pageList = await loadPages()
   const pageMap = await loadPageMap(pageList)
@@ -59,7 +64,7 @@ async function main () {
     pages: pageMap,
     redirects,
     site: site.en.site,
-    currentLanguage: 'en'
+    currentLanguage: 'en',
   }
 
   for (const file of allFiles) {
@@ -70,12 +75,12 @@ async function main () {
     // so that the AST parser recognizes the link as a link node. The spaces prevent it from doing so.
     newContent = newContent.replace(currentVersionWithSpacesRegex, currentVersionWithoutSpaces)
 
-    const ast = astFromMarkdown(newContent)
+    const ast = fromMarkdown(newContent)
 
     // We can't do async functions within visit, so gather the nodes upfront
     const nodesPerFile = []
 
-    visit(ast, node => {
+    visit(ast, (node) => {
       if (node.type !== 'link') return
       if (!node.url.startsWith('/')) return
       if (node.url.startsWith('/assets')) return
@@ -114,7 +119,7 @@ async function main () {
       let foundPage, fragmentMatch, versionMatch
 
       // Run through all supported versions...
-      for (const version of allVersions) {
+      for (const version of allVersionKeys) {
         context.currentVersion = version
         // Render the link for each version using the renderContent pipeline, which includes the rewrite-local-links plugin.
         const $ = await renderContent(oldMarkdownLink, context, { cheerioObject: true })
@@ -125,9 +130,7 @@ async function main () {
         versionMatch = oldLink.match(/(enterprise-server(?:@.[^/]*?)?)\//)
 
         // Remove the fragment for now.
-        linkToCheck = linkToCheck
-          .replace(/#.*$/, '')
-          .replace(patterns.trailingSlash, '$1')
+        linkToCheck = linkToCheck.replace(/#.*$/, '').replace(patterns.trailingSlash, '$1')
 
         // Try to find the rendered link in the set of pages!
         foundPage = findPage(linkToCheck, pageMap, redirects)
@@ -140,22 +143,31 @@ async function main () {
       }
 
       if (!foundPage) {
-        console.error(`Can't find link in pageMap! ${oldLink} in ${file.replace(process.cwd(), '')}`)
+        console.error(
+          `Can't find link in pageMap! ${oldLink} in ${file.replace(process.cwd(), '')}`
+        )
         process.exit(1)
       }
 
       // If the original link includes a fragment OR the original title includes Liquid, do not change;
       // otherwise, use the found page title. (We don't want to update the title if a fragment is found because
       // the title likely points to the fragment section header, not the page title.)
-      const newTitle = fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink ? oldTitle : foundPage.title
+      const newTitle =
+        fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink
+          ? oldTitle
+          : foundPage.title
 
       // If the original link includes a fragment, append it to the found page path.
       // Also remove the language code because Markdown links don't include language codes.
-      let newLink = getPathWithoutLanguage(fragmentMatch ? foundPage.path + fragmentMatch[1] : foundPage.path)
+      let newLink = getPathWithoutLanguage(
+        fragmentMatch ? foundPage.path + fragmentMatch[1] : foundPage.path
+      )
 
       // If the original link includes a hardcoded version, preserve it; otherwise, remove versioning
       // because Markdown links don't include versioning.
-      newLink = versionMatch ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}` : getPathWithoutVersion(newLink)
+      newLink = versionMatch
+        ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}`
+        : getPathWithoutVersion(newLink)
 
       let newMarkdownLink = `[${inlineMarkup}${newTitle}${inlineMarkup}](${newLink})`
 
@@ -180,18 +192,18 @@ async function main () {
   console.log('Done!')
 }
 
-function findPage (tryPath, pageMap, redirects) {
+function findPage(tryPath, pageMap, redirects) {
   if (pageMap[tryPath]) {
     return {
       title: pageMap[tryPath].title,
-      path: tryPath
+      path: tryPath,
     }
   }
 
   if (pageMap[redirects[tryPath]]) {
     return {
       title: pageMap[redirects[tryPath]].title,
-      path: redirects[tryPath]
+      path: redirects[tryPath],
     }
   }
 }

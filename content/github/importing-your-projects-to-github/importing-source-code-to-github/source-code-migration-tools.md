@@ -37,6 +37,8 @@ We recommend [hg-fast-export](https://github.com/frej/fast-export) for convertin
 
 We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
 
+For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
+
 {% tip %}
 
 **Tip:** After you've successfully converted your project to Git, you can [push it to {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).

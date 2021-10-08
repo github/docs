@@ -12,7 +12,6 @@ topics:
 shortTitle: Manage discussion creation
 ---
 
-{% data reusables.discussions.beta %}
 
 ## Allowing or disallowing users with read access to create discussions
 

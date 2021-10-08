@@ -9,14 +9,15 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request
 intro: 'Luego de abrir una solicitud de extracción en un repositorio, los colaboradores o miembros del equipo pueden comentar sobre la comparación de archivos entre dos ramas especificadas, o dejar comentarios generales en el proyecto en general.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Comentar en una solicitud de cambios
 ---
 
-### Acerca de los comentarios de las solicitudes de extracción
+## Acerca de los comentarios de las solicitudes de extracción
 
 Puedes comentar en la pestaña **Conversation** (Conversación) de una solicitud de extracción para dejar comentarios generales, preguntas o apoyos. También puedes sugerir cambios que el autor de la solicitud de extracción puede aplicar directamente desde tu comentario.
 
@@ -42,7 +43,7 @@ Para responder un comentario en la línea que ya existe, deberás ir hasta el co
 
 {% endtip %}
 
-### Agregar comentarios en la línea a una solicitud de extracción
+## Agregar comentarios en la línea a una solicitud de extracción
 
 {% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción en la que deseas dejar los comentarios en la línea.
@@ -56,8 +57,8 @@ Cualquier persona que observe la solicitud de extracción o el repositorio recib
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Leer más
+## Leer más
 
 - "[Escribir en GitHub](/github/writing-on-github)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Reportar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+{% ifversion fpt %}- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

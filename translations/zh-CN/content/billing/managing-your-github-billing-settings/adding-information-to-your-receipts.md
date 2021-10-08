@@ -12,15 +12,15 @@ redirect_from:
   - /articles/how-can-i-add-extra-information-to-my-organization-s-receipts/
   - /articles/adding-information-to-your-organization-s-receipts/
   - /articles/adding-information-to-your-receipts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-information-to-your-receipts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Organizations
   - Receipts
   - User account
+shortTitle: 添加到收据中
 ---
 
 收据包括 {% data variables.product.prodname_dotcom %} 订阅以及[其他付费功能和产品](/articles/about-billing-on-github)的订阅。
@@ -31,14 +31,14 @@ topics:
 
 {% endwarning %}
 
-### 添加信息到个人帐户的收据
+## 添加信息到个人帐户的收据
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-### 添加信息到组织的收据
+## 添加信息到组织的收据
 
 {% note %}
 
