@@ -67,7 +67,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Submit reviews on pull requests | **X** | **X** | **X** | **X** | **X** |
 | View published releases | **X** | **X** | **X** | **X** | **X** |{% ifversion fpt %}
 | View [GitHub Actions workflow runs](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run) | **X** | **X** | **X** | **X** | **X** |{% endif %}
-| Edit wikis | **X** | **X** | **X** | **X** | **X** |{% ifversion fpt %}
+| Edit wikis in public repositories | **X** | **X** | **X** | **X** | **X** |
+| Edit wikis in private repositories | | | **X** | **X** | **X** |{% ifversion fpt %}
 | [Report abusive or spammy content](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Apply/dismiss labels | | **X** | **X** | **X** | **X** |
 | Create, edit, delete labels | | | **X** | **X** | **X** |
@@ -112,7 +113,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Make a repository a template (see "[Creating a template repository](/articles/creating-a-template-repository)") | | | | | **X** |
 | Change a repository's settings | | | | | **X** |
 | Manage team and collaborator access to the repository | | | | | **X** |
-| Edit the repository's default branch | | | | | **X** |{% ifversion fpt or ghes > 3.0 %}
+| Edit the repository's default branch | | | | | **X** |{% ifversion fpt or ghes > 3.0 or ghae-next %}
 | Rename the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | | | **X** |
 | Rename a branch other than the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | **X** | **X** | **X** |{% endif %}
 | Manage webhooks and deploy keys | | | | | **X** |{% ifversion fpt %}

@@ -7,12 +7,13 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 type: overview
 topics:
   - Actions
   - Enterprise
+shortTitle: Add actions in your enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,7 +24,7 @@ topics:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-### Enterprise インスタンスにバンドルされている公式アクション
+## Enterprise インスタンスにバンドルされている公式アクション
 
 ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.product_name %} にバンドルされ、{% data variables.product.prodname_marketplace %} からある時点でキャプチャされます。
 
@@ -37,7 +38,7 @@ topics:
 
 {% endnote %}
 
-### {% data variables.product.prodname_dotcom_the_website %} でアクションへのアクセスを設定する
+## {% data variables.product.prodname_dotcom_the_website %} でアクションへのアクセスを設定する
 
 Enterprise のユーザが {% data variables.product.prodname_dotcom_the_website %} または {% data variables.product.prodname_marketplace %} からの他のアクションにアクセスする必要がある場合、いくつかの設定オプションがあります。
 

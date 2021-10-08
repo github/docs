@@ -13,14 +13,24 @@ export default async function learningTrack(req, res, next) {
   const trackName = req.query.learn
   if (!trackName) return noTrack()
 
-  const tracksPerProduct = req.context.site.data['learning-tracks'][req.context.currentProduct]
+  let trackProduct = req.context.currentProduct
+  let tracksPerProduct = req.context.site.data['learning-tracks'][trackProduct]
+
+  // If there are no learning tracks for the current product, try and fall
+  // back to the learning track product set as a URL parameter.  This handles
+  // the case where a learning track has guide paths for a different product
+  // than the current learning track product.
+  if (!tracksPerProduct) {
+    trackProduct = req.query.learnProduct
+    tracksPerProduct = req.context.site.data['learning-tracks'][trackProduct]
+  }
+
   if (!tracksPerProduct) return noTrack()
 
-  const track = req.context.site.data['learning-tracks'][req.context.currentProduct][trackName]
+  const track = req.context.site.data['learning-tracks'][trackProduct][trackName]
   if (!track) return noTrack()
 
-  const currentLearningTrack = { trackName }
-
+  const currentLearningTrack = { trackName, trackProduct }
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
   let guideIndex = track.guides.findIndex((path) => path === guidePath)
 

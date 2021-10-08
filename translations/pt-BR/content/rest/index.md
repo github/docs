@@ -5,9 +5,9 @@ intro: 'Você pode usar a API REST do {% data variables.product.prodname_dotcom 
 redirect_from:
   - /v3
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /overview
   - /reference

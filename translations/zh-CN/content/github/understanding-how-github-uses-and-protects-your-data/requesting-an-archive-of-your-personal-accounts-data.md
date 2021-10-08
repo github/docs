@@ -5,10 +5,11 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
+shortTitle: 请求帐户存档
 ---
 
 {% data variables.product.product_name %} 存储您个人帐户活动的仓库和个人资料元数据。 您可以通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置或使用用户迁移 API 导出个人帐户的数据。
@@ -23,7 +24,7 @@ topics:
 
 生成的 `tar.gz` 文件在您开始数据导出时反映存储的数据。
 
-### 下载个人帐户数据的存档
+## 下载个人帐户数据的存档
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
@@ -32,7 +33,7 @@ topics:
 5. 单击电子邮件中的下载链接并在提示时重新输入密码。
 6. 您将被重定向到可以下载的 `tar.gz` 文件。
 
-### 删除个人帐户数据存档的访问权限
+## 删除个人帐户数据存档的访问权限
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

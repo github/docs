@@ -2,7 +2,7 @@
 title: GitHub AE を初期化する
 intro: '{% data variables.product.product_name %} の初期設定を完了して Enterprise で使用できるようにします。'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -10,11 +10,11 @@ redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
 
-### 初期化について
+## 初期化について
 
 Enterprise を初期化する前に、{% data variables.product.product_name %} を購入する必要があります。 詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
-{% data variables.product.product_name %} を購入後、Enterprise を初期化するユーザのメールアドレスとユーザ名を入力するように求められます。 {% data variables.contact.enterprise_support %} の専任のテクニカルアカウントマネージャーが Enterprise オーナーのアカウントを作成し、Enterprise オーナーにメールを送信して {% data variables.product.product_name %} にログイン後、初期化を完了します。 提供する情報が、IdP 内の目的の Enterprise オーナーの情報と一致することを確認してください。 Enterprise オーナーの詳細については、「[Enterprise 内のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
+{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. Enterprise オーナーの詳細については、「[Enterprise 内のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
 
 {% note %}
 
@@ -28,7 +28,7 @@ Enterprise を初期化する前に、{% data variables.product.product_name %} 
 
 初期化中に、Enterprise オーナーは Enterprise に名前を付け、SAML SSO を設定し、Enterprise 内のすべての Organization のポリシーを作成して、ユーザのサポート連絡先を設定します。
 
-### 必要な環境
+## 必要な環境
 
 To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
@@ -43,13 +43,13 @@ To begin initialization, you will receive an invitation email from {% data varia
 
 2. {% data reusables.saml.assert-the-administrator-attribute %}
 
-### サインインして Enterprise に名前を付ける
+## サインインして Enterprise に名前を付ける
 
 1. ようこそメールの指示に従って、Enterprise にアクセスします。
 2. [Change password] の下に認証情報を入力し、[**Change password**] をクリックします。
 3. [What would you like your enterprise account to be named?] の下に Enterprise の名前を入力し、[**Save and continue**] をクリックします。 ![Enterprise に名前を付けるための [Save and continue] ボタン](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
-### IdP を Enterprise に接続する
+## IdP を Enterprise に接続する
 
 {% data variables.product.product_name %} の認証を設定するには、{% data variables.product.product_name %} に SAML IdP の詳細を提供する必要があります。 {% data variables.product.company_short %} は、IdP として Azure AD を使用することを推奨しています。 詳しい情報については、「[アイデンティティプロバイダで認証とプロビジョニングを設定する](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)」を参照してください。
 
@@ -60,7 +60,7 @@ To begin initialization, you will receive an invitation email from {% data varia
 1. [**Test SAML configuration**] をクリックして、入力した情報が正しいことを確認します。 ![[Test SAML configuration] ボタン](/assets/images/enterprise/configuration/ae-test-saml-configuration.png)
 1. [**Save**] をクリックします。 ![IdP 設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
 
-### Enterprise のポリシーを設定する
+## Enterprise のポリシーを設定する
 
 ポリシーを設定すると、Enterprise のリポジトリと Organization の管理に制限が設定されます。 これらは、初期化プロセスの後に再設定できます。
 
@@ -76,7 +76,7 @@ To begin initialization, you will receive an invitation email from {% data varia
 10. [**Save**] をクリックします。 ![Enterprise ポリシー設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
 11. 必要に応じて、すべての選択をリセットするには、[Reset to default policies] をクリックします。 ![すべてのデフォルトポリシーをリセットするためのリンク](/assets/images/enterprise/configuration/ae-reset-default-options.png)
 
-### 内部のサポート連絡先を設定する
+## 内部のサポート連絡先を設定する
 
 ユーザが内部のサポートチームに連絡する方法を設定できます。 これは、初期化プロセスの後に再設定できます。
 
@@ -84,7 +84,7 @@ To begin initialization, you will receive an invitation email from {% data varia
 2. [Internal support contact] の下で、Enterprise のユーザが URL またはメールアドレスを使用してサポートに連絡する方法を選択します。 次に、サポートの連絡先情報を入力します。 ![内部サポート連絡先 URL のテキストフィールド](/assets/images/enterprise/configuration/ae-support-link-url.png)
 3. [**Save**] をクリックします。 ![Enterprise サポート連絡先設定の [Save] ボタン](/assets/images/enterprise/configuration/ae-save.png)
 
-### メール設定
+## メール設定
 
 これを初期化すると、初期化プロセス後に再設定できます。 詳しい情報については、「[通知のためのメールを設定する](/admin/configuration/configuring-email-for-notifications)」を参照してください。
 

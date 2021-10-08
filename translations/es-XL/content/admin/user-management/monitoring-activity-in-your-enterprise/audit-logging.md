@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/audit-logging
   - /admin/user-management/audit-logging
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Auditing
   - Enterprise

@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:

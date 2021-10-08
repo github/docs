@@ -13,21 +13,21 @@ redirect_from:
   - /github/building-a-strong-community/editing-wiki-content
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 ---
 
-### Adicionar links
+## Adicionar links
 
 Você pode criar links em wikis usando markup padrão compatível para sua página ou usando sintaxe do MediaWiki. Por exemplo:
 
 - Em páginas renderizadas com Markdown, a sintaxe do link é `[Link Text](full-URL-of-wiki-page)`.
 - Com a sintaxe do MediaWiki, a sintaxe do link é `[[Link Text|nameofwikipage]]`.
 
-### Adicionar imagens
+## Adicionar imagens
 
 Os wikis podem exibir imagens em PNG, JPEG e GIF.
 
@@ -38,13 +38,13 @@ Os wikis podem exibir imagens em PNG, JPEG e GIF.
 5. Na caixa de diálogo "Insert Image" (Inserir imagem), digite a URL da imagem e o texto alt (que é usado por mecanismos de pesquisa e leitores de tela).
 6. Clique em **OK**.
 
-#### Vincular a imagens em um repositório
+### Vincular a imagens em um repositório
 
 Para vincular a uma imagem em um repositório no {% data variables.product.product_name %}, copie a URL no navegador e use-a como caminho para a imagem. Por exemplo, a incorporação de uma imagem no wiki usando Markdown pode ter esta aparência:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-### Formatos do MediaWiki compatíveis
+## Formatos do MediaWiki compatíveis
 
 Seja qual for a linguagem de marcação em que sua página wiki foi escrita, sempre haverá uma sintaxe do MediaWiki disponível para você.
 - Links ([exceto Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))

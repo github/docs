@@ -1,6 +1,4 @@
-1. Select the operating system and architecture of your self-hosted runner machine. ![Select self-hosted runner operating system](/assets/images/help/settings/actions-runner-architecture-os.png)
-
-
+1. Select the operating system image and architecture of your self-hosted runner machine.
 1. You will see instructions showing you how to download the runner application and install it on your self-hosted runner machine.
 
    Open a shell on your self-hosted runner machine and run each shell command in the order shown.

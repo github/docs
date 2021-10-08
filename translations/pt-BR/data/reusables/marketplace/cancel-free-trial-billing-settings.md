@@ -1,1 +1,1 @@
-1. Next to the free trial you'd like to cancel, use the **Edit** drop-down and click **Cancel plan**.
+1. Ao lado do teste grátis que você deseja cancelar, use o meu suspenso **Editar** e clique em **Cancelar plano**.

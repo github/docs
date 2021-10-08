@@ -1,13 +1,15 @@
 ---
 title: プロジェクト
+intro: Projects APIを使うと、リポジトリ内でプロジェクトの作成、リスト、更新、削除、カスタマイズが行えます。
 redirect_from:
   - /v3/projects
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}

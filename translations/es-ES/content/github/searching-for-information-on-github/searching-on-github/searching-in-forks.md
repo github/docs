@@ -5,9 +5,9 @@ redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
@@ -25,7 +25,7 @@ El calificador `fork:true` encuentra todos los resultados que coinciden con tu c
 | `fork:only` | [**github fork:only**](https://github.com/search?q=github+fork%3Aonly&type=Repositories) encuentra todos los repositorios de bifurcaciones que contienen la palabra "github."                                                              |
 |             | [**forks:>500 fork:only**](https://github.com/search?q=forks%3A%3E500+fork%3Aonly&type=Repositories) coincidirá con repositorios de más de 500 ramificaciones, y regresará únicamente aquellos que son ramificaciones.                     |
 
-### Leer más
+## Leer más
 
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
 - "[Acerca de buscar en GitHub](/articles/about-searching-on-github)"

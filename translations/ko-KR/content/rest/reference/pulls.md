@@ -1,13 +1,15 @@
 ---
 title: Pulls
+intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
 redirect_from:
   - /v3/pulls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
@@ -26,8 +28,6 @@ These are the supported media types for pull requests.
     application/vnd.github.VERSION.patch
 
 For more information, see "[Custom media types](/rest/overview/media-types)."
-
-<a id="diff-error">
 
 If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
 

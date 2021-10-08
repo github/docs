@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/authentication/using-built-in-authentication
   - /admin/authentication/using-built-in-authentication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Accounts
   - Authentication
