@@ -303,7 +303,7 @@ jobs:
 
       # Download the previously built "app.tar"
       - name: Download build artifact
-        uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
+        uses: dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ env.BUILD_ACTIONS_RUN_ID }}
@@ -472,6 +472,7 @@ jobs:
           CONTEXT_NAME: ${{ env.CONTEXT_NAME }}
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
+          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
         with:
           script: |
             const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env

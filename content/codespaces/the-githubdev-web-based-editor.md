@@ -32,7 +32,7 @@ The {% data variables.product.prodname_serverless %} runs entirely in your bro
 
 ## Opening the {% data variables.product.prodname_serverless %}
 
-You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} in the following ways:
+You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} in either of the following ways:
 
 - Press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
 - Change the URL from "github.com" to "github.dev".
