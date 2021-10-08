@@ -118,7 +118,7 @@ jobs:
 
       - name: Create pull request
         id: create-pull
-        uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
+        uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         with:
@@ -143,7 +143,7 @@ jobs:
         if: ${{ steps.find-pull-request.outputs.number }}
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.find-pull-request.outputs.number }}
 
       # Because we get far too much spam ;_;
