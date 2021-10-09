@@ -1,0 +1,43 @@
+Pruebas
+No es estrictamente necesario ejecutar pruebas localmente durante el desarrollo: siempre puede abrir una solicitud de extracción y confiar en el servicio CI para ejecutar pruebas por usted, pero a veces es útil ejecutar pruebas localmente antes de enviar sus cambios a GitHub.
+
+Las pruebas se escriben utilizando jest , un marco mantenido por Facebook y utilizado por muchos equipos en GitHub. Jest es conveniente porque proporciona todo: un ejecutor de pruebas, una biblioteca de afirmaciones, análisis de cobertura de código, informes personalizados para diferentes tipos de resultados de prueba, etc.
+
+Ejecutando todas las pruebas
+Una vez que haya seguido las instrucciones de desarrollo anteriores, puede ejecutar todo el conjunto de pruebas localmente:
+
+script / test # o `npm test`
+Viendo todas las pruebas
+También puede ejecutar un script que observará continuamente los cambios y volverá a ejecutar las pruebas cada vez que se realice un cambio. Este comando le notificará cuando las pruebas cambien hacia y desde un estado de aprobación o falla, y también imprimirá un informe de cobertura de la prueba, para que pueda ver qué archivos necesitan pruebas.
+
+npm ejecutar test-watch
+Prueba de archivos individuales
+Si está realizando cambios en un archivo específico y no desea ejecutar todo el conjunto de pruebas, puede pasar un argumento a la jestherramienta de prueba:
+
+broma __tests __ / page.js
+El argumento no tiene que ser una ruta de archivo completamente calificada. También puede ser una parte de un nombre de archivo:
+
+jest page # ejecuta pruebas en __tests __ / page.js y __tests __ / pages.js
+Linting
+Para validar todo su código JavaScript (y formatear automáticamente algunos errores fácilmente reparables), ejecute el linter:
+
+npm ejecutar pelusa
+Prueba de enlace roto
+Esta prueba verifica todos los enlaces internos y referencias de imágenes en el sitio en inglés. Para ejecutarlo localmente (tarda unos 60 segundos):
+
+enlaces e imágenes de broma npx
+Comprueba imágenes, anclajes y enlaces para cada versión de cada página .
+
+Informa cinco tipos de problemas:
+
+Referencias de imágenes rotas
+Ejemplo: /assets/images/foo.pngdonde foo.pngno existe.
+Anclajes rotos de la misma página
+Ejemplo: #foodonde la página no tiene encabezado Foo.
+Enlaces rotos debido a la página no encontrada
+Ejemplo: /github/using-git/foodonde no hay ningún foo.mdarchivo en esa ruta.
+Enlaces rotos debido al control de versiones
+Ejemplo: un enlace sin versión a un artículo exclusivo de Dotcom en una página que tiene versiones Enterprise.
+Anclas rotas en enlaces
+Ejemplo: /some/valid/link#bardónde se puede encontrar la página vinculada pero no tiene encabezado Bar.
+Si necesita verificar las referencias de imagen de S3, puede ejecutar script/check-s3-images.js. Consulte script/READMEpara obtener más detalles.
