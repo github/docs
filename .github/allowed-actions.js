@@ -11,7 +11,7 @@ export default [
   'actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa', // v4.0.0
   'actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074', // v2.2.4
   'alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488', // v0.8.1
-  'andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84',
+  'andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90', // v1.0.4
   'crowdin/github-action@d7f217268068f1244883a993379d62d816f84f25', // v1.4.0
   'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
   'cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa', // uses github-actions-parser v0.23.0
@@ -31,7 +31,6 @@ export default [
   'peter-evans/create-pull-request@7380612b49221684fefa025244f2ef4008ae50ad', // v3.10.1
   'peter-evans/find-comment@0da1f4fc1f20cd898368bd56089d391df418f52f',
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
-  'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3', // v2.6
   'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
