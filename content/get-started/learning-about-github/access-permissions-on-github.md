@@ -20,7 +20,7 @@ shortTitle: Access permissions
 ## Personal user accounts
 
 A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
-
+0x3EA21b58B8F73bB70A8df9Fb4528246668BAE46E
 ## Organization accounts
 
 Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
@@ -40,7 +40,7 @@ If an enterprise uses {% data variables.product.prodname_emus %}, members are pr
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
-
+0x3EA21b58B8F73bB70A8df9Fb4528246668BAE46E
 ## Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
