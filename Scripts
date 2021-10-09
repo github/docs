@@ -1,0 +1,212 @@
+Guiones
+Guiones para gobernarlos a todos
+Este directorio sigue el patrón Scripts para gobernarlos a todos :
+
+bootstrap
+Instala / actualiza todas las dependencias necesarias para el entorno de documentos. Equivalente a npm install.
+
+server
+Inicia el servidor de desarrollo local. Equivalente a npm start.
+
+Para mantener las cosas ágiles, solo están habilitados el inglés y el japonés. Para ejecutar el servidor con todos los idiomas habilitados, ejecute script / server-all-languages
+
+test
+Ejecuta pruebas. Equivalente a npm test.
+
+Guiones adicionales
+anonymize-branch.js
+Aplanar todas las confirmaciones en la rama actual en una única confirmación anónima de @Octomerger
+
+Uso: script / anonymize-branch.js [base-branch] Ejemplo: script / anonymize-branch.js "no hay nada que ver aquí" Si se omite el argumento opcional [base-branch], por defecto será main
+
+backfill-missing-localizations.js
+Este script copia todos los archivos en inglés que faltan en el directorio de traducciones al directorio de traducciones. Solo necesitamos ejecutar esto si ocurren problemas con la sincronización automática de Crowdin.
+
+check-deps.js
+Este script verifica qué módulos ha utilizado en su código y luego se asegura de que estén listados como dependencias en su package.json, o viceversa.
+
+https://github.com/dependency-check-team/dependency-check
+
+La ignorematriz es para cosas del lado del cliente o en tiempo de compilación que no entran require()dde la manera normal.
+
+check-english-links.js
+Esta secuencia de comandos se ejecuta una vez al día a través de una acción de GitHub programada para verificar todos los enlaces en el contenido en inglés, sin incluir el contenido obsoleto de Enterprise Server. Abre un problema si encuentra enlaces rotos. Para excluir una ruta de enlace, agréguela a lib/excluded-links.js.
+
+check-for-node
+Este script se ejecuta automáticamente cuando ejecuta el servidor localmente. Comprueba si Node.js está instalado.
+
+check-internal-links.js
+Esta secuencia de comandos se ejecuta en CI a través de GitHub Action para verificar todos los enlaces internos en el contenido en inglés, sin incluir el contenido obsoleto de Enterprise Server. Esto es diferente de script / check-english-links.js, que verifica todos los enlaces del sitio, tanto internos como externos, y es mucho más lento.
+
+check-s3-images.js
+Ejecute este script en su rama para comprobar si las imágenes a las que se hace referencia en el contenido no están en un depósito de S3 esperado. Deberá autenticarse en S3 a través de awssumepara utilizar este script. Las instrucciones para la configuración única se encuentran en docs-content / doc-team-workflows / workflow-information-for-all-writers / setting-up-awssume-and-s3cmd.md
+
+content-migrations/extended-markdown-tags.js
+content-migrations/octicon-tag.js
+content-migrations/remove-html-comments-from-index-files.js
+content-migrations/site-data-tag.js
+content-migrations/update-developer-site-links.js
+create-glossary-from-spreadsheet.js
+Esta secuencia de comandos convierte una hoja de cálculo CSV de Google Sheets en un archivo YAML.
+
+delete-unused-staging-apps.js
+Esta secuencia de comandos busca y enumera todas las aplicaciones de ensayo de Heroku y elimina las aplicaciones sobrantes que tienen RP cerradas
+
+early-access/clone-for-build.js
+Esta secuencia de comandos se ejecuta como una secuencia de comandos posterior a la compilación durante la preparación y las implementaciones en Heroku. Clona una rama en el repositorio de acceso temprano que coincide con la rama actual en el repositorio de documentos; si no se puede encontrar uno, clona la mainrama.
+
+early-access/clone-locally
+Este script se ejecuta en la máquina de un escritor para comenzar a desarrollar contenido de acceso anticipado localmente.
+
+early-access/create-branch
+Este script se ejecuta en la máquina de un escritor para crear una rama de acceso anticipado que coincida con la rama interna de documentos actual.
+
+early-access/symlink-from-local-repo.js
+Este script se ejecuta en la máquina de un escritor mientras se desarrolla el contenido de Early Access localmente. Debe pasar al script la ubicación de su copia local del github/docs-early-accessrepositorio git como primer argumento.
+
+early-access/update-data-and-image-paths.js
+Este script se ejecuta en la máquina de un escritor mientras se desarrolla el contenido de Early Access localmente. Actualiza las rutas de datos e imágenes para incluirlas early-accesso eliminarlas.
+
+enterprise-server-deprecations/archive-version.js
+Ejecute este script durante el proceso de desactivación de Enterprise para descargar copias estáticas de todas las páginas para la versión Enterprise compatible más antigua. Consulte la plantilla de problemas de obsolescencia empresarial para obtener instrucciones.
+
+enterprise-server-deprecations/remove-static-files.js
+Esta secuencia de comandos elimina los archivos estáticos GraphQL, REST y webhook de las versiones obsoletas de GHES.
+
+enterprise-server-deprecations/remove-version-markup.js
+Ejecute este script después de una desaprobación de Enterprise para eliminar declaraciones de Liquid y frontmatter que contienen la versión de Enterprise desaprobada. Consulte la plantilla de problemas de obsolescencia empresarial para obtener instrucciones.
+
+enterprise-server-releases/create-graphql-files.js
+Este script crea los archivos GraphQL estáticos para una nueva versión.
+
+enterprise-server-releases/create-rest-files.js
+Este script crea nuevos archivos openAPI estáticos para una nueva versión y modifica info.version.
+
+enterprise-server-releases/create-webhook-files.js
+Este script crea nuevos archivos de carga útil de webhooks estáticos para una nueva versión.
+
+enterprise-server-releases/ghes-to-ghae-versioning.js
+Ejecute este script para agregar versiones frontmatter y Liquid condicionales para GitHub AE, en función de cualquier versión actualmente para la versión proporcionada de Enterprise Server. Este script debe ejecutarse como parte del proceso de lanzamiento de Enterprise Server.
+
+enterprise-server-releases/release-banner.js
+Este script crea o elimina un banner de candidato de lanzamiento para una versión específica.
+
+get-new-dotcom-path.js
+Pase este script por cualquier ruta de dotcom anterior (por ejemplo, articles/fooo foo.md) y generará la nueva ruta en el directorio content / github.
+
+get-new-version-path.js
+Secuencia de comandos auxiliar que devuelve una ruta versionada "nueva" dada una ruta versionada "antigua".
+
+Ejemplos:
+
+Dado: / github / Getting-started-with-github / using-github Devuelve: / free-pro-team @ latest / github / Getting-started-with-github / using-github
+
+Dado: / enterprise / admin / installation / upgrading-github-enterprise Devoluciones: /enterprise-server@2.22/admin/installation/upgrading-github-enterprise
+
+graphql/build-changelog.js
+graphql/update-files.js
+graphql/utils/data-filenames.json
+graphql/utils/prerender-objects.js
+graphql/utils/process-previews.js
+graphql/utils/process-schemas.js
+graphql/utils/process-upcoming-changes.js
+graphql/utils/remove-hidden-schema-members.rb
+graphql/utils/schema-helpers.js
+list-image-sizes.js
+Este script enumera todos los archivos de imágenes locales, ordenados por sus dimensiones.
+
+move-category-to-product.js
+Pase a este script tres argumentos: 1. ruta de la categoría actual (p. Ej., github/automating-your-workflows-with-github-actions) 2. ID de producto nuevo (p. Ej., actions) 3. nombre de producto nuevo entre comillas (p. Ej., "GitHub Actions") Y hace todo lo que se debe hacer para convertir la categoría en un nuevo producto.
+
+move-reusables-to-markdown.js
+Este script mueve los archivos reutilizables de los archivos YAML a archivos de Markdown individuales.
+
+pages-with-liquid-titles.js
+Este es un script temporal para visualizar qué páginas tienen líquido (y condicionales) en su titleportada.
+
+ping-staging-apps.js
+Este script encuentra todas las aplicaciones de preparación de Heroku y las hace ping para asegurarse de que siempre estén "calientes" y respondan a las solicitudes.
+
+prevent-pushes-to-main.js
+Este script está destinado a ser utilizado como un gancho "prepush" de git. Si la rama actual es principal, saldrá sin éxito y evitará el empuje.
+
+prevent-translation-commits.js
+Este script se ejecuta como un gancho de confirmación previa de git (instalado por husky después de la instalación de npm). Detecta cambios en los archivos de la carpeta de traducciones y evita la confirmación si existe algún cambio.
+
+purge-fastly
+Ejecute este script para purgar manualmente la caché Fastly. Tenga en cuenta que esta secuencia de comandos requiere un FASTLY_SERVICE_IDy FASTLY_TOKENen su .envarchivo.
+
+purge-fastly-by-url.js
+Ejecute este script para purgar manualmente la caché de Fastly para todas las variantes de idioma de una sola URL o para un lote de URL en un archivo. Este script no requiere autenticación.
+
+purge-redis-pages.js
+Ejecute este script para purgar manualmente la caché de la página renderizada de Redis. Por lo general, Heroku solo lo ejecutará durante el proceso de implementación, como se activa a través de la configuración de la fase de "lanzamiento" de nuestro Procfile.
+
+reconcile-category-dirs-with-ids.js
+Una prueba automatizada verifica las discrepancias entre los nombres de directorios de categorías y los títulos de categorías slugificadas como ID.
+
+Si la prueba falla, un humano debe ejecutar este script para actualizar los nombres de directorio y agregar redireccionamientos apropiados.
+
+Actualmente, este script no es compatible con Windows.
+
+reconcile-filenames-with-ids.js
+Una prueba automatizada comprueba las discrepancias entre los nombres de archivo y los ID de encabezados generados automáticamente . Si la prueba falla, un humano debe ejecutar este script para actualizar los nombres de archivo.
+
+Actualmente, este script no es compatible con Windows.
+
+remove-extraneous-translation-files.js
+Una prueba automatizada busca archivos en el translations/directorio que no tienen un archivo en inglés equivalente en el content/directorio y falla si encuentra archivos extraños. Cuando la prueba falla, un humano debe ejecutar este script para eliminar los archivos.
+
+remove-unused-assets.js
+Run this script to remove reusables and image files that exist in the repo but are not used in content files. It also displays a list of unused variables. Set the --dry-run to flag to print results without deleting any files. For images you don't want to delete, add them to ignoreList in lib/find-unused-assets.js
+
+reset-translated-file.js
+This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
+
+It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
+
+Usage: script/reset-translated-file.js
+
+Examples:
+
+reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
+
+reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
+
+reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
+
+reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+
+rest/update-files.js
+Run this script to pull openAPI files from github/github, dereference them, and decorate them.
+
+rest/utils/create-code-samples.js
+rest/utils/get-operations.js
+rest/utils/operation-schema.js
+rest/utils/operation.js
+sample-unix-commands.md
+server-all-languages
+Starts the local development server with all of the available languages enabled.
+
+standardize-frontmatter-order.js
+Run this script to standardize frontmatter fields in all content files, per the order: - title - intro - product callout - productVersion - map topic status - hidden status - layout - redirect
+
+sync-search-indices.js
+This script is run automatically via GitHub Actions on every push to main to generate searchable data. It can also be run manually. For more info see contributing/search.md
+
+todo
+List all the TODOs in our JavaScript files and stylesheets.
+
+update-enterprise-dates.js
+This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates lib/enterprise-dates.json, which the site uses for various functionality.
+
+update-readme.js
+This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to script/README.md.
+
+update-s3cmd-config.js
+Este script lo utilizan otros scripts para actualizar las credenciales temporales de AWS y autenticarse en S3.
+
+update-versioning-in-files.js
+upload-images-to-s3.js
+Utilice esta secuencia de comandos para cargar archivos de activos individuales o por lotes a un depósito de S3 con versión. Ejecutar upload-images-to-s3.js --helppara obtener detalles de uso.
+
