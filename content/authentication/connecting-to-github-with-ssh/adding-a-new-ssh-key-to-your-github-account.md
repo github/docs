@@ -31,8 +31,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
   ```
 
   {% tip %}
@@ -67,8 +67,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
   ```
 
   {% tip %}
@@ -103,8 +103,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ cat ~/.ssh/id_ed25519.pub
-  # Then select and copy the contents of the id_ed25519.pub file
+  $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Then select and copy the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file
   # displayed in the terminal to your clipboard
   ```
 
