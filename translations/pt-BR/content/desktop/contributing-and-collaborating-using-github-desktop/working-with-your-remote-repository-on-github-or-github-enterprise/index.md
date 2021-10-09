@@ -4,10 +4,11 @@ intro: 'As alterações feitas no seu projeto local podem ser refletidas no repo
 redirect_from:
   - /desktop/contributing-to-projects/working-with-your-remote-repository-on-github-or-github-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /creating-an-issue-or-pull-request
   - /viewing-a-pull-request-in-github-desktop
   - /changing-a-remotes-url-from-github-desktop
+shortTitle: Trabalhe com seu repositório remoto
 ---
 

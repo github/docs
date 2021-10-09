@@ -105,7 +105,8 @@ You can filter a repository's list of pull requests to find:
 - Pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
 - Pull requests that a reviewer has approved
 - Pull requests in which a reviewer has asked for changes
-- Pull requests that you have reviewed
+- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 %}
+- Pull requests that someone has asked you directly to review{% endif %}
 - Pull requests that [someone has asked you, or a team you're a member of, to review](/articles/requesting-a-pull-request-review)
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -190,7 +191,8 @@ For pull requests, you can also use search to:
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
+- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
 - Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
 - Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
 

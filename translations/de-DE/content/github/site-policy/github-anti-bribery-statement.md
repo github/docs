@@ -3,7 +3,7 @@ title: Anti-Korruptionserklärung von GitHub
 redirect_from:
   - /articles/github-anti-bribery-statement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ GitHub hält an seinem Engagement für ethische Geschäftspraktiken fest, unter 
 
 Nach Angaben der [Weltbank](https://www.worldbank.org/en/topic/governance/brief/anti-corruption) zahlten Unternehmen und Einzelpersonen im Jahr 2017 schätzungsweise 1,5 Billionen US-Dollar an Bestechungsgeldern.
 
-### GitHub-Richtlinien zum Verbot von Korruption
+## GitHub-Richtlinien zum Verbot von Korruption
 
 GitHub macht das Engagement zur Bekämpfung von Korruption durch eine Reihe von Unternehmensrichtlinien deutlich. Als Teil der Microsoft-Familie ist GitHub auch der Anti-Korruptions-Richtlinie von Microsoft verpflichtet, die zusätzlich zu den hier beschriebenen Richtlinien für alle GitHub-Mitarbeiter und -Auftragnehmer gilt.
 
@@ -31,7 +31,7 @@ Die Verhaltensrichtlinien von GitHub verbieten:
 
 Die **Richtlinien zu Geschenken und Unterhaltung** von GitHub erklärt, dass Bestechung im Zusammenhang mit Reisen oder Unterhaltung nicht erlaubt ist, und nennt Beispiele, um unzulässiges Verhalten zu veranschaulichen. Die Richtlinie beschreibt angemessene und unsachgemäße Geschenke, Reise- und Unterhaltungskosten; Unternehmensprozesse für die Schenkung durch GitHub-Direktoren, leitende Angestellte, Mitarbeiter und Agenten sowie Bestimmungen für die Protokollierung, Strafen; und die Meldung von Verstößen. Es enthält klare finanzielle Schwellenwerte für Geschenke sowie jährliche Beschränkungen, mit begrenzten Ausnahmen für Geschenke, die vom zuständigen Management genehmigt wurden. Die Bestimmungen sind für Mitarbeiter und Auftragnehmer von GitHub leicht zugänglich und klar formuliert.
 
-### Schulung unserer Mitarbeiter
+## Schulung unserer Mitarbeiter
 
 GitHub-Mitarbeiter sind verpflichtet, an Schulungen zu Korruption, einschließlich Bestechung, teilzunehmen. Darüber hinaus bieten wir zusätzliche Schulungen für besonders relevante Personen und Teams an, wie z. B. unser Vertriebsteam. The training explains relevant elements of the U.S. Die Schulung erläutert relevante Elemente des U.S. Foreign Corrupt Practices Act und des U.K. Bribery Act von 2010. Bribery Act of 2010. Ein Beispiel,
 - Definition und strukturelle Auswirkungen von Korruption
@@ -52,6 +52,6 @@ Darüber hinaus behandelt die Schulung die internen Richtlinien von GitHub im Zu
 
 While the U.S. FCPA is focused on interactions with government officials, the U.K. Bribery Act is broader and extends to bribing anyone, regardless of whether they are a government official. Beide Gesetze können auf die Aktionen von GitHub in anderen Teilen der Welt angewendet werden. Die Richtlinien von GitHub verbieten die Bestechung von jedermann, unabhängig davon, wo auf der Welt er sich befindet.
 
-### Einbindung unserer Partner
+## Einbindung unserer Partner
 - Die standardmäßigen**Wiederverkaufsvereinbarungen mit Channel-Partnern** von GitHub enthalten verbindliche Antikorruptionsklauseln. GitHub wird in Zukunft von unseren Channel-Partnern verlangen, dass sie sich zur Einhaltung dieser Anti-Korruptions-Erklärung verpflichten.
 - Zukünftig erfordern die **Lieferantenverträge** von GitHub eine Verpflichtung zur Einhaltung des Microsoft-Verhaltenskodex für Lieferanten oder dieser Anti-Korruptionserklärung.

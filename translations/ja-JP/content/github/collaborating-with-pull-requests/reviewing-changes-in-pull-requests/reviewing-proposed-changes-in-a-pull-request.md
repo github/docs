@@ -6,20 +6,25 @@ redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Review proposed changes
 ---
 
-### プルリクエストのレビューについて
+## プルリクエストのレビューについて
 
 プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストでファイルを確認しているときに、特定の変更について個別のコメントを残すことができます。 各ファイルの確認が終了したら、ファイルを閲覧済みとしてマークできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストヘッダのプログレスバーには、閲覧したファイル数が表示されます。 必要な数のファイルを確認した後、要約コメントを付けて確認を送信することにより、プルリクエストを承認するか、追加の変更をリクエストできます。
 
 {% data reusables.search.requested_reviews_search_tip %}
 
-### レビューを開始する
+## レビューを開始する
+
+{% include tool-switcher %}
+
+{% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -32,9 +37,25 @@ topics:
 レビューを提出する前は、行のコメントは_保留中_であり、自分にしか見えません。 レビューを提出する前ならばいつでも、保留中のコメントを編集できます。 その保留中のコメントのすべてを含めて、保留中のレビューをキャンセルするには、[Conversation] タブでタイムラインの最後まで下にスクロールし、[**Cancel review**] をクリックします。
 
 ![[Cancel review] ボタン](/assets/images/help/pull_requests/cancel-review-button.png)
+{% endwebui %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### 依存関係の変更をレビューする
+{% ifversion fpt %}
+
+{% codespaces %}
+
+You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+
+{% data reusables.codespaces.review-pr %}
+
+For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+
+{% endcodespaces %}
+{% endif %}
+
+{% ifversion fpt or ghes > 3.1 %}
+## 依存関係の変更をレビューする
+
+{% data reusables.dependency-review.beta %}
 
 プルリクエストに依存関係への変更が含まれている場合は、マニフェストまたはロックファイルの依存関係のレビューを使用して、何が変更されたかを確認し、変更によるセキュリティの脆弱性の発生の有無を確認できます。 詳しい情報については「[Pull Request中の依存関係の変更のレビュー](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。
 
@@ -47,14 +68,14 @@ topics:
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
-### ファイルをレビュー済みとしてマークする
+## ファイルをレビュー済みとしてマークする
 
 ファイルのレビュー後は、そのファイルをレビュー済みとしてマークできます。マークしたファイルは折りたたまれます。 ファイルを表示後に変更すると、レビュー済みマークが解除されます。
 
 {% data reusables.repositories.changed-files %}
 2. レビューを完了したファイルの、ヘッダの右側にある [**Viewed**] を選択します。 ![[Viewed] チェックボックス](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-### レビューを提出する
+## レビューを提出する
 
 プルリクエスト内でレビューしたいファイルをすべてレビューし終えたら、レビューをサブミットします。
 
@@ -69,7 +90,7 @@ topics:
 
 {% data reusables.repositories.request-changes-tips %}
 
-### 参考リンク
+## 参考リンク
 
 - [保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
 - 「[プルリクエストをレビューステータスでフィルタリングする](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)」

@@ -6,9 +6,9 @@ redirect_from:
   - /apps/managing-github-apps/editing-a-github-app-s-permissions
   - /developers/apps/editing-a-github-apps-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 ---

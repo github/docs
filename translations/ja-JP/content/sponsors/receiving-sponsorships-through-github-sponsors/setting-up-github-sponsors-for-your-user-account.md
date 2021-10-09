@@ -6,14 +6,15 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - User account
   - Sponsors profile
+shortTitle: Set up for user account
 ---
 
-### {% data variables.product.prodname_sponsors %} に参加する
+## {% data variables.product.prodname_sponsors %} に参加する
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -27,7 +28,7 @@ Organization として {% data variables.product.prodname_sponsors %} に参加�
 
 サポートされている地域で銀行口座をお持ちであれば、{% data variables.product.prodname_dotcom %} は 2 週間以内に申請をレビューします。
 
-### スポンサード開発者プロフィールを記入する
+## スポンサード開発者プロフィールを記入する
 
 {% data variables.product.prodname_dotcom %} で申請がレビューされたら、ユーザがあなたのスポンサーになれるようにスポンサード開発者プロフィールを設定できます。
 
@@ -39,7 +40,7 @@ Organization として {% data variables.product.prodname_sponsors %} に参加�
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### スポンサーシップ層を作成する
+## スポンサーシップ層を作成する
 
 {% data reusables.sponsors.tier-details %}
 
@@ -49,11 +50,12 @@ Organization として {% data variables.product.prodname_sponsors %} に参加�
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### 銀行口座情報をサブミットする
+## 銀行口座情報をサブミットする
 
 サポートされている地域にお住まいの場合は、次の手順に従って Stripe Connect アカウントを作成し、銀行口座情報をサブミットできます。 在住している地位と、銀行口座の地域は一致している必要があります。 {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -62,7 +64,7 @@ Organization として {% data variables.product.prodname_sponsors %} に参加�
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-### 納税情報をサブミットする
+## 納税情報をサブミットする
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
@@ -72,11 +74,11 @@ Organization として {% data variables.product.prodname_sponsors %} に参加�
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### {% data variables.product.prodname_dotcom %} アカウントで 2 要素認証 (2FA) を有効にする
+## {% data variables.product.prodname_dotcom %} アカウントで 2 要素認証 (2FA) を有効にする
 
 スポンサード開発者になるには、{% data variables.product.product_name %} アカウントで 2FA を有効にする必要があります。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
-### {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
+## {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. [**Request approval**] をクリックします。 ![[Request approval] ボタン](/assets/images/help/sponsors/request-approval-button.png)

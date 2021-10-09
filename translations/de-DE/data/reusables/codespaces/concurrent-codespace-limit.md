@@ -1,0 +1,1 @@
+Du kannst pro Repository oder sogar pro Branch mehr als einen Codespace erstellen. However, each user account has a limit of 10 codespaces. Wenn Du das Limit erreicht hast und einen neuen Codespace erstellen möchtest, musst Du zuerst einen Codespace löschen.

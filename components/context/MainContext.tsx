@@ -62,7 +62,7 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
-  community_redirect: {
+  communityRedirect: {
     name: string
     href: string
   }
@@ -77,7 +77,6 @@ export type MainContextT = {
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
   currentPathWithoutLanguage: string
-  currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
   currentVersion?: string
@@ -115,7 +114,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    community_redirect: req.context.page?.community_redirect || {},
+    communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
@@ -162,7 +161,6 @@ export const getMainContext = (req: any, res: any): MainContextT => {
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
     currentVersion: req.context.currentVersion,

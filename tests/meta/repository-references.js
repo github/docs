@@ -66,6 +66,8 @@ const ALLOW_DOCS_PATHS = [
   'lib/excluded-links.js',
   'script/deploy.js',
   'script/README.md',
+  'script/toggle-ghae-feature-flags.js',
+  '.github/workflows/hubber-contribution-help.yml',
 ]
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi

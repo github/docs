@@ -6,11 +6,12 @@ redirect_from:
   - /articles/dismissing-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Dismiss a PR review
 ---
 
 {% data reusables.pull_requests.dismiss_review %}
@@ -24,7 +25,7 @@ Dies ändert den Status des Reviews zu einem Review-Kommentar. Wenn Du einen Rev
 4. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **Dismiss review** (Review verwerfen). ![3-Punkte-Symbol im Merge-Feld](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. Gib den Grund für das Verwerfen des Reviews ein, und klicke dann auf **Dismiss review** (Review verwerfen). ![Schaltfläche „Dismiss review" (Verwerfen eines Reviews)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Pull-Request-Reviews](/articles/about-pull-request-reviews)“
 - „[Vorgeschlagene Änderungen in einem Pull Request prüfen](/articles/reviewing-proposed-changes-in-a-pull-request)“

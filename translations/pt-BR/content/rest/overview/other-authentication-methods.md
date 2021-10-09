@@ -4,32 +4,33 @@ intro: Você pode usar a autenticação básica para testes em um ambiente que n
 redirect_from:
   - /v3/auth
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: Outros métodos de autenticação
 ---
 
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion fpt or ghes %}
 Embora a API forneça vários métodos para autenticação, é altamente recomendável usar [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) para aplicativos de produção. Os outros métodos fornecidos destinam-se a ser usados para scripts ou testes (ou seja, casos em que o OAuth completo seria exagerado). Aplicativos de terceiros que dependem de
 {% data variables.product.product_name %} para autenticação não devem pedir ou coletar credenciais de {% data variables.product.product_name %}.
 Em vez disso, eles devem usar o [Fluxo web do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 Para efetuar a autenticação, recomendamos usar tokens do [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) como um token de acesso pessoal por meio do [fluxo web do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 {% endif %}
 
-### Autenticação básica
+## Autenticação básica
 
 A API é compatível com a Autenticação Básica conforme definido em [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) com algumas ligeiras diferenças. A diferença principal é que o RFC exige que as solicitações não autenticadas sejam respondidas com respostas `401 Unauthorized`. Em muitos lugares, isso divulgaria a existência de dados de usuário. Em vez disso, a API de {% data variables.product.product_name %} responde com `404 Not Found`. Isso pode causar problemas para bibliotecas de HTTP que assumem uma resposta `401 Unauthorized`. A solução é criar manualmente o cabeçalho de `Autorização `.
 
-#### Por meio do OAuth e de tokens de acesso pessoal
+### Por meio do OAuth e de tokens de acesso pessoal
 
 Recomendamos que você use tokens do OAuth para efetuar a autenticação na API do GitHub. Os tokens OAuth incluem [tokens de acesso pessoal][personal-access-tokens] e habilitem o usuário a revogar o acesso a qualquer momento.
 
@@ -39,9 +40,9 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Autenticação Básica, mas você quer aproveitar os recursos de segurança do token de acesso do OAuth.
 
-#### Por meio do nome de usuário e senha
+### Por meio do nome de usuário e senha
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -51,7 +52,7 @@ Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Auten
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Para usar Autenticação Básica com a
 API de {% data variables.product.product_name %}, basta enviar o nome de usuário e
 a senha associada à conta.
@@ -65,8 +66,8 @@ Se você tem a autenticação de dois fatores ativada, certifique-se de entender
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-#### Autenticar com o SSO do SAML
+{% ifversion fpt %}
+### Autenticar com o SSO do SAML
 
 {% note %}
 
@@ -97,17 +98,17 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 O valor das `organizações` é uma lista de ID de organizações separada por vírgula para organizações para as quais exige-se a autorização do seu token de acesso pessoal.
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-### Trabalhar com autenticação de dois fatores
+{% ifversion fpt or ghes %}
+## Trabalhar com autenticação de dois fatores
 
-Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pntos de extremidade na API REST exige que você use um token de acesso pessoal{% if enterpriseServerVersions contains currentVersion %} ou token do OAuth em vez do seu nome de usuário e senha{% endif %}.
+Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pontos de extremidade na API REST exige que você use um token de acesso pessoal{% ifversion ghes %} ou token do OAuth em vez do seu nome de usuário e senha{% endif %}.
 
-Você pode gerar um novo token de acesso pessoal {% if currentVersion == "free-pro-team@latest" %}usando [ as configurações de desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %}{% if enterpriseServerVersions contains currentVersion %} ou com o ponto de extremidade "\[Criar uma nova autorização\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" na API de Autorizações OAuth para gerar um novo token OAuth{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API de {% data variables.product.prodname_dotcom %}. {% if enterpriseServerVersions contains currentVersion %} A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.{% endif %}
+Você pode gerar um novo token de acesso pessoal {% ifversion fpt %}usando [ as configurações de desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %}{% ifversion ghes %} ou com o ponto de extremidade "\[Criar uma nova autorização\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" na API de Autorizações OAuth para gerar um novo token OAuth{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API de {% data variables.product.prodname_dotcom %}. {% ifversion ghes %} A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.{% endif %}
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-#### Usar a API de Autorização do OAuth com autenticação de dois fatores
+{% ifversion ghes %}
+### Usar a API de Autorização do OAuth com autenticação de dois fatores
 
 Ao fazer chamadas para a API de Autorizações do OAuth, Autenticação básica exigirá que você use uma senha única (OTP) e seu nome de usuário e senha em vez de tokens. Ao tentar efetuar a autenticação com a API de Autorizações do OAuth, o servidor irá responder com `401 Unauthorized` e um desses cabeçalhos para informar que você precisa de um código de autenticação de dois fatores:
 
