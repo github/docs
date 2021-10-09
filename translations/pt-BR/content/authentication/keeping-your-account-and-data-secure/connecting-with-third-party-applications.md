@@ -38,7 +38,7 @@ Os aplicativos podem ter acesso de *leitura* ou *gravação* aos seus dados no {
 
 Os *escopos* são grupos nomeados de permissões que um aplicativo pode solicitar para acessar dados públicos e não públicos.
 
-Quando você quiser usar um aplicativo de terceiro que se integre ao {% data variables.product.product_name %}, esse aplicativo permitirá que você saiba qual tipo de acesso aos seus dados será necessário. Se você conceder acesso ao aplicativo, este poderá executar ações em seu nome, como ler ou modificar os dados. Por exemplo, se você desejar usar um app que solicite o escopo `user:email`, o app terá acesso somente leitura aos seus endereços de e-mail privados. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Quando você quiser usar um aplicativo de terceiro que se integre ao {% data variables.product.product_name %}, esse aplicativo permitirá que você saiba qual tipo de acesso aos seus dados será necessário. Se você conceder acesso ao aplicativo, este poderá executar ações em seu nome, como ler ou modificar os dados. Por exemplo, se você desejar usar um app que solicite o escopo `user:email`, o app terá acesso somente leitura aos seus endereços de e-mail privados. Para obter mais informações, consulte "[Sobre escopos para {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 

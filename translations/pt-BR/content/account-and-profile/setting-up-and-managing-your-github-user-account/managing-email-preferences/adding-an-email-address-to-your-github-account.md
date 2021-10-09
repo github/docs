@@ -18,7 +18,9 @@ shortTitle: Adicionar endereços de e-mail
 
 {% note %}
 
-**Observação**: {% data reusables.user_settings.no-verification-disposable-emails %}
+**Atenção**:
+  - {% data reusables.user_settings.no-verification-disposable-emails %}
+  -  Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, você não poderá fazer alterações no seu endereço de e-mail em {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 

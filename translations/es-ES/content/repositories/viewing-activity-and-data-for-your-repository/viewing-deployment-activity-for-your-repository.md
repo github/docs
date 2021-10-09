@@ -27,7 +27,7 @@ También puedes ver información de implementación en la pestaña "Conversation
 ## Ver el tablero de implementaciones
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png)
+2. A la derecha de la lista de archivos, haz clic en **Ambientes**. ![Ambientes a la derecha de la página del repositorio](/assets/images/help/repository/environments.png)
 
 ## Leer más
  - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"

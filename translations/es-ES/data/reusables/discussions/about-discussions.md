@@ -1,1 +1,1 @@
-{% data variables.product.prodname_discussions %} is an open forum for conversation among maintainers and the community for a project on {% data variables.product.product_name %}.
+Los {% data variables.product.prodname_discussions %} son un foro abierto para tener conversaciones entre los mantenedores y la comunidad para algún proyecto en {% data variables.product.product_name %}.

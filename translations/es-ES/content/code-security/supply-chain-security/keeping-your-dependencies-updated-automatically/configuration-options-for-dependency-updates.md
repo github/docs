@@ -181,7 +181,7 @@ Utiliza la opción `allow` para personalizar qué dependencias se actualizan. Es
   | `direct`             | Todas                                               | Todas las dependencias definidas explícitamente.                                                                                                    |
   | `indirect`           | `bundler`, `pip`, `composer`, `cargo`               | Las dependencias de las dependencias directas (también conocidas como sub-dependencias, o dependencias transitorias).                               |
   | `all`                | Todas                                               | Todas las dependencias definidas explícitamente. Para `bundler`, `pip`, `composer`, `cargo`, también las dependencias de las dependencias directas. |
-  | `production`         | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group".                                                                                             |
+  | `production`         | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Solo las dependencias en el "Grupo de dependencias de producción".                                                                                  |
   | `development`        | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Únicamente las dependencias en el "Grupo de dependencias de desarrollo".                                                                            |
 
 ```yaml
@@ -539,7 +539,7 @@ updates:
 
 ### `schedule.day`
 
-When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at a random set time for the repository. Utiliza `schedule.day` para especificar un día alterno para revisar si hay actualizaciones.
+Cuando configuras una programación de actualizaciones en `weekly`, predeterminadamente, {% data variables.product.prodname_dependabot %} revisa si hay versiones nuevas los lunes en alguna hora aleatoria para el repositorio. Utiliza `schedule.day` para especificar un día alterno para revisar si hay actualizaciones.
 
 Valores compatibles
 
@@ -566,7 +566,7 @@ updates:
 
 ### `schedule.time`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Utiliza `schedule.time` para especificar una hora alterna para revisar si hay actualizaciones (formato: `hh:mm`).
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones en una hora aleatoria para el repositorio. Utiliza `schedule.time` para especificar una hora alterna para revisar si hay actualizaciones (formato: `hh:mm`).
 
 ```yaml
 # Set a time for checks
@@ -582,7 +582,7 @@ updates:
 
 ### `schedule.timezone`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. Utiliza `schedule.timezone` para especificar un huso horario alternativo. El identificador de zona debe ser tomado de la base de datos de Husos Horarios que mantiene [iana](https://www.iana.org/time-zones). Para obtener más información, consulta la [Lista de bases de datos tz para husos horarios](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones en una hora aleatoria para el repositorio. Utiliza `schedule.timezone` para especificar un huso horario alternativo. El identificador de zona debe ser tomado de la base de datos de Husos Horarios que mantiene [iana](https://www.iana.org/time-zones). Para obtener más información, consulta la [Lista de bases de datos tz para husos horarios](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Specify the timezone for checks
@@ -827,7 +827,7 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+El tipo `maven-repository` es compatible con usuario y contraseña.
 
 {% raw %}
 ```yaml
@@ -844,7 +844,7 @@ registries:
 
 El tipo `npm-registry` es compatible con nombre de usuario y contraseña, o token.
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
+Cuando utilizas un nombre de usuario y contraseña, tu token de autorización de `.npmrc` podría contener un `_password` cifrado en `base64`; sin embargo, la contraseña referenciada en tu archivo de configuración del {% data variables.product.prodname_dependabot %} podría ser la contraseña original (descifrada).
 
 {% raw %}
 ```yaml

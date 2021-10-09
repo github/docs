@@ -1,6 +1,6 @@
 ---
-title: Viewing license usage for GitHub Enterprise
-intro: 'You can view license usage for your enterprise on {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
+title: Ver el uso de licencia para GitHub Enterprise
+intro: 'Puedes ver el uso de licencia de tu empresa en {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
 permissions: 'Enterprise owners can view license usage for {% data variables.product.prodname_enterprise %}.'
 versions:
   fpt: '*'
@@ -9,26 +9,26 @@ type: how_to
 topics:
   - Enterprise
   - Licensing
-shortTitle: View license usage
+shortTitle: Ver el uso de licencia
 ---
 
-## About license usage for {% data variables.product.prodname_enterprise %}
+## Acerca del uso de licencia para {% data variables.product.prodname_enterprise %}
 
 {% ifversion fpt %}
 
-You can view license usage for your enterprise account on {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}.
+Puedes ver el uso de licencia de tu cuenta empresarial de {% data variables.product.prodname_ghe_cloud %} en {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %}
 
 {% elsif ghes %}
 
-You can view license usage for {% data variables.product.prodname_ghe_server %} on {% data variables.product.product_location %}.
+Puedes ver el uso de licencia de {% data variables.product.prodname_ghe_server %} en {% data variables.product.product_location %}.
 
-{% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %} For more information about the display of license usage on {% data variables.product.prodname_dotcom_the_website %}, see "<a href="/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise" class="dotcom-only">Viewing license usage for {% data variables.product.prodname_enterprise %}</a>" in the {% data variables.product.prodname_dotcom_the_website %} documentation.
+{% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %} Para obtener más información sobre cómo se muestra el uso de licencia en {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "<a href="/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise" class="dotcom-only">Ver el uso de licencia para {% data variables.product.prodname_enterprise %}</a>" en la documentación de {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endif %}
 
-## Viewing license usage on {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
+## Ver el uso de licencia en {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
 {% ifversion fpt %}
 
@@ -36,14 +36,14 @@ You can view license usage for {% data variables.product.prodname_ghe_server %} 
 {% data reusables.enterprise-accounts.settings-tab %}
 1. En la barra lateral izquierda, da clic en **Licenciamiento empresarial**. ![Pestaña de "Licencias empresariales" en la barra lateral de configuración para la cuenta empresarial](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 1. Revisa tus licencias actuales de {% data variables.product.prodname_enterprise %}, así como las licencias de usuario disponibles y consumidas.
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use. Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
+    - Si tu licencia incluye la {% data variables.product.prodname_GH_advanced_security %}, puedes revisar tu uso total de plazas. Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes > 3.0 %}
-    - If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. Para obtener más información, consulta la sección "[Administrar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security)".{% endif %}
+1. Revisa tus licencias actuales de {% data variables.product.prodname_enterprise %}, así como las licencias de usuario disponibles y consumidas.{% ifversion ghes > 3.0 %}
+    - Si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}, puedes revisar tu uso total de plazas así como un desglose de confirmantes por organización. Para obtener más información, consulta la sección "[Administrar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security)".{% endif %}
 
 {% endif %}

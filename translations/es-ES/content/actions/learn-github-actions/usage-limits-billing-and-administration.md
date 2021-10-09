@@ -16,20 +16,19 @@ shortTitle: Límites & facturación de los flujos de trabajo
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de la facturación para {% data variables.product.prodname_actions %}
 
 {% ifversion fpt %}
 {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
+El uso de GitHub Actions es gratuito para los {% data variables.product.prodname_ghe_server %} que utilicen ejecutores auto-hospedados.
 {% endif %}
 
 ## Límites de uso
 
 {% ifversion fpt %}
-There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. Estos límites están sujetos a cambios.
+Hay algunos límites de uso de {% data variables.product.prodname_actions %} cuando se utilizan ejecutores hospedados en {% data variables.product.prodname_dotcom %}. Estos límites están sujetos a cambios.
 
 {% note %}
 
@@ -59,6 +58,12 @@ Los límites de uso aplican a los ejecutores auto-hospedados. Para obtener más 
 ## Política de uso
 
 Además de los límites de uso, debes asegurarte de usar las {% data variables.product.prodname_actions %} dentro de los [Términos de servicio de GitHub](/articles/github-terms-of-service/). Para obtener más información sobre los términos específicos de las {% data variables.product.prodname_actions %}, consulta los [Términos adicionales de producto de GitHub](/github/site-policy/github-additional-product-terms#a-actions-usage).
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Facturación para los flujos de trabajo reutilizables
+
+Si vuelves a utilizar un flujo de trabajo la facturación siempre se asociará con aquél del que llama. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
 {% ifversion fpt or ghes > 2.22 or ghae %}

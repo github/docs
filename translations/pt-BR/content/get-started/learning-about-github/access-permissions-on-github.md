@@ -36,6 +36,8 @@ Os integrantes da organização podem ter funções de *proprietário*{% ifversi
 
 Os *proprietários de empresa* têm poder absoluto sobre a conta corporativa e podem realizar todas as ações nela. Os *gerentes de cobrança* podem gerenciar as configurações de cobrança da sua conta corporativa. Os integrantes e colaboradores externos das organizações pertencentes à sua conta corporativa são automaticamente integrantes da conta corporativa, embora eles não tenham acesso à conta corporativa em si nem às configurações dela. Para obter mais informações, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)".
 
+Se uma empresa usar {% data variables.product.prodname_emus %}, serão fornecidos novos os integrantes como novas contas de usuário em {% data variables.product.prodname_dotcom %} e serão totalmente gerenciados pelo provedor de identidade. O {% data variables.product.prodname_managed_users %} tem acesso somente leitura a repositórios que não fazem parte da sua empresa e não podem interagir com usuários que não são também integrantes da empresa. Nas organizações pertencentes à empresa, é possível conceder ao {% data variables.product.prodname_managed_users %} os mesmos níveis de acesso granular disponíveis para organizações regulares. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}

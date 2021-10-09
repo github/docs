@@ -16,7 +16,7 @@ Você pode criar formulários de problemas personalizados adicionando um arquivo
 
 Quando um contribuidor preenche um formulário de problemas, as suas respostas para cada entrada são convertidas em markdown e adicionadas ao corpo de um issue. Os contribuidores podem editar seus problemas criados com formulários de problemas e outras pessoas podem interagir com problemas como um problema criado por meio de outros métodos.
 
-Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. Para obter mais informações, consulte "[Criar um modelo de pull request para o repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)".
+Os formulários de problemas não são compatíveis com pull requests. É possível criar modelos de pull request nos seus repositórios para os colaboradores usarem. Para obter mais informações, consulte "[Criar um modelo de pull request para o repositório](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)".
 
 Este exemplo de arquivo de configuração YAML define um formulário de problema utilizando várias entradas para reportar um erro.
 

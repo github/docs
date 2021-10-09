@@ -1,6 +1,6 @@
 ---
 title: Sobre contas corporativas
-intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion fpt %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
+intro: 'Com {% data variables.product.product_name %}, você pode usar uma conta corporativa para {% ifversion fpt %}habilitar a colaboração entre suas organizações, dando{% elsif ghes or ghae %}dando{% endif %} aos administradores um ponto único de visibilidade e gestão.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/

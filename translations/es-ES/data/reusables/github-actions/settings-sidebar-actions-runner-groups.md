@@ -1,2 +1,2 @@
-1. En la barra lateral izquierda, da clic en **Acciones**.
-1. In the left sidebar, under "Actions", click **Runner groups**.
+1. En la barra lateral izquierda, haz clic en **Acciones**.{% ifversion fpt or ghes > 3.1 or ghae-next %}
+1. En la barra lateral izquierda, debajo de "Acciones"; haz clic en **Grupos ejecutores**.{% endif %}

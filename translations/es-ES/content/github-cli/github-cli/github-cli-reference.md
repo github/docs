@@ -1,6 +1,6 @@
 ---
-title: GitHub CLI reference
-intro: 'You can view all of the {% data variables.product.prodname_cli %} commands in your terminal or in the {% data variables.product.prodname_cli %} manual.'
+title: Referencia del CLI de GitHub
+intro: 'Puedes ver todos los comandos de {% data variables.product.prodname_cli %} en tu terminal o en el manual del {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,19 +10,19 @@ topics:
 type: reference
 ---
 
-To view all {% data variables.product.prodname_cli %} commands, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_reference) or use the `reference` command.
+Para ver todos los comandos del {% data variables.product.prodname_cli %}, consulta el [manual del {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_reference) o utiliza el comando `reference`.
 
 ```shell
 gh reference
 ```
 
-To view the environment variables that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_help_environment) or use the `environment` command.
+Para ver las variables de ambiente que se pueden utilizar con el {% data variables.product.prodname_cli %}, consulta el [manual del {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_help_environment) o utiliza el comando `environment`.
 
 ```shell
 gh environment
 ```
 
-To view the configuration settings that can be used with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_config) or use the `config` command.
+Para ver los ajustes de configuración que pueden utilizarse con el {% data variables.product.prodname_cli %}, consulta el [manual del {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_config) o utiliza el comando`config`.
 
 ```shell
 gh config

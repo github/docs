@@ -27,7 +27,7 @@ topics:
 
 - Necesitas habilitar el marcador de CPU de las [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Extenciones SIMD de Streaming Suplementario 3, por sus siglas en inglés) en el VM/KVM que ejecuta {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Una licencia para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - Eñ {% data variables.product.prodname_secret_scanning_caps %} habilitado en la consola de administración (consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
@@ -50,11 +50,11 @@ Si no se devuelve un `0`, entonces no se ha habilitado las SSSE3 en tu VM/KVM. N
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. Check if there is {% ifversion ghes < 3.2 %}an **{% data variables.product.prodname_advanced_security %}**{% else %}a **Security**{% endif %} entry in the left sidebar.
+1. Verifica si hay una entrada {% ifversion ghes < 3.2 %}de **{% data variables.product.prodname_advanced_security %}**{% else %} de **Seguridad**{% endif %} en la barra lateral izquierda.
 {% ifversion ghes < 3.2 %}
    ![Barra lateral de seguridad avanzada](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
 {% else %}
-   ![Security sidebar](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
+   ![Barra lateral de seguridad](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
 {% endif %}
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
@@ -66,7 +66,7 @@ Si no se devuelve un `0`, entonces no se ha habilitado las SSSE3 en tu VM/KVM. N
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," click **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
+1. Debajo de "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %} Seguridad{% endif %}", has clic en **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Inhabilitar las {% data variables.product.prodname_secret_scanning %}
@@ -76,5 +76,5 @@ Si no se devuelve un `0`, entonces no se ha habilitado las SSSE3 en tu VM/KVM. N
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," unselect **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
+1. Debajo de "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Seguridad{% endif %}", deselecciona **{% data variables.product.prodname_secret_scanning_caps %}**. ![Casilla para habilitar o inhabilitar el {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

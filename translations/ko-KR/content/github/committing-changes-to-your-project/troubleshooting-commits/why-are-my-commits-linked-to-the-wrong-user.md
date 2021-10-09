@@ -52,4 +52,4 @@ If your local Git configuration contained a generic email address, or an email a
 
 ## 더 읽을거리
 
-* "[Searching commits](/articles/searching-commits)"
+* "[Searching commits](/search-github/searching-on-github/searching-commits)"

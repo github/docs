@@ -15,7 +15,7 @@ Windows Server 2022<sup>[beta]</sup>
 <code>windows-2022</code>
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2019 runner image.
+La etiqueta de <code>windows-latest</code> actualmente utiliza la imagen de ejecutor de Windows Server 2019.
 </td>
 </tr>
 <tr>
@@ -60,24 +60,13 @@ Ubuntu 18.04
 </tr>
 <tr>
 <td>
-Ubuntu 16.04<sup>[deprecated]</sup>
-</td>
-<td>
-<code>ubuntu-16.04</code>
-</td>
-<td>
-Deprecated and limited to existing customers only. Migrate to Ubuntu 20.04. For more information, see  <A href="https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021">the blog post</A>.
-</td>
-</tr>
-<tr>
-<td>
 macOS Big Sur 11
 </td>
 <td>
 <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 10.15 runner image.
+La etiqueta de <code>macos-latest</code> actualmente utiliza la imagen de ejecutor de macOS 10.15.
 </td>
 </tr>
 <tr>
@@ -95,6 +84,6 @@ macOS Catalina 10.15
 
 {% warning %}
 
-<b>Note:</b> Beta Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+<b>Nota:</b> Las imágenes beta se proporcionan "tal cual", "con todas las fallas" y "tal como están disponibles" y se excluyen del acuerdo de nivel de servicio y de la garantía. El soporte al cliente podría no cubrir las imágenes beta.
 
 {% endwarning %}

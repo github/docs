@@ -1,1 +1,1 @@
-{% data variables.product.prodname_ghe_server %} envia atualizações a cada hora.
+{% data variables.product.product_name %} envia atualizações a cada hora.

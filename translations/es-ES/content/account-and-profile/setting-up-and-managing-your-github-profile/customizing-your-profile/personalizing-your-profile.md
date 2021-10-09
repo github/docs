@@ -48,6 +48,14 @@ Cuando te registras en una cuenta, {% data variables.product.product_name %} te 
 
 Puedes cambiar el nombre que se muestra en tu perfil. Este nombre también podría mostrarse junto a los comentarios que haces en los repositorios privados que pertenezcan a una organización. Para obtener más información, consulta "[Administrar cómo se ven los nombres de los miembros en tu organización](/articles/managing-the-display-of-member-names-in-your-organization)."
 
+{% ifversion fpt %}
+{% note %}
+
+**Nota:** Si eres un miembro de una {% data variables.product.prodname_emu_enterprise %}, cualquier cambio a tu nombre de perfil debe hacerse a través de tu proveedor de identidad en vez de con {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. Dentro de "Nombre", escribe el nombre que deseas que se muestre en tu perfil. ![Campo Nombre en configuraciones de perfil](/assets/images/help/profile/name-field.png)
 
@@ -92,7 +100,7 @@ Cuando configuras tu estado, también puedes permitir que las personas sepan que
 
 ![El revisor solicitado muestra una nota de "busy" (ocupado) la lado del nombre de usuario](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-Si seleccionas la opción, "Busy" (Ocupado), cuando las personas mencionan tu nombre de usuario, te asignan una propuesta o una solicitud de extracción o te solicitan una revisión de solicitud de extracción, una nota al lado de tu nombre de usuario mostrará que estás ocupado. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)".
+Si seleccionas la opción, "Busy" (Ocupado), cuando las personas mencionan tu nombre de usuario, te asignan una propuesta o una solicitud de extracción o te solicitan una revisión de solicitud de extracción, una nota al lado de tu nombre de usuario mostrará que estás ocupado. También se te excluirá de la tarea de revisión automática para las solicitudes de cambio que se asignen a cualquier equipo al que pertenezcas. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)".
 
 1. En el ángulo superior derecho de {% data variables.product.product_name %}, haz clic en tu foto de perfil, después haz clic en **Set your status (Configurar tu estado)** o, si ya tienes un estado configurado, haz clic en tu estado actual. ![Botón en el perfil para configurar tu estado](/assets/images/help/profile/set-status-on-profile.png)
 2. Para agregar un texto personalizado a tu estado, haz clic en el campo texto y escribe un mensaje de estado. ![Campo para escribir un mensaje de estado](/assets/images/help/profile/type-a-status-message.png)

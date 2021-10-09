@@ -73,3 +73,7 @@ You can update the value of an existing secret, and you can change which reposit
 {% data reusables.user_settings.codespaces-tab %}
 1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**. !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Read the warning, then click **OK**. ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Дальнейшее изучение
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

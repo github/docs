@@ -18,7 +18,9 @@ shortTitle: Add an email address
 
 {% note %}
 
-**参考**:{% data reusables.user_settings.no-verification-disposable-emails %}
+設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
+  - {% data reusables.user_settings.no-verification-disposable-emails %}
+  -  If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your email address on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 

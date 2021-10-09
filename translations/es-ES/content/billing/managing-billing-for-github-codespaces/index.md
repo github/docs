@@ -1,5 +1,5 @@
 ---
-title: Managing billing for GitHub Codespaces
+title: Administrar la facturación para GitHub Codespaces
 shortTitle: Codespaces
 intro: 'Puedes ver el uso y configurar un límite de gastos para {% data variables.product.prodname_codespaces %}.'
 versions:

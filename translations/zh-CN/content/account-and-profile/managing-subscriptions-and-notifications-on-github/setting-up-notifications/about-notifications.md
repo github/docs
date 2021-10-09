@@ -29,7 +29,7 @@ topics:
 - 关于特定议题、拉取请求或 Gist 的对话。
 - 仓库或团队讨论中的所有活动。
 - CI 活动，例如仓库中使用 {% data variables.product.prodname_actions %} 设置的工作流程的状态。 {% ifversion fpt or ghes > 3.0 or ghae-next %}
-- 仓库 {% data reusables.notifications-v2.custom-notification-types %} (如果启用)。 {% elsif ghae or ghes %}
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
 - 在仓库中发布。{% endif %}
 
 您也可以选择自动关注所有您有推送访问权限的仓库，但复刻除外。 您可以通过单击 **Watch（关注）**来手动关注您有权访问的任何其他仓库。

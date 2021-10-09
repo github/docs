@@ -23,7 +23,7 @@ shortTitle: Configure an outbound proxy
 
 {% note %}
 
-**メモ:**  {% data variables.product.product_location %}　を　{% data variables.product.prodname_dotcom_the_website %} に接続するには、`github.com` と `api.github.com` への接続がプロキシ設定で許可されている必要があります。 詳細は「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_dotcom_the_website %} に接続する](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)」を参照してください。
+**メモ:**  {% data variables.product.product_location %}　を　{% data variables.product.prodname_dotcom_the_website %} に接続するには、`github.com` と `api.github.com` への接続がプロキシ設定で許可されている必要があります。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 {% endnote %}
 
@@ -34,7 +34,7 @@ shortTitle: Configure an outbound proxy
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-4. **HTTP Proxy Server（HTTPプロキシサーバ）**の下に、プロキシサーバのURLを入力してください。 ![HTTP プロキシサーバーのURLを入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-field.png)
+1. **HTTP Proxy Server（HTTPプロキシサーバ）**の下に、プロキシサーバのURLを入力してください。 ![HTTP プロキシサーバーのURLを入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-field.png)
 
 5. オプションで、プロキシのアクセスを要しないホストがあれば**HTTP Proxy Exclusion（HTTPプロキシの除外）**の下にカンマ区切りで入力してください。 ドメイン内のすべてのホストをプロキシアクセスの要求から除外するには `.` をワイルドカードプレフィックスとして使用できます。  たとえば、`.octo-org.tentacle` などです。 ![HTTP プロキシの除外を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
 

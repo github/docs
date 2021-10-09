@@ -5,5 +5,4 @@
 
 {% elsif ghes or ghae %}1. En la esquina superior derecha de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego en **Configuración de empresa**.
     !["Configuración de empresa" en el menú desplegable de la foto de perfil en {% data variables.product.product_name %}](/assets/images/enterprise/settings/enterprise-settings.png)
-
 {% endif %}

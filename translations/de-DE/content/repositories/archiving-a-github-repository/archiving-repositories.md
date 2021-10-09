@@ -32,7 +32,7 @@ Nach der Archivierung eines Repositorys kannst Du keine Mitarbeiter oder Teams m
 
 When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, and comments become read-only. Um Änderungen in einem archivierten Repository vorzunehmen, musst Du das Repository zunächst aus dem Archiv herausnehmen.
 
-Du kannst nach archivierten Repositorys suchen. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived).“ Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)“. Weitere Informationen findest Du unter „[Nach Issues und Pull Requests suchen](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived).“
+Du kannst nach archivierten Repositorys suchen. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived).“ Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)“. Weitere Informationen finden Sie unter „[Nach Issues und Pull Requests suchen](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)“.
 
 ## Repository archivieren
 

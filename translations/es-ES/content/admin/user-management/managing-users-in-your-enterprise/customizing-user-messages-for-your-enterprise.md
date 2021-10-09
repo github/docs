@@ -20,7 +20,7 @@ topics:
 
 Hay varios tipos de mensajes de usuario.
 - Los mensajes que aparecen en la {% ifversion ghes %}página de ingreso o de {% endif %}salida{% ifversion ghes > 2.22 or ghae %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
+- Mensajes obligatorios, los cuales aparecen en una ventana emergente que debe cerrarse{% endif %}{% ifversion ghes or ghae %}
 - Letreros de anuncio, los cuales aparecen en la parte superior de cada página{% endif %}
 
 {% ifversion ghes %}
@@ -83,8 +83,8 @@ Cada vez que un usuario vea un mensaje obligatorio, se crea un evento de bitáco
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. A la derecha de "Mensaje obligatorio", da clic en **Agregar mensaje**. ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
-1. Debajo de "Mensaje obligatorio", en la casilla de texto, teclea tu mensaje. ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+1. A la derecha de "Mensaje obligatorio", da clic en **Agregar mensaje**. ![Botón de agregar mensaje obligatorio](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+1. Debajo de "Mensaje obligatorio", en la casilla de texto, teclea tu mensaje. ![Caja de texto del mensaje obligatorio](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}

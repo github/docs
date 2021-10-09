@@ -24,7 +24,7 @@ topics:
 
 {% endnote %}
 
-You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+Você pode criar pull requests no {% data variables.product.prodname_dotcom_the_website %}, com {% data variables.product.prodname_desktop %}, em {% data variables.product.prodname_codespaces %}, em {% data variables.product.prodname_mobile %} e ao usar a CLI do GitHub.
 
 Após inicialização de uma pull request, você verá uma página de revisão que mostra uma visão geral de alto nível das alterações entre seu branch (o branch de comparação) e o branch base do repositório. É possível adicionar um resumo das alterações propostas, revisar as alterações feitas pelos commits, adicionar etiquetas, marcos e responsáveis, bem como fazer @menção a contribuidores individuais ou equipes. Para obter mais informações, consulte "[Criar uma pull request](/articles/creating-a-pull-request)".
 

@@ -23,5 +23,5 @@ sections:
       ```
       ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"
       ```
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - '{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}が有効化されていると、`ghe-repl-teardown`でのレプリカノードの解体は成功しますが、`ERROR:Running migrations`が返されることがあります。'
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

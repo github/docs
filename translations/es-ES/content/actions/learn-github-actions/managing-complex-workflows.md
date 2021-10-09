@@ -13,11 +13,10 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
-This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+Este artículo describe algunas de las características avanzadas de las {% data variables.product.prodname_actions %} que te ayudan a crear flujos de trabajo más complejos.
 
 ## Almacenar secretos
 
@@ -143,7 +142,7 @@ Para obtener más información, consulta la sección "[Utilizar bases de datos y
 
 ## Utilizar etiquetas para enrutar los flujos de trabajo
 
-Esta característica te ayuda a asignar jobs a un ejecutor hospedado específico. Si quieres asegurarte de que un tipo específico de ejecutor procesará tu job, puedes utilizar etiquetas para controlar donde se ejecutan los jobs. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+Esta característica te ayuda a asignar jobs a un ejecutor hospedado específico. Si quieres asegurarte de que un tipo específico de ejecutor procesará tu job, puedes utilizar etiquetas para controlar donde se ejecutan los jobs. Puedes asignar etiquetas a un ejecutor auto-hospedado adicionalmente a su etiqueta predeterminada de `self-hosted`. Entonces, puedes referirte a estas etiquetas en tu flujo de trabajo de YAML, garantizando que el job se enrute de forma predecible.{% ifversion not ghae %}Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen asignadas etiquetas predefinidas.{% endif %}
 
 {% ifversion ghae %}
 Este ejemplo muestra como un flujo de trabajo puede utilizar etiquetas para especificar el ejecutor requerido:
@@ -164,16 +163,19 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.
+Un flujo de trabajo solo se ejecutará en un ejecutor que tenga todas las etiquetas en el arreglo `runs-on`. El job irá preferencialmente a un ejecutor auto-hospedado inactivo con las etiquetas especificadas. Si no hay alguno disponible y existe un ejecutor hospedado en {% data variables.product.prodname_dotcom %} con las etiquetas especificadas, el job irá a un ejecutor hospedado en {% data variables.product.prodname_dotcom %}.
 
-To learn more about self-hosted runner labels, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)." To learn more about
-{% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+Para aprender más acerca de las etiquetas auto-hospedadas, consulta la sección ["Utilizar etiquetas con los ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)". Para aprender más sobre
+las etiquetas de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección ["Ejecutores compatibles y recursos de hardware"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% data reusables.actions.reusable-workflows %}
+
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ## Utilizar ambientes
 
-Puedes configurr ambientes con reglas de protección y secretos. Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. Para obtener más información, consulta la sección "[Ambientes](/actions/reference/environments)".
+Puedes configurr ambientes con reglas de protección y secretos. Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 {% endif %}
 
 ## Utilizar una plantilla de flujo de trabajo
@@ -187,4 +189,4 @@ Puedes configurr ambientes con reglas de protección y secretos. Cad job en un f
 
 ## Pasos siguientes
 
-Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Compartir flujos de trabajo con tu organización](/actions/learn-github-actions/sharing-workflows-with-your-organization)".
+Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Compartir flujos de trabajo, secretos y ejecutores con tu organización](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)".

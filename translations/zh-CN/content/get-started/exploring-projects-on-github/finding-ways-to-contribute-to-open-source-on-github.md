@@ -1,6 +1,7 @@
 ---
 title: 寻找在 GitHub 上参与开源项目的方法
 intro: '您可以找到在 {% data variables.product.product_name %} 上参加与您相关的开源项目的方法。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
   - /articles/finding-interesting-projects-on-github/
@@ -19,7 +20,7 @@ shortTitle: 为开源做贡献
 
 ## 发现相关项目
 
-如果有您感兴趣的特定主题，请访问 `github.com/topics/<topic>`。 例如，如果您对机器学习感兴趣，可以通过访问 https://github.com/topics/machine-learning 找到相关的项目和合适的第一个议题。 您可以通过访问[主题](https://github.com/topics)来浏览热门主题。 您还可以搜索与您感兴趣的主题相匹配的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories#search-by-topic)”。
+如果有您感兴趣的特定主题，请访问 `github.com/topics/<topic>`。 例如，如果您对机器学习感兴趣，可以通过访问 https://github.com/topics/machine-learning 找到相关的项目和合适的第一个议题。 您可以通过访问[主题](https://github.com/topics)来浏览热门主题。 您还可以搜索与您感兴趣的主题相匹配的仓库。 更多信息请参阅“[搜索仓库](/search-github/searching-on-github/searching-for-repositories#search-by-topic)”。
 
 如果您一直活跃在 {% data variables.product.product_name %} 上，可以根据您过去的参与、标星以及在 [Explore](https://github.com/explore) 中的其他活动，为您的项目找到个性化的建议和合适的第一个议题。 您还可以注册 Explore 通讯以根据您的兴趣接收相关电子邮件，了解参与 {% data variables.product.product_name %} 的机会。 要注册，请参阅 [Explore 电子邮件通讯](https://github.com/explore/subscribe)。
 

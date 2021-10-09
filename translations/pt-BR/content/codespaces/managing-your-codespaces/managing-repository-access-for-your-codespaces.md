@@ -1,6 +1,6 @@
 ---
-title: Managing repository access for your codespaces
-shortTitle: Repository access
+title: Gerenciando acesso ao repositório para seus codespaces
+shortTitle: Acesso ao repositório
 intro: 'Você pode gerenciar os repositórios que {% data variables.product.prodname_codespaces %} pode acessar.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -20,3 +20,7 @@ Ao habilitar o acesso e a segurança de um repositório pertencente à sua conta
 {% data reusables.user_settings.codespaces-tab %}
 1. Em "Acesso e segurança", selecione a configuração que deseja para sua conta de usuário. ![Botões de opção para gerenciar repositórios confiáveis](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 1. Se você escolher "repositórios selecionados", selecione o menu suspenso e clique em um repositório para permitir que os codespaces do repositório tenham acesso a outros repositórios dos quais você é proprietário. Repita para todos os repositórios cujos codespaces você deseja que acessem outros repositórios dos quais você é proprietário. ![Menu suspenso "Repositórios selecionados"](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+
+## Leia mais
+
+- "[Gerenciando o acesso ao repositório para os codespaces da sua organização](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"

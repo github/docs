@@ -33,7 +33,7 @@ Para obter mais informações sobre como usar {% data variables.product.prodname
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
+{% data reusables.codespaces.use-chrome %} Para obter mais informações, consulte "[Solução de problemas de codespaces](/codespaces/troubleshooting/troubleshooting-codespaces-clients)".
 
 ### Personalizando seu codespace
 
@@ -57,4 +57,4 @@ A Paleta de Comando permite acessar e gerenciar muitas funcionalidades para {% d
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. Clique no nome do codespace em que você deseja desenvolver. ![Nome do codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
-Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.
+Como alternativa, você pode ver qualquer codespace ativo para um repositório acessando esse repositório e selecionando o **Código de {% octicon "code" aria-label="The code icon" %}**. O menu suspenso exibirá todos os codespaces ativos de um repositório.

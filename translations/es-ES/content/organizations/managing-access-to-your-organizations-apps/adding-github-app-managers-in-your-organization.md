@@ -1,6 +1,6 @@
 ---
 title: Agregar administradores de App GitHub a tu organización
-intro: 'Organization owners can grant users the ability to manage some or all {% data variables.product.prodname_github_apps %} owned by the organization.'
+intro: 'Los propietarios de la organización pueden conceder a los usuarios la capacidad para administrar alguna o todas las {% data variables.product.prodname_github_apps %} que le pertenecen a la organización.'
 redirect_from:
   - /articles/adding-github-app-managers-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-github-app-managers-in-your-organization
@@ -16,7 +16,7 @@ shortTitle: Agregar administradores de GitHub Apps
 
 Para más información sobre los permisos del administrador de {% data variables.product.prodname_github_app %}, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization#github-app-managers)".
 
-## Giving someone the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
+## Brindar a alguien la posibilidad de administrar todas las {% data variables.product.prodname_github_apps %} que son propiedad de la organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -28,7 +28,7 @@ Para más información sobre los permisos del administrador de {% data variables
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to add a {% data variables.product.prodname_github_app %} manager for. ![Seleccionar {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
+1. Debajo de "{% data variables.product.prodname_github_apps %}s", haz clic en el avatar de la app a la que quieres agregar un administrador de {% data variables.product.prodname_github_app %}. ![Seleccionar {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. En "App managers" (Administradores de la app), escribe el nombre de usuario de la persona a quien deseas designar como administrador de la App GitHub para la app, y haz clic en **Grant** (Conceder). ![Agregar un administrador de {% data variables.product.prodname_github_app %} para una app específica](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 

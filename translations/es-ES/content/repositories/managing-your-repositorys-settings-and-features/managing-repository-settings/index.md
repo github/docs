@@ -1,6 +1,6 @@
 ---
 title: Administrar configuraciones de repositorios
-intro: You can choose the way your repository functions by managing repository settings.
+intro: Puedes elegir la forma en la que funciona tu repositorio si administras la configuración de repositorios.
 versions:
   fpt: '*'
   ghes: '*'

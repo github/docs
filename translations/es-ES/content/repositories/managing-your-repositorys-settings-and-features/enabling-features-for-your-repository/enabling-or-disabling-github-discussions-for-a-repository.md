@@ -1,6 +1,6 @@
 ---
 title: Habilita o inhabilita los debates de GitHub para un repositorio
-intro: 'You can use {% data variables.product.prodname_discussions %} in a repository as a place for your community to have conversations, ask questions, and post answers without scoping work in an issue.'
+intro: 'Puedes utilizar los {% data variables.product.prodname_discussions %} en un repositorio como un lugar para que tu comunidad tenga conversaciones, haga preguntas y publique respuestas sin dimensionar el trabajo en una propuesta.'
 product: '{% data reusables.gated-features.discussions %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_discussions %} for the repository.'
 versions:
@@ -13,7 +13,7 @@ redirect_from:
 shortTitle: Debates
 ---
 
-## Enabling or disabling {% data variables.product.prodname_discussions %} for your repository
+## Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} en tu repositorio
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. Para inhabilitar los debates, debajo de "Características", deselecciona **Debates**.

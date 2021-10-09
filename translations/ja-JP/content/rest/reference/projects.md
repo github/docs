@@ -1,6 +1,6 @@
 ---
 title: プロジェクト
-intro: Projects APIを使うと、リポジトリ内でプロジェクトの作成、リスト、更新、削除、カスタマイズが行えます。
+intro: 'The Projects API lets you create, list, update, delete and customize projects in a repository.'
 redirect_from:
   - /v3/projects
 versions:

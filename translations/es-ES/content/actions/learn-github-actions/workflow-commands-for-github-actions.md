@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de los comandos de flujo
 
@@ -89,7 +88,7 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 | `core.setOutput`                                                                                                                     | `set-output`                                                  |
 | `core.setSecret`                                                                                                                     | `add-mask`                                                    |
 | `core.startGroup`                                                                                                                    | `grupo`                                                       |
-| `core.warning`                                                                                                                       | `warning file`                                                |
+| `core.warning`                                                                                                                       | `advertencia`                                                 |
 
 {% ifversion ghes < 3.0 %}
 ## Configurar una variable de ambiente
@@ -331,6 +330,12 @@ echo "{name}={value}" >> $GITHUB_ENV
 
 Crea o actualiza una variable de ambiente para cualquier paso que sea el siguiente en ejecutarse en un job. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Las variables de entorno distinguen mayúsculas de minúsculas y puedes incluir puntuación.
 
+{% note %}
+
+**Nota:** Las variables de ambiente deben referenciarse explícitamente utilizando el [contexto`env`](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) en la sintaxis de expresión o mediante el uso del archivo `$GITHUB_ENV` directamente; las variables de ambiente no están disponibles implícitamente en los comandos del shell.
+
+{% endnote %}
+
 ### Ejemplo
 
 {% raw %}
@@ -376,7 +381,7 @@ steps:
 echo "{path}" >> $GITHUB_PATH
 ```
 
-Antepone un directorio a la variable `PATH` del sistema y la hace disponible para todas las acciones subsecuentes en el job actual; la acción que se está ejecutando actualmente no puede acceder a la variable de ruta actualizada. Para ver las rutas definidas actualmente para tu job, puedes utilizar `echo "$PATH"` en un paso o en una acción.
+Antepone un directorio a la variable de sistema `PATH` y la hace disponible automáticamente para todas las acciones subsecuentes en el job actual; la acción que se está ejecutando actualmente no puede acceder a la variable de ruta actualizada. Para ver las rutas definidas actualmente para tu job, puedes utilizar `echo "$PATH"` en un paso o en una acción.
 
 ### Ejemplo
 

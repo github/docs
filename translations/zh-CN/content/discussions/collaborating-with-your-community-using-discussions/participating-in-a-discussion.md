@@ -1,7 +1,7 @@
 ---
 title: 参与讨论
 intro: '您可以在仓库的论坛中与社区和维护者交流 {% data variables.product.product_name %} 上的项目。'
-permissions: People with read permissions to a repository can participate in discussions in the repository.
+permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
 shortTitle: 参与讨论

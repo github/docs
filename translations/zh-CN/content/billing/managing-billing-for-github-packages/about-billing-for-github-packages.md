@@ -49,7 +49,7 @@ shortTitle: 关于计费
 
 {% data variables.product.prodname_dotcom %} 向拥有其中发布软件包的仓库的帐户收取使用费。 If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage and $0.50 USD per GB of data transfer.
 
-例如，如果您的组织使用 {% data variables.product.prodname_team %}，允许无限制的支出，使用了 150GB 的存储量，一个月内还传输了 50GB 的数据，则组织在当月的存储量超限 148GB，数据传输量为 40GB。 The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
+例如，如果您的组织使用 {% data variables.product.prodname_team %}，允许无限制的支出，使用了 150GB 的存储量，一个月内还传输了 50GB 的数据，则组织在当月的存储量超限 148GB，数据传输量为 40GB。 The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD. {% data reusables.dotcom_billing.pricing_cal %}
 
 到月底，{% data variables.product.prodname_dotcom %} 会将您的数据传输舍入到最接近的 GB。
 

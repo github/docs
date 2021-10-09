@@ -1,6 +1,7 @@
 ---
 title: 分配议题和拉取请求到其他 GitHub 用户
 intro: 受理人明确谁在处理特定议题和拉取请求。
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -14,8 +15,6 @@ topics:
   - Pull requests
 shortTitle: 分配议题和 PR
 ---
-
-对仓库有写入权限的任何人都可以分配议题和拉取请求。
 
 ## 关于议题和拉取请求受理人
 

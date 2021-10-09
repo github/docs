@@ -18,17 +18,17 @@ As discussões dão um espaço para conversas mais colaborativas, conectando-se 
 
 Os proprietários de repositórios e pessoas com acesso de escrita podem habilitar {% data variables.product.prodname_discussions %} para uma comunidade nos seus repositórios públicos e privados.
 
-When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
+Ao habilitar {% data variables.product.prodname_discussions %} pela primeira vez, você será convidado a configurar um post de boas-vindas.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. No nome do seu repositório, clique em {% octicon "gear" aria-label="The gear icon" %} **Configurações**. ![Botão de configurações públicas](/assets/images/help/discussions/public-repo-settings.png)
-1. Em "Recursos", clique em **Configurar discussões**. ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
+1. Em "Recursos", clique em **Configurar discussões**. ![Configure um botão de discussão em "Recursos" para habilitar ou desabilitar as Discussões do GitHub para um repositório](/assets/images/help/discussions/setup-discussions-button.png)
 1. Em "Iniciar uma nova discussão", edite o modelo para que fique alinhado aos recursos e tom que você deseja definir para sua comunidade.
 1. Clique em **Iniciar discussão**. ![Botão "Iniciar discussão"](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ## Dar as boas-vindas às contribuições para as suas discussões
 
-You can welcome your community and introduce a new way to communicate in a repository by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. Fixar e bloquear discussões ajuda as pessoas a saber que uma publicação é feita como um anúncio. Você pode usar os anúncios como uma forma de vincular pessoas a mais recursos e oferecer orientação para abrir discussões na sua comunidade. Para obter mais informações sobre como fixar uma discussão, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)".
+Você pode dar as boas-vindas à sua comunidade e apresentar uma nova forma de se comunicar em um repositório, criando um post de boas-vindas e fixando o post na sua página de {% data variables.product.prodname_discussions %}. Fixar e bloquear discussões ajuda as pessoas a saber que uma publicação é feita como um anúncio. Você pode usar os anúncios como uma forma de vincular pessoas a mais recursos e oferecer orientação para abrir discussões na sua comunidade. Para obter mais informações sobre como fixar uma discussão, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)".
 
 
 ## Configurar diretrizes da comunidade para colaboradores
@@ -39,7 +39,7 @@ Para obter mais informações sobre como fornecer diretrizes para o seu projeto,
 
 ## Criar uma nova discussão
 
-Any authenticated user who can view a repository can create a discussion.
+Qualquer usuário autenticado que possa visualizar um repositório pode criar uma discussão.
 
 {% data reusables.discussions.starting-a-discussion %}
 
