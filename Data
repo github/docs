@@ -1,0 +1,22 @@
+Datos
+Este directorio contiene archivos de datos que se analizan y se ponen a disposición de las páginas del site.dataobjeto.
+
+Todos los archivos YML y Markdown de este directorio están configurados para traducirse en Crowdin de forma predeterminada.
+
+Glosarios
+Nuestra integración Crowdin utiliza archivos de glosario. Ver glosarios / README.md .
+
+GraphQL
+Los archivos de esquema GraphQL se mantienen sincronizados github/githubmediante flujos de trabajo programados. Consulte graphql / README.md .
+
+Reutilizables
+Los reutilizables son largas cadenas de texto reutilizable. Consulte reusables / README.md .
+
+Variables
+Las variables son cadenas cortas de texto reutilizable. Ver variables / README.md .
+
+Webhooks
+Los archivos JSON de carga útil de webhook se utilizan en webhook events docs.
+
+ui.yml
+ui.yml contiene cadenas localizadas que se utilizan en diseños HTML.
