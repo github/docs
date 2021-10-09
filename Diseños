@@ -1,0 +1,20 @@
+Diseños
+Los archivos de este directorio son diseños que se pueden ajustar alrededor de las páginas.
+
+Consulte también incluye , que son fragmentos de HTML o Markdown que se pueden reutilizar en varios diseños.
+
+Usar diseños
+Ser predeterminado, layouts/default.htmlse utilizará para todas las páginas.
+
+Para usar un diseño personalizado, agregue un layoutvalor a la portada de la página:
+
+---
+title: Hello World
+layout: some-layout
+---
+El ejemplo anterior utilizará el layouts/some-layout.htmldiseño.
+
+Para renderizar una página sin diseño, establezca layout: false.
+
+Diseños de escritura
+Los archivos de diseño deben tener una extensión .htmlo .md, y deben incluir la cadena {{ content}}para especificar dónde se debe inyectar el contenido interno.
