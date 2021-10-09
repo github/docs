@@ -17,7 +17,7 @@ shortTitle: Learning resources
 ---
 ## Using Git
 
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can review the [Git command list](https://git-scm.com/docs) or [Git command lookup reference](http://gitref.org) while using the [Try Git](https://try.github.com) simulator.
+Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](https://git-scm.com/book). You can also check out the [Git command list](https://git-scm.com/docs/git#_git_commands) or [Git command lookup reference](https://git.github.io/git-reference/) for direct reference.
 
 ## Using {% data variables.product.product_name %}
 
@@ -33,7 +33,7 @@ Become better acquainted with {% data variables.product.product_name %} through 
 
 ### Branches, forks, and pull requests
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/articles/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+Learn about [Git branching](https://learngitbranching.js.org/) using an interactive tool. Read about [forks](/articles/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 ### Tune in
 
@@ -47,7 +47,7 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 ### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 
-{% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
+{% data variables.product.prodname_dotcom %} offers live [trainings](https://github.com/events) with a hands-on, project-based approach for those who love the command line and those who don't.
 
 ### Training for your company
 
@@ -55,7 +55,9 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 ## Extras
 
-An interactive [online Git course](http://www.codeschool.com/courses/git-real) from [Code School](http://codeschool.com) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Code School + Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. 
+
+Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
 
 Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
 
