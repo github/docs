@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
   - /admin/enterprise-management/recommended-alert-thresholds
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
@@ -16,8 +16,10 @@ topics:
   - Monitoring
   - Performance
   - Storage
+shortTitle: Empfohlene Schwellenwerte für Meldungen
 ---
-### Speicher überwachen
+
+## Speicher überwachen
 
 Sie sollten die Root- und Benutzerspeichergeräte überwachen und eine Meldung mit Werten konfigurieren, die eine ausreichende Antwortzeit gestatten, wenn der verfügbare Disk-Speicher niedrig ist.
 
@@ -28,7 +30,7 @@ Sie sollten die Root- und Benutzerspeichergeräte überwachen und eine Meldung m
 
 Sie können diese Werte basierend auf der insgesamt zugeordneten Speicherkapazität, historischen Wachstumsmustern und der erwarteten Antwortzeit anpassen. Wir empfehlen eine übermäßige Zuordnung an Speicherressourcen, um Wachstum zu ermöglichen und die zum Zuordnen des zusätzlichen Speichers erforderliche Ausfallzeit zu verhindern.
 
-### CPU- und durchschnittliche Auslastung überwachen
+## CPU- und durchschnittliche Auslastung überwachen
 
 Obwohl es normal ist, dass die CPU-Nutzung basierend auf ressourcenintensiven Git-Vorgängen schwankt, sollten Sie eine Meldung für ungewöhnlich hohe CPU-Auslastungen konfigurieren, da verlängerte Spitzen darauf hindeuten können, dass Ihre Instanz unterversorgt ist. Es wird empfohlen, die fünfzehnminütige durchschnittliche Auslastung des Systems auf Werte zu überwachen, die der Anzahl der der virtuellen Maschine zugeordneten CPU-Kerne nahekommen oder diese überschreiten.
 
@@ -39,7 +41,7 @@ Obwohl es normal ist, dass die CPU-Nutzung basierend auf ressourcenintensiven Gi
 
 Darüber hinaus wird empfohlen, dass Sie die „Diebstahlzeit“ der Virtualisierung überwachen, um sicherzustellen, dass andere virtuelle Maschinen, die auf demselben Hostsystem ausgeführt werden, nicht alle Ressourcen der Instanz verwenden.
 
-### Arbeitsspeicherauslastung überwachen
+## Arbeitsspeicherauslastung überwachen
 
 Die {% data variables.product.product_location %} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
 

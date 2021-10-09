@@ -13,13 +13,15 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Import to your enterprise
 ---
-### Applying the imported data on {% data variables.product.prodname_ghe_server %}
+
+## Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
 Once you have [prepared your migration](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) you can use the following steps to complete the migration.
 
@@ -38,7 +40,7 @@ Once you have [prepared your migration](/admin/user-management/preparing-to-migr
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-### Migrationsdaten überprüfen
+## Migrationsdaten überprüfen
 
 Der Befehl `ghe-migrator audit` gibt standardmäßig jeden Datensatz zurück. Dadurch können Sie die Datensätze zudem filtern nach
 
@@ -47,7 +49,7 @@ Der Befehl `ghe-migrator audit` gibt standardmäßig jeden Datensatz zurück. Da
 
 Die Datensatztypen stimmen mit denen der [Migrationsdaten](/enterprise/admin/guides/migrations/about-migrations/#migrated-data) überein.
 
-### Filter für Datensatztypen
+## Filter für Datensatztypen
 
 | Datensatztyp                                       | Filtername                    |
 | -------------------------------------------------- | ----------------------------- |
@@ -67,7 +69,7 @@ Die Datensatztypen stimmen mit denen der [Migrationsdaten](/enterprise/admin/gui
 | Bei Pull Requests oder Issues ergriffene Maßnahmen | `issue_event`                 |
 | geschützte Branches                                | `protected_branch`            |
 
-### Filter für Datensatzzustände
+## Filter für Datensatzzustände
 
 | Datensatzzustand | Beschreibung                                |
 | ---------------- | ------------------------------------------- |
@@ -87,7 +89,7 @@ Die Datensatztypen stimmen mit denen der [Migrationsdaten](/enterprise/admin/gui
 | `failed_rename`  | Fehler beim Umbenennen des Datensatzes.     |
 | `failed_merge`   | Fehler beim Mergen des Datensatzes.         |
 
-### Überwachte Datensätze filtern
+## Überwachte Datensätze filtern
 
 Wenn Sie den Befehl `ghe-migrator audit` mit dem Flag `-m` ausführen, können Sie anhand des Datensatztyps filtern. Ebenso können Sie mithilfe des Flags `-s` nach dem Importstatus filtern. Der Befehl sieht wie folgt aus:
 
@@ -112,18 +114,18 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 Kontaktieren Sie {% data variables.contact.contact_ent_support %}, wenn Sie Bedenken in Bezug auf fehlgeschlagene Importvorgänge haben.
 
-### Completing the import on {% data variables.product.prodname_ghe_server %}
+## Completing the import on {% data variables.product.prodname_ghe_server %}
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Vor dem Löschen Ihrer Quelldaten sollten Sie etwa zwei Wochen warten, um sicherzugehen, dass alles erwartungsgemäß funktioniert.
 
-### Repositorys auf der Zielinstanz entsperren
+## Repositorys auf der Zielinstanz entsperren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-### Repositorys auf der Quellinstanz entsperren
+## Repositorys auf der Quellinstanz entsperren
 
-#### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 Um die Repositorys in einer {% data variables.product.prodname_dotcom_the_website %}-Organisation zu entsperren, senden Sie eine `DELETE`-Anforderung an den <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">Endpunkt zum Entsperren der Migration</a>. Sie benötigen Folgendes:
   * Ihr Zugriffstoken für die Authentifizierung
@@ -135,7 +137,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
+### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 Nachdem Sie die Repositorys der {% data variables.product.prodname_dotcom_the_website %}-Organisation entsperrt haben, sollten Sie mithilfe des [Endpunkts zum Löschen des Repositorys](/rest/reference/repos/#delete-a-repository) jedes Repository löschen, das Sie zuvor migriert haben. Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
 ```shell
@@ -143,7 +145,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Repositorys auf einer {% data variables.product.prodname_ghe_server %}-Instanz entsperren
+### Repositorys auf einer {% data variables.product.prodname_ghe_server %}-Instanz entsperren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}

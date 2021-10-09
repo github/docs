@@ -7,14 +7,16 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Manage pre-receive hooks
 ---
-### Pre-Receive-Hooks erstellen
+
+## Pre-Receive-Hooks erstellen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -27,31 +29,30 @@ topics:
 9. Wählen Sie **Enable this pre-receive hook on all repositories by default** (Diesen Pre-Receive-Hook standardmäßig auf allen Repositorys aktivieren) aus, wenn der Pre-Receive-Hook auf allen Repositorys ausgeführt werden soll. ![Option zum Aktivieren des Hooks auf allen Repositorys](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
 10. Wählen Sie **Administrators can enable and disable this hook** (Administratoren können diesen Hook aktivieren und deaktivieren) aus, damit Organisationsmitglieder mit Administrator- oder Inhaberberechtigungen diesen Pre-Receive-Hook aktivieren oder deaktivieren können. ![Option zum Aktivieren oder Deaktivieren des Hooks durch Administratoren](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
 
-### Pre-Receive-Hooks bearbeiten
+## Pre-Receive-Hooks bearbeiten
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Klicken Sie neben dem Pre-Receive-Hook, den Sie bearbeiten möchten, auf {% octicon "pencil" aria-label="The edit icon" %}.![Pre-Receive bearbeiten](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
-### Pre-Receive-Hooks löschen
+## Pre-Receive-Hooks löschen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Klicken Sie neben dem Pre-Receive-Hook, den Sie löschen möchten, auf {% octicon "x" aria-label="X symbol" %}.![Pre-Receive bearbeiten](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
-### Pre-Receive-Hooks für eine Organisation konfigurieren
+## Pre-Receive-Hooks für eine Organisation konfigurieren
 
 Ein Organisationsadministrator kann die Hook-Berechtigungen nur dann für eine Organisation konfigurieren, wenn der Websiteadministrator bei der Erstellung des Pre-Receive-Hooks die Option **Administrators can enable or disable this hook** (Administratoren können diesen Hook aktivieren oder deaktivieren) ausgewählt hat. Zum Konfigurieren von Pre-Receive-Hooks für ein Repository müssen Sie ein Organisationsadministrator oder -inhaber sein.
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Klicken Sie auf der linken Seitenleiste auf **Hooks**. ![Hooks-Seitenleiste](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. Klicken Sie neben dem Pre-Receive-Hook, den Sie konfigurieren möchten, auf das Dropdownmenü **Hook permissions** (Hook-Berechtigungen). Wählen Sie aus, ob der Pre-Receive-Hook aktiviert oder deaktiviert werden soll, oder legen Sie fest, dass er vom Repository-Administrator konfiguriert werden kann. ![„Hook permissions“ (Hook-Berechtigungen)](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
-### Pre-Receive-Hooks für ein Repository konfigurieren
+## Pre-Receive-Hooks für ein Repository konfigurieren
 
 Ein Repository-Inhaber kann einen Hook nur dann konfigurieren, wenn der Websiteadministrator bei der Erstellung des Pre-Receive-Hooks die Option **Administrators can enable or disable this hook** (Administratoren können diesen Hook aktivieren oder deaktivieren) ausgewählt hat. In einer Organisation muss der Organisationsinhaber zudem die Hook-Berechtigung **Configurable** (Konfigurierbar) ausgewählt haben. Zum Konfigurieren von Pre-Receive-Hooks für ein Repository müssen Sie ein Repository-Inhaber sein.
 

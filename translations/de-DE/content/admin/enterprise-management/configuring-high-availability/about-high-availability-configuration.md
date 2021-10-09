@@ -6,20 +6,22 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
   - /admin/enterprise-management/about-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: About HA configuration
 ---
+
 Beim Konfigurieren der Hochverfügbarkeit gibt es eine automatisierte Einrichtung einer unidirektionalen asynchronen Replikation sämtlicher Datenspeicher (Git-Repositorys, MySQL, Redis und ElasticSearch) von der primären zur Replikat-Appliance.
 
 {% data variables.product.prodname_ghe_server %} unterstützt eine aktive/passive Konfiguration, bei der die Replikations-Appliance als Standby-Instanz mit Datenbankdiensten im Replikationsmodus ausgeführt wird, aber die Anwendungsdienste gestoppt werden.
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Anvisierte Fehlerszenarien
+## Anvisierte Fehlerszenarien
 
 Verwenden Sie eine Hochverfügbarkeitskonfiguration zum Schutz vor:
 
@@ -31,11 +33,11 @@ Eine Hochverfügbarkeitskonfiguration eignet sich nicht für:
   - **Das Sichern der primären Appliance**. Eine Hochverfügbarkeitsreplikat ersetzt keine Off-Site-Backups in Ihrem Disaster Recovery-Plan. Einige Formen von Datenbeschädigungen oder -verlusten werden möglicherweise sofort von der primären Instanz zum Replikat repliziert. Um einen sicheren Rollback auf einen stabilen vergangenen Zustand zu gewährleisten, müssen Sie regelmäßige Backups mit historischen Snapshots durchführen.
   - **Upgrades ohne Ausfallzeit**. Platzieren Sie zum Verhindern von Datenverlusten und Split-Brain-Situationen in kontrollierten Hochstufungsszenarien die primäre Appliance in den Wartungsmodus, und warten Sie auf den Abschluss sämtlicher Schreibvorgänge, bevor Sie das Replikat hochstufen.
 
-### Netzwerk-Traffic-Failover-Strategien
+## Netzwerk-Traffic-Failover-Strategien
 
 Während des Failovers müssen Sie den Netzwerk-Traffic separat konfigurieren und ihn manuell von der primären Instanz zum Replikat weiterleiten.
 
-#### DNS-Failover
+### DNS-Failover
 
 Verwenden Sie mit DNS-Failover kurze TTL-Werte in den DNS-Einträgen, die auf die primäre {% data variables.product.prodname_ghe_server %}-Appliance verweisen. Sie sollten einen TTL-Wert zwischen 60 Sekunden und fünf Minuten verwenden.
 
@@ -43,7 +45,7 @@ Während des Failovers müssen Sie die primäre Instanz in den Wartungsmodus ver
 
 Wenn Sie die Geo-Replikation verwenden, müssen Sie Geo DNS so konfigurieren, dass der Traffic an das nächstgelegene Replikat weitergeleitet wird. Weitere Informationen finden Sie unter „[Informationen zur Geo-Replikation](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)“.
 
-#### Load-Balancer
+### Load-Balancer
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
@@ -51,11 +53,11 @@ Während des Failovers müssen Sie die primäre Appliance in den Wartungsmodus v
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### Dienstprogramm zur Replikationsverwaltung
+## Dienstprogramm zur Replikationsverwaltung
 
 Verwenden Sie zum Verwalten der Replikation auf {% data variables.product.prodname_ghe_server %} diese Befehlszeilendienstprogramme, indem Sie mittels SSH eine Verbindung zur Replikat-Appliance herstellen.
 
-#### ghe-repl-setup
+### ghe-repl-setup
 
 Der Befehl `ghe-repl-setup` versetzt eine {% data variables.product.prodname_ghe_server %}-Appliance in den Replikat-Standbymodus.
 
@@ -73,7 +75,7 @@ To disable replica mode and undo these changes, run `ghe-repl-teardown'.
 Run `ghe-repl-start' to start replicating against the newly configured primary.
 ```
 
-#### ghe-repl-start
+### ghe-repl-start
 
 Der Befehl `ghe-repl-start` aktiviert die aktive Replikation sämtlicher Datenspeicher.
 
@@ -88,7 +90,7 @@ Success: replication is running for all services.
 Use `ghe-repl-status' to monitor replication health and progress.
 ```
 
-#### ghe-repl-status
+### ghe-repl-status
 
 Der Befehl `ghe-repl-status` gibt den Status `OK`, `WARNING` (Warnung) oder `CRITICAL` (Kritisch) für jeden Datenspeicher-Replikationsstream zurück. Wenn einer der Replikationskanäle den Zustand `WARNING` (Warnung) aufweist, wird der Befehl mit dem Code `1` beendet. Wenn einer der Kanäle den Zustand `CRITICAL` (Kritisch) aufweist, wird der Befehl entsprechend mit dem Code `2`2 beendet.
 
@@ -140,7 +142,7 @@ OK: pages data is in sync
   | Pages are in sync
 ```
 
-#### ghe-repl-stop
+### ghe-repl-stop
 
 Der Befehl `ghe-repl-stop` deaktiviert die Replikation temporär für alle Datenspeicher und stoppt die Replikationsdienste. Führen Sie den Befehl [ghe-repl-start](#ghe-repl-start) aus, um die Replikation wieder aufzunehmen.
 
@@ -154,7 +156,7 @@ Stopping Elasticsearch replication ...
 Success: replication was stopped for all services.
 ```
 
-#### ghe-repl-promote
+### ghe-repl-promote
 
 Der Befehl `ghe-repl-promote` deaktiviert die Replikation und wandelt die Replikat-Appliance in eine primäre Instanz um. Die Appliance wird mit denselben Einstellungen wie die ursprüngliche primäre Instanz konfiguriert, und alle Dienste sind aktiviert.
 
@@ -177,10 +179,10 @@ Applying configuration and starting services ...
 Success: Replica has been promoted to primary and is now accepting requests.
 ```
 
-#### ghe-repl-teardown
+### ghe-repl-teardown
 
 Der Befehl `ghe-repl-teardown` deaktiviert den Replikationsmodus vollständig und entfernt die Replikatkonfiguration.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Hochverfügbarkeitsreplikat erstellen](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)“

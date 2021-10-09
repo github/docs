@@ -12,18 +12,20 @@ redirect_from:
   - /admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
 intro: 'Um {% data variables.product.prodname_enterprise %} von 11.10.x zu 2.1.23 zu migrieren, müssen Sie eine neue Appliance-Instanz einrichten und Daten aus der vorherigen Instanz migrieren.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
   - Upgrades
+shortTitle: Migrate from 11.10.x to 2.1.23
 ---
+
 Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und höher werden unterstützt. Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und früher werden nicht unterstützt. Sie müssen zunächst in verschiedenen Upgrades ein Upgrade auf die Version 11.10.348 durchführen. Weitere Informationen finden Sie in der 11.10.348-Upgrade-Prozedur „[Upgrade auf die neueste Version durchführen](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)“.
 
 Um ein Upgrade auf die neueste Version von {% data variables.product.prodname_enterprise %} durchzuführen, müssen Sie zunächst ein Upgrade auf {% data variables.product.prodname_ghe_server %} 2.1 vornehmen. Anschließend können Sie den normalen Upgrade-Prozess befolgen. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)“.
 
-### Migrationsvorbereitung
+## Migrationsvorbereitung
 
 1. Konsultieren Sie den Leitfaden „Bereitstellung und Installation“, und überprüfen Sie, ob alle Voraussetzungen erfüllt sind, um {% data variables.product.prodname_enterprise %} 2.1.23 in Ihrer Umgebung bereitzustellen und zu konfigurieren. Weitere Informationen finden Sie unter „[Bereitstellung und Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)“.
 2. Verifizieren Sie, dass die aktuelle Instanz eine unterstützte Upgrade-Version ausführt.
@@ -43,7 +45,7 @@ Um ein Upgrade auf die neueste Version von {% data variables.product.prodname_en
     - **IP-Adressenzuweisung**: Diese Methode steht nur für die VMware-zu-VMware-Migration zur Verfügung und wird nicht empfohlen, es sei denn, die DNS-Methode ist nicht verfügbar. Vor dem Starten der Migration müssen Sie die alte Instanz herunterfahren und ihre IP-Adresse zur neuen Instanz zuweisen.
 6. Planen Sie ein Wartungsfenster. Das Wartungsfenster sollte lang genug sein, um Daten vom Backup-Host auf die neue Instanz zu übertragen. Es variiert entsprechend der Größe des Backup-Snapshots und der verfügbaren Netzwerkbandbreite. In diesem Zeitraum ist Ihre aktuelle Instanz nicht verfügbar und im Wartungsmodus, während Sie zur neuen Instanz migrieren.
 
-### Führen Sie die Migration durch.
+## Führen Sie die Migration durch.
 
 1. Stellen Sie eine neue {% data variables.product.prodname_enterprise %} 2.1-Instanz bereit. Weitere Informationen finden Sie im Leitfaden „[Bereitstellung und Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)“ für Ihre Zielplattform.
 2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz hoch.

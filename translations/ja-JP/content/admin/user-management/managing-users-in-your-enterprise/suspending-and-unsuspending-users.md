@@ -10,14 +10,16 @@ redirect_from:
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'ユーザが企業を離れたり異動したりした場合には、{% data variables.product.product_location %} に対するそのユーザのアクセス権を削除したり変更したりしなければなりません。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Enterprise
   - Security
   - User account
+shortTitle: Manage user suspension
 ---
+
 従業員が企業を退職した場合、その{% data variables.product.prodname_ghe_server %}アカウントをサスペンドすれば、{% data variables.product.prodname_enterprise %}ライセンス中のユーザライセンスを空けながら、Issue、コメント、リポジトリ、Gist、そしてそのユーザが作成した他のデータを保持しておくことができます。 サスペンドされたユーザはインスタンスにサインインすることも、コードをプッシュやプルすることもできません。
 
 ユーザをサスペンドした場合、その変更はすぐに有効になり、ユーザには通知されません。 ユーザがリポジトリからのプルやプッシュをしようとすると、以下のエラーが返されます:
@@ -37,7 +39,7 @@ fatal: The remote end hung up unexpectedly
 
 {% endtip %}
 
-### ユーザ管理ダッシュボードからユーザをサスペンドする
+## ユーザ管理ダッシュボードからユーザをサスペンドする
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -47,7 +49,7 @@ fatal: The remote end hung up unexpectedly
 5. Danger Zone（危険区域）ボックス内の"Account suspension（アカウントのサスペンド）"の下の**Suspend（サスペンド）**をクリックしてください。 ![サスペンドボタン](/assets/images/enterprise/site-admin-settings/suspend.png)
 6. ユーザをサスペンドする理由を入力してください。 ![サスペンドの理由](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
 
-### ユーザ管理ダッシュボードからユーザのサスペンドを解除する
+## ユーザ管理ダッシュボードからユーザのサスペンドを解除する
 
 ユーザのサスペンドの場合と同じく、ユーザのサスペンド解除もすぐに有効になります。 ユーザには通知されません。
 
@@ -59,7 +61,7 @@ fatal: The remote end hung up unexpectedly
 4. 赤いDanger Zone（危険区域）ボックス中の"Account suspension（アカウントのサスペンド）"の下で、**Unsuspend（サスペンド解除）**をクリックしてください。 ![[Unsuspend] ボタン](/assets/images/enterprise/site-admin-settings/unsuspend.png)
 5. ユーザのサスペンドを解除する理由を入力します。 ![サスペンド解除の理由](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-### コマンドラインからユーザをサスペンドする
+## コマンドラインからユーザをサスペンドする
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) にサスペンドするユーザの名前を添えて実行します。
@@ -67,7 +69,7 @@ fatal: The remote end hung up unexpectedly
   $ ghe-user-suspend <em>username</em>
   ```
 
-### サスペンドされたユーザのためのカスタムメッセージを作成する
+## サスペンドされたユーザのためのカスタムメッセージを作成する
 
 サスペンドされたユーザがサインインしようとしたときに表示されるカスタムメッセージを作成できます。
 
@@ -80,7 +82,7 @@ fatal: The remote end hung up unexpectedly
 8. 表示されたメッセージを確認します。 ![サスペンドされたユーザへのメッセージの表示](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-### コマンドラインからユーザのサスペンドを解除する
+## コマンドラインからユーザのサスペンドを解除する
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. [ghe-user-unsuspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-unsuspend)にサスペンド解除するユーザの名前を添えて実行します。
@@ -88,5 +90,5 @@ fatal: The remote end hung up unexpectedly
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### 参考リンク
+## 参考リンク
 - 「[ユーザーをサスペンドする](/rest/reference/enterprise-admin#suspend-a-user)」

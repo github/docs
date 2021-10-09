@@ -5,11 +5,17 @@ redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
+shortTitle: Listar dependências configuradas
 ---
-### Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
+
+## Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
 
 Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
@@ -21,7 +27,7 @@ Depois de habilitar as atualizações de versão, você pode confirmar que a sua
 
 Se quaisquer dependências estiverem faltando, verifique os arquivos de log em busca de erros. Se algum gerenciador de pacotes faltar, revise o arquivo de configuração.
 
-### Visualizando arquivos de log {% data variables.product.prodname_dependabot %}
+## Visualizando arquivos de log {% data variables.product.prodname_dependabot %}
 
 1. Na aba **{% data variables.product.prodname_dependabot %}** , clique em **Última verificação em *TIME* atrás** para ver o arquivo de log gerado pelo {% data variables.product.prodname_dependabot %} durante a última verificação de atualizações de versão. ![Visualizar arquivo de log](/assets/images/help/dependabot/last-checked-link.png)
 2. Opcionalmente, para executar novamente a verificação da versão, clique em **Procurar atualizações**. ![Verificar atualizações](/assets/images/help/dependabot/check-for-updates.png)

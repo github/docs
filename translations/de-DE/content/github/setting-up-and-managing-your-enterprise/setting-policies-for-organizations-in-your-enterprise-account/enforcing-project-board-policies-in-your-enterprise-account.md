@@ -9,13 +9,15 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-project-board-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policies for projects
 ---
+
 Weitere Informationen zu den Projektboard-Typen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“
 
-### Eine Richtlinie für organisationsweite Projektboards erzwingen
+## Eine Richtlinie für organisationsweite Projektboards erzwingen
 
 Für alle Organisationen Deines Enterprise-Kontos kannst Du organisationsweite Projektboards aktivieren oder deaktivieren oder es Inhabern gestatten, diese Einstellung auf Organisationsebene zu verwalten.
 
@@ -25,7 +27,7 @@ Für alle Organisationen Deines Enterprise-Kontos kannst Du organisationsweite P
 4. Lies unter „Organization projects“ (Organisationsprojekte) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Wähle im Dropdownmenü unter „Organization projects“ (Organisationsprojekte) eine Richtlinie aus. ![Dropdownmenü mit den Optionen für die Richtlinie für Organisations-Projektboards](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
-### Eine Richtlinie für Repository-Projektboards erzwingen
+## Eine Richtlinie für Repository-Projektboards erzwingen
 
 Für alle Organisationen Deines Enterprise-Kontos kannst Du Projektboards auf Repository-Ebene aktivieren oder deaktivieren oder es Inhabern gestatten, diese Einstellung auf Organisationsebene zu verwalten.
 

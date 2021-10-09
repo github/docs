@@ -5,17 +5,18 @@ intro: 'プルリクエストで {% data variables.product.prodname_code_scannin
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
-### プルリクエストの {% data variables.product.prodname_code_scanning %} 結果について
+## プルリクエストの {% data variables.product.prodname_code_scanning %} 結果について
 
 プルリクエストのチェック用に {% data variables.product.prodname_code_scanning %} が設定されているリポジトリでは、{% data variables.product.prodname_code_scanning %}がプルリクエストのコードをチェックします。 デフォルトでは、このチェックはデフォルトブランチを対象とするプルリクエストに限定されていますが、この設定は {% data variables.product.prodname_actions %} またはサードパーティの CI/CD システム内で変更できます。 変更をマージすることで、対象となるブランチに新たな {% data variables.product.prodname_code_scanning %} アラートが発生する場合には、そのアラートはプルリクエストのチェック結果として報告されます。 また、アラートではプルリクエストの [**Files changed**] タブでアノテーションとしても表示されます。 リポジトリへの書き込み権限がある場合、既存のすべての {% data variables.product.prodname_code_scanning %} アラートを [**Security**] タブで表示できます。 リポジトリのアラートに関する詳しい情報については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートを管理する](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)」を参照してください。
 
@@ -23,13 +24,13 @@ redirect_from:
 
 ![プルリクエストの失敗した {% data variables.product.prodname_code_scanning %} チェック](/assets/images/help/repository/code-scanning-check-failure.png)
 
-### プルリクエストのチェックとしての {% data variables.product.prodname_code_scanning %} について
+## プルリクエストのチェックとしての {% data variables.product.prodname_code_scanning %} について
 
 {% data variables.product.prodname_code_scanning %} をプルリクエストのチェックとして設定するためのオプションは多いので、正確なセットアップはそれぞれのリポジトリで異なり、複数のチェックを行う場合もあります。 {% data variables.product.prodname_code_scanning %} の結果を含むチェックは、[**Code scanning results**] です。
 
 リポジトリが {% data variables.product.prodname_codeql_workflow %} を使用している場合、**{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** チェックを各言語で実行してから、結果チェックを実行します。 設定に問題がある場合、解析がコンパイルする必要がある言語 (C/C++、C#、Java など) でプルリクエストがビルドを中断している場合、解析は失敗することがあります。 他のプルリクエストと同様、チェック失敗の詳細内容を [**Checks**] タブで確認できます。 設定およびトラブルシューティングに関する詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)」または「[{% data variables.product.prodname_codeql %} ワークフローのトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)」を参照してください。
 
-### プルリクエストのアラートをトリガーする
+## プルリクエストのアラートをトリガーする
 
 プルリクエストの [**Files changed**] タブを見ると、アラートをトリガーしたコードの行にあるアノテーションがあります。
 
@@ -43,7 +44,7 @@ redirect_from:
 
 ![アラートの説明と、詳細情報を表示するリンク](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### プルリクエストのアラートを解決する
+## プルリクエストのアラートを解決する
 
 プルリクエストへのプッシュアクセスがあるユーザなら誰でも、プルリクエストで特定された {% data variables.product.prodname_code_scanning %} アラートを解決できます。 プルリクエストに変更をコミットすると、プルリクエストのチェック実行が新しくトリガーされます。 問題を修正すると、アラートは閉じられ、アノテーションは削除されます。
 

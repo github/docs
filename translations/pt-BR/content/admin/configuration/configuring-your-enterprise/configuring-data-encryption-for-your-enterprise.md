@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
 ---
+
 {% note %}
 
 **Observação:** A configuração de criptografia estática com uma chave gerenciada pelo cliente está atualmente na versão beta e sujeita a alterações.

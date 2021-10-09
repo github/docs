@@ -14,6 +14,7 @@ versions:
 topics:
   - Open Source
 ---
+
 ### 関連プロジェクトを発見する
 
 興味のある特定の Topics がある場合は、`github.com/topics/<topic>` にアクセスしてください。 たとえば、機械学習に興味がある場合は、https://github.com/topics/machine-learning にアクセスして、関連するプロジェクトと good first issue を見つけることができます。 [[Topics](https://github.com/topics)] にアクセスすると、人気のある Topics を閲覧できます。 興味のある Topics に一致するリポジトリを検索することもできます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories#search-by-topic)を参照してください。
@@ -28,25 +29,23 @@ topics:
 
 作業するプロジェクトが既にわかっている場合は、[`github.com/<owner>/<repository>/contribute`] にアクセスして、そのリポジトリで初心者向けの Issue を見つけることができます。 たとえば、https://github.com/electron/electron/contribute で `electron/electron` に初めてコントリビュートする方法を見つけることができます。
 
-### {% data variables.product.prodname_dotcom %} にミラーがあるオープンソースプロジェクト
+### Issue を開くこと
 
-オープンソースプロジェクトの中には、GitHub 以外でホストされている公式のリポジトリに加えて {% data variables.product.prodname_dotcom_the_website %} 上にミラーを提供しているものもあります。
+If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
 
-{% data variables.product.prodname_dotcom_the_website %} にミラーされている有名なリポジトリを以下に挙げます:
+### Validating an issue or pull request
 
-- [Android オープンソースプロジェクト](https://github.com/aosp-mirror)
-- [The Apache Software Foundation](https://github.com/apache)
-- [The Chromium Project](https://github.com/chromium)
-- [Eclipse Foundation](https://github.com/eclipse)
-- [The FreeBSD Project](https://github.com/freebsd)
-- [Glasgow Haskell Compiler](https://github.com/ghc)
-- [GNOME](https://github.com/GNOME)
-- [Linux カーネルソースツリー](https://github.com/torvalds/linux)
-- [Qt](https://github.com/qt)
+There are a variety of ways that you can contribute to open source projects.
 
-独自のミラーを設定するために、公式のプロジェクトリポジトリに [post-receive フック](https://git-scm.com/book/en/Customizing-Git-Git-Hooks)を設定して、コミットを {% data variables.product.product_name %} 上にミラーされたリポジトリに自動的にプッシュするようにできます。
+#### Reproducing a reported bug
+You can contribute to an open source project by validating an issue or adding additional context to an existing issue.
 
-リポジトリは、ミラーかどうかに基づいて検索できます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-a-mirror)を参照してください。
+#### Testing a pull request
+You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+
+#### Updating issues
+You can contribute to an open source project by adding additional information to existing issues.
+
 
 ### 参考リンク
 

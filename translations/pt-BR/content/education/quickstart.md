@@ -3,10 +3,11 @@ title: Início rápido para educadores do GitHub
 intro: 'Em cerca de 15 minutos, os professores podem começar com descontos, treinamentos e ferramentas para {% data variables.product.company_short %} e, em seguida, criar uma sala de aula para os alunos em um curso de desenvolvimento de software usando {% data variables.product.prodname_classroom %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: QuickStart
 ---
 
-### Introdução
+## Introdução
 
 Os educadores que ministram um curso sobre desenvolvimento de software podem usar descontos, parcerias, treinamento e ferramentas a partir de {% data variables.product.prodname_education %} para ensinar efetivamente as habilidades relevantes aos alunos.
 
@@ -18,7 +19,7 @@ Neste guia, você começará com {% data variables.product.product_name %}, insc
 
 {% endtip %}
 
-### Criar contas em {% data variables.product.product_name %}
+## Criando contas em {% data variables.product.product_name %}
 
 Primeiro, você precisará criar uma conta de usuário grátis em {% data variables.product.product_name %}.
 
@@ -34,7 +35,7 @@ Depois de criar a sua conta de usuário, crie uma conta grátis de organização
 
 Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/types-of-github-accounts)".
 
-### Solicitar um desconto de educador
+## Solicitando um desconto do educador
 
 Em seguida, você irá inscrever-se para receber descontos em serviços a partir de {% data variables.product.company_short %}. {% data reusables.education.educator-requirements %}
 
@@ -52,7 +53,7 @@ Em seguida, você irá inscrever-se para receber descontos em serviços a partir
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Configurar {% data variables.product.prodname_classroom %}
+## Configurar {% data variables.product.prodname_classroom %}
 
 Com sua conta de usuário e conta de organização, você está pronto para dar os primeiros passos com {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} é grátis para usar. Você pode acompanhar e gerenciar as recomendações, avaliar o trabalho automaticamente e dar feedback aos seus alunos.
 
@@ -68,7 +69,7 @@ Com sua conta de usuário e conta de organização, você está pronto para dar 
 
 1. Clique em **Autorizar github**. ![Clique no botão "Autorizar" para a organização](/assets/images/help/classroom/setup-click-authorize-github.png)
 
-### Crie a sua sala de aula
+## Crie sua sala de aula
 
 {% data reusables.classroom.about-classrooms %}
 
@@ -76,12 +77,13 @@ Com sua conta de usuário e conta de organização, você está pronto para dar 
 1. Clique em **Criar sua primeira sala de aula** ou **Nova sala de aula**.
 {% data reusables.classroom.guide-create-new-classroom %}
 
-### Próximas etapas
+## Próximas etapas
 
 Você criou uma sala de aula e está pronto para enriquecer seu curso com {% data variables.product.product_name %} e {% data variables.product.prodname_classroom %}!  🎉
 
 - Assista a alguns vídeos sobre {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Fundamentos da configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 - Gerencie suas salas de aula e administradores da sala de aula e crie uma lista de estudantes para sua sala de aula. Para obter mais informações, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms)".
+- Utilize o Git e a atividade inicial de {% data variables.product.company_short %} para dar aos alunos uma visão geral do Git e dos princípios básicos de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Use a atividade inicial do Git e {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)".
 - Crie uma atividade para alunos individualmente ou para equipes. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 - Escreva e implemente testes automatizados para dar feedback imediato aos alunos diretamente nos repositórios de atividade. Para obter mais informações, consulte "[Usar avaliação automática](/education/manage-coursework-with-github-classroom/use-autograding).
 - Participar de {% data variables.product.prodname_education_community_with_url %}.

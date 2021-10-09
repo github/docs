@@ -5,9 +5,9 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies

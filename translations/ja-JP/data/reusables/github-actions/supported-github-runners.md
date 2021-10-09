@@ -1,14 +1,89 @@
+<table style="width:100%">
+<thead>
+  <tr>
+    <th style="width:35%"><b>仮想環境</b></th>
+    <th style="width:25%"><b>YAMLのワークフローラベル</b></th>
+    <th style="width:40%"><b>注釈</b></th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Windows Server 2022<sup>[beta]</sup>
+</td>
+<td>
+<code>windows-2022</code>
+</td>
+<td>
+The <code>windows-latest</code> label currently uses the Windows Server 2019 runner image.
+</td>
+</tr>
+<tr>
+<td>
+Windows Server 2019
+</td>
+<td>
+<code>windows-latest</code>もしくは<code>windows-2019</code>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Windows Server 2016
+</td>
+<td>
+<code>windows-2016</code>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Ubuntu 20.04
+</td>
+<td>
+<code>ubuntu-latest</code>または<code>ubuntu-20.04</code>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Ubuntu 18.04
+</td>
+<td>
+<code>ubuntu-18.04</code>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+macOS Big Sur 11
+</td>
+<td>
+<code>macos-11</code>
+</td>
+<td>
+The <code>macos-latest</code> label currently uses the macOS 10.15 runner image.
+</td>
+</tr>
+<tr>
+<td>
+macOS Catalina 10.15
+</td>
+<td>
+<code>macos-latest</code>もしくは<code>macos-10.15</code>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+
 {% warning %}
 
-**警告**: Ubuntu 16.04は非推奨です。 いずれかのワークフローがUbuntu 16.04を使っているなら、Ubuntu 20.04もしくは18.04に移行してください。 詳しい情報については[ブログポスト](https://github.blog/changelog/2021-04-29-github-actions-ubuntu-16-04-lts-virtual-environment-will-be-removed-on-september-20-2021)を参照してください。
+<b>Note:</b> Beta Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
 
 {% endwarning %}
-
-| 仮想環境                 | YAMLのワークフローラベル                     |
-| -------------------- | ---------------------------------- |
-| Windows Server 2019  | `windows-latest`もしくは`windows-2019` |
-| Windows Server 2016  | `windows-2016`                     |
-| Ubuntu 20.04         | `ubuntu-latest`または`ubuntu-20.04`   |
-| Ubuntu 18.04         | `ubuntu-18.04`                     |
-| macOS Big Sur 11.0   | `macos-11.0`                       |
-| macOS Catalina 10.15 | `macos-latest`もしくは`macos-10.15`    |

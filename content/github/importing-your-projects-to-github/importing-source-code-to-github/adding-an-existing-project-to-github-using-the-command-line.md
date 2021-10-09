@@ -6,10 +6,14 @@ redirect_from:
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Add a project locally
 ---
+
+## About adding existing projects to {% data variables.product.product_name %}
+
 {% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
@@ -20,9 +24,41 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
+## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+1. In the command line, navigate to the root directory of your project.
+1. Initialize the local directory as a Git repository.
+
+    ```shell
+    git init -b main
+    ```
+
+1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+
+   ```shell
+   gh repo create <em>project-name</em>
+   ```
+
+1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+
+    ```shell
+    git pull --set-upstream origin main
+    ```
+
+1. Stage, commit, and push all of the files in your project.
+
+    ```shell
+    git add . && git commit -m "initial commit" && git push
+    ```
+
+## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
@@ -131,6 +167,6 @@ versions:
 
 {% endlinux %}
 
-### Further reading
+## Further reading
 
-- "[Adding a file to a repository using the command line](/articles/adding-a-file-to-a-repository-using-the-command-line)"
+- "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"

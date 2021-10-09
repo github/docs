@@ -7,8 +7,9 @@ redirect_from:
   - /articles/about-campus-experts
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 Erlernen von Fähigkeiten in den Bereichen öffentliches Reden, technisches Schreiben, Community Leadership und Softwareentwicklung als Campus Experts für {% data variables.product.prodname_dotcom %}.
 
 Weitere Informationen zu Schulungsprogrammen für Schüler, Studenten und Lehrer findest Du unter „[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)“ und „[Campus Advisors](https://education.github.com/teachers/advisors).“

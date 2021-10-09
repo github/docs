@@ -35,7 +35,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 都允许您创建能
 从 CircleCI 迁移时，考虑以下差异：
 
 - CircleCI 的自动测试并行性根据用户指定的规则或历史计时信息自动对测试进行分组。 此功能未内置于 {% data variables.product.prodname_actions %}。
-- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% if currentVersion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
 {% else %}有关 {% data variables.product.product_name %} 托管的运行器上 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
 {% endif %}
 

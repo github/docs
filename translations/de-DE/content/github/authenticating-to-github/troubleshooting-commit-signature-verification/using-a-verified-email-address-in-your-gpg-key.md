@@ -12,9 +12,9 @@ topics:
   - Identity
   - Access management
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-Wenn Du Deine GitHub-E-Mail-Adresse verifizieren musst, findest Du weitere Informationen unter „[Deine E-Mail-Adresse verifizieren](/articles/verifying-your-email-address/).“
-{% endif %}Wenn Du eine E-Mail-Adresse aktualisieren oder zu Deinem GPG-Schlüssel hinzufügen musst, findest Du weitere Informationen unter „[Eine E-Mail-Adresse mit Deinem GPG-Schlüssel verknüpfen](/articles/associating-an-email-with-your-gpg-key).“
+Wenn Du Deine GitHub-E-Mail-Adresse verifizieren musst, findest Du weitere Informationen unter „[Deine E-Mail-Adresse verifizieren](/articles/verifying-your-email-address/).“ {% endif %}Wenn Du eine E-Mail-Adresse aktualisieren oder zu Deinem GPG-Schlüssel hinzufügen musst, findest Du weitere Informationen unter „[Eine E-Mail-Adresse mit Deinem GPG-Schlüssel verknüpfen](/articles/associating-an-email-with-your-gpg-key).“
 
 Commits und Tags können verschiedene E-Mail-Adressen enthalten. Für Commits gibt es den Autor (die Person, die den Code geschrieben hat) und den Beitragenden (die Person, die den Commit zur Struktur hinzugefügt hat). Wenn Du mit Git einen Commit signierst, wird unabhängig davon, ob es sich um einen Merge, um Cherry-Picking oder um einen normalen `git commit` handelt, die Beitragender-E-Mail-Adresse Deine eigene sein, auch wenn die Autoren-E-Mail-Adresse eine andere ist. Tags sind einfacher. Die Tagger-E-Mail-Adresse ist immer der Benutzer, der das Tag erstellt hat.
 

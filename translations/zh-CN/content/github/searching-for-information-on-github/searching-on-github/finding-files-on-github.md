@@ -5,12 +5,13 @@ redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
+
 {% tip %}
 
 **提示：**
@@ -21,14 +22,10 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion ver_lt "enterprise-server@2.22" %}
-2. 在仓库名称下，单击 **Find file（查找文件）**。 ![查找文件按钮](/assets/images/help/search/find-file-button.png)
-{% else %}
 2. 在文件列表上方，单击 **Go to file（转到文件）**。 ![查找文件按钮](/assets/images/help/search/find-file-button.png)
-{% endif %}
 3. 在搜索字段中，键入要查找文件的名称。 ![查找文件搜索字段](/assets/images/help/search/find-file-search-field.png)
 4. 在结果列表中 ，单击要查找的文件。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于在 GitHub 上搜索](/articles/about-searching-on-github)”

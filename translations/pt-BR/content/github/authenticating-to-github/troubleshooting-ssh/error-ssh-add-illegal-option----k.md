@@ -12,6 +12,7 @@ versions:
 topics:
   - SSH
 ---
+
 A opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent. Caso você tenha instalado uma versão diferente do `ssh-add`, pode não ter suporte para `-K`.
 
 ### Resolver o problema

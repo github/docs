@@ -5,8 +5,10 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: On behalf of an organization
 ---
+
 {% note %}
 
 **Hinweis:** Die Möglichkeit, einen Commit im Namen einer Organisation zu erstellen, liegt derzeit als öffentliche Beta-Version vor und kann geändert werden.
@@ -24,7 +26,7 @@ Damit Du Commits im Namen einer Organisation erstellen kannst, müssen folgende 
 
 Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlichen Kontaktpunkt für Open-Source-Arbeiten verwenden.
 
-### Commits mit einem `on-behalf-of`-Badge in der Befehlszeile erstellen
+## Commits mit einem `on-behalf-of`-Badge in der Befehlszeile erstellen
 
 1. Gib Deine Commit-Mitteilung ein und eine kurze, aussagekräftige Beschreibung Deiner Änderungen. Füge nach Deiner Commit-Beschreibung zwei Leerzeilen statt eines abschließenden Anführungszeichens hinzu.
   ```shell
@@ -49,7 +51,7 @@ Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlic
 
 Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).“
 
-### Commits mit einem `on-behalf-of`-Badge auf {% data variables.product.product_name %} erstellen
+## Commits mit einem `on-behalf-of`-Badge auf {% data variables.product.product_name %} erstellen
 
 Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen haben, können Sie einen Commit im Namen Ihrer Organisation erstellen, indem Sie den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügen.
 
@@ -62,10 +64,9 @@ Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.pro
 
 Der neue Commit wird samt Mitteilung und Badge auf {% data variables.product.product_location %} angezeigt.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „"[Beiträge auf Deinem Profil anzeigen](/articles/viewing-contributions-on-your-profile)“
 - „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)“
-- „[Eine Zusammenfassung der Repository-Aktivitäten anzeigen](/articles/viewing-a-summary-of-repository-activity)“
 - „[Die Mitarbeiter eines Projekts anzeigen](/articles/viewing-a-projects-contributors)“
 - „[Eine Commit-Mitteilung ändern](/articles/changing-a-commit-message)“

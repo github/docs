@@ -4,23 +4,17 @@ intro: 'View reference documentation to learn about the data types available in 
 redirect_from:
   - /v4/reference
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+children:
+  - /queries
+  - /mutations
+  - /objects
+  - /interfaces
+  - /enums
+  - /unions
+  - /input-objects
+  - /scalars
 ---
 
-{% link_in_list /queries %}
-
-{% link_in_list /mutations %}
-
-{% link_in_list /objects %}
-
-{% link_in_list /interfaces %}
-
-{% link_in_list /enums %}
-
-{% link_in_list /unions %}
-
-{% link_in_list /input-objects %}
-
-{% link_in_list /scalars %}

@@ -7,12 +7,14 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: GHES 高级支持
 ---
+
 {% note %}
 
 **注意：**
@@ -25,7 +27,7 @@ topics:
 
 {% endnote %}
 
-### 关于 {% data variables.contact.premium_support %}
+## 关于 {% data variables.contact.premium_support %}
 
 除了 {% data variables.contact.enterprise_support %} 的所有好处外，{% data variables.contact.premium_support %} 还提供：
   - 我们的支持门户全天候提供英语书面支持
@@ -43,7 +45,7 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### 运行时间
+## 运行时间
 
 {% data variables.contact.premium_support %} 全天候提供。  如果您在 2018 年 9 月 17 日之前购买了 {% data variables.contact.premium_support %}，则节假日期间的支持有限。 有关 {% data variables.contact.premium_support %} 庆祝的节假日的更多信息，请参阅“[关于 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)”中的节假日安排。
 
@@ -53,7 +55,7 @@ topics:
 
 您必须在下单购买 {% data variables.contact.premium_support %} 后的 90 天内，根据适用许可协议的受支持版本部分，安装 {% data variables.product.prodname_ghe_server %} 的最低支持版本。
 
-### 为支持事件单分配优先级
+## 为支持事件单分配优先级
 
 联系 {% data variables.contact.premium_support %} 时，可为事件单选择以下四种优先级之一：{% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %} 或 {% data variables.product.support_ticket_priority_low %}。
 
@@ -61,7 +63,7 @@ topics:
 
 {% data reusables.support.ghes-priorities %}
 
-### 解决和关闭支持事件单
+## 解决和关闭支持事件单
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

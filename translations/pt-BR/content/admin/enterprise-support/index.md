@@ -4,12 +4,13 @@ intro: 'Aprenda a abrir um tíquete e forneça à equipe {% data variables.conta
 redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /overview
   - /receiving-help-from-github-support
+shortTitle: Trabalhando com suporte
 ---
-### Índice
+

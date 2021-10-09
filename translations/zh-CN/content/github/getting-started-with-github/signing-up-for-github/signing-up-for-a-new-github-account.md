@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 有关帐户类型和产品的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/articles/types-of-github-accounts)”和“[{% data variables.product.product_name %} 的产品](/articles/github-s-products)”。
 
 {% data reusables.accounts.create-account %}

@@ -6,17 +6,18 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'Wenn eine Commit-Mitteilung unklare, falsche oder vertrauliche Informationen enthält, können Sie sie lokal ändern und einen neuen Commit mit einer neuen Mitteilung zu {% data variables.product.product_name %} pushen. Du kannst auch fehlende Informationen zu einer Commit-Mitteilung hinzufügen.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-### Die letzte Commit-Mitteilung erneut schreiben
+
+## Die letzte Commit-Mitteilung erneut schreiben
 
 Die letzte Commit-Mitteilung kannst Du mit dem Befehl `git commit --amend` ändern.
 
 In Git ist der Text der Commit-Mitteilung Teil des Commits. Durch das Ändern der Commit-Mitteilung ändert sich auch die Commit-ID, also die SHA1-Prüfsumme, die den Commit benennt. Effektiv erstellst Du einen neuen Commit, der den alten ersetzt.
 
-### Commit wurde nicht online veröffentlicht
+## Commit wurde nicht online veröffentlicht
 
 Wenn der Commit nur in Ihrem lokalen Repository vorhanden ist und nicht zu {% data variables.product.product_location %} gepusht wurde, können Sie die Commit-Mitteilung mit dem Befehl `git comimt --amend` ändern.
 
@@ -24,7 +25,7 @@ Wenn der Commit nur in Ihrem lokalen Repository vorhanden ist und nicht zu {% da
 2. Gib `git commit --amend` ein, und drücke die **Eingabetaste**.
 3. Bearbeite in einem Texteditor die Commit-Mitteilung, und speichere den Commit.
     - Du kannst einen Co-Autor hinzufügen, indem Du einen Trailer zum Commit hinzufügst. Weitere Informationen findest Du unter „[Commit mit mehreren Autoren erstellen](/articles/creating-a-commit-with-multiple-authors).“
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - Du kannst Commits im Namen Deiner Organisation erstellen, indem Du einen Trailer zum Commit hinzufügst. Weitere Informationen findest Du unter „[Einen Commit im Namen einer Organisation erstellen](/articles/creating-a-commit-on-behalf-of-an-organization).“
 {% endif %}
 
@@ -36,7 +37,7 @@ Du kannst den standardmäßigen Texteditor für Git ändern, indem Du die Einste
 
 {% endtip %}
 
-### Ältere oder mehrere Commit-Mitteilungen ändern
+## Ältere oder mehrere Commit-Mitteilungen ändern
 
 Wenn Sie den Commit bereits zu {% data variables.product.product_location %} gepusht haben, müssen Sie den Push des Commits mit einer geänderten Mitteilung erzwingen.
 
@@ -49,9 +50,9 @@ Wir raten dringend von einem erzwungenen Push ab, da sich dadurch der Verlauf De
 **Changing the message of the most recently pushed commit**
 
 1. Führe die [obigen Schritte](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) aus, um die Commit-Mitteilung zu ändern.
-2. Erzwinge mit dem Befehl `push --force` den Push über den alten Commit hinweg.
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **Changing the message of older or multiple commit messages**
@@ -117,6 +118,6 @@ Wenn eine Commit-Mitteilung vertrauliche Informationen enthält, wird beim erzwu
 
 {% endwarning %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 * „[Commits signieren](/articles/signing-commits)“

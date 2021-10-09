@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/installation/monitoring-your-github-enterprise-server-appliance
   - /enterprise/admin/enterprise-management/monitoring-your-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -15,8 +15,6 @@ children:
   - /recommended-alert-thresholds
   - /setting-up-external-monitoring
   - /configuring-collectd
-  - /log-forwarding
   - /monitoring-using-snmp
-  - /monitoring-using-analytics
 ---
 

@@ -10,9 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -46,18 +50,18 @@ topics:
 
 ### 关于 {% data variables.product.prodname_code_scanning %} 的计费
 
-{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}，{% data variables.product.prodname_code_scanning %} 工作流程的每次运行将耗用 {% data variables.product.prodname_actions %} 的分钟数。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”。
+{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}，{% data variables.product.prodname_code_scanning %} 工作流程的每次运行将耗用 {% data variables.product.prodname_actions %} 的分钟数。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 
 {% endif %}
 
-### About third-party {% data variables.product.prodname_code_scanning %} tools
+### 关于第三方 {% data variables.product.prodname_code_scanning %} 工具
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
-You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
+您可以使用操作在 {% data variables.product.product_name %} 内或者在外部 CI 系统内运行第三方分析工具。 更多信息请参阅“[设置仓库的代码扫描](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”或“[将 SARIF 文件上传到 GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)”。
 
 ### 延伸阅读
 
-- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
+- "[保护您的仓库](/code-security/getting-started/securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - OASIS Committee 网站上的 [OASIS 静态分析结果交换格式 (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

@@ -6,10 +6,11 @@ redirect_from:
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. [Saved replies] で、編集対象の返信テンプレートの隣にある {% octicon "pencil" aria-label="The pencil" %} をクリックします。  
@@ -17,7 +18,7 @@ versions:
 4. [Edit saved reply] で、返信テンプレートのタイトルと内容を編集できます。 ![タイトルと内容を編集](/assets/images/help/settings/saved-replies-edit-existing-content.png)
 5. [**Update saved reply**] をクリックします。 ![返信テンプレートの更新](/assets/images/help/settings/saved-replies-save-edit.png)
 
-### 参考リンク
+## 参考リンク
 
 - [返信テンプレートの作成](/articles/creating-a-saved-reply)
 - [返信テンプレートの削除](/articles/deleting-a-saved-reply)

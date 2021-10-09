@@ -1,10 +1,10 @@
 ---
 title: 关于企业的身份和访问管理
 shortTitle: 关于身份和访问管理
-intro: '您可以使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} 的内置身份验证，或者选择 CAS、LDAP 或 SAML{% else %}SAML 单点登录 (SSO) 和跨域身份管理系统 (SCIM){% endif %} 来集中管理对 {% data variables.product.prodname_dotcom_the_website %} 上{% if currentVersion == "free-pro-team@latest" %}企业拥有的组织{% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} {% data variables.product.product_location %}{% endif %}的访问。'
+intro: '您可以使用 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} 的内置身份验证，或者选择 CAS、LDAP 或 SAML{% else %}SAML 单点登录 (SSO) 和跨域身份管理系统 (SCIM){% endif %} 来集中管理对 {% data variables.product.prodname_dotcom_the_website %} 上{% ifversion fpt %}企业拥有的组织{% endif %}{% ifversion ghes or ghae %} {% data variables.product.product_location %}{% endif %}的访问。'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -15,9 +15,10 @@ topics:
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
-### 关于企业的身份和访问管理
 
-{% if currentVersion == "github-ae@latest" %}
+## 关于企业的身份和访问管理
+
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -29,7 +30,7 @@ redirect_from:
 
 {% endif %}
 
-### 延伸阅读
+## 延伸阅读
 
 - OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)
 - IETF 网站上的[跨域身份管理系统：协议 (RFC 7644)](https://tools.ietf.org/html/rfc7644)

@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
 Para {% data variables.product.product_name %}, la segunda forma de autenticación es un código que es generado por una aplicación en tu dispositivo móvil{% if currentVersion == "free-pro-team@latest" %} o enviado como mensaje de texto (SMS){% endif %}. Una vez que activas la 2FA, {% data variables.product.product_name %} genera un código de autenticación cada vez que alguien intenta iniciar sesión en tu cuenta de {% data variables.product.product_name %}. El único modo en que alguien puede iniciar sesión en tu cuenta es si conoce la contraseña y si tiene acceso al código de autenticación de tu teléfono.
 

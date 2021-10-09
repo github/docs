@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Sobre gerenciar o acesso ao seu repositório
 
 Para cada repositório que você administra no {% data variables.product.prodname_dotcom %}, você pode ter uma visão geral de cada equipe ou pessoa com acesso ao repositório. A partir da visão geral, você também pode convidar novas equipes ou pessoas, alterar as permissões de cada equipe ou pessoa ou remover o acesso ao repositório.

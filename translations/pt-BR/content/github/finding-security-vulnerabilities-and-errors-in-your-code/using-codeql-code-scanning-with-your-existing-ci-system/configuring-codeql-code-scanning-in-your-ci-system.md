@@ -3,21 +3,22 @@ title: Configurar a varredura de código do CodeQL no seu sistema de de CI
 shortTitle: Configurar na sua CI
 intro: 'Você pode configurar como o {% data variables.product.prodname_codeql_runner %} faz a varredura do código no seu projeto e faz o upload dos resultados para o {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Sobre a configuração de {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI
+## Sobre a configuração de {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI
 
 Para integrar {% data variables.product.prodname_code_scanning %} ao seu sistema de CI, você pode usar o {% data variables.product.prodname_codeql_runner %}. Para obter mais informações, consulte "[Executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
 
@@ -31,7 +32,7 @@ $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 
 Para personalizar a maneira como o {% data variables.product.prodname_codeql_runner %} faz a varredura do seu código, você pode usar sinalizadores, como `--languages` e `--queries`, ou você pode especificar configurações personalizadas em um arquivo de configuração separado.
 
-### Fazer a varredura de pull requests
+## Fazer a varredura de pull requests
 
 A varredura de código sempre que uma pull request é criada impede que os desenvolvedores introduzam novas vulnerabilidades e erros no código.
 
@@ -47,7 +48,7 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% endnote %}
 
-### Sobrescrever a detecção automática de linguagem
+## Sobrescrever a detecção automática de linguagem
 
 O {% data variables.product.prodname_codeql_runner %} detecta e faz a varredura automática do código escrito nas linguagens compatíveis.
 
@@ -61,7 +62,7 @@ Para substituir a detecção automática de idioma, execute o comando `init` com
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
-### Executar consultas adicionais
+## Executar consultas adicionais
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -78,7 +79,7 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
-### Usar uma ferramenta de varredura de código de terceiros
+## Usar uma ferramenta de varredura de código de terceiros
 
 Em vez de passar informações adicionais para os comandos de {% data variables.product.prodname_codeql_runner %}, você pode especificar configurações personalizadas em um arquivo de configuração separado.
 
@@ -92,11 +93,11 @@ $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-c
 
 {% data reusables.code-scanning.custom-configuration-file %}
 
-#### Exemplo de arquivo de configuração
+### Exemplo de arquivo de configuração
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### Configurar o {% data variables.product.prodname_code_scanning %} para linguagens compiladas
+## Configurar o {% data variables.product.prodname_code_scanning %} para linguagens compiladas
 
 Para as linguagens compiladas C/C++, C#, e Java, o {% data variables.product.prodname_codeql %} constrói o código antes de analisá-lo. {% data reusables.code-scanning.analyze-go %}
 
@@ -110,7 +111,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 Se o comando `autobuild` não puder criar o seu código, você poderá executar as etapas de compilação, entre as etapas de `init` e de `análise`. Para obter mais informações, consulte "[Executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system#compiled-language-example)".
 
-### {% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}.
+## {% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}.
 
 Por padrão, o {% data variables.product.prodname_codeql_runner %} faz o upload dos resultados a partir de {% data variables.product.prodname_code_scanning %} quando você executa o comando de `análise`. Você também pode carregar arquivos do SARIF separadamente, usando o comando `upload`.
 
@@ -118,11 +119,11 @@ Depois de enviar os dados, o {% data variables.product.prodname_dotcom %} exibir
 - Se você fez o upload de um pull request como, por exemplo, `--ref refs/pull/42/merge` ou `--ref refs/pull/42/head`, os resultados aparecerão como alertas em uma verificação de pull request. Para obter mais informações, consulte "[Alertas de varredura de código de triagem em pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
 - Se você fez upload de um branch como, por exemplo `--ref refs/heads/my-branch`, os resultados aparecerão na aba **Segurança** do seu repositório. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository). "
 
-### Comando de referência de {% data variables.product.prodname_codeql_runner %}
+## Comando de referência de {% data variables.product.prodname_codeql_runner %}
 
 O {% data variables.product.prodname_codeql_runner %} é compatível os seguintes comandos e sinalizadores.
 
-#### `init`
+### `init`
 
 Inicializa o {% data variables.product.prodname_codeql_runner %} e cria um banco de dados de {% data variables.product.prodname_codeql %} para cada linguagem a ser analisada.
 
@@ -141,7 +142,7 @@ Inicializa o {% data variables.product.prodname_codeql_runner %} e cria um banco
 | `--debug`                        |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                               |
 | `-h`, `--help`                   |             | Nenhum. Exibe ajuda para o comando.                                                                                                                                                                    |
 
-#### `autobuild`
+### `autobuild`
 
 Tenta construir o código para as linguagens compiladas C/C++, C# e Java. Para essas linguagens, {% data variables.product.prodname_codeql %} cria o código antes de analisá-lo. Executar `autobuild` entre as etapas de `init` e `analise`.
 
@@ -152,7 +153,7 @@ Tenta construir o código para as linguagens compiladas C/C++, C# e Java. Para e
 | `--debug`                   |             | Nenhum. Imprime mais resultados verbose.                                                                                                    |
 | `-h`, `--help`              |             | Nenhum. Exibe ajuda para o comando.                                                                                                         |
 
-#### `analyze`
+### `analyze`
 
 Analisa o código nos bancos de dados do {% data variables.product.prodname_codeql %} e faz o upload dos resultados para o {% data variables.product.product_name %}.
 
@@ -173,7 +174,7 @@ Analisa o código nos bancos de dados do {% data variables.product.prodname_code
 | `--debug`                          |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                                                         |
 | `-h`, `--help`                     |             | Nenhum. Exibe ajuda para o comando.                                                                                                                                                                                              |
 
-#### `fazer upload`
+### `fazer upload`
 
 Faz o upload dos arquivos SARIF para {% data variables.product.product_name %}.
 

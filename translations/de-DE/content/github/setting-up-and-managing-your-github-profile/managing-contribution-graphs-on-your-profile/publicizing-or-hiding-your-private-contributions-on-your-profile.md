@@ -11,6 +11,7 @@ versions:
 topics:
   - Profiles
 ---
+
 Wenn Du Deine privaten Beiträge veröffentlichst, können Benutzer, die keinen Zugriff auf die Repositorys haben, an denen Du mitarbeitest, die Informationen zu Deinen privaten Beiträgen nicht sehen. Stattdessen sehen sie die Anzahl an privaten Beiträgen, die Du pro Tag geleistet hast. Zu Deinen öffentlichen Beiträgen werden detaillierte Informationen angezeigt. Weitere Informationen findest Du unter „[Beiträge auf Deiner Profilseite anzeigen](/articles/viewing-contributions-on-your-profile-page)“.
 
 ### Die Sichtbarkeit Deiner privaten Beiträge ändern

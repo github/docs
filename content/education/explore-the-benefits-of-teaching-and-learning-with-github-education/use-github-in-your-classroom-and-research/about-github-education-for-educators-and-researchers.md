@@ -7,11 +7,12 @@ redirect_from:
   - /articles/about-github-education-for-educators-and-researchers
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Educators & researchers
 ---
 {% data reusables.education.about-github-education-link %}
 
-### {% data variables.product.prodname_education %} for educators
+## {% data variables.product.prodname_education %} for educators
 
 With {% data variables.product.prodname_education %}'s tools and services for educators of all levels, you can:
   - Use [{% data variables.product.prodname_classroom %}](https://classroom.github.com) to distribute code, give students feedback, and collect assignments on {% data variables.product.prodname_dotcom %}.
@@ -20,13 +21,13 @@ With {% data variables.product.prodname_education %}'s tools and services for ed
   - [Request a {% data variables.product.prodname_dotcom %} swag bag](https://education.github.community/t/get-a-github-swag-bag-for-your-classroom/33) with educational materials and goodies for your students.
   {% data reusables.education.apply-for-team %}
 
-### {% data variables.product.prodname_education %} for researchers
+## {% data variables.product.prodname_education %} for researchers
 
 With {% data variables.product.prodname_education %}'s tools and services for researchers, you can:
   - Collaborate with others on your research work around the world on {% data variables.product.prodname_dotcom %}.
   - [Learn](https://education.github.com/stories) how academic institutions around the world are using {% data variables.product.prodname_dotcom %} for their research.
   {% data reusables.education.apply-for-team %}
 
-### Further reading
+## Further reading
 
 - "[About {% data variables.product.prodname_education %} for students](/articles/about-github-education-for-students)"

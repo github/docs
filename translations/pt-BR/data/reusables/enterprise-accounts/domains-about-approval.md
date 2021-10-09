@@ -2,12 +2,10 @@
 
 {% data reusables.enterprise-accounts.approved-domains-about %}
 
-After you approve domains for your enterprise account, you can restrict email notifications for activity within your enterprise account to users with verified email addresses within verified or approved domains. For more information, see "[Restricting email notifications for your enterprise account](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account)."
+Depois de aprovar domínios para a conta corporativa, você poderá restringir notificações de e-mail para atividades dentro da sua conta corporativa para usuários com endereços de e-mail verificados dentro de domínios verificados ou aprovados. {% ifversion fpt%}For more information, see "[Restricting email notifications for your enterprise account](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."{% endif %}
 
-{% data reusables.enterprise-accounts.approved-domains-about %}
+{% ifversion fpt%}To receive email notifications, the owner of the user account must verify the email address in on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".{% endif %}
 
-To receive email notifications, the owner of the user account must verify the email address in on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".
+Os proprietários da organização não podem ver o endereço de e-mail ou a conta de usuário que está associada a um endereço de e-mail de um domínio aprovado.
 
-Organization owners cannot see the email address or which user account is associated with an email address from an approved domain.
-
-Organization owners can also approve additional domains for their organizations. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+Os proprietários da organização também podem aprovar domínios adicionais para suas organizações. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".

@@ -3,20 +3,21 @@ title: コードスキャンを設定する
 intro: '{% data variables.product.prodname_dotcom %} がプロジェクトのコードをスキャンして脆弱性やエラーを検出する方法を設定できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### {% data variables.product.prodname_code_scanning %} の設定について
+## {% data variables.product.prodname_code_scanning %} の設定について
 
 {% data variables.product.prodname_actions %} を使用して、または {% data variables.product.prodname_codeql_runner %} を使用して継続的インテグレーション (CI) システムから {% data variables.product.prodname_code_scanning %} を {% data variables.product.product_name %} 上で実行できます。 {% data variables.product.prodname_actions %} に関する詳しい情報については、「[{% data variables.product.prodname_actions %} について](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。 For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)."
 
@@ -28,7 +29,7 @@ redirect_from:
 
 {% data variables.product.prodname_codeql %} 解析は、{% data variables.product.prodname_dotcom %} で実行できる {% data variables.product.prodname_code_scanning %} のほんの一例に過ぎません。 {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.prodname_marketplace %} には、利用可能な別の {% data variables.product.prodname_code_scanning %} ワークフローもあります。 この記事で扱う具体例は、{% data variables.product.prodname_codeql_workflow %} ファイルに関するものです。
 
-### Editing a code scanning workflow
+## Editing a code scanning workflow
 
 {% data variables.product.prodname_dotcom %} は、リポジトリの _.github/workflows_ ディレクトリにワークフローファイルを保存します。 ファイル名を検索して、追加済みのワークフローを見つけることができます。 For example, the default workflow file for CodeQL code scanning is called `codeql-analysis.yml`.
 
@@ -38,23 +39,23 @@ redirect_from:
 
 ワークフローファイルの編集に関する詳しい情報については、「[{% data variables.product.prodname_actions %} を学ぶ](/actions/learn-github-actions)」を参照してください。
 
-### 頻度を設定する
+## 頻度を設定する
 
 スケジュール設定されているときや、リポジトリで特定のイベントが発生したときに、コードをスキャンできます。
 
 リポジトリへのプッシュごと、およびプルリクエストが作成されるたびにコードをスキャンすることで、開発者がコードに新しい脆弱性やエラーをもたらすことを防ぎます。 スケジュールに従ってコードをスキャンすると、開発者がリポジトリを積極的に維持していない場合でも、{% data variables.product.company_short %}、セキュリティ研究者、コミュニティが発見した最新の脆弱性とエラーが通知されます。
 
-#### プッシュ時にスキャンする
+### プッシュ時にスキャンする
 
 デフォルトのワークフローを使用する場合、{% data variables.product.prodname_code_scanning %} は、イベントによってトリガーされるスキャンに加えて、リポジトリ内のコードを週に1回スキャンします。 このスケジュールを調整するには、ワークフローで `cron` 値を編集します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#on)」を参照してください。
 
-#### プルリクエストをスキャンする
+### プルリクエストをスキャンする
 
 デフォルトの {% data variables.product.prodname_codeql_workflow %} は、`pull_request` イベントを使用して、デフォルトブランチに対するプルリクエストのコードスキャンをトリガーします。 プルリクエストをプライベートフォークからオープンした場合、`pull_request` イベントはトリガーされません。
 
 `pull_request` イベントに関する詳しい情報については、「"[{% data variables.product.prodname_actions %}のためのワークフローの構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
 
-#### プルリクエストの不要なスキャンを回避する
+### プルリクエストの不要なスキャンを回避する
 
 どのファイルが変更されたかに関わらず、デフォルトブランチに対する特定のプルリクエストにコードスキャンがトリガーされることを避けたい場合もあるでしょう。 これを設定するには、{% data variables.product.prodname_code_scanning %} ワークフローで `on:pull_request:paths-ignore` または `on:pull_request:paths` を指定します。 たとえば、プルリクエストにおける変更が、`.md` または `.txt` のファイル拡張子を持つファイルである場合、次の `paths-ignore` 配列を使用できます。
 
@@ -80,7 +81,7 @@ on:
 
 `on:pull_request:paths-ignore` と `on:pull_request:paths` を使用して、プルリクエストに対していつワークフローを実行するかを決定することに関する詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)」を参照してください。
 
-#### スケジュールに従ってスキャンする
+### スケジュールに従ってスキャンする
 
 デフォルトの {% data variables.product.prodname_code_scanning %} ワークフローは、`pull_request` イベントを使用して、プルリクエストの `HEAD` コミットでコードスキャンをトリガーします。 このスケジュールを調整するには、ワークフローで `cron` 値を編集します。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onschedule)」を参照してください。
 
@@ -90,7 +91,7 @@ on:
 
 {% endnote %}
 
-#### サンプル
+### サンプル
 
 以下の例は、デフォルトブランチの名前が `main` で、`protected` という保護されたブランチがある特定のリポジトリに対する {% data variables.product.prodname_codeql_workflow %} を示しています。
 
@@ -109,7 +110,7 @@ on:
 * デフォルトブランチに対する全てのプルリクエスト
 * 毎週火曜日 7:40 (UTC) にデフォルトブランチ
 
-### オペレーティングシステムを指定する
+## オペレーティングシステムを指定する
 
 コードのコンパイルに特定のオペレーティングシステムが必要な場合は、そのオペレーティングシステムを {% data variables.product.prodname_codeql_workflow %} で設定できます。 `jobs.analyze.runs-on` の値を編集して、{% data variables.product.prodname_code_scanning %} のアクションを実行するマシンのオペレーティングシステムを指定します。 オペレーティングシステムの指定には、`self-hosted` の後に、2 つの要素がある配列の 2 番目の要素として、適切なラベルを使用します。
 
@@ -124,7 +125,7 @@ jobs:
 
 セルフホストランナーの PATH 変数に Git が確実に含まれるようにしてください。
 
-### 解析される言語を変更する
+## 解析される言語を変更する
 
 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
 
@@ -154,14 +155,14 @@ If your workflow does not contain a matrix called `language`, then {% data varia
   with:
     languages: cpp, csharp, python
 ```
-{% if currentVersion == "free-pro-team@latest" %}
-### 追加のクエリを実行する
+{% ifversion fpt %}
+## 追加のクエリを実行する
 
 For GitHub-hosted runners that use Linux only, the {% data variables.product.prodname_codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
--  If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
+-  リポジトリがPythonで書かれたコードを含むなら、"Initialize CodeQL"ステップは必要な依存関係をGitHubがホストするランナーにインストールします。 自動インストールが成功したら、このアクションは環境変数の`CODEQL_PYTHON`を依存関係を含むPythonの実行可能ファイルに設定することもします。
 
-- If the repository doesn't have any Python dependencies, or the dependencies are specified in an unexpected way, you'll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.
+- リポジトリがPythonの依存関係を持たない場合、あるいは依存関係が予想外の方法で指定されている場合、警告が示されてアクションは残りのジョブを継続します。 依存関係の解釈に問題があってもアクションの実行は成功することがありますが、結果は不完全かも知れません。
 
 Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
 
@@ -169,7 +170,7 @@ Alternatively, you can install Python dependencies manually on any operating sys
 jobs:
   CodeQL-Build:
 
-    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write
       actions: read{% endif %}
@@ -187,20 +188,20 @@ jobs:
           if [ -f requirements.txt ];
           then pip install -r requirements.txt;
           fi
-          # Set the `CODEQL-PYTHON` environment variable to the Python executable
-          # that includes the dependencies
+          # 環境変数`CODEQL-PYTHON`を
+          # 依存関係を含むPythonの実行可能ファイルに設定
           echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
           languages: python
-          # Override the default behavior so that the action doesn't attempt
-          # to auto-install Python dependencies
+          # デフォルトの動作をオーバーライドして、アクションが
+          # Pythonの依存関係を自動インストールしないようにする
           setup-python-dependencies: false
 ```
 {% endif %}
 
-### 追加のクエリを実行する
+## 追加のクエリを実行する
 
 {% data reusables.code-scanning.run-additional-queries %}
 
@@ -234,7 +235,7 @@ In the following example, the `+` symbol ensures that the specified additional q
 ```
 {% endraw %}
 
-### サードパーティのコードスキャンツールを使用する
+## サードパーティのコードスキャンツールを使用する
 
 As an alternative to specifying which queries to run in the workflow file, you can do this in a separate configuration file. You can also use a configuration file to disable the default queries and to specify which directories to scan during analysis.
 
@@ -260,7 +261,7 @@ with:
 
 The settings in the configuration file are written in YAML format.
 
-#### 追加のクエリを指定する
+### 追加のクエリを指定する
 
 You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
 
@@ -275,11 +276,11 @@ Optionally, you can give each array element a name, as shown in the example conf
 
 For more information about additional queries, see "[Running additional queries](#running-additional-queries)" above.
 
-#### デフォルトのクエリを無効にする
+### デフォルトのクエリを無効にする
 
 カスタムクエリのみを実行する場合は、構成ファイルに `disable-default-queries: true` を追加して、デフォルトのセキュリティクエリを無効にすることができます。
 
-#### スキャンするディレクトリを指定する
+### スキャンするディレクトリを指定する
 
 For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
 
@@ -305,16 +306,16 @@ For compiled languages, if you want to limit {% data variables.product.prodname_
 
 特定のディレクトリのコードを変更すると、monorepo の一部をすばやく分析できます。 ビルドステップでディレクトリを除外し、ワークフローファイルで [`on.<push|pull_request>`](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) の`paths-ignore` および `paths` キーワードを使用する必要があります。
 
-#### 設定ファイルの例
+### 設定ファイルの例
 
 {% data reusables.code-scanning.example-configuration-files %}
 
-### コンパイルされた言語の {% data variables.product.prodname_code_scanning %} を設定する
+## コンパイルされた言語の {% data variables.product.prodname_code_scanning %} を設定する
 
 {% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %}コンパイルされた言語で {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を設定する方法に関する詳しい情報については、「[コンパイルされた言語の {% data variables.product.prodname_codeql %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages)」を参照してください。
 
-### {% data variables.product.prodname_code_scanning %} 用の設定ファイルを作成できます。
+## {% data variables.product.prodname_code_scanning %} 用の設定ファイルを作成できます。
 
 {% data variables.product.prodname_dotcom %} can display code analysis data generated externally by a third-party tool. ワークフローに `upload-sarif` アクションを追加することで、{% data variables.product.prodname_dotcom %} のサードパーティツールからのコード分析を表示できます。 詳しい情報については、「[SARIF ファイルを GitHub にアップロードする](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)」を参照してください。

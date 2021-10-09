@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -13,18 +13,19 @@ topics:
   - Teams
   - User account
 ---
+
 Teams sind zentral für viele gemeinschaftliche Features von {% data variables.product.prodname_dotcom %}, beispielsweise Team-@Erwähnungen, um die entsprechenden Teilnehmer dahingehend zu informieren, dass Sie deren Beiträge oder Aufmerksamkeit anfordern möchten. Weitere Informationen finden Sie unter „[Berechtigungsebenen für die Repositorys einer Organisation](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)“.
 
 Ein Team kann eine Gruppe in Ihrem Unternehmen darstellen oder Personen mit bestimmten Interessen oder Expertenwissen enthalten. So könnte beispielsweise ein Team aus Barrierefreiheitsexperten auf {% data variables.product.product_location %} aus Personen unterschiedlicher Abteilungen bestehen. Teams können funktionale Anliegen vertreten, welche die bestehende Bereichshierarchie eines Unternehmens ergänzen.
 
 Organisationen können mehrere Ebenen untergeordneter Teams erstellen, um die Hierarchiestruktur eines Unternehmens oder einer Gruppe abzubilden. Weitere Informationen finden Sie unter „[Informationen zu Teams](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)“.
 
-### Ein Team erstellen
+## Ein Team erstellen
 
 Eine umsichtige Kombination von Teams ist ein wirksames Mittel, um den Zugriff auf das Repository zu steuern. For example, if your organization allows only your release engineering team to push code to the default branch of any repository, you could give only the release engineering team **admin** permissions to your organization's repositories and give all other teams **read** permissions.
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
@@ -32,7 +33,7 @@ Eine umsichtige Kombination von Teams ist ein wirksames Mittel, um den Zugriff a
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
 
-### Teams mit aktivierter LDAP-Synchronisierung erstellen
+## Teams mit aktivierter LDAP-Synchronisierung erstellen
 
 Instanzen, die LDAP für die Benutzerauthentifizierung verwenden, können die LDAP-Synchronisierung zum Verwalten der Mitglieder eines Teams verwenden. Wenn Sie den **Distinguished Name** (DN) der Gruppe im Feld **LDAP group** (LDAP-Gruppe) festlegen, wird einer LDAP-Gruppe auf Ihrem LDAP-Server ein Team zugeordnet. Wenn Sie die LDAP-Synchronisierung zum Verwalten der Mitglieder eines Teams verwenden, können Sie Ihr Team in {% data variables.product.product_location %} nicht verwalten. Das zugeordnete Team synchronisiert seine Mitglieder im Hintergrund und regelmäßig in dem Intervall, das bei aktivierter LDAP-Synchronisierung konfiguriert wurde. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 
@@ -48,13 +49,11 @@ Instanzen, die LDAP für die Benutzerauthentifizierung verwenden, können die LD
 {% endwarning %}
 
 1. Stellen Sie sicher, dass die [LDAP-Synchronisierung aktiviert ist](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync).
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. Suchen Sie nach dem DN einer LDAP-Gruppe, um diesem das Team zuzuordnen. Falls Sie den DN nicht kennen, geben Sie den Namen der LDAP-Gruppe ein.
-{% data variables.product.prodname_ghe_server %} sucht nach Übereinstimmungen und vervollständigt diese automatisch.
-![Zuordnung zum LDAP-Gruppen-DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
+6. Suchen Sie nach dem DN einer LDAP-Gruppe, um diesem das Team zuzuordnen. Falls Sie den DN nicht kennen, geben Sie den Namen der LDAP-Gruppe ein. {% data variables.product.prodname_ghe_server %} sucht nach Übereinstimmungen und vervollständigt diese automatisch. ![Zuordnung zum LDAP-Gruppen-DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}

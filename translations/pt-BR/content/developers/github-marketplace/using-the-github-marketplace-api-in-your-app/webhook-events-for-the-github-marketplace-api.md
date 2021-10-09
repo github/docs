@@ -7,11 +7,13 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events
   - /developers/github-marketplace/webhook-events-for-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Eventos webhook
 ---
-### Carga do webhook de compra no {% data variables.product.prodname_marketplace %}
+
+## Carga do webhook de compra no {% data variables.product.prodname_marketplace %}
 
 As solicitações de `POST` têm cabeçalhos especiais. Consulte "[Cabeçalhos de entrega de Webhook](/webhooks/event-payloads/#delivery-headers)" para obter mais informações. O GitHub não reenvia tentativas falhas de entrega. Certifique-se de que seu aplicativo possa receber todas as cargas do webhook enviadas pelo GitHub.
 
@@ -57,17 +59,17 @@ O objeto `plano` tem as chaves a seguir:
 
 <br/>
 
-#### Exemplo de carga de webhook para um evento `comprado`
+### Exemplo de carga de webhook para um evento `comprado`
 Este exemplo fornece a carga do evento `comprado`.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
 
-#### Exemplo de carga de webhook para um evento `alterado`
+### Exemplo de carga de webhook para um evento `alterado`
 
 As alterações em um plano incluem atualizações e downgrades. Este exemplo representa as cargas de eventos `alterados`,`pending_change` e `pending_change_cancelled`. A ação identifica qual destes três acontecimentos ocorreu.
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
 
-#### Exemplo de carga de webhook para um evento `cancelado`
+### Exemplo de carga de webhook para um evento `cancelado`
 
 {{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

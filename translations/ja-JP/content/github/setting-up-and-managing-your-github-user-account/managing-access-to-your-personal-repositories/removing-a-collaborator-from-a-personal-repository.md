@@ -18,6 +18,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 ### プライベートリポジトリのフォークを削除する
 
 コラボレーターが削除される一方でプライベートリポジトリのフォークが削除されると、その個人はリポジトリのローカルクローンをそのまま保持します。
@@ -28,9 +29,7 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. 削除するコラボレータの右側にある次をクリックします。
-{% octicon "trash" aria-label="The trash icon" %}をクリックしてください。
-  ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
+4. 削除するコラボレーターの右で、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. 左のサイドバーで、[**Collaborators & teams**] をクリックします。 ![[Collaborators] タブ](/assets/images/help/repository/repo-settings-collaborators.png)
 4. 削除するコラボレーターの横にある [**X**] アイコンをクリックします。 ![削除リンク](/assets/images/help/organizations/Collaborator-Remove.png)

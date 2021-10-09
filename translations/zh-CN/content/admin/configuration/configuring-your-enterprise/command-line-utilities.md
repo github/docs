@@ -7,25 +7,25 @@ redirect_from:
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
   - SSH
 ---
+
 以 SSH 管理员用户身份登录后，您可以在虚拟机上的任何位置执行这些命令。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
 
-### 常规
+## 常规
 
-#### ghe-announce
+### ghe-announce
 
 此实用程序会在每个 {% data variables.product.prodname_enterprise %} 页面顶部设置横幅， 您可以使用横幅向用户广播消息。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-您还可以使用
-{% data variables.product.product_name %} 上的企业设置来设置公告横幅。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”。
+{% ifversion ghes %}
+您也可以使用企业设置在 {% data variables.product.product_name %} 上设置一个公告横幅。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)”。
 {% endif %}
 
 ```shell
@@ -37,7 +37,37 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-#### ghe-check-disk-usage
+{% ifversion ghes > 3.1 %}
+<!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
+
+### ghe-aqueduct
+
+此实用程序会显示关于后台作业（活动作业和队列中的作业）的信息， 它提供的作业计数与每个页面顶部管理员统计信息栏中的计数相同。
+
+This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
+
+* 后台作业数增加，而活动作业数保持不变。
+* 事件源未更新。
+* Web 挂钩未触发。
+* Web 界面在 Git 推送后未更新。
+
+If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+
+使用此命令，您还可以暂停或恢复队列中的作业。
+
+```shell
+$ ghe-aqueduct status
+# lists queues and the number of currently queued jobs for all queues
+$ ghe-aqueduct queue_depth --queue <em>QUEUE</em>
+# lists the number of currently queued jobs for the specified queue
+$ ghe-aqueduct pause --queue <em>QUEUE</em>
+# pauses the specified queue
+$ ghe-aqueduct resume --queue <em>QUEUE</em>
+# resumes the specified queue
+```
+{% endif %}
+
+### ghe-check-disk-usage
 
 此实用程序会检查磁盘中的大文件或已删除但文件句柄仍保持打开的文件。 如果尝试释放根分区中的空间，应运行此实用程序。
 
@@ -45,14 +75,14 @@ $ ghe-announce -u
 ghe-check-disk-usage
 ```
 
-#### ghe-cleanup-caches
+### ghe-cleanup-caches
 
 此实用程序会清理各种有可能占用根卷上的额外磁盘空间的缓存。 如果您发现一段时间内根卷磁盘空间的使用量显著升高，最好运行此应用程序，查看是否可以帮助降低整体使用量 。
 
 ```shell
 ghe-cleanup-caches
 ```
-#### ghe-cleanup-settings
+### ghe-cleanup-settings
 
 此实用程序会擦除所有现有的 {% data variables.enterprise.management_console %} 设置。
 
@@ -66,7 +96,7 @@ ghe-cleanup-caches
 ghe-cleanup-settings
 ```
 
-#### ghe-config
+### ghe-config
 
 此实用程序可用于检索和修改 {% data variables.product.product_location %} 的配置设置。
 
@@ -84,7 +114,7 @@ $ ghe-config -l
   $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 允许您将用户列表从 API 速率限制中排除。 更多信息请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)”。
 
 ``` shell
@@ -93,7 +123,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-ac
 ```
 {% endif %}
 
-#### ghe-config-apply
+### ghe-config-apply
 
 此实用程序会应用 {% data variables.enterprise.management_console %} 设置，重新加载系统服务，准备存储设备，重新加载应用程序服务并运行任何待处理的数据库迁移。 相当于在 {% data variables.enterprise.management_console %} Web UI 中单击 **Save settings（保存设置）**，或相当于向[ `/setup/api/configure` 端点](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)发送 POST 请求。
 
@@ -103,7 +133,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-ac
 ghe-config-apply
 ```
 
-#### ghe-console
+### ghe-console
 
 此实用程序会在您的 {% data variables.product.prodname_enterprise %} 设备上打开 GitHub Rails 控制台。 {% data reusables.command_line.use_with_support_only %}
 
@@ -111,7 +141,7 @@ ghe-config-apply
 ghe-console
 ```
 
-#### ghe-dbconsole
+### ghe-dbconsole
 
 此实用程序会在您的 {% data variables.product.prodname_enterprise %} 设备上打开 MySQL 数据库会话。 {% data reusables.command_line.use_with_support_only %}
 
@@ -119,7 +149,7 @@ ghe-console
 ghe-dbconsole
 ```
 
-#### ghe-es-index-status
+### ghe-es-index-status
 此实用程序会以 CSV 格式返回 ElasticSearch 索引的摘要。
 
 将包含标头行的索引摘要打印到 `STDOUT`：
@@ -161,7 +191,7 @@ $ ghe-es-index-status -do | column -ts,
 > wikis-4          true     true        true      true      100.0           2613dec44bd14e14577803ac1f9e4b7e07a7c234
 ```
 
-#### ghe-legacy-github-services-report
+### ghe-legacy-github-services-report
 
 此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 更多信息请参阅 {% data variables.product.prodname_blog %} 上的“[宣布弃用 {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)”或“[替换 {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)”。 如需获取关于此命令的更多信息或附加选项，请使用 `-h` 标志。
 
@@ -170,7 +200,7 @@ ghe-legacy-github-services-report
 
 ```
 
-#### ghe-logs-tail
+### ghe-logs-tail
 
 此实用程序允许跟踪记录安装中的所有相关日志文件。 您可以传入选项，将日志限制为特定集合。 使用 -h 标志表示附加选项。
 
@@ -178,7 +208,7 @@ ghe-legacy-github-services-report
 ghe-logs-tail
 ```
 
-#### ghe-maintenance
+### ghe-maintenance
 
 此实用程序允许您控制安装维护模式的状态， 其设计为主要由 {% data variables.enterprise.management_console %} 在后台使用，但也可以直接使用。
 
@@ -186,7 +216,7 @@ ghe-logs-tail
 ghe-maintenance -h
 ```
 
-#### ghe-motd
+### ghe-motd
 
 此实用程序重新显示管理员通过管理 shell 访问实例时看到的当天消息 (MOTD)。 输出包含实例状态的概述。
 
@@ -194,7 +224,7 @@ ghe-maintenance -h
 ghe-motd
 ```
 
-#### ghe-nwo
+### ghe-nwo
 
 此实用程序会根据仓库 ID 返回仓库名称和所有者。
 
@@ -202,7 +232,7 @@ ghe-motd
 ghe-nwo <em>REPOSITORY_ID</em>
 ```
 
-#### ghe-org-admin-promote
+### ghe-org-admin-promote
 
 使用此命令可为设备上具有站点管理员权限的用户提供组织所有者权限，或者为组织中的任何用户提供组织所有者权限。 您必须指定用户和/或组织。 `ghe-org-admin-promote` 命令始终会在运行前要求确认，除非您使用 `-y` 标志绕过确认过程。
 
@@ -239,7 +269,7 @@ ghe-org-admin-promote -o <em>ORGANIZATION</em>
 ghe-org-admin-promote -a
 ```
 
-#### ghe-reactivate-admin-login
+### ghe-reactivate-admin-login
 
 在 10 分钟内登录尝试失败 10 次后，使用此命令可立即解锁 {% data variables.enterprise.management_console %}。
 
@@ -247,7 +277,10 @@ ghe-org-admin-promote -a
 $ ghe-reactivate-admin-login
 ```
 
-#### ghe-resque-info
+{% ifversion ghes < 3.2 %}
+<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
+
+### ghe-resque-info
 
 此实用程序会显示关于后台作业（活动作业和队列中的作业）的信息， 它提供的作业计数与每个页面顶部管理员统计信息栏中的计数相同。
 
@@ -270,8 +303,9 @@ $ ghe-resque-info -p <em>QUEUE</em>
 $ ghe-resque-info -r <em>QUEUE</em>
 # resumes the specified queue
 ```
+{% endif %}
 
-#### ghe-saml-mapping-csv
+### ghe-saml-mapping-csv
 
 此实用程序可帮助映射 SAML 记录。
 
@@ -290,7 +324,7 @@ $ ghe-saml-mapping-csv -u -n -f /path/to/file
 $ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
-#### ghe-service-list
+### ghe-service-list
 
 此实用程序会列出您的设备上已启动或停止（正在运行或等待）的服务。
 
@@ -317,19 +351,7 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-如有需要，可将此命令返回的服务名称与 [`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html) 命令结合使用，以手动停止、启动或重启这些服务。 例如：
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-停止服务会导致安装停机，因此建议您在停止或重启任何服务之前联系 {% data variables.contact.contact_ent_support %}。
-
-{% endtip %}
-
-#### ghe-set-password
+### ghe-set-password
 
 使用 `ghe-set-password`，您可以设置新密码，在 [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中进行身份验证。
 
@@ -337,7 +359,7 @@ $ sudo systemctl restart github-resqued
 ghe-set-password <new_password>
 ```
 
-#### ghe-ssh-check-host-keys
+### ghe-ssh-check-host-keys
 
 此实用程序会对照已知泄露的 SSH 主机密钥检查现有的 SSH 主机密钥。
 
@@ -357,7 +379,7 @@ $ ghe-ssh-check-host-keys
 > No additional steps are needed/recommended at this time.
 ```
 
-#### ghe-ssh-roll-host-keys
+### ghe-ssh-roll-host-keys
 
 此实用程序会滚动 SSH 主机密钥并将其替换为新生成的密钥。
 
@@ -371,7 +393,7 @@ existing keys in /etc/ssh/ssh_host_* and generate new ones. [y/N]
 > SSH host keys have successfully been rolled.
 ```
 
-#### ghe-ssh-weak-fingerprints
+### ghe-ssh-weak-fingerprints
 
 此实用程序会返回存储在 {% data variables.product.prodname_enterprise %} 设备上的已知弱 SSH 密钥的报告。 您可以选择批量撤销用户密钥。 此实用程序将报告弱系统密钥，您必须在 [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中手动撤销这些密钥。
 
@@ -383,7 +405,7 @@ $ ghe-ssh-weak-fingerprints
 $ ghe-ssh-weak-fingerprints --revoke
 ```
 
-#### ghe-ssl-acme
+### ghe-ssl-acme
 
 此实用程序允许您在 {% data variables.product.prodname_enterprise %} 设备上安装 Let's Encrypt 证书。 更多信息请参阅“[配置 TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)”。
 
@@ -393,7 +415,7 @@ $ ghe-ssh-weak-fingerprints --revoke
 ghe-ssl-acme -e
 ```
 
-#### ghe-ssl-ca-certificate-install
+### ghe-ssl-ca-certificate-install
 
 此实用程序允许您在 {% data variables.product.prodname_enterprise %} 服务器上安装自定义根 CA 证书。 证书必须采用 PEM 格式。 此外，如果您的证书提供者在一个文件中包含多个 CA 证书，则必须将其拆分到多个单独文件中，随后再将这些文件逐个传递到 `ghe-ssl-ca-certificate-install`。
 
@@ -437,7 +459,7 @@ SSL-Session:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
-#### ghe-ssl-generate-csr
+### ghe-ssl-generate-csr
 
 此实用程序允许您生成可与商业或私有证书颁发机构共享的私钥和证书签名请求 (CSR)，以获取可与您的实例配合使用的有效证书。 更多信息请参阅“[配置 TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)”。
 
@@ -447,7 +469,7 @@ ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ghe-ssl-generate-csr
 ```
 
-#### ghe-storage-extend
+### ghe-storage-extend
 
 某些平台需要使用此脚本扩展用户量。 更多信息请参阅“[增加存储容量](/enterprise/admin/guides/installation/increasing-storage-capacity/)”。
 
@@ -455,7 +477,7 @@ ghe-ssl-generate-csr
 $ ghe-storage-extend
 ```
 
-#### ghe-version
+### ghe-version
 
 此实用程序会打印 {% data variables.product.product_location %} 的版本、平台和内部版本号。
 
@@ -463,7 +485,7 @@ $ ghe-storage-extend
 $ ghe-version
 ```
 
-#### ghe-webhook-logs
+### ghe-webhook-logs
 
 此实用程序会返回 web 挂钩交付日志，供管理员审查和确定任何问题。
 
@@ -472,7 +494,7 @@ ghe-webhook-logs
 ```
 
 要显示过去一天所有失败的挂钩交付：
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -485,7 +507,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -495,17 +517,17 @@ ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
 {% endif %}
 
-### 集群
+## 集群
 
-#### ghe-cluster-status
+### ghe-cluster-status
 
-Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
+在 {% data variables.product.prodname_ghe_server %} 的集群部署中检查节点和服务的运行状况。
 
 ```shell
 $ ghe-cluster-status
 ```
 
-#### ghe-cluster-support-bundle
+### ghe-cluster-support-bundle
 
 此实用程序创建的支持包 tarball 包含采用 Geo-replication 或集群配置的各个节点中的重要日志。
 
@@ -531,8 +553,8 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -u'
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-#### ghe-cluster-failover
+{% ifversion ghes %}
+### ghe-cluster-failover
 
 从主动群集节点故障转移至被动群集节点。 更多信息请参阅“[发起到副本群集的故障转移](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)”。
 
@@ -541,7 +563,7 @@ ghe-cluster-failover
 ```
 {% endif %}
 
-#### ghe-dpages
+### ghe-dpages
 
 此实用程序可用于管理分配的 {% data variables.product.prodname_pages %} 服务器。
 
@@ -559,7 +581,7 @@ ghe-dpages status
 ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
-#### ghe-spokes
+### ghe-spokes
 
 此实用程序允许您管理分布式 git 服务器上各仓库的三个副本。
 
@@ -585,7 +607,7 @@ ghe-spokes route
 ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
-#### ghe-storage
+### ghe-storage
 
 此实用程序允许您在撤出集群节点之前撤出所有存储服务。
 
@@ -593,9 +615,9 @@ ghe-spokes server evacuate git-server-<em>UUID</em>
 ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
-### Git
+## Git
 
-#### ghe-btop
+### ghe-btop
 
 当前 Git 操作的类 `top` 接口。
 
@@ -603,7 +625,7 @@ ghe-storage evacuate storage-server-<em>UUID</em>
 ghe-btop [ <port number> | --help | --usage ]
 ```
 
-#### ghe-repo
+### ghe-repo
 
 此实用程序允许您切换到仓库的目录并以 `git` 用户身份打开交互式 shell。 您可以通过 `git-*` 或 `git-nw-*` 等命令对仓库执行手动检查或维护。
 
@@ -611,7 +633,7 @@ ghe-btop [ <port number> | --help | --usage ]
 ghe-repo <em>username</em>/<em>reponame</em>
 ```
 
-#### ghe-repo-gc
+### ghe-repo-gc
 
 此实用程序会手动重新打包仓库网络，以优化包存储。 如果仓库较大，运行此命令有助于减小其整体大小。 {% data variables.product.prodname_enterprise %} 会在与仓库网络交互的过程中自动运行此命令。
 
@@ -621,52 +643,52 @@ ghe-repo <em>username</em>/<em>reponame</em>
 ghe-repo-gc <em>username</em>/<em>reponame</em>
 ```
 
-### 导入和导出
+## 导入和导出
 
-#### ghe-migrator
+### ghe-migrator
 
 `ghe-migrator` 属于高保真工具，可帮助用户从一个 GitHub 实例迁移到另一个实例。 您可以整合实例或将组织、用户、团队和仓库从 GitHub.com 移至 {% data variables.product.prodname_enterprise %}。
 
 更多信息请参阅[迁移用户、组织和仓库数据](/enterprise/admin/guides/migrations/)上的指南。
 
-#### git-import-detect
+### git-import-detect
 
 给定一个 URL，检测哪种类型的源控制管理系统位于另一端。 在手动导入过程中，此信息很可能是已知的，但在自动执行的脚本中非常有用。
 ```shell
 git-import-detect
 ```
 
-#### git-import-hg-raw
+### git-import-hg-raw
 
 此实用程序可将 Mercurial 仓库导入至此 Git 仓库。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-hg-raw
 ```
 
-#### git-import-svn-raw
+### git-import-svn-raw
 
 此实用程序可将 Subversion 历史记录和文件数据导入至 Git 分支。 这属于直接复制树，会忽略任何主干或分支差异。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-svn-raw
 ```
 
-#### git-import-tfs-raw
+### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
+此实用程序可从 Team Foundation Version Control (TFVC) 导入。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-tfs-raw
 ```
 
-#### git-import-rewrite
+### git-import-rewrite
 
-此实用程序可重写导入的仓库。 This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
+此实用程序可重写导入的仓库。 这样，您将有机会重命名作者，对于 Subversion 和 TFVC，可基于文件夹生成 Git 分支。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-rewrite
 ```
 
-### 支持
+## 支持
 
-#### ghe-diagnostics
+### ghe-diagnostics
 
 此实用程序会执行各项检查并收集关于安装的信息，您可以将此类信息发送给支持团队，以帮助诊断您遇到的问题。
 
@@ -676,7 +698,7 @@ git-import-rewrite
 ghe-diagnostics
 ```
 
-#### ghe-support-bundle
+### ghe-support-bundle
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 此实用程序会创建一个支持包 tarball，其中包含实例中的重要日志。
@@ -704,7 +726,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'
 ```
 
-#### ghe-support-upload
+### ghe-support-upload
 
 此实用程序会将您的设备中的信息发送到 {% data variables.product.prodname_enterprise %} Support。 您可以指定本地文件，或通过 `STDIN` 提供最大 100MB 的数据流。 可以选择将上传的数据与支持事件单相关联。
 
@@ -720,9 +742,9 @@ ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
 
 在本例中，`ghe-repl-status -vv` 会发送副本设备中的 verbose 状态信息。 您应将 `ghe-repl-status -vv` 替换为要传输到 `STDIN` 的特定数据，并将 `Verbose Replication Status` 替换为数据的简单说明。 {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
-### 升级 {% data variables.product.prodname_ghe_server %}
+## 升级 {% data variables.product.prodname_ghe_server %}
 
-#### ghe-upgrade
+### ghe-upgrade
 
 此实用程序会安装或验证升级包。 如果升级失败或中断，您还可以使用此实用程序回滚补丁版本。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}”](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)。
 
@@ -738,7 +760,7 @@ ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
 
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-#### ghe-upgrade-scheduler
+### ghe-upgrade-scheduler
 
 此实用程序可以管理已排定的升级包安装。 您可以显示、新建或移除已排定的安装。 您必须使用 cron 表达式创建日程。 更多信息请参阅 [Cron 维基百科词条](https://en.wikipedia.org/wiki/Cron#Overview)。
 
@@ -758,7 +780,7 @@ $ ghe-upgrade-scheduler -s <em>UPGRADE PACKAGE FILENAME</em>
 $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 ```
 
-#### ghe-update-check
+### ghe-update-check
 
 此实用程序将检查 {% data variables.product.prodname_enterprise %} 是否有新的补丁版本可用。 如果有新的补丁版本，并且实例中有可用空间，系统将下载此包。 默认情况下，包会保存到 */var/lib/ghe-updates*。 管理员随后可[执行升级](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/)。
 
@@ -770,11 +792,11 @@ $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 ```
 
-### 用户管理
+## 用户管理
 
-#### ghe-license-usage
+### ghe-license-usage
 
-此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接至 {% data variables.product.prodname_ghe_cloud %} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)。”
+此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 默认情况下，生成的 JSON 文件中的用户列表为加密格式。 使用 `-h` 标志可获取更多选项。
 
@@ -782,7 +804,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 ghe-license-usage
 ```
 
-#### ghe-org-membership-update
+### ghe-org-membership-update
 
 此实用程序将对您的实例中的所有成员强制实施默认的组织成员关系可见性设置。 更多信息请参阅“[配置组织成员关系的可见性](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)”。 设置选项为 `public` 或 `private`。
 
@@ -790,7 +812,7 @@ ghe-license-usage
 ghe-org-membership-update --visibility=<em>SETTING</em>
 ```
 
-#### ghe-user-csv
+### ghe-user-csv
 
 此实用程序可将所有安装用户列表导出为 CSV 格式。 CSV 文件包含电子邮件地址、用户所属类型（例如管理员、用户）、用户拥有的仓库数量、SSH 密钥数量、组织成员关系数量、上次登录的 IP 地址等。 使用 `-h` 标志可获取更多选项。
 
@@ -798,7 +820,7 @@ ghe-org-membership-update --visibility=<em>SETTING</em>
 ghe-user-csv -o > users.csv
 ```
 
-#### ghe-user-demote
+### ghe-user-demote
 
 此实用程序会将指定用户从管理员状态降级为普通用户状态。 建议使用 Web UI 执行此操作，但会在 `ghe-user-promote` 实用程序运行出错并且需要再次通过 CLI 将用户降级的情况下提供此实用程序。
 
@@ -806,7 +828,7 @@ ghe-user-csv -o > users.csv
 ghe-user-demote <em>some-user-name</em>
 ```
 
-#### ghe-user-promote
+### ghe-user-promote
 
 此实用程序会将指定用户帐户升级为站点管理员。
 
@@ -814,7 +836,7 @@ ghe-user-demote <em>some-user-name</em>
 ghe-user-promote <em>some-user-name</em>
 ```
 
-#### ghe-user-suspend
+### ghe-user-suspend
 
 此实用程序会挂起指定用户，避免他们登录、推送或从仓库拉取。
 
@@ -822,7 +844,7 @@ ghe-user-promote <em>some-user-name</em>
 ghe-user-suspend <em>some-user-name</em>
 ```
 
-#### ghe-user-unsuspend
+### ghe-user-unsuspend
 
 此实用程序会取消挂起指定用户，向他们授予登录、推送以及从仓库拉取的权限。
 

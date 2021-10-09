@@ -19,9 +19,9 @@ topics:
   - Desktop
   - Security
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-有关每个
-{% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
+有关各 {% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
 {% endif %}
 
 ### 个人用户帐户

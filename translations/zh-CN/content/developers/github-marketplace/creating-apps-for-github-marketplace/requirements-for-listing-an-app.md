@@ -10,19 +10,21 @@ redirect_from:
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: 列出要求
 ---
+
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求取决于您是要提供免费应用程序还是付费应用程序。
 
-### 对所有 {% data variables.product.prodname_marketplace %} 上架产品的要求
+## 对所有 {% data variables.product.prodname_marketplace %} 上架产品的要求
 
 {% data variables.product.prodname_marketplace %} 中的所有上架产品应该是能够为 {% data variables.product.product_name %} 社区提供价值的工具。 提交要发布的上架信息时，您必须阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”的条款。
 
-#### 所有应用程序的用户体验要求
+### 所有应用程序的用户体验要求
 
 所有上架产品应满足以下要求，无论它们是免费应用程序还是付费应用程序。
 
@@ -36,7 +38,7 @@ topics:
 
 有关提供良好客户体验的更多信息，请参阅“[应用程序的客户体验最佳实践](/developers/github-marketplace/customer-experience-best-practices-for-apps)”。
 
-#### 所有应用程序的品牌和上架要求
+### 所有应用程序的品牌和上架要求
 
 - 使用 GitHub 徽标的应用程序必须遵循 {% data variables.product.company_short %} 指南。 更多信息请参阅“[{% data variables.product.company_short %} 徽标和用法](https://github.com/logos)”。
 - 应用程序必须具有徽标、功能卡和屏幕截图，并且这些内容必须遵循“[编写 {% data variables.product.prodname_marketplace %} 上架说明](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)”中提供的建议。
@@ -44,11 +46,11 @@ topics:
 
 为了保护您的客户，我们建议您还要遵循安全最佳实践。 更多信息请参阅“[应用程序的安全最佳实践](/developers/github-marketplace/security-best-practices-for-apps)”。
 
-### 免费应用程序注意事项
+## 免费应用程序注意事项
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-### 付费应用程序的要求
+## 付费应用程序的要求
 
 要在 {% data variables.product.prodname_marketplace %} 上发布应用程序的付费计划，您的应用程序必须由身份为经验证发布者的组织所拥有。 有关验证流程或转让应用程序所有权的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
@@ -56,8 +58,8 @@ topics:
 
 要发布付费应用程序（或提供付费计划的应用程序），您还必须满足以下要求：
 
-- {% data variables.product.prodname_github_app %} 应至少有 100 个安装设施。
-- {% data variables.product.prodname_oauth_app %} 应至少有 200 个用户。
+- {% data variables.product.prodname_github_apps %} should have a minimum of 100 installations.
+- {% data variables.product.prodname_oauth_apps %} should have a minimum of 200 users.
 - 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。 更多信息请参阅下面的“[付费应用程序的计费要求](#billing-requirements-for-paid-apps)”。
 
 当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证应用程序上架信息。
@@ -68,7 +70,7 @@ topics:
 
 {% endnote %}
 
-### 付费应用程序的计费要求
+## 付费应用程序的计费要求
 
 您的应用程序无需处理付款，但需要使用 {% data variables.product.prodname_marketplace %} 购买事件来管理新购买、升级、降级、取消和免费试用。 有关如何将这些事件集成到您的应用程序中，请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 

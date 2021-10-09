@@ -7,19 +7,21 @@ redirect_from:
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
   - Networking
+shortTitle: Use a load balancer
 ---
+
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 
 {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-### Clientverbindungsinformationen verarbeiten
+## Clientverbindungsinformationen verarbeiten
 
 Da Clientverbindungen zu {% data variables.product.prodname_ghe_server %} vom Load-Balancer stammen, kann die Client-IP-Adresse verloren gehen.
 
@@ -27,9 +29,9 @@ Da Clientverbindungen zu {% data variables.product.prodname_ghe_server %} vom Lo
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### PROXY-Protokollunterstützung auf {% data variables.product.product_location %} aktivieren
+### PROXY-Protokollunterstützung auf {% data variables.product.product_location %} aktivieren
 
-Es wird dringend empfohlen, die PROXY-Protokollunterstützung für Ihre Appliance und für den Load-Balancer zu aktivieren. Befolgen Sie die Anweisungen Ihres Anbieters, um das PROXY-Protokoll auf Ihrem Load-Balancer zu aktivieren. Weitere Informationen finden Sie in der Dokumentation zum „[PROXY-Protokoll](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt)“.
+Es wird dringend empfohlen, die PROXY-Protokollunterstützung für Ihre Appliance und für den Load-Balancer zu aktivieren. Befolgen Sie die Anweisungen Ihres Anbieters, um das PROXY-Protokoll auf Ihrem Load-Balancer zu aktivieren. Weitere Informationen finden Sie in der Dokumentation zum „[PROXY-Protokoll](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt)“.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -39,7 +41,7 @@ Es wird dringend empfohlen, die PROXY-Protokollunterstützung für Ihre Applianc
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### X-Forwarded-For-Unterstützung auf {% data variables.product.product_location %} aktivieren
+### X-Forwarded-For-Unterstützung auf {% data variables.product.product_location %} aktivieren
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 
@@ -53,7 +55,7 @@ Es wird dringend empfohlen, die PROXY-Protokollunterstützung für Ihre Applianc
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
-### Zustandsprüfungen konfigurieren
+## Zustandsprüfungen konfigurieren
 
 Zustandsprüfungen ermöglichen einem Load-Balancer, das Senden von Traffic an einen nicht antwortenden Knoten zu stoppen, wenn eine vorkonfigurierte Prüfung auf diesem Knoten fehlschlägt. Wenn die Appliance aufgrund einer Wartung oder eines unerwarteten Ausfalls offline ist, kann der Load-Balancer eine Statusseite anzeigen. In einer Hochverfügbarkeitskonfiguration (HA) kann ein Load-Balancer als Bestandteil einer Failover-Strategie verwendet werden. Das automatische Failover von HA-Paaren wird jedoch nicht unterstützt. Sie müssen die Replikat-Appliance manuell hochstufen, bevor sie Anforderungen verarbeitet. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %} für Hochverfügbarkeit konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)“.
 

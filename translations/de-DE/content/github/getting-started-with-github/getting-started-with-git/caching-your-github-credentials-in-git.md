@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 If you clone {% data variables.product.product_name %} repositories using SSH, then you authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
 
 {% mac %}
@@ -94,6 +95,8 @@ Aktivieren Sie den Credential-Helper, damit Git Ihr Passwort eine Zeitllang spei
   $ git config --global credential.helper 'cache --timeout=3600'
   # setzte den Cache timeout auf 1 Stunde (Angabe in Sekunden)
   ```
+
+For more options for storing your credentials on Linux, see [Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) in Pro Git.
 
 {% endlinux %}
 

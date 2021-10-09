@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Muitos arquivos podem ser [renomeados diretamente no {% data variables.product.product_name %}](/articles/renaming-a-file), mas alguns arquivos, como imagens, exigem que a renomeação seja feita usando a linha de comando.
 
 {% data reusables.command_line.manipulating_file_prereqs %}

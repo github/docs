@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
   - /admin/policies/creating-a-pre-receive-hook-environment
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
+shortTitle: Pre-Receive-Hook-Umgebungen.
 ---
+
 Eine Pre-Receive-Umgebung für {% data variables.product.prodname_ghe_server %} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 
 
 {% data variables.product.prodname_ghe_server %} bietet eine Standardumgebung. Diese enthält die folgenden Pakete: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
@@ -21,7 +23,7 @@ Wenn eine bestimmte Anforderung vorliegt, die von dieser Umgebung nicht erfüllt
 
 
 
-### Pre-Receive-Hook-Umgebung mit Docker erstellen
+## Pre-Receive-Hook-Umgebung mit Docker erstellen
 
 Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-Hook-Umgebung verwenden. In diesem Beispiel werden [Alpine Linux](http://www.alpinelinux.org/) und [Docker](https://www.docker.com/) verwendet.
 
@@ -75,7 +77,7 @@ Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {% data variables.product
 
 
 
-### Pre-Receive-Hook-Umgebung mit chroot erstellen
+## Pre-Receive-Hook-Umgebung mit chroot erstellen
 
 1. Erstellen Sie eine Linux-`chroot`-Umgebung.
 2. Erstellen Sie eine `gzip`-komprimierte `TAR`-Datei des Verzeichnisses `chroot`. 
@@ -101,7 +103,7 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
 
 
 
-### Pre-Receive-Hook-Umgebung auf {% data variables.product.prodname_ghe_server %} hochladen
+## Pre-Receive-Hook-Umgebung auf {% data variables.product.prodname_ghe_server %} hochladen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
@@ -125,7 +127,7 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
 
 
 
-### Pre-Receive-Hook-Umgebung über die Verwaltungsshell hochladen
+## Pre-Receive-Hook-Umgebung über die Verwaltungsshell hochladen
 
 1. Laden Sie eine lesbare `*.tar.gz`-Datei, die Ihre Umgebung enthält, auf einen Webhost hoch, und kopieren Sie die URL, oder übertragen Sie die Datei über `scp` an die {% data variables.product.prodname_ghe_server %}-Appliance. Wenn Sie `scp` verwenden, müssen Sie die `*.tar.gz`-Dateiberechtigungen ggf. anpassen, damit die Datei allgemein lesbar ist.
 1.  Stellen Sie eine Verbindung zur Verwaltungsshell her.

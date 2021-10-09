@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const { execSync } = require('child_process')
-
 // [start-readme]
 //
 // Use this script as part of the Crowdin merge process to output a list of parsing and rendering
 // errors in translated files and run script/reset-translated-file.js on them.
 //
 // [end-readme]
+
+import { execSync } from 'child_process'
 
 const parsingErrorsLog = '~/docs-translation-parsing-error.txt'
 const renderErrorsLog = '~/docs-translation-rendering-error.txt'
@@ -30,7 +30,9 @@ try {
 
 // Reset the broken files.
 console.log('Resetting broken files...')
-execSync(`cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`)
+execSync(
+  `cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`
+)
 
 // Print a message with next steps.
 console.log(`Success!

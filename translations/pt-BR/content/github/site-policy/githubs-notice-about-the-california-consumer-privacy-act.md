@@ -1,7 +1,7 @@
 ---
 title: Aviso do GitHub sobre a Lei de Privacidade do Consumidor da Califórnia
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -9,11 +9,11 @@ topics:
 
 Data de vigência: 1 de janeiro de 2020
 
-### Aviso do GitHub aos Residentes da Califórnia
+## Aviso do GitHub aos Residentes da Califórnia
 
 A [Lei de Privacidade do Consumidor da Califórnia](https://leginfo.legislature.ca.gov/faces/billCompareClient.xhtml?bill_id=201720180AB375) de 2018, (Cal. Civ. Código §1798.100 et seq., conforme alterado, "CCPA") dá aos residentes da Califórnia direitos e controle sobre suas informações pessoais. GitHub, Inc. ("GitHub", "nós") fornece esta declaração aos residentes ("você") de acordo com os requisitos da CCPA para fazer certas divulgações sobre a coleta e o processamento de suas informações pessoais. Esta é a descrição específica do GitHub dos direitos de privacidade dos consumidores para a Califórnia, sob a CCPA. Para obter informações sobre como estendemos os direitos fundamentais da CCPA para controle de informações pessoais a todos os nossos usuários nos Estados Unidos, consulte nossa [Declaração de Privacidade](/github/site-policy/github-privacy-statement).
 
-### Não vendemos suas informações pessoais
+## Não vendemos suas informações pessoais
 
 De acordo com a CCPA, um negócio que consiste na venda de informações pessoais de residentes da Califórnia para outros: 1) deve avisar os residentes da Califórnia antes de vender suas informações pessoais para outros; e 2) deve fornecer o direito de opt-out (autoexclusão) pela venda de suas informações pessoais.
 
@@ -21,29 +21,29 @@ O Github _não_ vende informações pessoais, incluindo informações pessoais d
 
 ## Seus direitos sob a CCPA
 
-A CCPA fornece aos residentes da Califórnia certos direitos relacionados às suas informações pessoais. Para enviar uma solicitação com base nesses direitos, entre em contato conosco através de nosso [formulário de contato](https://support.github.com/contact).
+A CCPA fornece aos residentes da Califórnia certos direitos relacionados às suas informações pessoais. Para enviar uma solicitação com base nesses direitos, entre em contato conosco por meio do nosso [formulário de contato](https://support.github.com/contact?tags=docs-policy).
 
 Ao receber uma solicitação, verificaremos se o indivíduo que fez a solicitação é o residente a quem pertencem as informações pessoais sujeitas à solicitação. Os residentes da Califórnia podem exercer seus direitos por si próprios ou podem usar um agente autorizado para fazer solicitações para divulgar certas informações sobre o processamento de suas informações pessoais ou para excluir informações pessoais em seu nome. Se você usar um agente autorizado para enviar uma solicitação, podemos exigir que você nos forneça informações adicionais demonstrando que o agente está agindo em seu nome.
 
 Com relação às suas informações pessoais, os residentes da Califórnia podem exercer os direitos descritos abaixo.
 
-### 1. Direito de saber quais informações pessoais estão sendo coletadas, para quais fins e com quem são compartilhadas
+## 1. Direito de saber quais informações pessoais estão sendo coletadas, para quais fins e com quem são compartilhadas
 
 Os residentes da Califórnia têm o direito de solicitar uma divulgação comercial das categorias e partes específicas das suas informações pessoais recolhidas nos 12 meses anteriores, as categorias de fontes a partir das quais tais informações pessoais são coletadas, a empresa ou o fim comercial para os quais foram realizadas a coleta ou a venda dessas informações pessoais, e as categorias de terceiros com quem a empresa compartilha informações pessoais.
 
 Se você solicitar que uma empresa divulgue categorias e partes específicas de informações pessoais coletadas sobre você, você tem o direito de receber essas informações, gratuitamente, duas vezes por ano. As informações podem ser entregues por correio ou eletronicamente e, se fornecidas eletronicamente, devem estar em um formato portátil e, na medida do possível tecnicamente, facilmente utilizável de forma a permitir ao residente da Califórnia transmitir de forma relativamente fácil essas informações para outra entidade. Você pode usar o [API de Migração de Usuário](/rest/reference/migrations#users) do GitHub para acessar e baixar seus dados. Saiba Mais [aqui](https://github.blog/2018-12-19-download-your-data/).
 
-### 2. Direito de saber se suas informações pessoais são vendidas ou divulgadas para fins comerciais e para quem
+## 2. Direito de saber se suas informações pessoais são vendidas ou divulgadas para fins comerciais e para quem
 
 Os residentes da Califórnia têm o direito de solicitar de uma empresa que venda ou divulgue informações pessoais para fins comerciais listas separadas das categorias de informações pessoais coletadas, vendidas ou divulgadas para fins comerciais nos últimos 12 meses, incluindo as categorias de terceiros a quem as informações pessoais foram vendidas ou divulgadas para fins comerciais.
 
-### 3. Direito de dizer não à venda de suas informações pessoais
+## 3. Direito de dizer não à venda de suas informações pessoais
 
 Como explicado acima, a CCPA exige que as empresas que vendem informações pessoais permitam aos residentes a capacidade de autoexclusão da venda de suas informações.
 
 Novamente, o GitHub não vende informações pessoais.
 
-### 4. Direito à não discriminação de serviço ou preço se você exercer seus direitos de privacidade
+## 4. Direito à não discriminação de serviço ou preço se você exercer seus direitos de privacidade
 
 O CCPA proíbe as empresas de discriminarem um residente da Califórnia por exercerem qualquer um dos seus direitos sob o CCPA, inclusive:
 - negar bens ou serviços
@@ -51,7 +51,7 @@ O CCPA proíbe as empresas de discriminarem um residente da Califórnia por exer
 - fornecer um nível diferente ou qualidade diversa de bens ou serviços
 - sugerir que a pessoa que exerce seus direitos receberá um preço ou taxa diferente para bens ou serviços ou um nível diferente ou qualidade diversa de bens ou serviços
 
-### 5. Direito à exclusão
+## 5. Direito à exclusão
 
 Os residentes da Califórnia têm o direito de solicitar que uma empresa exclua qualquer uma de suas informações pessoais que o negócio coletou deles, sujeito às exceções na CCPA §1798.105.
 
@@ -73,4 +73,4 @@ A CCPA prevê isenções, até 31 de dezembro de 2020 (inclusive), de algumas da
 
   informações pessoais que reflitam uma comunicação escrita ou verbal ou uma transação entre o GitHub e uma pessoa física, onde a pessoa física está agindo como funcionário, proprietário, diretor, responsável ou terceirizado de uma empresa, parceria, propriedade exclusiva, entidade sem fins lucrativos ou agência governamental e cujas comunicações ou transações com o GitHub ocorrem apenas no contexto do GitHub realizando due diligence em relação, ou fornecendo ou recebendo um produto ou serviço para ou de tal empresa, parceria, propriedade exclusiva, entidade sem fins lucrativos ou agência governamental.
 
-Se você tiver alguma dúvida sobre esta página, por favor, entre em contato conosco através do nosso [formulário de contato](https://support.github.com/contact).
+Em caso de dúvidas sobre esta página, entre em contato conosco por meio do nosso [formulário de contato](https://support.github.com/contact?tags=docs-policy).

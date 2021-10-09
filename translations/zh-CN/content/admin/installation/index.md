@@ -10,7 +10,7 @@ redirect_from:
   - /enterprise/admin/categories/logging-and-monitoring/
   - /enterprise/admin/installation
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -19,9 +19,9 @@ topics:
 children:
   - /setting-up-a-github-enterprise-server-instance
 ---
+
 如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
 如果对安装过程存在疑问，请参阅“[使用 {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)”。
-### 目录

@@ -8,10 +8,13 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
+  - Secret scanning
+  - Advanced Security
   - Repositories
 children:
   - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
+  - /defining-custom-patterns-for-secret-scanning
   - /managing-alerts-from-secret-scanning
 ---
-### 目录
+

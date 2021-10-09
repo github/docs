@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 A verificação de integridade do {% data variables.large_files.product_name_short %} verifica se todos os arquivos referenciados do {% data variables.large_files.product_name_short %} em um push foram transferidos corretamente. Se a verificação identificar arquivos referenciados que não foram transferidos, você receberá uma mensagem de erro e o push será bloqueado.
 
 Para resolver a mensagem de erro, você deve reinstalar o cliente local do {% data variables.large_files.product_name_short %} para garantir que os arquivos do {% data variables.large_files.product_name_short %} referenciados possam ser carregados corretamente no futuro.

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.large_files.use_lfs_tip %}
 
 ### {% data variables.large_files.warning_size %}より大きいファイルへの警告

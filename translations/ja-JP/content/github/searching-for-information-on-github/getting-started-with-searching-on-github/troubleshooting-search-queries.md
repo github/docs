@@ -5,19 +5,21 @@ redirect_from:
   - /articles/troubleshooting-search-queries
   - /github/searching-for-information-on-github/troubleshooting-search-queries
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
+shortTitle: Troubleshoot search queries
 ---
-### タイムアウトの可能性
+
+## タイムアウトの可能性
 
 いくつかのクエリは、弊社の検索インフラで実行するには計算するうえでコストが高くなります。 皆さんが検索を迅速に行えるように、個別のクエリを実行する時間について制限を設けています。 まれなことですがクエリが制限時間を超えた場合、検索結果はタイムアウトになる前に見つかった全てのマッチを表示し、タイムアウトが起きたことを知らせます。
 
 タイムアウトになったことは、必ずしも検索結果が未完了であるということではありません。 ただ、すべての検索可能なデータを検索する前にクエリが中断したことを意味しています。
 
-### クエリの長さの制限
+## クエリの長さの制限
 
 {% data variables.product.product_name %} での検索では、クエリの長さに一定の制限があります。
 
@@ -26,6 +28,6 @@ topics:
 
 コードの検索など特定の検索形式は、さらなる制限がある可能性があります。 詳しい情報については、これらの検索形式のドキュメントを確認してください。
 
-### 参考リンク
+## 参考リンク
 
 - "[GitHub での検索について](/articles/about-searching-on-github)"

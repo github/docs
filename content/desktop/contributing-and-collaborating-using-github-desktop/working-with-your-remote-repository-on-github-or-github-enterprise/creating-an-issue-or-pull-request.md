@@ -7,22 +7,23 @@ redirect_from:
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Create an issue or PR
 ---
-### About issues and pull requests
+## About issues and pull requests
 
 You can use issues to track ideas, bugs, tasks, and other information that's important to your project. You can create an issue in your project's repository with {% data variables.product.prodname_desktop %}. For more information about issues, see "[About issues](/github/managing-your-work-on-github/about-issues)."
 
 After you create a branch and make changes to files in a project, you can create a pull request. With a pull request, you can propose, discuss, and iterate on changes before you merge the changes into the project. You can create a pull request in your project's repository with {% data variables.product.prodname_desktop %}. For more information about pull requests, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
-### Prerequisites
+## Prerequisites
 
 Before you create a pull request, you'll need to push changes to a branch on {% data variables.product.prodname_dotcom %}.
 - Save and commit any changes on your local branch. For more information, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project)."
 - Push your local commits to the remote repository. For more information, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)."
 - Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches)."
 
-### Creating an issue
+## Creating an issue
 
 {% mac %}
 
@@ -48,7 +49,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 {% endnote %}
 
-### Creating a pull request
+## Creating a pull request
 
 {% mac %}
 
@@ -74,7 +75,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 {% endwindows %}
 
-### Further reading
+## Further reading
 - "[Issue](/github/getting-started-with-github/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Pull request](/github/getting-started-with-github/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Base branch](/github/getting-started-with-github/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary

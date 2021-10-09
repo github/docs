@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -16,7 +16,8 @@ topics:
   - Monitoring
   - Performance
 ---
-### Externen `collectd`-Server einrichten
+
+## Externen `collectd`-Server einrichten
 
 Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie dies erledigen, bevor Sie die `collectd`-Weiterleitung auf {% data variables.product.product_location %} aktivieren. Your `collectd` server must be running `collectd` version 5.x or higher.
 
@@ -32,7 +33,7 @@ Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-### collectd-Weiterleitung auf {% data variables.product.prodname_enterprise %} aktivieren
+## collectd-Weiterleitung auf {% data variables.product.prodname_enterprise %} aktivieren
 
 Die `collectd`-Weiterleitung ist auf {% data variables.product.prodname_enterprise %} standardmäßig deaktiviert. Befolgen Sie die Schritte zum Aktivieren und Konfigurieren der `collectd`-Weiterleitung:
 
@@ -44,21 +45,21 @@ Die `collectd`-Weiterleitung ist auf {% data variables.product.prodname_enterpri
 1. Wählen Sie im Dropdownmenü **Cryptographic setup** (Kryptografische Einrichtung) die Sicherheitsebene für die Kommunikationen mit dem `collectd`-Server aus. (None, signed packets, or encrypted packets.)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### collectd-Daten mit `ghe-export-graphs` exportieren
+## collectd-Daten mit `ghe-export-graphs` exportieren
 
 Das Befehlszeilentool `ghe-export-graphs` exportiert die Daten, die von `collectd` in RRD-Datenbanken gespeichert werden. Dieser Befehl wandelt die Daten in das XML-Format um und exportiert sie in einer einzelnen Tarball-Datei (.tgz).
 
 Sein Hauptzweck besteht darin, dem {% data variables.contact.contact_ent_support %}-Team Daten über die Leistung einer VM zur Verfügung zu stellen, ohne dass ein vollständiges Support-Bundle heruntergeladen werden muss. Er sollte nicht in Ihre regulären Backup-Exporte aufgenommen werden und bietet kein Gegenstück zum Import. Wenn Sie {% data variables.contact.contact_ent_support %} kontaktieren, werden Sie zur Fehlerbehebung ggf. gebeten, diese Daten anzugeben.
 
-#### Beispiel
+### Beispiel
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-### Problemlösungen
+## Problemlösungen
 
-#### Der zentrale collectd-Server empfängt keine Daten.
+### Der zentrale collectd-Server empfängt keine Daten.
 
 {% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Ihr zentraler `collectd`-Server muss mindestens Version 5.x aufweisen, um von {% data variables.product.product_location %} gesendete Daten zu akzeptieren.
 

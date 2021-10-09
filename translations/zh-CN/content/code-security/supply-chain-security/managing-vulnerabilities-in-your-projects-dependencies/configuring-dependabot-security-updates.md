@@ -1,7 +1,7 @@
 ---
 title: 配置 Dependabot 安全更新
 intro: '您可以使用 {% data variables.product.prodname_dependabot_security_updates %} 或手动拉取请求轻松地更新有漏洞的依赖项。'
-shortTitle: 配置 Dependabot 安全更新
+shortTitle: 配置安全更新
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -10,13 +10,20 @@ redirect_from:
   - /github/managing-security-vulnerabilities/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
+
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
-### 关于配置 {% data variables.product.prodname_dependabot_security_updates %}
+## 关于配置 {% data variables.product.prodname_dependabot_security_updates %}
 
 您可以为任何使用 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图的仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 
@@ -24,7 +31,7 @@ topics:
 
 {% data reusables.dependabot.dependabot-tos %}
 
-### 支持的仓库
+## 支持的仓库
 
 {% data variables.product.prodname_dotcom %} 自动为符合这些前提条件的每个仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。
 
@@ -43,9 +50,9 @@ topics:
 | {% data variables.product.prodname_dependabot_security_updates %} 未对仓库禁用                | "[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-dependabot-security-updates-for-your-repositories)" |
 | 仓库尚未使用集成进行依赖项管理                                                                           | “[关于集成](/github/customizing-your-github-workflow/about-integrations)”                                                                      |
 
-如果未为存储库启用安全更新，并且您不知道原因么，请先尝试使用以下程序部分的说明启用它们。 如果安全更新还是不工作，您可以[联系支持](https://support.github.com/contact)。
+如果未为存储库启用安全更新，并且您不知道原因么，请先尝试使用以下程序部分的说明启用它们。 如果安全更新还是不工作，您可以[联系支持](https://support.github.com/contact?tags=docs-security)。
 
-### 管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}
+## 管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}
 
 您可以对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}（见下文）。
 
@@ -53,14 +60,14 @@ topics:
 
 {% data variables.product.prodname_dependabot_security_updates %} 需要特定的仓库设置。 更多信息请参阅“[支持的仓库](#supported-repositories)”。
 
-#### 对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}
+### 对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. 在“Configure security and analysis features（配置安全和分析功能）”下，在“{% data variables.product.prodname_dependabot %} security updates（安全更新）”的右侧，单击 **Enable（启用）**或 **Disable（禁用）**。 !["配置安全和分析功能"部分中启用 {% data variables.product.prodname_dependabot_security_updates %} 的按钮](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于有易受攻击依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”
 - “[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”

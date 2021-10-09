@@ -5,16 +5,17 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 topics:
   - Enterprise
+shortTitle: 离线运行器的工具缓存
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 关于包含的设置操作和运行器工具缓存
+## 关于包含的设置操作和运行器工具缓存
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
@@ -30,13 +31,13 @@ topics:
 
 {% endnote %}
 
-### 基本要求
+## 基本要求
 
 * 确定自托管运行器需要哪些开发环境。 下面的示例演示如何使用 Node.js 版本 10 和 12 填充 `setup-node` 操作的工具缓存。
 * 访问可用于运行工作流程的 {% data variables.product.prodname_dotcom_the_website %} 上的仓库。
 * 访问自托管运行器的文件系统以填充工具缓存文件夹。
 
-### 填充自托管运行器的工具缓存
+## 填充自托管运行器的工具缓存
 
 1. 在 {% data variables.product.prodname_dotcom_the_website %} 上，导航到可用于运行 {% data variables.product.prodname_actions %} 工作流程的仓库。
 1. 在仓库的 `.github/workflow` 文件夹中创建一个新的工作流程文件，用于上传包含 {% data variables.product.prodname_dotcom %} 托管的运行器工具缓存的构件。
@@ -56,11 +57,11 @@ topics:
              mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
              mkdir -p "${{ runner.tool_cache }}"
          - name: Setup Node 10
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v1
+           uses: actions/setup-node@v2
            with:
              node-version: 12.x
          - name: Archive tool cache

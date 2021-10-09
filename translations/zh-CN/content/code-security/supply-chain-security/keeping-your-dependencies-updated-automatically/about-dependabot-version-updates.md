@@ -8,11 +8,18 @@ redirect_from:
   - /github/administering-a-repository/about-dependabot-version-updates
   - /code-security/supply-chain-security/about-dependabot-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
+shortTitle: Dependabot 版本更新
 ---
-### 关于 {% data variables.product.prodname_dependabot_version_updates %}
+
+## 关于 {% data variables.product.prodname_dependabot_version_updates %}
 
 {% data variables.product.prodname_dependabot %} 负责维护您的依赖项。 您可以使用它来确保仓库自动跟上它所依赖的包和应用程序的最新版本。
 
@@ -26,7 +33,7 @@ topics:
 
 {% data reusables.dependabot.dependabot-tos %}
 
-### {% data variables.product.prodname_dependabot %} 拉取请求的频率
+## {% data variables.product.prodname_dependabot %} 拉取请求的频率
 
 在配置文件中指定检查每个生态系统的新版本的频率：每日、每周或每月。
 
@@ -34,7 +41,7 @@ topics:
 
 如果您启用了安全更新，有时会看到额外的安全更新拉取请求。 这些由默认分支上依赖项的 {% data variables.product.prodname_dependabot %} 警报所触发。 {% data variables.product.prodname_dependabot %} 自动提出拉取请求以更新有漏洞的依赖项。
 
-### 支持的仓库和生态系统
+## 支持的仓库和生态系统
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported repositories or ecosystems. -->
 
 您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)。”
@@ -51,6 +58,6 @@ topics:
 
 如果您的仓库已使用集成进行依赖项管理，则在启用 {% data variables.product.prodname_dependabot %} 前需要禁用此集成。 更多信息请参阅“[关于集成](/github/customizing-your-github-workflow/about-integrations)”。
 
-### 关于 {% data variables.product.prodname_dependabot %} 版本更新通知
+## 关于 {% data variables.product.prodname_dependabot %} 版本更新通知
 
 您可以在 {% data variables.product.company_short %} 上过滤通知以显示 {% data variables.product.prodname_dependabot %} 版本更新。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。

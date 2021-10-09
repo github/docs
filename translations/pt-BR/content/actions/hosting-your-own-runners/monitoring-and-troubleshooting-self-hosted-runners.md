@@ -6,27 +6,25 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Monitorar & solucionar problemas
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Verificar o status de um executor auto-hospedado usando {{ site.data.variables.product.prodname_dotcom }}
+## Verificar o status de um executor auto-hospedado usando {% data variables.product.prodname_dotcom %}
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Em "Executores auto-hospedados", você pode ver uma lista de executores registrados, incluindo o nome, etiqueta e status do executor.
-
-    ![Lista de executores](/assets/images/help/settings/actions-runner-list.png)
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Em {% ifversion fpt or ghes > 3.1 or ghae-next %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, você pode ver uma lista de executores registrados, incluindo nome do executor, etiqueta e status.
 
     Pode haver os seguintes status:
 
@@ -35,19 +33,19 @@ defaultPlatform: linux
     * **Off-line**: O executor não está conectado a {% data variables.product.product_name %}. Isto pode ser porque a máquina está off-line, o aplicativo do executor auto-hospedado não está funcionando na máquina, ou o aplicativo do executor auto-hospedado não pode comunicar-se com {% data variables.product.product_name %}.
 
 
-### Revisar os arquivos de registro do aplicativo do executor auto-hospedado
+## Revisar os arquivos de registro do aplicativo do executor auto-hospedado
 
 Você pode monitorar o status do aplicativo do executor auto-hospedado e suas atividades. Os arquivos de registro são mantidos no diretório `_diag` e um novo é gerado toda vez que o aplicativo é iniciado. O nome do arquivo começa com *Runner_*, e é seguido por uma marca de tempo de UTC para quando o aplicativo foi iniciado.
 
 Para obter registros detalhados sobre as execuções do fluxo de trabalho, consulte a próxima seção que escreve os arquivos *Worker_*.
 
-### Revisar o arquivo de registro de um trabalho
+## Revisar o arquivo de registro de um trabalho
 
 O aplicativo do executor auto-hospedado cria um arquivo de registro detalhado para cada trabalho que processa. Esses arquivos são armazenados no diretório `_diag` e o nome do arquivo começa com *Worker_*.
 
 {% linux %}
 
-### Usar journalctl para verificar o serviço do aplicativo do executor auto-hospedado
+## Usar journalctl para verificar o serviço do aplicativo do executor auto-hospedado
 
 Para os executores auto-hospedados baseados no Linux que executam o aplicativo usando um serviço, você pode usar o `journalctl` para monitorar a sua atividade em tempo real. O serviço-padrão baseado no sistema usa a seguinte convenção de nomes: `actions.runner.<org>-<repo>.<runnerName>.service`. Esse nome será truncado se exceder 80 caracteres. Portanto, a forma preferida de encontrar o nome do serviço é selecionar o arquivo _.service_. Por exemplo:
 
@@ -80,7 +78,7 @@ Para visualizar a configuração do systemd, você pode localizar o arquivo de s
 
 {% mac %}
 
-### Usar o launchd para verificar o serviço do aplicativo do executor auto-hospedado
+## Usar o launchd para verificar o serviço do aplicativo do executor auto-hospedado
 
 Para executores auto-hospedados baseados em macOS que executam o aplicativo como um serviço, você pode usar o `launchctl` para monitorar suas atividades em tempo real. O serviço-padrão baseado no launchd usa a seguinte convenção de nomes: `actions.runner.<org>-<repo>.<runnerName>`. Esse nome será truncado se exceder 80 caracteres. Portanto, a forma preferida de encontrar o nome do serviço será selecionar o arquivo _.service_ no diretório do executor:
 
@@ -108,7 +106,7 @@ Para visualizar a configuração do launchd, você pode localizar o arquivo de s
 
 {% windows %}
 
-### Usar PowerShell para verificar o serviço do aplicativo do executor auto-hospedado
+## Usar PowerShell para verificar o serviço do aplicativo do executor auto-hospedado
 
 Para executores auto-hospedados baseados no Windows que executam o aplicativo como um serviço, você pode usar o PowerShell para monitorar suas atividades em tempo real. O serviço usa a convenção de nome `GitHub Actions Runner (<org>-<repo>.<runnerName>)`. Você também pode encontrar o nome do serviço, verificando o arquivo _.service_ no diretório do executor:
 
@@ -145,7 +143,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-### Monitorar o processo de atualização automática
+## Monitorar o processo de atualização automática
 
 Recomendamos que você verifique regularmente o processo de atualização automática, uma vez que o executor auto-hospedado não será capaz de processar os trabalhos se estiver abaixo de um determinado limite de versão. O aplicativo do executor auto-hospedado atualiza-se, mas mas observe que este processo não inclui atualizações do sistema operacional ou de outro software. Será necessário que você gerencie essas atualizações separadamente.
 
@@ -159,9 +157,9 @@ Além disso, você pode encontrar mais informações nos arquivos de registro _S
 
 {% linux %}
 
-### Resolução de problemas de contêineres em executores auto-hospedados
+## Resolução de problemas de contêineres em executores auto-hospedados
 
-#### Verificar se o Docker está instalado
+### Verificar se o Docker está instalado
 
 Se seus trabalhos exigirem contêineres, o executor auto-hospedado deverá ser baseado no Linux e deverá ter o Docker instalado. Verifique se o seu executor auto-hospedado tem o Docker instalado e se o serviço está em execução.
 
@@ -180,7 +178,7 @@ Se o Docker não estiver instalado, ações dependentes irão falhar com as segu
 [2020-02-13 16:56:10Z ERR  StepsRunner] Capturou exceção da etapa: System.IO.FileNotFoundException: Arquivo não encontrado: 'docker'
 ```
 
-#### Verificar as permissões do Docker
+### Verificar as permissões do Docker
 
 Se seu trabalho falhar com o seguinte erro:
 

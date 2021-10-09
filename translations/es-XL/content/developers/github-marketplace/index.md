@@ -6,10 +6,11 @@ redirect_from:
   - /apps/marketplace/
   - /marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 children:
+  - /github-marketplace-overview
   - /creating-apps-for-github-marketplace
   - /using-the-github-marketplace-api-in-your-app
   - /listing-an-app-on-github-marketplace

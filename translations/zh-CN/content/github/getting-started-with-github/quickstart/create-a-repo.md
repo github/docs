@@ -15,11 +15,12 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### 创建仓库
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-您可以在 {% data variables.product.product_name %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。
+您可以在 {% data variables.product.product_name %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
@@ -39,9 +40,7 @@ topics:
 
 {% data reusables.repositories.create_new %}
 2. 为仓库键入简短、令人难忘的名称。 例如 "hello-world"。 ![用于输入仓库名称的字段](/assets/images/help/repository/create-repository-name.png)
-3. （可选）添加仓库的说明。 例如“我在
-{% data variables.product.product_name %}。"
-  ![用于输入仓库说明的字段](/assets/images/help/repository/create-repository-desc.png)
+3. （可选）添加仓库的说明。 例如，“我在 {% data variables.product.product_name %} 上的第一个仓库”。 ![用于输入仓库说明的字段](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -79,6 +78,7 @@ A *[提交](/articles/github-glossary#commit)*就像是项目中所有文件在�
 
 - “[设置 Git](/articles/set-up-git)”
 - **创建仓库**
+- "[克隆仓库](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
 - “[复刻仓库](/articles/fork-a-repo)”
 - “[社交化](/articles/be-social)”
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

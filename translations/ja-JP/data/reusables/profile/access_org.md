@@ -1,1 +1,1 @@
-1. {% data variables.product.prodname_dotcom %}の右上で、プロフィール写真をクリックし、続いて**Your organizations（あなたのOrganization）**をクリックしてください。 ![プロフィールメニューのあなたのOrganization](/assets/images/help/profile/your-organizations.png)
+1. {% data variables.product.product_name %}の右上で、プロフィール写真をクリックし、続いて**Your organizations（あなたのOrganization）**をクリックしてください。 ![プロフィールメニューのあなたのOrganization](/assets/images/help/profile/your-organizations.png)

@@ -7,12 +7,14 @@ redirect_from:
   - /articles/closing-a-project-board
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+{% data reusables.projects.project_boards_old %}
+
 When you close a project board, any configured workflow automation will pause by default.
 
 If you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board. For more information, see "[Reopening a closed project board](/articles/reopening-a-closed-project-board)" or "[About automation for project boards](/articles/about-automation-for-project-boards)."
@@ -23,7 +25,7 @@ If you reopen a project board, you have the option to *sync* automation, which u
 3. Click **Close**.
 ![Close item in the project board's drop-down menu](/assets/images/help/projects/close-project.png)
 
-### Further reading
+## Further reading
 
 - "[About project boards](/articles/about-project-boards)"
 - "[Deleting a project board](/articles/deleting-a-project-board)"

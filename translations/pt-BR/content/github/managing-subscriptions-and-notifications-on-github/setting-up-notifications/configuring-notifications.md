@@ -21,6 +21,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -52,13 +53,12 @@ A caixa de entrada de notificações em {% data variables.product.product_name %
   - Notificações em grupo em sua caixa de entrada por repositório ou data para obter uma visão geral rápida com menos comutação de contexto
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
-Além disso, você pode receber e acessar as notificações no seu dispositivo móvel com
-{% data variables.product.prodname_mobile %}. Para obter mais informações, consulte "[Gerenciar as suas configurações de notificação com o GitHub para celular](#managing-your-notification-settings-with-github-for-mobile)" ou "[GitHub para celular](/github/getting-started-with-github/github-for-mobile)".
+Além disso, você pode receber e testar notificações no seu dispositivo móvel com {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte "[Gerenciar as suas configurações de notificação com o GitHub para celular](#managing-your-notification-settings-with-github-for-mobile)" ou "[GitHub para celular](/github/getting-started-with-github/github-for-mobile)".
 {% endif %}
 
 #### Benefícios da utilização de um cliente de e-mail para notificações
 
-Um benefício de usar um cliente de e-mail é que todas as suas notificações podem ser mantidas indefinidamente, dependendo da capacidade de armazenamento do seu cliente de e-mail. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. As notificações **Saved** (Salvas) são mantidas indefinidamente. Para obter mais informações sobre a política de retenção da sua caixa de entrada, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)".
+Um benefício de usar um cliente de e-mail é que todas as suas notificações podem ser mantidas indefinidamente, dependendo da capacidade de armazenamento do seu cliente de e-mail. As suas notificações na caixa de entrada só são mantidas por 5 meses em {% data variables.product.prodname_dotcom %} a menos que você as tenha marcado como **Salvas**. As notificações **Saved** (Salvas) são mantidas indefinidamente. Para obter mais informações sobre a política de retenção da sua caixa de entrada, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)".
 
 O envio de notificações para o cliente de e-mail também permite que você personalize sua caixa de entrada de acordo com as configurações do cliente de e-mail que pode incluir etiquetas personalizadas ou codificadas por cores.
 
@@ -72,13 +72,11 @@ Para ver repositórios que você está inspecionando, acesse a sua [página de i
 {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
 #### Configurar notificações
 {% endif %}
-Você pode configurar as notificações para um repositório na página do repositório ou na página de visitas.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
+É possível configurar as notificações para um repositório na página do repositório ou na página de inspeção.{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} Você pode optar por receber apenas notificações de versões em um repositório ou ignorar todas as notificações de um repositório.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 #### Sobre as notificações personalizadas
-You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (
-{% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
+É possível personalizar notificações para um repositório. Por exemplo, você pode optar por receber notificação apenas quando atualizações de um ou mais tipos de eventos ({% data reusables.notifications-v2.custom-notification-types %}) ocorrerem em um repositório, ou ignorar todas as notificações de um repositório.
 {% endif %} Para obter mais informações, consulte "[Definir as suas configurações de inspeção para um repositório individual](#configuring-your-watch-settings-for-an-individual-repository)" abaixo.
 
 #### Participar de conversas
@@ -160,7 +158,7 @@ Se "Inspecionar repositórios automaticamente" estiver desativado, então você 
 
 ### Configurando as configurações de inspeção para um repositório individual
 
-É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
+É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por ser notificado apenas de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}certos tipos de eventos como {% data reusables.notifications-v2.custom-notification-types %} (se habilitado para o repositório) {% else %}novas versões{% endif %}, ou ignorar completamente um repositório individual.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. No canto superior direito, clique no menu suspenso "Inspecionar" para selecionar uma opção de inspeção.
@@ -214,9 +212,8 @@ Se você for integrante de mais de uma organização, você poderá configurar c
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
-Para obter mais informações sobre os métodos de entrega de notificações disponíveis para você e conselhos sobre otimização de suas notificações
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
+Para mais informações sobre os métodos de entrega de notificação disponíveis para você e aconselhamento sobre como otimizar as notificações para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -224,7 +221,7 @@ Para obter mais informações sobre os métodos de entrega de notificações dis
 
 Escolha como você deseja receber atualizações de execução de fluxo de trabalho para repositórios que você está inspecionando que estão configurados com o {% data variables.product.prodname_actions %}. Você também pode optar por receber apenas notificações de execução de fluxo de trabalho falha.
 
-  ![Notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
+  ![Opções de notificação para {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
 
 {% endif %}
 

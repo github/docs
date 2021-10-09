@@ -6,13 +6,14 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Troubleshoot authorization
 ---
-### Application suspended
+## Application suspended
 
 If the OAuth App you set up has been suspended (due to reported abuse, spam, or a mis-use of the API), GitHub will redirect to the registered callback URL using the following parameters to summarize the error:
 
@@ -23,7 +24,7 @@ If the OAuth App you set up has been suspended (due to reported abuse, spam, or 
 
 To solve issues with suspended applications, please contact {% data variables.contact.contact_support %}.
 
-### Redirect URI mismatch
+## Redirect URI mismatch
 
 If you provide a `redirect_uri` that doesn't match what you've registered with your application, GitHub will redirect to the registered callback URL with the following parameters summarizing the error:
 
@@ -34,7 +35,7 @@ If you provide a `redirect_uri` that doesn't match what you've registered with y
 
 To correct this error, either provide a `redirect_uri` that matches what you registered or leave out this parameter to use the default one registered with your application.
 
-#### Access denied
+### Access denied
 
 If the user rejects access to your application, GitHub will redirect to
 the registered callback URL with the following parameters summarizing

@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
   - /education/manage-coursework-with-github-classroom/run-student-code-in-an-online-ide
 ---
+
 ### 学生のコードとオンラインIDEについて
 
 課題用にオンライン統合環境 (IDE) を設定している場合、オンラインIDE内でコードを実行できます。 お手元のコンピューターに課題リポジトリをクローンする必要はありません。

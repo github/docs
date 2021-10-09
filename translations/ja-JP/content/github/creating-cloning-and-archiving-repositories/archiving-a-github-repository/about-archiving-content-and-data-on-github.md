@@ -9,6 +9,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### パブリックリポジトリの永続性
 
 {% data variables.product.product_name %}は、ユーザが削除しない限りパブリックリポジトリを利用できるまま保とうとします。 たとえば以下のような場合、パブリックなコンテンツを利用できないようにすることがあります:

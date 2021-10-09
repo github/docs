@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 1. 他のユーザーのリポジトリで、編集するファイルが含まれるフォルダに移動します。 編集するファイルの名前をクリックします。
 2. ファイルの中身の上にある {% octicon "pencil" aria-label="The edit icon" %} をクリックします。 この時点で、リポジトリが自動でフォークされます。
 3. ファイルに必要な変更を加えます。 ![ファイル内の新しいコンテンツ](/assets/images/help/repository/edit-readme-light.png)

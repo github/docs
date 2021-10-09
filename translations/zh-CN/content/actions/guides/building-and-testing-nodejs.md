@@ -132,7 +132,7 @@ jobs:
 如果您没有指定 Node.js 版本，
 
 {% data variables.product.prodname_dotcom %} 使用环境的默认 Node.js 版本。
-{% if currentVersion == "github-ae@latest" %} 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% if currentversion == "github-ae@latest" %} 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
 {% else %}更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
 {% endif %}
 

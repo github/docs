@@ -5,7 +5,7 @@ intro: 'Enterprise の SAML シングルサインオン (SSO) を設定できま
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,9 +16,10 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
 ---
-### SAML SSO について
 
-{% if currentVersion == "github-ae@latest" %}
+## SAML SSO について
+
+{% ifversion ghae %}
 
 SAML SSO を使用すると、SAML IdP から {% data variables.product.product_location %} へのアクセスを一元的に制御しアクセスをセキュアにできます。 認証されていないユーザがブラウザで {% data variables.product.product_location %} にアクセスすると、{% data variables.product.product_name %} はユーザを認証するために SAML IdP にリダイレクトします。 ユーザが IdP のアカウントで正常に認証されると、IdP はユーザを {% data variables.product.product_location %} にリダイレクトします。 {% data variables.product.product_name %} は、IdP からのレスポンスを検証してから、ユーザにアクセスを許可します。
 
@@ -30,19 +31,19 @@ SAML SSO を使用すると、SAML IdP から {% data variables.product.product_
 
 {% endif %}
 
-### サポートされているアイデンティティプロバイダ
+## サポートされているアイデンティティプロバイダ
 
 {% data variables.product.product_name %} は、SAML2.0 標準を実装し IdP を使用した SAML SSO をサポートします。 詳しい情報については、OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security) を参照してください。
 
 {% data variables.product.company_short %} は、次の IdP を使用して {% data variables.product.product_name %} の SAML SSO をテストしました。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 - Azure AD
 {% endif %}
 
-### SAML SSO を有効化する
+## SAML SSO を有効化する
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -62,11 +63,11 @@ SAML SSO を使用すると、SAML IdP から {% data variables.product.product_
 
 {% endif %}
 
-### SAML SSO 設定を編集する
+## SAML SSO 設定を編集する
 
 IdP の詳細が変更された場合は、{% data variables.product.product_location %} の SAML SSO 設定を編集する必要があります。 たとえば、IdP の証明書の有効期限が切れそうな場合、公開証明書の値を編集できます。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% note %}
 
@@ -87,9 +88,9 @@ IdP の詳細が変更された場合は、{% data variables.product.product_loc
 
 {% endif %}
 
-### SAML SSO を無効化する
+## SAML SSO を無効化する
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% warning %}
 

@@ -6,16 +6,20 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - CVEs
+shortTitle: Security advisories
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### Informationen zu {% data variables.product.prodname_security_advisories %}
+## Informationen zu {% data variables.product.prodname_security_advisories %}
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
 
@@ -37,7 +41,7 @@ If you created a security advisory in your repository, the security advisory wil
 
 {% data reusables.repositories.github-security-lab %}
 
-### CVE-Identifikationsnummern
+## CVE-Identifikationsnummern
 
 {% data variables.product.prodname_security_advisories %} basiert auf der Grundlage der 'Common Vulnerabilities and Exposures (CVE)'-Liste (Liste der häufigsten Schwachstellen und Gefährdungen). The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format.
 
@@ -47,6 +51,6 @@ Wenn Du einen Sicherheitshinweis für ein öffentliches Repository auf {% data v
 
 Once you've published the security advisory and {% data variables.product.prodname_dotcom %} has assigned a CVE identification number to the vulnerability, {% data variables.product.prodname_dotcom %} publishes the CVE to the MITRE database. Für weitere Informationen siehe „[Einen Sicherheitshinweis veröffentlichen](/github/managing-security-vulnerabilities/publishing-a-security-advisory#requesting-a-cve-identification-number)."
 
-### {% data variables.product.prodname_dependabot_alerts %} for published security advisories
+## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}

@@ -1,23 +1,28 @@
 ---
 title: Agregar una política de seguridad a tu repositorio
-intro: You can give instructions for how to report a security vulnerability in your project by adding a security policy to your repository.
+intro: Puedes dar instrucciones de cómo reportar una vulnerabilidad de seguridad en tu proyecto si agregas una política de seguridad a tu repositorio.
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
   - /github/code-security/security-advisories/adding-a-security-policy-to-your-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.1'
-  github-ae: next
+  fpt: '*'
+  ghes: '>=3.1'
+  ghae: next
+type: how_to
 topics:
-  - Security
+  - Security policies
+  - Vulnerabilities
+  - Repositories
+  - Health
+shortTitle: Agregar una política de seguridad
 ---
 
-### Acerca de las políticas de seguridad
+## Acerca de las políticas de seguridad
 
-To give people instructions for reporting security vulnerabilities in your project,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a _SECURITY.md_ file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
+Para otorgar instrucciones a las personas sobre cómo reportar las vulnerabilidades de seguridad en tu proyecto,{% ifversion fpt or ghes > 3.0 %} puedes agregar un archivo de _SECURITY.md_ a carpeta `docs`, `.github` o raíz de tu repositorio.{% else %} puedes agregar un archivo de _SECURITY.md_ a la carpeta `docs` o raíz de tu repositorio.{% endif %} Cuando alguien crea una propuesta en tu repositorio, verán un enlace en la política de seguridad de tu proyecto.
 
-{% if currentVersion != 'github-ae@next' %}
+{% ifversion not ghae %}
 <!-- no public repos in GHAE -->
 Puedes crear una política de seguridad predeterminada para tu cuenta de usuario o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 {% endif %}
@@ -28,21 +33,21 @@ Puedes crear una política de seguridad predeterminada para tu cuenta de usuario
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 Después de que alguien reporte una vulnerabilidad de seguridad en tu proyecto, puedes utilizar {% data variables.product.prodname_security_advisories %} para divulgar, arreglar y publicar información acerca de la misma. Para obtener más información sobre el proceso de reportar y divulgar vulnerabilidades en {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de la divulgación coordinada de las vulnerabilidades de seguridad](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)". Para obtener más información acerca de las {% data variables.product.prodname_security_advisories %}, consulta la sección "[Acerca del {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
+{% ifversion ghes > 3.0 or ghae-next %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
-By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
+Cuando pones las instrucciones de reporte de seguridad claramente disponibles, facilitas a tus usurios el reportar cualquier vulnerabilidad de seguridad que encuentren en tu repositorio utilizando tu canal de comunicación preferido.
 {% endif %}
 
-### Agregar una política de seguridad a tu repositorio
+## Agregar una política de seguridad a tu repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Security policy**. ![Security policy tab](/assets/images/help/security/security-policy-tab.png)
+3. En la barra lateral iziquierda, haz clic en **Política de seguridad**. ![Pestaña de política de seguridad](/assets/images/help/security/security-policy-tab.png)
 4. Haz clic en **Start setup** (Iniciar configuración). ![Botón Start setup (Iniciar configuración)](/assets/images/help/security/start-setup-security-policy-button.png)
 5. En el archivo _SECURITY.md_ nuevo, agrega información sobre las versiones compatibles de tu proyecto y cómo informar una vulnerabilidad.
 {% data reusables.files.write_commit_message %}
@@ -50,8 +55,8 @@ By making security reporting instructions clearly available, you make it easy fo
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Leer más
+## Leer más
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
-- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- "[Asegurar tu repositorio](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
+- "[Configurar tu proyecto para tener contribuciones saludables](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

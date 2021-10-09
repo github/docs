@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-global-webhooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Webhooks
 ---
-### Sobre webhooks globais
+
+## Sobre webhooks globais
 
 Você pode usar webhooks globais para monitorar, responder ou aplicar regras automaticamente para o gerenciamento de usuários e organizações do seu negócio. Por exemplo, você pode configurar os webhooks para serem executados sempre que:
 - Uma conta de usuário for criada ou excluída;
@@ -25,7 +26,7 @@ Você pode usar webhooks globais para monitorar, responder ou aplicar regras aut
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-### Adicionar um webhook global
+## Adicionar um webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -48,7 +49,7 @@ Você pode usar webhooks globais para monitorar, responder ou aplicar regras aut
 12. Confirme se a caixa de seleção **Active** (Ativo) está marcada (ela fica selecionada por padrão). ![Caixa de seleção Active (Ativo) marcada](/assets/images/enterprise/site-admin-settings/add-global-webhook-active-checkbox.png)
 13. Clique em **Add webhook** (Adicionar webhook).
 
-### Editar um webhook global
+## Editar um webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -57,7 +58,7 @@ Você pode usar webhooks globais para monitorar, responder ou aplicar regras aut
 6. Atualize as configurações do webhook.
 7. Clique em **Update webhook** (Atualizar webhook).
 
-### Excluir um webhook global
+## Excluir um webhook global
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -65,7 +66,7 @@ Você pode usar webhooks globais para monitorar, responder ou aplicar regras aut
 5. Ao lado do webhook que você pretende excluir, clique em **Delete** (Excluir). ![Botão Delete (Excluir) ao lado de um webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
 6. Leia as informações sobre como excluir um webhook e clique em **Yes, delete webhook** (Sim, excluir webhook). ![Caixa pop-up com informações de aviso e botão para confirmar a exclusão do webhook](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
-### Exibir respostas e entregas recentes
+## Exibir respostas e entregas recentes
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

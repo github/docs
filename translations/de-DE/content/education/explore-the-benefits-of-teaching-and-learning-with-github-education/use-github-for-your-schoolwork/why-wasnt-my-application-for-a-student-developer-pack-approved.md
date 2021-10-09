@@ -9,15 +9,17 @@ redirect_from:
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Application not approved
 ---
+
 {% tip %}
 
 **Tipp:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-### Unklare Dokumente zur akademischen Zugehörigkeit
+## Unklare Dokumente zur akademischen Zugehörigkeit
 
 If the dates or schedule mentioned in your uploaded image do not match our eligibility criteria, we require further proof of your academic status.
 
@@ -25,13 +27,13 @@ If the image you uploaded doesn't clearly identify your current academic status 
 
 {% data reusables.education.pdf-support %}
 
-### Akademische E-Mail-Adresse mit einer nicht verifizierten Domäne verwenden
+## Akademische E-Mail-Adresse mit einer nicht verifizierten Domäne verwenden
 
 Wenn Deine akademische E-Mail-Adresse eine nicht verifizierte Domäne aufweist, fordern wir einen weiteren Nachweis Deines akademischen Status an. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
-### Akademische E-Mail-Adresse von einer Bildungseinrichtung mit lockeren E-Mail-Richtlinien verwenden
+## Akademische E-Mail-Adresse von einer Bildungseinrichtung mit lockeren E-Mail-Richtlinien verwenden
 
 Wenn Deine Bildungseinrichtung E-Mail-Adressen vor der bezahlten Studentenregistrierung ausstellt, fordern wir einen weiteren Nachweis Deines akademischen Status an. {% data reusables.education.upload-proof-reapply %}
 
@@ -39,9 +41,9 @@ Wenn Deine Bildungseinrichtung E-Mail-Adressen vor der bezahlten Studentenregist
 
 Bei anderen Fragen oder Bedenken zur Domäne der Bildungseinrichtung solltest Du das IT-Personal Deiner Bildungseinrichtung bitten, uns zu kontaktieren.
 
-### Akademische E-Mail-Adresse wird bereits verwendet
+## Akademische E-Mail-Adresse wird bereits verwendet
 
-Wenn Deine akademische E-Mail-Adresse bereits verwendet wurde, um ein {% data variables.product.prodname_student_pack %} für ein anderes {% data variables.product.prodname_dotcom %}-Konto anzufordern, kannst Du die akademische E-Mail-Adresse bis zum Ablauf des entsprechenden Rabatts nicht erneut verwenden, um Dich erfolgreich für ein anderes {% data variables.product.prodname_student_pack %} zu bewerben.
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 
@@ -56,7 +58,7 @@ Weitere Informationen findest Du unter:
 - „[Deinen {% data variables.product.prodname_dotcom %}-Benutzernamen ändern](/articles/changing-your-github-username)“
 - „[E-Mail-Adresse zu Deinem {% data variables.product.prodname_dotcom %}-Konto hinzufügen](/articles/adding-an-email-address-to-your-github-account)“
 
-### Nicht berechtigter Studentenstatus
+## Nicht berechtigter Studentenstatus
 
 Du bist nicht für ein {% data variables.product.prodname_student_pack %} berechtigt, falls:
 - You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
@@ -65,7 +67,7 @@ Du bist nicht für ein {% data variables.product.prodname_student_pack %} berech
 
 Dein Kursleiter kann weiterhin einen {% data variables.product.prodname_education %}-Rabatt für die Nutzung in der Ausbildung beantragen. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Ein Studentenentwicklungspaket beantragen](/articles/applying-for-a-student-developer-pack)“
 - "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"

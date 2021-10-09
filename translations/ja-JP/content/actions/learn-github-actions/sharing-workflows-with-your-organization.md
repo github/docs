@@ -5,9 +5,9 @@ intro: ワークフローテンプレート、シークレット、およびセ�
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 ---
 
@@ -15,13 +15,19 @@ type: how_to
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### 概要
+## 概要
 
 ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 Organization を使用すると、シークレット、成果物、およびセルフホストランナーを一元的に保存および管理できます。 `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
 
-### ワークフロー テンプレートの作成
+## ワークフロー テンプレートの作成
 
-ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。 Workflow templates can be used to create new workflows in an organizations' public repositories; to use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
+ワークフローテンプレートは、Organizationの `.github` リポジトリへの書き込みアクセス権を持つユーザが作成できます。 その後、ワークフローを作成する権限を持つOrganizationのメンバーがテンプレートを使用できます。
+
+{% note %}
+
+**Note:** Workflow templates can be used to create new workflows in an organization' s public repository; to use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
+
+{% endnote %}
 
 この手順では、ワークフロー テンプレートとメタデータ ファイルを作成する方法を示します。 メタデータ ファイルには、ユーザが新しいワークフローを作成するときにテンプレートがどのように表示されるかについて説明します。
 
@@ -78,7 +84,7 @@ type: how_to
 
 ![ワークフロー テンプレート ファイル](/assets/images/help/images/workflow-template-files.png)
 
-### Organization のワークフローテンプレートを使用する
+## Organization のワークフローテンプレートを使用する
 
 この手順では、Organizationのメンバーがワークフロー テンプレートを検索して利用し、新しいワークフローを作成する方法を示します。 Organizationのワークフロー テンプレートは、Organizationのメンバーであるすべてのユーザーが使用できます。
 
@@ -88,7 +94,7 @@ type: how_to
 1. Organizationのワークフロー テンプレートは、「_Organizationの名前_によって作成されたワークフロー」というタイトルの独自セクションにあります。 使いたいテンプレート名の下で、**Set up this workflow（このワークフローをセットアップする）**をクリックしてください。 ![このワークフローを設定します](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 
-### Organization 内でシークレットを共有する
+## Organization 内でシークレットを共有する
 
 Organization 内でシークレットを一元管理し、選択したリポジトリで使用できるようにすることができます。 これは、1 つの場所でシークレットを更新し、その変更をシークレットを使用するすべてのリポジトリワークフローに適用できるということを示します。
 
@@ -105,13 +111,13 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
 1. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。
 1. [**Add secret（シークレットの追加）**] をクリックします。
 
-### Organization 内でセルフホストランナーを共有する
+## Organization 内でセルフホストランナーを共有する
 
 Organization の管理者は、セルフホストランナーをグループに追加してから、グループにアクセスできるリポジトリを制御するポリシーを作成できます。
 
 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
 
-### 次のステップ
+## 次のステップ
 
 {% data variables.product.prodname_actions %} の詳細については、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions)」を参照してください。

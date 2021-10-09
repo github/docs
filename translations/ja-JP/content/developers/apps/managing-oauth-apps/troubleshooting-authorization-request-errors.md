@@ -6,13 +6,15 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
   - /developers/apps/troubleshooting-authorization-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: 認可のトラブルシューティング
 ---
-### アプリケーションのサスペンド
+
+## アプリケーションのサスペンド
 
 設定した OAuth Appが (不正利用の報告、スパム、APIの誤用により) サスペンドされた場合、GitHubは以下のパラメータを使用して、エラーを手短に説明する、登録されたコールバックURLにリダイレクトします。
 
@@ -23,7 +25,7 @@ topics:
 
 サスペンドされたアプリケーションに関する問題を解決するには、{% data variables.contact.contact_support %} までご連絡ください。
 
-### リダイレクトURIの不一致
+## リダイレクトURIの不一致
 
 指定した`redirect_uri`がアプリケーションで登録したものと一致しない場合、GitHubは以下のパラメータを使用して、エラーを手短に説明する、登録されたコールバックURLにリダイレクトします。
 
@@ -34,7 +36,7 @@ topics:
 
 このエラーを修正するには、登録したものと一致する`redirect_uri`を指定するか、アプリケーションで登録されているデフォルトのURIを使用するためパラメータを省略します。
 
-#### アクセス拒否
+### アクセス拒否
 
 If the ユーザがアプリケーションへのアクセスを拒否している場合、GitHubは以下のパラメータを使用して、エラーを手短に説明する、登録されたコールバックURLにリダイレクトします。
 

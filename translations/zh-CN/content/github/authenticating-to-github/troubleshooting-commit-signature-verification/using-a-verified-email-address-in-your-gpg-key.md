@@ -12,9 +12,9 @@ topics:
   - Identity
   - Access management
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-如果您需要验证 GitHub 电子邮件地址，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address/)”。
-{% endif %}如果您需要更新电子邮件地址或将其添加到 GPG 密钥，请参阅“[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)”。
+如果您需要验证 GitHub 电子邮件地址，请参阅“[验证电子邮件地址](/articles/verifying-your-email-address/)”。 {% endif %}如果您需要更新电子邮件地址或将其添加到 GPG 密钥，请参阅“[将电子邮件与 GPG 密钥关联](/articles/associating-an-email-with-your-gpg-key)”。
 
 提交和标记可能包含多个 电子邮件地址。 对于提交，有作者（编写代码的人员）和提交者（将提交添加到树的人员）。 使用 Git 对提交签名时，无论是合并、优选还是正常的 `git commit`，提交者电子邮件地址都将是您的地址，即使并非作者电子邮件地址。 标记更为简单：标记者电子邮件地址始终为创建标记的用户。
 

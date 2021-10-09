@@ -5,13 +5,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Geplante Erinnerungen
 ---
 
-### Über geplante Erinnerungen für Teams
+## Über geplante Erinnerungen für Teams
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -19,9 +20,9 @@ Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle P
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Erstellen einer geplanten Erinnerung für ein Team
-{% data reusables.profile.access_profile %}
+## Erstellen einer geplanten Erinnerung für ein Team
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -43,9 +44,9 @@ Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle P
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-### Eine geplante Erinnerung für ein Team verwalten
-{% data reusables.profile.access_profile %}
+## Eine geplante Erinnerung für ein Team verwalten
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -54,16 +55,16 @@ Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle P
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Eine geplante Erinnerung für ein Team löschen
-{% data reusables.profile.access_profile %}
+## Eine geplante Erinnerung für ein Team löschen
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Geplante Erinnerungen für Deine Organisation verwalten](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
 - „[Deine geplanten Erinnerungen verwalten](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"

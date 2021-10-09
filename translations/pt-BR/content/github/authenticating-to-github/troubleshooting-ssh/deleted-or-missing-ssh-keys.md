@@ -9,6 +9,7 @@ versions:
 topics:
   - SSH
 ---
+
 O {% data variables.product.prodname_dotcom %} exclui automaticamente chaves SSH inativas para ajudar a manter as contas seguras, como depois que alguém deixa um emprego ou perde um computador.
 
 Caso queira verificar se você ainda não usou uma chave SSH em um ano, revise o log de segurança da sua conta. Para obter mais informações, consulte "[Revisar o log de segurança](/articles/reviewing-your-security-log/)."

@@ -11,13 +11,14 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
 ---
+
 ### 关于 {% data variables.product.prodname_dotcom %} 向验证身份
 
 为确保帐户安全，必须先进行身份验证，然后才能访问 {% data variables.product.product_name %} 上的{% if currentVersion != "github-ae@latest" %}某些{% endif %}资源。 向 {% data variables.product.product_name %} 验证时，您提供或确认您唯一的凭据，以证明您就是声明者。
 
 您可以通过多种方式访问 {% data variables.product.product_name %} 中的资源：浏览器中、通过 {% data variables.product.prodname_desktop %} 或其他桌面应用程序、使用 API 或通过命令行。 每种访问 {% data variables.product.product_name %} 的方式都支持不同的身份验证模式。
 
-- {% if currentVersion == "github-ae@latest" %}您的身份提供程序 (IdP){% else %}使用双重身份验证的用户名和密码{% endif %}
+- {% if currentversion == "github-ae@latest" %}您的身份提供程序 (IdP){% else %}使用双重身份验证的用户名和密码{% endif %}
 - 个人访问令牌
 - SSH 密钥
 

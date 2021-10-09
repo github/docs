@@ -5,13 +5,15 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
+  - /autoscaling-with-self-hosted-runners
   - /configuring-the-self-hosted-runner-application-as-a-service
+  - /using-a-proxy-server-with-self-hosted-runners
   - /using-labels-with-self-hosted-runners
   - /using-self-hosted-runners-in-a-workflow
   - /managing-access-to-self-hosted-runners-using-groups
@@ -20,4 +22,3 @@ children:
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% link_in_list/Using-a-Proxy-Server-With-Self-Hosted-Runners%}

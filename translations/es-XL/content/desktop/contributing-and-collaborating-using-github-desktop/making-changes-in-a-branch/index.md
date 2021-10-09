@@ -4,13 +4,12 @@ intro: 'Usa tu editor de texto favorito, como [Atom](https://atom.io/), para rea
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /managing-branches
   - /committing-and-reviewing-changes-to-your-project
-  - /pushing-changes-to-github
-  - /reverting-a-commit
-  - /managing-tags
+  - /stashing-changes
   - /viewing-the-branch-history
+  - /pushing-changes-to-github
 ---
 

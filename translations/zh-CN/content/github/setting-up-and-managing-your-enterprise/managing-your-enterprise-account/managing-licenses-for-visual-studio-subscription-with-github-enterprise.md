@@ -9,11 +9,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Visual Studio 捆绑包
 ---
-### 关于 {% data variables.product.prodname_vss_ghe %}
+
+## 关于 {% data variables.product.prodname_vss_ghe %}
 
 {% data variables.product.prodname_vss_ghe %} 是 Microsoft 的组合产品，允许订阅者使用 {% data variables.product.prodname_enterprise %} 和 {% data variables.product.prodname_vs %}。 {% data variables.product.prodname_vss_ghe %} 由 Microsoft 根据 Microsoft 企业协议的条款提供。 更多信息请参阅 {% data variables.product.prodname_vs %} 网站上的 [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/)。
 
@@ -23,7 +25,7 @@ topics:
 
 有关 {% data variables.product.prodname_enterprise %} 的更多信息，请参阅“[{% data variables.product.company_short %} 的产品](/github/getting-started-with-github/githubs-products#github-enterprise)”。 有关 {% data variables.product.prodname_dotcom_the_website %} 帐户的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户类型](/github/getting-started-with-github/types-of-github-accounts)”。
 
-### 基本要求
+## 基本要求
 
 1. 购买 {% data variables.product.prodname_vss_ghe %} 后，请联系 {% data variables.contact.contact_enterprise_sales %} 并提及 "{% data variables.product.prodname_vss_ghe %}"。 您将与销售团队合作，在 {% data variables.product.prodname_dotcom_the_website %} 上创建企业帐户。 如果您已经拥有 {% data variables.product.prodname_dotcom_the_website %} 上的企业帐户，或者您不确定，请告知我们的销售团队。
 
@@ -31,7 +33,7 @@ topics:
 
 3. 在 {% data variables.product.prodname_dotcom_the_website %} 上，至少创建一个由企业帐户拥有的组织。 更多信息请参阅“[将组织添加到企业帐户](/github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account)”。
 
-### 邀请订阅者使用 {% data variables.product.prodname_enterprise %}
+## 邀请订阅者使用 {% data variables.product.prodname_enterprise %}
 
 要使用许可的 {% data variables.product.prodname_enterprise %} 部分，订阅者在 {% data variables.product.prodname_dotcom_the_website %} 上的用户帐户必须是或成为 {% data variables.product.prodname_dotcom_the_website %} 上的企业所拥有组织的成员。
 
@@ -41,12 +43,12 @@ topics:
 
 更多信息请参阅“[邀请用户加入组织](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)”、“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”和“[管理电子邮件首选项](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)”。
 
-### 查看 {% data variables.product.prodname_enterprise %} 许可
+## 查看 {% data variables.product.prodname_enterprise %} 许可
 
-在 {% data variables.product.prodname_vss_admin_portal_with_url %} 中分配 {% data variables.product.prodname_vss_ghe %} 许可后，您可以查看企业帐户中可用的 {% data variables.product.prodname_enterprise %} 许可数量。 更多信息请参阅"[查看企业帐户的订阅和使用](/github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account)"。
+在 {% data variables.product.prodname_vss_admin_portal_with_url %} 中分配 {% data variables.product.prodname_vss_ghe %} 许可后，您可以查看企业帐户中可用的 {% data variables.product.prodname_enterprise %} 许可数量。 更多信息请参阅"[查看企业帐户的订阅和使用](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"。
 
 您也可以在 {% data variables.product.prodname_vss_admin_portal_with_url %} 中查看对订阅者的待处理 {% data variables.product.prodname_enterprise %} 邀请。 待处理邀请列表包括尚未加入企业帐户中至少一个组织的订阅者。 更多信息请参阅“[查看企业中的人员](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)”。
 
-### 延伸阅读
+## 延伸阅读
 
 - Microsoft 文档中的[包含 GitHub Enterprise 的 Visual Studio 订阅简介](https://docs.microsoft.com/visualstudio/subscriptions/access-github)

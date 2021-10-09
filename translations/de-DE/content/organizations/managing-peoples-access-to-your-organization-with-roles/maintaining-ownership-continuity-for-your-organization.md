@@ -9,15 +9,16 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Maintain ownership continuity
 ---
 
-### Über die Aufrechterhaltung der Inhaberkontinuität für Deine Organisation
+## Über die Aufrechterhaltung der Inhaberkontinuität für Deine Organisation
 
 {% data reusables.organizations.org-ownership-recommendation %}
 
@@ -29,10 +30,10 @@ Organisationsinhaber haben vollen administrativen Zugriff auf die Organisation. 
 
 {% endnote %}
 
-### Einen Organisationsinhaber ernennen
+## Einen Organisationsinhaber ernennen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Wähle die Person(en) aus, die Du als Inhaber festlegen möchtest. ![Liste der Mitglieder mit zwei ausgewählten Mitgliedern](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Klicke im Dropdownmenü über der Liste der Mitglieder auf **Change role** (Rolle ändern). ![Dropdownmenü mit Option zum Entfernen von Mitgliedern](/assets/images/help/teams/user-bulk-management-options.png)

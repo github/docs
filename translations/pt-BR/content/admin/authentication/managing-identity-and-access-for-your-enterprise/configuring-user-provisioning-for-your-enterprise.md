@@ -5,7 +5,7 @@ intro: 'Você pode configurar o Sistema para Gerenciamento de Identidades entre 
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -16,13 +16,14 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
-### Sobre provisionamento de usuários para sua empresa
+
+## Sobre provisionamento de usuários para sua empresa
 
 {% data reusables.saml.ae-uses-saml-sso %} Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% data reusables.scim.after-you-configure-saml %} Para obter mais informações sobre SCIM, consulte [Sistema para Gerenciamento de Identidade de Domínio Cruzado: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) no site de IETF.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 A configuração do provisionamento permite que o seu IdP se comunique com {% data variables.product.product_location %} quando você atribuir ou cancela a atribuição do aplicativo para {% data variables.product.product_name %} a um usuário no seu IdP. Ao atribuir o aplicativo, seu IdP pedirá que {% data variables.product.product_location %} crie uma conta e enviar um e-mail de integração para o usuário. Ao desatribuir o aplicativo, o seu IdP irá comunicar-se com {% data variables.product.product_name %} para invalidar quaisquer sessões de SAML e desabilitar a conta do integrante.
 
@@ -32,15 +33,15 @@ O aplicativo de provisionamento no seu IdP comunica-se com {% data variables.pro
 
 {% endif %}
 
-### Provedores de identidade compatíveis
+## Provedores de identidade compatíveis
 
 {% data reusables.scim.supported-idps %}
 
 Ao configurar o provisionamento de usuário com um IdP compatível, você também pode atribuir ou desatribuir a do aplicativo de {% data variables.product.product_name %} para grupos de usuários. Estes grupos são disponibilizados para os proprietários da organização e mantenedores de equipe em {% data variables.product.product_location %} para mapear para equipes de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
-### Pré-requisitos
+## Pré-requisitos
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 Para prover e desprover automaticamente o acesso a {% data variables.product.product_location %} a partir do seu IdP, primeiro você deve configurar o SSO de SAML ao inicializar {% data variables.product.product_name %}. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
 
@@ -48,13 +49,11 @@ Você deve ter acesso administrativo no seu IdP para configurar o aplicativo par
 
 {% endif %}
 
-### Habilitar provisionamento de usuários para a sua empresa
+## Habilitar provisionamento de usuários para a sua empresa
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
-1. Enquanto estiver conectado
-
-{% data variables.product.product_location %} como proprietário corporativo, crie um token de acesso pessoal com o escopo **admin:enterprise**. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+1. Enquanto estiver conectado {% data variables.product.product_location %} como proprietário de uma empresa, crie um token de acesso pessoal com **admin:enterprise** escopo. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
   {% note %}
 
   **Atenção**:
@@ -82,9 +81,9 @@ Você deve ter acesso administrativo no seu IdP para configurar o aplicativo par
 
   O aplicativo no seu IdP exige dois valores para provisionar ou desprovisionar contas de usuário em {% data variables.product.product_location %}.
 
-  | Valor              | Outros nomes                           | Descrição                                                                                                        | Exemplo                                           |
-  |:------------------ |:-------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |:------------------------------------------------- |
-  | URL                | URL do inquilino                       | URL para a API de provisionamento SCIM para a sua empresa em {% data variables.product.prodname_ghe_managed %} | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre>                         |
-  | Segredo partilhado | Token de acesso pessoal, token secreto | Token para aplicativo no seu IdP para executar tarefas de provisionamento em nome do proprietário de uma empresa | Token de acesso pessoal que você criou no passo 1 |
+  | Valor              | Outros nomes                           | Descrição                                                                                                        | Exemplo                                                            |
+  |:------------------ |:-------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------------ |
+  | URL                | URL do inquilino                       | URL para a API de provisionamento SCIM para a sua empresa em {% data variables.product.prodname_ghe_managed %} | <nobr>`{% data variables.product.api_url_pre %}/scim/v2</nobr>` |
+  | Segredo partilhado | Token de acesso pessoal, token secreto | Token para aplicativo no seu IdP para executar tarefas de provisionamento em nome do proprietário de uma empresa | Token de acesso pessoal que você criou no passo 1                  |
 
 {% endif %}

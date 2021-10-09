@@ -4,9 +4,9 @@ intro: Puedes utilizar políticas para limitar el acceso a los ejecutores auto-h
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 ---
 

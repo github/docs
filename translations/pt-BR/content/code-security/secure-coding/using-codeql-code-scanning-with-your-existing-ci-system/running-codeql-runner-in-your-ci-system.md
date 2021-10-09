@@ -12,9 +12,18 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Repositories
+  - Pull requests
+  - Integration
+  - CI
+  - SARIF
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
@@ -110,13 +119,20 @@ Neste exemplo, o servidor tem acesso para fazer o download do pacote {% data var
 1. Mova para o diretório para o local onde o repositório está reservado.
 1. Inicialize {% data variables.product.prodname_codeql_runner %} e crie banco de dados do {% data variables.product.prodname_codeql %} para as linguagens detectadas.
 
-    ```shell
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
+   ```shell
     $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo
         --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
+   ```
+{% else %}
+    ```shell
+    $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo
+        --github-url {% data variables.command_line.git_url_example %} --github-auth-stdin
     > Cleaning temp directory /srv/checkout/example-repo/codeql-runner
     > ...
     > Banco de dados do CodeQL criado em /srv/checkout/example-repo/codeql-runner/codeql_databases/javascript.
     ```
+{% endif %}
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 
@@ -127,25 +143,30 @@ Este exemplo é semelhante ao exemplo anterior. No entanto, desta vez, o reposit
 1. Confira o repositório a ser analisado.
 1. Mova para o diretório para o local onde o repositório está reservado.
 1. Inicialize {% data variables.product.prodname_codeql_runner %} e crie banco de dados do {% data variables.product.prodname_codeql %} para as linguagens detectadas.
-
-    ```shell
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
+ ```shell
     $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
         --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
+ ```
+{% else %}
+    ```shell
+    $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
+        --github-url {% data variables.command_line.git_url_example %} --github-auth-stdin
     > Cleaning temp directory /srv/checkout/example-repo-2/codeql-runner
     > ...
     > CodeQL environment output to "/srv/checkout/example-repo-2/codeql-runner/codeql-env.json"
       and "/srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
       Exporte essas variáveis para processos futuros para que o CodeQL possa monitorar a criação, por exemplo, executando 
 ". /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
-      ```
-
+    ```
+{% endif %}
 1. Extraia o script gerado pela ação `iniciar` para configurar o ambiente a fim de monitorar a criação. Observe o ponto e espaço principal no seguinte trecho do código.
 
     ```shell
     $ . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh
     ```
 
-1. Crie o código. No macOS, você precisa prefixar o comando de criação com a variável de ambiente `$CODEQL_RUNNER`. Para obter mais informações, consulte "[Solução de problemas {% data variables.product.prodname_codeql_runner %} no seu sistema CI](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system#no-code-found-during-the-build)#no-code-found-during-the-build)."
+1. Crie o código. No macOS, você precisa prefixar o comando de criação com a variável de ambiente `$CODEQL_RUNNER`. For more information, see "[Troubleshooting {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system#no-code-found-during-the-build)."
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 

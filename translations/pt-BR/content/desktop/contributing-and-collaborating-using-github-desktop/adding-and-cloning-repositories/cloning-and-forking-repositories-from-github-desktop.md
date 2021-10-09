@@ -6,9 +6,11 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Clonar & bifurcação no computador
 ---
-### Sobre repositórios locais
+
+## Sobre repositórios locais
 Repositórios em {% data variables.product.prodname_dotcom %} são repositórios remotos. É possível clonar ou bifurcar um repositório com {% data variables.product.prodname_desktop %} para criar um repositório local no seu computador.
 
 É possível criar uma cópia local de qualquer repositório em {% data variables.product.product_name %} que que tem acesso ao clonar o repositório. Se você tem um repositório ou tem permissões de gravação, você pode fazer a sincronização entre os locais e os locais remotos. Para obter mais informações, consulte "[Sincronizando seu branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
@@ -19,7 +21,7 @@ Ao tentar usar {% data variables.product.prodname_desktop %} para clonar um repo
 
 Também é possível clonar um repositório diretamente no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Clonar um repositório do {% data variables.product.prodname_dotcom %} para o {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
 
-### Clonar um repositório
+## Clonar um repositório
 
 {% data reusables.desktop.choose-clone-repository %}
 {% data reusables.desktop.cloning-location-tab %}
@@ -27,7 +29,7 @@ Também é possível clonar um repositório diretamente no {% data variables.pro
 {% data reusables.desktop.choose-local-path %}
 {% data reusables.desktop.click-clone %}
 
-### Bifurcar um repositório
+## Bifurcar um repositório
 Caso você clone um repositório que não tenha acesso de gravação, {% data variables.product.prodname_desktop %} criará uma bifurcação. Depois de criar ou clonar uma bifurcação, {% data variables.product.prodname_desktop %} perguntará como você planeja usar a bifurcação.
 
 {% data reusables.desktop.choose-clone-repository %}
@@ -37,11 +39,19 @@ Caso você clone um repositório que não tenha acesso de gravação, {% data va
 {% data reusables.desktop.click-clone %}
 {% data reusables.desktop.fork-type-prompt %}
 
-### Gerenciar o comportamento da bifurcação
+## Gerenciar o comportamento da bifurcação
 Você pode alterar como uma bifurcação se comporta com o repositório ascendente em {% data variables.product.prodname_desktop %}.
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
 
-### Leia mais
+## Criando um alias para um repositório local
+Você pode criar um alias para um repositório local para ajudar a diferenciar entre repositórios do mesmo nome em {% data variables.product.prodname_desktop %}. Criar um alias não afeta o nome do repositório no {% data variables.product.prodname_dotcom %}. Na lista de repositórios, os aliases aparecem em itálico.
+
+1. No canto superior esquerdo de {% data variables.product.prodname_desktop %}, à direita do nome atual do repositório, clique em {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
+2. Clique com o botão direito no repositório para o qual deseja criar um alias e, em seguida, clique em **Criar alias**.
+3. Digite um alias para o repositório.
+4. Clique em **Criar alias**.
+
+## Leia mais
 - [Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)

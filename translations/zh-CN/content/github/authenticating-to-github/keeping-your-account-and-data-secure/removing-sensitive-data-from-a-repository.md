@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 `git filter-branch` 命令和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。
 
 您可以使用 `git rm` 从最新提交中删除该文件。 有关删除使用最新提交添加的文件的信息，请参阅“[从仓库的历史记录中删除文件](/articles/removing-files-from-a-repository-s-history)”。

@@ -17,6 +17,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% tip %}
 
 **Tipp:** Inhaber können die Berechtigungen zum Erstellen von Repositorys in einer Organisation einschränken. Weitere Informationen findest Du unter „[Repository-Erstellung in Deiner Organisation einschränken](/articles/restricting-repository-creation-in-your-organization).“

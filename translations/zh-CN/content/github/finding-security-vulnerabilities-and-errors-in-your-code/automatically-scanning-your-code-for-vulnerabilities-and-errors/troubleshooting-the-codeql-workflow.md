@@ -4,22 +4,23 @@ shortTitle: CodeQL 疑难解答
 intro: '如果您在 {% data variables.product.prodname_code_scanning %} 方面遇到问题，可使用这些提示来解决问题。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### 生成详细的调试日志
+## 生成详细的调试日志
 
 要生成更详细的日志输出，您可以启用步骤调试日志记录。 更多信息请参阅“[启用调试日志记录](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)”。
 
-### 编译语言的自动构建失败
+## 编译语言的自动构建失败
 
 如果项目中编译语言的代码自动构建失败，请尝试以下疑难解答步骤。
 
@@ -31,10 +32,7 @@ redirect_from:
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-      permissions:
-        security-events: write
-        actions: read{% endif %}
+    analyze:
       ...
       strategy:
         fail-fast: false
@@ -51,7 +49,7 @@ redirect_from:
 
   有关编辑工作流程的更多信息，请参阅“[配置代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)”。
 
-### 构建过程中找不到代码
+## 构建过程中找不到代码
 
 如果工作流程失败，出现错误 `No source code was seen during the build` 或 `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32`，则表明 {% data variables.product.prodname_codeql %} 无法监控您的代码。 有几个原因可以解释这种失败：
 
@@ -89,23 +87,23 @@ redirect_from:
 
 有关指定构建步骤的更多信息，请参阅“[为编译语言配置 {% data variables.product.prodname_codeql %} 工作流程](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。
 
-### 我的仓库中有部分内容未使用 `autobuild` 进行分析
+## 我的仓库中有部分内容未使用 `autobuild` 进行分析
 
 {% data variables.product.prodname_codeql %} `autobuild` 功能使用启发式方法在仓库中构建代码，但有时这种方法会导致对仓库的分析不完整。 例如，当单个仓库中存在多个 `build.sh` 命令时，分析可能不完整，因为 `autobuild` 步骤将只执行其中一个命令。 解决方案是将 `autobuild` 步骤替换为可构建要分析的所有源代码的构建步骤。 更多信息请参阅“[为编译语言配置 {% data variables.product.prodname_codeql %} 工作流程](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)”。
 
-### 构建耗时过长
+## 构建耗时过长
 
 如果使用 {% data variables.product.prodname_codeql %} 分析进行的构建花费的时间太长，则可以尝试几种方法来减少构建时间。
 
-#### 增加内存或内核
+### 增加内存或内核
 
 Analysis time is typically proportional to the amount of code being analyzed. You can reduce the analysis time by reducing the amount of code being analyzed at once, for example, by excluding test code, or breaking analysis into multiple workflows that analyze only a subset of your code at a time.
 
-#### 使用矩阵构建来并行化分析
+### 使用矩阵构建来并行化分析
 
 默认 {% data variables.product.prodname_codeql_workflow %} 使用语言的构建矩阵，这会导致每种语言的分析并行运行。 如果在“初始化 CodeQL”步骤中指定了要直接分析的语言，则将依次进行每种语言的分析。 要加快对多种语言的分析，请修改工作流程以使用矩阵。 更多信息请参阅上面“[编译语言的自动构建失败](#automatic-build-for-a-compiled-language-fails)”中的工作流程摘要。
 
-#### 减少单个工作流程中要分析的代码量
+### 减少单个工作流程中要分析的代码量
 
 分析时间通常与要分析的代码量成正比。 您可以通过减少一次分析的代码量来缩短分析时间，例如，排除测试代码，或将分析分解为多个工作流程，这些工作流程一次只分析一部分代码。
 
@@ -115,19 +113,19 @@ Analysis time is typically proportional to the amount of code being analyzed. Yo
 
 如果您按上文所述将分析拆分为多个工作流程，我们仍然建议您至少保留一个按 `schedule` 运行的工作流程分析仓库中的所有代码。 因为 {% data variables.product.prodname_codeql %} 分析组件之间的数据流量，所以某些复杂的安全行为只能在完整的构建中检测到。
 
-#### 仅在 `schedule` 事件期间运行
+### 仅在 `schedule` 事件期间运行
 
 如果分析速度仍然太慢，无法在 `push` 或 `pull_request` 事件期间运行，则您可能需要设置仅在 `schedule` 事件期间运行。 更多信息请参阅“[事件](/actions/learn-github-actions/introduction-to-github-actions#events)”。
 
-### 错误：“Server error（服务器错误）”
+## 错误：“Server error（服务器错误）”
 
 如果 {% data variables.product.prodname_code_scanning %} 的工作流程运行因服务器错误而失败，请尝试再次运行工作流程。 如果问题仍然存在，请联系 {% data variables.contact.contact_support %}。
 
-### 错误：“Out of disk（磁盘空间不足）”或“Out of memory（内存不足）”
+## 错误：“Out of disk（磁盘空间不足）”或“Out of memory（内存不足）”
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the hosted {% data variables.product.prodname_actions %} runner. If you encounter this issue, contact {% data variables.contact.contact_support %} so that we can investigate the problem. 如果您遇到此问题，请尝试增加运行器的内存。
 
-### 警告：“git checkout HEAD^2 is no longer necessary（不再需要 Git 检出头^2）”
+## 警告：“git checkout HEAD^2 is no longer necessary（不再需要 Git 检出头^2）”
 
 如果您使用的是旧 {% data variables.product.prodname_codeql %} 工作流程，您可能会在输出中收到来自“初始化 {% data variables.product.prodname_codeql %}”操作的以下警告：
 

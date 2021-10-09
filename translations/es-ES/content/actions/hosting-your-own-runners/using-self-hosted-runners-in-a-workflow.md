@@ -5,20 +5,20 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
+shortTitle: Utilizar ejecutores en un flujo de trabajo
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Para obtener más información sobre cómo crear etiquetas personalizadas y predeterminadas, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
-### Usar ejecutores autoalojados en un flujo de trabajo
+## Usar ejecutores autoalojados en un flujo de trabajo
 
 Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos de ejecutores auto-hospedados, de acuerdo con sus características compartidas. Por ejemplo, si tu job requiere una componente de hardware o paquete de software específico, puedes asignar una etiqueta personalizada a un ejecutor y después configurar tu job para que solo se ejecute en los ejecutores con esta etiqueta.
 
@@ -26,7 +26,7 @@ Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos d
 
 Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-### Utilizar etiquetas predeterminadas para enrutar jobs
+## Utilizar etiquetas predeterminadas para enrutar jobs
 
 Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se agrega a {% data variables.product.prodname_actions %}. Estas se utilizan para indicar su sistema operativo y plataforma de hardware:
 
@@ -46,7 +46,7 @@ runs-on: [self-hosted, linux, ARM64]
 
 Las etiquetas predeterminadas son fijas y no se pueden cambiar ni eliminar. Considera utilizar etiquetas personalizadas si necesitas más control sobre el enrutamiento de los jobs.
 
-### Utilizar etiquetas personalizadas para enrutar jobs
+## Utilizar etiquetas personalizadas para enrutar jobs
 
 Puedes crear etiquetas personalizadas y asignarlas a tus ejecutores auto-hospedados en cualquier momento. Las etiquetas personalizadas te permiten enviar jobs a tipos particulares de ejecutores auto-hospedados, basándose en cómo se etiquetan.
 
@@ -65,13 +65,21 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor auto-hospedado deberán empatar con los cuatro criterios para poder ser elegibles para procesar el job.
 
-### Precedencia de enrutamiento para los ejecutores auto-hospedados
+## Precedencia de enrutamiento para los ejecutores auto-hospedados
 
 Cuando enrutas un job hacia un ejecutor auto-hospedado, {% data variables.product.prodname_dotcom %} busca un ejecutor que coincida con las etiquetas `runs-on` del job:
 
-1. {% data variables.product.prodname_dotcom %} busca primero un ejecutor a nivel de repositorio, luego a nivel de organización {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}y luego a nivel de empresa{% endif %}.
+{% ifversion fpt or ghes > 3.2 or ghae-next %}
+- {% data variables.product.prodname_dotcom %} primero busca un ejecutor inactivo a nivel de repositorio, luego, a nivel organizacional {% ifversion fpt %} y si la organización es parte de una empresa,{% endif %} entonces a nivel empresarial.
+- Si {% data variables.product.prodname_dotcom %} encuentra un ejecutor inactivo en algún nivel que empate con las etiquetas de `runs-on` del job, dicho job se asignará entonces y se enviará al ejecutor.
+  - Si el ejecutor no toma el job asignado dentro de 60 segundos, dicho job se pondrá en cola en todos los niveles y esperará que un ejecutor de cualquier nivel que empate se ponga en línea y lo tome.
+- Si {% data variables.product.prodname_dotcom %} no encuentra un ejecutor inactivo y en línea en cualquier nivel, el job se pondrá en cola para todos los niveles y esperará que un ejecutor de cualquier nivel que empate se muestre en línea y lo tome.
+- Si el job permanece en cola por más de 24 horas, este fallará.
+{% else %}
+1. {% data variables.product.prodname_dotcom %} primero busca un ejecutor a nivel de repositorio y luego a nivel organizacional, posteriormente, lo hace a nivel empresarial.
 2. El job se envía entonces a el ejecutor que coincida primero y que se encuentre en línea e inactivo.
    - Si los ejecutores en línea coincidentes están ocupados, el job se pondrá en cola con la cantidad máxima de ejecutores coincidentes en línea.
    - Si todos los ejecutores coincidentes están desconectados, el job se pondrá en cola a nivel de la cantidad máxima de ejecutores coincidentes desconectados.
    - Si no hay ejecutores coincidentes en ningún nivel, el job fallará.
    - Si el job permanece en cola por más de 24 horas, este fallará.
+{% endif %}

@@ -15,40 +15,44 @@ versions:
 topics:
   - Repositories
 ---
-{% data variables.explore.your_stars_page %} の Star 付きリポジトリとトピックを検索、ソート、フィルタできます。
+
+You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 
 ### Star について
 
 Star を付けることで、リポジトリやトピックが後で見つけやすくなります。 {% data variables.explore.your_stars_page %} にアクセスすると、Star 付きのリポジトリとトピックを確認することができます。
 
 {% if currentVersion == "free-pro-team@latest" %}
-リポジトリやトピックにスターを付けて、同様のプロジェクトを見つけることができます
-{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 リポジトリあるいはトピックに Star を付けると、{% data variables.product.product_name %} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+リポジトリとトピックに Star を付けることで、{% data variables.product.product_name %} 上で類似のプロジェクトを見つけることができます。 リポジトリあるいはトピックに Star を付けると、{% data variables.product.product_name %} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 
 リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。 {% data variables.product.prodname_dotcom %} のリポジトリランキングの多くは、リポジトリに付けられた Star の数を考慮しています。 また、[Explore](https://github.com/explore) は、リポジトリに付けられた Star の数に基づいて、人気のあるリポジトリを表示しています。
 
+### Starring a repository
+
+Starring a repository is a simple two-step process.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. In the top-right corner of the page, click **Star**. ![Starring a repository](/assets/images/help/stars/starring-a-repository.png)
+1. Optionally, to unstar a previously starred repository, click **Unstar**. ![Untarring a repository](/assets/images/help/stars/unstarring-a-repository.png)
+
 ### Star の検索
 
-![Star で検索する](/assets/images/help/stars/stars_search_bar.png)
+You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred.
 
-検索バーを使用して、スターを付けたリポジトリとトピックをすばやく見つけることができます。 検索バーは、リポジトリまたはトピックの名前に基づいて検索するだけで、他の条件 (リポジトリのサイズ、最終更新日時など) は使われません。
+1. Go to your {% data variables.explore.your_stars_page %}.
+1. Use the search bar to find your starred repositories or topics by their name. ![Star で検索する](/assets/images/help/stars/stars_search_bar.png)
+
+検索バーは、リポジトリまたはトピックの名前に基づいて検索するだけで、他の条件 (リポジトリのサイズ、最終更新日時など) は使われません。
 
 ### Star のソートとフィルタリング
 
-![Star のソート](/assets/images/help/stars/stars_sort_menu.png)
+You can use sorting or filtering to customize how you see starred repositories and topics on your stars page.
 
-Star ページの右上隅で、Star を付けたリポジトリおよびトピックを、最近スターを付けた順、最近アクティブにした順、スターの数順でソートできます。
-
-ページの右側では、Star が付いたリポジトリのリストを、言語に基づいてフィルタリングすることができます。
-
-![Star を言語別にフィルタリング](/assets/images/help/stars/stars_filter_language.png)
-
-### 友人の Star を閲覧する
-
- ページの右下隅では、友人の Star を参照することもできます。 これを使用して、Star を付ける新しいリポジトリや Topics を見つけることができます。
-
-![友人の Star を閲覧](/assets/images/help/stars/stars_jump_to_a_friend.png)
+1. Go to your {% data variables.explore.your_stars_page %}.
+1. To sort stars, select the **Sort** drop-down menu, then select **Recently starred**, **Recently active**, or **Most stars**. ![Star のソート](/assets/images/help/stars/stars_sort_menu.png)
+1. To filter your list of stars based on their language, click on the desired language under **Filter by languages**. ![Star を言語別にフィルタリング](/assets/images/help/stars/stars_filter_language.png)
+1. To filter your list of stars based on repository or topic, click on the desired option. ![Filter stars by topic](/assets/images/help/stars/stars_filter_topic.png)
 
 ### 参考リンク
 

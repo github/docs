@@ -5,10 +5,12 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Commit missing in local clone
 ---
+
 Wenn Du mit `git show` einen bestimmten Commit in der Befehlszeile anzeigen möchtest, kann ein schwerer Fehler auftreten.
 
 Beispielsweise könnte lokal der Fehler `bad object` entstehen:
@@ -28,7 +30,7 @@ Dafür sind mehrere Erklärungen möglich:
 * Der Branch, der den Commit enthält, wurde gelöscht, weshalb nicht mehr auf den Commit verwiesen wird.
 * Jemand hat einen Push über den Commit erzwungen.
 
-### Das lokale Repository ist veraltet
+## Das lokale Repository ist veraltet
 
 Möglicherweise enthält Dein lokales Repository den Commit noch nicht. Um Informationen vom Remote-Repository auf den lokalen Klon abzurufen, verwende den Befehl `git fetch`:
 
@@ -44,7 +46,7 @@ Dadurch werden die Informationen vom Remote-Repository sicher auf Deinen lokalen
 
 {% endtip %}
 
-### Der Branch, der den Commit enthielt, wurde gelöscht
+## Der Branch, der den Commit enthielt, wurde gelöscht
 
 Wenn ein Mitarbeiter des Repositorys den Branch mit dem Commit gelöscht oder einen Push über den Branch erzwungen hat, ist der fehlende Commit möglicherweise verwaist (das heißt, er kann über keine Referenz mehr erreicht aufgerufen werden) und wird daher nicht in Deinen lokalen Klon abgerufen.
 
@@ -68,11 +70,11 @@ $ git fetch upstream recover-B
 # Ruft den Commit in Dein lokales Repository ab.
 ```
 
-### Erzwungene Push-Vorgänge vermeiden
+## Erzwungene Push-Vorgänge vermeiden
 
 Vermeide erzwungenes Pushen zu einem Repository, sofern es nicht absolut notwendig ist. Dies gilt insbesondere, wenn mehrere Personen Pushes zum Repository durchführen können.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - [„Mit Remote-Repositorys arbeiten“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - [„Datenwiederherstellung“ im _Pro Git_-Buch](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

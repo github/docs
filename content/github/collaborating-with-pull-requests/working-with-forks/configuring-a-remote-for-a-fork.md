@@ -6,11 +6,12 @@ redirect_from:
   - /articles/configuring-a-remote-for-a-fork
   - /github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Configure a remote
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. List the current configured remote repository for your fork.

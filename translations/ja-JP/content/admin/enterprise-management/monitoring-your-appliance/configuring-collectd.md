@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -16,7 +16,8 @@ topics:
   - Monitoring
   - Performance
 ---
-### 外部 `collectd` サーバーを設置
+
+## 外部 `collectd` サーバーを設置
 
 {% data variables.product.product_location %}に`collectd` の転送をまだ有効にしていない場合は、外部の `collectd` サーバを設置する必要があります。 `collectd` サーバは、`collectd` 5.x 以降のバージョンを実行している必要があります。
 
@@ -32,7 +33,7 @@ topics:
         Listen "0.0.0.0" "25826"
     </Plugin>
 
-### {% data variables.product.prodname_enterprise %}でcollectd転送を有効にする
+## {% data variables.product.prodname_enterprise %}でcollectd転送を有効にする
 
 デフォルトでは、`collectd` 転送は {% data variables.product.prodname_enterprise %} で無効になっています。 次の手順に従って、`collectd` 転送を有効にして設定します。
 
@@ -44,21 +45,21 @@ topics:
 1. **Cryptographic setup** のドロップダウンメニューでは、`collectd` サーバーとのコミュニケーションのセキュリティーレベルを選択する。 （なし、署名付きパケット、または暗号化されたパケット。）
 {% data reusables.enterprise_management_console.save-settings %}
 
-### collectd データの `ghe-export-graphs`でのエクスポート
+## collectd データの `ghe-export-graphs`でのエクスポート
 
 `ghe-export-graphs` のコマンドラインツールは、`collectd` が RRD データベースに保存するデータをエクスポートします。 このコマンドは、データを XML にして、1つのTAR書庫（.tgz）にエクスポートします。
 
 その主な用途は、Support Bundleを一括ダウンロードする必要なく、{% data variables.contact.contact_ent_support %}のチームに仮想マシンのパフォーマンスに関するデータ提供することです。 定期的なバックアップエクスポートに含めてはなりません。また、その逆のインポートもありません。 {% data variables.contact.contact_ent_support %}に連絡したとき、問題解決を容易にするため、このデータが必要となる場合があります。
 
-#### 使い方
+### 使い方
 
 ```shell
 ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
 ```
 
-### トラブルシューティング
+## トラブルシューティング
 
-#### 中心の collectd サーバはデータを受信していない
+### 中心の collectd サーバはデータを受信していない
 
 {% data variables.product.prodname_enterprise %} は `collectd` バージョン 5.x に付属しています。 `collectd` 5.x は、4.x リリースシリーズとの下位互換性がありません。 {% data variables.product.product_location %}から送られるデータを受信するには、中心の`collectd`サーバは 5.x 以上のバージョンでなければなりません。
 
