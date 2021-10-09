@@ -1,0 +1,9 @@
+Incluye
+Los archivos de este directorio son "incluye", fragmentos de HTML que se pueden reutilizar en varios diseños o páginas. En el lenguaje de Ruby on Rails, estos se denominan "parciales".
+
+Usar incluye
+Este ejemplo inyecta el contenido de includes/header.htmlen la página:
+
+{% include header %}
+Escritura incluye
+Incluye debe tener una .htmlextensión.
