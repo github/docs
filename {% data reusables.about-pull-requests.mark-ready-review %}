@@ -1,4 +1,4 @@
----
+---{% data reusables.pull_requests.mark-ready-review %} 
 title: About pull requests
 intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
 redirect_from:
@@ -71,4 +71,4 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
-- "[Closing a pull request](/articles/closing-a-pull-request)"
+- "[Closing a pull request](/articles/closing-a-pull-request)"{% data reusables.about-pull-requests.mark-ready-review %} 
