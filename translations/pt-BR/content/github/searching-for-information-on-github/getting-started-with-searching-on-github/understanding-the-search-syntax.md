@@ -6,13 +6,15 @@ redirect_from:
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
+shortTitle: Entender a sintaxe de pesquisa
 ---
-### Consultar por valores maiores ou menores que outro valor
+
+## Consultar por valores maiores ou menores que outro valor
 
 Você pode usar `>`, `>=`, `<` e `<=` para pesquisar valores que sejam maiores, maiores ou iguais, menores e menores ou iguais a outro valor.
 
@@ -30,7 +32,7 @@ Você também pode usar [consultas de intervalo](#query-for-values-between-a-ran
 | <code><em>n</em>..*</code> | **[cats stars:10..*](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..*&type=Repositories)** é equivalente a `stars:>=10` e corresponde a repositórios com a palavra "cats" que têm até 10 estrelas.       |
 | <code>*..<em>n</em></code> | **[cats stars:*..10](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A%22*..10%22&type=Repositories)** é equivalente a `stars:<=10` e corresponde a repositórios com a palavra "cats" que têm até 10 estrelas. |
 
-### Consultar por valores dentro de um intervalo
+## Consultar por valores dentro de um intervalo
 
 Você pode usar a sintaxe de intervalo <code><em>n</em>..<em>n</em></code> para pesquisar valores dentro de um intervalo, em que o primeiro número _n_ é o valor mais baixo e o segundo é o valor mais alto.
 
@@ -38,7 +40,7 @@ Você pode usar a sintaxe de intervalo <code><em>n</em>..<em>n</em></code> para 
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code><em>n</em>..<em>n</em></code> | **[cats stars:10..50](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..50&type=Repositories)** corresponde a repositórios com a palavra "cats" que têm entre 10 e 50 estrelas. |
 
-### Consultar por datas
+## Consultar por datas
 
 Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-values-between-a-range) para pesquisar por datas anteriores ou posteriores a outra data ou que se enquadram em um intervalo de datas. {% data reusables.time_date.date_format %}
 
@@ -59,7 +61,7 @@ Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-value
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** corresponde a problemas criados entre 01 de janeiro de 2017 à 1h, com uma diferença de fuso horário de `07:00` em relação ao UTC, e 01 de março de 2017 às 15h, com uma diferença de fuso horário de `07:00` em relação ao UTC. com um ajuste de UTC de `07:00` e 1 de março de 2017 às 15h. com um ajuste de UTC de `07:00`. |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** corresponde a problemas criados entre 21 de março de 2016 às 14h11 e 07 de abril de 2106 às 20h45.                                                                                                                                                                                                                                                        |
 
-### Excluir determinados resultados
+## Excluir determinados resultados
 
 Usando a sintaxe `NOT`, é possível excluir resultados contendo uma determinada palavra. O operador `NOT` só pode ser usado para palavras-chave de string. Ele não funciona com numerais ou datas.
 
@@ -74,7 +76,7 @@ Outra maneira de restringir os resultados da pesquisa é excluir determinados su
 | <code>-<em>QUALIFIER</em></code> | **[cats stars:>10 -language:javascript](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** corresponde a repositórios com a palavra "cats" com mais de 10 estrelas mas não estão escritos em JavaScript. |
 |                            | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** corresponde a problemas mencionando @defunkt que não estão em repositórios na organização do GitHub.               |
 
-### Usar aspas para consultas com espaço em branco
+## Usar aspas para consultas com espaço em branco
 
 Se a consulta de pesquisa contém espaço em branco, é preciso colocá-lo entre aspas. Por exemplo:
 
@@ -83,8 +85,8 @@ Se a consulta de pesquisa contém espaço em branco, é preciso colocá-lo entre
 
 Alguns símbolos não alfanuméricos, como espaços, são descartados de consultas de pesquisa de código entre aspas, por isso os resultados podem ser inesperados.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-### Consultas com nomes de usuário
+{% ifversion fpt or ghes or ghae %}
+## Consultas com nomes de usuário
 
 Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuário, como, por exemplo, `usuário`, `ator` ou `responsável`, você poderá usar qualquer nome de usuário de {% data variables.product.product_name %}, para especificar uma pessoa específica ou `@me` para especificar o usuário atual.
 

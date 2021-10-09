@@ -6,19 +6,25 @@ redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Alerts
+  - Dependabot
+  - Vulnerabilities
+  - CVEs
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-### 关于安全漏洞
+## 关于安全漏洞
 
 {% data reusables.repositories.a-vulnerability-is %}
 
 如果我们检测到 {% data variables.product.prodname_advisory_database %} 中存在会影响您的仓库所依赖的软件包的任何漏洞，{% data variables.product.product_name %} 将会向您发送 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
-### 关于 {% data variables.product.prodname_advisory_database %}
+## 关于 {% data variables.product.prodname_advisory_database %}
 
 {% data variables.product.prodname_advisory_database %} 包含已映射到 {% data variables.product.company_short %} 依赖关系图跟踪的软件包的安全漏洞列表。 {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -34,7 +40,7 @@ topics:
 
 {% data reusables.repositories.github-security-lab %}
 
-### 访问 {% data variables.product.prodname_advisory_database %} 中的通告
+## 访问 {% data variables.product.prodname_advisory_database %} 中的通告
 
 1. 导航到 https://github.com/advisories。
 2. （可选）要过滤列表，请使用任意下拉菜单。 ![下拉过滤器](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -46,7 +52,7 @@ topics:
 
 {% endnote %}
 
-### 搜索 {% data variables.product.prodname_advisory_database %}
+## 搜索 {% data variables.product.prodname_advisory_database %}
 
 您可以搜索数据库，并使用限定符缩小搜索范围。 例如，您可以搜索在特定日期、特定生态系统或特定库中创建的通告。
 
@@ -71,7 +77,7 @@ topics:
 | `created:YYYY-MM-DD`  | [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) 只显示此日期创建的通告。                                              |
 | `updated:YYYY-MM-DD`  | [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) 只显示此日期更新的通告。                                              |
 
-### 查看有漏洞的仓库
+## 查看有漏洞的仓库
 
 对于 {% data variables.product.prodname_advisory_database %} 中的任何漏洞，您可以查看哪些仓库具有该漏洞的 {% data variables.product.prodname_dependabot %} 警报。 要查看有漏洞的仓库，您必须有权访问该仓库的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)”。
 
@@ -81,6 +87,6 @@ topics:
 4. （可选）要过滤列表，请使用搜索栏或下拉菜单。 “Organization（组织）”下拉菜单用于按所有者（组织或用户）过滤 {% data variables.product.prodname_dependabot_alerts %}。 ![用于过滤警报的搜索栏和下拉菜单](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. 有关漏洞的更多详细信息，以及有关如何修复有漏洞的仓库的建议，请单击仓库名称。
 
-### 延伸阅读
+## 延伸阅读
 
 - MITRE 的[“漏洞”定义](https://cve.mitre.org/about/terminology.html#vulnerability)

@@ -1,15 +1,17 @@
 ---
 title: 比较提交
+intro: 您可以在分支、标记、提交、复刻和日期之间比较仓库的状态。
 redirect_from:
   - /articles/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-您可以在分支、标记、提交和日期之间比较仓库的状态。 要比较仓库的不同版本，请在仓库路径中附加 `/compare`。
+
+要比较仓库的不同版本，请在仓库路径中附加 `/compare`。
 
 我们将通过查看 [Linguist 仓库复刻](https://github.com/octocat/linguist)的比较页面来展示比较视图的强大功能，该页面位于 [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master)。
 
@@ -17,7 +19,7 @@ versions:
 
 `base` 应被视为比较的起点，而 `compare` 被视为终点。 在比较期间，可随时通过单击 **Edit（编辑）**来更改 `base` 和 `compare` 点。
 
-### 比较分支
+## 比较分支
 
 最常用的比较是比较分支，例如在启动新的拉取请求时。 启动[新的拉取请求](/articles/creating-a-pull-request)时总是会进入分支比较视图。
 
@@ -25,15 +27,15 @@ versions:
 
 此处是[在两个分支之间进行比较](https://github.com/octocat/linguist/compare/master...octocat:an-example-comparison-for-docs)的示例。
 
-### 比较标记
+## 比较标记
 
-比较发行版标记将显示自上次发布以来您对仓库的更改。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。{% endif %}
+比较发行版标记将显示自上次发布以来您对仓库的更改。 {% ifversion fpt or ghae or ghes %} 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}要比较标记，可以从页面顶部的 `compare` 下拉菜单选择标记名称。{% else %} 不是键入分支名称，而是键入 `compare` 下拉菜单中的标记名称。{% endif %}
+{% ifversion fpt or ghae or ghes %}要比较标记，可以从页面顶部的 `compare` 下拉菜单选择标记名称。{% else %} 不是键入分支名称，而是键入 `compare` 下拉菜单中的标记名称。{% endif %}
 
 此处是[在两个标记之间进行比较](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)的示例。
 
-### 比较提交
+## 比较提交
 
 您还可以在 {% data variables.product.prodname_dotcom %} 上通过两点差异比较来比较仓库或其复刻中的任意两个提交。
 
@@ -43,7 +45,7 @@ versions:
 
 有关其他比较选项的更多信息，请参阅“[三点和两点差异比较](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)”。
 
-### 跨复刻比较
+## 跨复刻比较
 
 您可以比较基础仓库与任何复刻的仓库。 这是用户对项目执行拉取请求时显示的视图。
 
@@ -51,7 +53,7 @@ versions:
 
 此处是[在两个仓库之间进行比较](https://github.com/octocat/linguist/compare/master...octo-org:master)的示例。
 
-### 跨提交比较
+## 跨提交比较
 
 作为一种快捷方法，Git 使用 `^` 表示法表示“前一次提交”。
 
@@ -59,6 +61,6 @@ versions:
 
 以下是[使用 `^` 表示法进行比较](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7)的示例。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[更改拉取请求的基本分支](/articles/changing-the-base-branch-of-a-pull-request)”

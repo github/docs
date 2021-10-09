@@ -8,17 +8,19 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: 新购买和免费试用
 ---
+
 {% warning %}
 
 如果在 {% data variables.product.prodname_marketplace %} 中提供 {% data variables.product.prodname_github_app %}，您的应用程序必须按照 OAuth 授权流程来识别用户。 您不需要设置单独的 {% data variables.product.prodname_oauth_app %} 来支持此流程。 更多信息请参阅“[识别和授权 {% data variables.product.prodname_github_apps %} 的用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
 {% endwarning %}
 
-### 步骤 1. 首次购买和 web 挂钩事件
+## 步骤 1. 首次购买和 web 挂钩事件
 
 客户在购买 {% data variables.product.prodname_marketplace %} 应用程序之前，需要选择[上架产品计划](/marketplace/selling-your-app/github-marketplace-pricing-plans/)。 他们还要选择是从个人帐户还是从组织帐户购买应用程序。
 
@@ -32,7 +34,7 @@ topics:
 
 有关 `marketplace_purchase` 事件有效负载的示例，请参阅“[{% data variables.product.prodname_marketplace %} web 挂钩事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)”。
 
-### 步骤 2. 安装
+## 步骤 2. 安装
 
 如果您的应用程序是 {% data variables.product.prodname_github_app %}， {% data variables.product.product_name %} 在客户购买时会提示他们选择应用程序可以访问哪些仓库。 然后，{% data variables.product.product_name %} 将应用程序安装在客户选择的帐户上，并授予对所选仓库的访问权限。
 
@@ -48,7 +50,7 @@ topics:
 
 当客户购买 {% data variables.product.prodname_oauth_app %} 时，{% data variables.product.product_name %} 会将客户重定向到您选择的 URL（设置 URL 或安装 URL），并且该 URL 将客户选择的定价计划包含为查询参数：`marketplace_listing_plan_id`。
 
-### 步骤 3. 授权
+## 步骤 3. 授权
 
 当客户购买您的应用程序时，您必须通过 OAuth 授权流程发送客户：
 
@@ -66,7 +68,7 @@ topics:
 
 {% endnote %}
 
-### 步骤 4. 预配客户帐户
+## 步骤 4. 预配客户帐户
 
 您的应用程序必须为所有新购买预配客户帐户。 使用在[步骤 3. 授权](#step-3-authorization)中收到的客户访问令牌，调用“[列出经验证用户的订阅](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)”端点。 响应将包括客户的 `account` 信息，并显示他们是否在使用免费试用版 (`on_free_trial`)。 使用此信息完成设置和预配。
 

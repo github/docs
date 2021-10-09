@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-github-marketplace
   - /github/customizing-your-github-workflow/about-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 Puedes descubrir, explorar e instalar herramientas gratuitas y pagas, incluyendo [{% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/) y {% data variables.product.prodname_actions %}, en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 

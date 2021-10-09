@@ -6,12 +6,15 @@ redirect_from:
   - /articles/tracking-progress-on-your-project-board
   - /github/managing-your-work-on-github/tracking-progress-on-your-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Track progress on board
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.project-management.project-progress-locations %}
 
 1. Navigate to the project board where you want to enable or disable project progress tracking.  

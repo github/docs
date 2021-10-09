@@ -6,10 +6,12 @@ redirect_from:
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Subversão & diferenças do Git
 ---
-### Estrutura do diretório
+
+## Estrutura do diretório
 
 Cada *referência* ou instantâneo etiquetado de um commit em um projeto é organizado em subdiretórios específicos, como `trunk`, `branches` e `tags`. Por exemplo, um projeto do SVN com dois recursos em desenvolvimento pode ter esta aparência:
 
@@ -41,7 +43,7 @@ Um fluxo de trabalho do Git fica assim:
 
 Ao contrário do SVN, a estrutura de diretórios no Git permanece a mesma, mas o conteúdo dos arquivos é alterado de acordo com o branch que você possui.
 
-### Incluir subprojetos
+## Incluir subprojetos
 
 Um *subprojeto* é um projeto desenvolvido e gerenciado em algum lugar fora do projeto principal. Normalmente, você importa um subprojeto para adicionar alguma funcionalidade ao seu projeto sem precisar manter o código por conta própria. Sempre que o subprojeto é atualizado, você pode sincronizá-lo com o projeto para garantir que tudo esteja atualizado.
 
@@ -49,7 +51,7 @@ No SVN, um subprojeto é chamado de *SVN externo*. No Git, ele é chamado de *su
 
 Para obter mais informações, consulte “[Submódulos de ferramentas Git](https://git-scm.com/book/en/Git-Tools-Submodules)" na documentação do Git.
 
-### Preservar o histórico
+## Preservar o histórico
 
 O SVN está configurado para pressupor que o histórico de um projeto nunca é alterado. O Git permite modificar alterações e commits anteriores usando ferramentas como [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
@@ -59,7 +61,7 @@ O SVN está configurado para pressupor que o histórico de um projeto nunca é a
 
 {% endtip %}
 
-### Leia mais
+## Leia mais
 
 - "[Propriedades do Subversion com suporte no GitHub](/articles/subversion-properties-supported-by-github)"
 - ["Fazer branch e merge" no livro _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

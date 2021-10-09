@@ -4,13 +4,17 @@ intro: 'You can enable team synchronization between an identity provider (IdP) a
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
+shortTitle: Manage team synchronization
 ---
-### About team synchronization for enterprise accounts
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
+## About team synchronization for enterprise accounts
 
 If you use Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
 
@@ -22,15 +26,17 @@ If you use Azure AD as your IdP, you can enable team synchronization for your en
 
 Du kannst auch die Teamsynchronisation für eine einzelne Organisation konfigurieren und verwalten. Weitere Informationen findest Du unter „[Teamsynchronisation für Deine Organisation verwalten](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
-### Vorrausetzungen
+{% data reusables.identity-and-permissions.team-sync-usage-limits %}
+
+## Vorrausetzungen
 
 müssen Du oder Dein Azure AD-Administrator ein Global-Administrator oder ein Privileged Role-Administrator in Azure AD sein.
 
-musst Du SAML Single Sign-On für Organisationen in Deinem Enterprise-Konto mit Deinem unterstützten IdP aktivieren. Weitere Informationen findest Du unter „[SAML Single Sign-On für Organisationen in Deinem Enterprise-Konto aktivieren](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 musst Du mit SAML SSO und der unterstützten IdP zu Deinem Enterprise-Konto authentifizieren. Weitere Informationen findest Du unter „[Authentifizierung mit SAML Single Sign-On](/articles/authenticating-with-saml-single-sign-on).“
 
-### Teamsynchronisation für Azure AD verwalten
+## Teamsynchronisation für Azure AD verwalten
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 

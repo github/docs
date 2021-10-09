@@ -13,6 +13,7 @@ versions:
 topics:
   - Profiles
 ---
+
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
 
 {% note %}
@@ -90,9 +91,8 @@ Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste 
 
 {% if currentVersion != "github-ae@latest" %}
 ### Beiträge von {% data variables.product.product_location_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen
-If your site administrator has enabled
 
-{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_ghe_server %}-Beiträge an Deine {% data variables.product.prodname_dotcom_the_website %} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
+Wenn Ihr Websiteadministrator {% data variables.product.prodname_unified_contributions %} aktiviert hat, können Sie die {% data variables.product.prodname_enterprise %}-Beitragsanzahl an Ihr {% data variables.product.prodname_dotcom_the_website %}-Profil senden. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_ghe_server %}-Beiträge an Deine {% data variables.product.prodname_dotcom_the_website %} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
 {% endif %}
 
 ### Weiterführende Informationen

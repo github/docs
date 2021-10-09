@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
   - /admin/enterprise-management/creating-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Create HA replica
 ---
+
 {% data reusables.enterprise_installation.replica-limit %}
 
-### Hochverfügbarkeitsreplikat erstellen
+## Hochverfügbarkeitsreplikat erstellen
 
 1. Richten Sie eine neue {% data variables.product.prodname_ghe_server %}-Appliance auf Ihrer gewünschten Plattform ein. Die Replikat-Appliance sollte die CPU-, RAM- und Speichereinstellungen der primären Appliance spiegeln. Sie sollten die Replikat-Appliance in einer unabhängigen Umgebung installieren. Die zugrunde liegenden Hardware-, Software und Netzwerkkomponenten sollten von denen der primären Appliance isoliert sein. Wenn Sie einen Cloud-Anbieter verwenden, sollten Sie eine separate Region oder Zone verwenden. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
 2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz hoch.
@@ -42,7 +44,7 @@ topics:
   $ ghe-repl-status
   ```
 
-### Replikate der Geo-Replikation erstellen
+## Replikate der Geo-Replikation erstellen
 
 Diese Beispielkonfiguration verwendet eine primäre Instanz und zwei Replikate, die sich in drei unterschiedlichen geografischen Regionen befinden. Obwohl sich die drei Knoten in unterschiedlichen Netzwerken befinden können, müssen alle Knoten über alle anderen Knoten zugänglich sein. Die erforderlichen Verwaltungsports sollten mindestens für alle anderen Knoten geöffnet sein. Weitere Informationen zu den Portanforderungen finden Sie unter „[Netzwerkports](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)“.
 
@@ -90,7 +92,7 @@ Diese Beispielkonfiguration verwendet eine primäre Instanz und zwei Replikate, 
   (primary)$ ghe-config-apply
   ```
 
-### DNS für Geo-Replikation konfigurieren
+## DNS für Geo-Replikation konfigurieren
 
 Konfigurieren Sie Geo DNS mit den IP-Adressen auf der primären Instanz und auf den Replikatknoten. Sie können auch einen DNS CNAME für den primären Knoten (z. B. `primary.github.example.com`) erstellen, um über SSH auf den primären Knoten zuzugreifen oder ihn mit `backup-utils` zu sichern.
 
@@ -102,7 +104,7 @@ Zu Testzwecken können Sie der Datei `hosts` (z. B. `/etc/hosts`) der lokalen Wo
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zur Hochverfügbarkeitskonfiguration](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)“
 - „[Dienstprogramme zur Replikationsverwaltung](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)“

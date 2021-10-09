@@ -5,11 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for Enterprise
 ---
 {% note %}
 
@@ -23,7 +24,7 @@ topics:
 
 {% endnote %}
 
-### About {% data variables.contact.premium_support %}
+## About {% data variables.contact.premium_support %}
 
 In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} offers:
   - Written support, in English, through our support portal 24 hours per day, 7 days per week
@@ -41,7 +42,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
 
 {% data reusables.support.contacting-premium-support %}
 
-### Hours of operation
+## Hours of operation
 
 {% data variables.contact.premium_support %} is available 24 hours a day, 7 days per week.
 
@@ -51,22 +52,22 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
 
 You must install the minimum supported version of {% data variables.product.prodname_ghe_server %} pursuant to the Supported Releases section of your applicable license agreement within 90 days of placing an order for {% data variables.contact.premium_support %}.
 
-### Assigning a priority to a support ticket
+## Assigning a priority to a support ticket
 
 When you contact {% data variables.contact.premium_support %}, you can choose one of four priorities for the ticket: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
 
 - [Ticket priorities for {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
 - [Ticket priorities for {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
 
-#### Ticket priorities for {% data variables.product.prodname_ghe_cloud %}
+### Ticket priorities for {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.support.ghec-premium-priorities %}
 
-#### Ticket priorities for {% data variables.product.prodname_ghe_server %}
+### Ticket priorities for {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.support.ghes-priorities %}
 
-### Resolving and closing support tickets
+## Resolving and closing support tickets
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

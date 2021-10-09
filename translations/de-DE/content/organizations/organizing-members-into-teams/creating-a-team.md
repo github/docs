@@ -6,9 +6,9 @@ redirect_from:
   - /articles/creating-a-team
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -18,20 +18,22 @@ Nur Organisationsinhaber und Betreuer eines übergeordneten Teams können ein ne
 
 {% data reusables.organizations.team-synchronization %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
-{% if currentVersion == "free-pro-team@latest" %}
-1. Wenn Deine Organisations oder Dein Enterprise-Konto optional die Teamsynchronisierung verwendet, kannst Du für das Verbinden einer Identitätsanbieter-Gruppe mit Deinem Team das Dropdownmenü „Identity Provider Groups" (Identitätsanbieter-Gruppen) benutzen und bis zu 5 Gruppen auswählen. Weitere Informationen findest Du unter „[Ein Team mit einer Identitätsanbieter-Gruppe synchronisieren](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Dropdownmenü zur Auswahl einer Identitätsanbieter-Gruppe](/assets/images/help/teams/choose-an-idp-group.png)
+{% ifversion fpt %}
+1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
+    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[Managing team memberships with identity provider groups](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
+    * If your organization or enterprise account uses team synchronization, use the "Identity Provider Groups" drop-down menu, and select up to five identity provider groups to connect to the new team. Weitere Informationen findest Du unter „[Ein Team mit einer Identitätsanbieter-Gruppe synchronisieren](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Dropdownmenü zur Auswahl einer Identitätsanbieter-Gruppe](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
-9. Optional kannst Du [dem Team Zugriff auf die Repositorys der Organisation gewähren](/articles/managing-team-access-to-an-organization-repository)“.
+1. Optional kannst Du [dem Team Zugriff auf die Repositorys der Organisation gewähren](/articles/managing-team-access-to-an-organization-repository)“.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Teams](/articles/about-teams)“
 - „[Team-Sichtbarkeit ändern](/articles/changing-team-visibility)“

@@ -1,6 +1,6 @@
 ---
-title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://ghcr.io`.'
+title: Trabajar con el registro de contenedores
+intro: 'Puedes almacenar y administrar DOcker y las imágenes de OCI en el {% data variables.product.prodname_container_registry %}, el cual utiliza el espacio de nombre para paquetes `https://ghcr.io`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -8,32 +8,31 @@ redirect_from:
   - /packages/guides/pushing-and-pulling-docker-images
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
   - /packages/managing-container-images-with-github-container-registry
+  - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
+  - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
+  - /packages/guides/container-guides-for-github-packages/enabling-improved-container-support
+  - /packages/guides/enabling-improved-container-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Registro de contenedores
 ---
 
-{% data reusables.package_registry.container-registry-beta %}
-
-{% data reusables.package_registry.docker-vs-container-registry %}
-
-### About {% data variables.product.prodname_container_registry %} support
-
-To push and pull container images, an organization admin or the owner of a personal account must enable the {% data variables.product.prodname_container_registry %}. For more information, see "[Enabling improved container support with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)."
-
-When installing or publishing a Docker image, the Container registry supports foreign layers, such as Windows images.
+## Acerca del soporte para el {% data variables.product.prodname_container_registry %}
 
 El {% data variables.product.prodname_container_registry %} es actualmente compatible con los siguientes formatos de contenedores de imagen:
 
 * [Docker Image Manifest V2, Modelo 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Especificaciones de Open Container Initiavie (OCI)](https://github.com/opencontainers/image-spec)
 
-### Authenticating to the {% data variables.product.prodname_container_registry %}
+Cuando instalas o publicas una imagen de Docker, el {% data variables.product.prodname_container_registry %} es compatible con capas externas, tales como imágenes de Windows.
+
+## Autenticarse en el {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-### Subir imágenes de contenedor
+## Subir imágenes de contenedor
 
 Este ejemplo sube la última versión de `IMAGE-NAME`.
   ```shell
@@ -45,11 +44,11 @@ Este ejemplo sube la versión `2.5` de la imagen.
   $ docker push ghcr.io/OWNER/IMAGE-NAME:2.5
   ```
 
-Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Cuando publicas un paquete por primera vez, la visibilidad predeterminada es privada. Para cambiar la visibilidad o configurar permisos de acceso, consulta la sección "[Configurar la visibilidad y el control de accesos de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
-### Extraer imágenes de contenedor
+## Extraer imágenes de contenedor
 
-#### Extraer por resúmen
+### Extraer por resúmen
 
 Para garantizar que siempre utilices la misma imagen, puedes especificar la versión exacta de la imagen de contenedor que quieres extraer de acuerdo con su valor de SHA de `digest`.
 
@@ -67,13 +66,13 @@ Para garantizar que siempre utilices la misma imagen, puedes especificar la vers
   $ docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-#### Extraer por nombre
+### Extraer por nombre
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME
   ```
 
-#### Extraer por nombre y versión
+### Extraer por nombre y versión
 
 Ejemplo de CLI de Docker que muestra una imagen que se extrae por su nombre y por la etiqueta de la versión `1.14.1`:
   ```shell
@@ -87,7 +86,7 @@ Ejemplo de CLI de Docker que muestra una imagen que se extrae por su nombre y po
   > ghcr.io/orgname/image-name/release:1.14.1
   ```
 
-#### Extraer por nombre y última versión
+### Extraer por nombre y última versión
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
@@ -97,14 +96,14 @@ Ejemplo de CLI de Docker que muestra una imagen que se extrae por su nombre y po
   > ghcr.io/user/image-name:latest
   ```
 
-### Crear imagenes de contenedor
+## Crear imagenes de contenedor
 
 Este ejemplo crea la imagen `hello_docker`:
   ```shell
   $ docker build -t hello_docker .
   ```
 
-### Etiquetar las imágenes de contenedor
+## Etiquetar las imágenes de contenedor
 
 1. Encuentra la ID para la imagen de Docker que quieres etiquetar.
   ```shell

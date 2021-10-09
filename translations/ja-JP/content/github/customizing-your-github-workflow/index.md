@@ -3,9 +3,10 @@ title: GitHub ワークフローをカスタマイズする
 redirect_from:
   - /categories/customizing-your-github-workflow
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /exploring-integrations
   - /purchasing-and-installing-apps-in-github-marketplace
+shortTitle: Customize your workflow
 ---
-### 目次
+

@@ -1,24 +1,30 @@
 ---
 title: Sicherheitslücken in der GitHub Advisory Database durchsuchen
 intro: 'Die {% data variables.product.prodname_advisory_database %} erlaubt Dir, nach Schwachstellen zu suchen, die Open-Source-Projekte auf {% data variables.product.company_short %} betreffen.'
-shortTitle: Browsing the Advisory Database
+shortTitle: Browse Advisory Database
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Alerts
+  - Dependabot
+  - Vulnerabilities
+  - CVEs
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 
-### Informationen zu Sicherheitslücken
+## Informationen zu Sicherheitslücken
 
 {% data reusables.repositories.a-vulnerability-is %}
 
 {% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)." |
 
-### Informationen zu {% data variables.product.prodname_advisory_database %}
+## Informationen zu {% data variables.product.prodname_advisory_database %}
 
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph. {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -34,7 +40,7 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 
 {% data reusables.repositories.github-security-lab %}
 
-### Zugriff auf einen Hinweis in der {% data variables.product.prodname_advisory_database %}
+## Zugriff auf einen Hinweis in der {% data variables.product.prodname_advisory_database %}
 
 1. Navigiere zu „https://github.com/advisories“.
 2. Optionally, to filter the list, use any of the drop-down menus. ![Dropdownmenüs zum filtrieren](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -46,7 +52,7 @@ Die Datenbank ist auch über die GraphQL-API zugänglich. For more information, 
 
 {% endnote %}
 
-### Durchsuche die {% data variables.product.prodname_advisory_database %}
+## Durchsuche die {% data variables.product.prodname_advisory_database %}
 
 You can search the database, and use qualifiers to narrow your search. For example, you can search for advisories created on a certain date, in a specific ecosystem, or in a particular library.
 
@@ -71,7 +77,7 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | `created:YYYY-MM-DD`  | [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) zeigt nur Hinweise, die an diesem Datum erstellt wurden.                        |
 | `updated:YYYY-MM-DD`  | [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) zeigt nur Hinweise, die an diesem Datum aktualisiert wurden.                    |
 
-### Viewing your vulnerable repositories
+## Viewing your vulnerable repositories
 
 For any vulnerability in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories have a {% data variables.product.prodname_dependabot %} alert for that vulnerability. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)." |
 
@@ -81,6 +87,6 @@ For any vulnerability in the {% data variables.product.prodname_advisory_databas
 4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user). ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. For more details about the vulnerability, and for advice on how to fix the vulnerable repository, click the repository name.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - [Definition einer „Sicherheitslücke“](https://cve.mitre.org/about/terminology.html#vulnerability) von MITRE

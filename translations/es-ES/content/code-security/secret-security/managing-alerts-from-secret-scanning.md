@@ -8,13 +8,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
+  - Secret scanning
+  - Advanced Security
+  - Alerts
   - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
 
-### Managing {% data variables.product.prodname_secret_scanning %} alerts
+### Administrar las alertas del {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -51,9 +55,9 @@ Cuando un secreto se haya confirmado en un repositorio, deberás considerarlo en
 - Para todos los demás secretos, verifica primero que aquellos que se hayan confirmado en {% data variables.product.product_name %} sean válidos. De ser así, crea un secreto nuevo, actualiza cualquier servicio que utilice el secreto anterior, y luego bórralo.
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
+### Configurar las notificaciones para las alertas del {% data variables.product.prodname_secret_scanning %}
 
-When a new secret is detected, {% data variables.product.prodname_dotcom %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts, or are the author of the commit that contains the secret and are not ignoring the repository.
+Cuando se detecta un secreto nuevo, {% data variables.product.prodname_dotcom %} notifica a todos los usuarios con acceso a las alertas de seguridad del repositorio de acuerdo con sus preferencias de notificación. Recibirás alertas si estás observando el repositorio, si has habilitado las notificaciones para las alertas de seguridad, o si eres el autor de la confirmación que conteine el secreto y no estás ignorando el repositorio.
 
-For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+Para obtener más información, consulta las secciones "[Administrar la seguridad y configuración de análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" y "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}

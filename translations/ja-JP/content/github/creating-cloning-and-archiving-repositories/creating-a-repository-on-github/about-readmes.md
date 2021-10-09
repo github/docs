@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### READMEについて
 
 README ファイルをリポジトリに追加して、プロジェクトに関する重要な情報を伝えることができます。 README は、リポジトリライセンス {% if currentVersion == "free-pro-team@latest" %}、コントリビューションガイドライン、行動規範 {% elsif enterpriseServerVersions contains currentVersion %}、コントリビューションガイドライン {% endif %} とともに、プロジェクトへの要望を伝え、コントリビューションの管理を支援します。

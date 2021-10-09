@@ -6,15 +6,16 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Connect an Azure subscription
 ---
-### About Azure subscriptions and {% data variables.product.product_name %}
+## About Azure subscriptions and {% data variables.product.product_name %}
 
 {% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
 After you connect an Azure subscription, you can also manage your spending limit. For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)" and "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
-### Connecting your Azure subscription to your enterprise account
+## Connecting your Azure subscription to your enterprise account
 
 To connect your Azure subscription, you must have owner permissions to the subscription.
 
@@ -28,7 +29,7 @@ To connect your Azure subscription, you must have owner permissions to the subsc
 1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
 1. Click **Connect**.
 
-### Disconnecting your Azure subscription from your enterprise account
+## Disconnecting your Azure subscription from your enterprise account
 
 After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
 

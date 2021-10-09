@@ -1,24 +1,27 @@
-const languages = require('../lib/languages')
-const enterpriseServerReleases = require('../lib/enterprise-server-releases')
-const allVersions = require('../lib/all-versions')
-const { productMap } = require('../lib/all-products')
-const activeProducts = Object.values(productMap).filter(product => !product.wip && !product.hidden)
+import languages from '../lib/languages.js'
+import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
+import { allVersions } from '../lib/all-versions.js'
+import { productMap } from '../lib/all-products.js'
+import pathUtils from '../lib/path-utils.js'
+import productNames from '../lib/product-names.js'
+import warmServer from '../lib/warm-server.js'
+import readJsonFile from '../lib/read-json-file.js'
+import searchVersions from '../lib/search/versions.js'
+import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
+const activeProducts = Object.values(productMap).filter(
+  (product) => !product.wip && !product.hidden
+)
 const {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
-  getPathWithoutLanguage
-} = require('../lib/path-utils')
-const productNames = require('../lib/product-names')
-const warmServer = require('../lib/warm-server')
-const featureFlags = Object.keys(require('../feature-flags'))
-const builtAssets = require('../lib/built-asset-urls')
-const searchVersions = require('../lib/search/versions')
-const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
+  getPathWithoutLanguage,
+} = pathUtils
+const featureFlags = Object.keys(readJsonFile('./feature-flags.json'))
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
-module.exports = async function contextualize (req, res, next) {
+export default async function contextualize(req, res, next) {
   // Ensure that we load some data only once on first request
   const { site, redirects, siteTree, pages: pageMap } = await warmServer()
 
@@ -26,7 +29,7 @@ module.exports = async function contextualize (req, res, next) {
 
   // make feature flag environment variables accessible in layouts
   req.context.process = { env: {} }
-  featureFlags.forEach(featureFlagName => {
+  featureFlags.forEach((featureFlagName) => {
     req.context[featureFlagName] = process.env[featureFlagName]
   })
 
@@ -34,33 +37,25 @@ module.exports = async function contextualize (req, res, next) {
   // e.g. searches for "req.context.page" will include results from this file
   req.context.currentLanguage = req.language
   req.context.userLanguage = req.userLanguage
-  req.context.currentVersion = getVersionStringFromPath(req.path)
-  req.context.currentProduct = getProductStringFromPath(req.path)
-  req.context.currentCategory = getCategoryStringFromPath(req.path)
+  req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentProduct = getProductStringFromPath(req.pagePath)
+  req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
-  req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.path)
-  req.context.currentPath = req.path
+  req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
+  req.context.currentPath = req.pagePath
   req.context.query = req.query
   req.context.languages = languages
   req.context.productNames = productNames
   req.context.enterpriseServerReleases = enterpriseServerReleases
-  req.context.enterpriseServerVersions = Object.keys(allVersions).filter(version => version.startsWith('enterprise-server@'))
+  req.context.enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
+    version.startsWith('enterprise-server@')
+  )
   req.context.redirects = redirects
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
   req.context.pages = pageMap
-
-  // TODO we should create new data directories for these example files instead of using variable files
-  if (productMap[req.context.currentProduct]) {
-    req.context.productCodeExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_code_examples`]
-    req.context.productCommunityExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_community_examples`]
-    req.context.productUserExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_user_examples`]
-  }
-
-  // JS + CSS asset paths
-  req.context.builtAssets = builtAssets
 
   // Object exposing selected variables to client
   req.context.expose = JSON.stringify({
@@ -68,12 +63,14 @@ module.exports = async function contextualize (req, res, next) {
     searchOptions: {
       languages: Object.keys(languages),
       versions: searchVersions,
-      nonEnterpriseDefaultVersion
+      nonEnterpriseDefaultVersion,
     },
     // `|| undefined` won't show at all for production
-    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined
+    airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined,
   })
   if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
+  req.context.searchVersions = searchVersions
+  req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
 
   return next()
 }

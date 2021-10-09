@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-### Die richtige Lizenz auswählen
+  ### Die richtige Lizenz auswählen
 
 Wir haben [choosealicense.com](https://choosealicense.com) erstellt, um Dich bei der Lizenzierung Deines Codes zu unterstützen. Eine Softwarelizenz informiert andere Benutzer darüber, was sie mit Deinem Quellcode machen dürfen und was nicht. Eine durchdachte Entscheidung ist also sehr wichtig.
 

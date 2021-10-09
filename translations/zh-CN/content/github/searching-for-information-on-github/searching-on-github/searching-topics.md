@@ -5,24 +5,25 @@ redirect_from:
   - /articles/searching-topics
   - /github/searching-for-information-on-github/searching-topics
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
-### 搜索 {% data variables.product.product_name %} 主题
+
+## 搜索 {% data variables.product.product_name %} 主题
 
 您可以在 {% data variables.product.product_name %} 上搜索主题、探索相关主题以及查看有多少仓库与特定主题关联。
 
 1. 导航到 https://github.com/search。
 2. 输入主题关键词。 ![搜索字段](/assets/images/help/search/search-field.png)
 3. 在左侧边栏中，要将搜索范围缩小到主题，请单击 **Topics（主题）**。
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
   ![主题侧菜单选项突出显示的 Jekyll 仓库搜索结果页面](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 
-### 使用搜索限定符缩小搜索范围
+## 使用搜索限定符缩小搜索范围
 
 如果您要探索关于特定主题的仓库、查找要贡献内容的项目或了解哪些主题在 {% data variables.product.product_name %} 上最受欢迎，您可以使用搜索限定符 `is:featured`、`is:curated`、`repositories:n` 和 `created:YYYY-MM-DD` 搜索主题。
 
@@ -45,9 +46,9 @@ topics:
 | `repositories:n`          | [**repositories:&gt;5000**](https://github.com/search?q=repositories%3A%3E5000) 匹配超过 5000 个仓库的主题。                                                                         |
 | <code>created:<em>YYYY-MM-DD</em></code> | [**Serverless created:&gt;2019-01-01**](https://github.com/search?q=Serverless+created%3A%3E2019-01-01&type=Topics) 匹配含有 "serverless" 字样、在 2018 年之后创建的主题。                 |
 
-### 按主题搜索仓库
+## 按主题搜索仓库
 
 您可以使用 `topic:` 限定符查找连接到特定主题的每个仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-by-topic)”。
 
-### 延伸阅读
+## 延伸阅读
 - "[使用主题对仓库分类](/articles/classifying-your-repository-with-topics)"

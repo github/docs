@@ -5,20 +5,20 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
+shortTitle: Use runners in a workflow
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Informationen zum Erstellen benutzerdefinierter und Standard-Labels findest Du unter „[Labels mit selbst-gehosteten Runnern verwenden](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)“.
 
-### Selbst-gehostete Runner in einem Workflow benutzen
+## Selbst-gehostete Runner in einem Workflow benutzen
 
 Mithilfe von Labels kannst Du Workflow-Jobs entsprechend ihrer gemeinsamen Merkmale an bestimmte Typen von selbst-gehosteten Runnern senden. Wenn Dein Job beispielsweise eine bestimmte Hardwarekomponente oder ein bestimmtes Softwarepaket benötigt, kannst Du einem Runner ein benutzerdefiniertes Label zuweisen und dann Deinen Job so konfigurieren, dass er nur auf Runnern mit diesem Label ausgeführt wird.
 
@@ -26,7 +26,7 @@ Mithilfe von Labels kannst Du Workflow-Jobs entsprechend ihrer gemeinsamen Merkm
 
 Weitere Informationen findest Du unter „[Workflow Syntax für {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-### Standard-Labels verwenden, um Jobs zu lenken
+## Standard-Labels verwenden, um Jobs zu lenken
 
 Ein selbst-gehosteter Runner erhält automatisch bestimmte Labels, wenn er zu {% data variables.product.prodname_actions %} hinzugefügt wird. Diese werden verwendet, um das Betriebssystem und die Hardwareplattform anzuzeigen:
 
@@ -46,7 +46,7 @@ runs-on: [self-hosted, linux, ARM64]
 
 Die Standard-Labels sind fest und können weder geändert noch entfernt werden. Erwäge die Verwendung benutzerdefinierter Labels, wenn Du mehr Kontrolle über die Job-Steuerung benötigst.
 
-### Benutzerdefinierte Labels verwenden, um Jobs zu lenken
+## Benutzerdefinierte Labels verwenden, um Jobs zu lenken
 
 Du kannst jederzeit eigene Labels erstellen und Deinen selbst-gehosteten Runnern zuordnen. Mit benutzerdefinierten Labels kannst Du Jobs an bestimmte Typen von selbst-gehosteten Runnern senden, je nachdem, welche Labels sie haben.
 
@@ -65,13 +65,21 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 Diese Labels funktionieren kumulativ, so dass die Labels eines selbst-gehosteten Runners mit allen vier übereinstimmen müssen, um den Job abarbeiten zu können.
 
-### Routing precedence for self-hosted runners
+## Routing precedence for self-hosted runners
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}, then at the enterprise level{% endif %}.
+{% ifversion fpt or ghes > 3.2 or ghae-next %}
+- {% data variables.product.prodname_dotcom %} first searches for an online and idle runner at the repository level, then at the organization level, {% ifversion fpt %} and if the organization is part of an enterprise,{% endif %} then at the enterprise level.
+- If {% data variables.product.prodname_dotcom %} finds an online and idle runner at a certain level that matches the job's `runs-on` labels, the job is then assigned and sent to the runner.
+  - If the runner doesn't pick up the assigned job within 60 seconds, the job is queued at all levels and waits for a matching runner from any level to come online and pick up the job.
+- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner at any level, the job is queued to all levels and waits for a matching runner from any level to come online and pick up the job.
+- If the job remains queued for more than 24 hours, the job will fail.
+{% else %}
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level, then at the enterprise level.
 2. The job is then sent to the first matching runner that is online and idle.
    - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
    - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
    - If there are no matching runners at any level, the job will fail.
    - If the job remains queued for more than 24 hours, the job will fail.
+{% endif %}

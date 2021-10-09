@@ -21,6 +21,8 @@ In this guide, you'll learn about the basic components needed to create and use 
 
 Once you complete this project, you should understand how to build your own composite run steps action and test it in a workflow.
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Vorrausetzungen
 
 Before you begin, you'll create a {% data variables.product.product_name %} repository.

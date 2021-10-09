@@ -5,9 +5,18 @@ redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
+topics:
+  - Dependabot
+  - Version updates
+  - Secret store
+  - Repositories
+  - Dependencies
+shortTitle: 暗号化されたシークレットの管理
 ---
-### {% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットについて
+
+## {% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットについて
 
 {% data variables.product.prodname_dependabot %} シークレットとは、Organization レベルまたはリポジトリレベルで作成する、暗号化された資格情報のことです。
 シークレットを Organization レベルで追加した場合、そのシークレットにどのリポジトリがアクセスできるかを指定できます。 シークレットを使用して、プライベートパッケージレジストリにある依存関係を {% data variables.product.prodname_dependabot %} が更新できるようにすることができます。 シークレットを追加すると、それが {% data variables.product.prodname_dotcom %} に届く前に暗号化され、それを {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスするために使用するまで暗号化されたままとなります。
@@ -22,14 +31,14 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 詳しい情報については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries) 」を参照してください。
 
-#### シークレットに名前を付ける
+### シークレットに名前を付ける
 
 {% data variables.product.prodname_dependabot %} シークレットの名前には、以下の制限があります。
 * 英数字 (`[A-Z]`, `[0-9]`)、(`_`) のみ含めることができます。 スペースは使用できません。 小文字を入力すると、大文字に変換されます。
 * 名前の最初を `GITHUB_` プレフィックスにすることはできません。
 * 最初を数字にすることはできません。
 
-### {% data variables.product.prodname_dependabot %} にリポジトリシークレットを追加する
+## {% data variables.product.prodname_dependabot %} にリポジトリシークレットを追加する
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
@@ -46,7 +55,7 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
    ![リポジトリシークレットの更新または削除](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-### {% data variables.product.prodname_dependabot %} に Organization シークレットを追加する
+## {% data variables.product.prodname_dependabot %} に Organization シークレットを追加する
 
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
@@ -71,3 +80,7 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
    シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 [**Update**] をクリックすると、シークレットの値やアクセスポリシーを変更できます。 [**Remove**] をクリックすると、シークレットを削除できます。
 
    ![Organization シークレットの更新または削除](/assets/images/help/dependabot/update-remove-repo-secret.png)
+
+## レジストリのIP許可リストへの{% data variables.product.prodname_dependabot %}の追加
+
+プライベートレジストリがIP許可リストとともに設定されているなら、{% data variables.product.prodname_dependabot %}がレジストリへのアクセスに使うIPアドレスは、メタAPIエンドポイントで`dependabot`の下にあります。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。

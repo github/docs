@@ -36,13 +36,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: Sponsorship.maintainer
-    description: '`maintainer` will be removed. Use `Sponsorship.sponsorable` instead.'
-    reason: '`Sponsorship.maintainer` will be removed.'
-    date: '2020-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: antn
-  - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
     description: '`isUnlicensed` will be removed.'
     reason: All pending members consume a license
@@ -78,13 +71,6 @@ upcoming_changes:
     criticality: breaking
     owner: jdennes
   - 
-    location: Sponsorship.sponsor
-    description: '`sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead.'
-    reason: '`Sponsorship.sponsor` will be removed.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: nholden
-  - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: '`isUnlicensed` will be removed.'
     reason: All members consume a license
@@ -112,3 +98,17 @@ upcoming_changes:
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: nplasterer
+  - 
+    location: PackageType.DOCKER
+    description: '`DOCKER` will be removed.'
+    reason: DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.
+    date: '2021-06-21'
+    criticality: breaking
+    owner: reybard
+  - 
+    location: ReactionGroup.users
+    description: '`users` will be removed. Use the `reactors` field instead.'
+    reason: Reactors can now be mannequins, bots, and organizations.
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: synthead

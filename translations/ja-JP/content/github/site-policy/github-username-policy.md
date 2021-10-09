@@ -4,24 +4,24 @@ redirect_from:
   - /articles/name-squatting-policy/
   - /articles/github-username-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
 ---
 
-GitHub account names are available on a first-come, first-served basis, and are intended for immediate and active use.
+GitHub アカウント名は、すぐに使用されることを前提として先着順で提供されています。
 
-#### What if the username I want is already taken?
+## 使用したいユーザ名がすでに他者に取得されている場合
 
-Keep in mind that not all activity on GitHub is publicly visible; accounts with no visible activity may be in active use.
+GitHub 上のすべてのアクティビティが公開されているわけではありませんのでご注意ください。公開されているアクティビティがないアカウントでも、実際に使用されている可能性があります。
 
-If the username you want has already been claimed, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you identify a desirable username still available.
+使用したいユーザ名がすでに取得されている場合、他の名前を取得するか、名前を少し変えることを検討してください。 数字、ハイフン、別のつづりなどを使えば、希望するユーザ名が見つかるかもしれません。
 
-#### トレードマークポリシー
+## トレードマークポリシー
 
 誰かのアカウントがあなたの商標権を侵害していると思われる場合は、[トレードマークポリシー](/articles/github-trademark-policy/)のページで商標権侵害の申し立てに関する詳細をご確認ください。
 
-#### ネームスクワッティングに関するポリシー
+## ネームスクワッティングに関するポリシー
 
-GitHub prohibits account name squatting, and account names may not be reserved or inactively held for future use. Accounts violating this name squatting policy may be removed or renamed without notice. アカウント名と引き換えに他の形態の支払いを販売、購入、または勧誘することは禁止されており、これを行った場合、アカウントが永久に停止される場合があります。
+GitHub はアカウント名を不正に占拠することを禁止しており、現時点で使用しないアカウント名を予約したり、将来の使用のために保持したりすることはできません。 ネームスクワッティングポリシーに違反するアカウントは、通知なしに削除またはアカウント名を変更されることがあります。 アカウント名と引き換えに他の形態の支払いを販売、購入、または勧誘することは禁止されており、これを行った場合、アカウントが永久に停止される場合があります。

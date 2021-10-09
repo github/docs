@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Wenn Du ein Repository umbenennst, werden mit Ausnahme von Projektwebsite-URLs alle vorhandenen Informationen automatisch auf den neuen Namen umgeleitet, einschließlich:
 
 * Issues

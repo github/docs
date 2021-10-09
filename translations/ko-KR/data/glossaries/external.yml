@@ -9,7 +9,7 @@
 - 
   term: 계정 복구 토큰
   description: >-
-    Recover Accounts Elsewhere라고 하는 계정 복구 설정의 일부로 저장된 인증 자격 증명입니다. Recover Accounts Elsewhere에 이 백업 자격 증명을 저장할 수 있습니다.
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: API 미리 보기
   description: >-
@@ -181,13 +181,13 @@
 - 
   term: 기본 분기
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
   term: 의존도 그래프
   description: >-
     공용 리포지토리에 종속된 패키지, 프로젝트 및 리포지토리를 표시하는 리포지토리 그래프입니다.
 - 
-  term: 의존성 그래프
+  term: dependency graph
   description: >-
     리포지토리가 종속된 패키지 및 프로젝트를 표시하는 리포지토리 그래프입니다.
 - 
@@ -250,9 +250,9 @@
   description: >-
     무료 사용자 계정 요금제입니다. 사용자는 무제한 공동 작업자와 무제한 공용 리포지토리에서 공동 작업할 수 있습니다.
 - 
-  term: Gist
+  term: gist
   description: >-
-    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     사용자가 액세스할 수 없는 개인 계정입니다. 사용자가 유료 계정을 무료 계정으로 다운그레이드하거나 유료 요금제가 기한이 지난 경우 계정이 잠깁니다.
 - 
-  term: 관리 콘솔
+  term: management console
   description: >-
     관리 기능이 포함된 GitHub Enterprise 인터페이스 내의 섹션입니다.
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% ifversion fpt or ghes > 3.1 or ghae %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
   term: 구성원 그래프
   description: 리포지토리의 모든 포크를 표시하는 리포지토리 그래프입니다.
@@ -426,7 +426,7 @@
   description: >-
     루트 리포지토리의 분기 및 네트워크에 고유한 커밋이 포함된 포크 분기를 포함하여 전체 리포지토리 네트워크의 분기 기록을 보여주는 리포지토리 그래프입니다.
 - 
-  term: 뉴스 피드
+  term: news feed
   description: >-
     리포지토리 또는 시청하는 사람의 활동 보기입니다. 조직의 뉴스 피드는 조직이 소유한 리포지토리에 대한 활동을 보여줍니다.
 - 
@@ -574,7 +574,7 @@
 - 
   term: Recover Accounts Elsewhere
   description: >-
-    사용자가 2단계 인증 방법 또는 복구 코드에 대한 액세스 권한을 잃은 경우 GitHub 계정에 추가 보안 요소를 추가할 수 있습니다. 사용자는 GitHub 계정에 대한 계정 복구 토큰 형태로 Facebook 계정에 대한 인증 자격 증명을 저장하여 GitHub 계정을 Facebook 계정과 연결할 수 있습니다.
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: 복구 코드
   description: GitHub 계정에 다시 액세스할 수 있는 코드입니다.
@@ -654,6 +654,10 @@
   description: >-
     마지막 50개의 작업 또는 지난 90일 이내에 수행된 작업을 나열하는 로그입니다.
 - 
+  term: server-to-server request
+  description: >-
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+- 
   term: 서비스 후크
   description: >-
     "webhook"라고도 합니다. webhook는 리포지토리 또는 조직에서 특정 작업이 발생할 때마다 알림을 외부 웹 서버에 전달할 수 있는 방법을 제공합니다.
@@ -680,7 +684,7 @@
   description: >-
     커밋이 기여하는 리포지토리에 대해 설정된 조건을 충족한다는 끌어오기 요청 내의 시각적 표현입니다.
 - 
-  term: 상태 확인
+  term: status checks
   description: >-
     상태 확인은 리포지토리에서 수행한 각 커밋에 대해 실행되는 연속 통합 빌드와 같은 외부 프로세스입니다. 자세한 내용은 "[상태 확인 정보](/articles/about-status-checks)"를 참조하십시오.
 - 
@@ -714,7 +718,7 @@
   description: >-
     특정 주제 영역의 리포지토리를 탐색하고, 기여할 프로젝트를 찾고, GitHub의 특정 문제에 대한 새로운 해결책을 찾는 방법입니다.
 - 
-  term: 트래픽 그래프
+  term: traffic graph
   description: >-
     전체 클론(가져오기 아님), 지난 14일 동안의 방문자, 참조 사이트 및 인기 콘텐츠를 포함하여 리포지토리의 트래픽을 보여주는 리포지토리 그래프입니다.
 - 
@@ -737,6 +741,10 @@
   term: 사용자 이름
   description: GitHub에서 사용자의 핸들입니다.
 - 
+  term: user-to-server request
+  description: >-
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
+- 
   term: 가시적인 팀
   description: 모든 조직 구성원이 보고 @mention 할 수 있는 팀입니다.
 - 
@@ -754,9 +762,6 @@
   term: webhooks
   description: >-
     Webhook를 사용하면 GitHub.com에서 특정 이벤트를 구독하는 GitHub 앱을 빌드하거나 설정할 수 있습니다. Webhook는 리포지토리 또는 조직에서 특정 작업이 발생할 때마다 알림을 외부 웹 서버에 전달할 수 있는 방법을 제공합니다. 서비스 후크라고도 합니다.
-- 
-  term: GitHub와 함께 작동
-  description: GitHub와 함께 작업하는 통합 목록입니다.
 - 
   term: 쓰기 권한
   description: >-

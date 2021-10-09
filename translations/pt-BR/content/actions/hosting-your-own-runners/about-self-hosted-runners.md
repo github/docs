@@ -5,18 +5,17 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Sobre executores auto-hospedados
+## Sobre executores auto-hospedados
 
 {% data reusables.github-actions.self-hosted-runner-description %} Os executores auto-hospedados podem ser físicos, virtuais, estar em um container, no local ou em uma nuvem.
 
@@ -25,13 +24,13 @@ Você pode adicionar runners auto-hospedados em vários níveis na hierarquia de
 - Executores no nível da organização podem processar trabalhos para vários repositórios em uma organização.
 - Runners de nível empresarial podem ser atribuídos a várias organizações em uma conta corporativa.
 
-Your runner machine connects to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_actions %} self-hosted runner application. {% data reusables.github-actions.runner-app-open-source %} Quando uma nova versão é lançada, o aplicativo do executor atualiza-se automaticamente quando uma tarefa é atribuída ao executor, ou dentro de uma semana após a liberação, caso o executor não tenha recebido nenhum trabalho.
+A sua máquina do executor conecta-se ao {% data variables.product.product_name %} usando o aplicativo do executor auto-hospedado de {% data variables.product.prodname_actions %}. {% data reusables.github-actions.runner-app-open-source %} Quando uma nova versão é lançada, o aplicativo do executor atualiza-se automaticamente quando uma tarefa é atribuída ao executor, ou dentro de uma semana após a liberação, caso o executor não tenha recebido nenhum trabalho.
 
 {% data reusables.github-actions.self-hosted-runner-auto-removal %}
 
 Para mais informações sobre instalação e uso de executores auto-hospedados, consulte "[Adicionar executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" e "[Usar executores auto-hospedados em um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### Você pode executar fluxos de trabalho nos executores hospedados em {% data variables.product.prodname_dotcom %} ou em executores auto-hospedados
+## Você pode executar fluxos de trabalho nos executores hospedados em {% data variables.product.prodname_dotcom %} ou em executores auto-hospedados
 
 Os executores auto-hospedados em {% data variables.product.prodname_dotcom %} oferecem uma maneira mais rápida e simples de executar seus fluxos de trabalho, enquanto os executores auto-hospedados são uma maneira altamente configurável de executar fluxos de trabalho em seu próprio ambiente personalizado.
 
@@ -48,7 +47,7 @@ Os executores auto-hospedados em {% data variables.product.prodname_dotcom %} of
 - Não é necessário ter uma instância limpa para a execução de cada trabalho.
 - São grátis para usar com {% data variables.product.prodname_actions %}, mas você é responsável pelo custo de manutenção das suas máquinas executoras.
 
-### Requisitos para executores auto-hospedados
+## Requisitos para executores auto-hospedados
 
 Você pode usar qualquer máquina como um executor auto-hospedado, desde que ela atenda a estes requisitos:
 
@@ -57,7 +56,14 @@ Você pode usar qualquer máquina como um executor auto-hospedado, desde que ela
 * A máquina tem recursos de hardware suficientes para o tipo de fluxos de trabalho que você planeja executar. O aplicativo do executor auto-hospedado requer apenas recursos mínimos.
 * Se você desejar executar fluxos de trabalho que usam ações do contêiner do Docker ou dos contêineres de serviço, você deverá usar uma máquina Linux e o Docker deve estar instalados.
 
-### Limites de uso
+{% ifversion fpt or ghes > 3.2 %}
+## Dimensionar automaticamente os seus executores auto-hospedados
+
+Você pode aumentar ou diminuir automaticamente o número de executores auto-hospedados no seu ambiente em resposta aos eventos que você receber. Para obter mais informações, consulte "[Dimensionamento automático com executores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
+
+{% endif %}
+
+## Limites de uso
 
 Existem alguns limites sobre o uso de {% data variables.product.prodname_actions %} ao usar executores auto-hospedados. Estes limites estão sujeitos a mudanças.
 
@@ -65,19 +71,20 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
 - **Tempo de fila de tarefas** - Cada trabalho para executores auto-hospedados pode ser enfileirado por um máximo de 24 horas. Se um executor auto-hospedado não começar a executar a tarefa dentro deste limite, a tarefa será encerrada e não será concluída.
 {% data reusables.github-actions.usage-api-requests %}
 - **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### Continuidade do fluxo de trabalho para executores auto-hospedados
+## Continuidade do fluxo de trabalho para executores auto-hospedados
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
-### Arquiteturas e sistemas operacionais compatíveis com executores auto-hospedados
+## Arquiteturas e sistemas operacionais compatíveis com executores auto-hospedados
 
 Os sistemas operacionais a seguir são compatíveis com o aplicativo de execução auto-hospedado.
 
-#### Linux
+### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 ou posterior
+- CentOS 7 ou posterior
 - Oracle Linux 7
 - Fedora 29 ou versão posterior
 - Debian 9 ou versão posterior
@@ -86,7 +93,7 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 - openSUSE 15 ou versão posterior
 - SUSE Enterprise Linux (SLES) 12 SP2 ou versão posterior
 
-#### Windows
+### Windows
 
 - Windows 7 64-bit
 - Windows 8.1 64-bit
@@ -95,11 +102,11 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### macOS
+### macOS
 
 - macOS 10.13 (High Sierra) or versão posterior
 
-#### Arquiteturas
+### Arquiteturas
 
 As seguintes arquiteturas de processador são compatíveis com o aplicativo do executor auto-hospedado.
 
@@ -107,19 +114,19 @@ As seguintes arquiteturas de processador são compatíveis com o aplicativo do e
 - `ARM64` - Apenas Linux.
 - `ARM32` - Apenas Linux.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-### Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
+## Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
 
-A máquina pode comunicar-se com {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Comunicação entre os executores auto-hospedados e {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)".
+Algumas configurações extras podem ser necessárias para usar ações de {% data variables.product.prodname_dotcom_the_website %} com {% data variables.product.prodname_ghe_server %} ou para usar as ações `actions/setup-LANGUAGE` com executores auto-hospedados sem acesso à internet. Para obter mais informações, consulte "[Comunicação entre os executores auto-hospedados e {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)".
 
 {% endif %}
 
-### Comunicação entre executores auto-hospedados e {% data variables.product.product_name %}
+## Comunicação entre executores auto-hospedados e {% data variables.product.product_name %}
 
 As enquetes dos executores auto-hospedados {% data variables.product.product_name %} para recuperar atualizações do aplicativo e verificar se algum trabalho está na fila para processamento. O executor auto-hospedado usa uma _enquete longa_ HTTPS que abre uma conexão com {% data variables.product.product_name %} por 50 segundos e, se nenhuma resposta for recebida, o período de espera se encerra a uma nova enquete é criada. O aplicativo deve estar rodando na máquina para aceitar e executar trabalhos do {% data variables.product.prodname_actions %}.
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 Você deve garantir que o executor auto-hospedado tenha acesso à rede para comunicar-se com a
 URL de {% data variables.product.prodname_ghe_managed %}.
 Por exemplo, se o nome da sua instância for `octoghae`, você precisará permitir que o executor auto-hospedado acesse `octoghae.github.com`.
@@ -128,9 +135,15 @@ Se você usa uma lista de endereços IP para a
 conta da sua organização ou empresa de {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do seu executor auto-hospedado à lista de permissão. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.prodname_dotcom %} URLs listadas abaixo.
+
+{% note %}
+
+**Observação:** Alguns dos domínios listados abaixo estão configurados usando os registros `CNAME`. Alguns firewalls podem exigir que você adicione regras recursivamente para todos os registros `CNAME`. Observe que os registros `CNAME` podem mudar no futuro, e que apenas os domínios listados abaixo permanecerão constantes.
+
+{% endnote %}
 
 ```
 github.com
@@ -143,21 +156,24 @@ codeload.github.com
 pkg-cache.githubusercontent.com
 pkg-containers.githubusercontent.com
 pkg-containers-az.githubusercontent.com
+*.blob.core.windows.net
 ```
 
 Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 
-Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.prodname_dotcom %} URLs listadas abaixo.
+Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com {% data variables.product.product_location %}.
 
 {% endif %}
 
 Você também pode usar executores auto-hospedados com um servidor proxy. Para obter mais informações, consulte "[Usar um servidor proxy com executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
-### Segurança dos executores auto-hospedados com repositórios públicos
+## Segurança dos executores auto-hospedados com repositórios públicos
 
+{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
+{% endif %}
 
 Este não é um problema com executores hospedados no {% data variables.product.prodname_dotcom %}, pois cada executor hospedado no {% data variables.product.prodname_dotcom %} é sempre uma máquina virtual limpa e isolada, que é destruída no final da execução do trabalho.
 

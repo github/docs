@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 GitHub 支持以 *.csv*（逗号分隔）和 .*tsv*（制表符分隔）文件的形式呈现表格数据。
 
 ![呈现的 CSV 示例](/assets/images/help/repository/rendered_csv.png)

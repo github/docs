@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% warning %}
 
 **Warnung**: Mit den hier beschriebenen Verfahren löschst Du Dateien dauerhaft aus dem Repository auf Deinem Computer und von {% data variables.product.product_location %}. Wichtige Dateien solltest Du vor dem Entfernen unbedingt lokal in einem Verzeichnis außerhalb des Repositorys sichern.

@@ -4,8 +4,8 @@ intro: 'ユーザが {% data variables.product.product_name %} にサインイ�
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -13,4 +13,4 @@ children:
   - /managing-identity-and-access-for-your-enterprise
   - /configuring-authentication-and-provisioning-with-your-identity-provider
 ---
-### 目次
+

@@ -7,12 +7,15 @@ redirect_from:
   - /articles/adding-notes-to-a-project-board
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Add notes to board
 ---
+{% data reusables.projects.project_boards_old %}
+
 {% tip %}
 
 **Tips:**
@@ -26,7 +29,7 @@ When you add a URL for an issue, pull request, or another project board to a not
 
 ![Project board cards showing a preview of an issue and another project board](/assets/images/help/projects/note-with-summary-card.png)
 
-### Adding notes to a project board
+## Adding notes to a project board
 
 1. Navigate to the project board where you want to add notes.
 2. In the column you want to add a note to, click {% octicon "plus" aria-label="The plus icon" %}.
@@ -40,7 +43,7 @@ When you add a URL for an issue, pull request, or another project board to a not
 
   {% endtip %}
 
-### Converting a note to an issue
+## Converting a note to an issue
 
 If you've created a note and find that it isn't sufficient for your needs, you can convert it to an issue.
 
@@ -63,7 +66,7 @@ When you convert a note to an issue, the issue is automatically created using th
 6. Click **Convert to issue**.
 7. The note is automatically converted to an issue. In the project board, the new issue card will be in the same location as the previous note.
 
-### Editing and removing a note
+## Editing and removing a note
 
 1. Navigate to the note that you want to edit or remove.
 {% data reusables.project-management.project-note-more-options %}
@@ -72,7 +75,7 @@ When you convert a note to an issue, the issue is automatically created using th
 4. To delete the contents of the notes, click **Delete note**.
   ![Delete note button](/assets/images/help/projects/delete-note.png)
 
-### Further reading
+## Further reading
 
 - "[About project boards](/articles/about-project-boards)"
 - "[Creating a project board](/articles/creating-a-project-board)"

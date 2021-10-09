@@ -5,24 +5,25 @@ intro: 'Você pode configurar {% data variables.product.prodname_code_scanning %
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Opções para configuração de {% data variables.product.prodname_code_scanning %}
+## Opções para configuração de {% data variables.product.prodname_code_scanning %}
 
 Você decide como gerar alertas de {% data variables.product.prodname_code_scanning %} e quais ferramentas usar no nível de um repositório. O {% data variables.product.product_name %} fornece suporte totalmente integrado para a análise do {% data variables.product.prodname_codeql %} e também é compatível com ferramentas de análise usando ferramentas de terceiros. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)".
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Configurar {% data variables.product.prodname_code_scanning %} usando ações
+## Configurar {% data variables.product.prodname_code_scanning %} usando ações
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -39,10 +40,11 @@ Você decide como gerar alertas de {% data variables.product.prodname_code_scann
 
 No {% data variables.product.prodname_codeql_workflow %} padrão, {% data variables.product.prodname_code_scanning %} está configurado para analisar o seu código cada vez que você fizer push de uma alteração no branch-padrão ou em qualquer branch protegido, ou criar um pull request contra o branch padrão. Como resultado, {% data variables.product.prodname_code_scanning %} vai começar agora.
 
-### Configuração em massa de {% data variables.product.prodname_code_scanning %}
-Você pode configurar {% data variables.product.prodname_code_scanning %} em vários repositórios de uma vez usando um script. Para obter um exemplo de um script que apresenta pull requests para adicionar um fluxo de trabalho de {% data variables.product.prodname_actions %} em vários repositórios, veja o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs).
+## Configuração em massa de {% data variables.product.prodname_code_scanning %}
 
-### Visualizar a saída do registro de {% data variables.product.prodname_code_scanning %}
+Você pode configurar {% data variables.product.prodname_code_scanning %} em vários repositórios de uma vez usando um script. Para obter um exemplo de um script que levanta pull requests para adicionar um fluxo de trabalho de {% data variables.product.prodname_actions %} em vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo que usa o Powershell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem Powershell e que, em vez disso, prefeririam usar o NodeJS.
+
+## Visualizar a saída do registro de {% data variables.product.prodname_code_scanning %}
 
 Depois de configurar o {% data variables.product.prodname_code_scanning %} para o seu repositório, você poderá inspecionar a saída das ações conforme forem executadas.
 
@@ -70,7 +72,7 @@ Depois de configurar o {% data variables.product.prodname_code_scanning %} para 
 
 {% endnote %}
 
-### Entendendo as verificações de pull request
+## Entendendo as verificações de pull request
 
 Cada fluxo de trabalho de {% data variables.product.prodname_code_scanning %} que você configurar para ser executado em pull requests sempre terá pelo menos duas entradas listadas na seção de verificações de um pull request. Há uma entrada para cada um dos trabalhos de análise no fluxo de trabalho e uma entrada final para os resultados da análise.
 
@@ -82,7 +84,7 @@ Quando os trabalhos de {% data variables.product.prodname_code_scanning %} forem
 
   ![Análise ausente para mensagem de commit](/assets/images/help/repository/code-scanning-missing-analysis.png)
 
-#### Motivos da mensagem "faltando ausente"
+### Motivos da mensagem "faltando ausente"
 
 Depois que {% data variables.product.prodname_code_scanning %} analisou o código em um pull request, ele precisa comparar a análise do branch de tópico (o branch que você usou para criar o pull request) com a análise do branch de base (o branch no qual você deseja mesclar o pull request). Isso permite que {% data variables.product.prodname_code_scanning %} calcule quais alertas foram recém-introduzidos pelo pull request, que alertas já estavam presentes no branch de base e se alguns alertas existentes são corrigidos pelas alterações no pull request. Inicialmente, se você usar um pull request para adicionar {% data variables.product.prodname_code_scanning %} a um repositório, o branch de base ainda não foi analisado. Portanto, não é possível computar esses detalhes. Neste caso, ao clicar na verificação de resultados no pull request você verá a mensagem "Análise ausente para o commit de base SHA-HASH".
 
@@ -104,7 +106,7 @@ Há outras situações em que não pode haver análise para o último commit do 
 
   Faça merge uma mudança trivial no branch de base para acionar {% data variables.product.prodname_code_scanning %} neste commit mais recente e, em seguida, faça push de uma alteração para o pull request reiniciar {% data variables.product.prodname_code_scanning %}.
 
-### Próximas etapas
+## Próximas etapas
 
 Após configurar a opção {% data variables.product.prodname_code_scanning %}, e permitir que suas ações sejam concluídas, você pode:
 

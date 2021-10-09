@@ -15,13 +15,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
   - /admin/enterprise-management/upgrading-github-enterprise-server
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Upgrades
+shortTitle: 升级 GHES
 ---
-### 准备升级
+
+## 准备升级
 
 1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
 3. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
@@ -35,7 +37,7 @@ topics:
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### 生成快照
+## 生成快照
 
 快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 如果您要升级到新的功能版本，则必须生成 VM 快照。 如果您要升级到补丁版本，可以连接现有数据磁盘。
 
@@ -61,24 +63,24 @@ topics:
 | VMware                | VM   | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
 | XenServer             | VM   | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
-### 使用热补丁升级
+## 使用热补丁升级
 
 {% data reusables.enterprise_installation.hotpatching-explanation %} 利用 {% data variables.enterprise.management_console %}，您可以立即安装热补丁，也可以排定稍后安装热补丁。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
 
 {% note %}
 
-**{% if currentVersion ver_gt "enterprise-server@2.22" %}注释{% else %}注释{% endif %}**：
+**{% ifversion ghes > 2.22 %}注释{% else %}注释{% endif %}**：
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghes > 2.22 %}
 - 如果 {% data variables.product.product_location %} 正在运行发布候选版本，则无法使用热补丁升级。
 
 - {% endif %}无法在集群环境中使用 {% data variables.enterprise.management_console %} 安装热补丁。 要在集群环境中安装热补丁，请参阅“[升级集群](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”。
 
 {% endnote %}
 
-#### 使用热补丁升级单个设备
+### 使用热补丁升级单个设备
 
-##### 使用 {% data variables.enterprise.management_console %} 安装热补丁
+#### 使用 {% data variables.enterprise.management_console %} 安装热补丁
 
 1. 启用自动更新。 更多信息请参阅“[启用自动更新](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)”。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -89,7 +91,7 @@ topics:
     - 要稍后安装，请选择以后的日期。 ![热补丁安装日期下拉菜单](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
 5. 单击 **Install（安装）**。 ![热补丁安装按钮](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
-##### 使用管理 shell 安装热补丁
+#### 使用管理 shell 安装热补丁
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -103,7 +105,7 @@ topics:
   ```
 5. 如果更新内核、MySQL、Elasticsearch 或其他程序时需要重启，热补丁升级脚本会通知您。
 
-#### 使用热补丁升级包含副本实例的设备
+### 使用热补丁升级包含副本实例的设备
 
 {% note %}
 
@@ -113,11 +115,11 @@ topics:
 
 配置为高可用性和 Geo-replication 的设备除了会使用主实例之外，还会使用副本实例。 要升级此类设备，您需要逐个升级主实例和所有副本实例。
 
-##### 升级主实例
+#### 升级主实例
 
 1. 请按照“[使用管理 shell 安装热补丁](#installing-a-hotpatch-using-the-administrative-shell)”中的说明升级主实例。
 
-##### 升级副本实例
+#### 升级副本实例
 
 {% note %}
 
@@ -129,11 +131,11 @@ topics:
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
-### 使用升级包升级
+## 使用升级包升级
 
 虽然您可以使用热补丁升级到功能系列中的最新补丁版本，但必须使用升级包升级到更新的功能版本。 例如，要从 `2.11.10` 升级到 `2.12.4`，您必须使用升级包，因为两者在不同的功能系列中。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
 
-#### 使用升级包升级单个设备
+### 使用升级包升级单个设备
 
 {% data reusables.enterprise_installation.download-note %}
 
@@ -169,11 +171,11 @@ topics:
 
   {% endnote %}
 
-#### 使用升级包升级包含副本实例的设备
+### 使用升级包升级包含副本实例的设备
 
 配置为高可用性和 Geo-replication 的设备除了会使用主实例之外，还会使用副本实例。 要升级此类设备，您需要逐个升级主实例和所有副本实例。
 
-##### 升级主实例
+#### 升级主实例
 
 {% warning %}
 
@@ -186,7 +188,7 @@ topics:
 3. 在副本实例或者所有副本实例（如果您将多个副本实例作为 Geo-replication 的一部分运行）上，运行 `ghe-repl-stop` 以停止复制。
 4. 按照“[使用升级包升级单个设备](#upgrading-a-single-appliance-with-an-upgrade-package)”中的说明升级主实例。
 
-##### 升级副本实例
+#### 升级副本实例
 
 {% note %}
 
@@ -216,22 +218,22 @@ topics:
    {% data reusables.enterprise_installation.replication-status %}
 6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
-### 从失败的升级中恢复
+## 从失败的升级中恢复
 
 如果升级失败或中断，您应将实例还原为其之前的状态。 完成此操作的过程取决于升级类型。
 
-#### 回滚补丁版本
+### 回滚补丁版本
 
 要回滚补丁版本，请使用带 `--allow-patch-rollback` 开关的 `ghe-upgrade` 命令。 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)”。
 
-#### 回滚功能版本
+### 回滚功能版本
 
 要从功能版本回滚，请从 VM 快照恢复，以确保根分区和数据分区处于一致的状态。 更多信息请参阅“[生成快照](#taking-a-snapshot)”。
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### 延伸阅读
+{% ifversion ghes > 2.22 %}
+## 延伸阅读
 
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

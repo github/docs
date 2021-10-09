@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. 在左侧边栏中，单击 **Deploy keys（部署密钥）**。 ![部署密钥设置](/assets/images/help/settings/settings-sidebar-deploy-keys.png)

@@ -7,11 +7,13 @@ redirect_from:
   - /articles/about-github-education-for-educators-and-researchers
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Educators & researchers
 ---
+
 {% data reusables.education.about-github-education-link %}
 
-### {% data variables.product.prodname_education %} für Lehrer
+## {% data variables.product.prodname_education %} für Lehrer
 
 Die Werkzeuge und Dienste von {% data variables.product.prodname_education %} für Lehrer aller Bildungsebenen ermöglichen Dir Folgendes:
   - Verwende [{% data variables.product.prodname_classroom %}](https://classroom.github.com), um Code zu verteilen, Schülern und Studenten Feedback zu geben und Aufgaben auf {% data variables.product.prodname_dotcom %} einzusammeln.
@@ -20,13 +22,13 @@ Die Werkzeuge und Dienste von {% data variables.product.prodname_education %} f�
   - [Fordere eine {% data variables.product.prodname_dotcom %}-Tasche](https://education.github.community/t/get-a-github-swag-bag-for-your-classroom/33) mit Lehrmaterialien und Aufmerksamkeiten für Deine Schüler und Studenten an.
   {% data reusables.education.apply-for-team %}
 
-### {% data variables.product.prodname_education %} für Forscher
+## {% data variables.product.prodname_education %} für Forscher
 
 Die Werkzeuge und Dienste von {% data variables.product.prodname_education %} für Forscher ermöglichen Dir Folgendes:
   - Arbeite weltweit auf {% data variables.product.prodname_dotcom %} mit anderen Personen gemeinsam an Deiner Forschungsarbeit.
   - [Erfahre](https://education.github.com/stories), wie akademische Einrichtungen auf der ganzen Welt {% data variables.product.prodname_dotcom %} für ihre Forschung verwenden.
   {% data reusables.education.apply-for-team %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu {% data variables.product.prodname_education %} für Schüler und Studenten](/articles/about-github-education-for-students)“

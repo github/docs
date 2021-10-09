@@ -6,11 +6,13 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: アプリケーションの価格プラン
 ---
-{% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にできます。 価格は米ドルで設定、表示、処理されます。 Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+
+{% data variables.product.prodname_marketplace %}の価格プランは、無料、定額料金、ユニット単位にできます。 価格は米ドルで設定、表示、処理されます。 有料プランは、検証済みパブリッシャーが公開するアプリケーションに限られます。 検証済みパブリッシャーになる方法の詳細については、「[Organizationのパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」を参照してください。
 
 顧客は{% data variables.product.prodname_dotcom_the_website %}を離れることなく、{% data variables.product.product_name %}アカウントに添付された支払い方法を使ってアプリケーションを購入します。 支払いトランザクションを実行するためにコードを書く必要はありませんが、{% data variables.product.prodname_marketplace %} APIからのイベントは処理しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
@@ -20,9 +22,9 @@ topics:
 
 {% data reusables.marketplace.free-plan-note %}
 
-### 価格プランの種類
+## 価格プランの種類
 
-#### 無料プラン
+### 無料プラン
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
@@ -32,7 +34,7 @@ topics:
 
 {% data variables.product.prodname_marketplace %}に無料のサービスとしてリスト済みのアプリケーションに有料プランを追加する場合、アプリケーションの検証をリクエストし、金銭のオンボーディングを通さなければなりません。
 
-#### 有料プラン
+### 有料プラン
 
 有料プランには2つの種類があります。
 
@@ -42,7 +44,7 @@ topics:
 
 無料トライアルを提供したいこともあるでしょう。 無料トライアルは、OAuthもしくはGitHub Appsを無料の14日間のトライアルとして顧客に提供します。 Marketplaceの価格プランをセットアップする際に、定額あるいはユニット単位の価格プランに対する無料トライアルを提供するオプションを選択できます。
 
-### 無料トライアル
+## 無料トライアル
 
 顧客は、無料トライアルを含むMarketplaceリスト上の任意の有料プランに対して、無料トライアルを開始できます。 ただし、顧客はMarketplaceの製品ごとに複数の無料トライアルを作成することはできません。
 

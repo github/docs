@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 如果您使用 SSH 克隆 {% data variables.product.product_name %} 仓库，则可使用 SSH 密钥进行身份验证，而不是使用其他凭据。 有关设置 SSH 连接的信息，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。
 
 {% mac %}
@@ -94,6 +95,8 @@ $ git config --global credential.helper wincred
   $ git config --global credential.helper 'cache --timeout=3600'
   # Set the cache to timeout after 1 hour (setting is in seconds)
   ```
+
+有关在 Linux 上存储凭据的更多选项，请参阅 Pro Git 中的[凭据存储](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) 。
 
 {% endlinux %}
 

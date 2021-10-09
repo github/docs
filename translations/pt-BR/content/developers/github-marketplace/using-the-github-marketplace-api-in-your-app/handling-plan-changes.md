@@ -7,13 +7,14 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---
+
 Para obter mais informações sobre atualização e downgrade com relação à cobrança, consulte "[Integração com a API do {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/)".
 
-### Etapa 1. Evento de mudança de plano de preços
+## Etapa 1. Evento de mudança de plano de preços
 
 O GitHub envia o webhook `marketplace_purchase` com a ação `alterado` para o seu aplicativo, quando um cliente faz qualquer uma dessas alterações no seu pedido do {% data variables.product.prodname_marketplace %}:
 * Faz a atualização para um plano de preços mais caro ou para um plano de preços mais barato.
@@ -26,7 +27,7 @@ Leia o `effective_date`, `marketplace_purchase` e `precedous_marketplace_purchas
 
 Se seu aplicativo oferecer testes grátis, você receberá o webhook `marketplace_purchase` com a ação `alterado` quando o teste grátis expirar. Se o teste grátis do cliente expirar, faça a atualização do cliente para a versão paga do plano grátis de teste.
 
-### Etapa 2. Atualizar as contas dos clientes
+## Etapa 2. Atualizar as contas dos clientes
 
 Você precisará atualizar as informações da conta do cliente para refletir as alterações no ciclo de cobrança e no plano de preços que o cliente fez em seu pedido do {% data variables.product.prodname_marketplace %}. Exibe as atualizações para o plano de preços, `seat_count` (para planos de preços por unidade) e ciclo de cobrança no site do aplicativo do Marketplace ou na interface do usuário do seu aplicativo quando você receber a ação de webhook `alterado`.
 
@@ -40,11 +41,11 @@ Para incentivar as pessoas a fazer a atualização, você pode exibir uma URL de
 
 {% endnote %}
 
-### Falha nos pagamentos de atualização
+## Falha nos pagamentos de atualização
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-### Sobre as URLs de atualização
+## Sobre as URLs de atualização
 
 Você pode redirecionar os usuários da interface de usuário do seu aplicativo no GitHub, usando uma URL de atualização:
 

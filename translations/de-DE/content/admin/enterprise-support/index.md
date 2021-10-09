@@ -4,12 +4,13 @@ intro: 'Erfahre, wie Du ein Ticket öffnen und das {% data variables.contact.ent
 redirect_from:
   - /enterprise/admin/enterprise-support
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /overview
   - /receiving-help-from-github-support
+shortTitle: Working with support
 ---
-### Inhaltsverzeichnis
+

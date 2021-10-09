@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Informationen zu {% data variables.product.prodname_ghe_server %}-Testversionen
 
 Sie können eine Testversion anfordern und {% data variables.product.prodname_ghe_server %} 45 Tage lang kostenlos testen. Deine Testversion wird als virtuelle Appliance installiert, wobei Du wählen kannst, ob sie lokal oder in der Cloud bereitgestellt wird. Eine Liste der unterstützten Visualisierungsplattformen findest Du unter „[GitHub Enterprise Server-Instanz einrichten](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance).“

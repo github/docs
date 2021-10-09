@@ -14,11 +14,26 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Über Änderungen der Repository-Sichtbarkeit
 
 Organisationsinhaber können die Möglichkeit, die Sichtbarkeit des Repositorys zu ändern, auf Organisationsinhaber einschränken. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 We recommend reviewing the following caveats before you change the visibility of a repository.
+
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+{% warning %}
+
+**Warning:** Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
+
+- Wait for a period of reduced activity on {% data variables.product.product_location %}.
+
+- Contact your {% if enterpriseServerVersions contains currentVersion %}site administrator{% elsif currentVersion == "github-ae@latest" %}enterprise owner{% endif %} before proceeding. Your {% if enterpriseServerVersions contains currentVersion %}site administrator{% elsif currentVersion == "github-ae@latest" %}enterprise owner{% endif %} can contact {% data variables.contact.contact_ent_support %} for further guidance.
+
+{% endwarning %}
+
+{% endif %}
 
 #### Repository als privat festlegen
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
@@ -52,7 +67,7 @@ We recommend reviewing the following caveats before you change the visibility of
 * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Sobald Dein Repository der Öffentlichkeit zugänglich ist, kannst Du im Community-Profil des Repositorys überprüfen, ob Dein Projekt die Best Practices zur Unterstützung von Mitarbeitern erfüllt. For more information, see "[Viewing your community profile](/articles/viewing-your-community-profile)."
 * The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
 
-For information about improving repository security, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)."{% endif %}
+For information about improving repository security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."{% endif %}
 
 {% endif %}
 

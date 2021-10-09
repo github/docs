@@ -1,22 +1,19 @@
 ---
 title: Desarrollar en un codespace
-intro: 'Create a codespace to get started with developing your project inside a dedicated cloud environment. You can use forwarded ports to run your application and even use codespaces inside {% data variables.product.prodname_vscode %}'
+intro: 'Crea un codespace para comenzar a desarrollar tu proyecto dentro de un ambiente dedicado en la nube. Puedes utilizar puertos reenviados para ejecutar tu aplicación e incluso utilizar codespaces dentro de {% data variables.product.prodname_vscode %}'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Codespaces
+children:
+  - /creating-a-codespace
+  - /developing-in-a-codespace
+  - /using-source-control-in-your-codespace
+  - /using-codespaces-for-pull-requests
+  - /deleting-a-codespace
+  - /forwarding-ports-in-your-codespace
+  - /changing-the-machine-type-for-your-codespace
+  - /using-codespaces-in-visual-studio-code
 ---
 
-{% data reusables.codespaces.release-stage %}
-
-{% link_with_intro /creating-a-codespace %}
-
-{% link_with_intro /developing-in-a-codespace %}
-
-{% link_with_intro /using-source-control-in-your-codespace %}
-
-{% link_with_intro /deleting-a-codespace %}
-
-{% link_with_intro /forwarding-ports-in-your-codespace %}
-
-{% link_with_intro /using-codespaces-in-visual-studio-code %}

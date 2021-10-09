@@ -14,6 +14,7 @@ topics:
   - Access management
 children:
   - /about-commit-signature-verification
+  - /displaying-verification-statuses-for-all-of-your-commits
   - /checking-for-existing-gpg-keys
   - /generating-a-new-gpg-key
   - /adding-a-new-gpg-key-to-your-github-account

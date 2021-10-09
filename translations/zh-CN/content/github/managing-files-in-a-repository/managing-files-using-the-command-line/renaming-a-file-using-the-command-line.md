@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 许多文件可[在 {% data variables.product.product_name %} 上直接重命名](/articles/renaming-a-file)，但有些文件（如图像）需要从命令行重命名。
 
 {% data reusables.command_line.manipulating_file_prereqs %}

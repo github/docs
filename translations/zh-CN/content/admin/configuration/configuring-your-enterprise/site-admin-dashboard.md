@@ -7,45 +7,47 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Enterprise
   - Fundamentals
 ---
+
 要访问仪表板，请在任意页面的右上角中单击 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes or ghae %}
 
-### 搜索
+## 搜索
 
 您可以在此处启动 {{ site.data.variables.enterprise.management_console }}，以管理域、身份验证和 SSL 等虚拟设备设置。
 
 {% else %}
 
-### 许可信息与搜索
+## 许可信息与搜索
 
 请参照站点管理员仪表板的此部分检查您当前的 {% data variables.product.prodname_enterprise %} 许可；搜索用户和仓库；查询[审核日志](#audit-log)。
 
 {% endif %}
-
-### {% data variables.enterprise.management_console %}
+{% ifversion ghes %}
+## {% data variables.enterprise.management_console %}
 
 您可以在此处启动 {% data variables.enterprise.management_console %}，以管理域、身份验证和 SSL 等虚拟设备设置。
-
-### 探索
+{% endif %}
+## 探索
 
 GitHub [趋势页面][]中的数据按每天、每周和每月的时间跨度为仓库和开发者计算。 在 **Explore** 部分中，您可以看到此数据的最后缓存时间，并将新的趋势计算作业加入队列。
 
-### 审核日志
+## 审核日志
 
-{% data variables.product.prodname_enterprise %} 会实时记录您可以查询的审核操作。
+{% data variables.product.product_name %} 会实时记录您可以查询的审核操作。
 
 默认情况下，审核日志会按时间倒序显示所有已审核操作的列表。 要对此列表进行筛选，您可以在 **Query** 文本框中输入键值对，然后单击 **Search**，如“[搜索审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)”所述。
 
 有关一般审核日志的更多信息，请参阅“[审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)”。 有关审核的操作的完整列表，请参阅“[审核的操作](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)”。
 
-### 报告
+## 报告
 
 如果您需要获取关于 {% data variables.product.product_location %} 中用户、组织和仓库的信息，正常些情况下，您将通过 [GitHub API](/rest) 提取 JSON 数据。 但遗憾的是，此 API 可能无法提供您需要的所有数据，并且需要一定的专业技术知识才能使用。 因此，站点管理员仪表板提供 **Reports** 部分代替 API 方法，您可以通过仪表板轻松下载 CSV 报告，其中包含大部分您有可能需要的用户、组织和仓库信息。
 
@@ -74,7 +76,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 
 {% endnote %}
 
-#### 用户报告
+### 用户报告
 
 |                 键 | 描述                        |
 | -----------------:| ------------------------- |
@@ -93,7 +95,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 |       `raw_login` | 原始登录信息（JSON 格式）           |
 |    `2fa_enabled?` | 用户是否已启用双重身份验证             |
 
-#### 组织报告
+### 组织报告
 
 |               键 | 描述           |
 | ---------------:| ------------ |
@@ -107,7 +109,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 |         `repos` | 组织仓库数量       |
 | `2fa_required?` | 组织是否需要双重身份验证 |
 
-#### 仓库报告
+### 仓库报告
 
 |               键 | 描述             |
 | ---------------:| -------------- |
@@ -124,15 +126,16 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 |         `fork?` | 仓库是否为分叉        |
 |      `deleted?` | 仓库是否已删除        |
 
-### 索引
+{% ifversion ghes %}
+## 索引
 
 GitHub 的[代码搜索][]功能由 [ElasticSearch][] 提供支持。 站点管理员仪表板的这一部分会显示 ElasticSearch 集群的当前状态，并提供多种工具来控制搜索和索引行为。 这些工具分为以下三类。
 
-#### 代码搜索
+### 代码搜索
 
 此类允许您启用或禁用对源代码进行的搜索和索引操作。
 
-#### 代码搜索索引修复
+### 代码搜索索引修复
 
 此类控制着代码搜索索引的修复方式。 您可以
 
@@ -154,23 +157,37 @@ GitHub 的[代码搜索][]功能由 [ElasticSearch][] 提供支持。 站点管�
 
 您可以随时启动新的代码搜索索引修复作业。 在协调搜索索引与数据库和 Git 仓库数据时，它将使用单个 CPU。 为了最大限度地减小对 I/O 性能的影响并减小操作超时的几率，请先尝试在非高峰期运行修复作业。 使用 `top` 等实用程序监视系统的平均负载和 CPU 利用率；如果您没有注意到任何显著的变化，那么在高峰期运行索引修复作业也应当是安全的。
 
-#### 问题索引修复
+### 问题索引修复
 
 此类控制着[问题][]索引的修复方式。 您可以
 
 - 启用或禁用索引修复作业
 - 开始新的索引修复作业
 - 重置所有索引修复状态
+{% endif %}
+## Reserved logins
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
 
-### 所有用户
+For example, the following words are reserved, among others:
+
+- `管理员`
+- `企业`
+- `login`
+- `staff`
+- `支持`
+
+For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+
+{% ifversion ghes or ghae %}
+
+## 所有用户
 
 您可以在此查看 {{ site.data.variables.product.product_location_enterprise }} 上所有已被挂起的用户，并[发起 SSH 密钥审核](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys)。
 
 {% endif %}
 
-### 仓库
+## 仓库
 
 这是 {% data variables.product.product_location %} 上的仓库列表。 您可以单击仓库名称，然后访问各项功能，对仓库进行管理。
 
@@ -178,17 +195,21 @@ GitHub 的[代码搜索][]功能由 [ElasticSearch][] 提供支持。 站点管�
 - [配置 {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [存档和取消存档仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-### 所有用户
+## 所有用户
 
-您可以在此查看 {% data variables.product.product_location %} 上的所有用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
+Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-### 站点管理员
+## 站点管理员
 
 您可以在此查看 {% data variables.product.product_location %} 上的所有管理员，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
 
-### 休眠用户
-
+## 休眠用户
+{% ifversion ghes %}
 您可以在此查看并[挂起](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) {% data variables.product.product_location %} 上的所有非活动用户。 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
+{% endif %}
+{% ifversion ghae %}
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
+{% endif %}
 
 - 存在时间长于为 {% data variables.product.product_location %} 设置的休眠阈值。
 - 在该时间段内没有发生任何活动。
@@ -196,7 +217,7 @@ GitHub 的[代码搜索][]功能由 [ElasticSearch][] 提供支持。 站点管�
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %} 更多信息请参阅“[管理休眠用户](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)”。
 
-### 已挂起的用户
+## 已挂起的用户
 
 您可以在此查看 {% data variables.product.product_location %} 上所有已被挂起的用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
 

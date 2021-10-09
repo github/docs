@@ -6,16 +6,16 @@ redirect_from:
   - /apps/managing-oauth-apps/modifying-an-oauth-app
   - /developers/apps/modifying-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - OAuth Apps
 ---
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
 {% data reusables.user-settings.modify_oauth_app %}
-1. 修改
-要更改的 {% data variables.product.prodname_oauth_app %} 信息。
+1. 修改您想要更改的 {% data variables.product.prodname_oauth_app %} 信息。
 {% data reusables.user-settings.update_oauth_app %}

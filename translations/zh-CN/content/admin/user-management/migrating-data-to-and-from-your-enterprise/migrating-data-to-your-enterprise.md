@@ -13,13 +13,15 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: 导入到您的企业
 ---
-### 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
+
+## 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
 一旦[准备迁移](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)，您即可使用以下步骤来完成迁移。
 
@@ -38,7 +40,7 @@ topics:
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-### 检查迁移数据
+## 检查迁移数据
 
 默认情况下，`ghe-migrator audit` 将返回每一条记录。 它还可以让您按以下方式筛选记录：
 
@@ -47,7 +49,7 @@ topics:
 
 记录类型与[迁移的数据](/enterprise/admin/guides/migrations/about-migrations/#migrated-data)中的类型匹配。
 
-### 记录类型筛选器
+## 记录类型筛选器
 
 | 记录类型           | 筛选器名称                         |
 | -------------- | ----------------------------- |
@@ -67,7 +69,7 @@ topics:
 | 在拉取请求或问题上进行的操作 | `issue_event`                 |
 | 受保护分支          | `protected_branch`            |
 
-### 记录状态筛选器
+## 记录状态筛选器
 
 | 记录状态            | 描述        |
 | --------------- | --------- |
@@ -87,7 +89,7 @@ topics:
 | `failed_rename` | 记录重命名失败。  |
 | `failed_merge`  | 记录合并失败。   |
 
-### 筛选审核的记录
+## 筛选审核的记录
 
 借助 `ghe-migrator audit` 命令，您可以使用 `-m` 标志基于记录类型进行筛选。 类似地，您可以使用 `-s` 标志基于导入状态进行筛选。 命令如下所示：
 
@@ -112,18 +114,18 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 如果您对失败的导入有任何疑问，请联系 {% data variables.contact.contact_ent_support %}。
 
-### 在 {% data variables.product.prodname_ghe_server %} 上完成导入
+## 在 {% data variables.product.prodname_ghe_server %} 上完成导入
 
 在迁移应用到目标实例并且您已审查迁移后，您需要解锁仓库并将其从源中删除。 我们建议等待两周再删除您的源数据，以便确保所有数据都能按预期运行。
 
-### 在目标实例上解锁仓库
+## 在目标实例上解锁仓库
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-### 在源上解锁仓库
+## 在源上解锁仓库
 
-#### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织解锁仓库
+### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织解锁仓库
 
 要在 {% data variables.product.prodname_dotcom_the_website %} 组织中解锁仓库，您需要向<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">迁移解锁端点</a>发送 `DELETE` 请求。 您需要：
   * 身份验证的访问令牌
@@ -135,7 +137,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织中删除仓库
+### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织中删除仓库
 
 在解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的仓库后，您应当使用[仓库删除端点](/rest/reference/repos/#delete-a-repository)删除之前迁移的每一个仓库。 您需要身份验证的访问令牌：
 ```shell
@@ -143,7 +145,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### 从 {% data variables.product.prodname_ghe_server %} 实例解锁仓库
+### 从 {% data variables.product.prodname_ghe_server %} 实例解锁仓库
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}

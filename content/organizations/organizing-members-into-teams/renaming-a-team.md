@@ -5,9 +5,9 @@ redirect_from:
   - /articles/renaming-a-team
   - /github/setting-up-and-managing-organizations-and-teams/renaming-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams

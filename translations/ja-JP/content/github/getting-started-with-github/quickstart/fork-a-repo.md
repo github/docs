@@ -16,9 +16,10 @@ topics:
   - Notifications
   - Accounts
 ---
+
 ### フォークについて
 
-一般的にフォークは、他のユーザのプロジェクトへの変更を提案するため、あるいは他のユーザのプロジェクトを自分のアイディアの出発点として活用するために使用します。
+一般的にフォークは、他のユーザのプロジェクトへの変更を提案するため、あるいは他のユーザのプロジェクトを自分のアイディアの出発点として活用するために使用します。 You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
 #### 他のユーザのプロジェクトへの変更を提案する
 
@@ -75,9 +76,7 @@ topics:
 
 今、Spoon-Knife リポジトリのフォークがありますが、お使いのコンピュータにはそのリポジトリ内のファイルはありません。 コンピューター上でローカルにフォークのクローンを作成しましょう。
 
-1. On
-
-{% data variables.product.product_name %} で、Spoon-Knife リポジトリの**自分のフォーク**に移動します。
+1. {% data variables.product.product_name %} で、Spoon-Knife リポジトリの**自分のフォーク**に移動します。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -95,16 +94,13 @@ topics:
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
-
 Spoon-Knife リポジトリのフォークのローカルのコピーができました。
 
 #### ステップ 3: Git を構成して、自分のフォークとオリジナルの Spoon-Knife リポジトリを同期させる
 
 オリジナルのリポジトリへの変更を提案するためにプロジェクトをフォークする場合は、オリジナルまたは上流のリポジトリから、フォークのローカルのクローンへと、変更をプルするように Git を構成できます。
 
-1. On
-
-{% data variables.product.product_name %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
+1. {% data variables.product.product_name %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. ディレクトリを、「[ステップ 2: フォークのローカルクローンを作成する](#step-2-create-a-local-clone-of-your-fork)」でクローンしたフォークの場所に変更します。
@@ -143,7 +139,6 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 - **プルリクエストをオープンする:** オリジナルのリポジトリにコントリビュートしたい場合は、[プルリクエスト](/articles/about-pull-requests)を送信して、オリジナルの作者に自分のフォークをリポジトリへプルするようリクエストを送信できます。
 
 ### フォークする他のリポジトリを見つける
-
 リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {% data reusables.repositories.you-can-fork %}
 
 {% if currentVersion == "free-pro-team@latest" %}[Explore](https://github.com/explore) でプロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。

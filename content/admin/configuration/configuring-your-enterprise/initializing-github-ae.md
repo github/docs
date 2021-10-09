@@ -2,18 +2,18 @@
 title: Initializing GitHub AE
 intro: 'To get your enterprise ready to use, you can complete the initial configuration of {% data variables.product.product_name %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
 redirect_from:
   - /admin/configuration/initializing-github-ae
 ---
-### About initialization
+## About initialization
 
 Before you can initialize your enterprise, you must purchase {% data variables.product.product_name %}. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
-After you purchase {% data variables.product.product_name %}, we'll ask you to provide an email address and username for the person you want to initialize the enterprise. Your dedicated technical account manager in {% data variables.contact.enterprise_support %} will create an account for the enterprise owner and send the enterprise owner an email to log into {% data variables.product.product_name %} and complete the initialization. Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
 {% note %}
 
@@ -27,7 +27,7 @@ After you purchase {% data variables.product.product_name %}, we'll ask you to p
 
 During initialization, the enterprise owner will name your enterprise, configure SAML SSO, create policies for all organizations in your enterprise, and configure a support contact for your users.
 
-### Prerequisites
+## Prerequisites
 
 To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
@@ -42,14 +42,14 @@ To begin initialization, you will receive an invitation email from {% data varia
 
 2. {% data reusables.saml.assert-the-administrator-attribute %}
 
-### Signing in and naming your enterprise
+## Signing in and naming your enterprise
 
 1. Follow the instructions in your welcome email to reach your enterprise.
 2. Type your credentials under "Change password", then click **Change password**.
 3. Under "What would you like your enterprise account to be named?", type the enterprise's name, then click **Save and continue**.
   !["Save and continue" button for naming an enterprise](/assets/images/enterprise/configuration/ae-enterprise-configuration.png)
 
-### Connecting your IdP to your enterprise
+## Connecting your IdP to your enterprise
 
 To configure authentication for {% data variables.product.product_name %}, you must provide {% data variables.product.product_name %} with the details for your SAML IdP. {% data variables.product.company_short %} recommends using Azure AD as your IdP. For more information, see "[Configuring authentication and provisioning with your identity provider](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)."
 
@@ -66,7 +66,7 @@ To configure authentication for {% data variables.product.product_name %}, you m
 1. Click **Save**.
   !["Save" button for IdP configuration](/assets/images/enterprise/configuration/ae-save.png)
 
-### Setting your enterprise policies
+## Setting your enterprise policies
 
 Configuring policies will set limitations for repository and organization management for your enterprise. These can be reconfigured after the initialization process.
 
@@ -93,7 +93,7 @@ Configuring policies will set limitations for repository and organization manage
 11. Optionally, to reset all selections, click "Reset to default policies".
   ![Link to reset all default policies](/assets/images/enterprise/configuration/ae-reset-default-options.png)
 
-### Setting your internal support contact
+## Setting your internal support contact
 
 You can configure the method your users will use to contact your internal support team. This can be reconfigured after the initialization process.
 
@@ -104,7 +104,7 @@ You can configure the method your users will use to contact your internal suppor
 3. Click **Save**.
   !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
 
-### Setting your email settings
+## Setting your email settings
 
 Once this is initialized, you can reconfigure any settings after the initialization process. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)."
 

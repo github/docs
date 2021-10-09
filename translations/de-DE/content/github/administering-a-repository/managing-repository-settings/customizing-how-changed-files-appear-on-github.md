@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Verwende eine *.gitattributes*-Datei, um Dateien zu markieren, die einem bestimmten „Muster“ mit den festgelegten Attributen entsprechen. Eine *.gitattributes*-Datei nutzt dieselben Regeln zum Abgleichen wie _.gitignore_-Dateien. Weitere Informationen findest Du unter „[Muster-Format](https://www.git-scm.com/docs/gitignore#_pattern_format)" in der Git-Dokumentation.
 
 1. Wenn die *.gitattributes*-Datei noch nicht vorhanden ist, erstelle sie im Root-Verzeichnis des Repository.

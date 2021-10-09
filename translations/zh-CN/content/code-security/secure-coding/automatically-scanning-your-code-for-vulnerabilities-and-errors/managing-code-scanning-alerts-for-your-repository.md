@@ -13,9 +13,14 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
   - /code-security/secure-coding/managing-code-scanning-alerts-for-your-repository
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Alerts
+  - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -48,7 +53,7 @@ topics:
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-1. （可选）使用下拉菜单过滤警报。 例如，您可以通过用于识别警报的工具进行过滤。 ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. （可选）使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} 自由文本搜索框或{% endif %} 下拉菜单以过滤警报。 例如，您可以通过用于识别警报的工具进行过滤。 ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. 在 "{% data variables.product.prodname_code_scanning_capc %}" 下，单击要探索的警报。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![警报摘要](/assets/images/help/repository/code-scanning-click-alert.png)
@@ -58,11 +63,47 @@ topics:
 1. （可选）如果警报突出显示数据流的问题，请单击 **Show paths（显示路径）**以显示从数据源到使用它的接收者的路径。 ![警报上的"显示路径"链接](/assets/images/help/repository/code-scanning-show-paths.png)
 1. 来自 {% data variables.product.prodname_codeql %} 分析的警报包括对问题的描述。 单击 **Show more（显示更多）**以获取有关如何修复代码的指导。 ![警报的详细信息](/assets/images/help/repository/code-scanning-alert-details.png)
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %}
+### 搜索 {% data variables.product.prodname_code_scanning %} 警报
+
+您可以搜索警报列表。 如果仓库中存在大量警报，或者您不知道警报的确切名称，这很有用。 {% data variables.product.product_name %} 可执行以下自由文本搜索：
+- 警报的名称
+- 警报描述
+- 警报详细信息（这也包括默认情况下在**显示更多**可折叠部分中隐藏的信息）
+
+ ![搜索中使用的警报信息](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
+
+| 支持的搜索              | 语法示例                | 结果                               |
+| ------------------ | ------------------- | -------------------------------- |
+| 单字搜索               | `injection`         | 返回包含单词 `injection` 的所有警报         |
+| 多字词搜索              | `sql injection`     | 返回包含 `sql` 或 `injection` 的所有警报   |
+| 精确匹配搜索</br>（使用双引号） | `"sql injection"`   | 返回包含确切短语 `sql injection` 的所有警报   |
+| OR 搜索              | `sql OR injection`  | 返回包含 `sql` 或 `injection` 的所有警报   |
+| AND 搜索             | `sql AND injection` | 返回包含单词 `sql` 和 `injection` 的所有警报 |
+
+{% tip %}
+
+**提示：**
+- 多字词搜索等同于 OR 搜索。
+- AND 搜索将返回以任何顺序在警告名称、描述或详细信息中的_任意位置_找到搜索词的结果。
+
+{% endtip %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. 在 **Filters（过滤器）**下拉菜单的右边，在自由文本搜索框中输入关键词以搜索。 ![自由文本搜索框](/assets/images/help/repository/code-scanning-search-alerts.png)
+2. 按 <kbd>return</kbd>。 警报列表将包含与搜索条件匹配的未处理 {% data variables.product.prodname_code_scanning %} 警报。
+
+{% endif %}
+
 ### 修复警报
 
 任何对仓库具有写入权限的人都可以通过提交对代码的更正来修复警报。 如果仓库已安排对拉取请求运行 {% data variables.product.prodname_code_scanning %}，则最好通过拉取请求提交您的更正。 这将触发对更改的 {% data variables.product.prodname_code_scanning %} 分析，并测试您的修复是否会带来任何新的问题。 更多信息请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)”和“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
 
 如果您有仓库的写入权限，您可以通过查看警报摘要并单击 **Closed（已关闭）**来查看已修复的警报。 更多信息请参阅“[查看仓库的警报](#viewing-the-alerts-for-a-repository)”。 “Closed（已关闭）”列表显示已修复的警报和用户已忽略的警报。
+
+您可以使用{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} 自由文本搜索或{% endif %} 过滤器显示警报子集，然后依次将所有匹配的警报标记为已关闭。
 
 警报只能在一个分支中修复。 您可以在警报摘要上使用“Branch（分支）”下拉菜单检查警报是否是在特定分支中修复的。
 
@@ -102,7 +143,7 @@ topics:
 
    ![删除警报](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   （可选）您可以使用过滤器显示警报子集，然后一次删除所有匹配的警报。 例如，如果您从 {% data variables.product.prodname_codeql %} 分析中删除了查询，您可以使用“Rule（规则）”过滤器仅列出该查询的警报，然后选择并删除所有这些警报。
+   （可选）您可以使用{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.2" %} 自由文本搜索或{% endif %} 过滤器显示警报子集，然后一次删除所有匹配的警报。 例如，如果您从 {% data variables.product.prodname_codeql %} 分析中删除了查询，您可以使用“Rule（规则）”过滤器仅列出该查询的警报，然后选择并删除所有这些警报。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![按规则过滤警报](/assets/images/help/repository/code-scanning-filter-by-rule.png)

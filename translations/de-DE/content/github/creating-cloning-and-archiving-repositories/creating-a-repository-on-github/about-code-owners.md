@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Personen mit Administrator- oder Inhaberberechtigungen können eine CODEOWNERS-Datei in einem Repository einrichten.
 
 Die Personen, die Du als Codeinhaber auswählst, müssen Schreibberechtigung für das Repository haben. Wenn der Codeinhaber ein Team ist, benötigt das Team Schreibberechtigung, auch wenn alle einzelnen Teammitglieder über die Organisations- oder eine andere Teammitgliedschaft bereits Schreibberechtigung besitzen.
@@ -26,8 +27,7 @@ Wenn ein Benutzer mit Administrator- oder Inhaberberechtigungen die erforderlich
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Wenn ein Team die Zuweisung zur Code-Überprüfung aktiviert hat, werden die individuellen Genehmigungen alleine nicht die Anforderung für die Genehmigung des Codeinhabers in einem geschützten Zweig erfüllen. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Wenn eine Datei einen Codeinhaber hat, kannst Du sehen, wer der Codeinhaber ist, bevor Du einen Pull Request öffnest. In the repository, you can browse to the file and hover over
-{% octicon "shield-lock" aria-label="The edit icon" %}.
+Wenn eine Datei einen Codeinhaber hat, kannst Du sehen, wer der Codeinhaber ist, bevor Du einen Pull Request öffnest. Im Repository kannst Du zur Datei navigieren und den Mauszeiger über {% octicon "shield-lock" aria-label="The edit icon" %} bewegen.
 
 ![Codeinhaber für eine Datei in einem Repository](/assets/images/help/repository/code-owner-for-a-file.png)
 {% endif %}

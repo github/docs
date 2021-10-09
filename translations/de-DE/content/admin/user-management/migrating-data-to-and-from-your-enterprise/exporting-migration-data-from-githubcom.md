@@ -11,14 +11,16 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
   - /admin/user-management/exporting-migration-data-from-githubcom
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - API
   - Enterprise
   - Migration
+shortTitle: Export data from GitHub.com
 ---
-### Preparing the source organization on {% data variables.product.prodname_dotcom %}
+
+## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
 1. Stellen Sie sicher, dass Sie für die Repositorys in der Quellorganisation über [Inhaberberechtigungen](/articles/permission-levels-for-an-organization/) verfügen.
 
@@ -26,7 +28,7 @@ topics:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the organization's repositories
+## Exporting the organization's repositories
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
@@ -34,7 +36,7 @@ Verwenden Sie die <a href="/rest/reference/migrations" class="dotcom-only">API f
 
 Die API für Migrationen befindet sich derzeit in einer Vorschauphase, weshalb sich die Endpunkte und Parameter künftig ändern können. Um auf die API für Migrationen zuzugreifen, müssen Sie einen benutzerdefinierten [Medientyp](/rest/overview/media-types) im Header `Accept` angeben: `application/vnd.github.wyandotte-preview+json`. Die folgenden Beispiele enthalten den benutzerdefinierten Medientyp.
 
-### Migrationsarchiv generieren
+## Migrationsarchiv generieren
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 

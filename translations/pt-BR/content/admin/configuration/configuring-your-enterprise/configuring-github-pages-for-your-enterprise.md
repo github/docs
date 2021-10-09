@@ -10,16 +10,18 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/
   - /admin/configuration/configuring-github-pages-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Pages
+shortTitle: Configurar o GitHub Pages
 ---
-### Habilitar sites públicos para {% data variables.product.prodname_pages %}
 
-{% if enterpriseServerVersions contains currentVersion %}Se o modo privado for habilitado na sua empresa, o {% else %}O {% endif %}público não poderá acessar sites de {% data variables.product.prodname_pages %} hospedados pela sua empresa, a menos que você habilite os sites públicos.
+## Habilitar sites públicos para {% data variables.product.prodname_pages %}
+
+{% ifversion ghes %}Se o modo privado for habilitado na sua empresa, o {% else %}O {% endif %}público não poderá acessar sites de {% data variables.product.prodname_pages %} hospedados pela sua empresa, a menos que você habilite os sites públicos.
 
 {% warning %}
 
@@ -27,13 +29,13 @@ topics:
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Selecione **Public Pages** (Pages público). ![Caixa de seleção para deixar o Pages acessível publicamente](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -41,20 +43,19 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### Desabilitar {% data variables.product.prodname_pages %} para a sua empresa
+## Desabilitar {% data variables.product.prodname_pages %} para a sua empresa
 
-{% if enterpriseServerVersions contains currentVersion %}
-Se o isolamento de subdomínio estiver desabilitado para sua empresa, você também deverá desabilitar
-{% data variables.product.prodname_pages %} para proteger você de possíveis vulnerabilidades de segurança. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/admin/configuration/enabling-subdomain-isolation)".
+{% ifversion ghes %}
+Se o isolamento de subdomínio estiver desabilitado para sua empresa, você também deverá desabilitar {% data variables.product.prodname_pages %} para se proteger de possíveis vulnerabilidades de segurança. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/admin/configuration/enabling-subdomain-isolation)".
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Desmarque a seleção na caixa **Enable Pages** (Habilitar Pages). ![Caixa de seleção para desabilitar o{% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -62,8 +63,8 @@ Se o isolamento de subdomínio estiver desabilitado para sua empresa, você tamb
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Leia mais
+{% ifversion ghes %}
+## Leia mais
 
 - "[Habilitar o modo privado](/admin/configuration/enabling-private-mode)"
 {% endif %}

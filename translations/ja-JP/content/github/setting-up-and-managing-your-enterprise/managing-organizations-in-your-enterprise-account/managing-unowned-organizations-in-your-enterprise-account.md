@@ -7,11 +7,11 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Manage unowned organizations
 ---
-ユーザのデプロビジョニングを有効にして Enterprise アカウントの Organization メンバーシップを管理していると、Organization のオーナーがいなくなることもあります。 詳しい情報については、「[Enterprise アカウント内の Organization のユーザプロビジョニングについて](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. 検索フィールドの右側で、[**X unowned**] をクリックします。 ![オーナーのいない Organization を表示するボタン](/assets/images/help/business-accounts/unowned-organizations-button.png)

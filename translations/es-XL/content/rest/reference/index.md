@@ -3,18 +3,17 @@ title: Referencia
 shortTitle: Referencia
 intro: Lee la documentación de referencia para conocer sobre los recursos que están disponibles en la API de REST de GitHub.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 children:
   - /actions
   - /activity
-  - /activity
+  - /apps
   - /billing
   - /checks
-  - /code-scanning
   - /codes-of-conduct
   - /code-scanning
   - /emojis
@@ -30,6 +29,7 @@ children:
   - /migrations
   - /oauth-authorizations
   - /orgs
+  - /packages
   - /projects
   - /pulls
   - /rate-limit
@@ -37,6 +37,7 @@ children:
   - /repos
   - /scim
   - /search
+  - /secret-scanning
   - /teams
   - /users
   - /permissions-required-for-github-apps

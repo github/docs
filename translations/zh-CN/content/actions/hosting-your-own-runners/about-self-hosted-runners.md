@@ -5,18 +5,17 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 关于自托管运行器
+## 关于自托管运行器
 
 {% data reusables.github-actions.self-hosted-runner-description %} 自托管的运行器可以是物理、虚拟，在容器中，也可以在本地或云端。
 
@@ -31,7 +30,7 @@ type: overview
 
 有关安装和使用自托管运行器的更多信息，请参阅“[添加自托管运行器](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”和“[在工作流程中使用自托管运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
 
-### {% data variables.product.prodname_dotcom %} 托管的运行器与自托管运行器之间的差异
+## {% data variables.product.prodname_dotcom %} 托管的运行器与自托管运行器之间的差异
 
 {% data variables.product.prodname_dotcom %} 托管的运行器提供了一个更快、更简单的工作流程运行方式，而自托管运行器是您的自定义环境中高度可配置的工作流程运行方式。
 
@@ -48,7 +47,7 @@ type: overview
 - 无需为每个作业执行提供一个干净的实例。
 - 可免费使用 {% data variables.product.prodname_actions %}，但是您对运行器维护费用负责。
 
-### 自托管运行器机器的要求
+## 自托管运行器机器的要求
 
 只要符合以下要求，便可将任何计算机用作自托管运行器：
 
@@ -57,7 +56,14 @@ type: overview
 * 机器有足够的硬件资源来执行您计划运行的工作流程类型。 自托管运行器应用程序本身只需要很少的资源。
 * 如果您想运行使用 Docker 容器操作或服务容器的工作流程，您必须使用 Linux 机器并安装 Docker。
 
-### 使用限制
+{% ifversion fpt or ghes > 3.2 %}
+## 自动缩放自托管运行器
+
+您可以自动增加或减少环境中自托管运行器的数量，以响应您收到的 web 挂钩事件。 更多信息请参阅“[使用自托管运行器自动缩放](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)”。
+
+{% endif %}
+
+## 使用限制
 
 在使用自托管的运行器时，对 {% data variables.product.prodname_actions %} 的使用有一些限制。 这些限制可能会有变动。
 
@@ -65,19 +71,20 @@ type: overview
 - **作业排队时间** - 自托管运行器的每个作业最多可排队 24 小时。 如果自托管运行器在此限制内没有开始执行作业，则作业将被终止，并且无法完成。
 {% data reusables.github-actions.usage-api-requests %}
 - **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
-### 自托管运行器的工作流连续性
+## 自托管运行器的工作流连续性
 
 {% data reusables.github-actions.runner-workflow-continuity %}
 
-### 自托管运行器支持的架构和操作系统
+## 自托管运行器支持的架构和操作系统
 
 自托管运行器应用程序支持以下操作系统。
 
-#### Linux
+### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 或更新版本
+- CentOS 7 或更新版本
 - Oracle Linux 7
 - Fedora 29 或更高版本
 - Debian 9 或更高版本
@@ -86,7 +93,7 @@ type: overview
 - openSUSE 15 或更高版本
 - SUSE Enterprise Linux (SLES) 12 SP2 或更高版本
 
-#### Windows
+### Windows
 
 - Windows 7 64 位
 - Windows 8.1 64 位
@@ -95,11 +102,11 @@ type: overview
 - Windows Server 2016 64 位
 - Windows Server 2019 64 位
 
-#### macOS
+### macOS
 
 - macOS 10.13 (High Sierra) 或更高版本
 
-#### 架构
+### 架构
 
 自托管运行器应用程序支持以下处理器架构。
 
@@ -107,19 +114,19 @@ type: overview
 - `ARM64` - 仅 Linux。
 - `ARM32` - 仅 Linux。
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
-### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
+## 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
 
-计算机可与 {% data variables.product.prodname_actions %} 通信。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
+可能需要额外配置才可结合使用来自 {% data variables.product.prodname_dotcom_the_website %} 的操作与 {% data variables.product.prodname_ghe_server %}，或者结合使用 `actions/setup-LANGUAGE` 操作与没有互联网连接的自托管运行器。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
 
 {% endif %}
 
-### 自托管运行器与 {% data variables.product.product_name %} 之间的通信
+## 自托管运行器与 {% data variables.product.product_name %} 之间的通信
 
 自托管运行器将调查 {% data variables.product.product_name %} 以检索应用程序更新，并检查是否有作业在排队等待处理。 自托管运行器使用 HTTPS _long poll_ 打开 {% data variables.product.product_name %} 连接 50 秒，如果没有收到任何响应，就会暂停并创建新的长轮询。 应用程序必须在机器上运行才能接受和运行 {% data variables.product.prodname_actions %} 作业。
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 您必须确保自托管运行器具有适当的网络访问权限才可与
 {% data variables.product.prodname_ghe_managed %} URL 通信。
 例如，如果你的实例名称是 `octoghie`，则需要允许自托管运行器访问 `octoghe. ithub.com`。
@@ -128,9 +135,15 @@ type: overview
 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 您必须确保机器具有适当的网络访问权限才可与以下列出的 {% data variables.product.prodname_dotcom %} URL 通信。
+
+{% note %}
+
+**注意：** 下面列出的一些域名使用 `CNAME` 记录。 一些防火墙可能要求您为所有 `CNAME` 记录递归添加规则。 请注意， `CNAME` 记录将来可能会改变，只有下面列出的域名将保持不变。
+
+{% endnote %}
 
 ```
 github.com
@@ -143,6 +156,7 @@ codeload.github.com
 pkg-cache.githubusercontent.com
 pkg-containers.githubusercontent.com
 pkg-containers-az.githubusercontent.com
+*.blob.core.windows.net
 ```
 
 如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
@@ -155,9 +169,11 @@ pkg-containers-az.githubusercontent.com
 
 您也可以通过代理服务器使用自托管的运行器。 更多信息请参阅“[将代理服务器与自托管运行器一起使用](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)”。
 
-### 使用公共仓库的自托管运行器安全性
+## 使用公共仓库的自托管运行器安全性
 
+{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
+{% endif %}
 
 这对 {% data variables.product.prodname_dotcom %} 托管的运行器不是问题，因为每个 {% data variables.product.prodname_dotcom %} 托管的运行器始终是一个干净的独立虚拟机， 在作业执行结束时被销毁。
 

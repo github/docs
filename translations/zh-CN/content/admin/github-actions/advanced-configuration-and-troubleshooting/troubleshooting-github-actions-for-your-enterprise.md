@@ -3,23 +3,25 @@ title: 企业 GitHub Actions 故障排除
 intro: '在 {% data variables.product.prodname_ghe_server %} 上使用 {% data variables.product.prodname_actions %} 时的常见问题疑难解答。'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
+shortTitle: GitHub Actions 故障排除
 ---
-### 使用 {% data variables.product.prodname_ghe_server %} 自签名证书时配置自托管的运行器
+
+## 使用 {% data variables.product.prodname_ghe_server %} 自签名证书时配置自托管的运行器
 
 {% data reusables.actions.enterprise-self-signed-cert %} 更多信息请参阅“[配置 TLS](/admin/configuration/configuring-tls)”。
 
-#### 在运行器上安装证书
+### 在运行器上安装证书
 
 为使自托管的运行器使用自签名证书连接到 {% data variables.product.prodname_ghe_server %}，您必须在运行器上安装证书以增强连接安全。
 
 有关安装证书所需的步骤，请参阅运行器操作系统的文件。
 
-#### 配置 Node.JS 使用证书
+### 配置 Node.JS 使用证书
 
 大多数操作都以 JavaScript 编写并使用 Node.js，这不会使用操作系统证书存储。 要使自托管的运行器使用证书，您必须在运行器上设置 `NODE_EXTRA_CA_CERTS` 环境变量。
 
@@ -33,17 +35,17 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
 当自托管的运行器应用程序启动时，环境变量将被读取，因此您必须在配置或启动自托管的运行器应用程序之前设置环境变量。 如果您的证书配置更改，您必须重新启动自托管的运行器应用程序。
 
-#### 配置 Docker 容器使用证书
+### 配置 Docker 容器使用证书
 
 如果您在工作流程中使用 Docker 容器操作或服务容器，则除了设置上述环境变量外，您可能还需要在 Docker 映像中安装证书。
 
-### 配置 {% data variables.product.prodname_actions %} 的 HTTP 代理设置
+## 配置 {% data variables.product.prodname_actions %} 的 HTTP 代理设置
 
 {% data reusables.actions.enterprise-http-proxy %}
 
 如果这些设置未正确配置，则在设置或更改 {% data variables.product.prodname_actions %} 配置时可能会收到诸如 `Resource unexpectedly moved to https://（资源意外移动到 https://）<IP_ADDRESS>`的错误。
 
-### 运行器在更改主机名后未连接到 {% data variables.product.prodname_ghe_server %}
+## 运行器在更改主机名后未连接到 {% data variables.product.prodname_ghe_server %}
 
 如果更改 {% data variables.product.product_location %} 的主机名，自托管运行器将无法连接到旧主机名，并且不会执行任何作业。
 
@@ -52,19 +54,19 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 * 在自托管的运行器应用程序目录中，编辑 `.runner` 和 `. redentials` 文件以将旧主机名替换为新主机名，然后重新启动自托管的运行器应用程序。
 * 使用 UI 从 {% data variables.product.prodname_ghe_server %} 移除运行器，并重新添加。 更多信息请参阅“[删除自托管的运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners)”和“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
 
-### 作业卡住以及 {% data variables.product.prodname_actions %} 内存和 CPU 限制
+## 作业卡住以及 {% data variables.product.prodname_actions %} 内存和 CPU 限制
 
 {% data variables.product.prodname_actions %} 由运行在 {% data variables.product.product_location %} 上的多项服务组成。 默认情况下，这些服务使用默认的 CPU 和内存限制设置，大多数情况下都适用。 但是，当 {% data variables.product.prodname_actions %} 用户多时，可能需要调整这些设置。
 
 如果您注意到作业未开始，或者任务进度在 UI 中不更新或改变，可能是达到了 CPU 或内存限制（即使有空闲的运行器）。
 
-#### 1. 在管理控制台中检查整体 CPU 和内存使用情况
+### 1. 在管理控制台中检查整体 CPU 和内存使用情况
 
 访问管理控制台并使用监控仪表板来检查“System Health（系统健康）”下的整体 CPU 和内存图。 更多信息请参阅“[访问监控仪表板](/admin/enterprise-management/accessing-the-monitor-dashboard)”。
 
 如果总体“系统健康”CPU 使用接近 100%，或者没有可用的内存，则表示 {% data variables.product.product_location %} 在满负荷运行，需要扩展。 更多信息请参阅“[增加 CPU 或内存资源](/admin/enterprise-management/increasing-cpu-or-memory-resources)”。
 
-#### 2. 在管理控制台中检查 Nomad Jobs CPU 和内存使用情况
+### 2. 在管理控制台中检查 Nomad Jobs CPU 和内存使用情况
 
 如果总体“系统健康”CPU 和内存使用情况正常，请向下滚动监控仪表板页面到“Nomad Jobs”部分，并查看“CPU 百分比值”和“内存使用情况”图。
 
@@ -79,7 +81,7 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
 如果其中任何一项服务达到或接近 100% CPU 利用率，或者内存接近其限制（默认情况下为 2 GB），则这些服务的资源配置可能需要增加。 请注意上述服务中哪些已经达到或接近极限。
 
-#### 3. 对达到限制的服务增加资源分配
+### 3. 对达到限制的服务增加资源分配
 
 1. 使用 SSH 登录到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)。”
 1. 运行以下命令，查看可用于分配的资源：

@@ -7,22 +7,23 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: 'next'
 type: overview
 topics:
   - Actions
   - Enterprise
+shortTitle: Add actions in your enterprise
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} workflows can use _actions_, which are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-### Official actions bundled with your enterprise instance
+## Official actions bundled with your enterprise instance
 
 Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.product_name %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}.
 
@@ -36,7 +37,7 @@ Each action is a repository in the `actions` organization, and each action repos
 
 {% endnote %}
 
-### Configuring access to actions on {% data variables.product.prodname_dotcom_the_website %}
+## Configuring access to actions on {% data variables.product.prodname_dotcom_the_website %}
 
 If users in your enterprise need access to other actions from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_marketplace %}, there are a few configuration options.
 

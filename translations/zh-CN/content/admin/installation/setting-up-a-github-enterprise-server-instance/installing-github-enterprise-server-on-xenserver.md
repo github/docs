@@ -6,21 +6,29 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: 在 XenServer 上安装
 ---
-### 基本要求
+
+{% note %}
+
+  **注意：**XenServer 上对 {% data variables.product.prodname_ghe_server %} 的支持将在 {% data variables.product.prodname_ghe_server %} 3.3 中停止。 更多信息请参阅 [{% data variables.product.prodname_ghe_server %} 3.1 版本说明](/admin/release-notes#3.1.0)
+
+{% endnote %}
+
+## 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
 - 您必须在将要运行 {% data variables.product.prodname_ghe_server %} 虚拟机 (VM) 的机器上安装 XenServer Hypervisor 。 我们支持版本 6.0 到 7.0。
 - 我们建议使用 XenCenter Windows Management Console 进行初始设置。 下文介绍了使用 XenCenter Windows Management Console 的说明。 更多信息请参阅 Citrix 指南“[如何下载和安装 XenCenter](https://support.citrix.com/article/CTX118531)”。
 
-### 硬件考量因素
+## 硬件考量因素
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### 下载 {% data variables.product.prodname_ghe_server %} 映像
+## 下载 {% data variables.product.prodname_ghe_server %} 映像
 
 {% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
@@ -28,7 +36,7 @@ topics:
 4. 选择 {% data variables.product.prodname_dotcom %} 内部部署，然后单击 **XenServer (VHD)**。
 5. 要下载许可文件，请单击 **Download license**。
 
-### 创建 {% data variables.product.prodname_ghe_server %} 实例
+## 创建 {% data variables.product.prodname_ghe_server %} 实例
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -37,7 +45,7 @@ topics:
     - 完成后使 VM 保持关机状态。
 {% data reusables.enterprise_installation.create-attached-storage-volume %} 有关说明，请参阅 XenCenter 指南“[添加虚拟磁盘](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)”。
 
-### 配置 {% data variables.product.prodname_ghe_server %} 实例
+## 配置 {% data variables.product.prodname_ghe_server %} 实例
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -45,7 +53,7 @@ topics:
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 延伸阅读
+## 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

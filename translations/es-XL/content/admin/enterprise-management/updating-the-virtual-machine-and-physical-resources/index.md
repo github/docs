@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/installation/updating-the-virtual-machine-and-physical-resources
   - /enterprise/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
 children:
@@ -17,6 +17,5 @@ children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources
   - /migrating-from-github-enterprise-1110x-to-2123
-  - /migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later
 ---
 

@@ -9,11 +9,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Enforce team policies
 ---
-### Eine Richtlinie für Teamdiskussionen erzwingen
+
+## Eine Richtlinie für Teamdiskussionen erzwingen
 
 Für alle Organisationen Deines Enterprise-Kontos kannst Du Teamdiskussionen aktivieren oder deaktivieren oder es Inhabern gestatten, diese Einstellung auf Organisationsebene zu verwalten. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions/)“.
 

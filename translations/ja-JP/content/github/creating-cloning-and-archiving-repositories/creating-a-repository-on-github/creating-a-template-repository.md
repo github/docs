@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% note %}
 
 **注釈**: テンプレートリポジトリには、{% data variables.large_files.product_name_short %} を使用して保存されたファイルを含めることはできません。

@@ -6,14 +6,18 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
+shortTitle: 向通告添加协作者
 ---
 
 对安全通告具有管理员权限的人员可向安全通告添加协作者。
 
-### 添加协作者到安全通告
+## 添加协作者到安全通告
 
 协作者对安全通告具有写入权限。 更多信息请参阅“[安全通告的权限级别](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)”。
 
@@ -30,7 +34,7 @@ topics:
 5. 在页面右侧的“Collaborators（协作者）”下，键入要添加到安全通告的用户或团队名称。 ![用于输入用户或团队名称的字段](/assets/images/help/security/add-collaborator-field.png)
 6. 单击 **Add（添加）**。 ![添加按钮](/assets/images/help/security/security-advisory-add-collaborator-button.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[安全通告的权限级别](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
 - "[在临时私有复刻中协作以解决安全漏洞](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

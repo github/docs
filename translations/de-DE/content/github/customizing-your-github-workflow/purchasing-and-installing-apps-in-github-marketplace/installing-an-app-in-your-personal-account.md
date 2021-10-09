@@ -5,15 +5,17 @@ redirect_from:
   - /articles/installing-an-app-in-your-personal-account
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Install app user account
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonnement am aktuellen Abrechnungsdatum Deines persönlichen Kontos mit der vorhandenen Zahlungsmethode.
 
 {% data reusables.marketplace.free-trials %}
 
-### Eine {% data variables.product.prodname_github_app %} in Ihrem persönlichen Konto erstellen
+## Eine {% data variables.product.prodname_github_app %} in Ihrem persönlichen Konto erstellen
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -26,7 +28,7 @@ Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonne
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### Eine {% data variables.product.prodname_oauth_app %} in Ihrem persönlichen Konto installieren
+## Eine {% data variables.product.prodname_oauth_app %} in Ihrem persönlichen Konto installieren
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -39,7 +41,7 @@ Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonne
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. Lies die Informationen zu den Zugriffsberechtigungen der App auf Dein persönliches Konto und Deine Daten, und klicke dann auf **Authorize application** (Anwendung autorisieren).
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Die Zahlungsmethode für Dein persönliches Konto aktualisieren](/articles/updating-your-personal-account-s-payment-method)“
 - „[Eine App in Deiner Organisation installieren](/articles/installing-an-app-in-your-organization)“

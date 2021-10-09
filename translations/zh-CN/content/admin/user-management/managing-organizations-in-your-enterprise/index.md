@@ -5,10 +5,10 @@ redirect_from:
   - /enterprise/admin/categories/admin-bootcamp/
   - /enterprise/admin/user-management/organizations-and-teams
   - /enterprise/admin/user-management/managing-organizations-in-your-enterprise
-intro: '组织适合在您的公司内创建不同的用户组，例如部门或参与相似项目的组。 属于组织的{% if currentVersion == "github-ae@latest" %}内部{% else %}公共和内部{% endif %}仓库可供其他组织中的用户访问，而私有仓库只能供被授予访问权限的组织成员访问。'
+intro: '组织适合在您的公司内创建不同的用户组，例如部门或参与相似项目的组。 {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -20,5 +20,6 @@ children:
   - /removing-users-from-teams-and-organizations
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
+shortTitle: 管理组织
 ---
 

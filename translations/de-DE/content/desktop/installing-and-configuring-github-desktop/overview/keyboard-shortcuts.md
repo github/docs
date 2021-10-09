@@ -6,13 +6,14 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/keyboard-shortcuts
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 {% mac %}
 
 GitHub Desktop-Tastenkürzel auf macOS
 
-### Seitenweite Tastenkürzel
+## Seitenweite Tastenkürzel
 
 | Tastenkürzel                         | Beschreibung                                                       |
 | ------------------------------------ | ------------------------------------------------------------------ |
@@ -26,7 +27,7 @@ GitHub Desktop-Tastenkürzel auf macOS
 | <kbd>⌘</kbd><kbd>-</kbd>             | Für kleinere Texte und Grafiken verkleinern                        |
 | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>I</kbd> | Entwicklertools umschalten                                         |
 
-### Repositorys
+## Repositorys
 
 | Tastenkürzel                         | Beschreibung                                                                                |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- |
@@ -43,7 +44,7 @@ GitHub Desktop-Tastenkürzel auf macOS
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | Repository in Ihrem bevorzugten Editor-Tool öffnen                                          |
 | <kbd>⌘</kbd><kbd>I</kbd>             | Ein „Issue“ (Problemticket) auf {% data variables.product.prodname_dotcom %} erstellen      |
 
-### Branches
+## Branches
 
 | Tastenkürzel                         | Beschreibung                                                                     |
 | ------------------------------------ | -------------------------------------------------------------------------------- |
@@ -69,7 +70,7 @@ GitHub Desktop-Tastenkürzel auf macOS
 
 GitHub Desktop-Tastenkürzel auf Windows
 
-### Seitenweite Tastenkürzel
+## Seitenweite Tastenkürzel
 
 | Tastenkürzel                                   | Beschreibung                                |
 | ---------------------------------------------- | ------------------------------------------- |
@@ -80,7 +81,7 @@ GitHub Desktop-Tastenkürzel auf Windows
 | <kbd>STRG</kbd><kbd>-</kbd>                    | Für kleinere Texte und Grafiken verkleinern |
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>I</kbd> | Entwicklertools umschalten                  |
 
-### Repositorys
+## Repositorys
 
 | Tastenkürzel                                   | Beschreibung                                                                                |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -97,7 +98,7 @@ GitHub Desktop-Tastenkürzel auf Windows
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>A</kbd> | Repository in Ihrem bevorzugten Editor-Tool öffnen                                          |
 | <kbd>Ctrl</kbd><kbd>I</kbd>                    | Ein „Issue“ (Problemticket) auf {% data variables.product.prodname_dotcom %} erstellen      |
 
-### Branches
+## Branches
 
 | Tastenkürzel                                   | Beschreibung                                                                     |
 | ---------------------------------------------- | -------------------------------------------------------------------------------- |

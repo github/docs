@@ -6,13 +6,15 @@ redirect_from:
   - /articles/understanding-the-search-syntax
   - /github/searching-for-information-on-github/understanding-the-search-syntax
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
+shortTitle: Understand search syntax
 ---
-### Abfrage nach Werten mit einem Vergleichsoperator
+
+## Abfrage nach Werten mit einem Vergleichsoperator
 
 Mit `>`, `>=`, `<` und `<=` kannst Du nach Werten suchen, die größer, größer oder gleich, kleiner, oder kleiner oder gleich einem anderen Wert sind.
 
@@ -30,7 +32,7 @@ Auch mit [Bereichsabfragen](#query-for-values-between-a-range) kannst Du nach We
 | <code><em>n</em>..*</code> | **[cats stars:10..*](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..*&type=Repositories)** ist gleichbedeutend mit `stars:>=10` und sucht Repositorys, die das Wort „cats“ enthalten und mindestens 10 Sterne haben.      |
 | <code>*..<em>n</em></code> | **[cats stars:*..10](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A%22*..10%22&type=Repositories)** ist gleichbedeutend mit `stars:<=10` und sucht Repositorys, die das Wort „cats“ enthalten und höchstens 10 Sterne haben. |
 
-### Abfrage nach Werten innerhalb eines Wertebereichs
+## Abfrage nach Werten innerhalb eines Wertebereichs
 
 Mit der Bereichssyntax <code><em>n</em>..<em>n</em></code> kannst Du nach Werten innerhalb eines Wertebereichs suchen. Dabei ist der erste Wert _n_ die untere und der zweite Wert die obere Grenze des gesuchten Bereichs.
 
@@ -38,7 +40,7 @@ Mit der Bereichssyntax <code><em>n</em>..<em>n</em></code> kannst Du nach Werten
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <code><em>n</em>..<em>n</em></code> | **[cats stars:10..50](https://github.com/search?utf8=%E2%9C%93&q=cats+stars%3A10..50&type=Repositories)** sucht Repositorys, die das Wort „cats“ enthalten und zwischen 10 und 50 Sternen haben. |
 
-### Abfrage nach Datums- und Zeitangaben
+## Abfrage nach Datums- und Zeitangaben
 
 Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-range) kannst Du nach Datums- und Zeitangaben vor oder nach einem bestimmten Datum/Uhrzeit oder innerhalb eines Datums-/Zeitbereichs suchen. {% data reusables.time_date.date_format %}
 
@@ -59,7 +61,7 @@ Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-rang
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** sucht Issues, die zwischen 1. Januar 2017, 01:00 Uhr (mit einer UTC-Verschiebung von `07:00` Stunden), und 1. März 2017, 15:30 Uhr (mit ebenfalls einer UTC-Verschiebung von `07:00` Stunden), erstellt wurden. with a UTC offset of `07:00` and March 1, 2017 at 3 p.m. with a UTC offset of `07:00`. |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code> | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** sucht Issues, die zwischen 21. März 2016, 14:11 Uhr, und 7. April 2016, 20:45 Uhr, erstellt wurden.                                                                                                                                                                                                                                |
 
-### Ausschluss bestimmter Ergebnisse
+## Ausschluss bestimmter Ergebnisse
 
 Mit der Syntax `NOT` kannst Du Ergebnisse, die ein bestimmtes Wort enthalten, aus den Abfrageergebnissen ausschließen. Der Operator `NOT` kann nur für Zeichenfolgen verwendet werden. Mit Zahlen oder Datumsangaben funktioniert er nicht.
 
@@ -74,7 +76,7 @@ Ebenso kannst du Deine Abfrageergebnisse durch Ausschluss bestimmter Teilmengen 
 | <code>-<em>KENNZEICHNER</em></code> | **[cats stars:>10 -language:javascript](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** findet Repositorys mit dem Wort „cats", die mehr als 10 Sterne haben, aber nicht in JavaScript geschrieben sind. |
 |                            | **[mentions:defunkt -org:github](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** sucht Issues, die „@defunkt“ erwähnen, aber nicht in Repositorys der Organisation GitHub enthalten sind.              |
 
-### Anführungszeichen für Abfragen nach Zeichenfolgen mit Leerzeichen
+## Anführungszeichen für Abfragen nach Zeichenfolgen mit Leerzeichen
 
 Wenn Deine Suchabfrage Leerzeichen enthält, musst du die gesuchte Zeichenfolge in Anführungszeichen einschließen. Ein Beispiel:
 
@@ -83,8 +85,8 @@ Wenn Deine Suchabfrage Leerzeichen enthält, musst du die gesuchte Zeichenfolge 
 
 Bei Suchabfragen innerhalb von Code werden einige nicht alphanumerische Zeichen, so auch Leerzeichen, ignoriert, selbst wenn der Suchstring in Anführungszeichen steht. Dies führt oft nicht zum erwünschten Ergebnis.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-### Abfragen mit Benutzernamen
+{% ifversion fpt or ghes or ghae %}
+## Abfragen mit Benutzernamen
 
 Wenn Deine Abfrage einen Qualifizierer verwendet, der einen Benutzernamen verlangt, beispielsweise `user`, `actor`, oder `assignee`, kannst du jeden {% data variables.product.product_name %}-Benutzernamen verwenden, um eine spezifische Person anzugeben oder `@me` benutzen, um den aktuellen Benutzer anzugeben.
 

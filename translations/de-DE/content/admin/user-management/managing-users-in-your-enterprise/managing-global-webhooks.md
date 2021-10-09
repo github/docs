@@ -6,14 +6,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-global-webhooks
   - /admin/user-management/managing-global-webhooks
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Webhooks
 ---
-### Informationen zu globalen Webhooks
+
+## Informationen zu globalen Webhooks
 
 You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management for your enterprise. So können Sie Ihre Webhooks beispielsweise so konfigurieren, dass sie ausgeführt werden, sobald
 - ein Benutzerkonto erstellt oder gelöscht wird,
@@ -25,7 +26,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-### Globalen Webhook hinzufügen
+## Globalen Webhook hinzufügen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -48,7 +49,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 12. Bestätigen Sie, dass das Kontrollkästchen**Active** aktiviert ist (Standardeinstellung). ![Kontrollkästchen „Active“ (Aktiv) aktiviert](/assets/images/enterprise/site-admin-settings/add-global-webhook-active-checkbox.png)
 13. Klicke auf **Add webhook** (Webhook hinzufügen).
 
-### Globalen Webhook bearbeiten
+## Globalen Webhook bearbeiten
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -57,7 +58,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 6. Aktualisieren Sie die Einstellungen des Webhooks.
 7. Klicken Sie auf **Update webhook** (Webhook aktualisieren).
 
-### Globalen Webhook löschen
+## Globalen Webhook löschen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -65,7 +66,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 5. Klicken Sie neben dem Webhook, den Sie löschen möchten, auf **Delete** (Löschen). ![Schaltfläche „Delete“ (Löschen) neben einem Webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
 6. Lesen Sie die Informationen zum Löschen eines Webhooks, und klicken Sie anschließend auf **Yes, delete webhook** (Ja, Webhook löschen). ![Popup-Fenster mit Warnhinweisen und Schaltfläche zum Bestätigen der Webhook-Löschung](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
-### Neueste Auslieferungen und Antworten anzeigen
+## Neueste Auslieferungen und Antworten anzeigen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

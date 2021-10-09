@@ -1,4 +1,14 @@
 """
+Marks an element of a GraphQL schema as only available via a preview header
+"""
+directive @preview(
+  """
+  The identifier of the API preview that toggles this field.
+  """
+  toggledBy: String!
+) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
+
+"""
 Defines what type of global IDs are accepted for a mutation argument of type ID.
 """
 directive @possibleTypes(
@@ -12,16 +22,6 @@ directive @possibleTypes(
   """
   concreteTypes: [String!]!
 ) on INPUT_FIELD_DEFINITION
-
-"""
-Marks an element of a GraphQL schema as only available via a preview header
-"""
-directive @preview(
-  """
-  The identifier of the API preview that toggles this field.
-  """
-  toggledBy: String!
-) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
 
 """
 Represents an object which can take actions on GitHub. Typically a User or Bot.
@@ -580,7 +580,23 @@ input AddReactionInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "Discussion", "DiscussionComment", "Issue", "IssueComment", "PullRequest", "PullRequestReview", "PullRequestReviewComment", "Release", "TeamDiscussion", "TeamDiscussionComment"], abstractType: "Reactable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: [
+        "CommitComment"
+        "Discussion"
+        "DiscussionComment"
+        "Issue"
+        "IssueComment"
+        "PullRequest"
+        "PullRequestReview"
+        "PullRequestReviewComment"
+        "Release"
+        "TeamDiscussion"
+        "TeamDiscussionComment"
+      ]
+      abstractType: "Reactable"
+    )
 }
 
 """
@@ -718,6 +734,36 @@ type App implements Node {
   """
   description: String
   id: ID!
+
+  """
+  The IP addresses of the app.
+  """
+  ipAllowListEntries(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for IP allow list entries returned.
+    """
+    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+  ): IpAllowListEntryConnection!
 
   """
   The hex color code, without the leading '#', for the logo background.
@@ -883,7 +929,8 @@ type AssignedEvent implements Node {
   """
   Identifies the user who was assigned.
   """
-  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+  user: User
+    @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
 }
 
 """
@@ -1206,6 +1253,11 @@ type AutomaticBaseChangeSucceededEvent implements Node {
   """
   pullRequest: PullRequest!
 }
+
+"""
+A (potentially binary) string encoded using base64.
+"""
+scalar Base64String
 
 """
 Represents a 'base_ref_changed' event on a given issue or pull request.
@@ -1591,6 +1643,11 @@ type BranchProtectionRule implements Node {
   requiresCommitSignatures: Boolean!
 
   """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -1769,10 +1826,6 @@ type CWE implements Node {
   A detailed description of this CWE
   """
   description: String!
-
-  """
-  ID of the object.
-  """
   id: ID!
 
   """
@@ -4194,6 +4247,61 @@ type CommitHistoryConnection {
 }
 
 """
+A message to include with a new commit
+"""
+input CommitMessage {
+  """
+  The body of the message.
+  """
+  body: String
+
+  """
+  The headline of the message.
+  """
+  headline: String!
+}
+
+"""
+A git ref for a commit to be appended to.
+
+The ref must be a branch, i.e. its fully qualified name must start
+with `refs/heads/` (although the input is not required to be fully
+qualified).
+
+The Ref may be specified by its global node ID or by the
+repository nameWithOwner and branch name.
+
+### Examples
+
+Specify a branch using a global node ID:
+
+    { "id": "MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=" }
+
+Specify a branch using nameWithOwner and branch name:
+
+    {
+      "nameWithOwner": "github/graphql-client",
+      "branchName": "main"
+    }
+"""
+input CommittableBranch {
+  """
+  The unqualified name of the branch to append the commit to.
+  """
+  branchName: String
+
+  """
+  The Node ID of the Ref to be updated.
+  """
+  id: ID
+
+  """
+  The nameWithOwner of the repository to commit to.
+  """
+  repositoryNameWithOwner: String
+}
+
+"""
 Represents a 'connected' event on a given issue or pull request.
 """
 type ConnectedEvent implements Node {
@@ -5075,6 +5183,11 @@ input CreateBranchProtectionRuleInput {
   requiresCommitSignatures: Boolean
 
   """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean
@@ -5233,6 +5346,56 @@ type CreateCheckSuitePayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+}
+
+"""
+Autogenerated input type of CreateCommitOnBranch
+"""
+input CreateCommitOnBranchInput {
+  """
+  The Ref to be updated.  Must be a branch.
+  """
+  branch: CommittableBranch!
+
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The git commit oid expected at the head of the branch prior to the commit
+  """
+  expectedHeadOid: GitObjectID!
+
+  """
+  A description of changes to files in this commit.
+  """
+  fileChanges: FileChanges
+
+  """
+  The commit message the be included with the commit.
+  """
+  message: CommitMessage!
+}
+
+"""
+Autogenerated return type of CreateCommitOnBranch
+"""
+type CreateCommitOnBranchPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The new commit.
+  """
+  commit: Commit
+
+  """
+  The ref which has been updated to point to the new commit.
+  """
+  ref: Ref
 }
 
 """
@@ -5572,7 +5735,7 @@ input CreateIpAllowListEntryInput {
   """
   The ID of the owner for which to create the new IP allow list entry.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 }
 
 """
@@ -6484,7 +6647,7 @@ An ISO-8601 encoded UTC date string.
 scalar DateTime
 
 """
-The possible default permissions for repositories.
+The possible base permissions for repositories.
 """
 enum DefaultRepositoryPermissionField {
   """
@@ -7336,12 +7499,11 @@ enum DeploymentOrderField {
 """
 A protection rule.
 """
-type DeploymentProtectionRule implements Node {
+type DeploymentProtectionRule {
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
-  id: ID!
 
   """
   The teams or users that can review the deployment
@@ -9224,7 +9386,10 @@ type EnterpriseBillingInfo {
   """
   The number of available seats across all owned organizations based on the unique number of billable users.
   """
-  availableSeats: Int! @deprecated(reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.")
+  availableSeats: Int!
+    @deprecated(
+      reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC."
+    )
 
   """
   The bandwidth quota in GB for all organizations owned by the enterprise.
@@ -9244,7 +9409,10 @@ type EnterpriseBillingInfo {
   """
   The total seats across all organizations owned by the enterprise.
   """
-  seats: Int! @deprecated(reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.")
+  seats: Int!
+    @deprecated(
+      reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC."
+    )
 
   """
   The storage quota in GB for all organizations owned by the enterprise.
@@ -9273,7 +9441,7 @@ type EnterpriseBillingInfo {
 }
 
 """
-The possible values for the enterprise default repository permission setting.
+The possible values for the enterprise base repository permission setting.
 """
 enum EnterpriseDefaultRepositoryPermissionSettingValue {
   """
@@ -9287,7 +9455,7 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
   NONE
 
   """
-  Organizations in the enterprise choose default repository permissions for their members.
+  Organizations in the enterprise choose base repository permissions for their members.
   """
   NO_POLICY
 
@@ -9374,6 +9542,11 @@ type EnterpriseIdentityProvider implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter to external identities with valid org membership only
+    """
+    membersOnly: Boolean
   ): ExternalIdentityConnection!
   id: ID!
 
@@ -9768,7 +9941,7 @@ type EnterpriseOwnerInfo {
   defaultRepositoryPermissionSetting: EnterpriseDefaultRepositoryPermissionSettingValue!
 
   """
-  A list of enterprise organizations configured with the provided default repository permission.
+  A list of enterprise organizations configured with the provided base repository permission.
   """
   defaultRepositoryPermissionSettingOrganizations(
     """
@@ -9838,7 +10011,12 @@ type EnterpriseOwnerInfo {
   ): IpAllowListEntryConnection!
 
   """
-  Whether or not the default repository permission is currently being updated.
+  The setting value for whether the enterprise has IP allow list configuration for installed GitHub Apps enabled.
+  """
+  ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
+
+  """
+  Whether or not the base repository permission is currently being updated.
   """
   isUpdatingDefaultRepositoryPermission: Boolean!
 
@@ -10341,7 +10519,10 @@ type EnterpriseOwnerInfo {
     The search string to look for.
     """
     query: String
-  ): EnterprisePendingCollaboratorConnection! @deprecated(reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC.")
+  ): EnterprisePendingCollaboratorConnection!
+    @deprecated(
+      reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of pending member invitations for organizations in the enterprise.
@@ -11556,6 +11737,159 @@ type ExternalIdentityScimAttributes {
   The userName of the SCIM identity
   """
   username: String
+}
+
+"""
+A command to add a file at the given path with the given contents as part of a
+commit.  Any existing file at that that path will be replaced.
+"""
+input FileAddition {
+  """
+  The base64 encoded contents of the file
+  """
+  contents: Base64String!
+
+  """
+  The path in the repository where the file will be located
+  """
+  path: String!
+}
+
+"""
+A description of a set of changes to a file tree to be made as part of
+a git commit, modeled as zero or more file `additions` and zero or more
+file `deletions`.
+
+Both fields are optional; omitting both will produce a commit with no
+file changes.
+
+`deletions` and `additions` describe changes to files identified
+by their path in the git tree using unix-style path separators, i.e.
+`/`.  The root of a git tree is an empty string, so paths are not
+slash-prefixed.
+
+`path` values must be unique across all `additions` and `deletions`
+provided.  Any duplication will result in a validation error.
+
+### Encoding
+
+File contents must be provided in full for each `FileAddition`.
+
+The `contents` of a `FileAddition` must be encoded using RFC 4648
+compliant base64, i.e. correct padding is required and no characters
+outside the standard alphabet may be used.  Invalid base64
+encoding will be rejected with a validation error.
+
+The encoded contents may be binary.
+
+For text files, no assumptions are made about the character encoding of
+the file contents (after base64 decoding).  No charset transcoding or
+line-ending normalization will be performed; it is the client's
+responsibility to manage the character encoding of files they provide.
+However, for maximum compatibility we recommend using UTF-8 encoding
+and ensuring that all files in a repository use a consistent
+line-ending convention (`\n` or `\r\n`), and that all files end
+with a newline.
+
+### Modeling file changes
+
+Each of the the five types of conceptual changes that can be made in a
+git commit can be described using the `FileChanges` type as follows:
+
+1. New file addition: create file `hello world\n` at path `docs/README.txt`:
+
+       {
+         "additions" [
+           {
+             "path": "docs/README.txt",
+             "contents": base64encode("hello world\n")
+           }
+         ]
+       }
+
+2. Existing file modification: change existing `docs/README.txt` to have new
+   content `new content here\n`:
+
+       {
+         "additions" [
+           {
+             "path": "docs/README.txt",
+             "contents": base64encode("new content here\n")
+           }
+         ]
+       }
+
+3. Existing file deletion: remove existing file `docs/README.txt`.
+   Note that the path is required to exist -- specifying a
+   path that does not exist on the given branch will abort the
+   commit and return an error.
+
+       {
+         "deletions" [
+           {
+             "path": "docs/README.txt"
+           }
+         ]
+       }
+
+
+4. File rename with no changes: rename `docs/README.txt` with
+   previous content `hello world\n` to the same content at
+   `newdocs/README.txt`:
+
+       {
+         "deletions" [
+           {
+             "path": "docs/README.txt",
+           }
+         ],
+         "additions" [
+           {
+             "path": "newdocs/README.txt",
+             "contents": base64encode("hello world\n")
+           }
+         ]
+       }
+
+
+5. File rename with changes: rename `docs/README.txt` with
+   previous content `hello world\n` to a file at path
+   `newdocs/README.txt` with content `new contents\n`:
+
+       {
+         "deletions" [
+           {
+             "path": "docs/README.txt",
+           }
+         ],
+         "additions" [
+           {
+             "path": "newdocs/README.txt",
+             "contents": base64encode("new contents\n")
+           }
+         ]
+       }
+"""
+input FileChanges {
+  """
+  File to add or change.
+  """
+  additions: [FileAddition!] = []
+
+  """
+  Files to delete.
+  """
+  deletions: [FileDeletion!] = []
+}
+
+"""
+A command to delete the file at the given path as part of a commit.
+"""
+input FileDeletion {
+  """
+  The path to delete
+  """
+  path: String!
 }
 
 """
@@ -12793,9 +13127,24 @@ enum IpAllowListEntryOrderField {
 }
 
 """
+The possible values for the IP allow list configuration for installed GitHub Apps setting.
+"""
+enum IpAllowListForInstalledAppsEnabledSettingValue {
+  """
+  The setting is disabled for the owner.
+  """
+  DISABLED
+
+  """
+  The setting is enabled for the owner.
+  """
+  ENABLED
+}
+
+"""
 Types that can own an IP allow list.
 """
-union IpAllowListOwner = Enterprise | Organization
+union IpAllowListOwner = App | Enterprise | Organization
 
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
@@ -13145,7 +13494,8 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): IssueTimelineConnection! @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC.")
+  ): IssueTimelineConnection!
+    @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC.")
 
   """
   A list of events, comments, commits, etc. associated with the issue.
@@ -13191,6 +13541,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Identifies the issue title.
   """
   title: String!
+
+  """
+  Identifies the issue title rendered to HTML.
+  """
+  titleHTML: String!
 
   """
   Identifies the date and time when the object was last updated.
@@ -13761,7 +14116,26 @@ type IssueTimelineConnection {
 """
 An item in an issue timeline
 """
-union IssueTimelineItem = AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItem =
+    AssignedEvent
+  | ClosedEvent
+  | Commit
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MilestonedEvent
+  | ReferencedEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 An edge in a connection.
@@ -13781,7 +14155,37 @@ type IssueTimelineItemEdge {
 """
 An item in an issue timeline
 """
-union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItems =
+    AddedToProjectEvent
+  | AssignedEvent
+  | ClosedEvent
+  | CommentDeletedEvent
+  | ConnectedEvent
+  | ConvertedNoteToIssueEvent
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DisconnectedEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MarkedAsDuplicateEvent
+  | MentionedEvent
+  | MilestonedEvent
+  | MovedColumnsInProjectEvent
+  | PinnedEvent
+  | ReferencedEvent
+  | RemovedFromProjectEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnmarkedAsDuplicateEvent
+  | UnpinnedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 The connection type for IssueTimelineItems.
@@ -15316,7 +15720,10 @@ enum MergeStateStatus {
   """
   The merge is blocked due to the pull request being a draft.
   """
-  DRAFT @deprecated(reason: "DRAFT state will be removed from this enum and `isDraft` should be used instead Use PullRequest.isDraft instead. Removal on 2021-01-01 UTC.")
+  DRAFT
+    @deprecated(
+      reason: "DRAFT state will be removed from this enum and `isDraft` should be used instead Use PullRequest.isDraft instead. Removal on 2021-01-01 UTC."
+    )
 
   """
   Mergeable with passing commit status and pre-receive hooks.
@@ -15734,7 +16141,11 @@ input MinimizeCommentInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "DiscussionComment", "GistComment", "IssueComment", "PullRequestReviewComment"], abstractType: "Minimizable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["CommitComment", "DiscussionComment", "GistComment", "IssueComment", "PullRequestReviewComment"]
+      abstractType: "Minimizable"
+    )
 }
 
 """
@@ -16131,6 +16542,57 @@ type Mutation {
     """
     input: CreateCheckSuiteInput!
   ): CreateCheckSuitePayload
+
+  """
+  Appends a commit to the given branch as the authenticated user.
+
+  This mutation creates a commit whose parent is the HEAD of the provided
+  branch and also updates that branch to point to the new commit.
+  It can be thought of as similar to `git commit`.
+
+  ### Locating a Branch
+
+  Commits are appended to a `branch` of type `Ref`.
+  This must refer to a git branch (i.e.  the fully qualified path must
+  begin with `refs/heads/`, although including this prefix is optional.
+
+  Callers may specify the `branch` to commit to either by its global node
+  ID or by passing both of `repositoryNameWithOwner` and `refName`.  For
+  more details see the documentation for `CommittableBranch`.
+
+  ### Describing Changes
+
+  `fileChanges` are specified as a `FilesChanges` object describing
+  `FileAdditions` and `FileDeletions`.
+
+  Please see the documentation for `FileChanges` for more information on
+  how to use this argument to describe any set of file changes.
+
+  ### Authorship
+
+  Similar to the web commit interface, this mutation does not support
+  specifying the author or committer of the commit and will not add
+  support for this in the future.
+
+  A commit created by a successful execution of this mutation will be
+  authored by the owner of the credential which authenticates the API
+  request.  The committer will be identical to that of commits authored
+  using the web interface.
+
+  If you need full control over author and committer information, please
+  use the Git Database REST API instead.
+
+  ### Commit Signing
+
+  Commits made using this mutation are automatically signed by GitHub if
+  supported and will be marked as verified in the user interface.
+  """
+  createCommitOnBranch(
+    """
+    Parameters for CreateCommitOnBranch
+    """
+    input: CreateCommitOnBranchInput!
+  ): CreateCommitOnBranchPayload
 
   """
   Create a content attachment.
@@ -17091,6 +17553,16 @@ type Mutation {
     """
     input: UpdateIpAllowListEntryInput!
   ): UpdateIpAllowListEntryPayload
+
+  """
+  Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.
+  """
+  updateIpAllowListForInstalledAppsEnabledSetting(
+    """
+    Parameters for UpdateIpAllowListForInstalledAppsEnabledSetting
+    """
+    input: UpdateIpAllowListForInstalledAppsEnabledSettingInput!
+  ): UpdateIpAllowListForInstalledAppsEnabledSettingPayload
 
   """
   Updates an Issue.
@@ -19799,7 +20271,10 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
 """
 Types of memberships that can be restored for an Organization member.
 """
-union OrgRestoreMemberAuditEntryMembership = OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgRestoreMemberMembershipRepositoryAuditEntryData | OrgRestoreMemberMembershipTeamAuditEntryData
+union OrgRestoreMemberAuditEntryMembership =
+    OrgRestoreMemberMembershipOrganizationAuditEntryData
+  | OrgRestoreMemberMembershipRepositoryAuditEntryData
+  | OrgRestoreMemberMembershipTeamAuditEntryData
 
 """
 Metadata for an organization membership for org.restore_member actions
@@ -20058,12 +20533,12 @@ type OrgUpdateDefaultRepositoryPermissionAuditEntry implements AuditEntry & Node
   organizationUrl: URI
 
   """
-  The new default repository permission level for the organization.
+  The new base repository permission level for the organization.
   """
   permission: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
   """
-  The former default repository permission level for the organization.
+  The former base repository permission level for the organization.
   """
   permissionWas: OrgUpdateDefaultRepositoryPermissionAuditEntryPermission
 
@@ -20474,7 +20949,7 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type Organization implements Actor & MemberStatusable & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -20590,6 +21065,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
     """
     orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
   ): IpAllowListEntryConnection!
+
+  """
+  The setting value for whether the organization has IP allow list configuration for installed GitHub Apps enabled.
+  """
+  ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
 
   """
   Showcases a selection of repositories and gists that the profile owner has
@@ -20994,73 +21474,6 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   samlIdentityProvider: OrganizationIdentityProvider
 
   """
-  This object's sponsorships as the maintainer.
-  """
-  sponsorshipsAsMaintainer(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Whether or not to include private sponsorships in the result set
-    """
-    includePrivate: Boolean = false
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
-  This object's sponsorships as the sponsor.
-  """
-  sponsorshipsAsSponsor(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
   Find an organization's team by its slug.
   """
   team(
@@ -21194,7 +21607,65 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
 """
 An audit entry in an organization audit log.
 """
-union OrganizationAuditEntry = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+union OrganizationAuditEntry =
+    MembersCanDeleteReposClearAuditEntry
+  | MembersCanDeleteReposDisableAuditEntry
+  | MembersCanDeleteReposEnableAuditEntry
+  | OauthApplicationCreateAuditEntry
+  | OrgAddBillingManagerAuditEntry
+  | OrgAddMemberAuditEntry
+  | OrgBlockUserAuditEntry
+  | OrgConfigDisableCollaboratorsOnlyAuditEntry
+  | OrgConfigEnableCollaboratorsOnlyAuditEntry
+  | OrgCreateAuditEntry
+  | OrgDisableOauthAppRestrictionsAuditEntry
+  | OrgDisableSamlAuditEntry
+  | OrgDisableTwoFactorRequirementAuditEntry
+  | OrgEnableOauthAppRestrictionsAuditEntry
+  | OrgEnableSamlAuditEntry
+  | OrgEnableTwoFactorRequirementAuditEntry
+  | OrgInviteMemberAuditEntry
+  | OrgInviteToBusinessAuditEntry
+  | OrgOauthAppAccessApprovedAuditEntry
+  | OrgOauthAppAccessDeniedAuditEntry
+  | OrgOauthAppAccessRequestedAuditEntry
+  | OrgRemoveBillingManagerAuditEntry
+  | OrgRemoveMemberAuditEntry
+  | OrgRemoveOutsideCollaboratorAuditEntry
+  | OrgRestoreMemberAuditEntry
+  | OrgUnblockUserAuditEntry
+  | OrgUpdateDefaultRepositoryPermissionAuditEntry
+  | OrgUpdateMemberAuditEntry
+  | OrgUpdateMemberRepositoryCreationPermissionAuditEntry
+  | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry
+  | PrivateRepositoryForkingDisableAuditEntry
+  | PrivateRepositoryForkingEnableAuditEntry
+  | RepoAccessAuditEntry
+  | RepoAddMemberAuditEntry
+  | RepoAddTopicAuditEntry
+  | RepoArchivedAuditEntry
+  | RepoChangeMergeSettingAuditEntry
+  | RepoConfigDisableAnonymousGitAccessAuditEntry
+  | RepoConfigDisableCollaboratorsOnlyAuditEntry
+  | RepoConfigDisableContributorsOnlyAuditEntry
+  | RepoConfigDisableSockpuppetDisallowedAuditEntry
+  | RepoConfigEnableAnonymousGitAccessAuditEntry
+  | RepoConfigEnableCollaboratorsOnlyAuditEntry
+  | RepoConfigEnableContributorsOnlyAuditEntry
+  | RepoConfigEnableSockpuppetDisallowedAuditEntry
+  | RepoConfigLockAnonymousGitAccessAuditEntry
+  | RepoConfigUnlockAnonymousGitAccessAuditEntry
+  | RepoCreateAuditEntry
+  | RepoDestroyAuditEntry
+  | RepoRemoveMemberAuditEntry
+  | RepoRemoveTopicAuditEntry
+  | RepositoryVisibilityChangeDisableAuditEntry
+  | RepositoryVisibilityChangeEnableAuditEntry
+  | TeamAddMemberAuditEntry
+  | TeamAddRepositoryAuditEntry
+  | TeamChangeParentTeamAuditEntry
+  | TeamRemoveMemberAuditEntry
+  | TeamRemoveRepositoryAuditEntry
 
 """
 The connection type for OrganizationAuditEntry.
@@ -21333,6 +21804,11 @@ type OrganizationIdentityProvider implements Node {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter to external identities with valid org membership only
+    """
+    membersOnly: Boolean
   ): ExternalIdentityConnection!
   id: ID!
 
@@ -21561,6 +22037,11 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
   Members will not be able to create public or private repositories.
   """
   DISABLED
+
+  """
+  Members will be able to create only internal repositories.
+  """
+  INTERNAL
 
   """
   Members will be able to create only private repositories.
@@ -24001,7 +24482,8 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): PullRequestTimelineConnection! @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC.")
+  ): PullRequestTimelineConnection!
+    @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC.")
 
   """
   A list of events, comments, commits, etc. associated with the pull request.
@@ -24047,6 +24529,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Identifies the pull request title.
   """
   title: String!
+
+  """
+  Identifies the pull request title rendered to HTML.
+  """
+  titleHTML: HTML!
 
   """
   Identifies the date and time when the object was last updated.
@@ -25234,7 +25721,7 @@ type PullRequestReviewThread implements Node {
   id: ID!
 
   """
-  Whether or not the thread has been collapsed (outdated or resolved)
+  Whether or not the thread has been collapsed (resolved)
   """
   isCollapsed: Boolean!
 
@@ -25437,7 +25924,40 @@ type PullRequestTimelineConnection {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItem = AssignedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItem =
+    AssignedEvent
+  | BaseRefDeletedEvent
+  | BaseRefForcePushedEvent
+  | ClosedEvent
+  | Commit
+  | CommitCommentThread
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DeployedEvent
+  | DeploymentEnvironmentChangedEvent
+  | HeadRefDeletedEvent
+  | HeadRefForcePushedEvent
+  | HeadRefRestoredEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MergedEvent
+  | MilestonedEvent
+  | PullRequestReview
+  | PullRequestReviewComment
+  | PullRequestReviewThread
+  | ReferencedEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | ReviewDismissedEvent
+  | ReviewRequestRemovedEvent
+  | ReviewRequestedEvent
+  | SubscribedEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 An edge in a connection.
@@ -25457,7 +25977,62 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems =
+    AddedToProjectEvent
+  | AssignedEvent
+  | AutoMergeDisabledEvent
+  | AutoMergeEnabledEvent
+  | AutoRebaseEnabledEvent
+  | AutoSquashEnabledEvent
+  | AutomaticBaseChangeFailedEvent
+  | AutomaticBaseChangeSucceededEvent
+  | BaseRefChangedEvent
+  | BaseRefDeletedEvent
+  | BaseRefForcePushedEvent
+  | ClosedEvent
+  | CommentDeletedEvent
+  | ConnectedEvent
+  | ConvertToDraftEvent
+  | ConvertedNoteToIssueEvent
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DeployedEvent
+  | DeploymentEnvironmentChangedEvent
+  | DisconnectedEvent
+  | HeadRefDeletedEvent
+  | HeadRefForcePushedEvent
+  | HeadRefRestoredEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MarkedAsDuplicateEvent
+  | MentionedEvent
+  | MergedEvent
+  | MilestonedEvent
+  | MovedColumnsInProjectEvent
+  | PinnedEvent
+  | PullRequestCommit
+  | PullRequestCommitCommentThread
+  | PullRequestReview
+  | PullRequestReviewThread
+  | PullRequestRevisionMarker
+  | ReadyForReviewEvent
+  | ReferencedEvent
+  | RemovedFromProjectEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | ReviewDismissedEvent
+  | ReviewRequestRemovedEvent
+  | ReviewRequestedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnmarkedAsDuplicateEvent
+  | UnpinnedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -26500,6 +27075,31 @@ type ReactionGroup {
   createdAt: DateTime
 
   """
+  Reactors to the reaction subject with the emotion represented by this reaction group.
+  """
+  reactors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ReactorConnection!
+
+  """
   The subject that was reacted to.
   """
   subject: Reactable!
@@ -26528,6 +27128,9 @@ type ReactionGroup {
     """
     last: Int
   ): ReactingUserConnection!
+    @deprecated(
+      reason: "Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC."
+    )
 
   """
   Whether or not the authenticated user has left a reaction on the subject.
@@ -26558,6 +27161,56 @@ enum ReactionOrderField {
   Allows ordering a list of reactions by when they were created.
   """
   CREATED_AT
+}
+
+"""
+Types that can be assigned to reactions.
+"""
+union Reactor = Bot | Mannequin | Organization | User
+
+"""
+The connection type for Reactor.
+"""
+type ReactorConnection {
+  """
+  A list of edges.
+  """
+  edges: [ReactorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Reactor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+Represents an author of a reaction.
+"""
+type ReactorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The author of the reaction.
+  """
+  node: Reactor!
+
+  """
+  The moment when the user made the reaction.
+  """
+  reactedAt: DateTime!
 }
 
 """
@@ -26807,6 +27460,11 @@ type RefUpdateRule {
   requiresCodeOwnerReviews: Boolean!
 
   """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean!
+
+  """
   Are merge commits prohibited from being pushed to this branch.
   """
   requiresLinearHistory: Boolean!
@@ -26957,6 +27615,31 @@ type Release implements Node & Reactable & UniformResourceLocatable {
   Whether or not the release is a prerelease
   """
   isPrerelease: Boolean!
+
+  """
+  A list of users mentioned in the release description
+  """
+  mentions(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): UserConnection
 
   """
   The title of the release.
@@ -27427,7 +28110,23 @@ input RemoveReactionInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "Discussion", "DiscussionComment", "Issue", "IssueComment", "PullRequest", "PullRequestReview", "PullRequestReviewComment", "Release", "TeamDiscussion", "TeamDiscussionComment"], abstractType: "Reactable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: [
+        "CommitComment"
+        "Discussion"
+        "DiscussionComment"
+        "Issue"
+        "IssueComment"
+        "PullRequest"
+        "PullRequestReview"
+        "PullRequestReviewComment"
+        "Release"
+        "TeamDiscussion"
+        "TeamDiscussionComment"
+      ]
+      abstractType: "Reactable"
+    )
 }
 
 """
@@ -30037,6 +30736,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): UserConnection!
 
   """
+  Whether or not Auto-merge can be enabled on pull requests in this repository.
+  """
+  autoMergeAllowed: Boolean!
+
+  """
   A list of branch protection rules for this repository.
   """
   branchProtectionRules(
@@ -30335,6 +31039,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Returns how many forks there are of this repository in the whole network.
   """
   forkCount: Int!
+
+  """
+  Whether this repository allows forks.
+  """
+  forkingAllowed: Boolean!
 
   """
   A list of direct forked repositories.
@@ -31244,6 +31953,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   viewerSubscription: SubscriptionState
 
   """
+  Indicates the repository's visibility level.
+  """
+  visibility: RepositoryVisibility!
+
+  """
   A list of vulnerability alerts that are on this repository.
   """
   vulnerabilityAlerts(
@@ -31720,6 +32434,11 @@ interface RepositoryInfo {
   Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.
   """
   usesCustomOpenGraphImage: Boolean!
+
+  """
+  Indicates the repository's visibility level.
+  """
+  visibility: RepositoryVisibility!
 }
 
 """
@@ -31825,7 +32544,10 @@ enum RepositoryInvitationOrderField {
   """
   Order repository invitations by invitee login
   """
-  INVITEE_LOGIN @deprecated(reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC.")
+  INVITEE_LOGIN
+    @deprecated(
+      reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC."
+    )
 }
 
 """
@@ -32349,7 +33071,7 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
 }
 
 """
-A alert for a repository with an affected vulnerability.
+A Dependabot alert for a repository with a dependency affected by a security vulnerability.
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
@@ -33362,6 +34084,11 @@ enum SecurityAdvisoryEcosystem {
   Ruby gems hosted at RubyGems.org
   """
   RUBYGEMS
+
+  """
+  Rust crates
+  """
+  RUST
 }
 
 """
@@ -33574,194 +34301,6 @@ type SmimeSignature implements GitSignature {
   True if the signature was made with GitHub's signing key.
   """
   wasSignedByGitHub: Boolean!
-}
-
-"""
-Entities that can sponsor others via GitHub Sponsors
-"""
-union Sponsor = Organization | User
-
-"""
-Entities that can be sponsored through GitHub Sponsors
-"""
-interface Sponsorable {
-  """
-  This object's sponsorships as the maintainer.
-  """
-  sponsorshipsAsMaintainer(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Whether or not to include private sponsorships in the result set
-    """
-    includePrivate: Boolean = false
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
-  This object's sponsorships as the sponsor.
-  """
-  sponsorshipsAsSponsor(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-}
-
-"""
-A sponsorship relationship between a sponsor and a maintainer
-"""
-type Sponsorship implements Node {
-  """
-  Identifies the date and time when the object was created.
-  """
-  createdAt: DateTime!
-  id: ID!
-
-  """
-  Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
-  """
-  isOneTimePayment: Boolean!
-
-  """
-  The entity that is being sponsored
-  """
-  maintainer: User! @deprecated(reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.")
-
-  """
-  The privacy level for this sponsorship.
-  """
-  privacyLevel: SponsorshipPrivacy!
-
-  """
-  The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.
-  """
-  sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
-
-  """
-  The user or organization that is sponsoring, if you have permission to view them.
-  """
-  sponsorEntity: Sponsor
-
-  """
-  The entity that is being sponsored
-  """
-  sponsorable: Sponsorable!
-
-  """
-  Identifies the date and time when the current tier was chosen for this sponsorship.
-  """
-  tierSelectedAt: DateTime
-}
-
-"""
-The connection type for Sponsorship.
-"""
-type SponsorshipConnection {
-  """
-  A list of edges.
-  """
-  edges: [SponsorshipEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [Sponsorship]
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  Identifies the total count of items in the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-An edge in a connection.
-"""
-type SponsorshipEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: Sponsorship
-}
-
-"""
-Ordering options for sponsorship connections.
-"""
-input SponsorshipOrder {
-  """
-  The ordering direction.
-  """
-  direction: OrderDirection!
-}
-
-"""
-The privacy of a sponsorship
-"""
-enum SponsorshipPrivacy {
-  """
-  Private
-  """
-  PRIVATE
-
-  """
-  Public
-  """
-  PUBLIC
 }
 
 """
@@ -36463,6 +37002,60 @@ type Topic implements Node & Starrable {
   ): [Topic!]!
 
   """
+  A list of repositories.
+  """
+  repositories(
+    """
+    Array of viewer's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    current viewer owns.
+    """
+    affiliations: [RepositoryAffiliation]
+
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    If non-null, filters repositories according to whether they have been locked
+    """
+    isLocked: Boolean
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repositories returned from the connection
+    """
+    orderBy: RepositoryOrder
+
+    """
+    Array of owner's affiliation options for repositories returned from the
+    connection. For example, OWNER will include only repositories that the
+    organization or user being viewed owns.
+    """
+    ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
+
+    """
+    If non-null, filters repositories according to privacy
+    """
+    privacy: RepositoryPrivacy
+  ): RepositoryConnection!
+
+  """
   Returns a count of how many stargazers there are on this object
   """
   stargazerCount: Int!
@@ -36733,7 +37326,8 @@ type UnassignedEvent implements Node {
   """
   Identifies the subject (user) who was unassigned.
   """
-  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+  user: User
+    @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
 }
 
 """
@@ -37087,7 +37681,11 @@ input UnminimizeCommentInput {
   """
   The Node ID of the subject to modify.
   """
-  subjectId: ID! @possibleTypes(concreteTypes: ["CommitComment", "DiscussionComment", "GistComment", "IssueComment", "PullRequestReviewComment"], abstractType: "Minimizable")
+  subjectId: ID!
+    @possibleTypes(
+      concreteTypes: ["CommitComment", "DiscussionComment", "GistComment", "IssueComment", "PullRequestReviewComment"]
+      abstractType: "Minimizable"
+    )
 }
 
 """
@@ -37295,6 +37893,11 @@ input UpdateBranchProtectionRuleInput {
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean
+
+  """
+  Are conversations required to be resolved before merging.
+  """
+  requiresConversationResolution: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -38220,7 +38823,7 @@ input UpdateIpAllowListEnabledSettingInput {
   """
   The ID of the owner on which to set the IP allow list enabled setting.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
 
   """
   The value for the IP allow list enabled setting.
@@ -38286,6 +38889,41 @@ type UpdateIpAllowListEntryPayload {
   The IP allow list entry that was updated.
   """
   ipAllowListEntry: IpAllowListEntry
+}
+
+"""
+Autogenerated input type of UpdateIpAllowListForInstalledAppsEnabledSetting
+"""
+input UpdateIpAllowListForInstalledAppsEnabledSettingInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the owner.
+  """
+  ownerId: ID! @possibleTypes(concreteTypes: ["App", "Enterprise", "Organization"], abstractType: "IpAllowListOwner")
+
+  """
+  The value for the IP allow list configuration for installed GitHub Apps setting.
+  """
+  settingValue: IpAllowListForInstalledAppsEnabledSettingValue!
+}
+
+"""
+Autogenerated return type of UpdateIpAllowListForInstalledAppsEnabledSetting
+"""
+type UpdateIpAllowListForInstalledAppsEnabledSettingPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The IP allow list owner on which the setting was updated.
+  """
+  owner: IpAllowListOwner
 }
 
 """
@@ -38867,7 +39505,11 @@ input UpdateSubscriptionInput {
   """
   The Node ID of the subscribable object to modify.
   """
-  subscribableId: ID! @possibleTypes(concreteTypes: ["Commit", "Discussion", "Issue", "PullRequest", "Repository", "Team", "TeamDiscussion"], abstractType: "Subscribable")
+  subscribableId: ID!
+    @possibleTypes(
+      concreteTypes: ["Commit", "Discussion", "Issue", "PullRequest", "Repository", "Team", "TeamDiscussion"]
+      abstractType: "Subscribable"
+    )
 }
 
 """
@@ -39074,7 +39716,7 @@ type UpdateTopicsPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -39165,8 +39807,9 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     organizationID: ID
 
     """
-    Only contributions made before and up to and including this time will be
-    counted. If omitted, defaults to the current time.
+    Only contributions made before and up to (including) this time will be
+    counted. If omitted, defaults to the current time or one year from the
+    provided from argument.
     """
     to: DateTime
   ): ContributionsCollection!
@@ -39336,6 +39979,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   Whether or not this user is a GitHub employee.
   """
   isEmployee: Boolean!
+
+  """
+  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  """
+  isFollowingViewer: Boolean!
 
   """
   Whether or not this user is a member of the GitHub Stars Program.
@@ -39930,73 +40578,6 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   ): SavedReplyConnection
 
   """
-  This object's sponsorships as the maintainer.
-  """
-  sponsorshipsAsMaintainer(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Whether or not to include private sponsorships in the result set
-    """
-    includePrivate: Boolean = false
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
-  This object's sponsorships as the sponsor.
-  """
-  sponsorshipsAsSponsor(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for sponsorships returned from this connection. If left
-    blank, the sponsorships will be ordered based on relevancy to the viewer.
-    """
-    orderBy: SponsorshipOrder
-  ): SponsorshipConnection!
-
-  """
   Repositories the user has starred.
   """
   starredRepositories(
@@ -40107,7 +40688,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   viewerCanFollow: Boolean!
 
   """
-  Whether or not this user is followed by the viewer.
+  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
   """
   viewerIsFollowing: Boolean!
 

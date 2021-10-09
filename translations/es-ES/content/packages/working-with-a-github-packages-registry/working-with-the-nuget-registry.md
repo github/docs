@@ -1,5 +1,5 @@
 ---
-title: Working with the NuGet registry
+title: Trabajar con el registro de NuGet
 intro: 'Puedes configurar la interfaz de línea de comando (CLI) `dotnet` para publicar paquetes NuGet en {% data variables.product.prodname_registry %} y utilizar paquetes almacenados en {% data variables.product.prodname_registry %} como dependencias en un proyecto de .NET.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -10,9 +10,10 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-dotnet-cli-for-use-with-github-packages
   - /packages/guides/configuring-dotnet-cli-for-use-with-github-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Registro de NuGet
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -20,21 +21,21 @@ versions:
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
-### Autenticarte en {% data variables.product.prodname_registry %}
+## Autenticarte en {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+### Autenticarte con el `GITHUB_TOKEN` en {% data variables.product.prodname_actions %}
 
-Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
+Utiliza el siguiente comando para autenticarte en el {% data variables.product.prodname_registry %} en un flujo de trabajo de {% data variables.product.prodname_actions %} utilizando el `GITHUB_TOKEN` en vez de codificar un token rígidamente en un archivo de nuget.config en el repositorio:
 
 ```shell
-dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-#### Autenticarte con un token de acceso personal
+### Autenticarte con un token de acceso personal
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -43,10 +44,10 @@ Para autenticarte en {% data variables.product.prodname_registry %} con la inter
 Debes reemplazar:
 - `USERNAME` (nombre de usuario) por el nombre de tu cuenta de usuario en {% data variables.product.prodname_dotcom %}.
 - `TOKEN` por tu token de acceso personal.
-- `OWNER` com el nombre de la cuenta de usuario u organización a la que pertenece el repositorio que contiene tu proyecto.{%if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- `OWNER` con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.{% ifversion ghes or ghae %}
 - `HOSTNAME` con el nombre de host de {% data variables.product.product_location %}.{% endif %}
 
-{%if enterpriseServerVersions contains currentVersion %}Si tu instancia tiene habilitado el aislamiento de subdominio:
+{% ifversion ghes %}Si tu instancia tiene habilitado el aislamiento de subdominios:
 {% endif %}
 
 ```xml
@@ -54,7 +55,7 @@ Debes reemplazar:
 <configuration>
     <packageSources>
         <clear />
-        <add key="github" value="https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
+        <add key="github" value="https://{% ifversion fpt %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
     </packageSources>
     <packageSourceCredentials>
         <github>
@@ -65,7 +66,7 @@ Debes reemplazar:
 </configuration>
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo repositorio:
 
 ```xml
@@ -86,12 +87,12 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 ```
 {% endif %}
 
-### Publicar un paquete
+## Publicar un paquete
 
-Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si te autenticas con un archivo de *nuget.config*{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest"%}, o si utilizas la opción de línea de comandos `--api-key` con tu token de acceso personal (PAT) de {% data variables.product.prodname_dotcom %}{% endif %}.
+Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si te autenticas con un archivo de *nuget.config*{% ifversion fpt or ghes > 2.22 or ghae %}, o si utilizas la opción de línea de comandos `--api-key` con tu token de acceso personal (PAT) de {% data variables.product.prodname_dotcom %}{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-#### Publicar un paquete utilizando el PAT de GitHub como tu clave de la API
+{% ifversion fpt or ghes > 2.22 or ghae %}
+### Publicar un paquete utilizando el PAT de GitHub como tu clave de la API
 
 Si aún no tienes un PAT para utilizar con tu cuenta de {% data variables.product.prodname_dotcom %}, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
@@ -113,7 +114,7 @@ Si aún no tienes un PAT para utilizar con tu cuenta de {% data variables.produc
 
 {% endif %}
 
-#### Publicar un paquete utilizando un archivo *nuget.config*
+### Publicar un paquete utilizando un archivo *nuget.config*
 
 Al publicar, debes usar el mismo valor para `OWNER` en tu archivo *csproj* que usas en tu archivo de autenticación *nuget.config*. Especifica o incrementa el número de versión en tu archivo *.csproj* y luego usa el comando `dotnet pack` para crear un archivo *.nuspec* para esa versión. Para obtener más información sobre cómo crear tu paquete, consulta la sección "[Crear y publicar un paquete](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" en la documentación de Microsoft.
 
@@ -125,7 +126,7 @@ Al publicar, debes usar el mismo valor para `OWNER` en tu archivo *csproj* que u
 3. Agrega la información específica de tu proyecto al archivo de tu proyecto, que finaliza en *.csproj*.  Debes reemplazar:
     - `OWNER` por el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.
     - `REPOSITORY` por el nombre del repositorio que contiene el paquete que deseas publicar.
-    - `1.0.0` con el número de versión del paquete.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+    - `1.0.0` con el número de versión del paquete.{% ifversion ghes or ghae %}
     - `HOSTNAME` con el nombre de host de {% data variables.product.product_location %}.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
@@ -138,7 +139,7 @@ Al publicar, debes usar el mismo valor para `OWNER` en tu archivo *csproj* que u
       <Authors>Octocat</Authors>
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
 
   </Project>
@@ -155,7 +156,7 @@ Al publicar, debes usar el mismo valor para `OWNER` en tu archivo *csproj* que u
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Publicar varios paquetes en el mismo repositorio
+## Publicar varios paquetes en el mismo repositorio
 
 Para publicar varios paquetes en el mismo repositorio, puedes incluir la misma URL del repositorio de {% data variables.product.prodname_dotcom %} en los campos `RepositoryURL` en todos los archivos del proyecto *.csproj*. {% data variables.product.prodname_dotcom %} coincide con el repositorio en base a ese campo.
 
@@ -172,7 +173,7 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
     <Authors>Octodog</Authors>
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octodog!</PackageDescription>
-    <RepositoryUrl>https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
@@ -189,13 +190,13 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
     <Authors>Octocat</Authors>
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octocat!</PackageDescription>
-    <RepositoryUrl>https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
 ```
 
-### Instalar un paquete
+## Instalar un paquete
 
 El uso de paquetes desde {% data variables.product.prodname_dotcom %} en tu proyecto es similar al uso de paquetes desde *nuget.org*. Agrega las dependencias de tu paquete a tu archivo *.csproj*, especificando el nombre del paquete y la versión. Para obtener más información sobre cómo utilizar un archivo *.csproj* en tu proyecto, consulta "[Trabajar con paquetes NuGet](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)"en la documentación de Microsoft.
 
@@ -213,7 +214,7 @@ El uso de paquetes desde {% data variables.product.prodname_dotcom %} en tu proy
       <Authors>Octocat</Authors>
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -228,10 +229,10 @@ El uso de paquetes desde {% data variables.product.prodname_dotcom %} en tu proy
   restaurar dotnet
   ```
 
-### Solución de problemas
+## Solución de problemas
 
-Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+Tu paquete de NuGet podría fallar en subirse si la `RepositoryUrl` en *.csproj* no se configuró en el repositorio esperado.
 
-### Leer más
+## Leer más
 
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 %}[Borrar y restaurar un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

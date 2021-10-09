@@ -7,13 +7,14 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
   - /developers/github-marketplace/handling-plan-changes
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
 ---
+
 有关与计费相关之升级和降级的更多信息，请参阅“[与 {% data variables.product.prodname_marketplace %} API 集成](/marketplace/integrating-with-the-github-marketplace-api/)”。
 
-### 步骤 1. 定价计划更改事件
+## 步骤 1. 定价计划更改事件
 
 当客户对其 {% data variables.product.prodname_marketplace %} 订单进行以下任何更改时，GitHub 会将带有 `changed` 操作的 `marketplace_purchase` web 挂钩发送到您的应用程序：
 * 升级到更昂贵的定价计划或降级到价格较低的计划。
@@ -26,7 +27,7 @@ topics:
 
 如果您的应用程序提供免费试用，则在免费试用到期时您将收到带有 `changed` 操作的 `marketplace_purchase` web 挂钩。 如果客户的免费试用到期，则将客户升级到免费试用计划的付费版本。
 
-### 步骤 2. 更新客户账户
+## 步骤 2. 更新客户账户
 
 您需要更新客户的帐户信息，以反映客户对其 {% data variables.product.prodname_marketplace %} 订单所做的结算周期和定价计划更改。 当您收到 `changed` 操作 web 挂钩时，您的 Marketplace 应用程序的网站或应用程序的 UI 上会显示定价计划、`seat_count`（对于每单位定价计划）和结算周期的升级。
 
@@ -40,11 +41,11 @@ topics:
 
 {% endnote %}
 
-### 升级付款失败
+## 升级付款失败
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-### 关于升级 URL
+## 关于升级 URL
 
 您可以使用升级 URL 将用户从应用程序的 UI 重定向到 GitHub 上的升级页面：
 

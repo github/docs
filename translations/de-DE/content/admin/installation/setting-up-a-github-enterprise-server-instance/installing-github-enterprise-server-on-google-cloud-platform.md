@@ -6,21 +6,23 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
   - /admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on GCP
 ---
-### Vorrausetzungen
+
+## Vorrausetzungen
 
 - {% data reusables.enterprise_installation.software-license %}
 - Sie müssen über ein Google Cloud Platform-Konto verfügen, mit dem VM-Instanzen (virtuelle Maschine) in Google Compute Engine (GCE) gestartet werden können. Weitere Informationen finden Sie auf der „[Google Cloud Platform-Website](https://cloud.google.com/) und in der [Google Cloud Platform-Dokumentation](https://cloud.google.com/docs/)“.
 - Die meisten Aktionen, die zum Starten Ihrer Instanz erforderlich sind, können auch mit der [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console) ausgeführt werden. Zur Ersteinrichtung sollten Sie jedoch das Befehlszeilentool „gcloud compute“ installieren. Im Folgenden finden Sie Beispiele zur Verwendung des Befehlszeilentools „gcloud compute“. Weitere Informationen finden Sie in der Google-Dokumentation zur Installations- und Einrichtungsanleitung für „[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)“.
 
-### Grundlegendes zur Hardware
+## Grundlegendes zur Hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Maschinentyp bestimmen
+## Maschinentyp bestimmen
 
 Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
@@ -28,7 +30,7 @@ Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platfor
 
 {% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
 
-### {% data variables.product.prodname_ghe_server %}-Image auswählen
+## {% data variables.product.prodname_ghe_server %}-Image auswählen
 
 1. Listen Sie mithilfe des Befehlszeilentools [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) die öffentlichen {% data variables.product.prodname_ghe_server %}-Images auf:
    ```shell
@@ -37,7 +39,7 @@ Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platfor
 
 2. Notieren Sie sich den Image-Namen für das neueste GCE-Image von {% data variables.product.prodname_ghe_server %}.
 
-### Firewall konfigurieren
+## Firewall konfigurieren
 
 GCE-VMs werden als Mitglied eines Netzwerks erstellt, das eine Firewall besitzt. Für das der {% data variables.product.prodname_ghe_server %}-VM zugeordnete Netzwerk müssen Sie die Firewall so konfigurieren, dass die in der folgenden Tabelle aufgelisteten erforderlichen Ports zugelassen werden. Weitere Informationen zu den Firewallregeln auf Google Cloud Platform finden Sie im Leitfaden „[Übersicht über Firewallregeln](https://cloud.google.com/vpc/docs/firewalls)“.
 
@@ -55,13 +57,13 @@ GCE-VMs werden als Mitglied eines Netzwerks erstellt, das eine Firewall besitzt.
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-### Statische IP zuordnen und mit der VM verknüpfen
+## Statische IP zuordnen und mit der VM verknüpfen
 
 Wenn es sich hierbei um eine Produktions-Appliance handelt, wird dringend empfohlen, eine statische externe IP-Adresse zu reservieren und sie der {% data variables.product.prodname_ghe_server %}-VM zuzuordnen. Andernfalls wird die öffentliche IP-Adresse der VM nach Neustarts nicht beibehalten. Weitere Informationen finden Sie im Google-Leitfaden unter „[Statische externe IP-Adresse reservieren](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)“.
 
 In Hochverfügbarkeitskonfigurationen in der Produktion sollten primären und Replikat-Appliances separate statische IP-Adressen zugewiesen werden.
 
-### {% data variables.product.prodname_ghe_server %}-Instanz erstellen
+## {% data variables.product.prodname_ghe_server %}-Instanz erstellen
 
 Zum Erstellen der {% data variables.product.prodname_ghe_server %}-Instanz müssen Sie eine GCE-Instanz mit Ihrem {% data variables.product.prodname_ghe_server %}-Image erstellen und ein zusätzliches Storage-Volume für Ihre Instanzdaten anhängen. Weitere Informationen finden Sie unter „[Grundlegendes zur Hardware](#hardware-considerations)“.
 
@@ -82,7 +84,7 @@ Zum Erstellen der {% data variables.product.prodname_ghe_server %}-Instanz müss
    --image-project github-enterprise-public
    ```
 
-### Instanz konfigurieren
+## Instanz konfigurieren
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
@@ -90,7 +92,7 @@ Zum Erstellen der {% data variables.product.prodname_ghe_server %}-Instanz müss
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -6,27 +6,25 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Monitor & troubleshoot
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### {{ site.data.variables.product.prodname_dotcom }}を使ったセルフホストランナーのステータスのチェック
+## {% data variables.product.prodname_dotcom %}を使ったセルフホストランナーのステータスのチェック
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. "Self-hosted runners（セルフホストランナー）"の下で、ランナーの名前、ラベル、ステータスを含む、登録されたランナーのリストを見ることができます。
-
-    ![ランナーのリスト](/assets/images/help/settings/actions-runner-list.png)
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Under {% ifversion fpt or ghes > 3.1 or ghae-next %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     ステータスは以下のいずれかです。
 
@@ -35,19 +33,19 @@ defaultPlatform: linux
     * **Offline**: ランナーは{% data variables.product.product_name %}に接続されていません。 これは、マシンがオフラインになっているか、マシン上でセルフホストランナーアプリケーションが動作していないか、セルフホストランナーアプリケーションが{% data variables.product.product_name %}と通信できていないかです。
 
 
-### セルフホストランナーアプリケーションのログファイルのレビュー
+## セルフホストランナーアプリケーションのログファイルのレビュー
 
 セルフホストランナーアプリケーションのステータスと、そのアクティビティをモニタリングできます。 ログファイルは`_diag`ディレクトリに保存されており、アプリケーションが起動されるたびに新しいログが生成されます。 ファイル名は*Runner_*で始まり、その後にアプリケーションが起動された時刻のUTCタイムスタンプが続きます。
 
 ワークフロージョブの実行に関する詳細なログについては、*Worker_*ファイルについて述べた次のセクションを参照してください。
 
-### ジョブのログファイルのレビュー
+## ジョブのログファイルのレビュー
 
 セルフホストランナーアプリケーションは、処理するジョブごとに詳細なログファイルを生成します。 これらのファイルは`_diag`ディレクトリに保存され、ファイル名は*Worker_*で始まります。
 
 {% linux %}
 
-### journalctlを使ってのセルフホストランナーアプリケーションのチェック
+## journalctlを使ってのセルフホストランナーアプリケーションのチェック
 
 サービスを利用してアプリケーションを実行しているLinuxベースのセルフホストランナーでは、リアルタイムのアクティビティをモニターするのに`journalctl`が使えます。 デフォルトのsystemdベースのサービスは、以下の命名規則を使います。 `actions.runner.<org>-<repo>.<runnerName>.service` この名前は80文字を超える場合には切り捨てられるので、サービス名を見つける方法としては_.service_ファイルをチェックするのが良いでしょう。 例:
 
@@ -80,7 +78,7 @@ systemdの設定を見るには、サービスファイルを以下で見つけ�
 
 {% mac %}
 
-### launchdを使ってのセルフホストランナーアプリケーションのチェック
+## launchdを使ってのセルフホストランナーアプリケーションのチェック
 
 サービスとしてアプリケーションを実行しているmacOSベースのセルフホストランナーでは、リアルタイムのアクティビティをモニターするのに`launchctl`が使えます。 デフォルトのlaunchdベースのサービスは、以下の命名規則を使います。 `actions.runner.<org>-<repo>.<runnerName>` この名前は80文字を超える場合には切り捨てられるので、サービス名を見つける方法としてはランナーのディレクトリ内にある_.service_ファイルをチェックするのが良いでしょう。
 
@@ -108,7 +106,7 @@ launchdの設定を見るには、サービスファイルを以下で見つけ�
 
 {% windows %}
 
-### PowerShellを使ってのセルフホストランナーアプリケーションのチェック
+## PowerShellを使ってのセルフホストランナーアプリケーションのチェック
 
 サービスとしてアプリケーションを実行しているWindowsベースのセルフホストランナーでは、リアルタイムのアクティビティをモニターするのにPowerShellが使えます。 サービスは`GitHub Actions Runner (<org>-<repo>.<runnerName>)`という命名規則を使います。 ランナーのディレクトリ内にある_.service_ファイルを調べても、サービスの名前を見つけることができます。
 
@@ -145,7 +143,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-### 自動アップデートプロセスのモニタリング
+## 自動アップデートプロセスのモニタリング
 
 セルフホストランナーは、特定のバージョンのしきい値を下回るとジョブを処理できなくなるため、定期的に自動更新プロセスを確認することをお勧めします。 セルフホストランナーアプリケーションは自動的に更新されますが、このプロセスにはオペレーティングシステムやその他のソフトウェアの更新は含まれません。これらの更新を個別に管理する必要があります。
 
@@ -159,9 +157,9 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% linux %}
 
-### セルフホストランナー内のコンテナのトラブルシューティング
+## セルフホストランナー内のコンテナのトラブルシューティング
 
-#### Dockerがインストールされていることを確認
+### Dockerがインストールされていることを確認
 
 ジョブがコンテナを必要とするなら、セルフホストランナーはLinuxベースで、Dockerがインストールされていなければなりません。 セルフホストランナーにDockerがインストールされており、サービスが動作中であることを確認してください。
 
@@ -180,7 +178,7 @@ Dockerがインストールされていないなら、Dockerに依存するア�
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-#### Dockerの権限の確認
+### Dockerの権限の確認
 
 ジョブが次のエラーで失敗するなら、
 

@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### 個人アカウントではすでに許可されている {% data variables.product.prodname_oauth_app %} を Organization でも承認するようリクエストする
 
 {% data reusables.user_settings.access_settings %}

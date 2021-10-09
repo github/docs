@@ -10,15 +10,16 @@ redirect_from:
   - /apps
   - /v3/integrations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 children:
   - /getting-started-with-apps
   - /building-github-apps
   - /managing-github-apps
+  - /building-oauth-apps
   - /managing-oauth-apps
   - /guides
 ---

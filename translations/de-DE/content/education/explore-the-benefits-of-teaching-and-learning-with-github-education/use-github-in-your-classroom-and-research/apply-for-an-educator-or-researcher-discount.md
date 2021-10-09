@@ -11,9 +11,11 @@ redirect_from:
   - /articles/applying-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Apply for a discount
 ---
-### Informationen zu Lehrer- und Forscherrabatten
+
+## Informationen zu Lehrer- und Forscherrabatten
 
 {% data reusables.education.about-github-education-link %}
 
@@ -21,7 +23,7 @@ versions:
 
 For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
 
-### Einen Lehrer- oder Forscherrabatt beantragen
+## Einen Lehrer- oder Forscherrabatt beantragen
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
@@ -31,16 +33,16 @@ For more information about user accounts on {% data variables.product.product_na
 {% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
-### Ein Upgrade Deiner Organisation durchführen
+## Ein Upgrade Deiner Organisation durchführen
 
 Nachdem Dein Antrag für einen Lehrer- oder Forscherrabatt genehmigt wurde, kannst Du die von Dir mit Deiner Lerngemeinschaft benutzte Organisation auf {% data variables.product.prodname_team %} hochstufen, was die kostenlose Nutzung von unbegrenzten Benutzern und privaten Repositorys erlaubt. Du kannst eine vorhandene Organisation hochstufen oder eine neue Organisation für das Hochstufen erstellen.
 
-#### Hochstufen einer vorhandenen Organisation
+### Hochstufen einer vorhandenen Organisation
 
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-#### Hochstufen einer neuen Organisation
+### Hochstufen einer neuen Organisation
 
 {% data reusables.education.upgrade-page %}
 1. Klicke auf {% octicon "plus" aria-label="The plus symbol" %} **Create an organization** (Erstelle eine Organisation). ![Schaltfläche „Create an organization“ (Eine Organisation erstellen)](/assets/images/help/education/create-org-button.png)
@@ -50,7 +52,7 @@ Nachdem Dein Antrag für einen Lehrer- oder Forscherrabatt genehmigt wurde, kann
 {% data reusables.education.upgrade-page %}
 {% data reusables.education.upgrade-organization %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Warum wurde mein Antrag eines Lehrer- oder Forscherrabatts nicht genehmigt?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)“
 - [{% data variables.product.prodname_education %}](https://education.github.com)

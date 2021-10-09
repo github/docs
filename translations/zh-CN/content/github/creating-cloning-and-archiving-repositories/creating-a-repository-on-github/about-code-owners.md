@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 具有管理员或所有者权限的人员可以在仓库中创建 CODEOWNERS 文件。
 
 您选择作为代码所有者的人员必须具有仓库的写入权限。 当代码所有者是团队时，该团队必须拥有写入权限，即使团队的所有成员都已经直接通过组织成员资格或通过另一个团队成员资格直接拥有写入权限。
@@ -26,8 +27,7 @@ topics:
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果团队启用了代码审查分配，则个别审批无法满足受保护分支中代码所有者审批的要求。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-如果文件具有代码所有者，则在打开拉取请求之前可以看到代码所有者是谁。 在仓库中，您可以浏览文件并将鼠标悬停在上方
-{% octicon "shield-lock" aria-label="The edit icon" %}.
+如果文件具有代码所有者，则在打开拉取请求之前可以看到代码所有者是谁。 在仓库中，您可以找到文件并悬停于 {% octicon "shield-lock" aria-label="The edit icon" %} 上。
 
 ![仓库中文件的代码所有者](/assets/images/help/repository/code-owner-for-a-file.png)
 {% endif %}

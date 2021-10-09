@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### 关于 {% data variables.product.prodname_ghe_server %} 试用版
 
 您可以申请 45 天试用版来试用 {% data variables.product.prodname_ghe_server %}。 您的试用版将作为虚拟设备安装，带有内部或云部署选项。 有关支持的可视化平台列表，请参阅“[设置 GitHub Enterprise Server 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”。

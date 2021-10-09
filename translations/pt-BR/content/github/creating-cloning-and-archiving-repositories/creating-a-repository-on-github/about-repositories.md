@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Você pode possuir repositórios individualmente ou compartilhar a propriedade de repositórios com outras pessoas em uma organização.
 
 É possível restringir quem tem acesso a um repositório escolhendo a visibilidade do repositório. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
@@ -18,8 +19,7 @@ Você pode possuir repositórios individualmente ou compartilhar a propriedade d
 Para repositórios possuídos pelo usuário, você pode fornecer a outras pessoas acesso de colaborador para que elas possam colaborar no seu projeto. Se um repositório pertencer a uma organização, você poderá fornecer aos integrantes da organização permissões de acesso para colaboração no seu repositório. Para obter mais informações, consulte "[Níveis de permissão para uma repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/)" e "[Níveis de permissão de repositório para uma organização](/articles/repository-permission-levels-for-an-organization/)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-Com
-{% data variables.product.prodname_free_team %} para contas de usuário e organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados com um conjunto completo de recursos, ou repositórios privados ilimitados com uma funcionalidade limitada. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+Com o {% data variables.product.prodname_free_team %} em contas de usuário e organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados, com um conjunto completo de recursos, ou em repositórios privados ilimitados com um conjunto de recursos limitados. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 {% else %}
 Cada pessoa e organização podem ter repositórios ilimitados e convidar um número ilimitado de colaboradores para todos os repositórios.
 {% endif %}

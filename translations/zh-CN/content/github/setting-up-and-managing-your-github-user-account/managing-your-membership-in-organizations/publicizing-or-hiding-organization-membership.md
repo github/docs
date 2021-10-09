@@ -12,12 +12,13 @@ versions:
 topics:
   - Accounts
 ---
+
 ![个人资料组织框](/assets/images/help/profile/profile_orgs_box.png)
 
 ### 更改组织成员关系的可见性
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. 在成员列表中找到您的用户名。 如果列表很长，可在搜索框中搜索您的用户名。 ![组织成员搜索框](/assets/images/help/organizations/member-search-box.png)
 5. 在用户名右边的菜单中，选择新的可见性选项：

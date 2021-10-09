@@ -7,14 +7,11 @@ redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-projects-dependencies/
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
 versions:
-  enterprise-server: <=2.22
+  ghes: <=2.22
 topics:
   - Security
 children:
-  - /browsing-security-vulnerabilities-in-the-github-advisory-database
   - /about-alerts-for-vulnerable-dependencies
-  - /configuring-github-dependabot-security-updates
-  - /viewing-and-updating-vulnerable-dependencies-in-your-repository
-  - /troubleshooting-the-detection-of-vulnerable-dependencies
+  - /configuring-notifications-for-vulnerable-dependencies
 ---
 

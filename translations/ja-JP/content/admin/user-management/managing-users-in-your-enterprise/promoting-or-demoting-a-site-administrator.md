@@ -7,14 +7,16 @@ redirect_from:
   - /admin/user-management/promoting-or-demoting-a-site-administrator
 intro: サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Accounts
   - User account
   - Enterprise
+shortTitle: Manage administrators
 ---
+
 {% tip %}
 
 **メモ:** [ユーザの LDAP アクセスの設定](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)時に [LDAP Sync が有効](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)になっており、`Administrators group` 属性が設定されている場合、それらのユーザは自動的にインスタンスに対するサイト管理者アクセスを持つことになります。 この場合、以下のステップで手動でユーザを昇格させることはできません。ユーザを昇格させるにはLDAPの管理者グループに追加してください。
@@ -23,7 +25,7 @@ topics:
 
 ユーザの Organization のオーナーへの昇格に関する情報については「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)」の `ghe-org-admin-promote` セクションを参照してください。
 
-### Enterprise設定からユーザを昇格させる
+## Enterprise設定からユーザを昇格させる
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -31,7 +33,7 @@ topics:
 5. ページの右上にある[**Add owner**] をクリックします。 ![管理者を追加するボタン](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. 検索フィールドでユーザ名を入力し、[**Add**] をクリックします。 ![管理者を追加するための検索フィールド](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
-### Enterprise設定からサイト管理者を降格させる
+## Enterprise設定からサイト管理者を降格させる
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -40,7 +42,7 @@ topics:
 
 1. 検索結果から、降格させるユーザ名を探し、{% octicon "gear" %} ドロップダウンメニューを使って **Remove owner** を選択してください。 ![Enterprise から削除するオプション](/assets/images/help/business-accounts/demote-admin-button.png)
 
-### コマンドラインからユーザを昇格させる
+## コマンドラインからユーザを昇格させる
 
 1. アプライアンスに [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) で接続してください。
 2. [ghe-user-promote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-promote) に昇格させたいユーザ名を渡して実行してください。
@@ -48,7 +50,7 @@ topics:
   $ ghe-user-promote <em>username</em>
   ```
 
-### コマンドラインからサイト管理者を降格させる
+## コマンドラインからサイト管理者を降格させる
 
 1. アプライアンスに [SSH](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/) で接続してください。
 2. [ghe-user-demote](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-demote) に降格させたいユーザ名を渡して実行してください。

@@ -4,8 +4,8 @@ intro: 'Você pode configurar como os usuários conectam-se a {% data variables.
 redirect_from:
   - /enterprise/admin/authentication
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -13,4 +13,4 @@ children:
   - /managing-identity-and-access-for-your-enterprise
   - /configuring-authentication-and-provisioning-with-your-identity-provider
 ---
-### Índice
+

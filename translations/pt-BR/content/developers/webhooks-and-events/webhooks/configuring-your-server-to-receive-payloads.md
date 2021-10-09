@@ -5,12 +5,14 @@ redirect_from:
   - /webhooks/configuring
   - /developers/webhooks-and-events/configuring-your-server-to-receive-payloads
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
+shortTitle: Configurar servidor para webhooks
 ---
+
 Agora que nosso webhook está pronto para enviar mensagens, vamos configurar um servidor do Sinatra básico para gerenciar as cargas recebidas.
 
 {% note %}
@@ -19,7 +21,7 @@ Agora que nosso webhook está pronto para enviar mensagens, vamos configurar um 
 
 {% endnote %}
 
-### Escrevendo o servidor
+## Escrevendo o servidor
 
 Queremos que nosso servidor escute as solicitações de `POST`, em `/payload`, porque foi onde informamos ao GitHub que era a nossa URL. Uma vez que estamos usando ngrok para expor o nosso ambiente local, não precisamos configurar um servidor real on-line, e é possível testar tranquilamente o nosso código localmente.
 

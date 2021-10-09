@@ -13,6 +13,7 @@ versions:
 topics:
   - Profiles
 ---
+
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}您的贡献图显示公共仓库的活动。 {% endif %}您可以选择显示{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}公共和{% endif %}私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
@@ -90,9 +91,8 @@ topics:
 
 {% if currentVersion != "github-ae@latest" %}
 ### 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.product_location_enterprise %}的贡献
-如果站点管理员已启用
 
-{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+如果您的站点管理员已启用{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到 {% data variables.product.prodname_dotcom_the_website %} 配置文件。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
 {% endif %}
 
 ### 延伸阅读

@@ -9,7 +9,7 @@
 - 
   term: アカウントリカバリトークン
   description: >-
-    Recover Accounts Elsewhere というアカウントリカバリセットアップの一部として格納される認証資格情報。このバックアップ資格情報を格納できるようにします。
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: APIプレビュー
   description: >-
@@ -78,7 +78,7 @@
   term: カード
   description: Issue またはプルリクエストに関連付けられたプロジェクトボード内にある、移動可能な正方形。
 - 
-  term: チェック
+  term: check
   description: >-
     チェックは、{% data variables.product.product_name %}上のステータスチェックの一種です。「[ステータスチェック](#status-checks)」を参照してください。
 - 
@@ -181,7 +181,7 @@
 - 
   term: デフォルトブランチ
   description: >-
-    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
+    リポジトリ内の新しいPull Requestやコードのコミットのためのベースブランチ。それぞれのリポジトリは少なくとも1つのブランチを持ち、これはリポジトリを初期化したときにGitが作成します。最初のブランチは通常{% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}と呼ばれ、多くの場合デフォルトブランチです。
 - 
   term: 依存グラフ
   description: >-
@@ -213,7 +213,7 @@
   term: メール通知
   description: ユーザのメールアドレスに送信される通知。
 - 
-  term: Enterprise アカウント
+  term: Enterpriseアカウント
   description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
@@ -250,9 +250,9 @@
   description: >-
     ユーザアカウントの支払いプランで、無料のもの。ユーザがコラボレーションできるパブリックリポジトリは無制限、コラボレータも無制限です。
 - 
-  term: Gist
+  term: gist
   description: >-
-    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% if currentVersion == "github-ae@latest" %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% if currentVersion == "github-ae@latest" %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
+    Gistは、GitHub上で編集、クローン、フォークできる共有可能なファイルです。Gistは{% ifversion ghae %}インターナル{% else %}パブリック{% endif %}もしくはシークレットにすることができますが、シークレットのGistはURLから{% ifversion ghae %}Enterpriseのメンバーなら誰でも{% else %}誰でも{% endif %}アクセスできます。
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     ユーザがアクセスできない個人アカウント。ユーザが有料アカウントを無料のものにダウングレードした場合、または有料プランの支払いが期限を過ぎた場合、アカウントはロックされます。
 - 
-  term: Management Console
+  term: management Console
   description: >-
     GitHub Enterprise インターフェース内で、管理機能を含むセクション。
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %}デフォルトの開発ブランチ。Gitリポジトリを作成すると、`main`という名前のブランチが作成され、アクティブなブランチになります。ほとんどの場合、これにはローカルの開発が含まれますが、これは純粋に慣例によるものであり、必須ではありません。{% else %}リポジトリのデフォルトブランチに対して、`master`の代わりとしてしばしば選択される名前。{% endif %}
 - 
   term: master
   description: >-
-    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
+    多くのGitリポジトリのデフォルトブランチ。デフォルトでは、新しいGitリポジトリをコマンドライン上で作成すると、`master`というブランチが作成されます。現在では、多くのツールがデフォルトブランチに代わりの名前を使うようになりました。{% ifversion fpt or ghes > 3.1 or ghae %}たとえばGitHub上で新しいリポジトリを作成すると、デフォルトブランチは`main`になります。{% endif %}
 - 
   term: メンバーグラフ
   description: リポジトリのすべてのフォークを表示するリポジトリグラフ。
@@ -574,7 +574,7 @@
 - 
   term: Recovery Accounts Elsewhere
   description: >-
-    ユーザに対し、2 要素認証方法やリカバリコードへのアクセスを失った場合に備えて、自分の GitHub アカウントにセキュリティ要素をさらに追加することを許可するもの。ユーザは自分の GitHub アカウントの認証の資格情報をアカウントリカバリトークンの形で Facebook に格納すれば、GitHub アカウントを Facebook アカウントに関連付けることができます。
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: リカバリコード
   description: GitHub アカウントへのアクセスを再取得できるようにするコード。
@@ -653,6 +653,10 @@
   term: セキュリティログ
   description: >-
     直近の 50 個のアクションまたは過去 90 日間に実行されたアクションを一覧表示するログ。
+- 
+  term: server-to-serverリクエスト
+  description: >-
+    特定のユーザとは関係なく、botとして振る舞うアプリケーションが使用するAPIリクエスト。たとえば、スケジュールに基づいて動作し、長期間にわたってアクティビティがないIssueをクローズするアプリケーション。この種の認証を利用するアプリケーションは、ライセンスされたGitHubのアカウントを使用しないので、特定数のライセンスの利用を許可する支払いプランを使っている企業では、サーバー対サーバーのボットはGitHubライセンスを消費しません。サーバーからサーバーへのリクエストで使われるトークンは、[GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app)を使ってプログラムから取得できます。「[ユーザーからサーバーへのリクエスト](#user-to-server-request)」も参照してください。
 - 
   term: サービスフック
   description: >-
@@ -737,6 +741,10 @@
   term: ユーザ名
   description: GitHub 上でのユーザのハンドル。
 - 
+  term: user-to-serverリクエスト
+  description: >-
+    特定のユーザの代わりにタスクを実行するアプリケーションが使用するAPIリクエスト。user-to-server認証で実行されたタスクは、GitHub上ではアプリケーションを使用してユーザが実行したとして表示されます。たとえば、サードパーティのアプリケーション内からIssueを作成することができ、そのアプリケーションはあなたの代わりにGitHub上でその処理を行ってくれるでしょう。user-to-serverリクエストを使ってアプリケーションが実行できるタスクのスコープは、アプリケーション及びユーザの権限及びアクセスの両方によって制限されます。user-to-serverリクエストによって使われるトークンは、OAuthによって取得されます。詳しい情報については「[GitHub Appsのユーザの特定と認可](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)」を参照してください。「[server-to-serverリクエスト](#server-to-server-request)」も参照してください。
+- 
   term: 参照可能なチーム
   description: Organization の各メンバーが表示および @メンションできる Team。
 - 
@@ -754,9 +762,6 @@
   term: webhook
   description: >-
     webhook は、GitHub.com の特定のイベントにサブスクライブする GitHub App のビルドやセットアップができるようにするものです。webhook により、特定のアクションがリポジトリあるいはOrganizationで発生したら必ず外部のウェブサーバへ通知を配信するための方法が得られます。サービスフックともいいます。
-- 
-  term: Works with GitHub
-  description: GitHub で行うインテグレーションの一覧。
 - 
   term: 書き込みアクセス
   description: >-

@@ -6,17 +6,18 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'コミットメッセージに不明確、不正確、または機密情報が含まれている場合、ローカルでメッセージを修正して、{% data variables.product.product_name %}に新しいメッセージで新しいコミットをプッシュできます。 また、コミットメッセージを変更して、不足している情報を追加することも可能です。'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-### 直近のコミットメッセージの書き換え
+
+## 直近のコミットメッセージの書き換え
 
 `git commit --amend` コマンドで、直近のコミットメッセージを変更できます。
 
 Git では、コミットメッセージのテキストはコミットの一部として扱われます。 コミットメッセージを変更すると、コミット ID (コミットの SHA1 チェックサム) も変更されます。 実質的には、古いコミットに代わる新しいコミットを作成することになります。
 
-### オンラインにプッシュされていないコミット
+## オンラインにプッシュされていないコミット
 
 コミットがローカルリポジトリにのみ存在し、{% data variables.product.product_location %}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
 
@@ -24,7 +25,7 @@ Git では、コミットメッセージのテキストはコミットの一部�
 2. `git commit --amend` と入力し、**Enter** を押します。
 3. テキストエディタでコミットメッセージを編集し、コミットを保存します。
     - コミットにトレーラーを追加することで、共作者を追加できます。 詳しい情報については、「[複数の作者を持つコミットを作成する](/articles/creating-a-commit-with-multiple-authors)」を参照してください。
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳しい情報については「[Organization の代理でコミットを作成](/articles/creating-a-commit-on-behalf-of-an-organization)」を参照してください。
 {% endif %}
 
@@ -36,7 +37,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 {% endtip %}
 
-### 古いまたは複数のコミットメッセージの修正
+## 古いまたは複数のコミットメッセージの修正
 
 すでにコミットを {% data variables.product.product_location %}にプッシュしている場合、修正済みのメッセージでコミットをフォースプッシュする必要があります。
 
@@ -49,9 +50,9 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 **直近でプッシュされたコミットのメッセージを変更する**
 
 1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
-2. `push --force` コマンドにより、古いコミットをフォースプッシュで上書きします。
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **古いまたは複数のコミットメッセージを変更する**
@@ -117,6 +118,6 @@ $ git push --force <em>example-branch</em>
 
 {% endwarning %}
 
-### 参考リンク
+## 参考リンク
 
 * 「[コミットに署名する](/articles/signing-commits)」

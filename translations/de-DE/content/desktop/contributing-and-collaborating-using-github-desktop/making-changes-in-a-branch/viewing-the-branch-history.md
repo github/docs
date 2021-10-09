@@ -5,8 +5,10 @@ redirect_from:
   - /desktop/contributing-to-projects/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-the-branch-history
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: View branch history
 ---
+
 Jeder Commit zeigt Folgendes:
 
  - Die Commit-Mitteilung
@@ -18,6 +20,6 @@ Jeder Commit zeigt Folgendes:
 2. Klick auf der Registerkarte **History** (Verlauf) auf den Commit, den Du überprüfen möchtest. ![Ein Commit auf der Registerkarte „History“ (Verlauf)](/assets/images/help/desktop/branch-history-commit.png)
 3. Wenn im Commit mehrere Dateien vorhanden sind, klicke auf eine einzelne Datei, um die Änderungen anzuzeigen, die an dieser Datei in diesem Commit vorgenommen wurden. ![Eine Datei im Commit](/assets/images/help/desktop/branch-history-file.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Deinen Branch synchronisieren](/desktop/guides/contributing-to-projects/syncing-your-branch/)“

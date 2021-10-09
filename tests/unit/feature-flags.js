@@ -1,8 +1,9 @@
-require('../../lib/feature-flags')
-const ffs = require('../../feature-flags')
+import '../../lib/feature-flags.js'
+import readJsonFile from '../../lib/read-json-file.js'
+const ffs = readJsonFile('./feature-flags.json')
 
 describe('feature flags', () => {
-  Object.keys(ffs).forEach(featureName => {
+  Object.keys(ffs).forEach((featureName) => {
     expect(featureName.startsWith('FEATURE_')).toBe(true)
   })
 

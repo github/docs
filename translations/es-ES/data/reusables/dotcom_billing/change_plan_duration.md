@@ -1,1 +1,1 @@
-1. Under "Current monthly bill" or "Current yearly bill", click **Switch to yearly billing** or **Switch to monthly billing**. ![Botón para cambiar el plan del resumen de facturación](/assets/images/help/billing/change-plan-duration-link.png)
+1. Debajo de "Factura mensaul actual" o "Factura anual actual", haz clic en **Cambiar a facturación anual** o **Cambiar a facturación mensual**. ![Botón para cambiar el plan del resumen de facturación](/assets/images/help/billing/change-plan-duration-link.png)

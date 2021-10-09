@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
   - /admin/enterprise-management/initializing-the-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -14,12 +14,12 @@ topics:
 ---
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### Installing {% data variables.product.prodname_ghe_server %}
+## Installing {% data variables.product.prodname_ghe_server %}
 
 1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
 
-### Configuring the first node
+## Configuring the first node
 
 1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)."
 2. In your web browser, visit `https://<ip address>:8443/setup/`.
@@ -27,7 +27,7 @@ topics:
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-### Initializing the cluster
+## Initializing the cluster
 
 To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see “[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
@@ -36,7 +36,7 @@ To initialize the cluster, you need a cluster configuration file (`cluster.conf`
 
 To check the status of a running cluster use the `ghe-cluster-status` command.
 
-### About the cluster configuration file
+## About the cluster configuration file
 
 The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
 For more information, see "[About cluster nodes](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes)."

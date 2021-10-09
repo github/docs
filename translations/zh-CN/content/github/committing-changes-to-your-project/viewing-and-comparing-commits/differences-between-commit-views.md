@@ -1,13 +1,16 @@
 ---
 title: 提交视图之间的差异
+intro: 您可以根据所选的查看方法观察提交历史记录的差异。
 redirect_from:
   - /articles/differences-between-commit-views
   - /github/committing-changes-to-your-project/differences-between-commit-views
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: 提交视图
 ---
+
 在 {% data variables.product.product_name %} 上，您可以按以下方式查看仓库的提交历史记录：
 
 - 直接导航到仓库的[提交页面](https://github.com/mozilla/rust/commits/master)
@@ -23,7 +26,7 @@ Git 有几种不同的方式来显示仓库的历史记录。 当 Git 显示单�
 
 有关 Git 如何考虑提交历史记录的详细信息，可阅读 `git log`帮助文章的 [“历史记录简化”](https://git-scm.com/docs/git-log#_history_simplification)部分。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[对提交签名](/articles/signing-commits)"
-- "[搜索提交](/articles/searching-commits)"
+- "[搜索提交](/search-github/searching-on-github/searching-commits)"

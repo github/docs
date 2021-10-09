@@ -3,18 +3,19 @@ title: コードスキャンニングについて
 intro: '{% data variables.product.prodname_code_scanning %} を使用して、{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードからセキュリティの脆弱性とエラーを見つけることができます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### {% data variables.product.prodname_code_scanning %} について
+## {% data variables.product.prodname_code_scanning %} について
 
 {% data reusables.code-scanning.about-code-scanning %}
 
@@ -26,7 +27,7 @@ redirect_from:
 
 {% data variables.product.prodname_code_scanning %} を始めるには、「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)」を参照してください。
 
-### {% data variables.product.prodname_codeql %} について
+## {% data variables.product.prodname_codeql %} について
 
 デフォルトでは、{% data variables.product.prodname_code_scanning %} はセマンティックコード分析エンジンである {% data variables.product.prodname_codeql %} を使用します。 {% data variables.product.prodname_codeql %} はコードをデータとして扱い、コードの潜在的な脆弱性を従来の静的分析よりも高い精度で見つけることができます。
 
@@ -38,7 +39,7 @@ redirect_from:
 
 [`github/codeql`](https://github.com/github/codeql)リポジトリで {% data variables.product.prodname_code_scanning %} のクエリを表示して貢献できます。 詳しい情報については、 {% data variables.product.prodname_codeql %} ドキュメントの「[{% data variables.product.prodname_codeql %} クエリ](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/)」を参照してください。
 
-### サードパーティのコードスキャンツールについて
+## サードパーティのコードスキャンツールについて
 
 {% data reusables.code-scanning.you-can-upload-third-party-analysis %}
 
@@ -46,7 +47,7 @@ redirect_from:
 
 {% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### 参考リンク
+## 参考リンク
 
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - OASIS 委員会 の Web サイトの「[OASIS Static Analysis Results Interchange Format (SARIF) 」TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

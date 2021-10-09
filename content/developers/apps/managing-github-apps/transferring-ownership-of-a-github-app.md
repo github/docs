@@ -6,11 +6,12 @@ redirect_from:
   - /apps/managing-github-apps/transferring-ownership-of-a-github-app
   - /developers/apps/transferring-ownership-of-a-github-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Transfer ownership
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

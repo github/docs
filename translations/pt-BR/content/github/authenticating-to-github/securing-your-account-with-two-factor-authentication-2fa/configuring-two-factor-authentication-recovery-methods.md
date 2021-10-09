@@ -13,8 +13,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 Além de armazenar com segurança os códigos de recuperação da autenticação de dois fatores, é enfaticamente recomendável configurar um ou mais métodos adicionais de recuperação.
 
 ### Baixar os códigos de recuperação da autenticação de dois fatores
@@ -93,9 +94,7 @@ Quando você gera ou recupera um token de recuperação de conta, um evento é a
 
 Você pode gerar um token de recuperação de conta e armazená-lo com um provedor de recuperação parceiro.
 
-1. Efetue o login na sua conta do Facebook e volte para
-
-{% data variables.product.product_name %}.
+1. Entre na sua conta do Facebook e retorne para o {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 4. Para gerar um token, em "Recovery tokens" (Tokens de recuperação), clique em **Store new token** (Armazenar novo token). ![Botão para armazenar um novo token de recuperação](/assets/images/help/settings/store-new-recovery-token.png)

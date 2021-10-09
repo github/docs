@@ -5,13 +5,15 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Upgrades
+shortTitle: Set up a staging instance
 ---
+
 {% tip %}
 
 **Tip:** ステージングインスタンスをプロダクションで利用しないのであれば、既存の{% data variables.product.prodname_enterprise %}ライセンスファイルを再利用できます。
@@ -30,8 +32,8 @@ topics:
 2. 新しいインスタンスをステージング環境として動作するようにセットアップしてください。 ステージングインスタンスのプロビジョニングとインストールについては、本番インスタンスと同じガイドが利用できます。 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)」を参照してください。
 3. バックアップをステージングインスタンスにリストアしてください。 詳しい情報については "[アプライアンスでのバックアップの設定](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)"の"バックアップのリストア"セクションを参照してください。
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### 参考リンク
+{% ifversion ghes > 2.22 %}
+## 参考リンク
 
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」
 {% endif %}

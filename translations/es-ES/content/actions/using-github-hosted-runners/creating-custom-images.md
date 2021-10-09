@@ -2,12 +2,12 @@
 title: Crear imágenes personalizadas
 intro: 'Puedes crear imágenes personalizadas para los {% data variables.actions.hosted_runner %}.'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
-### Crear un {% data variables.actions.hosted_runner %} con una imagen personalizada
+## Crear un {% data variables.actions.hosted_runner %} con una imagen personalizada
 
 Los {% data variables.actions.hosted_runner %} pueden utilizar imágenes de sistema operativo que hayas personalizado para que se adapten a tus necesidades. Este artículo incluye los pasos de alto nivel para crear la imagen en Azure y prepararla para {% data variables.product.prodname_ghe_managed %}. Para obtener más información, refiérete a la [Documentación de Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/).
 

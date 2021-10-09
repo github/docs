@@ -16,22 +16,22 @@ redirect_from:
   - /articles/downgrading-your-organization-from-github-business-cloud-to-the-team-plan/
   - /articles/downgrading-your-github-billing-plan/
   - /articles/downgrading-your-github-subscription
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Accounts
   - Downgrades
   - Organizations
   - Repositories
   - User account
+shortTitle: Downgrade subscription
 ---
-### Downgrading your {% data variables.product.product_name %} subscription
+## Downgrading your {% data variables.product.product_name %} subscription
 
 When you downgrade your user account or organization's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. For more information, see "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
-### Downgrading your user account's subscription
+## Downgrading your user account's subscription
 
 If you downgrade your user account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
 
@@ -44,7 +44,7 @@ If you downgrade your user account from {% data variables.product.prodname_pro %
 
 If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, remove or update your DNS records before downgrading from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
-### Downgrading your organization's subscription
+## Downgrading your organization's subscription
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -57,7 +57,7 @@ If you downgrade your organization from {% data variables.product.prodname_ghe_c
   ![Downgrade button](/assets/images/help/billing/downgrade-option-button.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
-### Downgrading an organization's subscription with legacy per-repository pricing
+## Downgrading an organization's subscription with legacy per-repository pricing
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -71,7 +71,7 @@ If you downgrade your organization from {% data variables.product.prodname_ghe_c
 1. Enter the reason you're downgrading your account, then click **Downgrade plan**.
     ![Text box for downgrade reason and downgrade button](/assets/images/help/billing/downgrade-plan-button.png)
 
-### Removing paid seats from your organization
+## Removing paid seats from your organization
 
 To reduce the number of paid seats your organization uses, you can remove members from your organization or convert members to outside collaborators and give them access to only public repositories. For more information, see:
 - "[Removing a member from your organization](/articles/removing-a-member-from-your-organization)"
@@ -86,7 +86,7 @@ To reduce the number of paid seats your organization uses, you can remove member
 1. Review the information about your new payment on your next billing date, then click **Remove seats**.
   ![remove seats button](/assets/images/help/billing/remove-seats-button.png)
 
-### Further reading
+## Further reading
 
 - "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
 - "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

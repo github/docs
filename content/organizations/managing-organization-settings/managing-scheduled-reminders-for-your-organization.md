@@ -4,13 +4,14 @@ intro: You can get reminders in Slack for all pull requests that teams in your o
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Manage scheduled reminders
 ---
 
-### About scheduled reminders for pull requests
+## About scheduled reminders for pull requests
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -18,7 +19,7 @@ Organization owners can schedule a reminder for one or more teams in their organ
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Creating a scheduled reminder for an organization
+## Creating a scheduled reminder for an organization
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -42,7 +43,7 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-### Managing a scheduled reminder for an organization
+## Managing a scheduled reminder for an organization
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -51,14 +52,14 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Deleting a scheduled reminder for an organization
+## Deleting a scheduled reminder for an organization
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}
 
-### Further reading
+## Further reading
 
 - "[Managing your scheduled reminders](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"
 - "[Managing scheduled reminders for your team](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

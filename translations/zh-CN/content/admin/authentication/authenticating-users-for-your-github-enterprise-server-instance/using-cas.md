@@ -6,9 +6,9 @@ redirect_from:
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
   - /admin/authentication/using-cas
-intro: 'CAS 是一种适用于多种网络应用程序的单点登录 (SSO) 协议。 在登录之前，CAS 用户帐户不会占用{% if currentVersion ver_gt "enterprise-server@2.16" %}用户许可{% else %}席位{% endif %}。'
+intro: 'CAS 是一种适用于多种网络应用程序的单点登录 (SSO) 协议。 在登录之前，CAS 用户帐户不会占用{% ifversion ghes %}用户许可{% else %}席位{% endif %}。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,9 +17,10 @@ topics:
   - Identity
   - SSO
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### 使用 CAS 时的用户名考量因素
+## 使用 CAS 时的用户名考量因素
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -28,7 +29,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### CAS 属性
+## CAS 属性
 
 以下属性可用。
 
@@ -36,7 +37,7 @@ topics:
 | ----- | -- | ------------------------------------------------------- |
 | `用户名` | 必选 | {% data variables.product.prodname_ghe_server %} 用户名。 |
 
-### 配置 CAS
+## 配置 CAS
 {% warning %}
 
 **警告**：请注意，在 {% data variables.product.product_location %} 上配置 CAS 之前，用户将无法使用他们的 CAS 用户名和密码通过 HTTP/HTTPS 对 API 请求或 Git 操作进行身份验证。 相反，他们将需要[创建访问令牌](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)。

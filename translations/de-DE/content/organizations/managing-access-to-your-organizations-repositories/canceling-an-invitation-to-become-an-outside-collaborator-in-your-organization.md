@@ -5,18 +5,19 @@ permissions: Organization owners can cancel an invitation to become an outside c
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Cancel collaborator invitation
 ---
 
 Du kannst eine Liste aller Personen mit ausstehenden Einladungen ansehen, externer Mitarbeiter für beliebige Repositorys Deiner Organisation zu werden.
 
 Für jeden ausstehenden Mitarbeiter kannst Du alle Einladungen zur Teilnahme an Repositorys der Organisation gleichzeitig zurückziehen.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 5. Klicke auf **X pending collaborators** (X ausstehende Mitarbeiter). ![Schaltfläche "Pending collaborators" (ausstehende Mitarbeiter)](/assets/images/help/organizations/pending-collaborator-list.png)

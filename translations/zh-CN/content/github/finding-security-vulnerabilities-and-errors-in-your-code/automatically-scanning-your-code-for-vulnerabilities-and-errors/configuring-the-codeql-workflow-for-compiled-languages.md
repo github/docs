@@ -5,26 +5,26 @@ intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何使�
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### 关于 {% data variables.product.prodname_codeql_workflow %} 和编译语言
+## 关于 {% data variables.product.prodname_codeql_workflow %} 和编译语言
 
 通过添加 {% data variables.product.prodname_actions %} 工作流程到仓库，设置 {% data variables.product.prodname_dotcom %} 对仓库运行 {% data variables.product.prodname_code_scanning %}。 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，您可以添加 {% data variables.product.prodname_codeql_workflow %}。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)”。
 
 {% data reusables.code-scanning.edit-workflow %}
-有关配置
-{% data variables.product.prodname_code_scanning %} 和编辑工作流程文件的一般信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
+有关配置 {% data variables.product.prodname_code_scanning %} 和编辑工作流程文件的一般信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)”和“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”。
 
-### 关于 {% data variables.product.prodname_codeql %} 的自动构建
+## 关于 {% data variables.product.prodname_codeql %} 的自动构建
 
 代码扫描的工作方式是对一个或多个数据库运行查询。 每个数据库都包含仓库中所有代码的单一语言表示形式。 对于编译语言 C/C++、C# 和 Java，填充此数据库的过程涉及构建代码和提取数据。 {% data reusables.code-scanning.analyze-go %}
 
@@ -38,7 +38,7 @@ redirect_from:
 
 {% endnote %}
 
-#### C/C++
+### C/C++
 
 | 支持的系统类型 | 系统名称                                                                                                       |
 | ------- | ---------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ redirect_from:
 2. 如果未找到，则搜索子目录以查找含有 C/C++ 构建系统的唯一目录。
 3. 运行适当的命令来配置系统。
 
-#### C
+### C
 
 | 支持的系统类型 | 系统名称                  |
 | ------- | --------------------- |
@@ -69,7 +69,7 @@ redirect_from:
 2. 在最接近根目录的解决方案或项目文件上调用 `MSbuild` (Linux) 或 `MSBuild.exe` (Windows)。 如果 `autobuild` 在顶层目录下的相同深度（最短）检测到多个解决方案或项目文件，它将尝试构建所有这些文件。
 3. 调用一个看起来像构建脚本的脚本—_build_ 和 _build.sh_（对于 Linux，按此顺序）或 _build.bat_、_build.cmd_ 和 _build.exe_（对于 Windows，按此顺序）。
 
-#### Java
+### Java
 
 | 支持的系统类型 | 系统名称                       |
 | ------- | -------------------------- |
@@ -82,7 +82,7 @@ redirect_from:
 2. 运行找到的第一个构建文件。 如果 Gradle 和 Maven 文件都存在，则使用 Gradle 文件。
 3. 否则，在根目录的直接子目录中搜索构建文件。 如果只有一个子目录包含构建文件，则运行该子目录中标识的第一个文件（使用与 1 相同的首选项）。 如果多个子目录包含构建文件，则报告错误。
 
-### 添加编译语言的构建步骤
+## 添加编译语言的构建步骤
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} 有关如何编辑工作流程文件的更多信息，请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)”。
 

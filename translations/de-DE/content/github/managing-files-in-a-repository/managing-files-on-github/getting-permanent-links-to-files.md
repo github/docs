@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% tip %}
 
 **Tipp:** Drücke auf einer beliebigen Seite von {% data variables.product.product_name %} auf die „?"-Taste, um alle verfügbaren Tastenkürzel anzuzeigen.

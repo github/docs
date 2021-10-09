@@ -1,10 +1,10 @@
 ---
 title: About identity and access management for your enterprise
 shortTitle: About identity and access management
-intro: 'You can use {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %}''s built-in authentication, or choose between CAS, LDAP, or SAML{% else %}SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM){% endif %} to centrally manage access {% if currentVersion == "free-pro-team@latest" %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}to {% data variables.product.product_location %}{% endif %}.'
+intro: 'You can use {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}''s built-in authentication, or choose between CAS, LDAP, or SAML{% else %}SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM){% endif %} to centrally manage access {% ifversion fpt %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghes or ghae %}to {% data variables.product.product_location %}{% endif %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
-  github-ae: '*'
+  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -15,9 +15,9 @@ topics:
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
 ---
-### About identity and access management for your enterprise
+## About identity and access management for your enterprise
 
-{% if currentVersion == "github-ae@latest" %}
+{% ifversion ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -29,7 +29,7 @@ To learn how to configure both authentication and user provisioning for {% data 
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
 - [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
