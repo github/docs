@@ -1,4 +1,4 @@
----
+---GitHub flow
 title: GitHub flow
 intro: 'Follow {% data variables.product.prodname_dotcom %} flow to collaborate on projects.'
 redirect_from:
