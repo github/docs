@@ -1,0 +1,13 @@
+Estilos
+Este sitio web utiliza un preprocesador Sass y obtiene la mayoría de sus estilos del sistema de diseño Primer de GitHub .
+
+Todos los estilos proceden de:
+
+< link  rel = " stylesheet " href = " /dist/index.css " >
+index.csses una versión compilada de index.scss, donde se declaran todos los archivos scss importados.
+
+En general, usamos las clases de utilidad de Primer tanto como podemos y evitamos escribir estilos personalizados siempre que sea posible.
+
+Consulte styleguide.github.com/primer como referencia.
+
+Usamos Webpack para procesar los archivos; consulte javascripts / README.md para obtener más información sobre cómo se compilan estos archivos.
