@@ -15,6 +15,13 @@ topics:
 shortTitle: 所有権の移譲
 ---
 
+{% ifversion fpt %}
+{% note %}
+
+**注釈:** {% data reusables.enterprise-accounts.invite-organization %}
+
+{% endnote %}{% endif %}
+
 1. もしあなたが *owner* の権限を持つ唯一のメンバーである場合、他の Organization メンバーにオーナーロールを付与します。 詳細は「[Organizationのオーナーの指名](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)」を参照してください。
 2. 新しいオーナーに連絡し、そのオーナーが [Organization の設定にアクセス](/articles/accessing-your-organization-s-settings)できることを確認します。
 {% ifversion fpt %}

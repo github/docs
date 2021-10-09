@@ -75,33 +75,6 @@ Du kannst eine Fallback-Nummer unabhängig davon verwenden, ob Du die Authentifi
 
 Nach der Einrichtung wird eine Bestätigungs-SMS an Dein Backup-Gerät gesendet.
 
-## Eine Fallback-Authentifizierungsmethode mit „Recover Accounts Elsewhere" hinzufügen
-
-Du kannst zusätzliche Anmeldeinformation für die Authentifizierung bei Deinem Konto erzeugen und bei einem Partner-Wiederherstellungsanbieter speichern.
-
-### Informationen zu „Recover Accounts Elsewhere"
-
-Mit „Recover Accounts Elsewhere" kannst Du einen zusätzlichen Sicherheitsfaktor zu Deinem {% data variables.product.product_name %}-Konto hinzufügen, für den Fall, dass Du nicht auf Deine Zwei-Faktor-Authentifizierungsmethode oder Wiederherstellungscodes zugreifen kannst.
-
-Bei „Recover Accounts Elsewhere" kannst Du Dein {% data variables.product.product_name %}-Konto mit Deinem Facebook-Konto verknüpfen. Du kannst die Anmeldeinformationen für die Authentifizierung in Form eines _Konto-Wiederherstellungstokens_ für Dein {% data variables.product.product_name %}-Konto bei Facebook hinterlegen.
-
-Wenn Du den Zugriff auf Dein {% data variables.product.product_name %}-Konto verlierst, weil Du nicht mehr auf Deine Zwei-Faktor-Authentifizierungsmethode oder Deine Wiederherstellungscodes zugreifen kannst, kannst Du Dein Kontowiederherstellungstoken vom Wiederherstellungsanbieter abrufen und mit diesem Token nachweisen, dass Dir das {% data variables.product.product_name %}-Konto gehört.
-
-Nach dem Abrufen Deines Tokens ist {% data variables.contact.contact_support %} möglicherweise in der Lage, die Zwei-Faktor-Authentifizierung für Dein Konto zu deaktivieren. Dann kannst Du Dein Passwort eingeben oder zurücksetzen, um wieder auf Dein Konto zugreifen zu können.
-
-Wenn Du ein Kontowiederherstellungstoken erzeugst oder abrufst, wird ein Ereignis zum Auditprotokoll Deines Kontos hinzugefügt. Weitere Informationen finden Sie unter „[Sicherheitsprotokoll überprüfen](/articles/reviewing-your-security-log)“.
-
-### Ein Kontowiederherstellungstoken erzeugen und speichern
-
-Du kannst ein Kontowiederherstellungstoken erzeugen und bei einem Partner-Wiederherstellungsanbieter speichern.
-
-1. Melde Dich bei Deinem Facebook-Konto an, und kehre dann zu {% data variables.product.product_name %} zurück.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-4. Um ein neues Token zu erzeugen, klicke unter „Recovery tokens“ (Wiederherstellungstoken) auf **Store new token** (Neues Token speichern). ![Schaltfläche zum Speichern eines neuen Wiederherstellungstokens](/assets/images/help/settings/store-new-recovery-token.png)
-5. Lies die Informationen zu Kontowiederherstellungstoken und klicke dann auf **Connect with https://www.facebook.com** (Mit https://www.facebook.com verbinden). ![Schaltfläche zum Verbinden eines Wiederherstellungstokens mit Facebook](/assets/images/help/settings/connect-recovery-token-with-facebook.png)
-6. Wenn Du zu Facebook weitergeleitet wurdest, lies die Informationen zum Aktivieren der Kontowiederherstellung mit Facebook, bevor Du auf **Save as [_YOUR NAME_]** (Als IHR NAME speichern) klickst. (Wenn Du mehrere Tokens in einem kurzen Zeitraum speicherst, überspringt Facebook diesen Bestätigungsschritt möglicherweise, nachdem Du den ersten Token gespeichert hast.) ![Facebook-Seite mit Schaltfläche zum Aktivieren einer Kontowiederherstellung](/assets/images/help/settings/security-turn-on-rae-facebook.png)
-
 {% endif %}
 
 ## Weiterführende Informationen

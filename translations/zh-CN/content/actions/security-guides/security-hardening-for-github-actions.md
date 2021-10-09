@@ -18,7 +18,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -48,7 +47,7 @@ miniTocMaxHeadingLevel: 3
     - 定期轮换密码，以减小泄露的密码有效的时间窗。
 {% ifversion fpt or ghes > 3.0 or ghae %}
 - **考虑要求对访问密码进行审查**
-    - 您可以使用所需的审查者来保护环境机密。 在审查者批准之前，工作流程作业无法访问环境机密。 有关在环境中存储机密或需要审查环境的更多信息，请参阅“[加密秘密](/actions/reference/encrypted-secrets)”和“[环境](/actions/reference/environments)”。
+    - 您可以使用所需的审查者来保护环境机密。 在审查者批准之前，工作流程作业无法访问环境机密。 For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
 ## 使用 `CODEOWNERS` 监控更改
@@ -182,6 +181,12 @@ with:
 * **仅当您信任创建者时，才将操作固定到标记**
 
   尽管固定到提交 SHA 是最安全的选项，但指定标记更方便，而且被广泛使用。 如果要指定标记，请确保信任该操作的创建者。 {% data variables.product.prodname_marketplace %} 上的“已验证创建者”徽章是一个有用的信号，因为它表示该操作是由其身份已被 {% data variables.product.prodname_dotcom %} 验证的团队编写的。 请注意，即使您信任作者，这种方法也存在风险，因为如果恶意执行者获得对存储操作的仓库的访问权限，便可移动或删除标记。
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Reusing third-party workflows
+
+The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+{% endif %}
 
 ## 受损运行器的潜在影响
 

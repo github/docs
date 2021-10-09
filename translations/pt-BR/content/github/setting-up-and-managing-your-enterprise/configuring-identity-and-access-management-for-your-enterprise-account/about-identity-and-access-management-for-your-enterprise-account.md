@@ -13,13 +13,19 @@ shortTitle: IAM para a sua empresa
 
 ## Sobre a identidade e gestão de acesso para a sua conta corporativa
 
-{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Aplicando o login único SAML para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 Depois de habilitar o SSO do SAML, dependendo do IdP que você usar, você poderá habilitar as funcionalidades adicionais de gerenciamento de identidade e acesso. {% data reusables.scim.enterprise-account-scim %}
 
 Se você usar o Azure AD como seu IDP, você poderá usar a sincronização de equipe para gerenciar a associação de equipe em cada organização. {% data reusables.identity-and-permissions.about-team-sync %} Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
-{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+{% data reusables.saml.switching-from-org-to-enterprise %} Para obter mais informações, consulte "[Alterando sua configuração do SAML de uma organização para uma conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
+
+## Sobre o {% data variables.product.prodname_emus %}
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
+
+A configuração de {% data variables.product.prodname_emus %} para o logon único SAML e provisionamento de usuário envolve seguir um processo diferente do que você faria para uma empresa que não estivesse usando {% data variables.product.prodname_managed_users %}. Se a sua empresa usar {% data variables.product.prodname_emus %}, consute "[Configurando o logon único SAML para usuários gerenciados pela empresa](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)".
 
 ## IdPs compatíveis
 
@@ -32,4 +38,3 @@ Nós testamos e oferecemos compatibilidade oficial os seguintes IdPs. Para o SSO
 | OneLogin                                     | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | PingOne                                      | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | Shibboleth                                   | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
-

@@ -1,6 +1,6 @@
 ---
 title: Duplicar un repositorio
-intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
+intro: 'Para mantener una réplica de un repositorio sin bifurcarlo, puedes ejecutar un comando de clonado especial y luego subir la réplica al repositorio nuevo.'
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
@@ -18,13 +18,13 @@ topics:
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Nota:** Si tienes un proyecto hospedado en otro sistema de control de versiones, puedes importar tu proyecto automáticamente a {% data variables.product.prodname_dotcom %} utilizando la herramienta importadora de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Acerca del importador de {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)".
 
 {% endnote %}
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. En estos ejemplos, `exampleuser/new-repository` o `exampleuser/mirrored` son los espejos.
+Antes de que puedas subir el repositorio original a tu copia nueva o _réplica_ de este, debes [crear un repositorio nuevo](/articles/creating-a-new-repository) en {% data variables.product.product_location %}. En estos ejemplos, `exampleuser/new-repository` o `exampleuser/mirrored` son los espejos.
 
 ## Generar un espejo de un repositorio
 
@@ -97,8 +97,8 @@ $ git push --mirror
 {% ifversion fpt %}
 ## Leer más
 
-* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* "[Subir cambios a GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[Acerca del Almacenamiento de Archivos Grandes de Git y de GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
 * "[Acerca del Importador GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

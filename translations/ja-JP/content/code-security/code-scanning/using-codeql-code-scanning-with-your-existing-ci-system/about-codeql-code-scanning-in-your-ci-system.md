@@ -91,8 +91,8 @@ redirect_from:
 
 {% endif %}
 
-<!--Content for GHAE and GHES 3.0 only. Only CodeQL runner is available -->
-{% ifversion ghes = 3.0 or ghae %}
+<!--Content for GHES 3.0 only. Only CodeQL runner is available -->
+{% ifversion ghes = 3.0 %}
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 {% data variables.product.prodname_codeql_runner %}をサードパーティのシステムに追加して、コードを分析するツールを呼び、SARIFの結果を{% data variables.product.product_name %}にアップロードしてください。 結果の{% data variables.product.prodname_code_scanning %}アラートは、{% data variables.product.product_name %}内で生成されたアラートとともに表示されます。

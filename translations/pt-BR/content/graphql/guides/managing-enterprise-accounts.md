@@ -58,8 +58,9 @@ Para alguns exemplos de consulta, veja "[Exemplo de consulta usando a API de Con
     - `admin:enterprise`
 
   Os escopos específicos da conta corporativa são:
-    - `admin:enterprise`: Fornece controle total de empresas (inclui `manage_billing:enterprise` e `read:enterprise`)
-    - `manage_billing:enterprise`: Lê e grava dados de cobrança da empresa.
+    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Lê dados do perfil empresarial.
 
 4. Copie seu token de acesso pessoal e guarde-o em um lugar seguro até adicioná-lo ao seu cliente do GraphQL.

@@ -1,6 +1,6 @@
 ---
-title: Enabling features for your repository
-intro: 'You can enable, configure, and disable optional features for your repository.'
+title: Habilitarlas características para tu repositorio
+intro: 'Puedes habilitar, configurar e inhabilitar las características opcionales de tu repositorio.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ children:
   - /managing-github-actions-settings-for-a-repository
   - /enabling-or-disabling-github-discussions-for-a-repository
   - /managing-security-and-analysis-settings-for-your-repository
-shortTitle: Enable features
+shortTitle: Habilitar características
 ---
 

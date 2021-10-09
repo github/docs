@@ -19,3 +19,7 @@ Organization のメンバーが {% data variables.product.prodname_codespaces %}
 ![Codespaces 情報を含む Audit log](/assets/images/help/settings/codespaces-audit-log-org.png)
 
 The audit log includes details such as who performed the action, what the action was, and when the action was performed. For information on {% data variables.product.prodname_codespaces %} actions, see "[{% data variables.product.prodname_codespaces %} category actions](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)."
+
+## 参考リンク
+
+- "[Reviewing your security logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces)"

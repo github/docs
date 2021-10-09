@@ -37,7 +37,7 @@ SARIF ファイルに `partialFingerprints` が含まれていない場合、{% 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
 {% data variables.product.prodname_codeql_cli %}を使っているなら、使用するSARIFのバージョンを指定できます。 詳しい情報については「[CIシステムでの{% data variables.product.prodname_codeql_cli %}の設定](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)」を参照してください。{% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 同じツールとコミットに対して複数のSARIFファイルをアップロードして、それぞれのファイルを{% data variables.product.prodname_code_scanning %}を使って分析できます。 それぞれのファイル中で`runAutomationDetails.id`を指定することによって、それぞれの分析に対して「カテゴリ」を示すことができます。 同じカテゴリのSARIFファイル同士だけがお互いを上書きします。 このプロパティに関する詳しい情報については、以下の[`runAutomationDetails` object](#runautomationdetails-object)を参照してください。
 {% endif %}
 
@@ -141,7 +141,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 | `region.endLine`       | **必須。**リージョンの最後の文字の行番号。                                                                                                                                                                                                                                                                                                                                                                       |
 | `region.endColumn`     | **必須。**リージョンの末尾に続く文字の列番号。                                                                                                                                                                                                                                                                                                                                                                     |
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ### `runAutomationDetails`オブジェクト
 
 `runAutomationDetails`オブジェクトには、実行のアイデンティティを指定する情報が含まれています。
@@ -245,7 +245,7 @@ SARIF ファイルが {% data variables.product.prodname_code_scanning %} と互
 
 次の SARIF 出力ファイルには、{% data variables.product.prodname_code_scanning %} でサポートされているすべての SARIF プロパティを示す値の例が示されています。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",

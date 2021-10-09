@@ -1,5 +1,5 @@
 ---
-title: GitHub.com
+title: GitHub
 redirect_from:
   - /articles/
   - /common-issues-and-questions/
@@ -15,7 +15,6 @@ children:
   - /writing-on-github
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests
-  - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /managing-security-vulnerabilities
   - /finding-security-vulnerabilities-and-errors-in-your-code

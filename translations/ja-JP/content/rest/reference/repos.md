@@ -175,7 +175,7 @@ When you set the state of a deployment to `success`, then all prior non-transien
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## 環境
 
-Environments APIを使うと、環境を作成、設定、削除できます。 環境に関する詳しい情報については「[環境](/actions/reference/environments)」を参照してください。 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
+Environments APIを使うと、環境を作成、設定、削除できます。 For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}

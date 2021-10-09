@@ -13,7 +13,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Visão Geral
 
@@ -62,7 +61,7 @@ Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {%
 
 ## Compartilhar dados entre trabalhos
 
-Se o seu trabalho gera arquivos que você deseja compartilhar com outro trabalho no mesmo fluxo de trabalho, ou se você quiser salvar os arquivos para referência posterior, você pode armazená-los em {% data variables.product.prodname_dotcom %} como _artefatos_. Artefatos são os arquivos que surgem quando você compila e testa seu código. Por exemplo, os artefatos podem incluir arquivos binários ou de pacotes, resultados de testes, capturas de tela ou arquivos de log. Os artefatos estão associados à execução do fluxo de trabalho em que foram criados e podem ser usados por outro trabalho.
+Se o seu trabalho gera arquivos que você deseja compartilhar com outro trabalho no mesmo fluxo de trabalho, ou se você quiser salvar os arquivos para referência posterior, você pode armazená-los em {% data variables.product.prodname_dotcom %} como _artefatos_. Artefatos são os arquivos que surgem quando você compila e testa seu código. Por exemplo, os artefatos podem incluir arquivos binários ou de pacotes, resultados de testes, capturas de tela ou arquivos de log. Os artefatos estão associados à execução do fluxo de trabalho em que foram criados e podem ser usados por outro trabalho. {% data reusables.actions.reusable-workflow-artifacts %}
 
 Por exemplo, você pode criar um arquivo e, em seguida, carregá-lo como um artefato.
 

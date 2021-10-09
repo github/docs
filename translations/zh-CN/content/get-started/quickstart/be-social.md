@@ -6,6 +6,7 @@ redirect_from:
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
 intro: '您可以在 {% data variables.product.prodname_dotcom %} 上与人员、仓库及组织进行互动。 从您的个人仪表板查看其他人正在做什么，在跟谁联系。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
   ghes: '*'

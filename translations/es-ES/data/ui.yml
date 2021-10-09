@@ -30,9 +30,10 @@ toc:
   guides: Guías
   whats_new: Qué hay de nuevo
 pages:
-  article_version: 'Versión del artículo:'
+  article_version: 'Versión del artículo'
   miniToc: En este artículo
   contributor_callout: En este artículo contribuye y lo mantiene
+  all_enterprise_releases: Todos los lanzamientos de Enterprise
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.
@@ -155,13 +156,17 @@ product_sublanding:
   learning_paths_desc: Las rutas de aprendizaje son una recopilación de guías que te ayudan a dominar un tema en particular.
   guides: 'Guías de {{ productMap[currentProduct].name }}'
   more_guides: más guías
-  no_result: Lo sentimos, no hay guías que coincidan con tu filtro.
   load_more: Carga más guías
   all_guides: 'Todas las guías de {{ productMap[currentProduct].name }}'
+  filter_instructions: Filtra la lista de guías utilizando estos controles
   filters:
     type: Type
     topic: Tema
     all: Todas
+  guides_found:
+    multiple: 'Se encontraron {n} guías'
+    one: Se encontró 1 guía
+    none: No se encontraron guías
   guide_types:
     overview: Resumen
     quick_start: Inicio Rápido

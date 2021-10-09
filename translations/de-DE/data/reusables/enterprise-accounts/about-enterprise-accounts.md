@@ -14,7 +14,7 @@ Organizations are shared accounts where enterprise members can collaborate acros
 
 {% ifversion fpt %}
 
-Enterprise owners can create organizations and link the organizations to the enterprise. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Die spezifischen Optionen für das Erzwingen variieren je nach Einstellung. Im Allgemeinen können Sie wählen, ob Sie eine einzige Richtlinie für alle Organisationen in Ihrem Enterprise-Konto erzwingen oder es den Inhabern ermöglichen möchten, Richtlinien auf Organisationsebene festzulegen. For more information, see "[Setting policies for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."
+Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. Die spezifischen Optionen für das Erzwingen variieren je nach Einstellung. Im Allgemeinen können Sie wählen, ob Sie eine einzige Richtlinie für alle Organisationen in Ihrem Enterprise-Konto erzwingen oder es den Inhabern ermöglichen möchten, Richtlinien auf Organisationsebene festzulegen. For more information, see "[Setting policies for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."
 
 {% elsif ghes or ghae %}
 
@@ -55,6 +55,14 @@ If you use both {% data variables.product.prodname_ghe_cloud %} and {% data vari
 You can also connect the enterprise account on {% data variables.product.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion fpt %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
 Weitere Informationen über die Unterschiede zwischen {% data variables.product.prodname_ghe_cloud %} und {% data variables.product.prodname_ghe_server %} findest Du auf „[Produkte von {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/githubs-products)." {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
+
+{% endif %}
+
+{% ifversion fpt %}
+
+## Informationen zu {% data variables.product.prodname_emus %}
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
 
 {% endif %}
 

@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre os comandos do fluxo de trabalho
 
@@ -89,7 +88,7 @@ A tabela a seguir mostra quais funções do conjunto de ferramentas estão dispo
 | `core.setOutput`                                                                                                           | `set-output`                                                     |
 | `core.setSecret`                                                                                                           | `add-mask`                                                       |
 | `core.startGroup`                                                                                                          | `grupo`                                                          |
-| `core.warning`                                                                                                             | `arquivo de aviso`                                               |
+| `core.warning`                                                                                                             | `aviso`                                                          |
 
 {% ifversion ghes < 3.0 %}
 ## Definir uma variável de ambiente
@@ -98,7 +97,7 @@ A tabela a seguir mostra quais funções do conjunto de ferramentas estão dispo
 ::set-env name={name}::{value}
 ```
 
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
+Cria ou atualiza uma variável de ambiente para quaisquer etapas a serem executadas em seguida no trabalho. A etapa que cria ou atualiza a variável de ambiente não tem acesso ao novo valor, mas todos os passos subsequentes em um trabalho terão acesso. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
 
 ### Exemplo
 
@@ -155,13 +154,13 @@ echo "::debug::Set the Octocat variable"
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
 
-## Setting a notice message
+## Configurando uma mensagem de aviso
 
 ```
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+Cria uma mensagem de aviso e a imprime no registro. {% data reusables.actions.message-annotation-explanation %}
 
 {% data reusables.actions.message-parameters %}
 
@@ -255,11 +254,11 @@ echo "::add-mask::$MY_NAME"
 
 Para de processar quaisquer comandos de fluxo de trabalho. Esse comando especial permite fazer o registro do que você desejar sem executar um comando do fluxo de trabalho acidentalmente. Por exemplo, é possível parar o log para gerar um script inteiro que tenha comentários.
 
-To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
+Para parar o processamento de comandos de fluxo de trabalho, passe um token único para `stop-commands`. Para retomar os comandos do fluxo de trabalho, passe o mesmo token que você usou para parar os comandos do fluxo de trabalho.
 
 {% warning %}
 
-**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
+**Aviso:** Certifique-se de que o token que você está usando é gerado aleatoriamente e exclusivo para cada execução. Como demonstrado no exemplo abaixo, você pode gerar um hash exclusivo do seu `github.token` para cada execução.
 
 {% endwarning %}
 
@@ -267,7 +266,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 ::{endtoken}::
 ```
 
-### Example stopping and starting workflow commands
+### Exemplo de parar e iniciar comandos de workflow
 
 {% raw %}
 
@@ -329,7 +328,13 @@ steps:
 echo "{name}={value}" >> $GITHUB_ENV
 ```
 
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
+Cria ou atualiza uma variável de ambiente para quaisquer etapas a serem executadas em seguida no trabalho. A etapa que cria ou atualiza a variável de ambiente não tem acesso ao novo valor, mas todos os passos subsequentes em um trabalho terão acesso. As variáveis de ambiente diferenciam maiúsculas de minúsculas e podem ter pontuação.
+
+{% note %}
+
+**Observação:** As variáveis de ambiente devem ser referenciadas explicitamente usando o [`env` contexto](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) na sintaxe de expressão ou por meio do uso do arquivo `$GITHUB_ENV` diretamente. As variáveisde ambiente não estão implicitamente disponíveis nos comandos do shell.
+
+{% endnote %}
 
 ### Exemplo
 
@@ -376,7 +381,7 @@ steps:
 echo "{path}" >> $GITHUB_PATH
 ```
 
-Prepara um diretório para a variável `PATH` do sistema e o torna disponível para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
+Prepara um diretório para a variável `PATH` do sistema e disponibiliza automaticamente para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
 
 ### Exemplo
 

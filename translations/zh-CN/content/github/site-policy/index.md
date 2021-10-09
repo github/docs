@@ -12,7 +12,7 @@ children:
   - /github-terms-of-service
   - /github-corporate-terms-of-service
   - /github-privacy-statement
-  - /github-data-protection-agreement-non-enterprise-customers
+  - /github-data-protection-agreement
   - /global-privacy-practices
   - /github-sponsors-additional-terms
   - /github-codespaces-privacy-statement

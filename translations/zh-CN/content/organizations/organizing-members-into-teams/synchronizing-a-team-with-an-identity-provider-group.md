@@ -16,6 +16,8 @@ shortTitle: 与 IdP 同步
 
 {% data reusables.gated-features.okta-team-sync %}
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## 关于团队同步
 
 {% data reusables.identity-and-permissions.about-team-sync %}
@@ -25,6 +27,8 @@ shortTitle: 与 IdP 同步
 {% ifversion fpt %}团队同步不支持超过 5000 个成员的 IdP 组。{% endif %}
 
 {% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 您不能在 {% data variables.product.product_name %} 上{% ifversion fpt %}或使用 API{% endif %} 管理团队成员资格。
+
+{% ifversion fpt %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion fpt %}
 通过 IdP 进行的所有团队成员资格更改都将在 {% data variables.product.product_name %} 审核日志中显示为团队同步自动程序所进行的更改。 您的 IdP 会将团队成员数据发送至 {% data variables.product.prodname_dotcom %}，每小时一次。 将团队连接到 IdP 组可能会删除一些团队成员。 更多信息请参阅“[已同步团队成员的要求](#requirements-for-members-of-synchronized-teams)”。
@@ -53,8 +57,6 @@ shortTitle: 与 IdP 同步
 删除后的团队成员在使用 SSO 向组织或企业帐户进行身份验证后可以自动添加回团队，并移动到已连接的 IdP 组。
 
 为避免无意中删除团队成员，建议在组织或企业帐户中强制实施 SAML SSO，创建新团队以同步成员资格数据，并在同步现有团队之前检查 IdP 组成员资格。 For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-
-如果您的组织由企业帐户拥有，则对企业帐户启用团队同步将覆盖组织级的团队同步设置。 更多信息请参阅“[管理企业帐户中组织的团队同步](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
 
 {% endif %}
 

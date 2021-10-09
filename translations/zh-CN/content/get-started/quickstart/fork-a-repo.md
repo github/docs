@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
 intro: 复刻是仓库的副本。 通过复刻仓库，您可以自由地尝试更改而不会影响原始项目。
+permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
   ghes: '*'

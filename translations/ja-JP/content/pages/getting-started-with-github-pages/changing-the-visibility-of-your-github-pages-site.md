@@ -12,7 +12,11 @@ shortTitle: サイトの可視性の変更
 
 ## {% data variables.product.prodname_pages %} サイトのアクセス制御について
 
-プロジェクトサイトが {% data variables.product.prodname_ghe_cloud %} を使用する Organization が所有するプライベートもしくは内部リポジトリから公開される場合、そのサイトのアクセス制御を管理できます。 アクセス制御を使用すると、インターネット上のすべての人にサイトを公開する（パブリック）か、リポジトリへの読み取りアクセス権を持つ人限定で公開する（プライベート）かを選択できます。 プライベートで公開されたサイトでは、社内のドキュメントやナレッジベースを Enterprise のメンバーと共有できます。 Organization サイトのアクセス制御を管理することはできません。 {% data variables.product.prodname_pages %}サイトの種類に関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
+With access control for {% data variables.product.prodname_pages %}, you can restrict access to your {% data variables.product.prodname_pages %} site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+
+If your enterprise uses {% data variables.product.prodname_emus %}, all {% data variables.product.prodname_pages %} sites are privately published. For more information about {% data variables.product.prodname_emus %}, see "[About  {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your sites privately or publicly to anyone on the internet. Access control is available for project sites that are published from a private or internal repository that are owned by the organization. Organization サイトのアクセス制御を管理することはできません。 {% data variables.product.prodname_pages %}サイトの種類に関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
 
 プライベートのサイトは、パブリックのサイトとは異なるサブドメインで利用できます。 これにより、{% data variables.product.prodname_pages %} サイトが公開された瞬間から安全になります。
 

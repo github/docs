@@ -30,9 +30,10 @@ toc:
   guides: Guias
   whats_new: O que há de novo
 pages:
-  article_version: 'Versão do artigo:'
+  article_version: 'Versão do artigo'
   miniToc: Neste artigo
   contributor_callout: This article is contributed and maintained by
+  all_enterprise_releases: All Enterprise releases
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.
@@ -155,13 +156,17 @@ product_sublanding:
   learning_paths_desc: Os caminhos de aprendizado são uma coleção de guias que ajudam você a dominar um assunto específico.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: mais guias
-  no_result: Sorry, there are no guides that match your filter.
   load_more: Carregar mais guias
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: Tipo
     topic: Tópico
     all: Todas
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: Visão Geral
     quick_start: QuickStart

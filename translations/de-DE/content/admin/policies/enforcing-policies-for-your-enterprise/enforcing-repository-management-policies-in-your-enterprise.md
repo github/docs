@@ -34,7 +34,7 @@ topics:
   - Enterprise
   - Policies
   - Security
-shortTitle: Enforce repository policies
+shortTitle: Repository management policies
 ---
 
 ## Configuring the default visibility of new repositories in your enterprise

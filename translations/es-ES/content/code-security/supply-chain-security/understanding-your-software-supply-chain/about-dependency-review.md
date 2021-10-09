@@ -1,11 +1,11 @@
 ---
 title: Acerca de la revisión de dependencias
 intro: 'La revisión de dependencias te permite detectar las dependencias vulnerables antes de que las introduzcas a tu ambiente y te proporciona información sobre la licencia, dependientes y edad de las dependencias.'
+product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Revisión de dependencias
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: overview
 topics:
   - Advanced Security
@@ -38,6 +38,6 @@ Las {% data variables.product.prodname_dependabot_alerts %} encontrarán vulnera
 
 La revisión de dependencias es compatible con los mismos lenguajes de programación y ecosistemas de administración de paquetes que la gráfica de dependencias. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-## Enabling dependency review
+## Habilitar la revisión de dependencias
 
-The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+La característica de revisión de dependencias se encuentra disponible cuando habilitas la gráfica de dependencias. {% ifversion fpt %}Para obtener más información, consulta la sección "[Habilitar la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)".{% endif %}{% ifversion ghes > 3.1 %}Para obtener más información, consulta la sección "[Habilitar las alertas para dependencias vulnerables en{% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}

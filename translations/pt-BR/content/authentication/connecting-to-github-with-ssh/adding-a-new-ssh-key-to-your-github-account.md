@@ -104,7 +104,7 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
   {% tip %}
 
-  **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+  **Dica:** Como alternativa, você pode localizar a pasta oculta de `.ssh`, abrir o arquivo no seu editor de texto favorito e copiá-lo na sua área de transferência.
 
   {% endtip %}
 
@@ -124,7 +124,7 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% data reusables.cli.cli-learn-more %}
 
-To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
+Para adicionar uma chave SSH à sua conta do GitHub, use o subcomando `ssh-key add`, especificando a sua chave pública.
 
 ```shell
 gh ssh-key add <em>key-file</em>

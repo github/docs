@@ -13,7 +13,6 @@ shortTitle: Utilizar las acciones empaquetadas más recientes
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Tu instancia empresarial incluye varias acciones integradas que puedes utilizar en tus flujos de trabajo. Para obtener más información sobre las acciones en paquete, consulta la sección "[Acciones oficiales que vienen en paquete con tu instancia empresarial](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)".
 
@@ -29,17 +28,13 @@ Puedes utilizar {% data variables.product.prodname_github_connect %} para permit
 
 Una vez que se configura {% data variables.product.prodname_github_connect %}, puedes utilizar la versión más reciente de una acción si borras su repositorio local en la organización `actions` en tu instancia. Por ejemplo, si tu instancia empresarial está utilizando la acción `actions/checkout@v1` y necesitas utilizar `actions/checkout@v2`, el cual no está disponible en esta, lleva a cabo los siguietnes pasos para que puedas utilizar la acción más reciente de `checkout` desde {% data variables.product.prodname_dotcom_the_website %}:
 
-1. Predeterminadamente, los administradores de sitio no son los propietarios de la organización de acciones incluidas. Para obtener el acceso requerido para borrar el repositorio `checkout`, utiliza el comando `ghe-org-admin-promote` para promover a un usuario como propietario de la organización empaquetada `actions`. Para obtener más información, consulta la sección "[Acceder al shell administrativo (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" y "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)". Por ejemplo:
-
-   ```shell
-   $ ghe-org-admin-promote -u octocat -o actions
-    Do you want to give organization admin privileges for actions to octocat? (y/N) y
-    Making octocat an admin of actions
-     --> Adding octocat as an admin of actions
-     --> octocat is now an admin of the actions organization
-     --> Done.
-   ```
-1. En tu instancia de {% data variables.product.product_name %}, borra el repositorio `checkout` dentro de la organización `actions`. Para obtener más información sobre cómo borrar un repositorio, consulta la sección "[Borrar un repositorio](/github/administering-a-repository/deleting-a-repository)".
-1. Se recomienda que salgas de la organización `actions` una vez que ya no requieras acceso administrativo. Para obtener más información, consulta "[Cómo eliminarte de una organización](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization)".
+1. Desde una cuenta de propietario de empresa en {% data variables.product.product_name %}, navega al repositorio que quieras borrar desde la organización *actions* (en este `checkout` de ejemplo).
+1. Predeterminadamente, los administradores de sitio no son propietarios de la organización integrada de *actions*. Para obtener el acceso requerido para borrar el repositorio `checkout`, debes utilizar las herramientas de administrador de sitio. Haz clic en {% octicon "rocket" aria-label="The rocket ship" %} en la esquina superior derecha de cualquier página de este repositorio. ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. Haz clic en {% octicon "shield-lock" %} **Seguridad** para ver el resumen de seguridad del repositorio. ![Asegurar el repositorio del repositorio](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
+1. Debajo de "Acceso privilegiado", haz clic en **Desbloquear**. ![Botón de desbloquear](/assets/images/enterprise/site-admin-settings/unlock-priviledged-repo-access.png)
+1. Debajo de **Razón**, teclea una razón para desbloquear el repositorio y luego haz clic en **Desbloquear**. ![Diálogo de confirmación](/assets/images/enterprise/site-admin-settings/confirm-unlock-repo-access.png)
+1. Ahora que el repositorio se desbloqueó, puedes salir de las páginas de administrador de sitio y borrar el repositorio dentro de la organización `actions`. En la parte superior de la página, haz clic en el nombre de repositorio, que en este ejemplo es **checkout**, para regresar a la página de resumen. ![Enlace de nombre de repositorio](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
+1. Debajo de "Información de repositorio", haz clic en **Ver código** para salir de las páginas de administrador del sitio y que se muestre el repositorio `checkout`.
+1. Borra el repositorio `checkout` dentro de la organización `actions`. Para obtener más información sobre cómo borrar un repositorio, consulta la sección "[Borrar un repositorio](/github/administering-a-repository/deleting-a-repository)". ![Enlace de ver código](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. Configura el YAML de tu flujo de trabajo para que utilice `actions/checkout@v2`.
 1. Cada vez que se ejecute tu flujo de trabajo, el ejecutor utilizará la versión `v2` de `actions/checkout` desde {% data variables.product.prodname_dotcom_the_website %}.

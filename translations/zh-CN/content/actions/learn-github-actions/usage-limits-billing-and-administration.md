@@ -16,7 +16,6 @@ shortTitle: 工作流程计费和限制
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于 {% data variables.product.prodname_actions %} 的计费
 
@@ -59,6 +58,12 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 ## 使用策略
 
 除了使用限制外，还必须确保使用 [GitHub 服务条款](/articles/github-terms-of-service/) 中的 {% data variables.product.prodname_actions %}。 有关 {% data variables.product.prodname_actions %} 特定条款的更多信息，请参阅 [GitHub 附加产品条款](/github/site-policy/github-additional-product-terms#a-actions-usage)。
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Billing for reusable workflows
+
+If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
 {% ifversion fpt or ghes > 2.22 or ghae %}

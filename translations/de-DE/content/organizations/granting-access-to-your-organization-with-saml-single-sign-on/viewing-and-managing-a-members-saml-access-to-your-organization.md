@@ -25,6 +25,18 @@ Du kannst die verknüpfte Identität, die aktiven Sitzungen und die autorisierte
 
 {% data reusables.saml.about-linked-identities %}
 
+Wenn verfügbar, wird der Eintrag SCIM-Daten enthalten. Weitere Informationen findest Du unter „[Über SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
+
+{% warning %}
+
+**Warning:** For organizations using SCIM:
+- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
+- An admin must revoke a linked identity through the identity provider.
+- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's documentation.
+
+{% endwarning %}
+
+
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}

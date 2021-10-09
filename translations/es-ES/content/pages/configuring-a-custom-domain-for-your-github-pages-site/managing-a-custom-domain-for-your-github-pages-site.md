@@ -70,7 +70,7 @@ Para coonfigurar un dominio apex, tal como `example.com`, debes configurar un ar
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. Debajo de "Dominio personalizado", teclea tu dominio personalizado y luego da clic en **Guardar**. Esto creará una confirmación que agregará un archivo _CNAME_ en la raíz de tu fuente de publicación. ![Botón de guardar dominio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Desplázate hasta tu proveedor DNS y crea un registro `ALIAS`, `ANAME` o `A`. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
+5. Desplázate hasta tu proveedor DNS y crea un registro `ALIAS`, `ANAME` o `A`. También puedes crear registros de `AAAA` para compatibilidad con IPv6. {% data reusables.pages.contact-dns-provider %}
     - Para crear un registro `ALIAS` o `ANAME`, apunta tu dominio apex al dominio predeterminado de tu sitio. {% data reusables.pages.default-domain-information %}
     - Para crear registros `A`, apunta tu dominio apex a las direccioens IP de {% data variables.product.prodname_pages %}.
       ```shell
@@ -79,7 +79,7 @@ Para coonfigurar un dominio apex, tal como `example.com`, debes configurar un ar
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+    - Para crear registros de `AAAA`, apunta tu dominio de apex a la dirección IP para {% data variables.product.prodname_pages %}.
       ```shell
       2606:50c0:8000::153
       2606:50c0:8001::153
@@ -90,7 +90,7 @@ Para coonfigurar un dominio apex, tal como `example.com`, debes configurar un ar
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. Para confirmar que tu registro DNS esté configurado correctamente, usa el comando `dig` reemplazando _EXAMPLE.COM_ por tu dominio apex. Confirma que los resultados coincidan con las direcciones IP de las {% data variables.product.prodname_pages %} que aparecen arriba.
-   - For `A` records.
+   - Para los registros de `A`.
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
@@ -98,7 +98,7 @@ Para coonfigurar un dominio apex, tal como `example.com`, debes configurar un ar
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - Para los registros de `AAAA`.
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
     > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153

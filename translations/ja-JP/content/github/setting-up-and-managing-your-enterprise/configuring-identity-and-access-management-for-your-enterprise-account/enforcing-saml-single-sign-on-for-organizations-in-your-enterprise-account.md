@@ -13,6 +13,8 @@ redirect_from:
 shortTitle: Enforce SAML
 ---
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## Enterprise アカウントの SAML シングルサインオンについて
 
 {% data reusables.saml.dotcom-saml-explanation %} 詳細は「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。

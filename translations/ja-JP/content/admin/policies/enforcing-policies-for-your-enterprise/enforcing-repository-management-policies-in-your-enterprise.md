@@ -34,7 +34,7 @@ topics:
   - Enterprise
   - Policies
   - Security
-shortTitle: Enforce repository policies
+shortTitle: Repository management policies
 ---
 
 ## Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する

@@ -6,7 +6,7 @@ versions:
 shortTitle: Manage AE runner groups
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## About {% data variables.actions.hosted_runner %} groups
 

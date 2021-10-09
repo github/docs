@@ -42,7 +42,9 @@ shortTitle: GitHub Actions 的策略
 
 ## 配置公共复刻工作流程所需的批准
 
-{% data reusables.actions.workflow-run-approve-public-fork %} 您可以使用下面的程序为企业配置此行为。
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for your enterprise using the procedure below.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

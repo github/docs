@@ -15,7 +15,6 @@ shortTitle: Use runners in a workflow
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Informationen zum Erstellen benutzerdefinierter und Standard-Labels findest Du unter „[Labels mit selbst-gehosteten Runnern verwenden](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)“.
 

@@ -17,6 +17,8 @@ topics:
 shortTitle: Teamの同期の管理
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 {% data reusables.gated-features.okta-team-sync %}
 
 ## Team の同期について
@@ -30,6 +32,8 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
 Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
+
+{% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 

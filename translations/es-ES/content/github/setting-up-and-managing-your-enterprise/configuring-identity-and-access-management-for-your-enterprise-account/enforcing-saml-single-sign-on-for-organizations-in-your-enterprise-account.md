@@ -1,6 +1,6 @@
 ---
-title: Enforcing SAML single sign-on for organizations in your enterprise account
-intro: 'You can control and secure access to resources like repositories, issues, and pull requests by enforcing SAML single sign-on (SSO) and centralized authentication through an IdP across all organizations owned by an enterprise account.'
+title: Requerir el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial
+intro: 'Puedes controlar y asegurar el acceso a los recursos como repositorios, propuestas y solicitudes de cambio al requerir el inicio de sesión único (SSO) de SAML y la autenticación centralizada a través de un IdP a través de todas las organizaciones que pertenecen a una cuenta empresarial.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can enforce SAML single sign-on for organizations in an enterprise account.
 versions:
@@ -10,8 +10,10 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
-shortTitle: Enforce SAML
+shortTitle: Requerir SAML
 ---
+
+{% data reusables.enterprise-accounts.emu-saml-note %}
 
 ## Acerca del inicio de sesión único de SAML para las cuentas empresariales
 
@@ -25,14 +27,14 @@ shortTitle: Enforce SAML
 
 {% data reusables.scim.enterprise-account-scim %}
 
-## Enforcing SAML single-sign on for organizations in your enterprise account
+## Requerir el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial
 
 {% note %}
 
 **Notas:**
 
-- When you enable SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
-- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
+- Cuando hablitas el SSO de SAML para tu empresa, la configuración de esta ignorará cualquier configuración de SAML a nivel organizacional. {% data reusables.saml.switching-from-org-to-enterprise %} Para obtener más información, consulta la sección "[Cambiar tu configuración de SAML de una cuenta de organización a una de empresa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
+- Cuando requieres el SSO de SAML para una organización, {% data variables.product.company_short %} elimina cualquier miembro de la organización que no se haya autenticado con éxito en tu IdP de SAML. Cuando requieres el SSO de SAML para tu empresa, {% data variables.product.company_short %} no elimina a los miembros de dicha empresa que no se hayan autenticado exitosamente con tu IdP de SAML. La siguiente vez que un miembro acceda a los recursos empresariales, este deberá autenticarse con tu IdP de SAML.
 
 {% endnote %}
 
@@ -42,7 +44,7 @@ Para obtener información más detallada sobre cómo habilitar el SAML utilizand
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "SAML single sign-on", select **Require SAML authentication**. ![Casilla de verificación para habilitar SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+5. En "Inicio de sesión único de SAML", selecciona **Requerir autenticación SAML**. ![Casilla de verificación para habilitar SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
 6. En el campo **URL de inicio de sesión**, escribe el extremo HTTPS de tu IdP para las solicitudes de inicio de sesión único. Este valor se encuentra en la configuración de tu IdP. ![Campo para la URL a la que los miembros serán redireccionados cuando inicien sesión](/assets/images/help/saml/saml_sign_on_url_business.png)
 7. Opcionalmente, en el campo **Emisor**, teclea tu URL de emisor de SAML para verificar la autenticidad de los mensajes enviados. ![Campo para el nombre del emisor SAML](/assets/images/help/saml/saml_issuer.png)
 8. En **Certificado público**, pega un certificado para verificar las respuestas de SAML. ![Campo para el certificado público de tu proveedor de identidad](/assets/images/help/saml/saml_public_certificate.png)

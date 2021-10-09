@@ -13,7 +13,7 @@ topics:
 
 {% data variables.product.product_name %} 正在不断改进，通过主要和次要版本引入新功能和漏洞补丁。 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
 
-主要版本包括新功能和功能升级，通常{% ifversion ghae %}每几个星期或几个月{% else %}每季度{% endif %}进行一次。 {% ifversion ghae %}{% data variables.product.company_short %} 会将您的企业升级到最新的主要版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
+Major releases include new functionality and feature upgrades and typically occur quarterly. {% ifversion ghae %}{% data variables.product.company_short %} 会将您的企业升级到最新的主要版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
 
 {% ifversion ghes %}
 
@@ -43,7 +43,6 @@ topics:
 
 ## 延伸阅读
 
-- `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
-{% ifversion ghae %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository{% ifversion ghae %}
 - [ {% data variables.product.prodname_ghe_managed %} 发行说明](/admin/release-notes)
 {% endif %}

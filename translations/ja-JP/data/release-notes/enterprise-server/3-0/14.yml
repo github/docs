@@ -4,14 +4,14 @@ sections:
   security_fixes:
     - パッケージは最新のセキュリティバージョンにアップデートされました。
   bugs:
-    - Attaching very large images or animated GIFs to images or pull requests would fail.
-    - Journald messages related to automatic updates (`Adding h/m/s random time.`) were logged to syslog.
-    - 'Custom pre-receive hooks that used a bash subshell would return an error: `No such file or directory`.'
-    - Custom pre-receive hooks that created named pipes (FIFOs) would crash or hang, resulting in a timeout error.
-    - Adding filters to the audit log advanced search page did not populate the query text box in real-time with the correct facet prefix and value.
-    - Git hooks to the internal API that result in failing requests returned the exception `undefined method body for "success":String (NoMethodError)` instead of returning an explicit `nil`.
-    - When an integration was removed, it was possible for an unrelated OAuth application or integration to also be removed.
-    - When a mandatory message containing an emoji character was added, attempting to view or change the message would return a 500 Internal Server Error.
+    - 画像あるいはPull Requestに非常に大きな画像もしくはアニメーションGIFを添付すると失敗します。
+    - 自動アップデートに関係するJournaldのメッセージ (`Adding h/m/s random time.`)が、syslogに記録されました。
+    - 'bashのサブシェルを使うカスタムのpre-receive フックは、`No such file or directory`というエラーを返します。'
+    - 名前付きパイプ（FIFO）を作成したカスタムのpre-receive フックは、クラッシュもしくはハングし、タイムアウトエラーを生じさせます。
+    - 監査ログの高度な検索ページにフィルタを追加しても、適切なファセットプレフィックスと値付きでクエリテキストボックスがリアルタイムで展開されませんでした。
+    - リクエストに失敗する内部APIへのGitフックが、明示的な`nil`を返す代わりに`undefined method body for "success":String (NoMethodError)`という例外を返しました。
+    - インテグレーションが削除されると、関係の無いOAuthアプリケーションあるいはインテグレーションも削除されてしまう可能性がありました。
+    - 絵文字を含む必須のメッセージが追加された場合、そのメッセージを表示あるいは変更しようとすると500 Internal Server Errorが返されます。
   known_issues:
     - 新しくセットアップされたユーザを持たない{% data variables.product.prodname_ghe_server %}で、攻撃者が最初の管理ユーザを作成できました。
     - アップグレードの過程で、カスタムのファイアウォールのルールが削除されます。
@@ -19,4 +19,4 @@ sections:
     - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
     - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
     - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

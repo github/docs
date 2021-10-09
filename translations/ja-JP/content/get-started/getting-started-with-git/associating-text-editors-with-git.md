@@ -61,6 +61,7 @@ shortTitle: Associate text editors
 ## エディタとして Atom を使う
 
 1. [Atom](https://atom.io/)をインストールします。 詳しい情報については、Atomのドキュメンテーションの「[Atomのインストール](https://flight-manual.atom.io/getting-started/sections/installing-atom/)」を参照してください。
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "atom --wait"

@@ -28,7 +28,7 @@ Puedes patrocinar una cuenta en nombre de tu cuenta de usuario para invertir en 
 - Desarrollar una conciencia de marca como una organización que valora el código abierto
 - Agradecer a los desarrolladores de código abierto por crear bibliotecas que complementan el producto que ofrece tu organización
 
-Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
+Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data variables.product.product_name %}. Si tu organización quiere pagar por factura, puedes leer más en la sección de [Pagar {% data variables.product.prodname_sponsors %} por factura](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 

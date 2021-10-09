@@ -40,9 +40,9 @@ shortTitle: Basic formatting syntax
 テキストは`>`で引用できます。
 
 ```markdown
-アブラハムリンカーンの言葉：:
+Text that is not a quote
 
-> フランス語で失礼します
+> Text that is a quote
 ```
 
 ![表示された引用テキスト](/assets/images/help/writing/quoted-text-rendered.png)
@@ -184,7 +184,7 @@ For more information, see "[Relative Links](#relative-links)."
 
 ![入れ子になったリストアイテムを持つリスト](/assets/images/help/writing/nested-list-example-3.png)
 
-同じ方法で、複数レベルの入れ子になったリストを作成できます。 たとえば、最初の入れ子になったリストアイテムは内容である`最初の入れ子になったリストアイテム`の前に 7 つの空白 (`␣␣␣␣␣-␣`) があるため、2 番目の入れ子になったリストアイテムは 7 つの空白でインデントしなければならないでしょう。
+同じ方法で、複数レベルの入れ子になったリストを作成できます。 For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. 最初のリストアイテム
@@ -262,6 +262,30 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 テキスト行の間に空白行を残すことで、新しいパラグラフを作成できます。
 
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Footnotes
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
 ## Markdown のフォーマットの無視
 
 {% data variables.product.product_name %}に対し、Markdown のキャラクタの前に `\` を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます。
@@ -272,13 +296,13 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 詳しい情報については Daring Fireball の [Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash) を参照してください。
 
-## Hiding content with comments
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+## Disabling Markdown rendering
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ## 参考リンク
 
