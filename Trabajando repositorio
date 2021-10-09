@@ -1,0 +1,20 @@
+Trabajando en el repositorio de github / docs
+Aquí hay información que puede ser útil mientras trabaja en un PR de Docs:
+
+Desarrollo : esta breve guía describe cómo hacer que esta aplicación se ejecute en su máquina local.
+
+Referencia de marcado de contenido : todo nuestro contenido está escrito en Markdown con sabor a GitHub, con algunas mejoras adicionales.
+
+Guía de estilo de contenido para GitHub Docs : esta guía cubre información específica de GitHub sobre cómo diseñamos nuestro contenido e imágenes. También contiene enlaces a los recursos que utilizamos para las pautas generales de estilo.
+
+Modelo de contenido y plantillas de contenido: el modelo de contenido describe el propósito de cada tipo de contenido que usamos en GitHub Docs y cómo escribir para cada tipo. Las plantillas le permiten comenzar rápidamente con nuevos artículos.
+
+Reutilizables : utilizamos reutilizables para ayudarnos a mantener el contenido actualizado. En lugar de escribir la misma cadena larga de información en varios artículos, creamos un elemento reutilizable y luego lo llamamos a partir de los artículos individuales.
+
+Variables : usamos variables de la misma manera que usamos reutilizables. Las variables son para cadenas cortas de texto reutilizable.
+
+Líquido : utilizamos ayudantes líquidos para crear diferentes versiones de nuestro contenido.
+
+Scripts : el directorio de scripts es el hogar de todos los scripts que puede ejecutar localmente.
+
+Pruebas : utilizamos pruebas para garantizar que el contenido se muestre correctamente en el sitio. Las pruebas se ejecutan automáticamente en su RP y, a veces, también es útil ejecutarlas localmente.
