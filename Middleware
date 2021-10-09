@@ -1,0 +1,11 @@
+Middleware
+
+Cada archivo de este directorio exporta una función Express Middleware.
+
+Para obtener más información, consulte https://expressjs.com/en/guide/using-middleware.html
+
+Subdirectorios
+Hay subdirectorios para diferentes tipos de middleware:
+
+Los contextualizadores modifican el req.contextobjeto que se utiliza para representar las páginas.
+redireccionamientos manejar ... redireccionamientos!
