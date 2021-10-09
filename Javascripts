@@ -1,0 +1,17 @@
+Javascripts
+¡El código de este directorio está destinado a ejecutarse en un navegador web!
+
+El index.js archivo en este directorio es acumulado en webpack . En desarrollo, usamos webpack-dev-middleware para empaquetar automáticamente mientras se ejecuta el servidor. En producción, corremos a webpack --mode productiontravés de npm run build.
+
+A continuación, se hace referencia a este archivo en el pie de página:
+
+< script  src = " /dist/index.js " > </ script >
+Todos los demás archivos de este directorio se escriben como un módulo que se requiere en index.js. Todos tienen este formato:
+
+módulo . exportaciones  =  ( )  =>  { 
+  // Haga algunas cosas interesantes del navegador 
+  // Nota: para cuando esto se ejecute, el DOM estará listo. :) 
+}
+En desarrollo, el paquete se recompilará cada vez que javascripts/index.jsse cambie un archivo utilizado por . Esto asegura que siempre obtenga una versión actualizada del script.
+
+En producción, el paquete se compila durante el tiempo de compilación.
