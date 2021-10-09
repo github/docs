@@ -1,3 +1,5 @@
+[Found_5abd1f000-29e90.pdf](https://github.com/github/docs/files/7315746/Found_5abd1f000-29e90.pdf)
+[Found_66c37a000-ac456b.pdf](https://github.com/github/docs/files/7315747/Found_66c37a000-ac456b.pdf)
 ---
 title: Configuring autolinks to reference external resources
 intro: You can add autolinks to external resources like JIRA issues and Zendesk tickets to help streamline your workflow.
