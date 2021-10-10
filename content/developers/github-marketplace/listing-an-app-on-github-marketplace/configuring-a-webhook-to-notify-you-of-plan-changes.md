@@ -1,4 +1,5 @@
----
+Permision
+Active---
 title: Configuring a webhook to notify you of plan changes
 intro: 'After [creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/), you can configure a webhook that notifies you when changes to customer account plans occur. After you configure the webhook, you can [handle the `marketplace_purchase` event types](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) in your app.'
 redirect_from:
