@@ -2,7 +2,7 @@
 title: Buscar en el Mercado de GitHub
 intro: 'Puedes buscar aplicaciones y acciones disponibles en{% data variables.product.prodname_marketplace %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - GitHub search
 redirect_from:

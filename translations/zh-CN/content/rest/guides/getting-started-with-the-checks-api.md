@@ -2,20 +2,21 @@
 title: 检查 API 入门指南
 intro: 检查运行 API 使您能够构建 GitHub 应用程序，以针对仓库中的代码更改运行强大的检查。 您可以创建应用程序以执行持续集成 、代码分析或代码扫描服务，并提供有关提交的详细反馈。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+shortTitle: 开始 - 检查 API
 ---
 
-### 概览
+## 概览
 
 GitHub 应用程序可以报告丰富的状态信息、提供详细的代码行注释以及重新运行测试，而不是提供二进制的通过/失败构建状态。 Checks API 功能专用于您的 GitHub 应用程序。
 
 关于如何将检查 API 用于 {% data variables.product.prodname_github_app %} 的示例，请参阅“[使用检查 API 创建 CI 测试](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)”。
 
-### 关于检查套件
+## 关于检查套件
 
 当有人向仓库推送代码时，GitHub 会为最新的提交创建一个检查套件。 检查套件是单个 GitHub 应用程序为特定提交而创建的[检查运行](/rest/reference/checks#check-runs)的集合。 检查套件汇总了套件所含检查运行的状态和结论。
 
@@ -33,13 +34,13 @@ GitHub 应用程序可以报告丰富的状态信息、提供详细的代码行�
 
 {% data reusables.shortdesc.authenticating_github_app %}
 
-### 关于检查运行
+## 关于检查运行
 
 检查运行是检查套件中的单个测试。 每个运行都包含状态和结论。
 
 ![检查运行工作流程](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes or ghae %}
 如果检查运行处于未完成状态超过 14 天，则检查运行的 `conclusion` 将变成 `stale`，并且通过
 {% octicon "issue-reopened" aria-label="The issue-reopened icon" %} 在 {% data variables.product.prodname_dotcom %} 上显示为 stale（过时）。 只有 {% data variables.product.prodname_dotcom %} 可以将检查运行标记为 `stale`。 有关检查运行之可能结论的更多信息，请参阅 [`conclusion` 参数](/rest/reference/checks#create-a-check-run--parameters)。
 {% endif %}
@@ -54,7 +55,7 @@ GitHub 应用程序可以报告丰富的状态信息、提供详细的代码行�
 
 要使用检查运行 API，GitHub 应用程序必须具有 `checks:write` 权限并且可以订阅 [ccheck_run](/webhooks/event-payloads#check_run) web 挂钩。
 
-### 检查运行和请求的操作
+## 检查运行和请求的操作
 
 在设置带有请求操作（不要与 {% data variables.product.prodname_actions %} 混淆）的检查运行时，您可以在 {% data variables.product.prodname_dotcom %} 上的拉取请求视图中显示一个按钮，以允许用户请求您的 {% data variables.product.prodname_github_app %} 执行额外任务。
 

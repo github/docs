@@ -1,2 +1,2 @@
-{%- if currentVersion == "free-pro-team@latest" %}Issue、Pull Request、リリース、セキュリティアラート、ディスカッション{% endif %}
-{%- if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}Issue、Pull Request、リリース、ディスカッション{% endif %}
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}Issue、Pull Request、リリース、セキュリティアラート、ディスカッション{% endif %}
+{%- ifversion ghes = 3.1 %}Issue、Pull Request、リリース、ディスカッション{% endif %}

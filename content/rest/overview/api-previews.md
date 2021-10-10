@@ -18,12 +18,18 @@ During the preview period, we may change some features based on developer feedba
 
 To access an API preview, you'll need to provide a custom [media type](/rest/overview/media-types) in the `Accept` header for your requests. Feature documentation for each preview specifies which custom media type to provide.
 
+{% ifversion ghes < 3.3 %}
+
 ## Enhanced deployments
 
 Exercise greater control over [deployments](/rest/reference/repos#deployments) with more information and finer granularity.
 
 **Custom media type:** `ant-man-preview`
 **Announced:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
+
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
 
 ## Reactions
 
@@ -33,12 +39,18 @@ Manage [reactions](/rest/reference/reactions) for commits, issues, and comments.
 **Announced:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/)
 **Update:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
 
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
+
 ## Timeline
 
 Get a [list of events](/rest/reference/issues#timeline) for an issue or pull request.
 
 **Custom media type:** `mockingbird-preview`
 **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
+
+{% endif %}
 
 {% ifversion ghes %}
 ## Pre-receive environments
@@ -73,11 +85,15 @@ View a list of [repository topics](/articles/about-topics/) in [calls](/rest/ref
 **Custom media type:** `mercy-preview`
 **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
 
+{% ifversion ghes < 3.3 %}
+
 ## Codes of conduct
 
 View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code of conduct a repository has currently.
 
 **Custom media type:** `scarlet-witch-preview`
+
+{% endif %}
 
 {% ifversion ghae or ghes %}
 
@@ -98,12 +114,16 @@ You can now use the API to manage the setting for [requiring signed commits on p
 **Custom media type:** `zzzax-preview`
 **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
 
+{% ifversion ghes < 3.3 %}
+
 ## Require multiple approving reviews
 
 You can now [require multiple approving reviews](/rest/reference/repos#branches) for a pull request using the API.
 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
+
+{% endif %}
 
 {% ifversion ghes < 3.0 %}
 ## Check runs and check suites API
@@ -144,12 +164,18 @@ GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Cre
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
+
 ## Deployment statuses
 
 You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview`
 **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
+
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
 
 ## Repository creation permissions
 
@@ -158,6 +184,8 @@ You can now configure whether organization members can create repositories and w
 **Custom media types:** `surtur-preview`
 **Announced:** [2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
 
+{% endif %}
+
 ## Content attachments
 
 You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
@@ -165,12 +193,16 @@ You can now provide more information in GitHub for URLs that link to registered 
 **Custom media types:** `corsair-preview`
 **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
+{% ifversion ghes < 3.3 %}
+
 ## Enable and disable Pages
 
 You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
 
 **Custom media types:** `switcheroo-preview`
 **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
+
+{% endif %}
 
 {% ifversion ghes < 3.3 %}
 
@@ -183,12 +215,7 @@ You can use two new endpoints in the [Commits API](/rest/reference/repos#commits
 
 {% endif %}
 
-## Enable or disable vulnerability alerts for a repository
-
-You can use two new endpoints in the [Repos API](/rest/reference/repos) to enable or disable vulnerability alerts.
-
-**Custom media types:** `dorian-preview`
-**Announced:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
+{% ifversion ghes < 3.3 %}
 
 ## Update a pull request branch
 
@@ -197,6 +224,8 @@ You can use a new endpoint to [update a pull request branch](/rest/reference/pul
 **Custom media types:** `lydian-preview`
 **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
+{% endif %}
+
 ## Create and use repository templates
 
 You can use a new endpoint to [Create a repository using a template](/rest/reference/repos#create-a-repository-using-a-template) and [Create a repository for the authenticated user](/rest/reference/repos#create-a-repository-for-the-authenticated-user) that is a template repository by setting the `is_template` parameter to `true`. [Get a repository](/rest/reference/repos#get-a-repository) to check whether it's set as a template repository using the `is_template` key.
@@ -204,7 +233,8 @@ You can use a new endpoint to [Create a repository using a template](/rest/refer
 **Custom media types:** `baptiste-preview`
 **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion ghes < 3.3 %}
+
 ## New visibility parameter for the Repositories API
 
 You can set and retrieve the visibility of a repository in the [Repositories API](/rest/reference/repos).

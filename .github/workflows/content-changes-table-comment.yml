@@ -31,6 +31,7 @@ jobs:
           filters: |
             filterContentDir:
               - 'content/**/*'
+
   filterContentDir:
     needs: PR-Preview-Links
     if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
@@ -45,8 +46,10 @@ jobs:
           node-version: 16.8.x
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install temporary dependencies
+        run: |
+          npm install --no-save github-slugger
+          npm install --no-save --include=optional esm
 
       - name: Get changes table
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
@@ -55,14 +58,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           script: |
-            const slugify = require('github-slugger').slug
+            // Workaround to allow us to load ESM files with `require(...)`
+            const esm = require('esm')
+            require = esm({})
 
-            const HEROKU_APPNAME_MAX_LENGTH = 30
+            const { default: createStagingAppName } = require('./script/deployment/create-staging-app-name')
 
-            const repoName = context.payload.repository.name
-            const branchName = context.payload.pull_request.head.ref
-            const prNumber = context.payload.number
-            const stagingPrefix = getStagingPrefix(repoName, prNumber, branchName)
+            const stagingPrefix = createStagingAppName({
+              repo: context.payload.repository.name,
+              pullNumber: context.payload.number,
+              branch: context.payload.pull_request.head.ref,
+            })
 
             const response = await github.repos.compareCommits({
               owner: context.repo.owner,
@@ -93,14 +99,6 @@ jobs:
               markdownTable += markdownLine
             }
 
-            function getStagingPrefix (prefix, prNumber, branch) {
-              // Added a - in front of prNumber
-              return `${prefix}-${prNumber}--${slugify(branch)}`
-                .toLowerCase()
-                .slice(0, HEROKU_APPNAME_MAX_LENGTH)
-                .replace(/_/g, '-')
-                .replace(/-+$/, '')
-            }
             core.setOutput('changesTable', markdownTable)
 
       - name: Find content directory changes comment

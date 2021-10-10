@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
   - /admin/enterprise-management/replacing-a-cluster-node
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -20,7 +20,7 @@ topics:
 
 {% endwarning %}
 
-### Replacing a functional node
+## Replacing a functional node
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
@@ -31,7 +31,7 @@ topics:
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
 
-### Replacing a node in an emergency
+## Replacing a node in an emergency
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}

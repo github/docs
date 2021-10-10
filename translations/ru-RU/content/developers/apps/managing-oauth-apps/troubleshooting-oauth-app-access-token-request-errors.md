@@ -6,11 +6,12 @@ redirect_from:
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
   - /developers/apps/troubleshooting-oauth-app-access-token-request-errors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - OAuth Apps
+shortTitle: Troubleshoot token request
 ---
 
 {% note %}
@@ -19,7 +20,7 @@ topics:
 
 {% endnote %}
 
-### Incorrect client credentials
+## Incorrect client credentials
 
 If the client\_id and or client\_secret you pass are incorrect you will receive this error response.
 
@@ -33,7 +34,7 @@ If the client\_id and or client\_secret you pass are incorrect you will receive 
 
 To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly to {% data variables.product.product_name %}.
 
-### Redirect URI mismatch
+## Redirect URI mismatch
 
 If you provide a `redirect_uri` that doesn't match what you've registered with your {% data variables.product.prodname_oauth_app %}, you'll receive this error message:
 
@@ -47,7 +48,7 @@ If you provide a `redirect_uri` that doesn't match what you've registered with y
 
 To correct this error, either provide a `redirect_uri` that matches what you registered or leave out this parameter to use the default one registered with your application.
 
-### Bad verification code
+## Bad verification code
 
 ```json
 {

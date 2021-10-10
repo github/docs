@@ -1,68 +1,61 @@
 .markdownBody {
-  ol {
+  ol:not(:global(.no-styling)) {
     counter-reset: li;
     list-style: none;
     position: relative;
     padding-bottom: 10px;
     padding-left: 0;
-  }
 
-  ol > li {
-    padding: 15px 0 15px 55px;
-    position: relative;
-    margin-bottom: 5px;
-    border-top: 3px solid var(--color-auto-gray-2);
-  }
+    > li {
+      padding: 8px 0 8px 40px;
+      border: 0;
+      position: relative;
+      margin-bottom: 5px;
 
-  ol > li:before {
-    content: counter(li);
-    counter-increment: li;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    height: 100%;
-    width: 30px;
-    padding: 0 10px 0 0;
-    color: var(--color-auto-gray-4);
-    font-size: 22px;
-    font-weight: bold;
-    line-height: 35px;
-    text-align: right;
-  }
+      &:before {
+        top: 2px;
+        font-size: 16px;
+        width: 24px;
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        padding: 0 10px 0 0;
+        color: var(--color-auto-gray-4);
+        font-weight: bold;
+        line-height: 35px;
+        text-align: right;
+      }
 
-  ol > li > p {
-    margin: 0;
-  }
+      &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+      }
 
-  ol > li > p:first-child {
-    margin-top: 0;
-  }
+      p {
+        margin: 0;
+      }
 
-  ol > li:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-  }
+      p:first-child {
+        margin-top: 0;
+      }
 
-  ol > li {
-    padding: 8px 0 8px 40px;
-    border: 0;
+      p:not(:first-child) {
+        margin-top: 15px;
+      }
 
-    &:before {
-      top: 2px;
-      font-size: 16px;
-      width: 24px;
+      [class~="extended-markdown"] {
+        margin-top: 15px;
+      }
     }
 
-    p:not(:first-child) {
-      margin-top: 15px;
-    }
-
-    [class~="extended-markdown"] {
-      margin-top: 15px;
+    ol li:before:global(.no-styling) {
+      display: none;
     }
   }
 

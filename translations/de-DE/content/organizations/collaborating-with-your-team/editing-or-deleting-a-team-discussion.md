@@ -6,11 +6,12 @@ redirect_from:
   - /github/building-a-strong-community/editing-or-deleting-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/editing-or-deleting-a-team-discussion
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
+shortTitle: Manage a team discussion
 ---
 
 {% data reusables.profile.access_org %}
@@ -21,7 +22,7 @@ topics:
 7. Klicke auf **Edit** (Bearbeiten). Optional klicke auf **Delete** (Löschen). ![Schaltfläche „Edit team discussion" (Bearbeiten der Teamdiskussion)](/assets/images/help/projects/edit-team-discussions-button.png)
 8. Ändere nach Bedarf den Titel der Teamdiskussion und den Kommentar, und klicke auf **Update comment** (Kommentar aktualisieren). ![Schaltfläche „Update comment“ (Kommentar aktualisieren)](/assets/images/help/projects/update-comment-button.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
   - „[Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions)“
   - „[Eine Teamdiskussion erstellen](/organizations/collaborating-with-your-team/creating-a-team-discussion)“

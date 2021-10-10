@@ -3,7 +3,7 @@ title: Declaración antisoborno de GitHub
 redirect_from:
   - /articles/github-anti-bribery-statement
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

@@ -4,7 +4,7 @@ redirect_from:
   - /eu-safe-harbor/
   - /articles/global-privacy-practices
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -16,13 +16,13 @@ GitHub provides the same high standard of privacy protection—as described in G
 
 GitHub also complies with certain legal frameworks relating to the transfer of data from the European Economic Area, the United Kingdom, and Switzerland (collectively, “EU”) to the United States. When GitHub engages in such transfers, GitHub relies on Standard Contractual Clauses as the legal mechanism to help ensure your rights and protections travel with your personal information. In addition, GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks. To learn more about the European Commission’s decisions on international data transfer, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
 
-### Standard Contractual Clauses
+## Standard Contractual Clauses
 
 GitHub relies on the European Commission-approved Standard Contractual Clauses (“SCCs”) as a legal mechanism for data transfers from the EU. SCCs are contractual commitments between companies transferring personal data, binding them to protect the privacy and security of such data. GitHub adopted SCCs so that the necessary data flows can be protected when transferred outside the EU to countries which have not been deemed by the European Commission to adequately protect personal data, including protecting data transfers to the United States.
 
 To learn more about SCCs, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en).
 
-### Datenschutzschild-Framework
+## Datenschutzschild-Framework
 
 GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks and the commitments they entail, although GitHub does not rely on the EU-US Privacy Shield Framework as a legal basis for transfers of personal information in light of the judgment of the Court of Justice of the EU in Case C-311/18.
 
@@ -60,13 +60,13 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
   - Wir verlangen von unseren Mitarbeitern, dass sie unsere Datenschutzversprechen einhalten, und die Verletzung unserer Datenschutzrichtlinien unterliegt Disziplinarmaßnahmen bis hin zur Kündigung des Arbeitsverhältnisses.
 
 
-#### Streitbeilegungsprozess
+### Streitbeilegungsprozess
 
 As further explained in the [Resolving Complaints](/github/site-policy/github-privacy-statement#resolving-complaints) section of our [Privacy Statement](/github/site-policy/github-privacy-statement), we encourage you to contact us should you have a Privacy Shield-related (or general privacy-related) complaint. For any complaints that cannot be resolved with GitHub directly, we have selected to cooperate with the relevant EU Data Protection Authority, or a panel established by the European data protection authorities, for resolving disputes with EU individuals, and with the Swiss Federal Data Protection and Information Commissioner (FDPIC) for resolving disputes with Swiss individuals. Bitte kontaktieren Sie uns, wenn Sie möchten, dass wir Sie an Ihre Datenschutzbehörde weiterleiten.
 
 Wenn Sie ihren Wohnsitz in einem EU-Mitgliedstaat haben, haben Sie außerdem das Recht, eine Beschwerde bei Ihrer örtlichen Aufsichtsbehörde einzureichen.
 
-#### Unabhängiges Schiedsverfahren
+### Unabhängiges Schiedsverfahren
 
 Unter bestimmten begrenzten Umständen können sich in der EU, dem Europäische Wirtschaftsraum (EWR) der Schweiz und Großbritannien ansässige Einzelpersonen als letztes Mittel auf ein verbindliches Datenschutzschild-Schiedsverfahren berufen, wenn alle anderen Formen der Streitbeilegung erfolglos waren sind. Mehr über dieses Lösungsverfahren und seine Verfügbarkeit finden Sie im Kapitel [Datanschutzschild](https://www.privacyshield.gov/article?id=ANNEX-I-introduction). Ein Schiedsverfahren ist nicht obligatorisch; es ist ein Verfahren, das Sie nutzen können, wenn Sie es wünschen.
 

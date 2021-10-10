@@ -6,27 +6,25 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: 监控和故障排除
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 使用 {{ site.data.variables.product.prodname_dotcom }} 检查自托管运行器的状态
+## 使用 {% data variables.product.prodname_dotcom %} 检查自托管运行器的状态
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在“Self-hosted runners（自托管运行器）”下，您可以查看已注册的运行器列表，包括运行器的名称、标签和状态。
-
-    ![运行器列表](/assets/images/help/settings/actions-runner-list.png)
+{% data reusables.github-actions.settings-sidebar-actions-runners %}
+1. Under {% ifversion fpt or ghes > 3.1 or ghae-next %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     可以是以下状态之一：
 
@@ -35,19 +33,19 @@ defaultPlatform: linux
     * **脱机**：运行器未连接到 {% data variables.product.product_name %}。 这可能是因为机器处于离线状态，自托管运行器应用程序未在机器上运行，或者自托管运行器应用程序无法与 {% data variables.product.product_name %} 通信。
 
 
-### 查阅自托管运行应用程序日志文件
+## 查阅自托管运行应用程序日志文件
 
 您可以监控自托管运行器应用程序的状态及其活动。 日志文件保存在 `_diag` 目录中，每次启动应用程序都会生成一个新的日志文件。 文件名开头为 *Runner_*，后接应用程序启动时的 UTC 时间戳。
 
 有关工作流程作业执行的详细日志，请参阅描述 *Worker_* 文件的下一节。
 
-### 查看作业日志文件
+## 查看作业日志文件
 
 自托管的运行器应用程序为它处理的每个作业创建详细的日志文件。 这些文件存储在 `_dig` 目录中，文件名以 *Worker_* 开头。
 
 {% linux %}
 
-### 使用 journalctl 检查自托管的运行器应用程序服务
+## 使用 journalctl 检查自托管的运行器应用程序服务
 
 对于使用服务运行应用程序的 Linux 自托管运行器，您可以使用 `journalctl` 来监控其实时活动。 基于系统的默认服务使用以下命名约定：`actions.runner.<org>-<repo>.<runnerName>.service`。 此名称在超过 80 个字符时将被截断，因此查找服务名称的首选方式是检查 _.service_ 文件。 例如：
 
@@ -80,7 +78,7 @@ Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction co
 
 {% mac %}
 
-### 使用 launchd 检查自托管的运行器应用程序服务
+## 使用 launchd 检查自托管的运行器应用程序服务
 
 对于将应用程序运行为服务的 macOS 自托管运行器，您可以使用 `launchctl` 来监控其实时活动。 基于 launchctl 的默认服务使用以下命名约定：`actions.runner.<org>-<repo>.<runnerName>`。 此名称在超过 80 个字符时将被截断，因此查找服务名称的首选方式是检查运行器目录中的 _.service_ 文件。
 
@@ -108,7 +106,7 @@ Started:
 
 {% windows %}
 
-### 使用 PowerShell 检查自托管的运行器应用程序服务
+## 使用 PowerShell 检查自托管的运行器应用程序服务
 
 对于将应用程序运行为服务的 Windows 自托管运行器，您可以使用 PowerShell 来监控其实时活动。 服务使用命名约定 `GitHub Actions Runner (<org>-<repo>.<runnerName>)`。 您也可以通过在运行器目录中检查 _.service_ 文件来查找服务的名称：
 
@@ -145,7 +143,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% endwindows %}
 
-### 监控自动更新过程
+## 监控自动更新过程
 
 建议定期检查自动更新过程，因为如果自托管的运行器低于某个版本阈值，将会无法处理作业。 自托管的运行器应用程序自动更新本身，但请注意，此过程不包括对操作系统或其他软件的任何更新；您需要单独管理这些更新。
 
@@ -159,9 +157,9 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 {% linux %}
 
-### 自行托管运行器中的容器故障排除
+## 自行托管运行器中的容器故障排除
 
-#### 检查 Docker 是否安装
+### 检查 Docker 是否安装
 
 如果您的作业需要容器，则自托管的运行器必须基于 Linux，并且需要安装 Docker。 检查自托管运行器是否安装 Docker，以及服务是否正在运行。
 
@@ -180,7 +178,7 @@ active
 [2020-02-13 16:56:10Z ERR  StepsRunner] Caught exception from step: System.IO.FileNotFoundException: File not found: 'docker'
 ```
 
-#### 检查 Docker 权限
+### 检查 Docker 权限
 
 如果作业失败，出现以下错误：
 

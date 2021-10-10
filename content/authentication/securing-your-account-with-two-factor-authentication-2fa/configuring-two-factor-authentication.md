@@ -27,6 +27,12 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 {% endwarning %}
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account. 2FA should be configured through your identity provider. 
+
+{% endif %}
+
 ## Configuring two-factor authentication using a TOTP mobile app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:

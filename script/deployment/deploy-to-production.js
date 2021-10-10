@@ -8,9 +8,11 @@ const SLEEP_INTERVAL = 5000
 const HEROKU_LOG_LINES_TO_SHOW = 25
 const DELAY_FOR_PREBOOT_SWAP = 135000 // 2:15
 
-// Allow for a few 404 (Not Found) or 429 (Too Many Requests) responses from the
-// semi-unreliable Heroku API when we're polling for status updates
-const ALLOWED_MISSING_RESPONSE_COUNT = 5
+// Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
+// the semi-unreliable Heroku API when we're polling for status updates
+const ALLOWED_MISSING_RESPONSE_COUNT =
+  parseInt(process.env.ALLOWED_POLLING_FAILURES_PER_PHASE, 10) || 10
+const ALLOWABLE_ERROR_CODES = [404, 429, 500, 503]
 
 export default async function deployToProduction({
   octokit,
@@ -63,11 +65,12 @@ export default async function deployToProduction({
   let deploymentId = null
   let logUrl = workflowRunLog
 
-  const appName = 'help-docs-prod-gha'
-  const homepageUrl = `https://${appName}.herokuapp.com/`
+  const appName = process.env.HEROKU_PRODUCTION_APP_NAME
+  const environment = 'production'
+  const homepageUrl = 'https://docs.github.com/'
 
   try {
-    const title = `branch '${branch}' at commit '${sha}' in the 'production' environment as '${appName}'`
+    const title = `branch '${branch}' at commit '${sha}' in the '${environment}' environment`
 
     console.log(`About to deploy ${title}...`)
 
@@ -80,7 +83,7 @@ export default async function deployToProduction({
       ref: sha,
 
       // In the GitHub API, there can only be one active deployment per environment.
-      environment: appName,
+      environment,
 
       // The status contexts to verify against commit status checks. If you omit
       // this parameter, GitHub verifies all unique contexts before creating a
@@ -173,15 +176,18 @@ export default async function deployToProduction({
 
     // Poll until the Build's status changes from "pending" to "succeeded" or "failed".
     let buildAcceptableErrorCount = 0
-    while (!build || build.status === 'pending' || !build.release || !build.release.id) {
+    while (!build || !build.release || !build.release.id) {
       await sleep(SLEEP_INTERVAL)
       try {
         build = await heroku.get(`/apps/${appName}/builds/${buildId}`)
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           buildAcceptableErrorCount += 1
           if (buildAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${buildAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -208,6 +214,7 @@ export default async function deployToProduction({
       `Finished Heroku build after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds.`,
       build
     )
+    console.log('Heroku release detected', build.release)
 
     const releaseStartTime = Date.now() // Close enough...
     const releaseId = build.release.id
@@ -232,9 +239,12 @@ export default async function deployToProduction({
         release = result
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           releaseAcceptableErrorCount += 1
           if (releaseAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${releaseAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -291,9 +301,12 @@ export default async function deployToProduction({
         )
       } catch (error) {
         // Allow for a few bad responses from the Heroku API
-        if (error.statusCode === 404 || error.statusCode === 429) {
+        if (isAllowableHerokuError(error)) {
           dynoAcceptableErrorCount += 1
           if (dynoAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${dynoAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -355,6 +368,10 @@ export default async function deployToProduction({
       // Is there a faster alternative than this arbitrary delay? For example,
       // is there some Heroku API we can query to see when this release is
       // considered to be the live one, or when the old dynos are shut down?
+    } else {
+      console.warn(
+        '⚠️ Bypassing the wait for Heroku Preboot....\nPlease understand that your changes will not be visible for at least another 2 minutes!'
+      )
     }
 
     // Report success!
@@ -434,6 +451,10 @@ async function getTarballUrl({ octokit, owner, repo, sha }) {
     },
   })
   return tarballUrl
+}
+
+function isAllowableHerokuError(error) {
+  return error && ALLOWABLE_ERROR_CODES.includes(error.statusCode)
 }
 
 function announceIfHerokuIsDown(error) {
