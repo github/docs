@@ -34,8 +34,10 @@ Organization owners have complete administrative access to your organization. Th
 ## Organization members
 The default, non-administrative role for people in an organization is the organization member. Organization members have a number of permissions, including being able to create repositories and project boards. 
 
+{% ifversion fpt %}
 ## Billing managers
 Billing managers are users who can manage the billing settings for your organization, such as payment information. This is a useful option if members of your organization don't usually have access to billing resources. For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+{% endif %}
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4999 %}
 ## Security managers
