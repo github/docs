@@ -16,7 +16,7 @@ You can discover, browse, and install free and paid tools, including {% data var
 
 ## {% data variables.product.prodname_marketplace %} でツールを見つける
 
-他のユーザが作成したアプリやアクションを {% data variables.product.prodname_marketplace %} で検出、参照、インストールできます。「[{% data variables.product.prodname_marketplace %} を検索する](/github/searching-for-information-on-github/searching-github-marketplace)」を参照してください。
+他のユーザが作成したアプリやアクションを {% data variables.product.prodname_marketplace %} で検出、参照、インストールできます。「[{% data variables.product.prodname_marketplace %} を検索する](/search-github/searching-on-github/searching-github-marketplace)」を参照してください。
 
 {% data reusables.actions.actions-not-verified %}
 

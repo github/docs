@@ -42,7 +42,9 @@ Você pode desabilitar todos os fluxos de trabalho para uma empresa ou definir u
 
 ## Configurar a aprovação necessária para fluxos de trabalho de bifurcações públicas
 
-{% data reusables.actions.workflow-run-approve-public-fork %} Você pode configurar esse comportamento para sua empresa seguindo o procedimento abaixo.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for your enterprise using the procedure below.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

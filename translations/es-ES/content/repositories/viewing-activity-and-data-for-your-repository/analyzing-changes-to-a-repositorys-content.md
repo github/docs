@@ -19,7 +19,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
-shortTitle: Analyze changes
+shortTitle: Analizar cambios
 ---
 
 ## Ver confirmaciones en un repositorio
@@ -40,7 +40,7 @@ El gráfico inferior muestra la cantidad promedio de confirmaciones por día de 
 {% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Commits (Confirmaciones)**. ![Pestaña de confirmaciones](/assets/images/help/graphs/commits_tab.png)
 
-## Visualizing additions and deletion to content in a repository
+## Ver incorporaciones y eliminaciones del contenido de un repositorio
 
 El gráfico de frecuencia de código muestra las incorporaciones y eliminaciones de contenido de cada semana en el historial de un repositorio.
 

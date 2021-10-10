@@ -21,6 +21,12 @@ shortTitle: Repository visibility
 
 Organisationsinhaber können die Möglichkeit, die Sichtbarkeit des Repositorys zu ändern, auf Organisationsinhaber einschränken. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, your repositories owned by your user account can only be private, and repositories in your enterprise's organizations can only be private or internal.
+
+{% endif %}
+
 We recommend reviewing the following caveats before you change the visibility of a repository.
 
 {% ifversion ghes or ghae %}

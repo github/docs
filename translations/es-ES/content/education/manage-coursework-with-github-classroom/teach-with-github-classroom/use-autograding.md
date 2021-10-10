@@ -71,15 +71,15 @@ Puedes agregar, editar o borrar las pruebas de calificación automática para un
     - Para borrar una prueba, a la derecha del nombre de ésta, da clic en {% octicon "trash" aria-label="The trash icon" %}. ![Icono de cesta de basura para borrar una prueba de calificación automática](/assets/images/help/classroom/autograding-click-trash.png)
 1. En la parte inferior de la página, da clic en **Actualizar tarea**. ![Botón de "Actualizar tarea" en la parte inferior de la página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## Ver y descargar los resultados de las pruebas de autoevaluación
 
-### Download autograding results
+### Descargar los resultados de autoevaluación
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+También puedes descargar un CSV de las puntuaciones de autoevaluación de tus alumnos a través del botón "Descargar". Esto generará un CSV de descarga que contiene un enlace al repositorio del alumno, a su manejador de {% data variables.product.prodname_dotcom %}, identificador de lista, marca de tiempo de emisión y puntuación de autoevaluación.
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![Botón de "Descargar" seleccionado mostrando "Descargar las calificaciones resaltadas" y una opción adicional para "Descargar repositorios"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### Ver bitácoras individuales
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}

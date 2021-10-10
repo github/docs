@@ -73,7 +73,7 @@ topics:
 |       | The Unlicense | `unlicense`                                   |
 |       | zLib License | `zlib`                                         |
 
-ファミリー ライセンス別で検索すると、結果にはそのファミリーのライセンスがすべて含まれます。 たとえば、`license:gpl` というクエリを実行した結果には、GNU General Public License v2.0 と GNU General Public License v3.0 でライセンスされているリポジトリが含まれます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-by-license)を参照してください。
+ファミリー ライセンス別で検索すると、結果にはそのファミリーのライセンスがすべて含まれます。 たとえば、`license:gpl` というクエリを実行した結果には、GNU General Public License v2.0 と GNU General Public License v3.0 でライセンスされているリポジトリが含まれます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories/#search-by-license)を参照してください。
 
 ## ライセンスを見つけてもらう
 

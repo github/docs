@@ -12,6 +12,8 @@ topics:
   - Teams
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) を Organization 内で使うと、Organization のメンバーの {% data variables.product.product_name %}へのアクセスの追加、管理、削除のための SCIM を実装できます。 たとえば、管理者は Organization のメンバーのデプロビジョニングに SCIM を使い、自動的にメンバーを Organization から削除できます。
 
 SCIM を実装せずに SAML SSO を使った場合、自動のプロビジョニング解除は行われません。 Organization のメンバーのアクセスが ldP から削除された後、セッションの有効期限が切れても、そのメンバーは Organization から自動的には削除されません。 認証済みのトークンにより、セッションが期限切れになった後も Organization へのアクセスが許可されます。 アクセスを削除するには、Organization の管理者は手動で認証済みのトークンを Organization から削除するか、その削除を SCIM で自動化します。

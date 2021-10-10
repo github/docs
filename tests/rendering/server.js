@@ -636,6 +636,7 @@ describe('server', () => {
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
     // we can reenable it down the road if needed
+    // Docs Engineering issue: 968
     test.skip('redirects versioned category page', async () => {
       const res = await get('/en/github/receiving-notifications-about-activity-on-github')
       expect(res.statusCode).toBe(301)
@@ -899,6 +900,7 @@ describe('search', () => {
   })
 
   // SKIPPING: Can we have duplicate IDs? search-input-container and search-results-container are duplicated for mobile and desktop
+  // Docs Engineering issue: 969
   it.skip('articles pages do not render any elements with duplicate IDs', async () => {
     const $ = await getDOM('/en/articles/accessing-an-organization')
     const ids = $('body')

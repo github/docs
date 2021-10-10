@@ -1,6 +1,6 @@
 ---
 title: Ver un resumen de la actividad de un repositorio
-intro: 'You can view an overview of a repository''s pull request, issue, and commit activity.'
+intro: 'Puedes ver un resumen de la solicitud de cambios, propuesta y actividad de confirmación de un repositorio.'
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
@@ -15,13 +15,13 @@ topics:
 shortTitle: Visualizar la actividad de los repositorios
 ---
 
-## About Pulse
+## Acerca de Pulse
 
-Puedes ver un resumen de la actividad de un repositorio a través de Pulse. Pulse includes a list of open and merged pull requests, open and closed issues, and a graph showing the commit activity for the top 15 users who committed to the default branch of the project in the selected [time period](/articles/viewing-a-summary-of-repository-activity#filtering-by-time).
+Puedes ver un resumen de la actividad de un repositorio a través de Pulse. Pulse incluye una lista de solicitudes de cambios abiertas y fusionadas, propuestas abiertas y cerradas y una gráfica que muestra la actividad de la confirmación para los principales 15 usuarios que hicieron confirmaciones en la rama predeterminada del proyecto en el [periodo de tiempo](/articles/viewing-a-summary-of-repository-activity#filtering-by-time) seleccionado.
 
 Los coautores de confirmación están incluidos en el resumen de actividad de confirmación si sus confirmaciones fueron fusionadas dentro de la rama por defecto del repositorio y están en los 15 usuarios principales que contribuyeron en la mayoría de las confirmaciones.
 
-## Accessing Pulse
+## Acceder a Pulse
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

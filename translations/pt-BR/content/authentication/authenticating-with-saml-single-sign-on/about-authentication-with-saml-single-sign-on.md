@@ -30,6 +30,9 @@ Se você não puder acessar {% data variables.product.product_name %}, entre em 
 
 {% data reusables.saml.dotcom-saml-explanation %} Os proprietários da organização podem convidar sua conta de usuário em {% data variables.product.prodname_dotcom %} para participar da organização que usa o SSO SAML, o que permite que você contribua com a organização e mantenha sua identidade e contribuições existentes em {% data variables.product.prodname_dotcom %}.
 
+Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, você usará uma nova conta que lhe será fornecida. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+
 Ao acessar os recursos dentro de uma organização que usa o SSO SAML, o {% data variables.product.prodname_dotcom %} irá redirecionar você para o SAML IdP da organização para que você efetue a autenticação. Depois de efetuar a autenticação com sucesso com sua conta no IdP, este irá redirecionar você de volta para {% data variables.product.prodname_dotcom %}, onde você poderá acessar os recursos da organização.
 
 {% data reusables.saml.outside-collaborators-exemption %}

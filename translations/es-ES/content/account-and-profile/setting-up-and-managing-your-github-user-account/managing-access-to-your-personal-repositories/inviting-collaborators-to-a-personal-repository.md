@@ -24,6 +24,8 @@ Los repositorios que son propiedad de una organización pueden conceder acceso m
 
 {% ifversion fpt %}
 
+Si eres un miembro de una {% data variables.product.prodname_emu_enterprise %}, solo puedes invitar a otros miembros de esta a que colaboren contigo. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
 {% note %}
 
 **Nota:** {% data variables.product.company_short %} limita la cantidad de personas que se pueden invitar a un repositorio dentro de un período de 24 horas. Si excedes este límite, espera 24 horas o crea una organización para colaborar con más personas.
@@ -44,7 +46,7 @@ Los repositorios que son propiedad de una organización pueden conceder acceso m
 5. En la barra lateral izquierda, haz clic en **Collaborators** (Colaboradores). ![Barra lateral de configuraciones del repositorio con Colaboradores resaltados](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
 6. En "Colaboradores", comienza a escribir el nombre de usuario del colaborador.
 7. Selecciona el nombre de usuario del colaborador del menú desplegable. ![Menú desplegable de la lista de colaboradores](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. Haz clic en **Add collaborator** (Agregar colaborador). !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
+8. Haz clic en **Add collaborator** (Agregar colaborador). ![Botón de "Agregar colaborador"](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
 {% ifversion fpt %}
 9. El usuario recibirá un correo electrónico invitándolo al repositorio. Una vez que acepte la invitación, tendrá acceso de colaborador a tu repositorio.

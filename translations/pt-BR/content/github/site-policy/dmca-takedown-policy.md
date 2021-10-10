@@ -15,7 +15,7 @@ topics:
 
 Bem-vindo ao Guia do GitHub para a Lei dos Direitos Autorais do Milênio Digital, comumente conhecida como "DMCA" - Digital Millenium Copyright Act Policy. Esta página não tem a finalidade de ser uma cartilha abrangente sobre o regimento. No entanto, se você recebeu um aviso de retirada DMCA direcionado ao conteúdo que você postou no GitHub, ou se você é um detentor de direitos que pretende enviar tal aviso, esta página vai ajudá-lo a desmistificar a lei, bem como nossas políticas relacionadas.
 
-(If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
+(Se você quiser apenas enviar uma notificação, você poderá pular para "[G. Enviando avisos](#g-submitting-notices).")
 
 Como em todas as questões jurídicas, é sempre melhor consultar um profissional sobre suas dúvidas ou situação específica. Incentivamos a fazê-lo antes de tomar quaisquer medidas que possam impactar seus direitos. Este guia não é um aconselhamento jurídico e não deve ser tomado como tal.
 
@@ -85,7 +85,7 @@ Quando os nossos especialistas determinarem que uma reivindicação é completa,
 
 Tenha em mente que o nosso processo de revisão para contornar a tecnologia não se aplica ao conteúdo que, de outra forma, violaria as nossas restrições de uso aceitável da política de compartilhamento de chaves de licenciamento de produtos não autorizadas, software para gerar chaves de licenciamento de produtos não autorizadas ou software para ignorar verificações de chaves de licenciamento de produtos. Embora estes tipos de alegações também possam violar as disposições da DMCA sobre as tecnologias de circunvenção, trata-se de questões tipicamente simples e não justificam uma revisão técnica e jurídica adicional. No entanto, quando a reivindicação não for simples, por exemplo, no caso de infracções, será aplicado o processo de revisão de pedidos de indemnização por tecnologia.
 
-When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer the repository owner a referral to receive independent legal consultation through [GitHub’s Developer Defense Fund](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) at no cost to them.
+Quando o GitHub processa um banco de dados do DMCA no nosso processo de análise de tecnologia de circunvenção, nós ofereceremos ao proprietário do repositório uma indicação para receber uma consultoria jurídica independente por meio do do [Fundo de Defesa de Desenvolvedor do GitHub](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) sem nenhum custo.
 
 ## D. E se eu, inadvertidamente, deixar passar o período para fazer as alterações?
 

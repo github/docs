@@ -52,4 +52,4 @@ Falls in Deinen lokalen Git-Konfiguration eine generische E-Mail-Adresse oder ei
 
 ## Weiterführende Informationen
 
-* „[Commits suchen](/articles/searching-commits)“
+* „[Commits suchen](/search-github/searching-on-github/searching-commits)“

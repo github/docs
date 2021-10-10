@@ -30,7 +30,7 @@ Algunas apps en {% data variables.product.prodname_marketplace %} tienen la insi
 
 Para obtener más información sobre los requisitos para listar una app en {% data variables.product.prodname_marketplace %}, consulta los "[Requisitos para listar una app en {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-Para obtener información sobre cómo encontrar apps que puedas utilizar, consulta la sección "[Buscar en {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)".
+Para obtener información sobre cómo encontrar apps que puedas utilizar, consulta la sección "[Buscar en {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)".
 
 ## Para las GitHub Actions
 

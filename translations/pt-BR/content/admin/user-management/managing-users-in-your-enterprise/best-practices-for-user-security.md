@@ -25,7 +25,7 @@ Para obter mais informações sobre como configurar a autenticação de dois fat
 
 ## Exigir um gerenciador de senhas
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/)--on any computer they use to connect to your enterprise. Essa medida garante senhas mais fortes e muito menos passíveis de violação ou roubo.
+É altamente recomendável exigir que seus usuários instalem e usem um gerenciador de senhas --tais como o [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/) -- em qualquer computador que usarem para conectar-se à sua empresa. Essa medida garante senhas mais fortes e muito menos passíveis de violação ou roubo.
 
 ## Restringir o acesso a equipes e repositórios
 

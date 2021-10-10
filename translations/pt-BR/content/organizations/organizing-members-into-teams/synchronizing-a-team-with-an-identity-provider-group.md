@@ -16,6 +16,8 @@ shortTitle: Sincronizar com um IdP
 
 {% data reusables.gated-features.okta-team-sync %}
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## Sobre a sincronização de equipes
 
 {% data reusables.identity-and-permissions.about-team-sync %}
@@ -25,6 +27,8 @@ shortTitle: Sincronizar com um IdP
 {% ifversion fpt %}A sincronização de equipes não é compatível com grupos de IdP com mais de 5000 integrantes.{% endif %}
 
 Uma vez que uma equipe do {% data variables.product.prodname_dotcom %} está conectada a um grupo de IdP, o administrador do IdP deve efetuar as alterações da associação da equipe por meio do provedor de identidade. Você não pode gerenciar a associação da equipe em {% data variables.product.product_name %}{% ifversion fpt %} ou usando a API{% endif %}.
+
+{% ifversion fpt %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion fpt %}
 Todas as alterações de membros da equipe feitas através do seu IdP aparecerão no log de auditoria do {% data variables.product.product_name %} como alterações feitas pelo bot de sincronização de equipe. Seu IdP enviará dados de membros da equipe para {% data variables.product.prodname_dotcom %} uma vez a cada hora. A conexão de uma equipe a um grupo de IdP pode remover alguns integrantes da equipe. Para obter mais informações, consulte "[Requisitos para integrantes de equipes sincronizadas](#requirements-for-members-of-synchronized-teams)".
@@ -53,8 +57,6 @@ As equipes ou integrantes de grupo que não atenderem a esses critérios serão 
 Um integrante removido da equipe pode ser adicionado de volta a uma equipe automaticamente após efetuar a autenticação na conta da organização ou na conta corporativa usando SSO e será movidos para o grupo de IdP conectado.
 
 Para evitar a remoção involuntária dos integrantes da equipe, recomendamos a aplicar SSO SAML na conta da organização ou da empresa. criar novas equipes para sincronizar dados da associação e verificar a associação de grupo de IdP antes de sincronizar as equipes existentes. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-
-Se sua organização pertencer a uma conta corporativa, habilitar a sincronização de equipes para a conta corporativa irá substituir as configurações de sincronização de equipe no nível da organização. Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
 {% endif %}
 

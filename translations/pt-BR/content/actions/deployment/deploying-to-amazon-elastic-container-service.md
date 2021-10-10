@@ -18,11 +18,10 @@ shortTitle: Implantar no Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para construir um aplicativo containerizado, fazer push no [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) e fazer a implantação no [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
+Este guia explica como usar {% data variables.product.prodname_actions %} para construir um aplicativo containerizado, fazer push no [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) e fazer a implantação no [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) quando uma versão é criada.
 
 Em cada nova versão no seu repositório de {% data variables.product.company_short %}, os fluxos de trabalho de {% data variables.product.prodname_actions %} criam e fazem push de uma nova imagem de contêiner para o Amazon ECR e, em seguida, implementa uma nova definição de tarefa para o Amazon ECS.
 
@@ -66,13 +65,17 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
    Veja a documentação para cada ação usada abaixo para as políticas recomendadas de IAM para o usuário de IAM, bem como os métodos para lidar com as credenciais de acesso.
 
+5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
+
 ## Creating the workflow
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Após você ter atendido aos pré-requisitos, você poderá proceder com a criação do fluxo de trabalho.
 
 O fluxo de trabalho a seguir demonstra como construir uma imagem de contêiner e enviá-lo para o Amazon ECR. Em seguida, ele atualiza a definição da tarefa com o novo ID de imagem e implanta a definição da tarefa no Amazon ECS.
 
 Certifique-se de fornecer seus próprios valores para todas as variáveis na chave `env` do fluxo de trabalho.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -93,17 +96,11 @@ env:
   CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
-    permissions:
-      packages: write
-      contents: read{% endif %}
+    runs-on: ubuntu-latest
+    environment: production
 
     {% raw %}steps:
       - name: Checkout
@@ -150,8 +147,9 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-
 ## Recursos adicionais
+
+Para o fluxo de trabalho inicial original, consulte [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
 
 Para mais informações sobre os serviços utilizados nestes exemplos, veja a seguinte documentação:
 

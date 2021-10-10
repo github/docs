@@ -24,6 +24,8 @@ shortTitle: 邀请协作者
 
 {% ifversion fpt %}
 
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
 {% note %}
 
 **注：** {% data variables.product.company_short %} 会限制在 24 小时内可受邀参加仓库的人数。 如果您超过此限制，请等待 24 小时后再邀请，或者创建一个组织以与更多的人协作。

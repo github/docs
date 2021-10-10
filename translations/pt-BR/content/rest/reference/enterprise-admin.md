@@ -81,7 +81,6 @@ A versão atual da sua empresa é retornada no cabeçalho de resposta de cada AP
 
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}

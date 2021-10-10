@@ -1,6 +1,7 @@
 ---
 title: Gists erstellen
 intro: 'You can create two kinds of gists: {% ifversion ghae %}internal{% else %}public{% endif %} and secret. Create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% ifversion ghae %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -42,7 +43,7 @@ Du kannst Gists an Deinem Profil anheften, damit andere Personen sie leichter se
 
 {% endif %}
 
-You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. Daraufhin wird eine Seite mit allen Gists angezeigt, die nach dem Zeitpunkt der Erstellung oder Aktualisierung sortiert sind. Mit der {% data variables.gists.gist_search_url %} können Sie Gists auch nach Sprache suchen. Die Gist-Suche nutzt dieselbe Suchsyntax wie [die Codesuche](/articles/searching-code).
+You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. Daraufhin wird eine Seite mit allen Gists angezeigt, die nach dem Zeitpunkt der Erstellung oder Aktualisierung sortiert sind. Mit der {% data variables.gists.gist_search_url %} können Sie Gists auch nach Sprache suchen. Die Gist-Suche nutzt dieselbe Suchsyntax wie [die Codesuche](/search-github/searching-on-github/searching-code).
 
 Da es sich bei Gists um Git-Repositorys handelt, kannst Du ihren vollständigen Commit-Verlauf anzeigen, einschließlich der Diffs. Du kannst Gists auch forken oder klonen. Weitere Informationen findest Du unter „[Gists forken und klonen](/articles/forking-and-cloning-gists)“.
 

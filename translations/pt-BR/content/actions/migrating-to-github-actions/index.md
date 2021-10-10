@@ -1,7 +1,7 @@
 ---
 title: Migrar para o GitHub Actions
 shortTitle: Migrar para o GitHub Actions
-intro: 'Learn how to migrate your existing CI/CD workflows to {% data variables.product.prodname_actions %}.'
+intro: 'Aprenda como fazer a migração dos seus fluxos de trabalho de CI/CD existentes para {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

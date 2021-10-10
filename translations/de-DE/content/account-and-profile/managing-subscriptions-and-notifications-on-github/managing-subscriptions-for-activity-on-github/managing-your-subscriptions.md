@@ -45,7 +45,7 @@ Wenn Du Benachrichtigungen in Deinem Posteingang abmeldest, werden diese automat
 
 {% data reusables.notifications.access_notifications %}
 1. Wähle im Posteingang für Benachrichtigungen diejenige Benachrichtigungen aus, die Du abmelden möchtest.
-2. Use the **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} drop-down to click **Unsubscribe.** ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Click **Unsubscribe.** ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## Abmeldung von Benachrichtigungen auf der Abonnementseite
 
@@ -61,13 +61,12 @@ Wenn Du ein Repository nicht mehr beobachtest, meldest Du Dich von zukünftigen 
 {% data reusables.notifications.access_notifications %}
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Watched repositories** (beobachtete Repositorys). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Nimm auf der Seite der beobachteten Repositorys eine Bewertung dieser Repositorys vor und wähle dann aus:
-  {% ifversion ghae or ghes < 3.1 %}
-    - Ein Repository nicht mehr beobachten
-    - Only watch releases for a repository
-    - Ignore all notifications for a repository
-  {% endif %}
   {% ifversion fpt or ghes > 3.0 or ghae-next %}
     - Ein Repository nicht mehr beobachten
     - Ignore all notifications for a repository
     - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% else %}
+    - Ein Repository nicht mehr beobachten
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
   {% endif %}

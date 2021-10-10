@@ -28,6 +28,12 @@ Recomendamos encarecidamente el uso de una contraseña única basada en el tiemp
 
 {% endwarning %}
 
+{% ifversion fpt %}
+
+Si eres miembro de una {% data variables.product.prodname_emu_enterprise %}, no podrás configurar la 2FA para tu cuenta de {% data variables.product.prodname_managed_user %}. La 2FA debe configurarse mediante tu proveedor de identidad.
+
+{% endif %}
+
 ## Configurar la autenticación de dos factores mediante una app móvil TOTP
 
 Una aplicación de contraseña única basada en el tiempo (TOTP) genera automáticamente un código de autenticación que cambia después de un cierto período de tiempo. Recomendamos usar apps TOTP basadas en la nube como:

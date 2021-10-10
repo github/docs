@@ -29,7 +29,7 @@ Repository-Administratoren können beliebige Themen zu einem Repository hinzufü
 
 {% ifversion ghae %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
-Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sind. Weitere Informationen finden Sie unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-topic)“. Sie können auch nach einer Liste von Themen auf {% data variables.product.product_name %} suchen. Weitere Informationen findest Du unter „[Themen suchen](/articles/searching-topics).“
+Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sind. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/search-github/searching-on-github/searching-for-repositories#search-by-topic).“ Sie können auch nach einer Liste von Themen auf {% data variables.product.product_name %} suchen. Weitere Informationen finden Sie unter „[Themen suchen](/search-github/searching-on-github/searching-topics)“.
 
 ## Themen zum Repository hinzufügen
 

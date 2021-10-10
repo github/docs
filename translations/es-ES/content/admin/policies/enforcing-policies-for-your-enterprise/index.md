@@ -1,6 +1,6 @@
 ---
 title: Requerir políticas para tu empresa
-intro: You can configure policies for organizations in your enterprise.
+intro: Puedes configurar las políticas para las organizaciones en tu empresa.
 redirect_from:
   - /enterprise/admin/policies/enforcing-policies-for-your-enterprise
 versions:
@@ -11,6 +11,7 @@ topics:
 children:
   - /enforcing-repository-management-policies-in-your-enterprise
   - /restricting-email-notifications-for-your-enterprise
+  - /enforcing-github-actions-policies-for-your-enterprise
   - /enforcing-policies-for-advanced-security-in-your-enterprise
 shortTitle: Aplicar políticas
 ---

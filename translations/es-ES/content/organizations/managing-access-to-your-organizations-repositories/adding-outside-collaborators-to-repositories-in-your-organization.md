@@ -14,7 +14,7 @@ topics:
 shortTitle: Agregar un colaborador externo
 ---
 
-## About outside collaborators
+## Acerca de los colaboradores externos
 
 {% data reusables.organizations.owners-and-admins-can %} agregar colaboradores externos a un repositorio, a menos que un propietario de la organización haya restringido la capacidad para invitar colaboradores. Para obtener más información, consulta "[Establecer permisos para agregar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
 
@@ -27,10 +27,10 @@ Si tu organización [requiere miembros y colaboradores externos para usar la aut
 {% data reusables.organizations.outside_collaborator_forks %}
 
 {% ifversion fpt %}
-To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+Para apoyar aún más las capacidades de colaboración de tu equipo, puedes mejorar a {% data variables.product.prodname_ghe_cloud %}, el cual incluye características como las ramas protegidas y los propietarios de código en los repositorios privados. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-## Adding outside collaborators to a repository
+## Agregar colaboradores externos a un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

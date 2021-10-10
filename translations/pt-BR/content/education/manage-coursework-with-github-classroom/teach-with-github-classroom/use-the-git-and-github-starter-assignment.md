@@ -8,12 +8,6 @@ redirect_from:
 shortTitle: Atribuição inicial
 ---
 
-{% note %}
-
-**Observação:** A atividade inicial do Git & {% data variables.product.company_short %} está em fase beta e sujeita a alterações.
-
-{% endnote %}
-
 A atividade inicial do Git & {% data variables.product.company_short %} é um curso pré-fabricado que resume os conceitos básicos do Git e {% data variables.product.company_short %} e vincula os alunos a recursos para aprender mais sobre tópicos específicos.
 
 ## Pré-requisitos

@@ -20,7 +20,7 @@ GitHub を利用する際、数多くの追加製品や機能 (「追加製品�
 
 - **GitHub Enterprise Server** のユーザは、以下の「追加製品および機能」にアクセスできます。Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、Learning Lab、Octoshift、Packages、Pages and SQL Server Images。
 
-- **GitHub AE** のユーザは、以下の「追加製品および機能」にアクセスできます。Actions、Advanced Security、Advisory Database、{% ifversion ghae-next %}Connect、{% endif %}Dependabot Preview、Octoshift、Packages and Pages。
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database,{% ifversion ghae-next %}Connect, {% endif %}Dependabot Preview, Octoshift, Packages and Pages.
 
 ## アクション
 GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 Actionsは、使用量に基づいて課金されます。 [Actionsのドキュメント](/actions)には、計算量やストレージ容量 (アカウントのプランによって異なる)、およびActionsの使用分数の監視方法や利用限度の設定方法などの詳細情報が記載されています。
@@ -38,7 +38,7 @@ Actions and any elements of the Actions product or service may not be used in vi
 ## Advanced Security
 Advanced Security ライセンスを取得しているお客様に対して、GitHub は追加セキュリティ機能を提供しています。 追加機能にはコードスキャン、シークレットスキャン、依存関係レビューが含まれます。 詳細は [Advanced Security のドキュメント](/github/getting-started-with-github/about-github-advanced-security)をご覧ください。
 
-Advanced Security のライセンスは、「ユニークコミッター」ごとに付与されます。 「ユニークコミッター」とは、GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server、またはGitHub AEのライセンスを付与されており、直近90日間にGitHub Advanced Securityの何らかの機能を有効化してコードのコミットを行ったユーザのことです。 お客様の各「ユニークコミッター」ごとに、GitHub Advanced Securityの「ユーザライセンス」を取得する必要があります。 GitHub Advanced Securityは、お客様によりまたはお客様のために開発されたコードベースにおいてのみ使用できます。 GitHub Enterprise Cloud ユーザの場合、一部のAdvanced Securityセキュリティ機能にはGitHub Actionsを使用する必要もあります。
+Advanced Security のライセンスは、「ユニークコミッター」ごとに付与されます。 A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. お客様の各「ユニークコミッター」ごとに、GitHub Advanced Securityの「ユーザライセンス」を取得する必要があります。 GitHub Advanced Securityは、お客様によりまたはお客様のために開発されたコードベースにおいてのみ使用できます。 GitHub Enterprise Cloud ユーザの場合、一部のAdvanced Securityセキュリティ機能にはGitHub Actionsを使用する必要もあります。
 
 ## Advisory Database
 GitHub Advisory Databaseを使用すると、GitHubのオープンソースプロジェクトに影響を与える脆弱性を閲覧および検索できます。

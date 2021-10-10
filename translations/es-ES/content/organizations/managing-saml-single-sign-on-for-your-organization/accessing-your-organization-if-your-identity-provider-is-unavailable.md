@@ -13,7 +13,7 @@ topics:
 shortTitle: Proveedor de identidad no disponible
 ---
 
-Los administradores de la organización pueden usar [uno de los códigos de reuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)para saltear un inicio de sesión único. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Los administradores de la organización pueden usar [uno de los códigos de reuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)para saltear un inicio de sesión único. Puedes haber guardado esto en un administrador de contraseñas tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).
 
 {% note %}
 

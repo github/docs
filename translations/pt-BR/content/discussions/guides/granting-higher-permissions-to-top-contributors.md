@@ -11,13 +11,13 @@ shortTitle: Conceder permissões superiores
 
 Os contribuidores mais úteis dos últimos 30 dias são destacados no painel de {% data variables.product.prodname_discussions %} baseado em quantos comentários foram marcados como respostas de outros integrantes da comunidade. Contribuidores úteis podem ajudar a conduzir uma comunidade saudável e moderada e guiar o espaço da comunidade, além de mantenedores.
 
-## Step 1: Audit your {% data variables.product.prodname_discussions %} top contributors
+## Etapa 1: Audite os seus melhores contribuidores de {% data variables.product.prodname_discussions %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 1. Compare a lista de contribuidores com suas permissões de acesso para ver quem se qualifica para moderar a discussão.
 
-## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
+## Etapa 2: Reveja os níveis de permissão para {% data variables.product.prodname_discussions %}
 
 Pessoas com permissões de triagem para um repositório podem ajudar a moderar as discussões de um projeto marcando comentários como respostas, bloqueando discussões que já não são úteis ou prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento. Para obter mais informações, consulte "[Moderação de discussões](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
