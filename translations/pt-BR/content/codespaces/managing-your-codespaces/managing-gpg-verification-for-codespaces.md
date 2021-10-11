@@ -19,7 +19,7 @@ shortTitle: Verificação de GPG
 
 Depois que você habilitar a verificação do GPG, {% data variables.product.company_short %} assinará automaticamente os commits que você fizer em {% data variables.product.prodname_codespaces %}, e os commits terão um status de verificado em {% data variables.product.product_name %}. Por padrão, a verificação do GPG está desabilitada para os codespaces que você criar. Você pode optar por permitir a verificação do GPG para todos os repositórios ou repositórios específicos. Habilite apenas a verificação do GPG para repositórios nos quais você confia. Para obter mais informações sobre commits assinado por {% data variables.product.product_name %}, consulte "[Sobre a verificação de assinatura do commit](/github/authenticating-to-github/about-commit-signature-verification)".
 
-Once you enable GPG verification, it will immediately take effect for all your codespaces.
+Assim que você habilitar a verificação GPG, ela entrará em vigor para todos os seus codespaces.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
@@ -29,6 +29,6 @@ Once you enable GPG verification, it will immediately take effect for all your c
 
 {% note %}
 
-**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_codespaces %}, you also must append `-s` to each commit in order for it to be signed. To do this in {% data variables.product.prodname_vscode %}, ensure the "Git: Enable Commit Signing" option is enabled from the Settings.
+**Observação:** Depois de habilitar a verificação GPG para {% data variables.product.prodname_codespaces %}, você também deverá adicionar `-S` a cada commit para que seja assinado. Para fazer isso em {% data variables.product.prodname_vscode %}, verifique se a opção "Git: Habilitar a assinatura do commit" está habilitada nas Configurações.
 
 {% endnote %}

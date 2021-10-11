@@ -1,6 +1,6 @@
 ---
 title: Solucionar los errores de clonado
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+intro: 'Si estás teniendo problemas para clonar un repositorio, verifica estos errores comunes.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401

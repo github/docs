@@ -30,9 +30,10 @@ toc:
   guides: 指南
   whats_new: 新增内容
 pages:
-  article_version: '文章版本：'
+  article_version: 'Article version'
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
+  all_enterprise_releases: All Enterprise releases
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -155,13 +156,17 @@ product_sublanding:
   learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
   guides: '{{ productMap[currentProduct].name }} 指南'
   more_guides: 更多指南
-  no_result: 抱歉，没有与过滤条件匹配的指南。
   load_more: 加载更多指南
   all_guides: '所有 {{ productMap[currentProduct].name }} 指南'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: 类型
     topic: 主题
     all: 所有
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: 概览
     quick_start: 快速入门

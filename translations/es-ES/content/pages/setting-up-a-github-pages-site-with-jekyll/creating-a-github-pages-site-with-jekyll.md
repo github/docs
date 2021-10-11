@@ -86,7 +86,7 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
 
    La versión correcta de Jekyll se instalará como una dependencia de la gema `github-pages`.
 1. Guarda y cierra el Gemfile.
-1. From the command line, run `bundle install`.
+1. Desde la línea de comandos, ejecuta `bundle install`.
 1. Opcionalmente, haz cualquier edición necesaria en el archivo `_config.yml`. Esto se requiere para las rutas relativas cuando el repositorio se hospeda en un subdirectorio.  Para obtener más información, consulta la sección "[Dividir una subcarpeta en un repositorio nuevo](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)".
    ```yml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com

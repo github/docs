@@ -21,6 +21,12 @@ shortTitle: Visibilidad del repositorio
 
 Los propietarios de las organizaciones pueden restringir la capacidad de cambiar la visibilidad de un repositorio únicamente para otros propietarios de organizaciones. Para obtener más información, consulta la sección "[Restringir los cambios a la visibilidad del repositorio en tu organización](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)".
 
+{% ifversion fpt %}
+
+Si eres un miembro de una {% data variables.product.prodname_emu_enterprise %}, los repositorios que pertenezcan a tu cuenta de usuario solo podrán ser privados, y aquellos en las organizaciones de tu empresa solo podrán ser privados o internos.
+
+{% endif %}
+
 Te recomendamos revisar las siguientes consideraciones antes de que cambies la visibilidad de un repositorio.
 
 {% ifversion ghes or ghae %}
@@ -90,4 +96,4 @@ Para obtener más información sobre cómo mejorar la seguridad del repositorio,
 
 
 ## Leer más
-- "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
+- "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

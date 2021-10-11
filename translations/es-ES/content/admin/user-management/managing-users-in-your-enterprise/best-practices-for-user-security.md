@@ -25,7 +25,7 @@ Para obtener más información sobre cómo configurar la autenticación de dos f
 
 ## Solicitar un administrador de contraseñas
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/)--on any computer they use to connect to your enterprise. Esto garantiza que las contraseñas sean más seguras y que sea menos probable que se vean comprometidas o sean robadas.
+Te recomendamos ampliamente que requieras que tus usuarios instalen y utilicen un administrador de contraseñas--tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/)-- en cualquier computadora que utilicen para conectarse a tu empresa. Esto garantiza que las contraseñas sean más seguras y que sea menos probable que se vean comprometidas o sean robadas.
 
 ## Restringir el acceso a equipos y repositorios
 

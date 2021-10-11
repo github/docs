@@ -50,7 +50,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/articles/searching-on-github/)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax/)."
+See "[Searching on GitHub](/articles/searching-on-github/)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
 
 ### Limitations on query length
 

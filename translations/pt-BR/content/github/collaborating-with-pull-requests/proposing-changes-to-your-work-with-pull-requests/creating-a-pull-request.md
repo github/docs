@@ -1,6 +1,7 @@
 ---
 title: Criar uma pull request
 intro: 'Crie um pull request para fazer sugestões e colaborar nas alterações de um repositório. Essas alterações são propostas em um *branch*, que garante que o branch-padrão só contém trabalho concluído e aprovado.'
+permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
@@ -13,7 +14,7 @@ topics:
   - Pull requests
 ---
 
-Qualquer pessoa com permissões de leitura em um repositório pode criar uma pull request, mas você deve ter permissões de gravação para criar um branch. Se você quiser criar um branch para seu pull request e não tiver permissões de gravação no repositório, é possível bifurcar o repositório primeiro. Para obter mais informações, consulte "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)" e "[Sobre bifurcações](/articles/about-forks)".
+Caso deseje criar um novo branch para seu pull request e não tenha permissões de gravação no repositório, você pode bifurcar o repositório primeiro. Para obter mais informações, consulte "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)" e "[Sobre bifurcações](/articles/about-forks)".
 
 É possível especificar em qual branch você deseja fazer merge de suas alterações quando cria sua pull request. As pull requests só podem ser abertas entre dois branches que são diferentes.
 
@@ -150,11 +151,11 @@ gh pr create --web
 
 {% codespaces %}
 
-1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+1. Depois de realizar alterações na sua cópia local do repositório, clique no ícone **Criar Pull Request**. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
 1. Verifique se o branch local e o repositório do qual você está fazendo merge, o branch remoto e o repositório no qual você está fazendo merge estão corretos. Em seguida, dê ao pull request um título e uma descrição. ![Barra lateral de controle de origem com botão de staging destacado](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Clique em **Criar**.
 
-For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+Para obter mais informações sobre a criação de pull requests em {% data variables.product.prodname_codespaces %}, consulte "[Usando codespaces para pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)"
 
 {% endcodespaces %}
 

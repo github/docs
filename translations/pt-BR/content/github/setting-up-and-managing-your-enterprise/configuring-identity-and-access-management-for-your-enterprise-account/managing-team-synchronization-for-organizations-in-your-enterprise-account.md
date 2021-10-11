@@ -12,6 +12,8 @@ redirect_from:
 shortTitle: Gerenciar sincronização de equipe
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## Sobre a sincronização de equipes para contas corporativas
 
 Se você usar o Azure AD como seu IdP, você pode habilitar a sincronização de equipes para sua conta corporativa para permitir que os proprietários da organização e mantenedores de equipe sincronizem as equipes nas organizações pertencentes às contas corporativas com os grupos de IdP.
@@ -30,7 +32,7 @@ Você também pode configurar e gerenciar a sincronização da equipe para uma o
 
 Você ou o administrador do Azure AD deve ser um administrador global ou um administrador com função privilegiada no Azure AD.
 
-You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Você deve aplicar o logon único SAML para organizações na sua conta corporativa com o IdP compatível. Para obter mais informações, consulte "[Aplicar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 Você deve efetuar a autenticação na sua conta corporativa usando o SAML SSO e o IdP compatível. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
 

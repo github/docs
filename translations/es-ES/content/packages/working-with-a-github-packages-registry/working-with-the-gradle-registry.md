@@ -165,9 +165,9 @@ subprojects {
    $ gradle publish
   ```
 
-## Using a published package
+## Utilizar un paquete publicado
 
-To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and add the repository to your project. Para obtener más información, consulta "[Declarar dependencias](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" en la documentación de Gradle.
+Para utiliza run paquete publicado del {% data variables.product.prodname_registry %}, agrégalo como una dependencia y luego agrega el repositorio a tu proyecto. Para obtener más información, consulta "[Declarar dependencias](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" en la documentación de Gradle.
 
 {% data reusables.package_registry.authenticate-step %}
 2. Agrega las dependencias del paquete a tu archivo *build.gradle* (Gradle Groovy) o archivo *build.gradle.kts* (Kotlin DSL).
@@ -185,7 +185,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
   }
   ```
 
-3. Add the repository to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
+3. Agrega el repositorio a tu archivo de *build.gradle* (Gradel Groovy) o a tu archivo de *build.gradle.kts* (Kotlin DSL).
 
   Ejemplo utilizando Gradle Groovy:
   ```shell

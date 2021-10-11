@@ -36,6 +36,8 @@ Los miembros de la organización pueden tener roles de *propietario*{% ifversion
 
 Los *propietarios de empresa* tienen máximo poder sobre la cuenta de la empresa y pueden tomar medidas en la cuenta de la empresa. Los *gerentes de facturación* pueden administrar los parámetros de facturación de la cuenta de la empresa. Los miembros y colaboradores externos de las organizaciones que son propiedad de tu cuenta empresarial automáticamente son miembros de la cuenta empresarial, si bien no tienen acceso a la cuenta empresarial en sí o a sus parámetros. Para obtener más información, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)".
 
+Si una empresa utiliza {% data variables.product.prodname_emus %}, los miembros se aprovisionan como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} y el proveedor de identidad los administra en su totalidad. Los {% data variables.product.prodname_managed_users %} tienen acceso de solo lectura a los repositorios que no son parte de su empresa y no pueden interactuar con los usuarios que tampoco sean miembros de la empresa. Dentro de las organizaciones que pertenecen a la empresa, se puede otorgar los mismos niveles de acceso granular de los {% data variables.product.prodname_managed_users %} que estén disponibles para las organizaciones normales. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}

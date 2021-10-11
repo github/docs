@@ -17,6 +17,8 @@ topics:
 shortTitle: Gerenciar sincronização de equipe
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 {% data reusables.gated-features.okta-team-sync %}
 
 ## Sobre a sincronização de equipes
@@ -30,6 +32,8 @@ shortTitle: Gerenciar sincronização de equipe
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
 Também é possível habilitar a sincronização de equipes para organizações que pertencem a uma conta corporativa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)".
+
+{% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 

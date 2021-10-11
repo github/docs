@@ -18,13 +18,7 @@ Durante o período de pré-visualização, poderemos alterar alguns recursos com
 
 Para acessar uma pré-visualização da API, você precisará fornecer um [tipo de mídia](/rest/overview/media-types) personalizado no cabeçalho `Aceitar` para suas solicitações. A documentação dos recursos para cada pré-visualização especifica qual tipo de mídia personalizado deve ser fornecido.
 
-{% ifversion fpt %}
-## Migrações
-
-Permite que você faça o download de repositórios da conta do usuário ou da organização do GitHub para revisar, fazer backup e [fazer a migração dos dados](/rest/reference/migrations) para {% data variables.product.prodname_ghe_server %}.
-
-**Tipo de mídia personalizada:** `wyandotte-preview` **Anunciado em:** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
-{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Implementações aprimoradas
 
@@ -32,14 +26,19 @@ Exerça um maior controle sobre as [implantações](/rest/reference/repos#deploy
 
 **Tipo de mídia personalizada:** `ant-man-preview` **Anunciado em:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
+{% endif %}
+
+{% ifversion ghes < 3.3 %}
+
 ## Reações
 
 Gerencie as [reações](/rest/reference/reactions) de commits, problemas e comentários.
 
-**Tipo de mídia personalizado:** `squirrel-girl-preview` **Anunciado em:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **Atualização em:**
-[ 2016-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)</p> 
+**Custom media type:** `squirrel-girl-preview` **Announced:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **Update:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
 
+{% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Linha do tempo
 
@@ -47,26 +46,23 @@ Obter uma [lista de eventos](/rest/reference/issues#timeline) para um problema o
 
 **Tipo de mídia personalizada:** `mockingbird-preview` **Anunciado em:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
+{% endif %}
+
 {% ifversion ghes %}
-
-
 ## Ambientes pre-receive
 
 Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
-**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments) 
-
+**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-
-
+{% ifversion ghes < 3.3 %}
 ## Projetos
 
 Gerencie [projetos](/rest/reference/projects).
 
 **Custom media type:** `inertia-preview` **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Update:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
-
-
+{% endif %}
 
 ## Pesquisa de commit
 
@@ -74,15 +70,13 @@ Gerencie [projetos](/rest/reference/projects).
 
 **Tipo de mídia personalizada:** `cloak-preview` **Anunciado em:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
-
-
 ## Tópicos do repositório
 
 Ver uma lista dos [tópicos do repositório](/articles/about-topics/) em [chamadas](/rest/reference/repos) que retornam resultados do repositório.
 
 **Tipo de mídia personalizada:** `mercy-preview` **Anunciado em:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
 
-
+{% ifversion ghes < 3.3 %}
 
 ## Códigos de conduta
 
@@ -90,9 +84,9 @@ Veja todos os [códigos de conduta](/rest/reference/codes-of-conduct) ou obtenha
 
 **Tipo de mídia personalizado:** `scarlet-witch-preview`
 
+{% endif %}
+
 {% ifversion ghae or ghes %}
-
-
 
 ## Webhooks globais
 
@@ -103,15 +97,13 @@ Habilita [webhooks globais](/rest/reference/enterprise-admin#global-webhooks/) p
 {% endif %}
 
 
-
-
 ## Exigir commits assinados
 
 Agora você pode usar a API para gerenciar a configuração para [exigir commits assinados em branches protegidos](/rest/reference/repos#branches).
 
 **Tipo de mídia personalizada:** `zzzax-preview` **Anunciado em:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
 
-
+{% ifversion ghes < 3.3 %}
 
 ## Exigir múltiplas revisões de aprovação
 
@@ -119,20 +111,17 @@ Agora você pode [exigir múltiplas revisões de aprovação](/rest/reference/re
 
 **Tipo de mídia personalizada:** `luke-cage-preview` **Anunciado em:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
+{% endif %}
+
 {% ifversion ghes < 3.0 %}
-
-
 ## Verificar execuções e a API de conjuntos de verificações
 
 Permite que um aplicativo GitHub execute verificações externas no código de um repositório. Veja as [execuções de verificação](/rest/reference/checks#runs) e [Conjuntos de verificação](/rest/reference/checks#suites) das APIs para obter mais informações.
 
-**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/) 
-
+**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
 {% ifversion ghes %}
-
-
 
 ## Acesso de Git anônimo aos repositórios
 
@@ -141,12 +130,7 @@ Quando uma instância do {% data variables.product.prodname_ghe_server %} estive
 **Tipo de mídia personalizada:** `x ray-preview` **Anunciado:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
 {% endif %}
-
-
-
 {% ifversion ghes < 3.3 %}
-
-
 
 ## Detalhes do cartão de projeto
 
@@ -155,12 +139,7 @@ As respostas da API REST para [eventos de problemas](/rest/reference/issues#even
 **Tipo de mídia personalizada:** `starfox-preview` **Anunciado:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-
-
-
 {% ifversion fpt %}
-
-
 
 ## Manifestoes do aplicativo GitHub
 
@@ -170,7 +149,7 @@ Os manifestos do aplicativo GitHub permitem que pessoas criem aplicativos GitHub
 
 {% endif %}
 
-
+{% ifversion ghes < 3.3 %}
 
 ## Status da implantação
 
@@ -178,7 +157,9 @@ Agora você pode atualizar o ambiente `` de um [status de implantação](/rest/r
 
 **Tipo de mídia personalizada:** `flash-preview` **Anunciado:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
+{% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Permissões de criação de repositório
 
@@ -186,7 +167,7 @@ Agora você pode configurar se os integrantes da organização podem criar repos
 
 **Tipos de mídia personalizada:** `surtur-preview` **Anunciado:** [2019-12-03](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
 
-
+{% endif %}
 
 ## Anexos de conteúdo
 
@@ -194,7 +175,7 @@ Agora você pode fornecer mais informações no GitHub para URLs vinculadas a do
 
 **Tipos de mídia personalizada:** `corsair-preview` **Anunciado:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-
+{% ifversion ghes < 3.3 %}
 
 ## Habilitar e desabilitar páginas
 
@@ -202,9 +183,9 @@ Você pode usar os novos pontos de extremidade no [API de páginas](/rest/refere
 
 **Tipos de mídia personalizada:** `switcheroo-preview` **Anunciado:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
+{% endif %}
+
 {% ifversion ghes < 3.3 %}
-
-
 
 ## Listar branches ou pull requests para um commit
 
@@ -214,15 +195,7 @@ Você pode usar dois novos pontos de extremidade na [API de commits](/rest/refer
 
 {% endif %}
 
-
-
-## Habilitar ou desabilitar alertas de vulnerabilidade para um repositório
-
-Você pode usar dois novos pontos de extremidade na [API de Repositórios](/rest/reference/repos) para habilitar ou desabilitar os alertas de vulnerabilidade.
-
-**Tipos de mídia personalizada:** `dorian-preview` **Anunciado:** [2019-04-24](https://developer.github.com/changes/2019-04-24-vulnerability-alerts/)
-
-
+{% ifversion ghes < 3.3 %}
 
 ## Atualizar um branch de pull request
 
@@ -230,18 +203,7 @@ Você pode usar um novo ponto de extremidade para [atualizar um branch de pull r
 
 **Tipos de mídia personalizada:** `lidian-preview` **Anunciado:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
-{% ifversion fpt %}
-
-
-## Habilitar ou desabilitar correções de segurança automatizadas
-
-Você pode usar um novo conjunto de pontos de extremidade para [habilitar e desabilitar as correções de segurança automatizadas](/rest/reference/repos#enable-automated-security-fixes).
-
-**Tipo de mídia personalizada:** `london-preview` **Anunciado:** [2019-06-04](https://developer.github.com/changes/2019-06-04-automated-security-fixes/) 
-
 {% endif %}
-
-
 
 ## Criar e usar modelos de repositório
 
@@ -249,13 +211,11 @@ Você pode usar um novo ponto de extremidade para [Criar um repositório usando 
 
 **Tipos de mídia personalizada:** `baptiste-preview` **Anunciado:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
 
-{% ifversion fpt or ghes or ghae %}
-
+{% ifversion ghes < 3.3 %}
 
 ## Novo parâmetro de visibilidade para a API de repositórios
 
 Você pode definir e recuperar a visibilidade de um repositório na [API de repositórios](/rest/reference/repos).
 
-**Tipos de mídia personalizada:** `nebula-preview` **Anunciado:** [2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/) 
-
+**Tipos de mídia personalizada:** `nebula-preview` **Anunciado:** [2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
 {% endif %}

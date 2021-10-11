@@ -34,4 +34,4 @@ Sie können Wikis direkt auf {% data variables.product.product_name %} bearbeite
 - „[Eine Fußzeile oder Seitenleiste für Dein Wiki erstellen](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)“
 - „[Wiki-Inhalte bearbeiten](/communities/documenting-your-project-with-wikis/editing-wiki-content)“
 - „[Änderungsverlauf eines Wikis anzeigen](/articles/viewing-a-wiki-s-history-of-changes)“
-- „[Wikis durchsuchen](/articles/searching-wikis)“
+- „[Wikis durchsuchen](/search-github/searching-on-github/searching-wikis)“

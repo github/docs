@@ -1,6 +1,6 @@
 ---
-title: Filtering and searching issues and pull requests
-intro: 'To find detailed information about a repository on {% data variables.product.product_name %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.'
+title: Filtrar y buscar propuestas y solicitudes de cambios
+intro: 'Para encontrar información detallada sobre un repositorio en {% data variables.product.product_name %}, puedes filtrar, clasificar y buscar propuestas y solicitudes de cambios que sean relevantes para el repositorio.'
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-assignees
   - /articles/filtering-issues-and-pull-requests-by-assignees
@@ -40,7 +40,7 @@ versions:
 topics:
   - Issues
   - Pull requests
-shortTitle: Filter and search
+shortTitle: Filtrar y buscar
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -65,7 +65,7 @@ Puedes filtrar propuestas y solicitudes de extracción para buscar:
 
 ## Filtrar propuestas y solicitudes de extracción por asignatarios
 
-Once you've [assigned an issue or pull request to someone](/articles/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
+Una vez que hayas [asignado una propuesta o solicitud de cambios a alguien](/articles/assigning-issues-and-pull-requests-to-other-github-users), puedes encontrar los elementos con base en quién está trabajando en ellos.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -80,7 +80,7 @@ Para borrar tu selección de filtro, haz clic en **Borrar consultas de búsqueda
 
 ## Filtrar propuestas y solicitudes de extracción por etiquetas
 
-Once you've [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.
+Una vez que hayas [aplicado etiquetas a una propuesta o solicitud de cambios](/articles/applying-labels-to-issues-and-pull-requests), puedes encontrar los elementos con base en sus etiquetas.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -102,7 +102,8 @@ Puedes filtrar la lista de solicitudes de extracción de un repositorio para bus
 - Solicitudes de extracción que [requieren una revisión](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) antes de que puedan fusionarse
 - Solicitudes de extracción que ha aprobado un revisor
 - Solicitudes de extracción en las que un revisor ha pedido cambios
-- Solicitudes de extracción que tú has revisado
+- Solicitudes de cambios que revisaste{% ifversion fpt or ghae or ghes > 3.2 %}
+- Solicitudes de cambios que alguien te pidió que revisaras directamente{% endif %}
 - Solicitudes de extracción que [alguien te ha pedido a ti que revises o a un equipo del que eres miembro](/articles/requesting-a-pull-request-review)
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -112,9 +113,9 @@ Puedes filtrar la lista de solicitudes de extracción de un repositorio para bus
 
 ## Utilizar búsqueda para filtrar propuestas y solicitudes de extracción
 
-You can use advanced filters to search for issues and pull requests that meet specific criteria.
+Puedes utilizar filtros avanzados para buscar propuestas y solicitudes de cambio que cumplan criterios específicos.
 
-### Searching for issues and pull requests
+### Buscar propuestas y solicitudes de cambio
 
 {% include tool-switcher %}
 
@@ -136,15 +137,15 @@ La barra de búsqueda de propuestas y solicitudes de extracción te permite defi
 
 {% data reusables.cli.cli-learn-more %}
 
-You can use the {% data variables.product.prodname_cli %} to search for issues or pull requests. Use the `gh issue list` or `gh pr list` subcommand along with the `--search` argument and a search query.
+Puedes utilizar el {% data variables.product.prodname_cli %} para buscar propuestas o solicitudes de cambio. Utiliza el subcomando `gh issue list` o `gh pr list` junto con el argumento `--search` y consulta de búsqueda.
 
-For example, you can list, in order of date created, all issues that have no assignee and that have the label `help wanted` or `bug`.
+Por ejemplo, puedes listar, en orden de fecha en la que se creó, todas las propuestas que no tengan asignado a alguien y que tengan la etiqueta `help wanted` o `bug`.
 
 ```shell
 gh issue list --search 'no:assignee label:"help wanted",bug sort:created-asc'
 ```
 
-You can also list all pull requests that mention the `octo-org/octo-team` team.
+También puedes listar todas las solicitudes de cambio que mencionen al equipo `octo-org/octo-team`.
 
 ```shell
 gh pr list --search "team:octo-org/octo-team"
@@ -152,7 +153,7 @@ gh pr list --search "team:octo-org/octo-team"
 
 {% endcli %}
 
-### About search terms
+### Acerca de los términos de búsqueda
 
 Con los términos de búsqueda de propuestas y solicitudes de extracción, puedes hacer lo siguiente:
 
@@ -165,9 +166,9 @@ Con los términos de búsqueda de propuestas y solicitudes de extracción, puede
 {% ifversion fpt or ghes > 3.2 or ghae-next %}
 {% tip %}
 
-**Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
-- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
-- To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+**Tip:** Puedes filtrar propuestas y solicitudes de cambio por etiqueta utilizando el componente lógico OR o el AND.
+- Para filtrar propuestas utilizando el componente lógico OR, utiliza la sintaxis con coma: `label:"bug","wip"`.
+- Para filtrar propuestas utilizando el componente lógico AND, utiliza filtros de etiqueta separados: `label:"bug" label:"wip"`.
 
 {% endtip %}
 {% endif %}
@@ -185,7 +186,8 @@ Para las solicitudes de cambios, también puedes utilizar la búsqueda para:
 - Filtrar solicitudes de extracción que haya aprobado un revisor: `state:open type:pr review:approved`
 - Filtrar solicitudes de extracción en las que un revisor haya solicitado cambios: `state:open type:pr review:changes_requested`
 - Filtrar solicitudes de extracción por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filtrar solicitudes de extracción por el usuario específico [que solicitó la revisión](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
+- Filtrar solicitudes de cambios por usuario específico [al que se le solicitó la revisión](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filtrar solicitudes de cambio que alguien te pidió revisar directamente: `state:open type:pr user-review-requested:@me`{% endif %}
 - Filtrar solicitudes de extracción por el equipo que se solicita para revisión: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
 - Filtrar por las solicitudes de extracción enlazadas con un informe de problemas que se pudiera cerrar con dicha solicitud: `linked:issue`{% endif %}
 
@@ -224,4 +226,4 @@ Por ejemplo, si filtras propuestas asignadas a Hubot, y clasificas las propuesta
 
 ## Leer más
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- "[Buscar propuestas y solicitudes de cambio](/articles/searching-issues)""

@@ -1,6 +1,7 @@
 ---
 title: Issues und Pull Requests anderen GitHub-Benutzern zuweisen
 intro: 'Zugewiesene Bearbeiter stellen klar, wer bestimmte Issues und Pull Requests bearbeitet.'
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -14,8 +15,6 @@ topics:
   - Pull requests
 shortTitle: Assign issues & PRs
 ---
-
-Jeder, der über Schreibberechtigungen für ein Repository verfügt, kann Issues und Pull Requests zuweisen.
 
 ## About issue and pull request assignees
 

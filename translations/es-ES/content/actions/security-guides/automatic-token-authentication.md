@@ -1,5 +1,5 @@
 ---
-title: Automatic token authentication
+title: Autenticación automática de token
 intro: '{% data variables.product.prodname_dotcom %} proporciona un token que puedes usar para autenticar en nombre de {% data variables.product.prodname_actions %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -11,16 +11,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Automatic token authentication
+shortTitle: Autenticación de token automática
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca del secreto del `GITHUB_TOKEN`
 
-At the start of each workflow run, {% data variables.product.prodname_dotcom %} automatically creates a unique `GITHUB_TOKEN` secret to use in your workflow. Puedes usar el `GITHUB_TOKEN` para autenticarte en una ejecución de flujo de trabajo.
+Al inicio de cada ejecución de flujo de trabajo, {% data variables.product.prodname_dotcom %} crea automáticamente un secreto único de `GITHUB_TOKEN` para utilizar en tu flujo de trabajo. Puedes usar el `GITHUB_TOKEN` para autenticarte en una ejecución de flujo de trabajo.
 
 Cuando habilitas {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} instala una {% data variables.product.prodname_github_app %} en tu repositorio. El secreto del `GITHUB_TOKEN` es un token de acceso de instalación de {% data variables.product.prodname_github_app %}. Puedes usar el token de acceso de instalación para autenticarte en nombre de la {% data variables.product.prodname_github_app %} instalado en tu repositorio. Los permisos del token están limitados al repositorio que contiene tu flujo de trabajo. Para obtener más información, consulta "[Permisos para el `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
@@ -98,7 +97,7 @@ jobs:
 Para obtener mpas información sobre las terminales de la API a los que pueden acceder las {% data variables.product.prodname_github_apps %} con cada permiso, consulta la sección "[ Permisos de las {% data variables.product.prodname_github_app %}](/rest/reference/permissions-required-for-github-apps)".
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
-La siguiente tabla muestra los permisos que se otorgan al `GITHUB_TOKEN` predeterminadamente. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. Para obtener más información sobre cómo configurar los permisos predeterminados del `GITHUB_TOKEN` para tu {% ifversion not ghes %}empresa, organización o repositorio,{% else %}organización o repositorio,{% endif %} consulta las secciones {% ifversion not ghes %}"[Requerir políticas de {% data variables.product.prodname_actions %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)", {% endif %}"[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)" o "[Administrar los ajustes de las {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)".
+La siguiente tabla muestra los permisos que se otorgan al `GITHUB_TOKEN` predeterminadamente. Las personas con permisos administrativos en una {% ifversion not ghes %}empresa, organización o repositorio{% else %}organización o repositorio{% endif %} pueden configurar los permisos predeterminados para que sean permisivos o restringidos. Para obtener más información sobre cómo configurar los permisos predeterminados del `GITHUB_TOKEN` para tu {% ifversion not ghes %}empresa, organización o repositorio,{% else %}organización o repositorio,{% endif %} consulta las secciones {% ifversion not ghes %}"[Requerir políticas de {% data variables.product.prodname_actions %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)", {% endif %}"[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)" o "[Administrar los ajustes de las {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)".
 
 | Ámbito                    | Acceso predeterminado<br>(permisivo) | Acceso predeterminado<br>(restringido) | Acceso máximo<br>de los repos bifurcados |
 | ------------------------- | ------------------------------------------ | -------------------------------------------- | ---------------------------------------------- |

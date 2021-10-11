@@ -16,6 +16,8 @@ shortTitle: IdPとの同期
 
 {% data reusables.gated-features.okta-team-sync %}
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## Team の同期について
 
 {% data reusables.identity-and-permissions.about-team-sync %}
@@ -25,6 +27,8 @@ shortTitle: IdPとの同期
 {% ifversion fpt %}Team 同期は、5000 以上のメンバーがいる IdP グループをサポートしていません。{% endif %}
 
 いったん {% data variables.product.prodname_dotcom %} Team が IdP グループに接続されたら、IdP 管理者はアイデンティティプロバイダを通して Team メンバーシップを変更する必要があります。 {% data variables.product.product_name %}で、{% ifversion fpt %} または API を使用して{% endif %}Team のメンバーシップを管理することはできません。
+
+{% ifversion fpt %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion fpt %}
 IdP を通じた Team メンバーシップ変更はすべて、Team 同期ボットによる変更として {% data variables.product.product_name %} の Audit log に記載されます。 IdP は、Team メンバーシップのデータを 1 時間に 1 回 {% data variables.product.prodname_dotcom %} に送信します。 Team を IdP グループに接続すると、Team メンバーが削除される場合があります。 詳細は「[同期される Team のメンバーに関する要件](#requirements-for-members-of-synchronized-teams)」を参照してください。
@@ -53,8 +57,6 @@ IdP グループに接続された Team を含めて {% data variables.product.p
 削除された Team メンバーは、SSO を使って Organization または Enterprise アカウントに認証され、接続先の IdP グループに移動すれば、再び Team に自動的に追加できます。
 
 意図しない Team メンバーの削除を避けるために、Organization または Enterprise アカウントで SAML SSO を施行し、メンバーシップデータを同期するため新しい Team を作成し、IdP グループのメンバーシップを確認してから既存の Team を同期することをおすすめします。 For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-
-Organization が Enterprise アカウントによって所有されている場合、その Enterprise アカウントに Team の同期を有効化すると、Organization レベルの Team の同期はオーバーライドされます。 詳しい情報については、「[Enterprise アカウントで Organization の Team 同期を管理する](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)」参照してください。
 
 {% endif %}
 

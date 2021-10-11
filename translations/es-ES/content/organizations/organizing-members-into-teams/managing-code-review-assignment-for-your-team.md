@@ -22,7 +22,7 @@ Al utilizar tareas de revisión de código, cada que se pida a tu equipo revisar
 Cuando se les solicita automáticamente una revisión a los propietarios del código, el equipo se eliminará y reemplazará con los individuos de todos modos. Las aprobaciones individuales no satisfacen el requisito de aprobación del propietario del código en una rama protegida. Para obtener más información, consulta "[Acerca de los propietarios del código](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
 
 {% ifversion fpt %}
-To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+Para ampliar aún más las capacidades de colaboración de tu equipo, puedes mejorar a {% data variables.product.prodname_ghe_cloud %}, el cual incluye características como ramas protegidas y propietarios de código en repositorios privados. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 ## Rutear algoritmos
@@ -33,7 +33,7 @@ El algoritmo de round robin (turno rotativo) escoge revisores basándose en qui�
 
 El algoritmo de balanceo de carga escoge a los revisores basándose en la cantidad total de solicitudes de revisión recientes para cada miembro, y considera el número de revisiones pendientes para cada uno de ellos. El algoritmo de balanceo de carga intenta asegurarse de que cada miembro del equipo revise una cantidad igual de solicitudes de extracción en cualquier periodo de 30 días.
 
-Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+Cualquier miembro del equipo que haya configurado su estado como "Ocupado" no podrá seleccionarse para revisión. Si todos los miembros del equipo están ocupados, la solicitud de cambios seguirá estando asignada al equipo mismo. Para obtener más información acerca de los estados de usuario, consulta la sección "[Configurar un estado](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)".
 
 ## Configurar una tarea de revisión de código
 {% data reusables.profile.access_org %}
@@ -45,8 +45,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 7. Debajo de "¿Cuántos miembros del equipo deberán asignarse para revisión?", utiliza el menú desplegable y elije el número de revisores que se asignarán a cada solicitud de extracción. ![Menú desplegable de cantidad de revisores](/assets/images/help/teams/review-assignment-number.png)
 8. Debajo de "Algoritmo de ruteo", utiliza el menú desplegable y elige qué algoritmo quieres utilizar. Para obtener más información, consulta la sección "[Algoritmos de ruteo](#routing-algorithms)". ![Menú desplegable de algoritmo de ruteo](/assets/images/help/teams/review-assignment-algorithm.png)
 9. De manera opcional, para siempre omitir miembros específicos del equipo, selecciona **Nunca asignar ciertos miembros del equipo**. Después, selecciona uno o más miembros del equipo que quieras omitir siempre. ![Menú desplegable y casilla de "nunca asignar ciertos miembros del equipo"](/assets/images/help/teams/review-assignment-skip-members.png)
-10. De manera opcional, para notificar únicamente a los miembros del equipo que se escogieron por tarea de revisión en cada solicitud revisión de código, selecciona **No notificar a todo el equipo si se asignan miembros específicos** debajo de "Notificaciones". ![Notificaciones de tarea de revisión de código](/assets/images/help/teams/review-assignment-notifications.png)
-11. Haz clic en **Guardar cambios**.
+10. Opcionalmente, para notificar solo a los miembros del equipo que eligió la tarea de revisión de código para cada solicitud de revisión de cambios, debajo de "Notificaciones", selecciona **no notificar a todo el equipo si se asignaron miembros específicos.**![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+11. Opcionalmente, para incluir a los miembros de los equipos hijos como revisores potenciales al asignar solicitudes, selecciona **Miembros del equipo hijo**.
+12. Opcionalmente, para contar a cualquier miembro cuya revisión se haya solicitado contra la cantidad total de miembros a asignar, selecciona **Contar las solicitudes existentes**.
+13. Opcionalmente, para eliminar la solicitud de revisión del equipo cuando se asignan miembros de este, selecciona **Solicitud de revisión de equipo**.{% endif %}
+14. Haz clic en **Guardar cambios**.
 
 ## Inhabilitar una tarea de revisión de código
 {% data reusables.profile.access_org %}

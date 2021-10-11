@@ -15,6 +15,13 @@ topics:
 shortTitle: Transferir propriedade
 ---
 
+{% ifversion fpt %}
+{% note %}
+
+**Observação:** {% data reusables.enterprise-accounts.invite-organization %}
+
+{% endnote %}{% endif %}
+
 1. Caso você seja o único integrante com privilégios de *proprietário*, atribua a função de proprietário a outro integrante da organização. Para obter mais informações, consulte "[Designar um proprietário da organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)".
 2. Entre em contato com o novo proprietário e verifique se ele consegue [acessar as configurações da organização](/articles/accessing-your-organization-s-settings).
 {% ifversion fpt %}

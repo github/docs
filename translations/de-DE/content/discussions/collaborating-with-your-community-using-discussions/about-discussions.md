@@ -53,7 +53,7 @@ You can share your feedback about {% data variables.product.prodname_discussions
 ## Weiterführende Informationen
 
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
+- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
 - „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 - „[Kommentare und Unterhaltungen moderieren](/communities/moderating-comments-and-conversations)“
 - „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/communities/maintaining-your-safety-on-github)"

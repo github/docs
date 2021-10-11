@@ -20,7 +20,7 @@ Bloquear uma conversa cria um evento na linha do tempo visível a qualquer um co
 
 Quando uma conversa é bloqueada, somente [pessoas com acesso de gravação](/articles/repository-permission-levels-for-an-organization/) e [proprietários e colaboradores de repositórios](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) podem adicionar, ocultar ou excluir comentários.
 
-Para pesquisar conversas bloqueadas em um repositório que não está arquivado, é posível usar os qualificadores de pesquisa `is:locked` e `archived:false`. As conversas são automaticamente bloqueadas em repositórios arquivados. Para obter mais informações, consulte "[Pesquisar problemas e pull requests](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
+Para pesquisar conversas bloqueadas em um repositório que não está arquivado, é posível usar os qualificadores de pesquisa `is:locked` e `archived:false`. As conversas são automaticamente bloqueadas em repositórios arquivados. Para obter mais informações, consulte "[Pesquisar problemas e pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
 
 1. Como opção, escreva um comentário explicando por que você está bloqueando a conversa.
 2. Na margem direita do problema ou pull request ou acima da caixa de comentários na página de commit, clique em **Lock conversation** (Bloquear conversa). ![Link Lock conversation (Bloquear conversa)](/assets/images/help/repository/lock-conversation.png)

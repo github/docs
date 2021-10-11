@@ -102,6 +102,7 @@ topics:
 - 50GB {% data variables.product.prodname_registry %} 存储空间
 - {% data variables.product.prodname_pages %} 站点的访问控制。 更多信息请参阅“<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">更改 {% data variables.product.prodname_pages %} 站点的可见性</a>”
 - 99.9% 月持续运行时间的服务等级协议
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">About {% data variables.product.prodname_emus %}</a>."
 - 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“<a href="/articles/about-enterprise-accounts" class="dotcom-only">关于企业帐户</a>”。
 
 您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">设置 {% data variables.product.prodname_ghe_cloud %} 的试用</a>”。

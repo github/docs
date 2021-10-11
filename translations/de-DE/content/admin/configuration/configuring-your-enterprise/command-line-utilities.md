@@ -351,18 +351,6 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-Die von diesem Befehl zurückgegebenen Dienstnamen können mit „[`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html)“-Befehlen verwendet werden, um diese Dienste bei Bedarf zu beenden, zu starten oder erneut zu starten. Ein Beispiel:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-Das Beenden von Diensten führt zu Ausfallzeiten Ihrer Installation, daher sollten Sie sich an {% data variables.contact.contact_ent_support %} wenden, bevor Sie einen Dienst beenden oder neu starten.
-
-{% endtip %}
-
 ### ghe-set-password
 
 Mit `ghe-set-password` können Sie ein neues Passwort festlegen, um sich bei der [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) zu authentifizieren.
@@ -808,7 +796,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-Dieses Dienstprogramm exportiert eine Liste von Benutzern der Installation im JSON-Format. Wenn Deine Instanz mit der {% data variables.product.prodname_ghe_cloud %} verbunden ist, verwendet der {% data variables.product.prodname_ghe_server %} diese Informationen, um Lizenzinformationen an die {% data variables.product.prodname_ghe_cloud %} zu melden. Weitere Informationen findest Du unter „[{% data variables.product.prodname_ghe_server %} mit {% data variables.product.prodname_ghe_cloud %} verbinden](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud).“
+Dieses Dienstprogramm exportiert eine Liste von Benutzern der Installation im JSON-Format. Wenn Deine Instanz mit der {% data variables.product.prodname_ghe_cloud %} verbunden ist, verwendet der {% data variables.product.prodname_ghe_server %} diese Informationen, um Lizenzinformationen an die {% data variables.product.prodname_ghe_cloud %} zu melden. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 Standardmäßig wird die Liste der Benutzer in der resultierenden JSON-Datei verschlüsselt. Verwenden Sie das Flag `-h`, um weitere Optionen anzuzeigen.
 

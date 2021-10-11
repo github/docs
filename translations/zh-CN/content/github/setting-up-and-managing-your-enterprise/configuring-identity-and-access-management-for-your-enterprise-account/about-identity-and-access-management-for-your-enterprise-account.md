@@ -21,6 +21,12 @@ shortTitle: 企业的 IAM
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
+## 关于 {% data variables.product.prodname_emus %}
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
+
+Configuring {% data variables.product.prodname_emus %} for SAML single-sign on and user provisioning involves following a different process than you would for an enterprise that isn't using {% data variables.product.prodname_managed_users %}. If your enterprise uses {% data variables.product.prodname_emus %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+
 ## 支持的 IdP
 
 我们测试并正式支持以下 IdP。 对于 SAML SSO，我们向执行 SAML 2.0 标准的所有身份提供程序提供有限的支持。 更多信息请参阅 OASIS 网站上的 [SAML Wiki](https://wiki.oasis-open.org/security)。
@@ -32,4 +38,3 @@ shortTitle: 企业的 IAM
 | OneLogin                                     | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | PingOne                                      | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | Shibboleth                                   | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
-

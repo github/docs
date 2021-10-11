@@ -49,7 +49,7 @@ Para obter mais informações, consulte "[Adicionar uma política de segurança 
 {% ifversion fpt or ghes > 2.22 %}
 ## Gerenciar o gráfico de dependências
 
-Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for {% ifversion fpt or ghes > 2.22 %} all public repositories, and you can choose to enable it for private repositories.{% else %} all repositories.{% endif %}
+Depois que você tiver [habilitado o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), este será gerado automaticamente para {% ifversion fpt or ghes > 2.22 %} todos os repositórios públicos e você poderá optar por habilitá-lo para repositórios privados.{% else %} todos os repositórios.{% endif %}
 
 1. Na página principal do repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %} Configurações**.
 2. Clique em **Segurança & análise**.

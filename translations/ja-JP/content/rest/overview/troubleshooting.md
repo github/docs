@@ -62,6 +62,10 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 
 次に、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)に切り替えて、アクセストークンを生成します。
 
+## Timeouts
+
+If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
+
 {% endif %}
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/

@@ -6,6 +6,7 @@ redirect_from:
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
 intro: 'Você pode interagir com pessoas, repositórios e organizações no {% data variables.product.prodname_dotcom %}. Veja em seu painel pessoal no que as outras pessoas estão trabalhando e com quem estão se conectando.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
   ghes: '*'

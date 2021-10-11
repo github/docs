@@ -20,7 +20,7 @@ topics:
 
 当对话锁定时，仅[具有写入权限的人员](/articles/repository-permission-levels-for-an-organization/)以及[仓库所有者和协作者](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)才可添加、隐藏和删除评论。
 
-要搜索仓库中未存档的已锁定对话，可以使用搜索限定符 `is:locked` 和 `archived:false`。 对话在存档的仓库中会自动锁定。 更多信息请参阅“[搜索议题和拉取请求](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)”。
+要搜索仓库中未存档的已锁定对话，可以使用搜索限定符 `is:locked` 和 `archived:false`。 对话在存档的仓库中会自动锁定。 更多信息请参阅“[搜索议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)”。
 
 1. 也可选择撰写注释，解释您锁定对话的原因。
 2. 在议题或拉取请求的右边，或者提交页面中注释框的上方，单击 **Lock conversation（锁定对话）**。 ![锁定对话链接](/assets/images/help/repository/lock-conversation.png)

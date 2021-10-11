@@ -188,6 +188,14 @@ Você pode clicar em {% octicon "file" aria-label="The paper icon" %} para ver a
 
 ![Alterações em prosa renderizada](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+### Desabilitando a interpretação do Markdown
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### Exibir alterações nos atributos
 
 Nós fornecemos uma dica de ferramenta descrevendo as alterações nos atributos, que diferentes de palavras, não seriam visíveis no documento renderizado. Por exemplo, se a URL de um link for alterada, mostraremos uma dica de ferramenta como esta:

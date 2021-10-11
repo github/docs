@@ -1,7 +1,7 @@
 ---
 title: 创建议题
 intro: 议题可以通过多种方式创建，因此您可以为工作流程选择最方便的方法。
-permissions: People with read permissions can create an issue in a repository where issues are enabled.
+permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue

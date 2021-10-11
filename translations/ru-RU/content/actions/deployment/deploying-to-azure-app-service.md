@@ -18,7 +18,6 @@ shortTitle: Deploy to Azure App Service
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -68,13 +67,19 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    In your {% data variables.product.prodname_dotcom %} repository, create a secret named `AZURE_WEBAPP_PUBLISH_PROFILE` that contains the contents of the publish profile. For more information on creating secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
+4. For Linux apps, add an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` and set it to true in your app. For more information, see "[Configure apps in the portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" in the Azure documentation.
+
+5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+
 ## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
 
-The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service.
+The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when a release is created.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created.
+Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. You can also change `AZURE_WEBAPP_PACKAGE_PATH` if the path to your project is not the repository root and `NODE_VERSION` if you want to use a node version other than `10.x`.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -92,6 +97,8 @@ jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
+    environment: production
+
     steps:
       - uses: actions/checkout@v2
 
@@ -122,4 +129,5 @@ The following resources may also be useful:
 
 * For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
 * The "[Create a Node.js web app in Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

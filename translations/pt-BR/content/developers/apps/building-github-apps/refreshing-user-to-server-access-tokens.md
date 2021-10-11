@@ -71,9 +71,9 @@ Se você desejar que o seu aplicativo use tokens de acesso do usuário para serv
 
 ![Opção para expirar os tokens dos usuários durante a configuração dos aplicativos GitHub](/assets/images/github-apps/expire-user-tokens-selection.png)
 
-Existing {% data variables.product.prodname_github_apps %} using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
+Os {% data variables.product.prodname_github_apps %} existentes que usa tokens de autorização de usuário para servidor só são afetados por este novo fluxo quando o proprietário do aplicativo habilita o vencimento de tokens de usuário para seu aplicativo.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_apps %} requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
+Habilitar o vencimento de tokens de usuário para {% data variables.product.prodname_github_apps %} existentes exige o envio de usuários por meio do do fluxo do OAuth para reemitir tokens de usuário que vencerão em 8 horas e fazer uma solicitação com o token de atualização para obter um novo token de acesso e token de atualização. Para obter mais informações, consulte "[Identificar e autorizar usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 

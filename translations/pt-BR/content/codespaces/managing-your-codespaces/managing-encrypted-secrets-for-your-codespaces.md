@@ -73,3 +73,7 @@ Você pode atualizar o valor de um segredo existente, bem como alterar quais rep
 {% data reusables.user_settings.codespaces-tab %}
 1. Em "Segredos dos codespaces", à direita do segredo que você deseja excluir, clique em **Excluir**. ![Botão "Excluir"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Leia o alerta e clique em **OK**. ![Confirmação para excluir um segredo](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Leia mais
+
+- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

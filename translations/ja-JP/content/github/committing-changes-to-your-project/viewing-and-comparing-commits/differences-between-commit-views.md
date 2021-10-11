@@ -29,4 +29,4 @@ Gitのコミット履歴に対する考え方に関する詳しい情報につ�
 ## 参考リンク
 
 - 「[コミットに署名する](/articles/signing-commits)」
-- "[コミットの検索](/articles/searching-commits)"
+- "[コミットの検索](/search-github/searching-on-github/searching-commits)"

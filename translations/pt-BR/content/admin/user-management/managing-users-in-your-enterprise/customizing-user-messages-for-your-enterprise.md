@@ -20,7 +20,7 @@ topics:
 
 Existem vários tipos de mensagens de usuário.
 - Mensagens que aparecem na página {% ifversion ghes %}página de ingresso ou {% endif %}saída{% ifversion ghes > 2.22 or ghae %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
+- Mensagens obrigatórias, que aparecem uma vez em uma janela pop-up que deve ser ignorada{% endif %}{% ifversion ghes or ghae %}
 - Banners de anúncios, que aparecem na parte superior de cada página{% endif %}
 
 {% ifversion ghes %}
@@ -83,8 +83,8 @@ Cada vez que um usuário vê uma mensagem obrigatória, um evento de log de audi
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. À direita da "Mensagem obrigatória", clique em **Adicionar mensagem**. ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
-1. Em "Mensagem obrigatória", na caixa de texto, digite sua mensagem. ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+1. À direita da "Mensagem obrigatória", clique em **Adicionar mensagem**. ![Botão de adicionar mensagem obrigatória](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+1. Em "Mensagem obrigatória", na caixa de texto, digite sua mensagem. ![Caixa de texto obrigatória](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}

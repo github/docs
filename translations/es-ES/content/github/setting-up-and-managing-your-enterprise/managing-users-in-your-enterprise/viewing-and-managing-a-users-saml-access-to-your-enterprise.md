@@ -18,18 +18,13 @@ shortTitle: Visualizar & administrar el acceso con SAML
 
 Cuando habilitas el inicio de sesión único de SAML para tu cuenta empresarial, cada miembro de la empresa puede vincular su identidad externa en tu proveedor de identidad (IdP) para su cuenta existente de {% data variables.product.product_name %}. {% data reusables.saml.about-saml-access-enterprise-account %}
 
+Si tu empresa utiliza {% data variables.product.prodname_emus %}, tus miembros utilizarán cuentas que se aprovisionen a través de tu IdP. {% data variables.product.prodname_managed_users_caps %} no utilizará su cuenta de usuario existente en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+
 ## Visualizar y revocar una identidad vinculada
 
 {% data reusables.saml.about-linked-identities %}
 
-{% warning %}
-
-**Advertencia:** Para las orgtanizaciones que utilizan SCIM:
-- El revocar una identidad de usuario en {% data variables.product.product_name %} también eliminará los metadatos de SAML y de SCIM. Como resultado, el proveedor de identidad no podrá sincronizar o desaprovisionar la identidad de usuario enlazada.
-- Un administrador deberá revocar una identidad enlazada a través del proveedor de identidad.
-- Para revocar una identidad enlazada y enlazar una cuenta diferente a través del proveedor de identidad, un administrador puede eliminar y volver a asignar el usuario con la aplicación de {% data variables.product.product_name %}. Para obtener más información, consulta los documentos de tu proveedor de identidad.
-
-{% endwarning %}
+If your enterprise uses {% data variables.product.prodname_emus %}, you will not be able to deprovision or remove user accounts from the enterprise on {% data variables.product.product_name %}. Cualquier cambio que necesites hacer a los {% data variables.product.prodname_managed_users %} de tu empresa deberá realizarse mediante tu IdP.
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 

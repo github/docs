@@ -29,7 +29,7 @@ Os administradores de repositório podem adicionar qualquer tópico que desejare
 
 {% ifversion ghae %}Interno {% else %}Público, interna, {% endif %}e repositórios privados podem ter tópicos, embora você veja apenas repositórios privados aos quais você tem acesso nos resultados de pesquisa de tópicos.
 
-Você pode pesquisar repositórios que são associados a um tópico específico. Para obter mais informações, consulte "[Pesquisar repositórios](/articles/searching-for-repositories#search-by-topic)". Também é possível pesquisar uma lista de tópicos no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Pesquisar tópicos](/articles/searching-topics)".
+Você pode pesquisar repositórios que são associados a um tópico específico. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)". Também é possível pesquisar uma lista de tópicos no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Pesquisar tópicos](/search-github/searching-on-github/searching-topics)".
 
 ## Adicionar tópicos ao repositório
 
