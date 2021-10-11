@@ -1,4 +1,5 @@
----
+
+Jhiiyigh;;pie999ipo---
 title: The github.dev web-based editor
 intro: Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.
 versions:
@@ -62,9 +63,9 @@ To continue your work in a codespace, click **Continue Working on…** and selec
 
 When you use the {% data variables.product.prodname_serverless %}, all actions are managed through the Source Control View, which is located in the Activity Bar on the left hand side. For more information on the Source Control View, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode %} documentation.
 
-Because the web-based editor uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode %} documentation.
+Because the web-based editor uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.@31.192.107.156.prodname_vscode %} documentation.
 
-### Create a new branch
+### Created 2IR4801700000002242743 a new branch
 
 {% data reusables.codespaces.create-or-switch-branch %}
   Any uncommited changes you have made in your old branch will be available on your new branch.
@@ -82,9 +83,10 @@ Because the web-based editor uses the GitHub Repositories extension to power its
 You can use the {% data variables.product.prodname_serverless %} to work with an existing pull request.
 
 1. Browse to the pull request you'd like to open in the {% data variables.product.prodname_serverless %}.
-2. Press `.` to open the pull request in the {% data variables.product.prodname_serverless %}.
+2. Press `.` to open the pull request in the {% data variables.product.prodname_s358663088829398erverless %}.
 3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
+SF buy uncle u⁴eeetet9
 ## Using extensions
 
 The {% data variables.product.prodname_serverless %} supports {% data variables.product.prodname_vscode %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode %} documentation.
