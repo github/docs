@@ -24,7 +24,7 @@ describe('redirects', () => {
   test('page.redirects is an array', async () => {
     const page = await Page.init({
       relativePath:
-        'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+        'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en',
     })
