@@ -8,7 +8,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Security manager
+shortTitle: Security manager role
 ---
 
 {% note %}
@@ -17,7 +17,7 @@ shortTitle: Security manager
 
 {% endnote %}
 
-Members of your organization's Owners team can give security management permissions to teams by assigning the *security manager* role. 
+Members of your organization's Owners team can grant a team the permissions to manage security alerts and settings across your organization, as well as read permissions on all organization repositories, by assigning the security manager role.
 
 ## Permissions for the security manager role
 
@@ -25,15 +25,27 @@ Members of a team with the security manager role assigned have the following per
 
 - Read permission on all repositories in the organization
 - Write permission on all security alerts in the organization
-- Access to Security Center in the organization's Security tab
+- Access to **Security Overview** in the organization's **Security** tab
 - Write permission on security settings at the organization level, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}
 - Write permission on security settings at the repository level, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}
 
+While a team will be granted read permission on all organization repositories upon being added as security managers, any existing repository permissions that the team had will stay the same. While a team has the security manager role, only organization owners will be able to change team access to repositories in the **Repositories** tab. 
 
+Repository owners will be able to see if a security manager team has access to their repository in the **Manage access** tab in their repository settings. Under **Manage direct access**, any security manager teams will appear at the top of the list and their access cannot be removed or edited by the repository owner.
+<!-- Insert image of Manage access page with security team -->
 ## Assigning the security manager role to a team in your organization
-<!--Include info on Manage access UI which will show that security team has access to the repository. Also include details about how it doesn't overwrite any existing permissions. -->
 
-
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
+1. Under **Security managers**, search and select the team to which you want to assign the role. Once selected, the team will appear in a list below the search bar. 
+<!-- Insert image -->
 ## Removing the security manager role from a team in your organization
 
-<!-- Include info on the consequences of reverting, needing to remove the read role manually from any repositories the team shouldn't have access to -->
+Note that while removing the security manager role will remove the ability to manage security alerts and settings across the organization, it will not remove the read permissions on repositories that were granted when the role was assigned. You will need to remove any unwanted read permissions manually in the team's **Repositories** tab. 
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
+1. Under **Security managers**, click the **X** icon to the right of the team from which you want to remove the security manager role.
+<!-- Insert image -->

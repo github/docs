@@ -48,7 +48,7 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% endnote %}
 
-Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team  the same set of security management permissions, including *read* permissions for all repositories in an organization and *write* permission on security alerts. 
+Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team permissions to manage security alerts and settings across your organization, as well as read permissions for all repositories in the organization.
 
 This role is useful for organizations with security teams, as it gives members of the team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
 {% endif %}
