@@ -9,7 +9,7 @@ describe('featuredLinks', () => {
 
   describe('rendering', () => {
     test('non-TOC pages do not have intro links', async () => {
-      const $ = await getDOM('/en/github/getting-started-with-github/set-up-git')
+      const $ = await getDOM('/en/get-started/quickstart/set-up-git')
       expect($('[data-testid=article-list]')).toHaveLength(0)
     })
 
@@ -94,7 +94,7 @@ describe('featuredLinks', () => {
     test('returns modified array of links', async () => {
       const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
       const expectedFirstLink = {
-        href: '/en/github/getting-started-with-github/set-up-git',
+        href: '/en/get-started/quickstart/set-up-git',
         title: 'Set up Git',
       }
       expect(gettingStartedLinks[0].href).toEqual(expectedFirstLink.href)
@@ -104,7 +104,7 @@ describe('featuredLinks', () => {
 
     test('returns raw array of links on the page object', async () => {
       const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
-      expect(rawGettingStartedLinks[0]).toEqual('/github/getting-started-with-github/set-up-git')
+      expect(rawGettingStartedLinks[0]).toEqual('/en/get-started/quickstart/set-up-git')
     })
   })
 })
