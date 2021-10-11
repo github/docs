@@ -92,7 +92,7 @@
     "throng": "^5.0.0",
     "ts-dedent": "^2.2.0",
     "unified": "^10.1.0",
-    "unist-util-visit": "^4.0.0",
+    "unist-util-visit": "^4.1.0",
     "uuid": "^8.3.2",
     "walk-sync": "^3.0.0"
   },
