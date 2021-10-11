@@ -102,7 +102,7 @@ jobs:
             core.setOutput('changesTable', markdownTable)
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@0da1f4fc1f20cd898368bd56089d391df418f52f
+        uses: peter-evans/find-comment@d2dae40ed151c634e4189471272b57e76ec19ba8
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}
