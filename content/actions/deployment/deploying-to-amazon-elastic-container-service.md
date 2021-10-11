@@ -21,9 +21,9 @@ shortTitle: Deploy to Amazon ECS
 
 ## Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when a release is created.
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
 
-On every new release in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
+On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
 ## Prerequisites
 
@@ -85,8 +85,9 @@ Ensure that you provide your own values for all the variables in the `env` key o
 name: Deploy to Amazon ECS
 
 on:
-  release:
-    types: [ created ]
+  push:
+    branches:
+      - main
 
 env:
   AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
