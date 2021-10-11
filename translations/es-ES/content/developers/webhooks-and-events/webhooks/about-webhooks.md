@@ -12,7 +12,7 @@ topics:
   - Webhooks
 ---
 
-Webhooks allow you to build or set up integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), which subscribe to certain events on GitHub.com. Cuando se activa alguno de esos eventos, enviamos una carga útil de POST por HTTP a la URL que el webhook tiene configurada. Los webhooks pueden utilizarse para actualizar un rastreador de problemas externo, activar compilaciones de IC, actualizar un espejo de respaldo, o incluso para desplegar en tu servidor productivo. Solo te limita tu imaginación.
+Los Webhooks te permiten crear y configurar integraciones, tales como [{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) o [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/), las cuales se suscriben a ciertos eventos en GitHub.com. Cuando se activa alguno de esos eventos, enviamos una carga útil de POST por HTTP a la URL que el webhook tiene configurada. Los webhooks pueden utilizarse para actualizar un rastreador de problemas externo, activar compilaciones de IC, actualizar un espejo de respaldo, o incluso para desplegar en tu servidor productivo. Solo te limita tu imaginación.
 
 Los webhooks pueden instalarse en{% ifversion ghes or ghae %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/),{% endif %} una [organización][org-hooks], un [repositorio][repo-hooks] específico, o una {% data variables.product.prodname_github_app %}. Una vez que se instalan, el webhook se enviará cada vez que ocurra uno o más eventos suscritos.
 

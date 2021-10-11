@@ -11,7 +11,7 @@ versions:
   ghae: '*'
 topics:
   - Repositories
-shortTitle: About merge methods
+shortTitle: Acerca de los métodos de fusión
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} Puedes implementar un tipo de método de fusión, como el cambio de base o la combinación de confirmaciones, con solo activar el método deseado para tu repositorio.

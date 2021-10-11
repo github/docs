@@ -70,12 +70,14 @@ E-Mail-Benachrichtigungen ermöglichen auch Flexibilität bei der Art von Benach
 Wenn Du ein Repository beobachtest, abonnierst Du Aktualisierungen für Aktivitäten in diesem Repository. Ebenfalls, wenn Du die Diskussionen eines bestimmten Teams verfolgst, abonnierst Du alle Aktualisierungen der Unterhaltung auf der Seite dieses Teams. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions)“.
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). Weitere Informationen findest Du unter „[Abonnements und Benachrichtigungen auf GitHub verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+
 {% ifversion ghae or ghes < 3.1 %}
 ### Benachrichtigungen konfigurieren
 {% endif %}
-You can configure notifications for a repository on the repository page, or on your watching page.{% ifversion ghae or ghes < 3.1 %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.{% ifversion ghes < 3.1 %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ### About custom notifications
 You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
 {% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
@@ -158,25 +160,18 @@ Wenn "Automatisch Repositories beobachten" deaktiviert ist, wirst Du auch nicht 
 
 ## Konfiguration der Beobachtungseinstellungen für ein einzelnes Repository
 
-Du kannst wählen, ob Du ein einzelnes Repository ansehen möchtest oder nicht mehr. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository){% else %}new releases{% endif %}, or completely ignore an individual repository.
+Du kannst wählen, ob Du ein einzelnes Repository ansehen möchtest oder nicht mehr. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Klicke in der oberen rechten Ecke auf das Dropdownmenü „Watch" (Beobachten), um eine der Beobachtungsoptionen zu wählen.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Beobachtungsoptionen in einem Dropdownmenü für ein Repository](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
    ![Beobachtungsoptionen in einem Dropdownmenü für ein Repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
-The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
-
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+   The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
 {% else %}
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/enterprise/3.1/help/notifications-v2/watch-repository-options-custom2.png)
-{% endif %}
-
-If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
-
+     ![Beobachtungsoptionen in einem Dropdownmenü für ein Repository](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
 {% endif %}
 
 ## Wähle, wohin die E-Mail-Benachrichtigungen Deiner Organisation gesendet werden

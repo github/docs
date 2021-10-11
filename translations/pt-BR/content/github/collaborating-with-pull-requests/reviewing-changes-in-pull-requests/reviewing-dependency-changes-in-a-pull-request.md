@@ -1,10 +1,10 @@
 ---
 title: Revendo alterações de dependência em um pull request
 intro: 'Se um pull request tiver alterações nas dependências, você poderá ver um resumo do que alterou e se há vulnerabilidades conhecidas em qualquer uma das dependências.'
+product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -26,7 +26,7 @@ shortTitle: Revisar alterações de dependência
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
+{% ifversion ghes > 3.1 %} Antes de você poder usar a revisão de dependências, você deverá habilitar o gráfico de dependências e conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
 
 Revisão de dependência permite a você "desloque para a esquerda". Você pode usar as informações preditivas fornecidas para capturar dependências vulneráveis antes que elas cheguem à produção. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 
@@ -38,19 +38,19 @@ Revisão de dependência permite a você "desloque para a esquerda". Você pode 
 
 1. Se o pull request contiver muitos arquivos, use o menu suspenso **Filtro de arquivo** para recolher todos os arquivos que não registram dependências. Isso fará com que seja mais fácil focar a sua revisão nas alterações de dependência.
 
-   ![Menu de filtro de arquivos](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   ![Menu de filtro de arquivos](/assets/images/help/pull_requests/file-filter-menu-json.png) A revisão sobre dependências fornece uma visão mais clara do que mudou nos grandes arquivos de bloqueio, em que o diff de origem não é representado por padrão.
+
+  {% note %}
+
+   **Observação:** Revisões de Dependência de diffs avançados não estão disponíveis para arquivos estáticos do JavaScript que passaram por commit como, por exemplo, `jquery.js`.
+
+   {% endnote %}
 
 1. À direita do cabeçalho de um manifesto ou arquivo de bloqueio, exiba a revisão de dependências clicando no botão de diff avançado**{% octicon "file" aria-label="The rich diff icon" %}**.
 
    ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-  {% note %}
-
-   **Observação:** A revisão de dependências fornece uma visão mais clara do que foi alterado em arquivos de bloqueio grandes, em que o diff de origem não é renderizado por padrão.
-
-   {% endnote %}
-
-1. Verifique as dependências listadas na revisão sobre dependências.
+2. Verifique as dependências listadas na revisão sobre dependências.
 
    ![Alertas de vulnerabilidade em revisão de dependências](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

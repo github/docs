@@ -1,8 +1,8 @@
 ---
-title: Troubleshooting Codespaces
+title: Solucionar problemas en los Codespaces
 shortTitle: Solución de problemas
 product: '{% data reusables.gated-features.codespaces %}'
-intro: 'These guides provide information for troubleshooting {% data variables.product.prodname_codespaces %}'
+intro: 'Estas guías te proporcionan información para solucionar los problemas de los {% data variables.product.prodname_codespaces %}'
 versions:
   fpt: '*'
 redirect_from:

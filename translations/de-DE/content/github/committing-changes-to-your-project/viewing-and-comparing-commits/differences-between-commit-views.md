@@ -29,4 +29,4 @@ Weitere Informationen zum Umgang von Git mit Commit-Verläufen findest Du im Abs
 ## Weiterführende Informationen
 
 - „[Commits signieren](/articles/signing-commits)“
-- „[Commits suchen](/articles/searching-commits)“
+- „[Commits suchen](/search-github/searching-on-github/searching-commits)“

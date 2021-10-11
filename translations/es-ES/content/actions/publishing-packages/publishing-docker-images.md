@@ -18,7 +18,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -119,7 +118,7 @@ Las opciones de `login-action` que se requieren para el {% data variables.produc
 * `password`: Puedes utilizar el secreto generado automáticamente `GITHUB_TOKEN` para la contraseña. Para más información, consulta "[Autenticando con el GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
 {% ifversion fpt %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
+La opción de `metadata-action` que se requiere para el {% data variables.product.prodname_registry %} es:
 * `images`: El designador de nombre de la imagen de Docker que estás compilando.
 {% endif %}
 
@@ -171,7 +170,7 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+El flujo de trabajo anterior verifica el repositorio {% data variables.product.prodname_dotcom %}, utiliza la `login-action` para ingresar en el registro y luego utiliza la acción `build-push-action` para: crear una imagen de Docker con base en el `Dockerfile` de tu repositorio; subir la imagen al registro de Docker y aplicar el SHA de confirmación y versión de lanzamiento como etiquetas de la imagen.
 {% endif %}
 
 ## Publicar imágenes en Docker Hub y en {% data variables.product.prodname_registry %}

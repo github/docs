@@ -1,7 +1,7 @@
 ---
-title: Advanced guides
-shortTitle: Advanced guides
-intro: 'How to cache dependencies, store output as artifacts, and use the GitHub CLI in workflows.'
+title: Guías avanzadas
+shortTitle: Guías avanzadas
+intro: 'Cómo guardar dependencias en caché, almacenar resultados como artefactos y utilizar el CLI de GitHub en los flujos de trabajo.'
 versions:
   fpt: '*'
   ghes: '*'

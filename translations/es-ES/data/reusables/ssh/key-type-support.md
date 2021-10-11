@@ -1,9 +1,9 @@
 {% note %}
 
-**Note:** {% data variables.product.company_short %} is improving security by dropping older, insecure key types.
+**Nota:** {% data variables.product.company_short %} está mejrando la seguridad al dejar los tipos de llaves inseguras y más antiguas.
 
-DSA keys (`ssh-dss`) are no longer supported. Existing keys will continue to function through March 15, 2022. You cannot add new DSA keys to your user account on {% data variables.product.product_name %}.
+Ya no hay compatibilidad con llaves DSA (`ssh-dss`). Las llaves existentes seguirán funcionando hasta el 15 de mazo de 2022. No puedes agregar llaves DSA nuevas a tu cuenta de usuario en {% data variables.product.product_name %}.
 
-RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue to use any signature algorithm. RSA keys generated after that date must use a SHA-2 signature algorithm. Some older clients may need to be upgraded in order to use SHA-2 signatures.
+Las llaves RSA (`ssh-rsa`) con un `valid_after` anterior al 2 de noviembre de 2021 podrán continuar utilizando cualquier algoritmo de firma. Las llaves RSA que se generaron después de esta fecha deberán utilizar un algoritmo de firma de tipo SHA-2. Algunos clientes más angituos podrían necesitar actualizarse para poder utilizar firmas de tipo SHA-2.
 
 {% endnote %}

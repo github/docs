@@ -77,15 +77,15 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
 
 {% data reusables.cli.cli-learn-more %}
 
-To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+Para fazer merge de um pull request, use o subcomando `gh pr merge`. Substitua `pull request` pelo número, URL ou branch principal do pull request.
 
 ```shell
 gh pr merge <em>pull-request</em>
 ```
 
-Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+Siga as instruções interativas para realizar o merge. Para obter mais informações sobre os métodos de merge que você pode escolher, consulte "[Sobre merges do pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
-Alternatively, you can use flags to skip the interactive prompts. For example, this command will squash the commits into a single commit with the commit message "my squash commit", merge the squashed commit into the base branch, and then delete the local and remote branch.
+Como alternativa, você pode usar sinalizadores para ignorar as instruções interativas. Por exemplo, esse comando irá fazer a combinação por squash dos commits em um único commit com a mensagem de "my squash commit", faça o merge do commit combinado por squash no branch de base e exclua o branch local e o remoto.
 
 ```shell
 gh pr merge 523 --squash --body "my squash commit" --delete-branch

@@ -31,6 +31,12 @@ If you do not hold a trademark for the name, you can choose another username or 
 - 古いユーザ名を使用する [@メンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
 - 古いユーザ名を含む [Gist](/articles/creating-gists) にリンクする
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endif %}
+
 ## リポジトリ参照
 
 ユーザ名を変更した後、{% data variables.product.product_name %} は自動的にあなたのリポジトリへの参照をリダイレクトします。

@@ -74,7 +74,7 @@ Organization のオーナーは、Organization 内で作成されたすべての
 
 {% data reusables.repositories.internal-repo-default %}
 
-Enterprise が所有するすべての Organization からユーザが削除されると、そのユーザの内部リポジトリのフォークは自動的に削除されます。
+Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's user account, and the visibility of the fork will be private. Enterprise が所有するすべての Organization からユーザが削除されると、そのユーザの内部リポジトリのフォークは自動的に削除されます。
 {% endif %}
 
 ## リポジトリでコンテンツと diff の表示を制限する
@@ -107,6 +107,7 @@ diff はきわめて大きくなることがあるため、コミット、プル
 ## 参考リンク
 
 - 「[新しいリポジトリを作成する](/articles/creating-a-new-repository)」
+- 「[フォークについて](/github/collaborating-with-pull-requests/working-with-forks/about-forks)」
 - [Issue とプルリクエストでのコラボレーション](/categories/collaborating-with-issues-and-pull-requests)
 - 「[{% data variables.product.prodname_dotcom %}での作業を管理する](/categories/managing-your-work-on-github/)」
 - [リポジトリの管理](/categories/administering-a-repository)

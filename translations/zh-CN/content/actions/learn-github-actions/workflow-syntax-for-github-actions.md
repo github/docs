@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于工作流程的 YAML 语法
 
@@ -184,9 +183,91 @@ Diffs are limited to 300 files. If there are files changed that aren't matched i
 
 更多信息请参阅“[关于比较拉取请求中的分支](/articles/about-comparing-branches-in-pull-requests)”。
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## `on.workflow_call.inputs`
+
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. Inputs for reusable workflows are specified with the same format as action inputs. For more information about inputs, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)." For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+
+In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+
+If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
+
+Within the called workflow, you can use the `inputs` context to refer to an input.
+
+If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
+
+### 示例
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
+```
+{% endraw %}
+
+For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+## `on.workflow_call.<input_id>.type`
+
+Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+
+## `on.workflow_call.secrets`
+
+A map of the secrets that can be used in the called workflow.
+
+Within the called workflow, you can use the `secrets` context to refer to a secret.
+
+If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
+
+### 示例
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    secrets:
+      access-token:
+        description: 'A token passed from the caller workflow'
+        required: false
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+
+    steps:  
+      - name: Pass the received secret to an action
+        uses: ./.github/actions/my-action@v1
+        with:
+          token: ${{ secrets.access-token }}
+```
+{% endraw %}
+
+## `on.workflow_call.secrets.<secret_id>`
+
+A string identifier to associate with the secret.
+
+## `on.workflow_call.secrets.<secret_id>.required`
+
+A boolean specifying whether the secret must be supplied.
+{% endif %}
+
 ## `on.workflow_dispatch.inputs`
 
-When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
 
 ```yaml
 on: 
@@ -271,8 +352,6 @@ defaults:
 
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `concurrency`
-
-{% data reusables.actions.concurrency-beta %}
 
 Concurrency 确保只有使用相同并发组的单一作业或工作流程才会同时运行。 并发组可以是任何字符串或表达式。 The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
 
@@ -428,7 +507,7 @@ jobs:
 {% ifversion fpt or ghes > 3.0 or ghae %}
 ## `jobs.<job_id>.environment`
 
-作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
+作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 
 您可以将环境仅作为环境 `name`，或作为具有 `name` 和 `url` 的环境变量。 URL 映射到部署 API 中的 `environment_url`。 有关部署 API 的更多信息，请参阅“[部署](/rest/reference/repos#deployments)”。
 
@@ -462,8 +541,6 @@ environment:
 
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `jobs.<job_id>.concurrency`
-
-{% data reusables.actions.concurrency-beta %}
 
 {% note %}
 
@@ -1248,7 +1325,7 @@ volumes:
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**警告**：不支持 `--network` 选项。
 
 {% endwarning %}
 
@@ -1344,9 +1421,73 @@ volumes:
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**警告**：不支持 `--network` 选项。
 
 {% endwarning %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## `jobs.<job_id>.uses`
+
+The location and version of a reusable workflow file to run as a job.
+
+`{owner}/{repo}/{path}/{filename}@{ref}`
+
+`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. 更多信息请参阅“[GitHub Actions 的安全性增强](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)”。
+
+### 示例
+
+{% data reusables.actions.uses-keyword-example %}
+
+For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+## `jobs.<job_id>.with`
+
+When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
+
+Any inputs that you pass must match the input specifications defined in the called workflow.
+
+Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+
+### 示例
+
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    with:
+      username: mona
+```
+
+## `jobs.<job_id>.with.<input_id>`
+
+A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) in the called workflow.
+
+Allowed expression contexts: `github`, and `needs`.
+
+## `jobs.<job_id>.secrets`
+
+When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+
+Any secrets that you pass must match the names defined in the called workflow.
+
+### 示例
+
+{% raw %}
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    secrets:
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+```
+{% endraw %}
+
+## `jobs.<job_id>.secrets.<secret_id>`
+
+A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
+
+Allowed expression contexts: `github`, `needs`, and `secrets`.
+{% endif %}
 
 ## 过滤器模式备忘清单
 

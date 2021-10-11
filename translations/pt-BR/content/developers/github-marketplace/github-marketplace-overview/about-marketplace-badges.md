@@ -30,7 +30,7 @@ Alguns aplicativos em {% data variables.product.prodname_marketplace %} têm o s
 
 Para obter mais informações sobre os requisitos para a listagem de um aplicativo em {% data variables.product.prodname_marketplace %}, consulte "[Requisitos para listar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-Para obter informações sobre como encontrar aplicativos para usar, consulte "[Pesquisar {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)".
+Para obter informações sobre como encontrar aplicativos para usar, consulte "[Pesquisar {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)".
 
 ## Para ações no GitHub
 

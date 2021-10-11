@@ -37,7 +37,7 @@ If you're using {% data variables.product.prodname_actions %} with the {% data v
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
 If you're using the {% data variables.product.prodname_codeql_cli %}, then you can specify the version of SARIF to use. For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 You can upload multiple SARIF files for the same tool and commit, and analyze each file using {% data variables.product.prodname_code_scanning %}. You can indicate a "category" for each analysis by specifying a `runAutomationDetails.id` in each file. Only SARIF files with the same category will overwrite each other. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
 {% endif %}
 
@@ -141,7 +141,7 @@ A location within a programming artifact, such as a file in the repository or a 
 | `region.endLine`       | **Required.** The line number of the last character in the region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `region.endColumn`     | **Required.** The column number of the character following the end of the region.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ### `runAutomationDetails` object
 
 The `runAutomationDetails` object contains information that specifies the identity of a run.
@@ -245,7 +245,7 @@ This SARIF output file has example values to show the minimum required propertie
 
 This SARIF output file has example values to show all supported SARIF properties for {% data variables.product.prodname_code_scanning %}.
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",

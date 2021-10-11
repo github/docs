@@ -1,7 +1,7 @@
 ---
 title: Mejores prácticas para las conversaciones comunitarias en GitHub
 shortTitle: Mejores prácticas para las conversaciones comunitarias
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
+intro: 'Puedes utilizar los debates para hacer una lluvia de ideas con tu equipo y, en algún momento, migrar la conversación a una propuesta cuando estés listo para delimitar el trabajo.'
 versions:
   fpt: '*'
 ---
@@ -21,7 +21,7 @@ Para obtener más información acerca de abrir propuestas y hacer referencias cr
 
 Puedes crear y participar en los debates, propuestas y solicitudes de cambio dependiendo del tipo de conversación que desees tener.
 
-Puedes utilizar lps {% data variables.product.prodname_discussions %} para debatir las ideas más amplias, hacer lluvias de ideas y resaltar los detalles específicos de un proyecto antes de hacer cualquier confirmación en una propuesta, la cual puede aumetar su alcance posteriormente. {% data variables.product.prodname_discussions %} is useful for teams if:
+Puedes utilizar lps {% data variables.product.prodname_discussions %} para debatir las ideas más amplias, hacer lluvias de ideas y resaltar los detalles específicos de un proyecto antes de hacer cualquier confirmación en una propuesta, la cual puede aumetar su alcance posteriormente. Los {% data variables.product.prodname_discussions %} son útiles para los equipos si:
 - Estás en la fase de descubrimiento de un proyecto y aún estás aprendiendo en qué dirección quiere ir tu equipo.
 - Quieres recolectar los comentarios de una comunidad más amplia sobre un proyecto
 - Quieres mantener la separación entre las correcciones de errores y las conversaciones generales

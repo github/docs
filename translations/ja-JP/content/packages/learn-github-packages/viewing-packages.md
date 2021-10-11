@@ -64,4 +64,4 @@ versions:
 
 ## 参考リンク
 
-- [パッケージの検索](/github/searching-for-information-on-github/searching-for-packages)
+- [パッケージの検索](/search-github/searching-on-github/searching-for-packages)

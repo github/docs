@@ -24,7 +24,7 @@ topics:
 
 {% endnote %}
 
-1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
+1. Acesse a página "Seus codespaces" em [github.com/codespaces](https://github.com/codespaces).
 
 2. À direita do código que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, depois em **{% octicon "trash" aria-label="The trash icon" %} Apagar** ![Botão excluir](/assets/images/help/codespaces/delete-codespace.png)
 

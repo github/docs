@@ -30,7 +30,7 @@ versions:
 
 有关在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求，请参阅“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
 
-有关如何查找要使用的应用程序，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)”。
+有关如何查找要使用的应用程序，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)”。
 
 ## 对于 GitHub Actions
 

@@ -48,6 +48,14 @@ Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornec
 
 Você pode alterar o nome que é exbido em seu perfil. Este nome também pode ser exibido ao lado dos comentários que você fizer em repositórios privados pertencentes a uma organização. Para obter mais informações, consulte "[Gerenciar a exibição de nomes de integrantes na organização](/articles/managing-the-display-of-member-names-in-your-organization)".
 
+{% ifversion fpt %}
+{% note %}
+
+**Observação:** Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, todas as alterações no nome do seu perfil devem ser feitas por meio do seu provedor de identidade ao invés de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. Em "Name" (Nome), digite o nome que deseja exibir em seu perfil. ![Campo nome em configurações de perfil](/assets/images/help/profile/name-field.png)
 
@@ -92,7 +100,7 @@ Ao definir o seu status, você também pode informar às pessoas que sua disponi
 
 ![Revisor solicitado apresenta "busy" (ocupado) ao lado do nome de usuário](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-Se você selecionar a opção "Busy" (Ocupado), quando as pessoas fizerem @menção ao seu nome de usuário, atribuírem um problema ou pull request a você ou solicitarem a você uma revisão de pull request, uma observação ao lado do seu nome mostrará que você está ocupado. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."
+Se você selecionar a opção "Busy" (Ocupado), quando as pessoas fizerem @menção ao seu nome de usuário, atribuírem um problema ou pull request a você ou solicitarem a você uma revisão de pull request, uma observação ao lado do seu nome mostrará que você está ocupado. Você também será excluído da atribuição automática de revisão para os pull requests atribuídos a qualquer equipe a que você pertença. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."
 
 1. No canto superior direito do {% data variables.product.product_name %}, clique em sua foto de perfil e em **Set your status** (Definir seu status) ou, se já tiver um status definido, clique em seu status atual. ![Botão no perfil para definir seu status](/assets/images/help/profile/set-status-on-profile.png)
 2. Para adicionar um texto personalizado ao seu status, clique no campo de texto e digite uma mensagem. ![Campo para digitar mensagem de status](/assets/images/help/profile/type-a-status-message.png)

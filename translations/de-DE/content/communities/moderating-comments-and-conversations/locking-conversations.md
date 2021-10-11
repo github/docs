@@ -20,7 +20,7 @@ Das Sperren einer Unterhaltung erstellt ein Zeitleistenereignis, das für alle B
 
 Solange eine Unterhaltung gesperrt ist, können nur [Personen mit Schreibzugriff](/articles/repository-permission-levels-for-an-organization/) und [Repository-Inhaber und -Mitarbeiter](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) Kommentare hinzufügen, ausblenden und löschen.
 
-Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu suchen, kannst Du die Qualifizierer `is:locked` und `archived:false` verwenden. In archivierten Repositorys sind Unterhaltungen automatisch gesperrt. Weitere Informationen findest Du unter „[Issues und Pull Requests durchsuchen](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked).“
+Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu suchen, kannst Du die Qualifizierer `is:locked` und `archived:false` verwenden. In archivierten Repositorys sind Unterhaltungen automatisch gesperrt. Weitere Informationen findest Du unter „[Issues und Pull Requests durchsuchen](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked).“
 
 1. Verfasse optional einen Kommentar, in dem Du erklärst, weshalb Du die Unterhaltung sperrst.
 2. Klicke am rechten Rand des Issues respektive Pull Requests oder oberhalb des Kommentarfelds auf der Commit-Seite auf **Lock conversation** (Unterhaltung sperren). ![Link „Lock conversation“ (Unterhaltung sperren)](/assets/images/help/repository/lock-conversation.png)

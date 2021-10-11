@@ -8,12 +8,6 @@ redirect_from:
 shortTitle: Tarea de inicio
 ---
 
-{% note %}
-
-**Nota:** La tarea inicilal de Git & {% data variables.product.company_short %} está en beta y también está sujeta a cambios.
-
-{% endnote %}
-
 La tarea inicial de Git & {% data variables.product.company_short %} es un curso prehecho que resume los puntos básicos de Git y de {% data variables.product.company_short %} y enlaza a los alumnos con recursos para aprender más sobre temas específicos.
 
 ## Prerrequisitos

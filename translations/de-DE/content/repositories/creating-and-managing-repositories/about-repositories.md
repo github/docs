@@ -74,7 +74,7 @@ All enterprise members have read permissions to the internal repository, but int
 
 {% data reusables.repositories.internal-repo-default %}
 
-If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
+Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's user account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
 {% endif %}
 
 ## Begrenzungen für die Anzeige von Inhalten und Diffs in einem Repository
@@ -107,6 +107,7 @@ Die Vergleichsansicht und die Pull-Request-Seiten zeigen eine Liste mit Commits 
 ## Weiterführende Informationen
 
 - „[Ein neues Repository erstellen](/articles/creating-a-new-repository)“
+- „[Über Forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - „[Mithilfe von Issues und Pull Requests zusammenarbeiten](/categories/collaborating-with-issues-and-pull-requests)“
 - „[Ihre Arbeit auf {% data variables.product.prodname_dotcom %} verwalten](/categories/managing-your-work-on-github/)“
 - „[Ein Repository verwalten](/categories/administering-a-repository)“

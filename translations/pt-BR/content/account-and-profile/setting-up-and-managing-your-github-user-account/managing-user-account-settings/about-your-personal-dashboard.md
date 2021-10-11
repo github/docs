@@ -49,7 +49,7 @@ Atualizações serão exibidas no feed de notícias quando um usuário que você
 - Abrir um problema ou uma pull request com a etiqueta "help wanted" ou "good first issue" em um repositório que você está inspecionando.
 - Faz push de commits para um repositório que você inspeciona.{% ifversion fpt or ghes %}
 - Bifurca um repositório público.{% endif %}
-- Publishes a new release.
+- Publica uma nova versão.
 
 Para obter mais informações sobre como atribuir estrelas a repositórios e seguir pessoas, consulte "[Salvar repositórios com estrelas](/articles/saving-repositories-with-stars/)" e "[Seguir pessoas](/articles/following-people)".
 

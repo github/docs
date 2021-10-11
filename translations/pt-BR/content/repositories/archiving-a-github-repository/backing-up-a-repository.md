@@ -36,7 +36,7 @@ Quando você clona um repositório ou wiki, somente os dados Git, como arquivos 
 - [Projetos](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-Assim que tiver {% ifversion ghes or ghae %}uma versão local de todo o conteúdo do qual deseja fazer backup, você poderá criar um arquivo zip e {% else %}baixado seu arquivo, você poderá{% endif %}copiá-lo em um disco rígido externo e/ou fazer upload dele em um serviço de backup baseado na nuvem, como o [Google Drive](https://www.google.com/drive/) ou [Dropbox](https://www.dropbox.com/).
+Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt %}
 ## Ferramentas de backup de terceiros

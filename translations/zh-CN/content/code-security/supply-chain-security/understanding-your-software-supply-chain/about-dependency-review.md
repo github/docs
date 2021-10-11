@@ -1,11 +1,11 @@
 ---
 title: 关于依赖项审查
 intro: 依赖项审查可让您在将有漏洞的依赖项引入您的环境之前找到它们，并提供关于许可证、依赖项和依赖项存在时间的信息。
+product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: 依赖项审查
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: overview
 topics:
   - Advanced Security

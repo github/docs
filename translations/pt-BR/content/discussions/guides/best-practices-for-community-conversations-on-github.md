@@ -1,7 +1,7 @@
 ---
 title: Práticas recomendadas para conversas comunitárias no GitHub
 shortTitle: Práticas recomendadas para conversas comunitárias
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
+intro: 'Você pode usar discussões para levantar hipóteses com a sua equipe e, por fim, transferir a conversa para um problema quando você estiver pronto para definir o escopo do trabalho.'
 versions:
   fpt: '*'
 ---
@@ -21,7 +21,7 @@ Para mais informações sobre como abrir um problema e fazer referências cruzad
 
 Você pode criar e participar de discussões, problemas e pull requests, dependendo do tipo de conversa que você gostaria de ter.
 
-Você pode usar {% data variables.product.prodname_discussions %} para discutir o panorama geral, levantamento de hipóteses e desenvolver detalhes específicos de um projeto antes de vinculá-lo a um problema, que poderá ter o escopo definido. {% data variables.product.prodname_discussions %} is useful for teams if:
+Você pode usar {% data variables.product.prodname_discussions %} para discutir o panorama geral, levantamento de hipóteses e desenvolver detalhes específicos de um projeto antes de vinculá-lo a um problema, que poderá ter o escopo definido. {% data variables.product.prodname_discussions %} é útil para equipes se:
 - Você está na fase de descoberta de um projeto e ainda está aprendendo qual diretor sua equipe quer acessar
 - Você deseja coletar comentários de uma comunidade mais ampla sobre um projeto
 - Você deseja manter correções de erros, solicitações de recursos e conversas gerais separadas

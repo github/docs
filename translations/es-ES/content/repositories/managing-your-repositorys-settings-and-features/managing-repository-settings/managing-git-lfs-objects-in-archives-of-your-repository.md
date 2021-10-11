@@ -18,7 +18,7 @@ redirect_from:
 
 Si eliges incluir los objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio, cada descarga de dichos archivos contará en el uso de ancho de banda para tu cuenta. Cada cuenta recibirá una {% data variables.large_files.initial_bandwidth_quota %} mensual de ancho de banda gratuito, y podrás pagar por cualquier uso adicional. Para obtener más información, consulta las secciones "[Acerca del uso del ancho de banda y del almacenamiento](/github/managing-large-files/about-storage-and-bandwidth-usage)" y "[Administrar la facturación para {% data variables.large_files.product_name_long %}](/billing/managing-billing-for-git-large-file-storage)".
 
-If you use an external LFS server (configured in your `.lfsconfig`), those LFS files will not be included in archives of the repository. The archive will only contain files that have been committed to {% data variables.product.product_name %}.
+Si utilizas un servidor LFS externo (configurado en tu `.lfsconfig`), estos archivos de LFS no se incluirán en los archivos del repositorio. El archivo solo contendrá archivos que se hayan confirmado en {% data variables.product.product_name %}.
 
 ## Administrar los objetos de {% data variables.large_files.product_name_short %} en los archivos
 

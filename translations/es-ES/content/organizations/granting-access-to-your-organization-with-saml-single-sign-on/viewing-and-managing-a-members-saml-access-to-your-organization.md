@@ -25,6 +25,18 @@ Puedes ver y revocar la identidad vinculada de cada miembro, sesiones activas y 
 
 {% data reusables.saml.about-linked-identities %}
 
+Cuando esté disponible, la entrada incluirá datos de SCIM. Para obtener más información, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+
+{% warning %}
+
+**Advertencia:** Para las orgtanizaciones que utilizan SCIM:
+- El revocar una identidad de usuario en {% data variables.product.product_name %} también eliminará los metadatos de SAML y de SCIM. Como resultado, el proveedor de identidad no podrá sincronizar o desaprovisionar la identidad de usuario enlazada.
+- Un administrador deberá revocar una identidad enlazada a través del proveedor de identidad.
+- Para revocar una identidad enlazada y enlazar una cuenta diferente a través del proveedor de identidad, un administrador puede eliminar y volver a asignar el usuario con la aplicación de {% data variables.product.product_name %}. Para obtener más información, consulta la documentación de tu proveedor de identidad.
+
+{% endwarning %}
+
+
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}

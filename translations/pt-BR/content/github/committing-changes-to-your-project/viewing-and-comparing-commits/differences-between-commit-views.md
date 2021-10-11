@@ -29,4 +29,4 @@ Para obter mais informações sobre como o Git considera o histórico de commits
 ## Leia mais
 
 - "[Assinar commits](/articles/signing-commits)"
-- "[Pesquisar commits](/articles/searching-commits)"
+- "[Pesquisar commits](/search-github/searching-on-github/searching-commits)"

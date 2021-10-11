@@ -165,11 +165,11 @@ Esto controla de qué manera se repara el [índice de propuestas][]. Puedes
 - comenzar una nueva tarea de reparación de índice
 - restablecer todos los estados de reparación de índices
 {% endif %}
-## Reserved logins
+## Inicios de sesión reservados
 
-Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+Algunas palabras se reservan para uso interno en {% data variables.product.product_location %}, lo cual significa que estas no pueden utilizarse como nombres de usuario.
 
-For example, the following words are reserved, among others:
+Por ejemplo, las siguientes palabras, entre otras, son reservadas:
 
 - `admin`
 - `empresa`
@@ -177,7 +177,7 @@ For example, the following words are reserved, among others:
 - `staff`
 - `asistencia`
 
-For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+Para una lista completa de palabras reservadas, navega a la sección de "Inicios de sesión reservados" en el tablero de administrador de sitio.
 
 {% ifversion ghes or ghae %}
 
@@ -197,7 +197,7 @@ Es una lista de los repositorios en {% data variables.product.product_location %
 
 ## Todos los usuarios
 
-Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Aquí puedes ver a todos los usuarios en {% data variables.product.product_location %} e [iniciar una auditoría de llaves de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ## Administrador del sitio
 
@@ -208,7 +208,7 @@ Aquí puedes ver todos los administradores en {% data variables.product.product_
 Aquí puedes ver y [suspender](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) todos los usuarios inactivos en {% data variables.product.product_location %}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
+Aquí puedes ver y suspender a todos los usuarios inactivos en {% data variables.product.product_location %}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
 {% endif %}
 
 - Ha existido durante más tiempo del umbral de inactividad que está establecido para {% data variables.product.product_location %}.

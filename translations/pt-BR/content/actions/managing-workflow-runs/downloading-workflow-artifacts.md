@@ -11,9 +11,8 @@ shortTitle: Fazer download dos artefatos do fluxo de trabalho
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} Por padrão, {% data variables.product.product_name %} armazena registros de criação por 90 dias e você pode personalizar este período de retenção, dependendo do tipo de repositório. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
+{% ifversion fpt or ghes > 2.22 or ghae %} Por padrão, {% data variables.product.product_name %} armazena registros de criação por 90 dias e você pode personalizar este período de retenção, dependendo do tipo de repositório. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)".{% endif %}
 {% ifversion ghes = 2.22 %} {% data variables.product.product_name %} armazena registros de criação completos e artefatos por 90 dias.{% endif %}
 
 {% data reusables.repositories.permissions-statement-read %}
