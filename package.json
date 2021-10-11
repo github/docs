@@ -97,7 +97,7 @@
     "walk-sync": "^3.0.0"
   },
   "devDependencies": {
-    "@actions/core": "^1.5.0",
+    "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
     "@babel/core": "^7.15.8",
     "@babel/eslint-parser": "^7.15.4",
