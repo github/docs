@@ -89,12 +89,24 @@ describe('Page class', () => {
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
-      expect(page.markdown.includes('(/articles/about-pull-requests)')).toBe(true)
-      expect(page.markdown.includes('(/en/articles/about-pull-requests)')).toBe(false)
-      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
+      expect(
+        page.markdown.includes(
+          '(/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
+        )
+      ).toBe(true)
+      expect(
+        page.markdown.includes(
+          '(/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
+        )
+      ).toBe(false)
       expect(
         $(
-          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/articles/about-pull-requests"]`
+          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]`
         ).length
       ).toBeGreaterThan(0)
     })
@@ -113,7 +125,8 @@ describe('Page class', () => {
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {
       const page = await Page.init(opts)
-      page.rawIntro = '[Pull requests](/articles/about-pull-requests)'
+      page.rawIntro =
+        '[Pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
@@ -123,8 +136,16 @@ describe('Page class', () => {
       }
       await page.render(context)
       const $ = cheerio.load(page.intro)
-      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($('a[href="/en/articles/about-pull-requests"]').length).toBeGreaterThan(0)
+      expect(
+        $(
+          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          'a[href="/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
+        ).length
+      ).toBeGreaterThan(0)
     })
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
