@@ -13,7 +13,6 @@ children:
   - /copilot
   - /setting-up-and-managing-your-enterprise
   - /writing-on-github
-  - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /managing-security-vulnerabilities
   - /finding-security-vulnerabilities-and-errors-in-your-code
