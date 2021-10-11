@@ -53,7 +53,7 @@ jobs:
                   issue_number: pullNumber,
                   owner: 'github',
                   repo: 'docs',
-                  body: "Thanks for submitting a PR to the GitHub Docs project!\n\nIn order to review and merge PRs most efficiently, we require that all PRs grant maintainer edit access before we review them. For more information about this, [check the contribution guide](https://github.com/github/docs/blob/main/CONTRIBUTING.md)."
+                  body: "Thanks for submitting a PR to the GitHub Docs project!\n\nIn order to review and merge PRs most efficiently, we require that all PRs grant maintainer edit access before we review them. For information on how to do this, [see the documentation](https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
                 });
               }
             } catch(e) {
