@@ -389,7 +389,7 @@ The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD`
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** |   |
+| <ul><li>Pull requests</li></ul> | **X** | **X** |
 
 ### Event object properties
 
@@ -446,7 +446,7 @@ The issue was pinned.
 
 ## ready_for_review
 
-A pull request was created that is not in draft mode.
+The pull request was marked as ready for review.
 
 ### Availability
 
