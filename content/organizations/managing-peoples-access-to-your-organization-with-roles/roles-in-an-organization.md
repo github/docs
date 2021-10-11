@@ -41,7 +41,16 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4999 %}
 ## Security managers
-Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team  the same set of security management permissions, including *read* permissions for all repositories in an organization and *write* permission on security alerts. This role is useful for organizations with security teams, as it gives members of the team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
+
+{% note %}
+
+**Note:** The security manager role is in public beta and subject to change.
+
+{% endnote %}
+
+Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team  the same set of security management permissions, including *read* permissions for all repositories in an organization and *write* permission on security alerts. 
+
+This role is useful for organizations with security teams, as it gives members of the team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
 {% endif %}
 ## {% data variables.product.prodname_github_app %} managers
 By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
@@ -164,6 +173,6 @@ Some of the features listed below are limited to organizations using {% data var
 
 ## Further reading
 
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
-- "[About teams](/articles/about-teams)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[About teams](/organizations/organizing-members-into-teams/about-teams)"
+- "[Project board permissions for an organization](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
