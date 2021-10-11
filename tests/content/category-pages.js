@@ -153,6 +153,7 @@ describe('category pages', () => {
         })
 
         // TODO: Unskip this test once the related script has been executed
+        // Docs Engineering issue: 963
         test.skip('slugified title matches parent directory name', () => {
           // Get the parent directory name
           const categoryDirPath = path.dirname(indexAbsPath)

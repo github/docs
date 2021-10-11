@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/best-practices-for-user-security
   - /admin/user-management/best-practices-for-user-security
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Security

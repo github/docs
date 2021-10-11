@@ -4,17 +4,17 @@ intro: 'Du kannst die Anwendung für selbst-gehostete Runner als Dienst konfigur
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: tutorial
 defaultPlatform: linux
+shortTitle: Run runner app on startup
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% capture service_first_step %}1. Beende die Anwendung für selbst-gehostete Runner, falls sie gerade läuft.{% endcapture %}
 {% capture service_non_windows_intro_shell %}Öffne auf der Runner-Maschine eine Shell in dem Verzeichnis, in dem Du die Anwendung für selbst-gehostete Runner installiert hast. Verwende die folgenden Befehle, um den Dienst für selbst-gehosteten Runner zu installieren und zu verwalten.{% endcapture %}
@@ -56,7 +56,7 @@ Du kannst den Runner-Dienst in der Windows-Anwendung **Services** verwalten oder
 
 {% linux %}
 
-### Den Dienst installieren
+## Den Dienst installieren
 
 {{ service_first_step }}
 1. Installiere den Dienst mit folgendem Befehl:
@@ -68,7 +68,7 @@ Du kannst den Runner-Dienst in der Windows-Anwendung **Services** verwalten oder
 {% endlinux %}
 {% mac %}
 
-### Den Dienst installieren
+## Den Dienst installieren
 
 {{ service_first_step }}
 1. Installiere den Dienst mit folgendem Befehl:
@@ -78,7 +78,7 @@ Du kannst den Runner-Dienst in der Windows-Anwendung **Services** verwalten oder
    ```
 {% endmac %}
 
-### Den Dienst starten
+## Den Dienst starten
 
 Starte den Dienst mit folgendem Befehl:
 
@@ -98,7 +98,7 @@ Start-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Den Status des Dienstes überprüfen
+## Den Status des Dienstes überprüfen
 
 Überprüfe den Status des Dienstes mit folgendem Befehl:
 
@@ -120,7 +120,7 @@ Get-Service "{{ service_win_name }}"
 
  Weitere Informationen zum Ansehen des Status Deines selbst-gehosteten Runners findest Du unter „[Überwachung und Fehlerbehebung selbst-gehosteter Runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)“.
 
-### Den Dienst beenden
+## Den Dienst beenden
 
 Beende den Dienst mit dem folgenden Befehl:
 
@@ -140,7 +140,7 @@ Stop-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
-### Den Dienst de-installieren
+## Den Dienst de-installieren
 
 1. Beende den Dienst, falls er gerade läuft.
 1. De-installiere den Dienst mit folgendem Befehl:
@@ -164,7 +164,7 @@ Stop-Service "{{ service_win_name }}"
 
 {% linux %}
 
-### Dienst für selbst-gehosteten Runner anpassen
+## Dienst für selbst-gehosteten Runner anpassen
 
 Wenn Du die oben genannte Standardkonfiguration des `systemd`-Dienstes nicht verwenden möchtest, kannst Du einen angepassten Dienst erstellen oder Deinen bevorzugten Dienstmechanismus nutzen. Erwäge, die `serviced`-Vorlage unter `actions-runner/bin/actions.runner.service.template` als Referenz zu verwenden. Wenn Du einen angepassten Dienst verwendest, muss der selbst-gehostete Runner-Dienst immer mit dem Einstiegspunkt `runsvc.sh` aufgerufen werden.
 
@@ -172,7 +172,7 @@ Wenn Du die oben genannte Standardkonfiguration des `systemd`-Dienstes nicht ver
 
 {% mac %}
 
-### Dienst für selbst-gehosteten Runner anpassen
+## Dienst für selbst-gehosteten Runner anpassen
 
 Wenn Du die oben genannte Standardkonfiguration des „launchd“-Dienstes nicht verwenden möchtest, kannst Du einen angepassten Dienst erstellen oder Deinen bevorzugten Dienstmechanismus nutzen. Erwäge, die `plist`-Vorlage unter `actions-runner/bin/actions.runner.plist.template` als Referenz zu verwenden. Wenn Du einen angepassten Dienst verwendest, muss der selbst-gehostete Runner-Dienst immer mit dem Einstiegspunkt `runsvc.sh` aufgerufen werden.
 

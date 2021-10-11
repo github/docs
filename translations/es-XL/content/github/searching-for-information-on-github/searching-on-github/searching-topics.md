@@ -5,9 +5,9 @@ redirect_from:
   - /articles/searching-topics
   - /github/searching-for-information-on-github/searching-topics
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---

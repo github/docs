@@ -4,13 +4,14 @@ intro: 'Wenn Sie Unterstützung beim Kauf oder beim Bezahlen einer App von {% da
 redirect_from:
   - /articles/github-marketplace-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
+shortTitle: GitHub Marketplace
 ---
 
 
-### App-Anbieter um Unterstützung bitten
+## App-Anbieter um Unterstützung bitten
 
 Jede App von {% data variables.product.prodname_marketplace %} umfasst einen Link, über den Sie das zugehörige Supportteam erreichen können.
 
@@ -19,7 +20,7 @@ Jede App von {% data variables.product.prodname_marketplace %} umfasst einen Lin
 3. Klicke in der linken Seitenleiste unter „Developer tools“ (Entwicklerwerkzeuge) auf **Support**.
 4. Befolge die Anweisungen auf der Supportseite der App, um das zuständige Supportteam zu kontaktieren.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)“
 - „[Apps in {% data variables.product.prodname_marketplace %} kaufen und installieren](/articles/purchasing-and-installing-apps-in-github-marketplace)“

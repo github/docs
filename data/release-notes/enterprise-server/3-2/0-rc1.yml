@@ -1,6 +1,6 @@
 date: '2021-09-09'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
 sections:
   features:

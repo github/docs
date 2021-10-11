@@ -36,24 +36,45 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% endif %}
 
+{%- ifversion ghes < 3.2 %}
+
 The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
 
 Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
 
+{%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss.
+
+The peak quantity of concurrent jobs running without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+
+{% endif %}
+
+{%- ifversion ghes < 3.2 %}
+
 | vCPUs | Memory | Maximum job throughput |
 | :--- | :--- | :--- |
-{%- ifversion ghes > 3.1 %}
-| 4 | 32 GB | Demo or light testing |
-| 8 | 64 GB | 30 jobs |
-| 16 | 128 GB | 60 jobs |
-| 32 | 256 GB | 120 jobs |
-| 64 | 512 GB | 160 jobs |
-{%- else ifversion ghes < 3.2 %}
 | 4 | 32 GB | Demo or light testing |
 | 8 | 64 GB | 25 jobs |
 | 16 | 160 GB | 35 jobs |
 | 32 | 256 GB | 100 jobs |
+
 {%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+| vCPUs | Memory | Maximum Concurrency*|
+| :--- | :--- | :--- |
+| 32 | 128 GB | 1500 jobs |
+| 64 | 256 GB | 1900 jobs |
+| 96 | 384 GB | 2200 jobs |
+
+*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+
+{%- endif %}
+
 
 If you {% ifversion ghes = 2.22 %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
 

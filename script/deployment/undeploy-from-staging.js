@@ -42,6 +42,7 @@ export default async function undeployFromStaging({
     try {
       await heroku.get(`/apps/${appName}`)
     } catch (error) {
+      announceIfHerokuIsDown(error)
       appExists = false
     }
 
@@ -52,6 +53,7 @@ export default async function undeployFromStaging({
 
         console.log(`Heroku app '${appName}' deleted`)
       } catch (error) {
+        announceIfHerokuIsDown(error)
         throw new Error(`Failed to delete Heroku app '${appName}'. Error: ${error}`)
       }
     }
@@ -125,5 +127,11 @@ export default async function undeployFromStaging({
 
     // Re-throw the error to bubble up
     throw error
+  }
+}
+
+function announceIfHerokuIsDown(error) {
+  if (error && error.statusCode === 503) {
+    console.error('💀 Heroku may be down! Please check its Status page: https://status.heroku.com/')
   }
 }

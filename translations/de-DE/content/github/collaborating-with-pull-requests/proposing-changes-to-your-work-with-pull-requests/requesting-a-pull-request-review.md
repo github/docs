@@ -6,16 +6,17 @@ redirect_from:
   - /articles/requesting-a-pull-request-review
   - /github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
+shortTitle: Request a PR review
 ---
 
 Inhaber und Mitarbeiter eines Repositorys, das einem Benutzerkonto angehört, können Pull Requests zuweisen. Organisationsmitglieder mit Triage-Berechtigungen für ein Repository können einen Pull-Request-Review zuweisen.
 
-Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/articles/access-permissions-on-github) auf ein benutzereigenes Repository gewährt wurde, einen Pull-Request-Review zuweisen. Organisationsmitglieder können jeder Person oder jedem Team mit Lesezugriff auf das Repository einen Pull-Request-Review zuweisen. Der angeforderte Reviewer respektive das angeforderte Team erhält eine Benachrichtigung, dass Du einen Pull-Request-Review von ihm angefordert hast. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Wenn Du einen Review von einem Team angefordert hast und wenn Code-Review-Zuweisung aktiviert ist, werden spezifische Mitglieder angefordert und das Team wird als Reviewer entfernt werden. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/articles/access-permissions-on-github) auf ein benutzereigenes Repository gewährt wurde, einen Pull-Request-Review zuweisen. Organisationsmitglieder können jeder Person oder jedem Team mit Lesezugriff auf das Repository einen Pull-Request-Review zuweisen. Der angeforderte Reviewer respektive das angeforderte Team erhält eine Benachrichtigung, dass Du einen Pull-Request-Review von ihm angefordert hast. {% ifversion fpt or ghae or ghes %}Wenn Du einen Review von einem Team angefordert hast und wenn Code-Review-Zuweisung aktiviert ist, werden spezifische Mitglieder angefordert und das Team wird als Reviewer entfernt werden. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% note %}
 
@@ -33,6 +34,6 @@ Du kannst den Review entweder von einer vorgeschlagenen oder von einer bestimmte
 6. Optional kannst Du, sofern Du den Namen der Person oder des Teams kennst, welche Deine Änderungen prüfen soll, auch sofort auf **Reviewers** (Prüfer) klicken und den Benutzernamen der Person oder des Teams eingeben, die Du für den Review Deiner Änderungen einladen willst. Klicke dann auf den Team- oder Benutzernamen, um den Review anzufordern. ![Feld zum Eingeben des Benutzernames eines Reviewers und Dropdown-Menü mit Namen des Reviewers](/assets/images/help/pull_requests/choose-pull-request-reviewer.png)
 7. Nachdem Dein Pull Request geprüft wurde und Du die erforderlichen Änderungen vorgenommen hast, kannst Du einen Prüfer um einen erneuten Review Deines Pull Request bitten. Navigiere in der linken Seitenleiste zu **Reviewers** (Prüfer), und klicke neben dem Namen des Prüfers, der den Review durchführen soll, auf {% octicon "sync" aria-label="The sync icon" %}. ![Synchronisieren-Schaltfläche für erneuten Review in der rechten Seitenleiste](/assets/images/help/pull_requests/request-re-review.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Informationen zu Pull-Request-Reviews](/articles/about-pull-request-reviews)“

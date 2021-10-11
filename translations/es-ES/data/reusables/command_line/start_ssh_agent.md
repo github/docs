@@ -5,4 +5,4 @@
     > Agent pid 59566
     ```
 
-    Depending on your environment, you may need to use a different command. For example, you may need to use root access by running `sudo -s -H` before starting the ssh-agent, or you may need to use `exec ssh-agent bash` or `exec ssh-agent zsh` to run the ssh-agent.
+    Dependiendo de tu ambiente, puede que necesites utilizar un comando diferente. Por ejemplo, puede que necesites utilizar acceso de raíz ejecutando `sudo -s -H` antes de iniciar el ssh-agent, o puede que necesites utilizar `exec ssh-agent bash` o `exec ssh-agent zsh` para ejecutar el ssh-agent.

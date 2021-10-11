@@ -2,9 +2,10 @@
 title: パッケージ公開のワークフローの例
 intro: カスタムワークフローを扱い始めるために、パッケージを公開するワークフローのいくつかの例を確認してください。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: ワークフローの例
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

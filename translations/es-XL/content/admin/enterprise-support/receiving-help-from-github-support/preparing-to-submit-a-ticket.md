@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
   - Support

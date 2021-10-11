@@ -50,6 +50,7 @@ After {% data variables.product.prodname_dotcom %} reviews your application, you
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}

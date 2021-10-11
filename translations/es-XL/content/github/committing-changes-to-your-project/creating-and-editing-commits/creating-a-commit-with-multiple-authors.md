@@ -5,9 +5,9 @@ redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
   - /github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 ### Required co-author information
 

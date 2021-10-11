@@ -24,8 +24,8 @@ featuredLinks:
     - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   popularHeading: Set up your project
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
-community_redirect:
-  name: Provide GitHub Feedback
+communityRedirect: 
+  name: 'Provide GitHub Feedback'
   href: 'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
 redirect_from:
   - /github/developing-online-with-github-codespaces
@@ -44,6 +44,7 @@ children:
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
   - /troubleshooting
+  - /the-githubdev-web-based-editor
   - /guides
 ---
 

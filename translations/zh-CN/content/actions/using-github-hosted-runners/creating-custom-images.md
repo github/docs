@@ -2,12 +2,12 @@
 title: 创建自定义映像
 intro: '您可以为 {% data variables.actions.hosted_runner %} 创建自定义映像。'
 versions:
-  github-ae: '*'
+  ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
-### 使用自定义映像创建 {% data variables.actions.hosted_runner %}
+## 使用自定义映像创建 {% data variables.actions.hosted_runner %}
 
 {% data variables.actions.hosted_runner %} 可以使用您自定义的操作系统映像来满足需要。 本文包括在 Azure 中创建映像并准备将其用于 {% data variables.product.prodname_ghe_managed %} 的简要步骤。 更多信息请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/virtual-machines/)。
 

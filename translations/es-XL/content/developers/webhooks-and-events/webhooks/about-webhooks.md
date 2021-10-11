@@ -5,9 +5,9 @@ redirect_from:
   - /webhooks
   - /developers/webhooks-and-events/about-webhooks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Webhooks
 ---

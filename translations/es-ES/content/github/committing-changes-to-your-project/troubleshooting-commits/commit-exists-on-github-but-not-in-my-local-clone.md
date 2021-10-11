@@ -5,9 +5,10 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Confirmación ausente en el clon local
 ---
 
 Cuando usas `git show` para ver una confirmación específica en la línea de comando, puedes obtener un error fatal.
@@ -29,7 +30,7 @@ Existen varias explicaciones posibles:
 * La rama que contiene la contiene la confirmación fue eliminada, por lo que ya no se hace referencia a la confirmación.
 * Alguien realizó un empuje forzado sobre la confirmación.
 
-### El repositorio local está desactualizado
+## El repositorio local está desactualizado
 
 Es posible que tu repositorio local aún no esté confirmado. Para obtener información desde tu repositorio remoto hasta tu clon local, usa `git fetch`:
 
@@ -45,7 +46,7 @@ Esto copia información de manera segura desde el repositorio remoto hasta tu cl
 
 {% endtip %}
 
-### La rama que contenía la confirmación fue eliminada
+## La rama que contenía la confirmación fue eliminada
 
 Si un colaborador del repositorio ha eliminado la rama que contiene la confirmación o ha realizado un empuje forzado sobre la rama, es posible que la confirmación faltante haya quedado huérfana (es decir, no puede ser alcanzado desde cualquier referencia) y, por lo tanto, no se extraerá en tu clon local.
 
@@ -69,11 +70,11 @@ $ git fetch upstream recover-B
 # Crea la confirmación en tu repositorio local.
 ```
 
-### Evitar empujes forzados
+## Evitar empujes forzados
 
 Evita los empujes forzados a un repositorio a menos que sea absolutamente necesario. Esto es especialmente cierto si más de una persona puede subir al repositorio.
 
-### Leer más
+## Leer más
 
 - ["Working with Remotes" (Trabajar con remotos) desde el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - ["Recuperación de datos" sde el libro _Pro Git_](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

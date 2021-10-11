@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
   - Errors
