@@ -9,6 +9,9 @@ on:
     types:
       - opened
 
+permissions:
+  pull-requests: write
+
 jobs:
   notify-when-maintainers-cannot-edit:
     if: github.repository == 'github/docs'
