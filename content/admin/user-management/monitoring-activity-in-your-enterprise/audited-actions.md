@@ -104,7 +104,7 @@ Action             | Description
 
 | Action | Description |
 | :- | :- |{% ifversion ghes > 3.1 or ghae-next %}
-| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
+| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
 | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
 | `pull_request.reopen` | A pull request was reopened after previously being closed. |
 | `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)." |
