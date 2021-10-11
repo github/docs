@@ -15,8 +15,6 @@ shortTitle: Publicar & instalar com ações
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Sobre {% data variables.product.prodname_registry %} com {% data variables.product.prodname_actions %}
 

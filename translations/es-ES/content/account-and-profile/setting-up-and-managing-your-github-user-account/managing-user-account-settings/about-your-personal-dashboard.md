@@ -49,7 +49,7 @@ Verás actualizaciones en tus noticias cuando un usuario que sigues:
 - Abre una propuesta o una solicitud de extracción con la etiqueta "se busca ayuda" o "primera buena propuesta" en un repositorio que estás mirando.
 - Sube las confirmaciones a un repositorio que estés observando.{% ifversion fpt or ghes %}
 - Bifurque un repositorio público.{% endif %}
-- Publishes a new release.
+- Publica un lanzamiento nuevo.
 
 Para obtener más información acerca de cómo destacar repositorios y seguir personas, consulta "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)" y "[Seguir a personas](/articles/following-people)".
 

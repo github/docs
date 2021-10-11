@@ -1080,4 +1080,4 @@ mutation {
 
 ## 搜索
 
-讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 更多信息请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/github/searching-for-information-on-github/searching-discussions)”。
+讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 更多信息请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”和“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。

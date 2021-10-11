@@ -10,7 +10,7 @@ versions:
   ghae: '*'
 topics:
   - GitHub Apps
-shortTitle: Migrate from OAuth Apps
+shortTitle: Fazer a migração dos aplicativos OAuth
 ---
 
 Este artigo fornece orientações para integradores existentes que estão considerando a migração de um aplicativo OAuth para um aplicativo GitHub.
@@ -41,14 +41,14 @@ Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% ifversio
 1. [Entenda os diferentes métodos de autenticação](#understand-the-different-methods-of-authentication)
 1. [Oriente os usuários para instalar o seu aplicativo GitHub nos repositórios](#direct-users-to-install-your-github-app-on-repositories)
 1. [Remova quaisquer hooks de repositório desnecessários](#remove-any-unnecessary-repository-hooks)
-1. [Encourage users to revoke access to your OAuth App](#encourage-users-to-revoke-access-to-your-oauth-app)
-1. [Delete the OAuth App](#delete-the-oauth-app)
+1. [Incentive os usuários a revogar o acesso ao seu aplicativo OAuth](#encourage-users-to-revoke-access-to-your-oauth-app)
+1. [Exclua o aplicativo OAuth](#delete-the-oauth-app)
 
 ### Revise os pontos finais da API disponíveis para os aplicativos do GitHub
 
 Embora a maioria dos pontos finais da [API REST](/rest) e as consultas do [GraphQL](/graphql) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/rest/overview/endpoints-available-for-github-apps) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
 
-Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_apps %}.
+Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Informe ao suporte se há um ponto de extremidade necessário que ainda não esteja habilitado para {% data variables.product.prodname_github_apps %}.
 
 ### Projete para permanecer dentro dos limites de taxa da API
 
@@ -102,8 +102,8 @@ Uma vez que seu aplicativo GitHub foi instalado em um repositório, você deve r
 
 ### Incentive os usuários a revogar o acesso ao seu aplicativo OAuth
 
-As your GitHub App installation base grows, consider encouraging your users to revoke access to the legacy OAuth integration. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
+À medida que sua base de instalação do aplicativo GitHub aumenta, incentive seus usuários a revogar o acesso à integração do legado do OAuth. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)".
 
-### Delete the OAuth App
+### Exclua o aplicativo OAuth
 
-To avoid abuse of the OAuth App's credentials, consider deleting the OAuth App. This action will also revoke all of the OAuth App's remaining authorizations. For more information, see "[Deleting an OAuth App](/developers/apps/managing-oauth-apps/deleting-an-oauth-app)."
+Para evitar o abuso das credenciais do aplicativo OAuth, considere excluir o aplicativo OAuth. Esta ação também irá revogar todas as autorizações restantes do aplicativo OAuth. Para obter mais informações, consulte "[Excluindo um aplicativo OAuth](/developers/apps/managing-oauth-apps/deleting-an-oauth-app)".

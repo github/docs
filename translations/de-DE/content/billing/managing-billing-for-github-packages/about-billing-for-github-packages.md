@@ -49,7 +49,7 @@ Die Speichernutzung wird mit Build-Artefakten geteilt, die von {% data variables
 
 {% data variables.product.prodname_dotcom %} belastet die Nutzung auf das Konto, welches das Repository besitzt, in dem das Paket veröffentlicht wird. If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.25 USD per GB of storage and $0.50 USD per GB of data transfer.
 
-Wenn Deine Organisation beispielsweise {% data variables.product.prodname_team %} verwendet, unbegrenzte Ausgaben erlaubt, 150 GB Speicher verwendet und 50 GB Datenübertragung nach Außen während eines Monats verbraucht, würde die Organisation Überzüge von 148 GB für die Speicherung und 40 GB für die Datenübertragung für diesen Monat haben. The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD.
+Wenn Deine Organisation beispielsweise {% data variables.product.prodname_team %} verwendet, unbegrenzte Ausgaben erlaubt, 150 GB Speicher verwendet und 50 GB Datenübertragung nach Außen während eines Monats verbraucht, würde die Organisation Überzüge von 148 GB für die Speicherung und 40 GB für die Datenübertragung für diesen Monat haben. The storage overage would cost $0.25 USD per GB or $37 USD. The overage for data transfer would cost $0.50 USD per GB or $20 USD. {% data reusables.dotcom_billing.pricing_cal %}
 
 Am Ende jedes Monates wird {% data variables.product.prodname_dotcom %} Deine Datenübertragung auf das nächste GB aufrunden.
 

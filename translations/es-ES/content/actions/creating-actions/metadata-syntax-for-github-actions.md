@@ -17,13 +17,12 @@ type: reference
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
 Las acciones Docker y JavaScript requieren un archivo de metadatos. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Los datos del archivo de metadatos definen las entradas, las salidas y el punto de entrada principal para tu acción.
 
-Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAML, puedes leer "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAML, puedes leer "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
 ## `name (nombre)`
 
@@ -43,7 +42,7 @@ Los archivos de metadatos de acción usan la sintaxis YAML. Si eres nuevo en YAM
 
 ### Ejemplo
 
-Este ejemplo configura dos entradas: numOctocats y octocatEyeColor. La entrada numOctocats no se requiere y se predeterminará a un valor de '1'. Se requiere la entrada octocatEyeColor y no tiene un valor predeterminado. Los archivos de flujo de trabajo que usan esta acción deben usar la palabra clave `with` (con) para establecer un valor de entrada para octocatEyeColor. Para obtener información sobre la sintaxis `with`, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
+Este ejemplo configura dos entradas: numOctocats y octocatEyeColor. La entrada numOctocats no se requiere y se predeterminará a un valor de '1'. Se requiere la entrada octocatEyeColor y no tiene un valor predeterminado. Los archivos de flujo de trabajo que usan esta acción deben usar la palabra clave `with` (con) para establecer un valor de entrada para octocatEyeColor. Para obtener información sobre la sintaxis `with` (con), consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
 
 ```yaml
 inputs:
@@ -86,7 +85,7 @@ Por ejemplo, si un flujo de trabajo definió las entradas de `numOctocats` y `oc
 
 ## `outputs (salidas)`
 
-**Opcional** Los parámetros de salida te permiten declarar datos que una acción establece. Las acciones que se ejecutan más tarde en un flujo de trabajo pueden usar el conjunto de datos de salida en acciones de ejecución anterior.  Por ejemplo, si se realizó una acción además de las dos entradas (x + y = z), la acción podría dar como resultado la suma (z) para que otras acciones la usen como entrada.
+**Opcional** Los parámetros de salida te permiten declarar datos que una acción establece. Las acciones que se ejecutan más tarde en un flujo de trabajo pueden usar el conjunto de datos de salida en acciones de ejecución anterior.  Por ejemplo, si tuviste una acción que realizó la adición de dos entradas (x + y = z), la acción podría dar como resultado la suma (z) para que otras acciones la usen como entrada.
 
 Si no declaras una salida en tu archivo de metadatos de acción, todavía puedes configurar las salidas y utilizarlas en un flujo de trabajo. Para obtener más información acerca de la configuración de salidas en una acción, consulta "[Comandos de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)".
 
@@ -284,7 +283,7 @@ Te recomendamos encarecidamente que incluyas la versión de la acción que está
 - Usar la versión de acción principal específica te permite recibir correcciones críticas y parches de seguridad y al mismo tiempo mantener la compatibilidad. También asegura que tu flujo de trabajo aún debería funcionar.
 - Puede ser conveniente utilizar la rama predeterminada de una acciòn, pero si alguien lanza una versiòn principal nueva con un cambio importante, tu flujo de trabajo podrìa fallar.
 
-Algunas acciones requieren entradas que se deben establecer usando la palabra clave [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) (con). Revisa el archivo README de la acción para determinar las entradas requeridas.
+Algunas acciones requieren entradas que se deben establecer usando la palabra clave [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith). Revisa el archivo README de la acción para determinar las entradas requeridas.
 
 ```yaml
 runs:

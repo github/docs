@@ -1,20 +1,20 @@
 ---
-title: Troubleshooting port forwarding for Codespaces
-intro: Troubleshooting steps for common port forwarding issues.
+title: Solución de problemas del reenvío de puertos para Codespaces
+intro: Pasos de solución de problemas para los problemas comunes del reenvío de puertos.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
 type: reference
 topics:
   - Codespaces
-shortTitle: Port forwarding
+shortTitle: Reenvío de puertos
 ---
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %}  detects the localhost URL pattern and automatically forwards the port. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Cuando una aplicación que se ejecuta en un codespace da salida a la consola a un puerto, el {% data variables.product.prodname_codespaces %} detecta el patrón de URL del host local y reenvía el puerto automáticamente. Para obtener más información, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-If a port is not automatically forwarded, you can forward it manually. For more information, see "[Forwarding a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)."
+Si un puerto no se reenvía automáticamente, puedes reenviarlo manualmente. Para obtener más información, consulta la sección "[Reenviar un puerto](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#forwarding-a-port)".
 
-If port forwarding is set up, check the following:
+Si se configura el reenvío de puertos, verifica lo siguiente:
 
-- Use the notification toast or click the URL in Terminal to open the forwarded port. Typing in `localhost:8000` (as an example) to your local machine will not work if you're connected to the codespace via the browser.
-- Make sure to check that your application is still running from within your codespace. If your codespace has stopped after a period of inactivity, you'll need to ensure to restart your application once the codespace has restarted.
+- Utiliza la alerta de notificación o haz clic en la URL de la Terminal para abrir el puerto reenviado. No funcionará teclear `localhost:8000` (como ejemplo) en tu máquina local si estás conectado al codespace a través del buscador.
+- Asegúrate de verificar que tu aplicación aún se esté ejecutando desde dentro de tu codespace. Si tu codespace paró después de un periodo de inactividad, necesitarás garantizar que tu aplicación reinicie una vez que se reinició el codespace.

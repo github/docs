@@ -1,6 +1,6 @@
 ---
 title: Reexecutar um fluxo de trabalho
-intro: You can re-run an instance of a workflow up to 30 days after the initial run.
+intro: Você pode executar novamente uma instância de um fluxo de trabalho até 30 dias após a execução inicial.
 product: '{% data reusables.gated-features.actions %}'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 versions:
@@ -11,9 +11,8 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow up to 30 days after the initial run.
+A reexecução de um fluxo de trabalho usa o mesmo `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) do evento original que acionou a execução do fluxo de trabalho. Você pode executar novamente um fluxo de trabalho até 30 dias após a execução inicial.
 
 {% include tool-switcher %}
 

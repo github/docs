@@ -6,5 +6,5 @@
      1. En la barra lateral izquierda, da clic en **Resumen empresarial**.
      1. {% endif %} En la barra lateral de empresa, {% octicon "law" aria-label="The law icon" %} **Políticas**.
 1. Navega a los ajustes de {% data variables.product.prodname_actions %}:
-   * **En una organización o repositorio**: Haz clic en **Acciones** en la barra lateral izquierda{% ifversion fpt %} y luego en **Ejecutores**{% endif %}.
-   * {% ifversion fpt %}**Si estás utilizand una cuenta empresarial**:{% elsif ghes or ghae %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% ifversion fpt %}, y luego en la pestaña de **Ejecutores** {% endif %}.
+   * **En una organización o repositorio**: Haz clic en **Acciones** en la barra lateral izquierda{% ifversion fpt or ghes > 3.1 or ghae-next %} y luego en **Ejecutores**{% endif %}.
+   * {% ifversion fpt %}**Si estás utilizand una cuenta empresarial**:{% elsif ghes or ghae %}**Si estás utilizando un ejecutor a nivel empresarial**:{% endif %} Haz clic en **Acciones** debajo de "{% octicon "law" aria-label="The law icon" %} Políticas"{% ifversion fpt or ghes > 3.1 or ghae-next %}, y luego en la pestaña de **Ejecutores** {% endif %}.

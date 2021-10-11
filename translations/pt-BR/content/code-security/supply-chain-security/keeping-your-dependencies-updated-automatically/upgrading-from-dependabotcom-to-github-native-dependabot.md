@@ -16,9 +16,9 @@ shortTitle: Atualizações do Dependabot.com
 
 {% warning %}
 
-Dependabot Preview has been shut down as of August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot.
+A visualização do Dependabot foi desativada a partir de 3 de agosto de 2021. A fim de continuar recebendo atualizações do Dependabot, faça a migração para o Dependabot nativo do GitHub.
 
-Open pull requests from Dependabot Preview will remain open, including the pull request to upgrade to GitHub-native Dependabot, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
+Os pull requests abertos a partir da visualização do Dependabot permanecerão abertos, incluindo o pull request para atualizar para Dependabot nativo do GitHub, mas o bot em si não funcionará mais nas suas contas e nas organizações do {% data variables.product.prodname_dotcom %}.
 
 {% endwarning %}
 
@@ -31,7 +31,7 @@ A visualização do Dependabot foi construída diretamente em {% data variables.
 Embora a maior parte das funcionalidades do Dependabot Preview existam no nativo de {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %}, algumas permanecem indisponíveis:
 - **Atualizações ao vivo:** Esperamos trazê-las de volta no futuro. Por enquanto, você pode executar {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %} diariamente para pegar novos pacotes dentro de um dia de versão.
 - **Registros de variáveis de ambiente PHP:** Para projetos que dependem da variável de ambiente `ACF_PRO_KEY`, você poderá fornecer sua cópia licenciada do plugin Campos Personalizados Avançados. Por exemplo, consulte [dependabot/acf-php-example](https://github.com/dependabot/acf-php-example#readme). Para outras variáveis de ambiente, você pode usar {% data variables.product.prodname_actions %} para buscar dependências desses registros.
-- **Auto-merge:** Sempre recomendamos verificar suas dependências antes de mesclá-las. Portanto, a fusão automática não será compatível em um futuro próximo. Para aqueles de vocês que avaliaram as suas dependências ou estiverem usando apenas dependências internas, recomendamos adicionar aplicativos de auto-merge de terceiros ou configurar o GitHub Actions para fazer o merge. We have provided the [`dependabot/fetch-metadata`](https://github.com/marketplace/actions/fetch-metadata-from-dependabot-prs) action to help developers [enable GitHub's automerge](https://github.com/dependabot/fetch-metadata/#enabling-auto-merge).
+- **Auto-merge:** Sempre recomendamos verificar suas dependências antes de mesclá-las. Portanto, a fusão automática não será compatível em um futuro próximo. Para aqueles de vocês que avaliaram as suas dependências ou estiverem usando apenas dependências internas, recomendamos adicionar aplicativos de auto-merge de terceiros ou configurar o GitHub Actions para fazer o merge. Fornecemos a ação [`dependabo/buscar metadados`](https://github.com/marketplace/actions/fetch-metadata-from-dependabot-prs) para ajudar os desenvolvedores [a habilitar o merge automático do GitHub](https://github.com/dependabot/fetch-metadata/#enabling-auto-merge).
 
 Em nativo de {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_dependabot %}, você pode configurar todas as atualizações da versão usando o arquivo de configuração. Este arquivo é semelhante ao arquivo de configuração do Dependabot Preview com algumas alterações e melhorias que serão incluídas automaticamente no seu pull request de atualização. Para obter mais informações sobre o pull request de atualização, consulte "[Atualizando para o Dependabot nativo do GitHub](/code-security/supply-chain-security/upgrading-from-dependabotcom-to-github-native-dependabot#upgrading-to-github-native-dependabot)".
 

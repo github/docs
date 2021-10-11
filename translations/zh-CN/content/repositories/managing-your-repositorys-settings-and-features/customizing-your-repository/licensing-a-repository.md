@@ -73,7 +73,7 @@ topics:
 |    | The Unlicense | `unlicense`                                   |
 |    | zLib License | `zlib`                                         |
 
-按系列许可搜索时，搜索结果将包含该系列的所有许可。 例如，在使用查询 `license:gpl` 时，搜索结果将包含在 GNU General Public License v2.0 和 GNU General Public License v3.0 下许可的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-by-license)”。
+按系列许可搜索时，搜索结果将包含该系列的所有许可。 例如，在使用查询 `license:gpl` 时，搜索结果将包含在 GNU General Public License v2.0 和 GNU General Public License v3.0 下许可的仓库。 更多信息请参阅“[搜索仓库](/search-github/searching-on-github/searching-for-repositories/#search-by-license)”。
 
 ## 检测许可
 

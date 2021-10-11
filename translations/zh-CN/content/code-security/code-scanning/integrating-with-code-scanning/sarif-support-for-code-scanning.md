@@ -37,7 +37,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
 如果您使用的是 {% data variables.product.prodname_codeql_cli %}，则可以指定要使用的 SARIF 版本。 更多信息请参阅“[在 CI 系统中配置 {% data variables.product.prodname_codeql_cli %}](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)”。{% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 您可以为相同的工具和提交上传多个 SARIF 文件，并使用 {% data variables.product.prodname_code_scanning %} 分析每个文件。 您可以在每个文件中指定 `runautomationDetails.id` 来表示每个分析的“类别”。 只有具有相同类别的 SARIF 文件才会相互覆盖。 关于此属性的更多信息，请参阅下面的 [`runAutomationDetails` 对象](#runautomationdetails-object)。
 {% endif %}
 
@@ -141,7 +141,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `region.endLine`       | **必选。**区域中最后一个字符的行号。                                                                                                                                                                                                                                                                                                  |
 | `region.endColumn`     | **必选。**区域结束后字符的列编号。                                                                                                                                                                                                                                                                                                   |
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ### `runAutomationDetails` 对象
 
 `runAutomationDetails` 对象包含指定运行身份的信息。
@@ -245,7 +245,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 此 SARIF 输出文件的示例值显示了 {% data variables.product.prodname_code_scanning %} 的所有受支持 SARIF 属性。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",

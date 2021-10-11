@@ -10,7 +10,7 @@ topics:
 shortTitle: Visualizar o uso avançado de segurança
 ---
 
-## About licenses for {% data variables.product.prodname_GH_advanced_security %}
+## Sobre as licenças para {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-license-seats %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".
 

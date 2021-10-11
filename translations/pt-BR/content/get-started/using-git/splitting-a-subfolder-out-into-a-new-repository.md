@@ -26,8 +26,8 @@ Se você criar um clone do repositório, não perderá nenhuma alteração ou hi
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
   ```
-5. To filter out the subfolder from the rest of the files in the repository, run [`git filter-repo`](https://github.com/newren/git-filter-repo), supplying this information:
-    - `FOLDER-NAME`: The folder within your project where you'd like to create a separate repository.
+5. Para filtrar a subpasta do restante dos arquivos no repositório, execute [`git filter-repo`](https://github.com/newren/git-filter-repo), fornecendo estas informações:
+    - `FOLDER-NAME`: A pasta dentro do seu projeto onde você deseja criar um repositório separado.
 
     {% windows %}
 
@@ -45,7 +45,7 @@ Se você criar um clone do repositório, não perderá nenhuma alteração ou hi
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
     ```
-  The repository should now only contain the files that were in your subfolder(s).
+  Agora o repositório deve conter apenas os arquivos que estava(m) na(s) subpasta(s).
 
 6. [Crie um repositório](/articles/creating-a-new-repository/) no {% data variables.product.product_name %}.
 7. No topo da página Quick Setup (Configuração rápida) do novo repositório do {% data variables.product.product_name %}, clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar a URL do repositório remote. ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)

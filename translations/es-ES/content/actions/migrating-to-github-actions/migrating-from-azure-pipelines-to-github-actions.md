@@ -19,7 +19,6 @@ shortTitle: Migrarse desde Azure Pipelines
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -204,7 +203,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 ## Dependencias entre jobs
 

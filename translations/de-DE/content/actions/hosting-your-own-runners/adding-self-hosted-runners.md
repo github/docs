@@ -15,7 +15,6 @@ shortTitle: Add self-hosted runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Du kannst einen selbst-gehosteten Runner zu {{ site.data.variables.product.prodname_actions }} hinzufügen.
 
@@ -23,6 +22,7 @@ If you are an organization or enterprise administrator, you might want to add yo
 
 For information on supported operating systems for self-hosted runners, or using self-hosted runners with a proxy server, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
 
+{% ifversion not ghae %}
 {% warning %}
 
 **Warning:** {% data reusables.github-actions.self-hosted-runner-security %}
@@ -30,6 +30,7 @@ For information on supported operating systems for self-hosted runners, or using
 Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
 
 {% endwarning %}
+{% endif %}
 
 ## Einen selbst-gehosteten Runner zu einem Repository hinzufügen
 
@@ -48,7 +49,7 @@ Du kannst selbst-gehostete Runner zu einem einzigen Repository hinzufügen. To a
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. Under
-{% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
+{% ifversion fpt or ghes > 3.1 or ghae %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
@@ -70,7 +71,7 @@ Du kannst selbst-gehostete Runner auf Organisationsebene hinzufügen, wo sie ver
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. Under
-{% ifversion fpt %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
+{% ifversion fpt or ghes > 3.1 or ghae %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
 

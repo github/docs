@@ -73,7 +73,7 @@ Du kannst Repositorys basierend auf ihrer Lizenz oder Lizenzfamilie filtern. Ver
 |        | Unlicense | `unlicense`                                                                       |
 |        | zLib License | `zlib`                                                                         |
 
-Wenn Du nach einer Lizenz einer Familie suchst, enthalten die Suchergebnisse alle Lizenzen dieser Familie. Wenn Du beispielsweise die Abfrage `license:gpl` verwendest, enthalten die Suchergebnisse Repositorys, die unter der GNU General Public License v2.0 und der GNU General Public License v3.0 lizenziert sind. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-license).“
+Wenn Du nach einer Lizenz einer Familie suchst, enthalten die Suchergebnisse alle Lizenzen dieser Familie. Wenn Du beispielsweise die Abfrage `license:gpl` verwendest, enthalten die Suchergebnisse Repositorys, die unter der GNU General Public License v2.0 und der GNU General Public License v3.0 lizenziert sind. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/search-github/searching-on-github/searching-for-repositories/#search-by-license).“
 
 ## Eine Lizenz erkennen
 

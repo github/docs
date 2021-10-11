@@ -12,7 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% data reusables.actions.ae-beta %}
 
 A API de {% data variables.product.prodname_actions %} permite que você gerencie {% data variables.product.prodname_actions %} usando a API REST. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. Para obter mais informações, consulte "[Documentação do {% data variables.product.prodname_actions %}](/actions)".
 
@@ -21,8 +20,6 @@ A API de {% data variables.product.prodname_actions %} permite que você gerenci
 {% endfor %}
 
 ## Artefatos
-
-{% data reusables.actions.ae-beta %}
 
 A API de Artefatos permite que você faça o download, exclua e recupere informações sobre artefatos de fluxo de trabalho. {% data reusables.actions.about-artifacts %} Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
@@ -35,8 +32,6 @@ A API de Artefatos permite que você faça o download, exclua e recupere informa
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Permissões
 
-{% data reusables.actions.ae-beta %}
-
 A API de Permissões permite que você defina permissões para quais organizações e repositórios têm permissão para executar {% data variables.product.prodname_actions %}, e quais ações podem ser executadas. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".
 
 Você também pode definir permissões para uma empresa. Para obter mais informações, consulte a "[{% data variables.product.prodname_dotcom %} administração do Enterprise](/rest/reference/enterprise-admin#github-actions)" API REST.
@@ -48,8 +43,6 @@ Você também pode definir permissões para uma empresa. Para obter mais informa
 
 ## Segredos
 
-{% data reusables.actions.ae-beta %}
-
 A API Segredos permite criar, atualizar, excluir e recuperar informações sobre segredos criptografados. {% data reusables.actions.about-secrets %} Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. Os usuários autenticados devem ter acesso de colaborador em um repositório para criar, atualizar ou ler segredos.
@@ -60,7 +53,6 @@ A API Segredos permite criar, atualizar, excluir e recuperar informações sobre
 
 ## Executores auto-hospedados
 
-{% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
 A API de executores auto-hospedados permite que você registre, visualize e exclua executores auto-hospedados. {% data reusables.actions.about-self-hosted-runners %} Para obter mais informações, consulte "[Hospedando seus próprios executores](/actions/hosting-your-own-runners)".
@@ -75,7 +67,6 @@ Você pode gerenciar runners auto-hospedados para uma empresa. Para obter mais i
 
 ## Grupos de runner auto-hospedados
 
-{% data reusables.actions.ae-beta %}
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
 A API dos Grupos de Runners auto-hospedados permite que você gerencie grupos de runners auto-hospedados. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
@@ -90,8 +81,6 @@ Você pode gerenciar grupos de runners auto-hospedados para uma empresa. Para ob
 
 ## Fluxos de trabalho
 
-{% data reusables.actions.ae-beta %}
-
 A API de fluxos de trabalho permite que você veja fluxos de trabalho para um repositório. {% data reusables.actions.about-workflows %} Para obter mais informações, consulte "[Automatizando seu fluxo de trabalho com o GitHub Actions](/actions/automating-your-workflow-with-github-actions)".
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
@@ -102,8 +91,6 @@ A API de fluxos de trabalho permite que você veja fluxos de trabalho para um re
 
 ## Trabalhos de fluxo de trabalho
 
-{% data reusables.actions.ae-beta %}
-
 A API de Trabalhos de Fluxo de Trabalho permite que você visualize logs e trabalhos de fluxo de trabalho. {% data reusables.actions.about-workflow-jobs %} Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
@@ -113,8 +100,6 @@ A API de Trabalhos de Fluxo de Trabalho permite que você visualize logs e traba
 {% endfor %}
 
 ## Execução de fluxo de trabalho
-
-{% data reusables.actions.ae-beta %}
 
 A API de execução de fluxo de trabalho permite que você visualize, execute novamente, cancele e visualize os logs para executar o fluxo de trabalho. {% data reusables.actions.about-workflow-runs %} Para obter mais informações, consulte "[Gerenciando uma execução de fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run)".
 

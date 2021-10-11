@@ -26,3 +26,7 @@ redirect_from:
 {% data reusables.organizations.click-codespaces %}
 1. 在“Access and security（访问和安全）”下，为组织选择所需的设置。 ![管理信任仓库的单选按钮](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
 1. 如果您选择了“Selected repositories（所选仓库）”，请选择下拉菜单，然后单击一个仓库，以允许该仓库的代码空间访问组织拥有的其他仓库。 对于您要允许其代码空间访问其他仓库的所有仓库重复此操作。 !["所选仓库" 下拉菜单](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+
+## 延伸阅读
+
+- "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"

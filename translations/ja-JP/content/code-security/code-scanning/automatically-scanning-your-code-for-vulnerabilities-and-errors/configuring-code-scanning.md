@@ -68,11 +68,9 @@ shortTitle: Code scanningの設定
 
 プッシュ時にスキャンするなら、結果はリポジトリの** Security（セキュリティ）**タブに表示されます。 詳しい情報については、「[リポジトリの コードスキャンアラートを管理する](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
-{% note %}
-
-**ノート**: {% data variables.product.prodname_code_scanning %}アラートをPull Requestのチェックとして表示させたいなら、以下に述べる`pull_request`イベントを使わなければなりません。
-
-{% endnote %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+{% endif %}
 
 ### プルリクエストをスキャンする
 
@@ -81,6 +79,10 @@ shortTitle: Code scanningの設定
 `pull_request` イベントに関する詳しい情報については、「"[{% data variables.product.prodname_actions %}のためのワークフローの構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
 
 Pull Requestをスキャンすると、その結果はPull Requestチェック内のアラートとして表示されます。 詳しい情報については、「[プルリクエストでコードスキャンアラートをトリアージする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+ Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 ### Defining the severities causing pull request check failure
@@ -155,7 +157,7 @@ on:
 
 ## オペレーティングシステムを指定する
 
-コードのコンパイルに特定のオペレーティングシステムが必要な場合は、そのオペレーティングシステムを {% data variables.product.prodname_codeql_workflow %} で設定できます。 `jobs.analyze.runs-on` の値を編集して、{% data variables.product.prodname_code_scanning %} のアクションを実行するマシンのオペレーティングシステムを指定します。 {% ifversion ghes %}オペレーティングシステムの指定には、`self-hosted` の後に、2 つの要素がある配列の 2 番目の要素として、適切なラベルを使用します。{% else %}
+コードのコンパイルに特定のオペレーティングシステムが必要な場合は、そのオペレーティングシステムを {% data variables.product.prodname_codeql_workflow %} で設定できます。 `jobs.analyze.runs-on` の値を編集して、{% data variables.product.prodname_code_scanning %} のアクションを実行するマシンのオペレーティングシステムを指定します。 {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
 Code Scanningにセルフホストランナーを使うことにしたなら、`self-hosted` の後に、2 つの要素がある配列の 2 番目の要素として適切なラベルを使用し、オペレーティングシステムを指定できます。{% endif %}
 
@@ -168,9 +170,9 @@ jobs:
 
 {% ifversion fpt %}詳しい情報については、「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」および「[セルフホストランナーを追加する](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。{% endif %}
 
-{% data variables.product.prodname_code_scanning_capc %} は、macOS、Ubuntu、Windows の最新バージョンをサポートしています。 Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. 詳しい情報については、{% ifversion ghes %}「[GitHub Actions のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)」および「[セルフホストランナーでラベルを使用する](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」{% else %}「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)」{% endif %}を参照してください。
+{% data variables.product.prodname_code_scanning_capc %} は、macOS、Ubuntu、Windows の最新バージョンをサポートしています。 Typical values for this setting are therefore: `ubuntu-latest`, `windows-latest`, and `macos-latest`. For more information, see {% ifversion ghes %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
-{% ifversion ghes %}GitがセルフホストランナーのPATH変数内にあるようにしなければなりません。{% else %}セルフホストランナーを使っているなら、GitがPATH変数内にあるようにしなければなりません。{% endif %}
+{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## {% data variables.product.prodname_codeql %}データベースの場所の指定
@@ -234,7 +236,6 @@ Alternatively, you can install Python dependencies manually on any operating sys
 ```yaml
 jobs:
   CodeQL-Build:
-
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write
@@ -253,20 +254,20 @@ jobs:
           if [ -f requirements.txt ];
           then pip install -r requirements.txt;
           fi
-          # 環境変数`CODEQL-PYTHON`を
-          # 依存関係を含むPythonの実行可能ファイルに設定
+          # Set the `CODEQL-PYTHON` environment variable to the Python executable
+          # that includes the dependencies
           echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
           languages: python
-          # デフォルトの動作をオーバーライドして、アクションが
-          # Pythonの依存関係を自動インストールしないようにする
+          # Override the default behavior so that the action doesn't attempt
+          # to auto-install Python dependencies
           setup-python-dependencies: false
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## 分析のカテゴリの設定
 
 `category`を使って、同じツールやコミットに対して行われる、ただし様々な言語やコードの様々な部分に対して行われる複数の分析を区別してください。 ワークフロー中で指定したカテゴリは、SARIF結果ファイルに含まれます。
@@ -285,7 +286,7 @@ jobs:
 ```
 {% endraw %}
 
-ワークフローで`category`を指定しない場合、{% data variables.product.product_name %}はアクションをトリガーしたワークフロー名、アクション名、任意のマトリクス変数に基づいてカテゴリ名を生成します。 例:
+If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. 例:
 - `.github/workflows/codeql-analysis.yml`ワークフローと`analyze`アクションは、`.github/workflows/codeql.yml:analyze`というカテゴリを生成します。
 - `.github/workflows/codeql-analysis.yml`ワークフロー、`analyze`アクション、マトリクス変数`{language: javascript, os: linux}`は、`.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`というカテゴリを生成します。
 

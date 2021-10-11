@@ -18,7 +18,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -36,7 +35,7 @@ topics:
 
 ### 工作流程
 
-工作流程是您添加到仓库的自动化过程。 工作流程由一项或多项作业组成，可以计划或由事件触发。 工作流程可用于在 {% data variables.product.prodname_dotcom %} 上构建、测试、打包、发布或部署项目。
+工作流程是您添加到仓库的自动化过程。 工作流程由一项或多项作业组成，可以计划或由事件触发。 工作流程可用于在 {% data variables.product.prodname_dotcom %} 上构建、测试、打包、发布或部署项目。 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 ### 事件
 

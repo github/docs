@@ -67,6 +67,7 @@ describe('header', () => {
       expect($('[data-testid=header-notification] a[href*="github.com/contact"]').length).toBe(1)
     })
 
+    // Docs Engineering issue: 966
     test.skip('does not display any notices for English', async () => {
       const $ = await getDOM('/en')
       expect($('[data-testid=header-notification]').length).toBe(0)
@@ -151,7 +152,7 @@ describe('header', () => {
       expect(ghe.text().trim()).toBe('Enterprise administrators')
     })
 
-    // Skipped. See issues/923
+    // Skipped. Docs Engineering issue: 923
     test.skip("point to homepages in the current page's language", async () => {
       const $ = await getDOM(
         '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'

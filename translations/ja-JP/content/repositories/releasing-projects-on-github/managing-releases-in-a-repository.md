@@ -42,14 +42,14 @@ You can create new releases with release notes, @mentions of contributors, and l
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. [**Draft a new release**] をクリックします。 ![新しいリリースのドラフトを作成するボタン](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release.
+4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
    {% ifversion fpt %}
    ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-1. Click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+1. If you are creating a new tag, click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
    ![タグ付きバージョンのリリース](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-5. ドロップダウンメニューを使ってリリース対象のプロジェクトを含むブランチを選択します。
+5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
    {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![タグ付きブランチのリリース](/assets/images/enterprise/releases/releases-tag-branch.png)
    {% endif %}
@@ -57,7 +57,9 @@ You can create new releases with release notes, @mentions of contributors, and l
    {%- ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   ![リリースの説明](/assets/images/help/releases/releases_description.png)
+   {% ifversion fpt %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**.
+   {% endif %}
+   ![リリースの説明](/assets/images/help/releases/releases_description_auto.png)
 7. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
 8. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt %}

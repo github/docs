@@ -55,13 +55,13 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
 
 3. Clique em **Draft a new release** (Rascunhar uma nova versão). ![Botão Releases draft (Rascunho de versões)](/assets/images/help/releases/draft_release_button.png)
 
-4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. 
+4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag. 
    
    {% ifversion fpt %}
    
    ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
 
-1. Click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png) 
+1. If you are creating a new tag, click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png) 
    
    {% else %}
    
@@ -69,7 +69,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    {% endif %}
 
-5. Use o menu suspenso para selecionar o branch que contém o projeto que você deseja lançar. 
+5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release. 
    
    {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png) 
    
@@ -86,7 +86,13 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    
    {%- endif %}
    
-   ![Descrição das versões](/assets/images/help/releases/releases_description.png)
+   
+   
+   {% ifversion fpt %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**. 
+   
+   {% endif %}
+   
+   ![Descrição das versões](/assets/images/help/releases/releases_description_auto.png)
 
 7. Opcionalmente, para incluir arquivos binários, como programas compilados em sua versão, arraste e solte ou selecione arquivos manualmente na caixa de binários. ![Fornecer um DMG com a versão](/assets/images/help/releases/releases_adding_binary.gif)
 
@@ -124,7 +130,7 @@ Você pode escolher se objetos {% data variables.large_files.product_name_long %
    ```
 
 
-2. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes. 
+2. Siga as instruções interativas. Como alternativa, você pode especificar argumentos para pular essas instruções. Para obter mais informações sobre possíveis argumentos, consulte [o manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes. 
    
    
 

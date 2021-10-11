@@ -18,7 +18,7 @@ Con los {% data variables.product.prodname_discussions %}, la comunidad de tu pr
 
 No necesitas cerrar un debate de la misma forma en que cierras una propuesta o una solicitud de cambios.
 
-If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
+Si un administrador de repositorio o mantenedor de proyecto habilita los {% data variables.product.prodname_discussions %} para un repositorio, cualquiera que visite el repositorio podrá crear y participar en los debates de este. Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 Para obtener más información sobre la adminsitración de debates para tu repositorio, consulta la sección "[Administrar debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
@@ -36,7 +36,7 @@ Para obtener más información, consulta la sección "[Administrar las categorí
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-## Best practices for {% data variables.product.prodname_discussions %}
+## Mejores prácticas para los {% data variables.product.prodname_discussions %}
 
 Como mantenedor o miembro de la comunidad, inicia un debate para hacer una pregunta o debatir información que les afecte. Para obtener más información, consulta la sección "[Colaborar con los mantenedores a través de los debates](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)".
 
@@ -53,7 +53,7 @@ Puedes compartir tu retroalimentación sobre los {% data variables.product.prodn
 ## Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Buscar debates](/github/searching-for-information-on-github/searching-discussions)"
+- "[Buscar debates](/search-github/searching-on-github/searching-discussions)"
 - "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 - "[Moderar comentarios y conversaciones](/communities/moderating-comments-and-conversations)"
 - "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

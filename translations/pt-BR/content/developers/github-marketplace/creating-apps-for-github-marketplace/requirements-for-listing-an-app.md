@@ -58,8 +58,8 @@ Se seu aplicativo já está publicado e você é um editor verificado, você pod
 
 Para publicar um aplicativo pago (ou um aplicativo que ofereça um plano pago), você também deve atender aos seguintes requisitos:
 
-- {% data variables.product.prodname_github_apps %} should have a minimum of 100 installations.
-- {% data variables.product.prodname_oauth_apps %} should have a minimum of 200 users.
+- {% data variables.product.prodname_github_apps %} deve ter no mínimo 100 instalações.
+- {% data variables.product.prodname_oauth_apps %} deve ter no mínimo 200 usuários.
 - Todos os aplicativos pagos devem lidar com eventos de compra de {% data variables.product.prodname_marketplace %} para novas compras, atualizações, downgrades, cancelamentos e testes grátis. Para obter mais informações, consulte "[Requisitos de cobrança para aplicativos pagos](#billing-requirements-for-paid-apps)" abaixo.
 
 Quando estiver pronto para publicar o aplicativo em {% data variables.product.prodname_marketplace %}, você deverá solicitar a verificação para o anúncio do aplicativo.

@@ -14,7 +14,7 @@ shortTitle: Disponível para caixa de seleção de contratação
 
 {% warning %}
 
-Observação de depreciação: O GitHub Jobs agora está obsoleto. A última data para publicar um trabalho foi 19 de maio de 2021. The GitHub Jobs site has shut down entirely on August 19, 2021, and now redirects to the [GitHub blog post](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/) notice, which has more information on the now-completed deprecation of GitHub Jobs.
+Observação de depreciação: O GitHub Jobs agora está obsoleto. A última data para publicar um trabalho foi 19 de maio de 2021. O site dos do GitHub Jobs foi totalmente desativado em 19 de agosto de 2021 e agora faz o redirecionamento para a notificação da postagem no blogue [do GitHub](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/), que tem mais informações sobre a obsolescência concluída do GitHub Jobs.
 
 {% endwarning %}
 

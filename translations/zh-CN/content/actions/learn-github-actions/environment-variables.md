@@ -15,7 +15,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于环境变量
 
@@ -73,6 +72,7 @@ You can also use the {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` envi
 | `GITHUB_SERVER_URL`  | 返回 {% data variables.product.product_name %} 服务器的 URL。 例如： `https://{% data variables.product.product_url %}`。                                                                                                                                                                                      |
 | `GITHUB_API_URL`     | 返回 API URL。 例如： `{% data variables.product.api_url_code %}`。                                                                                                                                                                                                                                        |
 | `GITHUB_GRAPHQL_URL` | 返回 GraphQL API URL。 例如： `{% data variables.product.graphql_url_code %}`。                                                                                                                                                                                                                            |
+| `RUNNER_NAME`        | {% data reusables.actions.runner-name-description %}
 | `RUNNER_OS`          | {% data reusables.actions.runner-os-description %}
 | `RUNNER_TEMP`        | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}

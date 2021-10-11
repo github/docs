@@ -48,6 +48,14 @@ shortTitle: Personalize
 
 プロフィールに表示される名前は変更可能です。 この名前は、Organization が所有するプライベートリポジトリへのコメントの横に表示されることもあります。 詳細は「[Organization のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. [Name] の下に、プロフィールに表示する名前を入力します。 ![プロフィール設定の [Name] フィールド](/assets/images/help/profile/name-field.png)
 

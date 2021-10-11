@@ -46,18 +46,19 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 
 {% raw %}
 ```
-@misc{Lisa_My_Research_Software_2017,
+@software{Lisa_My_Research_Software_2017,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.5281/zenodo.1234},
   month = {12},
   title = {{My Research Software}},
   url = {https://github.com/github/linguist},
+  version = {2.0.4},
   year = {2017}
 }
 ```
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@misc` type in BibTeX rather than `@article`).
+Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
 
 For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
 
@@ -67,9 +68,15 @@ When you add a `CITATION.cff` file to the default branch of your repository, it 
 
 ## Citing something other than software
 
-If you would prefer the GitHub citation information to link to another resource such as a research paper then you can use the `preferred-citation` override in CFF.
+If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
-Extended CITATION.cff file describing the software, but linking to a research paper as the preferred citation:
+| Resource         | 类型                 |
+| ---------------- | ------------------ |
+| Research article | `article`          |
+| Conference paper | `conference-paper` |
+| Book             | `book`             |
+
+Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
 ```
 cff-version: 1.2.0
@@ -131,6 +138,10 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 }
 ```
 {% endraw %}
+
+## Citing a dataset
+
+If your repository contains a dataset, you can set `type: dataset` in your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
 
 ## Other citation files
 

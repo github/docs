@@ -14,14 +14,18 @@ topics:
 shortTitle: Contribuciones privadas
 ---
 
-Si publicas tus contribuciones privadas, las personas sin acceso a los repositorios privados en los que trabajas no podrán ver los detalles de tus contribuciones privadas. En su lugar, verán la cantidad de contribuciones privadas que has realizado durante un determinado día. Tus contribuciones públicas incluirán información detallada. Para obtener más información, consulta "[Ver contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)".
+Si publicas tus contribuciones privadas, las personas sin acceso a los repositorios privados en los que trabajas no podrán ver los detalles de tus contribuciones privadas. En su lugar, verán la cantidad de contribuciones privadas que has realizado durante un determinado día. Tus contribuciones públicas incluirán información detallada. Para obtener más información, consulta "[Ver contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)."
+
+{% note %}
+
+**Nota:** {% ifversion fpt or ghes %}En {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, las contribuciones públicas en tu perfil son visibles {% ifversion fpt %}para cualquiera en el mundo que pueda acceder a {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}únicamente para otros usuarios de {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}En {% data variables.product.prodname_ghe_managed %}, solo otros miembros de tu empresa pueden ver las contribuciones en tu perfil.{% endif %}
+
+{% endnote %}
 
 ## Cambiar la visibilidad de tus contribuciones privadas
 
-Por defecto, los visitantes únicamente ven las contribuciones públicas en tu perfil.
-
 {% data reusables.profile.access_profile %}
-2. Divulga u oculta tus contribuciones privadas en tu perfil:
+1. Divulga u oculta tus contribuciones privadas en tu perfil:
     - Para publicitar tus contribuciones privadas, arriba de tu gráfico de contribuciones, utiliza el menú desplegable **Contribution settings** (Configuraciones de contribuciones) y selecciona **Private contributions** (Contribuciones privadas). Los visitantes verán tus recuentos de contribuciones privadas sin más detalles. ![Habilitar que los visitantes vean las contribuciones privadas desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/private-contributions-on.png)
     - Para ocultar tus contribuciones privadas, arriba de tu gráfico de contribuciones, utiliza el menú desplegable **Contribution settings** (Configuraciones de contribuciones) y anula la selección de **Private contributions** (Contribuciones privadas). Los visitantes únicamente verán tus contribuciones públicas. ![Habilitar que los visitantes vean las contribuciones privadas desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/private-contributions-off.png)
 

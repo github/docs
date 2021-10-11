@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre sintaxe YAML para fluxos de trabalho
 
@@ -52,7 +51,7 @@ on:
 
 Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de trabalho para ser executado em branches ou tags específicos. Para um evento de `pull_request`, são avaliados apenas os branches e tags na base. Se você definir apenas `tags` ou `branches`, o fluxo de trabalho não será executado para eventos que afetam o Git ref indefinido.
 
-The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+As palavras-chave `branches`, `branches-ignore`, `tags`, and `tags-ignore` aceitam padrões do glob que usam caracteres como `*`, `**`, `+`, `?`, `!` e outros para corresponder a mais de um nome do branch ou tag. Se um nome contiver qualquer um desses caracteres e você quiser uma correspondência literal, você deverá *escapar* de cada um desses caracteres especiais com `\`. Para obter mais informações sobre padrões de glob, consulte a "[Folha de informações para filtrar padrões](#filter-pattern-cheat-sheet)".
 
 ### Exemplo: Incluindo branches e tags
 
@@ -169,7 +168,7 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
+**Observação:** Se você fizer push de mais de 1.000 commits, ou se {% data variables.product.prodname_dotcom %} não gerar o diff devido a um tempo limite, o fluxo de trabalho sempre será executado.
 
 {% endnote %}
 
@@ -180,13 +179,95 @@ O {% data variables.product.prodname_dotcom %} gera a lista de arquivos alterado
 - **Pushes para branches existentes:** um diff de dois pontos compara os SHAs head e base, um com o outro.
 - **Pushes para novos branches:** um diff de dois pontos compara o principal do ancestral do commit mais extenso que foi feito push.
 
-Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
+Os diffs limitam-se a 300 arquivos. Se houver arquivos alterados que não correspondam aos primeiros 300 arquivos retornados pelo filtro, o fluxo de trabalho não será executado. Talvez seja necessário criar filtros mais específicos para que o fluxo de trabalho seja executado automaticamente.
 
 Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/articles/about-comparing-branches-in-pull-requests)".
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## `on.workflow_call.inputs`
+
+Ao usar a palavra-chave `workflow_call`, você poderá, opcionalmente, especificar entradas que são passadas para o fluxo de trabalho chamado no fluxo de trabalho de chamada. As entradas para fluxos de trabalho reutilizáveis são especificadas com o mesmo formato que entradas de ações. Para obter mais informações sobre as entradas, consulte "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)". Para obter mais informações sobre a palavra-chave `workflow_call`, consulte "[Eventos que acionam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+
+Além dos parâmetros de entrada padrão que estão disponíveis, `on.workflow_call.inputs` exige um parâmetro `tipo`. Para obter mais informações, consulte [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+
+Se um parâmetro `padrão` não fordefinido, o valor padrão da entrada será `falso` para um booleano, `0` para um número e `""` para uma string.
+
+No fluxo de trabalho chamado, você pode usar o contexto `entradas` para referir-se a uma entrada.
+
+Se um fluxo de trabalho de chamada passar uma entrada que não é especificada no fluxo de trabalho de chamada, isso irá gerar um erro.
+
+### Exemplo
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
+```
+{% endraw %}
+
+Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
+
+## `on.workflow_call.<input_id>.type`
+
+Necessário se a entrada for definida para a palavra-chave `on.workflow_call`. O valor deste parâmetro é uma string que especifica o tipo de dados da entrada. Este deve ser um dos valores a seguir: `booleano`, `número` ou `string`.
+
+## `on.workflow_call.secrets`
+
+Um mapa dos segredos que pode ser usado no fluxo de trabalho de chamada.
+
+Dentro do fluxo de trabalho de chamada, você pode usar o contexto `segredos` para consultar um segredo.
+
+Se um fluxo de trabalho de chamada passar um segredo que não é especificado no fluxo de trabalho chamado, isso irá gerar um erro.
+
+### Exemplo
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    secrets:
+      access-token:
+        description: 'A token passed from the caller workflow'
+        required: false
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+
+    steps:  
+      - name: Pass the received secret to an action
+        uses: ./.github/actions/my-action@v1
+        with:
+          token: ${{ secrets.access-token }}
+```
+{% endraw %}
+
+## `on.workflow_call.secrets.<secret_id>`
+
+Um identificador de string para associar ao segredo.
+
+## `on.workflow_call.secrets.<secret_id>.required`
+
+Um booleano que especifica se o segredo deve ser fornecido.
+{% endif %}
+
 ## `on.workflow_dispatch.inputs`
 
-When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+Ao usar o evento `workflow_dispatch`, você pode, opcionalmente, especificar as entradas que são passadas para o fluxo de trabalho. As entradas de fluxo de trabalho são especificadas no mesmo formato que as entradas de ações. Para obter mais informações sobre o formato, consulte "[Sintaxe de Metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)".
 
 ```yaml
 on: 
@@ -201,7 +282,7 @@ on:
         required: false
 ```
 
-The triggered workflow receives the inputs in the `github.event.inputs` context. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
+O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
 
 ## `on.schedule`
 
@@ -272,9 +353,7 @@ defaults:
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `concorrência`
 
-{% data reusables.actions.concurrency-beta %}
-
-A moeda garante que apenas um único trabalho ou fluxo de trabalho que usa o mesmo grupo de concorrência seja executado de cada vez. Um grupo de concorrência pode ser qualquer string ou expressão. The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+A moeda garante que apenas um único trabalho ou fluxo de trabalho que usa o mesmo grupo de concorrência seja executado de cada vez. Um grupo de concorrência pode ser qualquer string ou expressão. A expressão só pode usar o contexto [`github`](/actions/learn-github-actions/contexts#github-context). Para obter mais informações sobre expressões, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 Você também pode especificar `concorrência` no nível do trabalho. Para obter mais informações, consulte [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
 
@@ -344,7 +423,7 @@ jobs:
     needs: [job1, job2]
 ```
 
-Neste exemplo, `job3` usa a expressão condicional `always()` para que ela sempre seja executada depois de `job1` e `job2` terem sido concluídos, independentemente de terem sido bem sucedidos. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+Neste exemplo, `job3` usa a expressão condicional `always()` para que ela sempre seja executada depois de `job1` e `job2` terem sido concluídos, independentemente de terem sido bem sucedidos. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
 
 ## `jobs.<job_id>.runs-on`
 
@@ -428,7 +507,7 @@ jobs:
 {% ifversion fpt or ghes > 3.0 or ghae %}
 ## `jobs.<job_id>.environment`
 
-O ambiente ao qual o trabalho faz referência. Todas as regras de proteção do ambiente têm de ser aprovadas para que um trabalho que faça referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Ambientes](/actions/reference/environments)".
+O ambiente ao qual o trabalho faz referência. Todas as regras de proteção do ambiente têm de ser aprovadas para que um trabalho que faça referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
 
 Você pode fornecer o ambiente apenas como o `nome` do ambiente, ou como um objeto de ambiente com o `nome` e `url`. A URL é mapeada com `environment_url` na API de implantações. Para obter mais informações sobre a API de implantações, consulte "[Implantações](/rest/reference/repos#deployments)".
 
@@ -447,7 +526,7 @@ environment:
   url: https://github.com
 ```
 
-The URL can be an expression and can use any context except for the [`secrets` context](/actions/learn-github-actions/contexts#contexts). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+A URL pode ser uma expressão e pode usar qualquer contexto, exceto para o contexto [`segredos`](/actions/learn-github-actions/contexts#contexts). Para obter mais informações sobre expressões, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 ### Exemplo
 {% raw %}
@@ -463,15 +542,13 @@ environment:
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `jobs.<job_id>.concurrency`
 
-{% data reusables.actions.concurrency-beta %}
-
 {% note %}
 
 **Observação:** Quando a concorrência é especificada no nível do trabalho, não se garante a ordem para trabalhos ou execuções que são enfileiradas em 5 minutos uma da outra.
 
 {% endnote %}
 
-A moeda garante que apenas um único trabalho ou fluxo de trabalho que usa o mesmo grupo de concorrência seja executado de cada vez. Um grupo de concorrência pode ser qualquer string ou expressão. A expressão pode usar qualquer contexto, exceto para o contexto de `segredos`. For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+A moeda garante que apenas um único trabalho ou fluxo de trabalho que usa o mesmo grupo de concorrência seja executado de cada vez. Um grupo de concorrência pode ser qualquer string ou expressão. A expressão pode usar qualquer contexto, exceto para o contexto de `segredos`. Para obter mais informações sobre expressões, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 Você também pode especificar `concorrência` no nível do fluxo de trabalho. Para obter mais informações, consulte [`concorrência`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
 
@@ -555,7 +632,7 @@ jobs:
 
 Você pode usar a condicional `if` (se) para evitar que um trabalho seja executado a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 ## `jobs.<job_id>.steps`
 
@@ -595,7 +672,7 @@ Identificador exclusivo da etapa. Você pode usar `id` para fazer referência à
 
 Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja executada a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 ### Exemplo: Usando contextos
 
@@ -610,7 +687,7 @@ steps:
 
 ### Exemplo: Usando funções de verificação de status
 
-A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
 
 ```yaml
 steps:
@@ -656,7 +733,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+É possível especificar um branch, ref, ou SHA em um repositório público de {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 jobs:
@@ -800,7 +877,7 @@ Com a palavra-chave `working-directory` (diretório de trabalho), é possível e
 
 ### Usar um shell específico
 
-Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell. The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
+Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell. O comando do shell executado internamente executa um arquivo temporário que contém os comandos especificados na palavra-chave `run`.
 
 | Plataforma compatível | Parâmetro `shell` | Descrição                                                                                                                                                                                                                                                                  | Comando executado internamente                  |
 | --------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -964,7 +1041,7 @@ Define variáveis de ambiente para etapas a serem usadas no ambiente do executor
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" e "[Contextos](/actions/learn-github-actions/contexts)".
 
 ### Exemplo
 
@@ -991,7 +1068,7 @@ Número máximo de minutos para executar a etapa antes de interromper o processo
 
 Número máximo de minutos para permitir a execução de um trabalho o antes que o {% data variables.product.prodname_dotcom %} o cancele automaticamente. Padrão: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
+Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner, o trabalho será cancelada quando o tempo limite de execução for atingido. Para obter mais informações sobre limites de tempo de execução do trabalho, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#usage-limits)".
 
 ## `jobs.<job_id>.strategy`
 
@@ -1248,7 +1325,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**Aviso:** A opção `--network` não é compatível.
 
 {% endwarning %}
 
@@ -1344,9 +1421,73 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**Aviso:** A opção `--network` não é compatível.
 
 {% endwarning %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## `jobs.<job_id>.uses`
+
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job.
+
+`{owner}/{repo}/{path}/{filename}@{ref}`
+
+`{ref}` pode ser um SHA, uma tag de de versão ou um nome de branch. Usar o commit SHA é o mais seguro para a estabilidade e segurança. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)".
+
+### Exemplo
+
+{% data reusables.actions.uses-keyword-example %}
+
+Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
+
+## `jobs.<job_id>.with`
+
+Quando um trabalho é usado para chamar um fluxo de trabalho reutilizável, você pode usar `com` para fornecer um mapa de entradas que são passadas para o fluxo de trabalho de chamada.
+
+Qualquer entrada que você passe deve corresponder às especificações de entrada definidas no fluxo de trabalho de chamada.
+
+Diferentemente de [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), as entradas que você passar com `jobs.<job_id>.with` não estão disponíveis como variáveis de ambiente no fluxo de trabalho de chamada. Ao invés disso, você pode fazer referência às entradas usando o contexto `entrada`.
+
+### Exemplo
+
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    with:
+      username: mona
+```
+
+## `jobs.<job_id>.with.<input_id>`
+
+Um par composto de um identificador de string para a entrada e o valor da entrada. O identificador deve corresponder ao nome de uma entrada definida por [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) no fluxo de trabalho chamado. O tipo de dado do valor deve corresponder ao tipo definido por [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) no fluxo de trabalho chamado.
+
+Contextos de expressão permitidos: `github` e `needs`.
+
+## `jobs.<job_id>.secrets`
+
+Quando um trabalho é usado para chamar um fluxo de trabalho reutilizável, você pode usar `segredos` para fornecer um mapa de segredos que foram passados para o fluxo de trabalho chamado.
+
+Qualquer segredo que você passar deve corresponder aos nomes definidos no fluxo de trabalho chamado.
+
+### Exemplo
+
+{% raw %}
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    secrets:
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+```
+{% endraw %}
+
+## `jobs.<job_id>.secrets.<secret_id>`
+
+Um par composto por um identificador string para o segredo e o valor do segredo. O identificador deve corresponder ao nome de um segredo definido por [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) no fluxo de trabalho chamado.
+
+Contextos de expressão permitidos: `github`, `needs` e `segredos`.
+{% endif %}
 
 ## Folha de consulta de filtro padrão
 

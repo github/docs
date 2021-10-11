@@ -1,6 +1,6 @@
 ---
 title: Hacer cumplir el inicio de sesión único de SAML para tu organización
-intro: Organization owners and admins can enforce SAML SSO so that all organization members must authenticate via an identity provider (IdP).
+intro: Los propietarios y los administradores de la organización pueden requerir el inicio de sesión único de SAML para que todos los miembros de la organización se tengan que autenticar a través de un proveedor de identidad (IdP).
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
@@ -13,19 +13,19 @@ topics:
 shortTitle: Hacer cumplir el inicio de sesión único de SAML
 ---
 
-## About enforcement of SAML SSO for your organization
+## Acerca de requerir el SSO de SAML en tu organización
 
-When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's user account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
+Cuando habilitas el SSO de SAML, {% data variables.product.prodname_dotcom %} mostrará a los miembros que visitan los recursos de la organización en {% data variables.product.prodname_dotcom_the_website %} para autenticarse en tu IdP, lo cual vincula la cuenta de usuario del miembro a una identidad en el IdP. Los mimebros aún pueden acceder a los recursos organizacionales antes de autenticarse con tu IdP.
 
-![Banner with prompt to authenticate via SAML SSO to access organization](/assets/images/help/saml/sso-has-been-enabled.png)
+![Anuncio con mensaje para autenticarse mediante el SSO de SAML para acceder a una organización](/assets/images/help/saml/sso-has-been-enabled.png)
 
-You can also enforce SAML SSO for your organization. {% data reusables.saml.when-you-enforce %} Enforcement removes any members and administrators who have not authenticated via your IdP from the organization. {% data variables.product.company_short %} sends an email notification to each removed user.
+También puedes requerir el SSO de SAML para tu organización. {% data reusables.saml.when-you-enforce %} Cuando esto se requiere, se elimina de la organizacióna cualquier miembro y administrador que no se hayan autenticado mediante el IdP. {% data variables.product.company_short %} envía una notificación de correo electrónico a cada usuario eliminado.
 
-Puedes restaurar los miembros de la organización una vez que realizas el inicio de sesión único sin problemas. Removed users' access privileges and settings are saved for three months and can be restored during this time frame. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ page.version }}/user/articles/reinstating-a-former-member-of-your-organization)".
+Puedes restaurar los miembros de la organización una vez que realizas el inicio de sesión único sin problemas. Los ajustes y privilegios de acceso de los usuarios eliminados se guardan por tres meses y se pueden almacenar durante este periodo de tiempo. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ page.version }}/user/articles/reinstating-a-former-member-of-your-organization)".
 
-Bots and service accounts that do not have external identities set up in your organization's IdP will also be removed when you enforce SAML SSO. For more information about bots and service accounts, see "[Managing bots and service accounts with SAML single sign-on](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)."
+Los bots y cuentas de servicio que no tengan identidades externas configuradas en el IdP de tu organización también se eliminarán cuando requieras el SSO de SAML. Para obtener más información acerca de los bots y las cuentas de servicio, consulta la sección "[Administrar los bots y las cuentas de servicio con el inicio de sesión único de SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)".
 
-If your organization is owned by an enterprise account, requiring SAML for the enterprise account will override your organization-level SAML configuration and enforce SAML SSO for every organization in the enterprise. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Si tu organización le pertenece a una cuenta empresarial, el requerir SAML para dicha cuenta anulará la configuración de SAML a nivel de organización y requerirá el SSO de SAML para todas las organizaciones que pertenezcan a la empresa. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML para las organizaciones de tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 {% tip %}
 
@@ -33,16 +33,16 @@ If your organization is owned by an enterprise account, requiring SAML for the e
 
 {% endtip %}
 
-## Enforcing SAML SSO for your organization
+## Requerir el SSO de SAML para tu organización
 
-1. Enable and test SAML SSO for your organization, then authenticate with your IdP at least once. Para obtener más información, consulta "[Habilitar y probar el inicio de sesión único para tu organización](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)".
-1. Prepare to enforce SAML SSO for your organization. Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
+1. Habilita y prueba el SSO de SAML para tu organización y luego autentícate con tu IdP por lo menos una vez. Para obtener más información, consulta "[Habilitar y probar el inicio de sesión único para tu organización](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)".
+1. Prepárate para requerir el SSO de SAML para tu organización. Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "SAML single sign-on", select **Require SAML SSO authentication for all members of the _ORGANIZATION_ organization**. !["Require SAML SSO authentication" checkbox](/assets/images/help/saml/require-saml-sso-authentication.png)
-1. If any organization members have not authenticated via your IdP, {% data variables.product.company_short %} displays the members. If you enforce SAML SSO, {% data variables.product.company_short %} will remove the members from the organization. Review the warning and click **Remove members and require SAML single sign-on**. !["Confirm SAML SSO enforcement" dialog with list of members to remove from organization](/assets/images/help/saml/confirm-saml-sso-enforcement.png)
-1. Under "Single sign-on recovery codes", review your recovery codes. Store the recovery codes in a safe location like a password manager.
+1. Debajo de "Inicio de sesión único de SAML", selecciona **Requerir la autenticación con el SSO de SAML para todos los miembros de la organización _ORGANIZATION_**. ![Casilla de verificación de "Requerir autenticación con el SSO de SAML"](/assets/images/help/saml/require-saml-sso-authentication.png)
+1. Si cualquiera de los miembros de la organización no se autentica a través de tu IdP, {% data variables.product.company_short %} lo mostrará. Si requieres el SSO de SAML, {% data variables.product.company_short %} eliminará a los miembros de la organización. Revisa la advertencia y haz clic en **Eliminar a los miembros y requerir el inicio de sesión único de SAML**. ![Diálogo de "Confirmar que se requiere el SSO de SAML" con lista de miembros a eliminar de la organización](/assets/images/help/saml/confirm-saml-sso-enforcement.png)
+1. Debajo de "Códigos de recuperación del inicio de sesión único", revisa tus códigos de recuperación. Almacena los códigos de recuperación en una ubicación segura, como un administrador de contraseñas.
 
 ## Leer más
 

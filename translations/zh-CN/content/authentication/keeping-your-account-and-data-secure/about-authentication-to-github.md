@@ -28,6 +28,10 @@ shortTitle: 向 GitHub 验证
 
 您可以 {% ifversion ghae %}使用 IdP 在浏览器中向 {% data variables.product.product_name %} 验证。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”{% else %}。
 
+- {% ifversion fpt %}
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)". If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
+{% endif %}
+
 - **仅用户名和密码**
     - 在 {% data variables.product.product_name %} 上创建用户帐户时，您将创建一个密码。 我们建议您使用密码管理器生成随机且唯一的密码。 更多信息请参阅“[创建强式密码](/github/authenticating-to-github/creating-a-strong-password)”。
 - **双重身份验证 (2FA)**（推荐）

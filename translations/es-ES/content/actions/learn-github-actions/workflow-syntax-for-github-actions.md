@@ -16,7 +16,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de la sintaxis de YAML para flujos de trabajo
 
@@ -52,7 +51,7 @@ on:
 
 Cuando uses los eventos `push` y `pull_request` debes configurar un flujo de trabajo para ejecutarlo en ramas o etiquetas específicas. Para un evento `pull_request`, solo se evalúan las ramas y las etiquetas en la base. Si defines solo `etiquetas` o solo `ramas`, el flujo de trabajo no se ejecutará para los eventos que afecten a la ref de Git indefinida.
 
-Las palabras clave `branches`, `branches-ignore`, `tags`, y `tags-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de una rama o nombre de etiqueta. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](#filter-pattern-cheat-sheet)".
+Las palabras clave `branches`, `branches-ignore`, `tags`, y `tags-ignore` aceptan patrones globales que utilizan caracteres como `*`, `**`, `+`, `?`, `!` y otros para empatar con más de una rama o nombre de etiqueta. Si un nombre contiene cualquiera de estos caracteres y quieres tener una coincidencia literal, necesitas *escapar* cada uno de estos caracteres especiales con una `\`. Para obtener más información sobre los patrones globales, consulta "[Hoja de información para filtrar patrones](#filter-pattern-cheat-sheet)".
 
 ### Ejemplo: Incluyendo ramas y etiquetas
 
@@ -184,6 +183,88 @@ Los diffs se limitan a 300 archivos. Si hay archivos que cambiaron y no se empat
 
 Para obtener más información, consulta "[Acerca de comparar ramas en las solicitudes de extracción](/articles/about-comparing-branches-in-pull-requests)".
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## `on.workflow_call.inputs`
+
+Cuando se utiliza la palabra clave `workflow_call`, puedes especificar opcionalmente entradas que se pasan al flujo de trabajo al que ese llamó desde aquél del llamante. Las entradas para los flujos de trabajo reutilizables se especifican con el mismo formato que las entradas de las acciones. Para obtener más información sobre las entradas, consulta la sección "[Sintaxis de metadatos para GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)". Para obtener más información sobre la palabra clave de `workflow_call`, consulta la sección "[Eventos que activan los flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)".
+
+Adicionalmente a los parámetros de entrada estándar que están disponibles, `on.workflow_call.inputs` requiere un parámetro de `type`. Para obtener más información, consulta [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+
+Si un parámetro `default` no se configura, el valor predeterminado de la entrada es `false` en el caso de un booleano, `0` en el caso de un número y `""` para una llamada.
+
+Dentro del flujo de trabajo llamado, puedes utilizar el contexto `inputs` para referirte a una entrada.
+
+Si un flujo de trabajo llamante pasa una entrada que no se especifica en el flujo llamado, dará un error como resultado.
+
+### Ejemplo
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
+```
+{% endraw %}
+
+Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+
+## `on.workflow_call.<input_id>.type`
+
+Requerido si se define una entrada para la palabra clave `on.workflow_call`. El valor de este parámetro es una secuencia que especifica el tipo de datos de la entrada. Este debe ser alguno de entre: `boolean`, `number` o `string`.
+
+## `on.workflow_call.secrets`
+
+Un mapa de los secretos que puede utilizarse en el flujo de trabajo llamado.
+
+Dentro del flujo de trabajo llamado, puedes utilizar el contexto `secrets` para referirte a un secreto.
+
+Si un flujo de trabajo llamante pasa un secreto que no se especifica en el flujo de trabajo llamado, esto da un error como resultado.
+
+### Ejemplo
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    secrets:
+      access-token:
+        description: 'A token passed from the caller workflow'
+        required: false
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+
+    steps:  
+      - name: Pass the received secret to an action
+        uses: ./.github/actions/my-action@v1
+        with:
+          token: ${{ secrets.access-token }}
+```
+{% endraw %}
+
+## `on.workflow_call.secrets.<secret_id>`
+
+Un identificador de secuencia para asociar con el secreto.
+
+## `on.workflow_call.secrets.<secret_id>.required`
+
+Un booleano que especifica si el secreto debe suministrarse.
+{% endif %}
+
 ## `on.workflow_dispatch.inputs`
 
 Cuando se utiliza el evento `workflow_dispatch`, puedes especificar opcionalmente entradas que se pasan al flujo de trabajo. Las entradas de envío de flujo de trabajo se especifican en el mismo formato que las entradas de acción. Para obtener más información sobre el formato, consulta la sección "[Sintaxis de metadatos para las GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)".
@@ -272,9 +353,7 @@ defaults:
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `concurrency`
 
-{% data reusables.actions.concurrency-beta %}
-
-La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el mismo grupo de concurrencia se ejecute al mismo tiempo. Un grupo de concurrencia puede ser cualquier secuencia o expresión. The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el mismo grupo de concurrencia se ejecute al mismo tiempo. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión solo puede utilizar el [contexto`github`](/actions/learn-github-actions/contexts#github-context). Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 También puedes especificar la `concurrency` a nivel del job. Para obtener más información, consulta la [`jobs<job_id>concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
 
@@ -344,7 +423,7 @@ jobs:
     needs: [job1, job2]
 ```
 
-En este ejemplo, `job3` utiliza la expresión condicional `always()` para que siempre se ejecute después de que el `job1` y el `job2` se hayan completado, sin importar si tuvieron éxito o no. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+En este ejemplo, `job3` utiliza la expresión condicional `always()` para que siempre se ejecute después de que el `job1` y el `job2` se hayan completado, sin importar si tuvieron éxito o no. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions#job-status-check-functions)".
 
 ## `jobs.<job_id>.runs-on`
 
@@ -428,7 +507,7 @@ jobs:
 {% ifversion fpt or ghes > 3.0 or ghae %}
 ## `jobs.<job_id>.environment`
 
-El ambiente que referencia el job. Todas las reglas de protección del ambiente deben pasar antes de que un job que referencie dicho ambiente se envie a un ejecutor. Para obtener más información, consulta la sección "[Ambientes](/actions/reference/environments)".
+El ambiente que referencia el job. Todas las reglas de protección del ambiente deben pasar antes de que un job que referencie dicho ambiente se envie a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 
 Puedes proporcionar el ambiente como solo el `name` de éste, o como un objeto de ambiente con el `name` y `url`. La URL mapea hacia `environment_url` en la API de despliegues. Para obtener más información sobre la API de despliegues, consulta la sección "[Despliegues](/rest/reference/repos#deployments)".
 
@@ -447,7 +526,7 @@ environment:
   url: https://github.com
 ```
 
-The URL can be an expression and can use any context except for the [`secrets` context](/actions/learn-github-actions/contexts#contexts). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+La URL puede ser una expresión y puede utilizar cualquier contexto, excepto el de [`secrets`](/actions/learn-github-actions/contexts#contexts). Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 ### Ejemplo
 {% raw %}
@@ -463,15 +542,13 @@ environment:
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `jobs.<job_id>.concurrency`
 
-{% data reusables.actions.concurrency-beta %}
-
 {% note %}
 
 **Nota:** Cuando se especifica la concurrencia a nivel del job, no se garantiza el orden para los jobs o ejecuciones que se ponen en fila a 5 minutos uno del otro.
 
 {% endnote %}
 
-La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el mismo grupo de concurrencia se ejecute al mismo tiempo. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión puede utilizar cualquier contexto, con excepción del contexto `secrets`. For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
+La concurrencia se asegura de que solo un job o flujo de trabajo que utilice el mismo grupo de concurrencia se ejecute al mismo tiempo. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión puede utilizar cualquier contexto, con excepción del contexto `secrets`. Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 También puedes especificar la `concurrency` a nivel del flujo de trabajo. Para obtener más información, consulta la [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
 
@@ -555,7 +632,7 @@ jobs:
 
 Puedes usar el condicional `if` para impedir que se ejecute una tarea si no se cumple una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 ## `jobs.<job_id>.steps`
 
@@ -595,7 +672,7 @@ Un identificador único para el paso. Puede usar el `id` para hacer referencia a
 
 Puedes usar el condiciona `if` para impedir que se ejecute un paso si no se cumple una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 ### Ejemplo: Utilizando contextos
 
@@ -610,7 +687,7 @@ steps:
 
 ### Ejemplo: Utilizando funciones de verificación de estado
 
-El `paso mi copia de seguridad` solo se ejecuta cuando se produce un error en el paso anterior de un trabajo. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+El `paso mi copia de seguridad` solo se ejecuta cuando se produce un error en el paso anterior de un trabajo. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions#job-status-check-functions)".
 
 ```yaml
 steps:
@@ -964,7 +1041,7 @@ Establece variables de entorno para los pasos a utilizar en el entorno del ejecu
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Es posible que las acciones públicas especifiquen las variables de entorno esperadas en el archivo README. Si estás estableciendo un secreto en una variable de entorno, debes establecer secretos usando el contexto `secretos`. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Es posible que las acciones públicas especifiquen las variables de entorno esperadas en el archivo README. Si estás estableciendo un secreto en una variable de entorno, debes establecer secretos usando el contexto `secretos`. Para obtener más información, consulta las secciones "[Utilizar variables de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" y "[Contextos](/actions/learn-github-actions/contexts)".
 
 ### Ejemplo
 
@@ -1347,6 +1424,70 @@ Opciones adicionales de recursos del contenedor Docker. Para obtener una lista d
 **Advertencia:** La opción `--network` no es compatible.
 
 {% endwarning %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## `jobs.<job_id>.uses`
+
+La ubicación y versión de un archivo de flujo de trabajo reutilizable a ejecutar como un job.
+
+`{owner}/{repo}/{path}/{filename}@{ref}`
+
+`{ref}` puede ser un SHA, una etiqueta de lanzamiento o un nombre de rama. Utilizar el SHA de la confirmación es lo más seguro para la estabilidad y seguridad. Para obtener más información, consulta la sección "[Fortalecimiento de la seguridad para las GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)".
+
+### Ejemplo
+
+{% data reusables.actions.uses-keyword-example %}
+
+Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+
+## `jobs.<job_id>.with`
+
+Cuando se utiliza un job para llamar a un flujo de trabajo reutilizable, puedes usar `with` para proporcionar un mapa de entradas que se pasen al flujo de trabajo llamado.
+
+Cualquier entrada que pases debe coincidir con las especificaciones de la entrada que se define en el flujo de trabajo llamado.
+
+A diferencia de [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), las entradas que pases con `jobs.<job_id>.with` no están disponibles como variables de ambiente en el flujo de trabajo llamado. En vez de esto, puedes referenciar las entradas utilizando el contexto `inputs`.
+
+### Ejemplo
+
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    with:
+      username: mona
+```
+
+## `jobs.<job_id>.with.<input_id>`
+
+Un par que consiste de un identificador de secuencias para la entrada y del valor de entrada. El identificador debe coincidir con el nombre de una entrada que defina [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) en el flujo de trabajo llamado. El tipo de datos del valor debe coincidir con el tipo que definió [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) en el flujo de trabajo llamado.
+
+Contextos de expresión permitidos: `github`, y `needs`.
+
+## `jobs.<job_id>.secrets`
+
+Cuando se utiliza un job para llamar a un flujo de trabajo reutilizable, puedes utilizar `secrets` para proporcionar un mapa de secretos que se pasa al flujo de trabajo llamado.
+
+Cualquier secreto que pases debe coincidir con los nombres que se definen en el flujo de trabajo llamado.
+
+### Ejemplo
+
+{% raw %}
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    secrets:
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+```
+{% endraw %}
+
+## `jobs.<job_id>.secrets.<secret_id>`
+
+Un par que consiste de un identificador de secuencias para el secreto y el valor de dicho secreto. El identificador debe coincidir con el nombre de una entrada que defina [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) en el flujo de trabajo llamado.
+
+Contextos de expresión permitidos: `github`, `needs` y `secrets`.
+{% endif %}
 
 ## Hoja de referencia de patrones de filtro
 

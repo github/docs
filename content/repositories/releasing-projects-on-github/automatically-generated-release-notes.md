@@ -7,6 +7,9 @@ versions:
 topics:
   - Repositories
 shortTitle: Automated release notes
+communityRedirect:
+  name: 'Provide GitHub Feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
 ---
 
 {% note %}

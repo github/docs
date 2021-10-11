@@ -38,7 +38,7 @@ Las aplicaciones pueden tener acceso de *lectura* o *escritura* a tus datos de {
 
 *Alcances* son grupos de permisos designados que una aplicación puede solicitar para acceder a los datos públicos y no públicos.
 
-Cuando quieres usar una aplicación de terceros que se integra con {% data variables.product.product_name %}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quieres usar una app que solicita el alcance `usuario:correo electrónico`, la app solo tendrá acceso de lectura a tus direcciones de correo electrónico privado. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Cuando quieres usar una aplicación de terceros que se integra con {% data variables.product.product_name %}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quieres usar una app que solicita el alcance `usuario:correo electrónico`, la app solo tendrá acceso de lectura a tus direcciones de correo electrónico privado. Para obtener más información, consulta la sección "[Acerca de los alcances para {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 

@@ -20,7 +20,6 @@ shortTitle: Pacotes do Java com Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -142,7 +141,7 @@ publishing {
 ```
 {% endraw %}
 
-With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
+Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote em {% data variables.product.prodname_registry %}, executando o comando `gradle publish`.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -184,7 +183,7 @@ Certifique-se de que seu arquivo _build.gradle_ inclua um repositório para seu 
 
 Por exemplo, se fizer a implementação no Repositório Central por meio do projecto de hospedagem OSSRH, é possível que você deseje especificá-lo em um repositório de gerenciamento de distribuição com o `nome` definido como `OSSRH`. Se você fizer a implementação em {% data variables.product.prodname_registry %}, é possível que você deseje especificá-lo em um repositório de gerenciamento de distribuição com o nome `` definido como `GitHubPackages`.
 
-If your organization is named "octocat" and your repository is named "hello-world", then the configuration in _build.gradle_ would look similar to the below example.
+Se sua organização for denominada "octocat" e seu repositório for denominado "hello-world", a configuração em _build.gradle_ será parecida ao exemplo abaixo.
 
 {% raw %}
 ```groovy{:copy}

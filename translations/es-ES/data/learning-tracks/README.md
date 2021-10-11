@@ -29,7 +29,7 @@ El aprender a rastrear datos de un producto se define en dos lugares:
 
 ## Control de versiones
 
-El versionamiento para aprender pistas se procesa en l ahora interpretada de la página. El código vive en [`lib/learning-tracks.js`](lib/learning-tracks.js), al cual llama `page.render()`. The processed learning tracks are then rendered by `components/sublanding`.
+El versionamiento para aprender pistas se procesa en l ahora interpretada de la página. El código vive en [`lib/learning-tracks.js`](lib/learning-tracks.js), al cual llama `page.render()`. `components/sublanding` interpreta las pistas de aprendizaje procesadas.
 
 Las condicionales líquidas **no** deben utilizarse para versionar en el archivo YAML para las guías. Solo las guías de pistas de aprendizaje que aplican a la versión actual se interpretarán automáticamente. Si no hay pistas con guías que pertenezcan a la versión actual, la sección de pistas de aprendizaje no se interpretará en lo absoluto.
 

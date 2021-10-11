@@ -22,6 +22,12 @@ Todos los sitios {% data variables.product.prodname_pages %}, incluidos los siti
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
+{% note %}
+
+**Nota:** El RFC3280 indica que la longitud máxima del nombre común debe ser de 64 caracteres. Por lo tanto, todo el nombre de dominio de tu sitio de {% data variables.product.prodname_pages %} debe ser menor a 64 caracteres de longitud para que se cree un certificado exitosamente.
+
+{% endnote %}
+
 ## Aplicar HTTPS en tu sitio {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}

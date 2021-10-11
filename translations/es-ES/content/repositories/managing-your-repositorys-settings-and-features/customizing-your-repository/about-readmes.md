@@ -17,7 +17,7 @@ topics:
 
 ## Acerca de los archivos README
 
-Puedes agregar un archivo README a un repositorio para comunicar información importante sobre tu proyecto. A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 %}, citation file{% endif %}{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+Puedes agregar un archivo README a un repositorio para comunicar información importante sobre tu proyecto. El contar con un README, en conjunto con una licencia de repositorio{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 %}, archivo de citas{% endif %}{% ifversion fpt %}, lineamientos de contribución y código de conducta{% elsif ghes %} y lineamientos de contribución{% endif %}, comunica las expectativas de tu proyecto y te ayuda a administrar las contribuciones.
 
 Para obtener más información acerca de cómo proporcionar lineamientos para tu proyecto, consulta la sección {% ifversion fpt %}"[Agregar un código de conducta para tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y {% endif %}"[Configurar tu proyecto para que tenga contribuciones sanas](/communities/setting-up-your-project-for-healthy-contributions)".
 

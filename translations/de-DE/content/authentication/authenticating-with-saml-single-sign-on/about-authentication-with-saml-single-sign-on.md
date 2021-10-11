@@ -30,6 +30,9 @@ If you can't access {% data variables.product.product_name %}, contact your loca
 
 {% data reusables.saml.dotcom-saml-explanation %} Organisationsinhaber können Dein Benutzerkonto auf {% data variables.product.prodname_dotcom %} einladen, ihrer SAML SSO benutzenden Organisation beizutreten. Das erlaubt Dir, Beiträge zur Organisation zu leisten und Deine bestehende Identität und Beiträge auf {% data variables.product.prodname_dotcom %} zu behalten.
 
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will use a new account that is provisioned for you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+
 Wenn Du auf Ressourcen innerhalb einer Organisation zugreifst, die SAML SSO verwendet, leitet {% data variables.product.prodname_dotcom %} Dich zur Authentifizierung zum SAML-Identitätsanbieter (IdP) der Organisation weiter. Nachdem Du Dich erfolgreich mit Deinem Konto auf dem IdP authentifiziert hast, leitet Dich der IdP zurück zu {% data variables.product.prodname_dotcom %}, wo Du dann auf die Ressourcen der Organisation zugreifen kannst.
 
 {% data reusables.saml.outside-collaborators-exemption %}

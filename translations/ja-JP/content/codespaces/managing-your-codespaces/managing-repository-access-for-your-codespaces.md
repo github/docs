@@ -20,3 +20,7 @@ redirect_from:
 {% data reusables.user_settings.codespaces-tab %}
 1. [Access and security] で、あなたのユーザアカウントの設定を選択します。 ![信頼するリポジトリを管理するラジオボタン](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 1. [Selected repositories] を選択した場合、ドロップダウンメニューを選択してから、あなたの所有するその他のリポジトリにアクセスを許可する、リポジトリのコードスペースをクリックします。 所有するその他のリポジトリにコードスペースによるアクセスを許可したい、すべてのリポジトリについて同じ手順を繰り返します。 ![[Selected repositories]ドロップダウンメニュー](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+
+## 参考リンク
+
+- "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"
