@@ -1,0 +1,1 @@
+Você também pode usar um repositório [dotfiles](https://dotfiles.github.io/tutorials/) e [Sincronização de Configurações](https://code.visualstudio.com/docs/editor/settings-sync) para personalizar os aspectos do ambiente de código para qualquer código que você criar. A personalização pode incluir preferências de shell e ferramentas adicionais.

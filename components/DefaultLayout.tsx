@@ -92,7 +92,7 @@ export const DefaultLayout = (props: Props) => {
         <SupportSection />
         <SmallFooter />
         <ScrollButton
-          className="position-fixed bottom-0 mb-3 right-0 mr-3"
+          className="position-fixed bottom-0 mb-4 right-0 mr-4"
           ariaLabel={t('scroll_to_top')}
         />
       </main>

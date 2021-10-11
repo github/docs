@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 ### Acerca de la instalación de {% data variables.product.prodname_desktop %}
 

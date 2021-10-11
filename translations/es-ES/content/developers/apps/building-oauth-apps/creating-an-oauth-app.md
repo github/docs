@@ -6,14 +6,14 @@ redirect_from:
   - /apps/building-oauth-apps/creating-an-oauth-app
   - /developers/apps/creating-an-oauth-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - OAuth Apps
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 {% note %}
 
   **Nota:** {% data reusables.apps.maximum-oauth-apps-allowed %}
@@ -42,7 +42,7 @@ topics:
 7. En "URL de la página principal", teclea la URL completa del sitio web de tu app. ![Campo para la URL de la página principal de tu app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
 8. Opcionalmente, en "Descripción de la aplicación", teclea una descripción de tu app para que los usuarios la vean. ![Campo para la descripción de tu app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. Teclea la URL de rellamado de tu app en "URL de rellamado para autorización". ![Campo para la URL de rellamado de autorización de tu app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes > 3.0 %}
    {% note %}
 
    **Nota:** Las apps de OAuth no puede tener URL de rellamado múltiples, a diferencia de las {% data variables.product.prodname_github_apps %}.

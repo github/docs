@@ -6,14 +6,15 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Community
+shortTitle: Perfis da comunidade
 ---
 
 A checklist do perfil de comunidade verifica se um projeto inclui arquivos recomendados de integridade da comunidade, como README, CODE_OF_CONDUCT, LICENSE ou CONTRIBUTING em um local compatível. Para obter mais informações, consulte "[Acessar perfil de comunidade de um projeto](/articles/accessing-a-project-s-community-profile)".
 
-### Usar a checklist do perfil de comunidade como um mantenedor de repositório
+## Usar a checklist do perfil de comunidade como um mantenedor de repositório
 
 Como um mantenedor de repositório, use a checklist do perfil de comunidade para ver se o projeto atende aos padrões recomendados da comunidade de modo a ajudar as pessoas a usar e contribuir com seu projeto. Para obter mais informações, consulte "[Compilar comunidade](https://opensource.guide/building-community/)" nos Guias de código aberto.
 
@@ -25,7 +26,7 @@ Se um projeto não tiver um arquivo recomendado, você poderá clicar em **Adici
 
 {% data reusables.repositories.security-guidelines %}
 
-### Usar a checklist do perfil de comunidade como integrante ou colaborador da comunidade
+## Usar a checklist do perfil de comunidade como integrante ou colaborador da comunidade
 
 Como um contribuidor potencial, use a checklist do perfil de comunidade para verificar se um projeto atende aos padrões recomendados da comunidade e decida se deseja contribuir. Para obter mais informações, consulte "[Como contribuir](https://opensource.guide/how-to-contribute/#anatomy-of-an-open-source-project)" nos Guias de código aberto.
 
@@ -33,7 +34,7 @@ Se um projeto não tiver um arquivo recomendado, você poderá clicar em **Propo
 
 ![Checklist do perfil de comunidade com padrões recomendados da comunidade para contribuidores](/assets/images/help/repository/propose-button-community-profile.png)
 
-### Leia mais
+## Leia mais
 
 - "[Adicionar um código de conduta ao seu projeto](/articles/adding-a-code-of-conduct-to-your-project)"
 - "[Configurar diretrizes para os contribuidores do repositório](/articles/setting-guidelines-for-repository-contributors)"

@@ -4,9 +4,9 @@ intro: 'Learn about using the {% data variables.product.prodname_dotcom %} API w
 redirect_from:
   - /apps/quickstart-guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
 children:

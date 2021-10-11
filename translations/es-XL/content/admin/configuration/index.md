@@ -5,14 +5,14 @@ intro: 'Una vez que se haya instalado y configurado {% data variables.product.pr
 redirect_from:
   - /enterprise/admin/configuration
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /configuring-your-enterprise
   - /configuring-network-settings
-  - /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
+  - /managing-connections-between-your-enterprise-accounts
 ---
 ### Índice
 <!-- if currentVersion ver_gt "enterprise-server@2.15" -->

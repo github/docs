@@ -3,31 +3,30 @@ title: Canceling a workflow
 intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
-### Einen Workflow-Lauf abbrechen
+## Einen Workflow-Lauf abbrechen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel. ![Name der Workflow-Ausführung](/assets/images/help/repository/in-progress-run.png)
 1. In the upper-right corner of the workflow, click **Cancel workflow**.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghae %}
  ![Schaltfläche zum Abbrechen der Prüfsuite](/assets/images/help/repository/cancel-check-suite-updated.png)
 {% else %}
  ![Schaltfläche zum Abbrechen der Prüfsuite](/assets/images/help/repository/cancel-check-suite.png)
 {% endif %}
 
-### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
+## Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
 
 Beim Abbrechen der Workflowausführung führen Sie möglicherweise andere Software aus, die Ressourcen verwendet, die mit der Workflowausführung zusammenhängen. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
 

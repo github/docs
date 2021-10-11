@@ -1,5 +1,5 @@
   {% warning %}
 
-  **警告**: ユーザ名とパスワードで{% data variables.product.prodname_dotcom %}の認証を受けることは、非推奨です。 代わりにブラウザで認証を受けることをおすすめします。
+  **Warning**: Authenticating to {% data variables.product.prodname_dotcom %} using your username and password is not supported. We require authenticating using the browser instead.
 
   {% endwarning %}

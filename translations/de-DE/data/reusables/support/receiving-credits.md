@@ -14,6 +14,6 @@ Die folgenden Informationen **müssen** in Deiner Gutschriftsanforderung enthalt
 - **Datum** (Das Datum muss innerhalb von 30 Tagen nach dem Quartal liegen, basierend auf dem Geschäftsjahr von {% data variables.product.company_short %}, in dem die Ansprüche auftraten [31. Januar, 30. April, 31. Juli oder 31. Oktober].)
 - **Kundenkontakt** (Du musst einen Namen und eine E-Mail-Adresse angeben.)
 - **Kundenadresse**
-- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% if currentVersion == "free-pro-team@latest" %}
+- **Qualifizierende Gutschriften** (Du musst das Datum jeder qualifizierenden Gutschrift und die zugeordnete Ticketnummer angeben.){% ifversion fpt %}
 - **Name der {% data variables.product.prodname_ghe_cloud %}-Organisation**{% endif %}
 - **Ticketnummern**

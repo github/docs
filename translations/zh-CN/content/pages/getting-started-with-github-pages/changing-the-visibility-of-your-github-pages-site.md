@@ -3,15 +3,20 @@ title: 更改 GitHub Pages 站点的可见性
 intro: 您可以通过公开或私下发布站点来管理项目站点的访问控制。
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+shortTitle: 更改站点可见性
 ---
 
-### 关于 {% data variables.product.prodname_pages %} 站点的访问控制
+## 关于 {% data variables.product.prodname_pages %} 站点的访问控制
 
-如果您的项目站点是从使用 {% data variables.product.prodname_ghe_cloud %} 的组织拥有的私有或内部仓库发布的，您可以管理站点的访问控制。 通过访问控制，您可以选择将站点公开发布给互联网上的任何人，也可以选择私下发布给对仓库拥有读取权限的人。 私下发布的站点可用于与企业成员分享您的内部文档或知识库。 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+With access control for {% data variables.product.prodname_pages %}, you can restrict access to your {% data variables.product.prodname_pages %} site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+
+If your enterprise uses {% data variables.product.prodname_emus %}, all {% data variables.product.prodname_pages %} sites are privately published. For more information about {% data variables.product.prodname_emus %}, see "[About  {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your sites privately or publicly to anyone on the internet. Access control is available for project sites that are published from a private or internal repository that are owned by the organization. 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 私下发布的站点与公开发布的站点位于不同的子域中。 这可确保您的 {% data variables.product.prodname_pages %} 站点从发布之日起是安全的：
 
@@ -22,7 +27,7 @@ redirect_from:
 
 要为您的私有 {% data variables.product.prodname_pages %} 站点使用更短、更令人难忘的域名，您可以配置自定义域名。 更多信息请参阅“[为 {% data variables.product.prodname_pages %} 站点配置自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site)”。
 
-### 更改 {% data variables.product.prodname_pages %} 站点的可见性
+## 更改 {% data variables.product.prodname_pages %} 站点的可见性
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

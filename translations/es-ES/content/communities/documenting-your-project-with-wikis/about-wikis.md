@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/about-wikis
 product: '{% data reusables.gated-features.wikis %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Community
 ---
@@ -18,9 +18,9 @@ Cada repositorio de {% data variables.product.product_name %} viene equipado con
 
 Con las wikis, puedes escribir contenido como en cualquier otro lado en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Iniciar con la escritura y el formato en {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)". Usamos [nuestra biblioteca Markup de código abierto](https://github.com/github/markup) para convertir diferentes formatos en HTML, para que puedas elegir escribir en Markdown o en cualquier otro formato admitido.
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Si creas un wiki en un repositorio público, éste estará disponible para {% if enterpriseServerVersions contains currentVersion %}cualquiera con acceso a {% data variables.product.product_location %}{% else %}el público en general{% endif %}. {% endif %}Si creas un wiki en un repositorio interno o privado, {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}las personas{% elsif currentVersion == "github-ae@latest" %}los miembros de la empresa{% endif %} con acceso al repositorio también podrán acceder al wiki. Para obtener más información, consulta "[Configurar la visibilidad de un repositorio](/articles/setting-repository-visibility)".
+{% ifversion fpt or ghes %}Si creas un wiki en un repositorio público, éste estará disponible para {% ifversion ghes %}cualquiera con acceso a {% data variables.product.product_location %}{% else %}el público en general{% endif %}. {% endif %}Si creas un wiki en un repositorio privado o interno, {% ifversion fpt or ghes %}las personas{% elsif ghae %}los miembros empresariales{% endif %} con acceso a este también podrán acceder a dicho wiki. Para obtener más información, consulta "[Configurar la visibilidad de un repositorio](/articles/setting-repository-visibility)".
 
-Puedes editar las wikis directamente en {% data variables.product.product_name %} o puedes editar los archivos wiki localmente. Predeterminadamente, solo las personas con acceso a tu repositorio podrán hacer cambios a los wikis, aunque podrás permitir que cualquiera en {% data variables.product.product_location %} colabore con un wiki en {% if currentVersion == "github-ae@latest" %}un repositorio interno{% else %}un repositorio público{% endif %}. Para obtener más información, consulta "[Cambiar permisos de acceso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
+Puedes editar las wikis directamente en {% data variables.product.product_name %} o puedes editar los archivos wiki localmente. Predeterminadamente, solo las personas con acceso a tu repositorio podrán hacer cambios a los wikis, aunque podrás permitir que cualquiera en {% data variables.product.product_location %} colabore con un wiki en {% ifversion ghae %}un repositorio interno{% else %}un repositorio público{% endif %}. Para obtener más información, consulta "[Cambiar permisos de acceso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)".
 
 {% note %}
 
@@ -28,10 +28,10 @@ Puedes editar las wikis directamente en {% data variables.product.product_name %
 
 {% endnote %}
 
-### Leer más
+## Leer más
 
 - "[Agregar o eliminar páginas wiki](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
 - "[Crear un pie de página o barra lateral para tu wiki](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
 - "[Editar el contenido de una wiki](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
 - "[Ver el historial de cambios de una wiki](/articles/viewing-a-wiki-s-history-of-changes)"
-- "[Buscar wikis](/articles/searching-wikis)"
+- "[Buscar wikis](/search-github/searching-on-github/searching-wikis)"

@@ -10,7 +10,6 @@ type: 'overview'
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About autoscaling
 
@@ -55,3 +54,21 @@ Your access token will require the following scope:
 To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
 - For repositories, assign the `administration` permission.
 - for organizations, assign the `organization_self_hosted_runners` permission.
+
+## Recommended autoscaling solutions
+
+{% data variables.product.prodname_dotcom %} recommends and partners closely with two open source projects that you can use for autoscaling your runners. One or both solutions may be suitable, based on your needs. 
+
+The following repositories have detailed instructions for setting up these autoscalers: 
+
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runnners.
+- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
+
+Each solution has certain specifics that may be important to consider:
+
+| **Features** | **actions-runner-controller** | **terraform-aws-github-runner** |
+| :--- | :--- | :--- |
+| Runtime | Kubernetes | Linux and Windows VMs |
+| Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
+| Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
+| Pull-based autoscaling support | Yes | No |

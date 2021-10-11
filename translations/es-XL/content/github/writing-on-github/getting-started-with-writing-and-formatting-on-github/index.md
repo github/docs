@@ -6,9 +6,9 @@ redirect_from:
   - /articles/getting-started-with-writing-and-formatting-on-github
 intro: 'Puedes usar características simples para darles formato a tus comentarios e interactuar con otros en propuestas, solicitudes de extracción y wikis en GitHub.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 children:
   - /about-writing-and-formatting-on-github
   - /basic-writing-and-formatting-syntax

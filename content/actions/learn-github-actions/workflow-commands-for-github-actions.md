@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About workflow commands
 
@@ -84,7 +83,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.setOutput`  | `set-output` |
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
-| `core.warning`    | `warning file` |
+| `core.warning`    | `warning` |
 
 {% ifversion ghes < 3.0 %}
 ## Setting an environment variable

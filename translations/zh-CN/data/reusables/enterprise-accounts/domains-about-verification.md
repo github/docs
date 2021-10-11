@@ -4,7 +4,7 @@
 
 组织所有者将能够通过查看已验证域中的每个成员的电子邮件地址来验证组织成员的身份。
 
-验证企业帐户的域后，您可以将企业帐户拥有的所有组织的电子邮件通知限制为已验证域。 更多信息请参阅“[限制企业帐户的电子邮件通知](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account)”。
+验证企业帐户的域后，您可以将企业帐户拥有的所有组织的电子邮件通知限制为已验证域。 {% ifversion fpt%}For more information, see "[Restricting email notifications for your enterprise account](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."{% endif %}
 
 即使您不限制企业帐户的电子邮件通知，但如果组织所有者限制了组织的电子邮件通知，则组织成员除了能够接收来自组织的任何已验证或已批准域的通知之外，还能够接收来自企业帐户的任何已验证或已批准域的通知。 有关限制组织通知的更多信息，请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”。
 

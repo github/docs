@@ -1,21 +1,22 @@
 ---
 title: Configurar alta disponibilidade de replicação de um cluster
 intro: 'Você pode configurar uma réplica passiva de todo o seu cluster de {% data variables.product.prodname_ghe_server %} em um local diferente, permitindo que o seu cluster falhe em nós redundantes.'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
-  enterprise-server: '>2.21'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Configurar replicação HA
 ---
 
-### Sobre a alta disponibilidade de replicação de clusters
+## Sobre a alta disponibilidade de replicação de clusters
 
 Você pode configurar uma implantação de cluster de {% data variables.product.prodname_ghe_server %} para alta disponibilidade, em que um conjunto idêntico de nós passivos estejam sincronizados com os nós no seu cluster ativo. Se falhas no hardware ou software afetarem o centro de dados com o seu cluster ativo, você poderá transferir a falha manualmente para os nós da réplica e continuar processando as solicitações do usuário, minimizando o impacto da interrupção.
 
@@ -23,9 +24,9 @@ Em modo de alta disponibilidade, cada nó ativo é sincronizado regularmente com
 
 Recomendamos configurar uma alta disponibilidade como parte de um plano de recuperação de desastres abrangente para {% data variables.product.prodname_ghe_server %}. Também recomendamos realizar backups regulares. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)".
 
-### Pré-requisitos
+## Pré-requisitos
 
-#### Hardware e software
+### Hardware e software
 
 Para cada nó existente no seu cluster ativo, você precisará fornecer uma segunda máquina virtual com recursos de hardware idênticos. Por exemplo, se seu cluster tiver 11 nós e cada nó tem 12 vCPUs, 96 GB de RAM e 750 GB de armazenamento anexado, você deverá fornecer 11 novas máquinas virtuais, tendo cada uma 12 vCPUs, 96 GB de RAM e 750 GB de armazenamento anexado.
 
@@ -37,19 +38,19 @@ Em cada nova máquina virtual, instale a mesma versão do {% data variables.prod
 
 {% endnote %}
 
-#### Rede
+### Rede
 
 Você deve atribuir um endereço IP estático a cada novo nó que você fornecer e você deve configurar um balanceador de carga para aceitar conexões e direcioná-las para os nós na sua camada frontal do cluster.
 
 Não recomendamos configurar um firewall entre a rede com o seu cluster ativo e a rede com o seu cluster passivo. A latência entre a rede com os nós ativos e a rede com os nós passivos deve ser inferior a 70 milissegundos. Para obter mais informações sobre conectividade de rede entre os nós no cluster passivo, consulte "[Configuração da rede do cluster](/enterprise/admin/enterprise-management/cluster-network-configuration)".
 
-### Criar uma alta réplica de disponibilidade para um cluster
+## Criar uma alta réplica de disponibilidade para um cluster
 
 - [Atribuindo nós ativos ao centro de dados primário](#assigning-active-nodes-to-the-primary-datacenter)
 - [Adicionar nós passivos ao arquivo de configuração do cluster](#adding-passive-nodes-to-the-cluster-configuration-file)
 - [Exemplo de configuração](#example-configuration)
 
-#### Atribuindo nós ativos ao centro de dados primário
+### Atribuindo nós ativos ao centro de dados primário
 
 Antes de definir um centro de dados secundário para seus nós passivos, certifique-se de atribuir seus nós ativos para o centro de dados primário.
 
@@ -101,7 +102,7 @@ Antes de definir um centro de dados secundário para seus nós passivos, certifi
 
 Após {% data variables.product.prodname_ghe_server %} encaminhar você para a instrução, isso significa que você terminou de atribuir seus nós para o centro de dados primário do cluster.
 
-#### Adicionar nós passivos ao arquivo de configuração do cluster
+### Adicionar nós passivos ao arquivo de configuração do cluster
 
 Para configurar a alta disponibilidade, você deve definir um nó passivo correspondente para cada nó ativo no seu cluster. As instruções a seguir criam uma nova configuração de cluster que define tanto nós ativos quanto passivos. Você irá:
 
@@ -189,12 +190,6 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
     git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
     ```
 
-12. Habilite o MySQL para falhar automaticamente quando você gerar uma falha para os nós de réplica passiva.
-
-    ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
-    ```
-
     {% warning %}
 
     **Aviso**: Revise seu arquivo de configuração de cluster antes de prosseguir.
@@ -235,7 +230,7 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
 
 Você terminou de configurar uma replicação de alta disponibilidade para os nós do seu cluster. Cada nó ativo começa a replicar a configuração e os dados para o seu nó passivo correspondente e você pode direcionar o tráfego para o balanceador de carga para o centro de dados secundário em caso de falha. Para obter mais informações sobre como gerar falha, consulte "[Iniciar um failover no seu cluster de réplica](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)".
 
-#### Exemplo de configuração
+### Exemplo de configuração
 
 A configuração de nível `[cluster]` deve parecer-se com o exemplo a seguir.
 
@@ -246,7 +241,7 @@ A configuração de nível `[cluster]` deve parecer-se com o exemplo a seguir.
   primary-datacenter = <em>PRIMARY DATACENTER NAME</em>
   mysql-master-replica = <em>HOSTNAME OF PASSIVE MYSQL MASTER</em>
   redis-master-replica = <em>HOSTNAME OF PASSIVE REDIS MASTER</em>
-  mysql-auto-failover = true
+  mysql-auto-failover = false
 ...
 ```
 
@@ -303,7 +298,7 @@ A configuração para o nó passivo correspondente no nível de armazenamento de
 ...
 ```
 
-### Monitoramento de replicação entre nós de cluster ativos e passivos
+## Monitoramento de replicação entre nós de cluster ativos e passivos
 
 A replicação inicial entre os nós ativos e passivos do seu cluster leva tempo. A quantidade de tempo depende da quantidade de dados para a replicação e dos níveis de atividade para {% data variables.product.prodname_ghe_server %}.
 
@@ -335,11 +330,11 @@ Você pode monitorar o progresso em qualquer nó do cluster, usando ferramentas 
 
 Você pode usar `ghe-cluster-status` para revisar a saúde geral do seu cluster. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)".
 
-### Reconfigurar a replicação de alta disponibilidade após um failover
+## Reconfigurar a replicação de alta disponibilidade após um failover
 
 Após gerar um failover dos nós ativos do cluster para os nós passivos do cluster, você pode reconfigurar a replicação de alta disponibilidade de duas maneiras.
 
-#### Provisionamento e configuração de novos nós passivos
+### Provisionamento e configuração de novos nós passivos
 
 Após um failover, você pode reconfigurar alta disponibilidade de duas maneiras. O método escolhido dependerá da razão pela qual você gerou o failover e do estado dos nós ativos originais.
 
@@ -350,7 +345,7 @@ Após um failover, você pode reconfigurar alta disponibilidade de duas maneiras
 O processo de reconfiguração de alta disponibilidade é idêntico à configuração inicial de alta disponibilidade. Para obter mais informações, consulte "[Criar uma réplica de alta disponibilidade para um cluster](#creating-a-high-availability-replica-for-a-cluster)".
 
 
-### Desabilitar a replicação de alta disponibilidade para um cluster
+## Desabilitar a replicação de alta disponibilidade para um cluster
 
 Você pode parar a replicação nos nós passivos para a sua implantação de cluster de {% data variables.product.prodname_ghe_server %}.
 
@@ -358,7 +353,7 @@ Você pode parar a replicação nos nós passivos para a sua implantação de cl
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. Na seção de nível superior `[cluster]`, exclua os pares de chave-valor `mysql-auto-failover`, `redis-master-replica` e `mysql-master-replica`.
+3. Na seção de nível superior `[cluster]` exclua os pares chave-valor`redis-master-replica` e `mysql-master-replica`.
 
 4. Exclua cada seção para um nó passivo. Para nódulos passivos, a `réplica` é configurada como </code>habilitada.</p></li>
 </ol>

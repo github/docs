@@ -44,7 +44,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your repository
 
@@ -75,14 +75,20 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
-  ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   {%- ifversion ghes %}
+   ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   {%- else %}
+   ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   {%- endif %}
 2. Click **Save**.
 {% endif %}
 
 {% ifversion fpt %}
 ## Configuring required approval for workflows from public forks
 
-{% data reusables.actions.workflow-run-approve-public-fork %} You can configure this behavior for a repository using the procedure below. Modifying this setting overrides the configuration set at the organization or enterprise level.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for a repository using the procedure below. Modifying this setting overrides the configuration set at the organization or enterprise level.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

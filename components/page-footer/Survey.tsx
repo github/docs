@@ -36,24 +36,14 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5 js-survey" onSubmit={submit} ref={formRef} data-testid="survey-form">
-      <h2 className="mb-1 f4">
-        {t`able_to_find`}
-
-        <Link
-          className="f6 text-normal ml-3 color-text-link"
-          href="/github/site-policy/github-privacy-statement"
-          target="_blank"
-        >
-          {t`privacy_policy`}
-        </Link>
-      </h2>
+    <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
+      <h2 className="f4 mb-3">{t`able_to_find`}</h2>
 
       {/* Honeypot: token isn't a real field */}
       <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
 
       {state !== ViewState.END && (
-        <p className="radio-group">
+        <div className="radio-group mb-2">
           <input
             id="survey-yes"
             type="radio"
@@ -69,8 +59,8 @@ export const Survey = () => {
             htmlFor="survey-yes"
           >
             <ThumbsupIcon
-              size={24}
-              className={state === ViewState.YES ? 'color-text-primary' : 'color-text-tertiary'}
+              size={16}
+              className={state === ViewState.YES ? 'color-text-white' : 'color-text-tertiary'}
             />
           </label>
           <input
@@ -88,11 +78,11 @@ export const Survey = () => {
             htmlFor="survey-no"
           >
             <ThumbsdownIcon
-              size={24}
-              className={state === ViewState.NO ? 'color-text-primary' : 'color-text-tertiary'}
+              size={16}
+              className={state === ViewState.NO ? 'color-text-white' : 'color-text-tertiary'}
             />
           </label>
-        </p>
+        </div>
       )}
 
       {[ViewState.YES, ViewState.NO].includes(state) && (
@@ -147,6 +137,14 @@ export const Survey = () => {
       {state === ViewState.END && (
         <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>
       )}
+
+      <Link
+        className="f6 text-normal color-text-link"
+        href="/github/site-policy/github-privacy-statement"
+        target="_blank"
+      >
+        {t`privacy_policy`}
+      </Link>
     </form>
   )
 }
