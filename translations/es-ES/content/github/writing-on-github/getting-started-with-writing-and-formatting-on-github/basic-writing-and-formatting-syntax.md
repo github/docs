@@ -40,9 +40,9 @@ Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campo
 Puedes citar texto con un `>`.
 
 ```markdown
-Tal como dice Abraham Lincoln:
+Texto que no es una cita
 
-> Con perdón de la expresión
+> Texto que es una cita
 ```
 
 ![Texto citado representado](/assets/images/help/writing/quoted-text-rendered.png)
@@ -100,39 +100,39 @@ Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## Imágenes
 
-You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+Puedes mostrar una imagen si agregas un `!` y pones el texto alternativo entre `[ ]`. Entonces encierra el enlace de la imagen entre paréntesis `()`.
 
-`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+`![Esta es una imagen](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![Imagen interpretada](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} es compatible con incrustar imágenes en tus propuestas, solicitudes de cambio{% ifversion fpt %}, debates{% endif %}, comentarios y archivos `.md`. Puedes mostrar una imagen desde tu repositorio, agregar un enlace a una imagen en línea o cargar una imagen. Para obtener más información, consulta la sección "[Cargar activos](#uploading-assets)".
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+**Tip:** Cuando quieras mostrar una imagen que esté en tu repositorio, deberías utilizar enlaces relativos en vez de absolutos.
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+Aquí tienes algunos ejemplos para utilizar enlaces relativos para mostrar una imagen.
 
-| Contexto                                                    | Relative Link                                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
-| In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
-| In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
-| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
-| In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| Contexto                                                                | Enlace Relativo                                                        |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| En un archivo `.md` en la misma rama                                    | `/assets/images/electrocat.png`                                        |
+| En un archivo `.md` en otra rama                                        | `/../main/assets/images/electrocat.png`                                |
+| En propuestas, solicitudes de cambio y comentarios del repositorio      | `../blob/main/assets/images/electrocat.png`                            |
+| En un archivo `.md` en otro repositorio                                 | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| En propuestas, solicitudes de cambios y comentarios de otro repositorio | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**Nota**: Los últimos dos enlaces relativos en la tabla anterior funcionarán únicamente para las imágenes en repositorios privados solo si el lector tiene por lo menos acceso de lectura a este.
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+Para obtener más información, consulta la sección "[Enlaces relativos](#relative-links)".
 
 
 ## Listas
@@ -184,7 +184,7 @@ En este ejemplo, puedes agregar un elemento de la lista anidada debajo del eleme
 
 ![Lista con un elemento de lista anidado](/assets/images/help/writing/nested-list-example-3.png)
 
-Puedes crear múltiples niveles de listas anidadas mediante el mismo método. Por ejemplo, dado que el primer elemento de la lista tiene siete espacios (`␣␣␣␣␣-␣`) antes del contenido de la lista anidada `Primer elemento de la lista anidada`, deberías colocar sangría en el primer elemento de la lista anidada por siete espacios.
+Puedes crear múltiples niveles de listas anidadas mediante el mismo método. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. Primer elemento de la lista
@@ -232,7 +232,7 @@ Para obtener más información, consulta "[Referencias y direcciones URL autovin
 
 ## Adjuntos de contenido
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
+Algunas {% data variables.product.prodname_github_apps %} proporcionan información en {% data variables.product.product_name %} para las URL que enlazan a sus dominios registrados. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
 
 ![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
 
@@ -262,6 +262,30 @@ Para encontrar una lista completa de emojis y códigos disponibles, consulta el 
 
 Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas de texto.
 
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Notas al pie
+
+Puedes agregar notas al pie para tu contenido si utilizas esta sintaxis de corchetes:
+
+```
+Esta es una nota al pie sencilla[^1].
+
+[^1]: Mi referencia.
+```
+
+La nota al pie se verá así:
+
+![Nota al pie interpretada](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Ocultar el contenido con comentarios
+
+Puedes decirle a {% data variables.product.product_name %} que oculte el contenido del lenguaje de marcado interpretado colocando el contenido en un comentario de HTML.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
 ## Importar formato de Markdown
 
 Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) el formato de Markdown usando `\` antes del carácter de Markdown.
@@ -272,13 +296,13 @@ Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) 
 
 Para obtener más información, consulta "[Sintaxis de Markdown" de Daring Fireball](https://daringfireball.net/projects/markdown/syntax#backslash),
 
-## Hiding content with comments
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+## Inhabilitar la representación del lenguaje de marcado
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ## Leer más
 

@@ -18,11 +18,10 @@ shortTitle: Deploy to Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
-このガイドは、{% data variables.product.prodname_actions %}を使ってコンテナ化されたアプリケーションをビルドし、それを[Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/)にプッシュし、[Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)にデプロイする方法を説明します。
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when a release is created.
 
 {% data variables.product.company_short %}リポジトリへの新しいリリースごとに、{% data variables.product.prodname_actions %}ワークフローは新しいコンテナイメージをビルドし、Amazon ECRにプッシュし、そして新しいタスクの定義をAmazon ECSにデプロイします。
 
@@ -66,6 +65,8 @@ shortTitle: Deploy to Amazon ECS
 
    IAMユーザに推奨されるIAMポリシー及びアクセスキーの認証情報を処理するメソッドについては、以下で使われている各アクションのドキュメンテーションを参照してください。
 
+5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+
 ## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
@@ -73,6 +74,8 @@ Once you've completed the prerequisites, you can proceed with creating the workf
 以下の例のワークフローは、コンテナイメージを作成してAmazon ECRにプッシュする方法を示します。 そして、タスク定義を新しいイメージIDで更新し、タスク定義をAmazon ECSにデプロイします。
 
 ワークフローの`env`キー内のすべての変数について、自分の値を渡すようにしてください。
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -93,17 +96,11 @@ env:
   CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
-    permissions:
-      packages: write
-      contents: read{% endif %}
+    runs-on: ubuntu-latest
+    environment: production
 
     {% raw %}steps:
       - name: Checkout
@@ -150,8 +147,9 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-
 ## 追加リソース
+
+For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 
 この例で使われているサービスに関する詳しい情報については、以下のドキュメンテーションを参照してください。
 

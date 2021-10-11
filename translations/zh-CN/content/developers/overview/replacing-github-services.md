@@ -70,4 +70,4 @@ GitHub 服务与 web 挂钩之间的主要区别：
 作为高度概述，迁移过程通常涉及：
   - 确定产品使用 GitHub 服务的方式和位置。
   - 确定需要配置的相应 web 挂钩事件，以便移动到普通 web 挂钩。
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - 使用 [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) 或 [{% data variables.product.prodname_github_apps %} 实现设计。 {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) 优先。 要了解为什么优先使用 {% data variables.product.prodname_github_apps %}，请参阅“[切换到 {% data variables.product.prodname_github_apps %} 的原因](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)”。

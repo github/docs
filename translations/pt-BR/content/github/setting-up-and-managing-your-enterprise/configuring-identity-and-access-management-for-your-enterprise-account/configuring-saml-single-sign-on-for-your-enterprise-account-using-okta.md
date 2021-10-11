@@ -11,18 +11,20 @@ versions:
   fpt: '*'
 topics:
   - Enterprise
-shortTitle: Configure SAML with Okta
+shortTitle: Configurar o SAML com Okta
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
+
+{% data reusables.enterprise-accounts.emu-saml-note %}
 
 ## Sobre o SAML com Okta
 
 Você pode controlar o acesso à conta corporativa no {% data variables.product.product_name %} e em outros aplicativos web, a partir de uma interface central, configurando a conta corporativa para usar SAML SSO com Okta, um provedor de identidade (IdP).
 
-O SAML SSO controla e protege o acesso a recursos da conta corporativa, como, por exemplo, organizações, repositórios, problemas e pull requests. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+O SAML SSO controla e protege o acesso a recursos da conta corporativa, como, por exemplo, organizações, repositórios, problemas e pull requests. Para obter mais informações, consulte "[Aplicar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
-{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+{% data reusables.saml.switching-from-org-to-enterprise %} Para obter mais informações, consulte "[Alterando sua configuração do SAML de uma organização para uma conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)".
 
 ## Pré-requisitos
 
@@ -52,7 +54,7 @@ O SAML SSO controla e protege o acesso a recursos da conta corporativa, como, po
 1. À direita do menu suspenso, digite `.*.*`.
 1. Clique em **Salvar**.
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Habilite o SAML para a conta corporativa usando as informações nas instruções de configuração. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+1. Habilite o SAML para a conta corporativa usando as informações nas instruções de configuração. Para obter mais informações, consulte "[Aplicar o logon único SAML para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 ## Criar grupos no Okta
 

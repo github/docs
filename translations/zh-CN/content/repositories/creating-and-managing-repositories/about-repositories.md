@@ -74,7 +74,7 @@ topics:
 
 {% data reusables.repositories.internal-repo-default %}
 
-如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
+Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's user account, and the visibility of the fork will be private. 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
 {% endif %}
 
 ## 限制查看仓库中的内容和差异
@@ -107,6 +107,7 @@ Text files over **512 KB** are always displayed as plain text. 代码不强调�
 ## 延伸阅读
 
 - "[创建新仓库](/articles/creating-a-new-repository)"
+- "[关于复刻](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[通过议题和拉取请求进行协作](/categories/collaborating-with-issues-and-pull-requests)"
 - "[在 {% data variables.product.prodname_dotcom %} 上管理您的工作](/categories/managing-your-work-on-github/)"
 - "[管理仓库](/categories/administering-a-repository)"

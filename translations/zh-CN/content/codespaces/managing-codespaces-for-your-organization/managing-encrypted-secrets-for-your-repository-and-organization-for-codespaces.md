@@ -72,3 +72,7 @@ topics:
 {% data reusables.github-actions.sidebar-secret %}
 1. 密码列表包括任何已配置的权限和策略。 例如： ![密码列表](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 有关已为每个密码配置的权限的更多信息，请单击 **Update（更新）**。
+
+## 延伸阅读
+
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

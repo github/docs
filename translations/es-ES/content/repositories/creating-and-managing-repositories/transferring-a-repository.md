@@ -50,7 +50,7 @@ Cuando transfieres un repositorio, también se transfieren sus propuestas, solic
   $ git remote set-url origin <em>new_url</em>
   ```
 
-- When you transfer a repository from an organization to a user account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a user account. Para obtener más información acerca de los niveles de permiso en los repositorios, consulta "[Niveles de permiso para un repositorio de la cuenta de un usuario](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y"[Niveles de permiso para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
+- Cuando transfieres un repositorio desde una organización a una cuenta de usuario, los colaboradores de solo lectura de este no se transferirán. Esto es porque los colaboradores no pueden tener acceso de solo lectura a los repositorios que pertenecen a una cuenta de usuario. Para obtener más información acerca de los niveles de permiso en los repositorios, consulta "[Niveles de permiso para un repositorio de la cuenta de un usuario](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y"[Niveles de permiso para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 
 Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 

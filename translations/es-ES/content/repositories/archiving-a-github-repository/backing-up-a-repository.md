@@ -36,7 +36,7 @@ Cuando clonas un repositorio o wiki, solo se descargan los datos Git, como archi
 - [Proyectos](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-Una vez que tienes una versión local{% ifversion ghes or ghae %} de todo el contenido del que deseas realizar una copia de seguridad, puedes crear un archivo zip y {% else %}una vez descargado tu archivo, puedes{% endif %}copiarlo en un disco duro externo o cargarlo en un servicio de copia de seguridad basado en la nube, como [Google Drive](https://www.google.com/drive/) o [Dropbox](https://www.dropbox.com/).
+Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt %}
 ## Herramientas de copias de seguridad de terceros

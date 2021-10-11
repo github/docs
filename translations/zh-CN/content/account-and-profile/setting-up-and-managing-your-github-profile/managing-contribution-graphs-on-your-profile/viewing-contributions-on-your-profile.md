@@ -83,7 +83,7 @@ shortTitle: 查看贡献
 
 ![个人资料中的活动概览部分](/assets/images/help/profile/activity-overview-section.png)
 
-活动概览中提供的组织根据您在组织中的活跃程度确定优先级。 如果您在个人资料简历中@提及某个组织，并且您是组织成员，则该组织首先在活动概览中确定优先级。 更多信息请参阅“[提及人员和团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)”或“[将个人简历添加到个人资料](/articles/adding-a-bio-to-your-profile/)”。
+活动概览中提供的组织根据您在组织中的活跃程度确定优先级。 如果您在个人资料简历中@提及某个组织，并且您是组织成员，则该组织首先在活动概览中确定优先级。 For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
 ## 贡献活动
 
@@ -91,15 +91,14 @@ shortTitle: 查看贡献
 
 ![贡献活动时间过滤器](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion not ghae %}
-## 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.product_location_enterprise %}的贡献
+{% ifversion fpt or ghes or ghae-next %}
 
-如果您的站点管理员已启用{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到 {% data variables.product.prodname_dotcom_the_website %} 配置文件。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+## 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.prodname_enterprise %}的贡献
+
+If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+
 {% endif %}
 
 ## 延伸阅读
 
 - "[在个人资料页面中查看贡献](/articles/viewing-contributions-on-your-profile-page)"
-- “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
-- "[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- “[在个人资料中显示活动概览](/articles/showing-an-overview-of-your-activity-on-your-profile)”

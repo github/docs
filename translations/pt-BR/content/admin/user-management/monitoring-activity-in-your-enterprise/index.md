@@ -1,6 +1,6 @@
 ---
 title: Monitorar atividades na sua empresa
-intro: You can view activity by leveraging dashboards and logs in your enterprise.
+intro: Você pode ver suas atividades aproveitando os painéis e seus registos na sua empresa.
 redirect_from:
   - /enterprise/admin/installation/monitoring-activity-on-your-github-enterprise-server-instance
   - /enterprise/admin/user-management/monitoring-activity-in-your-enterprise

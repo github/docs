@@ -20,7 +20,6 @@ shortTitle: 带有 Gradle 的 Java 包
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 

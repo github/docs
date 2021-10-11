@@ -42,6 +42,7 @@ Ao usar o fluxo de aplicativo web, o processo para identificar usuários no seu 
 Se você selecionar **Solicitar autorização de usuário (OAuth) durante a instalação** ao criar ou modificar seu aplicativo, a etapa 1 será concluída durante a instalação do aplicativo. Para obter mais informações, consulte "[Autorizando usuários durante a instalação](/apps/installing-github-apps/#authorizing-users-during-installation)".
 
 ### 1. Solicitar identidade do GitHub de um usuário
+Direcione o usuário para a seguinte URL em seu navegador:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -73,9 +74,11 @@ Se o usuário aceitar o seu pedido, O GitHub irá fazer o redirecionamento para 
 
 {% endnote %}
 
-Troque este `código` por um token de acesso.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
+Troque este `código` por um token de acesso.  Quando os tokens vencidos estiverem habilitados, token de acesso irá expirar em 8 horas e o token de atualização irá expirar em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
 
 Os tokens de usuário expirados são atualmente um recurso opcional e estão sujeitos a alterações. Para optar por participar do recurso de expiração de token de usuário para servidor, consulte "[Habilitar funcionalidades opcionais para aplicativos](/developers/apps/activating-optional-features-for-apps)."
+
+Faça um pedido para o seguinte ponto de extremidade para receber um token de acesso:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 

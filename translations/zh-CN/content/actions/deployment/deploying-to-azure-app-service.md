@@ -18,7 +18,6 @@ shortTitle: 部署到 Azure App Service
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -68,13 +67,19 @@ Azure App Service 可以用几种语言运行 web 应用程序，但本指南演
 
    在 {% data variables.product.prodname_dotcom %} 仓库中，创建一个名为 `AZURE_WEBAPP_PUBLISH_PROFILE` 的机密，其中包含发布配置文件的内容。 有关创建机密的更多信息，请参阅“[加密密码](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)”。
 
+4. For Linux apps, add an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` and set it to true in your app. For more information, see "[Configure apps in the portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" in the Azure documentation.
+
+5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+
 ## 创建工作流程
 
 完成先决条件后，可以继续创建工作流程。
 
-下面的示例工作流程演示如何生成、测试 Node.js 项目并将其部署到 Azure App Service。
+The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when a release is created.
 
-确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。
+确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 You can also change `AZURE_WEBAPP_PACKAGE_PATH` if the path to your project is not the repository root and `NODE_VERSION` if you want to use a node version other than `10.x`.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -92,6 +97,8 @@ jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
+    environment: production
+
     steps:
       - uses: actions/checkout@v2
 
@@ -122,4 +129,5 @@ jobs:
 
 * For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
 * Azure web 应用文档中的“[在 Azure 中创建 Node.js web 应用](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)”快速入门说明如何通过 [Azure App Service 扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)使用 VS Code。

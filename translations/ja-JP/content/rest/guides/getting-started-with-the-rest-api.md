@@ -122,10 +122,10 @@ $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/use
 
 プロンプトが表示されたらOAuthトークンを入力できますが、そのための変数を設定することをお勧めします。
 
-トークンをシェル履歴に残すことは避けるべきです。`-u "username:$token"`を使用して、`token`の変数を設定すると、トークンはシェル履歴に残りません。
+You can use `-u "your_username:$token"` and set up a variable for `token` to avoid leaving your token in shell history, which should be avoided.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
+$ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 

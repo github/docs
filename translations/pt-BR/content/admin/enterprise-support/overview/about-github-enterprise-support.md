@@ -33,7 +33,7 @@ Além de todos os benefícios de {% data variables.contact.enterprise_support %}
   - Suporte gravado por meio de nosso portal de suporte 24 horas por dias, 7 dias por semana
   - Suporte por telefone 24 horas por dia, 7 dias por semana
   - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
-  - Customer Reliability Engineers
+  - Engenheiros de Confiabilidade do Cliente
   - Acesso a conteúdo premium
   - Verificação de integridade agendadas
   - Horas administrativas gerenciadas

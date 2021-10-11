@@ -33,7 +33,7 @@ Utiliza las vistas de proyecto para mirarlo desde diferentes ángulos.
 Por ejemplo:
 
 - Filtra por estado para ver los elementos que no se marcaron como favoritos
-- Group by a custom priority field to monitor the volume of high priority items
+- Agrupar por un campo de prioridad personalizado para monitorear el volumen de los elementos de prioridad alta
 - Ordena por un campo personalizado de fecha para ver los elementos con la fecha de envío destino más cercana
 
 Para obtener más información, consulta la sección "[Personalizar las vistas de tu proyecto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".

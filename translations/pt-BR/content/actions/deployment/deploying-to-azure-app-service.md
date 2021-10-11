@@ -18,7 +18,6 @@ shortTitle: Implantar no Azure App Service
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -68,13 +67,19 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
    No seu repositório {% data variables.product.prodname_dotcom %}, crie um segredo denominado `AZURE_WEBAPP_PUBLISH_PROFILE` que contém o conteúdo do perfil de publicação. Para obter mais informações sobre a criação de segredos, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)".
 
+4. Para aplicativos Linux, adicione uma configuração de aplicativo denominada `WEBSITE_WEBDEPLOY_USE_SCM` e defina-a como verdadeiro no seu aplicativo. Para obter mais informações, consulte "[Configurar aplicativos no portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" na documentação do Azure.
+
+5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
+
 ## Criar o fluxo de trabalho
 
 Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-O exemplo a seguir mostra como compilar, testar e implantar o projeto Node.js no Azure App Service.
+O exemplo a seguir de fluxo de trabalho mostra como compilar, testar e implantar o projeto Node.js no Azure App Service quando uma versão é criada.
 
-Certifique-se de definir `AZURE_WEBAPP_NAME` na chave de fluxo de trabalho `env` como o nome do aplicativo web que você criou.
+Certifique-se de definir `AZURE_WEBAPP_NAME` na chave de fluxo de trabalho `env` como o nome do aplicativo web que você criou. Você também pode alterar `AZURE_WEBAPP_PACKAGE_PATH` se o caminho para o seu projeto não for a raiz do repositório e `NODE_VERSION` se você quiser usar uma versão de nó diferente de `10.x`.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -92,6 +97,8 @@ jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
+    environment: production
+
     steps:
       - uses: actions/checkout@v2
 
@@ -120,6 +127,7 @@ jobs:
 
 Os seguintes recursos também podem ser úteis:
 
-* For the original starter workflow, see [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* Para o fluxo de trabalho inicial original, consulte [`azure.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure.yml) no repositório `starter-workflows` de {% data variables.product.prodname_actions %}.
 * A ação usada para fazer a implantação do aplicativo web é a ação oficial [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) do Azure.
+* Para obter mais exemplos de fluxos de trabalho do GitHub Action que fazem a implantação no Azure, consulte o repositório [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).
 * O início rápido de "[Criar um aplicativo web Node.js no Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs)" na documentação do aplicativo web do Azure mostra como usar o VS Code com a [extensão do Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

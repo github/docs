@@ -17,6 +17,8 @@ topics:
 shortTitle: 管理团队同步
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 {% data reusables.gated-features.okta-team-sync %}
 
 ## 关于团队同步
@@ -30,6 +32,8 @@ shortTitle: 管理团队同步
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
 您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)”。
+
+{% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 

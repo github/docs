@@ -1,6 +1,7 @@
 ---
 title: Asignar propuestas y solicitudes de extracción a otros usuarios de GitHub
 intro: Los asignatarios aclaran quién está trabajando en propuestas y solicitudes de extracción específicas.
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -14,8 +15,6 @@ topics:
   - Pull requests
 shortTitle: Asignar propuestas & solicitudes de cambio
 ---
-
-Cualquier persona con permisos de escritura en un repositorio puede asignar propuestas y solicitudes de extracción.
 
 ## Acerca de los asignatarios de las propuestas y solicitudes de cambios
 

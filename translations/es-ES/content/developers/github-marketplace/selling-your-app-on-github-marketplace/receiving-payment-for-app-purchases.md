@@ -17,7 +17,7 @@ shortTitle: Recibir pagos
 
 Después de que tu listado de {% data variables.product.prodname_marketplace %} para una app con un plan de pago se cree y apruebe, deberás proporcionar los detalles de pago a {% data variables.product.product_name %} como parte del proceso de integración financiera.
 
-Once your revenue reaches a minimum of 500 US dollars for the month, you'll receive an electronic payment from {% data variables.product.company_short %}. Este será el ingreso de las transacciones de marketplace menos la cantidad que cobra {% data variables.product.company_short %} para cubrir los costos de operación.
+Una vez que tus ganancias lleguen a un mínimo de 500 dólares estadounidenses por el mes, recibirás un pago electrónico de {% data variables.product.company_short %}. Este será el ingreso de las transacciones de marketplace menos la cantidad que cobra {% data variables.product.company_short %} para cubrir los costos de operación.
 
 Para las transacciones que se realicen antes del 1 de enero de 2021, {% data variables.product.company_short %} retendrá el 25% del ingreso de ellas. Para las transacciones que se realicen después de esta fecha, {% data variables.product.company_short %} solo retendrá el 5%. Este cambio se reflejará en los pagos que se reciban desde el final de enero 2021 en adelante.
 

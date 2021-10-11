@@ -45,7 +45,7 @@ shortTitle: 管理您的订阅
 
 {% data reusables.notifications.access_notifications %}
 1. 从通知收件箱中选择您想要取消订阅的通知。
-2. 使用 **selected（已选择）** {% octicon "triangle-down" aria-label="The down triangle icon" %} 下拉列表单击 **Unsubscribe（取消订阅）**。 ![主收件箱中的取消订阅选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Click **Unsubscribe.** ![主收件箱中的取消订阅选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## 从订阅页面取消订阅通知
 
@@ -61,13 +61,12 @@ shortTitle: 管理您的订阅
 {% data reusables.notifications.access_notifications %}
 1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉按钮单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
-  {% ifversion ghae or ghes < 3.1 %}
-    - 取消关注仓库
-    - 只关注某仓库的发行版
-    - 忽略某仓库的所有通知
-  {% endif %}
   {% ifversion fpt or ghes > 3.0 or ghae-next %}
     - 取消关注仓库
     - 忽略某仓库的所有通知
     - 自定义接收通知的事件类型 （{% data reusables.notifications-v2.custom-notification-types %}，如果启用）
+  {% else %}
+    - 取消关注仓库
+    - 只关注某仓库的发行版
+    - 忽略某仓库的所有通知
   {% endif %}

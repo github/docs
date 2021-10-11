@@ -1,6 +1,7 @@
 ---
 title: 关注他人
 intro: '您可以在 {% data variables.product.product_name %} 上关注他人，以接收有关其活动的通知{% ifversion fpt %} 和发现其社区中的项目{% endif %}。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
   - /github/getting-started-with-github/following-people

@@ -58,6 +58,12 @@ miniTocMaxHeadingLevel: 3
 
 您可以通过 IdP 通过团队同步管理 GitHub 团队成员。 必须启用团队同步才能使用团队同步 API。 更多信息请参阅“<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">在身份提供程序与 GitHub 之间同步团队</a>”。
 
+{% note %}
+
+**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}.
+
+{% endnote %}
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'team-sync' %}{% include rest_operation %}{% endif %}
 {% endfor %}

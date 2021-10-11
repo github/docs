@@ -72,7 +72,7 @@ Sí, la gráfica de dependencias tiene dos categorías de límites:
 
     Los manifiestos mayores a 0.5 MB solo se procesan para las cuentas empresariales. En el caso de otras cuentas, los manifiestos mayores a 0.5 MB se ingoran y no crearán {% data variables.product.prodname_dependabot_alerts %}.
 
-    Predeterminadamente, {% data variables.product.prodname_dotcom %} no procesará más de 20 manifiestos por repositorio. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. Si necesitas incrementar el límite, contacta a {% data variables.contact.contact_support %}.
+    Predeterminadamente, {% data variables.product.prodname_dotcom %} no procesará más de 20 manifiestos por repositorio. Las {% data variables.product.prodname_dependabot_alerts %} no se crean para los manifiestos más allá de este límite. Si necesitas incrementar el límite, contacta a {% data variables.contact.contact_support %}.
 
 2. **Límites de visualización**
 

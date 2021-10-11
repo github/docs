@@ -1,10 +1,10 @@
 ---
 title: 审查拉取请求中的依赖项更改
 intro: 如果拉取请求包含对依赖项的更改，您可以查看已更改内容摘要以及任何依赖项中是否存在已知漏洞。
+product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: how_to
 topics:
   - Pull requests
@@ -38,19 +38,19 @@ shortTitle: 查看依赖项更改
 
 1. 如果拉取请求包含许多文件，请使用 **File filter（文件过滤器）**下拉菜单折叠所有不记录依赖项的文件。 这将有助于您将审查的重点放在依赖项更改上。
 
-   ![文件过滤器菜单](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   ![文件过滤器菜单](/assets/images/help/pull_requests/file-filter-menu-json.png) The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+
+  {% note %}
+
+   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+
+   {% endnote %}
 
 1. 在清单或锁定文件标头的右侧，单击 **{% octicon "file" aria-label="The rich diff icon" %}** 多差异按钮以显示依赖项审查。
 
    ![多差异按钮](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-  {% note %}
-
-   **注：**依赖项审查提供关于大型锁定文件中已更改内容的更清晰视图，源差异在默认情况下不会呈现。
-
-   {% endnote %}
-
-1. 检查依赖项审查中列出的依赖项。
+2. 检查依赖项审查中列出的依赖项。
 
    ![依赖项审查中的漏洞警告](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

@@ -1,5 +1,6 @@
 ---
 title: Administración de GitHub Enterprise
+intro: 'You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account. Entre las tareas que puedes realizar con esta API hay muchas que se relacionan con las GitHub Actions.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -10,11 +11,11 @@ versions:
   ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
+shortTitle: Administración empresarial
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
-
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 {% note %}
 
@@ -26,29 +27,29 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 ### URL de las Terminales
 
-Las terminales de la API de REST{% if enterpriseServerVersions contains currentVersion %}—excepto las terminales de la API de [Consola de Administración](#management-console)—{% endif %} se prefijan con la siguiente URL:
+Las terminales de la API de REST{% ifversion ghes %}—excepto las terminales de la API de [Consola de Administración](#management-console)—{% endif %} se prefijan con la siguiente URL:
 
 ```shell
 {% data variables.product.api_url_pre %}
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 Las terminales de la API de [Consola de Administración](#management-console) solo llevan un prefijo con un nombre de host:
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
 {% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### Autenticación
 
-Las terminales de la API para tu instalación de {% data variables.product.product_name %} acceptan [los mismos métodos de autenticación](/rest/overview/resources-in-the-rest-api#authentication) que los de la API de GitHub.com. Puedes autenticarte con **[Tokens de OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% if enterpriseServerVersions contains currentVersion %}(los cuales se pueden crear utilizando la [API de autorizciones](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}o la **[autenticación básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} Los tokens de OAuth deben tener el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) de `site_admin` cuando se utilicen con las terminales específicas de la empresa. {% endif %}
+Las terminales de la API para tu instalación de {% data variables.product.product_name %} acceptan [los mismos métodos de autenticación](/rest/overview/resources-in-the-rest-api#authentication) que los de la API de GitHub.com. Puedes autenticarte con **[Tokens de OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% ifversion ghes %}(los cuales se pueden crear utilizando la [API de autorizciones](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}o con la **[autenticación básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% ifversion ghes %} Los tokens de OAuth deben tener el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) de `site_admin` cuando se utilicen con las terminales específicas de la empresa. {% endif %}
 
-Solo los administradores de sitio autenticados en {% data variables.product.product_name %} pueden acceder a las terminales de la API de administración empresarial{% if enterpriseServerVersions contains currentVersion %}, con exepción de la API de [Consola de Administración](#management-console), la cual requiere la [contraseña de la Consola de Administración](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
+Solo los administradores de sitio autenticados en {% data variables.product.product_name %} pueden acceder a las terminales de la API de administración empresarial{% ifversion ghes %}, con exepción de la API de [Consola de Administración](#management-console), la cual requiere la [contraseña de la Consola de Administración](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ### Información de la versión
 
 La versión actual de tu empresa se devuelve en el encabezado de respuesta de cada API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` También puedes leer la versión actual si llamas a la [terminal de meta](/rest/reference/meta/).
@@ -59,7 +60,7 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 
 ## Registro de auditoría
 
@@ -69,7 +70,7 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Facturación
 
 {% for operation in currentRestOperations %}
@@ -78,80 +79,15 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-## SCIM
-
-### Aprovisionamiento de SCIM para Empresas
-
-Los Proveedores de Identidad (IdPs) con SCIM habilitado pueden utilizar la API de SCIM para automatizar el aprovisionamiento de la membresía empresarial. La API de {% data variables.product.product_name %} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/).
-
-El IdP debe utilizar `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` como la terminal de SCIM.
-
-{% note %}
-
-**Nota:** La API empresarial de SCIM solo se encuentra disponible para las empresas en [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que cuenten con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
-
-{% endnote %}
-
-### Autenticar las llamadas a la API de SCIM
-
-Debes autenticarte como un propietario de una empresa de {% data variables.product.product_name %} para utilizar su API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También podrías utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu SSO empresarial de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
-
-### Mapeo de los datos de SAML y de SCIM
-
-El IdP de SAML y el cliente de SCIM deben utilizar valores coincidentes de `NameID` y `userName` para cada usuario. Esto le permite al usuario que se autentica mediante SAML el poder enlazarse con su identidad aprovisionada de SCIM.
-
-Los grupos de SCIM se empatan con las organizaciones de {% data variables.product.product_name %} que tienen exactamente el mismo nombre, y que son propiedad de la cuenta empresarial.
-
-El IdP de SAML y el cliente de SCIM deben configurarse para empatar exactamente el `displayName` del grupo de SCIM con el nombre correspondiente de la organización de {% data variables.product.product_name %}. Esto le permite a {% data variables.product.product_name %} enlazar el grupo de SCIM con la membrecía organizacional de {% data variables.product.product_name %}.
-
-### Atributos de Usuario de SCIM compatibles
-
-| Nombre           | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `userName`       | `secuencia` | El nombre de usuario para el usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `name.givenName` | `secuencia` | El primer nombre del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `name.lastName`  | `secuencia` | El apellido del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `emails`         | `arreglo`   | Lista de correos electrónicos del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `externalId`     | `secuencia` | El proveedor de SAML genera este identificador, el cual utiliza como una ID única para empatarla contra un usuario de GitHub. Puedes encontrar la `externalID` para un usuario ya sea con el proveedor de SAML, o utilizar la terminal de [Listar las identidades aprovisionadas de SCIM para una empresa](#list-scim-provisioned-identities-for-an-enterprise) y filtrar otros atributos conocidos, tales como el nombre de usuario o la dirección de correo electrónico de un usuario de GitHub. |
-| `id`             | `secuencia` | Identificador que genera la terminal de SCIM de GitHub.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `active`         | `boolean`   | Se utiliza para indicar si la identidad está activa (true) o si debe desaprovisionarse (false).                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `groups`         | `arreglo`   | Lista opcional de las ID del grupo de SCIM del cual el usuario es miembro.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-
-{% note %}
-
-**Nota:** Las URL de terminal para la API de SCIM distinguen entre mayúsculas y minúsculas. Por ejemplo, la primera letra en la terminal `Users` debe ponerse en mayúscula:
-
-```shell
-GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
-```
-
-{% endnote %}
-
-### Atributos del Grupo de SCIM compatibles
-
-| Nombre        | Type        | Descripción                                                                                                                                                                                                                                                                       |
-| ------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `secuencia` | El nombre del grupo de SCIM, el cual debe empatar exactamente con el nombre de la organización de {% data variables.product.product_name %} correspondiente. Por ejemplo, si la URL de la organización es `https://github.com/octo-org`, el nombre del grupo debe ser `octo-org`. |
-| `members`     | `arreglo`   | Lista de IDs de usuario de SCIM que son miembros del grupo.                                                                                                                                                                                                                       |
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Estadísticas de los Administradores
 
 La API de estadísticas de los administradores proporciona diversas métricas sobre tu instalación. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
@@ -162,7 +98,7 @@ La API de estadísticas de los administradores proporciona diversas métricas so
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% ifversion ghae or ghes > 2.22 %}
 
 ## Anuncios
 
@@ -174,7 +110,7 @@ La API de anuncios te permite administrar el letrero de anuncios globales en tu 
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 
 ## Webhooks globales
 
@@ -188,7 +124,7 @@ Los webhooks globales se instalan en tu empresa. Puedes utilizar los webhooks gl
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## LDAP
 
@@ -202,8 +138,7 @@ Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN,
 
 {% endif %}
 
-
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Licencia
 
 La API de licencias proporciona información sobre tu licencia empresarial. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
@@ -214,7 +149,7 @@ La API de licencias proporciona información sobre tu licencia empresarial. *Sol
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Consola de administración
 
@@ -252,7 +187,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Organizaciones
 
 La API de Administración Organizacional te permite crear organizaciones en tu empresa. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
@@ -263,8 +198,7 @@ La API de Administración Organizacional te permite crear organizaciones en tu e
 
 {% endif %}
 
-
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Ganchos de Pre-recepción de la Organización
 
 La API de Ganchos de Pre-recepción de la Organización te permite ver y modificar la aplicación de dichos ganchos que están disponibles para una organización.
@@ -288,7 +222,7 @@ Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. E
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Ambientes de pre-recepción
 
@@ -322,7 +256,7 @@ Los valores posibles para `state` son `not_started`, `in_progress`, `success`, `
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 ## Ganchos de pre-recepción
 
 La API de Ganchos Pre-recepción te permite crear, listar, actualizar y borrar los ganchos de pre-recepción. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
@@ -348,7 +282,7 @@ Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. E
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 
 ## Ganchos de pre-recepción del repositorio
 
@@ -372,10 +306,10 @@ Los valores posibles para *enforcement* son `enabled`, `disabled` y `testing`. E
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% ifversion ghae or ghes %}
 ## Usuarios
 
-La API de Administración de Usuarios te permite suspender{% if enterpriseServerVersions contains currentVersion %}, dejar de suspender, promover, y degradar{% endif %}{% if currentVersion == "github-ae@latest" %} y dejar de suspender{% endif %} a los usuarios en tu empresa. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `403` si intentan acceder a ella.
+La API de Administración de Usuarios te permite suspender{% ifversion ghes %}, dejar de suspender, promover, y degradar{% endif %}{% ifversion ghae %} y dejar de suspender{% endif %} a los usuarios en tu empresa. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `403` si intentan acceder a ella.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

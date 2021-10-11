@@ -16,7 +16,7 @@ versions:
 shortTitle: Manejar los extremos de línea
 ---
 
-## About line endings
+## Acerca de los finales de línea
 Cada vez que presionas <kbd>Enter</kbd> en tu teclado, insertas un caracter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.
 
 Cuando colaboras en proyectos con Git y {% data variables.product.product_name %}, Git podría producir resultados inesperados si, por ejemplo, estás trabajando en una máquina Windows y tu colaborador hizo cambios en macOS.

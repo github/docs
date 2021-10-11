@@ -30,9 +30,7 @@ shortTitle: 源控制
 
 ## 创建或切换分支
 
-1. 如果当前分支未显示在状态栏中，请在代码空间的底部右键单击状态栏，然后选择 **Source control（源控制）**。
-1. 单击状态栏中的分支名称。 ![状态栏中的分支](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. 在下拉菜单中，单击要切换到的分支或输入新分支的名称，然后单击 **Create new branch（创建新分支）**。 ![从分支菜单中选择](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
@@ -64,16 +62,11 @@ If the dev container configuration has been changed since you created the codesp
 
 ## 提交更改
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. 要暂存更改，请单击已更改文件旁边的  **+**；如果您更改了多个文件并且要全部暂存，请单击 **Changes（更改）**旁边的该按钮。 ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. 输入提交消息，描述您所做的更改。 ![带有提交消息的源控制侧栏](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. 要提交暂存的更改，请单击源控制侧栏顶部的复选标记。 ![单击复选标记图标](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+{% data reusables.codespaces.source-control-commit-changes %}
 
 ## 提出拉取请求
 
-1. 将更改提交到仓库的本地副本后，请单击 **Create Pull Request（创建拉取请求）**图标。 ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. 检查作为合并来源的本地分支和仓库以及作为合并目标的远程分支和仓库是否正确。 然后为拉取请求提供标题和描述。 ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. 单击 **Create（创建）**。
+{% data reusables.codespaces.source-control-pull-request %}
 
 ## 将更改推送到远程仓库
 

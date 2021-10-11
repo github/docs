@@ -58,6 +58,12 @@ Team Synchronization API では、{% data variables.product.product_name %} Team
 
 Team 同期を使用して、IdPを通じて GitHubTeamメンバーを管理できます。 Team Synchronization API を使用するには、チーム同期が有効である必要があります。 詳しい情報については「<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">アイデンティティプロバイダとGitHub間でのTeamの同期</a>」を参照してください。
 
+{% note %}
+
+**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}.
+
+{% endnote %}
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'team-sync' %}{% include rest_operation %}{% endif %}
 {% endfor %}

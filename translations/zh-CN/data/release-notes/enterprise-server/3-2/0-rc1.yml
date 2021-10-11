@@ -1,7 +1,7 @@
 ---
 date: '2021-09-09'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: 如果 {% data variables.product.product_location %} 正在运行候选版本，则无法使用热补丁进行升级。我们建议仅在测试环境中运行候选版本。
 sections:
   features:

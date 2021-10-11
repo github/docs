@@ -18,7 +18,7 @@ Com {% data variables.product.prodname_discussions %}, a comunidade para o seu p
 
 Você não precisa fechar uma discussão como você fecha um problema ou um pull request.
 
-If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
+Se um administrador de repositório ou mantenedor do projeto habilitar {% data variables.product.prodname_discussions %} para um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões do repositório. Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 Para obter mais informações sobre o gerenciamento de discussões para o repositório, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
@@ -36,7 +36,7 @@ Para obter mais informações, consulte "[Gerenciar categorias para discussões 
 
 {% data reusables.discussions.you-can-label-discussions %}
 
-## Best practices for {% data variables.product.prodname_discussions %}
+## Práticas recomendadas para {% data variables.product.prodname_discussions %}
 
 Como integrante ou mantenedor da comunidade, inicie uma discussão para fazer uma pergunta ou discutir informações que afetem a comunidade. Para obter mais informações, consulte "[Colaborar com mantenedores usando as discussões](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)".
 
@@ -53,7 +53,7 @@ Você pode compartilhar seus comentários sobre {% data variables.product.prodna
 ## Leia mais
 
 - "[Sobre escrita e formatação em {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Pesquisar discussões](/github/searching-for-information-on-github/searching-discussions)"
+- "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)"
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 - "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
 - "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

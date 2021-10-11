@@ -14,7 +14,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Use Dependabot with actions
+shortTitle: Usar o Dependabot com ações
 ---
 
 ## Sobre {% data variables.product.prodname_dependabot %} e {% data variables.product.prodname_actions %}
@@ -200,7 +200,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v1.1.1
+        uses: dependabot/fetch-metadata@v1.1.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Add a label for all production dependencies

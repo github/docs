@@ -14,7 +14,6 @@ shortTitle: Manage runner groups
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## セルフホストランナーのグループについて
 
@@ -173,14 +172,13 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## セルフホストランナーをグループに移動する
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 1. In the "Runners" list, click the runner that you want to configure.
 1. Select the Runner group dropdown menu.
 1. In "Move runner to group", choose a destination group for the runner.
-{% endif %}
-{% ifversion ghae or ghes %}
-1. {% ifversion fpt %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、移動するランナーの現在のグループを見つけて、グループメンバーのリストを展開します。 ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
+{% else %}
+1. In the "Self-hosted runners" section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. セルフホストランナーの横にあるチェックボックスを選択し、[**Move to group**] をクリックして、利用可能な移動先を確認します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. 移動先のグループをクリックして、ランナーを移動します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
@@ -188,14 +186,13 @@ If you don't specify a runner group during the registration process, your new se
 
 セルフホストランナーは、グループが削除されると自動的にデフォルトグループに戻ります。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 1. グループを削除するには、[**Remove group**] をクリックします。
 1. 確認プロンプトを確認し、[**Remove this runner group**] をクリックします。
-{% endif %}
-{% ifversion ghae or ghes %}
-1. 設定ページの {% ifversion fpt %}[Runners]{% else %}[Self-hosted runners]{% endif %} セクションで、削除するグループを見つけて、{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ボタンをクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+{% else %}
+1. In the "Self-hosted runners" section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button. ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. グループを削除するには、[**Remove group**] をクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-remove.png)
 

@@ -48,6 +48,14 @@ Wenn Sie ein Konto anlegen, stellt {% data variables.product.product_name %} Ihn
 
 Du kannst den Namen, der in Deinem Profil angezeigt wird, ändern. This name may also be displayed next to comments you make on private repositories owned by an organization. Weitere Informationen findest Du unter „[Anzeige der Mitgliedsnamen in Deiner Organisation verwalten](/articles/managing-the-display-of-member-names-in-your-organization)“.
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. Gib unter „Name“ den Namen ein, der in Deinem Profil angezeigt werden soll. ![Feld „Name“ (Name) in den Profileinstellungen](/assets/images/help/profile/name-field.png)
 

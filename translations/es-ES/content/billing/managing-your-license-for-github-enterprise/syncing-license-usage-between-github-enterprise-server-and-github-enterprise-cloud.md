@@ -1,6 +1,6 @@
 ---
-title: Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud
-intro: 'You can sync license usage from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} to view all license usage across your enterprise in one place and ensure that people with accounts in both environments only consume one user license.'
+title: Sincornizar el uso de licencias entre GitHub Enterprise Server y GitHub Enterprise Cloud
+intro: 'Puedes sincronizar el uso de licencias desde {% data variables.product.prodname_ghe_server %} hacia {% data variables.product.prodname_ghe_cloud %} para ver el uso de licencias a lo largo de tu empresa en un solo lugar y garantizar que las personas con cuentas en ambos ambientes solo consuman una licencia.'
 permissions: 'Enterprise owners can sync license usage between enterprise accounts on {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghes: '*'
@@ -8,22 +8,22 @@ type: how_to
 topics:
   - Enterprise
   - Licensing
-shortTitle: Sync license usage
+shortTitle: Sincronizar el uso de licencia
 ---
 
-## About synchronization of license usage
+## Acerca de la sincronización del uso de licencias
 
 {% data reusables.enterprise-licensing.about-license-sync %}
 
-If you allow {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}, you can sync license usage between your enterprise accounts automatically. Automatic synchronization ensures that you see up-to-date license details on {% data variables.product.prodname_dotcom_the_website %}. If you don't want to allow {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}, you can manually sync license usage by uploading a file from {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}.
+Si permites que {% data variables.product.product_location %} se conecte a {% data variables.product.prodname_dotcom_the_website %}, puedes sincronizar el uso de licencias entre tus cuentas empresariales automáticamente. La sincronización automática garantiza que veas los detalles actualizados de la licencia en {% data variables.product.prodname_dotcom_the_website %}. Si no quieres permitir que {% data variables.product.product_location %} se conecte con {% data variables.product.prodname_dotcom_the_website %}, puedes sincronizar la licencia manualmente cargando un archivo de {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}.
 
-For more information about licenses and usage for {% data variables.product.prodname_ghe_server %}, see "[About licenses for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
+Para obtener más información sobre las licencias y el uso de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Acerca de las licencias de {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)".
 
-## Automatically syncing license usage
+## Sincronizar el uso de licencias automáticamente
 
 Puedes utilizar {% data variables.product.prodname_github_connect %} para sincronizar de forma automática el conteo y el uso de la licencia de usuario entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "[Habilitar la sincronización de licencia de usuario entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}](/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud)."
 
-## Manually syncing license usage
+## Sincronizar el uso de licencias manualmente
 
 Puedes descargar un archivo JSON desde {% data variables.product.prodname_ghe_server %} y subir el archivo a {% data variables.product.prodname_ghe_cloud %} para sincronizar de forma manual el uso de la licencia de usuario entre dos implementaciones.
 

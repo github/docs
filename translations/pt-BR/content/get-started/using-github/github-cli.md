@@ -13,4 +13,4 @@ topics:
 
 {% data reusables.cli.cli-features %}
 
-For more information, see "[{% data variables.product.prodname_cli %}](/github-cli)."
+Para obter mais informações, consulte "[{% data variables.product.prodname_cli %}](/github-cli)".

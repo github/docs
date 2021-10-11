@@ -75,33 +75,6 @@ shortTitle: Configure 2FA recovery
 
 設定後、バックアップデバイスが確認の SMS を受信します。
 
-## Recovery Accounts Elsewhere でフォールバック認証方式を追加する
-
-アカウントに対して追加の認証クレデンシャルを生成し、パートナーリカバリプロバイダを利用して保存できます。
-
-### Recovery Accounts Elsewhere について
-
-Recover Accounts Elsewhere を使うと、2 要素認証やリカバリコードへのアクセスを失った場合に備えて、あなたの {% data variables.product.product_name %} アカウントにセキュリティ要素を追加できます。
-
-Recovery Accounts Elsewhere を使用して、あなたの {% data variables.product.product_name %}アカウントをあなたの Facebook アカウントに関連付けることができます。 Facebook により、_アカウントリカバリトークン_として、あなたの {% data variables.product.product_name %} アカウントの認証クレデンシャルを保存できます。
-
-2 要素認証方法やリカバリコードにアクセスができなくなったために、{% data variables.product.product_name %} へのアクセスをなくした場合でも、リカバリプロバイダーからアカウントリカバリトークンを取得できます。これはあなたが {% data variables.product.product_name %} アカウントのオーナーであることを証明するのに役立ちます。
-
-トークンを再取得後、{% data variables.contact.contact_support %} はあなたのアカウントで 2 要素認証を無効にできるかもしれません。 その後、アカウントに再びアクセスするため、パスワードを入力またはリセットできます。
-
-アカウントリカバリトークンを生成または取得すると、アカウントの Audit log にイベントが追加されます。 詳細は「[セキュリティログをレビューする](/articles/reviewing-your-security-log)」を参照してください。
-
-### アカウントリカバリトークンを生成、保存する
-
-アカウントリカバリトークンを生成し、パートナーリカバリプロバイダを利用して保存できます。
-
-1. あなたの Facebook アカウントにサインインしてから、{% data variables.product.product_name %} に戻ります。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-4. 新しいトークンを生成するため、[Recovery tokens] の下にある [**Store new token**] をクリックします。 ![新しいリカバリトークンを保存するボタン](/assets/images/help/settings/store-new-recovery-token.png)
-5. アカウントリカバリトークンに関する情報を読み、[**Connect with https://www.facebook.com**] をクリックします。 ![リカバリトークンを Facebook と関連付けるボタン](/assets/images/help/settings/connect-recovery-token-with-facebook.png)
-6. Facebook にリダイレクト後、Facebook でアカウントリカバリをオンにすることに関する情報を読んでから、[**Save as [_あなたの名前_]**] をクリックします。 (短時間で複数のトークンを保存する場合、最初のトークンを保存した後は、Facebook がこの確認を省略することがあります。) ![アカウントリカバリを有効にするボタンがある Facebook ページ](/assets/images/help/settings/security-turn-on-rae-facebook.png)
-
 {% endif %}
 
 ## 参考リンク

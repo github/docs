@@ -1,6 +1,6 @@
 ---
 title: 継続的インテグレーションについて
-intro: '{% data variables.product.prodname_actions %} で {% data variables.product.prodname_dotcom %} リポジトリにカスタム継続的インテグレーション（CI）ワークフローと継続的デプロイメント（CD）ワークフローを直接作成できます。'
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
@@ -15,13 +15,11 @@ versions:
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: 継続的インテグレーション
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 継続的インテグレーションについて
 
@@ -49,44 +47,11 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 
 一般的な用語の定義については「[{% data variables.product.prodname_actions %} の中核的概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
-## サポートされている言語
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Workflow templates
 
 {% data variables.product.product_name %} では、各種言語およびフレームワークに応じて CI ワークフローテンプレートが提供されます。
 
 {% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ{% else %} `actions/starter-workflows` リポジトリで {% data variables.product.product_name %} が提供する CI ワークフローテンプレートの完全なリストを参照します。{% endif %}
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## ワークフロー実行をスキップする
-
-ワークフローがトリガーされないようにする場合は、コミットメッセージにスキップ命令を追加できます。 `on: push` または `on: pull_request` でトリガーされるワークフローは、プッシュまたはプルリクエストの HEAD コミットで、次の文字列型のいずれかをコミットメッセージに追加した場合トリガーされません。
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-または、コミットメッセージを 2 行の空行で終了し、その後に `skip-checks: true` または `skip-checks:true` のいずれかを続けることもできます。
-
-最初にリポジトリがパスするための特定のチェックを受けるように設定されている場合、プルリクエストをマージすることはできません。 プルリクエストをマージできるようにするには、コミットメッセージのスキップ命令なしでプルリクエストに新しいコミットをプッシュできます。
-
-{% note %}
-
-**注釈:** スキップ命令は、`push` および `pull_request` イベントにのみ適用されます。 たとえば、コミットメッセージに `[skip ci]` を追加しても、`on: pull_request_target` でトリガーされたワークフロー実行は停止されません。
-
-{% endnote %}
-{% endif %}
-
-## ワークフロー実行の通知
-
-{% data reusables.repositories.workflow-notifications %}
-
-## ワークフロー実行のためのステータスバッジ
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
 ## 参考リンク
 

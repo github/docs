@@ -26,7 +26,7 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 | Terraform                  | `terraform`      | >= 0.13, <= 1.0                 |           **✓**           |       **✓**        |                            |
 | yarn                       | `npm`            | v1                              |           **✓**           |       **✓**        |                            |
 
-[1] El {% data variables.product.prodname_dependabot %} no ejecuta Gradle pero es compatible con las actualizaciones a los siguietnes archivos: `build.gradle` y `build.gradle.kts` (para los proyectos de Kotlin).
+[1] El {% data variables.product.prodname_dependabot %} no ejecuta Gradle pero es compatible con las actualizaciones de los siguientes archivos: `build.gradle`, `build.gradle.kts` (para los proyectos de Kotlin), y los archivos que se incluye a través de la declaración `apply` que tengan `dependencies` en el nombre de archivo. Toma en cuenta que `apply` no es compatible con `apply to`, con la recursión o con las sintaxis avanzadas (por ejemplo, el `apply` de Kotlin con `mapOf`, que son nombres de archivo que se definen por propiedad).
 
 [2] El {% data variables.product.prodname_dependabot %} no ejecuta Maven pero es compatible con las actualizaciones a los archivos `pom.xml`.
 

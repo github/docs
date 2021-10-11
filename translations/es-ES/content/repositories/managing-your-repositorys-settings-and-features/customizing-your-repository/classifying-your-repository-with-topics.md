@@ -29,7 +29,7 @@ Los administradores del repositorio pueden agregar los temas que deseen a un rep
 
 {% ifversion ghae %}Los repositorios internos {% else %}Públicos, internos, {% endif %}y privados pueden tener temas, aunque solo verás los repositorios privados a los cuales tengas acceso en los resultados de búsqueda por tema.
 
-Puedes buscar los repositorios que están asociados con un tema en particular. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-by-topic)". También puedes buscar un listado de temas en {% data variables.product.product_name %}. Para obtener más información, consulta "[Buscar temas](/articles/searching-topics)".
+Puedes buscar los repositorios que están asociados con un tema en particular. Para obtener más información, consulta "[Buscar repositorios](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." También puedes buscar un listado de temas en {% data variables.product.product_name %}. Para obtener más información, consulta "[Buscar temas](/search-github/searching-on-github/searching-topics)".
 
 ## Agregar temas a tu repositorio
 

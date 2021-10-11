@@ -53,7 +53,7 @@ You can organize discussions with categories and labels.
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
-- 「[ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」
+- 「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
 - [コメントと会話の管理](/communities/moderating-comments-and-conversations)
 - 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」

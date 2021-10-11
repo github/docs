@@ -20,6 +20,12 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
+{% ifversion fpt %}
+
+If you're a member of a {% data variables.product.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% endif %}
+
 {% data reusables.repositories.desktop-fork %}
 
 删除复刻不会删除原始上游仓库。 您可以对复刻执行所需的任何更改—添加协作者、重命名文件、生成 {% data variables.product.prodname_pages %}—不会影响原始仓库。{% ifversion fpt %} 复刻的仓库在删除后无法恢复。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}

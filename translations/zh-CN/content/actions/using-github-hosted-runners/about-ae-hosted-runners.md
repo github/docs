@@ -6,22 +6,15 @@ versions:
   ghae: '*'
 ---
 
-
-
-
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## 关于 {% data variables.actions.hosted_runner %}
 
-{% data variables.actions.hosted_runner %} 是由安装了 {% data variables.product.prodname_dotcom %} 运行器服务的 {% data variables.product.prodname_actions %} 托管的虚拟机。
+An {% data variables.actions.hosted_runner %} is a virtual machine managed by {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_actions %} runner service installed. {% data variables.actions.hosted_runner %}s are dedicated to your enterprise, and you can choose from a range of hardware and software options. By default, {% data variables.actions.hosted_runner %}s are fully managed and auto-scaled by {% data variables.product.company_short %} to maximize performance while minimizing costs.{% ifversion ghae-next %} You can optionally configure the parameters of this auto-scaling to reduce your cost even more.{% endif %}
 
-{% data variables.product.prodname_ghe_managed %} 允许您使用 Ubuntu 或 Windows 映像创建和自定义 {% data variables.actions.hosted_runner %}；您可以选择您想要的机器大小并为其配置安全增强的网络。 {% data variables.actions.hosted_runner %} 由 {% data variables.product.prodname_dotcom %} 全面管理和自动扩展。
+{% data variables.product.prodname_ghe_managed %} lets you create and customize {% data variables.actions.hosted_runner %}s using Ubuntu or Windows images; you can select the size of machine you want and optionally configure a fixed public IP range for your {% data variables.actions.hosted_runner %}s.
 
 每个工作流程作业都是在 {% data variables.actions.hosted_runner %} 的新实例中执行，您可以直接在虚拟机上或 Docker 容器中运行工作流程。 作业中的所有步骤都在同一实例中执行，允许该作业中的操作使用 {% data variables.actions.hosted_runner %} 的文件系统共享信息。
-
-{% note %}
-{% data variables.actions.hosted_runner %} 是唯一可用于 {% data variables.product.prodname_ghe_managed %} 的运行器，而自托管的运行器则不可用。
-{% endnote %}
 
 要将 {% data variables.actions.hosted_runner %} 添加到您的组织或企业，请参阅[“添加 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/adding-ae-hosted-runners)”。
 
@@ -35,11 +28,9 @@ versions:
 
 ## 计费
 
-{% data variables.product.prodname_actions %} 目前正在测试用于 {% data variables.product.prodname_ghe_managed %} 。 在此测试阶段，{% data variables.actions.hosted_runner %} 不会计费，可以免费使用。
-
 测试结束后，计费使用将包括您的 AE 托管运行器集中活动实例的全时运行时间。 这包括：
 - 作业时间 - 运行 Actions 作业所用的分钟数。
-- 管理 - 重新映像机器所用的分钟数，以及因所需的自动扩展行为而产生的任何空闲时间。
+- Management - minutes spent re-imaging machines{% ifversion ghae-next %} and any idle time created as a result of desired auto-scale behavior{% endif %}.
 
 定价将与核心线性扩展。 例如，4 核价格将是 2 核的两倍。 Windows 虚拟机的定价将高于 Linux 虚拟机。
 
@@ -77,6 +68,14 @@ versions:
 要获取 {% data variables.product.prodname_actions %} 用于 {% data variables.actions.hosted_runner %} 的 IP 地址范围列表，您可以使用 {% data variables.product.prodname_dotcom %} REST API。 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。 如果需要一个允许列表来阻止未经授权访问您的内部资源，您可以使用此 IP 地址列表。
 
 API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每周更新一次。
+
+{% ifversion ghae-next %}
+
+## Autoscaling
+
+Each pool of {% data variables.actions.hosted_runner %}s is fully managed by {% data variables.product.company_short %} to maximize performance while minimizing costs. Optionally, you can configure the autoscaling parameters for your enterprise by contacting {% data variables.contact.github_support %}. You can define the minimum number of idle runners and how long a runner should remain idle before being removed from the pool. Each pool can contain up to 600 runners.
+
+{% endif %}
 
 ## {% data variables.actions.hosted_runner %} 的管理权限
 

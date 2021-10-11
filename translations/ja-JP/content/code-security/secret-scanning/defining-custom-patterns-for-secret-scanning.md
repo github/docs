@@ -25,7 +25,7 @@ topics:
 
 {% data variables.product.company_short %}は、{% ifversion fpt %}パブリック及びプライベート{% endif %}リポジトリ上で{% data variables.product.company_short %}及び{% data variables.product.company_short %}パートナーが提供するシークレットのパターンの{% data variables.product.prodname_secret_scanning %}を行います。 {% data variables.product.prodname_secret_scanning %}パートナープログラムに関する詳しい情報については「<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanningパートナープログラム</a>」を参照してください。
 
-ただし、{% ifversion fpt %}プライベート{% endif %}リポジトリ中で他のシークレットのパターンをスキャンしたいこともあるでしょう。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 20 custom patterns for each {% ifversion fpt %}private{% endif %} repository, organization, or enterprise account.
+ただし、{% ifversion fpt %}プライベート{% endif %}リポジトリ中で他のシークレットのパターンをスキャンしたいこともあるでしょう。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt %}private{% endif %} repository.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
