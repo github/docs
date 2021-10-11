@@ -16,7 +16,6 @@ shortTitle: Workflow billing & limits
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
 
@@ -59,6 +58,12 @@ Usage limits apply to self-hosted runners. Weitere Informationen findest Du unte
 ## Nutzungsrichtlinien
 
 Neben den Nutzungsbeschränkungen musst Du auch sicherstellen, dass Du {% data variables.product.prodname_actions %} innerhalb der [GitHub-Nutzungsbedingungen](/articles/github-terms-of-service/) verwendest. Weitere Informationen zu {% data variables.product.prodname_actions %}-spezifischen Bedingungen findest Du unter [Zusätzliche Produktbedingungen für GitHub](/github/site-policy/github-additional-product-terms#a-actions-usage).
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Billing for reusable workflows
+
+If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
 {% ifversion fpt or ghes > 2.22 or ghae %}

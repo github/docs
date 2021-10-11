@@ -15,7 +15,6 @@ shortTitle: Remove self-hosted runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## リポジトリからのランナーの削除
 
@@ -57,15 +56,14 @@ shortTitle: Remove self-hosted runners
 Organizationからセルフホストランナーを削除するには、Organizationのオーナーでなければなりません。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
 {% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% else %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
@@ -90,10 +88,9 @@ Organizationからセルフホストランナーを削除するには、Organiza
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% elsif ghae or ghes %}
 セルフホストランナーを
-{% data variables.product.product_location %} の Enterprise レベルで削除するには、サイト管理者である必要があります。 セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
+{% data variables.product.product_location %}, you must be an enterprise owner. セルフホストランナーのマシンへもアクセスできるようにしておくことをおすすめします。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

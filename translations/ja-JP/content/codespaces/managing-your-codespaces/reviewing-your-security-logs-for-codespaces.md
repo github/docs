@@ -20,3 +20,7 @@ topics:
 ![Codespaces 情報を含むセキュリティログ](/assets/images/help/settings/codespaces-audit-log.png)
 
 セキュリティログには、発生したアクションの詳細と実行タイミングについての詳細が含まれます。 For information about {% data variables.product.prodname_codespaces %} actions, see "[{% data variables.product.prodname_codespaces %} category actions](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)".
+
+## 参考リンク
+
+- "[Reviewing your organization's audit logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"

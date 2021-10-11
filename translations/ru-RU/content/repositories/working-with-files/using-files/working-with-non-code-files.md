@@ -188,6 +188,14 @@ You can click {% octicon "file" aria-label="The paper icon" %} to see the change
 
 ![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+### Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### Visualizing attribute changes
 
 We provide a tooltip describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to another, we'd show a tooltip like this:

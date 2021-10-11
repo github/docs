@@ -70,12 +70,14 @@ topics:
 关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
 要查看您关注的仓库，请参阅[关注页面](https://github.com/watching)。 更多信息请参阅“[在 GitHub 上管理订阅和通知](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
+
 {% ifversion ghae or ghes < 3.1 %}
 ### 配置通知
 {% endif %}
-您可以在资源库页面或在您观看页面上配置仓库的通知。{% ifversion ghae or ghes < 3.1 %} 您可以选择仅接收有关仓库中发布的通知，或忽略有关仓库的所有通知。{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.{% ifversion ghes < 3.1 %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ### 关于自定义通知
 您可以自定义仓库的通知。 例如，您可以选择仅在仓库中发生一类或多类事件 ({% data reusables.notifications-v2.custom-notification-types %}) 的更新时收到通知，或者忽略仓库的所有通知。
 {% endif %} 更多信息请参阅下面的“[配置单个仓库的关注设置](#configuring-your-watch-settings-for-an-individual-repository)”。
@@ -158,25 +160,18 @@ topics:
 
 ## 配置单个仓库的关注设置
 
-您可以选择关注还是取消关注单个仓库。 You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository){% else %}new releases{% endif %}, or completely ignore an individual repository.
+您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% ifversion fpt or ghes > 3.0 or ghae-next %}特定事件类型，如 {% data reusables.notifications-v2.custom-notification-types %}（如已对仓库启用）{% else %}新版本{% endif %}的通知，或者完全忽略单个仓库。
 
 {% data reusables.repositories.navigate-to-repo %}
 2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。
-{% ifversion ghae or ghes < 3.1 %}
-  ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
    ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
-**Custom（自定义）** 选项可用于进一步自定义通知，以便除了参与和 @提及之外，您仅在仓库中发生特定事件时才收到通知。
-
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
-   ![仓库下拉菜单中的自定义关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+   **Custom（自定义）** 选项可用于进一步自定义通知，以便除了参与和 @提及之外，您仅在仓库中发生特定事件时才收到通知。
 {% else %}
-   ![仓库下拉菜单中的自定义关注选项](/assets/images/enterprise/3.1/help/notifications-v2/watch-repository-options-custom2.png)
-{% endif %}
-
-如果选择“Issues（议题）”，您将收到仓库中每个议题（包括在您选择此选项之前存在的议题）的更新通知并订阅它们。 如果您被此仓库中的拉取请求 @提及，则除了收到有关议题的通知外，您还将收到有关该特定拉取请求更新的通知并订阅它们。
-
+     ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+   ![仓库下拉菜单中的自定义关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) 如果选择“Issues（议题）”，您将收到仓库中每个议题（包括在您选择此选项之前存在的议题）的更新通知并订阅它们。 如果您被此仓库中的拉取请求 @提及，则除了收到有关议题的通知外，您还将收到有关该特定拉取请求更新的通知并订阅它们。
 {% endif %}
 
 ## 选择接收组织的电子邮件通知的位置

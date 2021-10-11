@@ -13,16 +13,15 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
-shortTitle: Deploy to Kubernetes (GKE)
+shortTitle: Deploy to Google Kubernetes Engine
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
-このガイドは、{% data variables.product.prodname_actions %}を使ってコンテナ化されたアプリケーションをビルドし、それをGoogle Container Registryにプッシュし、Google Kubernetes Engine (GKE)にデプロイする方法を説明します。
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when a release is created.
 
 GKEはGoogle CloudによるマネージドなKubernetesクラスタサービスで、コンテナ化されたワークロードをクラウドもしくはユーザ自身のデータセンターでホストできます。 詳しい情報については[Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)を参照してください。
 
@@ -61,7 +60,7 @@ $ gcloud services enable \
 
 ### サービスアカウントの設定と資格情報の保存
 
-この手順は、GKEインテグレーション用のサービスアカウントの作成方法を示します。 アカウントの作成、アカウントへのロールの追加、アカウントのキーの取得、それらの`GKE_SA_KEY`という名前のbase64エンコードされた[暗号化されたリポジトリシークレット](/actions/reference/encrypted-secrets)としての保存の方法を説明します。
+この手順は、GKEインテグレーション用のサービスアカウントの作成方法を示します。 It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
 
 1. 新しいサービスアカウントを作成してください。
   {% raw %}
@@ -97,15 +96,28 @@ $ gcloud services enable \
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
+  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
+### Storing your project name
+
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ### （オプション）kustomizeの設定
 Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 _kustomization_ ファイルの作成後、以下のワークフローを使用して、イメージのフィールドを動的に設定し、結果を `kubectl` にパイプすることができます。 詳しい情報については、「[kustomize の使い方](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
+
+### (Optional) Configure a deployment environment
+
+{% data reusables.actions.about-environments %}
 
 ## ワークフローの作成
 
 必要な環境を整えたら、ワークフローの作成に進むことができます。
 
 以下のワークフロー例は、コンテナイメージを作成して GCR にプッシュする方法を示しています。 次に、Kubernetes ツール（`kubectl` や `kustomize` など）を使用して、イメージをクラスタデプロイメントにプルします。
+
+Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -127,8 +139,9 @@ jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    steps:
+    environment: production
 
+    steps:
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -138,7 +151,8 @@ jobs:
         service_account_key: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
         project_id: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
 
-    # Configure docker to use the gcloud command-line tool as a credential helper
+    # Configure Docker to use the gcloud command-line tool as a credential
+    # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
 
@@ -158,18 +172,18 @@ jobs:
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
 
-    # Push the Docker image to Google Container Registry
+    # Docker イメージを Google Container Registry にプッシュする
     - name: Publish
       run: |-
         docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
 
-    # Set up kustomize
+    # kustomize を設定する
     - name: Set up Kustomize
       run: |-
-        curl --location https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_linux_amd64.tar.gz | tar xz
+        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
 
-    # Deploy the Docker image to the GKE cluster
+    # Docker イメージを GKE クラスタにデプロイする
     - name: Deploy
       run: |-
         ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA

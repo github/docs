@@ -28,13 +28,13 @@ Você pode escolher o branch-padrão para um repositório. O branch-padrão é o
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
 
 Você também pode renomear o branch padrão. Para obter mais informações, consulte "[Renomear um branch](/github/administering-a-repository/renaming-a-branch).
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 {% data reusables.branches.set-default-branch %}
 

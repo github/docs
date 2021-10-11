@@ -35,7 +35,7 @@ Para ver todos os comandos relacionados a {% data variables.product.prodname_git
 
 ### Suspender ou interromper um codespace
 
-If you add a new secret or change the machine type, you'll have to stop and restart the codespace for it to apply your changes.
+Se você adicionar um novo segredo ou alterar o tipo de máquina, você terá que parar e reiniciar o codespace para que aplique suas alterações.
 
 Para suspender ou parar o contêiner do seu codespace, acesse a Paleta de Comando e, em seguida, comece a digitar "parar". Selecione **Codespaces: Parar o codespace atual**.
 

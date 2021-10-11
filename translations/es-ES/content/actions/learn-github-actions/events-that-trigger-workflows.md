@@ -17,7 +17,6 @@ shortTitle: Eventos que desencadenan flujos de trabajo
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configurar los eventos del flujo de trabajo
 
@@ -164,6 +163,26 @@ on:
   repository_dispatch:
     types: [opened, deleted]
 ```
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Eventos de reutilización de flujos de trabajo
+
+`workflow_call` es una palabra clave que se utiliza como el valor de `on` en un flujo de trabajo de la misma forma que un evento. Esto indica que se puede llamar a un flujo de trabajo desde otro. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+
+### `workflow_call`
+
+| Carga del evento Webhook                   | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF`                               |
+| ------------------------------------------ | ------------------ | ------------------------------------------ | ------------------------------------------ |
+| El mismo que el flujo de trabajo que llama | n/a                | El mismo que el flujo de trabajo que llama | El mismo que el flujo de trabajo que llama |
+
+#### Ejemplo
+
+Para que un flujo de trabajo sea reutilizable, debe incluir `workflow_call` como uno de los valores de `on`. El siguiente ejemplo solo ejecuta el flujo de trabajo cuando se le llama desde otro flujo de trabajo:
+
+```yaml
+on: workflow_call
+```
+{% endif %}
 
 ## Eventos de webhook
 

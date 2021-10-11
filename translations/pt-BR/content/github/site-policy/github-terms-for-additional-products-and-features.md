@@ -9,7 +9,7 @@ topics:
   - Legal
 ---
 
-Version Effective Date: August 10, 2021
+Data de vigência da versão: 10 de agosto de 2021
 
 Ao usar o GitHub, você pode ter acesso a muitos produtos e funcionalidades adicionais ("Produtos e Funcionalidades Adicionais"). Porque muitos dos produtos e funcionalidades adicionais oferecem diferentes funcionalidades, termos específicos para esse produto ou recurso, podem-se aplicar, além do seu acordo principal — os Termos de Serviço do GitHub, Termos de Serviço Corporativo, Termos Gerais do GitHub ou contrato de licenciamento de volume da Microsoft (denominados o "Contrato"). Abaixo, listamos os produtos e funcionalidades, junto com os termos adicionais correspondentes que se aplicam ao seu uso.
 
@@ -20,7 +20,7 @@ Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os 
 
 - Os usuários do **GitHub Enterprise Server** podem ter acesso aos seguintes Produtos e Funcionalidades: Ações, Segurança Avançada, Dados de Consultoria, Conexões, Visualização de Dependabot, Laboratório, Octoshift, Pacotes, Páginas e Imagens de Servidor SQL.
 
-- Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, {% ifversion ghae-next %}conexões, {% endif %}visualização de dependência, Octoshift, pacotes e páginas.
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database,{% ifversion ghae-next %}Connect, {% endif %}Dependabot Preview, Octoshift, Packages and Pages.
 
 ## Ações
 As Ações GitHub permitem criar fluxos de trabalho personalizados do ciclo de vida de desenvolvimento de softwares diretamente no seu repositório GitHub. Ações são cobradas conforme o uso. A [Documentação de ações](/actions) inclui detalhes, que abrangem quantidades de computação e armazenamento (dependendo do plano da sua conta) e como monitorar seus minutos de ação de uso e definir limites de uso.
@@ -38,7 +38,7 @@ Para evitar violações dessas limitações e abuso de Ações do GitHub, o GitH
 ## Segurança Avançada
 O GitHub disponibiliza funcionalidades adicionais de segurança aos clientes sob uma licença avançada de segurança. Essas funcionalidades incluem a verificação de código, varredura de segredo e revisão de dependências. A [documentação avançada de segurança](/github/getting-started-with-github/about-github-advanced-security) fornece mais informações.
 
-A segurança avançada é licenciada conforme o "commiter único". Um "Committer único" é um usuário licenciado do GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, ou GitHub AE, que criou um commit de código nos últimos 90 dias para qualquer repositório que tivesse qualquer recurso de Advanced Security do GitHub ativado. Você deve adquirir uma licença de Usuário GitHub Advanced Security para cada um dos seus Commiters únicos. Você só pode usar o GitHub Advanced Security em códigos desenvolvidos por ou para você. Para usuários do GitHub Enterprise Cloud, algumas funcionalidades de segurança avançada também exigem o uso de ações no GitHub.
+A segurança avançada é licenciada conforme o "commiter único". A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. Você deve adquirir uma licença de Usuário GitHub Advanced Security para cada um dos seus Commiters únicos. Você só pode usar o GitHub Advanced Security em códigos desenvolvidos por ou para você. Para usuários do GitHub Enterprise Cloud, algumas funcionalidades de segurança avançada também exigem o uso de ações no GitHub.
 
 ## Banco de Dados Consultivo
 A base de dados do GitHub Advisory permite que você pesquise ou procure vulnerabilidades que afetem projetos de código aberto no GitHub.

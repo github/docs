@@ -61,6 +61,7 @@ shortTitle: Editores de texto asociados
 ## Usar Atom como editor
 
 1. Instala [Atom](https://atom.io/). Para obtener más información, consulta la sección "[Instalar Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" en la documentación de Atom.
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Escribe este comando:
   ```shell
   $ git config --global core.editor "atom --wait"

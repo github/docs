@@ -24,7 +24,7 @@ topics:
 
 {% endnote %}
 
-1. Navigate to the "Your Codespaces" page at [github.com/codespaces](https://github.com/codespaces).
+1. Navegar a la página de "Tus Codespaces" en [github.com/codespaces](https://github.com/codespaces).
 
 2. A la derecha del codespace que quieres borrar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Borrar {% octicon "trash" aria-label="The trash icon" %}** ![Botón de borrar](/assets/images/help/codespaces/delete-codespace.png)
 

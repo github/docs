@@ -1,7 +1,7 @@
 ---
-title: Using workflow templates
-shortTitle: Using templates
-intro: You can set up CI using a workflow template that matches the language and tooling you want to use.
+title: Usando modelos de fluxo de trabalho
+shortTitle: Usando modelos
+intro: '{% data variables.product.product_name %} fornece modelos de fluxo de trabalho para uma série de linguagens e ferramentas.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
@@ -17,41 +17,38 @@ type: tutorial
 topics:
   - Workflows
   - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-Qualquer pessoa com permissões de gravação em um repositório pode configurar a integração contínua (CI, Continuous Integration) usando o {% data variables.product.prodname_actions %}.
+## Sobre os modelos do fluxo de trabalho
 
-Depois de configurar a CI, você pode personalizar o fluxo de trabalho conforme as suas demandas.
+{% data variables.product.product_name %} oferece modelos de fluxo de trabalho para uma série e linguagens e ferramentas. Ao configurar os fluxos de trabalho no repositório, {% data variables.product.product_name %} analisa o código no seu repositório e recomenda fluxos de trabalho baseados na linguagem e na estrutura do seu repositório. Por exemplo, se você usar o [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} irá sugerir um arquivo de modelo que instala seus pacotes Node.js e executa seus testes.
+
+Você também pode criar seus próprios modelos de fluxo de trabalho para compartilhar com sua organização. Para obter mais informações, consulte "[Criando modelos de fluxo de trabalho](/actions/learn-github-actions/creating-workflow-templates)".
+
+## Usando modelos de fluxo de trabalho
+
+Qualquer pessoa com a permissão de gravação em um repositório pode configurar fluxos de trabalho {% data variables.product.prodname_actions %} para CI/CD ou outra automatização.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. Localize o modelo correspondente ao idioma e às ferramentas que você quer usar. Em seguida, clique em **Set up this workflow** (Configurar este fluxo de trabalho). ![Botão Setup workflow (Configurar fluxo de trabalho)](/assets/images/help/repository/setup-workflow-button.png)
-5. Clique em **Start commit** (Iniciar commit). ![Botão Start commit (Iniciar commit)](/assets/images/help/repository/start-commit.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
-
-Depois de fazer push no seu repositório, você pode acompanhar o status e os logs detalhados do fluxo de trabalho de integração contínua no {% data variables.product.prodname_dotcom %} e receber notificações personalizadas. Para obter mais informações, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)" e "
-Gerenciando a execução do fluxo de trabalho".</p> 
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-Para obter mais informações, consulte "[Adicionando um selo de status do fluxo de trabalho](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
-
-
+1. Se você já tem um fluxo de trabalho no seu repositório, clique em **Novo fluxo de trabalho**.
+1. Encontre o modelo que deseja usar e, em seguida, clique em **Configurar este fluxo de trabalho**.
+1. Se o modelo do fluxo de trabalho contiver comentários que detalham as etapas de instalação adicionais, siga estas etapas.
+1. Alguns modelos de fluxo de trabalho usam segredos. Por exemplo, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. Se o modelo do fluxo de trabalho usar um segredo, armazene o valor descrito no nome do segredo como um segredo no seu repositório. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+1. Opcionalmente, faça as alterações adicionais. Por exemplo, talvez você queira alterar o valor de `on` para mudar quando o fluxo de trabalho é executado.
+1. Clique em **Start commit** (Iniciar commit).
+1. Escreva uma mensagem de commit e decida se você deseja de fazer o commit diretamente para o branch padrão ou abrir um pull request.
 
 ## Leia mais
 
 - [Sobre integração contínua](/articles/about-continuous-integration)
-- [Gerenciar a execução de fluxos de trabalho](/articles/managing-a-workflow-run)
-- "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" 
-  
-  {% ifversion fpt %}
-
-- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)" 
-  
-  {% endif %}
+- "[Gerenciando execuções de fluxo de trabalho](/actions/managing-workflow-runs)"
+- "[Sobre o monitoramento e solução de problemas](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
+- "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+{% ifversion fpt %}
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+{% endif %}

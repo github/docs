@@ -15,6 +15,6 @@ shortTitle: Encontrar discussões
 
 ## Leia mais
 
-- "[Pesquisar discussões](/github/searching-for-information-on-github/searching-discussions)"
+- "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)"
 - "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Gerenciar discussões para a sua comunidade](/discussions/managing-discussions-for-your-community)"

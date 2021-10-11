@@ -160,7 +160,11 @@ Você pode instalar pacotes do {% data variables.product.prodname_registry %} ad
 
 Por padrão, você pode adicionar pacotes a partir de uma organização. Para obter mais informações, consulte [Instalar pacotes de outras organizações](#installing-packages-from-other-organizations)."
 
-Você também precisa adicionar o arquivo *.npmrc* ao seu projeto para que todas as solicitações de instalação passem pelo {% data variables.product.prodname_registry %}. Ao encaminhar todas as solicitações através de {% data variables.product.prodname_registry %}, você pode usar pacotes com escopo e sem escopo de *npmjs.com*. Para obter mais informações, consulte "[npm-scope](https://docs.npmjs.com/misc/scope)" na documentação npm.
+You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes > 2.21 %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
+
+{% ifversion ghae %}
+By default, you can only use npm packages hosted on your enterprise, and you will not be able to use unscoped packages. For more information on package scoping, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation. If required, {% data variables.product.prodname_dotcom %} support can enable an upstream proxy to npmjs.org. Once an upstream proxy is enabled, if a requested package isn't found on your enterprise, {% data variables.product.prodname_registry %} makes a proxy request to npmjs.org.
+{% endif %}
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}

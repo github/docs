@@ -28,6 +28,12 @@ If you want to manage owners and billing managers for an enterprise account on {
 
 {% endif %}
 
+{% ifversion fpt %}
+
+If your enterprise uses {% data variables.product.prodname_emus %}, enterprise owners can only be added or removed through your identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% endif %}
+
 {% tip %}
 
 **Tipp:** Weitere Informationen zum Verwalten von Benutzern in einer Organisation Deines Enterprise-Kontos findest Du unter „[Mitgliedschaft in Deiner Organisation verwalten](/articles/managing-membership-in-your-organization)“ und „[Rollenbasierte Zugriffe von Personen auf Deine Organisation verwalten](/articles/managing-peoples-access-to-your-organization-with-roles).“

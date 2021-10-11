@@ -1,1 +1,1 @@
-1. Under "GitHub Advanced Security", click the **Security features** tab.
+1. Debajo de "GitHub Advanced Security", haz clic en la pestaña de **Características de Seguridad**.

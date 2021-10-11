@@ -14,7 +14,6 @@ shortTitle: Caché de herramientas para los ejecutores sin conexión
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de las acciones de configuración incluídas y el caché de la herramienta del ejecutor
 

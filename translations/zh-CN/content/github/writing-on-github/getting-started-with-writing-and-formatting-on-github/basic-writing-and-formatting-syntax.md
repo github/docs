@@ -40,9 +40,9 @@ shortTitle: 基本格式语法
 您可以使用 `>` 来引用文本。
 
 ```markdown
-用 Abraham Lincoln 的话来说：
+Text that is not a quote
 
-> 原谅我爆粗口
+> Text that is a quote
 ```
 
 ![渲染的引用文本](/assets/images/help/writing/quoted-text-rendered.png)
@@ -184,7 +184,7 @@ For more information, see "[Relative Links](#relative-links)."
 
 ![含一个嵌套列表项的列表](/assets/images/help/writing/nested-list-example-3.png)
 
-您可以使用相同的方法创建多层级嵌套列表。 例如，由于在第一个嵌套列表项中，嵌套列表项内容`第一个嵌套列表项`之前有七个空格 (`␣␣␣␣␣-␣`)，因此需要将第二个嵌套列表项缩进七个空格。
+您可以使用相同的方法创建多层级嵌套列表。 For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. 第一个列表项
@@ -262,6 +262,30 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 通过在文本行之间留一个空白行，可创建新段落。
 
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## 脚注
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
 ## 忽略 Markdown 格式
 
 通过在 Markdown 字符前面输入 `\`，可告诉 {% data variables.product.product_name %} 忽略（或规避）Markdown 格式。
@@ -272,13 +296,13 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 更多信息请参阅 Daring Fireball 的“[Markdown 语法](https://daringfireball.net/projects/markdown/syntax#backslash)”。
 
-## Hiding content with comments
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+## Disabling Markdown rendering
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ## 延伸阅读
 

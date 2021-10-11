@@ -1,7 +1,7 @@
 ---
 title: Issue の作成
 intro: Issueは様々な方法で作成できるので、ワークフローで最も便利な方法を選択できます。
-permissions: People with read permissions can create an issue in a repository where issues are enabled.
+permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue

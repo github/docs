@@ -31,9 +31,10 @@ Para adjuntar un archivo a una propuesta o una conversación de una solicitud de
 {% endtip %}
 
 El tamaño máximo de archivo es:
-- 10MB para imágenes y gifs{% ifversion fpt or ghes > 3.1 or ghae-next %}
+- 10MB de imágenes y gifs{% ifversion fpt %}
 - 10MB para videos que se suban a un repositorio que pertenezca a un usuario u organización en un plan gratuito de GitHub
-- 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% endif %}
+- 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% elsif fpt or ghes > 3.1 or ghae-next %}
+- 100MB para videos{% endif %}
 - 25MB para el resto de los archivos
 
 Archivos compatibles:

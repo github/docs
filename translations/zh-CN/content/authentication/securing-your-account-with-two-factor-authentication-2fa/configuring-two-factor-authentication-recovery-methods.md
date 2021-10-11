@@ -75,33 +75,6 @@ shortTitle: 配置 2FA 恢复
 
 设置完成后，备用设备将收到确认短信。
 
-## 添加具有异地恢复帐户功能的后备身份验证方法
-
-您可以为帐户生成额外的身份验证凭据，并通过合作伙伴的恢复提供程序存储它。
-
-### 关于异地恢复帐户
-
-通过异地恢复帐户功能，您可以为 {% data variables.product.product_name %} 帐户添加额外的安全因素，以应对无法访问双重身份验证方法或恢复代码的情况。
-
-异地恢复帐户功能允许您将 {% data variables.product.product_name %} 帐户与您的 Facebook 帐户相关联。 您可以使用 Facebook 以_帐户恢复令牌_的形式存储 {% data variables.product.product_name %} 帐户的身份验证凭据。
-
-如果因无法访问双重身份验证方法或恢复代码而无法访问 {% data variables.product.product_name %} 帐户，您可以从恢复提供程序取回您的帐户恢复令牌，以帮助证明您是您的 {% data variables.product.product_name %} 帐户的所有者。
-
-取回令牌后，{% data variables.contact.contact_support %} 可能会对帐户禁用双重身份验证。 然后，您可以提供或重置密码以恢复帐户访问。
-
-生成或取回帐户恢复令牌时，帐户的审核日志中会添加一个事件。 更多信息请参阅“[查看安全日志](/articles/reviewing-your-security-log)”。
-
-### 生成并存储帐户恢复令牌
-
-您可以生成帐户恢复令牌并通过合作伙伴的恢复提供程序存储它。
-
-1. 登录您的 Facebook 帐户，然后返回到 {% data variables.product.product_name %}。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
-4. 要生成新令牌，请在“Recovery tokens（恢复令牌）”下，单击 **Store new token（存储新令牌）**。 ![用于存储新恢复令牌的按钮](/assets/images/help/settings/store-new-recovery-token.png)
-5. 阅读有关帐户恢复令牌的信息，然后单击 **Connect with https://www.facebook.com（连接 https://www.facebook.com）**。 ![用于将恢复令牌与 Facebook 连接的按钮](/assets/images/help/settings/connect-recovery-token-with-facebook.png)
-6. 重定向到 Facebook 后，阅读有关使用 Facebook 开启帐户恢复的信息，然后单击 **Save as [_YOUR NAME_]（另存为名称）**。 （如果您在短期内保存多个令牌，Facebook 可能会在您保存第一个令牌后跳过此确认步骤。） ![含有开启帐户恢复按钮的 Facebook 页面](/assets/images/help/settings/security-turn-on-rae-facebook.png)
-
 {% endif %}
 
 ## 延伸阅读

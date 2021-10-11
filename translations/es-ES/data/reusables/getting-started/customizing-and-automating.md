@@ -1,1 +1,1 @@
-You can use tools from the {% data variables.product.prodname_marketplace %}, the {% data variables.product.product_name %} API, and existing {% data variables.product.product_name %} features to customize and automate your work.
+Puedes utilizar las herramientas del {% data variables.product.prodname_marketplace %}, la API de {% data variables.product.product_name %} y características existentes de {% data variables.product.product_name %} para personalizar y automatizar tu trabajo.

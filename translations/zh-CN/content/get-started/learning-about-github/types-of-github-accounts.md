@@ -64,6 +64,14 @@ topics:
 
 {% endif %}
 
+{% ifversion fpt %}
+### {% data variables.product.prodname_emus %}
+
+With {% data variables.product.prodname_emus %}, instead of using your personal account, members of an {% data variables.product.prodname_emu_enterprise %} are provisioned accounts using the enterprise's identity provider (IdP). {% data variables.product.prodname_managed_users_caps %} authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password.
+
+{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+{% endif %}
+
 ## 组织帐户
 
 组织是共享帐户，供多个项目的人员同时协作之用。 所有者和管理员可通过复杂的安全和管理功能管理成员对组织数据和项目的访问。

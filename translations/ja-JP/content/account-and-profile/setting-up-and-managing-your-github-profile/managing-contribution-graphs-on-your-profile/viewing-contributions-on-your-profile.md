@@ -83,7 +83,7 @@ shortTitle: View contributions
 
 ![プロフィール上のアクティビティオーバービューセクション](/assets/images/help/profile/activity-overview-section.png)
 
-アクティビティの概要に記載されている Organization は、Organization 内でのアクティビティの程度に応じて優先順位が付けられています。 プロフィール略歴で Organization に @メンションしており、あなたが Organization のメンバーである場合、その Organization がアクティビティの概要で最優先されます。 詳細は「[人や Team のメンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」または「[プロフィールに略歴を追加する](/articles/adding-a-bio-to-your-profile/)」を参照してください。
+アクティビティの概要に記載されている Organization は、Organization 内でのアクティビティの程度に応じて優先順位が付けられています。 プロフィール略歴で Organization に @メンションしており、あなたが Organization のメンバーである場合、その Organization がアクティビティの概要で最優先されます。 For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
 ## コントリビューションアクティビティ
 
@@ -91,15 +91,14 @@ shortTitle: View contributions
 
 ![コントリビューションアクティビティ時間フィルター](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion not ghae %}
-## {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.product_location_enterprise %} からコントリビューションを表示する
+{% ifversion fpt or ghes or ghae-next %}
 
-サイト管理者が、{% data variables.product.prodname_unified_contributions %} を有効にしている場合、{% data variables.product.prodname_enterprise %} コントリビューションカウントを {% data variables.product.prodname_dotcom_the_website %} プロフィールに送信できます。 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
+## {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.prodname_enterprise %} からコントリビューションを表示する
+
+If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+
 {% endif %}
 
 ## 参考リンク
 
 - [プロフィールページ上にコントリビューションを表示する](/articles/viewing-contributions-on-your-profile-page)
-- [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)
-- [プロフィールでプライベートコントリビューションを公開または非表示にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)
-- [プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)

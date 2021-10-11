@@ -21,7 +21,6 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -222,7 +221,7 @@ etapas:
 
 ### Arquivo de requisitos
 
-Depois de atualizar o `pip`, um o próximo passo típico é instalar as dependências de *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+Depois de atualizar o `pip`, um o próximo passo típico é instalar as dependências de *requirements.txt*. Para obter mais informações, consulte [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 {% raw %}
 ```yaml{:copy}
@@ -326,7 +325,7 @@ etapas:
 ```
 {% endraw %}
 
-The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
+O passo de limpeza de código foi configurado com `continue-on-error: true`. Isto impedirá que o fluxo de trabalho falhe se a etapa de limpeza de código não for bem-sucedida. Após corrigir todos os erros de limpeza de código, você poderá remover essa opção para que o fluxo de trabalho capture novos problemas.
 
 ### Executar testes com tox
 

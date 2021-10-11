@@ -73,3 +73,7 @@ shortTitle: 加密机密
 {% data reusables.user_settings.codespaces-tab %}
 1. 在“Codespaces secrets（代码空间密码）”下您要删除的密码右侧，单击 **Delete（删除）**。 !["删除" 按钮](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. 阅读警告，然后单击 **OK（确定）**。 ![确认删除密码](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## 延伸阅读
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

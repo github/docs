@@ -12,7 +12,7 @@ topics:
 shortTitle: Encourage contributions
 ---
 
-Du kannst die Kennzeichnung `good first issue` (guter erster Issue) in Dein öffentliches Repository übernehmen, damit sie von Personen auf der Suche nach Kennzeichnungen gesehen wird. Weitere Informationen zur Suche nach Kennzeichnungen findest Du unter „[Nach Issues und Pull Requests suchen](/articles/searching-issues-and-pull-requests/#search-by-label).“
+Du kannst die Kennzeichnung `good first issue` (guter erster Issue) in Dein öffentliches Repository übernehmen, damit sie von Personen auf der Suche nach Kennzeichnungen gesehen wird. Weitere Informationen zur Suche nach Kennzeichnungen findest Du unter „[Nach Issues und Pull Requests suchen](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-by-label).“
 
 {% data variables.product.prodname_dotcom %} verwendet einen Algorithmus, um die am besten geeigneten Issues in jedem Repository zu ermitteln und sie an verschiedenen Stellen auf {% data variables.product.prodname_dotcom_the_website %} anzuzeigen. Wird die Kennzeichnung `good first issue` (guter erster Issue) hinzugefügt, ist es wahrscheinlicher, dass Deine Issues angezeigt werden.
 
@@ -24,4 +24,4 @@ Du kannst die Kennzeichnung `good first issue` (guter erster Issue) in Dein öff
 ## Weiterführende Informationen
 
 - „[Informationen zu Kennzeichnungen](/articles/about-labels)“
-- „[Nach Repositorys suchen](/articles/searching-for-repositories)“
+- „[Nach Repositorys suchen](/search-github/searching-on-github/searching-for-repositories)“

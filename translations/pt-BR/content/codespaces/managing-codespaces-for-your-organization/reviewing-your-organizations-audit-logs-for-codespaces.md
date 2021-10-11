@@ -19,3 +19,7 @@ Quando qualquer integrante da sua organização executa uma ação relacionada a
 ![Log de auditoria com informações sobre codespaces](/assets/images/help/settings/codespaces-audit-log-org.png)
 
 O log de auditoria inclui detalhes como quem realizou a ação, qual foi a ação e quando a ação foi realizada. Para obter informações sobre ações de {% data variables.product.prodname_codespaces %}, consulte "[ações de categoria de {% data variables.product.prodname_codespaces %}](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#codespaces-category-actions)."
+
+## Leia mais
+
+- "[Revisando seus logs de segurança para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces)"

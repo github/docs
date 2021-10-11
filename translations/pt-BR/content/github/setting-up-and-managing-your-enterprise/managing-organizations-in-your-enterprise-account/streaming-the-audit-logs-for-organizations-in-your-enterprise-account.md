@@ -1,108 +1,108 @@
 ---
-title: Streaming the audit logs for organizations in your enterprise account
-intro: 'Enterprise owners can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
+title: Transmitir os logs de auditoria para organizações da sua conta corporativa
+intro: 'Os proprietários corporativos podem transmitir dados de auditoria e eventos Git de {% data variables.product.prodname_dotcom %} para um sistema externo de gerenciamento de dados.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
 topics:
   - Enterprise
-shortTitle: Stream organization audit logs
+shortTitle: Transmitir os logs de auditoria da organização
 ---
 
 {% note %}
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.prodname_ghe_cloud %} and subject to change.
+**Observação:** A transmissão do log de auditoria está atualmente em beta para {% data variables.product.prodname_ghe_cloud %} e sujeito a alterações.
 
 {% endnote %}
 
-## About exporting audit data
+## Sobre a exportação dos dados de auditoria
 
-You can extract audit log and Git events data from {% data variables.product.prodname_dotcom %} in multiple ways:
+Você pode extrair dados de eventos de auditoria de {% data variables.product.prodname_dotcom %} e Git de várias maneiras:
 
-* Go to the Audit log page in {% data variables.product.prodname_dotcom %} and click **Export**. <br/> For more information, see "[Viewing the audit logs for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account)" and "[Exporting the audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)."
-* Use the API to poll for new audit log events. <br/> For more information, see "[Using the audit log API](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api)."
-* Set up {% data variables.product.product_name %} to stream audit data as events are logged.
+* Acesse a página de log de auditoria em {% data variables.product.prodname_dotcom %} e clique em **Exportar**. <br/> Para obter mais informações, consulte "[Visualizando os logs de auditoria para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account)" e "[Exportando o log de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)".
+* Use a API para fazer uma pesquisa para novos eventos de log de auditoria. <br/> Para obter mais informações, consulte "[Usando a API de log de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api)".
+* Configure {% data variables.product.product_name %} para transmitir dados de auditoria enquanto eventos são registrados.
 
-## About audit log streaming
+## Sobre a transmissão do log de auditoria
 
-To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
+Para ajudar a proteger sua propriedade intelectual e manter a conformidade da sua organização, você pode usar o a transmissão para manter cópias dos seus dados e monitoramento do log de auditoria:
 {% data reusables.audit_log.audited-data-list %}
 
-The benefits of streaming audit data include:
+Os benefícios do streaming de dados de auditoria incluem:
 
-* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.
-* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.
-* **Data retention**. You can keep your exported audit logs and Git data as long as you need to.
+* **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. A transmissão contém eventos de auditoria e Git em toda a conta corporativa.
+* **Continuidade dos dados**. Você pode pausar a transmissão por até sete dias sem perder nenhum dado da auditoria.
+* **Retenção de dados**. Você pode manter seus registros de auditoria exportados e dados do Git pelo tempo que precisar.
 
-Enterprise owners can set up, pause, or delete a stream at any time. The stream exports the audit data for all of the organizations in your enterprise.
+Os proprietários das empresas podem configurar, pausar ou excluir uma transmissão a qualquer momento. A transmissão exporta os dados de auditoria para todas as organizações da sua empresa.
 
-## Setting up audit log streaming
+## Configurando a transmissão do log de auditoria
 
-{% data variables.product.prodname_dotcom %} supports streaming of audit data to either Splunk or Azure Event Hubs.
-### Setting up streaming to Splunk
+{% data variables.product.prodname_dotcom %} é compatível com a transmissão dos dados de auditoria para Centros de Eventos do Splunk ou do Azure.
+### Configurando a transmissão para o Splunk
 
-To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see the Splunk documentation article "[Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)."
+Para transmitir os logs de auditoria para o Coletor de Eventos HTTP (HEC) do Splunk, você deverá garantir que o ponto de extremidade esteja configurado para aceitar conexões HTTPS. Para obter mais informações, consulte o artigo da documentação do Splunk "[Configurar e usar o Coletor de Eventos HTTP na Web do Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Click the **Log streaming** tab.
-1. Click **Configure stream** and select **Splunk**. ![Choose Splunk from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
-1. On the configuration page, enter:
-   * The domain on which the application you want to stream to is hosted.
+1. Clique na aba **Transmissão de log**.
+1. Clique **Configurar transmissão** e selecione **Splunk**. ![Escolha Splunk no menu suspenso](/assets/images/help/enterprises/audit-stream-choice-splunk.png)
+1. Na página de configuração, insira:
+   * O domínio para o qual o aplicativo deseja que você transmita está hospedado.
 
-     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. Por exemplo: `http-inputs-mycompany.splunkcloud.com`.
+     Se você estiver usando a Nuvem do Splunk, o `Domínio` deverá ser `http-input- http<host>`, em que `host` é o domínio que você usa na nuvem do Splunk. Por exemplo: `http-inputs-mycompany.splunkcloud.com`.
 
-   * The port on which the application accepts data.<br>
+   * A porta sobre a qual o aplicativo aceita dados.<br>
 
-     If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
+     Se você estiver usando a Nuvem do Splunk, a `Porta` deverá ser `443` se você não mudou a configuração da porta. Se você estiver usando a versão de teste gratuito da Nuvem do Splunk, a `Porta` deverá ser `8088`.
 
-   * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application. ![Enter stream settings](/assets/images/help/enterprises/audit-stream-add-splunk.png)
+   * Um token que {% data variables.product.prodname_dotcom %} pode usar para efetuar a autenticação no aplicativo de terceiros. ![Insira as configurações da transmissão](/assets/images/help/enterprises/audit-stream-add-splunk.png)
 
-2. Leave the **Enable SSL verification** check box selected.
+2. Deixe a caixa de seleção **Habilitar verificação SSL** marcada.
 
-    Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
-3. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect to the Splunk endpoint. ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-splunk.png)
-4. After you have successfully verified the endpoint, click **Save**.
+    Os logs de auditoria são sempre transmitidos como dados criptografados. No entanto, com esta opção selecionada, {% data variables.product.prodname_dotcom %} verifica o certificado SSL da sua instância do Splunk ao realizar os eventos. A verificação SSL ajuda a garantir que os eventos sejam entregues no ponto de extremidade da sua URL de forma segura. Você pode limpar a seleção desta opção, mas recomendamos que saia da verificação SSL habilitada.
+3. Clique **Check endpoint** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se ao ponto de extremidade do Splunk. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check-splunk.png)
+4. Depois de verificar com sucesso o ponto de extremidade, clique em **Salvar**.
 
-### Setting up streaming to Azure Event Hubs
+### Configurando a transmissão para os Centros de Evento do Azure
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, you must create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. For details, see the Microsoft documentation, "[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)."
+Antes de configurar uma transmissão em {% data variables.product.prodname_dotcom %}, primeiro você deve ter o namespace do centro de um evento no Microsoft Azure. Em seguida, você deve criar uma instância do centro de um evento dentro do namespace. Você precisará das informações da instância do centro desse evento ao configurar a transmissão. Para obter mais informações, consulte a documentação da Microsoft, "[Início rápido: Criar um centro de eventos usando o portal do Azure](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)".
 
-You need two pieces of information about your event hub: its instance name and the connection string.
+Você precisa de duas informações sobre seu centro de eventos: o nome da sua instância e a sequência de caracteres de conexão.
 
-**On Microsoft Azure portal**:
-1. In the left menu select **Entities**. Then select **Event Hubs**. The names of your event hubs are listed. ![A list of event hubs](/assets/images/help/enterprises/azure-event-hubs-list.png)
-1. Make a note of the name of the event hub you want to stream to.
-1. Click the required event hub. Then, in the left menu, select **Shared Access Policies**.
-1. Select a shared access policy in the list of policies, or create a new policy. ![A list of shared access policies](/assets/images/help/enterprises/azure-shared-access-policies.png)
-1. Click the button to the right of the **Connection string-primary key** field to copy the connection string. ![The event hub connection string](/assets/images/help/enterprises/azure-connection-string.png)
+**No portal do Microsoft Azure**:
+1. No menu à esquerda selecione **Entidades**. Em seguida, selecione **Centros de Eventos**. Os nomes dos centros de eventos serão listados. ![Uma lista de centros de eventos](/assets/images/help/enterprises/azure-event-hubs-list.png)
+1. Faça uma observação do nome do centro do evento para o qual você deseja transmitir.
+1. Clique no centro de eventos necessário. Em seguida, no menu à esquerda, selecione **Políticas de Acesso Compartilhado**.
+1. Selecione uma política de acesso compartilhada na lista de políticas ou crie uma nova política. ![Uma lista de políticas de acesso compartilhadas](/assets/images/help/enterprises/azure-shared-access-policies.png)
+1. Clique no botão à direita do campo **Tecla primária da string de conexão** para copiar a string de conexão. ![A string de conexão do centro do evento](/assets/images/help/enterprises/azure-connection-string.png)
 
-**On {% data variables.product.prodname_dotcom %}**:
+**Em {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Click the **Log streaming** tab.
-1. Click **Configure stream** and select **Azure Event Hubs**. ![Choose Splunk from the drop-down menu](/assets/images/help/enterprises/audit-stream-choice-azure.png)
-1. On the configuration page, enter:
-   * The name of the Azure Event Hubs instance.
-   * The connection string. ![Enter stream settings](/assets/images/help/enterprises/audit-stream-add-azure.png)
-2. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect to the Azure endpoint. ![Check the endpoint](/assets/images/help/enterprises/audit-stream-check-azure.png)
-3. After you have successfully verified the endpoint, click **Save**.
+1. Clique na aba **Transmissão de log**.
+1. Clique **Configurar a transmissão ** e selecione **Centros de Evento do Azure**. ![Escolha Splunk no menu suspenso](/assets/images/help/enterprises/audit-stream-choice-azure.png)
+1. Na página de configuração, insira:
+   * O nome da instância do Centro de Eventos do Azure.
+   * A string de conexão. ![Insira as configurações da transmissão](/assets/images/help/enterprises/audit-stream-add-azure.png)
+2. Clique **Verificar ponto de extremidade** para verificar se {% data variables.product.prodname_dotcom %} pode conectar-se ao ponto de extremidade do Azure. ![Verificar o ponto de extremidade](/assets/images/help/enterprises/audit-stream-check-azure.png)
+3. Depois de verificar com sucesso o ponto de extremidade, clique em **Salvar**.
 
-## Pausing audit log streaming
+## Pausando a transmissão do log de auditoria
 
-Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.product_location %} and are then exported when you unpause the stream.
+A pausa da transmissão permite que você execute a manutenção no aplicativo de recebimento sem perder dados de auditoria. Os logs de auditoria são armazenados por até sete dias em {% data variables.product.product_location %} e, em seguida, são exportados quando você suspender a pausa da transmissão.
 
-1. Display the "Log streaming" tab, as described above.
-1. Click **Pause stream**. ![Pause the stream](/assets/images/help/enterprises/audit-stream-pause.png)
-1. A confirmation message is displayed. Click **Pause stream** to confirm.
+1. Exibe a aba "Transmissão de registro", como descrito acima.
+1. Clique **Pausar transmissão**. ![Pausar a transmissão](/assets/images/help/enterprises/audit-stream-pause.png)
+1. Uma mensagem de confirmação é exibida. Clique **Pausar transmissão** para confirmar.
 
-When the application is ready to receive audit logs again, click **Resume stream** to restart streaming audit logs.
+Quando o aplicativo estiver pronto para receber registros de auditoria novamente, clique em **Retomar a transmissão** para reiniciar os logs de auditoria da transmissão.
 
-## Deleting the audit log stream
+## Excluindo a transmissão do log de auditoria
 
-1. Display the "Log streaming" tab, as described above.
-1. Click **Delete stream**. ![Delete the stream](/assets/images/help/enterprises/audit-stream-delete.png)
-2. A confirmation message is displayed. Click **Delete stream** to confirm.
+1. Exibe a aba "Transmissão de registro", como descrito acima.
+1. Clique **Excluir Transmissão**. ![Excluir a transmissão](/assets/images/help/enterprises/audit-stream-delete.png)
+2. Uma mensagem de confirmação é exibida. Clique **Excluir transmissão** para confirmar.

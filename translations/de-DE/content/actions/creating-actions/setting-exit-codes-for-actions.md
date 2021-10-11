@@ -14,7 +14,6 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Informationen zu Exitcodes
 
@@ -37,11 +36,11 @@ try {
 }
 ```
 
-Weitere Informationen finden Sie unter „[Eine JavaScript-Aktion erstellen](/articles/creating-a-javascript-action)“.
+Weitere Informationen findest Du unter „[Eine JavaScript-Aktion erstellen](/articles/creating-a-javascript-action)“.
 
 ## Fehler-Exit-Code in einer Docker-Container-Aktion festlegen
 
-Wenn Sie eine Docker-Container-Aktion erstellen, können Sie einen Fehler-Exit-Code im `entrypoint.sh`-Skript festlegen. Ein Beispiel:
+Wenn Du eine Docker-Container-Aktion erstellst, kannst Du einen Fehler-Exit-Code im Skript `entrypoint.sh` festlegen. Ein Beispiel:
 
 ```
 if <condition> ; then

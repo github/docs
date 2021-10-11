@@ -1,6 +1,7 @@
 ---
 title: 'Möglichkeiten finden, um zu Open-Source auf GitHub beizutragen'
 intro: 'Du kannst Möglichkeiten finden, um zu Open-Source-Projekten auf {% data variables.product.product_name %} beizutragen, die für Dich relevant sind.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
   - /articles/finding-interesting-projects-on-github/
@@ -19,7 +20,7 @@ shortTitle: Contribute to open source
 
 ## Relevante Projekte finden
 
-Wenn es ein bestimmtes Thema gibt, das Dich interessiert, besuche `github.com/topics/<topic>`. Wenn Du Dich zum Beispiel für Maschinelles Lernen (machine learning) interessierst, kannst Du auf https://github.com/topics/machine-learning relevante Projekte und gute erste Issues finden. Du kannst beliebte Themen durchsuchen, indem Du [Themen](https://github.com/topics) besuchst. Du kannst auch nach Repositories suchen, die zu einem Thema passen, das Dich interessiert. Weitere Informationen finden Sie unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-topic)“.
+Wenn es ein bestimmtes Thema gibt, das Dich interessiert, besuche `github.com/topics/<topic>`. Wenn Du Dich zum Beispiel für Maschinelles Lernen (machine learning) interessierst, kannst Du auf https://github.com/topics/machine-learning relevante Projekte und gute erste Issues finden. Du kannst beliebte Themen durchsuchen, indem Du [Themen](https://github.com/topics) besuchst. Du kannst auch nach Repositories suchen, die zu einem Thema passen, das Dich interessiert. Weitere Informationen findest Du unter „[Nach Repositorys suchen](/search-github/searching-on-github/searching-for-repositories#search-by-topic).“
 
 Wenn Du auf {% data variables.product.product_name %} aktiv warst, findest Du personalisierte Empfehlungen für Projekte und gute erste Themen basierend auf Deinen bisherigen Beiträgen, Sternen und andere Aktivitäten unter [Erkunden](https://github.com/explore). Du kannst Dich auch für den 'Erkunden'-Newsletter anmelden, um basierend auf Deinen Interessen E-Mails zu erhalten mit Möglichkeiten für Beiträge zu {% data variables.product.product_name %}. Um Dich anzumelden, siehe ['Erkunden' E-Mail-Newsletter](https://github.com/explore/subscribe).
 

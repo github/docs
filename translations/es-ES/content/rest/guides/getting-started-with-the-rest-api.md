@@ -122,10 +122,10 @@ $ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/use
 
 Cuando se te solicite, puedes ingresar tu token de OAuth, pero te recomendamos que configures una variable para éste:
 
-Puedes utilizar `-u "username:$token"` y configurar una variable para `token` y así evitar el dejar tu token en el historial del shell, lo cual debe evitarse.
+Puedes utilizar `-u "your_username:$token"` y configurar una variable para `token` y así evitar que tu token se quede en el historial del shell, lo cual debes evitar.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
+$ curl -i -u <em>your_username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 

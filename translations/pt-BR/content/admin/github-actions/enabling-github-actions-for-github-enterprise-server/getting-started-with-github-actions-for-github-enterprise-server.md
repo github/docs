@@ -37,18 +37,45 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% endif %}
 
+{%- ifversion ghes < 3.2 %}
+
 Os recursos da CPU e memória disponíveis para {% data variables.product.product_location %} determinam o rendimento máximo do trabalho para {% data variables.product.prodname_actions %}.
 
 O teste interno em {% data variables.product.company_short %} demonstrou o rendimento máximo a seguir para instâncias de {% data variables.product.prodname_ghe_server %} com um intervalo de configurações da CPU e memória. Você pode ver diferentes tipos de transferência, dependendo dos níveis gerais de atividade na sua instância.
 
-| vCPUs | Memória | Rendimento máximo do trabalho |
-|:----- |:------- |:----------------------------- |
-|       |         |                               |
-{%- ifversion ghes > 3.1 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 30 jobs | | 16 | 128 GB | 60 jobs | | 32 | 256 GB | 120 jobs | | 64 | 512 GB | 160 jobs |
-{%- else ifversion ghes < 3.2 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 25 jobs | | 16 | 160 GB | 35 jobs | | 32 | 256 GB | 100 jobs |
 {%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de trabalhos que podem ser executados simultaneamente sem perda de desempenho.
+
+O pico de trabalhos simultâneos rodando sem perda de desempenho depende de fatores como duração do trabalho, uso de artefatos, número de repositórios em execução de ações, e quanto outro trabalho sua instância está fazendo não relacionado a ações. Os testes internos no GitHub demonstraram os objetivos de desempenho a seguir para o GitHub Enterprise Server em uma série de configurações de CPU e memória:
+
+{% endif %}
+
+{%- ifversion ghes < 3.2 %}
+
+| vCPUs | Memória | Rendimento máximo do trabalho  |
+|:----- |:------- |:------------------------------ |
+| 4     | 32 GB   | Demonstração ou testes rápidos |
+| 8     | 64 GB   | 25 trabalhos                   |
+| 16    | 160 GB  | 35 trabalhos                   |
+| 32    | 256 GB  | 100 trabalhos                  |
+
+{%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+| vCPUs | Memória | Simultaneidade máxima* |
+|:----- |:------- |:---------------------- |
+| 32    | 128 GB  | 1500 trabalhos         |
+| 64    | 256 GB  | 1900 trabalhos         |
+| 96    | 384 GB  | 2200 trabalhos         |
+
+*A simultaneidade máxima foi medida usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload de artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
+
+{%- endif %}
+
 
 Se você{% ifversion ghes = 2.22 %}habilitou o plano beta de{% else %}plano para habilitar{% endif %} {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garantir que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
@@ -98,9 +125,9 @@ O suporte de {% data variables.product.prodname_actions %} em {% data variables.
 
 {% endif %}
 
-## Networking considerations
+## Considerações de rede
 
-{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+{% data reusables.actions.proxy-considerations %} Para obter mais informações sobre o uso de um proxy com {% data variables.product.prodname_ghe_server %}, consulte "[Configurando um servidor de proxy web de saída](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)".
 
 {% ifversion ghes > 2.22 %}
 
@@ -134,6 +161,6 @@ Se você quiser saber mais sobre as práticas de segurança para {% data variabl
 
 {% endif %}
 
-## Reserved Names
+## Nomes reservados
 
-When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.
+Ao habilitar {% data variables.product.prodname_actions %} para a sua empresa, serão criadas duas organizações: `github` e `actions`. Se sua empresa já usa o nome da organização `github`, `github-org` (ou `github-github-org` se `github-org` também estiver em uso) será usado. Se sua empresa já usa o nome da organização `actions`, `github-actions` (ou `github-actions-org` se `github-actions` também estiver em uso) será usado. Uma vez que as ações são habilitadas, você não poderá usar mais esses nomes.

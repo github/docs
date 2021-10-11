@@ -28,6 +28,8 @@ topics:
 
 If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
 
+{% data reusables.dotcom_billing.pricing_cal %}
+
 ## Setting a spending limit
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}

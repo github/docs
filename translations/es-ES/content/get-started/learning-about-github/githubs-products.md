@@ -78,8 +78,8 @@ Adicionalmente a las características disponibles con {% data variables.product.
   - Revisores de equipo para solicitudes de extracción
   - Recordatorios programados
 {% ifversion fpt %}
-- The option to enable {% data variables.product.prodname_github_codespaces %}
-  - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
+- La opción para habilitar {% data variables.product.prodname_github_codespaces %}
+  - Los propietarios de organizaciones pueden habilitar los {% data variables.product.prodname_github_codespaces %} para la organización si configuran un límite de gastos y otorgan permisos de usuario para los miembros de su organziación. Para obtener más información, consulta la sección "[Habilitar los Codespaces para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
 {% endif %}
 
 {% data reusables.github-actions.actions-billing %}
@@ -102,6 +102,7 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - 50GB de almacenamiento de {% data variables.product.prodname_registry %}
 - Control de acceso para los sitios de {% data variables.product.prodname_pages %}. Para obtener más información, consulta la sección "<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}</a>"
 - Un acuerdo de nivel de servicio del 99.9% de tiempo activo mensual
+- La opción de configurar tu empresa para los {% data variables.product.prodname_emus %}, para que puedas aprovisionar y administrar a los miembros con tu proveedor de identidad y restringir sus contribuciones para que solo se hagan en tu empresa. Para obtener más información, consulta la sección "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">Acerca de {% data variables.product.prodname_emus %}</a>".
 - La opción de administrar de forma centralizada las políticas y la facturación de múltiples organizaciones {% data variables.product.prodname_dotcom_the_website %} con una cuenta de empresa. Para obtener más información, consulta la sección "<a href="/articles/about-enterprise-accounts" class="dotcom-only">Acerca de las cuentas empresariales</a>."
 
 Puedes configurar una prueba para evaluar {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}</a>".

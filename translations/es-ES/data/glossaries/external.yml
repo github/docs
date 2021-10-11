@@ -9,7 +9,7 @@
 - 
   term: token de recuperación de cuenta
   description: >-
-    La credencial de autenticación almacenada como parte de la configuración de recuperación de una cuenta denominada Recuperar cuentas en otro lugar que te permite almacenar esta credencial de respaldo.
+    **Se obsoletizó y se inhabilitará el 1 de diciembre de 2021.** La credencial de autenticación que se almacena como parte de una configuración de recuperación de cuenta llamada Recover Accounts Elswhere que te permite almacenar esta credencial de respaldo.
 - 
   term: Vista previa de API
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: Recuperar cuentas en otro lugar
   description: >-
-    Le permite a los usuarios agregar un factor de seguridad extra a su cuenta de GitHub en caso de que pierdan acceso a su método de autenticación de dos factores o a sus códigos de recuperación. Los usuarios pueden asociar su cuenta de GitHub con su cuenta de Facebook almacenando una credencial de autenticación en forma de token de recuperación de cuenta para su cuenta de GitHub con Facebook.
+    **Se obsoletizó y se inhabilitará el 1 de diciembre de 2021.** Permite a los usuarios agregar un factor de seguridad adicional a su cuenta de GitHub en caso de que pierdan acceso a su método de autenticación bifactorial o códigos de recuperación. Los usuarios pueden asociar su cuenta de GitHub con su cuenta de Facebook si almacenan la credencial de autenticación como un token de recuperación de cuenta con Facebook.
 - 
   term: código de recuperación
   description: Un código que te ayuda a volver a tener acceso a tu cuenta de GitHub.
@@ -654,7 +654,7 @@
   description: >-
     Un registro que enumera las últimas 50 acciones o las realizadas dentro de los últimos 90 días.
 - 
-  term: server-to-server request
+  term: solicitud de servidor a servidor
   description: >-
     Una solicitud de API que utilice una aplicación que actúe como un bot, independientemente de cualquier usuario particular. Por ejemplo, una aplicación que se ejecuta de forma programada y cierra propuestas donde no ha habido actividad por mucho tiempo. Las aplicaciones que utilizan este tipo de autenticación no utilizan una cuenta de GitHub con licencia, así que, en una empresa con un plan de facturación que permite que se utilicen solo cierto número de licencias, un bot de servidor a servidor no consumirá una de tus licencias de GitHub. El token que se utiliza en una solicitud de servidor a servidor se adquiere programáticamente a través de la [API de GitHub](/rest/reference/apps#create-an-installation-access-token-for-an-app). Consulta también la sección de "[solicitud de usuario a servidor](#user-to-server-request)".
 - 
@@ -684,7 +684,7 @@
   description: >-
     Una representación visual dentro de una solicitud de extracción de que tus confirmaciones cumplen las condiciones establecidas para el repositorio con el que estás contribuyendo.
 - 
-  term: status checks
+  term: verificaciones de estado
   description: >-
     Las verificaciones de estado son procesos externos, como compilaciones de integración continua, que se ejecutan para cada confirmación que realices en un repositorio. Para obtener más información, consulta "[acerca de las verificaciones de Estado] (/articles/about-status-checks)."
 - 
@@ -718,7 +718,7 @@
   description: >-
     Un modo de explorar repositorios en una área temática en particular, encontrar proyectos a los cuales contribuir y descubrir nuevas soluciones para un problema específico en GitHub.
 - 
-  term: traffic graph
+  term: gráfica de tráfico
   description: >-
     Un gráfico del repositorio que muestra el tráfico de un repositorio, incluso clones completos (no recuperaciones), los visitantes de los últimos 14 días, sitios de referencia y contenido popular.
 - 
@@ -741,7 +741,7 @@
   term: nombre de usuario
   description: El identificador de un usuario en GitHub.
 - 
-  term: user-to-server request
+  term: solicitud de usuario a servidor
   description: >-
     Una solicitud de API que utiliza una aplicación que realice la tarea en nombre de un usuario particular. Cuando la tarea se lleva a cabo con una autenticación de usuario a servidor, esta se muestra en GitHub como si la hubiera hecho un usuario a través de una aplicación. Por ejemplo, puedes elegir crear una propuesta desde dentro de una aplicación de terceros y la aplicación lo haría en tu nombre en GitHub. El alcance de las tareas que puede realizar una aplicación utilizando una solicitud de usuario a servidor se restringe tanto por los permisos como por el acceso de la app y del usuario. El token que se utiliza en una solicitud de usuario a servidor se adquiere a través de OAuth. para obtener más información, consulta la sección "[Identificar y autorizar a los usuarios para las GitHub Apps]](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)". Consulta también la sección de "[Solicitud de servidor a servidor](#server-to-server-request)".
 - 

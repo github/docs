@@ -81,7 +81,7 @@ Si ya creaste una tarea grupal para el aula, puedes reutilizar un conjunto de eq
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [Elegir un repositorio de plantilla](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Elegir un ambiente de desarrollo integrado (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### Elegir un repositorio de plantilla
 
@@ -89,7 +89,7 @@ Predeterminadamente, una tarea nueva creará un repositorio en blanco para cada 
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
-### Choosing an integrated development environment (IDE)
+### Elegir un ambiente de desarrollo integrado (IDE)
 
 {% data reusables.classroom.about-online-ides %} Para obtener más información, consulta la sección "[Integrar el {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)".
 
@@ -128,7 +128,7 @@ Puedes ver los equipos que están trabajando o que han emitido una tarea en la p
 
 ## Pasos siguientes
 
-- Después de que creas una tarea y de que tus alumnos forme equipos, los miembros de dichos equipos pueden comenzar a trabajar en la tarea utilizando las características de Git y de {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el equipo pueden revisar el historial de confirmaciones del repositorio. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- Después de que creas una tarea y de que tus alumnos forme equipos, los miembros de dichos equipos pueden comenzar a trabajar en la tarea utilizando las características de Git y de {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el equipo pueden revisar el historial de confirmaciones del repositorio. Para obtener más información, consulta las secciones "[Iniciar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Repositorios](/repositories)", "[Utilizar git](/github/getting-started-with-github/using-git)" y "[Colaborar con las propuestas y solicitudes de cambio](/github/collaborating-with-issues-and-pull-requests)" y el curso gratuito sobre [cómo administrar los conflictos de fusión](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
 
 - Cuando un equipo termina una tarea, puedes revisar los archivos en el repositorio, o puedes revisar el historial y visualizaciones del mismo para entender mejor cómo colaboró el equipo. Para obtener más información, consulta la sección "[Visualizar los datos del repositorio con gráficas](/github/visualizing-repository-data-with-graphs)".
 

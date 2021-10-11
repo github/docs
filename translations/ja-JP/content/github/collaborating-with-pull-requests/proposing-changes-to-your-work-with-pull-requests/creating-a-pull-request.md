@@ -1,6 +1,7 @@
 ---
 title: プルリクエストの作成方法
 intro: リポジトリへの、変更の提案、または変更における共同作業をするには、プルリクエストを作成できます。 これらの変更は「ブランチ」を介して提案され、デフォルトブランチには完成していて、かつ承認された作業のみが含まれるようにします。
+permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
@@ -13,7 +14,7 @@ topics:
   - Pull requests
 ---
 
-リポジトリに対する読み取り権限があるユーザなら誰でもプルリクエストを作成できますが、ブランチの作成には書き込み権限が必要です。 プルリクエストのための新しいブランチを作成したいけれども、リポジトリへの書き込み権限がない場合は、まずリポジトリをフォークできます。 詳細は「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」および「[フォークについて](/articles/about-forks)」を参照してください。
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. 詳細は「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」および「[フォークについて](/articles/about-forks)」を参照してください。
 
 プルリクエストを作成するとき、変更をどのブランチにマージするかを指定できます。 2 つのブランチ間で違いがある場合にのみ、プルリクエストをオープンできます。
 

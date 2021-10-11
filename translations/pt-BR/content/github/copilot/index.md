@@ -5,7 +5,7 @@ versions:
   fpt: '*'
 children:
   - /about-github-copilot-telemetry
-  - /telemetry-terms
+  - /github-copilot-telemetry-terms
   - /research-recitation
 ---
 

@@ -16,7 +16,7 @@ topics:
 
 {% warning %}
 
-**Aviso:** Se você adicionar uma imagem {% ifversion fpt or ghes > 3.1 or ghae-next %} ou vídeo {% endif %} a uma pull request ou comentário de problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo que o pull request esteja em um repositório privado{% ifversion ghes %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% ifversion fpt %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Aviso:** Se você adicionar uma imagem{% ifversion fpt or ghes > 3.1 or ghae-next %} ou vídeo{% endif %} a um comentário de pull request ou problema, qualquer um poderá ver a URL anônima sem autenticação, mesmo se o pull request estiver em um repositório privado{% ifversion ghes %} ou se o modo privado estiver habilitado{% endif %}. Para manter arquivos de mídia confidenciais privados, forneça-os a partir de uma rede privada ou servidor que exige autenticação. {% ifversion fpt %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -31,9 +31,10 @@ Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste
 {% endtip %}
 
 O tamanho máximo do arquivo é:
-- 10MB de imagens e gifs{% ifversion fpt or ghes > 3.1 or ghae-next %}
+- 10MB para imagens e gifs{% ifversion fpt %}
 - 10MB para vídeos enviados para um repositório pertencentes a um usuário ou organização em um plano grátis do GitHub
-- 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% endif %}
+- 100MB para vídeos enviados para um repositório pertencente a um usuário ou organização em um plano pago do GitHub{% elsif fpt or ghes > 3.1 or ghae-next %}
+- 100MB para vídeos{% endif %}
 - 25MB para todos os outros arquivos
 
 Arquivos compatíveis:

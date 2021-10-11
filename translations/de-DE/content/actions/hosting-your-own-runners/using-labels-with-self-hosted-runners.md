@@ -12,7 +12,6 @@ shortTitle: Label runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Informationen zum Einsatz von Labels zur Weiterleitung von Jobs an bestimmte Typen von selbst-gehosteten Runnern findest Du unter „[Nutze selbstgehostete Läufer in einem Workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)“.
 

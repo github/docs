@@ -1,6 +1,6 @@
 ---
 title: Acerca de la integración continua
-intro: 'Puedes crear flujos de trabajo de intgraciones contínuas (IC) personalizadas y despliegues contínuos (DC) directamente en tu repositorio de {% data variables.product.prodname_dotcom %} con las {% data variables.product.prodname_actions %}.'
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
@@ -15,13 +15,11 @@ versions:
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: Integración continua
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de la integración continua
 
@@ -49,44 +47,11 @@ Adicionalmente a ayudarte a configurar los flujos de trabajo de IC para tu proye
 
 Para obtener una definición de términos comunes, consulta "[Conceptos básicos para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
-## Lenguajes compatibles
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Workflow templates
 
 {% data variables.product.product_name %} ofrece plantillas de flujo de trabajo de IC para varios lenguajes y marcos de trabajo.
 
 Busca en la lista completa de plantillas de flujo de trabajo para IC que ofrece {% data variables.product.product_name %} en el repositorio [actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) de {% ifversion fpt %}{% else %} repositorio `actions/starter-workflows` en {% data variables.product.product_location %}{% endif %}.
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## Saltarse las ejecuciones de código
-
-Si quieres prevenir temporalmente que un flujo de trabajo se active, puedes agregar una instrucción de salto en el mensaje de la confirmación. Los flujos de trabajo que comúnmente se activarían, `on: push` o `on: pull_request`, no se activarán si agregas cualquiera de las siguientes secuencias al mensaje de confirmación en una subida o a la confirmación PRINCIPAL (HEAD) de una solicitud de cambios:
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea `skip-checks: true` o `skip-checks:true`.
-
-No podrás fusionar la solicitud de cambios si tu repositorio se cofiguró para requerir que las verificaciones específicas pasen primero. Para permitir que la solicitud de cambios se fusione, puedes subir una confirmación nueva a la solicitud de cambios sin la instrucción de salto en el mensaje de confirmación.
-
-{% note %}
-
-**Nota:** Las instrucciones de salto solo aplican para los eventos de `push` y `pull_request`. Por ejemplo, el agregar `[skip ci]` a un mensaje de confirmación no impedirá que se ejecute un flujo de trabajo que se activa con `on: pull_request_target`.
-
-{% endnote %}
-{% endif %}
-
-## Notificaciones para ejecuciones de flujo de trabajo
-
-{% data reusables.repositories.workflow-notifications %}
-
-## Distintivos de estado para ejecuciones de flujos de trabajo
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
 ## Leer más
 

@@ -9,7 +9,7 @@
 - 
   term: 帐户恢复令牌
   description: >-
-    作为帐户恢复设置一部分存储的身份验证凭据称为“异地恢复帐户”，用于存储此备份凭据。
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: API 预览
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: 异地恢复帐户
   description: >-
-    允许用户在无法使用双重身份验证方法或恢复代码时向其 GitHub 帐户添加额外一重安全保护。用户可以通过 Facebook 以帐户恢复令牌的形式存储其 GitHub 帐户的身份验证凭据，将其 GitHub 帐户与其 Facebook 帐户相关联。
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: 恢复代码
   description: 帮助您重新获取对 GitHub 帐户的访问权限的代码。

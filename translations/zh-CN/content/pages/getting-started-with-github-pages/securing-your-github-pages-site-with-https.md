@@ -22,6 +22,12 @@ shortTitle: 使用 HTTPS 保护站点
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
+{% note %}
+
+**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+
+{% endnote %}
+
 ## 对您的 {% data variables.product.prodname_pages %} 站点强制实施 HTTPS
 
 {% data reusables.pages.navigate-site-repo %}

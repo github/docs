@@ -12,6 +12,8 @@ topics:
   - Teams
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 Se você usa [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) em sua organização, é possível implementar o SCIM pra adicionar, gerenciar e remover o acesso dos integrantes da organização ao {% data variables.product.product_name %}. Por exemplo, um administrador pode desprovisionar um integrante da organização usando SCIM e remover automaticamente o integrante da organização.
 
 Se o SAML SSO for usado sem implementação do SCIM, você não terá desprovisionamento automático. Quando as sessões dos integrantes da organização expiram depois que o acesso deles é removido do IdP, eles não podem ser removidos automaticamente da organização. Os tokens autorizados concedem acesso à organização mesmo depois que as respectivas sessões expiram. Para remover o acesso, os administradores da organização podem remover o token autorizado manualmente da organização ou automatizar a remoção com o SCIM.

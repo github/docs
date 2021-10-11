@@ -27,7 +27,7 @@ Esta guía supone que estás familiarizado con los siguientes conceptos de AWS:
  - [EC2 y Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (si planeas iniciar dentro de Virtual Private Cloud)
  - [Precios de AWS](https://aws.amazon.com/pricing/) (Para calcular y administrar los costos)
 
-For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
+Para ver un resumen arquitectónico, consulta el [Diagrama de Arquitectura de AWS para Desplegar a GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
 
 Esta guía te recomienda utilizar el principio del menor privilegio necesario cuando configures {% data variables.product.product_location %} en AWS. Para obtener más información, refiérete a la [Documentación sobre la Administración de Accesos e Identidad (IAM) de AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 

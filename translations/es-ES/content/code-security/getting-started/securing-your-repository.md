@@ -49,7 +49,7 @@ Para obtener más información, consulta "[Aumentar la seguridad para tu reposit
 {% ifversion fpt or ghes > 2.22 %}
 ## Administrar la gráfica de dependencias
 
-Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for {% ifversion fpt or ghes > 2.22 %} all public repositories, and you can choose to enable it for private repositories.{% else %} all repositories.{% endif %}
+Una vez que hayas [habilitado la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), esta se generará automáticamente para {% ifversion fpt or ghes > 2.22 %} todos los repositorios públicos y podrás elegir habilitarla para los repositorios privados.{% else %} todos los repositorios.{% endif %}
 
 1. Desde la página principal de tu repositorio, haz clic en **{% octicon "gear" aria-label="The Settings gear" %} Configuración**.
 2. Haz clic en **Análisis & seguridad**.
