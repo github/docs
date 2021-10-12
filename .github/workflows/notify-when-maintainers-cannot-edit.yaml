@@ -33,7 +33,7 @@ jobs:
               }
             `;
 
-            const pullNumber = context.issues.number;
+            const pullNumber = context.issue.number;
             const variables = { number: pullNumber };
 
             try {
