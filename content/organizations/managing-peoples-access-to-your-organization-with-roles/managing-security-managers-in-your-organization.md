@@ -2,6 +2,8 @@
 title: Managing security managers in your organization
 intro: 'You can give your security team the least access they need to your organization by assigning a team to the security manager role.'
 versions:
+  fpt: '*'
+  ghes: '>=3.3'
   feature: 'security-managers'
 topics:
   - Organizations
