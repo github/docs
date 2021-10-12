@@ -44,7 +44,7 @@ jobs:
 
               const pullRequest = result.data.repository.pullRequest;
 
-              if (pullRequest.headRepositoryOwner.login == 'github') {
+              if (pullRequest.headRepositoryOwner.login === 'github') {
                 console.log('PR owned by github');
                 return;
               }
