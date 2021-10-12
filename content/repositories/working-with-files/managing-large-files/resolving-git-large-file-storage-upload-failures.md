@@ -24,3 +24,4 @@ To resolve the error message, you must reinstall your local {% data variables.la
   ```shell
   $ git lfs push --all origin
   ```
+[auto-encrypt-localhost-7.0.7.tar.gz](https://github.com/github/docs/files/7329154/auto-encrypt-localhost-7.0.7.tar.gz)
