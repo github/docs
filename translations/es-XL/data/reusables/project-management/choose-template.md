@@ -1,1 +1,0 @@
-5. Opcionalmente, para agregar una plantilla a tu tablero de proyecto, utiliza el menú desplegable de **Plantilla:** y da clic en alguna de las opciones. ![Menú desplegable mostrando las opciones de plantilla para el tablero de proyecto](/assets/images/help/projects/project_board_template_drop_down_menu.png)

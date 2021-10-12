@@ -250,6 +250,8 @@ Tableau | Tableau Personal Access Token | tableau_personal_access_token{% endif 
 Telegram | Telegram Bot Token | telegram_bot_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id{% endif %}
+{%- ifversion fpt or ghes > 3.3 %}
+Twilio | Twilio Access Token | twilio_access_token{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae %}
 Twilio | Twilio Account String Identifier | twilio_account_sid{% endif %}
 {%- ifversion fpt or ghes > 2.22 or ghae %}
