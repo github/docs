@@ -22,9 +22,9 @@ You can give organization members, outside collaborators and teams of people var
 
 Team-level roles are roles that give permissions specific to a team. You can give any individual member of a team the *team maintainer* role, which gives them a number of administrative permissions over a team. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
 
-Organization-level roles are different sets of permissions that can be assigned to individuals or teams to manage an organization and the repositories, teams and settings within it. For more information on each organization-level role, see [Roles for an organization](#roles-for-an-organization).
+Organization-level roles are different sets of permissions that can be assigned to individuals or teams to manage an organization and the repositories, teams and settings within it. For more information on each organization-level role, see [Roles in an organization](#roles-in-an-organization).
 
-## Roles for an organization
+## Roles in an organization
 ### Organization owners
 Organization owners have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
 
