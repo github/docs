@@ -15,7 +15,7 @@ jobs:
       github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
+      - uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
         env:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
         with:
