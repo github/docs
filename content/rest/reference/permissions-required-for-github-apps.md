@@ -142,11 +142,11 @@ _Search_
 - [`POST /orgs/:org/repos`](/rest/reference/repos#create-an-organization-repository) (:write)
 - [`PATCH /repos/:owner/:repo`](/rest/reference/repos#update-a-repository) (:write)
 - [`DELETE /repos/:owner/:repo`](/rest/reference/repos#delete-a-repository) (:write)
+{% ifversion fpt -%}
 - [`GET /repos/:owner/:repo/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runners/:runner_id`](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository) (:read)
 - [`DELETE /repos/:owner/:repo/actions/runners/:runner_id`](/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository) (:write)
-{% ifversion fpt or ghes -%}
 - [`POST /repos/:owner/:repo/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-a-repository) (:write)
 - [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write)
 {% endif -%}
@@ -894,7 +894,7 @@ _Teams_
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt %}
 ### Permission on "self-hosted runners"
 - [`GET /orgs/:org/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-an-organization) (:read)
 - [`POST /orgs/:org/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-an-organization) (:write)

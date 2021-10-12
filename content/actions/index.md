@@ -59,5 +59,4 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /migrating-to-github-actions
-  - /guides
 ---

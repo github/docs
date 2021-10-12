@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: "issue-4864"
 type: how_to
 topics:
   - Pull requests

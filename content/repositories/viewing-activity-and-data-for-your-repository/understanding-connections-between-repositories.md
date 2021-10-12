@@ -1,7 +1,6 @@
 ---
 title: Understanding connections between repositories
 intro: "You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository."
-product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -25,7 +24,8 @@ shortTitle: Connections between repositories
 
 ## Viewing a repository's network
 
-The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.
+'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.'
+product: '{% data reusables.gated-features.repository-insights %}'
 
 ![Repository network graph](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -65,7 +65,7 @@ Forks are listed alphabetically by the username of the person who forked the rep
 3. In the left sidebar, click **Forks**.
 ![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 %}
+{% ifversion fpt or ghes > 2.22 %}
 ## Viewing the dependencies of a repository
 
 You can use the dependency graph to explore the code your repository depends on.

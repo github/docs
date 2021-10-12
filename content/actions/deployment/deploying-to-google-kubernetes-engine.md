@@ -21,7 +21,7 @@ shortTitle: Deploy to Google Kubernetes Engine
 
 ## Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when a release is created.
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
@@ -105,11 +105,9 @@ Store the name of your project as a secret named `GKE_PROJECT`. For more informa
 ### (Optional) Configuring kustomize
 Kustomize is an optional tool used for managing YAML specs. After creating a _kustomization_ file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
 ### (Optional) Configure a deployment environment
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -127,9 +125,8 @@ Under the `env` key, change the value of `GKE_CLUSTER` to the name of your clust
 name: Build and Deploy to GKE
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 env:
   PROJECT_ID: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}

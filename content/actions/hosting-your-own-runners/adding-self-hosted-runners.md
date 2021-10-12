@@ -34,7 +34,7 @@ For more information, see "[About self-hosted runners](/github/automating-your-w
 
 ## Adding a self-hosted runner to a repository
 
-You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository.
 
 {% ifversion fpt %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -55,7 +55,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 
 ## Adding a self-hosted runner to an organization
 
-You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. For information about how to add a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. 
 
 {% ifversion fpt %}
 {% data reusables.organizations.navigate-to-org %}
@@ -84,7 +84,7 @@ You can add self-hosted runners to an enterprise, where they can be assigned to 
 New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Managing access to self-hosted runners](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
 
 {% ifversion fpt %}
-To add a self-hosted runner to an enterprise account, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
+To add a self-hosted runner to an enterprise account, you must be an enterprise owner.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

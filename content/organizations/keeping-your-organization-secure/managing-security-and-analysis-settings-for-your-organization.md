@@ -34,7 +34,7 @@ The page that's displayed allows you to enable or disable all security and analy
 
 {% ifversion ghes > 3.0 %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
-{% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+{% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features.{% endif %}
 
 ## Enabling or disabling a feature for all existing repositories
 
@@ -91,10 +91,10 @@ You can enable or disable features for all repositories. {% ifversion fpt %}The 
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 2. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories{% ifversion fpt %}, or all new private repositories,{% endif %} in your organization.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghes > 3.1 %}
    ![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
-   {% ifversion ghes > 3.0 %}
+   {% ifversion ghes = 3.1 %}
    ![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}

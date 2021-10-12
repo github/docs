@@ -33,7 +33,7 @@ When new runners are created, they are automatically assigned to the default gro
 
 ## Creating a self-hosted runner group for an organization
 
-All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a self-hosted runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
+All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group.
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
 
@@ -83,7 +83,7 @@ When creating a group, you must choose a policy that defines which repositories 
 
 ## Creating a self-hosted runner group for an enterprise
 
-Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups. For information about how to create a self-hosted runner group with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
+Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups.
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
 
