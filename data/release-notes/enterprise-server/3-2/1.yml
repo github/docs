@@ -1,4 +1,4 @@
-date: '2021-10-13'
+date: '2021-10-12'
 sections:
   security_fixes:
     - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/27118, https://github.com/github/enterprise2/pull/27110 {% endcomment %}'
