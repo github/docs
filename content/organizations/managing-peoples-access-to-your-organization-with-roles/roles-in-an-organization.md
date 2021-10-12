@@ -20,7 +20,7 @@ shortTitle: Roles in an organization
 
 You can give organization members, outside collaborators and teams of people varying levels of access to repositories by assigning repository roles. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Team-level roles are roles that give permissions specific to a team. You can give any individual member of a team the *team maintainer* role, which gives them a number of administrative permissions over a team. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
+Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
 
 Organization-level roles are different sets of permissions that can be assigned to individuals or teams to manage an organization and the repositories, teams and settings within it. For more information on each organization-level role, see [Roles for an organization](#roles-for-an-organization).
 
@@ -47,7 +47,7 @@ Billing managers are users who can manage the billing settings for your organiza
 
 Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team permissions to manage security alerts and settings across your organization, as well as read permissions for all repositories in the organization.
 
-This role is useful for organizations with security teams, as it gives members of the team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
+If your organization has a security team, you can use the security manager role to give members of that team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
 {% endif %}
 ### {% data variables.product.prodname_github_app %} managers
 By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
@@ -217,5 +217,4 @@ Some of the features listed below are limited to organizations using {% data var
 ## Further reading
 
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[About teams](/organizations/organizing-members-into-teams/about-teams)"
 - "[Project board permissions for an organization](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
