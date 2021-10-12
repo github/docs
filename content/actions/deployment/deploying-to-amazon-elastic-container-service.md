@@ -67,7 +67,9 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+{% endif %}
 
 ## Creating the workflow
 
