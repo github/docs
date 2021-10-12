@@ -69,13 +69,15 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 4. For Linux apps, add an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` and set it to true in your app. For more information, see "[Configure apps in the portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" in the Azure documentation.
 
+{% ifversion fpt or ghes > 3.0 or ghae %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+{% endif %}
 
 ## Creating the workflow
 
 Once you've completed the prerequisites, you can proceed with creating the workflow.
 
-The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when a release is created.
+The following example workflow demonstrates how to build, test, and deploy the Node.js project to Azure App Service when there is a push to the `main` branch.
 
 Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. You can also change `AZURE_WEBAPP_PACKAGE_PATH` if the path to your project is not the repository root and `NODE_VERSION` if you want to use a node version other than `10.x`.
 
@@ -85,8 +87,9 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 env:
   AZURE_WEBAPP_NAME: MY_WEBAPP_NAME   # set this to your application's name

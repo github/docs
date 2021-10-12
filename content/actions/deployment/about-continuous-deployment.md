@@ -34,9 +34,12 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% data reusables.actions.cd-templates-actions %}
 
+{% ifversion fpt or ghae or ghes > 3.0 %}
+
 ## Further reading
 
 - [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
 - [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
+
 {% endif %}
