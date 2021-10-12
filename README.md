@@ -4,7 +4,7 @@ This repository contains the documentation website code and Markdown source file
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of the this document to get to a specific section of this guide quickly.
+Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
 ## Contributing
 
@@ -60,4 +60,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 
 ## Thanks :purple_heart:
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our ✨ community ✨ !
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles: !
