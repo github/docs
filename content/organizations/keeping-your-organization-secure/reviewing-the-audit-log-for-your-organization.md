@@ -66,9 +66,9 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`protected_branch`](#protected_branch-category-actions) | Contains all activities related to protected branches.
 | [`repo`](#repo-category-actions) | Contains activities related to the repositories owned by your organization.{% ifversion fpt %}
 | [`repository_advisory`](#repository_advisory-category-actions) | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-| [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion not ghae %}
+| [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion fpt %}
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
-| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion not ghae %}
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts. {% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
@@ -636,7 +636,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
 | `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
 
-{% endif %}{% ifversion not ghae %}
+{% endif %}{% ifversion fpt %}
 
 ### `repository_dependency_graph` category actions
 
@@ -653,7 +653,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion fpt %}private {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion fpt %}private {% endif %}repository.
 
-{% endif %}{% ifversion not ghae %}
+{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description
