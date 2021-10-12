@@ -18,36 +18,35 @@ shortTitle: Roles in an organization
 ## About roles
 {% data reusables.organizations.about-roles %}
 
-You can give organization members, outside collaborators and teams of people varying levels of access to repositories by assigning repository roles. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Repository-level roles give organization members, outside collaborators and teams of people varying levels of access to repositories. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Team-level roles are roles that give permissions to manage a team. You can give any individual member of a team the team maintainer role, which gives the member a number of administrative permissions over a team. For more information, see "[Giving "team maintainer" permissions to an organization member](/organizations/managing-peoples-access-to-your-organization-with-roles/giving-team-maintainer-permissions-to-an-organization-member)."
 
-Organization-level roles are different sets of permissions that can be assigned to individuals or teams to manage an organization and the repositories, teams and settings within it. For more information on each organization-level role, see [Roles for an organization](#roles-for-an-organization).
+Organization-level roles are sets of permissions that can be assigned to individuals or teams to manage an organization and the organization's repositories, teams, and settings. For more information about all the roles available at the organization level, see "[About organization roles](#about-organization-roles)."
 
-## Roles for an organization
+## About organization roles
+
+You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
+
 ### Organization owners
 Organization owners have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
 
 ### Organization members
-The default, non-administrative role for people in an organization is the organization member. Organization members have a number of permissions, including being able to create repositories and project boards. 
+The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and project boards.
 
 {% ifversion fpt %}
 ### Billing managers
 Billing managers are users who can manage the billing settings for your organization, such as payment information. This is a useful option if members of your organization don't usually have access to billing resources. For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4999 %}
+{% if security-managers %}
 ### Security managers
 
-{% note %}
+{% data reusables.organizations.security-manager-beta-note %}
 
-**Note:** The security manager role is in public beta and subject to change.
+{% data reusables.organizations.about-security-managers %}
 
-{% endnote %}
-
-Security manager is an organization-level role that can be assigned to any team in an organization. When applied, it gives every member of the team permissions to manage security alerts and settings across your organization, as well as read permissions for all repositories in the organization.
-
-If your organization has a security team, you can use the security manager role to give members of that team the permissions they need to do their job without any extra permissions they do not require. For more information, see "[Managing the security manager role in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-the-security-manager-role-in-your-organization)."
+If your organization has a security team, you can use the security manager role to give members of the team the least access they need to the organization. For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 {% endif %}
 ### {% data variables.product.prodname_github_app %} managers
 By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
@@ -128,8 +127,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
+<!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
 
-| Organization action test | Owners | Members | Security managers |
+| Organization action | Owners | Members | Security managers |
 |:--------------------|:------:|:-------:|:-------:|
 | Invite people to join the organization | **X** |  |  |
 | Edit and cancel invitations to join the organization | **X** |  |  |
@@ -172,7 +172,7 @@ Some of the features listed below are limited to organizations using {% data var
 
 
 {% else %}
-<!--GHE version doesn't have the extra column for Billing managers-->
+<!--GHES and GHAE older versions don't have the extra column for Billing managers or Security managers-->
 
 | Organization action | Owners | Members |
 |:--------------------|:------:|:-------:|
