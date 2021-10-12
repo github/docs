@@ -27,6 +27,8 @@ jobs:
       - name: Sync
         uses: crowdin/github-action@d7f217268068f1244883a993379d62d816f84f25
         with:
+          # This option enables the transfer of existing translations in this project to Crowdin.
+          # We explicitly set this to `false` since we only want to use the downloaded translations managed by Crowdin.
           upload_translations: false
           download_translations: true
           create_pull_request: true
