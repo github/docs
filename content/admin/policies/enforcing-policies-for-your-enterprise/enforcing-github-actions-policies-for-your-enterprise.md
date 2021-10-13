@@ -17,6 +17,7 @@ shortTitle: GitHub Actions policies
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.ae-beta %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your enterprise
 
