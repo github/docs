@@ -5,7 +5,7 @@ intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses 
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
@@ -16,14 +16,14 @@ redirect_from:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
+## About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
 
 You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.product.prodname_codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %} 
 For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
-###  About autobuild for {% data variables.product.prodname_codeql %}
+##  About autobuild for {% data variables.product.prodname_codeql %}
 
 Code scanning works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository. For the compiled languages C/C++, C#, and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
 
@@ -37,7 +37,7 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 
 {% endnote %}
 
-#### C/C++
+### C/C++
 
 | Supported system type | System name |
 |----|----|
@@ -56,7 +56,7 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 2. If none are found, search subdirectories for a unique directory with a build system for C/C++.
 3. Run an appropriate command to configure the system. 
 
-#### C#
+### C#
 
 | Supported system type | System name |
 |----|----|
@@ -70,7 +70,7 @@ The `autobuild` process attempts to autodetect a suitable build method for C# us
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 3. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
 
-#### Java
+### Java
 
 | Supported system type | System name |
 |----|----|
@@ -83,7 +83,7 @@ The `autobuild` process tries to determine the build system for Java codebases b
 2. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
 3. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
-### Adding build steps for a compiled language
+## Adding build steps for a compiled language
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)."
 

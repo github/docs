@@ -11,9 +11,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Pull requests
+  - Alerts
+  - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -22,7 +28,11 @@ topics:
 
 在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并分支给目标分支带来新的 {% data variables.product.prodname_code_scanning %} 警报，这些警报将在拉取请求中被报告为检查结果。 警报还将在拉取请求的 **Files changed（文件已更改）**选项卡中显示为注释。 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
 
-如果 {% data variables.product.prodname_code_scanning %} 有任何严重性为 `error` 的结果，则检查失败，错误将报告在检查结果中。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。 如果拉取请求针对使用 {% data variables.product.prodname_code_scanning %} 的受保护分支，并且仓库所有者配置了必需状态检查，则您必须修复或忽略所有错误警报，然后才能合并拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”。
+如果 {% data variables.product.prodname_code_scanning %} 有任何严重性为 `error` 的结果，则检查失败，错误将报告在检查结果中。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}您可以通过指定会导致拉取请求检查失败的严重程度来覆盖仓库设置中的默认行为。 更多信息请参阅“[定义导致拉取请求检查失败的警报严重程度](/code-security/secure-coding/configuring-code-scanning#defining-the-alert-severities-causing-pull-request-check-failure)”。
+
+{% endif %}如果拉取请求针对使用 {% data variables.product.prodname_code_scanning %} 的受保护分支，并且仓库所有者配置了必需状态检查，则您必须修复或忽略所有错误警报，然后才能合并拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”。
 
 ![拉取请求上失败的 {% data variables.product.prodname_code_scanning %} 检查](/assets/images/help/repository/code-scanning-check-failure.png)
 

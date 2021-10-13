@@ -7,25 +7,27 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure DNS servers
 ---
+
 Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variables.product.product_location %} auflösen.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-### Nameserver mithilfe der VM-Konsole konfigurieren
+## Nameserver mithilfe der VM-Konsole konfigurieren
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 2. Konfigurieren Sie Nameserver für Ihre Instanz.
 {% data reusables.enterprise_installation.vm-console-done %}
 
-### Nameserver mithilfe der Verwaltungsshell konfigurieren
+## Nameserver mithilfe der Verwaltungsshell konfigurieren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Geben Sie zum Bearbeiten Ihrer Nameserver Folgendes ein:
@@ -34,7 +36,8 @@ Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variabl
   ```
 3. Fügen Sie die `nameserver`-Einträge an, und speichern Sie die Datei anschließend.
 4. Speichern Sie nach dem Verifizieren Ihrer Änderungen die Datei.
-5. Geben Sie Folgendes ein, um {% data variables.product.product_location %} Ihre neuen Nameservereinträge hinzuzufügen:
+5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
   ```shell
   $ sudo service resolvconf restart
+  $ sudo service dnsmasq restart
   ```

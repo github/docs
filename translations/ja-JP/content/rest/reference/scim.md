@@ -1,11 +1,13 @@
 ---
 title: SCIM
+intro: '{% data variables.product.product_name %} Organizationのメンバーのアクセスを、SCIM APIを使って制御及び管理できます。'
 redirect_from:
   - /v3/scim
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Organization 向け SCIM プロビジョニング
@@ -14,7 +16,9 @@ SCIM API は SCIM を有効にしたアイデンティティプロバイダ (IdP
 
 {% note %}
 
-**注釈:** SCIM API は、[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Organization でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
+**ノート:**
+  - The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. {% data reusables.scim.enterprise-account-scim %} SCIMに関する詳しい情報については、「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim) 」を参照してください。
+  - The SCIM API cannot be used with {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 

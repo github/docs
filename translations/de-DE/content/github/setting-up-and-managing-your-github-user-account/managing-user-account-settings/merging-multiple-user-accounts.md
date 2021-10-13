@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 {% tip %}
 
 **Tipp:** Wir empfehlen, nur ein Benutzerkonto für die Verwaltung persönlicher und beruflicher Repositorys zu verwenden.

@@ -5,12 +5,14 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Suporte Premium para Empresas
 ---
+
 {% note %}
 
 **Notas:**
@@ -23,7 +25,7 @@ topics:
 
 {% endnote %}
 
-### Sobre o {% data variables.contact.premium_support %}
+## Sobre o {% data variables.contact.premium_support %}
 
 Além de todos os benefícios do {% data variables.contact.enterprise_support %}, o {% data variables.contact.premium_support %} oferece:
   - Suporte gravado, em inglês, por meio do nosso portal de suporte 24 horas por dia, 7 dais por semana
@@ -41,7 +43,7 @@ Além de todos os benefícios do {% data variables.contact.enterprise_support %}
 
 {% data reusables.support.contacting-premium-support %}
 
-### Horas de operação
+## Horas de operação
 
 O {% data variables.contact.premium_support %} está disponível 24 horas por dia, 7 dias por semana.
 
@@ -51,22 +53,22 @@ O {% data variables.contact.premium_support %} está disponível 24 horas por di
 
 Você deve instalar a versão mínima compatível do {% data variables.product.prodname_ghe_server %} conforme a seção Versões compatíveis do seu contrato de licença em até 90 dias após o pedido do {% data variables.contact.premium_support %}.
 
-### Atribuindo uma prioridade a um tíquete de suporte
+## Atribuindo uma prioridade a um tíquete de suporte
 
 Ao entrar em contato com {% data variables.contact.premium_support %}, você pode escolher uma das quatro prioridades para o tíquete: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
 
 - [Prioridades de tíquetes para {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
 - [Prioridades de tíquetes para {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)
 
-#### Prioridades de tíquetes para {% data variables.product.prodname_ghe_cloud %}
+### Prioridades de tíquetes para {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.support.ghec-premium-priorities %}
 
-#### Prioridades de tíquetes para {% data variables.product.prodname_ghe_server %}
+### Prioridades de tíquetes para {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.support.ghes-priorities %}
 
-### Resolução e fechamento de tíquete de suporte
+## Resolução e fechamento de tíquete de suporte
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

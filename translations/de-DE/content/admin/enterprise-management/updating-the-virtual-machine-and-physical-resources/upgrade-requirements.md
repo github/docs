@@ -7,12 +7,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
   - Upgrades
 ---
+
 {% note %}
 
 **Hinweise:**
@@ -23,7 +24,7 @@ topics:
 
 {% endnote %}
 
-### Empfehlungen
+## Empfehlungen
 
 - Sie sollten möglichst wenig Upgrades in Ihren Upgrade-Prozess einbeziehen. Anstatt beispielsweise ein Upgrade von {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} auf {{ enterpriseServerReleases.supported[1] }} auf {{ enterpriseServerReleases.latest }} vorzunehmen, können Sie ein Upgrade von {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} auf {{ enterpriseServerReleases.latest }} vornehmen.
 - Wenn Sie mehrere Versionen zurückliegen, sollten Sie {% data variables.product.product_location %} so weit wie möglich mit jedem Schritt Ihres Upgrade-Prozesses upgraden. Wenn Sie die nach Möglichkeit neueste Version für jedes Upgrade verwenden, können Sie von Leistungsverbesserungen und Bug-Korrekturen profitieren. So können Sie beispielsweise ein Upgrade von {% data variables.product.prodname_enterprise %} 2.7 auf 2.8 auf 2.10 vornehmen. Beim Upgrade von {% data variables.product.prodname_enterprise %} 2.7 auf 2.9 auf 2.10 wird im zweiten Schritt jedoch eine neuere Version verwendet.
@@ -31,7 +32,7 @@ topics:
 - Verwenden Sie eine Testinstanz zum Testen der Upgrade-Schritte. Weitere Informationen finden Sie unter „[Testinstanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)“.
 - When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.
 
-### Anforderungen
+## Anforderungen
 
 - Sie müssen ein Upgrade von einer Feature-Veröffentlichung vornehmen, die **höchstens** zwei Versionen zurückliegt. Wenn Sie beispielsweise ein Upgrade auf {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }} vornehmen, müssen Sie {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} oder {{ enterpriseServerReleases.supported[2] }} verwenden.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
@@ -45,6 +46,6 @@ Anhand der Zahl können Sie schätzen, wie viel Speicherplatz die MySQL-Auditpro
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### Nächste Schritte:
+## Nächste Schritte:
 
 Nachdem Sie diese Empfehlungen und Anforderungen gelesen haben, können Sie {% data variables.product.prodname_ghe_server %} upgraden. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)“.

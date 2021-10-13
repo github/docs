@@ -21,6 +21,8 @@ En esta guía aprenderás sobre los componentes básicos que se requieren para c
 
 Una vez que completes este proyecto, deberás entender cómo construir tu accion para pasos de ejecución compuestos para probarla en un flujo de trabajo.
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Prerrequisitos
 
 Antes de que comiences, crearás un repositorio de {% data variables.product.product_name %}.

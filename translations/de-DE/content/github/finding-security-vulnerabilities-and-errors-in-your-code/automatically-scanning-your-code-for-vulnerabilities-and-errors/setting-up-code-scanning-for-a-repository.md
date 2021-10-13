@@ -5,24 +5,25 @@ intro: 'You can set up {% data variables.product.prodname_code_scanning %} by ad
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Options for setting up {% data variables.product.prodname_code_scanning %}
+## Options for setting up {% data variables.product.prodname_code_scanning %}
 
 You decide how to generate {% data variables.product.prodname_code_scanning %} alerts, and which tools to use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. Weitere Informationen findest Du unter „[ Über {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)."
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Setting up {% data variables.product.prodname_code_scanning %} using actions
+## Setting up {% data variables.product.prodname_code_scanning %} using actions
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -39,10 +40,11 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-### Bulk set up of {% data variables.product.prodname_code_scanning %}
-You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository.
+## Bulk set up of {% data variables.product.prodname_code_scanning %}
 
-### Viewing the logging output from {% data variables.product.prodname_code_scanning %}
+You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS.
+
+## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
 After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
 
@@ -70,7 +72,7 @@ After setting up {% data variables.product.prodname_code_scanning %} for your re
 
 {% endnote %}
 
-### Understanding the pull request checks
+## Understanding the pull request checks
 
 Each {% data variables.product.prodname_code_scanning %} workflow you set to run on pull requests always has at least two entries listed in the checks section of a pull request. There is one entry for each of the analysis jobs in the workflow, and a final one for the results of the analysis.
 
@@ -82,7 +84,7 @@ When the {% data variables.product.prodname_code_scanning %} jobs complete, {% d
 
   ![Missing analysis for commit message](/assets/images/help/repository/code-scanning-missing-analysis.png)
 
-#### Reasons for the "missing analysis" message
+### Reasons for the "missing analysis" message
 
 After {% data variables.product.prodname_code_scanning %} has analyzed the code in a pull request, it needs to compare the analysis of the topic branch (the branch you used to create the pull request) with the analysis of the base branch (the branch into which you want to merge the pull request). This allows {% data variables.product.prodname_code_scanning %} to compute which alerts are newly introduced by the pull request, which alerts were already present in the base branch, and whether any existing alerts are fixed by the changes in the pull request. Initially, if you use a pull request to add {% data variables.product.prodname_code_scanning %} to a repository, the base branch has not yet been analyzed, so it's not possible to compute these details. In this case, when you click through from the results check on the pull request you will see the "Missing analysis for base commit SHA-HASH" message.
 
@@ -104,7 +106,7 @@ There are other situations where there may be no analysis for the latest commit 
 
   Merge a trivial change into the base branch to trigger {% data variables.product.prodname_code_scanning %} on this latest commit, then push a change to the pull request to retrigger {% data variables.product.prodname_code_scanning %}.
 
-### Nächste Schritte:
+## Nächste Schritte:
 
 After setting up {% data variables.product.prodname_code_scanning %}, and allowing its actions to complete, you can:
 

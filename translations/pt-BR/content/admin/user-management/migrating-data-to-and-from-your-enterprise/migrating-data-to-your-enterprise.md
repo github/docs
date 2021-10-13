@@ -13,13 +13,15 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-data-to-your-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Migration
+shortTitle: Importar para a sua empresa
 ---
-### Aplicar os dados importados em {% data variables.product.prodname_ghe_server %}
+
+## Aplicar os dados importados em {% data variables.product.prodname_ghe_server %}
 
 Após [haver preparado a sua migração](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) você poderá usar os seguintes passos para concluir a migração.
 
@@ -38,7 +40,7 @@ Após [haver preparado a sua migração](/admin/user-management/preparing-to-mig
 
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-### Revisar dados de migração
+## Revisar dados de migração
 
 Por padrão, o `ghe-migrator audit` devolve todos os registros. Também é possível filtrar os registros por:
 
@@ -47,7 +49,7 @@ Por padrão, o `ghe-migrator audit` devolve todos os registros. Também é poss�
 
 Os tipos de registro correspondem aos encontrados nos [dados migrados](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
 
-### Filtros por tipo de registro
+## Filtros por tipo de registro
 
 | Tipo de registro                              | Nome do filtro                |
 | --------------------------------------------- | ----------------------------- |
@@ -67,7 +69,7 @@ Os tipos de registro correspondem aos encontrados nos [dados migrados](/enterpri
 | Ações feitas em problemas ou em pull requests | `issue_event`                 |
 | Branches protegidos                           | `protected_branch`            |
 
-### Filtros por estado de registro
+## Filtros por estado de registro
 
 | Estado de registro | Descrição                               |
 | ------------------ | --------------------------------------- |
@@ -87,7 +89,7 @@ Os tipos de registro correspondem aos encontrados nos [dados migrados](/enterpri
 | `failed_rename`    | Houve falha ao renomear o registro.     |
 | `failed_merge`     | Houve falha ao fazer merge no registro. |
 
-### Filtrar registros auditados
+## Filtrar registros auditados
 
 Com o comando `ghe-migrator audit`, é possível filtrar com base no tipo de registro usando o sinalizador `-m`. Da mesma forma, você pode filtrar no estado de importação usando o sinalizador `-s`. O comando fica parecido com o seguinte:
 
@@ -112,18 +114,18 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 Em caso de problemas com falhas na importação, entre em contato com o {% data variables.contact.contact_ent_support %}.
 
-### Concluir a importação em {% data variables.product.prodname_ghe_server %}
+## Concluir a importação em {% data variables.product.prodname_ghe_server %}
 
 Depois que sua migração for aplicada à sua instância de destino e você tiver revisado a migração, você desbloqueará os repositórios e os excluirá da fonte. Antes de excluir os dados da origem, é recomendável aguardar cerca de duas semanas para garantir o funcionamento adequado de todos os procedimentos.
 
-### Desbloquear repositórios na instância de destino
+## Desbloquear repositórios na instância de destino
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-### Desbloquear repositórios na origem
+## Desbloquear repositórios na origem
 
-#### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
+### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
 Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">ponto de extremidade de desbloqueio da migração</a>. Você precisará do seguinte:
   * Token de acesso para autenticação.
@@ -135,7 +137,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
+### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
 Após desbloquear os repositórios da organização de {% data variables.product.prodname_dotcom_the_website %}, você deverá excluir todos os repositórios previamente migrados usando [o ponto de extremidade de exclusão do repositório](/rest/reference/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
 ```shell
@@ -143,7 +145,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Desbloquear repositórios de uma instância do {% data variables.product.prodname_ghe_server %}
+### Desbloquear repositórios de uma instância do {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}

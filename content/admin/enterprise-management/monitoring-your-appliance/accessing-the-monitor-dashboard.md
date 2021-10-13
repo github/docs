@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,15 +14,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Access the monitor dashboard
 ---
-### Accessing the monitor dashboard
+## Accessing the monitor dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. At the top of the page, click **Monitor**.
 ![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-### Troubleshooting common resource allocation problems on your appliance
+## Troubleshooting common resource allocation problems on your appliance
 
 {% note %}
 

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/dmca-counter-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-counter-notice
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -17,7 +17,7 @@ Si consideras que tu contenido en GitHub fue inhabilitado erróneamente por una 
 
 Como en todas las cuestiones jurídicas, siempre es mejor consultar con un profesional sobre tus preguntas o situación específicas. Te recomendamos enfáticamente que lo hagas antes de emprender cualquier acción que pueda afectar tus derechos. Esta guía no es asesoramiento legal y no debería ser tomada como tal.
 
-### Antes de comenzar
+## Antes de comenzar
 
 ***Di la Verdad.*** La DMCA requiere que jures tu contra notificación *bajo pena de perjurio*. Es un crimen federal mentir intencionadamente en una declaración jurada. (*Consulta* [el Código de lso EE.UU. , Título 18, Sección 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) La presentación de información falsa también podría resultar en responsabilidad civil, es decir, podrías ser demandado por daños monetarios.
 
@@ -40,7 +40,7 @@ Estos son sólo algunos ejemplos de la complejidad de la legislación sobre dere
 
 ***Recursos Adicionales.*** Si necesitas ayuda adicional, hay muchos recursos de autoayuda en línea. Lumen tiene un conjunto informativo de guías sobre [copyright](https://www.lumendatabase.org/topics/5) y [puerto seguro de DMCA](https://www.lumendatabase.org/topics/14). Si estás implicado con un proyecto de código abierto que necesita asesoramiento legal, puedes ponerse en contacto con el [Centro de asesoramiento legal sobre software libre](https://www.softwarefreedom.org/about/contact/). Y si consideras que tienes un caso especialmente desafiante, organizaciones sin fines de lucro como la [Electronic Frontier Foundation](https://www.eff.org/pages/legal-assistance) también pueden estar dispuestas a ayudarte directamente o a referirte a un abogado.
 
-### Tu contra notificación debe...
+## Tu contra notificación debe...
 
 1. **Incluir la siguiente declaración: "He leído y entendido la guía de GitHub para presentar una contra notificación DMCA.** No nos negaremos a procesar una contra notificación completa si no incluye esta declaración; sin embargo, sabremos que no has leído estas directrices y podríamos solicitarte que lo hagas.
 
@@ -54,7 +54,7 @@ Estos son sólo algunos ejemplos de la complejidad de la legislación sobre dere
 
 6. **Incluye tu firma física o electrónica.**
 
-### Cómo enviar tu contra notificación
+## Cómo enviar tu contra notificación
 
 La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {% data variables.contact.contact_dmca %}.
 

@@ -7,13 +7,14 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-a-hostname
   - /admin/configuration/configuring-a-hostname
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
 ---
+
 ハードコードされたIPアドレスの代わりにホスト名を設定すれば、ユーザやクライアントソフトウェアに影響を与えることなく{% data variables.product.product_location %}を動作させる物理ハードウェアを変更できるようになります。
 
 {% data variables.enterprise.management_console %} のホスト名の設定は、適切な完全修飾ドメイン名 (FQDN) に設定して、インターネット上または内部ネットワーク内で解決できるようにしてください。 たとえば、ホスト名の設定は `github.companyname.com` であるかもしれません。 また、選択したホスト名に対して Subdomain Isolation を有効にして、いくつかのクロスサイトスクリプティングスタイルの脆弱性を軽減することもおすすめします。 ホスト名の設定に関する詳しい情報については、[HTTP RFC の Section 2.1](https://tools.ietf.org/html/rfc1123#section-2) を参照してください。

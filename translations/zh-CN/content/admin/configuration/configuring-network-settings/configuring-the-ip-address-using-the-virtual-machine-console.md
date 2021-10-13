@@ -6,14 +6,16 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
   - /admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: 使用控制台设置 IP
 ---
+
 {% note %}
 
 **注意：** 我们不支持向 {% data variables.product.prodname_ghe_server %} 添加额外的网络适配器。

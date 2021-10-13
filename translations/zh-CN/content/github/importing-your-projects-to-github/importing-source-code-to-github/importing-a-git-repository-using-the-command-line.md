@@ -1,14 +1,16 @@
 ---
 title: 使用命令行导入 Git 仓库
-intro: '{% if currentVersion == "free-pro-team@latest" %}如果 [GitHub Importer](/articles/importing-a-repository-with-github-importer) 不适用于您的目的，例如，如果您现有的代码托管在私有网络上，则我们建议使用命令行导入。{% else %}当您现有的代码托管在私有网络上时，适合使用命令行导入 Git 项目。{% endif %}'
+intro: '{% ifversion fpt %}如果 [GitHub Importer](/articles/importing-a-repository-with-github-importer) 不适用于您的目的，例如，如果您现有的代码托管在私有网络上，则我们建议使用命令行导入。{% else %}当您现有的代码托管在私有网络上时，适合使用命令行导入 Git 项目。{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: 本地导入仓库
 ---
+
 在开始之前，请确保您知道：
 
 - 您的 {% data variables.product.product_name %} 用户名

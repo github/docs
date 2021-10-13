@@ -1,109 +1,121 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 
-import {
-  MainContextT,
-  MainContext,
-  getMainContextFromRequest,
-} from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+// "legacy" javascript needed to maintain existing functionality
+// typically operating on elements **within** an article.
+import copyCode from 'components/lib/copy-code'
+import displayPlatformSpecificContent from 'components/lib/display-platform-specific-content'
+import displayToolSpecificContent from 'components/lib/display-tool-specific-content'
+import localization from 'components/lib/localization'
+import wrapCodeTerms from 'components/lib/wrap-code-terms'
+
+import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
+
 import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
   ProductLandingContext,
-  useProductLandingContext,
 } from 'components/context/ProductLandingContext'
-import { getThemeProps } from 'components/lib/getThemeProps'
+import {
+  getProductSubLandingContextFromRequest,
+  ProductSubLandingContextT,
+  ProductSubLandingContext,
+} from 'components/context/ProductSubLandingContext'
 
-import { LandingHero } from 'components/landing/LandingHero'
-import { FeaturedArticles } from 'components/landing/FeaturedArticles'
-import { GuideCards } from 'components/landing/GuideCards'
-import { SponsorsExamples } from 'components/landing/SponsorsExamples'
-import { CommunityExamples } from 'components/landing/CommunityExamples'
-import { CodeExamples } from 'components/landing/CodeExamples'
-import { LandingSection } from 'components/landing/LandingSection'
-import { useTranslation } from 'components/hooks/useTranslation'
-import { useFeatureFlags } from 'components/hooks/useFeatureFlags'
-import { AllArticlesProduct } from 'components/landing/AllArticlesProduct'
-import { ProductArticlesList } from 'components/landing/ProductArticlesList'
+import {
+  getArticleContextFromRequest,
+  ArticleContextT,
+  ArticleContext,
+} from 'components/context/ArticleContext'
+import { ArticlePage } from 'components/article/ArticlePage'
+
+import { ProductLanding } from 'components/landing/ProductLanding'
+import { ProductSubLanding } from 'components/sublanding/ProductSubLanding'
+import { TocLanding } from 'components/landing/TocLanding'
+import {
+  getTocLandingContextFromRequest,
+  TocLandingContext,
+  TocLandingContextT,
+} from 'components/context/TocLandingContext'
+import { useEffect } from 'react'
+
+function initiateArticleScripts() {
+  copyCode()
+  displayPlatformSpecificContent()
+  displayToolSpecificContent()
+  localization()
+  wrapCodeTerms()
+}
 
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
+  productSubLandingContext: ProductSubLandingContextT
+  tocLandingContext: TocLandingContextT
+  articleContext: ArticleContextT
 }
-const ProductPage = ({ mainContext, productLandingContext }: Props) => {
-  return (
-    <MainContext.Provider value={mainContext}>
+const GlobalPage = ({
+  mainContext,
+  productLandingContext,
+  productSubLandingContext,
+  tocLandingContext,
+  articleContext,
+}: Props) => {
+  const { currentLayoutName, relativePath } = mainContext
+  const router = useRouter()
+
+  useEffect(() => {
+    // https://stackoverflow.com/a/67063998
+    initiateArticleScripts() // on initiate page
+    router.events.on('routeChangeComplete', initiateArticleScripts) // on client side route
+    return () => {
+      router.events.off('routeChangeComplete', initiateArticleScripts)
+    }
+  }, [router.events])
+
+  let content
+  if (currentLayoutName === 'product-landing') {
+    content = (
       <ProductLandingContext.Provider value={productLandingContext}>
-        <ProductPageInner />
+        <ProductLanding />
       </ProductLandingContext.Provider>
-    </MainContext.Provider>
-  )
+    )
+  } else if (currentLayoutName === 'product-sublanding') {
+    content = (
+      <ProductSubLandingContext.Provider value={productSubLandingContext}>
+        <ProductSubLanding />
+      </ProductSubLandingContext.Provider>
+    )
+  } else if (relativePath?.endsWith('index.md')) {
+    content = (
+      <TocLandingContext.Provider value={tocLandingContext}>
+        <TocLanding />
+      </TocLandingContext.Provider>
+    )
+  } else {
+    content = (
+      <ArticleContext.Provider value={articleContext}>
+        <ArticlePage />
+      </ArticleContext.Provider>
+    )
+  }
+
+  return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
 }
 
-const ProductPageInner = () => {
-  const {
-    title,
-    guideCards,
-    productUserExamples,
-    productCommunityExamples,
-    productCodeExamples,
-  } = useProductLandingContext()
-  const { t } = useTranslation('product_landing')
-  const { FEATURE_NEW_SITETREE } = useFeatureFlags()
-
-  return (
-    <DefaultLayout>
-      <LandingSection className="pt-3">
-        <LandingHero />
-      </LandingSection>
-
-      <LandingSection>
-        <FeaturedArticles />
-      </LandingSection>
-
-      {productCodeExamples.length > 0 && (
-        <LandingSection title={t('code_examples')} className="my-6">
-          <CodeExamples />
-        </LandingSection>
-      )}
-
-      {productCommunityExamples.length > 0 && (
-        <LandingSection title={t('communities_using_discussions')} className="my-6">
-          <CommunityExamples />
-        </LandingSection>
-      )}
-
-      {productUserExamples.length > 0 && (
-        <LandingSection title={t('sponsor_community')} className="my-6">
-          <SponsorsExamples />
-        </LandingSection>
-      )}
-
-      {guideCards.length > 0 && (
-        <div className="color-bg-tertiary py-6 my-8">
-          <LandingSection title={t('guides')} className="my-6">
-            <GuideCards />
-          </LandingSection>
-        </div>
-      )}
-
-      <LandingSection sectionLink="all-docs" title={`All ${title} Docs`}>
-        {FEATURE_NEW_SITETREE ? <ProductArticlesList /> : <AllArticlesProduct />}
-      </LandingSection>
-    </DefaultLayout>
-  )
-}
-
-export default ProductPage
+export default GlobalPage
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
+  const res = context.res as any
 
   return {
     props: {
-      themeProps: getThemeProps(req),
-      mainContext: getMainContextFromRequest(req),
+      mainContext: getMainContext(req, res),
       productLandingContext: getProductLandingContextFromRequest(req),
+      productSubLandingContext: getProductSubLandingContextFromRequest(req),
+      tocLandingContext: getTocLandingContextFromRequest(req),
+      articleContext: getArticleContextFromRequest(req),
     },
   }
 }

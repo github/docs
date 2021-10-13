@@ -19,9 +19,9 @@ topics:
   - Desktop
   - Security
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
-Para obter uma lista completa de recursos para cada
-produto de {% data variables.product.product_name %}, consulte "[ produtos de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
+Para uma lista completa de recursos para cada {% data variables.product.product_name %} produto, consulte produtos do "[{% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Contas de usuário pessoais

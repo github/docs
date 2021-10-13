@@ -10,19 +10,21 @@ redirect_from:
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: リストの要件
 ---
+
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 {% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件は、提供するのが無料なのか有料アプリケーションなのかによって変わります。
 
-### すべての{% data variables.product.prodname_marketplace %}リストの要件
+## すべての{% data variables.product.prodname_marketplace %}リストの要件
 
 {% data variables.product.prodname_marketplace %}上のすべてのリストは、{% data variables.product.product_name %}コミュニティに価値を提供するツールのためのものでなければなりません。 公開のためにリストをサブミットする際には、[{% data variables.product.prodname_marketplace %}開発者契約](/articles/github-marketplace-developer-agreement/)の条項を読んで同意しなければなりません。
 
-#### すべてのアプリケーションに対するユーザ体験の要件
+### すべてのアプリケーションに対するユーザ体験の要件
 
 すべてのリストは、無料のアプリケーションのためのものか、有料アプリケーションのためのものであるかにかかわらず、以下の要件を満たさなければなりません。
 
@@ -36,7 +38,7 @@ topics:
 
 優れた顧客体験を提供することに関する詳細な情報については、「[アプリケーションの顧客体験のベストプラクティス](/developers/github-marketplace/customer-experience-best-practices-for-apps)」を参照してください。
 
-#### すべてのアプリケーションに対するブランドとリストの要件
+### すべてのアプリケーションに対するブランドとリストの要件
 
 - GitHubのログを使用するアプリケーションは、{% data variables.product.company_short %}ガイドラインに従わなければなりません。 詳しい情報については「[{% data variables.product.company_short %}ロゴと利用](https://github.com/logos)」を参照してください。
 - アプリケーションは、「[{% data variables.product.prodname_marketplace %}リストの説明の作成](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)」にある推奨事項を満たすロゴ、機能カード、スクリーンショット画像を持っていなければなりません。
@@ -44,31 +46,31 @@ topics:
 
 顧客を保護するために、セキュリティのベストプラクティスにも従うことをおすすめします。 詳しい情報については「[アプリケーションのセキュリティのベストプラクティス](/developers/github-marketplace/security-best-practices-for-apps)」を参照してください。
 
-### 無料アプリケーションに関する留意点
+## 無料アプリケーションに関する留意点
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-### 有料アプリケーションの要件
+## 有料アプリケーションの要件
 
-To publish a paid plan for your app on {% data variables.product.prodname_marketplace %}, your app must be owned by an organization that is a verified publisher. For more information about the verification process or transferring ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+{% data variables.product.prodname_marketplace %}でアプリケーションの有料プランを公開するには、そのアプリケーションが検証済みパブリッシャーであるOrganizationの所有である必要があります。 検証プロセスやアプリケーションの所有権移譲の詳細については、「[Organizationのパブリッシャー検証プロセスを申請する](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)」を参照してください。
 
-If your app is already published and you're a verified publisher, then you can publish a new paid plan from the pricing plan editor. 詳しい情報については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
+アプリケーションが既に公開されており、あなたが検証済みパブリッシャーである場合は、価格プランエディタから新しく有料プランを公開できます。 詳しい情報については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
 
-To publish a paid app (or an app that offers a paid plan), you must also meet the following requirements:
+有料アプリケーション (または有料プランを提供するアプリケーション) を公開するには、以下の要件も満たす必要があります。
 
-- {% data variables.product.prodname_github_app %}は、最低でも100個のインストールが必要です。
-- {% data variables.product.prodname_oauth_app %}は最低200ユーザが必要です。
+- {% data variables.product.prodname_github_apps %} should have a minimum of 100 installations.
+- {% data variables.product.prodname_oauth_apps %} should have a minimum of 200 users.
 - すべての有料アプリケーションは、新規購入、アップグレード、ダウングレード、キャンセル、無料トライアルの{% data variables.product.prodname_marketplace %}購入イベントを処理できなければなりません。 詳しい情報については、以下の「[有料アプリケーションの支払い要件](#billing-requirements-for-paid-apps)」を参照してください。
 
-When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the app listing.
+アプリケーションを{% data variables.product.prodname_marketplace %}上で公開する準備ができたら、アプリケーション掲載のために検証をリクエストする必要があります。
 
 {% note %}
 
-**Note:** {% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to transfer an app to an organization, see: "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
+**注釈:** {% data reusables.marketplace.app-transfer-to-org-for-verification %}アプリケーションをOrganizationに移譲する方法については、[公開のためのリストのサブミット](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)」を参照してください。
 
 {% endnote %}
 
-### 有料アプリケーションの支払い要件
+## 有料アプリケーションの支払い要件
 
 アプリケーションは支払いを処理する必要はありませんが、{% data variables.product.prodname_marketplace %}購入イベントを使って新規の購入、アップグレード、ダウングレード、キャンセル、無料トライアルを管理できなければなりません。 これらのイベントをアプリケーションに統合する方法については、「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 

@@ -3,8 +3,8 @@ title: Enforcing policies for Advanced Security in your enterprise
 intro: 'Enterprise owners can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features for organizations on {% data variables.product.product_location %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
-  github-ae: next
+  ghes: '>=3.1'
+  ghae: next
 type: how_to
 topics:
   - Advanced Security
@@ -14,12 +14,14 @@ topics:
   - Security
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+shortTitle: Advanced Security policies
 ---
-### {% data variables.product.prodname_GH_advanced_security %} について
+
+## {% data variables.product.prodname_GH_advanced_security %} について
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### {% data variables.product.prodname_advanced_security %} 機能のポリシーを施行する
+## {% data variables.product.prodname_advanced_security %} 機能のポリシーを施行する
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

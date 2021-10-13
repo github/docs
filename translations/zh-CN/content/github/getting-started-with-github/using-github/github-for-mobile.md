@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-for-mobile
 ---
+
 {% data reusables.mobile.ghes-release-phase %}
 
 ### 关于 {% data variables.product.prodname_mobile %}
@@ -41,7 +42,7 @@ redirect_from:
 
 您必须在设备上安装 {% data variables.product.prodname_mobile %} 1.4 或更高版本，才能使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}。
 
-要使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}，{% data variables.product.product_location %} 必须为 3.0 或更高版本，并且企业所有者必须为企业启用移动版支持。 For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
+要使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}，{% data variables.product.product_location %} 必须为 3.0 或更高版本，并且企业所有者必须为企业启用移动版支持。 更多信息请参阅{% if enterpriseServerVersions contains currentVersion %}“[发行说明](/enterprise-server/admin/release-notes)”和{% endif %}“[管理企业的 {% data variables.product.prodname_mobile %}](/admin/configuration/managing-github-for-mobile-for-your-enterprise)”。
 
 在 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %} 测试期间，您必须使用 {% data variables.product.prodname_dotcom_the_website %} 上的用户帐户登录。
 

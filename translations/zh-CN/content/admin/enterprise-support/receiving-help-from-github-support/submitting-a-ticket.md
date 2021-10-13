@@ -1,33 +1,39 @@
 ---
 title: 提交事件单
-intro: '您可以使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或{% endif %}支持门户提交支持单。'
+intro: '您可以使用 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或支持门户{% elsif ghae %}{% data variables.contact.ae_azure_portal %}{% endif %} 提交支持单。'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
   - /admin/enterprise-support/submitting-a-ticket
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
 ---
-### 关于提交事件单
+
+## 关于提交事件单
+
+{% ifversion ghae %}
+
+您可以从 {% data variables.contact.ae_azure_portal %} 通过 {% data variables.product.prodname_ghe_managed %} 提交支持单。
+
+{% endif %}
 
 在提交事件单之前，您应当收集 {% data variables.contact.github_support %} 的有用信息并选择联系人。 更多信息请参阅“[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”。
 
-{% if enterpriseServerVersions contains currentVersion %}
-在提交支持请求和可选诊断信息后，
-{% data variables.contact.github_support %} 可能要求您下载并与我们分享支持包。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
+{% ifversion ghes %}
+提交支持请求和可选诊断信息后，{% data variables.contact.github_support %} 可能会要求您下载支持包并将其共享给我们。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
 
-### 使用 {% data variables.contact.enterprise_portal %} 提交事件单
+## 使用 {% data variables.contact.enterprise_portal %} 提交事件单
 
 1. 导航到 {% data variables.contact.contact_enterprise_portal %}。
 5. 单击 **Submit a Ticket（提交事件单）** ![将事件单提交至 Enterprise 支持团队](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### 使用企业帐户提交事件单
+## 使用企业帐户提交事件单
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -37,7 +43,7 @@ topics:
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### 使用 {% data variables.product.product_name %} {% data variables.enterprise.management_console %} 提交事件单。
+## 使用 {% data variables.product.product_name %} {% data variables.enterprise.management_console %} 提交事件单。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -52,14 +58,28 @@ topics:
 7. 单击 **Submit（提交）**。
 
 {% endif %}
-{% if currentVersion == "github-ae@latest" %}
-### 使用 {% data variables.contact.ae_azure_portal %}提交事件单
+
+{% ifversion ghae %}
+
+## 基本要求
+
+要在 {% data variables.contact.ae_azure_portal %} 中提交 {% data variables.product.prodname_ghe_managed %} 支持单，您必须将 Azure 中 {% data variables.product.prodname_ghe_managed %} 订阅的 ID 提交到 Microsoft 上的 Customer Success Account Manager (CSAM)。
+
+## 使用 {% data variables.contact.ae_azure_portal %}提交事件单
 
 商业客户可以在 {% data variables.contact.contact_ae_portal %} 中提交支持请求。 政府客户应该使用[政府客户的 Azure 门户网站](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 更多信息请参阅 Microsoft 文档中的 "[创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)"。
 
+## {% data variables.contact.ae_azure_portal %} 中的问题排除
+
+{% data variables.product.company_short %} 无法排除 Azure 门户中的访问和订阅问题。 有关 Azure 门户的帮助，请联系 Microsoft 的 CSAM 或查看以下信息。
+
+- 如果您无法登录 Azure 门户，请参阅 Microsoft 文档中的[Azure 订阅登录问题故障排除](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)或[直接提交请求](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178)。
+
+- 如果您可以登录 Azure 门户，但无法提交 {% data variables.product.prodname_ghe_managed %} 支持单，请查看提交支持单的先决条件。 更多信息请参阅“[先决条件](#prerequisites)”。
+
 {% endif %}
 
-### 延伸阅读
+## 延伸阅读
 
-- "[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% ifversion ghes %}
 - "[关于 {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}

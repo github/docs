@@ -20,12 +20,12 @@ Closes [issue link]
 
 ### What's being changed:
 
-<!-- Share artifacts of the changes, be they code snippets, GIFs or screenshots; whatever shares the most context. -->
+<!-- Share artifacts of the changes, be they code snippets, GIFs or screenshots; whatever shares the most context. If you made changes to the `content` directory, a table will populate in a comment below with the staging and live article links -->
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**).
-- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/CONTRIBUTING.md#self-review).
+- [ ] I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
+- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/contributing/self-review.md#self-review).
 
 ### Writer impact (This section is for GitHub staff members only):
 

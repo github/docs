@@ -21,6 +21,8 @@ topics:
 
 このプロジェクトを完了すれば、独自の複合実行ステップ アクションをビルドし、ワークフローでテストする方法を理解できるでしょう。
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### 必要な環境
 
 始める前に、{% data variables.product.product_name %} リポジトリを作成します。

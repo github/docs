@@ -1,6 +1,15 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
+export type TocItem = {
+  fullPath: string
+  title: string
+  intro?: string
+  childTocItems?: Array<{
+    fullPath: string
+    title: string
+  }>
+}
 export type FeaturedLink = {
   title: string
   href: string
@@ -8,6 +17,7 @@ export type FeaturedLink = {
   authors?: Array<string>
   hideIntro?: boolean
   date?: string
+  fullTitle?: string
 }
 export type CodeExample = {
   title: string
@@ -19,15 +29,6 @@ export type CodeExample = {
 export type Product = {
   title: string
   href: string
-  categories: Record<
-    string,
-    {
-      href: string
-      title: string
-      standalone?: boolean
-      articles?: Record<string, { href: string; title: string; shortTitle?: string }>
-    }
-  >
 }
 
 export type ProductLandingContextT = {
@@ -37,20 +38,13 @@ export type ProductLandingContextT = {
   intro: string
   beta_product: boolean
   product: Product
-  // primaryAction: LinkButtonT
-  // secondaryAction?: LinkButtonT
   introLinks: {
     quickstart?: string
     reference?: string
     overview?: string
-  }
+  } | null
   product_video?: string
-  // featuredLinks?: {
-  //   guides: Array<FeaturedLink>
-  //   popular: Array<FeaturedLink>
-  //   guideCards: Array<FeaturedLink>
-  // }
-  guideCards: Array<FeaturedLink>
+  featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
@@ -59,9 +53,16 @@ export type ProductLandingContextT = {
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     articles: Array<FeaturedLink>
   }>
-  changelog: { label: string; prefix: string }
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
+  tocItems: Array<TocItem>
+  hasGuidesPage: boolean
+  releases: Array<{
+    version: string
+    firstPreviousRelease: string
+    secondPreviousRelease: string
+    patches: Array<{ date: string; version: string }>
+  }>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -78,34 +79,46 @@ export const useProductLandingContext = (): ProductLandingContextT => {
   return context
 }
 
+export const getFeaturedLinksFromReq = (req: any): Record<string, Array<FeaturedLink>> => {
+  return Object.fromEntries(
+    Object.entries(req.context.featuredLinks || {}).map(([key, entries]) => {
+      return [
+        key,
+        ((entries as Array<any>) || []).map((entry: any) => ({
+          href: entry.href,
+          title: entry.title,
+          intro: entry.intro,
+          authors: entry.page.authors || [],
+          fullTitle: entry.fullTitle,
+        })),
+      ]
+    })
+  )
+}
+
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
-  const {
-    currentCategory,
-    currentPath,
-    siteTree,
-    currentLanguage,
-    currentVersion,
-    currentProduct,
-  } = req.context
+  const productTree = req.context.currentProductTree
+  const page = req.context.page
+  const hasGuidesPage = (page.children || []).includes('/guides')
   return {
-    ...pick(req.context.page, [
+    ...pick(page, [
       'title',
       'shortTitle',
       'introPlainText',
       'beta_product',
       'intro',
       'product_video',
-      'changelog',
     ]),
-    product: JSON.parse(
-      JSON.stringify(siteTree[currentLanguage][currentVersion].products[currentProduct])
-    ),
-    whatsNewChangelog: req.context.whatsNewChangelog,
-    changelogUrl: req.context.changelogUrl,
-
+    hasGuidesPage,
+    product: {
+      href: productTree.href,
+      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+    },
+    whatsNewChangelog: req.context.whatsNewChangelog || [],
+    changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
-
     productCommunityExamples: req.context.productCommunityExamples || [],
+    releases: req.context.releases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
@@ -114,27 +127,32 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: Object.fromEntries(
-      Object.entries(req.context.page.introLinks || {}).filter(([key, val]) => !!val)
-    ),
+    introLinks: page.introLinks
+      ? {
+          quickstart: page.introLinks.quickstart,
+          reference: page.introLinks.reference,
+          overview: page.introLinks.overview,
+        }
+      : null,
 
-    guideCards: (req.context.featuredLinks.guideCards || []).map((link: any) => {
-      return {
-        href: link.href,
-        title: link.title,
-        intro: link.intro,
-        authors: link.page.authors || [],
-      }
-    }),
+    featuredLinks: getFeaturedLinksFromReq(req),
 
-    featuredArticles: Object.entries(req.context.featuredLinks)
+    tocItems: req.context.tocItems || [],
+
+    featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
         return key === 'guides' || key === 'popular'
       })
       .map(([key, links]: any) => {
         return {
-          label: req.context.site.data.ui.toc[key],
-          viewAllHref: key === 'guides' && !currentCategory ? `${currentPath}/${key}` : '',
+          label:
+            key === 'popular'
+              ? req.context.page.featuredLinks.popularHeading || req.context.site.data.ui.toc[key]
+              : req.context.site.data.ui.toc[key],
+          viewAllHref:
+            key === 'guides' && !req.context.currentCategory && hasGuidesPage
+              ? `${req.context.currentPath}/guides`
+              : '',
           articles: links.map((link: any) => {
             return {
               hideIntro: key === 'popular',
@@ -142,6 +160,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
               title: link.title,
               intro: link.intro,
               authors: link.page.authors || [],
+              fullTitle: link.fullTitle,
             }
           }),
         }

@@ -6,23 +6,25 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: Install on Azure
 ---
+
 Sie können {% data variables.product.prodname_ghe_server %} auf Global Azure oder Azure Government bereitstellen.
 
-### Vorrausetzungen
+## Vorrausetzungen
 
 - {% data reusables.enterprise_installation.software-license %}
 - Sie müssen über ein Azure-Konto verfügen, das neue Computer bereitstellen kann. Weitere Informationen finden Sie auf der „[Microsoft Azure-Website](https://azure.microsoft.com)“.
 - Die meisten Aktionen, die zum Starten Ihrer virtuellen Maschine (VM) erforderlich sind, können auch mithilfe des Azure-Portals ausgeführt werden. Zur Ersteinrichtung sollten Sie jedoch die Azure-Befehlszeilenschnittstelle (CLI) installieren. Im Folgenden finden Sie Beispiele zur Verwendung der Azure CLI 2.0. For more information, see Azure's guide "[Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)."
 
-### Grundlegendes zur Hardware
+## Grundlegendes zur Hardware
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### Typ der virtuellen Maschine ermitteln
+## Typ der virtuellen Maschine ermitteln
 
 Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
@@ -34,7 +36,7 @@ Für die {% data variables.product.prodname_ghe_server %}-Appliance ist eine Pre
 
 {% data variables.product.prodname_ghe_server %} unterstützt jede Region, die Ihren VM-Typ unterstützt. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
 
-### {% data variables.product.prodname_ghe_server %}-VM erstellen
+## {% data variables.product.prodname_ghe_server %}-VM erstellen
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -75,7 +77,7 @@ Für die {% data variables.product.prodname_ghe_server %}-Appliance ist eine Pre
 
    {% endnote %}
 
-### {% data variables.product.prodname_ghe_server %}-VM konfigurieren
+## {% data variables.product.prodname_ghe_server %}-VM konfigurieren
 
 1. Vor der VM-Konfiguration müssen Sie darauf warten, dass sie den Status „ReadyRole“ aufweist. Führen Sie den Befehl `vm list` aus, um den Status der VM zu überprüfen. Weitere Informationen finden Sie unter „[az vm list](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)“ in der Microsoft-Dokumentation.
   ```shell
@@ -97,7 +99,7 @@ Für die {% data variables.product.prodname_ghe_server %}-Appliance ist eine Pre
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

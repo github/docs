@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
 intro: '使用 LDAP，您可以向 {% data variables.product.prodname_ghe_server %} 验证现有帐户的身份和集中管理仓库权限。 LDAP 是一种用于访问和维护目录信息服务的流行应用程序协议，是将第三方软件与大型公司用户目录相集成时使用的最常见协议之一。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -19,9 +19,10 @@ topics:
   - Enterprise
   - Identity
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### 支持的 LDAP 服务
+## 支持的 LDAP 服务
 
 {% data variables.product.prodname_ghe_server %} 可与下列 LDAP 服务集成：
 
@@ -32,7 +33,7 @@ topics:
 * Open Directory
 * 389-ds
 
-### 使用 LDAP 时的用户名考量因素
+## 使用 LDAP 时的用户名考量因素
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -41,7 +42,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### 在 {% data variables.product.product_location %} 上配置 LDAP
+## 在 {% data variables.product.product_location %} 上配置 LDAP
 
 在您配置 LDAP 后，用户将能够使用他们的 LDAP 凭据登录您的实例。 在用户首次登录时，他们个人资料中的姓名、电子邮件地址和 SSH 密钥将使用您的目录中的 LDAP 属性进行设置。
 
@@ -60,7 +61,7 @@ topics:
 4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![选中 LDAP 内置身份验证复选框](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
 5. 添加您的配置设置。
 
-### LDAP 属性
+## LDAP 属性
 使用以下属性完成 {% data variables.product.product_location %} 的 LDAP 配置。
 
 | 属性名称                                             | 类型 | 描述                                                                                                                                                                                                          |
@@ -82,7 +83,7 @@ topics:
 | `Enable LDAP certificate verification`           | 可选 | 如果选择，将[启用](#enabling-ldap-certificate-verification) LDAP 证书验证。                                                                                                                                              |
 | `Synchronization`                                | 可选 | 如果选择，将[启用](#enabling-ldap-sync) LDAP 同步。                                                                                                                                                                    |
 
-#### 为 Git 操作禁用密码身份验证
+### 为 Git 操作禁用密码身份验证
 
 在您的 LDAP 设置中选择 **Disable username and password authentication for Git operations**，为 Git 权限强制使用个人访问令牌或 SSH 密钥，这样有助于防止您的服务器被 LDAP 身份验证请求过载。 我们建议使用此设置，因为响应慢的 LDAP 服务器是性能问题和故障的常见来源，尤其是在遇到轮询导致的大量请求时。
 
@@ -90,7 +91,7 @@ topics:
 
 选择此选项时，如果用户通过命令行尝试为 Git 操作使用密码，他们将收到一条错误消息，内容为 `Password authentication is not allowed for Git operations. You must use a personal access token.`
 
-#### 启用 LDAP 证书验证
+### 启用 LDAP 证书验证
 
 在您的 LDAP 设置中选择 **Enable LDAP certificate verification**，验证您用于 TLS 的 LDAP 服务器证书。
 
@@ -101,7 +102,7 @@ topics:
 - 证书不会过期。
 - 证书由受信任的证书颁发机构 (CA) 签名。
 
-#### 启用 LDAP 同步
+### 启用 LDAP 同步
 
 {% note %}
 
@@ -158,7 +159,7 @@ topics:
 
 {% endwarning %}
 
-#### 支持的 LDAP 组对象类
+### 支持的 LDAP 组对象类
 
 {% data variables.product.prodname_ghe_server %} 支持下列 LDAP 组对象类。 可以嵌套组。
 
@@ -167,7 +168,7 @@ topics:
 - `groupOfUniqueNames`
 - `posixGroup`
 
-### 查看和创建 LDAP 用户
+## 查看和创建 LDAP 用户
 
 您可以查看具有您的实例访问权限的 LDAP 用户的完整列表和配置新用户。
 
@@ -176,7 +177,7 @@ topics:
 3. 在左侧边栏中，单击 **LDAP users**。 ![LDAP users 选项卡](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
 4. 要搜索用户，请输入完整或部分用户名，然后单击 **Search**。 现有用户将显示在搜索结果中。 如果用户不存在，请单击 **Create** 以配置新用户帐户。 ![LDAP 搜索](/assets/images/enterprise/site-admin-settings/ldap-users-search.png)
 
-### 更新 LDAP 帐户
+## 更新 LDAP 帐户
 
 除非[启用 LDAP 同步](#enabling-ldap-sync)，否则 LDAP 帐户的变更将不会自动与 {% data variables.product.prodname_ghe_server %} 同步。
 
@@ -184,7 +185,7 @@ topics:
 * 要在 LDAP 管理员组中添加或移除 LDAP 帐户，请[在 {% data variables.product.prodname_ghe_server %} 上升级或降级帐户](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator)。
 * 要移除 LDAP 帐户，请[挂起 {% data variables.product.prodname_ghe_server %} 帐户](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)。
 
-#### 手动同步 LDAP 帐户
+### 手动同步 LDAP 帐户
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -196,7 +197,7 @@ topics:
 
 您也可以[使用 API 触发手动同步](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)。
 
-### 撤销 {% data variables.product.product_location %} 的权限
+## 撤销 {% data variables.product.product_location %} 的权限
 
 如果[启用 LDAP 同步](#enabling-ldap-sync)，移除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
 

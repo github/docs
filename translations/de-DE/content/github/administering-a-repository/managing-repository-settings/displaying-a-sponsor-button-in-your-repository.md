@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Informationen zu FUNDING-Dateien
 
 Du kannst Deine Sponsorenschaltfläche konfigurieren, indem Du die Datei _FUNDING.yml_ im `.github`-Ordner auf dem Standardbranch Deines Repositorys bearbeitest. Die Schaltfläche kann so konfiguriert werden, dass sie unterstützte Entwickler in {% data variables.product.prodname_sponsors %}, externen Finanzierungsplattformen oder einer benutzerdefinierten Sponsoring-URL enthält. Weitere Informationen zu {% data variables.product.prodname_sponsors %} findest Du unter „[Informationen zu GitHub-Sponsoren](/sponsors/getting-started-with-github-sponsors/about-github-sponsors).“

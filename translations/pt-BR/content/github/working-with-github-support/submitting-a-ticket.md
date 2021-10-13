@@ -4,16 +4,19 @@ intro: 'Você pode enviar um tíquete para o {% data variables.contact.github_su
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Jobs
 ---
 
-Se a sua conta usa um produto {% data variables.product.prodname_dotcom %} pago, você pode entrar em contato diretamente com {% data variables.contact.github_support %}. Se a sua conta usa {% data variables.product.prodname_free_user %} para contas de usuários e organizações, você pode entrar em contato com {% data variables.contact.contact_support %} para relatar problemas com a conta, de segurança e abusos. Para obter mais informações, consulte "[Sobre GitHub Support](/github/working-with-github-support/about-github-support)".
+## Sobre o envio do ticket
+Se a sua conta usa um produto {% data variables.product.prodname_dotcom %} pago, você pode entrar em contato diretamente com {% data variables.contact.github_support %}. Se a sua conta usar {% data variables.product.prodname_free_user %} para contas de usuário e organizações, você pode usar o contato {% data variables.contact.github_support %} para relatar contas, segurança e problemas de abuso. Para obter mais informações, consulte "[Sobre GitHub Support](/github/working-with-github-support/about-github-support)".
+
+{% data reusables.enterprise-accounts.support-entitlements %}
 
 Se você não tem uma conta corporativa, use {% data variables.contact.enterprise_portal %} para enviar tíquetes. Para obter mais informações sobre contas corporativas, consulte "[Sobre contas corporativas](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)".
 
-### Enviando um tíquete usando o {% data variables.contact.support_portal %}
+## Enviar um tíquete usando o {% data variables.contact.support_portal %}
 
 1. Navegue até o {% data variables.contact.contact_support_portal %}.
 2. Em "Name" (Nome), insira seu nome. ![Campo Nome](/assets/images/help/support/name-field.png)
@@ -26,14 +29,14 @@ Se você não tem uma conta corporativa, use {% data variables.contact.enterpris
 6. Opcionalmente, anexe arquivos arrastando e soltando, fazendo upload ou colando da área de transferência.
 7. Clique em **Send request** (Enviar solicitação). ![Botão Send request (Enviar solicitação)](/assets/images/help/support/send-request-button.png)
 
-### Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
+## Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
 1. Navegue até o {% data variables.contact.contact_enterprise_portal %}.
 5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Leia mais
+## Leia mais
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)"
 - "[Sobre o {% data variables.contact.github_support %}](/articles/about-github-support)"
 - "[Sobre o {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."

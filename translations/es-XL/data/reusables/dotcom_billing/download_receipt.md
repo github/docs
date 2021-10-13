@@ -1,1 +1,0 @@
-1. Dentro de "Historial de pagos", revisa tus pagos anteriores. Para descargar un recibo de un pago específico, haz clic en {% octicon "download" aria-label="The download icon" %}. ![Botón de recibo de descarga](/assets/images/help/settings/settings-download-receipt.png)

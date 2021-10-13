@@ -10,16 +10,18 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/
   - /admin/configuration/configuring-github-pages-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Pages
+shortTitle: 配置 GitHub Pages
 ---
-### 为 {% data variables.product.prodname_pages %} 启用公共站点
 
-{% if enterpriseServerVersions contains currentVersion %}如果您的企业启用了私有模式，则除非您启用公共站点，否则{% else %}{% endif %}公众无法访问您的企业托管的 {% data variables.product.prodname_pages %} 站点。
+## 为 {% data variables.product.prodname_pages %} 启用公共站点
+
+{% ifversion ghes %}如果您的企业启用了私有模式，则除非您启用公共站点，否则{% else %}{% endif %}公众无法访问您的企业托管的 {% data variables.product.prodname_pages %} 站点。
 
 {% warning %}
 
@@ -27,13 +29,13 @@ topics:
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. 选择 **Public Pages**。 ![启用公共页面复选框](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -41,20 +43,19 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### 为企业禁用 {% data variables.product.prodname_pages %}
+## 为企业禁用 {% data variables.product.prodname_pages %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-如果为企业禁用了子域隔离，则还应禁用
-{% data variables.product.prodname_pages %} 以保护自己免受潜在安全漏洞的威胁。 更多信息请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
+{% ifversion ghes %}
+如果为企业禁用了子域隔离，则还应禁用 {% data variables.product.prodname_pages %}，以免遭受潜在安全漏洞的攻击。 更多信息请参阅“[启用子域隔离](/admin/configuration/enabling-subdomain-isolation)”。
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. 取消选择 **Enable Pages**。 ![禁用 {% data variables.product.prodname_pages %} 复选框](/assets/images/enterprise/management-console/pages-select-button.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -62,8 +63,8 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### 延伸阅读
+{% ifversion ghes %}
+## 延伸阅读
 
 - "[启用私人模式](/admin/configuration/enabling-private-mode)"
 {% endif %}

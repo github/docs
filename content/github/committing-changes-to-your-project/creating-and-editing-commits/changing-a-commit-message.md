@@ -6,17 +6,17 @@ redirect_from:
   - /github/committing-changes-to-your-project/changing-a-commit-message
 intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-### Rewriting the most recent commit message
+## Rewriting the most recent commit message
 
 You can change the most recent commit message using the `git commit --amend` command.
 
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
-### Commit has not been pushed online
+## Commit has not been pushed online
 
 If the commit only exists in your local repository and has not been pushed to {% data variables.product.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
@@ -24,7 +24,7 @@ If the commit only exists in your local repository and has not been pushed to {%
 2. Type `git commit --amend` and press **Enter**.
 3. In your text editor, edit the commit message, and save the commit.
     - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/articles/creating-a-commit-with-multiple-authors)."
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
     - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
@@ -36,7 +36,7 @@ You can change the default text editor for Git by changing the `core.editor` set
 
 {% endtip %}
 
-### Amending older or multiple commit messages
+## Amending older or multiple commit messages
 
 If you have already pushed the commit to {% data variables.product.product_location %}, you will have to force push a commit with an amended message.
 
@@ -49,9 +49,9 @@ We strongly discourage force pushing, since this changes the history of your rep
 **Changing the message of the most recently pushed commit**
 
 1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
-2. Use the `push --force` command to force push over the old commit.
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **Changing the message of older or multiple commit messages**
@@ -117,6 +117,6 @@ If you have included sensitive information in a commit message, force pushing a 
 
 {% endwarning %}
 
-### Further reading
+## Further reading
 
 * "[Signing commits](/articles/signing-commits)"

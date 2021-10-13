@@ -14,9 +14,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Actions
+  - Repositories
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -30,7 +35,7 @@ Você decide como gerar alertas de {% data variables.product.prodname_code_scann
 
 ### Configurar {% data variables.product.prodname_code_scanning %} usando ações
 
-{% if currentVersion == "free-pro-team@latest" %}Usar ações para executar {% data variables.product.prodname_code_scanning %} levará minutos. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Usar ações para executar {% data variables.product.prodname_code_scanning %} levará minutos. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

@@ -6,10 +6,14 @@ redirect_from:
   - /articles/adding-an-existing-project-to-github-using-the-command-line
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Add a project locally
 ---
+
+## About adding existing projects to {% data variables.product.product_name %}
+
 {% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
@@ -20,12 +24,41 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
+## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+
+{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.product_name %} を使用するためのオープンソースツールです。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+1. In the command line, navigate to the root directory of your project.
+1. ローカルディレクトリを Git リポジトリとして初期化します。
+
+    ```shell
+    git init -b main
+    ```
+
+1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+
+   ```shell
+   gh repo create <em>project-name</em>
+   ```
+
+1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
+1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+
+    ```shell
+    git pull --set-upstream origin main
+    ```
+
+1. Stage, commit, and push all of the files in your project.
+
+    ```shell
+    git add . && git commit -m "initial commit" && git push
+    ```
+
+## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+
 {% mac %}
 
-1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -60,10 +93,7 @@ versions:
 
 {% windows %}
 
-1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -98,10 +128,7 @@ versions:
 
 {% linux %}
 
-1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
@@ -134,6 +161,6 @@ versions:
 
 {% endlinux %}
 
-### 参考リンク
+## 参考リンク
 
-- [コマンドラインを使用してリポジトリにファイルを追加する](/articles/adding-a-file-to-a-repository-using-the-command-line)
+- [リポジトリへのファイルの追加](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)

@@ -6,22 +6,27 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - CVEs
+  - Repositories
+shortTitle: アドバイザリの公開
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリを公開できます。
 
-### 必要な環境
+## 必要な環境
 
 セキュリティアドバイザリを公開したり、CVE の ID 番号をリクエストしたりする前に、セキュリティアドバイザリのドラフトを作成し、セキュリティの脆弱性の影響を受けるプロジェクトのバージョンに関する情報を提供する必要があります。 詳しい情報については、「[セキュリティアドバイザリを作成する](/github/managing-security-vulnerabilities/creating-a-security-advisory)」を参照してください。
 
 セキュリティアドバイザリを作成したが、セキュリティの脆弱性が影響を与えるプロジェクトのバージョンに関する詳細をまだ入力していない場合は、セキュリティアドバイザリを編集できます。 詳しい情報については、「[セキュリティアドバイザリを編集する](/github/managing-security-vulnerabilities/editing-a-security-advisory)」を参照してください。
 
-### セキュリティアドバイザリの公開について
+## セキュリティアドバイザリの公開について
 
 セキュリティアドバイザリを公開すると、セキュリティアドバイザリが指定するセキュリティの脆弱性についてコミュニティに通知します。 セキュリティアドバイザリを公開すると、コミュニティがパッケージの依存関係を更新し、セキュリティの脆弱性の影響を調査しやすくなります。
 
@@ -56,9 +61,21 @@ topics:
 
 公開したセキュリティアドバイザリの情報をアップデートまたは修正する必要がある場合は、セキュリティアドバイザリを編集できます。 詳しい情報については、「[セキュリティアドバイザリを編集する](/github/managing-security-vulnerabilities/editing-a-security-advisory)」を参照してください。
 
-### CVE 識別番号をリクエストする
+## セキュリティアドバイザリを公開する
 
-セキュリティアドバイザリの管理者権限を持っているすべてのユーザは、セキュリティアドバイザリの CVE 識別番号をリクエストできます。
+セキュリティアドバイザリを公開すると、セキュリティアドバイザリの一時的なプライベートフォークが削除されます。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+4. [Security Advisories] のリストから、公開するセキュリティアドバイザリをクリックします。 ![リスト内のセキュリティアドバイザリ](/assets/images/help/security/security-advisory-in-list.png)
+5. ページの下部で、[**Publish advisory**] をクリックします。 ![[Publish advisory] ボタン](/assets/images/help/security/publish-advisory-button.png)
+
+## 公開されたセキュリティアドバイザリの {% data variables.product.prodname_dependabot_alerts %}
+
+{% data reusables.repositories.github-reviews-security-advisories %}
+
+## Requesting a CVE identification number (Optional)
 
 {% data reusables.repositories.request-security-advisory-cve-id %} 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)」を参照してください。
 
@@ -69,20 +86,6 @@ topics:
 5. [**Edit**] ドロップダウンメニューを使用して、[**Request CVE**] をクリックします。 ![ドロップダウンの [Request CVE]](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. [**Request CVE**] をクリックします。 ![[Request CVE] ボタン](/assets/images/help/security/security-advisory-request-cve-button.png)
 
-### セキュリティアドバイザリを公開する
-
-セキュリティアドバイザリを公開すると、セキュリティアドバイザリの一時的なプライベートフォークが削除されます。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-4. [Security Advisories] のリストから、公開するセキュリティアドバイザリをクリックします。 ![リスト内のセキュリティアドバイザリ](/assets/images/help/security/security-advisory-in-list.png)
-5. ページの下部で、[**Publish advisory**] をクリックします。 ![[Publish advisory] ボタン](/assets/images/help/security/publish-advisory-button.png)
-
-### 公開されたセキュリティアドバイザリの {% data variables.product.prodname_dependabot_alerts %}
-
-{% data reusables.repositories.github-reviews-security-advisories %}
-
-### 参考リンク
+## 参考リンク
 
 - 「[セキュリティアドバイザリを撤回する](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)」

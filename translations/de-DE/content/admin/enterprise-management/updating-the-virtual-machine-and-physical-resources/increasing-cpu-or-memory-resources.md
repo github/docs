@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
   - /admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
+shortTitle: Increase CPU or memory
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-### CPU- oder Arbeitsspeicherressourcen für AWS hinzufügen
+## CPU- oder Arbeitsspeicherressourcen für AWS hinzufügen
 
 {% note %}
 
@@ -23,14 +25,14 @@ topics:
 
 {% endnote %}
 
-#### Grundlegendes zur Größenanpassung
+### Grundlegendes zur Größenanpassung
 
 Bevor Sie die CPU- oder Arbeitsspeicherressourcen für {% data variables.product.product_location %} erhöhen:
 
 - **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **Assign an Elastic IP address to the instance**. Falls keine Elastic IP zugewiesen ist, müssen Sie die DNS A-Einträge für Ihren {% data variables.product.prodname_ghe_server %}-Host nach dem Neustart anpassen, damit die an der öffentlichen IP-Adresse vorgenommenen Änderungen berücksichtigt werden. Sobald Ihre Instanz neu gestartet wird, wird die Elastic IP (EIP) automatisch gespeichert, wenn die Instanz in einer VPC gestartet wird. Wenn die Instanz in EC2-Classic gestartet wird, muss die Elastic IP erneut manuell zugeordnet werden.
 
-#### Unterstützte AWS Instance-Typen
+### Unterstützte AWS Instance-Typen
 
 Sie müssen anhand der CPU-/Arbeitsspeicherspezifikationen den Instanztyp bestimmen, für den Sie ein Upgrade vornehmen möchten.
 
@@ -38,7 +40,7 @@ Sie müssen anhand der CPU-/Arbeitsspeicherspezifikationen den Instanztyp bestim
 
 {% data reusables.enterprise_installation.aws-instance-recommendation %}
 
-#### Größenanpassung für AWS
+### Größenanpassung für AWS
 
 {% note %}
 
@@ -53,7 +55,7 @@ Es ist nicht möglich, einer vorhandenen AWS-/EC2 Instance CPU- oder Arbeitsspei
 3. Starten Sie die Instanz.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
-### CPU- oder Arbeitsspeicherressourcen für OpenStack KVM hinzufügen
+## CPU- oder Arbeitsspeicherressourcen für OpenStack KVM hinzufügen
 
 Es ist nicht möglich, einer vorhandenen OpenStack KVM-Instanz CPU- oder Arbeitsspeicherressourcen hinzuzufügen. Gehen Sie stattdessen wie folgt vor:
 
@@ -61,7 +63,7 @@ Es ist nicht möglich, einer vorhandenen OpenStack KVM-Instanz CPU- oder Arbeits
 2. Beenden Sie die Instanz.
 3. Wählen Sie eine neue Instanzvariante mit den gewünschten CPU- bzw. Arbeitsspeicherressourcen aus.
 
-### Adding CPU or memory resources for VMware
+## Adding CPU or memory resources for VMware
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

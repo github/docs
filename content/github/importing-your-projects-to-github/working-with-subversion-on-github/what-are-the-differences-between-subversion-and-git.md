@@ -6,10 +6,11 @@ redirect_from:
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+shortTitle: Subversion & Git differences
 ---
-### Directory structure
+## Directory structure
 
 Each *reference*, or labeled snapshot of a commit, in a project is organized within specific subdirectories, such as `trunk`, `branches`, and `tags`. For example, an SVN project with two features under development might look like this:
 
@@ -41,7 +42,7 @@ A Git workflow looks like this:
 
 Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
 
-### Including subprojects
+## Including subprojects
 
 A *subproject* is a project that's developed and managed somewhere outside of your main project. You typically import a subproject to add some functionality to your project without needing to maintain the code yourself. Whenever the subproject is updated, you can synchronize it with your project to ensure that everything is up-to-date.
 
@@ -49,7 +50,7 @@ In SVN, a subproject is called an *SVN external*. In Git, it's called a *Git sub
 
 For more information, see “[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
-### Preserving history
+## Preserving history
 
 SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
@@ -59,7 +60,7 @@ SVN is configured to assume that the history of a project never changes. Git all
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"
 - ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

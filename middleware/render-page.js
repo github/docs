@@ -1,129 +1,39 @@
-const { get } = require('lodash')
-const { liquid } = require('../lib/render-content')
-const patterns = require('../lib/patterns')
-const layouts = require('../lib/layouts')
-const getMiniTocItems = require('../lib/get-mini-toc-items')
-const Page = require('../lib/page')
-const statsd = require('../lib/statsd')
-const RedisAccessor = require('../lib/redis-accessor')
-const { isConnectionDropped } = require('./halt-on-dropped-connection')
-const { nextHandleRequest } = require('./next')
+import { get } from 'lodash-es'
+import patterns from '../lib/patterns.js'
+import getMiniTocItems from '../lib/get-mini-toc-items.js'
+import Page from '../lib/page.js'
+import { isConnectionDropped } from './halt-on-dropped-connection.js'
+import { nextApp, nextHandleRequest } from './next.js'
 
-const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
-const pageCacheDatabaseNumber = 1
-const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
-
-const pageCache = new RedisAccessor({
-  databaseNumber: pageCacheDatabaseNumber,
-  prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
-  // Allow for graceful failures if a Redis SET operation fails
-  allowSetFailures: true,
-  // Allow for graceful failures if a Redis GET operation fails
-  allowGetFailures: true,
-  name: 'page-cache'
-})
-
-// a list of query params that *do* alter the rendered page, and therefore should be cached separately
-const cacheableQueries = ['learn']
-
-const renderWithNext = FEATURE_NEXTJS
-  ? [
-      '/en/rest',
-      '/en/sponsors',
-      '/ja/sponsors',
-      '/en/discussions',
-      '/en/actions'
-    ]
-  : []
-
-function modifyOutput (req, text) {
-  return addColorMode(req, addCsrf(req, text))
-}
-
-function addCsrf (req, text) {
-  return text.replace('$CSRFTOKEN$', req.csrfToken())
-}
-
-function addColorMode (req, text) {
-  let colorMode = 'auto'
-  let darkTheme = 'dark'
-  let lightTheme = 'light'
-
-  try {
-    const cookieValue = JSON.parse(decodeURIComponent(req.cookies.color_mode))
-    colorMode = encodeURIComponent(cookieValue.color_mode) || colorMode
-    darkTheme = encodeURIComponent(cookieValue.dark_theme.name) || darkTheme
-    lightTheme = encodeURIComponent(cookieValue.light_theme.name) || lightTheme
-  } catch (e) {
-    // do nothing
+export default async function renderPage(req, res, next) {
+  if (req.path.startsWith('/storybook')) {
+    return nextHandleRequest(req, res)
   }
 
-  return text
-    .replace('$COLORMODE$', colorMode)
-    .replace('$DARKTHEME$', darkTheme)
-    .replace('$LIGHTTHEME$', lightTheme)
-}
-
-module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
-
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
-      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
-    }
-    return res.status(404).send(
-      modifyOutput(
-        req,
-        await liquid.parseAndRender(layouts['error-404'], req.context)
+      console.error(
+        `\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`
       )
-    )
+    }
+    return nextApp.render404(req, res)
   }
 
+  // Just finish fast without all the details like Content-Length
   if (req.method === 'HEAD') {
     return res.status(200).end()
   }
 
-  // Remove any query string (?...) and/or fragment identifier (#...)
-  const { pathname, searchParams } = new URL(req.originalUrl, 'https://docs.github.com')
-
-  for (const queryKey in req.query) {
-    if (!cacheableQueries.includes(queryKey)) {
-      searchParams.delete(queryKey)
-    }
-  }
-  const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
-
-  // Serve from the cache if possible (skip during tests)
-  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
-
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
-
-  // Should the current path be rendered by NextJS?
-  const isNextJsRequest = renderWithNext.includes(req.path)
-
-  if (isCacheable && !isRequestingJsonForDebugging && !(FEATURE_NEXTJS && isNextJsRequest)) {
-    // Stop processing if the connection was already dropped
-    if (isConnectionDropped(req, res)) return
-
-    const cachedHtml = await pageCache.get(originalUrl)
-    if (cachedHtml) {
-      // Stop processing if the connection was already dropped
-      if (isConnectionDropped(req, res)) return
-
-      console.log(`Serving from cached version of ${originalUrl}`)
-      statsd.increment('page.sent_from_cache')
-      return res.send(modifyOutput(req, cachedHtml))
-    }
-  }
 
   // add page context
   const context = Object.assign({}, req.context, { page })
 
   // collect URLs for variants of this page in all languages
-  context.page.languageVariants = Page.getLanguageVariants(req.path)
-
+  context.page.languageVariants = Page.getLanguageVariants(req.pagePath)
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
@@ -139,25 +49,32 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // handle special-case prerendered GraphQL objects page
-  if (req.path.endsWith('graphql/reference/objects')) {
+  if (req.pagePath.endsWith('graphql/reference/objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
+    context.miniTocItems = context.miniTocItems.concat(
+      req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc
+    )
+    context.renderedPage =
+      context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
   // handle special-case prerendered GraphQL input objects page
-  if (req.path.endsWith('graphql/reference/input-objects')) {
+  if (req.pagePath.endsWith('graphql/reference/input-objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
+    context.miniTocItems = context.miniTocItems.concat(
+      req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc
+    )
+    context.renderedPage =
+      context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
   }
 
   // Create string for <title> tag
-  context.page.fullTitle = context.page.title
+  context.page.fullTitle = context.page.titlePlainText
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
-  if (!patterns.homepagePath.test(req.path)) {
-    context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
+  if (!patterns.homepagePath.test(req.pagePath)) {
+    context.page.fullTitle =
+      context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
   }
 
   // `?json` query param for debugging request context
@@ -168,25 +85,15 @@ module.exports = async function renderPage (req, res, next) {
     } else {
       // dump all the keys: ?json
       return res.json({
-        message: 'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
-        keys: Object.keys(context)
+        message:
+          'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
+        keys: Object.keys(context),
       })
     }
   }
 
-  if (FEATURE_NEXTJS && isNextJsRequest) {
-    nextHandleRequest(req, res)
-  } else {
-    // currentLayout is added to the context object in middleware/contextualizers/layouts
-    const output = await liquid.parseAndRender(req.context.currentLayout, context)
-
-    // First, send the response so the user isn't waiting
-    // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-    res.send(modifyOutput(req, output))
-
-    // Finally, save output to cache for the next time around
-    if (isCacheable) {
-      await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
-    }
-  }
+  // Hand rendering over to NextJS
+  req.context.renderedPage = context.renderedPage
+  req.context.miniTocItems = context.miniTocItems
+  return nextHandleRequest(req, res)
 }

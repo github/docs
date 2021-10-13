@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Encontre a versão com a qual você deseja se vincular e clique no número da versão. ![Tag de informação de versões](/assets/images/help/releases/release_tag_name.png)

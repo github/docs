@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.product_name %} 上のすべてのリポジトリで、あなたのアカウントもしくは Organization が有料プランを持っているかどうかにかかわらず、{% data variables.large_files.product_name_short %} が利用できます。
 
 ### ストレージと帯域の利用の追跡
@@ -20,8 +21,7 @@ versions:
 - LFS で追跡されている 500 MB のファイルをダウンロードした場合、リポジトリのオーナーに割り当てられている帯域を 500 MB 消費します。 コラボレータがそのファイルに変更をプッシュし、あなたが新しいバージョンをローカルのリポジトリにプルしたなら、あなたは 500 MB の帯域を新たに消費するため、この 2 つのダウンロードでの合計の使用帯域は 1 GB になります。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-If
-{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブのダウンロードは、リポジトリの帯域幅使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブをダウンロードすると、リポジトリの帯域幅の使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% tip %}

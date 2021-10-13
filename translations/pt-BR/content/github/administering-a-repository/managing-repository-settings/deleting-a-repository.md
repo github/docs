@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositório da organização. Se a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios desta organização) tiver sido desabilitada, somente proprietários da organização poderão excluir repositórios da organização. {% data reusables.organizations.new-repo-permissions-more-info %}
 
 {% if currentVersion != "github-ae@latest" %}Excluir um repositório público não excluirá nenhuma bifurcação do repositório.{% endif %}

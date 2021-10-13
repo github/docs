@@ -8,13 +8,15 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
   - /admin/enterprise-support/providing-data-to-github-support
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Support
+shortTitle: 向支持人员提供数据
 ---
-### 创建和共享诊断文件
+
+## 创建和共享诊断文件
 
 诊断是 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的概览，其中包含：
 
@@ -29,7 +31,7 @@ topics:
 
 您可以从 {% data variables.enterprise.management_console %} 或通过运行 `ghe-diagnostics` 命令行实用程序下载实例的诊断。
 
-#### 从 {% data variables.enterprise.management_console %} 创建诊断文件
+### 从 {% data variables.enterprise.management_console %} 创建诊断文件
 
 如果您没有随时可用的 SSH 密钥，则可以使用此方法。
 
@@ -39,7 +41,7 @@ topics:
 {% data reusables.enterprise_management_console.support-link %}
 5. 单击 **Download diagnostics info**。
 
-#### 使用 SSH 创建诊断文件
+### 使用 SSH 创建诊断文件
 
 您无需登录 {% data variables.enterprise.management_console %} 即可使用此方法。
 
@@ -49,7 +51,7 @@ topics:
 $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 ```
 
-### 创建和共享支持包
+## 创建和共享支持包
 
 您提交支持请求后，我们可能会要求您与我们团队共享支持包。 支持包是一个 gzip 压缩的 tar 存档，其中包含来自您的实例的诊断和重要日志，例如：
 
@@ -63,7 +65,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `configuration-logs/ghe-config.log`：{% data variables.product.prodname_ghe_server %} 配置日志
 - `collectd/logs/collectd.log`：Collectd 日志
 - `mail-logs/mail.log`：SMTP 电子邮件交付日志
-{% if currentVersion ver_lt "enterprise-server@3.0" %}
+{% ifversion ghes < 3.0 %}
 - `hookshot-logs/exceptions.log`：Web 挂钩交付错误
 {% endif %}
 
@@ -77,7 +79,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 {% endtip %}
 
-#### 从 {% data variables.enterprise.management_console %} 创建支持包
+### 从 {% data variables.enterprise.management_console %} 创建支持包
 
 如果您可以访问基于 web 的 {% data variables.enterprise.management_console %} 并具有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
 
@@ -89,7 +91,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-#### 使用 SSH 创建支持包
+### 使用 SSH 创建支持包
 
 如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并且拥有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
 
@@ -103,7 +105,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-#### 使用您的企业帐户上传支持包
+### 使用您的企业帐户上传支持包
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -113,24 +115,24 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 6. 在“为 {% data variables.contact.enterprise_support %} 上传支持包”下，选择您的支持包，单击 **Choose file（选择文件）**，或将您的支持包文件拖到 **Choose file（选择文件）**上。 ![上传支持包文件](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. 单击 **Upload（上传）**。
 
-#### 使用 SSH 直接上传支持包
+### 使用 SSH 直接上传支持包
 
 在以下情况下您可以直接将支持包上传到我们的服务器：
 - 您可以通过 SSH 访问 {% data variables.product.product_location %}。
-- 允许从 {% data variables.product.product_location %} 通过 TCP 端口 443 建立出站 HTTPS 连接。
+- 通过 TCP 端口 443 的出站 HTTPS 连接允许从 {% data variables.product.product_location %} 到 _enterprise-bundles.github.com_ 和 _esbtoolsproduction.blob.core.windows.net_。
 
 1. 将包上传到我们的支持包服务器：
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
   ```
 
-### 创建和共享扩展支持包
+## 创建和共享扩展支持包
 
 支持包包括过去两天的日志，而_扩展_支持包包括过去七天的日志。 如果 {% data variables.contact.github_support %} 调查的事件发生在两天之前，我们可能会要求您分享扩展支持包。 需要 SSH 权限才能下载扩展包 - 不能从 {% data variables.enterprise.management_console %} 下载扩展包。
 
 为避免体积变得太大，支持包只包含尚未轮换和压缩的日志。 关于 {% data variables.product.prodname_ghe_server %} 上的日志轮换，可针对不同的日志文件设置不同的频率（每日或每周），具体取决于我们期望的日志大小。
 
-#### 使用 SSH 创建扩展支持包
+### 使用 SSH 创建扩展支持包
 
 如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并有拥有出站互联网访问权限，则可以使用下列步骤来创建和共享扩展支持包。
 
@@ -141,18 +143,18 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
-#### 使用 SSH 直接上传扩展支持包
+### 使用 SSH 直接上传扩展支持包
 
 在以下情况下您可以直接将支持包上传到我们的服务器：
 - 您可以通过 SSH 访问 {% data variables.product.product_location %}。
-- 允许从 {% data variables.product.product_location %} 通过 TCP 端口 443 建立出站 HTTPS 连接。
+- 通过 TCP 端口 443 的出站 HTTPS 连接允许从 {% data variables.product.product_location %} 到 _enterprise-bundles.github.com_ 和 _esbtoolsproduction.blob.core.windows.net_。
 
 1. 将包上传到我们的支持包服务器：
   ```shell
   $ ssh -p122 admin@<em>hostname</em> -- 'ghe-support-bundle -u -x'
   ```
 
-### 延伸阅读
+## 延伸阅读
 
 - “[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)”
 - “[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”。

@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-### 选择合适的许可
+  ### 选择合适的许可
 
 我们创建了 [choosealicense.com](https://choosealicense.com)，以帮助您了解如何许可您的代码。 软件许可是告诉其他人，他们能够对您的代码做什么，不能做什么，因此做明智的决定很重要。
 

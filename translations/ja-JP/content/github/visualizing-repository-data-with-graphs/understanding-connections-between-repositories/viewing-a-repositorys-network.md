@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ![リポジトリネットワークグラフ](/assets/images/help/graphs/repo_network_graph.png)
 
 {% tip %}

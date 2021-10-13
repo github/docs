@@ -8,8 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 对于 {% data variables.product.product_name %}，第二种身份验证形式是应用程序在移动设备上生成的代码{% if currentVersion == "free-pro-team@latest" %} 或发送的短信 (SMS){% endif %}。 在启用 2FA 后，只要有人尝试登录您的 {% data variables.product.product_name %} 帐户，{% data variables.product.product_name %} 就会生成验证码。 别人登录您的帐户的唯一方式是知道您的密码，并且获取您的手机上的验证码。
 
 {% data reusables.two_fa.after-2fa-add-security-key %}

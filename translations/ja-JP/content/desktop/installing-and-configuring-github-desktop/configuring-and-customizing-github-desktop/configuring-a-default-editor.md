@@ -5,9 +5,11 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-a-default-editor
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Configure default editor
 ---
-### サポートされているエディタ
+
+## サポートされているエディタ
 
 {% data variables.product.prodname_desktop %} は、次のエディタをサポートしています。
 
@@ -53,7 +55,7 @@ versions:
 
 {% endwindows %}
 
-### デフォルトエディタの設定方法
+## デフォルトエディタの設定方法
 
 {% mac %}
 

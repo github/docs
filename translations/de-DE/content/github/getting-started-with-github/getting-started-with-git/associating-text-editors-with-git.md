@@ -13,6 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% mac %}
 
 ### Atom als Editor verwenden

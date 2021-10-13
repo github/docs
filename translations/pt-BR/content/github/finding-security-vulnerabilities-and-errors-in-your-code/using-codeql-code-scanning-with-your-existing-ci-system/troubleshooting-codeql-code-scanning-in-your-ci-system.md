@@ -4,19 +4,20 @@ shortTitle: Solução de problemas na sua CI
 intro: 'Se você tiver problemas com {% data variables.product.prodname_codeql_runner %}, você poderá solucionar esses problemas usando essas dicas.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
-{% data reusables.code-scanning.beta-codeql-runner %}
+{% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### O comando `init` leva muito tempo
+## O comando `init` leva muito tempo
 
 Antes de o {% data variables.product.prodname_codeql_runner %} poder criar e analisar o código, ele precisa acessar o pacote de {% data variables.product.prodname_codeql %} que contém a CLI de {% data variables.product.prodname_codeql %} e as bibliotecas de {% data variables.product.prodname_codeql %}.
 
@@ -24,7 +25,7 @@ Ao usar o {% data variables.product.prodname_codeql_runner %} pela primeira vez 
 
 Para evitar este download automático, você pode fazer o download manualmente do pacote de {% data variables.product.prodname_codeql %} para a sua máquina e especificar o caminho usando o parâmetro `--codeql-path` do comando `init`.
 
-### Nenhum código encontrado durante a criação
+## Nenhum código encontrado durante a criação
 
 Se o comando `analisar` para o {% data variables.product.prodname_codeql_runner %} falhar com um erro `Nenhum código fonte foi visto durante a criação`, isto indica que {% data variables.product.prodname_codeql %} não conseguiu monitorar o seu código. Há várias explicações para essa falha.
 

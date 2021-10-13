@@ -8,10 +8,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Policy for dependency insights
 ---
+
 Enterprise アカウントが所有する Organization では、Organization のオーナーが Organization dependency insights の表示制限を設定できます。 詳細は「[Organization dependency insights の可視性を変更する](/articles/changing-the-visibility-of-your-organizations-dependency-insights)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}

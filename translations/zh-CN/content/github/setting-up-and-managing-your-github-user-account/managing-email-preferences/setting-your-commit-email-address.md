@@ -19,6 +19,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### 关于提交电子邮件地址
 
 {% data variables.product.product_name %} 使用您的提交电子邮件地址将提交与您的 {% data variables.product.product_name %} 帐户关联。 您可以选择要与从命令行以及基于 web 的 Git 操作推送的提交相关联的电子邮件地址。

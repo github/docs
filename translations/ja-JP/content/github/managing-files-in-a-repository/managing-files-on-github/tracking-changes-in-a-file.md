@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Blame ビューでは、{% octicon "versions" aria-label="The prior blame icon" %} をクリックすることで、ファイル全体の行ごとのリビジョン履歴やファイル内の 1 つの行のリビジョン履歴を表示することができます。 {% octicon "versions" aria-label="The prior blame icon" %} をクリックするたびに、変更をコミットした者と時間を含む、その行の過去のリビジョン情報が表示されます。
 
 ![Git blame ビュー](/assets/images/help/repository/git_blame.png)

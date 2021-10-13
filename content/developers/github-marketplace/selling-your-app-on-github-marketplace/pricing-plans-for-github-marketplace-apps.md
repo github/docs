@@ -6,9 +6,10 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: Pricing plans for apps
 ---
 {% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
@@ -20,9 +21,9 @@ For more information on how to create a pricing plan, see "[Setting a {% data va
 
 {% data reusables.marketplace.free-plan-note %}
 
-### Types of pricing plans
+## Types of pricing plans
 
-#### Free pricing plans
+### Free pricing plans
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
@@ -32,7 +33,7 @@ All apps need to handle events for new purchases and cancellations. Apps that on
 
 If you add a paid plan to an app that you've already listed in {% data variables.product.prodname_marketplace %} as a free service, you'll need to request verification for the app and go through financial onboarding.
 
-#### Paid pricing plans
+### Paid pricing plans
 
 There are two types of paid pricing plan:
 
@@ -42,7 +43,7 @@ There are two types of paid pricing plan:
 
 You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
 
-### Free trials
+## Free trials
 
 Customers can start a free trial for any paid plan on a Marketplace listing that includes free trials. However, customers cannot create more than one free trial per marketplace product.
 

@@ -9,15 +9,17 @@ redirect_from:
   - /articles/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 申请未被批准
 ---
+
 {% tip %}
 
 **提示：** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
-### 学术关联文档不明确
+## 学术关联文档不明确
 
 如果您上传的图片中提及的日期或时间表不符合我们的资格标准，我们需要进一步证明您的学术身份。
 
@@ -25,13 +27,13 @@ versions:
 
 {% data reusables.education.pdf-support %}
 
-### 使用具有未经验证域的学术电子邮件
+## 使用具有未经验证域的学术电子邮件
 
 如果您的学术电子邮件地址有未经验证的域，则我们需要您的学术地位的进一步证明。 {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
-### 使用来自电子邮件政策宽松的学校的学术电子邮件
+## 使用来自电子邮件政策宽松的学校的学术电子邮件
 
 如果您的学校在付费学生注册之前发出电子邮件地址，则我们需要您的学术地位的进一步证明。 {% data reusables.education.upload-proof-reapply %}
 
@@ -39,9 +41,9 @@ versions:
 
 如果您有关于学校域的其他疑问或问题，请让学校的 IT 人员联系我们。
 
-### 学术电子邮件地址已占用
+## 学术电子邮件地址已占用
 
-如果您的学术电子邮件地址已用于为其他 {% data variables.product.prodname_dotcom %} 帐户申请 {% data variables.product.prodname_student_pack %}，则该折扣到期之前，您无法重复使用该学术电子邮件地址成功申请其他 {% data variables.product.prodname_student_pack %}。
+如果您的学术电子邮件地址已用于为其他 {% data variables.product.prodname_dotcom %} 帐户申请 {% data variables.product.prodname_student_pack %}，则无法重复使用该学术电子邮件地址成功申请其他 {% data variables.product.prodname_student_pack %}。
 
 {% note %}
 
@@ -56,7 +58,7 @@ versions:
 - “[更改 {% data variables.product.prodname_dotcom %} 用户名](/articles/changing-your-github-username)”
 - “[添加电子邮件地址到 {% data variables.product.prodname_dotcom %} 帐户](/articles/adding-an-email-address-to-your-github-account)”
 
-### 学生身份不合格
+## 学生身份不合格
 
 以下情况时，您没有资格获得 {% data variables.product.prodname_student_pack %}：
 - 您已注册参加不属于 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) 的非正式学习计划，但未注册参加授予学位或文凭的学习课程。
@@ -65,7 +67,7 @@ versions:
 
 您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。 如果您是编程学校或训练营的学生，并且您的学校参加 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools)，您将有资格获得 {% data variables.product.prodname_student_pack %}。
 
-### 延伸阅读
+## 延伸阅读
 
 - “[申请学生开发包](/articles/applying-for-a-student-developer-pack)”
 - “[申请学生开发包](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)”

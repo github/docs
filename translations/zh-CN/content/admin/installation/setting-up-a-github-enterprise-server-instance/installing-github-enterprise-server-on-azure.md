@@ -6,23 +6,25 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
   - /admin/installation/installing-github-enterprise-server-on-azure
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 topics:
   - Enterprise
+shortTitle: 在 Azure 上安装
 ---
+
 您可以将 {% data variables.product.prodname_ghe_server %} 部署在全局 Azure 或 Azure Government 上。
 
-### 基本要求
+## 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
 - 您必须具有能够配置新机器的 Azure 帐户。 更多信息请参阅 [Microsoft Azure 网站](https://azure.microsoft.com)。
 - 启动虚拟机 (VM) 所需的大部分操作也可以使用 Azure Portal 执行。 不过，我们建议安装 Azure 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 Azure CLI 2.0 的示例。 更多信息请参阅 Azure 指南“[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)”。
 
-### 硬件考量因素
+## 硬件考量因素
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
-### 确定虚拟机类型
+## 确定虚拟机类型
 
 在 Azure 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
 
@@ -34,7 +36,7 @@ topics:
 
 {% data variables.product.prodname_ghe_server %} 可以在支持您的 VM 类型的任何地区使用。 有关各个 VM 的支持地区的更多信息，请参阅 Azure 的“[可用产品（按地区）](https://azure.microsoft.com/regions/services/)”。
 
-### 创建 {% data variables.product.prodname_ghe_server %} 虚拟机
+## 创建 {% data variables.product.prodname_ghe_server %} 虚拟机
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
@@ -75,7 +77,7 @@ topics:
 
    {% endnote %}
 
-### 配置 {% data variables.product.prodname_ghe_server %} 虚拟机
+## 配置 {% data variables.product.prodname_ghe_server %} 虚拟机
 
 1. 在配置 VM 之前，您必须等待其进入 ReadyRole 状态。 使用 `vm list` 命令检查 VM 的状态。 更多信息请参阅 Microsoft 文档中的“[az vm 列表](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)”。
   ```shell
@@ -97,7 +99,7 @@ topics:
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
-### 延伸阅读
+## 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -3,15 +3,17 @@ title: Aplicar políticas de Segurança Avançada na sua conta corporativa
 intro: 'Os proprietários da empresa podem impor políticas para gerenciar funcionalidades de {% data variables.product.prodname_GH_advanced_security %} para organizações que pertencem a uma conta corporativa.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
+shortTitle: Políticas de Segurança Avançada
 ---
-### Sobre o {% data variables.product.prodname_GH_advanced_security %}
+
+## Sobre o {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Aplicar uma política para funcionalidades de {% data variables.product.prodname_advanced_security %}
+## Aplicar uma política para funcionalidades de {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

@@ -6,8 +6,10 @@ redirect_from:
   - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 更改远程的 URL
 ---
+
 {% mac %}
 
 1. 在 **Repository（仓库）**菜单中，单击 **Repository Settings...（仓库设置...）**。 ![仓库设置菜单选项](/assets/images/help/desktop/repository-settings-mac.png)

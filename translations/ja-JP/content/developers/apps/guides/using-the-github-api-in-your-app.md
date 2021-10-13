@@ -6,13 +6,15 @@ redirect_from:
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: REST APIでアプリケーションをビルドする
 ---
-### はじめに
+
+## はじめに
 
 このガイドは、GitHub Appをビルドしてサーバー上で実行するのに役立ちます。 ビルドするアプリケーションは、アプリケーションがインストールされたリポジトリでオープンされたすべての新しいIssueにラベルを付けます。
 
@@ -23,9 +25,9 @@ topics:
 
 {% data reusables.apps.app-ruby-guides %}
 
-以下のステップを行っていけば、GitHub APIの完全な一式を使って他の種類のインテグレーションを開発する準備が整います。 {% if currentVersion == "free-pro-team@latest" %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
+以下のステップを行っていけば、GitHub APIの完全な一式を使って他の種類のインテグレーションを開発する準備が整います。 {% ifversion fpt %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
 
-### 必要な環境
+## 必要な環境
 
 以下に関する基本的な理解があると役立つでしょう。
 
@@ -52,7 +54,7 @@ topics:
 
   テンプレートのGitHub Appのセットアップで問題が生じた場合は、[トラブルシューティング](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting)のセクションを参照してください。
 
-### アプリケーションのビルド
+## アプリケーションのビルド
 
 `template_server.rb`のコードに馴染んだところで、アプリケーションがインストールされたリポジトリでオープンされたすべてのIssueに自動的に`needs-response`ラベルを追加するコードを作成しましょう。
 
@@ -73,20 +75,20 @@ topics:
 3. [新しいラベルの作成](#step-3-create-a-new-label)
 4. [ラベルの処理の追加](#step-4-add-label-handling)
 
-### ステップ 1. アプリケーションの権限の更新
+## ステップ 1. アプリケーションの権限の更新
 
 [最初にアプリケーションを登録](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)した際は、デフォルトの権限を受け入れています。これは、アプリケーションがほとんどのリソースにアクセスできないことを意味します。 この例においては、アプリケーションはIssueを読み、ラベルを書く権限を必要とします。
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択し、サイドバーの [**Permissions & Webhooks**] をクリックします。
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. "Permissions（権限）"セクションで"Issues"を見つけ、隣の"Access（アクセス）"ドロップダウンで**Read & Write（読み書き）**を選択してください。 このオプションはIssueとラベルの両方へのアクセスを許可するものと説明されており、これはまさに必要なことです。
 1. "Subscribe to events（イベントのサブスクライブ）"セクションで、**Issues**を選択してこのイベントをサブスクライブしてください。
 {% data reusables.apps.accept_new_permissions_steps %}
 
 これでうまくいきました。 アプリケーションは必要なタスクを実行する権限を所有しています。 これで、アプリケーションを動作させるコードを追加できるようになりました。
 
-### ステップ 2. イベント処理の追加
+## ステップ 2. イベント処理の追加
 
 アプリケーションが最初にやらなければならないのは、オープンされた新しいIssueを待ち受けることです。 **Issues**イベントにサブスクライブしたので、[`issues`](/webhooks/event-payloads/#issues) webhookを受信し始めることになります。このイベントは、特定のIssueに関連するアクションが生じたときにトリガーされます。 コード中にほしい特定のアクションに対してこのイベントの種類をフィルターできます。
 
@@ -128,7 +130,7 @@ end
 
 このメソッドはJSON形式のイベントペイロードを引数として受け取ります。 これは、メソッド中でペイロードをパースして、任意の必要なデータへとドリルダウンしていけるということです。 どこかの時点でペイロード全体を調べると役立つかもしれません。`logger.debug 'An issue was opened!`を`logger.debug payload`に変更してみてください。 出力されるペイロードの構造は、[`issues` webhookイベントのドキュメントに示されている](/webhooks/event-payloads/#issues)ものと一致しているはずです。
 
-これでうまくいきます! 変更をテストしてみましょう。
+これでうまくいきました。 変更をテストしてみましょう。
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
@@ -136,7 +138,7 @@ end
 
 ターミナルを見直してみれば、`An issue was opened!`というメッセージが出力にあるはずです。おめでとうございます! アプリケーションにイベントハンドラを追加できました。 💪
 
-### ステップ 3. 新しいラベルの作成
+## ステップ 3. 新しいラベルの作成
 
 これで、アプリケーションはIssueがオープンされたときを示せるようになりました。 今度は、アプリケーションがインストールされたリポジトリのあらゆる新しくオープンされたIssueに`needs-response`というラベルを追加しましょう。
 
@@ -150,7 +152,7 @@ end
 
 これでラベルができたので、REST APIを使って[新しくオープンされたすべてのIssueにラベルを追加する](/rest/reference/issues#add-labels-to-an-issue)ようにアプリケーションをプログラムできます。
 
-### ステップ 4. ラベルの処理の追加
+## ステップ 4. ラベルの処理の追加
 
 おめでとうございます。最後のステップである、アプリケーションへのラベル処理の追加にまで来ました。 このタスクのためには、[Octokit.rb Rubyライブラリ](http://octokit.github.io/octokit.rb/)を使いましょう。
 
@@ -197,7 +199,7 @@ end
 
 ここから進む先に関するアイデアについては「[次のステップ](#next-steps)」を参照してください。
 
-### トラブルシューティング
+## トラブルシューティング
 
 以下は、いくつかの一般的な問題と推奨される解決策です。 他の問題が生じた場合は、{% data variables.product.prodname_support_forum_with_url %}で助けやアドバイスを求めることができます。
 
@@ -215,14 +217,14 @@ end
     * アプリケーションが[Issueの読み書き権限を持っており、issueイベントをサブスクライブしている](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)こと。
     * 権限を更新した後に[メールを確認して](#step-1-update-app-permissions)新しい権限を承認したこと。
 
-### おわりに
+## おわりに
 
 このガイドを見終えれば、GitHub Appを開発するための基本的なビルディングブロックを学んだことになります! 振り返ると、以下を行いました。
 
 * イベントを待ち受けるようにアプリケーションをプログラム
 * Octokit.rbライブラリを使ったREST APIの操作
 
-### 次のステップ
+## 次のステップ
 
 以下は、次に行えることのいくつかのアイデアです。
 
@@ -232,5 +234,5 @@ end
 * ボットがラベルを追加できたら、ターミナルにメッセージを表示する。 （ヒント: `needs-response`ラベルのIDをペイロード中のラベルのIDと比較してメッセージの条件とし、他のラベルではなく関連するラベルが追加されたときにのみメッセージを表示してください）
 * アプリケーションにランディングページを追加し、[Sinatraのルート](https://github.com/sinatra/sinatra#routes)をそこに接続する。
 * コードをホストされたサーバー（Herokuのような）に移す。 新しいドメインでアプリケーションの設定を更新するのを忘れないようにしてください。
-* {% data variables.product.prodname_support_forum_with_url %}でプロジェクトを共有したりアドバイスをもらったりする。{% if currentVersion == "free-pro-team@latest" %}
+* {% data variables.product.prodname_support_forum_with_url %}でプロジェクトを共有したりアドバイスをもらったりする。{% ifversion fpt %}
 * 他の人の役に立つかもと思うような、新しい輝くアプリケーションを構築しましたか？ [GitHub Marketplaceに追加してください](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

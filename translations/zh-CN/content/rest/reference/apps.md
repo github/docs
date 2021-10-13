@@ -3,11 +3,12 @@ title: 应用
 redirect_from:
   - /v3/apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次信息以及有关应用程序安装设施的特定信息。 要了解有关 GitHub 应用程序的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。
@@ -44,7 +45,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Marketplace
 
 有关 {% data variables.product.prodname_marketplace %} 的更多信息，请参阅“[GitHub Marketplace](/marketplace/)”。
@@ -55,7 +56,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 此 API 包括允许您使用**存根数据**测试 {% data variables.product.prodname_github_app %} 的端点。 存根数据是硬编码的假数据，不会根据实际订阅而更改。
 
-要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_app %} 之前测试 API 逻辑是否成功。
+要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
 
 在部署您的 {% data variables.product.prodname_github_app %} 之前，请务必将存根端点替换为生产端点。
 
@@ -65,8 +66,10 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Web 挂钩
+
+A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

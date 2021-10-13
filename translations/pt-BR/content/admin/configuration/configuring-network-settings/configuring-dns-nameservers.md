@@ -7,25 +7,27 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configurar servidores DNS
 ---
+
 Os servidores de nomes que você especificar devem resolver o nome de host da {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-### Configurar servidores de nomes usando o console de máquina virtual
+## Configurar servidores de nomes usando o console de máquina virtual
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 2. Configure os servidores de nomes da sua instância.
 {% data reusables.enterprise_installation.vm-console-done %}
 
-### Configurar servidores de nomes usando o shell administrativo
+## Configurar servidores de nomes usando o shell administrativo
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Para editar seus servidores de nomes, insira:
@@ -34,7 +36,8 @@ Os servidores de nomes que você especificar devem resolver o nome de host da {%
   ```
 3. Adicione quaisquer entradas `nameserver` e salve o arquivo.
 4. Depois de verificar suas alterações, salve o arquivo.
-5. Para adicionar suas novas entradas de servidor de nomes à {% data variables.product.product_location %}, insira:
+5. Para adicionar as suas novas entradas de nameserver para {% data variables.product.product_location %}, execute o seguinte:
   ```shell
   $ sudo service resolvconf restart
+  $ sudo service dnsmasq restart
   ```

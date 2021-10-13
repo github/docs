@@ -5,12 +5,13 @@ redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
+
 [リポジトリの検索](/articles/searching-for-repositories)結果でフォークを表示するには、クエリに `fork:true` または `fork:only` を追加します。
 
 フォークは、親リポジトリより Star が多い場合に限り、[コード検索](/articles/searching-code)用にインデックスされます。 親より Star が少ないフォークのコードは検索できません。 コード検索結果で親リポジトリより Star の多いフォークを表示するには、クエリに `fork:true` または `fork:only` を追加します。
@@ -24,7 +25,7 @@ topics:
 | `fork:only` | [**github fork:only**](https://github.com/search?q=github+fork%3Aonly&type=Repositories) は、「github」という単語を含むすべてのフォークリポジトリにマッチします。                                              |
 |             | [**forks:>500 fork:only**](https://github.com/search?q=forks%3A%3E500+fork%3Aonly&type=Repositories) は、フォークが 500 超の、フォークであるリポジトリのみを表示します。                                     |
 
-### 参考リンク
+## 参考リンク
 
 - [フォークについて](/articles/about-forks)
 - "[GitHub での検索について](/articles/about-searching-on-github)"

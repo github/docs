@@ -6,9 +6,9 @@ redirect_from:
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
   - /admin/authentication/using-cas
-intro: 'O CAS é um protocolo de logon único (SSO) para vários aplicativos da web. Uma conta de usuário CAS não ocupa uma {% if currentVersion ver_gt "enterprise-server@2.16" %}licença de usuário{% else %}estação{% endif %} até que o usuário se conecte.'
+intro: 'O CAS é um protocolo de logon único (SSO) para vários aplicativos da web. Uma conta de usuário CAS não consome uma {% ifversion ghes %}licença de{% else %}usuário{% endif %} até o usuário fazer login.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,9 +17,10 @@ topics:
   - Identity
   - SSO
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Considerações de nome de usuário no CAS
+## Considerações de nome de usuário no CAS
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -28,7 +29,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### Atributos CAS
+## Atributos CAS
 
 Os atributos a seguir estão disponíveis.
 
@@ -36,7 +37,7 @@ Os atributos a seguir estão disponíveis.
 | ----------------- | ----------- | ---------------------------------------------------------------------- |
 | `nome de usuário` | Obrigatório | Nome do usuário no {% data variables.product.prodname_ghe_server %}. |
 
-### Configurar o CAS
+## Configurar o CAS
 {% warning %}
 
 **Aviso:** antes de configurar o CAS na {% data variables.product.product_location %}, observe que os usuários não poderão usar seus nomes e senhas do CAS para autenticar solicitações de API ou operações do Git por HTTP/HTTPS. Para isso, eles deverão [criar tokens de acesso](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).

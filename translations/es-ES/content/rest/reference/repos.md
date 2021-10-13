@@ -1,19 +1,39 @@
 ---
 title: Repositorios
+intro: 'La API de Repos te permite crear, administrar y controlar el flujo de trabajo de los repositorios de {% data variables.product.product_name %} públicos y privados.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
+
+{% ifversion fpt %}
+## Autoenlaces
+
+{% tip %}
+
+**Nota:** La API de autoenlaces se encuentra en beta y podría cambiar.
+
+{% endtip %}
+
+Para ayudar a optimizar tu flujo de trabajo, puedes utilizar la API para agregar autoenlaces a los recursos externos como propuestas de JIRA y tickets de Zendesk. Para obtener más información, consulta la sección "[Configurar los autoenlaces para referenciar recursos externos](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)".
+
+Las {% data variables.product.prodname_github_apps %} requieren permisos de administración de repositorios con acceso de lectura o escritura para utilizar la API de Autoenlaces.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Ramas
 
@@ -31,7 +51,7 @@ topics:
 
 ### Tipos de medios personalizados para los comentarios de las confirmaciones
 
-Estos son los tipos de medios compatibles para los comentarios de las confirmaciones. Puedes leer más acerca del uso de los tipos de medios en la API [aquí](/rest/overview/media-types).
+Estos son los tipos de medios compatibles para los comentarios de las confirmaciones. Puedes leer más sobre el uso de tipos de medios en la API [aquí](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -52,7 +72,7 @@ La API de Confirmaciones del Repositorio puede listar, ver y comparar las confir
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Comunidad
 
 {% for operation in currentRestOperations %}
@@ -67,7 +87,7 @@ Las terminales de esta API te permiten crear, modificar y borrar contenido cifra
 
 ### Tipos de medios personalizados para el contenido de un repositorio
 
-Los [README](/rest/reference/repos#get-a-repository-readme), [archivos](/rest/reference/repos#get-repository-content), y [symlinks](/rest/reference/repos#get-repository-content) son compatibles con los siguientes tipos de medios:
+Los [README](/rest/reference/repos#get-a-repository-readme), [archivos](/rest/reference/repos#get-repository-content) y [symlinks](/rest/reference/repos#get-repository-content) son compatibles con los siguientes tipos de medios personalizados:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -76,7 +96,7 @@ Utiliza el tipo de medios `.raw` para recuperar el contenido del archivo.
 
 Para archivos de markup tales como Markdown o AsciiDoc, puedes recuperar la interpretación en HTML si utilizas el tipo de medios `.html`. Los lenguajes de Markup se interpretan en HTML utilizando nuestra [biblioteca de Markup](https://github.com/github/markup) de código abierto.
 
-[Todos los objetos](/rest/reference/repos#get-repository-content) son compatibles con los siguientes tipos de medios personalizados:
+[Todos los objetos](/rest/reference/repos#get-repository-content) son compatibles con el siguiente tipo de medios personalizados:
 
     application/vnd.github.VERSION.object
 
@@ -139,12 +159,12 @@ Debajo encontrarás un diagrama de secuencia simple que explica cómo funcionar�
 
 Ten en cuenta que GitHub jamás accede a tus servidores realmente. La interacción con los eventos de despliegue dependerá de tu integración de terceros. Varios sistemas pueden escuchar a los eventos de despliegue, y depende de cada uno de ellos decidir si son responsables de cargar el código a tus servidores, si crean código nativo, etc.
 
-Toma en cuenta que el [Alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo_deployment` otorga acceso dirigido para los despliegues y estados de despliegue **sin** otorgar acceso al código del repositorio, mientras que {% if currentVersion != "github-ae@latest" %} los alcances de `public_repo` y{% endif %}`repo` también otorgan permisos para el código.
+Toma en cuenta que el [Alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo_deployment` otorga acceso dirigido para los despliegues y estados de despliegue **sin** otorgar acceso al código del repositorio, mientras que {% ifversion not ghae %} los alcances de `public_repo` y{% endif %}`repo` también otorgan permisos para el código.
 
 
 ### Despliegues inactivos
 
-Cuando configuras el estado de un despliegue como `success`, entonces todos los despliegues de ambiente previos no productivos y no transitorios en el mismo repositorio para el mismo ambiente quedarán como `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
+Cuando configuras el estado de un despliegue como `success`, entonces todos los despliegues anteriores que no sean transitorios ni de producción y que se encuentren en el mismo repositorio con el mismo ambiente se convertirán en `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
 
 Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {% data variables.product.prodname_dotcom %} y elimina el acceso al mismo.
 
@@ -152,10 +172,10 @@ Puedes comunicar que un ambiente transitorio ya no existe si configuras el `stat
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## Ambientes
 
-La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener información sobre los ambientes, consulta la sección "[Ambientes](/actions/reference/environments)". To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener más información sobre los ambientes, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". Para administrar los secretos de ambiente, consulta la sección "[Secretos](/rest/reference/actions#secrets)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
@@ -182,6 +202,16 @@ Utiliza la terminal de la API para agregar un colaborador. Para obtener más inf
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghae or ghes > 3.2 %}
+
+## Git LFS
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
 ## Fusionar
 
 La API de Fusión de Repositorios puede fusionar ramas en un repositorio. Esto logra esencialmente lo mismo que el fusionar una rama con otra en un repositorio local para después cargarlo a {% data variables.product.product_name %}. El beneficio es que esta fusión se lleva a cabo del lado del servidor y no se requiere un repositorio local. Esto lo hace más adecuado para la automatización y para otras herramientas mientras que el mantener repositorios locales sería incómodo e ineficiente.
@@ -194,7 +224,7 @@ El usuario autenticado será el autor de cualquier fusión que se realice a trav
 
 ## Pages
 
-La API de {% data variables.product.prodname_pages %} recupera información sobre tu configuración de {% data variables.product.prodname_pages %} y sobre los estados de tus compilaciones. Solo los propietarios autenticados pueden acceder a la información sobre el sitio y sobre las compilaciones{% if currentVersion != "github-ae@latest" %}, incluso si los sitios web son públicos{% endif %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
+La API de {% data variables.product.prodname_pages %} recupera información sobre tu configuración de {% data variables.product.prodname_pages %} y sobre los estados de tus compilaciones. Solo los propietarios autenticados pueden acceder a la información sobre el sitio y sobre las compilaciones{% ifversion not ghae %}, incluso si los sitios web son públicos{% endif %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
 En las terminales de la API de {% data variables.product.prodname_pages %} que llevan una clave de `status` en su respuesta, el valor puede ser uno de entre los siguientes:
 * `null`: El sitio aún tiene que crearse.
@@ -265,10 +295,10 @@ Si estás desarrollando una GitHub App y quieres proporcionar información más 
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## Tráfico
 
-Para los repositorios en los que tienes acceso de carga, la API de tráfico proporciona acceso a la información proporcionada en tu gráfica de repositorio. Para obtener más información, consulta la sección "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Ver el tráfico de un repositorio</a>."
+Para los repositorios en los que tienes acceso de carga, la API de tráfico proporciona acceso a la información proporcionada en tu gráfica de repositorio. Para obtener más información, consulta la sección "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Ver el tráfico hacia un repositorio</a>".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
@@ -277,9 +307,11 @@ Para los repositorios en los que tienes acceso de carga, la API de tráfico prop
 
 ## Webhooks
 
-La API de Webhooks del Repositorio le permite a los administradoresd e un repositorio administrar los ganchos de post-recepción para el mismo. Los webhooks se pueden administrar utilizando la API de HTTP de JSON, o la API de [PubSubHubbub](#PubSubHubbub).
+Los webhooks de repositorio te permiten recibir cargas útiles de `POST` por HTTP cuando ciertos eventos suceden en un repositorio. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 Si te gustaría configurar un solo webhook para recibir eventos de todos los repositorios de tu organización, consulta nuestra documentación de la API para los [Webhooks de una Organización](/rest/reference/orgs#webhooks).
+
+Adicionalmente a la API de REST, {% data variables.product.prodname_dotcom %} también puede servir como un punto de [PubSubHubbub](#pubsubhubbub) para los repositorios.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
@@ -303,24 +335,17 @@ El veneto puede ser cualquier evento de webhook disponible. Para obtener más in
 
 #### Formato de respuesta
 
-El formato predeterminado es lo que [deberían esperar los ganchos de pre-recepción existentes](/post-receive-hooks/): Un cuerpo de JSON que se envía como parámetro de `payload` en un POST.  También puedes especificar si quieres recibir el cuerpo en JSON sin procesar, ya sea un encabezado de `Accept` o una extensión `.json`.
+El formato predeterminado es lo que [deberían esperar los ganchos de post-recepción](/post-receive-hooks/): Un cuerpo de JSON que se envía como un parámetro de `payload` en un POST.  También puedes especificar si quieres recibir el cuerpo en JSON sin procesar, ya sea un encabezado de `Accept` o una extensión `.json`.
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
 #### URL de Rellamado
-Las URL de rellamado puede utilizar el protocolo `http://`.
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}También puedes hacer rellamados de `github://` para especificar un servicio de GitHub.
-{% data reusables.apps.deprecating_github_services_ghe %}
-{% endif %}
+Las URL de rellamado puede utilizar el protocolo `http://`.
 
     # Send updates to postbin.org
     http://postbin.org/123
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-    # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
-{% endif %}
 
 #### Suscribirse
 
@@ -338,9 +363,9 @@ Las solicitudes de PubSubHubbub pueden enviarse varias veces. Si el gancho ya ex
 
 ##### Parámetros
 
-| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `secuencia` | **Requerido**. Ya sea `subscribe` o `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                            |
-| `hub.topic`    | `secuencia` | **Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe estar en el formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                     |
-| `hub.callback` | `secuencia` | La URI para recibir las actualizaciones del tema.                                                                                                                                                                                                                                                                                                                                                             |
-| `hub.secret`   | `secuencia` | Una llave secreta compartida que genera un HMAC de SHA1 del contenido del cuerpo de salida.  Puedes verificar si una carga vino de GitHub si comparas el cuerpo de la solicitud sin procesar con el contenido del encabezado `X-Hub-Signature`. Puedes ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles. |
+| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `secuencia` | **Requerido**. Ya sea `subscribe` o `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `hub.topic`    | `secuencia` | **Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe estar en el formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `hub.callback` | `secuencia` | La URI para recibir las actualizaciones del tema.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `hub.secret`   | `secuencia` | Una llave de secreto compartido que genera una firma de hash del contenido saliente del cuerpo.  Puedes verificar si una subida vino de GitHub comparando el cuerpo de la solicitud sin procesar con el contenido de los encabezados de la {% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature` o `X-Hub-Signature-256`{% elsif ghes < 3.0 %}`X-Hub-Signature`{% elsif ghae %}`X-Hub-Signature-256`{% endif %}. Puedes ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles. |

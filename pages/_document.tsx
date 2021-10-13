@@ -19,7 +19,6 @@ export default class MyDocument extends Document {
       return {
         ...initialProps,
         cssThemeProps: getThemeProps(ctx.req, 'css'),
-        themeProps: getThemeProps(ctx.req),
         styles: (
           <>
             {initialProps.styles}
@@ -33,15 +32,11 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const { colorMode, nightScheme, dayScheme } = (this.props as any).cssThemeProps
+    const { colorMode, nightTheme, dayTheme } = (this.props as any).cssThemeProps
     return (
       <Html>
         <Head />
-        <body
-          data-color-mode={colorMode}
-          data-dark-theme={nightScheme}
-          data-light-theme={dayScheme}
-        >
+        <body data-color-mode={colorMode} data-dark-theme={nightTheme} data-light-theme={dayTheme}>
           <Main />
           <NextScript />
         </body>

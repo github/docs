@@ -7,25 +7,27 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
   - /admin/configuration/configuring-dns-nameservers
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: 配置 DNS 服务器
 ---
+
 指定的域名服务器必须解析 {% data variables.product.product_location %} 的主机名。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-### 使用虚拟机控制台配置域名服务器
+## 使用虚拟机控制台配置域名服务器
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 2. 为实例配置域名服务器。
 {% data reusables.enterprise_installation.vm-console-done %}
 
-### 使用管理 shell 配置域名服务器
+## 使用管理 shell 配置域名服务器
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 要编辑域名服务器，请输入：
@@ -34,7 +36,8 @@ topics:
   ```
 3. 附加任何 `nameserver` 条目，然后保存文件。
 4. 验证变更后，请保存文件。
-5. 要向 {% data variables.product.product_location %} 添加新的域名服务器条目，请输入：
+5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
   ```shell
   $ sudo service resolvconf restart
+  $ sudo service dnsmasq restart
   ```

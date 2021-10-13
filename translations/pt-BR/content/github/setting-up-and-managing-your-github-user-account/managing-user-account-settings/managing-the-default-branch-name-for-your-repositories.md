@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
 ---
+
 ### Sobre o gerenciamento do nome do brancc-padrão
 
 Ao criar um novo repositório em {% data variables.product.product_location %}, o repositório conterá um branch, que será o branch-padrão. Você pode alterar o nome que {% data variables.product.product_name %} usa para o branch-padrão em novos repositórios que você criar. Para obter mais informações sobre o branch padrão, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".

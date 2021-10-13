@@ -5,28 +5,29 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 type: quick_start
 topics:
   - Fundamentals
+shortTitle: 快速入门
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### 简介
+## 简介
 
 您只需要 {% data variables.product.prodname_dotcom %} 仓库来创建和运行 {% data variables.product.prodname_actions %} 工作流程。 在本指南中，您将添加一个工作流程，演示 {% data variables.product.prodname_actions %} 的一些基本功能。
 
 下面的示例显示 {% data variables.product.prodname_actions %} 作业如何自动触发、在哪里运行及其如何与仓库中的代码交互。
 
-### 创建第一个工作流程
+## 创建第一个工作流程
 
-1. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflows` 目录中创建一个名为 `github-actions-demo.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
-2. 将以下 YAML 内容复制到 `github-actions-demo.yml` 文件中：
+1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
+2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
+3. 将以下 YAML 内容复制到 `github-actions-demo.yml` 文件中：
     {% raw %}
     ```yaml{:copy}
     name: GitHub Actions Demo
@@ -53,7 +54,7 @@ topics:
 
 向仓库的分支提交工作流程文件会触发 `push` 事件并运行工作流程。
 
-### 查看工作流程结果
+## 查看工作流程结果
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -72,11 +73,11 @@ topics:
 
    例如，您可以在仓库中看到文件列表： ![示例操作详细信息](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-### 更多工作流程模板
+## 更多工作流程模板
 
 {% data reusables.actions.workflow-template-overview %}
 
-### 后续步骤
+## 后续步骤
 
 每次将代码推送到分支时，您刚刚添加的示例工作流程都会运行，并显示 {% data variables.product.prodname_actions %} 如何处理仓库的内容。 但是，这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始：
 
@@ -86,4 +87,3 @@ topics:
 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 以下是一些帮助您对 {% data variables.product.prodname_actions %} 执行后续操作的有用资源：
 
 - “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，以获取深入教程
-- “[指南](/actions/guides)”，以获取特定用例和示例

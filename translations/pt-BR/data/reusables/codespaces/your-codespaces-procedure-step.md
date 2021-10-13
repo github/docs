@@ -1,3 +1,3 @@
-1. In the top right corner of {% data variables.product.product_name %}, click your profile photo, then click **Your codespaces**.
+1. No canto superior direito de {% data variables.product.product_name %}, clique na sua foto de perfil e clique em **Seu codespace**.
 
-  !['Your codespaces' menu option](/assets/images/help/codespaces/your-codespaces-option.png)
+  ![Opção de menu "Seus codespaces"](/assets/images/help/codespaces/your-codespaces-option.png)

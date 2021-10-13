@@ -1,35 +1,19 @@
-require('../../lib/feature-flags')
-const path = require('path')
-const { eachOfLimit } = require('async')
-const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get } = require('../helpers/supertest')
-const restRedirectFixtures = require('../fixtures/rest-redirects')
-const graphqlRedirectFixtures = require('../fixtures/graphql-redirects')
-const developerRedirectFixtures = require('../fixtures/developer-redirects')
+import { jest } from '@jest/globals'
+import path from 'path'
+import { eachOfLimit } from 'async'
+import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { get } from '../helpers/supertest.js'
+import readJsonFile from '../../lib/read-json-file.js'
+const restRedirectFixtures = readJsonFile('./tests/fixtures/rest-redirects.json')
+const graphqlRedirectFixtures = readJsonFile('./tests/fixtures/graphql-redirects.json')
+const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redirects.json')
 
 const MAX_CONCURRENT_REQUESTS = 50
 
-// TODO we can remove these after the new site tree is in production
-const oldSiteTreeDeveloperRedirectOverrides = {
-  '/marketplace/getting-started': '/en/developers/github-marketplace/about-github-marketplace',
-  '/webhooks': '/en/developers/webhooks-and-events/about-webhooks',
-  '/en/enterprise/2.21/apps/building-oauth-apps/authorizing-oauth-apps': '/en/enterprise-server@2.21/developers/apps/authorizing-oauth-apps',
-  '/en/enterprise/2.21/apps/building-oauth-apps/understanding-scopes-for-oauth-apps': '/en/enterprise-server@2.21/developers/apps/scopes-for-oauth-apps',
-  '/en/enterprise/2.21/apps/differences-between-apps': '/en/enterprise-server@2.21/developers/apps/differences-between-github-apps-and-oauth-apps',
-  '/en/enterprise/2.21/webhooks': '/en/enterprise-server@2.21/developers/webhooks-and-events/about-webhooks'
-}
-
-const oldSiteTreeRestRedirectOverrides = {
-  '/en/enterprise/2.21/v3/activity/event_types': '/en/enterprise-server@2.21/developers/webhooks-and-events/github-event-types',
-  '/en/enterprise/2.21/v3/activity/events/types': '/en/enterprise-server@2.21/developers/webhooks-and-events/webhook-events-and-payloads',
-  '/en/enterprise/2.21/v3/issues/issue-event-types': '/en/enterprise-server@2.21/developers/webhooks-and-events/issue-event-types',
-  '/v3/activity/event_types': '/en/developers/webhooks-and-events/github-event-types',
-  '/v3/activity/events/types': '/en/developers/webhooks-and-events/webhook-events-and-payloads',
-  '/v3/issues/issue-event-types': '/en/developers/webhooks-and-events/issue-event-types'
-}
+jest.useFakeTimers()
 
 describe('developer redirects', () => {
-  jest.setTimeout(60 * 1000)
+  jest.setTimeout(4 * 60 * 1000)
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
@@ -49,7 +33,7 @@ describe('developer redirects', () => {
     test('graphql enterprise homepage', async () => {
       const res = await get('/enterprise/v4', { followAllRedirects: true })
       expect(res.statusCode).toBe(200)
-      const finalPath = (new URL(res.request.url)).pathname
+      const finalPath = new URL(res.request.url).pathname
       const expectedFinalPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/graphql`
       expect(finalPath).toBe(expectedFinalPath)
     })
@@ -63,8 +47,12 @@ describe('developer redirects', () => {
 
       const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
       expect(enterpriseRes.statusCode).toBe(200)
-      const finalPath = (new URL(enterpriseRes.request.url)).pathname
-      const expectedFinalPath = path.join('/', `enterprise-server@${enterpriseServerReleases.latest}`, newPath)
+      const finalPath = new URL(enterpriseRes.request.url).pathname
+      const expectedFinalPath = path.join(
+        '/',
+        `enterprise-server@${enterpriseServerReleases.latest}`,
+        newPath
+      )
       expect(finalPath).toBe(`/en${expectedFinalPath}`)
     })
 
@@ -122,12 +110,6 @@ describe('developer redirects', () => {
         developerRedirectFixtures,
         MAX_CONCURRENT_REQUESTS,
         async (newPath, oldPath) => {
-          if (!process.env.FEATURE_NEW_SITETREE) {
-            if (oldSiteTreeDeveloperRedirectOverrides[oldPath]) {
-              newPath = oldSiteTreeDeveloperRedirectOverrides[oldPath]
-            }
-          }
-
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
           expect(res.headers.location).toBe(newPath)
@@ -137,24 +119,17 @@ describe('developer redirects', () => {
 
     // this fixtures file includes /v3 and /enterprise/v3 paths
     test('rest reference redirects', async () => {
-      await eachOfLimit(
-        restRedirectFixtures,
-        MAX_CONCURRENT_REQUESTS,
-        async (newPath, oldPath) => {
-          if (!process.env.FEATURE_NEW_SITETREE) {
-            if (oldSiteTreeRestRedirectOverrides[oldPath]) {
-              newPath = oldSiteTreeRestRedirectOverrides[oldPath]
-            }
-          }
-
-          // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-          // We make an exception to always redirect versionless paths to the latest version.
-          newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
-          const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
-        }
-      )
+      await eachOfLimit(restRedirectFixtures, MAX_CONCURRENT_REQUESTS, async (newPath, oldPath) => {
+        // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
+        // We make an exception to always redirect versionless paths to the latest version.
+        newPath = newPath.replace(
+          '/enterprise-server/',
+          `/enterprise-server@${enterpriseServerReleases.latest}/`
+        )
+        const res = await get(oldPath)
+        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+        expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
+      })
     })
 
     // this fixtures file includes /v4 and /enterprise/v4 paths
@@ -165,7 +140,10 @@ describe('developer redirects', () => {
         async (newPath, oldPath) => {
           // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
           // We make an exception to always redirect versionless paths to the latest version.
-          newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
+          newPath = newPath.replace(
+            '/enterprise-server/',
+            `/enterprise-server@${enterpriseServerReleases.latest}/`
+          )
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
           expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)

@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) des Repositorys übertragen kannst, musst Du auf {% data variables.product.product_location %} [das neue Repository erstellen](/articles/creating-a-new-repository). In diesen Beispielen sind `exampleuser/new-repository` oder `exampleuser/mirrored` die Spiegel.
 
 ### Ein Repository spiegeln

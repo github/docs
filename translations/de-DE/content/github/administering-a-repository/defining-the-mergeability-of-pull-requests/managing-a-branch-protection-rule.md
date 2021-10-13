@@ -25,6 +25,7 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 ---
+
 ### About branch protection rules
 
 {% data reusables.repositories.branch-rules-example %}
@@ -57,6 +58,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    - Aktivieren Sie **Require status checks to pass before merging** (Statuschecks müssen vor dem Mergen bestanden werden). ![Option für erforderliche Statuschecks](/assets/images/help/repository/required-status-checks.png)
    - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**. ![Kontrollkästchen für lockere oder strenge erforderliche Statuschecks](/assets/images/help/repository/protecting-branch-loose-status.png)
    - Wähle aus der Liste der verfügbaren Statuschecks diejenigen Prüfungen, die Du verlangen willst. ![Liste der verfügbaren Statuschecks](/assets/images/help/repository/required-statuses-list.png)
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+1. Optionally, select **Require conversation resolution before merging**. ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
+{%- endif %}
 1. Optionally, select **Require signed commits**. ![Option „Require signed commits“ (Verlange signierte Commits)](/assets/images/help/repository/require-signed-commits.png)
 1. Optionally, select **Require linear history**. ![Option „Required linear history" (Erforderter linearer Verlauf)](/assets/images/help/repository/required-linear-history.png)
 1. Optional wähle **Include administrators** (Administratoren einbeziehen) aus. ![Kontrollkästchen „Include administrators“ (Administratoren einbeziehen)](/assets/images/help/repository/include-admins-protected-branches.png)

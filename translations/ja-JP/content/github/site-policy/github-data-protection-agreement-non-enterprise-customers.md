@@ -4,14 +4,14 @@ redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-_この規約は、Enterprise以外のお客様に適用されます。 また、2021年1月4日より前にGitHub製品のライセンスを取得したEnterpriseのお客様にも適用されます。 Enterprise customers who purchase GitHub offerings after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_この規約は、Enterprise以外のお客様に適用されます。 また、2021年1月4日より前にGitHub製品のライセンスを取得したEnterpriseのお客様にも適用されます。 この日以降にGitHub製品を購入したEnterpriseのお客様に適用される規約については、https://www.github.com/enterprise-legalをご覧ください。_
 
 ## はじめに
 
-The parties agree that the GitHub Data Protection Agreement (Non-Enterprise Customers) (**“DPA”**) sets forth their obligations with respect to the processing of Customer Personal Data in connection with the GitHub Enterprise Cloud hosted service (the **“Service”**). GitHub makes the commitments in this DPA to all non-enterprise customers using the Service. Separate terms, including different privacy terms, govern Customer’s use of non-GitHub products.
+両当事者は、「GitHubデータ保護契約 (Enterprise以外のお客様)」(**「DPA」**) が、GitHub Enterprise Cloud にホストされたサービス (**「サービス」**) に関する「お客様の個人データ」の処理に関する両当事者の義務を定めたものであることに同意します。 GitHubは、本サービスを使用するEnterprise以外のすべてのお客様に、本DPAに記載された約束を果たします。 お客様によるGitHub以外の製品の使用については、プライバシーに関する異なる規約を含め、別の利用規約が適用されます。
 
 本DPAと、GitHubとお客様との契約の別の条項との間で矛盾または不一致が生じた場合、本DPAが優先されるものとします。 本特約で定義されているお客様の個人データの処理に適用される可能性のある、GitHubのプライバシーについての声明の規定とDPAの規定が矛盾する場合、DPAの規定が優先されます。 明確にするために記すと、添付1の標準契約条項10条に従い、標準契約条項がDPAのあらゆる規定より優先されます。
 
@@ -90,7 +90,7 @@ e.  *お客様の義務の権利*は、本契約および本付属文書で定�
 最新技術、実装のコスト、処理の性質や範囲、目的と、考えられる可能性ごとのリスク、自然人の権利と自由の重大度を考慮して、GitHubは個人データの処理によって生じる偶発的または違法な破壊、紛失、改変、不正な開示といったリスクに応じ適切なレベルのセキュリティを確保するために、適切な技術的および組織的対策を講じるものとします。 GitHubは、こうした対策の準拠状況を常に監視し、本契約の期間を通じて適切な安全対策をとり続けます。
 
 #### 4.2 インシデント対応と侵害通知。
-GitHub will comply with Applicable Data Protection Laws.
+GitHubは、「適用されるデータ保護法」に準拠するものとします。
 
 #### 4.3 GitHubのスタッフ。
 GitHubは、保護データの処理に当たるGitHubスタッフ全員が保護データを機密として扱うことに合意し、本付属文書と適用されるデータ保護法の遵守について適切な訓練を受けていることを保証する合理的な手順を踏むことを、表明および保証します。
@@ -326,7 +326,7 @@ h) 要請に応じて、データ主体に対し、添付文書2を除く本契�
 
 しかしながら、データ輸入者はストレージサービスを提供し、そこに保存するデータのカテゴリを管理していないため、データ輸出者は特別カテゴリのデータを転送することも選択できます。 したがってデータ輸出者は、センシティブな個人を処理する前にデータ主体の明示的同意を得ることを含め、特別カテゴリのデータの収集および処理に関して適用される法令により課されるあらゆる義務に確実に従う義務を単独で負います。
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement), and the “Data Processing” section of the DPA. 下請け業者: DPAに従い、データ輸入者は顧客サポートの提供などの限定的なサービスをデータ輸入者に代わって提供するため、他の企業に業務を委託することができます。 かかる下請け業者は、データ輸入者が下請け業者に要請したサービスを提供する目的においてのみ、お客様の個人データを取得することができ、その他の目的でお客様の個人データを利用することはできないものとします。
+**操作の処理:** 転送される個人データは、次の基本的な処理活動に従います。GitHubは、[https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement)で閲覧できる、GitHubのプライバシーについての声明に記載された限定的な目的において、およびDPAの「データ処理」セクションに従って個人データを利用します。 下請け業者: DPAに従い、データ輸入者は顧客サポートの提供などの限定的なサービスをデータ輸入者に代わって提供するため、他の企業に業務を委託することができます。 かかる下請け業者は、データ輸入者が下請け業者に要請したサービスを提供する目的においてのみ、お客様の個人データを取得することができ、その他の目的でお客様の個人データを利用することはできないものとします。
 
 ### 標準契約条項添付文書2
 第4条 (d) および第5条 (c) に従ってデータ輸入者が実施する、技術的および組織的セキュリティ対策を以下に説明します。

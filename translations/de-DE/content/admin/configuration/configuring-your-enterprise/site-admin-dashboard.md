@@ -7,45 +7,47 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Enterprise
   - Fundamentals
 ---
+
 Klicken Sie in der oberen rechten Ecke einer beliebigen Seite auf {% octicon "rocket" aria-label="The rocket ship" %}, um auf das Dashboard zuzugreifen.![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes or ghae %}
 
-### Suche
+## Suche
 
 Hier können Sie die {{ site.data.variables.enterprise.management_console }} starten, um die Einstellungen der virtuellen Appliance zu verwalten, also beispielsweise die Domain, die Authentifizierung und SSL.
 
 {% else %}
 
-### Lizenzinformationen und Suche
+## Lizenzinformationen und Suche
 
 In diesem Abschnitt des Websiteadministrator-Dashboards können Sie Ihre aktuelle {% data variables.product.prodname_enterprise %}-Lizenz überprüfen, nach Benutzern und Repositorys suchen und das [Auditprotokoll](#audit-log) abfragen.
 
 {% endif %}
-
-### {% data variables.enterprise.management_console %}
+{% ifversion ghes %}
+## {% data variables.enterprise.management_console %}
 
 Hier können Sie die {% data variables.enterprise.management_console %} starten, um die Einstellungen der virtuellen Appliance zu verwalten, also beispielsweise die Domain, die Authentifizierung und SSL.
-
-### Erkunden
+{% endif %}
+## Erkunden
 
 Die Daten für die [Seite mit Trends][] für GitHub wird für Repositorys und Entwickler in täglichen, wöchentlichen und monatlichen Zeiträumen berechnet. Im Abschnitt **Erkunden** können Sie sehen, wann diese Daten letztmals zwischengespeichert wurden. Zudem können Sie darin neue Aufträge zur Berechnung von Trends in die Warteschlange versetzen.
 
-### Auditprotokoll
+## Auditprotokoll
 
-{% data variables.product.prodname_enterprise %} speichert ein Ablaufprotokoll der überwachten Aktionen, die Sie abfragen können.
+{% data variables.product.product_name %} speichert ein Ablaufprotokoll der überwachten Aktionen, die Sie abfragen können.
 
 Das Auditprotokoll zeigt standardmäßig eine Liste sämtlicher überwachter Aktionen in umgekehrt chronologischer Reihenfolge an. Sie können diese Liste filtern. Geben Sie dazu im Textfeld **Query** (Abfragen) Schlüsselwertpaare ein, und klicken Sie anschließend auf **Search** (Suchen), wie dies unter „[Auditprotokoll durchsuchen](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)“ erläutert ist.
 
 For more information on audit logging in general, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)." For a full list of audited actions, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)."
 
-### Berichte
+## Berichte
 
 Zum Abrufen von Informationen zu Benutzern, Organisationen und Repositorys in {% data variables.product.product_location %} würden Sie normalerweise über die [GitHub-API](/rest) JSON-Daten abrufen. Leider stellt die API nicht alle gewünschten Daten bereit und erfordert ein gewisses technisches Know-how. Das Websiteadministrator-Dashboard bietet alternativ den Abschnitt **Reports** (Berichte). In diesem können Sie ohne Weiteres CSV-Berichte mit den meisten Informationen herunterladen, die Sie wahrscheinlich für Benutzer, Organisationen und Repositorys benötigen.
 
@@ -74,7 +76,7 @@ Ersetzen Sie für den programmatischen Zugriff auf die anderen Berichte `all_use
 
 {% endnote %}
 
-#### Benutzerberichte
+### Benutzerberichte
 
 |         Schlüssel | Beschreibung                                                                         |
 | -----------------:| ------------------------------------------------------------------------------------ |
@@ -93,7 +95,7 @@ Ersetzen Sie für den programmatischen Zugriff auf die anderen Berichte `all_use
 |       `raw_login` | Unformatierte Anmeldeinformationen (im JSON-Format)                                  |
 |    `2fa_enabled?` | Gibt an, ob der Benutzer die Zwei-Faktor-Authentifizierung aktiviert hat             |
 
-#### Organisationsberichte
+### Organisationsberichte
 
 |       Schlüssel | Beschreibung                                                                        |
 | ---------------:| ----------------------------------------------------------------------------------- |
@@ -107,7 +109,7 @@ Ersetzen Sie für den programmatischen Zugriff auf die anderen Berichte `all_use
 |         `repos` | Anzahl der Organisations-Repositorys                                                |
 | `2fa_required?` | Gibt an, ob für die Organisation die Zwei-Faktor-Authentifizierung erforderlich ist |
 
-#### Repository-Berichte
+### Repository-Berichte
 
 |                  Schlüssel | Beschreibung                                                             |
 | --------------------------:| ------------------------------------------------------------------------ |
@@ -124,15 +126,16 @@ Ersetzen Sie für den programmatischen Zugriff auf die anderen Berichte `all_use
 |                    `fork?` | Gibt an, ob das Repository ein Fork ist                                  |
 |                 `deleted?` | Gibt an, ob das Repository gelöscht wurde                                |
 
-### Indizierung
+{% ifversion ghes %}
+## Indizierung
 
 Die GitHub-Features zur [Codesuche][] werden von [ElasticSearch][] unterstützt. Dieser Abschnitt des Websiteadministrator-Dashboards zeigt den aktuellen Status Ihres ElasticSearch-Clusters und stellt Ihnen verschiedene Tools bereit, mit denen Sie das Verhalten der Suchvorgänge und Indizierung steuern können. Diese Tools sind in die folgenden drei Kategorien unterteilt.
 
-#### Codesuche
+### Codesuche
 
 Dadurch können Sie Such- und Indizierungsvorgänge im Quellcode aktivieren oder deaktivieren.
 
-#### Reparatur des Codesuche-Index
+### Reparatur des Codesuche-Index
 
 Dadurch wird gesteuert, wie der Index für die Codesuche repariert wird. Sie können
 
@@ -154,23 +157,37 @@ Eine Fortschrittsanzeige zeigt den aktuellen Status eines Reparaturauftrags auf 
 
 Reparaturaufträge des Codesuche-Index können jederzeit gestartet werden. Diese verwenden eine einzelne CPU und stimmen den Suchindex mit den Datenbank- und Git-Repository-Daten ab. Versuchen Sie, einen Reparaturauftrag zunächst außerhalb der Hauptauslastungszeiten durchzuführen, um die Auswirkungen auf die E/A-Leistung zu minimieren und die Wahrscheinlichkeit von Betriebsunterbrechungen zu verringern. Mit einem Dienstprogramm wie `top` können Sie die durchschnittliche Auslastung und CPU-Auslastung Ihres Systems überwachen. Wenn Sie keine erheblichen Änderungen feststellen, können Sie einen Indexreparaturauftrag auch in Spitzenzeiten ohne Weiteres ausführen.
 
-#### Indexreparatur für Issues
+### Indexreparatur für Issues
 
 Dadurch wird gesteuert, wie der [Issues][]-Index repariert wird. Sie können
 
 - Indexreparaturaufträge aktivieren oder deaktivieren,
 - einen neuen Indexreparaturauftrag starten,
 - den gesamten Indexreparaturzustand zurücksetzen.
+{% endif %}
+## Reserved logins
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
 
-### Alle Benutzer
+For example, the following words are reserved, among others:
+
+- `verwalten`
+- `Unternehmen`
+- `login`
+- `staff`
+- `unterstützung`
+
+For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+
+{% ifversion ghes or ghae %}
+
+## Alle Benutzer
 
 Hier können Sie alle Benutzer anzeigen, die auf {{ site.data.variables.product.product_location_enterprise }} gesperrt wurden, und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys).
 
 {% endif %}
 
-### Repositorys
+## Repositorys
 
 Dies ist eine Liste der Repositorys auf {% data variables.product.product_location %}. Sie können auf einen Repository-Namen klicken und auf Funktionen zum Verwalten des Repositorys zugreifen.
 
@@ -178,17 +195,21 @@ Dies ist eine Liste der Repositorys auf {% data variables.product.product_locati
 - [{% data variables.large_files.product_name_long %} konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [Repositorys archivieren und deren Archivierung aufheben](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-### Alle Benutzer
+## Alle Benutzer
 
-Hier können Sie alle Benutzer auf Ihrer {% data variables.product.product_location %} anzeigen und  [eine SSH-Schlüsselüberwachung initiieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-### Websiteadministratoren
+## Websiteadministratoren
 
 Hier können Sie alle Administratoren auf Ihrer {% data variables.product.product_location %} anzeigen und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-### Inaktive Benutzer
-
+## Inaktive Benutzer
+{% ifversion ghes %}
 Hier können Sie alle inaktiven Benutzer auf {% data variables.product.product_location %} anzeigen und [sperren](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users). In den folgenden Fällen wird ein Benutzerkonto als inaktiv angesehen:
+{% endif %}
+{% ifversion ghae %}
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. In den folgenden Fällen wird ein Benutzerkonto als inaktiv angesehen:
+{% endif %}
 
 - Es besteht schon länger als die für {% data variables.product.product_location %} festgelegte Inaktivitätsschwelle.
 - Es hat in diesem Zeitraum keine Aktivitäten generiert.
@@ -196,7 +217,7 @@ Hier können Sie alle inaktiven Benutzer auf {% data variables.product.product_l
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %} Weitere Informationen finden Sie unter „[Inaktive Benutzer verwalten](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)“.
 
-### Gesperrte Benutzer
+## Gesperrte Benutzer
 
 Hier können Sie alle Benutzer anzeigen, die auf {% data variables.product.product_location %} gesperrt wurden, und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 

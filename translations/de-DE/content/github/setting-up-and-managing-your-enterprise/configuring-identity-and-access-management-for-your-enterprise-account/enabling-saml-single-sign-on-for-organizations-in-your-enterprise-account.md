@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
 ---
+
 ### About SAML single sign-on for enterprise accounts
 
 {% data reusables.saml.dotcom-saml-explanation %} Weitere Informationen findest Du unter „[Informationen über Identitäts- und Zugriffsmanagement mit SAML Single Sign-On](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."

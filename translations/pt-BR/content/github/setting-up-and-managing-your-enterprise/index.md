@@ -6,16 +6,17 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account
   - /categories/setting-up-and-managing-your-enterprise-account
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Enterprise
 children:
   - /managing-your-enterprise-account
   - /managing-users-in-your-enterprise
+  - /managing-your-enterprise-users-with-your-identity-provider
   - /managing-organizations-in-your-enterprise-account
   - /configuring-identity-and-access-management-for-your-enterprise-account
   - /setting-policies-for-organizations-in-your-enterprise-account
 ---
-### Índice
+

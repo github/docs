@@ -3,13 +3,15 @@ title: Amazon S3 ストレージで GitHub Actions を有効化する
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効化し、Amazon S3 ストレージを使用してワークフローの実行によって生成されたアーティファクトを保存できます。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
+shortTitle: Amazon S3 storage
 ---
-### 必要な環境
+
+## 必要な環境
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -19,7 +21,7 @@ redirect_from:
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Amazon S3 ストレージで {% data variables.product.prodname_actions %} を有効化する
+## Amazon S3 ストレージで {% data variables.product.prodname_actions %} を有効化する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

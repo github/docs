@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Organization のオーナーは、特定のリポジトリのフォークを許可または禁止する前に、Organization レベルでプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}および内部{% endif %}リポジトリのフォークを許可する必要があります。 詳細は「[Organization のフォークポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
 
 {% data reusables.organizations.internal-repos-enterprise %}

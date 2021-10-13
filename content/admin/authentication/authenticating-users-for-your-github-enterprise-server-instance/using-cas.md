@@ -6,9 +6,9 @@ redirect_from:
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
   - /admin/authentication/using-cas
-intro: 'CAS is a single sign-on (SSO) protocol for multiple web applications. A CAS user account does not take up a {% if currentVersion ver_gt "enterprise-server@2.16" %}user license{% else %}seat{% endif %} until the user signs in.'
+intro: 'CAS is a single sign-on (SSO) protocol for multiple web applications. A CAS user account does not take up a {% ifversion ghes %}user license{% else %}seat{% endif %} until the user signs in.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -19,7 +19,7 @@ topics:
 ---
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### Username considerations with CAS
+## Username considerations with CAS
 
 {% data reusables.enterprise_management_console.username_normalization %}
 
@@ -28,7 +28,7 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### CAS attributes
+## CAS attributes
 
 The following attributes are available.
 
@@ -36,7 +36,7 @@ The following attributes are available.
 |--------------------------|----------|-------------|
 | `username`               | Required | The {% data variables.product.prodname_ghe_server %} username. |
 
-### Configuring CAS
+## Configuring CAS
 {% warning %}
 
 **Warning:** Before configuring CAS on {% data variables.product.product_location %}, note that users will not be able to use their CAS usernames and passwords to authenticate API requests or Git operations over HTTP/HTTPS. Instead, they will need to [create an access token](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).

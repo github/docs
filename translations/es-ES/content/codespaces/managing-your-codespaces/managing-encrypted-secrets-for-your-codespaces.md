@@ -1,8 +1,9 @@
 ---
-title: Managing encrypted secrets for your codespaces
+title: Administrar secretos cifrados para tus codespaces
 intro: 'Puedes almacenar información sensible, como los tokens, a la cual quieras acceder en tus codespaces en forma de variables de ambiente.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -11,12 +12,14 @@ topics:
   - Codespaces
   - Developer
   - Security
+  - Secret store
+shortTitle: Secretos cifrados
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 
-### Acerca de los secretos cifrados para los {% data variables.product.prodname_codespaces %}
+## Acerca de los secretos cifrados para los {% data variables.product.prodname_codespaces %}
 
 Puedes agregar a tu cuenta de usuario los secretos cifrados que quieras utilizar en tus codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
 
@@ -29,19 +32,19 @@ Puedes elegir qué repositorios deben tener acceso a cada secreto. Posteriorment
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Naming secrets
+### Nombrar secretos
 
-{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
+{% data reusables.codespaces.secrets-naming %} Por ejemplo, un secreto que se crea a nivel de repositorio debe tener un nombre único en este.
 
   {% data reusables.codespaces.secret-precedence %}
 
-#### Límites para los secretos
+### Límites para los secretos
 
-You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
+Puedes almacenar hasta 100 secretos para los {% data variables.product.prodname_codespaces %}.
 
 Los secretos tienen un tamaño máximo de 64 KB.
 
-### Agregar un secreto
+## Agregar un secreto
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
@@ -51,7 +54,7 @@ Los secretos tienen un tamaño máximo de 64 KB.
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Haz clic en **Agregar secreto** (Agregar secreto).
 
-### Editar un secreto
+## Editar un secreto
 
 Puedes actualizar el valor de un secreto existente y puedes cambiar qué repositorios pueden acceder a un secreto.
 
@@ -64,9 +67,13 @@ Puedes actualizar el valor de un secreto existente y puedes cambiar qué reposit
 1. Opcionalmente, para eliminar el acceso del secreto a un repositorio, deselecciona el repositorio. ![Casillas de verificación para eliminar el acceso a los repositorios](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
 1. Haz clic en **Guardar cambios**.
 
-### Borrar un secreto
+## Borrar un secreto
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
 1. Debajo de "Secretos de los codespaces", a la derecha del secreto que quieras borrar, da clic en **Borrar**. ![Botón de "Borrar"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Lee la advertencia y da clic en **OK**. ![Confirmación para borrar un secreto](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Leer más
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

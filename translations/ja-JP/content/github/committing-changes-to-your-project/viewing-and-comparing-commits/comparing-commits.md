@@ -1,15 +1,17 @@
 ---
 title: コミットを比較する
+intro: 'You can compare the state of your repository across branches, tags, commits, forks, and dates.'
 redirect_from:
   - /articles/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
-ブランチ、タグ、コミット、日付にわたってリポジトリの状態を比較できます。 リポジトリの異なるバージョンを比較するには、リポジトリのパスに `/compare` を追加します。
+
+リポジトリの異なるバージョンを比較するには、リポジトリのパスに `/compare` を追加します。
 
 比較がいかに強力か、[https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master) にある [Linguist リポジトリのフォーク](https://github.com/octocat/linguist)の比較ページを見ればわかります。
 
@@ -17,7 +19,7 @@ versions:
 
 `base` は比較元、`compare` は比較先と考えてください。 比較中、[**Edit**] をクリックすることにより、`base` および `compare` の内容をいつでも変更できます。
 
-### ブランチを比較する
+## ブランチを比較する
 
 compare の最も一般的な使い方は、新しいプルリクエストを開始するときなどに、ブランチを比較することです。 [新しいプルリクエスト](/articles/creating-a-pull-request)を開始するときは常に、ブランチ比較ビューに移動します。
 
@@ -25,15 +27,15 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 2 つのブランチ間を比較した例については、[こちらをクリック](https://github.com/octocat/linguist/compare/master...octocat:an-example-comparison-for-docs)してください。
 
-### タグを比較する
+## タグを比較する
 
-リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
+リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% ifversion fpt or ghae or ghes %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} タグを比較するには、ページ上部の [`compare`] ドロップダウンメニューからタグ名を選択します。{% else %}ブランチ名を入力する代わりに、[`compare`] ドロップダウンメニューにタグの名前を入力します。{% endif %}
+{% ifversion fpt or ghae or ghes %}タグを比較するには、ページ上部の `compare` ドロップダウンメニューからタグ名を選択できます。{% else %}ブランチ名を入力する代わりに、`compare` ドロップダウンメニューにタグの名前を入力します。{% endif %}
 
 2 つのタグ間を比較する例については、[こちらをクリック](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)してください。
 
-### コミットを比較する
+## コミットを比較する
 
 リポジトリやそのフォークの、2 つの任意のコミットを、 {% data variables.product.prodname_dotcom %}のツードット diff 比較によって比較することも可能です。
 
@@ -43,7 +45,7 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 他の比較方法に関する詳しい情報については、「[スリードットおよびツードット diff 比較](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)」を参照してください。
 
-### フォークを比較する
+## フォークを比較する
 
 ベースリポジトリと、フォークした任意のリポジトリを比較できます。 これは、ユーザがプロジェクトにプルリクエストを実行したときに表示されるビューです。
 
@@ -51,7 +53,7 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 2 つのリポジトリ間を比較した例については、[こちらをクリック](https://github.com/octocat/linguist/compare/master...octo-org:master)してください。
 
-### コミットを比較する
+## コミットを比較する
 
 Git では、「1 つ前のコミット」を意味するショートカットとして、"`^`" を使います。
 
@@ -59,6 +61,6 @@ Git では、「1 つ前のコミット」を意味するショートカット�
 
 `^` 記号を使った比較の例については、[こちらをクリック](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7)してください。
 
-### 参考リンク
+## 参考リンク
 
 - [プルリクエストのベースブランチを変更する](/articles/changing-the-base-branch-of-a-pull-request)

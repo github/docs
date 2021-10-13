@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### リポジトリへのアクセス管理について
 
 {% data variables.product.prodname_dotcom %}で管理するリポジトリごとに、リポジトリへのアクセス権を持つすべての Team または人の概要を確認できます。 概要から、新しい Team または人を招待したり、各 Team または人の権限を変更したり、リポジトリへのアクセスを削除したりすることもできます。

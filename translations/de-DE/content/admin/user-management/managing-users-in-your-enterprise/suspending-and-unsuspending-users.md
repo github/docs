@@ -10,14 +10,16 @@ redirect_from:
   - /admin/user-management/suspending-and-unsuspending-users
 intro: 'Wenn ein Benutzer das Unternehmen verlässt oder in eine andere Abteilung wechselt, sollten Sie dessen Zugriffsmöglichkeit auf {% data variables.product.product_location %} entfernen oder ändern.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Enterprise
   - Security
   - User account
+shortTitle: Manage user suspension
 ---
+
 Wenn Mitarbeiter das Unternehmen verlassen, kannst Du ihre {% data variables.product.prodname_ghe_server %}-Konten sperren, um Benutzerlizenzen in Deiner {% data variables.product.prodname_enterprise %}-Lizenz freizugeben und gleichzeitig die von ihnen erstellten Problemtickets, Kommentare, Repositorys, „Gists“ (Ideen) und anderen Daten beizubehalten. Gesperrte Benutzer können sich weder bei Ihrer Instanz anmelden noch Code per Push-Vorgang übertragen oder abrufen.
 
 Wenn Sie einen Benutzer sperren, wird die Änderung sofort wirksam, ohne dass der Benutzer benachrichtigt wird. Wenn der Benutzer versucht, Inhalte aus einem Repository abzurufen oder dorthin per Push-Vorgang zu übertragen, wird der folgende Fehler angezeigt:
@@ -37,7 +39,7 @@ Vor dem Sperren von Websiteadministratoren müssen Sie diese auf gewöhnliche Be
 
 {% endtip %}
 
-### Benutzer im Benutzeradministrator-Dashboard sperren
+## Benutzer im Benutzeradministrator-Dashboard sperren
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -47,7 +49,7 @@ Vor dem Sperren von Websiteadministratoren müssen Sie diese auf gewöhnliche Be
 5. Klicken Sie unter „Account suspension“ (Kontosperre) im roten Feld „Danger Zone“ (Gefahrenzone) auf **Suspend** (Sperren). ![Schaltfläche „Suspend“ (Sperren)](/assets/images/enterprise/site-admin-settings/suspend.png)
 6. Geben Sie an, weshalb der Benutzer gesperrt wird.![Grund für die Sperre](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
 
-### Benutzer im Benutzeradministrator-Dashboard entsperren
+## Benutzer im Benutzeradministrator-Dashboard entsperren
 
 Wie beim Sperren eines Benutzers wird das Entsperren eines Benutzers sofort wirksam. Der Benutzer wird nicht benachrichtigt.
 
@@ -59,7 +61,7 @@ Wie beim Sperren eines Benutzers wird das Entsperren eines Benutzers sofort wirk
 4. Klicken Sie unter „Account suspension“ (Kontosperre) im roten Feld „Danger Zone“ (Gefahrenzone) auf **Unsuspend** (Entsperren). ![Schaltfläche „Unsuspend“ (Entsperren)](/assets/images/enterprise/site-admin-settings/unsuspend.png)
 5. Geben Sie an, weshalb der Benutzer entsperrt wird.![Grund für Aufhebung der Sperre](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-### Benutzer an der Befehlszeile sperren
+## Benutzer an der Befehlszeile sperren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Führen Sie [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend) mit dem Benutzernamen aus, der gesperrt werden soll.
@@ -67,7 +69,7 @@ Wie beim Sperren eines Benutzers wird das Entsperren eines Benutzers sofort wirk
   $ ghe-user-suspend <em>username</em>
   ```
 
-### Benutzerdefinierte Meldung für gesperrte Benutzer erstellen
+## Benutzerdefinierte Meldung für gesperrte Benutzer erstellen
 
 Sie können eine benutzerdefinierte Meldung erstellen, die gesperrten Benutzern angezeigt wird, wenn sie versuchen, sich anzumelden.
 
@@ -80,7 +82,7 @@ Sie können eine benutzerdefinierte Meldung erstellen, die gesperrten Benutzern 
 8. Überprüfen Sie die dargestellte Meldung. ![Dargestellte Meldung für gesperrten Benutzer](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-### Benutzer an der Befehlszeile entsperren
+## Benutzer an der Befehlszeile entsperren
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Führen Sie [ghe-user-unsuspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) mit dem Benutzernamen aus, der entsperrt werden soll.
@@ -88,5 +90,5 @@ Sie können eine benutzerdefinierte Meldung erstellen, die gesperrten Benutzern 
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 - "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"

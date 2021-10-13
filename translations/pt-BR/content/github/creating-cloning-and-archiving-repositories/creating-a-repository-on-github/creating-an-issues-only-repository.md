@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 1. Crie um repositório **privado** para hospedar o código-fonte do seu projeto.
 2. Crie um segundo repositório com as permissões que deseja para hospedar o rastreador de problema.
 3. Adicione um arquivo README ao repositório de problemas explicando a finalidade desse repositório e vinculando-o à seção de problemas.

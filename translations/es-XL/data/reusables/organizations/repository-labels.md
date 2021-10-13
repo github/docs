@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, da clic en **Etiquetas de repositorio**. ![Pestaña de etiquetas de repositorio](/assets/images/help/organizations/repo-labels-tab.png)

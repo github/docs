@@ -7,15 +7,17 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
   - /admin/configuration/configuring-built-in-firewall-rules
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Networking
+shortTitle: Configure firewall rules
 ---
-### Informationen zur Firewall der {% data variables.product.product_location %}
+
+## Informationen zur Firewall der {% data variables.product.product_location %}
 
 {% data variables.product.prodname_ghe_server %} verwendet die Uncomplicated Firewall (UFW) von Ubuntu auf der virtuellen Appliance. Weitere Informationen finden Sie unter „[UFW](https://help.ubuntu.com/community/UFW)“ in der Ubuntu-Dokumentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
@@ -23,7 +25,7 @@ Nachdem Sie {% data variables.product.prodname_ghe_server %} installiert haben, 
 
 Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße Funktion von {% data variables.product.prodname_ghe_server %} erforderlich sind. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
-### Standardmäßige Firewallregeln anzeigen
+## Standardmäßige Firewallregeln anzeigen
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Führen Sie den Befehl `sudo ufw status` aus, um die standardmäßigen Firewallregeln anzuzeigen. Es sollte in etwa folgende Ausgabe angezeigt werden:
@@ -54,7 +56,7 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
   > ghe-9418 (v6)              ALLOW       Anywhere (v6)
   ```
 
-### Benutzerdefinierte Firewallregeln hinzufügen
+## Benutzerdefinierte Firewallregeln hinzufügen
 
 {% warning %}
 
@@ -69,12 +71,12 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
   ```
 3. Führen Sie zum Sichern Ihrer benutzerdefinierten Firewallregeln den Befehl `cp` aus, um die Regeln in eine neue Datei zu verschieben.
   ```shell
-  $ sudo cp -r /lib/ufw ~/ufw.backup
+  $ sudo cp -r /etc/ufw ~/ufw.backup
   ```
 
 Nach dem Upgrade von {% data variables.product.product_location %} müssen Sie Ihre benutzerdefinierten Firewallregeln erneut anwenden. Sie sollten ein Skript erstellen, um Ihre benutzerdefinierten Firewallregeln erneut anzuwenden.
 
-### Standardmäßige Firewallregeln wiederherstellen
+## Standardmäßige Firewallregeln wiederherstellen
 
 Wenn nach dem Ändern der Firewallregeln ein Fehler auftritt, können Sie die Regeln über das ursprüngliche Backup wiederherstellen.
 
@@ -87,7 +89,7 @@ Wenn nach dem Ändern der Firewallregeln ein Fehler auftritt, können Sie die Re
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Kopieren Sie zum Wiederherstellen der vorherigen Backup-Regeln diese mithilfe des Befehls `cp` zurück zur Firewall.
   ```shell
-  $ sudo cp -f ~/ufw.backup/*rules /lib/ufw
+  $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
   ```
 3. Führen Sie den Befehl `systemctl`aus, um die Firewall neu zu starten.
   ```shell

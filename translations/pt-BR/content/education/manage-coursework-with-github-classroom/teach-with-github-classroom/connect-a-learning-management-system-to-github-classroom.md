@@ -2,7 +2,7 @@
 title: Conecte o sistema de gerenciamento de aprendizagem ao GitHub Classroom
 intro: 'Você pode configurar um sistema de gerenciamento de aprendizado compatível com LTI (LMS) para conectar a {% data variables.product.prodname_classroom %} a fim de importar uma lista de participantes para sua sala de aula.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/configuring-a-learning-management-system-for-github-classroom
   - /education/manage-coursework-with-github-classroom/connect-to-lms
@@ -11,16 +11,18 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/setup-generic-lms
   - /education/manage-coursework-with-github-classroom/setup-moodle
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
+shortTitle: Conectar um LMS
 ---
-### Sobre a configuração do seu LMS
+
+## Sobre a configuração do seu LMS
 
 Você pode conectar um sistema de gerenciamento de aprendizagem (LMS) a {% data variables.product.prodname_classroom %}, e {% data variables.product.prodname_classroom %} pode importar uma lista de identificadores de aluno do LMS. Para conectar seu LMS a {% data variables.product.prodname_classroom %}, você deve inserir as credenciais de configuração para {% data variables.product.prodname_classroom %} no seu LMS.
 
-### Pré-requisitos
+## Pré-requisitos
 
 Para configurar um LMS para conectar-se a {% data variables.product.prodname_classroom %}, primeiro você deve criar uma sala de aula. Para obter mais informações, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)".
 
-### LMSes compatíveis
+## LMSes compatíveis
 
 {% data variables.product.prodname_classroom %} é compatível com a importação de dados da lista de LMSes que implementam os padrões de interoperabilidade de ferramentas de aprendizagem (LTI).
 
@@ -41,7 +43,7 @@ Atualmente, {% data variables.product.prodname_classroom %} não é compatível 
 
 
 
-### Gerar credenciais de configuração para sua sala de aula
+## Gerar credenciais de configuração para sua sala de aula
 
 {% data reusables.classroom.sign-into-github-classroom %}
 
@@ -64,7 +66,7 @@ Atualmente, {% data variables.product.prodname_classroom %} não é compatível 
 
 
 
-### Configurar um LMS genérico
+## Configurar um LMS genérico
 
 Você deve configurar as configurações de privacidade para o seu LMS para permitir que as ferramentas externas recebam informações da lista.
 
@@ -77,7 +79,7 @@ Você deve configurar as configurações de privacidade para o seu LMS para perm
 
 
 
-### Configurar o Canvas
+## Configurar o Canvas
 
 Você pode configurar {% data variables.product.prodname_classroom %} como um aplicativo externo para Canvas para importar dados da lista para sua sala de aula. Para obter mais informações sobre o Canvas, consulte o [site do Canvas](https://www.instructure.com/canvas/).
 
@@ -112,7 +114,7 @@ Você pode configurar {% data variables.product.prodname_classroom %} como um ap
 
 
 
-### Configurar Moodle
+## Configurar Moodle
 
 Você pode configurar {% data variables.product.prodname_classroom %} como uma atividade do Moodle para importar dados da lista para sua sala de aula. Para obter mais informações sobre o Moodle, consulte o [site do Moodle](https://moodle.org).
 
@@ -151,13 +153,13 @@ Você deve usar a versão 3.0 ou superior do Moodle.
 
 
 
-### Importar uma lista do seu LMS
+## Importar uma lista do seu LMS
 
 Para obter mais informações sobre a importação da lista de participantes do seu LMS para {% data variables.product.prodname_classroom %}, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)".
 
 
 
-### Desconectar seu LMS
+## Desconectar seu LMS
 
 {% data reusables.classroom.sign-into-github-classroom %}
 

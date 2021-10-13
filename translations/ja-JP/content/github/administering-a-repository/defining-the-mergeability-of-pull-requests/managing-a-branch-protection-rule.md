@@ -25,6 +25,7 @@ permissions: People with admin permissions to a repository can manage branch pro
 topics:
   - Repositories
 ---
+
 ### ブランチ保護ルールについて
 
 {% data reusables.repositories.branch-rules-example %}
@@ -57,6 +58,9 @@ topics:
    - [**Require status checks to pass before merging**] を選択します。 ![必須ステータスチェックのオプション](/assets/images/help/repository/required-status-checks.png)
    - プルリクエストを保護されたブランチの最新コードで確実にテストしたい場合は、[**Require branches to be up to date before merging**] を選択します。 ![必須ステータスのチェックボックス、ゆるい、または厳格な](/assets/images/help/repository/protecting-branch-loose-status.png)
    - 使用可能なステータスチェックのリストから、必須とするものを選択します。 ![利用可能なステータスチェックの一覧](/assets/images/help/repository/required-statuses-list.png)
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+1. Optionally, select **Require conversation resolution before merging**. ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
+{%- endif %}
 1. 必要に応じて、[**Require signed commits**] を選択します。 ![[Require signed commits] オプション](/assets/images/help/repository/require-signed-commits.png)
 1. 必要に応じて、[**Require linear history**] を選択します。 ![必須の直線状の履歴オプション](/assets/images/help/repository/required-linear-history.png)
 1. オプションとして、[**Include administrators**] を選択します。 ![[Include administrators] チェックボックス](/assets/images/help/repository/include-admins-protected-branches.png)

@@ -9,6 +9,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### Zenodo によってリポジトリの永続的識別子を発行する
 
 学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 データアーカイブツール [Zenodo](https://zenodo.org/about) を使用して {% data variables.product.product_name %} リポジトリをアーカイブ化すれば、そのアーカイブの DOI を発行することができます。

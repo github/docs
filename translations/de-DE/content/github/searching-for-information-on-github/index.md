@@ -1,19 +1,19 @@
 ---
 title: Informationen auf GitHub suchen
+intro: Use different types of searches to find the information you want.
 redirect_from:
   - /categories/78/articles/
   - /categories/search/
   - /categories/searching-for-information-on-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github
+shortTitle: Search on GitHub
 ---
-### Inhaltsverzeichnis
-    {% if currentVersion == "free-pro-team@latest" %}
-    {% endif %}
+
