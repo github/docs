@@ -275,8 +275,6 @@ Each job must have an id to associate with the job. The key `job_id` is a string
 
 #### Example
 
-In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
-
 ```yaml
 jobs:
   my_first_job:
