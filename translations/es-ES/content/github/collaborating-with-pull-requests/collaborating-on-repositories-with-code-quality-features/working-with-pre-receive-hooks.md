@@ -6,7 +6,8 @@ redirect_from:
   - /articles/working-with-pre-receive-hooks
   - /github/collaborating-with-issues-and-pull-requests/working-with-pre-receive-hooks
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+shortTitle: Ganchos de pre-recepción
 ---
 
 Los ganchos de pre-recepción ejecutan pruebas en código que se suben a un repositorio para asegurar que las contribuciones cumplan con las políticas del repositorio o de la organización. Si los contenidos de la confirmación pasan las pruebas, se aceptará que se suban al repositorio. Si los contenidos de la confirmación no pasan las pruebas, no se aceptará que se suban al repositorio.

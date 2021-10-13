@@ -1,7 +1,7 @@
 ---
 title: Política de Usuario Finado de Github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal

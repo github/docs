@@ -17,7 +17,6 @@ shortTitle: Events that trigger workflows
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configuring workflow events
 

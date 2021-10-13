@@ -1,0 +1,1 @@
+1. En {% data variables.product.prodname_vscode %}, en la barra lateral izquierda, da clic en el icono de Explorador Remoto. ![El icono de explorador remoto en {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-remote-explorer-icon-vscode.png)

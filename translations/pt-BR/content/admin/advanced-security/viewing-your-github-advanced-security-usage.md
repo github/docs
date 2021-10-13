@@ -4,14 +4,17 @@ intro: 'Você pode visualizar o uso de sua licença do {% data variables.product
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
-  enterprise-server: '>=3.1'
+  ghes: '>=3.1'
 topics:
   - Enterprise
+shortTitle: Visualizar o uso avançado de segurança
 ---
 
-{% data reusables.advanced-security.about-ghas-license-seats %} Para obter mais informações, consulte "[Sobre licenciamento para {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/about-licensing-for-github-advanced-security).
+## Sobre as licenças para {% data variables.product.prodname_GH_advanced_security %}
 
-### Visualizar o uso de licença para {% data variables.product.prodname_GH_advanced_security %}
+{% data reusables.advanced-security.about-ghas-license-seats %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".
+
+## Visualizar o uso de licença para {% data variables.product.prodname_GH_advanced_security %}
 
 Você pode verificar quantas estações a sua licença inclui e quantas estações estão atualmente em uso.
 

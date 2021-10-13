@@ -19,6 +19,8 @@ release_notes:
 search:
   need_help: Benötigen Sie Hilfe?
   placeholder: Themen, Produkte suchen …
+  loading: Loading
+  no_results: No results found
 homepage:
   explore_by_product: Nach Produkt erkunden
   version_picker: Version
@@ -28,9 +30,10 @@ toc:
   guides: Leitfäden
   whats_new: What's new
 pages:
-  article_version: 'Artikelversion:'
+  article_version: 'Artikelversion'
   miniToc: Inhalt dieses Artikels
   contributor_callout: This article is contributed and maintained by
+  all_enterprise_releases: All Enterprise releases
 errors:
   oops: Hoppla!
   something_went_wrong: Leider ist ein Fehler aufgetreten.
@@ -44,8 +47,6 @@ survey:
   able_to_find: Did this doc help you?
   yes: true
   no: false
-  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
-  no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
   comment_yes_label: Let us know what we do well
   comment_no_label: Let us know what we can do better
   optional: Optional
@@ -138,7 +139,7 @@ product_landing:
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
-  no_result: Sorry, there is no guide that match your filter.
+  no_result: Sorry, there are no guides that match your filter.
   learn: Learn how to add a code example
   communities_using_discussions: Communities using discussions
   add_your_community: Add your community
@@ -157,10 +158,15 @@ product_sublanding:
   more_guides: more guides
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: Typ
     topic: Topic
     all: Alle
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: Übersicht
     quick_start: Schnellstart
