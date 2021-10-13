@@ -12,6 +12,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.actions.ae-beta %}
 
 The {% data variables.product.prodname_actions %} API enables you to manage {% data variables.product.prodname_actions %} using the REST API. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. For more information, see "[{% data variables.product.prodname_actions %} Documentation](/actions)."
 
