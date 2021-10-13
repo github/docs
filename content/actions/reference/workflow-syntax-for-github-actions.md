@@ -271,7 +271,7 @@ If you need to find the unique identifier of a job running in a workflow run, yo
 
 ### `jobs.<job_id>`
 
-You must create an identifier for each job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 #### Example
 
