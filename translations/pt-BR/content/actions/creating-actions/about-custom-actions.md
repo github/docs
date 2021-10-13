@@ -1,5 +1,5 @@
 ---
-title: About custom actions
+title: Sobre ações personalizadas
 intro: 'Ações são tarefas individuais que você pode combinar para criar trabalhos e personalizar o seu fluxo de trabalho. Você pode criar suas próprias ações ou usar e personalizar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -20,9 +20,8 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## About custom actions
+## Sobre ações personalizadas
 
 Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.prodname_dotcom %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção.
 
@@ -36,11 +35,11 @@ As ações podem ser executadas diretamente em uma máquina ou em um contêiner 
 
 Você pode compilar ações do contêiner Docker e JavaScript. As ações exigem um arquivo de metadados para a definição de entradas, saídas e ponto de entrada principal para sua ação. O nome do arquivo dos metadados deve ser `action.yml` ou `action.yaml`. Para obter mais informações, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
-| Tipo              | Sistema operacional   |
-| ----------------- | --------------------- |
-| Contêiner Docker  | Linux                 |
-| JavaScript        | Linux, macOS, Windows |
-| Composite Actions | Linux, macOS, Windows |
+| Tipo             | Sistema operacional   |
+| ---------------- | --------------------- |
+| Contêiner Docker | Linux                 |
+| JavaScript       | Linux, macOS, Windows |
+| Ações compostas  | Linux, macOS, Windows |
 
 ### Ações de contêiner docker
 
@@ -58,9 +57,9 @@ As ações do JavaScript podem ser executadas diretamente em uma máquina execut
 
 Se você estiver desenvolvendo um projeto Node.js, o kit de ferramentas {% data variables.product.prodname_actions %} fornecerá pacotes que você poderá usar para acelerar o desenvolvimento. Para obter mais informações, consulte o repositório [ações/conjuntos de ferramentas](https://github.com/actions/toolkit).
 
-### Composite Actions
+### Ações compostas
 
-A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)".
+Uma ação _composta_ permite que você combine várias etapas do fluxo de trabalho em uma ação. Por exemplo, você pode usar esse recurso para juntar vários comandos executando em uma ação e, em seguida, ter um fluxo de trabalho que executa os comandos empacotados como uma única etapa usando essa ação. Para ver um exemplo, confira "[Criar uma ação composta](/actions/creating-actions/creating-a-composite-action)".
 
 ## Definir o local da ação
 
@@ -152,7 +151,7 @@ Se você planeja compartilhar sua ação publicamente, é recomendável criar um
 
 ### Vantagens do GitHub Actions e dos aplicativos GitHub
 
-While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
+Embora {% data variables.product.prodname_actions %} e {% data variables.product.prodname_github_apps %} forneçam maneiras de criar automação e ferramentas de fluxo de trabalho, cada um tem pontos fortes que os tornam úteis de maneiras diferentes.
 
 {% data variables.product.prodname_github_apps %}:
 * Executa, de modo persistente, e pode reagir a eventos rapidamente.

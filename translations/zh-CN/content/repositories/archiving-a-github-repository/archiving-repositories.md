@@ -32,7 +32,7 @@ topics:
 
 当仓库存档后，其议题、拉取请求、代码、标签、重要事件、项目、wiki、版本、提交、标记、分支、反应、代码扫描警报和注解都会变成只读。 要更改存档的仓库，必须先对仓库取消存档。
 
-您可以搜索已存档的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索议题和拉取请求](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)”。
+您可以搜索已存档的仓库。 更多信息请参阅“[搜索仓库](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)”。
 
 ## 存档仓库
 

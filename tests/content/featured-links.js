@@ -32,7 +32,7 @@ describe('featuredLinks', () => {
       )
     })
 
-    // Skipped. See issues/923
+    // Skipped. Docs Engineering issue: 923
     test.skip('localized intro links link to localized pages', async () => {
       const $ = await getDOM('/ja')
       const $featuredLinks = $('[data-testid=article-list] a')

@@ -1,5 +1,5 @@
 ---
-title: GitHub Codespaces Privacy Statement
+title: Declaración de Privacidad de GitHub Codespaces
 redirect_from:
   - /github/site-policy/github-codespaces-privacy-policy
 versions:
@@ -9,14 +9,14 @@ topics:
   - Legal
 ---
 
-Effective Date: August 10, 2021
+Fecha Efectiva: 10 de agosto de 2021
 
-Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+El uso de los GitHub Codespaces está sujeto a la [Declaración de Privacidad de GitHub](/github/site-policy/github-privacy-statement).
 
-Activity on github.dev is subject to [GitHub's Beta Previews terms](/github/site-policy/github-terms-of-service#j-beta-previews)
+La actividad en github.dev está sujeta a los [Términos de las Vistas Previas Beta de GitHub](/github/site-policy/github-terms-of-service#j-beta-previews)
 
-## Using Visual Studio Code
+## Utilizar Visual Studio Code
 
-GitHub Codespaces and github.dev allow for use of Visual Studio Code in the web browser. When using Visual Studio Code in the web browser, some telemetry collection is enabled by default and is [explained in detail on the Visual Studio Code website](https://code.visualstudio.com/docs/getstarted/telemetry). Users can opt out of telemetry by going to File > Preferences > Settings under the top left menu.
+GitHub Codespaces y github.dev permiten el uso de Visual Studio Code en el buscador web. Cuando utilizas Visual Studio Code en el navegador web, se habilita algo de recopilación de telemetría predeterminadamente y se [explica a detalle en el sitio web de Visual Studio Code](https://code.visualstudio.com/docs/getstarted/telemetry). Los usuarios pueden decidir no participar en la telemetría siguiendo la ruta Archivo > Preferencias > Ajustes, debajo del menú superior izquierdo.
 
-If a user chooses to opt out of telemetry capture in Visual Studio Code while inside of a codespace as outlined, this will sync the disable telemetry preference across all future web sessions in GitHub Codespaces and github.dev.
+Si un usuario elige no participar en la captura de telemetría en Visual Studio Code mientras está en un codespace de acuerdo con lo estipulado, esto sincronizará la preferencia de inhabilitar la telemetría en todas las sesiones web futuras dentro de GitHub Codespaces y github.dev.

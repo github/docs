@@ -51,7 +51,7 @@ Los gerentes de facturación**no** pueden:
 
 {% note %}
 
-**Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level.
+**Nota:** Si tu organización se administra utilizando [Cuentas empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) no podrás invitar a los gerentes de facturación a nivel organizacional.
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
-title: Viewing activity and data for your repository
-intro: Gain insight into your repository by viewing activity and data.
+title: Ver la actividad y los datos de tu repositorio
+intro: Obtén perspectivas en tu repositorio viendo su actividad y datos.
 redirect_from:
   - /categories/44/articles
   - /categories/graphs-and-contributions
@@ -23,6 +23,6 @@ children:
   - /understanding-connections-between-repositories
   - /about-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
-shortTitle: View activity and data
+shortTitle: Ver la actividad y datos
 ---
 

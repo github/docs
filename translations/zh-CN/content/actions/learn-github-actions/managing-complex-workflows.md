@@ -13,7 +13,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -170,10 +169,13 @@ To learn more about self-hosted runner labels, see ["Using labels with self-host
 {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% data reusables.actions.reusable-workflows %}
+
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ## 使用环境
 
-您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
+您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
 ## 使用工作流程模板
@@ -187,4 +189,4 @@ To learn more about self-hosted runner labels, see ["Using labels with self-host
 
 ## 后续步骤
 
-要继续了解 {% data variables.product.prodname_actions %}，请参阅“[与组织共享工作流程](/actions/learn-github-actions/sharing-workflows-with-your-organization)”。
+To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows, secrets, and runners with your organization](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)."

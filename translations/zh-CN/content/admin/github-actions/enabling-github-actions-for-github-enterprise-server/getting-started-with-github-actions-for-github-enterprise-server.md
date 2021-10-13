@@ -37,18 +37,45 @@ topics:
 
 {% endif %}
 
+{%- ifversion ghes < 3.2 %}
+
 {% data variables.product.product_location %} 可用的 CPU 和内存资源决定了 {% data variables.product.prodname_actions %} 的最大作业吞吐量。
 
 {% data variables.product.company_short %} 的内部测试展示了具有系列 CPU 和内存配置的 {% data variables.product.prodname_ghe_server %} 实例的以下最大吞吐量。 您可能会看到不同的吞吐量，具体取决于实例的总体活动水平。
 
-| vCPU | 内存 | 最大作业吞吐量 |
-|:---- |:-- |:------- |
-|      |    |         |
-{%- ifversion ghes > 3.1 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 30 jobs | | 16 | 128 GB | 60 jobs | | 32 | 256 GB | 120 jobs | | 64 | 512 GB | 160 jobs |
-{%- else ifversion ghes < 3.2 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 25 jobs | | 16 | 160 GB | 35 jobs | | 32 | 256 GB | 100 jobs |
 {%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss.
+
+The peak quantity of concurrent jobs running without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+
+{% endif %}
+
+{%- ifversion ghes < 3.2 %}
+
+| vCPU | 内存     | 最大作业吞吐量 |
+|:---- |:------ |:------- |
+| 4    | 32 GB  | 演示或轻量测试 |
+| 8    | 64 GB  | 25 个作业  |
+| 16   | 160 GB | 35 个作业  |
+| 32   | 256 GB | 100 个作业 |
+
+{%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+| vCPU | 内存     | Maximum Concurrency* |
+|:---- |:------ |:-------------------- |
+| 32   | 128 GB | 1500 个作业             |
+| 64   | 256 GB | 1900 个作业             |
+| 96   | 384 GB | 2200 个作业             |
+
+*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+
+{%- endif %}
+
 
 如果您{% ifversion ghes = 2.22 %}启用了{% else %}计划中的测试版以便为现有实例的用户启用{% endif %} {% data variables.product.prodname_actions %}，请查看用户的活动级别和实例上的自动化，并确保已为用户预配足够的 CPU 和内存。 有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
 

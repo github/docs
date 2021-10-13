@@ -2,7 +2,7 @@
 title: ディスカッションを使用してメンテナとコラボレーションする
 shortTitle: メンテナとコラボレーションする
 intro: 'ディスカッションでプロジェクトのメンテナと連絡を取り合うことにより、{% data variables.product.product_name %} でプロジェクトの目標、計画、健全性、およびコミュニティに貢献できます。'
-permissions: People with read permissions to a repository can start and participate in discussions in the repository.
+permissions: 'People with read access to a repository can start and participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
 ---
@@ -32,7 +32,7 @@ To collaborate with maintainers in discussions, a repository administrator or pr
 
 ## ディスカッションのリストをフィルタする
 
-ディスカッションを検索し、リポジトリ内のディスカッションのリストをフィルタできます。 詳しい情報については、「[ ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」を参照してください。
+ディスカッションを検索し、リポジトリ内のディスカッションのリストをフィルタできます。 詳しい情報については、「[ ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

@@ -37,5 +37,5 @@ jobs:
                 }
               }
             } catch(e) {
-              console.log(error);
+              console.log(e);
             }

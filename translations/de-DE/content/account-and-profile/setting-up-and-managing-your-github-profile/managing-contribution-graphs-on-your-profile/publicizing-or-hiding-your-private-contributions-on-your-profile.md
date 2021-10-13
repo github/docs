@@ -14,14 +14,18 @@ topics:
 shortTitle: Private contributions
 ---
 
-Wenn Du Deine privaten Beiträge veröffentlichst, können Benutzer, die keinen Zugriff auf die Repositorys haben, an denen Du mitarbeitest, die Informationen zu Deinen privaten Beiträgen nicht sehen. Stattdessen sehen sie die Anzahl an privaten Beiträgen, die Du pro Tag geleistet hast. Zu Deinen öffentlichen Beiträgen werden detaillierte Informationen angezeigt. Weitere Informationen findest Du unter „[Beiträge auf Deiner Profilseite anzeigen](/articles/viewing-contributions-on-your-profile-page)“.
+Wenn Du Deine privaten Beiträge veröffentlichst, können Benutzer, die keinen Zugriff auf die Repositorys haben, an denen Du mitarbeitest, die Informationen zu Deinen privaten Beiträgen nicht sehen. Stattdessen sehen sie die Anzahl an privaten Beiträgen, die Du pro Tag geleistet hast. Zu Deinen öffentlichen Beiträgen werden detaillierte Informationen angezeigt. For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)."
+
+{% note %}
+
+**Note:** {% ifversion fpt or ghes %}On {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+
+{% endnote %}
 
 ## Die Sichtbarkeit Deiner privaten Beiträge ändern
 
-Standardmäßig sehen Besucher nur die öffentlichen Beiträge in Deinem Profil.
-
 {% data reusables.profile.access_profile %}
-2. Veröffentliche Deine privaten Beiträge in Deinem Profil, oder blende sie aus:
+1. Veröffentliche Deine privaten Beiträge in Deinem Profil, oder blende sie aus:
     - Um Deine privaten Beiträge zu veröffentlichen, wähle über Deinem Beteiligungsdiagramm im Dropdownmenü **Contribution settings** (Beitragseinstellungen) die Option **Private contributions** (Private Beiträge) aus. Besucher sehen die Anzahl Deiner privaten Beiträge ohne weitere Details. ![Im Dropdownmenü mit den Beitragseinstellungen festlegen, dass Besucher private Beiträge sehen können](/assets/images/help/profile/private-contributions-on.png)
     - Um Deine privaten Beiträge auszublenden, hebe über Deinem Beteiligungsdiagramm im Dropdownmenü **Contribution settings** (Beitragseinstellungen) die Auswahl der Option **Private contributions** (Private Beiträge) auf. Besucher sehen dann nur Deine öffentlichen Beiträge. ![Im Dropdownmenü mit den Beitragseinstellungen festlegen, dass Besucher private Beiträge sehen können](/assets/images/help/profile/private-contributions-off.png)
 

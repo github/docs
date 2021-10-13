@@ -6,5 +6,5 @@
      1. In the left sidebar, click **Enterprise overview**.
      1. {% endif %} In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.
 1. Navigate to the {% data variables.product.prodname_actions %} settings:
-   * **In an organization or repository**: Click **Actions** in the left sidebar{% ifversion fpt %}, then click **Runners**{% endif %}.
-   * {% ifversion fpt %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion fpt %}, then click the **Runners** tab{% endif %}.
+   * **In an organization or repository**: Click **Actions** in the left sidebar{% ifversion fpt or ghes > 3.1 or ghae-next %}, then click **Runners**{% endif %}.
+   * {% ifversion fpt %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion fpt or ghes > 3.1 or ghae-next %}, then click the **Runners** tab{% endif %}.

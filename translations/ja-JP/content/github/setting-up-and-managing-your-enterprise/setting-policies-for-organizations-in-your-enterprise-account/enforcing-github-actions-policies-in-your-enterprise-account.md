@@ -42,7 +42,9 @@ Enterprise のワークフローをすべて無効にすることも、Organizat
 
 ## パブリックフォークからのワークフローに対する必須の承認の設定
 
-{% data reusables.actions.workflow-run-approve-public-fork %} You can configure this behavior for your enterprise using the procedure below.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for your enterprise using the procedure below.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

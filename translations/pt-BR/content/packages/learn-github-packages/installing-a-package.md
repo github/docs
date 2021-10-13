@@ -18,7 +18,7 @@ versions:
 
 ## Sobre a instalação do pacote
 
-Você pode pesquisar {% data variables.product.product_name %} para encontrar pacotes no {% data variables.product.prodname_registry %} que você pode instalar no seu próprio projeto. Para obter mais informações, consulte "[Pesquisar pacotes no {% data variables.product.prodname_registry %}](/github/searching-for-information-on-github/searching-for-packages)".
+Você pode pesquisar {% data variables.product.product_name %} para encontrar pacotes no {% data variables.product.prodname_registry %} que você pode instalar no seu próprio projeto. Para obter mais informações, consulte "[Pesquisar pacotes no {% data variables.product.prodname_registry %}](/search-github/searching-on-github/searching-for-packages)".
 
 Depois de encontrar um pacote, você pode ler a descrição e as instruções de instalação e utilização na página de pacotes.
 

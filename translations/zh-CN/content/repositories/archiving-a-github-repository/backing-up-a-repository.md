@@ -36,7 +36,7 @@ topics:
 - [项目](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-一旦您拥有{% ifversion ghes or ghae %}所有要备份内容的本地版本，您就可以创建一个 zip 存档并{% else %}下载您的存档。您可以{% endif %}将其复制到外部硬盘和/或将其上传到基于云的备份服务，例如 [Google Drive](https://www.google.com/drive/) 或 [Dropbox](https://www.dropbox.com/)。
+Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt %}
 ## 第三方备份工具

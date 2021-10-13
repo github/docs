@@ -15,7 +15,7 @@ topics:
 shortTitle: Configurar los enlaces automáticos
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests, commit messages, and release descriptions to external third-party services.
+Cualquier usuario con permisos de administración en un repositorio puede configurar referencias de enlace automático para vincular propuestas, solicitudes de cambios, mensajes de confirmación y descripciones de lanzamientos con los servicios externos de terceros.
 
 Si usas Zendesk para hacer el seguimiento de los tickets informados por el usuario, por ejemplo, puedes referenciar un número de ticket en la solicitud de extracción que abres para corregir el problema.
 

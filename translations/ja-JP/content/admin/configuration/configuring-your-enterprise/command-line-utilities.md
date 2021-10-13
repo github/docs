@@ -351,18 +351,6 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-このコマンドが返すサービス名は、[`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html)コマンドで利用して、それらのサービスを必要に応じて手動で停止、起動、再起動できます。 例:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-サービスを停止することによって、インスタレーションが稼働停止しますので、サービスを停止または再起動する前に {% data variables.contact.contact_ent_support %} に連絡することをおすすめします。
-
-{% endtip %}
-
 ### ghe-set-password
 
 `ghe-set-password` では、[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) に認証するための新しいパスワードを設定することができます。
@@ -807,7 +795,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-このユーティリティは、インストールのユーザーのリストを JSON 形式でエクスポートします。 インスタンスが {% data variables.product.prodname_ghe_cloud %} に接続されている場合、{% data variables.product.prodname_ghe_server %} はこの情報を使用してライセンス情報を {% data variables.product.prodname_ghe_cloud %} に報告します。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_ghe_cloud %} に接続する](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
+このユーティリティは、インストールのユーザーのリストを JSON 形式でエクスポートします。 インスタンスが {% data variables.product.prodname_ghe_cloud %} に接続されている場合、{% data variables.product.prodname_ghe_server %} はこの情報を使用してライセンス情報を {% data variables.product.prodname_ghe_cloud %} に報告します。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 デフォルトでは、結果の JSON ファイル内のユーザのリストは暗号化されます。 その他のオプションを利用するには、`-h` のフラグを使ってください。
 

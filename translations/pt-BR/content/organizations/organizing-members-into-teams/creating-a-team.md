@@ -25,11 +25,13 @@ Apenas os proprietários e mantenedores de uma equipe principal podem criar uma 
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion fpt %}
-1. Opcionalmente, se sua conta de organização ou empresa usar a sincronização de equipes, para conectar um grupo de provedor de identidade à sua equipe, use o menu suspenso "Grupos de provedores de identidade" e selecione até 5 grupos de provedores de identidade. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Menu suspenso para escolher grupos de provedores de identidade](/assets/images/help/teams/choose-an-idp-group.png)
+1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
+    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[Managing team memberships with identity provider groups](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
+    * If your organization or enterprise account uses team synchronization, use the "Identity Provider Groups" drop-down menu, and select up to five identity provider groups to connect to the new team. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)." ![Menu suspenso para escolher grupos de provedores de identidade](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
-9. Se desejar, [forneça à equipe acesso aos repositórios da organização](/articles/managing-team-access-to-an-organization-repository).
+1. Se desejar, [forneça à equipe acesso aos repositórios da organização](/articles/managing-team-access-to-an-organization-repository).
 
 ## Leia mais
 

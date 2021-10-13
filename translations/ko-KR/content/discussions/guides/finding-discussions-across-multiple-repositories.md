@@ -15,6 +15,6 @@ shortTitle: Find discussions
 
 ## 더 읽을거리
 
-- "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
+- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"

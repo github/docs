@@ -61,19 +61,6 @@ Die Veröffentlichung eines Sicherheitshinweises verändert die URL für diesen 
 
 Wenn Du Informationen in einem von Dir veröffentlichten Sicherheitshinweis aktualisieren oder korrigieren musst, kannst Du den Hinweis bearbeiten. Weitere Informationen findest Du unter „[Einen Sicherheitshinweis bearbeiten](/github/managing-security-vulnerabilities/editing-a-security-advisory)."
 
-## CVE-Identifikationsnummer anfordern
-
-Personen mit Administratorberechtigungen auf einem Sicherheitshinweis können einen CVE-Identifikationsnummer für den Hinweis anfordern.
-
-{% data reusables.repositories.request-security-advisory-cve-id %} Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-4. Klicke in der Liste „Security Advisories" (Sicherheitshinweise) auf den Hinweis für den Du eine CVE-Identifikationsnummer anfordern möchtest. ![Sicherheitshinweis in der Liste](/assets/images/help/security/security-advisory-in-list.png)
-5. Benutze das **Publish advisory** (Hinweis veröffentlichen) Dropdownmenü und klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![CVE-Identifikationsnummer im Dropdownmenü anfordern](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
-6. Klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![Dropdownmenü „Request CVE" (CVE-Identifikationsnummer anfordern)](/assets/images/help/security/security-advisory-request-cve-button.png)
-
 ## Einen Sicherheitshinweis veröffentlichen
 
 Die Veröffentlichung eines Sicherheitshinweises löscht den temporären privaten Fork für den Sicherheitshinweis.
@@ -87,6 +74,17 @@ Die Veröffentlichung eines Sicherheitshinweises löscht den temporären private
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}
+
+## Requesting a CVE identification number (Optional)
+
+{% data reusables.repositories.request-security-advisory-cve-id %} Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+4. Klicke in der Liste „Security Advisories" (Sicherheitshinweise) auf den Hinweis für den Du eine CVE-Identifikationsnummer anfordern möchtest. ![Sicherheitshinweis in der Liste](/assets/images/help/security/security-advisory-in-list.png)
+5. Benutze das **Publish advisory** (Hinweis veröffentlichen) Dropdownmenü und klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![CVE-Identifikationsnummer im Dropdownmenü anfordern](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
+6. Klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![Dropdownmenü „Request CVE" (CVE-Identifikationsnummer anfordern)](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Weiterführende Informationen
 

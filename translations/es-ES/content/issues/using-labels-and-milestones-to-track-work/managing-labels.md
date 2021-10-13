@@ -1,6 +1,7 @@
 ---
 title: Administrar las etiquetas
 intro: 'Puedes clasificar {% ifversion fpt %}propuestas, solicitudes de cambio y debates{% else %}propuestas y solicitudes de cambio{% endif %} si creas, editas, aplicas y borras las etiquetas.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -30,8 +31,6 @@ topics:
 
 Puedes administrar tu trabajo en {% data variables.product.product_name %} si creas etiquetas para categorizar {% ifversion fpt %}propuestas, solicitudes de cambio, y debates{% else %}propuestas y solicitudes de cambio{% endif %}. Puedes aplicar etiquetas en el repositorio en el que éstas se hayan creado. Una vez que exista una etiqueta, puedes utilizarla en cualquier {% ifversion fpt %}propuesta, solicitud de cambio o debate{% else %}propuesta o solicitud de cambio{% endif %} dentro del repositorio.
 
-Cualquiera con acceso de lectura a un repositorio puede ver y buscar las etiquetas del repositorio. Cualquiera con acceso de clasificación en un repositorio puede aplicar/descartar las etiquetas existentes. Para crear, editar, aplicar o eliminar una etiqueta, debes tener acceso de escritura al repositorio.
-
 ## Acerca de las etiquetas predeterminadas
 
 {% data variables.product.product_name %} ofrece etiquetas predeterminadas en cada repositorio nuevo. Puedes usar estas etiquetas predeterminadas para ayudar a crear un flujo de trabajo estándar en un repositorio.
@@ -58,6 +57,8 @@ Los propietarios de la organización pueden personalizar las etiquetas predeterm
 
 ## Crear una etiqueta
 
+Cualquiera con acceso de escritura en un repositorio puede crear una etiqueta.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
@@ -69,10 +70,14 @@ Los propietarios de la organización pueden personalizar las etiquetas predeterm
 
 ## Aplicar una etiqueta
 
+Cualquiera con acceso de clasificación en un repositorio puede aplicar y descartar etiquetas.
+
 1. Navega a la {% ifversion fpt %}propuesta, solicitud de cambios o debate{% else %}propuesta o solicitud de cambios{% endif %}.
 1. En la barra lateral derecha, a la derecha de "Etiquetas", haz clic en {% octicon "gear" aria-label="The gear icon" %} y luego en la etiqueta. ![Menú desplegable de "Labels"](/assets/images/help/issues/labels-drop-down.png)
 
 ## Editar una etiqueta
+
+Cualquiera con acceso de escritura en un repositorio puede editar las etiquetas existentes.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -85,6 +90,8 @@ Los propietarios de la organización pueden personalizar las etiquetas predeterm
 
 ## Eliminar una etiqueta
 
+Cualquiera con acceso de escritura en un repositorio puede borrar las etiquetas existentes.
+
 El borrar una etiqueta la eliminará de las propuestas y soilcitudes de cambios.
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -93,6 +100,6 @@ El borrar una etiqueta la eliminará de las propuestas y soilcitudes de cambios.
 {% data reusables.project-management.delete-label %}
 
 ## Leer más
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes %}
+- "[Filtrar y buscar propuestas y solicitudes de cambios](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes %}
 - "[Administrar las etiquetas predeterminadas para los repositorios de tu organización](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt %}
 - "[Fomentar las contribuciones sanas a tu proyecto con etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

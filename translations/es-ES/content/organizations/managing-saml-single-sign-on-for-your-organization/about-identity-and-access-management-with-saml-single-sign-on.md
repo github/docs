@@ -13,13 +13,15 @@ topics:
 shortTitle: IAM con el SSO de SAML
 ---
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## Acerca de SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
 {% data reusables.saml.saml-accounts %}
 
-Los propietarios de las organizaciones pueden requerir el SSO de SAML para una organización individual o para todas las organizaciones en una cuenta empresarial. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Los propietarios de las organizaciones pueden requerir el SSO de SAML para una organización individual o para todas las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML para las organizaciones de tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 {% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
 
@@ -35,7 +37,7 @@ Para acceder a los recursos protegidos de tu organización tulizando la API y Gi
 
 La primera vez que un miembro utilice el SSO de SAML para acceder a tu organización, {% data variables.product.prodname_dotcom %} creará automáticamente un registro que vinculará a tu organización, la cuenta de {% data variables.product.prodname_dotcom %} del miembro y la cuenta del miembro en tu IdP. Puedes ver y retirar la identidad de SAML que se ha vinculado, activar sesiones, y autorizar las credenciales para los miembros de tu organización o cuenta empresarial. Para obtener más información, consulta la sección "[Visualizar y administrar un acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" y [Visualizar y administrar un acceso de SAML de un usuario a tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)".
 
-Si los miembros ingresan con una sesión de SSO de SAML cuando crean un nuevo repositorio, la visibilidad predeterminada de dicho repositorio será privada. De lo contrario, la visibilidad predeterminada es pública. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Si los miembros ingresan con una sesión de SSO de SAML cuando crean un nuevo repositorio, la visibilidad predeterminada de dicho repositorio será privada. De lo contrario, la visibilidad predeterminada es pública. Para obtener más información sobre la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 Los miembros de una organización también deben contar con una sesión activa de SAML para autorizar un {% data variables.product.prodname_oauth_app %}. Puedes decidir no llevar este requisito si contactas a {% data variables.contact.contact_support %}. {% data variables.product.product_name %} no recomienda que renuncies a este requisito, ya que expondrá a tu organización a un riesgo mayor de que se roben las cuentas y de que exista pérdida de datos.
 

@@ -29,7 +29,7 @@ Du kannst Benachrichtigungen abonnieren für:
 - Eine Unterhaltung in einem spezifischen Issue, Pull Request oder Gist.
 - Alle Aktivitäten in einem Repository oder in einer Team-Diskussion.
 - CI-Aktivität wie beispielsweise der Status von Workflows in Repositorys, die mit {% data variables.product.prodname_actions %} aufgesetzt wurden. {% ifversion fpt or ghes > 3.0 or ghae-next %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled). {% elsif ghae or ghes %}
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
 - Releases in a repository.{% endif %}
 
 Du kannst auch automatisch alle Repositorys überwachen, auf die Du Push-Zugriff hast, mit Ausnahme von Forks. Du kannst jedes andere Repository, auf das Du Zugriff hast, manuell verfolgen durch klicken auf **Watch** (Beobachten).

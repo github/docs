@@ -29,4 +29,4 @@ For more information on how Git considers commit history, see [the "History Simp
 ## Дополнительная литература
 
 - "[Signing commits](/articles/signing-commits)"
-- "[Searching commits](/articles/searching-commits)"
+- "[Searching commits](/search-github/searching-on-github/searching-commits)"

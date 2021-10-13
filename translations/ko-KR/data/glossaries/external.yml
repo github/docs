@@ -9,7 +9,7 @@
 - 
   term: 계정 복구 토큰
   description: >-
-    Recover Accounts Elsewhere라고 하는 계정 복구 설정의 일부로 저장된 인증 자격 증명입니다. Recover Accounts Elsewhere에 이 백업 자격 증명을 저장할 수 있습니다.
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: API 미리 보기
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: Recover Accounts Elsewhere
   description: >-
-    사용자가 2단계 인증 방법 또는 복구 코드에 대한 액세스 권한을 잃은 경우 GitHub 계정에 추가 보안 요소를 추가할 수 있습니다. 사용자는 GitHub 계정에 대한 계정 복구 토큰 형태로 Facebook 계정에 대한 인증 자격 증명을 저장하여 GitHub 계정을 Facebook 계정과 연결할 수 있습니다.
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: 복구 코드
   description: GitHub 계정에 다시 액세스할 수 있는 코드입니다.

@@ -26,7 +26,7 @@ topics:
 
 ## Utilizar GitHub
 
-Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
+Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. También puedes instalar el {% data variables.product.prodname_cli %} para utilizar {% data variables.product.product_name %} desde la línea de comandos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
 Si deseas trabajar con Git de forma local, pero no deseas utilizar la línea de comando, puedes descargar e instalar en su lugar el cliente [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
 
@@ -49,7 +49,7 @@ Cuando te conectas a un repositorio {% data variables.product.product_name %} de
 
 {% note %}
 
-**Note:** You can authenticate to {% data variables.product.product_name %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+**Nota:** Puedes autenticarte en {% data variables.product.product_name %} utilizando el {% data variables.product.prodname_cli %} ya sea para HTTP o SSH. Para obtener más información, consulta [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 {% endnote %}
 

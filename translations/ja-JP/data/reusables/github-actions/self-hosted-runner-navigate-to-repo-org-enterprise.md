@@ -6,5 +6,5 @@
      1. 左のサイドバーで**Enterprise overview（Enterpriseの概要）**をクリックしてください。
      1. {% endif %}Enterpriseサイドバー内で{% octicon "law" aria-label="The law icon" %}**Policies（ポリシー）**をクリックしてください。
 1. {% data variables.product.prodname_actions %}設定にアクセスしてください:
-   * **Organizationもしくはリポジトリ内**: 左のサイドバーで**Actions**をクリック{% ifversion fpt %}し、続いて**Runners（ランナー）**をクリック{% endif %}してください。
-   * {% ifversion fpt %}**Enterpriseアカウントを使っている場合**:{% elsif ghes or ghae %}**Enterpriseレベルのランナーを使っている場合**:{% endif %} "{% octicon "law" aria-label="The law icon" %} Policies（ポリシー）”の下の**Actions**をクリック{% ifversion fpt %}し、続いて**Runners（ランナー）**タブをクリック{% endif %}してください。
+   * **Organizationもしくはリポジトリ内**: 左のサイドバーで**Actions**をクリック{% ifversion fpt or ghes > 3.1 or ghae-next %}し、続いて**Runners（ランナー）**をクリック{% endif %}してください。
+   * {% ifversion fpt %}**Enterpriseアカウントを使っている場合**:{% elsif ghes or ghae %}**Enterpriseレベルのランナーを使っている場合**:{% endif %} "{% octicon "law" aria-label="The law icon" %} Policies（ポリシー）”の下の**Actions**をクリック{% ifversion fpt or ghes > 3.1 or ghae-next %}し、続いて**Runners（ランナー）**タブをクリック{% endif %}してください。

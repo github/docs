@@ -52,4 +52,4 @@ shortTitle: 链接到错误的用户
 
 ## 延伸阅读
 
-* "[搜索提交](/articles/searching-commits)"
+* "[搜索提交](/search-github/searching-on-github/searching-commits)"

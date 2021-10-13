@@ -17,13 +17,12 @@ shortTitle: Criar & testar Swift
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
 Este guia mostra como criar e testar um pacote do Swift.
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the necessary Swift dependencies. Para obter instruções sobre como garantir que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %} Para criar e testar seu projeto Swift em {% data variables.product.prodname_ghe_managed %}, você deverá criar uma imagem personalizada do sistema operacional que inclua as dependências necessárias do Swift. Para obter instruções sobre como garantir que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
 Executores hospedados em {% else %}{% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado e os executores Ubuntu e macOS incluem as dependências para construir pacotes Swift. Para obter uma lista completa do software atualizado e das versões pré-instaladas do Swift e do Xcode, consulte "[Sobre executores hospedados pelo GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
 
 ## Pré-requisitos

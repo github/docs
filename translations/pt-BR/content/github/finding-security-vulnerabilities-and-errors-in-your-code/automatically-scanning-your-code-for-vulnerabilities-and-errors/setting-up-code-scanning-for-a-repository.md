@@ -42,7 +42,7 @@ No {% data variables.product.prodname_codeql_workflow %} padrão, {% data variab
 
 ## Configuração em massa de {% data variables.product.prodname_code_scanning %}
 
-Você pode configurar {% data variables.product.prodname_code_scanning %} em vários repositórios de uma vez usando um script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS.
+Você pode configurar {% data variables.product.prodname_code_scanning %} em vários repositórios de uma vez usando um script. Para obter um exemplo de um script que levanta pull requests para adicionar um fluxo de trabalho de {% data variables.product.prodname_actions %} em vários repositórios, consulte o repositório [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) para ver um exemplo que usa o Powershell ou [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) para equipes que não possuem Powershell e que, em vez disso, prefeririam usar o NodeJS.
 
 ## Visualizar a saída do registro de {% data variables.product.prodname_code_scanning %}
 

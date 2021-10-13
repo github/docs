@@ -1,13 +1,13 @@
 ---
 title: Acerca del resumen de seguridad
-intro: 'You can view, filter, and sort security alerts for repositories owned by your organization or team in one place: the Security Overview page.'
+intro: 'Puedes ver, filtrar y clasificar las alertas de seguridad para los repositorios que pertenezcan a tu organización o equipo en un solo lugar: la página de Resumen de Seguridad.'
 product: '{% data reusables.gated-features.security-center %}'
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
 versions:
   fpt: '*'
+  ghae: issue-4554
   ghes: '>3.1'
-  ghae: next
 type: how_to
 topics:
   - Security overview
@@ -15,7 +15,7 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: About security overview
+shortTitle: Acerca del resumen de seguridad
 ---
 
 {% data reusables.security-center.beta %}
@@ -26,13 +26,13 @@ Puedes utilizar el resumen de seguirdad para tener una vista de nivel alto del e
 
 El resumen de seguridad indica si las características de {% ifversion fpt or ghes > 3.1 %}seguridad{% endif %}{% ifversion ghae-next %}{% data variables.product.prodname_GH_advanced_security %}{% endif %}están habilitadas para los repositorios que pertenecen a tu organización y consolidan las alertas para cada característica.{% ifversion fpt or ghes > 3.1 %} Las características de seguridad incluyen aquellas de {% data variables.product.prodname_GH_advanced_security %}, tales como el {% data variables.product.prodname_code_scanning %} y el {% data variables.product.prodname_secret_scanning %}, así como las {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obtener más información sobre las características de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)".{% ifversion fpt or ghes > 3.1 %} para obtener más información sobre las {% data variables.product.prodname_dependabot_alerts %}, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".{% endif %}
 
-For more information about securing your code at the repository and organization levels, see "[Securing your repository](/code-security/getting-started/securing-your-repository)" and "[Securing your organization](/code-security/getting-started/securing-your-organization)."
+Para obtener más información sobre cómo proteger tu código a nivel de repositorio u organización, consulta las secciones "[Proteger tu repositorio](/code-security/getting-started/securing-your-repository)" y "[Proteger tu organización](/code-security/getting-started/securing-your-organization)".
 
 En el resumen de seguridad, puedes ver, clasificar y filtrar las alertas para entender los riesgos de seguridad en tu organización y en los repositorios específicos. Puedes aplicar varios filtros para enfocarte en áreas de interés. Por ejemplo, puedes identificar repositorios privados que tengan una gran cantidad de {% data variables.product.prodname_dependabot_alerts %} o repositorios que no tengan alertas del {% data variables.product.prodname_code_scanning %}.
 
 ![El resumen de seguridad para una organziación](/assets/images/help/organizations/security-overview.png)
 
-For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out.
+Para cada repositorio en el resumen de seguridad, verás iconos de cada tipo de característica de seguridad y cuántas alertas hay para cada tipo. Si no se habilita una característica de seguridad para un repositorio, su icono se mostrará en gris.
 
 ![Los iconos en el resumen de seguridad](/assets/images/help/organizations/security-overview-icons.png)
 
@@ -41,12 +41,12 @@ For each repository in the security overview, you will see icons for each type o
 | {% octicon "code-square" aria-label="Code scanning alerts" %} | Alertas de {% data variables.product.prodname_code_scanning_capc %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning)".          |
 | {% octicon "key" aria-label="Secret scanning alerts" %}       | alertas del {% data variables.product.prodname_secret_scanning_caps %}. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)". |
 | {% octicon "hubot" aria-label="Dependabot alerts" %}          | {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".  |
-| {% octicon "check" aria-label="Check" %}                      | The security feature is enabled, but does not raise alerts in this repository.                                                                                                                                                                            |
-| {% octicon "x" aria-label="x" %}                              | The security feature is not supported in this repository.                                                                                                                                                                                                 |
+| {% octicon "check" aria-label="Check" %}                      | La característica de seguridad se habilitó pero no levanta alertas en este repositorio.                                                                                                                                                                   |
+| {% octicon "x" aria-label="x" %}                              | La característica de seguridad no es compatible con este repositorio.                                                                                                                                                                                     |
 
 Predeterminadamente, los repositorios archivados se excluyen del resumen de seguridad de una organización. Puedes aplicar filtros para ver los repositorios archivados en el resumen de seguridad. Para obtener más información, consulta la sección "[Filtrar la lista de alertas](#filtering-the-list-of-alerts)".
 
-The security overview displays active alerts raised by security features. Si no hay alertas en el resumen de seguridad de un repositorio, las vulnerabilidades de seguridad no detectadas o los errores de código podrían aún existir.
+El resumen de seguridad muestra alertas activas que levantan las características de seguridad. Si no hay alertas en el resumen de seguridad de un repositorio, las vulnerabilidades de seguridad no detectadas o los errores de código podrían aún existir.
 
 ## Visualizar el resumen de seguridad de una organización
 
@@ -71,7 +71,7 @@ Los miembros de un equipo pueden ver el resumen de seguridad de los repositorios
 
 ### Filtrar por nivel de riesgo para los repositorios
 
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
+El nivel de riesgo de un repositorio se determina por la cantidad y severidad de las alertas de las características de seguridad. Si no están habilitadas una o más características de seguridad para un repositorio, este tendrá un nivel de riesgo desconocido. Si un repositorio no tiene riesgos que detecten las características de seguridad, este tendrá un nivel de riesgo claro.
 
 | Qualifier      | Descripción                                                          |
 | -------------- | -------------------------------------------------------------------- |
@@ -89,7 +89,7 @@ The level of risk for a repository is determined by the number and severity of a
 | <code>secret-scanning-alerts:<em>n</em></code> | Muestra los repositorios que tienen *n* alertas del {% data variables.product.prodname_secret_scanning %}. Este calificador puede utilizar los operadores de comparación &gt y &lt. |
 | <code>dependabot-alerts:<em>n</em></code> | Muestra los repositorios que tienen *n* {% data variables.product.prodname_dependabot_alerts %}. Este calificador puede utilizar los operadores de comparación &gt y &lt.           |
 
-### Filter by whether security features are enabled
+### Filtrar por el criterio de tener habilitadas las características de seguridad
 
 | Qualifier                       | Descripción                                                                                                       |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -102,7 +102,7 @@ The level of risk for a repository is determined by the number and severity of a
 
 ### Filtrar por tipo de repositorio
 
-| Qualifier | Description | | -------- | -------- |{% ifversion fpt or ghes > 3.1 %} | `is:public` | Display public repositories. |{% endif %} | `is:internal` | Display internal repositories. | | `is:private` | Display private repositories. | | `archived:true` | Display archived repositories. |
+| Calificador | Descripción | | -------- | -------- |{% ifversion fpt or ghes > 3.1 %} | `is:public` | Muestra repositorios públicos. |{% endif %} | `is:internal` | Muestra repositorios internos. | | `is:private` | Muestra repositorios privados. | | `archived:true` | Muestra repositorios archivados. |
 
 ### Filtrar por equipo
 

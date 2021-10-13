@@ -30,9 +30,10 @@ toc:
   guides: Leitfäden
   whats_new: What's new
 pages:
-  article_version: 'Artikelversion:'
+  article_version: 'Artikelversion'
   miniToc: Inhalt dieses Artikels
   contributor_callout: This article is contributed and maintained by
+  all_enterprise_releases: All Enterprise releases
 errors:
   oops: Hoppla!
   something_went_wrong: Leider ist ein Fehler aufgetreten.
@@ -155,13 +156,17 @@ product_sublanding:
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
-  no_result: Sorry, there are no guides that match your filter.
   load_more: Load more guides
   all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  filter_instructions: Filter the guide list using these controls
   filters:
     type: Typ
     topic: Topic
     all: Alle
+  guides_found:
+    multiple: '{n} guides found'
+    one: 1 guide found
+    none: No guides found
   guide_types:
     overview: Übersicht
     quick_start: Schnellstart

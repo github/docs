@@ -28,13 +28,13 @@ You can choose the default branch for a repository. The default branch is the ba
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
 
 You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 {% data reusables.branches.set-default-branch %}
 

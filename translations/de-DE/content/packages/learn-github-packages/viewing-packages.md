@@ -64,4 +64,4 @@ You can find and view any package you've published across all organizations and 
 
 ## Weiterführende Informationen
 
-- "[Suche nach Paketen](/github/searching-for-information-on-github/searching-for-packages)"
+- "[Suche nach Paketen](/search-github/searching-on-github/searching-for-packages)"

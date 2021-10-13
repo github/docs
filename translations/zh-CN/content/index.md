@@ -27,6 +27,7 @@ children:
   - actions
   - codespaces
   - packages
+  - search-github
   - developers
   - rest
   - graphql

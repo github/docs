@@ -71,6 +71,12 @@ shortTitle: 使用 2FA 找回帐户
 
 ## 使用帐户恢复令牌进行身份验证
 
+{% warning %}
+
+**Warning:** Account recovery tokens are deprecated and will be disabled on **December 1st, 2021**. Please ensure you have configured other two-factor recovery methods. For more information, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
+
+{% endwarning %}
+
 如果无法访问 {% data variables.product.product_name %} 帐户的双因素身份验证方法，您可以从合作伙伴的恢复提供程序提取帐户恢复令牌，并请求 {% data variables.product.prodname_dotcom %} 支持人员进行审查。
 
 如果您无法访问双因素身份验证方法或恢复代码，并且已通过 Facebook 使用“异地恢复帐户”存储帐户恢复令牌，则可以使用您的令牌重新获得对帐户的访问权限。

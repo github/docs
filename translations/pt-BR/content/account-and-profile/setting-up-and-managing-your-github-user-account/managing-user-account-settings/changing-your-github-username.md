@@ -19,17 +19,23 @@ shortTitle: Mude seu nome de usuário
 
 ## Sobre alterações no nome de usuário
 
-You can change your username to another username that is not currently in use.{% ifversion fpt %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
+Você pode alterar seu nome de usuário para outro nome de usuário que não está atualmente em uso.{% ifversion fpt %} Se o nome de usuário que você deseja não estiver disponível, considere outros nomes ou variações exclusivas. Usar um número, hífen ou uma ortografia alternativa pode ajudar você a encontrar um nome de usuário semelhante que ainda está disponível.
 
-If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/articles/github-trademark-policy/) page.
+Se você tem uma marca registrada para o nome de usuário, você pode encontrar mais informações sobre como fazer uma reclamação de marca registrada na nossa página de [Política da marca registrada](/articles/github-trademark-policy/).
 
-If you do not hold a trademark for the name, you can choose another username or keep your current username. O {% data variables.contact.github_support %} não pode liberar o nome de usuário indisponível para você. Para obter mais informações, consulte "[Alterar nome de usuário](#changing-your-username)".{% endif %}
+Se você não tiver uma marca registrada para o nome, você poderá escolher outro nome de usuário ou manter seu nome de usuário atual. O {% data variables.contact.github_support %} não pode liberar o nome de usuário indisponível para você. Para obter mais informações, consulte "[Alterar nome de usuário](#changing-your-username)".{% endif %}
 
 Depois de alterar seu nome de usuário, o nome antigo será disponibilizado para reivindicação por qualquer pessoa. A maioria das referências aos seus repositórios sob o nome de usuário antigo muda automaticamente para o novo nome de usuário. No entanto, alguns links para seu perfil não são redirecionados automaticamente.
 
 O {% data variables.product.product_name %} não pode configurar redirecionamentos para:
 - [@menções](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) usando o nome de usuário antigo
 - Links para [gists](/articles/creating-gists) que incluem o nome de usuário antigo
+
+{% ifversion fpt %}
+
+Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, não será possível alterar seu nome de usuário. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endif %}
 
 ## Referências de repositório
 

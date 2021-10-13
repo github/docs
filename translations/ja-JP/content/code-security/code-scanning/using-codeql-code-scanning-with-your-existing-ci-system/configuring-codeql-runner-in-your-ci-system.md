@@ -191,7 +191,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--no-upload`                        |    | なし. {% data variables.product.prodname_codeql_runner %} が結果を {% data variables.product.product_name %} にアップロードすることを停止します。                                                    |
 | `--output-dir`                       |    | 出力される SARIF ファイルが保存されるディレクトリ。 デフォルトは一時ファイルのディレクトリです。                                                                                                                           |
 | `--ram`                              |    | クエリの実行時に使用するメモリの量。 デフォルトでは、使用できるすべてのメモリを使用します。                                                                                                                                 |
-| <nobr>`--no-add-snippets`</nobr>   |    | なし. SARIF 出力からコードスニペットを除外します。 |{% ifversion fpt or ghes > 3.1 %}
+| <nobr>`--no-add-snippets`</nobr>   |    | なし. SARIF 出力からコードスニペットを除外します。 |{% ifversion fpt or ghes > 3.1 or ghae %}
 | <nobr>`--category`<nobr>             |    | この分析でSARIF結果ファイルに含めるカテゴリ。 カテゴリは、同じツールとコミットについて、ただし様々な言語やコードの様々な部分に対して行われる複数の分析を区別するために使うことができます。 この値は、SARIF v2.1.0では`<run>.automationDetails.id`プロパティに現れます。 
 {% endif %}
 | `--threads`                          |    | クエリの実行時に使用するスレッドの数。 デフォルトでは、使用できるすべてのコアを使用します。                                                                                                                                 |

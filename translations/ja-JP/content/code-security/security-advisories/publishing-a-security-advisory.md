@@ -61,19 +61,6 @@ shortTitle: アドバイザリの公開
 
 公開したセキュリティアドバイザリの情報をアップデートまたは修正する必要がある場合は、セキュリティアドバイザリを編集できます。 詳しい情報については、「[セキュリティアドバイザリを編集する](/github/managing-security-vulnerabilities/editing-a-security-advisory)」を参照してください。
 
-## CVE 識別番号をリクエストする
-
-セキュリティアドバイザリの管理者権限を持っているすべてのユーザは、セキュリティアドバイザリの CVE 識別番号をリクエストできます。
-
-{% data reusables.repositories.request-security-advisory-cve-id %} 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)」を参照してください。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-4. [Security Advisories] のリストから、CVE 識別番号をリクエストするセキュリティアドバイザリをクリックします。 ![リスト内のセキュリティアドバイザリ](/assets/images/help/security/security-advisory-in-list.png)
-5. [**Edit**] ドロップダウンメニューを使用して、[**Request CVE**] をクリックします。 ![ドロップダウンの [Request CVE]](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
-6. [**Request CVE**] をクリックします。 ![[Request CVE] ボタン](/assets/images/help/security/security-advisory-request-cve-button.png)
-
 ## セキュリティアドバイザリを公開する
 
 セキュリティアドバイザリを公開すると、セキュリティアドバイザリの一時的なプライベートフォークが削除されます。
@@ -87,6 +74,17 @@ shortTitle: アドバイザリの公開
 ## 公開されたセキュリティアドバイザリの {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.repositories.github-reviews-security-advisories %}
+
+## Requesting a CVE identification number (Optional)
+
+{% data reusables.repositories.request-security-advisory-cve-id %} 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)」を参照してください。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+4. [Security Advisories] のリストから、CVE 識別番号をリクエストするセキュリティアドバイザリをクリックします。 ![リスト内のセキュリティアドバイザリ](/assets/images/help/security/security-advisory-in-list.png)
+5. [**Edit**] ドロップダウンメニューを使用して、[**Request CVE**] をクリックします。 ![ドロップダウンの [Request CVE]](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
+6. [**Request CVE**] をクリックします。 ![[Request CVE] ボタン](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## 参考リンク
 

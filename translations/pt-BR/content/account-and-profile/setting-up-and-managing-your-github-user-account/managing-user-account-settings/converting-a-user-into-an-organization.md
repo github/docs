@@ -24,7 +24,7 @@ shortTitle: Usuário em uma organização
  - Uma organização **não pode** ser convertida de volta em um usuário.
  - As chaves SSH, os tokens do OAuth, o perfil de trabalho, as reações e as informações do usuário associadas, **não** serão transferidos para a organização. Isso é válido apenas para a conta de usuário que está sendo convertida, e não para colaboradores da conta de usuário.
  - Qualquer commit feito com a conta do usuário convertido **não será mais vinculado** a essa conta. Os commits em si **permanecerão** intactos.
- - Any forks of private repositories made with the converted user account will be deleted.
+ - Todas as bifurcações de repositórios privados feitas com a conta de usuário convertida serão excluídas.
 
 {% endwarning %}
 

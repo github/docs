@@ -30,9 +30,7 @@ Un flujo de trabajo típico para actualizar un archivo utilizando {% data variab
 
 ## Crear o cambiar de rama
 
-1. Si la rama actual no se muestra en la barra de estado, en la parte inferior de tu codespace, haz clic derecho en la barra de estado y selecciona **Control de código fuente**.
-1. Haz clic en el nombre de rama en la barra de estado. ![La rama en la barra de estado](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. En el menú desplegable, haz clic en la rama a la que quieras cambiar o ingresa el nombre de una rama nueva y haz clic en **Crear rama nueva**. ![Elige del menú de la rama](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
@@ -48,7 +46,7 @@ Puedes extraer cambios del repositorio remoto hacia tu codespace en cualquier mo
 1. En la parte superior de la barra lateral, haz clic en los puntos suspensivos (**...**). ![Botón de puntos suspensivos para las acciones de "más" y "ver"](/assets/images/help/codespaces/source-control-ellipsis-button.png)
 1. En el menú desplegable, haz clic en **Extraer**.
 
-If the dev container configuration has been changed since you created the codespace, you can apply the changes by rebuilding the container for the codespace. Para obtener más información, consulta la sección "[Configurar Codespaces para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
+Si el la configuración del contenedor dev cambió desde que creaste el codespace, puedes aplicar los cambios si recompilas el contenedor para el codespace. Para obtener más información, consulta la sección "[Configurar Codespaces para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
 
 ## Configurar tu codespace para que recupere los cambios nuevos automáticamente
 
@@ -64,16 +62,11 @@ Si la operación de búsqueda detecta cambios nuevos en el repositorio remoto, v
 
 ## Configramr tus cambios
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. Para probar tus cambios, haz clic en **+** junto al archivo que cambiaste o junto a **Cambios** si cambiaste archivos múltiples y quieres probarlos todos. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. Teclea un mensaje de confirmación que describa el cambio que hiciste. ![Barra de control de código fuente con un mensaje de confirmación](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. Para confirmar tus cambios planeados, haz clic en la marca de verificación en la parte superior de la barra lateral del control de código fuente. ![Haz clic en el icono de verificación](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+{% data reusables.codespaces.source-control-commit-changes %}
 
 ## Levantar una solicitud de cambios
 
-1. Después de haber confirmado los cambios en tu copia local del repositorio, haz clic en el icono de **Crear solicitud de cambios**. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. Verifica que el repositorio y la rama local desde la que estás haciendo la fusión y la rama y repositorio remotos hacia los que estés haciendo la fusión sean correctos. Después, asigna un nombre y descripción a la solicitud de cambios. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. Da clic en **Crear**.
+{% data reusables.codespaces.source-control-pull-request %}
 
 ## Subir cambios a tu repositorio remoto
 

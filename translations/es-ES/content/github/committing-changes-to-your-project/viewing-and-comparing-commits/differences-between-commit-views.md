@@ -29,4 +29,4 @@ Para obtener más información acerca de cómo Git considera el historial de con
 ## Leer más
 
 - "[Firmar confirmaciones](/articles/signing-commits)"
-- "[Buscar confirmaciones](/articles/searching-commits)"
+- "[Buscar confirmaciones](/search-github/searching-on-github/searching-commits)"

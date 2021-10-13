@@ -71,6 +71,12 @@ If you know your {% data variables.product.product_name %} password but don't ha
 
 ## アカウントリカバリトークンによる認証
 
+{% warning %}
+
+**Warning:** Account recovery tokens are deprecated and will be disabled on **December 1st, 2021**. Please ensure you have configured other two-factor recovery methods. For more information, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
+
+{% endwarning %}
+
 {% data variables.product.product_name %} アカウントの 2 要素認証方式へのアクセスをなくした場合でも、アカウントリカバリトークンをパートナーリカバリプロバイダから再取得して、{% data variables.product.prodname_dotcom %} Support にレビューを依頼することができます。
 
 2 要素認証方式やリカバリコードへのアクセスがない場合でも、Recovery Accounts Elsewhere を使用して Facebook にアカウントリカバリトークンを格納してあれば、トークンを使用してアカウントへのアクセスを再取得できる可能性があります。

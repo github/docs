@@ -18,7 +18,6 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## ワークフローコマンドについて
 
@@ -89,7 +88,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 | `core.setOutput`                                                                                            | `set-output`                                                  |
 | `core.setSecret`                                                                                            | `add-mask`                                                    |
 | `core.startGroup`                                                                                           | `group`                                                       |
-| `core.warning`                                                                                              | `warning file`                                                |
+| `core.warning`                                                                                              | `警告`                                                          |
 
 {% ifversion ghes < 3.0 %}
 ## 環境変数の設定
@@ -331,6 +330,12 @@ echo "{name}={value}" >> $GITHUB_ENV
 
 Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. 環境変数では、大文字と小文字が区別され、句読点を含めることができます。
 
+{% note %}
+
+**Note:** Environment variables must be explicitly referenced using the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context) in expression syntax or through use of the `$GITHUB_ENV` file directly; environment variables are not implicitly available in shell commands.
+
+{% endnote %}
+
 ### サンプル
 
 {% raw %}
@@ -376,7 +381,7 @@ steps:
 echo "{path}" >> $GITHUB_PATH
 ```
 
-システムの`PATH`変数の先頭にディレクトリを追加し、現在のジョブ中の以降のすべてのアクションで利用できるようにします。現在実行中のアクションは、更新されたPATH変数にアクセスできません。 ジョブに現在定義されているパスを見るには、ステップもしくはアクション中で`echo "$PATH"`を使うことができます。
+Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. ジョブに現在定義されているパスを見るには、ステップもしくはアクション中で`echo "$PATH"`を使うことができます。
 
 ### サンプル
 
