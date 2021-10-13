@@ -67,7 +67,7 @@ Because the web-based editor uses the GitHub Repositories extension to power its
 ### Create a new branch
 
 {% data reusables.codespaces.create-or-switch-branch %}
-  Any uncommited changes you have made in your old branch will be available on your new branch.
+  Any uncommitted changes you have made in your old branch will be available on your new branch.
 
 ### Commit your changes
 
