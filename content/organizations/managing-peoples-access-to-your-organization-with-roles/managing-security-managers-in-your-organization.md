@@ -26,11 +26,12 @@ Members of a team with the security manager role have only the permissions requi
 - The ability to configure security settings at the organization level, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}
 - The ability to configure security settings at the repository level, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}
 
-If a team has the security manager role, only organization owners can change the team's access to individual repositories. People with admin access to a repository can see the team's access in the repository's settings but cannot remove or change the access. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+If a team has the security manager role, people with admin access to the team can change the team's level of access to individual repositories but cannot remove the access to any repositories. Similarly, people with admin access to a repository can view and change the team's access in the repository's settings but cannot remove the access. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
 
-  ![Manage repository access disabled with security managers](/assets/images/help/organizations/repo-access-security-managers.png)
+  ![Manage repository access UI with security managers](/assets/images/help/organizations/repo-access-security-managers.png)
 
 ## Assigning the security manager role to a team in your organization
+You can assign the security manager role to a maximum of 10 teams in your organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
