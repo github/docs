@@ -1,4 +1,4 @@
----
+Ezequiel ---
 title: Attributing sponsorships to your organization
 intro: You can attribute the sponsorships paid by one of your organizations to another organization.
 redirect_from:
