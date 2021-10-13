@@ -77,15 +77,15 @@ Si decides que no deseas que los cambios en una rama de tema se fusionen con la 
 
 {% data reusables.cli.cli-learn-more %}
 
-To merge a pull request, use the `gh pr merge` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+Para fusionar una solicitud de cambios, utiliza el subcomando `gh pr merge`. Reemplaza a `pull-request` con el número, URl o rama de encabezado de la solicitud de cambios.
 
 ```shell
 gh pr merge <em>pull-request</em>
 ```
 
-Follow the interactive prompts to complete the merge. For more information about the merge methods that you can choose, see "[About pull request merges](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+Sigue los mensajes interactivos para completar la fusión. Para obtener más información sobre los métodos de fusión que puedes elegir, consulta la sección "[Acerca de las fusiones de solicitudes de cambios](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)".
 
-Alternatively, you can use flags to skip the interactive prompts. For example, this command will squash the commits into a single commit with the commit message "my squash commit", merge the squashed commit into the base branch, and then delete the local and remote branch.
+Como alternativa, puedes utilizar marcadores para omitir los mensajes interactivos. Por ejemplo, este comando combinará las confirmaciones en una sola con el mensaje de confirmación "my squash commit", fusiona la confirmación combinada en la rama base y luego borra la rama local y remota.
 
 ```shell
 gh pr merge 523 --squash --body "my squash commit" --delete-branch

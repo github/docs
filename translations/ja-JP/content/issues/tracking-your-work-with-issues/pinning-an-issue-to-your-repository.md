@@ -1,6 +1,7 @@
 ---
 title: Issue をリポジトリにピン止めする
 intro: リポジトリの Issue リストの上に、最大 3 つまで重要な Issue をピン止めできます。
+permissions: 'People with write access to a repository can pin issue in the repository. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/pinning-an-issue-to-your-repository
   - /articles/pinning-an-issue-to-your-repository
@@ -16,8 +17,6 @@ shortTitle: Issueをピン止めする
 ---
 
 ![ピン止めした Issue](/assets/images/help/issues/pinned-issues.png)
-
-Issue をピン止めするには、その Issue があるリポジトリへの書き込み権限が必要です。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}

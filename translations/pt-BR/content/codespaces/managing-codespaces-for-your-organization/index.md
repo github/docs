@@ -12,6 +12,6 @@ children:
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-codespaces
-shortTitle: Managing your organization
+shortTitle: Gerenciando sua organização
 ---
 

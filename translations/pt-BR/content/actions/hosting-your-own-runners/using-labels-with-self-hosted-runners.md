@@ -12,7 +12,6 @@ shortTitle: Executores de etiqueta
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 Para obter informações sobre como usar etiquetas para encaminhar trabalhos para tipos específicos de executores auto-hospedados, consulte "[Usando executores auto-hospedados em um fluxo de trabalho](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
 
@@ -22,8 +21,8 @@ Para obter informações sobre como usar etiquetas para encaminhar trabalhos par
 {% ifversion fpt %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
- 1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
- 1. In the "Find or create a label" field, type the name of your new label and click **Create new label**. O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É possível remover as etiquetas personalizadas dos executores auto-hospedados, mas não é possível excluí-las manualmente. {% data reusables.github-actions.actions-unused-labels %}
+ 1. Na seção "Etiquetas", clique em {% octicon "gear" aria-label="The Gear icon" %}.
+ 1. No campo "Encontrar ou criar uma etiqueta", digite o nome da sua nova etiqueta e clique em **Criar nova etiqueta**. O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É possível remover as etiquetas personalizadas dos executores auto-hospedados, mas não é possível excluí-las manualmente. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
 {% ifversion ghae or ghes %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
@@ -39,7 +38,7 @@ O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É po
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
-  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label.
+  1. Para atribuir uma etiqueta ao executor auto-hospedado, no campo "Localizar ou criar uma etiqueta", clique na etiqueta.
 {% endif %}
 {% ifversion ghae or ghes %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
@@ -53,8 +52,8 @@ O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É po
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
-  1. In the "Find or create a label" field, assigned labels are marked with the
-{% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner.
+  1. No campo "Encontre ou crie uma etiqueta", as etiquetas atribuídas são marcadas com a
+Ícone de {% octicon "check" aria-label="The Check icon" %}. Clique em uma etiqueta marcada para cancelar a atribuição do seu executor auto-hospedado.
 {% endif %}
 {% ifversion ghae or ghes %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}

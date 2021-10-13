@@ -29,7 +29,7 @@ Topics を利用すれば、特定の領域に関するリポジトリを調べ�
 
 {% ifversion ghae %}内部{% else %}パブリック、内部、{% endif %}およびプライベートリポジトリも Topics を持つことができますが、Topics の検索結果で見えるプライベートリポジトリはアクセス権を持っているものだけです。
 
-特定のトピックに関連付けられているリポジトリを検索できます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories#search-by-topic)を参照してください。 また、{% data variables.product.product_name %} 上でトピックのリストを検索することもできます。 詳細は「[トピックを検索する](/articles/searching-topics)」を参照してください。
+特定のトピックに関連付けられているリポジトリを検索できます。 詳しい情報については[リポジトリの検索](/search-github/searching-on-github/searching-for-repositories#search-by-topic)を参照してください。 また、{% data variables.product.product_name %} 上でトピックのリストを検索することもできます。 詳細は「[トピックを検索する](/search-github/searching-on-github/searching-topics)」を参照してください。
 
 ## Topics をリポジトリに追加する
 

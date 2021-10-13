@@ -16,7 +16,6 @@ shortTitle: Automatic token authentication
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 关于 `GITHUB_TOKEN` 密码
 

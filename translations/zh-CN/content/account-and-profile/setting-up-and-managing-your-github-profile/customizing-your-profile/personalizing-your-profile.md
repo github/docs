@@ -48,6 +48,14 @@ shortTitle: 个性化
 
 您可以更改显示在个人资料中的名称。 此名称也可能显示在您对于组织拥有的私有仓库所做的注释旁边。 更多信息请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.user_settings.access_settings %}
 2. 在“Name（名称）”下，键入要显示在个人资料中的名称。 ![个人资料设置中的名称字段](/assets/images/help/profile/name-field.png)
 

@@ -1,1 +1,0 @@
-1. Da clic en **Crear etiqueta**.

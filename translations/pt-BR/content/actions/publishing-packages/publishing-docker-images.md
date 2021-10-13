@@ -18,7 +18,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -121,7 +120,7 @@ As opções de `login-action` de login necessárias para {% data variables.produ
 * `senha`: Você pode usar o segredo `GITHUB_TOKEN` gerado automaticamente para a senha. Para obter mais informações, consulte "[Permissões para o GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)".
 
 {% ifversion fpt %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
+A opção `metadata-action` obrigatória para {% data variables.product.prodname_registry %} é:
 * `imagens`: O espaço do nome e o nome da imagem Docker que você está criando.
 {% endif %}
 
@@ -134,7 +133,7 @@ As opções de `build-push-action` necessárias para {% data variables.product.p
 {% ifversion fpt %}
 {% data reusables.package_registry.publish-docker-image %}
 
-O fluxo de trabalho acima, se acionado por um push para o branch "versão". Ele verifica o repositório GitHub e usa `login-action` para fazer login no {% data variables.product.prodname_container_registry %}. Em seguida, extrai etiquetas e tags para a imagem do Docker. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+O fluxo de trabalho acima, se acionado por um push para o branch "versão". Ele verifica o repositório GitHub e usa `login-action` para fazer login no {% data variables.product.prodname_container_registry %}. Em seguida, extrai etiquetas e tags para a imagem do Docker. Finalmente, ele usa a ação `de build-push-action` para criar a imagem e publicá-la no {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}
@@ -173,7 +172,7 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+O fluxo de trabalho acima faz o check-out do repositório {% data variables.product.prodname_dotcom %}, usa o `login-action` para efetuar o login no registro e, em seguida, usa a ação `build-push-action` para criar uma imagem Docker com base no `arquivo Docker` do seu repositório; fazer push da imagem para o registro Docker e aplicar o commit SHA e a versão como tags de imagem.
 {% endif %}
 
 ## Publicar imagens no Docker Hub e {% data variables.product.prodname_registry %}

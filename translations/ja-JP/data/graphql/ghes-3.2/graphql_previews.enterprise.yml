@@ -29,7 +29,7 @@
     - '@github/c2c-actions-service'
 - 
   title: >-
-    >- MergeInfoPreview - More detailed information about a pull request's merge state.
+    >- MergeInfoPreview - Pull Requestのマージ状態に関する詳細な情報。
   description: >-
     このプレビューは、プルリクエストのマージ状態に関する詳細な情報を提供するフィールドへのアクセスのサポートを追加します。
   toggled_by: ':merge-info-preview'

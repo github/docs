@@ -30,6 +30,9 @@ SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data v
 
 {% data reusables.saml.dotcom-saml-explanation %} 组织所有者可以邀请您在 {% data variables.product.prodname_dotcom %} 上的用户帐户加入其使用 SAML SSO 的组织，这样您可以对该组织做出贡献，并且保留您在 {% data variables.product.prodname_dotcom %} 上的现有身份和贡献。
 
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will use a new account that is provisioned for you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+
 在访问使用 SAML SSO 的组织中的资源时，{% data variables.product.prodname_dotcom %} 会将您重定向到组织的 SAML IdP 进行身份验证。 在 IdP 上成功验证您的帐户后，IdP 会将您重定向回到 {% data variables.product.prodname_dotcom %}，您可以在那里访问组织的资源。
 
 {% data reusables.saml.outside-collaborators-exemption %}

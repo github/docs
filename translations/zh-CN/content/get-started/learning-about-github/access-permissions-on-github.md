@@ -36,6 +36,8 @@ shortTitle: 访问权限
 
 *企业所有者*对企业帐户拥有最终权力，可在企业帐户中执行任何操作。 *帐单管理员*可以管理企业帐户的帐单设置。 企业帐户拥有的组织的成员和外部协作者自动成为企业帐户的成员，但他们对企业帐户本身或其设置没有访问权限。 更多信息请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)”。
 
+If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}

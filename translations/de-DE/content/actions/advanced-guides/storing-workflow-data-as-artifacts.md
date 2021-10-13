@@ -20,11 +20,10 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Informationen zu Workflow-Artefakten
 
-Artefakte erlauben es dir, Daten nach dem Job-Abschluss abzuspeichern und diese Daten an einen anderen Job im selben Workflow weiterzugeben. Ein Artefakt ist eine Datei oder eine Dateisammlung, die während einer Workflow-Ausführung erstellt wird. Zum Beispiel kannst Du Artefakte verwenden, um Deine Build- und Testausgabe zu speichern, nachdem ein Workflow-Lauf beendet ist.
+Artefakte erlauben es dir, Daten nach dem Job-Abschluss abzuspeichern und diese Daten an einen anderen Job im selben Workflow weiterzugeben. Ein Artefakt ist eine Datei oder eine Dateisammlung, die während einer Workflow-Ausführung erstellt wird. Zum Beispiel kannst Du Artefakte verwenden, um Deine Build- und Testausgabe zu speichern, nachdem ein Workflow-Lauf beendet ist. {% data reusables.actions.reusable-workflow-artifacts %}
 
 {% data reusables.github-actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
 

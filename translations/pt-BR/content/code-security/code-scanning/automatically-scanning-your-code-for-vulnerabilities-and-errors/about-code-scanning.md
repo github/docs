@@ -42,13 +42,13 @@ Para começar com {% data variables.product.prodname_code_scanning %}, consulte 
 
 {% endif %}
 
-## About tools for {% data variables.product.prodname_code_scanning %}
+## Sobre ferramentas para {% data variables.product.prodname_code_scanning %}
 
-You can set up {% data variables.product.prodname_code_scanning %} to use the {% data variables.product.prodname_codeql %} product maintained by {% data variables.product.company_short%} or a third-party {% data variables.product.prodname_code_scanning %} tool.
+Você pode configurar {% data variables.product.prodname_code_scanning %} para usar o produto de {% data variables.product.prodname_codeql %} mantido por {% data variables.product.company_short%} ou pela ferramenta {% data variables.product.prodname_code_scanning %} de terceiros.
 
-### About {% data variables.product.prodname_codeql %} analysis
+### Sobre a análise de {% data variables.product.prodname_codeql %}
 
-{% data reusables.code-scanning.about-codeql-analysis %} For more information about {% data variables.product.prodname_codeql %}, see "[About code scanning with CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+{% data reusables.code-scanning.about-codeql-analysis %} Para obter mais informações sobre {% data variables.product.prodname_codeql %}, consulte "[Sobre digitalização de código com CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)".
 
 ### Sobre ferramentas de {% data variables.product.prodname_code_scanning %} de terceiros
 

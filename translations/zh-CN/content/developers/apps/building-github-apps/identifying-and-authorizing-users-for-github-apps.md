@@ -42,6 +42,7 @@ shortTitle: 识别和授权用户
 如果您在创建或修改应用程序时选择**在安装过程中请求用户授权 (OAuth)**，则步骤 1 将在应用程序安装过程中完成。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。
 
 ### 1. 请求用户的 GitHub 身份
+Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -76,6 +77,8 @@ shortTitle: 识别和授权用户
 将此 `code` 交换为访问令牌。  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. 每次刷新令牌时都会得到一个新的刷新令牌。 更多信息请参阅“[刷新用户到服务器访问令牌](/developers/apps/refreshing-user-to-server-access-tokens)”。
 
 过期用户令牌目前是一个可选的功能，可能会更改。 要选择使用用户到服务器令牌过期功能，请参阅“[激活应用程序的可选功能](/developers/apps/activating-optional-features-for-apps)”。
+
+Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 

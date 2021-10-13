@@ -5,7 +5,7 @@ versions:
   ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## Criar um {% data variables.actions.hosted_runner %} com uma imagem personalizada
 

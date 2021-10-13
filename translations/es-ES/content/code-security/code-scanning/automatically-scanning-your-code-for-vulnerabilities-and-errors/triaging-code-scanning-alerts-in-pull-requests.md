@@ -28,42 +28,45 @@ topics:
 ## Acerca de los resultados del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios
 
 En los repositorios donde se configura el {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambios, éste verificará el código en dicha solicitud. Predeterminadamente, esto se limita a solicitudes de cambios que apuntan a la rama predeterminada, pero puedes cambiar esta configuración dentro de {% data variables.product.prodname_actions %} o en un sistema de IC/EC de terceros. Si el fusionar los cambios puede introducir alertas nuevas de {% data variables.product.prodname_code_scanning %} a la rama destino, éstas se reportarán como resultados de verificación en la solicitud de cambios. Las alertas también se muestran como anotaciones en la pestaña de **Archivos que cambiaron** de la solicitud de cambios. Si tienes permisos de escritura para el repositorio, puedes ver cualquier alerta del {% data variables.product.prodname_code_scanning %} existente en la pestaña de **Seguridad**. Para obtener más información sobre las alertas de los repositorios, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+{% endif %}
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_capc %} results" check must pass before you can merge the pull request. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
+Si tu solicitud de cambios apunta a una rama protegida que utiliza el {% data variables.product.prodname_code_scanning %} y el propietario del repositorio configuró las verificaciones de estado requeridas, entonces la verificación de los "resultados del {% data variables.product.prodname_code_scanning_capc %}" debe pasar antes de que puedas fusionar la solicitud de cambios. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 ## Acerca del {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambio
 
 Hay muchas opciones para configurar el {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambio, así que la configuración de cada repositorio variará y algunas tendrán más de una verificación.
 
-### {% data variables.product.prodname_code_scanning_capc %} results check
+### Verificación de resultados de {% data variables.product.prodname_code_scanning_capc %}
 
-For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_capc %} results**. The results for each analysis tool used are shown separately. Any new alerts caused by changes in the pull request are shown as annotations.
+Para todas las configuraciones del {% data variables.product.prodname_code_scanning %}, la verificación que contiene los resultados del {% data variables.product.prodname_code_scanning %} es: **resultados de {% data variables.product.prodname_code_scanning_capc %}**. Los resultados para cada herramienta de análisis se muestran por separado. Cualquier alerta nueva que ocasionen los cambios en la solicitud de cambios se muestran como anotaciones.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4902 %} To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)".
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4902 %} Para ver el conjunto de alertas completo de la rama analizada, haz clic en **Ver todas las alertas de rama**. Esto abre la vista completa de alertas en donde puedes filtrar todas las de la rama por tipo, gravedad, etiqueta, etc. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)".
 
-![{% data variables.product.prodname_code_scanning_capc %} results check on a pull request](/assets/images/help/repository/code-scanning-results-check.png)
+![verificación de resultados de {% data variables.product.prodname_code_scanning_capc %} en una solicitud de cambios](/assets/images/help/repository/code-scanning-results-check.png)
 {% endif %}
 
-### {% data variables.product.prodname_code_scanning_capc %} results check failures
+### Fallos de verificación de resultados de {% data variables.product.prodname_code_scanning_capc %}
 
-If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}, `critical`, or `high`,{% endif %} the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
+Si la verificación de los resultados del {% data variables.product.prodname_code_scanning %} encuentra cualquier problema con una gravedad de `error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}, `critical`, o `high`,{% endif %} la verificación fallará y el error se reportará en los resultados de verificación. Si todos los resultados que encontró el {% data variables.product.prodname_code_scanning %} tienen gravedades menores, las alertas se tratarán como advertencias o notas y la verificación tendrá éxito.
 
 ![Verificación fallida del {% data variables.product.prodname_code_scanning %} en una solicitud de cambios](/assets/images/help/repository/code-scanning-check-failure.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}You can override the default behavior in your repository settings, by specifying the level of severities {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}and security severities {% endif %}that will cause a pull request check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+{% ifversion fpt or ghes > 3.1 or ghae-next %}Puedes anular el comportamiento predeterminado de los ajustes de tu repositorio si especificas el nivel de gravedad {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} y las gravedades de seguridad {% endif %} que ocasionarán el fallo de una verificación de solicitud de cambios. Para obtener más información, consulta la sección "[Definir las gravedades que ocasionan un fallo en la verificación de las solicitudes de cambios](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
 {% endif %}
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+### Otras verificaciones del {% data variables.product.prodname_code_scanning %}
 
-Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis.
+Dependiendo de tu configuración, podrías ver verificaciones adicionales ejecutándose en las solicitudes de cambios con el {% data variables.product.prodname_code_scanning %} configurado. A menudo, estos son flujos de trabajo que analizan el código o que cargan resultados del {% data variables.product.prodname_code_scanning %}. Estas verificaciones son útiles para solucionar problemas cuando el análisis los presenta.
 
-For example, if the repository uses the {% data variables.product.prodname_codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. La verificación del análisis podría fallar si existieran problemas de configuración o si la solicitud de cambios impide la compilación para un lenguaje que el análisis necesita compilar (por ejemplo, C/C++, C# o Java).
+Por ejemplo, si el repositorio utiliza el {% data variables.product.prodname_codeql_workflow %}, se ejecutará una verificación de **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** para cada lenguaje antes de que se ejecute la verificación de resultados. La verificación del análisis podría fallar si existieran problemas de configuración o si la solicitud de cambios impide la compilación para un lenguaje que el análisis necesita compilar (por ejemplo, C/C++, C# o Java).
 
 Así como con otras verificaciones de solicitudes de cambios, puedes ver todos los detalles de la falla de la verificación en la pestaña de **Verificaciones**. Para obtener más información acerca de la configuración y la soución de problemas, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" o "[Solucionar problemas del flujo de trabajo de {% data variables.product.prodname_codeql %}](/code-security/secure-coding/troubleshooting-the-codeql-workflow)".
 
-## Viewing an alert on your pull request
+## Visualizar una alerta en tu solicitud de cambios
 
-You can see any {% data variables.product.prodname_code_scanning %} alerts introduced in a pull request by displaying the **Files changed** tab. Each alert is shown as an annotation on the lines of code that triggered the alert. The severity of the alert is displayed in the annotation.
+Puedes ver cualquier alerta del {% data variables.product.prodname_code_scanning %} que se haya introducido en una solicitud de cambios si muestras la pestaña de **Archivos que cambiaron**. Cada alerta se muestra como una anotación en las líneas de código que la activaron. La gravedad de la alerta se muestra en la anotación.
 
 ![Anotación de alerta dentro de un diff de una solicitud de cambios](/assets/images/help/repository/code-scanning-pr-annotation.png)
 

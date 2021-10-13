@@ -1,6 +1,6 @@
 ---
 title: Ativar funcionalidades opcionais para os aplicativos
-intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.'
+intro: 'Você pode testar novas funcionalidades opcionais para seu {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}.'
 redirect_from:
   - /developers/apps/activating-beta-features-for-apps
   - /developers/apps/activating-optional-features-for-apps

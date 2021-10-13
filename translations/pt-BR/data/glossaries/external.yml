@@ -9,7 +9,7 @@
 - 
   term: token de recuperação de conta
   description: >-
-    Credencial de autenticação armazenada como parte de uma configuração de recuperação de conta chamada Recuperação de contas em outro lugar que permite armazenar essa credencial de backup.
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: Visualização da API
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: recuperação de contas em outro lugar
   description: >-
-    Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.

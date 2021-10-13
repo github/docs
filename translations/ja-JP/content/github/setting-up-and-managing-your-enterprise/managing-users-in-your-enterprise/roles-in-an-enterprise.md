@@ -21,7 +21,14 @@ Enterprise 内の全員が Enterprise のメンバーです。 Enterprise のメ
 
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
-Enterprise にユーザを追加する方法について詳しくは、「{% ifversion fpt %}[Enterprise を管理するために人を招待する](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise){% else %}[認証](/admin/authentication){% endif %}」を参照してください。
+{% ifversion fpt %}
+If your enterprise does not use {% data variables.product.prodname_emus %}, you can invite someone to an administrative role using a user account on {% data variables.product.product_name %} that they control. For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)".
+
+In an enterprise using {% data variables.product.prodname_emus %}, new owners and members must be provisioned through your identity provider. Enterprise owners and organization owners cannot add new members or owners to the enterprise using {% data variables.product.prodname_dotcom %}. You can select a member's enterprise role using your IdP and it cannot be changed on {% data variables.product.prodname_dotcom %}. You can select a member's role in an organization on {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+{% else %}
+For more information about adding people to your enterprise, see "[Authentication](/admin/authentication)".
+
+{% endif %}
 
 ## Enterprise オーナー
 

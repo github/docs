@@ -1,1 +1,0 @@
-1. Debajo de tu nombre de organización, da clic en {% octicon "organization" aria-label="The People icon" %}**Personas**. ![Pestaña de las Personas](/assets/images/help/organizations/organization-people-tab.png)

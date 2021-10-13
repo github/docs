@@ -16,20 +16,19 @@ shortTitle: Cobrança do fluxo de trabalho & limites
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre a cobrança do {% data variables.product.prodname_actions %}
 
 {% ifversion fpt %}
 {% data reusables.github-actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
+O uso do GitHub Actions é gratuito para {% data variables.product.prodname_ghe_server %} que usam executores auto-hospedados.
 {% endif %}
 
 ## Limites de uso
 
 {% ifversion fpt %}
-There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. Estes limites estão sujeitos a mudanças.
+Existem alguns limites sobre o uso de {% data variables.product.prodname_actions %} ao usar executores hospedados em {% data variables.product.prodname_dotcom %}. Estes limites estão sujeitos a mudanças.
 
 {% note %}
 
@@ -61,6 +60,12 @@ Os limites de uso aplicam-se a executores auto-hospedados. Para obter mais infor
 Além dos limites de uso, você deve garantir que você usa {% data variables.product.prodname_actions %} nos [Termos de serviço](/articles/github-terms-of-service/) do GitHub. Para obter mais informações sobre termos específicos de {% data variables.product.prodname_actions %}, consulte os [Termos adicionais do produto do GitHub](/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Cobrança para fluxos de trabalho reutilizáveis
+
+Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
+{% endif %}
+
 {% ifversion fpt or ghes > 2.22 or ghae %}
 ## Artefato e política de retenção de registro
 
@@ -70,9 +75,9 @@ Além dos limites de uso, você deve garantir que você usa {% data variables.pr
 
 Para obter mais informações, consulte:
 
-- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
-- "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
-- "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your enterprise](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)"
+- "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
+- "[Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros na sua organização](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
+- "[Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros na sua empresa](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)"
 {% endif %}
 
 ## Desativar ou limitar {% data variables.product.prodname_actions %} para o seu repositório ou organização
@@ -80,7 +85,7 @@ Para obter mais informações, consulte:
 {% data reusables.github-actions.disabling-github-actions %}
 
 Para obter mais informações, consulte:
-- "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
+- "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
 - "[Desabilitar ou limitar {% data variables.product.prodname_actions %} para a sua organização](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% ifversion fpt %}
 - "[Aplicar as políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" para {% data variables.product.prodname_ghe_cloud %}{% endif %}
 

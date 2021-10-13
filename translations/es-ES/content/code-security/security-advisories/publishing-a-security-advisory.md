@@ -61,19 +61,6 @@ Después de que publicas una asesoría de seguridad, la URL de la misa permanece
 
 Si necesitas actualizar o corregir información en una asesoría de seguridad que hayas publicado, puedes editarla. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad](/github/managing-security-vulnerabilities/editing-a-security-advisory)".
 
-## Pedir el número de identificación de CVE
-
-Cualquiera con permisos de administrador en una asesoría de seguridad puede solicitar un número de identificación de CVE para la asesoría de seguridad.
-
-{% data reusables.repositories.request-security-advisory-cve-id %} Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)".
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-4. En el listado de "Asesorías de Seguridad", da clic en aquella para la cual quieras solicitar un número de identificación de CVE. ![Asesoría de seguridad en el listado](/assets/images/help/security/security-advisory-in-list.png)
-5. Utiliza el menú desplegable de **Publicar asesoría** y da clic en **Solicitar CVE**. ![Solicitar un CVE en el menú desplegable](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
-6. Da clic en **Solicitar CVE**. ![Botón "Solicitar CVE"](/assets/images/help/security/security-advisory-request-cve-button.png)
-
 ## Publicar una asesoría de seguridad
 
 El publicar una asesoría de seguridad borra la bifurcación temporal privada para la misma.
@@ -87,6 +74,17 @@ El publicar una asesoría de seguridad borra la bifurcación temporal privada pa
 ## {% data variables.product.prodname_dependabot_alerts %} para las asesorías de seguridad publicadas
 
 {% data reusables.repositories.github-reviews-security-advisories %}
+
+## Solicitar un número de identificación de CVE (Opcional)
+
+{% data reusables.repositories.request-security-advisory-cve-id %} Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)".
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+4. En el listado de "Asesorías de Seguridad", da clic en aquella para la cual quieras solicitar un número de identificación de CVE. ![Asesoría de seguridad en el listado](/assets/images/help/security/security-advisory-in-list.png)
+5. Utiliza el menú desplegable de **Publicar asesoría** y da clic en **Solicitar CVE**. ![Solicitar un CVE en el menú desplegable](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
+6. Da clic en **Solicitar CVE**. ![Botón "Solicitar CVE"](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Leer más
 

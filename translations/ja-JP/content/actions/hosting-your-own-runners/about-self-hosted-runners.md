@@ -14,7 +14,6 @@ type: overview
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## セルフホストランナーについて
 
@@ -172,7 +171,9 @@ pkg-containers-az.githubusercontent.com
 
 ## パブリックリポジトリでのセルフホストランナーのセキュリティ
 
+{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
+{% endif %}
 
 それぞれの{% data variables.product.prodname_dotcom %}ホストランナーは常にクリーンな隔離された仮想マシンになり、ジョブの実行が終わると破棄されるので、{% data variables.product.prodname_dotcom %}ホストランナーではこれは問題にはなりません。
 

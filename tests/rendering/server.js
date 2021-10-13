@@ -354,8 +354,8 @@ describe('server', () => {
         '/en/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account'
       )
       expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article + ul li').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + ul li ul.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
@@ -493,9 +493,13 @@ describe('server', () => {
 
     test('dotcom-only links on GHE are dotcom-only', async () => {
       const $ = await getDOM(
-        `${latestEnterprisePath}/github/setting-up-and-managing-your-github-profile/sending-your-github-enterprise-server-contributions-to-your-githubcom-profile`
+        `${latestEnterprisePath}/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud`
       )
-      expect($('a[href="/en/articles/github-privacy-statement"]').length).toBe(1)
+      expect(
+        $(
+          'a[href="/en/github/site-policy/github-terms-for-additional-products-and-features#connect"]'
+        ).length
+      ).toBe(1)
     })
 
     test('desktop links on GHE are dotcom-only', async () => {
@@ -632,6 +636,7 @@ describe('server', () => {
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
     // we can reenable it down the road if needed
+    // Docs Engineering issue: 968
     test.skip('redirects versioned category page', async () => {
       const res = await get('/en/github/receiving-notifications-about-activity-on-github')
       expect(res.statusCode).toBe(301)
@@ -895,6 +900,7 @@ describe('search', () => {
   })
 
   // SKIPPING: Can we have duplicate IDs? search-input-container and search-results-container are duplicated for mobile and desktop
+  // Docs Engineering issue: 969
   it.skip('articles pages do not render any elements with duplicate IDs', async () => {
     const $ = await getDOM('/en/articles/accessing-an-organization')
     const ids = $('body')

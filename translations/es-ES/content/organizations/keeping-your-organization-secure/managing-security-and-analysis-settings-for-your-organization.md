@@ -117,7 +117,7 @@ Para permitir que el {% data variables.product.prodname_dependabot %} acceda a u
 
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
 1. Debajo de "Acceso del {% data variables.product.prodname_dependabot %} a repositorios privados", haz clic en **Agregar repositorios privados** o **Agregar repositorios internos y privados**. ![Botón para agregar repositorios](/assets/images/help/organizations/dependabot-private-repository-access.png)
-1. Comienza a teclear el nombre del repositorio que quieras permitir. ![Repository search field with filtered dropdown](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+1. Comienza a teclear el nombre del repositorio que quieras permitir. ![El campo de búsqueda del repositorio con el menú desplegable filtrado](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 1. Haz clic en el repositorio que quieras permitir.
 
 1. Opcionalmente, para eliminar un repositorio de la lista, a la derecha de este, haz clic en {% octicon "x" aria-label="The X icon" %}. ![Botón "X" para eliminar un repositorio](/assets/images/help/organizations/dependabot-private-repository-list.png)

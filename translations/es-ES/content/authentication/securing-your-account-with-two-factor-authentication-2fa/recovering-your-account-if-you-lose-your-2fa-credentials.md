@@ -71,6 +71,12 @@ Puedes utilizar tus credenciales de autenticación de dos factores para recobrar
 
 ## Autenticar con un token de recuperación de cuenta
 
+{% warning %}
+
+**Advertencia:** Los tokens de recuperación de cuenta se obsoletizaron y se inhabilitarán el **1 de diciembre de 2021**. Por favor, asegúrate de haber configurado otros métodos de recuperación bifactoriales. Para obtener más información, consulta la sección "[Configurar los métodos de autenticación bifactoriales](/articles/configuring-two-factor-authentication-recovery-methods)".
+
+{% endwarning %}
+
 Si pierdes el acceso a tus métodos de autenticación de dos factores para tu cuenta {% data variables.product.product_name %}, puedes recuperar tu token de recuperación de cuenta desde un proveedor socio de recuperación y solicitarle a Soporte de {% data variables.product.prodname_dotcom %} que lo revise.
 
 Si no tienes acceso a tus métodos de autenticación de dos factores o a tus códigos de recuperación y has almacenado un token de recuperación de cuenta con Facebook utilizando Recuperar cuentas en otro lugar, puedes utilizar tu token para recuperar el acceso a tu cuenta.

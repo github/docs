@@ -45,8 +45,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 7. Em "Quantos membros da equipe devem ser atribuídos para a revisão?, use o menu suspenso e escolha um número de revisores a serem atribuídos a cada pull request. ![Menu suspenso do número de revisores](/assets/images/help/teams/review-assignment-number.png)
 8. Em "Algoritmo de encaminhamento", use o menu suspenso e escolha qual algoritmo você gostaria de usar. Para obter mais informações, consulte "[Algoritmos de encaminhamento](#routing-algorithms)". ![Menu suspenso do algoritmo de encaminhamento](/assets/images/help/teams/review-assignment-algorithm.png)
 9. Opcionalmente, para sempre ignorar determinados membros da equipe, selecione **Nunca atribuir certos integrantes da equipe**. Em seguida, selecione um ou mais integrantes da equipe que você gostaria de ignorar sempre. ![Menu suspenso e caixa de seleção "Nunca atribuir certos integrantes da equipe"](/assets/images/help/teams/review-assignment-skip-members.png)
-10. Opcionalmente, para notificar apenas os integrantes da equipe escolhidos pela atribuição de revisão de código para cada solicitação de revisão de pull request, em "Notificações", selecione **Ao atribuir integrantes da equipe, não notifique toda a equipe.** ![Notificações de atribuições de revisão de código](/assets/images/help/teams/review-assignment-notifications.png)
-11. Clique em **Save changes** (Salvar alterações).
+10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}
+14. Clique em **Save changes** (Salvar alterações).
 
 ## Desabilitar atribuição de revisão de código
 {% data reusables.profile.access_org %}

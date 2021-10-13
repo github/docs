@@ -1,6 +1,7 @@
 ---
 title: 人をフォローする
 intro: '{% data variables.product.product_name %} のユーザをフォローして、アクティビティに関する通知を受け取ることができます。{% ifversion fpt %}また、それらのユーザのコミュニティ内でプロジェクトを見つけることもできます。{% endif %}'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
   - /github/getting-started-with-github/following-people

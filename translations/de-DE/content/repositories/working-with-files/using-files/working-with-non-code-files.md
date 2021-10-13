@@ -188,6 +188,14 @@ Zum Anzeigen der im Zuge eines Commits vorgenommenen Änderungen an einem Dokume
 
 ![Änderungen an gerendertem Fließtext](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+### Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### Attributänderungen visualisieren
 
 Zu Attributänderungen, die im Gegensatz zu Worten im gerenderten Dokument nicht sichtbar werden, geben wir gerne einen Toolhinweis. Beispielsweise erhältst Du bei der Änderung einer Link-URL von einer Website zu einer anderen einen Toolhinweis wie diesen:

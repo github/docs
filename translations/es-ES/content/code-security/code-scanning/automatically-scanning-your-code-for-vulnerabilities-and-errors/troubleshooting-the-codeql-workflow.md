@@ -106,36 +106,36 @@ Para obtener más información, consulta el extracto de flujo de trabajo en la s
 Para obtener más información acerca de especificar los pasos de compilación, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 {% ifversion fpt or ghes > 3.1  or ghae-next %}
-## Lines of code scanned are lower than expected
+## Las líneas de código escaneado son menores de lo esperado
 
-For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
+Para los lenguajes compilados como C/C++, C#, Go y Java, {% data variables.product.prodname_codeql %} solo escanea los archivos que se compilen durante el análisis. Por lo tanto, la cantidad de líneas de código escaneado será menor de lo esperado si parte del código fuente no se compila correctamente. Esto puede suceder por varias razones:
 
-1. The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository. However, sometimes this approach results in an incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not be complete since the `autobuild` step will only execute one of the commands, and therefore some source files may not be compiled.
-1. Some compilers do not work with {% data variables.product.prodname_codeql %} and can cause issues while analyzing the code. For example, Project Lombok uses non-public compiler APIs to modify compiler behavior. The assumptions used in these compiler modifications are not valid for {% data variables.product.prodname_codeql %}'s Java extractor, so the code cannot be analyzed.
+1. La característica de `autobuild` del {% data variables.product.prodname_codeql %} utiliza la heurística para compilar el código de un repositorio. Sin embargo, algunas veces, este enfoque da como resultado un análisis incompleto del repositorio. Por ejemplo, cuando existen comandos múltiples de `build.sh` en un solo repositorio, el análisis podría no completarse, ya que el paso de `autobuild` solo se ejecutará en uno de los comandos y, por lo tanto, algunos archivos origen no se compilarán.
+1. Algunos compiladores no funcionan con {% data variables.product.prodname_codeql %} y pueden causar problemas cuando analizan el código. Por ejemplo, Project Lombok utiliza unas API de compilación no públicas para modificar el comportamiento del compilador. Las asunciones que se utilizan en las modificaciones de este compilador no son válidas para el extractor de Java de {% data variables.product.prodname_codeql %}, así que el código no se puede analizar.
 
-If your {% data variables.product.prodname_codeql %} analysis scans fewer lines of code than expected, there are several approaches you can try to make sure all the necessary source files are compiled.
+Si tu análisis de {% data variables.product.prodname_codeql %} escanea menos líneas de código de lo esperado, hay varios enfoques que puedes intentar para asegurarte de que todos los archivos de código fuente necesarios se compilen.
 
-### Replace the `autobuild` step
+### Reemplaza el paso `autobuild`
 
-Replace the `autobuild` step with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan. Para obtener más información, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
+Reemplaza el paso `autobuild` con los mismos comandos de compilación que utilizarías en producción. Esto garantiza que {% data variables.product.prodname_codeql %} sepa exactamente cómo compilar todos los archivos de código fuente que quieras escanear. Para obtener más información, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
-You may be able to understand why some source files haven't been analyzed by inspecting the copy of the source code included with the {% data variables.product.prodname_codeql %} database. To obtain the database from your Actions workflow, add an `upload-artifact` action after the analysis step in your code scanning workflow:
+### Inspecciona la copia de los archivos de código fuente en la base de datos de {% data variables.product.prodname_codeql %}
+Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. Para obtener la base de datos del flujo de trabajo de tus acciones, agrega una acción de `upload-artifact` después del paso de análisis en tu flujo de trabajo de escaneo de código:
 ```
 - uses: actions/upload-artifact@v2
   with:
     name: codeql-database
     path: ../codeql-database
 ```
-This uploads the database as an actions artifact that you can download to your local machine. For more information, see "[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
+Esto carga la base de datos como un artefacto de acciones que puedes descargar en tu máquina local. Para obtener más información, consulta la sección "[Almacenar artefactos de los flujos de trabajo ](/actions/guides/storing-workflow-data-as-artifacts)".
 
-The artifact will contain an archived copy of the source files scanned by {% data variables.product.prodname_codeql %} called _src.zip_. If you compare the source code files in the repository and the files in _src.zip_, you can see which types of file are missing. Once you know what types of file are not being analyzed, it is easier to understand how you may need to change the workflow for {% data variables.product.prodname_codeql %} analysis.
+El artefacto contendrá una copia archivada de los archivos de código fuente que escaneó el {% data variables.product.prodname_codeql %} llamada _src.zip_. Si comparas los archivos de código fuente en el repositorio con los archivos en _src.zip_, puedes ver qué tipos de archivo faltan. Una vez que sepas qué tipos de archivo son los que no se analizan es más fácil entender cómo podrías cambiar el flujo de trabajo para el análisis de {% data variables.product.prodname_codeql %}.
 
-## Extraction errors in the database
+## Extracción de errores en la base de datos
 
-The {% data variables.product.prodname_codeql %} team constantly works on critical extraction errors to make sure that all source files can be scanned. However, the {% data variables.product.prodname_codeql %} extractors do occasionally generate errors during database creation. {% data variables.product.prodname_codeql %} provides information about extraction errors and warnings generated during database creation in a log file. The extraction diagnostics information gives an indication of overall database health. Most extractor errors do not significantly impact the analysis. A small number of extractor errors is healthy and typically indicates a good state of analysis.
+El equipo de {% data variables.product.prodname_codeql %} trabaja constantemente en los errores de extracción críticos para asegurarse de que todos los archivos de código fuente pueden escanearse. Sin embargo, los extractores de {% data variables.product.prodname_codeql %} sí generan errores durante la creación de bases de datos ocasionalmente. {% data variables.product.prodname_codeql %} proporciona información acerca de los errores de extracción y las advertencias que se generan durante la creación de bases de datos en un archivo de bitácora. La información de diagnóstico de extracción proporciona una indicación de la salud general de la base de datos. La mayoría de los errores del extractor no impactan el análisis significativamente. Una pequeña parte de los errores del extractor es saludable y, a menudo, indica un buen estado del análisis.
 
-However, if you see extractor errors in the overwhelming majority of files that were compiled during database creation, you should look into the errors in more detail to try to understand why some source files weren't extracted properly.
+Sin embargo, si ves errores del extractor en la vasta mayoría de archivos que se compilan durante la creación de la base de datos, deberías revisarlos a detalle para intentar entender por qué algunos archivos de código fuente no se extrajeron adecuadamente.
 
 {% else %}
 ## Algunas porciones de mi repositorio no se analizaron con `autobuild`

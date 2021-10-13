@@ -21,6 +21,12 @@ shortTitle: Repository visibility
 
 Organization のオーナーは、リポジトリの可視性を変更する機能を Organization のオーナーのみに制限できます。 詳しい情報については「[Organization 内でリポジトリの可視性の変更を制限する](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)」を参照してください。
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, your repositories owned by your user account can only be private, and repositories in your enterprise's organizations can only be private or internal.
+
+{% endif %}
+
 リポジトリの可視性を変更する前に、次の注意点を確認することをお勧めします。
 
 {% ifversion ghes or ghae %}

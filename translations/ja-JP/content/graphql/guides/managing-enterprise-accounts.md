@@ -58,8 +58,9 @@ GraphQLを使ってEnterpriseアカウントの管理を始めるには、以下
     - `admin:enterprise`
 
   Enterpriseアカウントに固有にスコープは以下のとおりです。
-    - `admin:enterprise`: Enterpriseの完全な制御を与えます（`manage_billing:enterprise`及び`read:enterprise`を含む）
-    - `manage_billing:enterprise`: Enterpriseの支払いデータの読み書き。
+    - `admin:enterprise`: Gives full control of enterprises (includes {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes > 3.2 or fpt or ghae  %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Enterpriseのプロフィールデータの読み取り。
 
 4. 個人アクセストークンをコピーし、GraphQLクライアントに追加するまでは安全な場所に保管しておいてください。

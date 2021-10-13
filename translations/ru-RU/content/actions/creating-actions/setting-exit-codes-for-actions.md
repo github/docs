@@ -14,7 +14,6 @@ type: how_to
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About exit codes
 
@@ -27,7 +26,7 @@ type: how_to
 
 ## Setting a failure exit code in a JavaScript action
 
-If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package to log a message and set a failure exit code. Например:
+If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failure exit code. Например:
 
 ```javascript
 try {

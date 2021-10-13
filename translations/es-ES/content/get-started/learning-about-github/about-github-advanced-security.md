@@ -18,7 +18,7 @@ shortTitle: GitHub Advanced Security
 
 {% data variables.product.prodname_dotcom %} tiene muchas características que te ayudan a mejorar y mantener la calidad de tu código. Algunas de estas se incluyen en todos los planes{% ifversion not ghae %}, tales como la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Otras características de seguridad requieren una licencia para que la {% data variables.product.prodname_GH_advanced_security %} se ejecute en los repositorios independientemente de aquellos públicos en {% data variables.product.prodname_dotcom_the_website %}.
 
-{% ifversion fpt or ghes > 3.0 %}For more information about purchasing {% data variables.product.prodname_GH_advanced_security %}, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
+{% ifversion fpt or ghes > 3.0 %}Para obtener más información acerca de cómo comprar la {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)". {% elsif ghae %}No hay cargo para la {% data variables.product.prodname_GH_advanced_security %} en {% data variables.product.prodname_ghe_managed %} durante el lanzamiento beta.{% endif %}
 
 ## Acerca de las características de {% data variables.product.prodname_advanced_security %}
 

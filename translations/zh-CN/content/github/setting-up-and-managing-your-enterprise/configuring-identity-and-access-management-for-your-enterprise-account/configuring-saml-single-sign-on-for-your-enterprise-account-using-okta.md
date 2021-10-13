@@ -16,6 +16,8 @@ shortTitle: Configure SAML with Okta
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
 ## 关于使用 Octa 的 SAML
 
 您可以通过配置企业帐户使用 SAML SSO 以及身份提供程序 (IdP) Okta，从一个中心界面控制对 {% data variables.product.product_name %} 企业帐户及其他 web 应用程序的访问。

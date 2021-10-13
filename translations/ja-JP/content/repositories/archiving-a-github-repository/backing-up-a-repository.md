@@ -36,7 +36,7 @@ topics:
 - [プロジェクト](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-{% ifversion ghes or ghae %}バックアップしたいすべての内容のローカルバージョンができたなら、zipアーカイブを作成して{% else %}アーカイブがダウンロードできたなら{% endif %}外部ハードディスクにコピーするか、[Google Drive](https://www.google.com/drive/)あるいは[ Dropbox](https://www.dropbox.com/)などのクラウドベースのバックアップサービスにアップロードしてください。
+Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% ifversion fpt %}
 ## サードパーティのバックアップツール

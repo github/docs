@@ -48,7 +48,7 @@ Puedes @mencionar colaboradores que tengan acceso a tu repositorio en una propue
 
 ## Comparar propuestas y debates
 
-Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Para orientarte sobre cuándo utilizar una propuesta o debate, consulta la sección "[Comuinicarte en GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)".
+Algunas conversaciones son más adecuadas para los {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Para orientarte sobre cuándo utilizar una propuesta o debate, consulta la sección "[Comuinicarte en GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)".
 
 Cuando una conversación en una propuesta se adecua mejor para un debate, puedes intentar convertir la propuesta en debate.
 {% endif %}

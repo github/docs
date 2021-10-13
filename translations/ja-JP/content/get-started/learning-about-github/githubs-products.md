@@ -102,6 +102,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - 50GBの{% data variables.product.prodname_registry %}ストレージ
 - {% data variables.product.prodname_pages %} サイトのアクセス制御。 詳しい情報については、「<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">{% data variables.product.prodname_pages %} サイトの可視性を変更する</a>」を参照してください。
 - 99.9% の月次稼働時間を保証するサービスレベルアグリーメント
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">About {% data variables.product.prodname_emus %}</a>."
 - エンタープライズアカウントで複数の {% data variables.product.prodname_dotcom_the_website %} Organization に対してポリシーと請求を一元管理するためのオプション。 詳細は「<a href="/articles/about-enterprise-accounts" class="dotcom-only">Enterprise アカウントについて</a>」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} を評価するためのトライアルを設定できます。 詳しい情報については、「<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する</a>」を参照してください。

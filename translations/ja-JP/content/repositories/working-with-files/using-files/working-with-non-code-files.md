@@ -188,6 +188,14 @@ GitHub では PDF ドキュメントのレンダリングをサポートして�
 
 ![レンダリング済み文章変更](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+### Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### 属性変更を可視化する
 
 読者に見せる文字部分とは異なり、属性への変更は、レンダリングされたドキュメントでは見えなくなります。Github ではそれをツールチップで示します。 たとえば、リンク URL が、あるウェブサイトから別のものに変更された場合、ツールチップで次のように示されます:

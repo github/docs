@@ -1,6 +1,7 @@
 ---
 title: Bifurcar e clonar gists
 intro: 'Gists são repositórios Git. Isso significa que é posível bifurcar ou clonar qualquer gist, mesmo não sendo o autor original. Também é possível visualizar o histórico completo de commits do gist, inclusive os diffs.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/forking-and-cloning-gists
   - /github/writing-on-github/forking-and-cloning-gists

@@ -49,6 +49,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
 | [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
 | [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
+| [`ip_allow_list`](#ip_allow_list) | Contains activitites related to enabling or disabling the IP allow list for an organization. 
+| [`ip_allow_list_entry`](#ip_allow_list_entry) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization. 
 | [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% ifversion fpt %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
 | [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes > 3.0 %}
@@ -64,9 +66,9 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`protected_branch`](#protected_branch-category-actions) | Contains all activities related to protected branches.
 | [`repo`](#repo-category-actions) | Contains activities related to the repositories owned by your organization.{% ifversion fpt %}
 | [`repository_advisory`](#repository_advisory-category-actions) | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-| [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion not ghae %}
+| [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion fpt %}
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
-| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion not ghae %}
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts. {% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
@@ -334,6 +336,23 @@ An overview of some of the most common actions that are recorded as events in th
 |------------------|-------------------
 | `create` | Triggered when an organization member requests that an organization owner install an integration for use in the organization.
 | `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
+
+### `ip_allow_list` category actions
+
+| Action | Description
+|------------------|-------------------
+| `enable` | Triggered when an IP allow list was enabled for an organization.
+| `disable` | Triggered when an IP allow list was disabled for an organization.
+| `enable_for_installed_apps` | Triggered when an IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
+| `disable_for_installed_apps` | Triggered when an IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
+
+### `ip_allow_list_entry` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when an IP address was added to an IP allow list.
+| `update` | Triggered when an IP address or its description was changed.
+| `destroy` | Triggered when an IP address was deleted from an IP allow list.
 
 ### `issue` category actions
 
@@ -617,7 +636,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
 | `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository).
 
-{% endif %}{% ifversion not ghae %}
+{% endif %}{% ifversion fpt %}
 
 ### `repository_dependency_graph` category actions
 
@@ -634,7 +653,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion fpt %}private {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion fpt %}private {% endif %}repository.
 
-{% endif %}{% ifversion not ghae %}
+{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description

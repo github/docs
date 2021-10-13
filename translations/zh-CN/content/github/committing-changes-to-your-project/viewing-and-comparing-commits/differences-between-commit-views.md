@@ -29,4 +29,4 @@ Git 有几种不同的方式来显示仓库的历史记录。 当 Git 显示单�
 ## 延伸阅读
 
 - "[对提交签名](/articles/signing-commits)"
-- "[搜索提交](/articles/searching-commits)"
+- "[搜索提交](/search-github/searching-on-github/searching-commits)"

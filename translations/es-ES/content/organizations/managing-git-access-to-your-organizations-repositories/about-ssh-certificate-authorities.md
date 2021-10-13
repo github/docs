@@ -21,7 +21,7 @@ Una vez que agregas una CA de SSH a tu cuenta de empresa u organización, puedes
 
 Por ejemplo, puedes crear un sistema interno que emita un nuevo certificado para tus programadores cada mañana. Cada programador puede usar su certificado diario para trabajar en los repositorios de tu organización en {% data variables.product.product_name %}. Al finalizar el día, el certificado puede expirar automáticamente, protegiendo tus repositorios si el certificado más tarde se ve comprometido.
 
-Cuando emites cada certificado, debes incluir una extensión que especifique para qué usuario de {% data variables.product.product_name %} es el certificado. Por ejemplo, puedes usar el comando `ssh-keygen` de OpenSSH, reemplazando _KEY-IDENTITY_ por tu identidad de clave y _USERNAME_ por un nombre de usuario de {% data variables.product.product_name %}. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+Cuando emites cada certificado, debes incluir una extensión que especifique para qué usuario de {% data variables.product.product_name %} es el certificado. Por ejemplo, puedes usar el comando `ssh-keygen` de OpenSSH, reemplazando _KEY-IDENTITY_ por tu identidad de clave y _USERNAME_ por un nombre de usuario de {% data variables.product.product_name %}. El certificado que generes se autorizará para actuar en nombre de ese usuario para cualquiera de los recursos de tu organización. Asegúrate de validar la identidad de los usuarios antes de que emitas el certificado.
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub

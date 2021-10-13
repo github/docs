@@ -35,7 +35,7 @@ Para ver a todos los comandos relacionados con los {% data variables.product.pro
 
 ### Suspender o detener un codespace
 
-If you add a new secret or change the machine type, you'll have to stop and restart the codespace for it to apply your changes.
+Si agregas un secreto nuevo o cambias el tipo de máquina, tendrás que detener y reiniciar el codespace para que aplique tus cambios.
 
 Para suspender o detener el contenedor de tu codespace, accede a la paleta de comandos y luego comienza a teclear "stop". Selecciona **Codespaces: Detener el codespace actual**.
 

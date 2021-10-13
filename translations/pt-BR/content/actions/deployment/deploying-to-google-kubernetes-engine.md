@@ -13,16 +13,15 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
-shortTitle: Implantar no Kubernetes (GKE)
+shortTitle: Implantar no Google Kubernetes Engine
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
-Este guia explica como usar {% data variables.product.prodname_actions %} para construir um aplicativo conteinerizado, fazer push no Google Container Registry (GCR) e fazer a implantação no Google Kubernetes Engine (GKE).
+Este guia explica como usar {% data variables.product.prodname_actions %} para criar um aplicativo contêinerizado, fazer push no Google Container Registry (GCR) e implantar no Google Kubernetes Engine (GKE) quando uma versão for criada.
 
 O GKE é um serviço de cluster gerenciado do Kubernetes pelo Google Cloud que pode hospedar suas cargas de trabalho containerizadas na nuvem ou em seu próprio centro de dados. Para obter mais informações, consulte [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
@@ -61,7 +60,7 @@ $ gcloud services enable \
 
 ### Configurar uma conta de serviço e armazenar as suas credenciais
 
-Este procedimento demonstra como criar a conta de serviço para sua integração com o GKE. Ele explica como criar a conta, adicionar funções, recuperar suas chaves, e armazená-las como um [secreto de repositório criptografado](/actions/reference/encrypted-secrets) codificado em base 64 denominado `GKE_SA_KEY`.
+Este procedimento demonstra como criar a conta de serviço para sua integração com o GKE. Ele explica como criar a conta, adicionar funções, recuperar suas chaves, e armazená-las como um segredo de repositório criptografado codificado em base64 denominado `GKE_SA_KEY`.
 
 1. Crie uma nova conta de serviço:
   {% raw %}
@@ -91,21 +90,34 @@ Este procedimento demonstra como criar a conta de serviço para sua integração
   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
   ```
   {% endraw %}
-1. Store the service account key as a secret named `GKE_SA_KEY`:
+1. Armazenar a chave da conta de serviço como um segredo denominado `GKE_SA_KEY`:
   {% raw %}
   ```
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
+  Para obter mais informações sobre como armazenar um segredo, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
+
+### Armazenando o nome do seu projeto
+
+Armazene o nome do seu projeto como um segredo denominado `GKE_PROJECT`. Para obter mais informações sobre como armazenar um segredo, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ### (Opcional) Configurar kustomize
 Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do _kustomization_, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
+
+### (Opcional) Configure um ambiente de implantação
+
+{% data reusables.actions.about-environments %}
 
 ## Criar o fluxo de trabalho
 
 Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
 O fluxo de trabalho a seguir mostra como construir uma imagem de contêiner e como carregá-los no GCR. Em seguida, ele usa as ferramentas do Kubernetes (como `kubectl` e `kustomize`) para mover a imagem para a implantação do cluster.
+
+Na chave `env`, altere o valor de `GKE_CLUSTER` para o nome do seu cluster, `GKE_ZONE` à sua zona de clustering. `DEPLOYMENT_NAME` ao nome da sua implantação e `IMAGE` ao nome da sua imagem.
+
+{% data reusables.actions.delete-env-key %}
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -127,8 +139,9 @@ jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    steps:
+    environment: production
 
+    steps:
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -138,7 +151,8 @@ jobs:
         service_account_key: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
         project_id: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
 
-    # Configure docker to use the gcloud command-line tool as a credential helper
+    # Configure Docker to use the gcloud command-line tool as a credential
+    # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
 
@@ -166,7 +180,7 @@ jobs:
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
-        curl --location https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_linux_amd64.tar.gz | tar xz
+        curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
 
     # Deploy the Docker image to the GKE cluster
@@ -182,7 +196,7 @@ jobs:
 
 Para mais informações sobre as ferramentas usadas nesses exemplos, consulte a documentação a seguir:
 
-* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
+* Para o fluxo de trabalho inicial completo, consulte o [Fluxo de trabalho de "criar e implantar no GKE"](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
 * Para mais fluxos de trabalho iniciais e código de acompanhamento, consulte o [fluxos de trabalho de exemplos de {% data variables.product.prodname_actions %} do Google](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
 * Mecanismo de personalização do YAML do Kubernetes: [Kustomize](https://kustomize.io/).
 * "[Implantarum aplicativo web conteinerizado](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" na documentação do Google Kubernetes Engine .
