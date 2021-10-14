@@ -1,6 +1,7 @@
 ---
 title: Gists forken und klonen
 intro: 'Gists sind tatsächlich Git-Repositorys, was bedeutet, dass Du jeden Gist forken oder klonen kannst, selbst wenn Du nicht der Originalautor bist. Du kannst auch den kompletten Commit-Verlauf eines Gists anzeigen, einschließlich der Diffs.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/forking-and-cloning-gists
   - /github/writing-on-github/forking-and-cloning-gists

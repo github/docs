@@ -68,6 +68,8 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ## 利用時間 (分) とストレージ消費量の計算
 
+{% data reusables.dotcom_billing.pricing_cal %}
+
 月末に、{% data variables.product.prodname_dotcom %}はアカウントに含まれている量に対して使用された分とストレージのコストを計算します。
 
 ### Sample minutes cost calculation

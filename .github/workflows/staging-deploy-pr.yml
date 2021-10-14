@@ -18,6 +18,15 @@ permissions:
   pull-requests: read
   statuses: write
 
+# IMPORTANT: Intentionally OMIT a `concurrency` configuration from this workflow's
+# top-level as we do not have any guarantee of identifying values being available
+# within the `github.event` context for PRs from forked repos!
+#
+# The implication of this shortcoming is that we may have multiple workflow runs
+# of this running at the same time for different commits within the same PR.
+# However, once they reach the `concurrency` configurations deeper down within
+# this workflow's jobs, then we can expect concurrent short-circuiting to begin.
+
 env:
   CONTEXT_NAME: '${{ github.workflow }} / deploy (${{ github.event.workflow_run.event }})'
   ACTIONS_RUN_LOG: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -70,9 +79,18 @@ jobs:
                 name: prRepoName
               }
             } = run
-            const headLabel = `${prRepoOwner}:${headBranch}`
 
             const prIsInternal = owner === prRepoOwner && repo === prRepoName
+            let headLabel = `${prRepoOwner}:${headBranch}`
+
+            // If the PR is external, prefix its head branch name with the
+            // forked repo owner's login and their fork repo name e.g.
+            // "octocat/my-fork:docs".  We need to include the fork repo
+            // name as well to account for an API issue (this will work fine
+            // if they don't have a different fork repo name).
+            if (!prIsInternal) {
+              headLabel = `${prRepoOwner}/${prRepoName}:${headBranch}`
+            }
 
             // If the PR is external, prefix its head branch name with the
             // forked repo owner's login, e.g. "octocat:docs"
@@ -183,9 +201,12 @@ jobs:
         (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
       }}
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    # This timeout should match or exceed the value of the timeout for Undeploy
+    timeout-minutes: 5
+    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
+    # progress for this PR branch.
     concurrency:
-      group: 'staging_${{ needs.pr-metadata.outputs.head_ref }}'
+      group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
     outputs:
       pull_request_state: ${{ steps.check-pr.outputs.state }}
@@ -197,12 +218,34 @@ jobs:
           PR_NUMBER: ${{ needs.pr-metadata.outputs.number }}
         with:
           script: |
+            // Equivalent of the 'await-sleep' module without the install
+            const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+            const blockingLabel = 'automated-block-deploy'
             const { owner, repo } = context.repo
-            const { data: pullRequest } = await github.pulls.get({
-              owner,
-              repo,
-              pull_number: process.env.PR_NUMBER
-            })
+            const startTime = Date.now()
+
+            let pullRequest = {}
+            let blocked = true
+
+            // Keep polling the PR until the blocking label has been removed
+            while (blocked) {
+              const { data: pr } = await github.pulls.get({
+                owner,
+                repo,
+                pull_number: process.env.PR_NUMBER
+              })
+
+              blocked = pr.labels.some(({ name }) => name === blockingLabel)
+              if (blocked) {
+                console.warn(`WARNING! PR currently has blocking label "${blockingLabel}" (after ${Date.now() - startTime} ms). Will check again soon...`)
+                await sleep(15000) // Wait 15 seconds and check again
+              } else {
+                console.log(`PR was unblocked (after ${Date.now() - startTime} ms)!`)
+                pullRequest = pr
+              }
+            }
+
             core.setOutput('state', pullRequest.state)
 
   prepare-for-deploy:
@@ -210,8 +253,10 @@ jobs:
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
+    # progress for this PR branch.
     concurrency:
-      group: 'staging_${{ needs.pr-metadata.outputs.head_ref }}'
+      group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
     outputs:
       source_blob_url: ${{ steps.build-source.outputs.download_url }}
@@ -267,7 +312,7 @@ jobs:
 
       # Download the previously built "app.tar"
       - name: Download build artifact
-        uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
+        uses: dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ env.BUILD_ACTIONS_RUN_ID }}
@@ -361,7 +406,7 @@ jobs:
               target_url: ACTIONS_RUN_LOG
             })
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if deployment preparation job failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:
@@ -374,8 +419,10 @@ jobs:
     needs: [pr-metadata, prepare-for-deploy]
     runs-on: ubuntu-latest
     timeout-minutes: 1
+    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
+    # progress for this PR branch.
     concurrency:
-      group: 'staging_${{ needs.pr-metadata.outputs.head_ref }}'
+      group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
     outputs:
       pull_request_state: ${{ steps.check-pr.outputs.state }}
@@ -400,8 +447,10 @@ jobs:
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
+    # progress for this PR branch.
     concurrency:
-      group: 'staging_${{ needs.pr-metadata.outputs.head_ref }}'
+      group: 'PR Staging @ ${{ needs.pr-metadata.outputs.head_label }}'
       cancel-in-progress: true
     steps:
       - name: Check out repo's default branch
@@ -432,6 +481,7 @@ jobs:
           CONTEXT_NAME: ${{ env.CONTEXT_NAME }}
           ACTIONS_RUN_LOG: ${{ env.ACTIONS_RUN_LOG }}
           HEAD_SHA: ${{ needs.pr-metadata.outputs.head_sha }}
+          ALLOWED_POLLING_FAILURES_PER_PHASE: '15'
         with:
           script: |
             const { GITHUB_TOKEN, HEROKU_API_TOKEN } = process.env
@@ -548,7 +598,7 @@ jobs:
               target_url: ACTIONS_RUN_LOG
             })
 
-      - name: Send Slack notification if workflow fails
+      - name: Send Slack notification if deployment job failed
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: ${{ failure() }}
         with:

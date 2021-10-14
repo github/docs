@@ -40,8 +40,8 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. ”{% data variables.product.prodname_code_scanning_capc %} alerts"の右で、**Set up {% data variables.product.prodname_code_scanning %}**をクリックしてください。 {% ifversion fpt or ghes > 3.0 %}{% data variables.product.prodname_code_scanning %}がない場合は、Organizationのオーナーもしくはリポジトリの管理者に{% data variables.product.prodname_GH_advanced_security %}を有効化してもらうよう頼まなければなりません。 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」または「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %} ![セキュリティの概要にある、[{% data variables.product.prodname_code_scanning_capc %}] の右側の [{% data variables.product.prodname_code_scanning %}] ボタン](/assets/images/help/security/overview-set-up-code-scanning.png)
-4. [Get started with {% data variables.product.prodname_code_scanning %}] で、{% data variables.product.prodname_codeql_workflow %} またはサードパーティーのワークフローの [**Set up this workflow**] をクリックします。 !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% ifversion fpt or ghes > 2.22 %}ワークフローは、リポジトリで検索されたプログラミング言語に関連がある場合にのみ表示されます。 {% data variables.product.prodname_codeql_workflow %}は常に表示されますが、"Set up this workflow（このワークフローをセットアップ）"ボタンは{% data variables.product.prodname_codeql %}分析がリポジトリ内にある言語をサポートしている場合にのみ有効になります。{% endif %}
+3. ”{% data variables.product.prodname_code_scanning_capc %} alerts"の右で、**Set up {% data variables.product.prodname_code_scanning %}**をクリックしてください。 {% ifversion fpt or ghes > 3.0 or ghae-next %}{% data variables.product.prodname_code_scanning %}がない場合は、Organizationのオーナーもしくはリポジトリの管理者に{% data variables.product.prodname_GH_advanced_security %}を有効化してもらうよう頼まなければなりません。 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」または「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %} ![セキュリティの概要にある、[{% data variables.product.prodname_code_scanning_capc %}] の右側の [{% data variables.product.prodname_code_scanning %}] ボタン](/assets/images/help/security/overview-set-up-code-scanning.png)
+4. [Get started with {% data variables.product.prodname_code_scanning %}] で、{% data variables.product.prodname_codeql_workflow %} またはサードパーティーのワークフローの [**Set up this workflow**] をクリックします。 !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% ifversion fpt or ghes > 2.22 or ghae-next %}ワークフローは、リポジトリで検索されたプログラミング言語に関連がある場合にのみ表示されます。 {% data variables.product.prodname_codeql_workflow %}は常に表示されますが、"Set up this workflow（このワークフローをセットアップ）"ボタンは{% data variables.product.prodname_codeql %}分析がリポジトリ内にある言語をサポートしている場合にのみ有効になります。{% endif %}
 5. {% data variables.product.prodname_code_scanning %} がコードをスキャンする方法をカスタマイズするため、ワークフローを編集します。
 
    通常は、何も変更せずに {% data variables.product.prodname_codeql_workflow %} をコミットできます。 ただし、サードパーティのワークフローは、その多くで追加設定が必要なため、コミットする前にワークフローのコメントをお読みください。
@@ -53,9 +53,42 @@ topics:
 
 デフォルトの {% data variables.product.prodname_codeql_workflow %} では、{% data variables.product.prodname_code_scanning %} は、デフォルトブランチまたは保護されたブランチに変更をプッシュするたび、あるいはデフォルトブランチにプルリクエストを生成するたびに、コードを解析するよう設定されています。 その結果として、{% data variables.product.prodname_code_scanning %} が開始されます。
 
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[Scanning pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-pull-requests)" and "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
 ## {% data variables.product.prodname_code_scanning %} の一括セットアップ
 
 スクリプトを使用して、{% data variables.product.prodname_code_scanning %} を多くのリポジトリで一括でセットアップできます。 If you'd like to use a script to raise pull requests that add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using Powershell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have Powershell and instead would like to use NodeJS.
+
+## {% data variables.product.prodname_code_scanning %} からログ出力を表示する
+
+リポジトリで{% data variables.product.prodname_code_scanning %}をセットアップしたら、アクションが実行されるとその出力を見ることができます。
+
+{% data reusables.repositories.actions-tab %}
+
+  {% data variables.product.prodname_code_scanning %} ワークフローを実行するためのエントリを含むリストが表示されます。 エントリのテキストは、コミットメッセージに付けるタイトルです。
+
+  ![{% data variables.product.prodname_code_scanning %} ワークフローを表示しているアクションのリスト](/assets/images/help/repository/code-scanning-actions-list.png)
+
+1. {% data variables.product.prodname_code_scanning %} ワークフローのエントリをクリックします。
+
+1. 左側のジョブ名をクリックします。 ここでは例として、[**Analyze (言語)**] をクリックします。
+
+  ![{% data variables.product.prodname_code_scanning %} ワークフローからのログ出力](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+
+1. このワークフローの実行時にアクションから出力されるログを確認します。
+
+1. すべてのジョブが完了すると、確認されたすべての {% data variables.product.prodname_code_scanning %} アラートの詳細を表示できます。 詳しい情報については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートを管理する](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
+
+{% note %}
+
+**注釈:** {% data variables.product.prodname_code_scanning %} ワークフローを追加するためのプルリクエストをリポジトリに発行すると、そのプルリクエストからのアラートは、そのプルリクエストがマージされるまで {% data variables.product.prodname_code_scanning_capc %} ページに直接表示されません。 アラートが見つかった場合は、プルリクエストがマージされる前に、{% data variables.product.prodname_code_scanning_capc %} ページのバナーにある [**_(数字)_ alerts found**] をクリックしてそのアラートを表示できます。
+
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+  ![[n alerts found] のリンクをクリック](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+{% else %}
+  ![[n alerts found] のリンクをクリック](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
+{% endif %}
+
+{% endnote %}
 
 ## プルリクエストのチェックを理解する
 
@@ -66,13 +99,25 @@ Pull Requestで実行するよう設定した各 {% data variables.product.prodn
   ![{% data variables.product.prodname_code_scanning %} プルリクエストのチェック](/assets/images/help/repository/code-scanning-pr-checks.png)
 
 {% data variables.product.prodname_code_scanning %} ジョブが完了すると、
-{% data variables.product.prodname_dotcom %} はプルリクエストにより追加されたアラートがないか確認し、チェックのリストに「{% data variables.product.prodname_code_scanning_capc %} の結果 / ツール名」のエントリを追加します。 {% data variables.product.prodname_code_scanning %} が 1 回でも実行された後は、[**Details**] をクリックして解析結果を表示できます。 プルリクエストを使用してリポジトリに {% data variables.product.prodname_code_scanning %} を追加した場合、「{% data variables.product.prodname_code_scanning_capc %} 結果 / ツール名」チェックの [**Details**] をクリックすると最初は「Missing analysis」のメッセージが表示されます。
+{% data variables.product.prodname_dotcom %} はプルリクエストにより追加されたアラートがないか確認し、チェックのリストに「{% data variables.product.prodname_code_scanning_capc %} の結果 / ツール名」のエントリを追加します。 {% data variables.product.prodname_code_scanning %} が 1 回でも実行された後は、[**Details**] をクリックして解析結果を表示できます。 If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}an "Analysis not found"{% else %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
 
-  ![コミットメッセージの解析がありません](/assets/images/help/repository/code-scanning-missing-analysis.png)
+{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}
+  ![Analysis not found for commit message](/assets/images/help/repository/code-scanning-analysis-not-found.png)
 
-### 「missing analysis」のメッセージが出る理由
+The table lists one or more categories. Each category relates to specific analyses, for the same tool and commit, performed on a different language or a different part of the code. For each category, the table shows the two analyses that {% data variables.product.prodname_code_scanning %} attempted to compare to determine which alerts were introduced or fixed in the pull request.
 
-プルリクエストのコードを解析した後、{% data variables.product.prodname_code_scanning %} はトピックブランチ (プルリクエストを作成するために使用したブランチ) の解析と、ベースブランチ (プルリクエストをマージするブランチ) の解析を比較する必要があります。 これにより、{% data variables.product.prodname_code_scanning %} はプルリクエストにより新しく発生したアラートはどれか、ベースブランチに既に存在していたアラートはどれか、また既存のアラートがプルリクエストの変更により修正されたかを測定できます。 始めにプルリクエストを使用してリポジトリに {% data variables.product.prodname_code_scanning %} を追加した段階では、ベースブランチはまだ解析されていないので、こうした情報を測定できません。 この場合、プルリクエストの結果チェックをくりっくすると、「Missing analysis for base commit SHA-HASH (ベースコミット SHA-HASH の解析がありません)」というメッセージが表示されます。
+For example, in the screenshot above, {% data variables.product.prodname_code_scanning %} found an analysis for the merge commit of the pull request, but no analysis for the head of the main branch.
+{% else %}
+  ![コミットメッセージの解析がありません](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
+{% endif %}
+
+{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}
+### Reasons for the "Analysis not found" message
+{% else %}
+### Reasons for the "Missing analysis" message
+{% endif %}
+
+プルリクエストのコードを解析した後、{% data variables.product.prodname_code_scanning %} はトピックブランチ (プルリクエストを作成するために使用したブランチ) の解析と、ベースブランチ (プルリクエストをマージするブランチ) の解析を比較する必要があります。 これにより、{% data variables.product.prodname_code_scanning %} はプルリクエストにより新しく発生したアラートはどれか、ベースブランチに既に存在していたアラートはどれか、また既存のアラートがプルリクエストの変更により修正されたかを測定できます。 始めにプルリクエストを使用してリポジトリに {% data variables.product.prodname_code_scanning %} を追加した段階では、ベースブランチはまだ解析されていないので、こうした情報を測定できません。 In this case, when you click through from the results check on the pull request you will see the {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}"Analysis not found"{% else %}"Missing analysis for base commit SHA-HASH"{% endif %} message.
 
 この他にも、プルリクエストのベースブランチに対する直近のコミットで解析結果がないことがあります。 たとえば、次のような場合です。
 
@@ -80,7 +125,7 @@ Pull Requestで実行するよう設定した各 {% data variables.product.prodn
 
   ブランチがスキャン済みかを確認するには、{% data variables.product.prodname_code_scanning_capc %} ページに移動し、[**Branch**] ドロップダウンをクリックして該当するブランチを選択します。
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
   ![[Branch] ドロップダウンメニューからブランチを選択](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 {% else %}
   ![[Branch] ドロップダウンメニューからブランチを選択](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)

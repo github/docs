@@ -22,7 +22,6 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -84,7 +83,7 @@ A ação `setup-node` considera uma versão do Node.js como uma entrada e config
 
 O modelo inclui uma estratégia matriz que cria e testa seu código com quatro versões de Node.js: 10.x, 12.x, 14.x e 15.x. O "x" é um caractere curinga que corresponde à última versão menor e à versão do patch disponível para uma versão. Cada versão do Node.js especificada na matriz `node-version` cria uma tarefa que executa as mesmas etapas.
 
-Cada trabalho pode acessar o valor definido na matriz `node-version` usando o contexto `matriz`. A ação `setup-node` usa o contexto como entrada de `node-version`. A ação `setup-node` configura cada tarefa com uma versão diferente de Node.js antes de criar e testar o código. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Cada trabalho pode acessar o valor definido na matriz `node-version` usando o contexto `matriz`. A ação `setup-node` usa o contexto como entrada de `node-version`. A ação `setup-node` configura cada tarefa com uma versão diferente de Node.js antes de criar e testar o código. Para obter mais informações sobre estratégias e contextos de matriz, consulte "[Sintaxe do Fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" e "[Contextos](/actions/learn-github-actions/contexts)".
 
 {% raw %}
 ```yaml{:copy}
@@ -268,7 +267,7 @@ steps:
 - run: yarn test
 ```
 
-The following example caches dependencies for pnpm (v6.10+).
+O exemplo a seguir armazena dependências para pnpm (v6.10+).
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -288,7 +287,7 @@ steps:
 - run: pnpm test
 ```
 
-To cache dependencies, you must have a `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml` file in the root of the repository. Se você precisar de uma personalização mais flexível, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Dependências de cache para acelerar fluxos de trabalho</a>".
+Para armazenar dependências de cache, você deve ter um `pacote-lock.json`, `yarn.lock` ou um arquivo `pnpm-lock.yaml` na raiz do repositório. Se você precisar de uma personalização mais flexível, você poderá usar a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Dependências de cache para acelerar fluxos de trabalho</a>".
 
 ## Criar e testar seu código
 

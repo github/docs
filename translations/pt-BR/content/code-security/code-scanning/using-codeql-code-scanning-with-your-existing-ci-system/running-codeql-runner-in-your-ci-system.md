@@ -34,7 +34,7 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_codeql_runner %}
 
-O {% data variables.product.prodname_codeql_runner %} é uma ferramenta que você pode usar para executar {% data variables.product.prodname_code_scanning %} no código que você está processando em um sistema de integração contínua de terceiros (CI). {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+O {% data variables.product.prodname_codeql_runner %} é uma ferramenta que você pode usar para executar {% data variables.product.prodname_code_scanning %} no código que você está processando em um sistema de integração contínua de terceiros (CI). {% data reusables.code-scanning.about-code-scanning %} Para obter informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
 {% ifversion fpt or ghes > 3.0 or ghae-next %}
 Em muitos casos, é mais fácil configurar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} usando {% data variables.product.prodname_codeql_cli %} diretamente no seu sistema de CI.

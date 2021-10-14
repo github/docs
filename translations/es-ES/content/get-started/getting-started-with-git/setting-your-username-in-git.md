@@ -13,7 +13,7 @@ versions:
 shortTitle: Configura tu nombre de usuario
 ---
 
-## About Git usernames
+## Acerca de los nombres de usuario de Git
 Puedes cambiar el nombre que está asociado con tus confirmaciones de Git utilizando el comando `git config`. El nuevo nombre que configures será visible en cualquier confirmación futura que subas a {% data variables.product.product_name %} desde la línea de comando. Si deseas mantener tu nombre real privado, puedes utilizar cualquier texto como nombre de usuario de Git.
 
 Cambiar el nombre asociado con tus confirmaciones de Git utilizando `git config` afectará únicamente a las confirmaciones futuras y no cambiará el nombre utilizado para las confirmaciones anteriores.

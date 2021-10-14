@@ -41,6 +41,12 @@ Wenn _Prüfungen_ in einem Repository eingerichtet sind, weisen Pull Requests di
 
 ![Statuschecks innerhalb eines Pull Requests](/assets/images/help/pull_requests/checks.png)
 
+{% note %}
+
+**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+
+{% endnote %}
+
 Wenn eine Prüfung aufgrund einer bestimmten Zeile in einem Commit nicht bestanden wird, findest Du Einzelheiten über den Fehler, die Warnung oder den Hinweis neben dem entsprechenden Code auf der Registerkarte **Files** (Dateien) des Pull Requests.
 
 ![Details eines Statuschecks](/assets/images/help/pull_requests/checks-detailed.png)

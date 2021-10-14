@@ -172,9 +172,9 @@ Puedes restablecer un paquete o versión que hayas borrado si:
 Por ejemplo, si borraste un paquete de rubygem con el nombre `octo-package` que tuviera un alcance para el repositorio `octo-repo-owner/octo-repo`, entonces solo podrías restablecer el paquete si su designador de nombre `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` estuviera disponible todavía, suponiendo que no hayan pasado 30 días.
 
 También debes de cumplir con estos requisitos de permisos:
-  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt %}
+  - Para los paquetes con alcance de repositorio: Tienes permisos de administrador en el repositorio al que pertenece el paquete que se borró.{% ifversion fpt %}
   - Para los paquetes con alcance de cuenta de usuario: El paquete borrado pertenece a tu cuenta de usuario.
-  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
+  - Para los paquetes con alcance de organización: Tienes permisos de administrador en el paquete que se borró en la organización a la cual este pertenece.{% endif %}
 
 Para obtener más información, consulta la sección "[Permisos necesarios](#required-permissions-to-delete-or-restore-a-package)".
 
@@ -182,7 +182,7 @@ Una vez que se restablezca el paquete, este utilizará el designador de nombre q
 
 ### Restablecer un paquete en una organización
 
-You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories{% ifversion fpt %} or had granular permissions and was scoped to your organization account{% endif %}.
+Puedes restablecer un paquete borrado a través de la configuración de cuenta de tu organización siempre y cuando dicho paquete estuviera en uno de tus repositorios{% ifversion fpt %} o tuviera permisos granulares y tuviera el alcance de tu cuenta de organización{% endif %}.
 
 Para revisar quién puede restablecer un paquete en una organización, consulta la sección "[Permisos necesarios](#required-permissions-to-delete-or-restore-a-package)".
 

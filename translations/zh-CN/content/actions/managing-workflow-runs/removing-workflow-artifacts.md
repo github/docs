@@ -11,7 +11,6 @@ shortTitle: 删除工作流程构件
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 删除构件
 

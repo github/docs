@@ -20,7 +20,7 @@ shortTitle: Prueba de Entreprise Cloud
 
 {% data reusables.organizations.about-organizations %}
 
-You can use organizations for free with {% data variables.product.prodname_free_team %}, which includes limited features. For additional features, such as SAML single sign-on (SSO), access control for {% data variables.product.prodname_pages %}, and included {% data variables.product.prodname_actions %} minutes, you can upgrade to {% data variables.product.prodname_ghe_cloud %}. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
+Puedes utilizar organizaciones gratuitamente con {% data variables.product.prodname_free_team %}, las cuales incluyen características limitadas. Para encontrar características adicionales, tales como el inicio de sesión único (SSO) de SAML, el control de accesos para las {% data variables.product.prodname_pages %} y los minutos incluidos de las {% data variables.product.prodname_actions %}, puedes mejorar a {% data variables.product.prodname_ghe_cloud %}. Para encontrar una lista detallada de características disponibles con {% data variables.product.prodname_ghe_cloud %}, consulta nuestra página de [Precios](https://github.com/pricing).
 
 {% data reusables.saml.saml-accounts %}Para obtener más información, consulta "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on" class="dotcom-only">Acerca de la administración de identidad y accesos con el inicio de sesión único de SAML</a>".
 
@@ -28,7 +28,7 @@ You can use organizations for free with {% data variables.product.prodname_free_
 
 ## Acerca de las pruebas de {% data variables.product.prodname_ghe_cloud %}
 
-You can set up a 14-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. No es necesario que proporciones un método de pago durante la prueba a menos que agreges aplicaciones de {% data variables.product.prodname_marketplace %} en tu organización que requieran de un método de pago. Para obtener más información, consulta "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Acerca de la facturación para {% data variables.product.prodname_marketplace %}</a>".
+Puedes configurar un periodo de 14 días para evaluar {% data variables.product.prodname_ghe_cloud %}. No es necesario que proporciones un método de pago durante la prueba a menos que agreges aplicaciones de {% data variables.product.prodname_marketplace %} en tu organización que requieran de un método de pago. Para obtener más información, consulta "<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Acerca de la facturación para {% data variables.product.prodname_marketplace %}</a>".
 
 Tu prueba incluye 50 asientos. Si necesitas más plazas para evaluar a {% data variables.product.prodname_ghe_cloud %}, contacta a {% data variables.contact.contact_enterprise_sales %}. Al finalizar la prueba, puedes elegir una cantidad diferente de asientos.
 
@@ -36,12 +36,12 @@ También hay pruebas disponibles para {% data variables.product.prodname_ghe_ser
 
 ## Configurar tu prueba de {% data variables.product.prodname_ghe_cloud %}
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a user account. If you don't already have a user account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. Para obtener más información, consulta "<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Iniciar sesión para una nueva cuenta de {% data variables.product.prodname_dotcom %}</a>".
+Antes de probar {% data variables.product.prodname_ghe_cloud %}, debes firmarte en una cuenta de usuario. Si aún no tienes una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %}, debes crear una. Para obtener más información, consulta "<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Iniciar sesión para una nueva cuenta de {% data variables.product.prodname_dotcom %}</a>".
 
-1. Navigate to [{% data variables.product.prodname_dotcom %} for enterprises](https://github.com/enterprise).
-1. Click **Start a free trial**. !["Start a free trial" button](/assets/images/help/organizations/start-a-free-trial-button.png)
-1. Click **Enterprise Cloud**. !["Enterprise Cloud" button](/assets/images/help/organizations/enterprise-cloud-trial-option.png)
-1. Follow the prompts to configure your trial.
+1. Navega a [{% data variables.product.prodname_dotcom %} para empresas](https://github.com/enterprise).
+1. Haz clic en **Iniciar una prueba gratuita**. ![Botón de "Comenzar una prueba gratuita"](/assets/images/help/organizations/start-a-free-trial-button.png)
+1. Haz clic en **Enterprise Cloud**. ![Botón de "Enterprise Cloud"](/assets/images/help/organizations/enterprise-cloud-trial-option.png)
+1. Sigue los mensajes para configurar tu prueba.
 
 ## Explorar {% data variables.product.prodname_ghe_cloud %}
 

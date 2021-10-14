@@ -1,7 +1,7 @@
 ---
 title: Criar comunidades
 shortTitle: Criar comunidades
-intro: 'Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub’s community-tested tools.'
+intro: 'Aprenda as práticas recomendadas para moderar e configurar comunidades colaborativas, seguras e eficazes usando as ferramentas testadas pela comunidade do GitHub.'
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community

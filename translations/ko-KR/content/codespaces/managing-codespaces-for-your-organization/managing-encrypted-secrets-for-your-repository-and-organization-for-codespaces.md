@@ -72,3 +72,7 @@ You can check which access policies are applied to a secret in your organization
 {% data reusables.github-actions.sidebar-secret %}
 1. The list of secrets includes any configured permissions and policies. 예시: ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
+
+## 더 읽을거리
+
+- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

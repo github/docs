@@ -1,6 +1,6 @@
 ---
 title: Por que minhas contribuições não aparecem no meu perfil?
-intro: Learn common reasons that contributions may be missing from your contributions graph.
+intro: Entenda os motivos comuns que as contribuições podem não ter no seu gráfico de contribuição.
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
   - /github/setting-up-and-managing-your-github-profile/why-are-my-contributions-not-showing-up-on-my-profile
@@ -11,10 +11,10 @@ versions:
   ghae: '*'
 topics:
   - Profiles
-shortTitle: Missing contributions
+shortTitle: Contribuições ausentes
 ---
 
-## About your contribution graph
+## Sobre o seu gráfico de contribuição
 
 O gráfico de contribuições de perfil é um registro das contribuições que você fez em repositórios do {% data variables.product.product_name %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
 

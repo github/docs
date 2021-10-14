@@ -1,5 +1,5 @@
 ---
-title: Managing spending limits for Codespaces
+title: Administrar los límites de gastos para los Codespaces
 intro: 'Puedes configurar un límite de gastos para el uso de {% data variables.product.prodname_codespaces %}.'
 versions:
   fpt: '*'
@@ -19,12 +19,12 @@ shortTitle: Límites de gastos
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
-Once you've reached your spending limit, your organization or repository will no longer be able to create new codespaces, and won't be able to start existing codespaces. Any existing codespaces that are still running will not be shutdown; if you don't change the spending limit, you will not be charged for the amount that exceeds the limit.
+Una vez que hayas llegado a tu límite de gastos, tu organización o repositorio ya no podrán crear codespces nuevos y no podrán iniciar los existentes. Cualquier codespace existente que aún se esté ejecutando no se cerrará. Si no cambias el límite de gastos, no se tecobrará por la cantidad que exceda el límite.
 
 Para obtener más información sobre los costos de uso de {% data variables.product.prodname_codespaces %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)".
 
-## Using your Azure Subscription
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+## Utilizar tu suscripción de Azure
+Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
 
 ## Administrar el límite de gastos de {% data variables.product.prodname_codespaces %} para tu organización
 
@@ -42,15 +42,15 @@ Los propietarios de la empresa y gerentes de facturación pueden administrar el 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Above "{% data variables.product.prodname_codespaces %} monthly usage", click **Spending Limit**. ![Pestaña de límite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+1. Sobre "Uso mensual de {% data variables.product.prodname_codespaces %}", haz clic en **Límite de gastos**. ![Pestaña de límite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-## Exporting changes when you have reached your spending limit
+## Exportar cambios cuando llegaste a tu límite de gastos
 
 {% data reusables.codespaces.exporting-changes %}
-## Managing usage and spending limit email notifications
+## Administrar las notificaciones de uso y límite de gastos
 
-Email notifications are sent to account owners and billing managers when spending reaches 50%, 75%, and 90% of your account's spending limit.
+Las notificaciones por correo electrónico se envían a los propietarios de las cuentas y gerentes de facturación cuando el límite de gastos llega a 50%, 75%, y 90% del límite de gastos de tu cuenta.
 
-You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
+Puedes inhabilitar estas notificaciones en cualquier momento si navegas al final de la página del **Límite de Gastos**.

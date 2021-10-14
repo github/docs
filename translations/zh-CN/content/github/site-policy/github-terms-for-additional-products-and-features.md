@@ -20,7 +20,7 @@ Version Effective Date: August 10, 2021
 
 - **GitHub Enterprise Server** 用户可以访问以下附加产品和特性：Actions、Advanced Security、Advisory Database、Connect、Dependabot Preview、Learning Lab、Octoshift, Packages、Pages 和 SQL Server Images。
 
-- **GitHub AE** 用户可以访问以下附加产品和特性：Actions、Advanced Security、Advisory Database、{% ifversion ghae-next %}Connect、{% endif %}Dependabot Preview、Octoshift、Packages 和 Pages。
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database,{% ifversion ghae-next %}Connect, {% endif %}Dependabot Preview, Octoshift, Packages and Pages.
 
 ## 操作
 GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件开发生命周期工作流程。 Actions 按使用情况计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用和设置使用限制。
@@ -38,7 +38,7 @@ Actions and any elements of the Actions product or service may not be used in vi
 ## Advanced Security
 GitHub 根据高级安全许可证向客户提供额外的安全功能。 这些功能包括代码扫描、秘密扫描和依赖项审查。 [Advanced Security 文档](/github/getting-started-with-github/about-github-advanced-security)提供更多详细信息。
 
-Advanced Security 按“唯一提交者”许可。 “唯一提交者”是 GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server 或 GitHub AE 的许可用户，他们在过去 90 天内向激活了 GitHub Advanced Security 功能的任意仓库提交过代码。 您必须为每个唯一提交者获取 GitHub Advanced Security 用户许可。 您只能在由您开发或为您开发的代码库上使用 GitHub Advanced Security。 对于 GitHub Enterprise Cloud 用户，一些高级安全功能也需要使用 GitHub Actions。
+Advanced Security 按“唯一提交者”许可。 A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. 您必须为每个唯一提交者获取 GitHub Advanced Security 用户许可。 您只能在由您开发或为您开发的代码库上使用 GitHub Advanced Security。 对于 GitHub Enterprise Cloud 用户，一些高级安全功能也需要使用 GitHub Actions。
 
 ## Advisory Database
 GitHub 咨询数据库允许您浏览或搜索影响 GitHub 上开源项目的漏洞。

@@ -5,7 +5,7 @@ versions:
   ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## 使用自定义映像创建 {% data variables.actions.hosted_runner %}
 

@@ -61,7 +61,7 @@ De manera predeterminada, Jekyll no compila archivos o carpetas que:
 - termina con `~`
 - están excluidos por el parámetro `exclude` en tu archivo de configuración
 
-If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+Si quieres que Jekyll procese cualquiera de estos archivos, puedes utilizar el ajuste `include` en tu archivo de configuración.
 
 ## Texto preliminar
 

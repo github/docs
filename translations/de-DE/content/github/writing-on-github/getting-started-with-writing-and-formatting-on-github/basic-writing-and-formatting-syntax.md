@@ -40,9 +40,9 @@ You can indicate emphasis with bold, italic, or strikethrough text in comment fi
 Du kannst einen Text mit einem `>` zitieren.
 
 ```markdown
-Mit den Worten von Abraham Lincoln:
+Text that is not a quote
 
-> Verzeihen Sie meine Ausdrucksweise.
+> Text that is a quote
 ```
 
 ![Gerenderter zitierter Text](/assets/images/help/writing/quoted-text-rendered.png)
@@ -184,7 +184,7 @@ Im folgenden Beispiel kannst Du ein untergeordnetes Listenelement unter dem List
 
 ![Liste mit einem untergeordneten Listenelement](/assets/images/help/writing/nested-list-example-3.png)
 
-Du kannst mit derselben Methode mehrere Ebenen an verschachtelten Listen erstellen. Beispiel: Beim ersten untergeordneten Listenelement stehen sieben Zeichen (`␣␣␣␣␣-␣`) vor `Erstes untergeordnetes Listenelement`. Daher musst Du das zweite untergeordnete Listenelement um sieben Leerzeichen einrücken.
+Du kannst mit derselben Methode mehrere Ebenen an verschachtelten Listen erstellen. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
 ```markdown
 100. Erstes Listenelement
@@ -262,6 +262,30 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 Um einen neuen Absatz zu erstellen, lasse eine Zeile zwischen den Textzeilen leer.
 
+{% ifversion fpt or ghae-next or ghes > 3.3 %}
+## Footnotes
+
+You can add footnotes to your content by using this bracket syntax:
+
+```
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+The footnote will render like this:
+
+![Rendered footnote](/assets/images/site/rendered-footnote.png)
+{% endif %}
+
+## Hiding content with comments
+
+You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
 ## Markdown-Formatierung ignorieren
 
 Sie können {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren, indem Sie das Markdown-Zeichen mit `\` maskieren.
@@ -272,13 +296,13 @@ Sie können {% data variables.product.product_name %} anweisen, die Markdown-For
 
 Weitere Informationen findest Du unter „[Markdown-Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)“ von Daring Fireball.
 
-## Hiding content with comments
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+## Disabling Markdown rendering
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ## Weiterführende Informationen
 

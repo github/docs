@@ -36,7 +36,7 @@ Como alternativa, você pode habilitar o {% data variables.product.prodname_acti
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 ## Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
 
@@ -63,7 +63,12 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
+   {%- ifversion ghes %}
+   ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
+   {%- else %}
+   ![Adicionar ações para permitir lista](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   {%- endif %}
 1. Clique em **Salvar**.
 
 {% endif %}
@@ -71,7 +76,9 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% ifversion fpt %}
 ## Configurar a aprovação necessária para fluxos de trabalho de bifurcações públicas
 
-{% data reusables.actions.workflow-run-approve-public-fork %} Você pode configurar este comportamento para uma organização usando o procedimento abaixo. A modificação desta configuração substitui a configuração definida no nível corporativo.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for an organization using the procedure below. A modificação desta configuração substitui a configuração definida no nível corporativo.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

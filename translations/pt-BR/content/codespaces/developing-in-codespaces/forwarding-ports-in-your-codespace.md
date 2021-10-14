@@ -44,7 +44,7 @@ Você pode etiquetar uma porta para tornar a porta mais facilmente identificáve
 
 ## Compartilhar uma porta
 
-If you want to share a forwarded port with others, you need to make the port public. Após tornar uma porta pública, qualquer pessoa com a URL da porta poderá ver o aplicativo em execução sem precisar efetuar a autenticação.
+Se você quiser compartilhar uma porta encaminhada com outras pessoas, você deverá tornar a porta pública. Após tornar uma porta pública, qualquer pessoa com a URL da porta poderá ver o aplicativo em execução sem precisar efetuar a autenticação.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Clique com o botão direito na porta que você deseja compartilhar e clique em **Tornar pública**. ![Opção para tornar a porta pública no menu com o clique com o botão direito](/assets/images/help/codespaces/make-public-option.png)

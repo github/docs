@@ -20,6 +20,12 @@ Bifurcar um repositório é semelhante a copiar um repositório, com duas grande
 
 {% data reusables.repositories.you-can-fork %}
 
+{% ifversion fpt %}
+
+Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, existem outras restrições nos repositórios que você pode bifurcar. {% data reusables.enterprise-accounts.emu-forks %} Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_emus %}de](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% endif %}
+
 {% data reusables.repositories.desktop-fork %}
 
 Excluir uma bifurcação não exclui o repositório upstream original. Você pode fazer quaisquer alterações que quiser em sua bifurcação — adicionar colaboradores, renomear arquivos, gerar {% data variables.product.prodname_pages %}— sem efeito no original.{% ifversion fpt %} Você não pode restaurar um repositório bifurcado excluído. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}

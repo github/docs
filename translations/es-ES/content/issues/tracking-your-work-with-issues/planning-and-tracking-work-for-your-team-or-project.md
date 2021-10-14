@@ -80,7 +80,7 @@ Puedes crear etiquetas para que un repositorio categorice las propuestas, solici
 
 Para obtener más información, consulta "[Crear una etiqueta](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label)".
 
-Una vez que hayas creado una etiqueta en un repositorio, puedes aplicarla a cualquier propuesta, solicitud de cambos o debate en este. Puedes entonces filtrar las propuestas y solicitudes de cambio por etiqueta para encontrar todo el trabajo asociado. Por ejemplo, encuentra los errores de cara al usuario en tu proyecto filtrando las propuestas con las etiquetas `front-end` y `bug`. For more information, see "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."
+Una vez que hayas creado una etiqueta en un repositorio, puedes aplicarla a cualquier propuesta, solicitud de cambos o debate en este. Puedes entonces filtrar las propuestas y solicitudes de cambio por etiqueta para encontrar todo el trabajo asociado. Por ejemplo, encuentra los errores de cara al usuario en tu proyecto filtrando las propuestas con las etiquetas `front-end` y `bug`. Para obtener más información, consulta la sección "[Filtrar y buscar las propuestas y solicitudes de cambio](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)".
 ### Ejemplo de etiqueta
 A continuación se encuentra un ejemplo de una etiqueta de `front-end` que creamos y agregamos a la propuesta.
 

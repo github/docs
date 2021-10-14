@@ -45,8 +45,11 @@ Any team members that have set their status to "Busy" will not be selected for r
 7. 在“How many team members should be assigned to review?（应分配多少团队成员进行审查？）”下，使用下拉菜单选择多个要分配给每个拉取请求的审查者。 ![审查者人数下拉列表](/assets/images/help/teams/review-assignment-number.png)
 8. 在“Routing algorithm（路由算法）”下，使用下拉菜单选择要使用的算法。 更多信息请参阅“[路由算法](#routing-algorithms)”。 ![路由算法下拉列表](/assets/images/help/teams/review-assignment-algorithm.png)
 9. （可选）要始终跳过某些团队成员，请选择 **Never assign certain team members（永不分配某些团队成员）**。 然后，选择要始终跳过的一个或多个团队成员。 ![永不分配某些团队成员复选框和下拉列表](/assets/images/help/teams/review-assignment-skip-members.png)
-10. （可选）要对每个拉取请求审查只通知代码审查分配所选择的团队成员，在“Notifications（通知）”下选择 **If assigning team members, don't notify the entire team（如果分配团队成员，请不要通知整个团队）**。 ![代码审查分配通知](/assets/images/help/teams/review-assignment-notifications.png)
-11. 单击 **Save changes（保存更改）**。
+10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
+12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
+13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}
+14. 单击 **Save changes（保存更改）**。
 
 ## 禁用代码审查分配
 {% data reusables.profile.access_org %}

@@ -1,6 +1,7 @@
 ---
 title: 创建 Gist
 intro: '您可以创建两种 gist：{% ifversion ghae %}内部{% else %}公共{% endif %}和秘密。 如果您准备与{% ifversion ghae %}企业成员{% else %}全世界{% endif %}分享您的创意，请创建{% ifversion ghae %}内部{% else %}公共{% endif %} gist，否则请创建秘密 gist。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -42,7 +43,7 @@ Gist 可设为{% ifversion ghae %}内部{% else %}公共{% endif %}或秘密。 
 
 {% endif %}
 
-通过访问 {% data variables.gists.gist_homepage %} 并单击 **All Gists（所有 Gist）**，您可以发现其他人创建的{% ifversion ghae %}内部{% else %}公共{% endif %} gist。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {% data variables.gists.gist_search_url %} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/articles/searching-code)相同。
+通过访问 {% data variables.gists.gist_homepage %} 并单击 **All Gists（所有 Gist）**，您可以发现其他人创建的{% ifversion ghae %}内部{% else %}公共{% endif %} gist。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {% data variables.gists.gist_search_url %} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/search-github/searching-on-github/searching-code)相同。
 
 由于 gists 是 Git 仓库，因此您可以查看其整个提交历史记录，包括差异。 您也可以复刻或克隆 gists。 更多信息请参阅[“复刻和克隆 gists”](/articles/forking-and-cloning-gists)。
 

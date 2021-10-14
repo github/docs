@@ -17,7 +17,6 @@ type: reference
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Sobre sintaxe YAML para o {% data variables.product.prodname_actions %}
 
@@ -27,11 +26,11 @@ Arquivos de metadados de ação usam a sintaxe YAML. Se você não souber o que 
 
 ## `name`
 
-**Necessário**: nome de sua ação. O {% data variables.product.prodname_dotcom %} exibe o `name` (nome) na aba **Actions** (Ações) para facilitar a identificação visual das ações em cada trabalho.
+**Necessário**: O nome de sua ação. O {% data variables.product.prodname_dotcom %} exibe o `nome` na aba **Ações** para facilitar a identificação visual das ações em cada trabalho.
 
 ## `autor`
 
-**Opcional**: nome do autor da ação.
+**Opcional**: O nome do autor da ação.
 
 ## `descrição`
 
@@ -74,7 +73,7 @@ Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octoca
 
 ### `inputs.<input_id>.required`
 
-**Necessário**: um `boolean` (booleano) para indicar se a ação requer o parâmetro de entrada. Defina para `true` quando o parâmetro for necessário.
+**Necessário**: um `booleano` para indicar se a ação exige o parâmetro de entrada. Defina para `true` quando o parâmetro for necessário.
 
 ### `inputs.<input_id>.default`
 
@@ -106,7 +105,7 @@ saídas:
 
 **Necessário**: descrição de `string` do parâmetro de saída.
 
-## `outputs` for composite actions
+## `outputs` para ações compostas
 
 As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>.description` (veja "[`saídas` para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), mas também inclui o token do `valor`.
 
@@ -131,7 +130,7 @@ runs:
 
 **Obrigatório** O valor com o qual o parâmetro de saída será mapeado. Você pode defini-lo como uma `string` ou uma expressão com contexto. Por exemplo, você pode usar o contexto das `etapas` para definir o `valor` de uma saída como o valor de saída de uma etapa.
 
-For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
+Para obter mais informações sobre como usar a sintaxe de contexto, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
 ## `runs` para ações de JavaScript
 
@@ -204,26 +203,26 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
   post-if: runner.os == 'linux'
 ```
 
-## `runs` for composite actions
+## `runs` para ações compostas
 
 **Obrigatório** Configura o caminho para a ação composta, e o aplicativo usado para executar o código.
 
 ### `runs.using`
 
-**Required** To use a composite action, set this to `"composite"`.
+**Obrigatório** Para usar uma ação composta, defina-o como `"cmposto"`.
 
 ### `runs.steps`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
-**Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
+**Obrigatório** As etapas de que você planeja executar nesta ação. Elas podem ser etapas de `run` ou etapas de `uses`.
 {% else %}
-**Required** The steps that you plan to run in this action.
+**Obrigatório** As etapas de que você planeja executar nesta ação.
 {% endif %}
 
 #### `runs.steps[*].run`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
-**Optional** The command you want to run. Isso pode ser inline ou um script no seu repositório de ação:
+**Optional** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
 {% else %}
 **Obrigatório** O comando que você deseja executar. Isso pode ser inline ou um script no seu repositório de ação:
 {% endif %}
@@ -253,14 +252,14 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 #### `runs.steps[*].shell`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
-**Optional** The shell where you want to run the command. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+**Opcional** O shell onde você deseja executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Obrigatório se `run` estiver configurado.
 {% else %}
-**Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Required if `run` is set.
+**Obrigatório** O shell onde você quer executar o comando. Você pode usar qualquer um dos shells listados [aqui](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Obrigatório se `run` estiver configurado.
 {% endif %}
 
 #### `runs.steps[*].name`
 
-**Optional** The name of the composite step.
+**Opcional** O nome da etapa composta.
 
 #### `runs.steps[*].id`
 
@@ -268,7 +267,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].env`
 
-**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. If you want to modify the environment variable stored in the workflow, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite step.
+**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você desejar modificar a variável de ambiente armazenada no fluxo de trabalho, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa composta.
 
 #### `runs.steps[*].working-directory`
 
@@ -277,14 +276,14 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
 #### `runs.steps[*].uses`
 
-**Optional**  Selects an action to run as part of a step in your job. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
+**Opcional**  Seleciona uma ação a ser executada como parte de uma etapa do seu trabalho. A ação é uma unidade reutilizável de código. Você pode usar uma ação definida no mesmo repositório que o fluxo de trabalho, um repositório público ou em uma [imagem publicada de contêiner Docker](https://hub.docker.com/).
 
 É altamente recomendável incluir a versão da ação que você está usando ao especificar um número de tag Docker, SHA ou ref do Git. Se você não especificar uma versão, ela poderá interromper seus fluxos de trabalho ou causar um comportamento inesperado quando o proprietário da ação publicar uma atualização.
 - Usar o commit SHA de uma versão de ação lançada é a maneira mais garantida de obter estabilidade e segurança.
 - Usar a versão principal da ação permite receber correções importantes e patches de segurança sem perder a compatibilidade. Fazer isso também garante o funcionamento contínuo do fluxo de trabalho.
 - Usar o branch-padrão de uma ação pode ser conveniente, mas se alguém lançar uma nova versão principal com uma mudança significativa, seu fluxo de trabalho poderá ter problemas.
 
-Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) (com). Revise o arquivo README da ação para determinar as entradas obrigatórias.
+Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`com`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith). Revise o arquivo README da ação para determinar as entradas obrigatórias.
 
 ```yaml
 runs:
@@ -310,7 +309,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Cada parâmetro de entrada é um par chave/valor.  Parâmetros de entrada são definidos como variáveis de ambiente. The variable is prefixed with INPUT_ and converted to upper case.
+**Opcional**  Um `mapa` dos parâmetros de entrada definidos pela ação. Cada parâmetro de entrada é um par chave/valor.  Parâmetros de entrada são definidos como variáveis de ambiente. A variável é precedida por INPUT_ e convertida em letras maiúsculas.
 
 ```yaml
 runs:

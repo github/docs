@@ -87,7 +87,7 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` y `YOUR_APP_ID` son los valores que debes reemplazar. Make sure to enclose the values in double quotes.
+`YOUR_PATH_TO_PEM` y `YOUR_APP_ID` son los valores que debes reemplazar. Asegúrate de poner los valores entre comillas dobles.
 
 Utiliza tu identificador de {% data variables.product.prodname_github_app %} (`YOUR_APP_ID`) como el valor para la solicitud del [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (emisor) del JWT. Puedes obtener el identificador de {% data variables.product.prodname_github_app %} a través del ping del webhook inicial después de [crear la app](/apps/building-github-apps/creating-a-github-app/), o en cualquier momento desde la página de configuración de la app en la UI de GitHub.com.
 
@@ -116,7 +116,7 @@ Para obtener una lista de las terminales de API de REST que puedes utilizar para
 
 ## Autenticarse como una instalación
 
-El autenticarte como una instalación te permite realizar acciones en la API para dicha instalación. Antes de autenticarte como una instalación, debes crear un token de acceso a ésta. Asegúrate de que ya hayas instalado tu GitHub App en por lo menos un repositorio; es imposible crear un token de instalación si una sola instalación. These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+El autenticarte como una instalación te permite realizar acciones en la API para dicha instalación. Antes de autenticarte como una instalación, debes crear un token de acceso a ésta. Asegúrate de que ya hayas instalado tu GitHub App en por lo menos un repositorio; es imposible crear un token de instalación si una sola instalación. Las {% data variables.product.prodname_github_apps %} utilizan estos tokens de acceso a la instalación para autenticarse. Para obtener más información, consulta la sección "[Instalar las GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)".
 
 Predeterimenadamente, los tokens de acceso de instalación tienen un alcance de todos los repositorios a los cuales tiene acceso dicha instalación. Puedes limitar el alcance del token de acceso de la instalación a repositorios específicos si utilizas el parámetro `repository_ids`. Consulta la terminal [Crear un token de acceso de instalación para una app](/rest/reference/apps#create-an-installation-access-token-for-an-app) para encontrar más detalles. Los tokens de acceso de instalación cuentan con permisos configurados por la {% data variables.product.prodname_github_app %} y caducan después de una hora.
 
@@ -155,7 +155,7 @@ $ curl -i \
 
 ## Acceder a las terminales de la API como una instalación
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+Para encontrar un listado de las terminales de la API de REST disponibles para utilizarse con las {% data variables.product.prodname_github_apps %} utilizando un token de acceso de instalación, consulta la sección "[Terminales Disponibles](/rest/overview/endpoints-available-for-github-apps)".
 
 Para encontrar un listad de terminales relacionado con las instalaciones, consulta la sección "[Instalaciones](/rest/reference/apps#installations)".
 

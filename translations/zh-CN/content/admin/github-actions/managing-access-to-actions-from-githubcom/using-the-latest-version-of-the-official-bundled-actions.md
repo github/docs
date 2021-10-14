@@ -13,7 +13,6 @@ shortTitle: 使用最新的捆绑操作
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 您的企业实例包含一些您可以在工作流程中使用的内置操作。 有关捆绑操作的更多信息，请参阅[“与企业实例捆绑的正式操作”](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)。
 
@@ -29,17 +28,13 @@ shortTitle: 使用最新的捆绑操作
 
 配置 {% data variables.product.prodname_github_connect %} 后，您可以在实例上的 `actions` 组织中删除其本地仓库，以使用最新版本的操作。 例如，如果您的企业实例使用 `actions/checkout@v1` 操作，而且您需要使用在您的企业实例中不可用的 `actions/checkout@v2` ，执行以下步骤便可使用来自 {% data variables.product.prodname_dotcom_the_website %} 的最新 `checkout` 操作：
 
-1. 默认情况下，站点管理员不是捆绑的操作组织的所有者。 要获得删除 `checkout` 仓库所需的访问权限，请使用 `ghe-org-admin-promote` 命令将用户升级为捆绑的 `actions` 组织的所有者。 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)”和“[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)”。 例如：
-
-   ```shell
-   $ ghe-org-admin-promote -u octocat -o actions
-    Do you want to give organization admin privileges for actions to octocat? (y/N) y
-    Making octocat an admin of actions
-     --> Adding octocat as an admin of actions
-     --> octocat is now an admin of the actions organization
-     --> Done.
-   ```
-1. 在您的 {% data variables.product.product_name %} 实例中，删除 `actions` 组织中的 `checkout` 仓库。 有关如何删除仓库的信息，请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。
-1. 建议您在不再需要管理性访问后离开 `actions` 组织。 更多信息请参阅“[将您自己从组织删除](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization)”。
+1. From an enterprise owner account on {% data variables.product.product_name %}, navigate to the repository you want to delete from the *actions* organization (in this example `checkout`).
+1. By default, site administrators are not owners of the bundled *actions* organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page in that repository. ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. Click {% octicon "shield-lock" %} **Security** to see the security overview for the repository. ![Security header the repository](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
+1. Under "Privileged access", click **Unlock**. ![Unlock button](/assets/images/enterprise/site-admin-settings/unlock-priviledged-repo-access.png)
+1. Under **Reason**, type a reason for unlocking the repository, then click **Unlock**. ![Confirmation dialog](/assets/images/enterprise/site-admin-settings/confirm-unlock-repo-access.png)
+1. Now that the repository is unlocked, you can leave the site admin pages and delete the repository within the `actions` organization. At the top of the page, click the repository name, in this example **checkout**, to return to the summary page. ![Repository name link](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
+1. Under "Repository info", click **View code** to leave the site admin pages and display the `checkout` repository.
+1. Delete the `checkout` repository within the `actions` organization. For information on how to delete a repository, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." ![View code link](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. 配置您的工作流程的 YAML 以使用 `actions/checkout@v2`。
 1. 每次您的工作流程运行时，运行器将从 {% data variables.product.prodname_dotcom_the_website %} 中使用 `v2` 版本的 `actions/checkout`。

@@ -39,7 +39,7 @@ shortTitle: Fazer checkout de um PR localmente
 
 {% data reusables.cli.cli-learn-more %}
 
-To check out a pull request locally, use the `gh pr checkout` subcommand. Replace `pull-request` with the number, URL, or head branch of the pull request.
+Para fazer check-out de um pull request localmente, use o subcomando `gh pr check-out`. Substitua `pull request` pelo número, URL ou branch principal do pull request.
 
 ```shell
 gh pr checkout <em>pull-request</em>

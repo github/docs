@@ -38,7 +38,7 @@ A token with no assigned scopes can only access public information. トークン
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 {% data reusables.user_settings.personal_access_tokens %}
-4. [**Generate new token**] をクリックします。 ![[Generate new token] ボタン](/assets/images/help/settings/generate_new_token.png)
+{% data reusables.user_settings.generate_new_token %}
 5. トークンにわかりやすい名前を付けます。 ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker. ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
 7. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。

@@ -2,13 +2,13 @@
 title: Colaboração com mantenedores usando as discussões
 shortTitle: Colaborando com mantenedores
 intro: 'Você pode contribuir para objetivos, planos, saúde e comunidade para um projeto em {% data variables.product.product_name %} comunicando-se com os mantenedores do projeto em uma discussão.'
-permissions: People with read permissions to a repository can start and participate in discussions in the repository.
+permissions: 'People with read access to a repository can start and participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
 ---
 
 
-## About collaboration with maintainers using {% data variables.product.prodname_discussions %}
+## Sobre colaboração com mantenedores que usam {% data variables.product.prodname_discussions %}
 
 {% data reusables.discussions.about-discussions %} Se você usar ou contribuir para um projeto, você pode iniciar uma discussão para fazer sugestões e envolver-se com mantenedores e integrantes da comunidade sobre seus planos, dúvidas, ideias e feedback. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre a participação em discussões, consulte "[
 
 ## Pré-requisitos
 
-To collaborate with maintainers in discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+Para colaborar com mantenedores em discussões, um administrador ou mantenedor do projeto deverá habilitar {% data variables.product.prodname_discussions %} para o repositório. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
 ## Iniciar uma discussão
 
@@ -32,7 +32,7 @@ To collaborate with maintainers in discussions, a repository administrator or pr
 
 ## Filtrar a lista de discussões
 
-É possível pesquisar discussões e filtrar a lista de discussões em um repositório. Para obter mais informações, consulte "[Pesquisar discussões](/github/searching-for-information-on-github/searching-discussions)".
+É possível pesquisar discussões e filtrar a lista de discussões em um repositório. Para obter mais informações, consulte "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

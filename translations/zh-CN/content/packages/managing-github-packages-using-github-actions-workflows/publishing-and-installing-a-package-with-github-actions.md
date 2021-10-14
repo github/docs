@@ -15,8 +15,6 @@ shortTitle: 使用 Actions 发布和安装
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## 关于 {% data variables.product.prodname_registry %} 与 {% data variables.product.prodname_actions %}
 

@@ -29,7 +29,7 @@ shortTitle: 按主题分类
 
 {% ifversion ghae %}Internal {% else %}公共、内部{% endif %}和私有仓库可拥有主题，虽然您在主题搜索结果中只会看到您有权访问的私有仓库。
 
-您可以搜索与公共仓库关联的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 更多信息请参阅“[搜索主题](/articles/searching-topics)”。
+您可以搜索与公共仓库关联的仓库。 更多信息请参阅“[搜索仓库](/search-github/searching-on-github/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 更多信息请参阅“[搜索主题](/search-github/searching-on-github/searching-topics)”。
 
 ## 添加主题到仓库
 

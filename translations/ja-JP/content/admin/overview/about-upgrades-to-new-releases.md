@@ -13,7 +13,7 @@ topics:
 
 {% data variables.product.product_name %} は常に改善されており、メジャーリリースとマイナーリリースで新機能とバグ修正が導入されています。 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
 
-メジャーリリースには、新機能と機能のアップグレードが含まれ、通常、{% ifversion ghae %}数週間または数か月{% else %}四半期ごとに発生します。{% endif %} {% ifversion ghae %}{% data variables.product.company_short %} は、Enterprise を最新のメジャーリリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
+通常、メジャーリリースは四半期ごとに行われ、新機能と機能のアップグレードが含まれます。 {% ifversion ghae %}{% data variables.product.company_short %} は、Enterprise を最新のメジャーリリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
 
 {% ifversion ghes %}
 
@@ -43,7 +43,6 @@ Enterprise を新しいリリースにアップグレードするには、「[�
 
 ## 参考リンク
 
-- `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
-{% ifversion ghae %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository{% ifversion ghae %}
 - [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/release-notes)
 {% endif %}

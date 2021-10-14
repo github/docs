@@ -34,7 +34,7 @@ topics:
   - Enterprise
   - Policies
   - Security
-shortTitle: 执行仓库策略
+shortTitle: Repository management policies
 ---
 
 ## 配置企业中新仓库的默认可见性

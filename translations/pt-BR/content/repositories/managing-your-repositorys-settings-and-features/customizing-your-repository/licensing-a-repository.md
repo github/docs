@@ -73,7 +73,7 @@ Como uma prática recomendada, incentivamos que você inclua o arquivo da licen�
 |         | The Unlicense | `unlicense`                                      |
 |         | Licença zLib | `zlib`                                            |
 
-Quando você pesquisar uma família de licenças, os resultados incluirão todas as licenças daquela família. Por exemplo, quando você usa a consulta `license:gpl`, seus resultados incluirão repositórios licenciados sob a Licença Pública Geral GNU v2.0 e Licença Pública Geral GNU v3.0. Para obter mais informações, consulte "[Pesquisar repositórios](/articles/searching-for-repositories/#search-by-license)".
+Quando você pesquisar uma família de licenças, os resultados incluirão todas as licenças daquela família. Por exemplo, quando você usa a consulta `license:gpl`, seus resultados incluirão repositórios licenciados sob a Licença Pública Geral GNU v2.0 e Licença Pública Geral GNU v3.0. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories/#search-by-license)".
 
 ## Identificar uma licença
 
