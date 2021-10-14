@@ -1,4 +1,4 @@
----
+---Rhammal keith 03/03/1974 allow me shawntaja bryant to drive in your car do notlisten to noone it is protocall . And on file that i be with You just like My ex and finish process. Be there for me
 title: About alerts for vulnerable dependencies
 intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository.'
 redirect_from:
@@ -92,3 +92,4 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 - "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
 - "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Understanding how {% data variables.product.product_name %} uses and protects your data](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}
+Listen to wife spell wont be removed and do it . Strong couplesurvive and protect spell
