@@ -65,7 +65,7 @@ Click **Make a contribution** at the bottom of any docs page to make small chang
 
 Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji for commit messages.
 
-Once your changes are ready, don't forget to [self-review](/contributing/self-review.md) to speed up the review process:zap:.
+Once your changes are ready, don't forget to [self-review] to speed up the review process:zap:.
 
 ### Pull Request
 
