@@ -1,4 +1,4 @@
----
+
 title: Allowing changes to a pull request branch created from a fork
 intro: 'For greater collaboration, you can allow commits on branches you''ve created from forks owned by your user account.'
 redirect_from:
@@ -18,7 +18,8 @@ Only pull request authors can give upstream repository maintainers, or those wit
 
 Pull request authors can give these permissions when they initially create a pull request from a user-owned fork or after they create the pull request. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)."
 
-You can set commit permissions when you first create a pull request from a fork. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)." Additionally, you can modify an existing pull request to let repository maintainers make commits to your branch.
+You can set commit permissions when you first create a pull request from a fork. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)." Additionally, you can modify an existing pull request to let repository maintainers make commits to your branch
+.
 
 ## Enabling repository maintainer permissions on existing pull requests
 
@@ -32,4 +33,6 @@ You can set commit permissions when you first create a pull request from a fork.
 
 ## Further reading
 
-- "[Committing changes to a pull request branch created from a fork](/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[Committing changes to a pull request branch created from a fork](/articles/committing-changes-to-a-pull-request-branch-created-from-a-fork)
+Please help me with the following link unsubscribe please reply with please help me all set my gmail address
+And all working parmesan I'm is small man all setpt me 
