@@ -93,6 +93,8 @@ jobs:
           name: output-log-file
 ```
 
+To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
+
 For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
 
 ## Next steps

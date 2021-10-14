@@ -354,8 +354,6 @@ defaults:
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `concurrency`
 
-{% data reusables.actions.concurrency-beta %}
-
 Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
@@ -510,7 +508,7 @@ jobs:
 {% ifversion fpt or ghes > 3.0 or ghae %}
 ## `jobs.<job_id>.environment`
 
-The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 
 You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
 
@@ -544,8 +542,6 @@ environment:
 
 {% ifversion fpt or ghae-next or ghes > 3.1 %}
 ## `jobs.<job_id>.concurrency`
-
-{% data reusables.actions.concurrency-beta %}
 
 {% note %}
 
@@ -882,7 +878,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### Using a specific shell
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
+You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|

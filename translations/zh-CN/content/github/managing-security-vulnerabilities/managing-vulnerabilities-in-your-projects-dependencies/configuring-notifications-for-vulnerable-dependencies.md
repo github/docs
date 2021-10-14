@@ -1,56 +1,52 @@
 ---
-title: Configuring notifications for vulnerable dependencies
-shortTitle: Configuring notifications
-intro: 'Optimize how you receive notifications about  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts.'
+title: 配置有漏洞依赖项的通知
+shortTitle: 配置通知
+intro: '优化您如何接收有关 {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}安全{% endif %}警报的通知。'
 versions:
-  enterprise-server: '>=2.21 <=2.22'
+  ghes: '* <=2.22'
+topics:
+  - Security
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
 ---
-### About notifications for vulnerable dependencies
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.prodname_dependabot %} detects vulnerable dependencies in your repositories, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the Security tab for the repository. {% data variables.product.product_name %} notifies the maintainers of affected repositories about the new alert according to their notification preferences.{% else %}When {% data variables.product.product_name %} detects vulnerable dependencies in your repositories, it sends security alerts.{% endif %}{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_dependabot %} is enabled by default on all public repositories. For {% data variables.product.prodname_dependabot_alerts %}, by default, you will receive {% data variables.product.prodname_dependabot_alerts %} by email, grouped by the specific vulnerability.
-{% endif %} 
+<!--See /content/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies for the current version of this article -->
 
-{% if currentVersion == "free-pro-team@latest" %}If you're an organization owner, you can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories in your organization with one click. You can also set whether the detection of vulnerable dependencies will be enabled or disabled for newly-created repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)."
-{% endif %}
+## 关于有漏洞依赖项的通知
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.21" %}
-Your site administrator needs to enable security alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use the feature. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %}当 {% data variables.product.prodname_dependabot %} 在您的仓库中检测到有漏洞依赖项时，我们将生成 {% data variables.product.prodname_dependabot %} 警报，并将其显示在仓库的“Security（安全）”选项卡中。 {% data variables.product.product_name %} 根据通知首选项将新警报通知受影响仓库的维护员。{% else %}当 {% data variables.product.product_name %} 在仓库中检测到有漏洞的依赖项时，它将发送安全警报。{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.20" %}
-By default, if your site administrator has configured email for notifications on your enterprise, you will receive {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} by email.{% endif %}
+{% ifversion ghes %}
+默认情况下，如果站点管理员已在您的企业上配置电子邮件通知，您将会通过电子邮件收到 {% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}。{% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}Site administrators can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes %}站点管理员还可以启用无通知 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[为 {% data variables.product.prodname_ghe_server %} 上的有漏洞依赖项启用 {% data variables.product.prodname_dependabot_alerts %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。{% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.22" %}Site administrators can also enable security alerts without notifications. For more information, see "[Enabling security alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+## 配置{% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知
 
-### Configuring notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}
-
-You can configure notification settings for yourself or your organization from the Manage notifications drop-down {% octicon "bell" aria-label="The notifications bell" %} shown at the top of each page. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+您可以从每个页面顶部显示的管理通知下拉菜单 {% octicon "bell" aria-label="The notifications bell" %} 为您自己或您的组织配置通知设置。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)”。
 
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_alerts %} options](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
+{% ifversion ghes %}
+  ![{% data variables.product.prodname_dependabot_alerts %} 选项](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
 {% else %}
-  ![Security alerts options](/assets/images/help/notifications-v2/security-alerts-options.png)
+  ![安全警报选项](/assets/images/help/notifications-v2/security-alerts-options.png)
 {% endif %}
 
 {% note %}
 
-**Note:** You can filter your notifications on {% data variables.product.company_short %} to show {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
+**注：** 您可以过滤 {% data variables.product.company_short %} 上的通知以显示{% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot %}{% else %} 安全{% endif %}警报。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" % %}{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."{% endif %}
+{% data reusables.repositories.security-alerts-x-github-severity %} 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)”。
 
-### How to reduce the noise from notifications for vulnerable dependencies
+## 如何减少有漏洞依赖项通知的干扰
 
-If you are concerned about receiving too many notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, we recommend you opt into the weekly email digest, or turn off notifications while keeping {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} enabled. You can still navigate to see your {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} in your repository's Security tab.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."{% endif %}
+如果您担心会收到太多 {% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知，我们建议您在保持启用{% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}的情况下，选择接收每周电子邮件摘要或关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% ifversion ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}。
 
-### Further reading
+## 延伸阅读
 
-- "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
-- "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-is-queries)"
+- "[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+- “[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-is-queries)”。

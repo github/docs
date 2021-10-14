@@ -8,12 +8,14 @@ redirect_from:
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 {% tip %}
 
@@ -26,7 +28,7 @@ topics:
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Modifique o nome e a descrição do quadro de projeto conforme necessário e clique em **Save project** (Salvar projeto). ![Campos com o nome e a descrição do quadro de projeto e o botão Save project (Salvar projeto)](/assets/images/help/projects/edit-project-board-save-button.png)
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"
 - "[Adicionar problemas e pull requests a um quadro de projeto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

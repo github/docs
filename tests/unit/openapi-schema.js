@@ -157,7 +157,7 @@ describe('x-codeSamples for @octokit/core.js', () => {
   })
 
   // skipped because the definition is current missing the `content-type` parameter
-  // See GitHub issue #155943
+  // GitHub GitHub issue: 155943
   test.skip('operation with content-type parameter', () => {
     const operation = findOperation('POST', '/markdown/raw')
     expect(isPlainObject(operation)).toBe(true)

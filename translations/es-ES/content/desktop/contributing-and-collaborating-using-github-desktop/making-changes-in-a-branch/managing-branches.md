@@ -7,13 +7,15 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
-### Acerca de administrar ramas
+## Acerca de administrar ramas
 Puedes utilizar las ramas para experimentar de forma segura con los cambios de tu proyecto. Las ramas aislan tu trabajo de desarrollo de otras ramas en el repositorio. Por ejemplo, puedes utilizar una rama para desarrollar una nueva característica o para corregir un error.
 
 Siempre puedes crear una rama a partir de otra rama existente. Habitualmente, puedes crear una rama desde la rama predeterminada de tu repositorio. Podrás entonces trabajar en esta rama nueva aislado de los cambios que otras personas hacen al repositorio.
+
+También puedes crear una rama, comenzando desde una confirmación previa, en el historial de una rama. Esto puede ser útil si necesitas regresar a una vista anterior del repositorio para investigar un error o para crear un hot fix sobre tu lanzamiento más reciente.
 
 Una vez que estás satisfecho con to trabajo puedes crear una solicitud de extracción para fusionar tus cambios en la rama actual en alguna otra rama. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" y "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)".
 
@@ -21,7 +23,7 @@ Siempre podrás crear una rama en {% data variables.product.prodname_desktop %} 
 
 {% data reusables.desktop.protected-branches %}
 
-### Cómo crear una rama
+## Cómo crear una rama
 
 {% tip %}
 
@@ -59,14 +61,22 @@ Siempre podrás crear una rama en {% data variables.product.prodname_desktop %} 
 
 {% endwindows %}
 
-### Publicar una rama
+## Crear una rama a partir de una confirmación previa
+
+{% data reusables.desktop.history-tab %}
+2. Haz clic derecho en la confirmación desde la cual te gustaría crear una rama nueva y selecciona **Crear rama desde confirmación**. ![Crear una rama de un menú de contexto de confirmación](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+{% data reusables.desktop.name-branch %}
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Crear una rama desde una confirmación](/assets/images/help/desktop/create-branch-from-commit-overview.png)
+
+## Publicar una rama
 
 Si creas una rama en {% data variables.product.product_name %}, necesitarás publicarla para que se muestre disponible para colaboración en {% data variables.product.prodname_dotcom %}.
 
 1. En la parte superior de la app, da clic en {% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** y luego en la rama que quieres publicar. ![Menú desplegable para seleccionar qué rama publicar](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. Da clic en **Publicar rama**. ![El botón de publicar rama](/assets/images/help/desktop/publish-branch-button.png)
 
-### Alternar entre ramas
+## Alternar entre ramas
 Puedes ver y realizar confirmaciones en cualquiera de las ramas de tu repositorio. Si tienes cambios guardados, no confirmados, deberás decidir qué hacer con tus cambios antes de alternar las ramas. Puedes confirmar tus cambios en la rama actual, acumular tus cambios para guardarlos temporalmente en la rama actual, o llevar los cambios a tu rama nueva. Si quieres confirmar tus cambios antes de cambiar de rama, consulta la sección "[Confirmar y revisar los cambios a tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)".
 {% tip %}
 
@@ -79,7 +89,7 @@ Puedes ver y realizar confirmaciones en cualquiera de las ramas de tu repositori
   ![Lista de ramas en el repositorio](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. Si tienes cambios guardados, sin confirmar, elige **Leave my changes** (Dejar mis cambios) o **Bring my changes** (Traer mis cambios) y luego haz clic en **Switch Branch** (Cambiar rama). ![Alternar ramas con opciones de cambios](/assets/images/help/desktop/stash-changes-options.png)
 
-### Cómo eliminar una rama
+## Cómo eliminar una rama
 
 No puedes borrar una rama que esté actualmente asociada con una solicitud de extracción abierta. No puedes revertir el haber borrado una rama.
 
@@ -101,7 +111,7 @@ No puedes borrar una rama que esté actualmente asociada con una solicitud de ex
 
 {% endwindows %}
 
-### Leer más
+## Leer más
 
 - [Clonar un repositorio de {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)
 - "[Rama](/articles/github-glossary/#branch)" en el glosario {% data variables.product.prodname_dotcom %}

@@ -6,13 +6,14 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Proveedor de identidad no disponible
 ---
 
-Los administradores de la organización pueden usar [uno de los códigos de reuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)para saltear un inicio de sesión único. Es posible que los hayas guardado en un administrador de contraseñas, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/), o [Keeper](https://keepersecurity.com/).
+Los administradores de la organización pueden usar [uno de los códigos de reuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)para saltear un inicio de sesión único. Puedes haber guardado esto en un administrador de contraseñas tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).
 
 {% note %}
 
@@ -26,6 +27,6 @@ Los administradores de la organización pueden usar [uno de los códigos de reup
 
 Una vez que has usado un código de verificación, asegúrate de anotar que ya no es válido. No podrás volver a usar el código de recuperación.
 
-### Leer más
+## Leer más
 
 - [Acerca de la administración de acceso e identidad con SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on)"

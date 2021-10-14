@@ -6,7 +6,7 @@ redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
 topics:
   - Dependabot
@@ -16,9 +16,10 @@ topics:
   - Dependencies
   - Pull requests
   - Vulnerabilities
+shortTitle: Pesonalizar las actualizaciones
 ---
 
-### Acerca de personalizar las actualizaciones de las dependencias
+## Acerca de personalizar las actualizaciones de las dependencias
 
 Después de que hayas habilitado la actualización de versiones, puedes personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus dependencias si agregas más opciones al archivo *dependabot.yml*. Por ejemplo, podrías:
 
@@ -32,13 +33,13 @@ Para obtener más información acerca de las opciones de configuración, consult
 
 Cuando actualizas el archivo *dependabot.yml* en tu repositorio, el {% data variables.product.prodname_dependabot %} ejecuta una revisión inmediata con la nueva configuración. Verás una lista de dependencias actualizada en cuestión de minutos en la pestaña de **{% data variables.product.prodname_dependabot %}**, esto podría tomar más tiempo si el reposiorio tiene muchas dependencias. También puedes ver las solicitudes de extracción nuevas para las actualizaciones de versión. Para obtener más información, consulta la sección "[Listar dependencias configuradas para actualizaciones de versión](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
 
-### Impacto de los cambios de configuración en las actualizaciones de seguridad
+## Impacto de los cambios de configuración en las actualizaciones de seguridad
 
 Si personalizas el archivo *dependabot.yml*, podrías notar algunos cambios en las solicitudes de extracción que se levantan para las actualizaciones de seguridad. Estas solicitudes de extracción siempre se activan mediante una asesoría de seguridad para una dependencia en vez de mediante un calendario de programación del {% data variables.product.prodname_dependabot %}. Sin embargo, estas heredan la configuración de ajustes relevante del archivo *dependabot.yml* a menos de que especifiques una rama destino diferente para las actualizaciones de versión.
 
 Por ejemplo, consulta la sección "[Configurar etiquetas personalizadas](#setting-custom-labels)" a más adelante.
 
-### Modificar la programación
+## Modificar la programación
 
 Cuando configuras una actualización de tipo `daily`, predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones a las 05:00 UTC. Puedes utilizar `schedule.time` para especificar una hora alterna para que revise actualizaciones (en formato: `hh:mm`).
 
@@ -59,7 +60,7 @@ updates:
       time: "02:00"
 ```
 
-### Configurar los revisores y asignados
+## Configurar los revisores y asignados
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} levanta solicitudes de extracción sin ningún revisor o asignado.
 
@@ -87,7 +88,7 @@ updates:
       - "user-name"
 ```
 
-### Configurar las etiquetas personalizadas
+## Configurar las etiquetas personalizadas
 
 {% data reusables.dependabot.default-labels %}
 
@@ -132,6 +133,6 @@ updates:
       - "triage-board"
 ```
 
-### Más ejemplos
+## Más ejemplos
 
 Para obtener más ejemplos, consulta la sección "[Opciones de configuración para actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates)".

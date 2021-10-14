@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - 2FA
@@ -13,6 +13,7 @@ topics:
   - Organizations
   - Policies
   - Security
+shortTitle: Require 2FA
 ---
 
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.
@@ -21,7 +22,7 @@ When using LDAP or built-in authentication, two-factor authentication is support
 
 Weitere Informationen findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/github/authenticating-to-github/about-two-factor-authentication).“
 
-### Anforderungen für die Erzwingung der Zwei-Faktor-Authentifizierung
+## Anforderungen für die Erzwingung der Zwei-Faktor-Authentifizierung
 
 Bevor Sie festlegen können, dass Organisationsmitglieder und externe Mitarbeiter die Zwei-Faktor-Authentifizierung verwenden müssen, müssen Sie die [Zwei-Faktor-Authentifizierung für Ihr eigenes persönliches Konto aktivieren](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa/).
 
@@ -43,7 +44,7 @@ Bevor Sie festlegen können, dass die Zwei-Faktor-Authentifizierung verwendet we
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
 
-### Aus Deiner Organisation entfernte Personen anzeigen
+## Aus Deiner Organisation entfernte Personen anzeigen
 
 Um Personen anzuzeigen, die automatisch aus Ihrer Organisation entfernt wurden, weil sie die erforderliche Zwei-Faktor-Authentifizierung nicht verwendet haben, können Sie mit `reason:two_factor_requirement_non_compliance` im Suchfeld das [Auditprotokoll durchsuchen](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/).
 
@@ -58,11 +59,11 @@ Um Personen anzuzeigen, die automatisch aus Ihrer Organisation entfernt wurden, 
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
 5. Click **Search**.
 
-### Entfernten Organisationsmitgliedern und externen Mitarbeitern den Wiedereintritt zu Deiner Organisation erleichtern
+## Entfernten Organisationsmitgliedern und externen Mitarbeitern den Wiedereintritt zu Deiner Organisation erleichtern
 
 Organisationsmitglieder und externe Mitarbeiter, die aufgrund der Erzwingung der Zwei-Faktor-Authentifizierung aus Ihrer Organisation entfernt werden, erhalten eine E-Mail-Benachrichtigung zu ihrer Entfernung. In dieser E-Mail wird ihnen empfohlen, die 2FA für ihr persönliches Konto zu aktivieren und anschließend bei einem Organisationsinhaber ihren Wiederbeitritt zur Organisation zu veranlassen.
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Überprüfen, ob die Benutzer Ihrer Organisation die 2FA aktiviert haben](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)“
 - „[Konto durch Zwei-Faktor-Authentifizierung (2FA) schützen](/enterprise/{{ currentVersion }}/user/articles/securing-your-account-with-two-factor-authentication-2fa)“

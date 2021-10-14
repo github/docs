@@ -3,11 +3,12 @@ title: Atividade
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -144,10 +145,11 @@ Aqui está uma lista da potencial `razão` para receber uma notificação:
 | `assign`           | O problema foi atribuído a você.                                                                                                                                                                               |
 | `autor`            | Você criou a corrente.                                                                                                                                                                                         |
 | `comentário`       | Você comentou na corrente.                                                                                                                                                                                     |
+| `ci_activity`      | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.                                                                                                                 |
 | `convite`          | Você aceitou um convite para contribuir com o repositório.                                                                                                                                                     |
 | `manual`           | Você assinou a corrente (por meio de um problema ou pull request).                                                                                                                                             |
 | `menção`           | Você foi especificamente **@mentioned** no conteúdo.                                                                                                                                                           |
-| `review_requested` | Foi solicitado que você ou uma equipe da qual você é integrante revise um pull request.{% if currentVersion == "free-pro-team@latest" %}
+| `review_requested` | Foi solicitado que você ou uma equipe da qual você é integrante revise um pull request.{% ifversion fpt %}
 | `security_alert`   | O {% data variables.product.prodname_dotcom %} descobriu uma [vulnerabilidade de segurança](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) no seu repositório.{% endif %}
 | `state_change`     | Você alterou o estado da corrente (por exemplo, fechando um problema ou mesclando um pull request).                                                                                                            |
 | `assinado`         | Você está inspecionando o repositório.                                                                                                                                                                         |

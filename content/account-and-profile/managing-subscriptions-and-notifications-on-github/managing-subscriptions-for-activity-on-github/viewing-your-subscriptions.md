@@ -71,10 +71,10 @@ Many people forget about repositories that they've chosen to watch in the past. 
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down menu and click **Watched repositories**.
   ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evaluate the repositories that you are watching and decide if their updates are still relevant and helpful. When you watch a repository, you will be notified of all conversations for that repository.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
   ![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% else %}
+  ![Watched notifications page](/assets/images/help/notifications-v2/watched-notifications.png)
 {% endif %}
 
   {% tip %}

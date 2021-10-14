@@ -7,23 +7,24 @@ redirect_from:
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 创建议题或 PR
 ---
 
-### 关于议题和拉取请求
+## 关于议题和拉取请求
 
 您可以使用议题来跟踪对项目很重要的想法、漏洞、任务和其他信息。 您可以使用 {% data variables.product.prodname_desktop %} 在项目仓库中创建议题。 有关议题的更多信息，请参阅“[关于议题](/github/managing-your-work-on-github/about-issues)”。
 
 创建分支并更改项目中的文件后，可以创建拉取请求。 使用拉取请求，您可以在将更改合并到项目中之前对更改提出建议、进行讨论和迭代。 您可以使用 {% data variables.product.prodname_desktop %} 在项目仓库中创建拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
 
-### 基本要求
+## 基本要求
 
 在创建拉取请求之前，您需要将更改推送到 {% data variables.product.prodname_dotcom %} 的分支。
 - 保存并提交本地分支上的任何更改。 更多信息请参阅“[提交和审查对项目的更改](/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project)”。
 - 将本地提交推送到远程仓库. 更多信息请参阅“[推送更改到 GitHub](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)。”
 - 推送当前分支到 {% data variables.product.prodname_dotcom %}。 更多信息请参阅“[管理分支](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches)。”
 
-### 创建议题
+## 创建议题
 
 {% mac %}
 
@@ -45,7 +46,7 @@ versions:
 
 {% endnote %}
 
-### 创建拉取请求
+## 创建拉取请求
 
 {% mac %}
 
@@ -67,7 +68,7 @@ versions:
 
 {% endwindows %}
 
-### 延伸阅读
+## 延伸阅读
 - {% data variables.product.prodname_dotcom %} 词汇表中的“[议题](/github/getting-started-with-github/github-glossary#issue)”
 - {% data variables.product.prodname_dotcom %} 词汇中的“[拉取请求](/github/getting-started-with-github/github-glossary#pull-request)”
 - {% data variables.product.prodname_dotcom %} 词汇中的“[基础分支](/github/getting-started-with-github/github-glossary#base-branch)”

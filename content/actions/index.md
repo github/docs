@@ -9,6 +9,7 @@ featuredLinks:
   guides:
     - /actions/learn-github-actions
     - /actions/guides/about-continuous-integration
+    - /actions/deployment/deploying-with-github-actions
     - /actions/guides/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
@@ -58,4 +59,5 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /migrating-to-github-actions
+  - /guides
 ---

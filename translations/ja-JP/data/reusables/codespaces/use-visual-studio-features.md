@@ -1,0 +1,1 @@
+{% data variables.product.prodname_vscode %}でcodespace内で開発をする間に、コードを編集し、デバッグし、Gtiのコマンドを使うことができます。 詳しい情報については[{% data variables.product.prodname_vscode %}のドキュメンテーション](https://code.visualstudio.com/docs)を参照してください。

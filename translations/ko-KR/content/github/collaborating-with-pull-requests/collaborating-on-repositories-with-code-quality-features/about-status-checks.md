@@ -7,9 +7,9 @@ redirect_from:
   - /articles/about-status-checks
   - /github/collaborating-with-issues-and-pull-requests/about-status-checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Pull requests
 ---
@@ -24,22 +24,28 @@ You can see the overall state of the last commit to a branch on your repository'
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### Types of status checks on {% data variables.product.product_name %}
+## Types of status checks on {% data variables.product.product_name %}
 
 There are two types of status checks on {% data variables.product.product_name %}:
 
 - Checks
 - Statuses
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_app %}s.
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
 Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
-### Checks
+## Checks
 
 When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
 
 ![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
+
+{% note %}
+
+**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+
+{% endnote %}
 
 When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 
@@ -49,7 +55,7 @@ You can navigate between the checks summaries for various commits in a pull requ
 
 ![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
-#### Skipping and requesting checks for individual commits
+### Skipping and requesting checks for individual commits
 
 When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
