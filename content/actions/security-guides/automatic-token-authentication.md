@@ -16,6 +16,7 @@ shortTitle: Automatic token authentication
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About the `GITHUB_TOKEN` secret
 
