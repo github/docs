@@ -36,7 +36,7 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-To view your teams (the teams to which you belong), visit the [GitHub home page](www.github.com) while logged in, and view "Your teams" at the bottom left of the screen.
+To view your teams (the teams to which you belong), visit the [GitHub home page](https://github.com) while logged in, and view "Your teams" at the bottom left of the screen.
 
 ## Team pages
 
