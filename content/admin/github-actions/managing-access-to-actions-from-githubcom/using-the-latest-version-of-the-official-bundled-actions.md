@@ -12,6 +12,7 @@ shortTitle: Use the latest bundled actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Your enterprise instance includes a number of built-in actions that you can use in your workflows. For more information about the bundled actions, see "[Official actions bundled with your enterprise instance](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)."
 

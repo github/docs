@@ -14,6 +14,8 @@ topics:
 type: how_to
 ---
 
+{% data reusables.actions.ae-beta %}
+
 {% data reusables.cli.cli-learn-more %}
 
 {% data variables.product.prodname_cli %} is preinstalled on all {% data variables.product.prodname_dotcom %}-hosted runners. For each step that uses {% data variables.product.prodname_cli %}, you must set an environment variable called `GITHUB_TOKEN` to a token with the required scopes.
