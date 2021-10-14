@@ -1,6 +1,6 @@
 # GitHub Docs <!-- omit in toc -->
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+This repository contains the documentation website code and Markdown source files for [docs.github.com]
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
@@ -8,9 +8,6 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 ## Contributing
 
-See [the contributing guide](CONTRIBUTING.md) for detailed instructions of how to get started with our project. 
-
-We accept different [types of contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
 On the GitHub Docs site, you can click the make a contribution button to open a PR for quick fixes like typos, updates, or link fixes.
 
@@ -26,7 +23,7 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 
 ### And that's it!
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+If you're having trouble with your GitHub account, contact [Support]
 
 That's how you can easily become a member of the GitHub Documentation community. :sparkles:
 
@@ -38,7 +35,6 @@ In addition to the README you're reading right now, this repo includes other REA
 - [content/graphql/README.md](content/graphql/README.md)
 - [content/rest/README.md](content/rest/README.md)
 - [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
 - [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
