@@ -1,5 +1,6 @@
----
-title: Securing your repository
+## RYGUARDIANO SECURITY OF RESPOSITORY
+- Makes my repository vulnerable💂‍♀️™️
+- Securing your repository
 intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your repository secure.'
 permissions: Repository administrators and organization owners can configure repository security settings.
 redirect_from:
