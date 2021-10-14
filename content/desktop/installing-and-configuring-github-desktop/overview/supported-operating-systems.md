@@ -27,7 +27,7 @@ To troubleshoot this error, follow these steps.
 1. Open the "Keychain Access" app.
 2. Right-click on **login** and then click **Lock Keychain "login"**.
   ![The "Lock Keychain "login" option](/assets/images/help/desktop/mac-lock-keychain.png)
-3. Right-click on **login** and then click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login."
+3. Right-click on **login** and then click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login."an
   ![The "Unlock Keychain "login" option](/assets/images/help/desktop/mac-unlock-keychain.png)
 4. Re-authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.
 
