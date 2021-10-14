@@ -18,7 +18,7 @@ topics:
 
 {% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
 
- Product              | SKU      | Unit of measure | Price |
+| Product             | SKU      | Unit of measure | Price |
 | ------------------- | -------- | --------------- | ----- |
 | Codespaces Compute  |  2 core  | 1 hour          | $0.18 |
 |                     |  4 core  | 1 hour          | $0.36 |
