@@ -1,4 +1,6 @@
----
+---	
+
+/pemecahan masalah-komit-tanda tangan-verifikasi
 title: Authentication
 intro: 'Keep your account and data secure with features like {% ifversion not ghae %}two-factor authentication, {% endif %}SSH{% ifversion not ghae %},{% endif %} and commit signature verification.'
 redirect_from:
