@@ -36,6 +36,8 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 {% data reusables.organizations.types-of-team-visibility %}
 
+To view your teams (the teams to which you belong), visit the [GitHub home page](www.github.com) while logged in, and view "Your teams" at the bottom left of the screen.
+
 ## Team pages
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
