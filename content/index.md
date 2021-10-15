@@ -55,4 +55,9 @@ externalProducts:
     name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
+  npm:
+    id: npm
+    name: npm
+    href: 'https://docs.npmjs.com/'
+    external: true
 ---
