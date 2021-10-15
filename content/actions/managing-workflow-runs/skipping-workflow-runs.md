@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: 'ghae-next'
+  ghec: '*'
 shortTitle: Skip workflow runs
 ---
 

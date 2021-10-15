@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

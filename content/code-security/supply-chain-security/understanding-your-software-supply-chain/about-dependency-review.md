@@ -6,7 +6,8 @@ shortTitle: Dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: "issue-4864"
+  ghae: issue-4864
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -15,7 +16,7 @@ topics:
   - Dependencies
   - Pull requests
 redirect_from:
- - /code-security/supply-chain-security/about-dependency-review
+  - /code-security/supply-chain-security/about-dependency-review
 ---
 
 {% data reusables.dependency-review.beta %}
@@ -26,7 +27,7 @@ redirect_from:
 
 If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Dependency review is available in:
 
 * All public repositories. 
@@ -45,4 +46,4 @@ Dependency review supports the same languages and package management ecosystems 
 
 ## Enabling dependency review
 
-The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph and Dependabot alerts on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}
+The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph and Dependabot alerts on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}

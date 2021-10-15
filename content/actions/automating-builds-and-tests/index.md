@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration
   - /actions/language-and-framework-guides

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -34,7 +35,7 @@ To monitor results from {% data variables.product.prodname_code_scanning %} acro
 
 To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## About billing for {% data variables.product.prodname_code_scanning %}
 

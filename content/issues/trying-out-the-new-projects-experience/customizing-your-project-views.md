@@ -4,6 +4,7 @@ intro: 'Display the information you need by changing the layout, grouping, sorti
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Projects

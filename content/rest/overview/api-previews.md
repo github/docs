@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -154,7 +155,7 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## GitHub App Manifests
 
