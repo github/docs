@@ -1,7 +1,6 @@
 ---
 title: Encrypted secrets
 intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes > 3.0 or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets

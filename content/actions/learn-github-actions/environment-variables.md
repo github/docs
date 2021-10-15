@@ -1,7 +1,6 @@
 ---
 title: Environment variables
 intro: '{% data variables.product.prodname_dotcom %} sets default environment variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom environment variables in your workflow file.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables

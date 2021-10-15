@@ -1,7 +1,6 @@
 ---
 title: Adding labels to issues
 intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
 versions:

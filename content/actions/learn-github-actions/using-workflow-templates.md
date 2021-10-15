@@ -2,7 +2,6 @@
 title: Using workflow templates
 shortTitle: Using templates
 intro: '{% data variables.product.product_name %} provides workflow templates for a variety of languages and tooling.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
   - /github/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions

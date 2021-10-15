@@ -1,7 +1,6 @@
 ---
 title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'

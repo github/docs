@@ -1,7 +1,6 @@
 ---
 title: Commenting on an issue when a label is added
 intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
 versions:

@@ -1,7 +1,6 @@
 ---
 title: Closing inactive issues
 intro: 'You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
