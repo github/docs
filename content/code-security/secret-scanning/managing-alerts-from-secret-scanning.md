@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Secret scanning
@@ -25,14 +26,14 @@ shortTitle: Manage secret alerts
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 3. In the left sidebar, click **Secret scanning alerts**. 
-   {% ifversion fpt or ghes > 2.22 %}
+   {% ifversion fpt or ghes > 2.22 or ghec %}
    !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
 4. Under "Secret scanning" click the alert you want to view.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
    {% ifversion ghes > 2.22 %}
@@ -42,7 +43,7 @@ shortTitle: Manage secret alerts
    ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
 5. Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
    {% ifversion ghes > 2.22 or ghae %}
@@ -56,7 +57,7 @@ Once a secret has been committed to a repository, you should consider the secret
 - For a compromised {% data variables.product.prodname_dotcom %} personal access token, delete the compromised token, create a new token, and update any services that use the old token. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
 - For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
 
 When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.

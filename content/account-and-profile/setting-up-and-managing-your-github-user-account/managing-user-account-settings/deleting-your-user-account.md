@@ -9,13 +9,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Delete your user account
 ---
-Deleting your user account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt %} Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted - instead, they'll be associated with our [Ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
+Deleting your user account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %} Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted - instead, they'll be associated with our [Ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-{% ifversion fpt %} The account name also becomes available to anyone else to use on a new account, and we stop billing you. The email address associated with the account becomes available for use with a different {% data variables.product.product_name %} account. {% endif %}
+{% ifversion fpt or ghec %} The account name also becomes available to anyone else to use on a new account, and we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. {% endif %}
 
 If you’re the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your user account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your user account.
 
@@ -44,7 +45,7 @@ Before you delete your user account, make a copy of all repositories, private fo
    ![Account deletion button](/assets/images/help/settings/settings-account-delete.png)
 4. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
   ![Delete account confirmation dialog](/assets/images/help/settings/settings-account-deleteconfirm.png)
-  {% ifversion fpt %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, your billing will end, and your username will be available to anyone for use on {% data variables.product.product_name %}.
+  {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, your billing will end, and your username will be available to anyone for use on {% data variables.product.product_name %}.
   {% else %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.
   {% endif %}- In the first field, type your {% data variables.product.product_name %} username or email.
     - In the second field, type the phrase from the prompt.

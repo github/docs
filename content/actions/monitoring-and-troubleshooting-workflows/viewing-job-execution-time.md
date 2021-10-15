@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: View job execution time
 ---
 

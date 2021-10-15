@@ -11,13 +11,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Rate limits
 ---
 ## Server-to-server requests
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Different server-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
 
@@ -27,7 +28,7 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 {% data reusables.apps.api-rate-limits-non-ghec %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### {% data variables.product.prodname_ghe_cloud %} server-to-server rate limits
 
@@ -39,7 +40,7 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 {% data variables.product.prodname_github_apps %} can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Different user-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
 
@@ -49,7 +50,7 @@ Different user-to-server request rate limits apply to {% data variables.product.
 
 User-to-server requests are rate limited at 5,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's{% ifversion ghae %} token{% else %} username and password{% endif %} share the same quota of 5,000 requests per hour for that user.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### {% data variables.product.prodname_ghe_cloud %} user-to-server rate limits
 
@@ -57,4 +58,4 @@ When a user belongs to a {% data variables.product.prodname_ghe_cloud %} account
 
 {% endif %}
 
-For more detailed information about rate limits, see "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" for REST API and "[Resource limitations](/graphql/overview/resource-limitations)" for GraphQL API.
+For more detailed information about rate limits, see "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" for REST API and "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" for GraphQL API.

@@ -5,6 +5,7 @@ redirect_from:
   - /articles/about-github-support
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -35,4 +36,4 @@ To report account, security, and abuse issues, or to receive assisted support fo
 
 If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days.
 
-{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/articles/github-terms-of-service#3-access).
+{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).

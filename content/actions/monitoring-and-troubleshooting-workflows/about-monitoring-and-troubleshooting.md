@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: About monitoring and troubleshooting
 miniTocMaxHeadingLevel: 3
 ---
@@ -16,7 +17,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Monitoring your workflows
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### Using the visualization graph
 
@@ -34,7 +35,7 @@ For more information, see "[Using the visualization graph](/actions/monitoring-a
 
 For more information, see "[Adding a workflow status badge](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Viewing job execution time
 
 To identify how long a job took to run, you can view its execution time. For example:

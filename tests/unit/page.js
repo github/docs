@@ -346,7 +346,7 @@ describe('Page class', () => {
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
       ).toBe(expectedPath)
-      expect(page.permalinks.length).toBe(1)
+      expect(page.permalinks.length).toBe(2)
     })
 
     test('permalinks for enterprise-only pages', async () => {

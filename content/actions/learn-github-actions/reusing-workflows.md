@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.4'
   ghae: 'issue-4757'
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
