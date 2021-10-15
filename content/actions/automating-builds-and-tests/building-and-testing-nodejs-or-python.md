@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI

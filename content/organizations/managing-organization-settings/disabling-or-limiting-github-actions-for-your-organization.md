@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -37,7 +38,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
@@ -47,7 +48,7 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, {% ifversion fpt %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% else %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
@@ -75,7 +76,7 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Configuring required approval for workflows from public forks
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
@@ -90,7 +91,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghec %}
 ## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
@@ -103,7 +104,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
 {% data reusables.github-actions.workflow-permissions-intro %}

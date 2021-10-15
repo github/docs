@@ -10,7 +10,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+type: how_to
 topics:
+  - Actions
+  - Permissions
   - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
@@ -32,7 +36,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% ifversion fpt %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif ghes %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
@@ -44,7 +48,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
+{% ifversion fpt or ghes > 2.22 or ghae-next or ghec %}
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your repository
 
@@ -54,9 +58,7 @@ You can disable all workflows for a repository or set a policy that configures w
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% ifversion fpt %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif ghes %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
-
-{% endif %}
+**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
@@ -83,7 +85,7 @@ You can disable all workflows for a repository or set a policy that configures w
 2. Click **Save**.
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Configuring required approval for workflows from public forks
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
@@ -98,7 +100,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghec %}
 ## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
@@ -111,7 +113,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Setting the permissions of the `GITHUB_TOKEN` for your repository
 
 {% data reusables.github-actions.workflow-permissions-intro %}
@@ -130,7 +132,7 @@ The default permissions can also be configured in the organization settings. If 
 1. Click **Save** to apply the settings.
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Allowing access to components in an internal repository
 
 {% note %}
@@ -154,7 +156,7 @@ To configure whether workflows in an internal repository can be accessed from ou
 1. Click **Save** to apply the settings.
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
 You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.

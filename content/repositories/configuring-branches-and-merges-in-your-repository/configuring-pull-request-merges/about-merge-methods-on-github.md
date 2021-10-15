@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: About merge methods
@@ -17,7 +18,7 @@ shortTitle: About merge methods
 
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
 
 ## Squashing your merge commits

@@ -1,12 +1,13 @@
 ---
 title: Billing and payments for GitHub
 shortTitle: Billing and payments
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghes or ghae %}{% data variables.product.company_short %} bills for your enterprise members'' {% ifversion ghae %}usage of {% data variables.product.product_name %}{% elsif ghes %} licence seats for {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} and any additional services that you purchase{% endif %}{% endif %}.{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} bills for your enterprise members'' {% ifversion ghec or ghae %}usage of {% data variables.product.product_name %}{% elsif ghes %} licence seats for {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} and any additional services that you purchase{% endif %}{% endif %}.{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:

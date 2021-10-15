@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -43,7 +44,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}

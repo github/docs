@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Projects

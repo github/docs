@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: GitHub-hosted runners
 ---
 
@@ -134,7 +135,7 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -21,7 +22,7 @@ By using code review assignments, any time your team has been requested to revie
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals. The individual approvals don't satisfy the requirement for code owner approval in a protected branch. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
@@ -51,7 +52,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 9. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
 10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.**
-![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}

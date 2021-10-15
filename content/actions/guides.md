@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 learningTracks:
   - getting_started
   - continuous_integration
