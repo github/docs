@@ -8,6 +8,7 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 shortTitle: Publish in GitHub Marketplace
 ---

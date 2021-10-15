@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,19 +18,19 @@ shortTitle: Permissions for organization
 
 ## Permission levels for an organization
 
-Organization members can have *owner*{% ifversion fpt %}, *billing manager*,{% endif %} or *member* roles:
+Organization members can have *owner*{% ifversion fpt or ghec %}, *billing manager*,{% endif %} or *member* roles:
 
 - **Owners** have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - **Billing managers** allow a person to manage billing settings. For more information, see "[Adding a billing manager to your organization](/articles/adding-a-billing-manager-to-your-organization)".
 {% endif %}
 - **Members** are the default role for everyone else.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <!--Dotcom version has extra column for Billing managers-->
 
 | Organization action | Owners | Members | Billing managers |

@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -50,6 +51,6 @@ Anyone with write permission to a repository can set up {% data variables.produc
 - "[Managing workflow runs](/actions/managing-workflow-runs)"
 - "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

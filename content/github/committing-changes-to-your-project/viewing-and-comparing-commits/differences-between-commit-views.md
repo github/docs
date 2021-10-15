@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Commit views
 ---
 On {% data variables.product.product_name %}, you can see the commit history of a repository by:
