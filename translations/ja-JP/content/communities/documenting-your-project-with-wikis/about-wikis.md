@@ -34,4 +34,4 @@ topics:
 - 「[ウィキにフッタやサイドバーを作成する](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)」
 - 「[ウィキのコンテンツを編集する](/communities/documenting-your-project-with-wikis/editing-wiki-content)」
 - [Wkiの変更履歴の表示](/articles/viewing-a-wiki-s-history-of-changes)
-- [Wikiの検索](/articles/searching-wikis)
+- [Wikiの検索](/search-github/searching-on-github/searching-wikis)

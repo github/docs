@@ -17,14 +17,14 @@ shortTitle: Políticas para repositórios
 
 Para obter mais informações, consulte "[Níveis de permissão do repositório para organizações](/articles/repository-permission-levels-for-an-organization)".
 
-## Enforcing a policy on base repository permissions
+## Aplicar política com base nas permissões do repositório
 
-Across all organizations owned by your enterprise account, you can set a base repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
+Em todas as organizações pertencentes à conta corporativa, é possível definir um nível de permissão de base do repositório (nenhum, leitura, gravação ou administrativo) para integrantes da organização ou permitir que os proprietários administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-4. On the **Repository policies** tab, under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Base permissions", use the drop-down menu and choose a policy. ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+4. Na aba **Políticas do repositório**, em "Permissões básicas", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Em "Permissões básicas", use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de permissões de repositório](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
 
 ## Aplicar política sobre como criar repositórios
 

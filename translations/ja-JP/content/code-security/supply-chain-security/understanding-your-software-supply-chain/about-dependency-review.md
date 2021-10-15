@@ -1,11 +1,11 @@
 ---
 title: 依存関係のレビューについて
 intro: 依存関係のレビューは、脆弱性のある依存関係を自分の環境に持ち込んでしまう前に捉え、ライセンス、依存物、依存関係の期間に関する情報を提供します。
+product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: 依存関係のレビュー
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: overview
 topics:
   - Advanced Security

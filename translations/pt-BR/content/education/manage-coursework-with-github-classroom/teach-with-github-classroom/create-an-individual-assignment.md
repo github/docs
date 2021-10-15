@@ -61,7 +61,7 @@ Em "Tarefa individual ou de grupo", selecione o menu suspenso e clique em **Tare
 {% data reusables.classroom.assignments-guide-intro-for-environment %}
 
 - [Escolher um repositório de modelo](#choosing-a-template-repository)
-- [Choosing an integrated development environment (IDE)](#choosing-an-integrated-development-environment-ide)
+- [Escolhendo um ambiente integrado de desenvolvimento (IDE)](#choosing-an-integrated-development-environment-ide)
 
 ### Escolher um repositório de modelo
 
@@ -71,7 +71,7 @@ Por padrão, uma nova atividade criará um repositório vazio para cada aluno na
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}
 
-### Choosing an integrated development environment (IDE)
+### Escolhendo um ambiente integrado de desenvolvimento (IDE)
 
 {% data reusables.classroom.about-online-ides %} Para obter mais informações, consulte "[Integrar {% data variables.product.prodname_classroom %} com um IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
@@ -108,7 +108,7 @@ Você pode ver se um aluno juntou-se à sala de aula e aceitou ou enviou uma ati
 
 ## Próximas etapas
 
-- Depois de criar a atividade, os alunos poderão começar a trabalhar na atividade usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Você e o aluno podem revisar o histórico do commit do repositório. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
+- Depois de criar a atividade, os alunos poderão começar a trabalhar na atividade usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Você e o aluno podem revisar o histórico do commit do repositório. Para obter mais informações, consulte "[Começando com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github), "[Repositórios](/repositories)" e "[Colaborando com problemas e pull requests](/github/collaborating-with-issues-and-pull-requests)".
 
 - Quando um aluno concluir uma atividade, você poderá revisar os arquivos no repositório ou você poderá revisar o histórico e as visualizações do repositório para entender melhor o trabalho do aluno. Para obter mais informações, consulte "[Visualizar dados do repositório com gráficos](/github/visualizing-repository-data-with-graphs)".
 

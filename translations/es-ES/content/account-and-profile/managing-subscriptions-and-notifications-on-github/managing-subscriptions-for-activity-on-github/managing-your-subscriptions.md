@@ -45,7 +45,7 @@ Cuando te desuscribes de las notificaciones en tu bandeja de entrada, desaparece
 
 {% data reusables.notifications.access_notifications %}
 1. Desde la bandeja de notificaciones, selecciona aquellas de las cuales deseas darte de baja.
-2. Utiliza el menú desplegable de **seleccionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para dar clic en **Desuscribirse**. ![Opción para darse de baja de una bandeja principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Click **Unsubscribe.** ![Opción para darse de baja de una bandeja principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## Darse de baja de las notificaciones en la página de suscripciones
 
@@ -61,13 +61,12 @@ Cuando dejas de observar un repositorio, de desuscribes de notificaciones futura
 {% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. En la página de repositorios que sigues, después de que hayas evaluado aquellos que estás siguiendo, decide si quieres:
-  {% ifversion ghae or ghes < 3.1 %}
-    - Dejar de seguir un repositorio
-    - Observar únicamente los lanzamientos de un repositorio
-    - Ignorar todas las notificaciones de un repositorio
-  {% endif %}
   {% ifversion fpt or ghes > 3.0 or ghae-next %}
     - Dejar de seguir un repositorio
     - Ignorar todas las notificaciones de un repositorio
     - Personaliza los tipos de evento para los cuales recibes notificaciones ({% data reusables.notifications-v2.custom-notification-types %}, en caso de que se haya habilitado)
+  {% else %}
+    - Dejar de seguir un repositorio
+    - Observar únicamente los lanzamientos de un repositorio
+    - Ignorar todas las notificaciones de un repositorio
   {% endif %}

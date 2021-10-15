@@ -24,7 +24,7 @@ shortTitle: Administrar los lanzamientos
 
 ## Acerca de la administración de lanzamientos
 
-You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases.
+Puedes crear lanzamientos nuevos con notas de lanzamiento, @menciones de contribuyentes y enlaces a archivos binarios, así como editar o borrar los lanzamientos existentes.
 
 {% ifversion fpt %}
 También puedes publicar una acción desde un lanzamiento específico en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar una acción en {% data variables.product.prodname_marketplace %}</a>".
@@ -42,22 +42,24 @@ Puedes elegir si los objetos de {% data variables.large_files.product_name_long 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Haz clic en **Borrador de un nuevo lanzamiento**. ![Botón Borrador de lanzamientos](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release.
+4. {% ifversion fpt %}Haz clic en **Elige una etiqueta** y teclea {% else %}Teclea{% endif %} un número de versión para tu lanzamiento. Como alternativa, selecciona una etiqueta existente.
    {% ifversion fpt %}
-   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-1. Click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+   ![Ingresa una etiqueta](/assets/images/help/releases/releases-tag-create.png)
+1. Si estás creando una etiqueta nueva, haz clic en **Crear etiqueta nueva**. ![Confirma si quieres crear una etiqueta nueva](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
    ![Versión de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-5. Utiliza el menú desplegable para seleccionar la rama que contiene el proyecto que quieres lanzar.
-   {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+5. Si creaste una etiqueta nueva, utiliza el menú desplegable para seleccionar la rama que contiene el proyecto que quieres lanzar.
+   {% ifversion fpt %}![Elige una rama](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Rama de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-branch.png)
    {% endif %}
 6. Escribe un título y una descripción para tu lanzamiento.
    {%- ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
-   If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
+   Si @mencionas a cualquier usuario de {% data variables.product.product_name %} en la descripción, el lanzamiento publicado incluirá una sección de **Contribuyentes** con una lista de avatares de los usuarios mencionados.
    {%- endif %}
-   ![Descripción de lanzamientos](/assets/images/help/releases/releases_description.png)
+   {% ifversion fpt %} Como alternativa, puedes generar tus notas de lanzamiento automáticamente dando clic en **Generar notas de lanzamiento automáticamente**.
+   {% endif %}
+   ![Descripción de lanzamientos](/assets/images/help/releases/releases_description_auto.png)
 7. Opcionalmente, para incluir los archivos binarios tales como programas compilados en tu lanzamiento, arrastra y suelta o selecciona manualmente los archivos en la caja de binarios. ![Proporcionar un DMG con el lanzamiento](/assets/images/help/releases/releases_adding_binary.gif)
 8. Para notificar a los usuarios que el lanzamiento no está listo para producción y puede ser inestable, selecciona **Esto es un pre-lanzamiento**. ![Casilla de verificación para marcar un lanzamiento como prelanzamiento](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt %}
@@ -66,9 +68,9 @@ Puedes elegir si los objetos de {% data variables.large_files.product_name_long 
 9. Si estás listo para publicitar tu lanzamiento, haz clic en **Publicar lanzamiento**. Para seguir trabajando luego en el lanzamiento, haz clic en **Guardar borrador**. ![Botones Publicar lanzamiento y Borrador de lanzamiento](/assets/images/help/releases/release_buttons.png)
 
    {%- ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Viewing your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+   Entonces podrás ver tus lanzamientos publicados o en borrador dentro de las noticias de lanzamientos de tu repositorio. Para obtener más información, consulta la sección "[Ver las etiquetas y lanzamientos de tu repositorio](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)".
 
-   ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
+   ![Lanzamiento publicado con contribuyentes @mencionados](/assets/images/help/releases/releases-overview-with-contributors.png)
    {%- endif %}
 
 {% endwebui %}
@@ -77,19 +79,19 @@ Puedes elegir si los objetos de {% data variables.large_files.product_name_long 
 
 {% data reusables.cli.cli-learn-more %}
 
-1. To create a release, use the `gh release create` subcommand. Replace `tag` with the desired tag for the release.
+1. Para crear un lanzamiento, utiliza el subcomando `gh release create`. Reemplaza `tag` con la etiqueta deseada para el lanzamiento.
 
    ```shell
    gh release create <em>tag</em>
    ```
 
-2. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
+2. Sigue los mensajes interactivos. Como alternativa, puedes especificar los argumentos para omitir estos mensajes. Para obtener más información sobre los argumentos posibles, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_release_create). Por ejemplo, este comando crea un pre-lanzamiento con el título y notas especificados.
 
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
-If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
+Si @mencionas a cualquier usuario de {% data variables.product.product_name %} en las notas, el lanzamiento publicado en el {% data variables.product.prodname_dotcom_the_website %} incluirá una sección de **Contribuyentes** con una lista de avatares de todos los usuarios mencionados.
 {% endif %}
 
 {% endcli %}
@@ -103,13 +105,13 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. En la parte derecha de la página, junto al lanzamiento que quieres editar, da clic en **Editar lanzamiento**. ![Editar un lanzamiento](/assets/images/help/releases/edit-release.png)
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghes > 3.2 or ghae-issue-4972 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %} ![Actualizar un lanzamiento](/assets/images/help/releases/update-release.png)
+4. Edita los detalles del lanzamiento en el formato, luego haz clic en **Actualizar lanzamiento**.{% ifversion fpt or ghes > 3.2 or ghae-issue-4972 %} Si agregas o eliminas cualquier @mención de los usuarios de GitHub en la descripción, estos se agregarán o eliminarán de la lista de avatares en la sección de **Contribuyentes** del lanzamiento.{% endif %} ![Actualizar un lanzamiento](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}
 
 {% cli %}
 
-Releases cannot currently be edited with {% data variables.product.prodname_cli %}.
+Los lanzamientos no pueden editarse con {% data variables.product.prodname_cli %} actualmente.
 
 {% endcli %}
 
@@ -129,7 +131,7 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 
 {% cli %}
 
-1. To delete a release, use the `gh release delete` subcommand. Replace `tag` with the tag of the release to delete. Use the `-y` flag to skip confirmation.
+1. Para borrar un lanzamiento, utiliza el subcomando `gh release delete`. Reemplaza `tag` con la etiqueta del lanzamiento que se debe borrar. Utiliza el marcador `-y` para omitir la confirmación.
 
    ```shell
    gh release delete <em>tag</em> -y

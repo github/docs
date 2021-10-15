@@ -42,14 +42,14 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Klicke auf **Draft a new release** (Einen neuen Release entwerfen). ![Schaltfläche für Release-Entwurf](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release.
+4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
    {% ifversion fpt %}
    ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-1. Click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+1. If you are creating a new tag, click **Create new tag**. ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
    ![Tag-Version für Release](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-5. Benutze des Dropdownmenü um den Branch zu wählen, der das Projekt enthält, das Du freigeben willst.
+5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
    {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Tag-Branch für Releases](/assets/images/enterprise/releases/releases-tag-branch.png)
    {% endif %}
@@ -57,7 +57,9 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    {%- ifversion fpt or ghes > 3.2 or ghae-issue-4972 %}
    If you @mention any {% data variables.product.product_name %} users in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   ![Beschreibung der Releases](/assets/images/help/releases/releases_description.png)
+   {% ifversion fpt %} Alternatively, you can automatically generate your release notes by clicking **Auto-generate release notes**.
+   {% endif %}
+   ![Beschreibung der Releases](/assets/images/help/releases/releases_description_auto.png)
 7. Um optional binäre Dateien wie kompilierte Programme in Deinen Release einzubinden, ziehe die Dateien mit Drag-and-Drop herüber oder wähle die Dateien manuell im Feld für Binärdateien. ![DMG mit dem Release bereitstellen](/assets/images/help/releases/releases_adding_binary.gif)
 8. Um Benutzer darüber zu informieren, dass der Release nicht produktionsbereit und möglicherweise instabil ist, wähle **This is a pre-release** (Dies ist eine Vorabversion). ![Kontrollkästchen für die Markierung eines Release als Vorab-Release](/assets/images/help/releases/prerelease_checkbox.png)
 {%- ifversion fpt %}

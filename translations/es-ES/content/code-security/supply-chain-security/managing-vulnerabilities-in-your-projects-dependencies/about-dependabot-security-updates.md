@@ -51,7 +51,7 @@ Cuando fusionas una solicitud de cambios que contiene una actualización de segu
 
 ## Acerca de las puntuaciones de compatibilidad
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. Estos se calculan de las pruebas de IC en otros repositorios públicos en donde se ha generado la misma actualización de seguridad. La puntuación de compatibilidad de una actualización es el porcentaje de ejecuciones de IC que pasaron cuando se hicieron actualizaciones en versiones específicas de la dependencia.
+Las {% data variables.product.prodname_dependabot_security_updates %} podrían incluir puntuaciones de compatibilidad para hacerte saber si el actualizar una dependencia podría causar cambios sustanciales en tu proyecto. Estos se calculan de las pruebas de IC en otros repositorios públicos en donde se ha generado la misma actualización de seguridad. La puntuación de compatibilidad de una actualización es el porcentaje de ejecuciones de IC que pasaron cuando se hicieron actualizaciones en versiones específicas de la dependencia.
 
 ## Acerca de las notificaciones para las actualizaciones de seguridad del {% data variables.product.prodname_dependabot %}
 

@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
 intro: Una ramificación es una copia de un repositorio. Bifurcar un repositorio te permite experimentar libremente con cambios sin afectar el proyecto original.
+permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -83,7 +84,7 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 ## Clonar tu repositorio bifurcado
 
-Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
+Ahora mismo, tienes una bifurcación del repositorio Spoon-Knife, pero no tienes los archivos de ese repositorio localmente en tu computadora.
 
 {% include tool-switcher %}
 {% webui %}

@@ -42,6 +42,7 @@ Web アプリケーションフローを利用して、サイト上のユーザ�
 アプリケーションを作成または変更する際に [**Request user authorization (OAuth) during installation**] を選択した場合、アプリケーションのインストール中にステップ 1 が完了します。 詳しい情報については、「[インストール中のユーザの認可](/apps/installing-github-apps/#authorizing-users-during-installation)」を参照してください。
 
 ### 1. ユーザのGitHubアイデンティティのリクエスト
+Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -76,6 +77,8 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 この `code` をアクセストークンと交換します。  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. トークンを更新するたびに、新しいリフレッシュトークンを取得します。 詳しい情報については、「[ユーザからサーバーに対するアクセストークンをリフレッシュする](/developers/apps/refreshing-user-to-server-access-tokens)」を参照してください。
 
 ユーザトークンの期限設定は、現在のところオプション機能であり、変更される可能性があります。 ユーザからサーバーに対するトークンの期限設定にオプトインするには、「[アプリケーションのオプション機能を有効化する](/developers/apps/activating-optional-features-for-apps)」を参照してください。
+
+Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 

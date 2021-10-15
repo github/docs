@@ -17,7 +17,6 @@ shortTitle: 触发工作流程的事件
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 配置工作流程事件
 
@@ -165,6 +164,26 @@ on:
     types: [opened, deleted]
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Workflow reuse events
+
+`workflow_call` is a keyword used as the value of `on` in a workflow, in the same way as an event. It indicates that a workflow can be called from another workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+### `workflow_call`
+
+| Web 挂钩事件有效负载                | 活动类型 | `GITHUB_SHA`                | `GITHUB_REF`                |
+| --------------------------- | ---- | --------------------------- | --------------------------- |
+| Same as the caller workflow | n/a  | Same as the caller workflow | Same as the caller workflow |
+
+#### 示例
+
+To make a workflow reusable it must include `workflow_call` as one of the values of `on`. The example below only runs the workflow when it's called from another workflow:
+
+```yaml
+on: workflow_call
+```
+{% endif %}
+
 ## Web 挂钩事件
 
 您可以将工作流程配置为在 {% data variables.product.product_name %} 上生成 web 挂钩事件时运行。 某些事件有多种触发事件的活动类型。 如果有多种活动类型触发事件，则可以指定哪些活动类型将触发工作流程运行。 更多信息请参阅“[web 挂钩](/webhooks)”。
@@ -298,7 +317,7 @@ on:
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
+例如，您可以在讨论为 `created`、`edited` 或 `answered` 时运行工作流程。
 
 ```yaml
 on:
@@ -571,8 +590,8 @@ on:
 {% note %}
 
 **注意：**
-- By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. 要让更多活动类型触发工作流程，请使用 `types` 关键词。
-- Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+- 默认情况下，工作流程仅在 `pull_request` 的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要让更多活动类型触发工作流程，请使用 `types` 关键词。
+- 如果拉取请求具有合并冲突，工作流程将不会在 `pull_request` 活动上运行。 必须先解决合并冲突。
 
 {% endnote %}
 

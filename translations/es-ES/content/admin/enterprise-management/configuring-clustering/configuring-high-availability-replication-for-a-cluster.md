@@ -353,7 +353,7 @@ Pudes parar la replicación hacia los nodos pasivos para el despliegue de {% dat
 
 {% data reusables.enterprise_clustering.open-configuration-file %}
 
-3. In the top-level `[cluster]` section, delete the `redis-master-replica`, and `mysql-master-replica` key-value pairs.
+3. En la sección de `[cluster]` de nivel superior, borra los pares de clave-valor de `redis-master-replica` y `mysql-master-replica`.
 
 4. Borra cada sección para un nodo pasivo. Para los nodos pasivos, `replica` se configura como `enabled`.
 

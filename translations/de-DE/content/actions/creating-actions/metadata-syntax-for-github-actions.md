@@ -17,13 +17,12 @@ type: reference
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Informationen zur YAML-Syntax für {% data variables.product.prodname_actions %}
 
 Für Docker- und JavaScript-Aktionen ist eine Metadatendatei erforderlich. Der Dateiname für die Metadaten muss entweder `action.yml` oder `action.yaml` sein. Die Daten in der Metadaten-Datei definieren die Eingaben, Ausgaben und der Haupteinstiegspunkt für die Aktion.
 
-Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn Sie bislang noch nicht mit YAML gearbeitet haben, lesen Sie den Artikel „[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
+Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn YAML für Dich Neuland ist, lies den Artikel „[YAML in fünf Minuten lernen](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
 
 ## `name`
 
@@ -31,7 +30,7 @@ Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn Sie bislang noch nicht m
 
 ## `Autor`
 
-**Optional**: Der Name des Autors der Aktion.
+**Optional** The name of the action's author.
 
 ## `Beschreibung`
 
@@ -39,11 +38,11 @@ Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn Sie bislang noch nicht m
 
 ## `inputs`
 
-**Optional**: Mit Eingabeparametern können Sie die Daten angeben, welche die Aktion während der Laufzeit erwartet. {% data variables.product.prodname_dotcom %} speichert Eingabeparameter als Umgebungsvariablen. Eingabe-IDs in Großbuchstaben werden während der Laufzeit in Kleinbuchstaben umgewandelt. Sie sollten Eingabe-IDs in Kleinbuchstaben verwenden.
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} speichert Eingabeparameter als Umgebungsvariablen. Eingabe-IDs in Großbuchstaben werden während der Laufzeit in Kleinbuchstaben umgewandelt. Du solltest Eingabe-IDs in Kleinbuchstaben verwenden.
 
 ### Beispiel
 
-In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und entspricht standardmäßig dem Wert „1“. Die Eingabe „octocatEyeColor“ ist erforderlich und weist keinen Standardwert auf. Workflow-Dateien, die diese Aktion einsetzen, müssen das Stichwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zur `with`-Syntax findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)“.
+In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und hat standardmäßig den Wert ‚1‘. Die Eingabe „octocatEyeColor“ ist erforderlich und hat keinen Standardwert. Workflow-Dateien, die diese Aktion nutzen, müssen das Schlüsselwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zu `with`-Syntax finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)“.
 
 ```yaml
 inputs:
@@ -56,7 +55,7 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. Die erstellte Umgebungsvariable wandelt Eingabenamen in Großbuchstaben um und ersetzt Leerzeichen durch `_`-Zeichen.
+When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. Der Name der aus dem Eingabenamen erstellten Umgebungsvariablen wird in Großbuchstaben umgewandelt und Leerzeichen werden durch das Zeichen `_` ersetzt.
 
 If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
 
@@ -66,7 +65,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 ### `inputs.<input_id>`
 
-**Erforderlich** Ein Kennzeichner, der die Eingabe identifiziert, als `string`. Der Wert von `<input_id>` ist eine Übersicht zu den Metadaten der Eingabe. Die `<input_id>` muss im Objekt `inputs` als ein eindeutiger Kennzeichner vorhanden sein. Die `<input_id>` muss mit einem Buchstaben oder `_` beginnen und darf nur alphanumerische Zeichen, `-` oder `_` enthalten.
+**Erforderlich** Ein Kennzeichner, der die Eingabe identifiziert, als `string`. The value of `<input_id>` is a map of the input's metadata. Die `<input_id>` muss im Objekt `inputs` als ein eindeutiger Kennzeichner vorhanden sein. Die `<input_id>` muss mit einem Buchstaben oder `_` beginnen und darf nur alphanumerische Zeichen, `-` oder `_` enthalten.
 
 ### `inputs.<input_id>.description`
 
@@ -78,7 +77,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 ### `inputs.<input_id>.default`
 
-**Optional**: Ein `String`, der den Standardwert darstellt. Der Standardwert wird verwendet, wenn ein Eingabeparameter in einer Workflow-Datei nicht angegeben ist.
+**Optional** A `string` representing the default value. Der Standardwert wird verwendet, wenn ein Eingabeparameter in einer Workflow-Datei nicht angegeben ist.
 
 ### `inputs.<input_id>.deprecationMessage`
 
@@ -86,7 +85,7 @@ For example, if a workflow defined the `numOctocats` and `octocatEyeColor` input
 
 ## `outputs`
 
-**Optional**: Ausgabeparameter erlauben Dir, Daten zu deklarieren, die eine Aktion setzt. Aktionen, die in einem Workflow später ausgeführt werden, können die Ausgabedaten der zuvor ausgeführten Aktionen verwenden.  Wenn beispielsweise eine Aktion vorliegt, die zwei Eingaben addiert hat (x + y = z), kann die Aktion die Summe (z) für andere Aktionen ausgeben, damit sie als Eingabe verwendet wird.
+**Optional**: Ausgabeparameter erlauben Dir, Daten zu deklarieren, die eine Aktion setzt. Aktionen, die in einem Workflow später ausgeführt werden, können die Ausgabedaten der zuvor ausgeführten Aktionen verwenden.  Wenn beispielsweise eine Aktion vorliegt, die zwei Eingaben addiert hat (x + y = z), kann die Aktion die Summe (z) für andere Aktionen ausgeben, damit sie dort als Eingabe verwendet wird.
 
 Auch wenn Du in der Metadaten-Datei Deiner Aktion keine Ausgabe deklarierst, kannst Du dennoch Ausgaben festlegen und in einem Workflow verwenden. Weitere Informationen zum Festlegen von Ausgaben in einer Aktion findest Du unter "[Workflow-Befehle für {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
@@ -284,7 +283,7 @@ Es wird dringend empfohlen, die verwendete Version der Aktion zu nennen (Git-Ref
 - Wenn Du Dich auf die Hauptversion der Aktion beziehst, kannst Du kritische Fehlerbehebungen und Sicherheits-Patches erhalten und gleichzeitig die Kompatibilität wahren. Außerdem ist damit sichergestellt, dass der Workflow weiterhin problemlos arbeiteten sollte.
 - Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
-Für einige Aktionen sind Eingaben erforderlich, die Du mit dem Schlüsselwort [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) festlegen musst. Die erforderlichen Eingaben findest Du in der README-Datei der Aktion.
+Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Die erforderlichen Eingaben findest Du in der README-Datei der Aktion.
 
 ```yaml
 runs:

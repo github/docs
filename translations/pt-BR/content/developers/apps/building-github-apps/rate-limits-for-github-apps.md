@@ -20,7 +20,7 @@ shortTitle: Limites de taxa
 
 {% ifversion fpt %}
 
-Different server-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account.
+Aplicam-se diferentes limites de solicitação de servidor para servidor a {% data variables.product.prodname_github_apps %} se o aplicativo estiver instalado em organizações ou repositórios pertencentes a uma conta de {% data variables.product.prodname_ghe_cloud %}.
 
 ### Limites de taxa normais de servidor a servidor
 
@@ -32,17 +32,17 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 ### Limites de taxa de servidor a servidor de {% data variables.product.prodname_ghe_cloud %}
 
-{% data variables.product.prodname_github_apps %} that are installed on an organization or repository owned by a {% data variables.product.prodname_ghe_cloud %} account and make server-to-server requests have a rate limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_apps %} que está instalado em uma organização ou repositório de propriedade de uma conta de {% data variables.product.prodname_ghe_cloud %} e que faz solicitações de servidor para servidor tem um limite de taxa de 15.000 requisições por hora por organização para instalações de organização ou por repositório para instalações de repositório.
 
 {% endif %}
 
 ## Solicitações de usuário para servidor
 
-{% data variables.product.prodname_github_apps %} can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
+{% data variables.product.prodname_github_apps %} também pode atuar [em nome de um usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), fazendo solicitações do usuário para servidor.
 
 {% ifversion fpt %}
 
-Different user-to-server request rate limits apply to {% data variables.product.prodname_github_apps %} if the app is installed on organizations or repositories owned by a {% data variables.product.prodname_ghe_cloud %} account and the authenticated user also belongs to the same {% data variables.product.prodname_ghe_cloud %} account.
+Aplicam-se diferentes limites de taxa de solicitação de usuário para servidor a {% data variables.product.prodname_github_apps %} se o aplicativo estiver instalado em organizações ou repositórios de propriedade de uma conta de {% data variables.product.prodname_ghe_cloud %} e o usuário autenticado também pertencer à mesma conta {% data variables.product.prodname_ghe_cloud %} .
 
 ### Limites de taxa normais de usuário para servidor
 

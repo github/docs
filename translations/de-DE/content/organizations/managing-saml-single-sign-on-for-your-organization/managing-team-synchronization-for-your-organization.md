@@ -17,6 +17,8 @@ topics:
 shortTitle: Manage team synchronization
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 {% data reusables.gated-features.okta-team-sync %}
 
 ## Informationen zur Teamsynchronisierung
@@ -30,6 +32,8 @@ Du kannst die Teamsynchronisierung zwischen Deinem IdP und {% data variables.pro
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
 Du kannst die Teamsynchronisierung auch für Organisationen im Besitz eines Enterprise-Kontos aktivieren. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)."
+
+{% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 

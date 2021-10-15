@@ -42,6 +42,7 @@ Al utilizar el flujo de aplicaciones web, el proceso para identificar a los usua
 Si seleccionas **Solicitar la autorización del usuario (OAuth) durante la instalación** cuando crees o modifiques tu app, el paso 1 se completará durante la instalación de la misma. Para obtener más información, consulta la sección "[Autorizar usuarios durante la instalación](/apps/installing-github-apps/#authorizing-users-during-installation)".
 
 ### 1. Solicita la identidad de un usuario de GitHub
+Direct the user to the following URL in their browser:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
@@ -73,9 +74,11 @@ Si el usuario acepta tu solicitud, GitHub te redirecciona de regreso a tu sitio 
 
 {% endnote %}
 
-Intercambia este `code` por un token de acceso.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualizar los tokens de acceso de usuario a servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
+Intercambia este `code` por un token de acceso.  Cuando se habilita el vencimiento de tokens, el token de acceso vence en 8 horas y el token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualizar los tokens de acceso de usuario a servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
 
 Los tokens de usuario con vigencia determinada son una característica opcional actualmente y están sujetos a cambios. Para decidir unirse a la característica de vigencia determinada de los tokens de usuario a servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)".
+
+Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 

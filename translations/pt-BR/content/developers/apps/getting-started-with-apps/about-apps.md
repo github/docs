@@ -17,7 +17,7 @@ topics:
 
 Os aplicativos no {% data variables.product.prodname_dotcom %} permitem que você automatize e melhore seu fluxo de trabalho. Você pode criar aplicativos para melhorar seu fluxo de trabalho. {% ifversion fpt %} Você também pode compartilhar ou vender aplicativos em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender como listar um aplicativo no {% data variables.product.prodname_marketplace %}, consulte "[Introdução ao GitHub Marketplace](/marketplace/getting-started/)".{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. Para obter informações sobre a escolha de um tipo de aplicativo, consulte "[Diferenças entre os aplicativos GitHub e os aplicativos OAuth](/developers/apps/differences-between-github-apps-and-oauth-apps)".
+{% data reusables.marketplace.github_apps_preferred %}, mas o GitHub é compatível com {% data variables.product.prodname_oauth_apps %} e {% data variables.product.prodname_github_apps %}. Para obter informações sobre a escolha de um tipo de aplicativo, consulte "[Diferenças entre os aplicativos GitHub e os aplicativos OAuth](/developers/apps/differences-between-github-apps-and-oauth-apps)".
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -50,7 +50,7 @@ Tenha isso em mente ao criar {% data variables.product.prodname_github_apps %}:
 
 Para começar a desenvolver {% data variables.product.prodname_github_apps %}, comece com "[Criando um {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/).{% ifversion fpt %} Para aprender a usar manifestos de {% data variables.product.prodname_github_app %}, que permitem que pessoas criem {% data variables.product.prodname_github_apps %} pré-configurados, consulte "[Criando {% data variables.product.prodname_github_apps %} a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/).{% endif %}
 
-## About {% data variables.product.prodname_oauth_apps %}
+## Sobre {% data variables.product.prodname_oauth_apps %}
 
 OAuth2 é um protocolo que permite que os aplicativos externos solicitem autorização para detalhes privados na conta {% data variables.product.prodname_dotcom %} de um usuário sem acessar sua senha. Isto é preferido em relação à autenticação básica, porque os tokens podem ser limitados a tipos específicos de dados e podem ser revogados pelos usuários a qualquer momento.
 
@@ -58,19 +58,19 @@ OAuth2 é um protocolo que permite que os aplicativos externos solicitem autoriz
 
 Um {% data variables.product.prodname_oauth_app %} usa {% data variables.product.prodname_dotcom %} como um provedor de identidade para efetuar a autenticação como o usuário que concede acesso ao aplicativo. Isso significa que, quando um usuário concede acesso {% data variables.product.prodname_oauth_app %}, ele concedem permissões a _todos_ os repositórios aos quais tem acesso em sua conta, e também a qualquer organização a que pertence que não bloqueou o acesso de terceiros.
 
-Construir um {% data variables.product.prodname_oauth_app %} é uma boa opção se você estiver criando processos mais complexos do que um simples script pode gerenciar. Note that {% data variables.product.prodname_oauth_apps %} are applications that need to be hosted somewhere.
+Construir um {% data variables.product.prodname_oauth_app %} é uma boa opção se você estiver criando processos mais complexos do que um simples script pode gerenciar. Note que {% data variables.product.prodname_oauth_apps %} são aplicativos que precisam ser hospedados em algum lugar.
 
-Keep these ideas in mind when creating {% data variables.product.prodname_oauth_apps %}:
+Tenha isso em mente ao criar {% data variables.product.prodname_oauth_apps %}:
 
 {% ifversion fpt %}
 * {% data reusables.apps.maximum-oauth-apps-allowed %} {% endif %}
 * Um {% data variables.product.prodname_oauth_app %} deve sempre atuar como o usuário autenticado {% data variables.product.prodname_dotcom %} em todo o {% data variables.product.prodname_dotcom %} (por exemplo, ao fornecer notificações de usuário).
 * Um {% data variables.product.prodname_oauth_app %} pode ser usado como um provedor de identidade, habilitando um "Login com {% data variables.product.prodname_dotcom %}" para o usuário autenticado.
-* Não crie um {% data variables.product.prodname_oauth_app %}, se desejar que seu aplicativo atue em um único repositório. With the `repo` OAuth scope, {% data variables.product.prodname_oauth_apps %} can act on _all_ of the authenticated user's repositories.
-* Não crie um {% data variables.product.prodname_oauth_app %} para atuar como um aplicativo para sua equipe ou empresa. {% data variables.product.prodname_oauth_apps %} authenticate as a single user, so if one person creates an {% data variables.product.prodname_oauth_app %} for a company to use, and then they leave the company, no one else will have access to it.{% ifversion fpt %}
+* Não crie um {% data variables.product.prodname_oauth_app %}, se desejar que seu aplicativo atue em um único repositório. Com o escopo de `repo` do OAuth, {% data variables.product.prodname_oauth_apps %} pode atuar em _todos_ os repositórios de usuários autenticados.
+* Não crie um {% data variables.product.prodname_oauth_app %} para atuar como um aplicativo para sua equipe ou empresa. {% data variables.product.prodname_oauth_apps %} efetua a autenticação como um usuário único. Portanto se uma pessoa criar um {% data variables.product.prodname_oauth_app %} para uma empresa usar e, posteriormente, sair da empresa, ninguém mais terá acesso.{% ifversion fpt %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-For more on {% data variables.product.prodname_oauth_apps %}, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
+Para obter mais informações sobre {% data variables.product.prodname_oauth_apps %}, consulte "[Criando um {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" e "[Registrando seu aplicativo](/rest/guides/basics-of-authentication#registering-your-app)".
 
 ## Tokens de acesso pessoal
 
@@ -84,12 +84,12 @@ Tenha em mente essas ideias ao usar os tokens de acesso pessoais:
 * Você pode realizar solicitações de cURL únicas.
 * Você pode executar scripts pessoais.
 * Não configure um script para toda a sua equipe ou empresa usá-lo.
-* Don't set up a shared user account to act as a bot user.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
-* Do set an expiration for your personal access tokens, to help keep your information secure.{% endif %}
+* Não configure uma conta de usuário compartilhada para agir atuar um usuário bot.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
+* Defina um vencimento para os seus tokens de acesso pessoais para ajudar a manter suas informações seguras.{% endif %}
 
 ## Determinar qual integração criar
 
-Antes de começar a criar integrações, você deve determinar a melhor maneira de acessar, autenticar e interagir com as APIs do {% data variables.product.prodname_dotcom %}. The following image offers some questions to ask yourself when deciding whether to use personal access tokens, {% data variables.product.prodname_github_apps %}, or {% data variables.product.prodname_oauth_apps %} for your integration.
+Antes de começar a criar integrações, você deve determinar a melhor maneira de acessar, autenticar e interagir com as APIs do {% data variables.product.prodname_dotcom %}. A imagem a seguir oferece algumas perguntas de segurança ao decidir se usa tokens de acesso pessoais, {% data variables.product.prodname_github_apps %}ou {% data variables.product.prodname_oauth_apps %} para sua integração.
 
 ![Introdução ao fluxo de perguntas dos aplicativos](/assets/images/intro-to-apps-flow.png)
 

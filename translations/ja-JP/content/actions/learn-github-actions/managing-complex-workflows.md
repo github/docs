@@ -13,7 +13,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概要
 
@@ -170,10 +169,13 @@ To learn more about self-hosted runner labels, see ["Using labels with self-host
 {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% data reusables.actions.reusable-workflows %}
+
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
+
 ## 環境の使用
 
-保護ルールとシークレットを持つ環境を設定できます。 ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[環境](/actions/reference/environments)」を参照してください。
+保護ルールとシークレットを持つ環境を設定できます。 ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
 ## ワークフロー テンプレートの使用
@@ -187,4 +189,4 @@ To learn more about self-hosted runner labels, see ["Using labels with self-host
 
 ## 次のステップ
 
-{% data variables.product.prodname_actions %} について詳しくは、「[Organization とワークフローを共有する](/actions/learn-github-actions/sharing-workflows-with-your-organization)」を参照してください。
+To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows, secrets, and runners with your organization](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)."

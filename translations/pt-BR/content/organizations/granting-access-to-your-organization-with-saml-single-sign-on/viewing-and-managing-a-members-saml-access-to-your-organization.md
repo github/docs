@@ -25,6 +25,18 @@ Você pode visualizar e revogar a identidade vinculada de cada integrante, as se
 
 {% data reusables.saml.about-linked-identities %}
 
+Quando disponível, a entrada incluirá dados de SCIM. Para obter mais informações, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+
+{% warning %}
+
+**Aviso:** Para organizações que usam SCIM:
+- A revogação de uma identidade de usuário vinculada em {% data variables.product.product_name %} também removerá os metadados SAML e SCIM. Como resultado, o provedor de identidade não poderá sincronizar ou desprovisionar a identidade do usuário vinculada.
+- Um administrador deverá revogar uma identidade vinculada por meio do provedor de identidade.
+- Para revogar uma identidade vinculada e vincular uma conta diferente por meio do provedor de identidade, um administrador pode remover e reatribuir o usuário ao aplicativo de {% data variables.product.product_name %}. For more information, see your identity provider's documentation.
+
+{% endwarning %}
+
+
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}

@@ -14,7 +14,6 @@ type: reference
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de las instrucciones de Dockerfile
 
@@ -100,7 +99,7 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 ### CMD
 
-Si defines el `args` en el archivo de metadatos de la acción, éste invalidará la instrucción `CMD` especificada en el `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
+Si defines el `args` en el archivo de metadatos de la acción, `args` invalidará la instrucción `CMD` especificada en el `Dockerfile`. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)".
 
 Si utilizas `CMD` en tu `Dockerfile`, sigue estos lineamientos:
 

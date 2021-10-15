@@ -70,10 +70,10 @@ Muchas personas se olvidan de los repositorios que han marcado para observar. De
 
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable "Administrar notificaciones" y da clic en **Repositorios que sigues**. ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evalúa si los repositorios que estás siguiendo de cerca tienen actualizaciones que aún sean útiles y relevantes. Cuando sigues de cerca un repositorio, se te notificará de todas las conversaciones en el mismo.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
   ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% else %}
+  ![Página de notificaciones que sigues](/assets/images/help/notifications-v2/watched-notifications.png)
 {% endif %}
 
   {% tip %}

@@ -21,7 +21,7 @@ O Github _não_ vende informações pessoais, incluindo informações pessoais d
 
 ## Seus direitos sob a CCPA
 
-A CCPA fornece aos residentes da Califórnia certos direitos relacionados às suas informações pessoais. To submit a request based on these rights, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).
+A CCPA fornece aos residentes da Califórnia certos direitos relacionados às suas informações pessoais. Para enviar uma solicitação com base nesses direitos, entre em contato conosco por meio do nosso [formulário de contato](https://support.github.com/contact?tags=docs-policy).
 
 Ao receber uma solicitação, verificaremos se o indivíduo que fez a solicitação é o residente a quem pertencem as informações pessoais sujeitas à solicitação. Os residentes da Califórnia podem exercer seus direitos por si próprios ou podem usar um agente autorizado para fazer solicitações para divulgar certas informações sobre o processamento de suas informações pessoais ou para excluir informações pessoais em seu nome. Se você usar um agente autorizado para enviar uma solicitação, podemos exigir que você nos forneça informações adicionais demonstrando que o agente está agindo em seu nome.
 
@@ -73,4 +73,4 @@ A CCPA prevê isenções, até 31 de dezembro de 2020 (inclusive), de algumas da
 
   informações pessoais que reflitam uma comunicação escrita ou verbal ou uma transação entre o GitHub e uma pessoa física, onde a pessoa física está agindo como funcionário, proprietário, diretor, responsável ou terceirizado de uma empresa, parceria, propriedade exclusiva, entidade sem fins lucrativos ou agência governamental e cujas comunicações ou transações com o GitHub ocorrem apenas no contexto do GitHub realizando due diligence em relação, ou fornecendo ou recebendo um produto ou serviço para ou de tal empresa, parceria, propriedade exclusiva, entidade sem fins lucrativos ou agência governamental.
 
-If you have any questions about this page, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).
+Em caso de dúvidas sobre esta página, entre em contato conosco por meio do nosso [formulário de contato](https://support.github.com/contact?tags=docs-policy).

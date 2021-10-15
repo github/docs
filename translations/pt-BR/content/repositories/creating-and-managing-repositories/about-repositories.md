@@ -74,7 +74,7 @@ Todos os integrantes da empresa têm permissões de leitura no repositório inte
 
 {% data reusables.repositories.internal-repo-default %}
 
-Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's user account, and the visibility of the fork will be private. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
 {% endif %}
 
 ## Limites para visualização de conteúdo e diffs no repositório
@@ -107,6 +107,7 @@ As páginas de visualização comparada e pull requests exibem uma lista de comm
 ## Leia mais
 
 - "[Criar um repositório](/articles/creating-a-new-repository)"
+- "[Sobre bifurcações](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[Colaborar com problemas e pull requests](/categories/collaborating-with-issues-and-pull-requests)"
 - "[Gerenciar seu trabalho no {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administrar um repositório](/categories/administering-a-repository)"

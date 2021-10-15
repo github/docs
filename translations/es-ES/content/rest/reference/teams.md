@@ -58,6 +58,12 @@ La API de sincronización de equipos te permite administrar las conexiones entre
 
 Puedes administrar a los miembros del equipo de GitHub a través de tu IdP con la sincronización de equipos. Ésta se debe habilitar para usar la API de Sincronización de Equipos. Para obtener más información, consulta la sección "<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">Sincronizar equipos entre tu proveedor de identidad y GitHub</a>".
 
+{% note %}
+
+**Nota:** La API de sincronización de equipos no puede utilizarse con {% data variables.product.prodname_emus %}.
+
+{% endnote %}
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'team-sync' %}{% include rest_operation %}{% endif %}
 {% endfor %}

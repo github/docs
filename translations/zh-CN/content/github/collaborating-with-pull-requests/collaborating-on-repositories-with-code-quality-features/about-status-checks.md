@@ -41,6 +41,12 @@ _Checks_ are different from _statuses_ in that they provide line annotations, mo
 
 ![拉取请求中的状态检查](/assets/images/help/pull_requests/checks.png)
 
+{% note %}
+
+**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+
+{% endnote %}
+
 当提交中的特定行造成检查失败时，您会在拉取请求的 **Files（文件）**选项卡中相关代码旁边看到有关失败、警告或通知的详细信息。
 
 ![状态检查详细信息](/assets/images/help/pull_requests/checks-detailed.png)

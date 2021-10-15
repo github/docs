@@ -6,22 +6,15 @@ versions:
   ghae: '*'
 ---
 
-
-
-
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## Acerca de las {% data variables.actions.hosted_runner %}
 
-Un {% data variables.actions.hosted_runner %} es una máquina virtual hospedada en {% data variables.product.prodname_dotcom %} que tiene instalado el servicio de ejecutor de {% data variables.product.prodname_actions %}.
+Un {% data variables.actions.hosted_runner %} es una máquina virtual que administra {% data variables.product.prodname_dotcom %} y que tiene instalado el servicio de ejecutor de {% data variables.product.prodname_actions %}. Los {% data variables.actions.hosted_runner %} de tu empresa son dedicados y puedes elegir de una amplia gama de opciones de hardware y software. Predeterminadamente, {% data variables.product.company_short %} administra y autoescala a los {% data variables.actions.hosted_runner %} integralmente para maximizar el rendimiento mientras que minimiza los costos.{% ifversion ghae-next %} Opcionalmente, puedes configurar los parámetros de este auto-escalamiento para reducir tus costos aún más.{% endif %}
 
-{% data variables.product.prodname_ghe_managed %} te permite crear y personalizar los {% data variables.actions.hosted_runner %} utilizando imágenes de Ubuntu y de Windows; puedes seleccionar el tamaño de máquina que quieras y configurar un trabajo en red con seguridad robustecida para ellos. {% data variables.product.prodname_dotcom %} administra y auto-escala los {% data variables.actions.hosted_runner %} integralmente.
+{% data variables.product.prodname_ghe_managed %} te permite crear y personalizar {% data variables.actions.hosted_runner %}s utilizando imágenes de Ubuntu o de Windows; puedes seleccionar el tamaño de máquina que quieras y, opcionalmente, configurar un rango de IP públicas para tus {% data variables.actions.hosted_runner %}s.
 
 Cada job del flujo de trabajo se ejecuta en una instancia nueva del {% data variables.actions.hosted_runner %} y puedes ejecutar flujos de trabajo directamente en la máquina virtual o en un contenedor de Docker. Todos los pasos del job se ejecutan en la misma instancia, permitiendo que las acciones en este job compartan información utilizando el sistema de archivos del {% data variables.actions.hosted_runner %}.
-
-{% note %}
-Los {% data variables.actions.hosted_runner %} son los únicos disponibles para {% data variables.product.prodname_ghe_managed %} y no se incluye a los ejecutores auto-hospedados.
-{% endnote %}
 
 Para agregar {% data variables.actions.hosted_runner %} a tu organización o empresa, consulta la sección ["Agregar {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/adding-ae-hosted-runners)".
 
@@ -35,11 +28,9 @@ Durante el beta de los {% data variables.actions.hosted_runner %}, puedes admini
 
 ## Facturación
 
-{% data variables.product.prodname_actions %} se encuentra acutalmente en beta para {% data variables.product.prodname_ghe_managed %}. Durante este periodo beta, los {% data variables.actions.hosted_runner %} no se facturan, y pueden utilizarse gratuitamente.
-
 Una vez que termine el beta, el uso facturable incluirá el tiempo total de actividad para las instancias activas en tus conjuntos de ejecutores hospedados en AE. Esto incluye:
 - Hora del job - minutos que se utilizaron ejecutando el job de las acciones.
-- Administración - minutos que se utilizaron haciendo re-imagen de las máquinas y tiempo inactivo que se creó como resultado de un comportamiento de auto-escalamiento deseado.
+- Administración - minutos gastados volviendo a hacer la imagen de las máquinas{% ifversion ghae-next %} y cualquier tiempo de inactividad que se cree como resultado del comportamiento de autoescalamiento deseado{% endif %}.
 
 Los precios aumentarán linearmente con los núcleos. Por ejemplo, 4 núcleos costarán lo doble que 2 núcleos. Las MV de Windows tendrán un precio más alto que las de Linux.
 
@@ -77,6 +68,14 @@ Si no habilitas las direcciones IP estáticas públicas, entonces tus {% data va
 Para obtener una lista de rangos de direcciones IP que utilizan las {% data variables.product.prodname_actions %} para los {% data variables.actions.hosted_runner %}, puedes utilizar la API de REST de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la clave `actions` en la respuesta de la terminal de [Obtener información meta de GitHub](/rest/reference/meta#get-github-meta-information)". Puedes utilizar esta lista de direcciones IP si requieres prevenir acceso no autorizados a tus recursos internos mediante una lista de direcciones IP permitidas.
 
 La lista de direcciones IP permitidas de {% data variables.product.prodname_actions %} que devuelve la API se actualiza una vez por semana.
+
+{% ifversion ghae-next %}
+
+## Autoescalamiento
+
+{% data variables.product.company_short %} administra cada agrupamiento de {% data variables.actions.hosted_runner %}s integralmente para maximizar el rendimiento mientras que minimiza los costos. Opcionalmente, puedes configurar los parámetros de auto-escalamiento para tu empresa si contactas a {% data variables.contact.github_support %}. Puedes definir la cantidad mínima de ejecutores inactivos y qué tanto deberían estar inactivos antes de eliminarlos de la agrupación. Cada agrupación puede contener hasta 600 ejecutores.
+
+{% endif %}
 
 ## Privilegios adminsitrativos para los {% data variables.actions.hosted_runner %}
 

@@ -43,7 +43,7 @@ shortTitle: Manage GitHub Actions settings
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 ## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
@@ -72,14 +72,21 @@ shortTitle: Manage GitHub Actions settings
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. 在 **Actions permissions（操作权限）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。 ![添加操作到允许列表](/assets/images/help/repository/actions-policy-allow-list.png)
+1. 在 **Actions permissions（操作权限）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
+   {%- ifversion ghes %}
+   ![添加操作到允许列表](/assets/images/help/repository/actions-policy-allow-list.png)
+   {%- else %}
+   ![添加操作到允许列表](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   {%- endif %}
 2. 单击 **Save（保存）**。
 {% endif %}
 
 {% ifversion fpt %}
 ## 配置公共复刻工作流程所需的批准
 
-{% data reusables.actions.workflow-run-approve-public-fork %} 您可以使用下面的程序为仓库配置此行为。 修改此设置会覆盖组织或企业级别的配置集。
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for a repository using the procedure below. 修改此设置会覆盖组织或企业级别的配置集。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -117,6 +124,29 @@ shortTitle: Manage GitHub Actions settings
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。 ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. 单击 **Save（保存）**以应用设置。
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Allowing access to components in an internal repository
+
+{% note %}
+
+**注：**{% data reusables.gated-features.internal-repos %}
+
+{% endnote %}
+
+Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
+
+To configure whether workflows in an internal repository can be accessed from outside the repository:
+
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
+1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
+{% data reusables.repositories.settings-sidebar-actions %}
+1. Under **Access**, choose one of the access settings: ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
+   * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
+   * **Accessible by any repository in the organization** - Workflows in other repositories can use workflows in this repository as long as they are part of the same organization.
+   * **Accessible by any repository in the enterprise** - Workflows in other repositories can use workflows in this repository as long as they are part of the same enterprise.
 1. 单击 **Save（保存）**以应用设置。
 {% endif %}
 

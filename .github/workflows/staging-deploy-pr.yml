@@ -79,9 +79,18 @@ jobs:
                 name: prRepoName
               }
             } = run
-            const headLabel = `${prRepoOwner}:${headBranch}`
 
             const prIsInternal = owner === prRepoOwner && repo === prRepoName
+            let headLabel = `${prRepoOwner}:${headBranch}`
+
+            // If the PR is external, prefix its head branch name with the
+            // forked repo owner's login and their fork repo name e.g.
+            // "octocat/my-fork:docs".  We need to include the fork repo
+            // name as well to account for an API issue (this will work fine
+            // if they don't have a different fork repo name).
+            if (!prIsInternal) {
+              headLabel = `${prRepoOwner}/${prRepoName}:${headBranch}`
+            }
 
             // If the PR is external, prefix its head branch name with the
             // forked repo owner's login, e.g. "octocat:docs"
@@ -303,7 +312,7 @@ jobs:
 
       # Download the previously built "app.tar"
       - name: Download build artifact
-        uses: dawidd6/action-download-artifact@b9571484721e8187f1fd08147b497129f8972c74
+        uses: dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ env.BUILD_ACTIONS_RUN_ID }}

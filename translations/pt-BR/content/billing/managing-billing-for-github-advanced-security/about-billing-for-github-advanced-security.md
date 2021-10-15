@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub Advanced Security
-intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt %} in a private or internal repository{% endif %}, you need a license.{% ifversion fpt %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+title: Sobre a cobrança para o GitHub Advanced Security
+intro: 'Caso você queira usar {% data variables.product.prodname_GH_advanced_security %} funcionalidades{% ifversion fpt %} em um repositório privado ou interno{% endif %}, você precisará de uma licença.{% ifversion fpt %} Essas funcionalidades estão disponíveis gratuitamente para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -15,7 +15,7 @@ topics:
   - Advanced Security
   - Enterprise
   - Licensing
-shortTitle: Advanced Security billing
+shortTitle: Cobrança da segurança avançada
 ---
 
 ## Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}
@@ -36,7 +36,7 @@ Você pode disponibilizar funcionalidades adicionais para segurança de código,
 
 {% endif %}
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise, contact {% data variables.contact.contact_enterprise_sales %}.
+Para discutir licenciamento de {% data variables.product.prodname_GH_advanced_security %} para a sua empresa, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
 
 ## Sobre os números do committer para {% data variables.product.prodname_GH_advanced_security %}
 
@@ -48,17 +48,17 @@ To discuss licensing {% data variables.product.prodname_GH_advanced_security %} 
 
 {% endif %}
 
-É possível aplicar políticas que permitam ou não o uso de {% data variables.product.prodname_advanced_security %} por parte de organizações pertencentes à conta corporativa. For more information, see "{% ifversion ghes %}[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% elsif fpt or ghae %}[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account){% endif %}."
+É possível aplicar políticas que permitam ou não o uso de {% data variables.product.prodname_advanced_security %} por parte de organizações pertencentes à conta corporativa. Para obter mais informações, consulte "{% ifversion ghes %}[Aplicando políticas para {% data variables.product.prodname_advanced_security %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% elsif fpt or ghae %}[Aplicando políticas para {% data variables.product.prodname_advanced_security %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account){% endif %}."
 
 {% ifversion fpt or ghes %}
 
-For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+Para obter mais informações sobre a visualização do uso da licença, consulte "[Visualizar o seu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 
 {% endif %}
 
-## Calculating committer spending
+## Calculando gastos do committer
 
-The following example timeline demonstrates the events during a month that affect billing for {% data variables.product.prodname_GH_advanced_security %} in an enterprise. For each month, you will find events, the total committer count, and the total number of committers that {% data variables.product.company_short %} would bill for.
+A linha do tempo a seguir demonstra os eventos ao longo de um mês que afetam a cobrança de {% data variables.product.prodname_GH_advanced_security %} em uma empresa. Para cada mês, você encontrará os eventos, a contagem total do committer e o número total de committers que {% data variables.product.company_short %} cobraria.
 
 <table spaces-before="0">
   <tr>
@@ -67,25 +67,25 @@ The following example timeline demonstrates the events during a month that affec
     </th>
     
     <th align="left">
-      Events during the month
+      Eventos durante o mês
     </th>
     
     <th align="right">
-      Total committer count
+      Contagem total do committer
     </th>
     
     <th align="right">
-      Committers billed for the month
+      Committers cobrados no mês
     </th>
   </tr>
   
   <tr>
     <td align="left">
-      <nobr>August 1</nobr>
+      <nobr>1 de agosto</nobr>
     </td>
     
     <td align="left">
-      A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository <strong x-id="1">X</strong>. Repository <strong x-id="1">X</strong> has 50 committers over the past 90 days.
+      Um membro da sua empresa habilita {% data variables.product.prodname_GH_advanced_security %} para o repositório <strong x-id="1">X</strong>. O repositório <strong x-id="1">X</strong> tem 50 committers nos últimos 90 dias.
     </td>
     
     <td align="right">
@@ -99,11 +99,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>September 5</nobr>
+      <nobr>5 de setembro</nobr>
     </td>
     
     <td align="left">
-      Developer <strong x-id="1">A</strong> leaves the team working on repository <strong x-id="1">X</strong>. Developer <strong x-id="1">A</strong>'s contributions continue to count for 90 days.
+      Desenvolvedor <strong x-id="1">A</strong> deixa a equipe que trabalha no repositório <strong x-id="1">X</strong>. As contribuições do desenvolvedor <strong x-id="1">A</strong> continuam sendo contabilizadas por 90 dias.
     </td>
     
     <td align="right">
@@ -117,11 +117,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>September 8</nobr>
+      <nobr>8 de setembro</nobr>
     </td>
     
     <td align="left">
-      Developer <strong x-id="1">B</strong> pushes a commit to repository <strong x-id="1">X</strong> for the first time. Developer <strong x-id="1">B</strong>'s usage is pro-rated, because the developer began contributing to repository <strong x-id="1">X</strong> partway through the month.
+      Desenvolvedor <strong x-id="1">B</strong> faz push de um commit para o repositório <strong x-id="1">X</strong> pela primeira vez. O uso do desenvolvedor <strong x-id="1">B</strong> é pró-rateado, porque o desenvolvedor começou a contribuir para o repositório <strong x-id="1">X</strong> quando o mês já havia começado.
     </td>
     
     <td align="right">
@@ -135,11 +135,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      October and November
+      Outubro e novembro
     </td>
     
     <td align="left">
-      Developer <strong x-id="1">A</strong>'s contributions to repository <strong x-id="1">X</strong> continue to count because the contributions were within the past 90 days. {% data variables.product.company_short %} now bills for developer <strong x-id="1">B</strong> for the entire month because developer <strong x-id="1">B</strong> now has contributions within the past 90 days.
+      As contribuições do desenvolvedor <strong x-id="1">A</strong> para o repositório <strong x-id="1">X</strong> continuam sendo contabilizada, pois foram realizadas nos últimos 90 dias. {% data variables.product.company_short %} agora faz a cobrança do desenvolvedor <strong x-id="1">B</strong> referente a todo o mês porque o desenvolvedor <strong x-id="1">B</strong> agora tem contribuições nos últimos 90 dias.
     </td>
     
     <td align="right">
@@ -153,11 +153,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>December 4</nobr>
+      <nobr>4 de dezembro</nobr>
     </td>
     
     <td align="left">
-      90 days have passed since developer <strong x-id="1">A</strong>'s last contribution to repository _X. The 90 days lapsed after December started, so {% data variables.product.company_short %} bills for developer <strong x-id="1">A</strong> for the entire month.
+      Passaram-se 90 dias desde a última contribuição do desenvolvedor <strong x-id="1">A</strong> para o repositório _X. Passaram-se 90 dias após o início de dezembro. Portanto, {% data variables.product.company_short %} irá efetuar a cobrança do mês inteiro para o desenvolvedor <strong x-id="1">A</strong>.
     </td>
     
     <td align="right">
@@ -171,11 +171,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>December 11</nobr>
+      <nobr>11 de dezembro</nobr>
     </td>
     
     <td align="left">
-      Developer <strong x-id="1">C</strong> joins the company and pushes a commit to repository <strong x-id="1">X</strong> for the first time. Developer <strong x-id="1">C</strong>'s usage is pro-rated at 70% for 21 out of 30 days.
+      O desenvolvedor <strong x-id="1">C</strong> junta-se à empresa e faz push de um commit para o repositório <strong x-id="1">X</strong> pela primeira vez. O uso do desenvolvedor <strong x-id="1">C</strong> é pró-rateado em 70% por 21 dias no total de 30.
     </td>
     
     <td align="right">
@@ -189,11 +189,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>January</nobr>
+      <nobr>Janeiro</nobr>
     </td>
     
     <td align="left">
-      {% data variables.product.company_short %} no longer bills for developer <strong x-id="1">A</strong>. {% data variables.product.company_short %} bills for developer <strong x-id="1">C</strong> for the entire month.
+      {% data variables.product.company_short %} não mais efetua a cobrança para o desenvolvedor <strong x-id="1">A</strong>. {% data variables.product.company_short %} efetua a cobrança para desenvolvedor <strong x-id="1">C</strong> para todo o mês.
     </td>
     
     <td align="right">
@@ -207,11 +207,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>February 15</nobr>
+      <nobr>15 de fevereiro</nobr>
     </td>
     
     <td align="left">
-      A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository <strong x-id="1">X</strong>. The 51 contributors to repository <strong x-id="1">X</strong> do not work in any other repositories with {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.company_short %} bills for the developers' usage in repository <strong x-id="1">X</strong> for February.
+      Um membro da sua empresa desabilita {% data variables.product.prodname_GH_advanced_security %} para o repositório <strong x-id="1">X</strong>. Os 51 contribuidores do repositório <strong x-id="1">X</strong> não trabalham juntos em nenhum outro repositório com {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.company_short %} efetua a cobrança para o uso dos desenvolvedores no repositório <strong x-id="1">X</strong> para fevereiro.
     </td>
     
     <td align="right">
@@ -225,11 +225,11 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>March</nobr>
+      <nobr>Março</nobr>
     </td>
     
     <td align="left">
-      No repository owned by your enterprise has {% data variables.product.prodname_GH_advanced_security %} enabled.
+      Nenhum repositório pertencente à sua empresa tem {% data variables.product.prodname_GH_advanced_security %} habilitado.
     </td>
     
     <td align="right">
@@ -242,6 +242,6 @@ The following example timeline demonstrates the events during a month that affec
   </tr>
 </table>
 
-## Getting the most out of {% data variables.product.prodname_GH_advanced_security %}
+## Aproveitando o máximo de {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.getting-the-most-from-your-license %}

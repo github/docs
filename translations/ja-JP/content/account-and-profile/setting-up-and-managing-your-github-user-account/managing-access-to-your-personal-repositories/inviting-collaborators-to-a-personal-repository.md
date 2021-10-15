@@ -24,6 +24,8 @@ Organization が所有するリポジトリは、細やかなアクセスを許�
 
 {% ifversion fpt %}
 
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
 {% note %}
 
 **メモ:** {% data variables.product.company_short %} では、24 時間以内にリポジトリに招待できる人数に上限があります。 この上限を超える場合は、24 時間待つか、コラボレーションする人数の多い Organization を作成してください。

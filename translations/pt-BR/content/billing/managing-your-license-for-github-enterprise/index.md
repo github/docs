@@ -1,7 +1,7 @@
 ---
-title: Managing your license for GitHub Enterprise
-shortTitle: GitHub Enterprise license
-intro: 'You can view, manage, and update your license for {% data variables.product.prodname_enterprise %}, which unlocks the application on {% data variables.product.product_location_enterprise %}.'
+title: Gerenciando a sua licença para o GitHub Enterprise
+shortTitle: Licença do GitHub Enterprise
+intro: 'Você pode visualizar, gerenciar e atualizar sua licença para {% data variables.product.prodname_enterprise %}, o que desbloqueia o aplicativo em {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/installation/managing-your-github-enterprise-license
   - /enterprise/admin/categories/licenses/

@@ -52,4 +52,4 @@ shortTitle: Linked to wrong user
 
 ## 参考リンク
 
-* "[コミットの検索](/articles/searching-commits)"
+* "[コミットの検索](/search-github/searching-on-github/searching-commits)"

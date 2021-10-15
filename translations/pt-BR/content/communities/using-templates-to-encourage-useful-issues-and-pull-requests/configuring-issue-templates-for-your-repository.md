@@ -70,7 +70,7 @@ Você pode incentivar os contribuidores a usar modelos de problemas definindo `b
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. Se você desativar problemas em branco, o modelo nunca será usado.
+**Observação:** Se você usou o fluxo de trabalho de legado para criar manualmente um arquivo `issue_template.md` na pasta `.github` e habilitar problemas em branco no seu arquivo *config.yml*, o modelo em `issue_template.md` será usado quando as pessoas escolherem abrir um problema em branco. Se você desativar problemas em branco, o modelo nunca será usado.
 
 {% endnote %}
 

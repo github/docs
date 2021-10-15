@@ -105,7 +105,7 @@ Para obtener más información, consulta la sección "[Administrar la configurac
 {% endif %}
 
 ## Pasos siguientes
-{% ifversion fpt or ghes > 3.1 or ghae-next %}You can view, filter, and sort security alerts for repositories owned by your organization in the security overview. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."{% endif %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}Puedes ver, filtrar y clasificar las alertas de seguridad para los repositorios que pertenecen a tu organización en el resumen de seguridad. Para obtener más información, consulta la sección "[Acerca del resumen de seguridad](/code-security/security-overview/about-the-security-overview)".{% endif %}
 
 Puedes ver y administrar las alertas de las características de seguridad para abordar dependencias y vulnerabilidades en tu código. Para obtener más información, consulta las secciones {% ifversion fpt or ghes > 2.22 %} "[Visualizar y actualizar las dependencias vulnerables en tu repositorio](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt %}"[Administrar las solicitudes de cambio para las actualizaciones de dependencias](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Administrar el {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," y "[Administrar las alertas desde el {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
 

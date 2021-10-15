@@ -13,7 +13,7 @@ topics:
 
 {% data variables.product.product_name %} está en mejora contínua, con una funcionalidad nueva y correcciones de errores que se presentan mediante lanzamientos mayores y menores. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} es un servicio completamente administrado, así que {% data variables.product.company_short %} completa el proceso de mejora para tu empresa.{% endif %}
 
-Los lanzamientos mayores incluyen nuevas funcionalidades y mejoras de características y, habitualmente, ocurren {% ifversion ghae %}cada pocas semanas o meses{% else %} trimestralmente{% endif %}. {% ifversion ghae %}{% data variables.product.company_short %} actualizará tu empresa al último lanzamiento mayor. Se te notificará previamente sobre cualquier tiempo de inactividad que se planee para tu empresa.{% endif %}
+Los lanzamientos principales incluyen funcionalidades nuevas y mejoras de características y habitualmente se presentan cada trimestre. {% ifversion ghae %}{% data variables.product.company_short %} actualizará tu empresa al último lanzamiento mayor. Se te notificará previamente sobre cualquier tiempo de inactividad que se planee para tu empresa.{% endif %}
 
 {% ifversion ghes %}
 
@@ -43,7 +43,6 @@ Para mejorar tu empresa a un lanzamiento nuevo, consulta las secciones "[Notas d
 
 ## Leer más
 
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`
-{% ifversion ghae %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`{% ifversion ghae %}
 - [ {% data variables.product.prodname_ghe_managed %} notas de lanzamiento](/admin/release-notes)
 {% endif %}

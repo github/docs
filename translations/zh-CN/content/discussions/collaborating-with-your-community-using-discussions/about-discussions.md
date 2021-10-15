@@ -53,7 +53,7 @@ If a repository administrator or project maintainer enables {% data variables.pr
 ## 延伸阅读
 
 - “[关于 {% data variables.product.prodname_dotcom %} 上的书写和格式化](/github/writing-on-github/about-writing-and-formatting-on-github)”
-- "[搜索讨论](/github/searching-for-information-on-github/searching-discussions)"
+- "[搜索讨论](/search-github/searching-on-github/searching-discussions)"
 - "[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 - "[调解评论和对话](/communities/moderating-comments-and-conversations)"
 - “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/communities/maintaining-your-safety-on-github)”

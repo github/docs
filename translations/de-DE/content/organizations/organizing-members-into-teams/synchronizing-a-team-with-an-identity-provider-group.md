@@ -16,6 +16,8 @@ shortTitle: Synchronize with an IdP
 
 {% data reusables.gated-features.okta-team-sync %}
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## Informationen zur Teamsynchronisierung
 
 {% data reusables.identity-and-permissions.about-team-sync %}
@@ -25,6 +27,8 @@ shortTitle: Synchronize with an IdP
 {% ifversion fpt %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
 
 Sobald ein {% data variables.product.prodname_dotcom %}-Team mit einer IdP-Gruppe verbunden ist, muss Dein IdP-Administrator Änderungen an der Teammitgliedschaft über den Identitätsanbieter durchführen. You cannot manage team membership on {% data variables.product.product_name %}{% ifversion fpt %} or using the API{% endif %}.
+
+{% ifversion fpt %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion fpt %}
 Alle über den IdP vorgenommenen Änderungen an der Teammitgliedschaft werden im Auditprotokoll von {% data variables.product.product_name %} als Änderungen des Teamsynchronisierungs-Bots angezeigt. Dein IdP wird die Daten der Teammitgliedschaft einmal pro Stunde an {% data variables.product.prodname_dotcom %} senden. Beim Verbinden eines Teams mit einer IdP-Gruppe werden unter Umständen einige Teammitglieder entfernt. Weitere Informationen findest Du unter „[Anforderungen an Mitglieder synchronisierter Teams](#requirements-for-members-of-synchronized-teams).“
@@ -53,8 +57,6 @@ Existing teams or group members who do not meet these criteria will be automatic
 Sobald sich das entfernte Teammitglied jedoch wieder mit SSO bei der Organisations oder beim Enterprise-Konto authentifiziert und der verbundenen IdP-Gruppe hinzugefügt ist, kann es automatisch wieder in das Team aufgenommen werden.
 
 Um zu verhindern, dass Teammitglieder versehentlich aus einem Team entfernt werden, empfehlen wir innerhalb der Organisations oder dem Enterprise-Konto die Erzwingung des SAML SSO, die Erstellung neuer Teams zur Synchronisierung der Mitgliederdaten und die Überprüfung der IdP-Gruppenmitgliedschaften vor der Synchronisierung bestehender Teams. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-
-Wenn Deine Organisation im Besitz eines Enterprise-Kontos ist, wird die Aktivierung der Teamsynchronisierung für das Enterprise-Konto Deine Einstellungen für die Teamsynchronisierung auf Organisationsebene überschreiben. For more information, see "[Managing team synchronization for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)."
 
 {% endif %}
 

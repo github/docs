@@ -31,7 +31,7 @@ Há dois tipos de verificação de status no {% data variables.product.product_n
 - Verificações
 - Status
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
+As _Verificações_ são diferentes dos _status_ na medida que fornecem anotações de linha, mensagens mais detalhadas e só estão disponíveis para uso com {% data variables.product.prodname_github_apps %}.
 
 Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/repos#statuses)".
 
@@ -40,6 +40,12 @@ Os proprietários da organização e usuários com acesso push a um repositório
 Quando _verificações_ são configuradas em um repositório, as pull requests apresentam uma guia **Checks** (Verificações), onde é possível exibir o resultado detalhado da compilação de verificações de status e executar novamente as verificações com falha.
 
 ![Verificações de status em uma pull request](/assets/images/help/pull_requests/checks.png)
+
+{% note %}
+
+**Observação:** A aba **Verificações** só é preenchida para pull requests se você configurar _verificações_, não _status_, para o repositório.
+
+{% endnote %}
 
 Quando uma linha específica em um commit causar a falha de uma verificação, você verá detalhes sobre a falha, o aviso ou a advertência ao lado do código relevante na guia **Files** (Arquivos) da pull request.
 

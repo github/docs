@@ -1,5 +1,5 @@
 ---
-title: 'Setting up your project for {% data variables.product.prodname_codespaces %}'
+title: 'Configurar tu proyecto para {% data variables.product.prodname_codespaces %}'
 intro: 'Aprende cómo iniciar con los {% data variables.product.prodname_codespaces %}, incluyendo cómo configurar y hacer ajustes para lenguajes específicos.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:

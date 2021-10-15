@@ -1,11 +1,11 @@
 ---
 title: About dependency review
 intro: 'Dependency review lets you catch vulnerable dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  product: '{% data reusables.gated-features.dependency-review %}'
 type: overview
 topics:
   - Advanced Security
