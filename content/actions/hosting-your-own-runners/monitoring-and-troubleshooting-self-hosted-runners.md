@@ -17,6 +17,7 @@ shortTitle: Monitor & troubleshoot
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Checking the status of a self-hosted runner
 
