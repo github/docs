@@ -36,7 +36,7 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-To view your teams (the teams to which you belong), visit the [GitHub home page](https://github.com) while logged in, and view "Your teams" at the bottom left of the screen.
+You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
 
 ## Team pages
 
