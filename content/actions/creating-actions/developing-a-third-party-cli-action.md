@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.actions %}'
 redirect_from: []
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Actions

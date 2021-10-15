@@ -7,7 +7,9 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: 'next'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
 shortTitle: Manually sync actions
 ---

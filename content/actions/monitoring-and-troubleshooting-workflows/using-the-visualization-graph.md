@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 shortTitle: Use the visualization graph
 ---
 

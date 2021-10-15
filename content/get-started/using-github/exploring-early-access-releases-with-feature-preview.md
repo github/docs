@@ -7,13 +7,14 @@ redirect_from:
   - /github/getting-started-with-github/using-github/exploring-early-access-releases-with-feature-preview
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Early access
 shortTitle: Feature preview
 ---
 ## {% data variables.product.prodname_dotcom %}'s release cycle
 
-{% data variables.product.product_name %}'s products and features can go through multiple release phases.
+{% data variables.product.prodname_dotcom %}'s products and features can go through multiple release phases.
 
 | Phase | Description |
 |-------|-------------|

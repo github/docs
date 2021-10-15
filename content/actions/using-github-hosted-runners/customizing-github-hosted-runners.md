@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows

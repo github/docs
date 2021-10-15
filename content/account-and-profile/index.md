@@ -24,12 +24,14 @@ featuredLinks:
 changelog:
   label: profiles, github-themes, notifications
   versions:
-    free-pro-team: '*'
+    fpt: '*'
+    ghec: '*'
 layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Profiles

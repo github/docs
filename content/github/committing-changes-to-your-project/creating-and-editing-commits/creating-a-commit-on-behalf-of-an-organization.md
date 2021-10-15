@@ -6,6 +6,7 @@ redirect_from:
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: On behalf of an organization
 ---
 {% note %}
