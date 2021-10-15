@@ -29,8 +29,7 @@ jobs:
           repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
 
       - name: remove label
-        uses: andymckay/labeler@22d5392de2b725cea4b284df5824125054049d84
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
           ignore-if-assigned: 'false'
           remove-labels: 'waiting for review'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}

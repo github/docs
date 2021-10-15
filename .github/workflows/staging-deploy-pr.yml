@@ -79,9 +79,18 @@ jobs:
                 name: prRepoName
               }
             } = run
-            const headLabel = `${prRepoOwner}:${headBranch}`
 
             const prIsInternal = owner === prRepoOwner && repo === prRepoName
+            let headLabel = `${prRepoOwner}:${headBranch}`
+
+            // If the PR is external, prefix its head branch name with the
+            // forked repo owner's login and their fork repo name e.g.
+            // "octocat/my-fork:docs".  We need to include the fork repo
+            // name as well to account for an API issue (this will work fine
+            // if they don't have a different fork repo name).
+            if (!prIsInternal) {
+              headLabel = `${prRepoOwner}/${prRepoName}:${headBranch}`
+            }
 
             // If the PR is external, prefix its head branch name with the
             // forked repo owner's login, e.g. "octocat:docs"
