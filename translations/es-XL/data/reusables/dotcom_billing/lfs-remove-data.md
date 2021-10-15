@@ -1,1 +1,0 @@
-1. Junto a "Datos de {% data variables.large_files.product_name_short %}", usa el menú desplegable de **Edit (Editar)** y haz clic en **Remove data packs (Eliminar paquetes de datos)**. ![Bajar de categoría tu plan de datos de Git LFS](/assets/images/help/large_files/downgrade_lfs_data_packs.png)

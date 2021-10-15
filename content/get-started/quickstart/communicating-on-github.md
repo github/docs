@@ -36,7 +36,7 @@ You can create and participate in issues, pull requests and team discussions, de
   
 ### Pull requests
 - allow you to propose specific changes.
-- allow you comment directly on proposed changes suggested by others. 
+- allow you to comment directly on proposed changes suggested by others. 
 - are specific to a repository. 
  
 {% ifversion fpt %}
@@ -86,7 +86,7 @@ This example illustrates how a {% data variables.product.prodname_dotcom %} user
 
 This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
 
-In the **Conversation** tab of the pull request, the author explain why they created the pull request.
+In the **Conversation** tab of the pull request, the author explains why they created the pull request.
 
 ![Example of pull request - Conversation tab](/assets/images/help/pull_requests/pr-conversation-example.png)
 
@@ -135,7 +135,7 @@ This example shows a team post for the `octo-team` team.
 
 The `octocat` team member posted a team discussion, informing the team of various things:
 - A team member called Mona started remote game events.
-- There is a blog post describing how the teams uses {% data variables.product.prodname_actions %} to produce their docs.
+- There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
 - Material about the April All Hands is now available for all team members to view.
 
 {% endif %}

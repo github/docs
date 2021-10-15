@@ -58,7 +58,7 @@ You can display the command-line help for any command using the <nobr>`--help`</
   # Single supported language - create one CodeQL databsae
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt; 
 
-  # Multiple supported languages - create one CodeQL database per langauge
+  # Multiple supported languages - create one CodeQL database per language
   codeql database create &lt;database&gt; --command&lt;build&gt; \
         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt; 
   ```

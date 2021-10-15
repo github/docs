@@ -7,6 +7,7 @@ versions:
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 ## About {% data variables.actions.hosted_runner %}s
 

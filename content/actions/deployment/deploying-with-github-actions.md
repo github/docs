@@ -14,6 +14,7 @@ shortTitle: Deploy with GitHub Actions
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -31,13 +32,12 @@ You should be familiar with the syntax for {% data variables.product.prodname_ac
 
 ## Triggering your deployment
 
-You can use a variety of events to trigger your deployment workflow. Some of the most common are: `pull_request`, `push`, `release`, and `workflow_dispatch`.
+You can use a variety of events to trigger your deployment workflow. Some of the most common are: `pull_request`, `push`, and `workflow_dispatch`.
 
 For example, a workflow with the following triggers runs whenever:
 
 - There is a push to the `main` branch.
 - A pull request targeting the `main` branch is opened, synchronized, or reopened.
-- A release is created.
 - Someone manually triggers it.
 
 ```yaml
@@ -48,9 +48,6 @@ on:
   pull_request:
     branches:
       - main
-  release:
-    types:
-      - created
   workflow_dispatch:
 ```
 
