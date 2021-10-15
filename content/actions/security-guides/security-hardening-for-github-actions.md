@@ -2,7 +2,6 @@
 title: Security hardening for GitHub Actions
 shortTitle: Security hardening
 intro: 'Good security practices for using {% data variables.product.prodname_actions %} features.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
   - /actions/learn-github-actions/security-hardening-for-github-actions

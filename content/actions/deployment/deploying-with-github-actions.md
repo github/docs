@@ -1,7 +1,6 @@
 ---
 title: Deploying with GitHub Actions
 intro: Learn how to control deployments with features like environments and concurrency.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '>=3.1'

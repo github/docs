@@ -1,7 +1,6 @@
 ---
 title: Adding a workflow status badge
 intro: You can display a status badge in your repository to indicate the status of your workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
 versions:

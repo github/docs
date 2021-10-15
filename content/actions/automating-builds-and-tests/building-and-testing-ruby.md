@@ -1,7 +1,6 @@
 ---
 title: Building and testing Ruby
 intro: You can create a continuous integration (CI) workflow to build and test your Ruby project.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-ruby
 versions:

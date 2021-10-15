@@ -2,7 +2,6 @@
 title: Workflow commands for GitHub Actions
 shortTitle: Workflow commands
 intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions

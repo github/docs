@@ -1,7 +1,6 @@
 ---
 title: Automating projects (beta)
 intro: 'You can use the API and {% data variables.product.prodname_actions %} to manage your projects.'
-product: '{% data reusables.gated-features.actions %}'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

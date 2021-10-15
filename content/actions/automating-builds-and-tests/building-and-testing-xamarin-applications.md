@@ -1,7 +1,6 @@
 ---
 title: Building and testing Xamarin applications
 intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Xamarin application.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-xamarin-applications
 versions:

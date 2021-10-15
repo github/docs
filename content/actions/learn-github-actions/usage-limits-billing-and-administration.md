@@ -1,7 +1,6 @@
 ---
 title: 'Usage limits, billing, and administration'
 intro: 'There are usage limits for {% data variables.product.prodname_actions %} workflows. Usage charges apply to repositories that go beyond the amount of free minutes and storage for a repository.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
@@ -26,6 +25,10 @@ shortTitle: Workflow billing & limits
 {% else %}
 GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %}s that use self-hosted runners.
 {% endif %}
+
+## Availability
+
+{% data variables.product.prodname_actions %} is available on all {% data variables.product.prodname_dotcom %} products, but {% data variables.product.prodname_actions %} is not available for private repositories owned by accounts using legacy per-repository plans. {% data reusables.gated-features.more-info %}
 
 ## Usage limits
 

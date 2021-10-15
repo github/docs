@@ -1,7 +1,6 @@
 ---
 title: Deploying to Azure App Service
 intro: You can deploy to Azure App Service as part of your continuous deployment (CD) workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
 versions:

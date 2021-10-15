@@ -1,7 +1,6 @@
 ---
 title: Deploying to Amazon Elastic Container Service
 intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
 versions:
