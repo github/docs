@@ -54,7 +54,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 Blank fields are included as `null` instead of being omitted.
 
-All timestamps return in ISO 8601 format:
+All timestamps return in UTC time, ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -647,12 +647,14 @@ A link that looks like this:
 
 ## Timezones
 
-Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for API calls.
+Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
 * [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [Using the `Time-Zone` header](#using-the-time-zone-header)
 * [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
 * [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
+
+Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
 ### Explicitly providing an ISO 8601 timestamp with timezone information
 
