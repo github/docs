@@ -71,6 +71,7 @@ Manage [projects](/rest/reference/projects).
 **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/)
 **Update:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Commit search
 
@@ -78,6 +79,8 @@ Manage [projects](/rest/reference/projects).
 
 **Custom media type:** `cloak-preview`
 **Announced:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Repository topics
 
@@ -85,7 +88,7 @@ View a list of [repository topics](/articles/about-topics/) in [calls](/rest/ref
 
 **Custom media type:** `mercy-preview`
 **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Codes of conduct
@@ -107,6 +110,7 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Require signed commits
 
@@ -114,7 +118,7 @@ You can now use the API to manage the setting for [requiring signed commits on p
 
 **Custom media type:** `zzzax-preview`
 **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Require multiple approving reviews
@@ -226,6 +230,7 @@ You can use a new endpoint to [update a pull request branch](/rest/reference/pul
 **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Create and use repository templates
 
@@ -233,7 +238,7 @@ You can use a new endpoint to [Create a repository using a template](/rest/refer
 
 **Custom media types:** `baptiste-preview`
 **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## New visibility parameter for the Repositories API
