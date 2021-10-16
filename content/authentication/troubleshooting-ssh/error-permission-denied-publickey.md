@@ -277,6 +277,7 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
 
+If you already have an SSH key and it works for other projects, ensure your project's git instance is utilizing  SSH.exe, or do it globally with this command: ```git config --global core.sshCommand "'C:\Windows\System32\OpenSSH\ssh.exe'"```
 {% warning %}
 
 **Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
