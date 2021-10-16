@@ -1,4 +1,11 @@
----
+---const MyOctokit = Octokit.defaults({
+  auth: "personal-access-token123",
+  baseUrl: "https://github.acme-inc.com/api/v3",
+  userAgent: "my-app/v1.2.3",
+});
+const octokit1 = new MyOctokit();
+const octokit2 = new MyOctokit();
+
 title: Licensing a repository
 intro: 'Public repositories on GitHub are often used to share open source software. For your repository to truly be open source, you''ll need to license it so that others are free to use, change, and distribute the software.'
 redirect_from:
@@ -8,7 +15,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/licensing-a-repository
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '*'#########
   ghec: '*'
 topics:
   - Repositories
