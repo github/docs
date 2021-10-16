@@ -26,3 +26,4 @@ When you upgrade your sponsorship tier, the change will become effective immedia
 {% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}
+![Screenshot_20211015-152345_Accessibility](https://user-images.githubusercontent.com/92625579/137591840-4a26f223-38c4-4bbf-a4ca-fe9e6718f061.jpg)
