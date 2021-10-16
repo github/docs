@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /exploring-early-access-releases-with-feature-preview
   - /supported-browsers

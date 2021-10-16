@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -29,7 +30,7 @@ For more information, see "[Permission levels for an organization](/organization
 
 We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)."
 
-When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
+When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt or ghec %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

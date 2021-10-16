@@ -1,13 +1,14 @@
 ---
 title: Creating workflow templates
 shortTitle: Creating templates
-intro: 'Learn how you can create workflow templates to help people in your team add new workflows more easily.'
+intro: Learn how you can create workflow templates to help people in your team add new workflows more easily.
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,6 +17,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Overview
 
@@ -25,7 +27,7 @@ topics:
 
 Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows. You can share workflow templates if your organization's repository is public or if the repository is private and on an Enterprise plan.
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
 **Note:** To avoid duplication in workflows created from a template you can call reusable workflows from within a workflow template. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."

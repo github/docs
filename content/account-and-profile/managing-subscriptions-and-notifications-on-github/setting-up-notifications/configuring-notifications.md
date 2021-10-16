@@ -1,6 +1,6 @@
 ---
 title: Configuring notifications
-intro: 'Choose the type of activity on {% data variables.product.product_name %} that you want to receive notifications for and how you want these updates delivered.'
+intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
 redirect_from:
   - /articles/about-web-notifications
   - /format-of-notification-emails/
@@ -19,6 +19,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 ---
@@ -28,13 +29,13 @@ topics:
 
 ## Notification delivery options
 
-You can receive notifications for activity on {% data variables.product.product_name %} in the following locations.
+You can receive notifications for activity on {% data variables.product.product_location %} in the following locations.
 
-  - The notifications inbox in the {% data variables.product.product_name %} web interface{% ifversion fpt or ghes > 2.22 %}
-  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} and {% data variables.product.prodname_mobile %}{% endif %}
+  - The notifications inbox in the {% data variables.product.product_location %} web interface{% ifversion fpt or ghes > 2.22 or ghec %}
+  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_location %}{% endif %}
+  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes > 2.22 or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 {% endif %}
 
@@ -42,17 +43,17 @@ You can receive notifications for activity on {% data variables.product.product_
 
 ### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.product_name %} notifications flow, including options to:
+The notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes > 2.22 or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
   - Triage multiple notifications at once.
   - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
   - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
   - Unsubscribe and remove a notification from your inbox.
-  - Preview the issue, pull request, or team discussion where the notification originates on {% data variables.product.product_name %} from within the notifications inbox.
+  - Preview the issue, pull request, or team discussion where the notification originates on {% data variables.product.product_location %} from within the notifications inbox.
   - See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
   - Create custom filters to focus on different notifications when you want.
   - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghec %}
 In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 {% endif %}
 
@@ -75,7 +76,7 @@ To see repositories that you're watching, go to your [watching page](https://git
 {% endif %}
 You can configure notifications for a repository on the repository page, or on your watching page.{% ifversion ghes < 3.1 %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 ### About custom notifications
 You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
@@ -84,7 +85,7 @@ You can customize notifications for a repository. For example, you can choose to
 ### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} and {% data variables.product.prodname_mobile %}{% endif %}.
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes > 2.22 or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}.
 
 ![Participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -92,17 +93,17 @@ For example:
   - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
   - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
 
-If you do not enable watching or participating notifications for web{% ifversion fpt or ghes > 2.22 %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+If you do not enable watching or participating notifications for web{% ifversion fpt or ghes > 2.22 or ghec %} and mobile{% endif %}, then your notifications inbox will not have any updates.
 
 ## Customizing your email notifications
 
-After enabling email notifications, {% data variables.product.product_name %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.product.product_name %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
+After enabling email notifications, {% data variables.product.product_location %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.product.product_location %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
 
 {% data reusables.notifications.outbound_email_tip %}
 
 {% data reusables.notifications.shared_state %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 If you're using Gmail, you can click a button beside the notification email to visit the original issue or pull request that generated the notification.
 
@@ -110,7 +111,7 @@ If you're using Gmail, you can click a button beside the notification email to v
 
 {% endif %}
 
-Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.product_name %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
+Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.product_location %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
   - Comments on issues and pull requests.
   - Pull request reviews.
   - Pull request pushes.
@@ -124,18 +125,18 @@ You can also send notifications for a specific repository to an email address. F
 
 ## Filtering email notifications
 
-Each email notification that {% data variables.product.product_name %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.product_name %} notifications, or certain types of {% data variables.product.product_name %} notifications.
+Each email notification that {% data variables.product.product_location %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.prodname_dotcom %} notifications, or certain types of {% data variables.product.prodname_dotcom %} notifications.
 
 If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
 
-Email notifications from {% data variables.product.product_name %} contain the following header information:
+Email notifications from {% data variables.product.product_location %} contain the following header information:
 
 | Header | Information |
 | --- | --- |
-| `From` address | This address will always be {% ifversion fpt %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
+| `From` address | This address will always be {% ifversion fpt or ghec %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
 | `To` field | This field connects directly to the thread.{% ifversion not ghae %} If you reply to the email, you'll add a new comment to the conversation.{% endif %} |
-| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li>{% ifversion not ghae %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li>{% endif %}<li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
-| `mailing list` field | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% ifversion fpt or ghes %}
+| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li>{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li>{% endif %}<li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
+| `mailing list` field | This field identifies the name of the repository and its owner. The format of this address is always `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
 
 ## Choosing your notification settings
@@ -144,8 +145,8 @@ Email notifications from {% data variables.product.product_name %} contain the f
 {% data reusables.notifications-v2.manage-notifications %}
 3. On the notifications settings page, choose how you receive notifications when:
     - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
-    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% ifversion fpt or ghes %}
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)." {% endif %} {% ifversion fpt %}
+    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)." {% endif %} {% ifversion fpt or ghec %}
     - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
 
 ## Automatic watching
@@ -158,17 +159,17 @@ If "Automatically watch repositories" is disabled, then you will not automatical
 
 ## Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. In the upper-right corner, click the "Watch" drop-down menu to select a watch option.
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+2. In the upper-right corner, select the "Watch" drop-down menu to click a watch option.
+{% ifversion fpt or ghes > 3.0 or ghae-issue-4910 or ghec %}
    ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
    The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
 {% else %}
      ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-issue-4910 or ghec %}
    ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
    If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
 {% endif %}
@@ -187,7 +188,7 @@ If you belong to an organization, you can choose the email account you want noti
 
 ### Customizing email routes per organization	
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt %} your verified email addresses{% else %} the email addressed you've added to your {% data variables.product.product_name %} account{% endif %}. {% ifversion fpt %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %} 
+If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %} 
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
@@ -198,21 +199,17 @@ If you are a member of more than one organization, you can configure each one to
 5. Select one of your verified email addresses, then click **Save**.	
 ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
-{% ifversion not ghae %}
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## {% data variables.product.prodname_dependabot_alerts %} notification options 
-{% else %}
-## Security alert notification options 
-{% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## {% data variables.product.prodname_actions %} notification options
 
 Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.
@@ -221,7 +218,7 @@ Choose how you want to receive workflow run updates for repositories that you ar
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghec %}
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 
 When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
@@ -250,7 +247,7 @@ You can also schedule when {% data variables.product.prodname_mobile %} will sen
 
 ## Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %} 
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghec %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
 1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
 2. Tap **Watch**.

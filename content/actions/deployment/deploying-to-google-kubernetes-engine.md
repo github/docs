@@ -1,13 +1,13 @@
 ---
 title: Deploying to Google Kubernetes Engine
 intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CD
@@ -18,10 +18,11 @@ shortTitle: Deploy to Google Kubernetes Engine
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when a release is created.
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
@@ -105,9 +106,11 @@ Store the name of your project as a secret named `GKE_PROJECT`. For more informa
 ### (Optional) Configuring kustomize
 Kustomize is an optional tool used for managing YAML specs. After creating a _kustomization_ file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
 
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Optional) Configure a deployment environment
 
 {% data reusables.actions.about-environments %}
+{% endif %}
 
 ## Creating the workflow
 
@@ -125,8 +128,9 @@ Under the `env` key, change the value of `GKE_CLUSTER` to the name of your clust
 name: Build and Deploy to GKE
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 env:
   PROJECT_ID: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}

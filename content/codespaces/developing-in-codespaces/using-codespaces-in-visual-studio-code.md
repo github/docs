@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -49,7 +50,7 @@ Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% 
 
 ## Creating a codespace in {% data variables.product.prodname_vscode %}
 
-After you connect your {% data variables.product.product_name %} account to the {% data variables.product.prodname_github_codespaces %} extension, you can develop in a codespace that you created on {% data variables.product.product_name %} or in {% data variables.product.prodname_vscode %}.
+After you connect your account on {% data variables.product.product_location %} to the {% data variables.product.prodname_github_codespaces %} extension, you can develop in a codespace that you created on {% data variables.product.product_name %} or in {% data variables.product.prodname_vscode %}.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Click the Add icon, then click **Create New Codespace**.

@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
   - Community

@@ -37,6 +37,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
@@ -105,7 +106,7 @@ You can filter a repository's list of pull requests to find:
 - Pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
 - Pull requests that a reviewer has approved
 - Pull requests in which a reviewer has asked for changes
-- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 %}
+- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Pull requests that someone has asked you directly to review{% endif %}
 - Pull requests that [someone has asked you, or a team you're a member of, to review](/articles/requesting-a-pull-request-review)
 
@@ -168,7 +169,7 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
@@ -178,7 +179,7 @@ With issue and pull request search terms, you can:
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 For issues, you can also use search to:
 
 - Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
@@ -191,9 +192,9 @@ For pull requests, you can also use search to:
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
 
 ## Sorting issues and pull requests

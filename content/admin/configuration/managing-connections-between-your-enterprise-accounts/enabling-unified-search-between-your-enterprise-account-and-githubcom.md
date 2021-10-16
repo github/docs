@@ -14,6 +14,7 @@ permissions: 'Enterprise owners who are also owners of the connected {% data var
 versions:
   ghes: '*'
   ghae: 'next'
+type: how_to
 topics:
   - Enterprise
   - GitHub Connect

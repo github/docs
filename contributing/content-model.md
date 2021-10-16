@@ -91,7 +91,7 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - Titles aren’t overly repetitive––vary the verbs used for procedure or map topic titles when possible
 - Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
   - Use: "GitHub's billing plans"
-  - Avoid: “Billing plans for user and organization accounts"
+  - Avoid: "Billing plans for user and organization accounts"
 - Titles use consistent terminology
   - Develop and follow patterns within a category or on similar subjects
 - Titles use terminology from the product itself
@@ -132,7 +132,7 @@ Use the [conceptual content template](https://github.com/github/docs/blob/main/c
 - Include next steps for getting started with the feature (whether through further reading links or content within the article itself)
 
 #### Titles for conceptual content
-- Conceptual articles or headers of conceptual sections start with “About [subject]”
+- Conceptual articles or headers of conceptual sections start with "About [subject]”
 - Use a noun to describe the subject
   - Use: "About code scanning"
   - Avoid: "About scanning your code for vulnerabilities"
@@ -210,7 +210,7 @@ Use the [procedural content template](https://github.com/github/docs/blob/main/c
 
 #### Examples of procedural content
 - [Adding information to your receipts](https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts)
-- [Inviting people to manage your enterprise account](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)
+- [Inviting people to manage your enterprise account](https://docs.github.com/en/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 - [Setting up continuous integration using workflow templates](https://docs.github.com/en/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
 ### Combining multiple content types
@@ -228,7 +228,7 @@ Often, it's helpful to group information in context to help customers complete a
 #### Title guidelines for articles that combine multiple content types
 - If there's a procedure within the article, use a task-based title that begins with a gerund
 - Titles are general enough to describe the range of information and tasks contained within the article
-- Titles describe the setting being toggled and are agnostic about what setting the reader chooses, e.g., “Setting repository visibility” instead of “Making a private repository public”
+- Titles describe the setting being toggled and are agnostic about what setting the reader chooses, e.g., "Setting repository visibility” instead of "Making a private repository public”
 
 #### Examples of articles that combine multiple content types
 - [Setting repository visibility](https://docs.github.com/en/github/administering-a-repository/setting-repository-visibility)
@@ -291,7 +291,7 @@ Contents of tutorials:
   - Does not include the expected amount of time that it may take users to complete the task - this depends on the experience level of the user and can be demoralizing for beginners
 - Procedural sections
   - Based on the tutorial's audience, the steps can be less explicit and formal than those used in procedural content. You do not have to use existing reusables to form these steps if the audience doesn’t require that level of detail.
-    - Use: “From your profile, click **Settings, and then click **Developer settings**.”
+    - Use: "From your profile, click **Settings, and then click **Developer settings**.”
     - Avoid: In the upper-right corner of any page, click your profile photo, then click **Settings**. In the left sidebar, click **Developer settings**.
   - Link out to other articles or resources rather than replicating them, to avoid interrupting the flow of information in the tutorial.
   - Give visual cues. Use code blocks and screenshots heavily to help reassure users that they're performing the correct actions.
@@ -310,7 +310,7 @@ Contents of tutorials:
 
 #### Title guidelines for tutorials
 - Follow the title guidelines for procedural articles
-- Don’t use “tutorial” or “guide” in the title
+- Don’t use "tutorial” or "guide” in the title
 
 #### Examples of tutorials
 Tutorials:
@@ -370,10 +370,10 @@ Use the product callout when a feature is available in specific products only. A
 
 #### How to write a product callout
 - Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 
-- Product callouts also include a link to “GitHub’s products” and occasionally to another relevant article.
+- Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
 - Examples:
-  - [Feature name] is available in [product(s)]. For more information, see “GitHub’s products.”
-  - [Feature name] is available in public repositories with [free product(s), and in public and private repositories with [paid products]. For more information, see “GitHub’s products.”
+  - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
+  - [Feature name] is available in public repositories with [free product(s), and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
 
 #### Examples of articles with product callouts
 Check the source files and `gated-features` to see how source content is written.
@@ -451,6 +451,6 @@ Further reading sections highlight additional targeted articles that aren’t al
 #### Title and format for further reading sections
 ```
 ### Further reading
-- “[Article title](article-URL)”
+- "[Article title](article-URL)”
 - [External resource title](external-resource-URL) in External Resource Name
 ```

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: CI tests using Checks API
@@ -51,7 +52,7 @@ To get an idea of what your Checks API CI server will do when you've completed t
 
 ## Prerequisites
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checksuite) and [Check Run]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
 
@@ -136,7 +137,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -227,7 +228,7 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -586,7 +587,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ``` ruby
 # Mark the check run as complete!
 @installation_client.update_check_run(
@@ -612,7 +613,7 @@ Now you've got all the information you need to update your check run. In the [fi
 
 You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
@@ -660,7 +661,7 @@ You'll need to update that code to use the `conclusion` variable you set based o
 
 Now that you're setting a conclusion based on the status of the CI test and you've added the output from the RuboCop results, you've created a CI test! Congratulations. 🙌
 
-The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on GitHub that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
+The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on GitHub that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
 
 The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `template_server.rb` server again and creating a new pull request:
 
