@@ -51,3 +51,7 @@ Some of the common image registry servers are listed below:
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) - `<registry name>.azurecr.io`
 - [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
 - [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
+
+### Accessing AWS Elastic Container Registry
+
+If you want to access AWS Elastic Container Registry (ECR), you must provide an AWS authorization token in the `ECR_CONTAINER_REGISTRY_PASSWORD`. This authorization token is not the same as your secret key. You can obtain an AWS authorization token by using AWS's APIs or CLI. These tokens are short lived and will need to be refreshed periodically. For more information, see AWS ECR's ["Private registry authentication" documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html).
