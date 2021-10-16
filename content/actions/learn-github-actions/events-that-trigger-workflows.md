@@ -630,8 +630,6 @@ on:
     types: [edited, dismissed]
 ```
 
-{% data reusables.developer-site.pull_request_forked_repos_link %}
-
 ### `pull_request_review_comment`
 
 Runs your workflow anytime a comment on a pull request's unified diff is modified, which triggers the `pull_request_review_comment` event. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see [Review comments](/rest/reference/pulls#comments).
@@ -649,8 +647,6 @@ on:
   pull_request_review_comment:
     types: [created, deleted]
 ```
-
-{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 {% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 
