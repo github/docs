@@ -1,3 +1,4 @@
+![hqdefault](https://user-images.githubusercontent.com/78320452/137574684-d639c4a6-461f-4d55-93d9-b30a6a48316a.jpg)
 ---
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
