@@ -16,5 +16,5 @@ children:
   - /authorizing-oauth-apps
   - /scopes-for-oauth-apps
   - /creating-a-custom-badge-for-your-oauth-app
----
+---creating-an-oauth-app
 
