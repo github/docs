@@ -2,7 +2,6 @@
 title: Workflow syntax for GitHub Actions
 shortTitle: Workflow syntax
 intro: A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions

@@ -1,7 +1,6 @@
 ---
 title: Deploying to Google Kubernetes Engine
 intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
 versions:

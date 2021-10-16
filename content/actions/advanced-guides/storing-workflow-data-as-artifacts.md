@@ -2,7 +2,6 @@
 title: Storing workflow data as artifacts
 shortTitle: Storing workflow artifacts
 intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts

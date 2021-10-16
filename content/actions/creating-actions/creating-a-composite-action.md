@@ -1,7 +1,6 @@
 ---
 title: Creating a composite action
 intro: 'In this guide, you''ll learn how to build a composite action.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:

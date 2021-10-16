@@ -1,7 +1,6 @@
 ---
 title: Notifications for workflow runs
 intro: 'You can subscribe to notifications about workflow runs that you trigger.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'

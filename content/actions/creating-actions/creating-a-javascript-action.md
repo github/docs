@@ -1,7 +1,6 @@
 ---
 title: Creating a JavaScript action
 intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action

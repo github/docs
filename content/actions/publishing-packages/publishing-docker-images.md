@@ -1,7 +1,6 @@
 ---
 title: Publishing Docker images
 intro: 'You can publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images

@@ -1,7 +1,6 @@
 ---
 title: Creating a Docker container action
 intro: 'This guide shows you the minimal steps required to build a Docker container action. '
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action

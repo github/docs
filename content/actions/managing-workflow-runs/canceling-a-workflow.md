@@ -1,7 +1,6 @@
 ---
 title: Canceling a workflow
 intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
