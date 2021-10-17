@@ -45,7 +45,7 @@ export const SmallFooter = () => {
           <a href="https://github.com/pricing">{t('product.links.pricing')}</a>
         </li>
         <li className="mr-3 mr-xl-0">
-          <a href="https://docs.github.com">{t('platform.links.developer_api')}</a>
+          <a href="https://docs.github.com/en/developers">{t('platform.links.developer_api')}</a>
         </li>
         <li className="mr-3 mr-xl-0">
           <a href="https://services.github.com">{t('support.links.training')}</a>
