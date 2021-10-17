@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

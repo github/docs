@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
   - Community

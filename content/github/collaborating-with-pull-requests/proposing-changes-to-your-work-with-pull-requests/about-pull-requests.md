@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -31,7 +32,7 @@ Once you've created a pull request, you can push commits from your topic branch 
 
 Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "[Viewing deployment activity for a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)."
 {% endif %}
 
