@@ -4,6 +4,7 @@ intro: 'Overview of the logging locations used by {% data variables.product.prod
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

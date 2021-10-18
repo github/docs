@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

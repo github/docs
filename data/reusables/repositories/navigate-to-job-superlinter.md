@@ -1,4 +1,4 @@
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 1. Under **Jobs** or in the visualization graph, click the job you want to see.
    ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
 {% elsif ghes > 2.22 %}

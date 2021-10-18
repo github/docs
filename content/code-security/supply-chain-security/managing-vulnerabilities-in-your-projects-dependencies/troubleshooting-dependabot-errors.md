@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot

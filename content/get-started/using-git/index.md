@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /pushing-commits-to-a-remote-repository
   - /getting-changes-from-a-remote-repository

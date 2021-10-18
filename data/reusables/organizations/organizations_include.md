@@ -5,7 +5,7 @@ Organizations include:
 - The ability for organization owners to view members' [two-factor authentication (2FA) status](/articles/about-two-factor-authentication)
 - The option to [require all organization members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can use organizations for free, with {% data variables.product.prodname_free_team %}, which includes unlimited collaborators on unlimited public repositories with full features, and unlimited private repositories with limited features.
 
 For additional features, including sophisticated user authentication and management, and improved support coverage, you can upgrade to {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}

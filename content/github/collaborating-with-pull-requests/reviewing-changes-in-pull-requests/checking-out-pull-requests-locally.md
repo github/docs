@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Check out a PR locally
@@ -27,7 +28,7 @@ shortTitle: Check out a PR locally
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to modify.{% ifversion fpt %}
+2. In the list of pull requests, click the pull request you'd like to modify.{% ifversion fpt or ghec %}
 3. To choose where you'd like to open the pull request, select the **Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}** drop-down and click one of the tabs.
   ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. In the merge box, click **command line instructions**. Follow the sequence of steps to bring down the proposed pull request.
