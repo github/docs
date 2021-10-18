@@ -221,7 +221,7 @@
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "script/sync-search-indices.js",
     "sync-search-server": "cross-env NODE_ENV=production WEB_CONCURRENCY=1 PORT=4002 node server.mjs",
-    "test": "npm run lint && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "cross-env NODE_OPTIONS='--max_old_space_size=8192 --experimental-vm-modules' jest",
     "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage"
   },
   "lint-staged": {
