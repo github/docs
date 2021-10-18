@@ -30,7 +30,7 @@ During your tenure as a student, you may be prompted to periodically re-verify y
 
 {% endnote %}
 
-For information about renewing your {% data variables.product.prodname_student_pack %}, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)."
+For further information on renewing your {% data variables.product.prodname_student_pack %}, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)."
 
 ## Applying for a {% data variables.product.prodname_student_pack %}
 
