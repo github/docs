@@ -1,12 +1,13 @@
 ---
 title: Requiring two-factor authentication in your organization
-intro: 'Organization owners can require {% ifversion fpt %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to enable two-factor authentication for their personal accounts, making it harder for malicious actors to access an organization''s repositories and settings.'
+intro: 'Organization owners can require {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to enable two-factor authentication for their personal accounts, making it harder for malicious actors to access an organization''s repositories and settings.'
 redirect_from:
   - /articles/requiring-two-factor-authentication-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,11 +16,11 @@ shortTitle: Require 2FA in organization
 
 ## About two-factor authentication for organizations
 
-{% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+{% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)."
+You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
 
 {% endif %}
 
@@ -27,8 +28,8 @@ You can also require two-factor authentication for organizations in an enterpris
 
 **Warnings:**
 
-- When you require use of two-factor authentication for your organization, {% ifversion fpt %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can [reinstate their access privileges and settings](/articles/reinstating-a-former-member-of-your-organization) if they enable two-factor authentication for their personal account within three months of their removal from your organization.
-- If an organization owner, member,{% ifversion fpt %} billing manager,{% endif %} or outside collaborator disables 2FA for their personal account after you've enabled required two-factor authentication, they will automatically be removed from the organization.
+- When you require use of two-factor authentication for your organization, {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can [reinstate their access privileges and settings](/articles/reinstating-a-former-member-of-your-organization) if they enable two-factor authentication for their personal account within three months of their removal from your organization.
+- If an organization owner, member,{% ifversion fpt or ghec %} billing manager,{% endif %} or outside collaborator disables 2FA for their personal account after you've enabled required two-factor authentication, they will automatically be removed from the organization.
 - If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
 
 {% endwarning %}
@@ -37,9 +38,9 @@ You can also require two-factor authentication for organizations in an enterpris
 
 ## Prerequisites
 
-Before you can require {% ifversion fpt %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. For more information, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+Before you can require {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. For more information, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
-Before you require use of two-factor authentication, we recommend notifying {% ifversion fpt %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+Before you require use of two-factor authentication, we recommend notifying {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see "[Viewing whether users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/viewing-whether-users-in-your-organization-have-2fa-enabled)."
 
 ## Requiring two-factor authentication in your organization
 
@@ -48,7 +49,7 @@ Before you require use of two-factor authentication, we recommend notifying {% i
 {% data reusables.organizations.security %}
 {% data reusables.organizations.require_two_factor_authentication %}
 {% data reusables.organizations.removed_outside_collaborators %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 8. If any members or outside collaborators are removed from the organization, we recommend sending them an invitation that can reinstate their former privileges and access to your organization. They must enable two-factor authentication before they can accept your invitation.
 {% endif %}
 
@@ -63,7 +64,7 @@ To view people who were automatically removed from your organization for non-com
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Enter your search query. To search for:
     - Organization members removed, use `action:org.remove_member` in your search query
-    - Outside collaborators removed, use `action:org.remove_outside_collaborator` in your search query{% ifversion fpt %}
+    - Outside collaborators removed, use `action:org.remove_outside_collaborator` in your search query{% ifversion fpt or ghec %}
     - Billing managers removed, use `action:org.remove_billing_manager`in your search query{% endif %}
 
  You can also view people who were removed from your organization by using a [time frame](/articles/reviewing-the-audit-log-for-your-organization/#search-based-on-time-of-action) in your search.

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
   - Workflows

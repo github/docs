@@ -4,6 +4,7 @@ intro: 'Create a codespace to get started with developing your project inside a 
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:

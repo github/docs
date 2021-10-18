@@ -2,7 +2,8 @@
 title: Disaster recovery for Codespaces
 intro: 'This article describes guidance for a disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
