@@ -99,3 +99,6 @@
 - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
 - github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+
+/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise
+- /billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise
