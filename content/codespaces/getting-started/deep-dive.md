@@ -4,7 +4,8 @@ intro: 'Understand how {% data variables.product.prodname_codespaces %} works.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces

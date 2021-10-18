@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -29,7 +30,7 @@ A subset of REST API v3 endpoints requires authenticating as a GitHub App instal
 
 ## OAuth Applications API
 
-You can use this API to manage the OAuth tokens an OAuth application uses to access people's {% data variables.product.prodname_dotcom %} accounts.
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -45,7 +46,7 @@ To list all GitHub App installations for an organization, see "[List app install
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
 For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
@@ -66,7 +67,7 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Webhooks
 
 A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}

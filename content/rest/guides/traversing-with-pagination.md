@@ -8,12 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Traverse with pagination
 ---
 
-The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
 and in order to keep our servers happy, the API will automatically [paginate the requested items][pagination].
 

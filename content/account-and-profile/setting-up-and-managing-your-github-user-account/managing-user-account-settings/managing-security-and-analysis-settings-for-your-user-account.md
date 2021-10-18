@@ -3,6 +3,7 @@ title: Managing security and analysis settings for your user account
 intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:
@@ -46,4 +47,4 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
-{% ifversion fpt %}- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+{% ifversion fpt or ghec %}- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
