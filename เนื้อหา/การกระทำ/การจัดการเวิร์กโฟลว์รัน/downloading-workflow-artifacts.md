@@ -1,4 +1,7 @@
----
+android {
+    buildToolsVersion = "30.0.2"
+    ...
+}---
 title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
 versions:
