@@ -26,7 +26,7 @@ Organization members can have *owner*{% ifversion fpt or ghec %}, *billing manag
 {% endif %}
 - **Members** are the default role for everyone else.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
