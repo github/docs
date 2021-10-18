@@ -131,13 +131,13 @@ describe('redirects', () => {
   describe('home page redirects', () => {
     test('homepage redirects to english by default', async () => {
       const res = await get('/')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
     })
 
     test('homepage redirects to preferred language', async () => {
       const res = await get('/', { headers: { 'Accept-Language': 'ja' } })
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
     })
   })
