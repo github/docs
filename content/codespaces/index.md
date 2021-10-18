@@ -34,6 +34,7 @@ layout: product-landing
 examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /overview
   - /getting-started

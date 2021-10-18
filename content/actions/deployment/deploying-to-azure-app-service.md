@@ -1,13 +1,13 @@
 ---
 title: Deploying to Azure App Service
 intro: You can deploy to Azure App Service as part of your continuous deployment (CD) workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CD
@@ -70,7 +70,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 4. For Linux apps, add an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` and set it to true in your app. For more information, see "[Configure apps in the portal](https://docs.microsoft.com/en-us/azure/app-service/configure-common#configure-app-settings)" in the Azure documentation.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 {% endif %}
 

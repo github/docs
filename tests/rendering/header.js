@@ -1,5 +1,5 @@
 import { getDOM } from '../helpers/supertest.js'
-import { oldestSupported, latest } from '../../lib/enterprise-server-releases.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 import { jest } from '@jest/globals'
 
 describe('header', () => {
@@ -145,11 +145,11 @@ describe('header', () => {
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub')
 
-      const ghe = $(
-        `[data-testid=product-picker-list] a[href="/en/enterprise-server@${latest}/admin"]`
+      const ghec = $(
+        `[data-testid=product-picker-list] a[href="/en/enterprise-cloud@latest/admin"]`
       )
-      expect(ghe.length).toBe(1)
-      expect(ghe.text().trim()).toBe('Enterprise administrators')
+      expect(ghec.length).toBe(1)
+      expect(ghec.text().trim()).toBe('Enterprise administrators')
     })
 
     // Skipped. Docs Engineering issue: 923
@@ -161,8 +161,7 @@ describe('header', () => {
         $('[data-testid=current-product][data-current-product-path="/repositories"]').length
       ).toBe(1)
       expect(
-        $(`[data-testid=product-picker-list] a[href="/ja/enterprise-server@${latest}/admin"]`)
-          .length
+        $(`[data-testid=product-picker-list] a[href="/ja/enterprise-cloud/admin"]`).length
       ).toBe(1)
     })
 

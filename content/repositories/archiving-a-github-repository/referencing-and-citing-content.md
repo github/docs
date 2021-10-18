@@ -7,13 +7,14 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/referencing-and-citing-content
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Reference & cite content
 ---
 ## Issuing a persistent identifier for your repository with Zenodo
 
-To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a {% data variables.product.product_name %} repository and issue a DOI for the archive.
+To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 

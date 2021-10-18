@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -26,7 +27,7 @@ If your organization [requires members and outside collaborators to use two-fact
 
 {% data reusables.organizations.outside_collaborator_forks %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
@@ -34,7 +35,7 @@ To further support your team's collaboration abilities, you can upgrade to {% da
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
