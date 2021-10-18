@@ -1,7 +1,6 @@
 ---
 title: Building and testing .NET
 intro: You can create a continuous integration (CI) workflow to build and test your .NET project.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-net
 versions:

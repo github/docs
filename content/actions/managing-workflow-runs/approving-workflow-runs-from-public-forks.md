@@ -1,7 +1,6 @@
 ---
 title: Approving workflow runs from public forks
 intro: 'When an outside contributor submits a pull request to a public repository, a maintainer with write access may need to approve any workflow runs.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghec: '*'

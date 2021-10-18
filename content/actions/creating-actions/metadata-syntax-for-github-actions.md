@@ -2,7 +2,6 @@
 title: Metadata syntax for GitHub Actions
 shortTitle: Metadata syntax
 intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions

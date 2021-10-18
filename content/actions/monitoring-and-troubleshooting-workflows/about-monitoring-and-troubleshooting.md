@@ -1,7 +1,6 @@
 ---
 title: About monitoring and troubleshooting
 intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor and debug your workflows.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'

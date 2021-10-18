@@ -1,7 +1,6 @@
 ---
 title: Re-running workflows and jobs
 intro: You can re-run a workflow run up to 30 days after its initial run.
-product: '{% data reusables.gated-features.actions %}'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
