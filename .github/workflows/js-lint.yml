@@ -28,4 +28,4 @@ jobs:
         run: npm ci
 
       - name: Run linter
-        run: npx eslint .
+        run: npm run lint
