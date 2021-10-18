@@ -422,7 +422,7 @@ jobs:
   job2:
     needs: job1
   job3:
-    if: always()
+    if: ${{ always() }}
     needs: [job1, job2]
 ```
 
