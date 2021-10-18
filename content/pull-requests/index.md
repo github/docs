@@ -4,6 +4,7 @@ intro: 'Learn how you can use pull-requests to collaborate with others and commi
 shortTitle: Pull Requests
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

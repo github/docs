@@ -9,6 +9,7 @@ redirect_from:
   - /github/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
