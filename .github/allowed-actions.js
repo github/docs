@@ -29,7 +29,7 @@ export default [
   'peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e',
   'peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd',
   'peter-evans/create-pull-request@7380612b49221684fefa025244f2ef4008ae50ad', // v3.10.1
-  'peter-evans/find-comment@0da1f4fc1f20cd898368bd56089d391df418f52f',
+  'peter-evans/find-comment@d2dae40ed151c634e4189471272b57e76ec19ba8', // v1.3.0
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3', // v2.6
