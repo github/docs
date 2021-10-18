@@ -36,7 +36,7 @@ Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token{
 Azure | Azure SAS Token | azure_sas_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 2.22 or ghae %}
 Azure | Azure Service Management Certificate | azure_management_certificate{% endif %}
-{%- ifversion fpt or ghec or ghes > 2.22 or ghae %}
+{%- ifversion ghes < 3.4 or ghae or ghae-issue-5342 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 {%- ifversion fpt or ghec or ghes > 2.22 or ghae %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
