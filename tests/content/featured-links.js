@@ -16,9 +16,9 @@ describe('featuredLinks', () => {
     test('landing page intro links have expected properties', async () => {
       const $ = await getDOM('/en')
       const $featuredLinks = $('[data-testid=article-list] a')
-      expect($featuredLinks).toHaveLength(9)
+      expect($featuredLinks).toHaveLength(8)
       expect($featuredLinks.eq(0).attr('href')).toBe(
-        '/en/github/getting-started-with-github/set-up-git'
+        '/en/get-started/quickstart/set-up-git'
       )
       expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(
