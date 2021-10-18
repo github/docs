@@ -80,6 +80,15 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
+    test('have faq= not converted to query=', async () => {
+      // Don't confuse `?faq=` for `?q=` just because they both start with `q=`
+      // Docs internal #21945
+      const res = await get('/en/enterprise/admin?faq=pulls')
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?faq=pulls`
+      expect(res.headers.location).toBe(expected)
+    })
+
     test('work with redirected search paths', async () => {
       const res = await get('/en/enterprise/admin/search?utf8=%E2%9C%93&query=pulls')
       expect(res.statusCode).toBe(301)
