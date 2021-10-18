@@ -10,10 +10,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
-  - Pull requests
----
-If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)" and "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+  - Pull 
+
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)" and "[About forks](/articles/about-forks)."
 
 You can specify which branch you'd like to merge your changes into when you create your pull request. Pull requests can only be opened between two branches that are different.
 
@@ -152,14 +153,14 @@ gh pr create --web
 
 {% enddesktop %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% codespaces %}
 
 1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
 ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
-![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)
+1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description. 
+![GitHub pull request side bar](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 
 For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."

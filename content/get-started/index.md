@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 layout: product-landing
 introLinks:
   quickstart: /github/getting-started-with-github/quickstart

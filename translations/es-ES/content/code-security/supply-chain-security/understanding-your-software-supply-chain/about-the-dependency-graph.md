@@ -60,7 +60,7 @@ Puedes utilizar la gráfica de dependencias para:
 
 ## Habilitar la gráfica de dependencias
 
-{% ifversion fpt %}Para generar una gráfica de dependencias, {% data variables.product.product_name %} necesita acceso de solo lectura a los archivos de manifiesto y de bloqueo de un repositorio. La gráfica de dependencias se genera automáticamente para todos los repositorios públicos y puedes elegir habilitarla para los privados. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."
+{% ifversion fpt %}Para generar una gráfica de dependencias, {% data variables.product.product_name %} necesita acceso de solo lectura a los archivos de manifiesto y de bloqueo de un repositorio. La gráfica de dependencias se genera automáticamente para todos los repositorios públicos y puedes elegir habilitarla para los privados. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
 {% ifversion ghes %}Si la gráfica de dependencias no se encuentra disponible en tu sistema, tu administrador de sitio puede habilitarla junto con las {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Habilitar las alertas para las dependencias vulnerables en {% data variables.product.prodname_ghe_server %}](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
 

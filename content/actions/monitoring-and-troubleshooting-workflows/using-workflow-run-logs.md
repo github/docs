@@ -1,17 +1,18 @@
 ---
 title: Using workflow run logs
 intro: 'You can view, search, and download the logs for each job in a workflow run.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 You can see whether a workflow run is in progress or complete from the workflow run page. You must be logged in to a {% data variables.product.prodname_dotcom %} account to view workflow run information, including for public repositories. For more information, see "[Access permissions on GitHub](/articles/access-permissions-on-github)."
 
@@ -46,9 +47,9 @@ You can search the build logs for a particular step. When you search logs, only 
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Search box to search logs](/assets/images/help/repository/search-log-box-updated.png)
@@ -69,9 +70,9 @@ You can download the log files from your workflow run. You can also download a w
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
-1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
+1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated.png)
@@ -89,15 +90,15 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
   ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)

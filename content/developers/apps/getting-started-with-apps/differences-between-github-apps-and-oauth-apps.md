@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
   - OAuth Apps
@@ -60,7 +61,7 @@ An _authorized_ OAuth App has access to all of the user's or organization owner'
 | A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An OAuth app can exchange a request token for an access token after a redirect via a web request. |
 | An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
 | Installation tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data reusables.apps.api-rate-limits-non-ghec %}{% ifversion fpt %} Higher rate limits apply for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Rate limits for GitHub Apps](/developers/apps/rate-limits-for-github-apps)."{% endif %} | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
+| {% data reusables.apps.api-rate-limits-non-ghec %}{% ifversion fpt or ghec %} Higher rate limits apply for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Rate limits for GitHub Apps](/developers/apps/rate-limits-for-github-apps)."{% endif %} | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
 | Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per OAuth App. Every token granted to that OAuth App gets the increased limit. |
 | {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user, which is called user-to-server requests. The flow to authorize is the same as the OAuth App authorization flow. User-to-server tokens can expire and be renewed with a refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)" and "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used in {% data variables.product.prodname_github_app %} user-to-server authorization. |
 

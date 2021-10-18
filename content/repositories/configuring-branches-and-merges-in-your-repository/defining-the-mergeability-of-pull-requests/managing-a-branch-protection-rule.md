@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
@@ -77,7 +78,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
 1. Optionally, select **Include administrators**.
 ![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
-1. Optionally,{% ifversion fpt %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
+1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch.

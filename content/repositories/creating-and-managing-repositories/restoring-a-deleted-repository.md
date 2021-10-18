@@ -7,6 +7,7 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/restoring-a-deleted-repository
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Restore deleted repository

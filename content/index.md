@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} Help Documentation'
+title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
@@ -54,5 +54,10 @@ externalProducts:
     id: codeql
     name: CodeQL
     href: 'https://codeql.github.com/docs'
+    external: true
+  npm:
+    id: npm
+    name: npm
+    href: 'https://docs.npmjs.com/'
     external: true
 ---

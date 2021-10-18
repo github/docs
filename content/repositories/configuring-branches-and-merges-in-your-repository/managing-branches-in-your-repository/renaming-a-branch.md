@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: 'next'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:

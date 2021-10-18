@@ -7,6 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Use GitHub Importer
 ---
 {% tip %}

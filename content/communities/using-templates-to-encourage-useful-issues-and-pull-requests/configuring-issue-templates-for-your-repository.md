@@ -9,18 +9,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Configure
 ---
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Creating issue templates
 
@@ -46,7 +47,7 @@ shortTitle: Configure
 ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating issue forms
 
@@ -70,7 +71,7 @@ Here is the rendered version of the issue form.
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## Configuring the template chooser
 
 {% data reusables.repositories.issue-template-config %}
