@@ -22,7 +22,7 @@ By using code review assignments, any time your team has been requested to revie
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals. The individual approvals don't satisfy the requirement for code owner approval in a protected branch. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
