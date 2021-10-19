@@ -27,7 +27,7 @@ export const SmallFooter = () => {
           <a href="https://www.githubstatus.com/">{t('support.links.status')}</a>
         </li>
         <li>
-          <a href="/">{t('support.links.help')}</a>
+          <Link href={`/${router.locale}`}>{t('support.links.help')}</Link>
         </li>
       </ul>
 
