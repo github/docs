@@ -148,5 +148,5 @@ To delete a view:
 
 ## Further reading
 
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)
+- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"

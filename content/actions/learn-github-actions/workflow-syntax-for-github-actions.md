@@ -373,9 +373,11 @@ If you need to find the unique identifier of a job running in a workflow run, yo
 
 ## `jobs.<job_id>`
 
-Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+Create an identifier for your job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
 ### Example
+
+In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
 
 ```yaml
 jobs:
@@ -420,7 +422,7 @@ jobs:
   job2:
     needs: job1
   job3:
-    if: always()
+    if: {% raw %}${{ always() }}{% endraw %}
     needs: [job1, job2]
 ```
 

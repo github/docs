@@ -20,7 +20,7 @@ shortTitle: Add a status badge
 You reference the workflow by the name of your workflow file.
 
 ```markdown
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
+![example workflow]({% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 ```
 ## Using the workflow file name
 

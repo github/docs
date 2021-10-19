@@ -25,7 +25,11 @@ topics:
 
 ## Creating a workflow template
 
-Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows. You can share workflow templates if your organization's repository is public or if the repository is private and on an Enterprise plan.
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
+
+{% ifversion fpt %}
+Your workflow templates can be used to create workflows in public repositories only. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-workflow-templates).
+{% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}

@@ -37,7 +37,7 @@ jobs:
           persist-credentials: 'false'
 
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
           node-version: 16.8.x
           cache: npm
@@ -57,6 +57,4 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npx jest tests/${{ matrix.test-group }}/
-        env:
-          NODE_OPTIONS: '--max_old_space_size=8192 --experimental-vm-modules'
+        run: npm run test tests/${{ matrix.test-group }}/
