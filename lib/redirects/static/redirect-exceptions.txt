@@ -103,6 +103,8 @@
 /enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise
 - /billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise
 
+/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 
 # These URLs went from being in free-pro-team to ONLY to being in enterprise-cloud only. 
 # Shipped in pull #20947 on 10/15/21
