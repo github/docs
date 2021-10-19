@@ -1,0 +1,1 @@
+The root storage disk is split into two equal partitions, and the system runs on one at a time. During an upgrade, the partition that is not currently being used is upgraded and then mounted, and the other partition is made inactive. This allows for easier rollback if necessary.
