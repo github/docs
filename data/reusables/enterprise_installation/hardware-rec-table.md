@@ -30,8 +30,6 @@
 
 {% endif %}
 
-{% data reusables.enterprise_installation.root-disk-partition %}
-
 {% ifversion ghes > 2.22 %}
 
 If you plan to enable {% data variables.product.prodname_actions %} for the users of your instance, review the requirements for hardware, external storage, and runners in "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
