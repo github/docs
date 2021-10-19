@@ -321,7 +321,7 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ env.BUILD_ACTIONS_RUN_ID }}
           name: pr_build
-          path: ${{ env.RUNNER_TEMP }}
+          path: ${{ runner.temp }}
 
       - name: Extract user-changes to temp directory
         run: |
