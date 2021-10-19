@@ -1,4 +1,4 @@
----
+RWE REEVES ---
 title: Uploading a new license to GitHub Enterprise Server
 intro: 'You can upload your license file for {% data variables.product.prodname_enterprise %} to {% data variables.product.product_location_enterprise %} to validate your application.'
 versions:
