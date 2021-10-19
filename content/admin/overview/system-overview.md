@@ -35,6 +35,8 @@ The user filesystem contains user configuration and data, such as:
   - Large files from {% data variables.large_files.product_name_long %}
   - Pre-receive hook environments
 
+{% data reusables.enterprise_installation.root-disk-partition %}
+
 ## Deployment options
 
 You can deploy {% data variables.product.prodname_ghe_server %} as a single virtual appliance, or in a high availability configuration. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
