@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghec: '*'
+  ghae: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
