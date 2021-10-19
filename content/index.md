@@ -7,10 +7,11 @@ featuredLinks:
     - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
   popular:
-    - /github/authenticating-to-github
+    - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+    - /authentication
     - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
-    - /github/getting-started-with-github/managing-remote-repositories
-    - /github/working-with-github-pages
+    - /get-started/getting-started-with-git/managing-remote-repositories
+    - /pages
 versions: '*'
 children:
   - get-started
