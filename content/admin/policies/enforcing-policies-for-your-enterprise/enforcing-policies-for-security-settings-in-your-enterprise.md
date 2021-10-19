@@ -128,7 +128,7 @@ You can also configure allowed IP addresses for an individual organization. For 
 
 ## Managing SSH certificate authorities for your enterprise
 
-You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](http://localhost:4000/en/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 
 ### Adding an SSH certificate authority
 

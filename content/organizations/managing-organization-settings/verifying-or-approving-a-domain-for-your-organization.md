@@ -29,7 +29,7 @@ After verifying ownership of your organization's domains, a "Verified" badge wil
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion fpt or ghec %}On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)." {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
+{% ifversion fpt or ghec %}On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)." {% ifversion fpt %}{% data reusables.enterprise.link-to-ghec-trial %}{% endif %}{% endif %}
 
 ## About domain approval
 

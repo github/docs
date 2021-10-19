@@ -43,7 +43,7 @@ In addition to managing organization-level settings, organization owners have ad
 
 ## Repository access for each permission level
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
