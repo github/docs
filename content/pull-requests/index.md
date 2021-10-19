@@ -1,6 +1,6 @@
 ---
-title: Pull Requests
-intro: 'Learn how you can use pull-requests to collaborate with others and commit changes to your own projects.'
+title: Pull requests
+intro: 'Learn how you can use pull requests to collaborate with others and commit changes to your own projects.'
 shortTitle: Pull Requests
 versions:
   fpt: '*'
