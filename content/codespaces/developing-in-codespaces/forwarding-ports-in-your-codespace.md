@@ -21,7 +21,7 @@ shortTitle: Forward ports
 
 Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on port 4000, you can access the application from your browser to test and debug the application.
 
-When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal to open the port in a browser. For example, if an application outputs `http://127.0.0.1:4000` or `http://localhost:4000` to the console, the log would automatically convert the output to a clickable URL for port 4000.
+When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal to open the port in a browser. For example, if an application outputs `http://127.0.0.1:4000` or `http://localhost:4000` to the console, the log would automatically convert the output to a clickable URL for port 4000. By default, {% data variables.product.prodname_codespaces %} forwards ports using HTTP.
 
 ![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
@@ -36,6 +36,15 @@ You can manually forward a port that wasn't forwarded automatically.
   ![Add port button](/assets/images/help/codespaces/add-port-button.png)
 1. Type the port number or address, then press enter.
   ![Text box to type port button](/assets/images/help/codespaces/port-number-text-box.png)
+
+## Using HTTPS forwarding
+
+By default, {% data variables.product.prodname_codespaces %} forwards ports using HTTP but you can update any port to use HTTPS, as needed.
+
+{% data reusables.codespaces.navigate-to-ports-tab %}
+1. Right click the port you want to update, then hover over **Change Port Protocol**. 
+  ![Option to change port protocol](/assets/images/help/codespaces/update-port-protocol.png)
+1. Select the protocol needed for this port. The protocol that you select will be remembered for this port for the lifetime of the codespace.
 
 ## Labeling a port
 
