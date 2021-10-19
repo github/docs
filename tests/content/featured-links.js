@@ -101,7 +101,7 @@ describe('featuredLinks', () => {
 
     test('returns raw array of links on the page object', async () => {
       const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
-      expect(rawGettingStartedLinks[0]).toEqual('/en/get-started/quickstart/set-up-git')
+      expect(rawGettingStartedLinks[0]).toEqual('/get-started/quickstart/set-up-git')
     })
   })
 })
