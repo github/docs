@@ -88,7 +88,7 @@
     "semver": "^7.3.5",
     "slash": "^4.0.0",
     "strip-html-comments": "^1.0.0",
-    "styled-components": "^5.3.1",
+    "styled-components": "^5.3.3",
     "throng": "^5.0.0",
     "ts-dedent": "^2.2.0",
     "unified": "^10.1.0",
