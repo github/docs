@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.4'
   ghae: 'issue-4757'
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -14,6 +15,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% note %}
 

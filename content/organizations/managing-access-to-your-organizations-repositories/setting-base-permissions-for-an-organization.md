@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,7 +19,7 @@ shortTitle: Set base permissions
 
 You can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. Base permissions do not apply to outside collaborators.
 
-{% ifversion fpt %}By default, members of an organization will have **Read** permissions to the organization's repositories.{% endif %}
+{% ifversion fpt or ghec %}By default, members of an organization will have **Read** permissions to the organization's repositories.{% endif %}
 
 If someone with admin permissions to an organization's repository grants a member a higher level of permission for the repository, the higher level of permission overrides the base permission.
 

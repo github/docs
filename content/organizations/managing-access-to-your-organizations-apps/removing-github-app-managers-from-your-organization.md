@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -35,7 +36,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 1. Under "App managers", find the username of the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, and click **Revoke**.
 ![Revoke {% data variables.product.prodname_github_app %} manager permissions](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Further reading
 
 - "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"

@@ -3,6 +3,7 @@ title: About discussions
 intro: 'Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project on {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 

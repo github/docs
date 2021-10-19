@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '>=3.2'
   ghae: 'next'
+  ghec: '*'
 topics:
   - SSH
 redirect_from:

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 ## Rewriting the most recent commit message
 
@@ -24,7 +25,7 @@ If the commit only exists in your local repository and has not been pushed to {%
 2. Type `git commit --amend` and press **Enter**.
 3. In your text editor, edit the commit message, and save the commit.
     - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/articles/creating-a-commit-with-multiple-authors)."
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
     - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.organizations.organizations_include %} 
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organizations and enterprise accounts
 
 Enterprise accounts allow owners to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations.

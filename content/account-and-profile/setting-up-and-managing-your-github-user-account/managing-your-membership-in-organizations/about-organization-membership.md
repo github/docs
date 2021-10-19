@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Organization membership
@@ -37,9 +38,9 @@ For more information, see the <a href="/articles/github-privacy-statement/" clas
 
 By default, your organization membership visibility is set to private. You can choose to publicize individual organization memberships on your profile. For more information, see "[Publicizing or hiding organization membership](/articles/publicizing-or-hiding-organization-membership)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-If your organization belongs to an enterprise account, you are automatically a member of the enterprise account and visible to enterprise account owners. For more information, see "[About enterprise accounts](/articles/about-enterprise-accounts)."
+If your organization belongs to an enterprise account, you are automatically a member of the enterprise account and visible to enterprise account owners. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
 {% endif %}
 

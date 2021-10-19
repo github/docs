@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -34,9 +35,10 @@ Organization owners have complete administrative access to your organization. Th
 ### Organization members
 The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and project boards.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Billing managers
 Billing managers are users who can manage the billing settings for your organization, such as payment information. This is a useful option if members of your organization don't usually have access to billing resources. For more information, see "[Adding a billing manager to your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+
 {% endif %}
 
 {% if security-managers %}
@@ -65,7 +67,7 @@ To keep your organization's data secure while allowing access to repositories, y
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <!--Dotcom version has extra column for Billing managers-->
 
 | Organization permission | Owners | Members | Billing managers | Security managers |

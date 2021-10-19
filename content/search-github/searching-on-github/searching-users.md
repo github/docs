@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -88,7 +89,7 @@ You can filter users based on the number of followers that they have, using the 
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) matches users with 1,000 or more followers.
 | | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) matches users with between 1 and 10 followers, with the word "sparkle" in their name.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Search based on ability to sponsor
 

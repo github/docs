@@ -7,7 +7,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.2'
-  ghae: "issue-4864"
+  ghae: issue-4864
+  ghec: '*'
 type: overview
 topics:
   - Dependabot
@@ -36,7 +37,7 @@ By checking the dependency reviews on pull requests you can avoid introducing vu
 ## {% data variables.product.prodname_dependabot_alerts %}
 {% data variables.product.product_name %}} can create {% data variables.product.prodname_dependabot_alerts %} when it detects vulnerable dependencies in your repository. The alert is displayed on the Security tab for the repository. The alert includes a link to the affected file in the project, and information about a fixed version. {% data variables.product.product_name %} also notifies the maintainers of the repository, according to their notification preferences. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_dependabot_security_updates %}
 When {% data variables.product.product_name %} generates a {% data variables.product.prodname_dependabot %} alert for a vulnerable dependency in your repository, {% data variables.product.prodname_dependabot %} can automatically try to fix it for you. {% data variables.product.prodname_dependabot_security_updates %} are automatically generated pull requests that update a vulnerable dependency to a fixed version. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 

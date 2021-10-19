@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Commit missing in local clone
 ---
 When you use `git show` to view a specific commit on the command line, you may get a fatal error.

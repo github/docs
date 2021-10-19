@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Comment on a PR
@@ -60,5 +61,5 @@ Anyone watching the pull request or repository will receive a notification of yo
 ## Further reading
 
 - "[Writing on GitHub](/github/writing-on-github)"
-{% ifversion fpt %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+{% ifversion fpt or ghec %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

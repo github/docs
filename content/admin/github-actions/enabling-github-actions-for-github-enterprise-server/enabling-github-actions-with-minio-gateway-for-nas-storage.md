@@ -4,8 +4,12 @@ intro: 'You can enable {% data variables.product.prodname_actions %} on {% data 
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   ghes: '>=3.0'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Infrastructure
+  - Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage
 shortTitle: MinIO Gateway for NAS storage

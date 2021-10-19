@@ -7,6 +7,7 @@ redirect_from:
   - /v3/migration/migrations
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
