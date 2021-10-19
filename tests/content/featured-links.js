@@ -17,15 +17,13 @@ describe('featuredLinks', () => {
       const $ = await getDOM('/en')
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(8)
-      expect($featuredLinks.eq(0).attr('href')).toBe(
-        '/en/get-started/quickstart/set-up-git'
-      )
+      expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/quickstart/set-up-git')
       expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(
         true
       )
 
-      expect($featuredLinks.eq(8).attr('href')).toBe('/en/github/working-with-github-pages')
+      expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
       expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
       expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(
         true
