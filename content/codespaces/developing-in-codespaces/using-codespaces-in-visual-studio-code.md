@@ -89,9 +89,9 @@ If the codespace is currently running, a message is displayed asking if you woul
 2. In the drop-down menu, click **Delete Codespace**.
    ![Deleting a codespace in {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/delete-codespace-vscode.png)
 
-## Switching to the Insider's build of {% data variables.product.prodname_vscode %}
+## Switching to the Insiders build of {% data variables.product.prodname_vscode %}
 
-You can use the [Insider Build of Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
+You can use the [Insiders Build of Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
 
 1. In bottom left of your {% data variables.product.prodname_codespaces %} window, select **{% octicon "gear" aria-label="The settings icon" %} Settings**.
 2. From the list, select "Switch to Insiders Version".
