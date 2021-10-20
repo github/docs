@@ -1,3 +1,4 @@
+[Adobe Scan Sep 09, 2021.pdf](https://github.com/github/docs/files/7384397/Adobe.Scan.Sep.09.2021.pdf)
 ---
 title: GitHub Trademark Policy
 redirect_from:
