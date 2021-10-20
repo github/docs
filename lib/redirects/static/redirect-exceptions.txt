@@ -25,6 +25,10 @@
 
 /enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
 - /billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account
 
 /enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
@@ -195,3 +199,15 @@
 - /articles/about-the-github-and-visual-studio-bundle
 - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-visual-studio-subscription-with-github-enterprise
+
+/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+- /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
+- /articles/inviting-people-to-collaborate-in-your-business-account
+- /articles/inviting-people-to-manage-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
+
+/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise
+- /articles/managing-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
