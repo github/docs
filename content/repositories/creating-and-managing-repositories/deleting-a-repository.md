@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -23,11 +24,11 @@ topics:
 **Warnings**:
 
 - Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
-- Deleting a private {% ifversion ghes or fpt or ghae %}or internal {% endif %}repository will delete all forks of the repository.
+- Deleting a private {% ifversion ghes or fpt or ghae or ghec %}or internal {% endif %}repository will delete all forks of the repository.
  
 {% endwarning %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can restore some deleted repositories within 90 days. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."
 {% endif %}
 

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /actions/migrating-to-github-actions
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/

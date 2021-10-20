@@ -4,6 +4,7 @@ intro: 'Overview of the {% data variables.product.prodname_codespaces %} securit
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Security

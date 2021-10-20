@@ -7,6 +7,7 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_cloud %} includes a target eight-hour response time for priority support requests, Monday to Friday in your local time zone.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub Enterprise Cloud

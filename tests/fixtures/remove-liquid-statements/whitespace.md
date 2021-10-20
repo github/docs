@@ -54,14 +54,14 @@ Bravo{% endif %}
 
 ## 8
 <div class="example8">
-Alpha{% ifversion fpt or ghae or ghes > 2.13 %}
+Alpha{% ifversion fpt or ghec or ghae or ghes > 2.13 %}
 Bravo{% endif %}
 </div>
 
 ## 9
 <div class="example9">
 Alpha
-{% ifversion fpt or ghae or ghes > 2.13 %}
+{% ifversion fpt or ghec or ghae or ghes > 2.13 %}
 Bravo
 {% endif %}
 </div>
