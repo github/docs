@@ -267,6 +267,12 @@ jobs:
           # to auto-install Python dependencies
           setup-python-dependencies: false
 ```
+
+{% note %}
+
+**Note:** If you're installing dependencies manually through setuptools, please use `pip install -e .` instead of `pip install .`. With pip version [21.3](https://pip.pypa.io/en/stable/news/#v21-3) `pip install .` will copy your source files to a `build/` directory, meaning we include them _twice_ in the CodeQL database, so should not be used.
+
+{% endnote %}
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
