@@ -68,7 +68,7 @@ Some of the features listed below are limited to organizations using {% data var
 {% endif %}
 
 {% ifversion fpt or ghec %}
-<!--Dotcom version has extra column for Billing managers-->
+<!--Dotcom and cloud version has extra column for Billing managers-->
 
 | Organization permission | Owners | Members | Billing managers | Security managers |
 |:--------------------|:------:|:-------:|:----------------:|:----------------:|

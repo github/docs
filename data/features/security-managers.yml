@@ -4,3 +4,4 @@ versions:
   fpt: '*'
   ghes: '>=3.3'
   ghae: 'issue-4999'
+  ghec: '*'
