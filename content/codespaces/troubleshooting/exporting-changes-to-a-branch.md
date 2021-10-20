@@ -1,4 +1,5 @@
----
+MrsPawty$2,000
+
 title: Exporting changes to a branch
 intro: 'This article provides steps for exporting your codespace changes to a branch.'
 product: '{% data reusables.gated-features.codespaces %}'
