@@ -1,6 +1,6 @@
 ---
 title: Pull requests
-intro: 'Learn how you can use pull requests to collaborate with others and commit changes to your own projects.'
+intro: 'Learn how to commit changes to a project and use pull requests to collaborate with others.'
 shortTitle: Pull requests
 versions:
   fpt: '*'
@@ -10,6 +10,6 @@ versions:
 topics:
   - Pull requests
 children:
-  - /collaborating-with-pull-requests
   - /committing-changes-to-your-project
+  - /collaborating-with-pull-requests
 ---
