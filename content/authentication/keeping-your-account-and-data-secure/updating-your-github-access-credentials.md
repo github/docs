@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -19,14 +20,14 @@ shortTitle: Update access credentials
 {% ifversion not ghae %}
 ## Requesting a new password
 
-1. To request a new password, visit {% ifversion fpt %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Enter the email address associated with your personal {% data variables.product.product_name %} account, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
+1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
   ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
 3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
 4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**.
   ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
 5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
-  {% ifversion fpt %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}

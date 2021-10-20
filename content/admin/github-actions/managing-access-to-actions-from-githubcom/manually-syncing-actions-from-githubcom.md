@@ -7,13 +7,16 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: 'next'
+type: tutorial
 topics:
+  - Actions
   - Enterprise
 shortTitle: Manually sync actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 

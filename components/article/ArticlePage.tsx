@@ -32,6 +32,7 @@ export const ArticlePage = () => {
   const {
     title,
     intro,
+    effectiveDate,
     renderedPage,
     contributor,
     permissions,
@@ -153,6 +154,14 @@ export const ArticlePage = () => {
         >
           <div id="article-contents">
             <MarkdownContent>{renderedPage}</MarkdownContent>
+            {effectiveDate && (
+              <div className="mt-4" id="effectiveDate">
+                Effective as of:{' '}
+                <time dateTime={new Date(effectiveDate).toISOString()}>
+                  {new Date(effectiveDate).toDateString()}
+                </time>
+              </div>
+            )}
           </div>
         </ArticleGridLayout>
 

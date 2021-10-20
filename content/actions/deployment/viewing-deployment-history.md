@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: View deployment history
@@ -12,8 +13,9 @@ redirect_from:
   - /developers/overview/viewing-deployment-history
 ---
 
+{% data reusables.actions.ae-beta %}
 
-You can deliver deployments through {% ifversion fpt or ghae or ghes > 3.0 %}{% data variables.product.prodname_actions %} and environments or with {% endif %}the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %}For more information about deployments with the REST API, see "[Repositories](/rest/reference/repos#deployments)."
+You can deliver deployments through {% ifversion fpt or ghae or ghes > 3.0 or ghec %}{% data variables.product.prodname_actions %} and environments or with {% endif %}the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %}For more information about deployments with the REST API, see "[Repositories](/rest/reference/repos#deployments)."
 
 To view current and past deployments, click **Environments** on the home page of your repository.
 {% ifversion ghae or ghes < 3.0 %}

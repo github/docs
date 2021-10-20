@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security

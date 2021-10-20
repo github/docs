@@ -4,7 +4,8 @@ intro: 'Understand how {% data variables.product.prodname_codespaces %} works.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces
@@ -71,7 +72,7 @@ Port forwarding determines which ports are made accessible to you from the remot
 
 ![Diagram showing how port forwarding works in a codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
 While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can [manually make a port public](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) to share access through a URL.
 

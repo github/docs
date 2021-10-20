@@ -10,11 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Publish & install with Actions
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+{% data reusables.actions.ae-beta %}
 
 ## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
@@ -22,7 +24,7 @@ shortTitle: Publish & install with Actions
 
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Authenticating to the {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -31,7 +33,7 @@ You can extend the CI and CD capabilities of your repository by publishing or in
 
 ### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% ifversion fpt %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% ifversion fpt or ghes > 3.1 or ghae-next %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% ifversion fpt or ghec %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_location %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -39,7 +41,7 @@ You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{
 
 {% note %}
 
-**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt %}and Gradle. {% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.{% endif %}
+**Note:** Repository-owned packages include RubyGems, npm, Apache Maven, NuGet, {% ifversion fpt or ghec %}and Gradle. {% else %}Gradle, and Docker packages that use the package namespace `docker.pkg.github.com`.{% endif %}
 
 {% endnote %}
 
@@ -47,7 +49,7 @@ When you enable GitHub Actions, GitHub installs a GitHub App on your repository.
 
 {% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## About permissions and package access for {% data variables.product.prodname_container_registry %}
 
 The {% data variables.product.prodname_container_registry %} (`ghcr.io`) allows users to create and administer containers as free-standing resources at the organization level. Containers can be owned by an organization or personal user account and you can customize access to each of your containers separately from repository permissions.
@@ -80,11 +82,11 @@ You can use {% data variables.product.prodname_actions %} to automatically publi
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
+The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
 
 Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
@@ -177,7 +179,7 @@ on:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 <tr>
 <td>
@@ -287,7 +289,7 @@ build-and-push-image:
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -304,7 +306,7 @@ permissions:
 </tr> 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -399,7 +401,7 @@ with:
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -427,7 +429,7 @@ push: true
 </td>
 </tr>
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 <tr>
 <td>
 {% raw %}
@@ -478,11 +480,11 @@ A few minutes after the workflow has completed, the new package will visible in 
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Upgrading a workflow that accesses `ghcr.io`
 
 The {% data variables.product.prodname_container_registry %} supports the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to `ghcr.io`, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
@@ -531,7 +533,7 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

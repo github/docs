@@ -98,7 +98,7 @@ jobs:
 
       # Set up npm and run npm ci to run husky to get githooks for LFS
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
           node-version: 16.8.x
           cache: npm
@@ -143,7 +143,7 @@ jobs:
         if: ${{ steps.find-pull-request.outputs.number }}
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
-          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}
 
       # Because we get far too much spam ;_;
@@ -250,7 +250,7 @@ jobs:
             }
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

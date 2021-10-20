@@ -1,13 +1,13 @@
 ---
 title: Deploying to Amazon Elastic Container Service
 intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CD
@@ -18,6 +18,7 @@ shortTitle: Deploy to Amazon ECS
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -67,7 +68,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 {% endif %}
 
