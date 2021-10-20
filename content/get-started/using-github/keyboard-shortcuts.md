@@ -47,17 +47,20 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
-| <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
+| <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
+| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list
+| <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list
+| <kbd>control shift .</kbd> or <kbd>command shift.</kbd> | Inserts Markdown formatting for a quote{% endif %}
 |<kbd>e</kbd> | Open source code file in the **Edit file** tab
 |<kbd>control f</kbd> or <kbd>command f</kbd> | Start searching in file editor
 |<kbd>control g</kbd> or <kbd>command g</kbd> | Find next
-|<kbd>shift control g</kbd> or <kbd>shift command g</kbd> | Find previous
-|<kbd>shift control f</kbd> or <kbd>command option f</kbd> | Replace
-|<kbd>shift control r</kbd> or <kbd>shift command option f</kbd> | Replace all
+|<kbd>control shift g</kbd> or <kbd>command shift g</kbd> | Find previous
+|<kbd>control shift f</kbd> or <kbd>command option f</kbd> | Replace
+|<kbd>control shift r</kbd> or <kbd>command shift option f</kbd> | Replace all
 |<kbd>alt g</kbd> | Jump to line
 |<kbd>control z</kbd> or <kbd>command z</kbd> | Undo
 |<kbd>control y</kbd> or <kbd>command y</kbd> | Redo
-|<kbd>cmd + shift + p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
+|<kbd>command shift p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
 |<kbd>control s</kbd> or <kbd>command s</kbd> | Write a commit message
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).

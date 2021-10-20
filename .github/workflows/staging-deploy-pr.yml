@@ -303,6 +303,10 @@ jobs:
         name: Install temporary dependencies
         run: npm install --no-save dotenv rimraf
 
+      # Install any additional dependencies *before* downloading the build artifact
+      - name: Install Heroku client development-only dependency
+        run: npm install --no-save heroku-client
+
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Clone early access
         run: node script/early-access/clone-for-build.js
@@ -317,31 +321,28 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ env.BUILD_ACTIONS_RUN_ID }}
           name: pr_build
-          path: ./
+          path: ${{ runner.temp }}
 
       - name: Extract user-changes to temp directory
         run: |
-          tar -x --file=app.tar -C "$RUNNER_TEMP/"
-          rm app.tar
+          mkdir $RUNNER_TEMP/app
+          tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
 
       # Move the LFS content into the temp directory in chunks (destructively)
       - name: Move the LFS objects
         run: |
-          git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/$(dirname {})"; mv {} "$RUNNER_TEMP/$(dirname {})/"'
+          git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/app/$(dirname {})"; mv {} "$RUNNER_TEMP/app/$(dirname {})/"'
 
       # Move the early access content into the temp directory (destructively)
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Move the early access content
         run: |
-          mv assets/images/early-access "$RUNNER_TEMP/assets/images/"
-          mv content/early-access "$RUNNER_TEMP/content/"
-          mv data/early-access "$RUNNER_TEMP/data/"
+          mv assets/images/early-access "$RUNNER_TEMP/app/assets/images/"
+          mv content/early-access "$RUNNER_TEMP/app/content/"
+          mv data/early-access "$RUNNER_TEMP/app/data/"
 
       - name: Create a gzipped archive
-        run: tar -cz --file app.tar.gz "$RUNNER_TEMP/"
-
-      - name: Install Heroku client development-only dependency
-        run: npm install --no-save heroku-client
+        run: tar -cz --file app.tar.gz "$RUNNER_TEMP/app/"
 
       - name: Create a Heroku build source
         id: build-source
