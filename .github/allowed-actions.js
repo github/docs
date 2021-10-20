@@ -33,7 +33,7 @@ export default [
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3', // v2.6
-  'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
+  'someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340', // v1.2.2
   'tjenkinson/gh-action-auto-merge-dependency-updates@c47f6255e06f36e84201ee940466e731ffa6e885', // v1.1.1
   'Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b', // v1.0.0
   'EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87',
