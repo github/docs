@@ -633,6 +633,7 @@ describe('server', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('adds English prefix to old article URLs', async () => {
