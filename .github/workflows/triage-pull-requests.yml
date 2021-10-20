@@ -12,10 +12,12 @@ on:
 
 permissions:
   pull-requests: write
+  repository-projects: write
+  issues: write
 
 jobs:
   triage_pulls:
-    if: ${{ github.repository != 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
 
     steps:

@@ -19,7 +19,8 @@ export default function handleRedirects(req, res, next) {
       language = req.context.userLanguage
     }
 
-    return res.redirect(301, `/${language}`)
+    res.set('cache-control', 'private, no-store')
+    return res.redirect(302, `/${language}`)
   }
 
   // begin redirect handling

@@ -631,8 +631,9 @@ describe('server', () => {
 
     test('redirects / to /en', async () => {
       const res = await get('/')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('adds English prefix to old article URLs', async () => {
