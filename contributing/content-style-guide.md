@@ -467,6 +467,35 @@ Where the first reference concerns `cents` or a non-dollar amount, capitalize th
 
 See the “Inclusive language” section of this guide.
 
+### Permissions
+
+A **permission** is the ability to perform a specific action. For example, the ability to delete an issue is a permission. 
+
+A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
+
+- Accounts (e.g., organization owner, billing manager for an enterprise account)
+- Resources (e.g., "Write" for a repository, "Admin" for a security advisory)
+- Teams (e.g., "team maintainer")
+
+A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
+
+Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
+
+- **Use:** `To create a custom repository role, you choose an inherited role and then add individual permissions.`
+- **Use:** `Managing a team's access to your organization's repository`
+- **Use:** `If your team membership gives you a different level of access than your role as organization owner...`
+- **Use:** `People with write access can...`
+- **Avoid:** `People with the write role can...`
+- **Avoid:** `People with write permissions can...`
+- **Avoid:** `People with write privileges can...`
+
+When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
+
+- **Use:** `People with write access to a repository can do X to the repository.`
+- **Avoid:** `Organization owners and people with write access can do X to the repository.`
+
+For more information about word choice for permissions statments, see "[Permissions statements](/contributing/content-model.md#permissions-statements)" in the content model.
+
 ### Prepositions
 
 Avoid ending a sentence with a preposition unless the rewritten sentence would sound awkward or too formal.
