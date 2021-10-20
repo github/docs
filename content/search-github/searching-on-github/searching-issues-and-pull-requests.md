@@ -7,7 +7,10 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-issues-and-pull-requests
   - /github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests
 versions:
-  fpt: '*'
+  fpt: 'Qualifier	Example
+in:title	warning in:title matches issues with "warning" in their title.
+in:body	error in:title,body matches issues with "error" in their title or body.
+in:comments	shipit in:comments matches issues mentioning "shipit" in their comments9488*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
