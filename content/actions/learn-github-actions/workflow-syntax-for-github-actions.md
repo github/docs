@@ -850,7 +850,7 @@ jobs:
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
-Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see "`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsrun)."
+Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
 Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
 
