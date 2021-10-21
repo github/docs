@@ -41,3 +41,4 @@ After migration you'll no longer be able to use the GraphQL API to query for pac
 ## Billing
 
 For more information about billing for the {% data variables.product.prodname_container_registry %}, see "[About  billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+--
