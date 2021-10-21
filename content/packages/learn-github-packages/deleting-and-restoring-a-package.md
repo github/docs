@@ -20,14 +20,14 @@ shortTitle: Delete & restore a package
 
 On {% data variables.product.prodname_dotcom %} if you have the required access, you can delete:
 - an entire private package
-- an entire public package, if there's not more than 25 downloads of any version of the package
+- an entire public package, if there's not more than 5000 downloads of any version of the package
 - a specific version of a private package
-- a specific version of a public package, if the package version doesn't have more than 25 downloads
+- a specific version of a public package, if the package version doesn't have more than 5000 downloads
 
 {% note %}
 
 **Note:** 
-- You cannot delete a public package if any version of the package has more than 25 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
+- You cannot delete a public package if any version of the package has more than 5000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
 - When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
