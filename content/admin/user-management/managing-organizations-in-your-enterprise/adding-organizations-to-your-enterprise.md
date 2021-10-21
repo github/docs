@@ -27,7 +27,7 @@ Enterprise owners can create new organizations within an enterprise account's se
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription.
 
-Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. On the **Organizations** tab, above the list of organizations, click **New organization**.
