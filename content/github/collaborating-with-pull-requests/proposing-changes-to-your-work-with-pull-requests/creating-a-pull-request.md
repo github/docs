@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -152,7 +153,7 @@ gh pr create --web
 
 {% enddesktop %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% codespaces %}
 

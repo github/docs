@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Request a PR review
 ---
 Owners and collaborators on a repository owned by a user account can assign pull request reviews. Organization members with triage permissions to a repository can assign a pull request review.
 
-Owners or collaborators can assign a pull request review to any person that has been explicitly granted [read access](/articles/access-permissions-on-github) to a user-owned repository. Organization members can assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. {% ifversion fpt or ghae or ghes %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Owners or collaborators can assign a pull request review to any person that has been explicitly granted [read access](/articles/access-permissions-on-github) to a user-owned repository. Organization members can assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. {% ifversion fpt or ghae or ghes or ghec %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% note %}
 

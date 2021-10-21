@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configure 2FA recovery
@@ -52,7 +53,7 @@ Once you use a recovery code to regain access to your account, it cannot be reus
 
 You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Setting a fallback authentication number
 

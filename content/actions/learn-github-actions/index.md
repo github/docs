@@ -27,6 +27,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /understanding-github-actions
   - /finding-and-customizing-actions

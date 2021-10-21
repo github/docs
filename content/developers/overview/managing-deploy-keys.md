@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -94,23 +95,23 @@ If you use multiple repositories on one server, you will need to generate a dedi
 In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. For example:
 
 ```bash
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
-Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
-        Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}
+Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
 ```bash
-$ git clone git@{% ifversion fpt %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ## Server-to-server tokens
@@ -145,9 +146,9 @@ Since GitHub Apps are a first class actor on  {% data variables.product.product_
 
 ## Machine users
 
-If your server needs to access multiple repositories, you can create a new {% data variables.product.product_name %} account and attach an SSH key that will be used exclusively for automation. Since this {% data variables.product.product_name %} account won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -179,7 +180,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /articles/github-terms-of-service/
+[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
 [git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization

@@ -12,6 +12,7 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: 'next'
+type: how_to
 topics:
   - Enterprise
 children:

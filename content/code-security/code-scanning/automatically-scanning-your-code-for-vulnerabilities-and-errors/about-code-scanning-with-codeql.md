@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -26,7 +27,7 @@ topics:
 There are two main ways to use {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %}:
 
 - Add the {% data variables.product.prodname_codeql %} workflow to your repository. This uses the [github/codeql-action](https://github.com/github/codeql-action/) to run the {% data variables.product.prodname_codeql_cli %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)."
-- Run the {% data variables.product.prodname_codeql %} {% ifversion fpt or ghes > 3.1 or ghae-next %}CLI directly {% elsif ghes = 3.0 %}CLI or runner {% else %}runner {% endif %} in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_codeql %} code scanning in your CI system ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+- Run the {% data variables.product.prodname_codeql %} {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}CLI directly {% elsif ghes = 3.0 %}CLI or runner {% else %}runner {% endif %} in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[About {% data variables.product.prodname_codeql %} code scanning in your CI system ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
 ## About {% data variables.product.prodname_codeql %}
 

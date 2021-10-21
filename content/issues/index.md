@@ -32,6 +32,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /tracking-your-work-with-issues
   - /trying-out-the-new-projects-experience

@@ -7,6 +7,7 @@ redirect_from:
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Extensions & integrations
 ---
 ## Editor tools
@@ -31,7 +32,7 @@ With the {% data variables.product.prodname_dotcom %} for Visual Studio Code ext
 
 ## Project management tools
 
-You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira.
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
 
 ### Jira Cloud and {% data variables.product.product_name %}.com integration
 
@@ -39,7 +40,7 @@ You can integrate Jira Cloud with your personal or organization account to scan 
 
 ## Team communication tools
 
-You can integrate your {% data variables.product.product_name %} personal account or organization with third-party team communication tools, such as Slack or Microsoft Teams.
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Slack and {% data variables.product.product_name %} integration
 

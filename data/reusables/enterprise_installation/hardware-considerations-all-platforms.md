@@ -21,7 +21,7 @@ To configure{% ifversion ghes = 2.22 %} the beta of{% endif %} {% data variables
 
 {% endif %}
 
-You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
+The available space on the root filesystem will be 50% of the total disk size. You can resize your instance's root disk by building a new instance or using an existing instance. For more information, see "[System overview](/enterprise/admin/guides/installation/system-overview#storage-architecture)" and "[Increasing storage capacity](/enterprise/{{ currentVersion }}/admin/guides/installation/increasing-storage-capacity)."
 
 ### CPU and memory
 
