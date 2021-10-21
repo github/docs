@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Automate with OAuth tokens
 ---
 
@@ -18,7 +19,7 @@ Create a personal access token on your application settings page. For more infor
 
 {% tip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **Tips:**
 - You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -28,7 +29,7 @@ Create a personal access token on your application settings page. For more infor
 
 {% endtip %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ## Step 2: Clone a repository
 

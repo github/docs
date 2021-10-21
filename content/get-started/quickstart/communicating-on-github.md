@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -22,7 +23,7 @@ topics:
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 {% ifversion ghes or ghae %}
@@ -39,7 +40,7 @@ You can create and participate in issues, pull requests and team discussions, de
 - allow you to comment directly on proposed changes suggested by others. 
 - are specific to a repository. 
  
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
 -  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
 -  may span many repositories. 
@@ -98,7 +99,7 @@ The **Files changed** tab of the pull request shows the implemented fix.
 - The user creates a pull request with the fix.
 - A repository maintainer reviews the pull request, comments on it, and merges it.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Scenarios for {% data variables.product.prodname_discussions %}
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -115,7 +116,7 @@ This example shows the {% data variables.product.prodname_discussions %} welcome
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
 {% endif %}
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ### Scenarios for team discussions
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -123,7 +124,7 @@ This community maintainer started a discussion to welcome the community, and to 
 - I want to start or participate in an open-ended conversation.
 - I want to make an announcement to my team.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 As you can see, team discussions are very similar to {% data variables.product.prodname_discussions %}. For {% data variables.product.prodname_dotcom_the_website %}, we recommend using {% data variables.product.prodname_discussions %} as the starting point for conversations. You can use {% data variables.product.prodname_discussions %} to collaborate with any community on {% data variables.product.prodname_dotcom %}. If you are part of an organization, and would like to initiate conversations within your organization or team within that organization, you should use team discussions.
 {% endif %}
 
@@ -148,7 +149,7 @@ For issues, for example, you can tag issues with labels for quicker searching an
 
 For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 For {% data variables.product.prodname_discussions %}, you can set up a code of conduct and pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 {% endif %}
 

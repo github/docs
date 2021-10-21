@@ -2,14 +2,16 @@
 title: Autoscaling with self-hosted runners
 intro: 'You can automatically scale your self-hosted runners in response to webhook events.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>3.2'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: 'overview'
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About autoscaling
 

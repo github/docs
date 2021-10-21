@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /actions/guides/caching-and-storing-workflow-data
 children:
@@ -13,3 +14,5 @@ children:
   - /storing-workflow-data-as-artifacts
   - /using-github-cli-in-workflows
 ---
+
+{% data reusables.actions.ae-beta %}

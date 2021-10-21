@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>= 3.2'
   ghae: "issue-4864"
+  ghec: '*'
 type: how_to
 topics:
   - Pull requests

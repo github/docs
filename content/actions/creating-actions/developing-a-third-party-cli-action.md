@@ -2,10 +2,10 @@
 title: Developing a third party CLI action
 shortTitle: CLI setup action
 intro: 'Learn how to develop an action to set up a CLI on {% data variables.product.prodname_actions %} runners.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from: []
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Actions
