@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
   - /admin/enterprise-management/creating-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Create HA replica
 ---
+
 {% data reusables.enterprise_installation.replica-limit %}
 
-### High Availabilityレプリカの作成
+## High Availabilityレプリカの作成
 
 1. 新しい {% data variables.product.prodname_ghe_server %} アプライアンスを希望するプラットフォームにセットアップします。 レプリカアプライアンスのCPU、RAM、ストレージ設定は、プライマリアプライアンスと同じにするべきです。 レプリカアプライアンスは、独立した環境にインストールすることをお勧めします。 下位層のハードウェア、ソフトウェア、ネットワークコンポーネントは、プライマリアプライアンスのそれらとは分離されているべきです。 クラウドプロバイダを利用している場合には、別個のリージョンもしくはゾーンを使ってください。 詳細は「["{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
@@ -42,7 +44,7 @@ topics:
   $ ghe-repl-status
   ```
 
-### Geo-replicationレプリカの作成
+## Geo-replicationレプリカの作成
 
 レプリカを作成する以下の例の設定では、1 つのプライマリと 2 つのレプリカを使用しており、これらは 3 つの異なる地域にあります。 3 つのノードは別のネットワークに配置できますが、すべてのノードは他のすべてのノードから到達可能である必要があります。 最低限、必要な管理ポートは他のすべてのノードに対して開かれている必要があります。 ポートの要件に関する詳しい情報については、「[ネットワークポート](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports/#administrative-ports)」を参照してください。
 
@@ -90,7 +92,7 @@ topics:
   (primary)$ ghe-config-apply
   ```
 
-### Geo-replicationのためのDNSの設定
+## Geo-replicationのためのDNSの設定
 
 プライマリとレプリカノードの IP アドレスを使って、Geo DNS を設定します。 SSH でプライマリノードにアクセスしたり、`backup-utils` でバックアップするために、プライマリノード (たとえば、`primary.github.example.com`) に対して DNS CNAME を作成することもできます。
 
@@ -102,7 +104,7 @@ topics:
 <replica2 IP>    <em>HOSTNAME</em>
 ```
 
-### 参考リンク
+## 参考リンク
 
 - "[High Availability設定について](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration)"
 - "[レプリケーション管理のユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

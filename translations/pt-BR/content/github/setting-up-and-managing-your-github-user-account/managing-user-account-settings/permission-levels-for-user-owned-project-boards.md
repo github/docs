@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Visão geral das permissões
 
 Só existe um único proprietário de quadro de projeto pertencente a um usuário. Essa permissão não pode ser compartilhada com outra conta de usuário. Além do proprietário, outras pessoas podem colaborar em quadros de projeto.

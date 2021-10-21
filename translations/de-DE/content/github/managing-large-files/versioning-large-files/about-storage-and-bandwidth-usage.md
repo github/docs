@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.large_files.product_name_short %} ist für jedes Repository auf {% data variables.product.product_name %} verfügbar, unabhängig davon, ob Dein Konto oder Deine Organisation ein kostenpflichtiges Abonnement hat oder nicht.
 
 ### Speicher- und Bandbreitennutzung verfolgen
@@ -20,8 +21,7 @@ Ein Beispiel:
 - Wenn Du eine 500-MB-Datei herunterlädst, die mit LFS verfolgt wird, verwendest Du 500 MB der vom Repository-Inhaber zur Verfügung gestellten Bandbreite. Wenn ein Mitarbeiter eine Änderung an eine Datei überträgt und Du die neue Version in Dein lokales Repository lädst, verwendest Du weitere 500 MB Bandbreite, wodurch die Gesamtnutzung für diese beiden Downloads bei 1 GB Bandbreite liegt.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-If
-{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% tip %}

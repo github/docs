@@ -2,7 +2,7 @@
 title: Aplicar configurações de segurança na conta corporativa
 intro: Os proprietários corporativos podem aplicar determinadas políticas de segurança para todas as organizações pertencentes a uma conta corporativa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
@@ -11,11 +11,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: Aplicar configurações de segurança
 ---
-### Exigir autenticação de dois fatores para organizações na conta corporativa
+
+## Exigir autenticação de dois fatores para organizações na conta corporativa
 
 Os proprietários corporativos podem exigir que integrantes da organização, gerentes de cobrança e colaboradores externos em todas as organizações pertencentes a uma conta corporativa usem autenticação de dois fatores para proteger suas contas pessoais.
 
@@ -41,17 +43,17 @@ Antes de exigir o uso da autenticação de dois fatores, é recomendável notifi
 6. Se solicitado, leia as informações sobre os integrantes e colaboradores externos que serão removidos das organizações pertencentes à conta corporativa. Para confirmar a alteração, digite o nome da conta corporativa e clique em **Remove members & require two-factor authentication** (Remover integrantes e exigir autenticação de dois fatores). ![Caixa Confirm two-factor enforcement (Confirmar exigência de dois fatores)](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. Como alternativa, se algum integrante ou colaborador externo for removido das organizações pertencentes à conta corporativa, recomendamos enviar um convite para restabelecer os privilégios e o acesso à organização que ele tinha anteriormente. Cada pessoa precisa habilitar a autenticação de dois fatores para poder aceitar o convite.
 
-### Gerenciar endereços IP permitidos para organizações na conta corporativa
+## Gerenciar endereços IP permitidos para organizações na conta corporativa
 
 Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações na conta corporativa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 Você também pode configurar endereços IP permitidos para uma organização individual. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
-#### Adicionar endereços IP permitidos
+### Adicionar endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -60,7 +62,11 @@ Você também pode configurar endereços IP permitidos para uma organização in
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
-#### Habilitar endereços IP permitidos
+### Permitindo acesso de {% data variables.product.prodname_github_apps %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
+
+### Habilitar endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -68,7 +74,7 @@ Você também pode configurar endereços IP permitidos para uma organização in
 3. Em "IP allow list" (Lista de permissões IP), selecione **Enable IP allow list** (Habilitar lista de permissões IP). ![Caixa de seleção para permitir endereços IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
 4. Clique em **Salvar**.
 
-#### Editar endereços IP permitidos
+### Editar endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -78,7 +84,7 @@ Você também pode configurar endereços IP permitidos para uma organização in
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Clique em **Atualizar**.
 
-#### Excluir endereços IP permitidos
+### Excluir endereços IP permitidos
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -86,17 +92,17 @@ Você também pode configurar endereços IP permitidos para uma organização in
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-#### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
+### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### Gerenciar autoridades certificadas de SSH da conta corporativa
+## Gerenciar autoridades certificadas de SSH da conta corporativa
 
 Os proprietários corporativos podem adicionar e excluir autoridades certificadas (CAs) de SSH de uma conta corporativa.
 
 Adicionando uma CA de SSH à sua conta corporativa, você pode permitir que integrantes de qualquer organização pertencente à conta corporativa acessem repositórios da organização usando certificados de SSH fornecidos por você. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/articles/about-ssh-certificate-authorities)".
 
-#### Adicionar uma autoridade certificada de SSH
+### Adicionar uma autoridade certificada de SSH
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -106,7 +112,7 @@ Adicionando uma CA de SSH à sua conta corporativa, você pode permitir que inte
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
-#### Excluir uma autoridade certificada de SSH
+### Excluir uma autoridade certificada de SSH
 
 A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no futuro, precisará fazer upload dela novamente.
 
@@ -115,6 +121,6 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-### Leia mais
+## Leia mais
 
 - "[Configurar identidade e gerenciamento de acesso para a sua conta corporativa](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

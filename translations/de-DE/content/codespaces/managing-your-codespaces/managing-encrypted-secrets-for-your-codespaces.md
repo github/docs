@@ -1,8 +1,9 @@
 ---
 title: Managing encrypted secrets for your codespaces
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -11,12 +12,14 @@ topics:
   - Codespaces
   - Developer
   - Security
+  - Secret store
+shortTitle: Encrypted secrets
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 
-### About encrypted secrets for {% data variables.product.prodname_codespaces %}
+## About encrypted secrets for {% data variables.product.prodname_codespaces %}
 
 You can add encrypted secrets to your user account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
 
@@ -29,19 +32,19 @@ You can choose which repositories should have access to each secret. Then, you c
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Naming secrets
+### Naming secrets
 
 {% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
 
   {% data reusables.codespaces.secret-precedence %}
 
-#### Einschränkungen für Geheimnisse
+### Einschränkungen für Geheimnisse
 
 You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
 
 Geheimnisse sind auf 64 KB beschränkt.
 
-### Adding a secret
+## Adding a secret
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
@@ -51,7 +54,7 @@ Geheimnisse sind auf 64 KB beschränkt.
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Klicken Sie auf **Add secret** (Geheimnis hinzufügen).
 
-### Editing a secret
+## Editing a secret
 
 You can update the value of an existing secret, and you can change which repositories can access a secret.
 
@@ -64,9 +67,13 @@ You can update the value of an existing secret, and you can change which reposit
 1. Optionally, to remove the secret's access to a repository, deselect the repository. ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
 1. Klicke auf **Save changes** (Änderungen speichern).
 
-### Deleting a secret
+## Deleting a secret
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
 1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**. !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Lies die Warnung, dann klicke auf **OK**. ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Weiterführende Informationen
+
+- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

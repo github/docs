@@ -1,8 +1,9 @@
 ---
-title: Managing encrypted secrets for your codespaces
+title: Gerenciar segredos criptografados para seus codespaces
 intro: 'Você pode armazenar informações confidenciais, como tokens, que você deseja acessar nos seus codespaces por meio de variáveis de ambiente.'
+product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -11,12 +12,14 @@ topics:
   - Codespaces
   - Developer
   - Security
+  - Secret store
+shortTitle: Segredos criptografados
 ---
 
-{% data reusables.codespaces.release-stage %}
+ 
 
 
-### Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
+## Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
 
 Você pode adicionar segredos criptografados à sua conta de usuário que deseja usar nos seus codespaces. Por exemplo, você pode querer armazenar e acessar as seguintes informações confidenciais como segredos criptografados.
 
@@ -29,19 +32,19 @@ Você pode escolher quais repositórios devem ter acesso a cada segredo. Em segu
 
 {% data reusables.codespaces.secrets-on-start %}
 
-#### Nomeando segredos
+### Nomeando segredos
 
-{% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
+{% data reusables.codespaces.secrets-naming %} Por exemplo, um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório.
 
   {% data reusables.codespaces.secret-precedence %}
 
-#### Limites para segredos
+### Limites para segredos
 
-You can store up to 100 secrets for {% data variables.product.prodname_codespaces %}.
+Você pode armazenar até 100 segredos para {% data variables.product.prodname_codespaces %}.
 
 Os segredos são limitados a 64 kB.
 
-### Adicionar um segredo
+## Adicionar um segredo
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
@@ -51,7 +54,7 @@ Os segredos são limitados a 64 kB.
 {% data reusables.user_settings.codespaces-secret-repository-access %}
 1. Clique em **Add secret** (Adicionar segredo).
 
-### Editar um segredo
+## Editar um segredo
 
 Você pode atualizar o valor de um segredo existente, bem como alterar quais repositórios podem acessar um segredo.
 
@@ -64,9 +67,13 @@ Você pode atualizar o valor de um segredo existente, bem como alterar quais rep
 1. Opcionalmente, para remover o acesso do segredo a um repositório, desmarque o repositório. ![Caixas de seleção para remover acesso aos repositórios](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
 1. Clique em **Save changes** (Salvar alterações).
 
-### Excluir um segredo
+## Excluir um segredo
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
 1. Em "Segredos dos codespaces", à direita do segredo que você deseja excluir, clique em **Excluir**. ![Botão "Excluir"](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Leia o alerta e clique em **OK**. ![Confirmação para excluir um segredo](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## Leia mais
+
+- "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

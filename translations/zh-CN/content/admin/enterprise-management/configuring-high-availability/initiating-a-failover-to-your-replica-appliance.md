@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: 启动故障转移到设备
 ---
+
 故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
@@ -45,6 +47,6 @@ topics:
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### 延伸阅读
+## 延伸阅读
 
 - "[用于复制管理的实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)"

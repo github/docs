@@ -4,22 +4,23 @@ shortTitle: CodeQL のトラブルシューティング
 intro: '{% data variables.product.prodname_code_scanning %} で問題が生じている場合、ここに掲載されている問題解決のためのヒントを使ってトラブルを解決できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### デバッグ用の詳細なログを生成する
+## デバッグ用の詳細なログを生成する
 
 詳細なログ出力を生成するため、ステップのデバッグロギングを有効化することができます。 詳しい情報については、「[デバッグログの有効化](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)」を参照してください。
 
-### コンパイル言語の自動ビルドの失敗
+## コンパイル言語の自動ビルドの失敗
 
 プロジェクト内のコンパイル言語のコードの自動ビルドが失敗した場合は、次のトラブルシューティングのステップを試してください。
 
@@ -31,10 +32,7 @@ redirect_from:
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-      permissions:
-        security-events: write
-        actions: read{% endif %}
+    analyze:
       ...
       strategy:
         fail-fast: false
@@ -51,7 +49,7 @@ redirect_from:
 
   ワークフローの編集に関する詳しい情報については、「[コードスキャンを設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)」を参照してください。
 
-### ビルド中にコードが見つからない
+## ビルド中にコードが見つからない
 
 ワークフローでエラー `No source code was seen during the build` または `The process '/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql' failed with exit code 32` が発生した場合、{% data variables.product.prodname_codeql %} がコードを監視できなかったことを示しています。 このようなエラーが発生する理由として、次のようなものがあります。
 
@@ -89,23 +87,23 @@ redirect_from:
 
 ビルドステップの指定に関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 
-### リポジトリの一部が `autobuild` を使用して分析されない
+## リポジトリの一部が `autobuild` を使用して分析されない
 
 {% data variables.product.prodname_codeql %} の `autobuild` 機能は、ヒューリスティックスを使用してリポジトリにコードをビルドしますが、このアプローチでは、リポジトリの分析が不完全になることがあります。 たとえば、単一のリポジトリに複数の `build.sh` コマンドが存在する場合、`autobuild` ステップはコマンドの 1 つしか実行しないため、分析が完了しない場合があります。 これを解決するには、`autobuild` ステップを、分析するすべてのソースコードをビルドするビルドステップに置き換えます。 詳しい情報については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 
-### ビルドに時間がかかりすぎる
+## ビルドに時間がかかりすぎる
 
 {% data variables.product.prodname_codeql %} 分析でのビルドの実行に時間がかかりすぎる場合は、ビルド時間を短縮するための方法がいくつかあります。
 
-#### メモリまたはコアを増やす
+### メモリまたはコアを増やす
 
 セルフホストランナーを使用して {% data variables.product.prodname_codeql %} 解析を実行している場合、ランナーのメモリやコア数を増やすことができます。
 
-#### マトリックスビルドを使用して分析を並列化する
+### マトリックスビルドを使用して分析を並列化する
 
 デフォルトの {% data variables.product.prodname_codeql_workflow %} は言語のビルドマトリクスを使用しており、これにより各言語の解析が並列で実行される場合があります。 「Initialize CodeQL」ステップで解析する言語を直接指定している場合、各言語の解析は順次行われます。 複数の言語で解析を高速化するには、マトリクスを使用するようワークフローを変更してください。 詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
 
-#### 1 つのワークフローで分析されるコードの量を減らす
+### 1 つのワークフローで分析されるコードの量を減らす
 
 一般的に、分析時間は分析されるコードの量に比例します。 たとえば、テストコードを除外したり、一度にコードのサブセットのみを分析する複数のワークフローに分析を分割したりするなど、一度に分析されるコードの量を減らすことで、分析時間を短縮できます。
 
@@ -115,21 +113,21 @@ Java、C、C++、C# などのコンパイルされた言語の場合、{% data v
 
 上記のように分析を複数のワークフローに分割する場合でも、リポジトリ内のすべてのコードを分析する `schedule` で実行されるワークフローを少なくとも 1 つ用意することをお勧めします。 {% data variables.product.prodname_codeql %} はコンポーネント間のデータフローを分析するため、一部の複雑なセキュリティ動作は完全なビルドでのみ検出される場合があります。
 
-#### `schedule` イベント中にのみ実行する
+### `schedule` イベント中にのみ実行する
 
 それでも分析が遅すぎるために、`push` または `pull_request` イベント中に実行できない場合は、`schedule` イベントでのみ分析をトリガーすることをお勧めします。 詳しい情報については、「[イベント](/actions/learn-github-actions/introduction-to-github-actions#events)」を参照してください。
 
-### エラー: 「サーバーエラー」
+## エラー: 「サーバーエラー」
 
 サーバーエラーにより {% data variables.product.prodname_code_scanning %} のワークフローが実行できない場合は、ワークフローを再実行してください。 問題が解決しない場合は、{% data variables.contact.contact_support %} にお問い合わせください。
 
-### エラー:「ディスク不足」または「メモリ不足」
+## エラー:「ディスク不足」または「メモリ不足」
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the hosted {% data variables.product.prodname_actions %} runner. この問題が発生した場合は、ランナーのメモリを増やしてみてください。
 
-### Warning: "git checkout HEAD^2 is no longer necessary"
+## Warning: "git checkout HEAD^2 is no longer necessary"
 
-If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
+古い{% data variables.product.prodname_codeql %}ワークフローを使っていると、"Initialize {% data variables.product.prodname_codeql %}"アクションからの出力に以下の警告が含まれていることがあります。
 
 ```
 Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
@@ -137,28 +135,28 @@ necessary. Please remove this step as Code Scanning recommends analyzing the mer
 commit for best results.
 ```
 
-Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+これは、以下の行を{% data variables.product.prodname_codeql %}ワークフローから削除することによって修正してください。 これらの行は、初期バージョンの{% data variables.product.prodname_codeql %}ワークフロー中の`Analyze`ジョブの`steps`セクションに含まれています。
 
 ```yaml
         with:
-          # We must fetch at least the immediate parents so that if this is
-          # a pull request then we can checkout the head.
+          # これがPull Requestであればheadをチェックアウトできるよう、
+          # 少なくとも直接の親をフェッチしなければならない。
           fetch-depth: 2
 
-      # If this run was triggered by a pull request event, then checkout
-      # the head of the pull request instead of the merge commit.
+      # この実行がPull Requestのイベントでトリガされたのなら、
+      # マージコミットの代わりにPull Requestのheadをチェックアウトする。
       - run: git checkout HEAD^2
         if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
-The revised `steps` section of the workflow will look like this:
+ワークフローの修正された`steps`セクションは以下のようになります。
 
 ```yaml
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+      # {% data variables.product.prodname_codeql %}ツールをスキャンニングのために初期化。
       - name: Initialize {% data variables.product.prodname_codeql %}
         uses: github/codeql-action/init@v1
 

@@ -7,22 +7,23 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
-  enterprise-server: '>=2.22'
-  github-ae: next
+  ghes: '*'
+  ghae: next
 type: overview
 topics:
   - Actions
   - Enterprise
+shortTitle: 在企业中添加操作
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} 工作流程可使用_操作_，它们是一些单独的任务，您可以组合这些操作以创建作业并自定义工作流程。 您可以创建自己的操作，或者使用和自定义 {% data variables.product.prodname_dotcom %} 社区分享的操作。
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-### 与您的企业实例捆绑的正式操作
+## 与您的企业实例捆绑的正式操作
 
 大多数官方 {% data variables.product.prodname_dotcom %} 编写的操作都会自动与 {% data variables.product.product_name %} 捆绑在一起，并且会在某个时间点从 {% data variables.product.prodname_marketplace %} 获取。
 
@@ -36,7 +37,7 @@ topics:
 
 {% endnote %}
 
-### 配置对 {% data variables.product.prodname_dotcom_the_website %} 上操作的访问权限
+## 配置对 {% data variables.product.prodname_dotcom_the_website %} 上操作的访问权限
 
 如果企业中的用户需要访问来自 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_marketplace %} 的其他操作，有几个配置选项。
 

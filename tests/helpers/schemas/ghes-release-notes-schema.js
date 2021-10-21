@@ -3,43 +3,43 @@ const section = {
     {
       type: 'array',
       items: { type: 'string' },
-      minItems: 1
+      minItems: 1,
     },
     {
       type: 'object',
       properties: {
         heading: {
           type: 'string',
-          required: true
+          required: true,
         },
         notes: {
           type: 'array',
           items: { type: 'string' },
           required: true,
-          minItems: 1
-        }
-      }
-    }
-  ]
+          minItems: 1,
+        },
+      },
+    },
+  ],
 }
 
-module.exports = {
+export default {
   properties: {
     intro: {
-      type: 'string'
+      type: 'string',
     },
     date: {
       type: 'string',
       format: 'date',
-      required: true
+      required: true,
     },
     release_candidate: {
       type: 'boolean',
-      default: false
+      default: false,
     },
     deprecated: {
       type: 'boolean',
-      default: false
+      default: false,
     },
     sections: {
       required: true,
@@ -52,8 +52,8 @@ module.exports = {
         'changes',
         'deprecations',
         'security_fixes',
-        'backups'
-      ].reduce((prev, curr) => ({ ...prev, [curr]: section }), {})
-    }
-  }
+        'backups',
+      ].reduce((prev, curr) => ({ ...prev, [curr]: section }), {}),
+    },
+  },
 }

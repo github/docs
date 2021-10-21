@@ -15,4 +15,4 @@ children:
   - /viewing-and-triaging-notifications
   - /managing-subscriptions-for-activity-on-github
 ---
-### Índice
+

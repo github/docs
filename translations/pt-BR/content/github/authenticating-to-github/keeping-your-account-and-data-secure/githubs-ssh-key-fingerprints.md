@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Estas são as impressões digitais de chave pública de {% data variables.product.prodname_dotcom %}:
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)

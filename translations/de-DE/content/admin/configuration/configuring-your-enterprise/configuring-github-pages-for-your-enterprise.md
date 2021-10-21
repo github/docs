@@ -10,16 +10,18 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/
   - /admin/configuration/configuring-github-pages-for-your-enterprise
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Pages
+shortTitle: Configure GitHub Pages
 ---
-### Enabling public sites for {% data variables.product.prodname_pages %}
 
-{% if enterpriseServerVersions contains currentVersion %}If private mode is enabled on your enterprise, the {% else %}The {% endif %}public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
+## Enabling public sites for {% data variables.product.prodname_pages %}
+
+{% ifversion ghes %}If private mode is enabled on your enterprise, the {% else %}The {% endif %}public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
 
 {% warning %}
 
@@ -27,13 +29,13 @@ topics:
 
 {% endwarning %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Wählen Sie **Public Pages** (Öffentliche Seiten) aus. ![Kontrollkästchen zum Aktivieren von „Public Pages“ (Öffentliche Seiten)](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -41,20 +43,19 @@ topics:
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### Disabling {% data variables.product.prodname_pages %} for your enterprise
+## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
-{% if enterpriseServerVersions contains currentVersion %}
-If subdomain isolation is disabled for your enterprise, you should also disable
-{% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. Weitere Informationen finden Sie unter „[Subdomain-Isolation aktivieren](/admin/configuration/enabling-subdomain-isolation)“.
+{% ifversion ghes %}
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. Weitere Informationen finden Sie unter „[Subdomain-Isolation aktivieren](/admin/configuration/enabling-subdomain-isolation)“.
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Deaktivieren Sie **Enable Pages** (Pages aktivieren). ![Kontrollkästchen zum Deaktivieren von {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
@@ -62,8 +63,8 @@ If subdomain isolation is disabled for your enterprise, you should also disable
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Weiterführende Informationen
+{% ifversion ghes %}
+## Weiterführende Informationen
 
 - „[Privaten Modus aktivieren](/admin/configuration/enabling-private-mode)“
 {% endif %}

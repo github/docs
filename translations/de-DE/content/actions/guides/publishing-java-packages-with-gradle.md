@@ -51,6 +51,11 @@ Du kannst ein neues Maven-Repository im Block `publishing` Deiner Datei _build.g
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -114,6 +119,11 @@ Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hell
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 
@@ -173,6 +183,11 @@ Wenn Deine Organisation „octocat“ und Dein Repository „hello-world“ hei�
 
 {% raw %}
 ```groovy{:copy}
+plugins {
+  ...
+  id 'maven-publish'
+}
+
 publishing {
   ...
 

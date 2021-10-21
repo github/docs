@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### Gerar uma chave GPG

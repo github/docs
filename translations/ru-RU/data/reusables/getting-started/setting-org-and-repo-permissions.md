@@ -1,0 +1,3 @@
+We recommend giving a limited number of members in each organization an organization owner role, which provides complete administrative access for that organization. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)."
+
+For organizations where you have admin permissions, you can also customize access to each repository with granular permission levels. For more information, see "[Repository permissions levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."

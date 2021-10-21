@@ -6,20 +6,21 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
   - /admin/enterprise-management/replacing-a-cluster-node
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - Enterprise
   - Infrastructure
 ---
+
 {% warning %}
 
 **Aviso:** para evitar conflitos, o nó de substituição deve usar um nome de host exclusivo no cluster.
 
 {% endwarning %}
 
-### Substituir um nó funcional
+## Substituir um nó funcional
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
@@ -30,7 +31,7 @@ topics:
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
 
-### Substituir um nó em caso de emergência
+## Substituir um nó em caso de emergência
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}

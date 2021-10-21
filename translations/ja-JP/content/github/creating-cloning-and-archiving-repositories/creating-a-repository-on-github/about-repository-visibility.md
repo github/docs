@@ -10,13 +10,13 @@ topics:
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/about-repository-visibility
 ---
+
 ### リポジトリの可視性について
 
 {% if currentVersion == "github-ae@latest" %} ユーザアカウント所有のリポジトリを作成すると、リポジトリは常にプライベートになります。 Organization 所有のリポジトリを作成するときに、プライベートリポジトリにするか内部リポジトリにするかを選択できます。{% else %}リポジトリを作成するときに、リポジトリをパブリックにするかプライベートにするかを選択できます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} Enterprise アカウントが所有する Organization {% if currentVersion == "free-pro-team@latest" %} でリポジトリを作成している場合は{% endif %}、リポジトリを内部にすることもできます。{% endif %}{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-If
-{% data variables.product.product_location %} はプライベートモードでもファイアウォールの内側にありません。インターネット上のすべてのユーザがパブリックリポジトリにアクセスできます。 そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 {% if currentVersion ver_gt "enterprise-server@2.19" %} Enterprise メンバーは内部リポジトリにアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。{% endif %}
+If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 {% if currentVersion ver_gt "enterprise-server@2.19" %} Enterprise メンバーは内部リポジトリにアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。{% endif %}
 {% elsif currentVersion == "github-ae@latest" %}
 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 内部リポジトリには、すべての Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
 {% else %}

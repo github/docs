@@ -89,7 +89,7 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      # You can test your matrix by printing the current dotnet version
+      # 現在の dotnet バージョンを出力してマトリックスをテストする
       - name: Display dotnet version
         run: dotnet --version
 ```
@@ -104,7 +104,7 @@ jobs:
     - name: Setup .NET 3.x
       uses: actions/setup-dotnet@v1
       with:
-        # Semantic version range syntax or exact version of a dotnet version
+        # セマンティックバージョン範囲の構文または dotnet バージョンの正確なバージョン
         dotnet-version: '3.x' 
 ```
 {% endraw %}
@@ -145,7 +145,7 @@ steps:
 - uses: actions/cache@v2
   with:
     path: ~/.nuget/packages
-    # Look to see if there is a cache hit for the corresponding requirements file
+    # 対応する要件ファイルのキャッシュヒットがあるかどうかを確認する
     key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
     restore-keys: |
       ${{ runner.os }}-nuget
@@ -218,7 +218,7 @@ jobs:
           with:
             name: dotnet-results-${{ matrix.dotnet-version }}
             path: TestResults-${{ matrix.dotnet-version }}
-          # Use always() to always run this step to publish test results when there are test failures
+          # always() を使用して常にこのステップを実行し、テストが失敗したときにテスト結果を公開する
           if: ${{ always() }}
 ```
 {% endraw %}

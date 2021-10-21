@@ -7,9 +7,10 @@ redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-### About pushing changes to {% data variables.product.prodname_dotcom %}
+
+## About pushing changes to {% data variables.product.prodname_dotcom %}
 
 When you push changes, you send the committed changes in your local repository to the remote repository on {% data variables.product.prodname_dotcom %}. If you change your project locally and want other people to have access to the changes, you must push the changes to {% data variables.product.prodname_dotcom %}.
 
@@ -17,7 +18,7 @@ Before pushing changes, you should update your local branch to include any commi
 
 {% data reusables.desktop.protected-branches %}
 
-### Pushing changes to {% data variables.product.prodname_dotcom %}
+## Pushing changes to {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
@@ -34,6 +35,6 @@ If you configure {% data variables.large_files.product_name_long %} to track you
 2. If {% data variables.product.prodname_desktop %} prompts you to fetch new commits from the remote, click **Fetch**. ![The Fetch button](/assets/images/help/desktop/fetch-newer-commits.png)
 3. Optionally, click **Create Pull Request** to open a pull request and collaborate on your changes. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" ![The Create Pull Request button](/assets/images/help/desktop/create-pull-request.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 - "[Push](/github/getting-started-with-github/github-glossary/#push)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)"

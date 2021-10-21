@@ -6,20 +6,22 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
   - /admin/enterprise-management/about-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: About HA configuration
 ---
+
 High Availability設定をする際には、プライマリからレプリカアプライアンスへのすべてのデータストア（Gitリポジトリ、MySQL、Redis、Elasticsearch）の一方方向の非同期レプリケーションが、自動的にセットアップされます。
 
 {% data variables.product.prodname_ghe_server %} はアクティブ／パッシブ設定をサポートします。この設定では、レプリカアプライアンスはデータベースサービスをレプリケーションモードで実行しながらスタンバイとして実行しますが、アプリケーションサービスは停止します。
 
 {% data reusables.enterprise_installation.replica-limit %}
 
-### ターゲットとなる障害のシナリオ
+## ターゲットとなる障害のシナリオ
 
 以下に対する保護として、High Availability設定を使ってください。
 
@@ -31,11 +33,11 @@ High Availability設定は、以下に対するソリューションとしては
   - **プライマリアプライアンスのバックアップ**。 High Availabilityレプリカは、システム災害復旧計画のオフサイトバックアップを置き換えるものではありません。 データ破壊や損失の中には、プライマリからレプリカへ即座にレプリケーションされてしまうものもあります。 安定した過去の状態への安全なロールバックを保証するには、履歴スナップショットでの定期的なバックアップを行う必要があります。
   - **ダウンタイムゼロのアップグレード**。 コントロールされた昇格のシナリオにおけるデータ損失やスプリットブレインの状況を避けるには、プライマリアプライアンスをメンテナンスモードにして、すべての書き込みが完了するのを待ってからレプリカを昇格させてください。
 
-### ネットワークトラフィックのフェイルオーバー戦略
+## ネットワークトラフィックのフェイルオーバー戦略
 
 フェイルオーバーの間は、ネットワークトラフィックをプライマリからレプリカへリダイレクトするよう、別個に設定管理しなければなりません。
 
-#### DNSフェイルオーバー
+### DNSフェイルオーバー
 
 DNS フェイルオーバーでは、プライマリの {% data variables.product.prodname_ghe_server %} アプライアンスを指す DNS レコードに短い TTL 値を使用します。 60秒から5分の間のTTLを推奨します。
 
@@ -43,7 +45,7 @@ DNS フェイルオーバーでは、プライマリの {% data variables.produc
 
 Geo-replication を使用している場合は、トラフィックを最も近いレプリカに転送するように Geo DNS を設定する必要があります。 詳細は「[Geo-replication について](/enterprise/{{ currentVersion }}/admin/guides/installation/about-geo-replication/)」を参照してください。
 
-#### ロードバランサ
+### ロードバランサ
 
 {% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
@@ -51,11 +53,11 @@ Geo-replication を使用している場合は、トラフィックを最も近�
 
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
-### レプリケーション管理のユーティリティ
+## レプリケーション管理のユーティリティ
 
 {% data variables.product.prodname_ghe_server %} でレプリケーションを管理するには、SSH を使用してレプリカアプライアンスに接続して以下のコマンドラインユーティリティを使用します。
 
-#### ghe-repl-setup
+### ghe-repl-setup
 
 `ghe-repl-setup` コマンドは、{% data variables.product.prodname_ghe_server %} アプライアンスをレプリカスタンバイモードにします。
 
@@ -73,7 +75,7 @@ To disable replica mode and undo these changes, run `ghe-repl-teardown'.
 新たに設定されたプライマリに対してレプリケーションを開始するには`ghe-repl-start'を実行してください。
 ```
 
-#### ghe-repl-start
+### ghe-repl-start
 
 `ghe-repl-start`コマンドは、すべてのデータストアのアクティブなレプリケーションを有効化します。
 
@@ -88,7 +90,7 @@ Success: replication is running for all services.
 レプリケーションの健全性と進行状況をモニタリングするには`ghe-repl-status'を使ってください。
 ```
 
-#### ghe-repl-status
+### ghe-repl-status
 
 `ghe-repl-status`コマンドは、各データストアのレプリケーションストリームについて`OK`、`WARNING`、`CRITICAL`のいずれかのステータスを返します。 レプリケーションチャンネルのいずれかが`WARNING`ステータスにある場合、このコマンドはコード`1`で終了します。 同様に、いずれかのチャンネルが`CRITICAL`ステータスにある場合、このコマンドはコード`2`で終了します。
 
@@ -140,7 +142,7 @@ OK: pages data is in sync
   | Pages are in sync
 ```
 
-#### ghe-repl-stop
+### ghe-repl-stop
 
 `ghe-repl-stop`コマンドは、一時的にすべてのデータストアのレプリケーションを無効化し、レプリケーションサービスを停止させます。 レプリケーションを再開するには[ghe-repl-start](#ghe-repl-start)コマンドを使ってください。
 
@@ -154,7 +156,7 @@ Stopping Elasticsearch replication ...
 Success: replication was stopped for all services.
 ```
 
-#### ghe-repl-promote
+### ghe-repl-promote
 
 `ghe-repl-promote`コマンドはレプリケーションを無効化し、レプリカアプライアンスをプライマリに変換します。 アプライアンスはオリジナルのプライマリと同じ設定がなされ、すべてのサービスが有効化されます。
 
@@ -177,10 +179,10 @@ Applying configuration and starting services ...
 Success: Replica has been promoted to primary and is now accepting requests.
 ```
 
-#### ghe-repl-teardown
+### ghe-repl-teardown
 
 `ghe-repl-teardown`コマンドはレプリケーションモードを完全に無効化し、レプリカの設定を削除します。
 
-### 参考リンク
+## 参考リンク
 
 - "[High Availabilityレプリカの作成](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"

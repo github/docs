@@ -10,6 +10,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 ### 通知メール
 
 アクティビティについての全ての、または、一定の通知を受け取る選択ができます。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」を参照してください。 通知メールの内容は次のとおりです。

@@ -7,8 +7,9 @@ redirect_from:
   - /articles/about-campus-advisors
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 Os mestres, professores e mentores podem usar o treinamento online Consultores de campus para dominar o Git e o {% data variables.product.prodname_dotcom %}, bem como para conhecer as práticas recomendadas de ensino com o {% data variables.product.prodname_dotcom %}.  Para obter mais informações, consulte "[Consultores de campus](https://education.github.com/teachers/advisors)".
 
 {% note %}

@@ -9,6 +9,7 @@ versions:
 topics:
   - Early access
 ---
+
 ### Ciclo de versões do {% data variables.product.prodname_dotcom %}
 
 Os produtos e recursos do {% data variables.product.product_name %} podem passar por várias fases de versão.

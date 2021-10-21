@@ -6,15 +6,17 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 连接 Azure 订阅
 ---
-### 关于 Azure 订阅和 {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”和“[关于 {% data variables.product.prodname_registry %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)”。
+## 关于 Azure 订阅和 {% data variables.product.product_name %}
 
-连接 Azure 订阅后，您还可以管理您的支出限制。 有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)”和“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”和“[关于 {% data variables.product.prodname_registry %} 的计费](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)”。
 
-### 将 Azure 订阅连接到您的企业帐户
+连接 Azure 订阅后，您还可以管理您的支出限制。 有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)”和“[管理 {% data variables.product.prodname_actions %} 的支出限制](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”。
+
+## 将 Azure 订阅连接到您的企业帐户
 
 要连接 Azure 订阅，您必须拥有订阅的所有者权限。
 
@@ -28,7 +30,7 @@ versions:
 1. 在“Select a subscription（选择订阅）”下，选择您想要连接到企业的 Azure 订阅 ID。
 1. 单击 **Connect（连接）**。
 
-### 从企业帐户断开您的 Azure 订阅
+## 从企业帐户断开您的 Azure 订阅
 
 从企业帐户断开 Azure 订阅后，您的使用不能再超过您的计划所包含的时间量。
 

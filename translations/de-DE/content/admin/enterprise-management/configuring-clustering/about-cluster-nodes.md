@@ -6,15 +6,16 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
   - /admin/enterprise-management/about-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Clustering
   - Enterprise
 ---
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### Mindesthardwareempfehlungen
+## Mindesthardwareempfehlungen
 Jeder Knoten muss ein Root-Volume und ein separates Datenvolumen aufweisen. Es gibt Mindestempfehlungen. Entsprechend Ihrer Nutzung, beispielsweise in Bezug auf die Benutzeraktivität und die ausgewählten Integrationen, sind möglicherweise mehr Ressourcen erforderlich.
 
 |                                            Dienste                                             | Minimaler Arbeitsspeicherbedarf | Minimaler freier Speicherplatz auf dem Datenvolume |
@@ -24,7 +25,7 @@ Jeder Knoten muss ein Root-Volume und ein separates Datenvolumen aufweisen. Es g
 | `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` |              7 GB               |                       10 GB                        |
 |                                     `elasticsearch-server`                                     |              14 GB              |                       10 GB                        |
 
-### Für das Clustering erforderliche Dienste
+## Für das Clustering erforderliche Dienste
 Verwenden Sie zum Erzielen der angemessenen Redundanz diese Mindestanforderungen an Knoten, die jeden Dienst betreiben.
 
 {% tip %}
@@ -41,7 +42,7 @@ Verwenden Sie zum Erzielen der angemessenen Redundanz diese Mindestanforderungen
 |              `git-server`,<br/>`pages-server`,<br/>`storage-server`               |           3            |
 |                                    `elasticsearch-server`                                     |           3            |
 
-### Empfehlungen zum Clusterdesign
+## Empfehlungen zum Clusterdesign
 
 Mittels Clustering können Dienste, die den {% data variables.product.prodname_ghe_server %} bilden, unabhängig voneinander per Scale-out erweitert werden. Diese Flexibilität kann genutzt werden, um einen Cluster zu konzipieren und zu implementieren, der zu Organisationen mit unterschiedlichen Skalierbarkeitsanforderungen passt. Beispielsweise benötigen einige Organisationen möglicherweise Speicherdurchsätze für große oder häufige Abrufe, die Webservernutzung ist jedoch relativ gering. Eine andere Organisation besitzt möglicherweise eine gute Leistung bei weniger Speicherressourcen, benötigt jedoch viele Knoten, auf denen `pages-server` oder `elasticsearch-server` ausgeführt wird. Es sind viele verschiedene Kombinationen möglich. Wenden Sie sich an Ihren Kundenbetreuer, um die beste Clusterkonfiguration für Ihre speziellen Anforderungen zu bestimmen.
 
@@ -64,7 +65,7 @@ Mittels Clustering können Dienste, die den {% data variables.product.prodname_g
     - `storage-server`
     - `metrics-server`
 
-#### Beispielclusterdiagramm
+### Beispielclusterdiagramm
 {% note %}
 
 **Hinweis: Dies ist nur ein Beispiel.** Das optimale Clusterdesign Ihrer Organisation hängt von Ihren individuellen Anforderungen ab. Kontaktiere Deinen engagierten Ansprechpartner oder {% data variables.contact.contact_enterprise_sales %} damit wir Dir helfen können, die beste Clusterkonfiguration zu bestimmen.

@@ -5,9 +5,9 @@ redirect_from:
   - /articles/deleting-a-team
   - /github/setting-up-and-managing-organizations-and-teams/deleting-a-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
@@ -19,8 +19,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Select the team or teams you'd like to delete. ![List of teams with two teams selected](/assets/images/help/teams/list-of-teams-selected.png)
 5. Above the list of teams, use the drop-down menu and click **Delete**. ![Drop-down menu with option to change team visibility](/assets/images/help/teams/team-bulk-management-options.png)

@@ -6,16 +6,20 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - CVEs
+shortTitle: Asesorías de seguridad
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### Acerca de {% data variables.product.prodname_security_advisories %}
+## Acerca de {% data variables.product.prodname_security_advisories %}
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %} Para obtener más información, consulta la sección "[Acerca de la divulgación coordinada de las vulnerabilidades de seguridad](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)".
 
@@ -41,7 +45,7 @@ Si creaste una asesoría de seguridad en tu repositorio, esta permanecerá en tu
 
 
 
-### Números de identificación CVE
+## Números de identificación CVE
 
 Las {% data variables.product.prodname_security_advisories %} se construyen sobre las bases de la lista de Vulnerabilidades y Exposiciones Comunes (CVE, por sus siglas en inglés). El formato de asesoría de seguridad en {% data variables.product.prodname_dotcom %} es un formato estandarizado que coincide con el formato de descripción de CVE. 
 
@@ -53,6 +57,6 @@ Una vez que hayas publicado la asesoría de seguridad y que {% data variables.pr
 
 
 
-### {% data variables.product.prodname_dependabot_alerts %} para las asesorías de seguridad publicadas
+## {% data variables.product.prodname_dependabot_alerts %} para las asesorías de seguridad publicadas
 
 {% data reusables.repositories.github-reviews-security-advisories %}

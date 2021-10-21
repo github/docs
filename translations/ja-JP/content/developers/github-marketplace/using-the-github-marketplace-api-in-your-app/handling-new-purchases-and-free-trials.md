@@ -8,23 +8,25 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
   - /developers/github-marketplace/handling-new-purchases-and-free-trials
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Marketplace
+shortTitle: 新しい購入と無料トライアル
 ---
+
 {% warning %}
 
-If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+{% data variables.product.prodname_marketplace %}で{% data variables.product.prodname_github_app %}を提供している場合、アプリケーションはOAuthの認可フローに従ってユーザを識別しなければなりません。 このフローをサポートするために、別の{% data variables.product.prodname_oauth_app %}を設定する必要はありません。 詳しい情報については「[GitHub Appのユーザの特定と認可{% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
 
 {% endwarning %}
 
-### ステップ 1. 最初の購入とwebhookイベント
+## ステップ 1. 最初の購入とwebhookイベント
 
 {% data variables.product.prodname_marketplace %}アプリケーションを購入する前に、顧客は[リストプラン](/marketplace/selling-your-app/github-marketplace-pricing-plans/)を選択します。 顧客は、アプリケーションの購入を自分の個人アカウントから行うのか、あるいはOrganizationアカウントから行うのかも選択します。
 
 **Complete order and begin installation（注文を完了してインストールを開始）**をクリックすることで、顧客は購入を完了します。
 
-{% data variables.product.product_name %} then sends the [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhook with the `purchased` action to your app.
+そうすると、{% data variables.product.product_name %}は[`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhookに`purchased`アクションを付けてアプリケーションに送信します。
 
 `marketplace_purchase` webhookから`effective_date`と`marketplace_purchase`を読み取り、顧客が購入したプラン、支払いサイクルの開始時点、次の支払いサイクルの開始時点を判断してください。
 
@@ -32,29 +34,29 @@ If you offer a {% data variables.product.prodname_github_app %} in {% data varia
 
 `marketplace_purchase`イベントペイロードの例については「[{% data variables.product.prodname_marketplace %} webhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
 
-### ステップ 2. インストール
+## ステップ 2. インストール
 
-If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.product_name %} then installs the app on the account the customer selected  and grants access to the selected repositories.
+アプリケーションが{% data variables.product.prodname_github_app %}なら、{% data variables.product.product_name %}は顧客に対してアプリケーションの購入時にそのアプリケーションがアクセスできるリポジトリの選択を求めます。 そして{% data variables.product.product_name %}は、顧客が選択したアカウントにそのアプリケーションをインストールし、選択されたリポジトリへのアクセスを許可します。
 
-At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
+この時点で、{% data variables.product.prodname_github_app %}の設定で**Setup URL**を指定している場合、{% data variables.product.product_name %}は顧客をそのURLへリダイレクトさせます。 Setup URLを指定していない場合、{% data variables.product.prodname_github_app %}の購入を処理することはできません
 
 {% note %}
 
-**Note:** The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}.
+**注釈:** **Setup URL**は{% data variables.product.prodname_github_app %}の設定中でオプションとされていますが、アプリケーションを{% data variables.product.prodname_marketplace %}で提供したい場合には必須のフィールドです。
 
 {% endnote %}
 
-If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
+アプリケーションが{% data variables.product.prodname_oauth_app %}である場合、 {% data variables.product.product_name %}はそれをどこにもインストールしません。 その代わりに、{% data variables.product.product_name %}は顧客を[{% data variables.product.prodname_marketplace %}リスト](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls)で指定された**Installation URL**へ顧客をリダイレクトします。
 
-When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
+顧客が{% data variables.product.prodname_oauth_app %}を購入すると、{% data variables.product.product_name %}はその顧客を選択されたURL（Setup URLまたはInstallation URL）へリダイレクトし、そのURLには顧客が選択した価格プランがクエリパラメータの`marketplace_listing_plan_id`として含まれます。
 
-### ステップ 3. 認可
+## ステップ 3. 認可
 
 顧客がアプリケーションを購入したら、顧客をOAuthの認可フローに送らなければなりません。
 
-* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+* アプリケーションが{% data variables.product.prodname_github_app %}である場合、{% data variables.product.product_name %}が顧客を**Setup URL**にリダイレクトした後すぐに認可フローを始めます。 「[{% data variables.product.prodname_github_apps %}のユーザの特定の認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」のステップに従ってください。
 
-* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)."
+* アプリケーションが{% data variables.product.prodname_oauth_app %}である場合、{% data variables.product.product_name %}が顧客を**Installation URL**にリダイレクトした後すぐに認可フローを始めます。 「[{% data variables.product.prodname_oauth_apps %}の認可](/apps/building-oauth-apps/authorizing-oauth-apps/)」のステップに従ってください。
 
 どちらの種類のアプリケーションでも、最初のステップは顧客をhttps://github.com/login/oauth/authorizeにリダイレクトさせることです。
 
@@ -66,7 +68,7 @@ When a customer purchases an {% data variables.product.prodname_oauth_app %}, {%
 
 {% endnote %}
 
-### ステップ 4. 顧客アカウントのプロビジョニング
+## ステップ 4. 顧客アカウントのプロビジョニング
 
 アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 [ステップ3 認可](#step-3-authorization)で受け取った顧客のアクセストークンを使い、 「[認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)」エンドポイントを呼び出してください。 レスポンスには顧客の`account`情報が含まれ、その顧客が無料トライアルを利用しているかが示されます（`on_free_trial`）。 この情報を使って、セットアップとプロビジョニングを完了させてください。
 

@@ -3,25 +3,24 @@ title: GitHub Packagesのクイックスタート
 intro: '{% data variables.product.prodname_actions %}で{% data variables.product.prodname_registry %}に公開します。'
 allowTitleToDifferFromFilename: true
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: クイックスタート
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
-### はじめに
+## はじめに
 
 このガイドでは、コードをテストする{% data variables.product.prodname_actions %}ワークフローを作成して、それを{% data variables.product.prodname_registry %}に公開します。
 
-### パッケージを公開する
+## パッケージを公開する
 
-1. {% data variables.product.prodname_dotcom %} に新しいリポジトリを作成し、ノードに`.gitignore`を追加します。 {% if currentVersion ver_lt "enterprise-server@3.1" %}このパッケージを後で削除したい場合は、プライベートリポジトリを作成します。パブリックパッケージは削除できません。{% endif %}詳しい情報については、「[新しいリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)」を参照してください。
+1. {% data variables.product.prodname_dotcom %} に新しいリポジトリを作成し、ノードに`.gitignore`を追加します。 {% ifversion ghes < 3.1 %}このパッケージを後で削除したい場合は、プライベートリポジトリを作成します。パブリックパッケージは削除できません。{% endif %}詳しい情報については、「[新しいリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)」を参照してください。
 2. リポジトリをローカルマシンにクローンします。
     ```shell
-    $ git clone https://{% if currentVersion == "github-ae@latest" %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
 3. `index.js`ファイルを作成し、「Hello world!」を表示する基本的なアラートを作成します。
@@ -41,7 +40,6 @@ versions:
       ...    
     ```
     {% endraw %}
-
 5. `npm install`を実行して`package-lock.json`ファイルを生成し、変更をコミットして{% data variables.product.prodname_dotcom %}にプッシュします。
     ```shell
     $ npm install
@@ -50,7 +48,7 @@ versions:
     $ git push
     ```
 6. `.github/workflows`ディレクトリを作成します。 このディレクトリ内に、`release-package.yml`という名前のファイルを作成します。
-7. 以下の内容のYAMLを`release-package.yml`ファイルにコピーします。{% if currentVersion == "github-ae@latest" %}`YOUR-HOSTNAME`をEnterpriseの名前に置き換えてください。{% endif %}.
+7. 以下の内容のYAMLを`release-package.yml`ファイルにコピーします。{% ifversion ghae %}`YOUR-HOSTNAME`をEnterpriseの名前に置き換えてください。{% endif %}.
     ```yaml{:copy}
     name: Node.js Package
 
@@ -63,7 +61,7 @@ versions:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
             with:
               node-version: 12
           - run: npm ci
@@ -71,32 +69,49 @@ versions:
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
         permissions:
           packages: write
           contents: read{% endif %}
         steps:
           - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
+          - uses: actions/setup-node@v2
             with:
               node-version: 12
-              registry-url: {% if currentVersion == "github-ae@latest" %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
+              registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. コミットして変更を{% data variables.product.prodname_dotcom %}にプッシュします。
+8. NPMに、以下のいずれかの方法を使ってどのスコープ及びリポジトリにパッケージを公開するかを伝えます。
+   - `.npmrc`ファイルを作成することによって、リポジトリのためのNPM設定ファイルを以下の内容でルートディレクトリに追加する:
+      {% raw %}
+      ```shell
+      <em>@YOUR-USERNAME</em>:registry=https://npm.pkg.github.com
+      ```
+      {% endraw %}
+   - `package.json`ファイルを編集し、`publishConfig`キーを指定する:
+      {% raw %}
+      ```shell
+      "publishConfig": {
+        "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
+      }
+      ```
+      {% endraw %}
+9. コミットして変更を{% data variables.product.prodname_dotcom %}にプッシュします。
     ```shell
     $ git add .github/workflows/release-package.yml
+    # 前のステップで作成もしくは編集したファイルも追加する
+    $ git add <em>.npmrc or package.json</em>
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-9.  作成したワークフローは、リポジトリに新しいリリースが作成されるたびに実行されます。 テストにパスすると、パッケージは{% data variables.product.prodname_registry %}に公開されます。
+10.  作成したワークフローは、リポジトリに新しいリリースが作成されるたびに実行されます。 テストにパスすると、パッケージは{% data variables.product.prodname_registry %}に公開されます。
 
     これを試すには、リポジトリの [**Code**] タブに移動し、新しいリリースを作成します。 詳しい情報については、「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)」を参照してください。
 
-### 公開したパッケージを表示する
+## 公開したパッケージを表示する
 
 公開したすべてのパッケージは、見ることができます。
 
@@ -105,11 +120,11 @@ versions:
 {% data reusables.package_registry.navigate-to-packages %}
 
 
-### 公開したパッケージをインストールする
+## 公開したパッケージをインストールする
 
 これでパッケージを公開できたので、プロジェクト全体で依存関係として利用できます。 詳しい情報については「[npmレジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)」を参照してください。
 
-### 次のステップ
+## 次のステップ
 
 ここで追加した基本的なワークフローは、リポジトリ内に新しいリリースが作成されるたびに実行されます。 ただしこれは、{% data variables.product.prodname_registry %}でできることの手始めにすぎません。 単一のワークフローで複数のレジストリにパッケージを公開する、ワークフローをトリガーしてマージされたプルリクエストなどさまざまなイベントで実行する、コンテナを管理するなど、いろいろなことができます。
 

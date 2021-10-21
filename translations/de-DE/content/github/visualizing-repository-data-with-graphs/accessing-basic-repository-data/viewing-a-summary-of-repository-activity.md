@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Commits mit Co-Autoren sind in der Commit-Aktivitätsübersicht enthalten, falls ihre Commits in den Standardbranch des Repositorys zusammengeführt wurden und sie sich unter den Top-15-Benutzern befinden, welche die meisten Commits beigesteuert haben.
 
 ### Auf Pulse zugreifen

@@ -16,7 +16,7 @@ redirect_from:
   - /admin/configuration/configuring-backups-on-your-appliance
 intro: 'Im Rahmen eines Disaster Recovery-Plans können Sie die Produktionsdaten auf {% data variables.product.product_location %} schützen, indem Sie automatisierte Backups konfigurieren.'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Backups
@@ -24,7 +24,8 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
-### Informationen zu {% data variables.product.prodname_enterprise_backup_utilities %}
+
+## Informationen zu {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% data variables.product.prodname_enterprise_backup_utilities %} ist ein Backup-System, das Sie auf einem separaten Host installieren, der in regelmäßigen Intervallen über eine sichere SSH-Netzwerkverbindung Backup-Snapshots von {% data variables.product.product_location %} erstellt. Mit einem Snapshot können Sie eine vorhandene {% data variables.product.prodname_ghe_server %}-Instanz in einem vorherigen Zustand auf dem Backup-Host wiederherstellen.
 
@@ -32,7 +33,7 @@ Nur die seit dem letzten Snapshot hinzugefügten Daten werden über das Netzwerk
 
 Ausführlichere Informationen zu Features, Anforderungen und zur erweiterten Nutzung finden Sie in der [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme).
 
-### Vorrausetzungen
+## Vorrausetzungen
 
 Sie müssen über ein von {% data variables.product.product_location %} getrenntes Linux- oder Unix-Hostsystem verfügen, um {% data variables.product.prodname_enterprise_backup_utilities %} verwenden zu können.
 
@@ -50,7 +51,7 @@ Die Anforderungen an den physischen Speicher variieren basierend auf der Git-Rep
 
 Entsprechend Ihrer Nutzung, beispielsweise in Bezug auf die Benutzeraktivität und die ausgewählten Integrationen, sind möglicherweise mehr Ressourcen erforderlich.
 
-### {% data variables.product.prodname_enterprise_backup_utilities %} installieren
+## {% data variables.product.prodname_enterprise_backup_utilities %} installieren
 
 {% note %}
 
@@ -64,36 +65,51 @@ Entsprechend Ihrer Nutzung, beispielsweise in Bezug auf die Benutzeraktivität u
   ```
 2. Kopieren Sie die enthaltene Datei `backup.config-example` nach `backup.config`, und öffnen Sie sie in einem Editor.
 3. Legen Sie den Wert `GHE_HOSTNAME` auf den Hostnamen oder die IP-Adresse Ihrer primären {% data variables.product.prodname_ghe_server %}-Instanz fest.
+
+  {% note %}
+
+  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+
+  {% endnote %}
+
 4. Legen Sie den Wert `GHE_DATA_DIR` auf den Dateisystempfad fest, unter dem Sie Backup-Snapshots speichern möchten.
 5. Öffnen Sie unter `https://HOSTNAME/setup/settings` die Seite mit den Einstellungen Ihrer primären Instanz, und fügen Sie der Liste der autorisierten SSH-Schlüssel den SSH-Schlüssel des Backup-Hosts hinzu. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
-5. Führen Sie den Befehl `ghe-host-check` aus, um die SSH-Konnektivität mit {% data variables.product.product_location %} zu verifizieren.
+6. Führen Sie den Befehl `ghe-host-check` aus, um die SSH-Konnektivität mit {% data variables.product.product_location %} zu verifizieren.
   ```shell
   $ bin/ghe-host-check        
   ```
-  6. Führen Sie den Befehl `ghe-backup` aus, um ein anfängliches vollständiges Backup zu erstellen.
+  7. Führen Sie den Befehl `ghe-backup` aus, um ein anfängliches vollständiges Backup zu erstellen.
   ```shell
   $ bin/ghe-backup        
   ```
 
 Weitere Informationen zur erweiterten Nutzung finden Sie in der [{% data variables.product.prodname_enterprise_backup_utilities %}-Datei 'README.md'](https://github.com/github/backup-utils#readme).
 
-### Backup planen
+## Backup planen
 
 Mithilfe des Befehls `cron(8)` oder eines ähnlichen Diensts zum Planen von Befehlen können Sie regelmäßige Backups auf dem Backup-Host planen. Die konfigurierte Backup-Häufigkeit schreibt das Worst Case Recovery Point Objective (RPO) in Ihrem Wiederherstellungsplan vor. Angenommen, Sie haben das Backup so geplant, dass es täglich um Mitternacht ausgeführt wird. In diesem Fall könnten Sie in einem Notfallszenario bis zu 24 Stunden an Daten verlieren. Es wird empfohlen, mit einem stündlichen Backup-Plan zu beginnen. Dadurch wird garantiert, dass schlimmstenfalls maximal eine Stunde an Daten am Hauptstandort vernichtet wird.
 
 Wenn sich Backup-Versuche überschneiden, wird der Befehl `ghe-backup` mit einer Fehlermeldung abgebrochen. Diese gibt an, dass ein gleichzeitiges Backup vorhanden ist. In diesem Fall wird empfohlen, die Häufigkeit Ihrer geplanten Backups zu verringern. Weitere Informationen finden Sie im Abschnitt „Backups planen“ der [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups).
 
-### Backup wiederherstellen
+## Backup wiederherstellen
 
 Im Falle eines längeren Ausfalls oder einer Katastrophe am Hauptstandort können Sie {% data variables.product.product_location %} wiederherstellen. Stellen Sie dazu eine andere {% data variables.product.prodname_enterprise %}-Appliance bereit, und führen Sie auf dem Backup-Host eine Wiederherstellung aus. Sie müssen der Ziel-{% data variables.product.prodname_enterprise %}-Appliance den SSH-Schlüssel des Backup-Hosts als einen autorisierten SSH-Schlüssel hinzufügen, bevor Sie eine Appliance wiederherstellen.
 
-{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% ifversion ghes > 2.22 %}
 {% note %}
 
 **Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
 
 {% endnote %}
 {% endif %}
+
+{% note %}
+
+**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+
+For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+
+{% endnote %}
 
 Führen Sie den Befehl `ghe-restore` aus, um den letzten erfolgreichen {% data variables.product.product_location %}-Snapshot wiederherzustellen. Es sollte in etwa folgende Ausgabe angezeigt werden:
 

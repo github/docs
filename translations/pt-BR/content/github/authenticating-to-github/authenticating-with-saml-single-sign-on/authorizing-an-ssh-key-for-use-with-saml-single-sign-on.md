@@ -10,6 +10,7 @@ versions:
 topics:
   - SSO
 ---
+
 Você pode autorizar uma chave SSH existente ou criar uma e autorizá-la. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% note %}

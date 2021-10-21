@@ -7,11 +7,12 @@ redirect_from:
   - /articles/converting-an-owners-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-owners-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Converter equipe de proprietários
 ---
 
 Você tem algumas opções para converter sua equipe de proprietários legada:
@@ -19,7 +20,7 @@ Você tem algumas opções para converter sua equipe de proprietários legada:
 - Dê à organização um novo nome que denote que os integrantes têm um status especial na organização.
 - Exclua a equipe após garantir que todos os integrantes foram adicionados às equipes que concedem acesso necessário aos repositórios da organização.
 
-### Dar à equipe de proprietários um novo nome
+## Dar à equipe de proprietários um novo nome
 
 {% tip %}
 
@@ -27,8 +28,8 @@ Você tem algumas opções para converter sua equipe de proprietários legada:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. No campo de nome da equipe, escolha um novo nome para a equipe de proprietários. Por exemplo:
@@ -37,7 +38,7 @@ Você tem algumas opções para converter sua equipe de proprietários legada:
 6. Abaixo da descrição da equipe, clique em **Save and continue** (Salvar e continuar). ![O botão Save and continue (Salvar e continuar)](/assets/images/help/teams/owners-team-save-and-continue.png)
 7. Como opção, [torne a equipe *pública*](/articles/changing-team-visibility).
 
-### Excluir a equipe de proprietários legada
+## Excluir a equipe de proprietários legada
 
 {% warning %}
 
@@ -45,8 +46,8 @@ Você tem algumas opções para converter sua equipe de proprietários legada:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. Na parte inferior da página, revise o aviso e clique em **Delete the Owners team** (Excluir a equipe de proprietários). ![Link para excluir a equipe de proprietários](/assets/images/help/teams/owners-team-delete.png)

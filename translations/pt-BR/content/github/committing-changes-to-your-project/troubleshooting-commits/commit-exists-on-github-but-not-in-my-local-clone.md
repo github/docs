@@ -5,10 +5,12 @@ redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
   - /github/committing-changes-to-your-project/commit-exists-on-github-but-not-in-my-local-clone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Commit ausente no clone local
 ---
+
 Quando você usa `git show` para exibir um commit específico na linha de comando, é possível que veja um erro fatal.
 
 Por exemplo, talvez você receba um erro de `bad object` no local:
@@ -28,7 +30,7 @@ Há várias explicações possíveis:
 * O branch que contém o commit foi excluído, de modo que o commit não é mais referenciado.
 * Alguém fez push forçado no commit.
 
-### O repositório local está desatualizado
+## O repositório local está desatualizado
 
 O repositório local pode não ter o commit ainda. Para levar informações de seu repositório remote para o clone local, use `git fetch`:
 
@@ -44,7 +46,7 @@ Isso copia informações com segurança do repositório remote para o clone loca
 
 {% endtip %}
 
-### O branch que continha o commit foi excluído
+## O branch que continha o commit foi excluído
 
 Se um colaborador no repositório tiver excluído o brach contendo o commit ou tiver forçado o push no branch, o commit ausente poderá ter ficado órfão (isto é, não poderá ser alcançado de qualquer referência) e, portanto, o fetch dele não poderá ser feito no clone local.
 
@@ -68,11 +70,11 @@ $ git fetch upstream recover-B
 # Fazer fetch de commit no repositório local.
 ```
 
-### Evitar pushes forçados
+## Evitar pushes forçados
 
 Evite o push forçado em um repositório, a menos que seja absolutamente necessário. Isso se aplica especialmente quando mais de uma pessoa pode fazer push no repositório.
 
-### Leia mais
+## Leia mais
 
 - ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
 - ["Recuperação de dados" no livro _Pro Git_](https://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery)

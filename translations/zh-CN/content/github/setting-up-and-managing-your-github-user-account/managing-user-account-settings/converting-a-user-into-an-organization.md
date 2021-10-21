@@ -12,6 +12,7 @@ versions:
 topics:
   - Accounts
 ---
+
 {% warning %}
 
 **警告**：在将用户转换为组织之前，请记住以下几点：
@@ -58,5 +59,5 @@ topics:
 
 ### 延伸阅读
 - "[设置团队](/articles/setting-up-teams)"
-{% if currentVersion == "free proteam@latest" %}-"[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% if currentversion == "free proteam@latest" %}-"[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - “[访问组织](/articles/accessing-an-organization)”

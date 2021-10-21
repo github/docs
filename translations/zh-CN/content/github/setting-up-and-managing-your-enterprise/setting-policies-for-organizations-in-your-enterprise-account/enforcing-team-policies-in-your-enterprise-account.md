@@ -9,11 +9,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Enterprise
+shortTitle: 执行团队策略
 ---
-### 执行团队讨论策略
+
+## 执行团队讨论策略
 
 在企业帐户拥有的所有组织中，可以启用或禁用团队讨论，或允许所有者在组织级别管理设置。 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)”。
 

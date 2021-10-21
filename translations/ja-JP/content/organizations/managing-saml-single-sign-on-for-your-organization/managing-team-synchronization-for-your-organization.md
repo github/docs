@@ -8,17 +8,20 @@ redirect_from:
   - /github/articles/synchronizing-teams-between-okta-and-github
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization
 permissions: Organization owners can manage team synchronization for an organization.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Teamの同期の管理
 ---
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
 
 {% data reusables.gated-features.okta-team-sync %}
 
-### Team の同期について
+## Team の同期について
 
 IdP と {% data variables.product.product_name %} の間で Team の同期を有効化すると、Organization のオーナーとチームメンテナが Organization の Team を IdP グループに接続できるようになります。
 
@@ -30,11 +33,15 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 
 Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
 
-### Team の同期を有効化する
+{% data reusables.enterprise-accounts.team-sync-override %}
+
+{% data reusables.identity-and-permissions.team-sync-usage-limits %}
+
+## Team の同期を有効化する
 
 Team の同期を有効化する手順は、使用する IdP によって異なります。 各 IdP によって、Team の同期を有効化するうえで必要な環境があります。 個々の IdP ごとに、さらに必要な環境があります。
 
-#### 必要な環境
+### 必要な環境
 
 {% data reusables.identity-and-permissions.team-sync-required-permissions %}
 
@@ -42,7 +49,7 @@ Organization と、サポートされている IdP について、SAMLシング�
 
 SAML SSO とサポートされる IdP を使用してOrganization に認証される必要があります。 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
 
-#### Azure AD で Team の同期を有効化する
+### Azure AD で Team の同期を有効化する
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
@@ -54,7 +61,7 @@ SAML SSO とサポートされる IdP を使用してOrganization に認証さ�
 {% data reusables.identity-and-permissions.team-sync-confirm %}
 6. Organization に接続したいアイデンティティプロバイダのテナント情報を確認してから、[**Approve**] をクリックします。 ![特定の IdP テナントに対して、Team の同期を有効化するペンディングリクエストと、リクエストを承認またはキャンセルするオプション](/assets/images/help/teams/approve-team-synchronization.png)
 
-#### Okta で Team の同期を有効化する
+### Okta で Team の同期を有効化する
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
@@ -66,7 +73,7 @@ SAML SSO とサポートされる IdP を使用してOrganization に認証さ�
 7. Organization 名の下で、有効な SSWS トークンと Okta インスタンスの URL を入力します。 ![Okta Organization で Team の同期を有効化するフォーム](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
 6. Organization に接続したいアイデンティティプロバイダのテナント情報を確認してから、[**Create**] をクリックします。 ![Team の同期を有効化する [Create] ボタン](/assets/images/help/teams/confirm-team-synchronization-okta.png)
 
-### Team の同期を無効化する
+## Team の同期を無効化する
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 

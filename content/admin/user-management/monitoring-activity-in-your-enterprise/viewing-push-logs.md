@@ -7,8 +7,8 @@ redirect_from:
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Auditing
@@ -26,7 +26,7 @@ Push log entries show:
 - The Git client used to push
 - The SHA hashes from before and after the operation
 
-### Viewing a repository's push logs
+## Viewing a repository's push logs
 
 1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
 1. Navigate to a repository.
@@ -36,8 +36,8 @@ Push log entries show:
 4. In the left sidebar, click **Push Log**.
 ![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
-{% if enterpriseServerVersions contains currentVersion %}
-### Viewing a repository's push logs on the command-line
+{% ifversion ghes %}
+## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. In the appropriate Git repository, open the audit log file:

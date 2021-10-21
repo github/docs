@@ -5,15 +5,17 @@ redirect_from:
   - /articles/installing-an-app-in-your-personal-account
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 安装应用程序用户帐户
 ---
+
 {% data reusables.marketplace.marketplace-apps-only %}
 
 如果选择付费计划，则要使用组织现有的支付方式，在个人帐户的当前结算日期支付应用程序订阅。
 
 {% data reusables.marketplace.free-trials %}
 
-### 在个人帐户中安装 {% data variables.product.prodname_github_app %}
+## 在个人帐户中安装 {% data variables.product.prodname_github_app %}
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -26,7 +28,7 @@ versions:
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### 在个人帐户中安装 {% data variables.product.prodname_oauth_app %}
+## 在个人帐户中安装 {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -39,7 +41,7 @@ versions:
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. 检查有关应用程序对您的个人帐户和数据访问权限的信息，然后单击 **Authorize application（授权应用程序）**。
 
-### 延伸阅读
+## 延伸阅读
 
 - "[更新个人帐户的支付方式](/articles/updating-your-personal-account-s-payment-method)"
 - "[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)"

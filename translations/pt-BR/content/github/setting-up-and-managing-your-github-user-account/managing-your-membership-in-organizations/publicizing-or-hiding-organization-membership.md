@@ -12,12 +12,13 @@ versions:
 topics:
   - Accounts
 ---
+
 ![Caixa perfil da organização](/assets/images/help/profile/profile_orgs_box.png)
 
 ### Alterar a visibilidade da associação da organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Localize seu nome de usuário na lista de integrantes. Se for uma lista grande, você pode pesquisar seu nome de usuário na caixa de pesquisa. ![Caixa de pesquisa organization member (integrante da organização)](/assets/images/help/organizations/member-search-box.png)
 5. No menu ao lado direito do seu nome de usuário, escolha uma nova opção de visibilidade:

@@ -3,13 +3,15 @@ title: 使用 Azure Blob 存储启用 GitHub Actions
 intro: '您可以在 {% data variables.product.prodname_ghe_server %} 上启用 {% data variables.product.prodname_actions %}，并使用 Azure Blob 存储来存储工作流程运行生成的构件。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '>=3.0'
 topics:
   - Enterprise
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
+shortTitle: Azure Blob 存储
 ---
-### 基本要求
+
+## 基本要求
 
 在启用 {% data variables.product.prodname_actions %} 之前，请确保您已完成以下步骤：
 
@@ -26,7 +28,7 @@ redirect_from:
   有关 Azure 存储帐户类型和性能等级的更多信息，请参阅 [Azure 文档](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)。
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### 使用 Azure Blob 存储启用 {% data variables.product.prodname_actions %}
+## 使用 Azure Blob 存储启用 {% data variables.product.prodname_actions %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

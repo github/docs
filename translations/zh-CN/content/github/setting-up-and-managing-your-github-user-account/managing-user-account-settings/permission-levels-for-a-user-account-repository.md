@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### 关于用户帐户仓库的权限级别
 
 用户帐户拥有的仓库有一个所有者。 所有权权限无法与其他用户帐户共享。
@@ -32,7 +33,7 @@ topics:
 | {% if currentVersion == "free-pro-team@latest" %}邀请协作者{% else %}添加协作者{% endif %}                                                                                                            |                                                                                                                                                                                                                                                                                             |
 | "[邀请个人仓库的协作者](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)"                                                                    |                                                                                                                                                                                                                                                                                             |
 | 更改仓库的可见性                                                                                                                                                                                    | “[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)” |{% if currentVersion == "free-pro-team@latest" %}
-| 限制与仓库的交互                                                                                                                                                                                    | “[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”|{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+| 限制与仓库的交互                                                                                                                                                                                    | “[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”|{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 | 重命名分支，包括默认分支                                                                                                                                                                                | "[重命名分支](/github/administering-a-repository/renaming-a-branch)" 
 {% endif %}
 | 合并受保护分支上的拉取请求（即使没有批准审查）                                                                                                                                                                     | "[关于受保护分支](/github/administering-a-repository/about-protected-branches)"                                                                                                                                                                                                                    |

@@ -12,6 +12,7 @@ topics:
   - Accounts
   - Notifications
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
 3. Wähle im Dropdownmenü unter „Backup email address“ (Backup-E-Mail-Adresse) die E-Mail-Adresse aus, die Du als Backup-E-Mail-Adresse festlegen möchtest. ![Backup-E-Mail-Adresse](/assets/images/help/settings/backup-email-address.png)

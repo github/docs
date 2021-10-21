@@ -7,19 +7,18 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 type: how_to
+shortTitle: Publish in GitHub Marketplace
 ---
-
-{% data reusables.actions.ae-beta %}
 
 You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
-### Informationen zum Veröffentlichen von Aktionen
+## Informationen zum Veröffentlichen von Aktionen
 
 Bevor Du eine Aktion veröffentlichen kannst, musst Du eine Aktion in Deinem Repository erstellen. For more information, see "[Creating actions](/actions/creating-actions)."
 
-Wenn Du vorhast, Deine Aktion auf dem {% data variables.product.prodname_marketplace %} zu veröffentlichen, musst Du sicherstellen, dass das Repository nur jene Metadaten-, Code- und andere Dateien enthält, welche für die Aktion notwendig sind. Wenn Du ein separates Repository für die Aktion erstellst, kannst Du den Code in einer einzigen Einheit taggen, releasen und paketieren. {% data variables.product.prodname_dotcom %} verwendet auch die Metadaten der Aktion auf Deiner {% data variables.product.prodname_marketplace %}-Seite.
+Wenn Du vorhast, Deine Aktion auf dem {% data variables.product.prodname_marketplace %} zu veröffentlichen, musst Du sicherstellen, dass das Repository nur jene Metadaten-, Code- und andere Dateien enthält, welche für die Aktion notwendig sind. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} verwendet auch die Metadaten der Aktion auf Deiner {% data variables.product.prodname_marketplace %}-Seite.
 
 Aktionen werden ohne Überprüfung durch {% data variables.product.prodname_dotcom %} sofort auf dem {% data variables.product.prodname_marketplace %} veröffentlicht, sofern sie folgende Anforderungen erfüllen:
 
@@ -32,7 +31,7 @@ Aktionen werden ohne Überprüfung durch {% data variables.product.prodname_dotc
   - Der `name` darf nicht mit einer existierenden Kategorie des {% data variables.product.prodname_marketplace %} übereinstimmen.
   - {% data variables.product.prodname_dotcom %} behält sich die Namen von {% data variables.product.prodname_dotcom %}-Funktionen vor.
 
-### Eine Aktion veröffentlichen
+## Eine Aktion veröffentlichen
 
 Du kannst die von Dir erstellte Aktion auf den {% data variables.product.prodname_marketplace %} stellen, indem Du sie als neue Version markierst und publizierst.
 
@@ -47,7 +46,7 @@ Um ein neues Release zu entwerfen und die Aktion auf dem {% data variables.produ
 1. Tagge eine Aktion mit einer Version und fügen Sie einen Titel für das Release hinzu. Dies zeigt den Leuten, welche Änderungen oder Funktionen das Release umfasst. Die Leute werden die Version auf der dedizierten {% data variables.product.prodname_marketplace %}-Seite der Aktion sehen. ![Version taggen](/assets/images/help/repository/marketplace_actions_version.png)
 1. Fülle alle anderen Felder aus und klicke auf **Publish release** (Release veröffentlichen). Zum Veröffentlichen brauchst Du die Zwei-Faktor-Authentifizierung. Weitere Informationen findest Du unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication/)“. ![Release veröffentlichen](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
-### Eine Aktion vom {% data variables.product.prodname_marketplace %} entfernen
+## Eine Aktion vom {% data variables.product.prodname_marketplace %} entfernen
 
 Um eine veröffentlichte Aktion vom {% data variables.product.prodname_marketplace %} zu entfernen, musst Du jedes veröffentlichte Release aktualisieren. Führe die folgenden Schritte für jedes auf dem {% data variables.product.prodname_marketplace %} veröffentlichte Release der Aktion aus.
 

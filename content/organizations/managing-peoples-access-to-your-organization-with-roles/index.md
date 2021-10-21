@@ -6,9 +6,10 @@ redirect_from:
   - /articles/managing-peoples-access-to-your-organization-with-roles
   - /github/setting-up-and-managing-organizations-and-teams/managing-peoples-access-to-your-organization-with-roles
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,5 +19,6 @@ children:
   - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
+shortTitle: Manage access with roles
 ---
 

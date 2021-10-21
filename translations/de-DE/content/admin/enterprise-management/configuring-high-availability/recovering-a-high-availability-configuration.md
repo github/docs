@@ -6,16 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
   - /admin/enterprise-management/recovering-a-high-availability-configuration
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Recover a HA configuration
 ---
+
 Sie können die vorherige primäre Appliance als neue Replikat-Appliance verwenden, sofern das Failover geplant war oder nicht mit dem Appliance-Zustand in Zusammenhang stand. Wenn das Failover mit einem Problem an der primären Appliance zusammenhing, sollten Sie ggf. eine neue Replikat-Appliance erstellen. Weitere Informationen finden Sie unter „[Hochverfügbarkeitsreplikat erstellen](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)“.
 
-### Vorherige primäre Appliance als neues Replikat konfigurieren
+## Vorherige primäre Appliance als neues Replikat konfigurieren
 
 1. Stellen Sie mittels SSH eine Verbindung zur IP-Adresse der vorherigen primären Appliance her.
   ```shell

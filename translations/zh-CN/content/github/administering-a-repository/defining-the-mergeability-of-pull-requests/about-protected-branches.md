@@ -23,6 +23,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### 关于分支保护规则
 
 您可以通过创建分支保护规则，实施某些工作流程或要求，以规定协作者如何向您仓库中的分支推送更改，包括将拉取请求合并到分支。
@@ -40,6 +41,8 @@ topics:
 对于每个分支保护规则，您可以选择启用或禁用以下设置。
 - [合并前必需拉取请求审查](#require-pull-request-reviews-before-merging)
 - [合并前必需状态检查](#require-status-checks-before-merging)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+- [Require conversation resolution before merging（在合并前需要对话解决）](#require-conversation-resolution-before-merging){% endif %}
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
 - [包括管理员](#include-administrators)
@@ -96,6 +99,12 @@ remote: error: Changes have been requested.
 
 有关故障排除信息，请参阅“[必需状态检查故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+#### 合并前需要对话解决
+
+在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
+{% endif %}
+
 #### 要求签名提交
 
 在分支上启用必需提交签名时，贡献者{% if currentVersion == "free-pro-team@latest" %}和自动程序{% endif %}只能将已经签名并验证的提交推送到分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”。
@@ -131,8 +140,7 @@ remote: error: Changes have been requested.
 #### 限制谁可以推送到匹配的分支
 
 {% if currentVersion == "free-pro-team@latest" %}
-如果您的仓库由组织拥有，您可以使用
-{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 启用分支限制。
+如果您的仓库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所拥有，您可以启用分支限制。
 {% endif %}
 
 启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。

@@ -4,14 +4,18 @@ intro: セキュリティアドバイザリからコラボレータを削除す�
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
+shortTitle: コラボレータの削除
 ---
 
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリからコラボレータを削除できます。
 
-### セキュリティアドバイザリからコラボレータを削除する
+## セキュリティアドバイザリからコラボレータを削除する
 
 {% data reusables.repositories.security-advisory-collaborators-public-repositories %}
 
@@ -22,7 +26,7 @@ topics:
 5. ページの右側にある、[Collaborators] の下で、セキュリティアドバイザリから削除するユーザまたは Team の名前を探します。 ![セキュリティアドバイザリのコラボレータ](/assets/images/help/security/security-advisory-collaborator.png)
 6. 削除するコラボレーターの横にある [**X**] アイコンをクリックします。 ![セキュリティアドバイザリからコラボレータを削除する [X] アイコン](/assets/images/help/security/security-advisory-remove-collaborator-x.png)
 
-### 参考リンク
+## 参考リンク
 
 - 「[セキュリティアドバイザリの権限レベル](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)」
 - 「[セキュリティアドバイザリにコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)」

@@ -1,14 +1,17 @@
 ---
-title: Managing security advisories for vulnerabilities in your project
+title: プロジェクト中の脆弱性に関するセキュリティアドバイザリの管理
 shortTitle: セキュリティアドバイザリ
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using security advisories.'
+intro: セキュリティアドバイザリを利用したリポジトリ内のセキュリティ脆弱性に関する議論、修正、開示
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Repositories
+  - CVEs
 children:
   - /about-coordinated-disclosure-of-security-vulnerabilities
   - /about-github-security-advisories
@@ -21,4 +24,4 @@ children:
   - /editing-a-security-advisory
   - /withdrawing-a-security-advisory
 ---
-### 目次
+

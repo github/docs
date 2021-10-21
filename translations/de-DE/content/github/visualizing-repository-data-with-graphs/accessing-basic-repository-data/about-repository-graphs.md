@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Die Diagramme eines Repositorys geben Dir Informationen über {% if currentVersion == "free-pro-team@latest" %}Traffic, vom Repository abhängige Projekte, {% endif %}Mitarbeiter und Commits des Repositorys sowie die Forks und das Netzwerk eines Repositorys. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
 
 {% if currentVersion == "free-pro-team@latest" %}

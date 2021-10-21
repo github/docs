@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
 ---
+
 ### プロフィール README について
 
 プロフィール README を作成すると、{% data variables.product.prodname_dotcom %} で自分に関する情報をコミュニティと共有できます。 {% data variables.product.prodname_dotcom %} では、プロフィールページの上部にプロフィール README が表示されます。

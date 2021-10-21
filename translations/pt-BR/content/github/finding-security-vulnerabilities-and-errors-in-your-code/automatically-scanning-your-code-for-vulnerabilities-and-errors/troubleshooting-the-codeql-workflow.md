@@ -4,22 +4,23 @@ shortTitle: Solucionar problemas do CodeQL
 intro: 'Se você estiver tendo problemas com {% data variables.product.prodname_code_scanning %}, você usar estas dicas para resolver problemas.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  enterprise-server: '2.22'
+  ghes: '2.22'
 topics:
   - Security
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-### Produzir registros detalhados para depuração
+## Produzir registros detalhados para depuração
 
 Para produzir a saída de log mais detalhada, você pode habilitar o log de depuração da etapa. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
 
-### Ocorreu uma falha durante a criação automática para uma linguagem compilada
+## Ocorreu uma falha durante a criação automática para uma linguagem compilada
 
 Se ocorrer uma falha na uma criação automática de código para uma linguagem compilada dentro de seu projeto, tente as seguintes etapas para a solução de problemas.
 
@@ -31,10 +32,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   ```yaml
   jobs:
-    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
-      permissions:
-        security-events: write
-        actions: read{% endif %}
+    analyze:
       ...
       strategy:
         fail-fast: false
@@ -51,7 +49,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   Para obter mais informações sobre a edição do fluxo de trabalho, consulte "[Configurar a varredura de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)".
 
-### Nenhum código encontrado durante a criação
+## Nenhum código encontrado durante a criação
 
 Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto durante a criação` ou `O processo '/opt/hostedtoolcache/CodeQL/0. .0-20200630/x64/codeql/codeql' falhou com o código de saída 32`, isto indica que {% data variables.product.prodname_codeql %} não foi capaz de monitorar o seu código. Há várias explicações para essa falha:
 
@@ -87,23 +85,23 @@ Para obter mais informações, consulte a extração de fluxo de trabalho em "[C
 
 Para obter mais informações sobre a especificação de etapas de criação, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### Partes do meu repositório não foram analisadas usando `build automático`
+## Partes do meu repositório não foram analisadas usando `build automático`
 
 O recurso de {% data variables.product.prodname_codeql %} `autobuild` usa heurística para criar o código em um repositório. No entanto, às vezes, essa abordagem resulta em uma análise incompleta de um repositório. Por exemplo, quando uma compilação múltipla de `build.sh` existe em um único repositório, é possível que a análise não seja concluída, já que a etapa `autobuild` executará apenas um dos comandos. A solução é substituir a etapa `autobuild` pelas etapas de criação que criam todo o código-fonte que você deseja analisar. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-### A criação demora muito tempo
+## A criação demora muito tempo
 
 Se a sua criação com a análise de {% data variables.product.prodname_codeql %} demorar muito para ser executada, existem várias abordagens que você pode tentar para reduzir o tempo de criação.
 
-#### Usar criações da matriz para paralelizar a análise
+### Usar criações da matriz para paralelizar a análise
 
 Se você usar executores auto-hospedados para executar a análise do {% data variables.product.prodname_codeql %}, você poderá aumentar a memória ou o número de núcleos nesses executores.
 
-#### Usar criações da matriz para paralelizar a análise
+### Usar criações da matriz para paralelizar a análise
 
 O {% data variables.product.prodname_codeql_workflow %} padrão usa uma matriz de criação de linguagens, o que faz com que a análise de cada linguagem seja executada em paralelo. Se você especificou as linguagens que deseja analisar diretamente na etapa "Inicializar CodeQL", a análise de cada linguagem acontecerá sequencialmente. Para acelerar a análise de várias linguagens, modifique o seu fluxo de trabalho para usar uma matriz. Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
 
-#### Reduz a quantidade de código em análise em um único fluxo de trabalho
+### Reduz a quantidade de código em análise em um único fluxo de trabalho
 
 O tempo de análise é tipicamente proporcional à quantidade de código em análise. Você pode reduzir o tempo de análise reduzindo a quantidade de código em análise de uma vez, por exemplo, excluindo o código de teste, ou dividindo a análise em vários fluxos de trabalho que analisam apenas um subconjunto do seu código por vez.
 
@@ -113,19 +111,19 @@ Para linguagens interpretadas como Go, JavaScript, Python e TypeScript, que {% d
 
 Se você dividir sua análise em vários fluxos de trabalho, conforme descrito acima, ainda assim recomendamos que você tenha pelo menos um fluxo de trabalho que seja executado em um `agendamento` que analise todo o código no seu repositório. Já que o {% data variables.product.prodname_codeql %} analisa os fluxos de dados entre os componentes, alguns comportamentos de segurança complexos só podem ser detectados em uma criação completa.
 
-#### Executar somente durante um evento de </code>agendamento`</h4>
+### Executar somente durante um evento de </code>agendamento`</h3>
 
 <p spaces-before="0">Se sua análise ainda é muito lenta para ser executada durante eventos <code>push` ou `pull_request`, você poderá acionar apenas a análise no evento `agendamento`. Para obter mais informações, consulte "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".</p>
 
-### Error: "Erro do servidor"
+## Error: "Erro do servidor"
 
 Se a execução de um fluxo de trabalho para {% data variables.product.prodname_code_scanning %} falhar devido a um erro no servidor, tente executar o fluxo de trabalho novamente. Se o problema persistir, entre em contato com {% data variables.contact.contact_support %}.
 
-### Erro: "Fora do disco" ou "Sem memória"
+## Erro: "Fora do disco" ou "Sem memória"
 
 Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar ficar sem disco ou sem memória no executor do {% data variables.product.prodname_actions %} hospedado. Se você encontrar esse problema, tente aumentar a memória no executor.
 
-### Aviso: "git checkout HEAD^2 is no longer necessary"
+## Aviso: "git checkout HEAD^2 is no longer necessary"
 
 Se você estiver usando um fluxo de trabalho antigo de {% data variables.product.prodname_codeql %}, você poderá receber o aviso a seguir na saída "Inicializar {% data variables.product.prodname_codeql %}" da ação:
 

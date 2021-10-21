@@ -6,25 +6,30 @@ redirect_from:
   - /articles/permission-levels-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 组织权限
 ---
 
-### 组织的权限级别
+## 组织的权限级别
 
-组织成员可以是*所有者*{% if currentVersion == "free-pro-team@latest" %}、*帐单管理员*{% endif %} 或*成员*角色。
+组织成员可以是*所有者*{% ifversion fpt %}、*帐单管理员*{% endif %} 或*成员*角色。
 
 - **所有者**对组织具有全面的管理权限。 此角色应限于组织中的少数几个人，但不少于两人。 更多信息请参阅“[管理组织的所有权连续性](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)”。
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 - **帐单管理员**允许个人管理帐单设置。 更多信息请参阅“[为组织添加帐单管理员](/articles/adding-a-billing-manager-to-your-organization)”。
 {% endif %}
 - **成员**是其他每个人的默认角色。
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
+Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
+
+{% ifversion fpt %}
 <!--Dotcom version has extra column for Billing managers-->
 
 | 组织操作                                                                                                                                                                                                                                                |  所有者  |  成员   | 帐单管理员 |
@@ -41,9 +46,9 @@ topics:
 | 设置预定提醒（请参阅“[管理拉取请求的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)”）                                                                                                                  | **X** |       |       |
 | 添加协作者到**所有仓库**                                                                                                                                                                                                                                      | **X** |       |       |
 | 访问组织审核日志                                                                                                                                                                                                                                            | **X** |       |       |
-| 编辑组织的资料页面（详细信息请参阅“[关于组织的资料](/articles/about-your-organization-s-profile)”）                                                                                                                                                                          | **X** |       |       |
+| 编辑组织的资料页面（详细信息请参阅“[关于组织的资料](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)”）                                                                                                        | **X** |       |       |
 | 验证组织的域（详细信息请参阅“[验证组织的域](/articles/verifying-your-organization-s-domain)”）                                                                                                                                                                           | **X** |       |       |
-| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)" for details)     | **X** |       |       |
+| 将电子邮件通知限于已经验证或批准的域名（有关详细信息，请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”）                                                                                               | **X** |       |       |
 | 删除**所有团队**                                                                                                                                                                                                                                          | **X** |       |       |
 | 删除组织帐户，包括所有仓库                                                                                                                                                                                                                                       | **X** |       |       |
 | 创建团队（详细信息请参阅“[在组织中设置团队创建权限](/articles/setting-team-creation-permissions-in-your-organization)”）                                                                                                                                                     | **X** | **X** |       |
@@ -86,61 +91,62 @@ topics:
 {% else %}
 <!--GHE version doesn't have the extra column for Billing managers-->
 
-| 组织操作                                                                                                                                                                                                                                                |  所有者  |                                                成员                                                |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-----:|:------------------------------------------------------------------------------------------------:|
-| 邀请人员加入组织                                                                                                                                                                                                                                            | **X** |                                                                                                  |
-| 编辑和取消邀请加入组织                                                                                                                                                                                                                                         | **X** |                                                                                                  |
-| 从组织删除成员                                                                                                                                                                                                                                             | **X** |                                                |                                                 |
-| 恢复组织的前成员                                                                                                                                                                                                                                            | **X** |                                                |                                                 |
-| 添加和删除**所有团队**的人员                                                                                                                                                                                                                                    | **X** |                                                                                                  |
-| 将组织成员升级为*团队维护员*                                                                                                                                                                                                                                     | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| 配置代码审查分配（请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”）                                                                                                                            | **X** |                                           
+| 组织操作                                                                                                                                                                                                                                                |  所有者  |               成员               |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-----:|:------------------------------:|
+| 邀请人员加入组织                                                                                                                                                                                                                                            | **X** |                                |
+| 编辑和取消邀请加入组织                                                                                                                                                                                                                                         | **X** |                                |
+| 从组织删除成员                                                                                                                                                                                                                                             | **X** |               |                |
+| 恢复组织的前成员                                                                                                                                                                                                                                            | **X** |               |                |
+| 添加和删除**所有团队**的人员                                                                                                                                                                                                                                    | **X** |                                |
+| 将组织成员升级为*团队维护员*                                                                                                                                                                                                                                     | **X** |                                |
+| 配置代码审查分配（请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”）                                                                                                                            | **X** |                                |
+| 添加协作者到**所有仓库**                                                                                                                                                                                                                                      | **X** |                                |
+| 访问组织审核日志                                                                                                                                                                                                                                            | **X** |                                |
+| 编辑组织的资料页面（详细信息请参阅“[关于组织的资料](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)”）                                                                                                        | **X** | |  |{% ifversion ghes > 3.1 %}
+| 验证组织的域（详细信息请参阅“[验证组织的域](/articles/verifying-your-organization-s-domain)”）                                                                                                                                                                           | **X** |                                |
+| 将电子邮件通知限于已经验证或批准的域名（有关详细信息，请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”）                                                                                               | **X** |          
 {% endif %}
-| 添加协作者到**所有仓库**                                                                                                                                                                                                                                      | **X** |                                                                                                  |
-| 访问组织审核日志                                                                                                                                                                                                                                            | **X** |                                                                                                  |
-| 编辑组织的资料页面（详细信息请参阅“[关于组织的资料](/articles/about-your-organization-s-profile)”）                                                                                                                                                                          | **X** |                                                |                                                 |
-| 删除**所有团队**                                                                                                                                                                                                                                          | **X** |                                                                                                  |
-| 删除组织帐户，包括所有仓库                                                                                                                                                                                                                                       | **X** |                                                                                                  |
-| 创建团队（详细信息请参阅“[在组织中设置团队创建权限](/articles/setting-team-creation-permissions-in-your-organization)”）                                                                                                                                                     | **X** |                                              **X**                                               |
-| 查看所有组织成员和团队                                                                                                                                                                                                                                         | **X** |                                              **X**                                               |
-| @提及任何可见团队                                                                                                                                                                                                                                           | **X** |                                              **X**                                               |
-| 可成为*团队维护员*                                                                                                                                                                                                                                          | **X** |                                              **X**                                               |
-| 转让仓库                                                                                                                                                                                                                                                | **X** |                                                                                                  |
-| 管理组织的 SSH 认证中心（详细信息请参阅“[管理组织的 SSH 认证中心](/articles/managing-your-organizations-ssh-certificate-authorities)”）                                                                                                                                        | **X** |                                                                                                  |
-| 创建项目板（详细信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”）                                                                                                                                                                 | **X** |                                             **X** |                                              |
-| 查看并发布公共团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”）                                                                                                                                         | **X** |                                             **X** |                                              |
-| 查看并发布私有团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”）                                                                                                                                         | **X** |                                                |                                                 |
-| 编辑和删除**所有团队**中的团队讨论（更多信息请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)”）                                                                                                                            | **X** |                                                |                                                 |
-| 隐藏对提交、拉取请求和议题的评论（详细信息请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)”）                                                                                                             | **X** |                                          **X** | **X**                                           |
-| 对组织禁用团队讨论（详细信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”）                                                                                                                                                         | **X** |                                                |                                                 |
-| 设置**所有团队**的团队头像（详细信息请参阅“[设置团队的头像](/articles/setting-your-team-s-profile-picture)”）                                                                                                                                                                  | **X** |                    |  |{% if currentVersion ver_gt "enterprise-server@3.0" %}
-| 管理从组织中的仓库发布 {% data variables.product.prodname_pages %} 站点（请参阅“[管理组织的 {% data variables.product.prodname_pages %} 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”了解详细信息） | **X** |                                           
+| 删除**所有团队**                                                                                                                                                                                                                                          | **X** |                                |
+| 删除组织帐户，包括所有仓库                                                                                                                                                                                                                                       | **X** |                                |
+| 创建团队（详细信息请参阅“[在组织中设置团队创建权限](/articles/setting-team-creation-permissions-in-your-organization)”）                                                                                                                                                     | **X** |             **X**              |
+| 查看所有组织成员和团队                                                                                                                                                                                                                                         | **X** |             **X**              |
+| @提及任何可见团队                                                                                                                                                                                                                                           | **X** |             **X**              |
+| 可成为*团队维护员*                                                                                                                                                                                                                                          | **X** |             **X**              |
+| 转让仓库                                                                                                                                                                                                                                                | **X** |                                |
+| 管理组织的 SSH 认证中心（详细信息请参阅“[管理组织的 SSH 认证中心](/articles/managing-your-organizations-ssh-certificate-authorities)”）                                                                                                                                        | **X** |                                |
+| 创建项目板（详细信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”）                                                                                                                                                                 | **X** |            **X** |             |
+| 查看并发布公共团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”）                                                                                                                                         | **X** |            **X** |             |
+| 查看并发布私有团队讨论到**所有团队**（详细信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”）                                                                                                                                         | **X** |               |                |
+| 编辑和删除**所有团队**中的团队讨论（更多信息请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)”）                                                                                                                            | **X** |               |                |
+| 隐藏对提交、拉取请求和议题的评论（详细信息请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)”）                                                                                                             | **X** |         **X** | **X**          |
+| 对组织禁用团队讨论（详细信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”）                                                                                                                                                         | **X** |               |                |
+| 设置**所有团队**的团队头像（详细信息请参阅“[设置团队的头像](/articles/setting-your-team-s-profile-picture)”）                                                                                                                                                                  | **X** | |  |{% ifversion ghes > 3.0 %}
+| 管理从组织中的仓库发布 {% data variables.product.prodname_pages %} 站点（请参阅“[管理组织的 {% data variables.product.prodname_pages %} 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”了解详细信息） | **X** |          
 {% endif %}
-| [在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)                                                                                                                                                                           | **X** |                                                |                                                 |
-| 拉取（读取）、推送（写入）和克隆（复制）组织中的*所有仓库*                                                                                                                                                                                                                      | **X** |                                                                                                  |
-| 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                             | **X** |                                                                                                  |
-| [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                         | **X** |                                                                                                  |
-| [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                             | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |                                           
-{% endif %}
-{% if currentVersion == "github-ae@latest" %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** |{% endif %}
+| [在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)                                                                                                                                                                           | **X** |               |                |
+| 拉取（读取）、推送（写入）和克隆（复制）组织中的*所有仓库*                                                                                                                                                                                                                      | **X** |                                |
+| 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                             | **X** |                                |
+| [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                         | **X** |                                |
+| [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                             | **X** |                                |
+| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |                                |
+{% ifversion ghae %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** |{% endif %}
 
 {% endif %}
 
-### {% data variables.product.prodname_github_app %} 管理员
+## {% data variables.product.prodname_github_app %} 管理员
 
-默认情况下，只有组织所有者才可管理组织拥有的 {% data variables.product.prodname_github_app %} 的设置。 要允许其他用户管理组织拥有的 {% data variables.product.prodname_github_app %}，所有者可向他们授予 {% data variables.product.prodname_github_app %} 管理员权限。
+By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
-指定用户为组织中 {% data variables.product.prodname_github_app %} 的管理员时，您可以授予他们对组织拥有的部分或全部 {% data variables.product.prodname_github_app %} 的设置进行管理的权限。 更多信息请参阅：
+When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. 更多信息请参阅：
 
 - "[为组织添加 GitHub 应用程序管理员](/articles/adding-github-app-managers-in-your-organization)"
 - "[从组织删除 GitHub 应用程序管理员](/articles/removing-github-app-managers-from-your-organization)"
 
-### 外部协作者
+## 外部协作者
 
 在允许访问仓库时，为确保组织数据的安全，您可以添加*外部协作者*。 {% data reusables.organizations.outside_collaborators_description %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"
 - "[关于团队](/articles/about-teams)"

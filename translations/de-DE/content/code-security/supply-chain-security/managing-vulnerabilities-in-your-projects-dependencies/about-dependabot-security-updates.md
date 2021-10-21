@@ -1,19 +1,26 @@
 ---
 title: About Dependabot security updates
 intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
-shortTitle: About Dependabot security updates
+shortTitle: Dependabot security updates
 redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: overview
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Vulnerabilities
+  - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
-### Informationen zu {% data variables.product.prodname_dependabot_security_updates %}
+## Informationen zu {% data variables.product.prodname_dependabot_security_updates %}
 
 {% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. If you enable this feature, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
@@ -34,7 +41,7 @@ You can enable a related feature, {% data variables.product.prodname_dependabot_
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-### About pull requests for security updates
+## About pull requests for security updates
 
 Each pull request contains everything you need to quickly and safely review and merge a proposed fix into your project. This includes information about the vulnerability like release notes, changelog entries, and commit details. Details of which vulnerability a pull request resolves are hidden from anyone who does not have access to {% data variables.product.prodname_dependabot_alerts %} for the repository.
 
@@ -42,10 +49,10 @@ When you merge a pull request that contains a security update, the corresponding
 
 {% data reusables.dependabot.automated-tests-note %}
 
-### Informationen zu Kompatibilitätsbewertungen
+## Informationen zu Kompatibilitätsbewertungen
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a vulnerability could cause breaking changes to your project. These are calculated from CI tests in other public repositories where the same security update has been generated. An update's compatibility score is the percentage of CI runs that passed when updating between specific versions of the dependency.
+{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. These are calculated from CI tests in other public repositories where the same security update has been generated. An update's compatibility score is the percentage of CI runs that passed when updating between specific versions of the dependency.
 
-### About notifications for {% data variables.product.prodname_dependabot %} security updates
+## About notifications for {% data variables.product.prodname_dependabot %} security updates
 
 You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} security updates. Weitere Informationen findest Du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."

@@ -9,7 +9,7 @@
 - 
   term: 帐户恢复令牌
   description: >-
-    作为帐户恢复设置一部分存储的身份验证凭据称为“异地恢复帐户”，用于存储此备份凭据。
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: API 预览
   description: >-
@@ -78,7 +78,7 @@
   term: 卡
   description: 项目板中与某个议题或拉取请求关联的可移动方框。
 - 
-  term: 检查
+  term: check
   description: >-
     检查是指 {% data variables.product.product_name %} 上的一种状态检查。请参阅“[状态检查](#status-checks)”。
 - 
@@ -181,7 +181,7 @@
 - 
   term: 默认分支
   description: >-
-    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
+    仓库中新拉取请求和代码提交的基本分支。每个仓库至少有一个分支，Git 会在您初始化仓库时创建该分支。第一个分支通常称为 {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}，并且通常是默认分支。
 - 
   term: 从属者图
   description: >-
@@ -250,9 +250,9 @@
   description: >-
     免费的用户帐户结算方案。用户可以通过无限的协作者协作处理无限的公共仓库。
 - 
-  term: Gist
+  term: gist
   description: >-
-    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% ifversion ghae %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% ifversion ghae %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 默认开发分支。每当您创建 Git 仓库时，都会创建名为 `main` 的分支，它将成为活动分支。在大多数情况下，它包含本地开发内容，但这完全是就惯例而言，并不是必需的。{% else %}通常选择名称替代仓库默认分支的名称 `master`。{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} 默认开发分支。每当您创建 Git 仓库时，都会创建名为 `main` 的分支，它将成为活动分支。在大多数情况下，它包含本地开发内容，但这完全是就惯例而言，并不是必需的。{% else %}通常选择名称替代仓库默认分支的名称 `master`。{% endif %}
 - 
   term: master
   description: >-
-    许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
+    许多 Git 仓库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。{% ifversion fpt or ghes > 3.1 or ghae %} 例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。{% endif %}
 - 
   term: 成员图
   description: 显示仓库所有分叉的仓库图。
@@ -574,7 +574,7 @@
 - 
   term: 异地恢复帐户
   description: >-
-    允许用户在无法使用双重身份验证方法或恢复代码时向其 GitHub 帐户添加额外一重安全保护。用户可以通过 Facebook 以帐户恢复令牌的形式存储其 GitHub 帐户的身份验证凭据，将其 GitHub 帐户与其 Facebook 帐户相关联。
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: 恢复代码
   description: 帮助您重新获取对 GitHub 帐户的访问权限的代码。
@@ -654,6 +654,10 @@
   description: >-
     列出最近 50 次操作或过去 90 天内执行的操作的日志。
 - 
+  term: server-to-server request
+  description: >-
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+- 
   term: 服务挂钩
   description: >-
     也称为“Web 挂钩”。Web 挂钩是一种通知方式，只要仓库或组织上发生特定操作，就会发送通知到外部 web 服务器。
@@ -680,7 +684,7 @@
   description: >-
     拉取请求中的可视表现形式，表示您的提交符合您参与的仓库所设定的条件。
 - 
-  term: 状态检查
+  term: status checks
   description: >-
     状态检查是外部进程，例如持续集成构建，它们针对您在仓库中的每个提交而运行。更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
 - 
@@ -714,7 +718,7 @@
   description: >-
     探索特定主题领域的仓库、查找要参与的项目以及发现特定问题的新解决方案的一种方式。
 - 
-  term: 通信图，流量图
+  term: traffic graph
   description: >-
     显示仓库流量的仓库图，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点及热门内容。
 - 
@@ -737,6 +741,10 @@
   term: 用户名
   description: 用户在 GitHub 上的句柄。
 - 
+  term: user-to-server request
+  description: >-
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
+- 
   term: 可见团队
   description: 可被每个组织成员查看和 @提及的团队。
 - 
@@ -754,9 +762,6 @@
   term: web 挂钩
   description: >-
     Web 挂钩可让您构建或设置订阅 GitHub.com 上特定事件的 GitHub 应用程序。Web 挂钩提供一种通知方式，只要仓库或组织中发生特定操作，就会发送通知到外部 web 服务器。也称为“服务挂钩”。
-- 
-  term: 与 GitHub 结合使用
-  description: 支持 GitHub 的集成列表。
 - 
   term: 写入权限
   description: >-

@@ -5,11 +5,13 @@ redirect_from:
   - /articles/organizing-information-with-tables
   - /github/writing-on-github/organizing-information-with-tables
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+shortTitle: Dados organizados com tabelas
 ---
-### Criar uma tabela
+
+## Criar uma tabela
 
 Você pode criar tabelas com barras verticais `|` e hifens `-`. Os hifens são usados para criar o cabeçalho das colunas e as barras verticais, para separar as colunas. Você deve incluir uma linha em branco antes da tabela para ela ser construída corretamente.
 
@@ -36,7 +38,7 @@ As células podem ter largura variada e não precisam estar alinhadas perfeitame
 
 ![Tabela construída com largura de célula variada](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-### Formatar conteúdo dentro da tabela
+## Formatar conteúdo dentro da tabela
 
 Você pode usar [formatação](/articles/basic-writing-and-formatting-syntax), como links, blocos de código em linhas e estilos de texto em sua tabela:
 
@@ -60,7 +62,7 @@ Você pode alinhar o texto à esquerda, direita ou centralizar uma coluna inclui
 
 ![Tabela construída com alinhamento de texto à esquerda, centralizado e à direita](/assets/images/help/writing/table-aligned-text-rendered.png)
 
-Para incluir uma barra vertical `|` como conteúdo dentro da célula, use `\` antes da barra vertical:
+Para incluir uma barra vertical `|` como conteúdo dentro de sua célula, use `\` antes da barra vertical:
 
 ```markdown
 | Nome   | Caractere |
@@ -71,7 +73,7 @@ Para incluir uma barra vertical `|` como conteúdo dentro da célula, use `\` an
 
 ![Tabela construída com barra vertical solta](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-### Leia mais
+## Leia mais
 
 - [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
 - "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"

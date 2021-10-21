@@ -11,6 +11,7 @@ versions:
 topics:
   - SSH
 ---
+
 ### Kann ich den Befehl `sudo` bei Git verwenden?
 
 Du solltest den Befehl `sudo` nicht bei Git verwenden. Wenn Du `sudo` aus einem *sehr guten Grund* verwenden musst, stelle sicher, dass Du ihn bei jedem Befehl verwendest (wahrscheinlich ist es besser, `su` zu verwenden, um an dieser Stelle eine Shell als Root zu bekommen). Wenn Du [SSH-Schlüssel](/articles/generating-an-ssh-key) ohne `sudo` erzeugst und dann versuchst, einen Befehl wie `sudo git push` auszuführen, verwendest Du andere Schlüssel als die von Dir erzeugten.

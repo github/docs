@@ -6,10 +6,11 @@ redirect_from:
   - /articles/editing-a-saved-reply
   - /github/writing-on-github/editing-a-saved-reply
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.saved_replies %}
 3. Klicken Sie unter „Saved replies“ (Gespeicherte Antworten) neben der gespeicherten Antwort, die Sie bearbeiten möchten, auf {% octicon "pencil" aria-label="The pencil" %}.  
@@ -17,7 +18,7 @@ versions:
 4. Unter „Edit saved reply“ (Gespeicherte Antwort bearbeiten) kannst Du den Titel und den Inhalt der gespeicherten Antwort bearbeiten. ![Titel und Inhalt bearbeiten](/assets/images/help/settings/saved-replies-edit-existing-content.png)
 5. Klicke auf **Update saved reply** (Gespeicherte Antwort aktualisieren). ![Gespeicherte Antwort aktualisieren](/assets/images/help/settings/saved-replies-save-edit.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Eine gespeicherte Antwort erstellen](/articles/creating-a-saved-reply)“
 - „[Eine gespeicherte Antwort löschen](/articles/deleting-a-saved-reply)“

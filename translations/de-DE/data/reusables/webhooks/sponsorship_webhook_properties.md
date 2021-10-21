@@ -1,3 +1,3 @@
-| Schlüssel | Typ      | Beschreibung                                                                                                                                               |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`  | `string` | die Aktion, die durchgeführt wurde. This can be one of `created`, `cancelled`, `edited`, `tier_changed`, `pending_cancellation`, or `pending_tier_change`. |
+| Schlüssel | Typ      | Beschreibung                                                                                                                                                                                                                        |
+| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`  | `string` | die Aktion, die durchgeführt wurde. This can be one of `created`, `cancelled`, `edited`, `tier_changed`, `pending_cancellation`, or `pending_tier_change`. Note: The `created` action is only triggered after payment is processed. |

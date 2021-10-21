@@ -22,6 +22,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Adicionar um repositório remoto
 
 Para adicionar um novo remoto, use o comando `adicionar remoto do git` no terminal do diretório no qual seu repositório está armazenado.

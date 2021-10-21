@@ -7,9 +7,10 @@ redirect_from:
   - /articles/managing-access-to-your-organizations-repositories
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-repositories
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,5 +26,6 @@ children:
   - /converting-an-organization-member-to-an-outside-collaborator
   - /converting-an-outside-collaborator-to-an-organization-member
   - /reinstating-a-former-outside-collaborators-access-to-your-organization
+shortTitle: Manage access to repositories
 ---
 

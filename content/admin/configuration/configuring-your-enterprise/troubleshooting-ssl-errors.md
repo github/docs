@@ -8,7 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/troubleshooting-ssl-errors
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -17,8 +17,9 @@ topics:
   - Networking
   - Security
   - Troubleshooting
+shortTitle: Troubleshoot SSL errors
 ---
-### Removing the passphrase from your key file
+## Removing the passphrase from your key file
 
 If you have a Linux machine with OpenSSL installed, you can remove your passphrase.
 
@@ -35,7 +36,7 @@ You'll be prompted for the key's passphrase when you run this command.
 
 For more information about OpenSSL, see [OpenSSL's documentation](https://www.openssl.org/docs/).
 
-### Converting your SSL certificate or key into PEM format
+## Converting your SSL certificate or key into PEM format
 
 If you have OpenSSL installed, you can convert your key into PEM format by using the `openssl` command. For example, you can convert a key from DER format into PEM format.
 
@@ -45,11 +46,11 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 Otherwise, you can use the SSL Converter tool to convert your certificate into the PEM format. For more information, see the [SSL Converter tool's documentation](https://www.sslshopper.com/ssl-converter.html).
 
-### Unresponsive installation after uploading a key
+## Unresponsive installation after uploading a key
 
 If {% data variables.product.product_location %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
 
-### Certificate validity errors
+## Certificate validity errors
 
 Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an SSL certificate. This often occurs with self-signed certificates as well as "chained root" certificates issued from an intermediate root certificate that is not recognized by the client.
 
@@ -61,7 +62,7 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 
 You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or SSL vendor.
 
-### Installing self-signed or untrusted certificate authority (CA) root certificates
+## Installing self-signed or untrusted certificate authority (CA) root certificates
 
 If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
 

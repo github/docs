@@ -17,6 +17,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 {% data reusables.user_settings.access_settings %}
 2. 在左侧边栏中，单击 **Repositories（仓库）**。 ![仓库选项卡](/assets/images/help/settings/settings-sidebar-repositories.png)
 3. 在您要离开的仓库旁边，单击 **Leave（离开）**。 ![离开按钮](/assets/images/help/repository/repo-leave.png)

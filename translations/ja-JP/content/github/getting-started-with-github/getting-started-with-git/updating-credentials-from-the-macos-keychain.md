@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data reusables.user_settings.password-authentication-deprecation %}
 
 ### キーチェーンアクセスを介して認証情報を更新する

@@ -5,12 +5,13 @@ redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub search
 ---
+
 Para exibir bifurcações nos resultados da [pesquisa no repositório](/articles/searching-for-repositories), adicione `fork:true` ou `fork:only` à sua consulta.
 
 As bifurcações somente são indexadas para [pesquisas de códigos](/articles/searching-code) quando têm mais estrelas do que o repositório principal. Não é possível pesquisar códigos em uma bifurcação que tem menos estrelas do que seu principal. Para exibir bifurcações com mais estrelas que o repositório principal nos resultados da pesquisa de código, adicione `fork:true` ou `fork:only` à sua consulta.
@@ -24,7 +25,7 @@ O qualificador `fork:true` localiza todos os resultados que correspondem à sua 
 | `fork:only` | [**github fork:only**](https://github.com/search?q=github+fork%3Aonly&type=Repositories) identifica todas as bifurcações que contêm a palavra "github".                                                                  |
 |             | [**forks:>500 fork:only**](https://github.com/search?q=forks%3A%3E500+fork%3Aonly&type=Repositories) corresponde a repositórios com mais de 500 bifurcações e retorna apenas aqueles que são bifurcações.                |
 
-### Leia mais
+## Leia mais
 
 - "[Sobre bifurcações](/articles/about-forks)"
 - "[Sobre a pesquisa no GitHub](/articles/about-searching-on-github)"

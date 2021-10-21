@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Using Git rebase
 
 この例では、`exec` を除く、利用可能なすべての ` git rebase ` コマンドについて説明します。

@@ -7,17 +7,17 @@ redirect_from:
   - /github-cookies/
   - /articles/github-subprocessors-and-cookies
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
 ---
 
-Effective date: **April 2, 2021**
+Data de entrada em vigor: **2 de abril de 2021**
 
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. Para essa finalidade, disponibilizamos esta página, que detalha os [nossos subprocessadores](#github-subprocessors) e como usamos [cookies](#cookies-on-github).
 
-### Subprocessadores GitHub
+## Subprocessadores GitHub
 
 Quando compartilhamos suas informações com terceiros subprocessadores, tais como nossos fornecedores e provedores de serviços, permanecemos responsáveis por elas. Trabalhamos muito duro para manter sua confiança quando trazemos novos fornecedores, e exigimos que todos os fornecedores se submetam a contratos de proteção de dados conosco que restringem seu processamento de Informações Pessoais dos Usuários (conforme definido na [Declaração de Privacidade](/articles/github-privacy-statement/)).
 
@@ -43,7 +43,7 @@ Quando compartilhamos suas informações com terceiros subprocessadores, tais co
 
 Quando trouxermos um novo subprocessador que lida com as Informações Pessoais de nossos Usuários, ou removermos um subprocessador, ou mudarmos a forma como usamos um subprocessador, atualizaremos esta página. Se você tiver dúvidas ou preocupações sobre um novo subprocessador, ficaremos felizes em ajudar. Entre em contato conosco via {% data variables.contact.contact_privacy %}.
 
-### Cookies no GitHub
+## Cookies no GitHub
 
 O GitHub usa cookies para fornecer e proteger nossos sites, bem como analisar o uso dos nossos sites, para oferecer a você uma ótima experiência de usuário. Consulte nossa [Declaração de privacidade](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) se você quiser saber mais informações sobre cookies e sobre como e por que os usamos.
 

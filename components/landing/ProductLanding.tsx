@@ -10,11 +10,16 @@ import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
+import { ProductReleases } from 'components/landing/ProductReleases'
+import { useRouter } from 'next/router'
+import { useVersion } from 'components/hooks/useVersion'
 
 export const ProductLanding = () => {
+  const router = useRouter()
+  const { isEnterpriseServer } = useVersion()
   const {
     shortTitle,
-    guideCards,
+    featuredLinks,
     productUserExamples,
     productCommunityExamples,
     productCodeExamples,
@@ -32,36 +37,42 @@ export const ProductLanding = () => {
       </LandingSection>
 
       {productCodeExamples.length > 0 && (
-        <LandingSection title={t('code_examples')} className="my-6">
+        <LandingSection
+          title={t('code_examples')}
+          sectionLink="code-examples"
+          className="my-6 pb-6"
+        >
           <CodeExamples />
         </LandingSection>
       )}
 
       {productCommunityExamples.length > 0 && (
-        <LandingSection title={t('communities_using_discussions')} className="my-6">
+        <LandingSection title={t('communities_using_discussions')} className="my-6 pb-6">
           <CommunityExamples />
         </LandingSection>
       )}
 
       {productUserExamples.length > 0 && (
-        <LandingSection title={t('sponsor_community')} className="my-6">
+        <LandingSection title={t('sponsor_community')} className="my-6 pb-6">
           <SponsorsExamples />
         </LandingSection>
       )}
 
-      {/* {% if currentVersion contains 'enterprise-server' and currentProduct == 'admin' %}
-      {% include product-releases %}
-      {% endif %} */}
+      {router.query.productId === 'admin' && isEnterpriseServer && (
+        <LandingSection title={t('supported_releases')} className="my-6 pb-6">
+          <ProductReleases />
+        </LandingSection>
+      )}
 
-      {guideCards.length > 0 && (
-        <div className="color-bg-tertiary py-6 my-8">
-          <LandingSection title={t('guides')} className="my-6">
+      {featuredLinks.guideCards?.length > 0 && (
+        <div className="color-bg-tertiary py-6">
+          <LandingSection title={t('guides')} sectionLink="guides-2" className="my-6">
             <GuideCards />
           </LandingSection>
         </div>
       )}
 
-      <LandingSection sectionLink="all-docs" title={`All ${shortTitle} Docs`}>
+      <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
         <ProductArticlesList />
       </LandingSection>
     </DefaultLayout>

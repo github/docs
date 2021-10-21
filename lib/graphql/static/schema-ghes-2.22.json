@@ -31402,6 +31402,66 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "closingIssuesReferences",
+          "description": "<p>List of issues that were may be closed by this pull request.</p>",
+          "type": "IssueConnection",
+          "id": "issueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issues returned from the connection.</p>",
+              "type": {
+                "name": "IssueOrder",
+                "id": "issueorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issueorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "comments",
           "description": "<p>A list of comments associated with the pull request.</p>",
           "type": "IssueCommentConnection!",

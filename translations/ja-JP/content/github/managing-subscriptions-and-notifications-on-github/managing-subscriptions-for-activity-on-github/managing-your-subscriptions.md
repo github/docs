@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
 ---
+
 サブスクリプションを理解し、サブスクライブ解除するかどうかを決めるため、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。
 
 {% note %}

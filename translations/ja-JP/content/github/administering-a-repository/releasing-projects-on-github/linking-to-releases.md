@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. リンクするリリースを見つけて、バージョン番号をクリックします。 ![リリース タグ情報](/assets/images/help/releases/release_tag_name.png)

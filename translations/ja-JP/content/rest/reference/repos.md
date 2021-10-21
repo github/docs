@@ -1,19 +1,39 @@
 ---
 title: リポジトリ
+intro: 'Repos APIを使うと、パブリック及びプライベートの{% data variables.product.product_name %}リポジトリのワークフローの作成、管理、制御ができます。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
+
+{% ifversion fpt %}
+## Autolinks
+
+{% tip %}
+
+**Note:** The Autolinks API is in beta and may change.
+
+{% endtip %}
+
+To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+
+{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## ブランチ
 
@@ -31,7 +51,7 @@ topics:
 
 ### コミットコメントのカスタムメディアタイプ
 
-以下がコミットコメントでサポートされているメディアタイプです。 API におけるメディアタイプの使用に関する詳細は、[こちら](/rest/overview/media-types)を参照してください。
+以下がコミットコメントでサポートされているメディアタイプです。 You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -52,7 +72,7 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## コミュニティ
 
 {% for operation in currentRestOperations %}
@@ -67,7 +87,7 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
 
 ### リポジトリコンテンツのカスタムメディアタイプ
 
-[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、[シンボリックリンク](/rest/reference/repos#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
+[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -76,7 +96,7 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
 
 Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-[すべてのオブジェクト](/rest/reference/repos#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
+[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
@@ -139,12 +159,12 @@ GitHub は、新しいデプロイメント、デプロイメントのステー�
 
 GitHub は、あなたのサーバーに実際にアクセスすることはないということは覚えておきましょう。 デプロイメントイベントとやり取りするかどうかは、サードパーティインテグレーション次第です。 複数のシステムがデプロイメントイベントをリッスンできます。コードをサーバーにプッシュする、ネイティブコードを構築するなどを行うかどうかは、それぞれのシステムが決めることができます。
 
-{% if currentVersion != "github-ae@latest" %}`public_repo` スコープおよび{% endif %}`repo` スコープはコードにもアクセス権を付与するのに対し、</code>repo_deployment</0> [OAuth scope](/developers/apps/scopes-for-oauth-apps) は、リポジトリのコードにアクセス権を付与**せず**、デプロイメントおよびデプロイメントステータスに絞ってアクセス権を付与することに注意してください。
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
 
 
 ### 非アクティブのデプロイメント
 
-デプロイメントのステータスを `success` に設定すると、同じ環境に対する同じリポジトリ内の一時的でない、非本番環境のデプロイメントはすべて `inactive` になります。 これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
 
 `state` を `inactive` に設定することで、一時的な環境が存在しなくなったことを伝えることができます。  `state` を `inactive` に設定すると、{% data variables.product.prodname_dotcom %} でデプロイメントが `destroyed` と表示され、アクセス権が削除されます。
 
@@ -152,10 +172,10 @@ GitHub は、あなたのサーバーに実際にアクセスすることはな�
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## 環境
 
-Environments APIを使うと、環境を作成、設定、削除できます。 環境に関する詳しい情報については「[環境](/actions/reference/environments)」を参照してください。 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
+Environments APIを使うと、環境を作成、設定、削除できます。 For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
@@ -182,6 +202,16 @@ Repository Invitations API を使用すると、他のユーザにリポジト�
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghae or ghes > 3.2 %}
+
+## Git LFS
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
 ## マージ
 
 Repo Merging API は、リポジトリ内にあるブランチのマージをサポートしています。 これは、ローカルリポジトリにおいて 1 つのブランチを別のブランチにマージし、それを {% data variables.product.product_name %} にプッシュするのと本質的には同じことです。 この利点は、マージがサーバー側で行われ、ローカルリポジトリが必要ないことです。 これは自動化や、ローカルリポジトリの保守が煩雑で非効率的なツールに適しています。
@@ -194,7 +224,7 @@ Repo Merging API は、リポジトリ内にあるブランチのマージをサ
 
 ## ページ
 
-{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 サイトとビルドに関する情報は、{% if currentVersion != "github-ae@latest" %}Webサイトがパブリックの場合であっても{% endif %}認証を受けたユーザだけがアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
+{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 サイトとビルドに関する情報は、{% ifversion not ghae %}Webサイトがパブリックの場合であっても{% endif %}認証を受けたユーザだけがアクセスできます。 For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
 レスポンスに `status` キーを持つ {% data variables.product.prodname_pages %} API エンドポイントにおいては、値は以下のいずれかになります。
 * `null`: サイトはまだビルドされていません。
@@ -265,10 +295,10 @@ GitHub App を開発していて、外部サービスについて詳細な情報
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt %}
 ## トラフィック
 
-プッシュアクセスを持つリポジトリに対し、トラフィック API はリポジトリグラフが提供する情報へのアクセスを提供します。 詳細は「<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">リポジトリへのトラフィックを表示する</a>」を参照してください。
+プッシュアクセスを持つリポジトリに対し、トラフィック API はリポジトリグラフが提供する情報へのアクセスを提供します。 For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
@@ -277,9 +307,11 @@ GitHub App を開発していて、外部サービスについて詳細な情報
 
 ## webhook
 
-Repository Webhooks API を使用すると、リポジトリ管理者がリポジトリの post-receive フックを管理できます。 Webhook は、JSON HTTP API または [PubSubHubbub](#PubSubHubbub) API を使用して管理できます。
+Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 Organization のすべてのリポジトリからイベントを受信するため単一の webhook を設定する場合は、[Organization Webhooks](/rest/reference/orgs#webhooks) の API ドキュメントを参照してください。
+
+In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
@@ -291,7 +323,7 @@ Organization のすべてのリポジトリからイベントを受信するた�
 
 #### webhook ヘッダー
 
-{% data variables.product.product_name %} は、イベントタイプとペイロード識別子を区別するために、複数の HTTP ヘッダーも送信します。 詳細は「[webhook ヘッダー](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers)」を参照してください。
+{% data variables.product.product_name %} は、イベントタイプとペイロード識別子を区別するために、複数の HTTP ヘッダーも送信します。 See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
 
 ### PubSubHubbub
 
@@ -309,18 +341,11 @@ GitHub は、すべてのリポジトリに対する [PubSubHubbub](https://gith
     https://github.com/{owner}/{repo}/events/push.json
 
 #### コールバック URL
-コールバック URL は `http://` プロトコルを使用できます。
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}また、`github://` コールバックで GitHub のサービスを指定することもできます。
-{% data reusables.apps.deprecating_github_services_ghe %}
-{% endif %}
+コールバック URL は `http://` プロトコルを使用できます。
 
     # Send updates to postbin.org
     http://postbin.org/123
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-    # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
-{% endif %}
 
 #### サブスクライブ
 
@@ -338,9 +363,9 @@ PubSubHubbub リクエストは複数回送信できます。 フックがすで
 
 ##### パラメータ
 
-| 名前             | 種類       | 説明                                                                                                                                                                                                                                         |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                     |
-| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                 |
-| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                          |
-| `hub.secret`   | `string` | 送信する本文コンテンツの SHA1 HMAC を生成する共有秘密鍵。  Raw 形式のリクエスト本文と、`X-Hub-Signature` ヘッダのコンテンツを比較することで、 GitHub からのプッシュを検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                                                                                                                                                           |
+| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                                                                                                                                                       |
+| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                                                                                                                                                                |
+| `hub.secret`   | `string` | 送信する本文コンテンツの ハッシュ署名を生成する共有秘密鍵。  GitHubからきたプッシュを、そのリクエストのボディを{% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature`もしくは`X-Hub-Signature-256`ヘッダ{% elsif ghes < 3.0 %}`X-Hub-Signature`ヘッダ{% elsif ghae %}`X-Hub-Signature-256`ヘッダ{% endif %}と比較して、検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |

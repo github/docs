@@ -6,12 +6,14 @@ redirect_from:
   - /apps/managing-github-apps/editing-a-github-app-s-permissions
   - /developers/apps/editing-a-github-apps-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - GitHub Apps
+shortTitle: Editar permissões
 ---
+
 {% note %}
 
 **Observação:** As permissões atualizadas não terão efeito sobre uma instalação até que o proprietário da conta ou organização aprove as alterações. Você pode usar o [webhook do InstallationEvent](/webhooks/event-payloads/#installation) para descobrir quando as pessoas aceitam novas permissões para seu aplicativo. Uma exceção são as [permissões de nível de usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions), que não exigem que o proprietário da conta aprove as alterações de permissão.

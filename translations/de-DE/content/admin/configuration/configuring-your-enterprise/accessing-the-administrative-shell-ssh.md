@@ -13,18 +13,20 @@ redirect_from:
   - /admin/configuration/accessing-the-administrative-shell-ssh
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - SSH
+shortTitle: Access the admin shell (SSH)
 ---
-### Informationen zum Verwaltungsshellzugriff
+
+## Informationen zum Verwaltungsshellzugriff
 
 Wenn Sie über SSH-Zugriff auf die Verwaltungsshell verfügen, können Sie die Befehlszeilendienstprogramme von {% data variables.product.prodname_ghe_server %} ausführen. Der SSH-Zugriff eignet sich zudem zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation. Der SSH-Verwaltungszugriff wird getrennt vom Git SSH-Zugriff verwaltet und ist nur über Port 122 zugänglich.
 
-### Zugriff auf die Verwaltungsshell über SSH aktivieren
+## Zugriff auf die Verwaltungsshell über SSH aktivieren
 
 Zum Aktivieren des SSH-Verwaltungszugriffs müssen Sie Ihren öffentlichen SSH-Schlüssel zur Liste der autorisierten Schlüssel Ihrer Instanz hinzufügen.
 
@@ -39,7 +41,7 @@ Zum Aktivieren des SSH-Verwaltungszugriffs müssen Sie Ihren öffentlichen SSH-S
 3. Fügen Sie unter „SSH access“ (SSH-Zugriff) Ihren Schlüssel in das Textfeld ein, und klicken Sie anschließend auf **Add key** (Schlüssel hinzufügen). ![Textfeld und Schaltfläche zum Hinzufügen eines SSH-Schlüssels](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Verbindung zur Verwaltungsshell über SSH herstellen
+## Verbindung zur Verwaltungsshell über SSH herstellen
 
 Nachdem Sie der Liste Ihren SSH-Schlüssel hinzugefügt haben, verbinden Sie als der Benutzer `admin` auf Port 122 die Instanz über SSH.
 
@@ -49,7 +51,7 @@ Last login: Sun Nov 9 07:53:29 2014 from 169.254.1.1
 admin@github-example-com:~$ █
 ```
 
-#### Fehlerbehebung bei SSH-Verbindungsproblemen
+### Fehlerbehebung bei SSH-Verbindungsproblemen
 
 Wenn der Fehler `Permission denied (publickey)` (Berechtigung verweigert (öffentlicher Schlüssel)) angezeigt wird, wenn Sie versuchen, über SSH eine Verbindung zu {% data variables.product.product_location %} herzustellen, sollten Sie bestätigen, dass Sie die Verbindung über Port 122 vornehmen. Möglicherweise müssen Sie explizit angeben, welcher private SSH-Schlüssel verwendet werden soll.
 
@@ -68,10 +70,10 @@ Host <em>hostname</em>
   Port 122
 ```
 
-### Auf die Verwaltungsshell mithilfe der lokalen Konsole zugreifen
+## Auf die Verwaltungsshell mithilfe der lokalen Konsole zugreifen
 
 In einer Notfallsituation, beispielsweise wenn SSH nicht verfügbar ist, können Sie lokal auf die Verwaltungsshell zugreifen. Melden Sie sich als der Benutzer `admin` mit dem Passwort an, das während der Ersteinrichtung von {% data variables.product.prodname_ghe_server %} festgelegt wurde.
 
-### Zugriffseinschränkungen für die Verwaltungsshell
+## Zugriffseinschränkungen für die Verwaltungsshell
 
 Der Verwaltungsshellzugriff ist nur zur Fehlerbehebung und zum Durchführen dokumentierter Vorgehensweisen zulässig. Ihr Supportvertrag wird ggf. ungültig, wenn Sie System- und Anwendungsdateien ändern, Programme ausführen oder nicht unterstützte Softwarepakete installieren. Kontaktiere bitte den {% data variables.contact.contact_ent_support %} bei Fragen zu den laut Deinem Supportvertrag zulässigen Aktivitäten.

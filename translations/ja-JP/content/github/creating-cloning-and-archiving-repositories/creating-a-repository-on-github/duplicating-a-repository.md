@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 リポジトリを複製してリポジトリの新しいコピー、つまり_ミラー_にプッシュできるようにするには、その前に {% data variables.product.product_location %} に[新しいリポジトリを作成](/articles/creating-a-new-repository)する必要があります。 以下の例では、`exampleuser/new-repository` および `exampleuser/mirrored` がミラーです。
 
 ### リポジトリをミラーする

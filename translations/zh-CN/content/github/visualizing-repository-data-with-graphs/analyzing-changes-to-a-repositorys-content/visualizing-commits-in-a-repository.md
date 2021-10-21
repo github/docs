@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 顶部的图表按周显示整年的提交。
 
 ![仓库提交年图](/assets/images/help/graphs/repo_commit_activity_year_graph.png)

@@ -5,10 +5,10 @@ intro: '获取 {% data variables.product.prodname_desktop %} 设置以管理项�
 redirect_from:
   - /desktop/getting-started-with-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 children:
   - /overview
   - /installing-and-authenticating-to-github-desktop
   - /configuring-and-customizing-github-desktop
 ---
-### 目录
+

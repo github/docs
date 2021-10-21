@@ -9,7 +9,7 @@
 - 
   term: token de recuperação de conta
   description: >-
-    Credencial de autenticação armazenada como parte de uma configuração de recuperação de conta chamada Recuperação de contas em outro lugar que permite armazenar essa credencial de backup.
+    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
 - 
   term: Visualização da API
   description: >-
@@ -78,7 +78,7 @@
   term: cartão
   description: Quadrado móvel em um quadro de projeto associado a um problema ou pull request.
 - 
-  term: Verificação
+  term: marcar
   description: >-
     Uma verificação é um tipo de verificação de status em {% data variables.product.product_name %}. Consulte "[Verificações de status](#status-checks)".
 - 
@@ -88,7 +88,7 @@
 - 
   term: cherry-picking
   description: >-
-    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
+    Para escolher um subconjunto de alterações de uma série de alterações (tipicamente commits) e registrá-los como uma nova série de alterações no topo de uma base de código diferente. No Git, isto é executado pelo comando `git cherry-pick` para extrair a alteração introduzida por um commit existente em outro branch e registrá-la com base na ponta do branch atual como um novo commit. Para obter mais informações, consulte [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) na documentação do Git.
 - 
   term: equipe secundária
   description: >-
@@ -175,19 +175,19 @@
   term: cURL
   description: Usado em scripts ou linhas de comando para transferir dados.
 - 
-  term: Painel
+  term: painel
   description: >-
     Seu painel pessoal é o principal centro da sua atividade no GitHub. No seu painel pessoal, você pode monitorar problemas e pull requests que está acompanhando ou nos quais está trabalhando, acessar os seus melhores repositórios e páginas de equipe e aprender sobre as atividades recentes em repositórios dos quais você está assistindo ou participando. Também é possível descobrir novos repositórios, que são recomendados com base em usuários que você está seguindo e com base em repositórios que você favoritou. Para visualizar somente as atividades de uma organização específica, visite o painel da sua organização. Para obter mais informações, consulte "[Sobre o seu painel pessoal](/articles/about-your-personal-dashboard)" ou "[Sobre o painel da sua organização](/articles/about-your-organization-dashboard)."
 - 
   term: branch padrão
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    O branch base para os novos pull requests e commits de código em um repositório. Cada repositório tem pelo menos um branch, que o Git cria quando você inicializa o repositório. Geralmente, o primeiro branch é denominado {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, e, muitas vezes, é o branch padrão.
 - 
   term: gráfico de dependentes
   description: >-
     Gráfico que mostra os pacotes, projetos e repositórios que dependem de um repositório público.
 - 
-  term: Gráfico de dependências
+  term: gráfico de dependências
   description: >-
     Gráfico que mostra os pacotes e projetos dos quais o repositório depende.
 - 
@@ -213,7 +213,7 @@
   term: notificações de e-mail
   description: Notificações enviadas para o endereço de e-mail de um usuário.
 - 
-  term: conta corporativa
+  term: enterprise account
   description: As contas corporativas permitem que você gerencie a política e a cobrança centralmente para várias organizações de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
@@ -250,9 +250,9 @@
   description: >-
     Plano de cobrança grátis para contas de usuário. Os usuários podem contribuir em repositórios públicos ilimitados com colaboradores ilimitados.
 - 
-  term: Gist
+  term: gist
   description: >-
-    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% if currentVersion == "github-ae@latest" %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
+    Um gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. Você pode criar um gist {% ifversion ghae %}interno{% else %}público{% endif %} ou secreto, embora os gists secretos estejam disponíveis para {% ifversion ghae %}qualquer membro corporativo{% else %}qualquer pessoa{% endif %} com a URL.
 - 
   term: Git
   description: >-
@@ -377,7 +377,7 @@
   description: >-
     Conta pessoal que não pode ser acessada pelo usuário. As contas ficam bloqueadas após o downgrade da modalidade paga para a grátis ou após o vencimento do plano da conta paga.
 - 
-  term: Console de gerenciamento
+  term: console de gerenciamento
   description: >-
     Seção na interface do GitHub Enterprise que contém recursos administrativos.
 - 
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
+    {% ifversion fpt or ghes > 3.1 or ghae %} O branch de desenvolvimento padrão. Sempre que você criar um repositório Git, será criado um branch denominado `main` e irá tornar-se o branch ativo. Na maioria dos casos, isto contém o desenvolvimento local, embora isso seja puramente por convenção e não seja necessário.{% else %}Nome frequentemente escolhido como uma alternativa para 'master' para o branch padrão de um repositório.{% endif %}
 - 
   term: mestre
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+    O branch padrão em muitos repositórios Git. Por padrão, quando você cria um novo repositório Git na linha de comando, um branch denominado `master` será criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão.{% ifversion fpt or ghes > 3.1 or ghae %} Por exemplo, quando você cria um novo repositório no GitHub, o branch padrão é denominado `main`.{% endif %}
 - 
   term: gráfico de integrantes
   description: Gráfico que exibe todas as bifurcações de um repositório.
@@ -574,7 +574,7 @@
 - 
   term: recuperação de contas em outro lugar
   description: >-
-    Permite aos usuários adicionar uma camada de segurança extra à conta do GitHub em caso de perda do acesso à autenticação de dois fatores ou aos códigos de recuperação. Os usuários podem associar suas contas do GitHub às contas do Facebook armazenando uma credencial de autenticação em forma de token de recuperação para a conta do GitHub no Facebook.
+    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
 - 
   term: código de recuperação
   description: Código que ajuda a recuperar o acesso à conta do GitHub.
@@ -654,6 +654,10 @@
   description: >-
     Log que relaciona as últimas 50 ações ou as ações executadas nos últimos 90 dias.
 - 
+  term: server-to-server request
+  description: >-
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+- 
   term: hook de serviço
   description: >-
     Também chamado de "webhook". Os webhooks permitem que notificações sejam entregues a um servidor web externo sempre que determinadas ações ocorrem em um repositório ou uma organização.
@@ -680,7 +684,7 @@
   description: >-
     Representação visual em uma pull request indicativa de que os seus commit atendem às condições definidas para o repositório com o qual você está contribuindo.
 - 
-  term: Verificações de status
+  term: status checks
   description: >-
     Verificações de status são processos externos, como criações de integração contínua, que são executadas para cada commit que você fizer em um repositório. Para obter mais informações, consulte "[Verificações de status](/articles/about-status-checks)".
 - 
@@ -714,7 +718,7 @@
   description: >-
     Uma forma de explorar repositórios em uma área de assunto específica, encontrar projetos com os quais contribuir e descobrir novas soluções para um problema específico no GitHub.
 - 
-  term: gráfico de tráfego
+  term: traffic graph
   description: >-
     Gráfico que mostra o tráfego de um repositório, inclusive clones totais (sem fetch), visitantes dos últimos 14 dias, sites de referência e conteúdo popular.
 - 
@@ -737,6 +741,10 @@
   term: nome de usuário
   description: Identificador de um usuário no GitHub.
 - 
+  term: user-to-server request
+  description: >-
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
+- 
   term: equipe visível
   description: Equipe que pode ser vista e @mencionada por qualquer integrante da organização.
 - 
@@ -754,9 +762,6 @@
   term: webhooks
   description: >-
     Os webhooks permitem criar ou configurar aplicativos do GitHub associados a determinados eventos no GitHub.com. Com os webhooks, é possível entregar notificações a um servidor da web externo sempre que determinadas ações ocorrem em um repositório ou organização. Também são conhecidos como hooks de serviço.
-- 
-  term: compatível com GitHub
-  description: Listagem de integrações compatíveis com o GitHub.
 - 
   term: acesso de gravação
   description: >-

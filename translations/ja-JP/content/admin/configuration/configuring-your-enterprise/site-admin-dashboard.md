@@ -7,45 +7,47 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - Enterprise
   - Fundamentals
 ---
+
 ダッシュボードへアクセスするには、ページ右上の隅にある {% octicon "rocket" aria-label="The rocket ship" %}をクリックしてください。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes or ghae %}
 
-### 検索
+## 検索
 
 ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {{ site.data.variables.enterprise.management_console }}を起動することができます。
 
 {% else %}
 
-### ライセンスの情報と検索
+## ライセンスの情報と検索
 
 現在の {% data variables.product.prodname_enterprise %} のライセンスを確認する、ユーザとリポジトリを検索する、そして [Audit log](#audit-log) を照会するには、サイトアドミンのダッシュボードのこのセクションを参照してください。
 
 {% endif %}
-
-### {% data variables.enterprise.management_console %}
+{% ifversion ghes %}
+## {% data variables.enterprise.management_console %}
 
 ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {% data variables.enterprise.management_console %}を起動することができます。
-
-### Explorer
+{% endif %}
+## Explorer
 
 GitHub の[ 流行ページ][] のためのデータは、リポジトリとデベロッパーの両方において、日ごと、週ごと、月ごとの期間で計算されます。 **Explore** のセクションで、このデータが最後にいつキャッシュされたのかの確認や、新規流行計算ジョブをキューに挿入することができます。
 
-### Audit log
+## Audit log
 
-{% data variables.product.prodname_enterprise %}は、クエリで確認できる、監査されたアクションのログを保持しています。
+{% data variables.product.product_name %}は、クエリで確認できる、監査されたアクションのログを保持しています。
 
 デフォルトでは、Audit log は、監査されたアクション全てを新しい順で表示します。 「[Audit log を検索する](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)」で説明されているように、[**Query**] テキストボックスにキーと値のペアを入力して [**Search**] をクリックすることで、このリストをフィルタリングできます。
 
 一般的な監査ログの詳細については、「[監査ログ](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)」を参照してください。 監査済みのアクションの全リストについては、「[監査済みのアクション](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)」を参照してください。
 
-### 報告
+## 報告
 
 {% data variables.product.product_location %}にある、ユーザやOrganization、リポジトリについての情報が必要な場合、一般的には、[GitHub API](/rest) を使って、JSON のデータをフェッチします。 残念ながら、API は、必要なデータを提供しない可能性があり、使用するのには専門知識が必要です。 サイトアドミンのダッシュボードには代替手段として [**Reports**] セクションがあり、ユーザー、Organization、およびリポジトリに必要と思われるほぼすべての情報を掲載した CSV レポートを簡単にダウンロードできます。
 
@@ -74,7 +76,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 
 {% endnote %}
 
-#### ユーザ報告
+### ユーザ報告
 
 |                キー | 説明                                     |
 | -----------------:| -------------------------------------- |
@@ -93,7 +95,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 |       `raw_login` | （JSON フォーマットでの）未処理のログイン情報              |
 |    `2fa_enabled?` | ユーザが二段階認証を有効にしているかどうか                  |
 
-#### Organization の報告
+### Organization の報告
 
 |              キー | 説明                              |
 | ---------------:| ------------------------------- |
@@ -107,7 +109,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 |         `repos` | Organization のリポジトリの数           |
 | `2fa_required?` | Organization が二段階認証を有効にしているかどうか |
 
-#### リポジトリ の報告
+### リポジトリ の報告
 
 |              キー | 説明                            |
 | ---------------:| ----------------------------- |
@@ -124,15 +126,16 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 |         `fork?` | リポジトリがフォークであるかどうか             |
 |      `deleted?` | リポジトリが削除されているかどうか             |
 
-### インデックス化
+{% ifversion ghes %}
+## インデックス化
 
 GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動されています。 サイトアドミンのダッシュボードのこのセクションには、ElasticSearch クラスターの現在のステータスが表示され、検索とインデックス作成の動作を制御するためのいくつかのツールが用意されています。 このツールは、次の3つのカテゴリーに分類されています。
 
-#### コード検索
+### コード検索
 
 これによって、ソースコードに対する検索とインデックスの作業を有効または無効にすることができます。
 
-#### コード検索インデックスの修復
+### コード検索インデックスの修復
 
 これはコード検索インデックスがどのように修復されるかを制御します。 次のことができます:
 
@@ -154,23 +157,37 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 いつでも新規コード検索インデックスの修理ジョブを開始できます。 1つの CPU を使って、検索インデックスをデータベース及びGitのリポジトリデータと照合します。 I/O パフォーマンスに与える影響を最小限にするため、および、オペレーションがタイムアウトする可能性を減少するために混雑していない時間帯に修理ジョブを実行してみてください。 `top` のようなユーティリティで、システム負荷と CPU 使用率の平均を監視しましょう。大差がない場合は、混雑している時間帯にもインデックスの修理ジョブを実行しても安全なはずです。
 
-#### Issue インデックスの修復
+### Issue インデックスの修復
 
 これは [Issues][] インデックスがどのように修復されるかを制御します。 次のことができます:
 
 - インデックスの修理ジョブを有効または無効にする
 - 新規インデックス修理ジョブを開始する
 - インデックス修理状態を全てリセットする
+{% endif %}
+## Reserved logins
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
 
-### 全ユーザ
+For example, the following words are reserved, among others:
+
+- `管理`
+- `Enterprise`
+- `login`
+- `staff`
+- `サポート`
+
+For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
+
+{% ifversion ghes or ghae %}
+
+## 全ユーザ
 
 ここでは、{{ site.data.variables.product.product_location_enterprise }} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 {% endif %}
 
-### リポジトリ
+## リポジトリ
 
 これは {% data variables.product.product_location %} 上のリポジトリのリストです。 リポジトリ名をクリックしてリポジトリを管理するための機能にアクセスできます。
 
@@ -178,17 +195,21 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 - [{% data variables.large_files.product_name_long %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [リポジトリのアーカイブへの保管と削除](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
-### 全ユーザ
+## 全ユーザ
 
-ここでは、{% data variables.product.product_location %} 上のすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
-### サイトアドミン
+## サイトアドミン
 
 ここでは、{% data variables.product.product_location %} 上のすべての管理者を確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
-### 休眠ユーザ
-
+## 休眠ユーザ
+{% ifversion ghes %}
 ここでは、{% data variables.product.product_location %} 上のすべての非アクティブなユーザーを確認して、[一時停止](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)することができます。 ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
+{% endif %}
+{% ifversion ghae %}
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
+{% endif %}
 
 - {% data variables.product.product_location %} 用に設定されている休眠しきい値よりも長く存在している。
 - その期間内にどのアクティビティも生成していない。
@@ -196,7 +217,7 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %} 詳細は「[休眠ユーザを管理する](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)」を参照してください。
 
-### 停止されたユーザ
+## 停止されたユーザ
 
 ここでは、{% data variables.product.product_location %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 

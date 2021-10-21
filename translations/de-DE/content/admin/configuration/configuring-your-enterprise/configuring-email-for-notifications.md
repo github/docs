@@ -9,21 +9,23 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Fundamentals
   - Infrastructure
   - Notifications
+shortTitle: Configure email notifications
 ---
-{% if currentVersion == "github-ae@latest" %}
+
+{% ifversion ghae %}
 Enterprise owners can configure email for notifications.
 {% endif %}
-### Configuring SMTP for your enterprise
+## Configuring SMTP for your enterprise
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. Klicken Sie im oberen Bereich der Seite auf **Settings** (Einstellungen). ![Registerkarte „Settings“ (Einstellungen)](/assets/images/enterprise/management-console/settings-tab.png)
@@ -40,7 +42,7 @@ Enterprise owners can configure email for notifications.
     - **Email** (E-Mail): Eine interne E-Mail-Adresse.
     - **URL:** Ein Link zu einer internen Supportwebsite. Sie müssen `http://` oder `https://` verwenden. ![Support-E-Mail oder -URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Testen Sie die E-Mail-Zustellung](#testing-email-delivery).
-{% elsif currentVersion == "github-ae@latest" %}
+{% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.email-tab %}
@@ -57,8 +59,8 @@ Enterprise owners can configure email for notifications.
 7. Klicke auf **Save** (Speichern). !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-### E-Mail-Zustellung testen
+{% ifversion ghes %}
+## E-Mail-Zustellung testen
 
 1. Klicken Sie im oberen Bereich des Abschnitts **Email** (E-Mail) auf **Test email settings** (Einstellungen für Test-E-Mail). ![Test email settings (Einstellungen für Test-E-Mail)](/assets/images/enterprise/management-console/test-email.png)
 2. Geben Sie im Feld **Send test email to** (Test-E-Mail senden an) eine Adresse ein, an welche die Test-E-Mail gesendet werden soll. ![Test der E-Mail-Adresse](/assets/images/enterprise/management-console/test-email-address.png)
@@ -74,18 +76,18 @@ Enterprise owners can configure email for notifications.
 5. Wenn die Test-E-Mail erfolgreich war, klicken Sie im unteren Bereich der Seite auf **Save settings** (Einstellungen speichern). ![Schaltfläche „Save settings“ (Einstellungen speichern)](/assets/images/enterprise/management-console/save-settings.png)
 6. Warten Sie auf den Abschluss der Konfigurationsausführung.![„Configuring your instance“ (Instanz konfigurieren)](/assets/images/enterprise/management-console/configuration-run.png)
 
-### DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren
+## DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren
 
 Wenn Sie E-Mail-Antworten auf Benachrichtigungen zulassen möchten, müssen Sie Ihre DNS-Einstellungen konfigurieren.
 
 1. Stellen Sie sicher, dass Port 25 auf der Instanz für Ihren SMTP-Server erreichbar ist.
 2. Erstellen Sie einen Datensatz, der auf `reply.[hostname]` verweist. In Abhängigkeit Ihres DNS-Providers und Ihrer Instanz-Host-Konfiguration können Sie ggf. stattdessen einen einzelnen A-Datensatz erstellen, der auf `*.[hostname]` verweist.
 3. Erstellen Sie einen MX-Datensatz, der auf `reply.[hostname]` verweist, sodass an diese Domain gesendete E-Mails zur Instanz weitergeleitet werden.
-4. Erstellen Sie einen MX-Datensatz, wodurch `noreply.[hostname]` auf `[hostname]` verweist, damit an die in Benachrichtigungs-E-Mails enthaltene `cc`-Adresse gesendete Antworten an die Instanz weitergeleitet werden. For more information, see {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
+4. Erstellen Sie einen MX-Datensatz, wodurch `noreply.[hostname]` auf `[hostname]` verweist, damit an die in Benachrichtigungs-E-Mails enthaltene `cc`-Adresse gesendete Antworten an die Instanz weitergeleitet werden. Weitere Informationen findest Du unter {% ifversion ghes %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}„[Informationen zu E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}“.
 
-### Fehlerbehebung bei der E-Mail-Zustellung
+## Fehlerbehebung bei der E-Mail-Zustellung
 
-#### Support-Bundle erstellen
+### Support-Bundle erstellen
 
 Wenn Sie anhand der angezeigten Fehlermeldung nicht ermitteln können, was falsch ist, können Sie ein [Support-Bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) herunterladen, das die gesamte SMTP-Kommunikation zwischen Ihrem E-Mail-Server und {% data variables.product.prodname_ghe_server %} enthält. Überprüfen Sie nach dem Herunterladen und Extrahieren des Bundles die Einträge in *enterprise-manage-logs/unicorn.log* für das gesamte SMTP-Kommunikationsprotokoll und auf die zugehörigen Fehler.
 
@@ -128,7 +130,7 @@ Dieses Protokoll zeigt, dass die Appliance
 * der Authentifizierungstyp `login` durchgeführt wurde (`<- "AUTH LOGIN\r\n"`),
 * der SMTP-Server die Authentifizierung als ungültig (`-> "535-5.7.1 Username and Password not accepted.`) abgelehnt hat.
 
-#### {% data variables.product.product_location %}-Protokolle überprüfen
+### {% data variables.product.product_location %}-Protokolle überprüfen
 
 If you need to verify that your inbound email is functioning, there are two log files that you can examine on your instance: To verify that */var/log/mail.log* and */var/log/mail-replies/metroplex.log*.
 
@@ -156,19 +158,17 @@ Beachten Sie, dass der Client zunächst eine Verbindung herstellt und anschließ
 
 You'll notice that `metroplex` catches the inbound message, processes it, then moves the file over to `/data/user/incoming-mail/success`.{% endif %}
 
-#### Ihre DNS-Einstellungen verifizieren
+### Ihre DNS-Einstellungen verifizieren
 
 Damit eingehende E-Mails ordnungsgemäß verarbeitet werden, müssen Sie eine gültigen A-Datensatz (oder CNAME) und einen MX-Datensatz konfigurieren. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
-#### Einstellungen der Firewall oder der AWS-Sicherheitsgruppe überprüfen
+### Einstellungen der Firewall oder der AWS-Sicherheitsgruppe überprüfen
 
 Wenn sich {% data variables.product.product_location %} hinter einer Firewall befindet oder durch eine AWS-Sicherheitsgruppe betrieben wird, muss Port 25 auf allen E-Mail-Servern geöffnet sein, auf denen E-Mails an `reply@reply.[hostname]` gesendet werden.
 
-#### Support kontaktieren
-{% if enterpriseServerVersions contains currentVersion %}
-If you're still unable to resolve the problem, contact
-{% data variables.contact.contact_ent_support %}. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.
-{% elsif currentVersion == "github-ae@latest" %}
-You can contact
-{% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+### Support kontaktieren
+{% ifversion ghes %}
+Kontaktieren Sie {% data variables.contact.contact_ent_support %}, falls Sie das Problem weiterhin nicht beheben können. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.
+{% elsif ghae %}
+You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 {% endif %}

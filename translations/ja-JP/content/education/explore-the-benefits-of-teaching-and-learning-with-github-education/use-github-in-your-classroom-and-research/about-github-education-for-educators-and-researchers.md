@@ -7,11 +7,13 @@ redirect_from:
   - /articles/about-github-education-for-educators-and-researchers
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Educators & researchers
 ---
+
 {% data reusables.education.about-github-education-link %}
 
-### 教育者のための{% data variables.product.prodname_education %}
+## 教育者のための{% data variables.product.prodname_education %}
 
 あらゆるレベルの教育者のための {% data variables.product.prodname_education %} のツールとサービスで、以下のことができます:
   - [{% data variables.product.prodname_classroom %}](https://classroom.github.com) を使ってコードを配布し、学生にフィードバックを与え、{% data variables.product.prodname_dotcom %} 上の課題を収集する。
@@ -20,13 +22,13 @@ versions:
   - 学生の教育のための素材が入った [{% data variables.product.prodname_dotcom %} のスワッグバッグをリクエスト](https://education.github.community/t/get-a-github-swag-bag-for-your-classroom/33)する。
   {% data reusables.education.apply-for-team %}
 
-### 研究者のための {% data variables.product.prodname_education %}
+## 研究者のための {% data variables.product.prodname_education %}
 
 研究者のための {% data variables.product.prodname_education %} のツールとサービスで、以下のことができます:
   - {% data variables.product.prodname_dotcom %} 上で世界中の人々と研究作業についてコラボレートする。
   - 世界中のアカデミックな組織が研究に {% data variables.product.prodname_dotcom %} をどのように使っているかを[学ぶ](https://education.github.com/stories)。
   {% data reusables.education.apply-for-team %}
 
-### 参考リンク
+## 参考リンク
 
 - [学生向け {% data variables.product.prodname_education %}について](/articles/about-github-education-for-students)

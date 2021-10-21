@@ -1,4 +1,5 @@
-您可以使用仓库、组织和应用 web 挂钩 REST API 来创建、更新、删除和 ping web 挂钩。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}您也可以使用 REST API 来更改 web 挂钩的配置。 例如，您可以修改有效负载 URL、内容类型、SSL 验证和机密。 {% endif %}更多信息请参阅：
+The webhook REST APIs enable you to manage repository{% ifversion ghes < 3.0 %} and organization{% else %}, organization, and app{% endif %} webhooks.{% ifversion fpt or ghes > 3.2 or ghae %} You can use this API to list webhook deliveries for a webhook, or get and redeliver an individual delivery for a webhook, which can be integrated into an external app or service.{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %} You can also use the REST API to change the configuration of the webhook. For example, you can modify the payload URL, content type, SSL verification, and secret.{% endif %} For more information, see:
+
 - [仓库 web 挂钩 REST API](/rest/reference/repos#webhooks)
-- [组织 web 挂钩 REST API](/rest/reference/orgs#webhooks){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-- [GitHub App web 挂钩 REST API](/rest/reference/apps#webhooks){% endif %}
+- [组织 web 挂钩 REST API](/rest/reference/orgs#webhooks){% ifversion fpt or ghes > 2.22 or ghae %}
+- [{% data variables.product.prodname_github_app %} Webhooks REST API](/rest/reference/apps#webhooks){% endif %}

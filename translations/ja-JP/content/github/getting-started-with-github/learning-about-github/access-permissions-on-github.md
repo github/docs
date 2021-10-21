@@ -15,6 +15,7 @@ topics:
   - Permissions
   - Accounts
 ---
+
 ### 個人ユーザアカウント
 
 ユーザアカウントが所有するリポジトリは、*リポジトリオーナー*と*コラボレータ*という 2 つの権限レベルを持ちます。 詳しい情報については[ユーザアカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository)を参照してください。

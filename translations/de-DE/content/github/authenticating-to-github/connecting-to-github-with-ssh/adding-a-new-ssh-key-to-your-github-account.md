@@ -11,9 +11,10 @@ versions:
 topics:
   - SSH
 ---
+
 Bevor Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzufügen, sollten Sie
 * [nach vorhandenen SSH-Schlüsseln gesucht haben](/articles/checking-for-existing-ssh-keys)
-* [einen neuen SSH-Schlüssel erzeugt und ihn zum SSH-Agenten hinzugefügt haben](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* [Einen neuen SSH-Schlüssel generieren und zum SSH-Agenten hinzufügen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 Nachdem Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzugefügt haben, können Sie alle lokalen Repositorys für die Verwendung von SSH konfigurieren. Weitere Informationen findest Du unter „[Remote-URLs von HTTPS auf SSH umstellen](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh).“
 

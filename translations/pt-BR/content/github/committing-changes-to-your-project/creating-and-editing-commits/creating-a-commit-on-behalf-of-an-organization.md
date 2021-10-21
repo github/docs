@@ -5,8 +5,10 @@ redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
   - /github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: Em nome de uma organização
 ---
+
 {% note %}
 
 **Observação:** a capacidade de criar um commit em nome de uma organização, atualmente, está em versão beta pública e sujeita a alterações.
@@ -24,7 +26,7 @@ Para criar commits em nome de uma organização:
 
 A organização pode usar o e-mail `name@organization.com` como um ponto público de contato para esforços de código aberto.
 
-### Criar commits com um selo `on-behalf-of` na linha de comando
+## Criar commits com um selo `on-behalf-of` na linha de comando
 
 1. Digite sua mensagem de commit e uma descrição curta e significativa de suas alterações. Depois da descrição do commit, em vez de inserir aspas para encerrar, adicione duas linhas vazias.
   ```shell
@@ -49,7 +51,7 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
 
 O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
 
-### Criar commits com um selo `on-behalf-of` no {% data variables.product.product_name %}
+## Criar commits com um selo `on-behalf-of` no {% data variables.product.product_name %}
 
 Depois que fizer alterações em um arquivo usando um editor web no {% data variables.product.product_name %}, você poderá criar um commit em nome da sua organização adicionando um trailer `on-behalf-of:` à mensagem do commit.
 
@@ -62,10 +64,9 @@ Depois que fizer alterações em um arquivo usando um editor web no {% data vari
 
 O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %}.
 
-### Leia mais
+## Leia mais
 
 - "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)"
 - "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Exibir um resumo da atividade do repositório](/articles/viewing-a-summary-of-repository-activity)"
 - "[Exibir contribuidores de um projeto](/articles/viewing-a-projects-contributors)"
 - "[Alterar uma mensagem do commit](/articles/changing-a-commit-message)"

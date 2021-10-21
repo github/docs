@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/troubleshooting-required-status-checks
 ---
+
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
 
 After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. Dadurch wird sichergestellt, dass Dein Branch mit dem neuesten Code aus dem Basisbranch getestet wurde. Wenn Dein Branch veraltet ist, musst Du den Basisbranch in Deinen Branch zusammenführen. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging).“

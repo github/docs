@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### About subtree merges
 
 Typischerweise wird eine Unterstruktur zusammengeführt, um ein Repository innerhalb eines anderen Repositorys einzubinden. Das „Unterrepository“ wird in einem Ordner des Haupt-Repositorys gespeichert.

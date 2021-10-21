@@ -5,11 +5,17 @@ redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
+shortTitle: 設定された依存関係の一覧
 ---
-### {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する
+
+## {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する
 
 バージョン更新を有効にした後、リポジトリの依存関係グラフの [**{% data variables.product.prodname_dependabot %}**] タブで、設定が正しいかどうかを確認できます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
 
@@ -21,7 +27,7 @@ topics:
 
 依存関係が見つからない場合は、ログファイルでエラーを確認します。 パッケージマネージャーが見つからない場合は、設定ファイルを確認してください。
 
-### Viewing {% data variables.product.prodname_dependabot %} のログファイルを表示する
+## Viewing {% data variables.product.prodname_dependabot %} のログファイルを表示する
 
 1. [**{% data variables.product.prodname_dependabot %}**] タブで、[**Last checked *TIME* ago**] をクリックして、{% data variables.product.prodname_dependabot %} が最後のバージョン更新チェック時に生成したログファイルを表示します。 ![ログファイルの表示](/assets/images/help/dependabot/last-checked-link.png)
 2. 必要に応じて、バージョンチェックを再実行するには、[**Check for updates**] をクリックします。 ![更新の確認](/assets/images/help/dependabot/check-for-updates.png)

@@ -4,7 +4,7 @@ redirect_from:
   - /community-guidelines/
   - /articles/github-community-guidelines
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Policy
   - Legal
@@ -16,7 +16,7 @@ GitHub users worldwide bring wildly different perspectives, ideas, and experienc
 
 We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices), which include our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). We will investigate any abuse reports and may moderate public content on our site that we determine to be in violation of our Terms of Service.
 
-### Building a strong community
+## Building a strong community
 
 The primary purpose of the GitHub community is to collaborate on software projects.
 We want people to work better together. Although we maintain the site, this is a community we build *together*, and we need your help to make it the best it can be.
@@ -33,7 +33,7 @@ We want people to work better together. Although we maintain the site, this is a
 
    Additionally, communicating with strangers on the Internet can be awkward. It's hard to convey or read tone, and sarcasm is frequently misunderstood. Try to use clear language, and think about how it will be received by the other person.
 
-### What if something or someone offends you?
+## What if something or someone offends you?
 
 We rely on the community to let us know when an issue needs to be addressed. We do not actively monitor the site for offensive content. If you run into something or someone on the site that you find objectionable, here are some tools GitHub provides to help you take action immediately:
 
@@ -47,7 +47,7 @@ We rely on the community to let us know when an issue needs to be addressed. We 
 
 Of course, you can always contact us to {% data variables.contact.report_abuse %} if you need more help dealing with a situation.
 
-### What is not allowed?
+## What is not allowed?
 
 We are committed to maintaining a community where users are free to express themselves and challenge one another's ideas, both technical and otherwise. Such discussions, however, are unlikely to foster fruitful dialog when ideas are silenced because community members are being shouted down or are afraid to speak up. That means you should be respectful and civil at all times, and refrain from attacking others on the basis of who they are. We do not tolerate behavior that crosses the line into the following:
 
@@ -64,7 +64,7 @@ We are committed to maintaining a community where users are free to express them
    Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
 
 - #### Impersonation
-   You may not seek to mislead others as to your identity by copying another person's avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonation is a form of harassment.
+   You may not impersonate another person by copying their avatar, posting content under their email address, using a similar username or otherwise posing as someone else. Impersonation is a form of harassment.
 
 - #### Doxxing and invasion of privacy 
    Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. Depending on the context, such as in the case of intimidation or harassment, we may consider other information, such as photos or videos that were taken or distributed without the subject's consent, to be an invasion of privacy, especially when such material presents a safety risk to the subject.
@@ -95,7 +95,7 @@ We are committed to maintaining a community where users are free to express them
   *GitHub considers the npm registry to be a platform used primarily for installation and run-time use of code, and not for research.*
 
 
-### What happens if someone breaks the rules?
+## What happens if someone breaks the rules?
 
 There are a variety of actions that we may take when a user reports inappropriate behavior or content. It usually depends on the exact circumstances of a particular case. We recognize that sometimes people may say or do inappropriate things for any number of reasons. Perhaps they did not realize how their words would be perceived. Or maybe they just let their emotions get the best of them. Of course, sometimes, there are folks who just want to spam or cause trouble.
 
@@ -108,11 +108,11 @@ Actions we may take in response to an abuse report include but are not limited t
 * Account Suspension
 * Account Termination
 
-### Appeal and Reinstatement
+## Appeal and Reinstatement
 
-In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact).
+In some cases there may be a basis to reverse an action, for example, based on additional information a user provided, or where a user has addressed the violation and agreed to abide by our Acceptable Use Policies moving forward. If you wish to appeal an enforcement action, please contact [support](https://support.github.com/contact?tags=docs-policy).
 
-### Legal Notices
+## Legal Notices
 
 We dedicate these Community Guidelines to the public domain for anyone to use, reuse, adapt, or whatever, under the terms of [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 

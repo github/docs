@@ -6,18 +6,19 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
   - /admin/configuration/configuring-rate-limits
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Performance
 ---
-### Begrenzungen für {% data variables.product.prodname_enterprise_api %} aktivieren
+
+## Begrenzungen für {% data variables.product.prodname_enterprise_api %} aktivieren
 
 Die Aktivierung von Begrenzungen auf {% data variables.product.prodname_enterprise_api %} kann verhindern, dass einzelne oder nicht authentifizierte Benutzer Ressourcen übermäßig verwenden. For more information, see "[Rate Limiting](/enterprise/{{ page.version }}/v3/#rate-limiting)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
 {% endif %}
 
@@ -29,21 +30,25 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Wählen Sie **Enable API Rate Limiting** (API-Durchsatzratenbegrenzung aktivieren) unter „Rate Limiting“ (Durchsatzratenbegrenzung) aus. ![Kontrollkästchen zum Aktivieren der API-Durchsatzratenbegrenzung](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**. ![Kontrollkästchen zum Aktivieren der API-Durchsatzratenbegrenzung](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Geben Sie die Begrenzungen für authentifizierte und nicht authentifizierte Anforderungen für jede API ein, oder akzeptieren Sie die vorab ausgefüllten Standardbegrenzungen.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Missbrauchsbegrenzungen aktivieren
+## Enabling secondary rate limits
 
-Durch das Festlegen von Missbrauchsbegrenzungen wird das allgemeine Dienstniveau von {% data variables.product.product_location %} geschützt.
+Setting secondary rate limits protects the overall level of service on {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
+{% ifversion ghes > 3.1 %}
+2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**. ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+{% else %}
 2. Wählen Sie **Enable Abuse Rate Limiting** (Missbrauchsbegrenzung aktivieren) unter „Rate Limiting“ (Durchsatzratenbegrenzung) aus. ![Kontrollkästchen zum Aktivieren der Missbrauchsbegrenzung](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
+{% endif %}
 3. Geben Sie die Begrenzungen für „Total Requests“ (Gesamtanforderungen), „CPU Limit“ (CPU-Begrenzung) und „CPU Limit for Searching“ (CPU-Begrenzung für Suchvorgänge) ein, oder akzeptieren Sie die vorab ausgefüllten Standardbegrenzungen.
 {% data reusables.enterprise_management_console.save-settings %}
 
-### Git-Begrenzungen aktivieren
+## Git-Begrenzungen aktivieren
 
 Sie können Git-Begrenzungen pro Repository-Netzwerk oder pro Benutzer-ID anwenden. Git-Begrenzungen werden in gleichzeitigen Vorgängen pro Minute ausgedrückt und sind basierend auf der aktuellen CPU-Auslastung adaptiv.
 

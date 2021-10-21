@@ -7,12 +7,15 @@ redirect_from:
   - /desktop/contributing-to-projects/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
-### About managing branches
+
+## About managing branches
 You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
 
 Du erstellst einen Branch immer aus einem existierenden Branch. Typically, you might create a branch from the default branch of your repository. Da kannst dann in diesem Branch unabhängig von Änderungen arbeiten, die andere Personen im Repository machen.
+
+You can also create a branch starting from a previous commit in a branch's history. This can be helpful if you need to return to an earlier view of the repository to investigate a bug, or to create a hot fix on top of your latest release.
 
 Once you're satisfied with your work, you can create a pull request to merge your changes in the current branch into another branch. For more information, see "[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" and "[About pull requests](/articles/about-pull-requests)."
 
@@ -20,7 +23,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% data reusables.desktop.protected-branches %}
 
-### Branch erstellen
+## Branch erstellen
 
 {% tip %}
 
@@ -58,14 +61,22 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% endwindows %}
 
-### Publishing a branch
+## Creating a branch from a previous commit
+
+{% data reusables.desktop.history-tab %}
+2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**. ![Create branch from commit context menu](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+{% data reusables.desktop.name-branch %}
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Create branch from commit](/assets/images/help/desktop/create-branch-from-commit-overview.png)
+
+## Publishing a branch
 
 If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
 
 1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to publish. ![Drop-down menu to select which branch to publish](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. Click **Publish branch**. ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
 
-### Zwischen Branches wechseln
+## Zwischen Branches wechseln
 Du kannst Commits auf allen Branches Deiner Repositorys anzeigen und durchführen. Wenn Du Änderungen gespeichert hast, die nicht per Commit übertragen wurden, musst Du Dich entscheiden, was mit Deinen Änderungen geschehen soll, bevor Du den Branch wechseln kannst. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
@@ -78,7 +89,7 @@ Du kannst Commits auf allen Branches Deiner Repositorys anzeigen und durchführe
   ![Liste der Branches im Repository](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. Wenn Du Änderungen gespeichert, aber noch nicht per Commit übertragen hast, wähle **Leave my changes** (Meine Änderungen vergessen) oder **Bring my changes** (Meine Änderungen mitnehmen) aus, und klicke anschließend auf **Switch Branch** (Branch wechseln). ![Optionen zum Wechseln des Branches mit Änderungen](/assets/images/help/desktop/stash-changes-options.png)
 
-### Branch löschen
+## Branch löschen
 
 Du kannst einen Branch nicht löschen, wenn er derzeit einem offenen Pull Request zugeordnet ist. You cannot undo deleting a branch.
 
@@ -100,7 +111,7 @@ Du kannst einen Branch nicht löschen, wenn er derzeit einem offenen Pull Reques
 
 {% endwindows %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Repository in {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop) klonen“
 - „[Branch](/articles/github-glossary/#branch)“ im {% data variables.product.prodname_dotcom %}-Glossar

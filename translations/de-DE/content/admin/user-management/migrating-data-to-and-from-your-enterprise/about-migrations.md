@@ -6,13 +6,14 @@ redirect_from:
   - /enterprise/admin/user-management/about-migrations
   - /admin/user-management/about-migrations
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Migration
 ---
-### Migrationstypen
+
+## Migrationstypen
 
 Es gibt drei Migrationstypen, die von Ihnen durchgeführt werden können:
 
@@ -20,7 +21,7 @@ Es gibt drei Migrationstypen, die von Ihnen durchgeführt werden können:
 - eine Migration von einer {% data variables.product.prodname_dotcom_the_website %}-Organisation zu einer {% data variables.product.prodname_ghe_server %}-Instanz. Sie können eine beliebige Anzahl an Repositorys migrieren, die einer Organisation gehören. Vor dem Durchführen einer Migration müssen Sie über [Verwaltungszugriff](/enterprise/user/articles/permission-levels-for-an-organization/) auf die {% data variables.product.prodname_dotcom_the_website %}-Organisation und über Websiteadministratorzugriff auf die Zielinstanz verfügen.
 - Bei *Probeläufen* handelt es sich um Migrationen, bei denen Daten in eine [Testinstanz](/enterprise/admin/guides/installation/setting-up-a-staging-instance/) importiert werden. Mit diesen kann nachvollzogen werden, was passieren *würde*, wenn eine Migration auf {% data variables.product.product_location %} angewendet werden würde. **Es wird dringend empfohlen, dass Sie einen Probelauf auf einer Testinstanz durchführen, bevor Sie Daten in Ihre Produktionsinstanz importieren.**
 
-### Migrierte Daten
+## Migrierte Daten
 
 In einer Migration dreht sich alles um ein Repository. Die meisten einem Repository zugeordneten Daten können migriert werden. Beispielsweise migriert ein Repository in einer Organisation das Repository *und* die Organisation sowie die dem Repository zugeordneten Benutzer, Teams, Issues und Pull Requests.
 

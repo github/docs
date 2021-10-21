@@ -13,6 +13,7 @@ versions:
 authors:
   - GitHub
 ---
+
 ### Git verwenden
 
 Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). Sieh Dir die [Liste der Git-Befehle](https://git-scm.com/docs) oder die [Git-Befehlsreferenz](http://gitref.org) an, und verwende den Simulator [Try Git](https://try.github.com).

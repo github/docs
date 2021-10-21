@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account
 ---
+
 ### 关于安全性和分析设置的管理
 
 {% data variables.product.prodname_dotcom %} 可保护您的仓库。 本主题介绍如何管理所有现有或新仓库的安全和分析功能。
@@ -18,7 +19,7 @@ redirect_from:
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-关于仓库级别安全的概述，请参阅“[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”。
+关于仓库级别安全的概述，请参阅“[保护您的仓库](/code-security/getting-started/securing-your-repository)”。
 
 ### 启用或禁用现有仓库的功能
 

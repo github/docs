@@ -5,12 +5,14 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
   - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Support
+shortTitle: Premium Support for Enterprise
 ---
+
 {% note %}
 
 **ノート:**
@@ -23,7 +25,7 @@ topics:
 
 {% endnote %}
 
-### {% data variables.contact.premium_support %} について
+## {% data variables.contact.premium_support %} について
 
 {% data variables.contact.enterprise_support %} のすべての利点に加えて、{% data variables.contact.premium_support %} は以下を提供します:
   - GitHub Enterprise サポートページを通じた文面 (英語) での 24 時間 365 日のサポート
@@ -41,7 +43,7 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### 営業時間
+## 営業時間
 
 {% data variables.contact.premium_support %} は、24 時間 365 日利用できます。
 
@@ -51,22 +53,22 @@ topics:
 
 適用されるライセンスアグリーメントの Supported Releasesセクションに従い、{% data variables.contact.premium_support %} への発注から 90 日以内に {% data variables.product.prodname_ghe_server %} の最小限のサポートされるバージョンをインストールしなければなりません。
 
-### サポートチケットへの優先度の割り当て
+## サポートチケットへの優先度の割り当て
 
 {% data variables.contact.premium_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
 
 - [{% data variables.product.prodname_ghe_cloud %} のチケット優先度](#ticket-priorities-for-github-enterprise-cloud)
 - [{% data variables.product.prodname_ghe_server %} のチケット優先度](#ticket-priorities-for-github-enterprise-server)
 
-#### {% data variables.product.prodname_ghe_cloud %} のチケット優先度
+### {% data variables.product.prodname_ghe_cloud %} のチケット優先度
 
 {% data reusables.support.ghec-premium-priorities %}
 
-#### {% data variables.product.prodname_ghe_server %} のチケット優先度
+### {% data variables.product.prodname_ghe_server %} のチケット優先度
 
 {% data reusables.support.ghes-priorities %}
 
-### サポートチケットの解決とクローズ
+## サポートチケットの解決とクローズ
 
 {% data reusables.support.premium-resolving-and-closing-tickets %}
 

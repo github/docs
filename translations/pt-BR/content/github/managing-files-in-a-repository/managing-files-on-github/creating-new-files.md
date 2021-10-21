@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Ao criar um arquivo no {% data variables.product.product_name %}, lembre-se do seguinte:
 
 - Se você tentar criar um arquivo em um repositório ao qual não tem acesso, bifurcaremos o projeto para sua conta de usuário e ajudaremos você a enviar [uma pull request](/articles/about-pull-requests) para o repositório original depois que fizer o commit da alteração.

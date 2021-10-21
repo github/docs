@@ -6,14 +6,18 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
+  - Collaboration
+shortTitle: Add collaborator to advisory
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können Mitarbeiter zu Sicherheitshinweisen hinzufügen.
 
-### Einen Mitarbeiter zu einem Sicherheitshinweis hinzufügen
+## Einen Mitarbeiter zu einem Sicherheitshinweis hinzufügen
 
 Mitarbeiter haben Schreibberechtigungen für den Sicherheitshinweis. Weitere Informationen findest Du unter „[Berechtigungsebenen für Sicherheitshinweise](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories).“
 
@@ -30,7 +34,7 @@ Mitarbeiter haben Schreibberechtigungen für den Sicherheitshinweis. Weitere Inf
 5. Gib auf der rechten Seite unter "Collaborators" (Mitarbeiter) den Namen des Benutzers oder Teams ein, das Du dem Sicherheitshinweis hinzufügen möchtest. ![Feld zum Eingeben des Namens des Benutzers oder Teams](/assets/images/help/security/add-collaborator-field.png)
 6. Klicke auf **Add** (Hinzufügen). ![Schaltfläche „Add“ (Hinzufügen)](/assets/images/help/security/security-advisory-add-collaborator-button.png)
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Berechtigungsebenen für Sicherheitshinweise](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
 - „[Zusammenarbeit in einer temporären privaten Fork, um eine Sicherheitslücke zu beheben](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

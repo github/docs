@@ -13,14 +13,15 @@ redirect_from:
   - /github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 topics:
   - Pages
+shortTitle: Gerenciar um domínio personalizado
 ---
 
 Pessoas com permissões de administrador para um repositório podem configurar um domínio personalizado de um site do {% data variables.product.prodname_pages %}.
 
-### Sobre a configuração de domínio personalizado
+## Sobre a configuração de domínio personalizado
 
 Lembre-se de adicionar o domínio personalizado ao seu site do {% data variables.product.prodname_pages %} antes de configurar o domínio personalizado com o provedor DNS. Se você configurar o domínio personalizado com o provedor DNS sem adicioná-lo ao {% data variables.product.product_name %}, outra pessoa conseguirá hospedar um site em um dos seus subdomínios.
 
@@ -36,7 +37,7 @@ O comando `dig`, que pode ser usado para verificar a configuração correta dos 
 
 {% endnote %}
 
-### Configurando um subdomínio
+## Configurando um subdomínio
 
 Para configurar um `www` ou um subdomínio personalizado como, por exemplo, `www.example.com` ou `blog.example.com`, você deve adicionar seu domínio nas configurações do repositório, o que criará um arquivo CNAME no repositório do seu site. Em seguida, configure um registro CNAME com seu provedor DNS.
 
@@ -59,7 +60,7 @@ Para configurar um `www` ou um subdomínio personalizado como, por exemplo, `www
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-### Configurando um domínio apex
+## Configurando um domínio apex
 
 Para configurar um domínio apex, como `example.com`, você deve configurar um arquivo</em> CNAME_ no seu repositório de {% data variables.product.prodname_pages %} e pelo menos um `ALIAS`, `ANAME` ou um registro `A` com seu provedor DNS.</p>
 
@@ -69,7 +70,7 @@ Para configurar um domínio apex, como `example.com`, você deve configurar um a
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Isso criará um commit que adiciona um arquivo _CNAME_ à raiz da sua fonte de publicação. ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Navegue até o provedor DNS e crie um registro `ALIAS`, `ANAME` ou `A`. {% data reusables.pages.contact-dns-provider %}
+5. Navegue até o provedor DNS e crie um registro `ALIAS`, `ANAME` ou `A`. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
     - Para criar um registro `ALIAS` ou `ANAME`, aponte o domínio apex para o domínio padrão do seu site. {% data reusables.pages.default-domain-information %}
     - Para criar registros `A`, aponte seu domínio apex para os endereços IP para {% data variables.product.prodname_pages %}.
       ```shell
@@ -78,21 +79,37 @@ Para configurar um domínio apex, como `example.com`, você deve configurar um a
       185.199.110.153
       185.199.111.153
       ```
+    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
+      ```shell
+      2606:50c0:8000::153
+      2606:50c0:8001::153
+      2606:50c0:8002::153
+      2606:50c0:8003::153
+      ```
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. Para confirmar que o registro DNS foi configurado corretamente, use o comando `dig`, substituindo _WW.EXAMPLE.COM_ pelo domínio apex. Confirme que os resultados correspondem aos endereços IP do {% data variables.product.prodname_pages %} acima.
-  ```shell
-  $ dig <em>EXAMPLE.COM</em> +noall +answer
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.109.153
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
-  > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
-  ```
+   - For `A` records.
+    ```shell
+    $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.109.153
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
+    > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
+    ```
+   - For `AAAA` records.
+    ```shell
+    $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8001::153
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8002::153
+    > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8003::153
+    ```
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
-### Configurar um domínio apex e a variante de subdomínio `www`
+## Configurar um domínio apex e a variante de subdomínio `www`
 
 Ao usar um domínio apex, recomendamos que você configure o seu site de {% data variables.product.prodname_pages %} para hospedar o conteúdo tanto no domínio apex quanto na variante de subdomínio `www`.
 
@@ -109,13 +126,13 @@ Depois de configurar o domínio apex, você deverá configurar um registro CNAME
     > <em>YOUR-USERNAME</em>.github.io.      43192   IN      CNAME   <em> GITHUB-PAGES-SERVER </em>.
     > <em> GITHUB-PAGES-SERVER </em>.         22      IN      A       192.0.2.1
 ```
-### Remover um domínio personalizado
+## Remover um domínio personalizado
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. Em "Domínio personalizado, clique em **Remover**. ![Botão Salvar domínio personalizado](/assets/images/help/pages/remove-custom-domain.png)
 
-### Leia mais
+## Leia mais
 
 - "[Solucionar problemas de domínios personalizados e do {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages)"

@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
 ---
+
 ### Sobre autenticação no {% data variables.product.prodname_dotcom %}
 
 Para manter sua conta protegida, você deve efetuar a autenticação antes de poder acessar{% if currentVersion != "github-ae@latest" %} certos{% endif %} recursos em {% data variables.product.product_name %}. Ao efetuar a autenticação em {% data variables.product.product_name %}, você fornece ou confirma credenciais que são exclusivas que provam quem você declara ser.

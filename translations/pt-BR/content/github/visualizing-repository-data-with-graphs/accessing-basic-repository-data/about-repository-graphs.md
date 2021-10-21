@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Os gráficos de um repositório fornecem informações sobre {% if currentVersion == "free-pro-team@latest" %} tráfego, projetos que dependem do repositório,{% endif %} contribuidores e commits no repositório e bifurcações de um repositório e rede. Se você mantém um repositório, é possível usar esses dados para entender melhor quem está usando o repositório e por que está usando.
 
 {% if currentVersion == "free-pro-team@latest" %}

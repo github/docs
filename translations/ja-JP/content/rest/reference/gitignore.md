@@ -1,13 +1,15 @@
 ---
 title: Gitignore
+intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
 redirect_from:
   - /v3/gitignore
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 API を介して新しい {% data variables.product.product_name %} リポジトリを作成する場合、作成時にリポジトリに適用する [.gitignore テンプレート](/github/getting-started-with-github/ignoring-files)を指定できます。 .gitignore テンプレート API は、{% data variables.product.product_name %} の [.gitignore リポジトリ](https://github.com/github/gitignore)からテンプレートを一覧表示してフェッチします。

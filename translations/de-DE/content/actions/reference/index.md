@@ -18,6 +18,7 @@ children:
   - /environment-variables
   - /usage-limits-billing-and-administration
 ---
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
@@ -39,5 +40,6 @@ Workflow jobs can reference environments that have protection rules or environme
 {% data variables.product.prodname_dotcom %} setzt Standard-Umgebungsvariablen für jeden {% data variables.product.prodname_actions %}-Workflow-Lauf. Du kannst auch benutzerdefinierte Umgebungsvariablen in Deiner Workflow-Datei festlegen.
 {% if currentVersion == "free-pro-team@latest" %}
 ### Administration
-When you run workflows on {% data variables.product.prodname_dotcom %}-hosted runners, there are usage limits and potential usage charges. You can also disable or restrict the usage of {% data variables.product.prodname_actions %} in a repository and organization.
+When you run workflows on
+{% data variables.product.prodname_dotcom %}-hosted runners, there are usage limits and potential usage charges. You can also disable or restrict the usage of {% data variables.product.prodname_actions %} in a repository and organization.
 {% endif %}
