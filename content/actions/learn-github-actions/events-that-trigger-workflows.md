@@ -194,7 +194,7 @@ Not all webhook events trigger workflows. For the complete list of available web
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
 ### `branch_protection_rule`
 
-Runs your workflow anytime the `branch_protection_rule` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)."
+Runs your workflow anytime the `branch_protection_rule` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[BranchProtectionRule]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#branchprotectionrule)."
 
 {% data reusables.github-actions.branch-requirement %}
 
