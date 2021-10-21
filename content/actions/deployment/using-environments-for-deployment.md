@@ -22,7 +22,7 @@ Environments are used to describe a general deployment target like `production`,
 
 You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the environment protection rules pass.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 {% note %}
 
 **Note:** If you don't use {% data variables.product.prodname_ghe_cloud %} and convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets. {% data reusables.enterprise.link-to-ghec-trial %}

@@ -12,5 +12,7 @@ For additional features, including sophisticated user authentication and managem
 
 If you use {% data variables.product.prodname_ghe_cloud %}, you have the option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}
 
+{% ifversion fpt %}
 {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 {% endif %}

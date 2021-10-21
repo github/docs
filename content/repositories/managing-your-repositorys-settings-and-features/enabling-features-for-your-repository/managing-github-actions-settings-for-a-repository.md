@@ -48,7 +48,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-next or ghec %}
+{% ifversion fpt or ghec or ghes > 2.22 or ghae %}
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your repository
 
@@ -100,7 +100,8 @@ You can configure this behavior for a repository using the procedure below. Modi
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghec or ghes > 2.22 or ghae %}
+
 ## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}
