@@ -45,3 +45,4 @@ If an enterprise uses {% data variables.product.prodname_emus %}, members are pr
 ## Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+/articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
