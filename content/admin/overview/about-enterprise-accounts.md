@@ -114,4 +114,4 @@ For more information about billing for {% ifversion ghec %}{% data variables.pro
 
 ## Further reading
 
-- "[Enterprise accounts](/free-pro-team@latest/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation
+- "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation
