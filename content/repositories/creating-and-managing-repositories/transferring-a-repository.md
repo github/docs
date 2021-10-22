@@ -26,8 +26,8 @@ topics:
 
 When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, project boards, and settings.
 
-Prerequisites for repository transfers: {% ifversion fpt or ghec %}
-- When you transfer a repository that you own to another user account, the new owner will receive a confirmation email. The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
+Prerequisites for repository transfers: 
+- When you transfer a repository that you own to another user account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
 - To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 - The target account must not have a repository with the same name, or a fork in the same network.
 - The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.

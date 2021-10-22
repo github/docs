@@ -27,7 +27,7 @@ If your organization [requires members and outside collaborators to use two-fact
 
 {% data reusables.organizations.outside_collaborator_forks %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
