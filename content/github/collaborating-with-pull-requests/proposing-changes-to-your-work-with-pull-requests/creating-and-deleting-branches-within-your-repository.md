@@ -50,4 +50,4 @@ For more information, see "[About branches](/github/collaborating-with-issues-an
 
 - "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)"
 - "[Viewing branches in your repository](/github/administering-a-repository/viewing-branches-in-your-repository)"
-- "[Deleting and restoring branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
+- "[Deleting and restoring h branches in a pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"
