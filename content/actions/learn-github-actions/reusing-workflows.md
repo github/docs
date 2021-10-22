@@ -1,12 +1,12 @@
 ---
 title: Reusing workflows
 shortTitle: Reusing workflows
-intro: 'Learn how to avoid duplication when creating a workflow by reusing existing workflows.'
+intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '>=3.4'
-  ghae: 'issue-4757'
+  ghae: issue-4757
   ghec: '*'
 type: how_to
 topics:

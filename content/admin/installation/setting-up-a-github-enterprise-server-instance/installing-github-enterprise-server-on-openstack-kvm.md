@@ -54,5 +54,5 @@ shortTitle: Install on OpenStack
 
 ## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

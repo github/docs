@@ -24,7 +24,7 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% ifversion ghes = 3.0 %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 {% endif %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying GitHub Advanced Security in your enterprise](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)."
 {% endif %}
 
@@ -32,7 +32,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 
 1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 2. Download the new license file. For more information, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
-3. Upload the new license file to {% data variables.product.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes > 2.22 %}
+3. Upload the new license file to {% data variables.product.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
 4. Review the prerequisites for the features you plan to enable.
 
     - {% data variables.product.prodname_code_scanning_capc %}, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
@@ -49,7 +49,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 ![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
 {% endif %}
 
-{% ifversion ghes = 2.22 or ghes = 3.0 %}
+{% ifversion ghes = 3.0 %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, there is an **{% data variables.product.prodname_advanced_security %}** entry in the left sidebar.
@@ -64,7 +64,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes > 2.22 %}
+{% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
 1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," select the features that you want to enable and deselect any features you want to disable.
 ![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% else %}
 1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.

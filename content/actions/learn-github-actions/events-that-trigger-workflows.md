@@ -674,8 +674,6 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
-
 ### `pull_request_target`
 
 This event runs in the context of the base of the pull request, rather than in the merge commit as the `pull_request` event does.  This prevents executing unsafe workflow code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows you to do things like create workflows that label and comment on pull requests based on the contents of the event payload.
@@ -699,8 +697,6 @@ on:
   pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
-
-{% endif %}
 
 ### `push`
 
@@ -808,8 +804,6 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
-
 ### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
@@ -835,8 +829,6 @@ on:
       - completed
       - requested
 ```
-
-{% endif %}
 
 To run a workflow job conditionally based on the result of the previous workflow run, you can use the [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) or [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) conditional combined with the `conclusion` of the previous run. For example:
 

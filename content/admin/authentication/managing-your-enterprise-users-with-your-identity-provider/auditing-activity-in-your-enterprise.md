@@ -2,7 +2,7 @@
 title: Auditing activity in your enterprise
 shortTitle: Auditing activity
 intro: 'You can audit the activity of the {% data variables.product.prodname_managed_users %} in your enterprise, viewing information about what actions were performed, by which user, and when they took place.'
-permissions: 'Enterprise owners can access the audit log.'
+permissions: Enterprise owners can access the audit log.
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
