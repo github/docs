@@ -213,7 +213,6 @@ In this diagram, you can see the workflow file you just created and how the {% d
 
 ![Workflow overview](/assets/images/help/images/overview-actions-event.png)
 
-
 ## Viewing the job's activity
 
 Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or ghae or ghec %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
@@ -232,7 +231,7 @@ Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or gha
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. View the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 1. Click on the job name to see the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
