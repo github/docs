@@ -1176,6 +1176,40 @@
       ]
     },
     {
+      "name": "addProjectNextItem",
+      "kind": "mutations",
+      "id": "addprojectnextitem",
+      "href": "/graphql/reference/mutations#addprojectnextitem",
+      "description": "<p>Adds an existing item (Issue or PullRequest) to a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddProjectNextItemInput!",
+          "id": "addprojectnextiteminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addprojectnextiteminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectNextItem",
+          "type": "ProjectNextItem",
+          "id": "projectnextitem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitem",
+          "description": "<p>The item added to the project.</p>"
+        }
+      ]
+    },
+    {
       "name": "addPullRequestReview",
       "kind": "mutations",
       "id": "addpullrequestreview",
@@ -3140,6 +3174,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#project",
           "description": "<p>The project the deleted column was in.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteProjectNextItem",
+      "kind": "mutations",
+      "id": "deleteprojectnextitem",
+      "href": "/graphql/reference/mutations#deleteprojectnextitem",
+      "description": "<p>Deletes an item from a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectNextItemInput!",
+          "id": "deleteprojectnextiteminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteprojectnextiteminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deletedItemId",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The ID of the deleted item.</p>"
         }
       ]
     },
@@ -6412,6 +6480,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectcolumn",
           "description": "<p>The updated project column.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateProjectNextItemField",
+      "kind": "mutations",
+      "id": "updateprojectnextitemfield",
+      "href": "/graphql/reference/mutations#updateprojectnextitemfield",
+      "description": "<p>Updates a field of an item from a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectNextItemFieldInput!",
+          "id": "updateprojectnextitemfieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateprojectnextitemfieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectNextItem",
+          "type": "ProjectNextItem",
+          "id": "projectnextitem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitem",
+          "description": "<p>The updated item.</p>"
         }
       ]
     },
@@ -18918,6 +19020,14 @@
           "href": "/graphql/reference/enums#notificationrestrictionsettingvalue"
         },
         {
+          "name": "oidcProvider",
+          "description": "<p>The OIDC Identity Provider for the enterprise.</p>",
+          "type": "OIDCProvider",
+          "id": "oidcprovider",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#oidcprovider"
+        },
+        {
           "name": "organizationProjectsSetting",
           "description": "<p>The setting value for whether organization projects are enabled for organizations in this enterprise.</p>",
           "type": "EnterpriseEnabledDisabledSettingValue!",
@@ -27475,6 +27585,106 @@
       ]
     },
     {
+      "name": "OIDCProvider",
+      "kind": "objects",
+      "id": "oidcprovider",
+      "href": "/graphql/reference/objects#oidcprovider",
+      "description": "<p>An OIDC identity provider configured to provision identities for an enterprise.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "enterprise",
+          "description": "<p>The enterprise this identity provider belongs to.</p>",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "externalIdentities",
+          "description": "<p>ExternalIdentities provisioned by this identity provider.</p>",
+          "type": "ExternalIdentityConnection!",
+          "id": "externalidentityconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#externalidentityconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membersOnly",
+              "description": "<p>Filter to external identities with valid org membership only.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "providerType",
+          "description": "<p>The OIDC identity provider type.</p>",
+          "type": "OIDCProviderType!",
+          "id": "oidcprovidertype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#oidcprovidertype"
+        },
+        {
+          "name": "tenantId",
+          "description": "<p>The id of the tenant this provider is attached to.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "OauthApplicationCreateAuditEntry",
       "kind": "objects",
       "id": "oauthapplicationcreateauditentry",
@@ -32522,6 +32732,11 @@
           "href": "/graphql/reference/interfaces#profileowner"
         },
         {
+          "name": "ProjectNextOwner",
+          "id": "projectnextowner",
+          "href": "/graphql/reference/interfaces#projectnextowner"
+        },
+        {
           "name": "ProjectOwner",
           "id": "projectowner",
           "href": "/graphql/reference/interfaces#projectowner"
@@ -33390,6 +33605,26 @@
           ]
         },
         {
+          "name": "projectNext",
+          "description": "<p>Find project by project next number.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The project next number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "projects",
           "description": "<p>A list of projects under the owner.</p>",
           "type": "ProjectConnection!",
@@ -33465,6 +33700,56 @@
                 "id": "projectstate",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#projectstate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsNext",
+          "description": "<p>A list of project next items under the owner.</p>",
+          "type": "ProjectNextConnection!",
+          "id": "projectnextconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
               }
             }
           ]
@@ -37440,6 +37725,751 @@
           "id": "project",
           "kind": "objects",
           "href": "/graphql/reference/objects#project"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNext",
+      "kind": "objects",
+      "id": "projectnext",
+      "href": "/graphql/reference/objects#projectnext",
+      "description": "<p>New projects that manage issues, pull requests and drafts with tables and.</p>",
+      "implements": [
+        {
+          "name": "Closable",
+          "id": "closable",
+          "href": "/graphql/reference/interfaces#closable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/interfaces#updatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "closed",
+          "description": "<p>Returns true if the project is closed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "closedAt",
+          "description": "<p>Identifies the date and time when the object was closed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who originally created the project.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "description",
+          "description": "<p>The project's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fields",
+          "description": "<p>List of fields in the project.</p>",
+          "type": "ProjectNextFieldConnection!",
+          "id": "projectnextfieldconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfieldconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "items",
+          "description": "<p>List of items in the project.</p>",
+          "type": "ProjectNextItemConnection!",
+          "id": "projectnextitemconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitemconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "number",
+          "description": "<p>The project's number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "owner",
+          "description": "<p>The project's owner. Currently limited to organizations and users.</p>",
+          "type": "ProjectNextOwner!",
+          "id": "projectnextowner",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#projectnextowner"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this project.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "title",
+          "description": "<p>The project's name.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this project.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextConnection",
+      "kind": "objects",
+      "id": "projectnextconnection",
+      "href": "/graphql/reference/objects#projectnextconnection",
+      "description": "<p>The connection type for ProjectNext.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectNextEdge]",
+          "id": "projectnextedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectNext]",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextEdge",
+      "kind": "objects",
+      "id": "projectnextedge",
+      "href": "/graphql/reference/objects#projectnextedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextField",
+      "kind": "objects",
+      "id": "projectnextfield",
+      "href": "/graphql/reference/objects#projectnextfield",
+      "description": "<p>A field inside a project.</p>",
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "name",
+          "description": "<p>The project field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this column.</p>",
+          "type": "ProjectNext!",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext"
+        },
+        {
+          "name": "settings",
+          "description": "<p>The field's settings.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextFieldConnection",
+      "kind": "objects",
+      "id": "projectnextfieldconnection",
+      "href": "/graphql/reference/objects#projectnextfieldconnection",
+      "description": "<p>The connection type for ProjectNextField.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectNextFieldEdge]",
+          "id": "projectnextfieldedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfieldedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectNextField]",
+          "id": "projectnextfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfield"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextFieldEdge",
+      "kind": "objects",
+      "id": "projectnextfieldedge",
+      "href": "/graphql/reference/objects#projectnextfieldedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectNextField",
+          "id": "projectnextfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfield"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextItem",
+      "kind": "objects",
+      "id": "projectnextitem",
+      "href": "/graphql/reference/objects#projectnextitem",
+      "description": "<p>An item in a Memex project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "content",
+          "description": "<p>The content of the referenced issue or pull request.</p>",
+          "type": "ProjectNextItemContent",
+          "id": "projectnextitemcontent",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectnextitemcontent"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created the item.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "fieldValues",
+          "description": "<p>List of field values.</p>",
+          "type": "ProjectNextItemFieldValueConnection!",
+          "id": "projectnextitemfieldvalueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitemfieldvalueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this item.</p>",
+          "type": "ProjectNext!",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the item.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextItemConnection",
+      "kind": "objects",
+      "id": "projectnextitemconnection",
+      "href": "/graphql/reference/objects#projectnextitemconnection",
+      "description": "<p>The connection type for ProjectNextItem.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectNextItemEdge]",
+          "id": "projectnextitemedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitemedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectNextItem]",
+          "id": "projectnextitem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitem"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextItemEdge",
+      "kind": "objects",
+      "id": "projectnextitemedge",
+      "href": "/graphql/reference/objects#projectnextitemedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectNextItem",
+          "id": "projectnextitem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitem"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextItemFieldValue",
+      "kind": "objects",
+      "id": "projectnextitemfieldvalue",
+      "href": "/graphql/reference/objects#projectnextitemfieldvalue",
+      "description": "<p>An value of a field in an item of Memex project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created the item.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "projectField",
+          "description": "<p>The project field that contains this value.</p>",
+          "type": "ProjectNextField!",
+          "id": "projectnextfield",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfield"
+        },
+        {
+          "name": "projectItem",
+          "description": "<p>The project item that contains this value.</p>",
+          "type": "ProjectNextItem!",
+          "id": "projectnextitem",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitem"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "value",
+          "description": "<p>The value of a field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextItemFieldValueConnection",
+      "kind": "objects",
+      "id": "projectnextitemfieldvalueconnection",
+      "href": "/graphql/reference/objects#projectnextitemfieldvalueconnection",
+      "description": "<p>The connection type for ProjectNextItemFieldValue.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectNextItemFieldValueEdge]",
+          "id": "projectnextitemfieldvalueedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitemfieldvalueedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectNextItemFieldValue]",
+          "id": "projectnextitemfieldvalue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitemfieldvalue"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextItemFieldValueEdge",
+      "kind": "objects",
+      "id": "projectnextitemfieldvalueedge",
+      "href": "/graphql/reference/objects#projectnextitemfieldvalueedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectNextItemFieldValue",
+          "id": "projectnextitemfieldvalue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextitemfieldvalue"
         }
       ]
     },
@@ -58309,6 +59339,11 @@
           "href": "/graphql/reference/interfaces#profileowner"
         },
         {
+          "name": "ProjectNextOwner",
+          "id": "projectnextowner",
+          "href": "/graphql/reference/interfaces#projectnextowner"
+        },
+        {
           "name": "ProjectOwner",
           "id": "projectowner",
           "href": "/graphql/reference/interfaces#projectowner"
@@ -59449,6 +60484,26 @@
           ]
         },
         {
+          "name": "projectNext",
+          "description": "<p>Find project by project next number.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The project next number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "projects",
           "description": "<p>A list of projects under the owner.</p>",
           "type": "ProjectConnection!",
@@ -59524,6 +60579,56 @@
                 "id": "projectstate",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#projectstate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsNext",
+          "description": "<p>A list of project next items under the owner.</p>",
+          "type": "ProjectNextConnection!",
+          "id": "projectnextconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
               }
             }
           ]
@@ -63043,6 +64148,85 @@
       ]
     },
     {
+      "name": "ProjectNextOwner",
+      "kind": "interfaces",
+      "id": "projectnextowner",
+      "href": "/graphql/reference/interfaces#projectnextowner",
+      "description": "<p>Represents an owner of a Project.</p>",
+      "fields": [
+        {
+          "name": "projectNext",
+          "description": "<p>Find project by project next number.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The project next number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsNext",
+          "description": "<p>A list of project next items under the owner.</p>",
+          "type": "ProjectNextConnection!",
+          "id": "projectnextconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "ProjectOwner",
       "kind": "interfaces",
       "id": "projectowner",
@@ -66107,6 +67291,19 @@
         {
           "name": "ENABLED",
           "description": "<p>The setting is enabled for the owner.</p>"
+        }
+      ]
+    },
+    {
+      "name": "OIDCProviderType",
+      "kind": "enums",
+      "id": "oidcprovidertype",
+      "href": "/graphql/reference/enums#oidcprovidertype",
+      "description": "<p>The OIDC identity provider type.</p>",
+      "values": [
+        {
+          "name": "AAD",
+          "description": "<p>Azure Active Directory.</p>"
         }
       ]
     },
@@ -69393,6 +70590,25 @@
       ]
     },
     {
+      "name": "ProjectNextItemContent",
+      "kind": "unions",
+      "id": "projectnextitemcontent",
+      "href": "/graphql/reference/unions#projectnextitemcontent",
+      "description": "<p>Types that can be inside Project Items.</p>",
+      "possibleTypes": [
+        {
+          "name": "Issue",
+          "id": "issue",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "PullRequest",
+          "id": "pullrequest",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
       "name": "PullRequestTimelineItem",
       "kind": "unions",
       "id": "pullrequesttimelineitem",
@@ -70421,6 +71637,41 @@
         {
           "name": "projectId",
           "description": "<p>The Node ID of the project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddProjectNextItemInput",
+      "kind": "inputObjects",
+      "id": "addprojectnextiteminput",
+      "href": "/graphql/reference/input-objects#addprojectnextiteminput",
+      "description": "<p>Autogenerated input type of AddProjectNextItem.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "contentId",
+          "description": "<p>The content id of the item (Issue or PullRequest).</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to add the item to.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -73511,6 +74762,41 @@
         {
           "name": "projectId",
           "description": "<p>The Project ID to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteProjectNextItemInput",
+      "kind": "inputObjects",
+      "id": "deleteprojectnextiteminput",
+      "href": "/graphql/reference/input-objects#deleteprojectnextiteminput",
+      "description": "<p>Autogenerated input type of DeleteProjectNextItem.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The ID of the item to be removed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project from which the item should be removed.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78396,6 +79682,58 @@
           "id": "projectstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectstate"
+        }
+      ]
+    },
+    {
+      "name": "UpdateProjectNextItemFieldInput",
+      "kind": "inputObjects",
+      "id": "updateprojectnextitemfieldinput",
+      "href": "/graphql/reference/input-objects#updateprojectnextitemfieldinput",
+      "description": "<p>Autogenerated input type of UpdateProjectNextItemField.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The id of the field to be updated. Only supports custom fields and status for now.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The id of the item to be updated.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "value",
+          "description": "<p>The value which will be set on the field.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
