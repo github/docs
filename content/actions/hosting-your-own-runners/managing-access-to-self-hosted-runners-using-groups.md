@@ -174,8 +174,8 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## Moving a self-hosted runner to a group
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
 1. In the "Runners" list, click the runner that you want to configure.
 1. Select the Runner group dropdown menu.
 1. In "Move runner to group", choose a destination group for the runner.
