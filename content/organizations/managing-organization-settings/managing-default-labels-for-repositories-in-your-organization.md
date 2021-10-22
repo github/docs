@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,7 +23,7 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -38,7 +39,7 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -53,7 +54,7 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}

@@ -79,7 +79,7 @@ function LandingPage(props: LandingPageProps) {
           <h2 className="f5 text-normal color-text-secondary text-md-center mb-4">
             {t('explore_by_product')}
           </h2>
-          <div className="d-flex flex-wrap gutter gutter-xl-spacious">
+          <div className="d-flex flex-wrap gutter gutter-xl-spacious" data-testid="product">
             {activeProducts.map((product) => {
               if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
                 return null

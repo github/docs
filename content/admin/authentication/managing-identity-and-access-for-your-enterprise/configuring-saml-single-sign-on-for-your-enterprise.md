@@ -1,10 +1,11 @@
 ---
 title: Configuring SAML single sign-on for your enterprise
-shortTitle: Configuring SAML SSO
-intro: 'You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).'
+shortTitle: Configure SAML SSO
+intro: "You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise's organizations{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP)."
 product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
+  ghec: '*'
   ghae: '*'
 type: how_to
 topics:
@@ -15,10 +16,26 @@ topics:
   - SSO
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account
 ---
-## About SAML SSO
 
-{% ifversion ghae %}
+{% data reusables.enterprise-accounts.emu-saml-note %}
+
+## About SAML SSO for enterprise accounts
+
+{% ifversion ghec %}
+
+{% data reusables.saml.dotcom-saml-explanation %} For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+
+{% data reusables.saml.about-saml-enterprise-accounts %}
+
+{% data reusables.saml.about-saml-access-enterprise-account %} For more information, see "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
+
+{% data reusables.scim.enterprise-account-scim %}
+
+{% elsif ghae %}
 
 SAML SSO allows you to centrally control and secure access to {% data variables.product.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
 
@@ -32,13 +49,41 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 ## Supported identity providers
 
-{% data variables.product.product_name %} supports SAML SSO with IdPs that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
+{% data reusables.saml.saml-supported-idps %}
 
-{% data variables.product.company_short %} has tested SAML SSO for {% data variables.product.product_name %} with the following IdPs.
+{% ifversion ghec %}
 
-{% ifversion ghae %}
-- Azure AD
-{% endif %}
+## Enforcing SAML single-sign on for organizations in your enterprise account
+
+{% note %}
+
+**Notes:**
+
+- When you enforce SAML SSO for your enterprise, the enterprise configuration will override any existing organization-level SAML configurations. {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+- When you enforce SAML SSO for an organization, {% data variables.product.company_short %} removes any members of the organization that have not authenticated successfully with your SAML IdP. When you require SAML SSO for your enterprise, {% data variables.product.company_short %} does not remove members of the enterprise that have not authenticated successfully with your SAML IdP. The next time a member accesses the enterprise's resources, the member must authenticate with your SAML IdP.
+
+{% endnote %}
+
+For more detailed information about how to enable SAML using Okta, see "[Configuring SAML single sign-on for your enterprise account using Okta](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "SAML single sign-on", select **Require SAML authentication**.
+  ![Checkbox for enabling SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
+6. In the **Sign on URL** field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
+![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url_business.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
+![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
+8. Under **Public Certificate**, paste a certificate to verify SAML responses.
+![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
+9. To verify the integrity of the requests from your SAML issuer, click {% octicon "pencil" aria-label="The edit icon" %}. Then in the "Signature Method" and "Digest Method" drop-downs, choose the hashing algorithm used by your SAML issuer.
+![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
+10. Before enabling SAML SSO for your enterprise, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
+11. Click **Save**.
+
+{% elsif ghae %}
 
 ## Enabling SAML SSO
 
@@ -115,5 +160,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
   ![Checkbox for "Enable SAML authentication"](/assets/images/help/saml/ae-saml-disabled.png)
 1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**.
     !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-saml-disabled-save.png)
+
+{% endif %}
 
 {% endif %}

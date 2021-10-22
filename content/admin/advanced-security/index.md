@@ -8,6 +8,7 @@ redirect_from:
   - /admin/configuration/configuring-advanced-security-features
 versions:
   ghes: '*'
+  ghec: '*'
 topics:
   - Enterprise
 children:
@@ -15,5 +16,6 @@ children:
   - /configuring-code-scanning-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance
   - /viewing-your-github-advanced-security-usage
+  - /overview-of-github-advanced-security-deployment
+  - /deploying-github-advanced-security-in-your-enterprise
 ---
-

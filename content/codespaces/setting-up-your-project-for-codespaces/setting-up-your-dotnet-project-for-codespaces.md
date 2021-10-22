@@ -8,6 +8,7 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 ---

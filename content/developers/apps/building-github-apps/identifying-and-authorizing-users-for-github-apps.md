@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Identify & authorize users
@@ -24,7 +25,7 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
 
@@ -52,7 +53,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 Name | Type | Description
 -----|------|------------
 `client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app. **Note:** The app ID and client ID are not the same, and are not interchangeable.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 `allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
@@ -88,7 +89,7 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your GitHub App.
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | The unguessable random string you provided in Step 1.
 
 #### Response
@@ -97,9 +98,9 @@ By default, the response takes the following form. The response parameters `expi
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
@@ -119,7 +120,7 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## Device flow
 
@@ -166,11 +167,11 @@ Because user-level permissions are granted on an individual user basis, you can 
 
 ## User-to-server requests
 
-While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4](/graphql) or [REST v3](/rest) endpoints.
+While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST v3](/rest) endpoints.
 
 ### Supported endpoints
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Actions Runners
 
 * [List runner applications for a repository](/rest/reference/actions#list-runner-applications-for-a-repository)
@@ -204,7 +205,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete an organization secret](/rest/reference/actions#delete-an-organization-secret)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Artifacts
 
 * [List artifacts for a repository](/rest/reference/actions#list-artifacts-for-a-repository)
@@ -246,7 +247,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List deployments](/rest/reference/repos#list-deployments)
 * [Create a deployment](/rest/reference/repos#create-a-deployment)
-* [Get a deployment](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae %}
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
 * [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
 #### Events
@@ -294,7 +295,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Interaction Limits
 
 * [Get interaction restrictions for an organization](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
@@ -339,7 +340,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Lock an issue](/rest/reference/issues#lock-an-issue)
 * [Unlock an issue](/rest/reference/issues#unlock-an-issue)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Jobs
 
 * [Get a job for a workflow run](/rest/reference/actions#get-a-job-for-a-workflow-run)
@@ -392,7 +393,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete an organization webhook](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
 * [Ping an organization webhook](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Organization Invitations
 
 * [List pending organization invitations](/rest/reference/orgs#list-pending-organization-invitations)
@@ -428,7 +429,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 #### Organization Team Projects
 
 * [List team projects](/rest/reference/teams#list-team-projects)
@@ -444,7 +445,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Add or update team repository permissions](/rest/reference/teams#add-or-update-team-repository-permissions)
 * [Remove a repository from a team](/rest/reference/teams#remove-a-repository-from-a-team)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Organization Team Sync
 
 * [List idp groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
@@ -459,7 +460,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a team by name](/rest/reference/teams#get-a-team-by-name)
 * [Update a team](/rest/reference/teams#update-a-team)
 * [Delete a team](/rest/reference/teams#delete-a-team)
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [List pending team invitations](/rest/reference/teams#list-pending-team-invitations)
 {% endif %}
 * [List team members](/rest/reference/teams#list-team-members)
@@ -480,14 +481,14 @@ While most of your API interaction should occur using your server-to-server inst
 * [List organizations for the authenticated user](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
 * [List organizations for a user](/rest/reference/orgs#list-organizations-for-a-user)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Organizations Credential Authorizations
 
 * [List SAML SSO authorizations for an organization](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
 * [Remove a SAML SSO authorization for an organization](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Organizations Scim
 
 * [List SCIM provisioned identities](/rest/reference/scim#list-scim-provisioned-identities)
@@ -498,7 +499,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a SCIM user from an organization](/rest/reference/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Source Imports
 
 * [Get an import status](/rest/reference/migrations#get-an-import-status)
@@ -581,7 +582,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Reactions
 
-{% ifversion fpt or ghes or ghae %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
 * [List reactions for a commit comment](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -593,7 +594,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List reactions for a team discussion comment](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
 * [Delete a commit comment reaction](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reference/reactions#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/rest/reference/reactions#delete-an-issue-comment-reaction)
@@ -631,7 +632,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Unstar a repository for the authenticated user](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
 * [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Repository Automated Security Fixes
 
 * [Enable automated security fixes](/rest/reference/repos#enable-automated-security-fixes)
@@ -700,7 +701,7 @@ While most of your API interaction should occur using your server-to-server inst
 #### Repository Community
 
 * [Get the code of conduct for a repository](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [Get community profile metrics](/rest/reference/repos#get-community-profile-metrics)
 {% endif %}
 
@@ -713,7 +714,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository README](/rest/reference/repos#get-a-repository-readme)
 * [Get the license for a repository](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 #### Repository Event Dispatches
 
 * [Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)
@@ -787,7 +788,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get the weekly commit count](/rest/reference/repos#get-the-weekly-commit-count)
 * [Get the hourly commit count for each day](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Repository Vulnerability Alerts
 
 * [Enable vulnerability alerts](/rest/reference/repos#enable-vulnerability-alerts)
@@ -833,7 +834,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get all repository topics](/rest/reference/repos#get-all-repository-topics)
 * [Replace all repository topics](/rest/reference/repos#replace-all-repository-topics)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Traffic
 
 * [Get repository clones](/rest/reference/repos#get-repository-clones)
@@ -842,7 +843,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get page views](/rest/reference/repos#get-page-views)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### User Blocking
 
 * [List users blocked by the authenticated user](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
@@ -855,10 +856,10 @@ While most of your API interaction should occur using your server-to-server inst
 * [Unblock a user](/rest/reference/users#unblock-a-user)
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 #### User Emails
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [Set primary email visibility for the authenticated user](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
 * [List email addresses for the authenticated user](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
@@ -896,13 +897,13 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [Get the authenticated user](/rest/reference/users#get-the-authenticated-user)
 * [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
 * [List users](/rest/reference/users#list-users)
 * [Get a user](/rest/reference/users#get-a-user)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Workflow Runs
 
 * [List workflow runs for a repository](/rest/reference/actions#list-workflow-runs-for-a-repository)
@@ -915,7 +916,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get workflow run usage](/rest/reference/actions#get-workflow-run-usage)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Workflows
 
 * [List repository workflows](/rest/reference/actions#list-repository-workflows)
@@ -923,7 +924,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get workflow usage](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
 ## Further reading
 
