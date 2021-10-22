@@ -1,7 +1,6 @@
 ---
 title: Re-running workflows and jobs
 intro: You can re-run a workflow run up to 30 days after its initial run.
-product: '{% data reusables.gated-features.actions %}'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -10,10 +9,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Re-running all the jobs in a workflow
 
@@ -27,7 +28,7 @@ Re-running a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4721 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
 1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**
     ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
@@ -56,7 +57,7 @@ gh run watch
 
 {% endcli %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4721 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
 ### Reviewing previous workflow runs
 
 You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/reference/actions#get-a-workflow-run).

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-custom-actions
   - /creating-a-docker-container-action
@@ -24,3 +25,4 @@ children:
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}

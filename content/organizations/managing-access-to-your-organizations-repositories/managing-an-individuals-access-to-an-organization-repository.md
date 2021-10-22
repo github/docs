@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -39,5 +40,5 @@ When you remove a collaborator from a repository in your organization, the colla
 
 ## Further reading
 
-{% ifversion fpt %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"

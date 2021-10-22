@@ -20,12 +20,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Large files
 ---
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
 
 ### File size limits
@@ -47,7 +48,7 @@ If you need to distribute large files within your repository, you can create rel
 
 Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Repository size limits
 
 We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
@@ -97,7 +98,7 @@ If you added a file in an earlier commit, you need to remove it from the reposit
 
 If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
 

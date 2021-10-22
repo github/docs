@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Overview
 
@@ -35,7 +37,7 @@ Below is a list of the multiple {% data variables.product.prodname_actions %} co
 
 ### Workflows
 
-The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 ### Events
 
@@ -214,7 +216,7 @@ In this diagram, you can see the workflow file you just created and how the {% d
 
 ## Viewing the job's activity
 
-Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or ghae %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
+Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or ghae or ghec %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**.
@@ -223,11 +225,11 @@ Once your job has started running, you can {% ifversion fpt or ghes > 3.0 or gha
     ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see.
     ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Under **Jobs** or in the visualization graph, click the job you want to see.
    ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. View the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
 {% elsif ghes > 2.22 %}

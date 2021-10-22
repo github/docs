@@ -1,11 +1,11 @@
 ---
 title: About continuous deployment
 intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CD
@@ -14,6 +14,7 @@ shortTitle: Continuous deployment
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About continuous deployment
 
@@ -27,19 +28,19 @@ You can set up a {% data variables.product.prodname_actions %} workflow to deplo
 
 You can configure your CD workflow to run when a {% data variables.product.product_name %} event occurs (for example, when new code is pushed to the default branch of your repository), on a set schedule, manually, or when an external event occurs using the repository dispatch webhook. For more information about when your workflow can run, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
-{% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. {% ifversion fpt or ghae-next or ghes > 3.1 %}You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. {% endif %}For more information about these features, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% endif %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+{% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. {% endif %}For more information about these features, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% endif %}
 
 ## Workflow templates and third party actions
 
 {% data reusables.actions.cd-templates-actions %}
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## Further reading
 
 - [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
-- [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt %}
+- [Using environments for deployment](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
 
 {% endif %}

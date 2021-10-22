@@ -4,6 +4,7 @@ intro: 'Display the information you need by changing the layout, grouping, sorti
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Projects
@@ -147,5 +148,5 @@ To delete a view:
 
 ## Further reading
 
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)
+- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"

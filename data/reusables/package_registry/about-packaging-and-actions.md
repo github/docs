@@ -8,7 +8,7 @@ For example, a continuous integration workflow for a Java project may run `mvn p
 
 Now, when reviewing a pull request, you'll be able to look at the workflow run and download the artifact that was produced.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
 {% else %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)

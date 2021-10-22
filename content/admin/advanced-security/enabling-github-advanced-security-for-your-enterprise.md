@@ -24,6 +24,10 @@ When you enable {% data variables.product.prodname_GH_advanced_security %} for y
 When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% ifversion ghes = 3.0 %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 {% endif %}
 
+{% ifversion ghes > 2.22 %}
+For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying GitHub Advanced Security in your enterprise](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise)."
+{% endif %}
+
 ## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
 1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}

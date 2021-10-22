@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note:** Improved task lists are currently in beta and subject to change.
@@ -27,9 +28,9 @@ topics:
 
 A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
 
-You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
+You can use Markdown to create a task list in any comment on {% data variables.product.product_name %}. {% ifversion fpt or ghec %}If you reference an issue, pull request, or discussion in a task list, the reference will unfurl to show the title and state.{% endif %} 
 
-{% ifversion not fpt %} 
+{% ifversion not fpt or ghec %} 
 You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
 {% else %}
 
