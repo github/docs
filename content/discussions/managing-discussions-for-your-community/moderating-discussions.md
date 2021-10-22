@@ -4,6 +4,7 @@ intro: 'You can promote healthy collaboration by marking comments as answers, lo
 permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
@@ -17,7 +18,7 @@ versions:
 
 ## Locking discussions
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository will still be able to comment on the discussion.
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository will still be able to comment on the discussion.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

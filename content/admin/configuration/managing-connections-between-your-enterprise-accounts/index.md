@@ -12,13 +12,14 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: 'next'
+type: how_to
 topics:
   - Enterprise
 children:
   - /connecting-your-enterprise-account-to-github-enterprise-cloud
   - /enabling-unified-search-between-your-enterprise-account-and-githubcom
   - /enabling-unified-contributions-between-your-enterprise-account-and-githubcom
-  - /enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
+  - /enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account
   - /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
 shortTitle: Connect enterprise accounts
 ---

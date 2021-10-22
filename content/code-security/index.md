@@ -34,13 +34,15 @@ featuredLinks:
 changelog:
   label: security-and-compliance
   versions:
-    free-pro-team: '*'
+    fpt: '*'
+    ghec: '*'
 examples_source: data/product-examples/code-security/code-examples.yml
 layout: product-landing
 versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
   - Dependencies

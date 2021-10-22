@@ -8,11 +8,14 @@ versions:
   fpt: '*'
   ghes: '>=2.22'
   ghae: '*'
+  ghec: '*'
 topics:
   - CLI
   - Workflows
 type: how_to
 ---
+
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.cli.cli-learn-more %}
 

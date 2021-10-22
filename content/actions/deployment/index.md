@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-continuous-deployment
   - /deploying-with-github-actions
@@ -17,3 +18,4 @@ children:
   - /installing-an-apple-certificate-on-macos-runners-for-xcode-development
 ---
 
+{% data reusables.actions.ae-beta %}
