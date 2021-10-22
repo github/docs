@@ -1,6 +1,6 @@
 ---
 title: Adding organizations to your enterprise
-intro: You can create new organizations to manage within your enterprise account.
+intro: You can create new organizations or invite existing organizations to manage within your enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
@@ -21,7 +21,7 @@ shortTitle: Add organizations
 
 Your enterprise account can own organizations. Members of your enterprise can collaborate across related projects within an organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
-Enterprise owners can create new organizations within an enterprise account's settings. If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
+Enterprise owners can create new organizations within an enterprise account's settings or invite existing organizations to join an enterprise. To add an organization to your enterprise, you must create the organization from within the enterprise account settings.
 
 ## Creating an organization in your enterprise account
 
