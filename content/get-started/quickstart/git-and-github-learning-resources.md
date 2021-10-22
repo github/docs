@@ -56,7 +56,7 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 ## Extras
 
-An interactive [online Git course](http://www.codeschool.com/courses/git-real) from [Code School](http://codeschool.com) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
 
 Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
 

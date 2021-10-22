@@ -44,6 +44,7 @@ export const ArticleGridLayout = ({
 const Container = styled(Box)`
   max-width: 720px;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     'topper'
     'topper-sidebar'

@@ -23,7 +23,7 @@ Some security features are only available {% ifversion fpt or ghec %}for public 
 
 ## Managing access to your organization
 
-You can use permission levels to control what actions people can take in your organization. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)."
+You can use roles to control what actions people can take in your organization. {% if security-managers %}For example, you can assign the security manager role to a team to give them the ability to manage security settings across your organization, as well as read access to all repositories.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 

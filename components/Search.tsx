@@ -88,7 +88,7 @@ export function Search({
       case 'Enter':
         // look for a link in the given hit, then visit it
         if (results === null || activeHit === 0 || !results.length) break
-        window.location.href = results[activeHit - 1]?.url
+        onGotoResult(results[activeHit - 1]?.url, activeHit)
         break
     }
   }
@@ -159,6 +159,20 @@ export function Search({
     evt.preventDefault()
   }
 
+  function onGotoResult(url: string, index: number) {
+    if (results) {
+      sendEvent({
+        type: EventType.searchResult,
+        search_result_query: Array.isArray(query) ? query[0] : query,
+        search_result_index: index,
+        search_result_total: results.length,
+        search_result_rank: (results.length - index) / results.length,
+        search_result_url: url,
+      })
+    }
+    document.location.href = url
+  }
+
   const SearchResults = (
     <>
       <div
@@ -176,6 +190,7 @@ export function Search({
           results={results}
           activeHit={activeHit}
           setActiveHit={setActiveHit}
+          onGotoResult={onGotoResult}
         />
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
@@ -244,12 +259,14 @@ function ShowSearchResults({
   results,
   activeHit,
   setActiveHit,
+  onGotoResult,
 }: {
   isOverlay: boolean
   isLoading: boolean
   results: SearchResult[] | null
   activeHit: number
   setActiveHit: (index: number) => void
+  onGotoResult: (url: string, index: number) => void
 }) {
   const { t } = useTranslation('search')
 
@@ -286,7 +303,14 @@ function ShowSearchResults({
               onMouseEnter={() => setActiveHit(index)}
             >
               <div className={cx('py-3 px-3', isActive && 'color-border-secondary')}>
-                <a className="no-underline color-text-primary" href={url}>
+                <a
+                  className="no-underline color-text-primary"
+                  href={url}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    onGotoResult(url, index)
+                  }}
+                >
                   {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
                   <div
                     className={'d-block opacity-60 text-small pb-1'}

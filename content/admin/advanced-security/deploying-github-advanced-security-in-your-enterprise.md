@@ -104,7 +104,7 @@ If you’re working with {% data variables.product.prodname_professional_service
 If you’re working independently, this section outlines some things to ensure are included in your plan as you prepare to move forward.
 
 Plans for process changes (if needed) and training for team members as needed:
-  - Documented team assignments for roles and responsibilities. For more information on the permissions required for each feature, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)."
+  - Documented team assignments for roles and responsibilities. For more information on the permissions required for each feature, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
   - Documented plan of tasks and timelines/timeframes where possible. This should include infrastructure changes, process changes/training, and all subsequent phases of enablement of GHAS, allowing for timeframes for remediations and configuration adjustments as needed. For more information, see "[Phase 1: Pilot projects(s)](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise#--phase-1-pilot-projects)" below.
   - Prioritized plan for which projects/teams will have GHAS enabled first, and subsequent
 plans for which projects/teams will come in following phases

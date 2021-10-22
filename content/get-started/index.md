@@ -35,7 +35,8 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-ae
   popular:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
-    - /get-started/quickstart/set-up-git
+    - /get-started/quickstart/hello-world
+    - /github/getting-started-with-github/set-up-git
     - /github/getting-started-with-github/github-glossary
     - /github/getting-started-with-github/fork-a-repo
     - /github/getting-started-with-github/keyboard-shortcuts
