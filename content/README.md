@@ -16,6 +16,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`product`](#product)
   - [`layout`](#layout)
   - [`children`](#children)
+  - [`childGroups`](#childgroups)
   - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
@@ -158,6 +159,12 @@ For a layout named `components/landing`, the value would be `product-landing`.
 - Purpose: Lists the relative links that belong to the product/category/map topic. See [Index pages](#index-pages) for more info.
 - Type: `Array`. Default is `false`.
 - Required on `index.md` pages.
+
+### `childGroups`
+
+- Purpose: Renders children into groups on the homepage. See [Homepage](#homepage) for more info.
+- Type: `Array`. Default is `false`.
+- Require on the homepage `index.md`.
 
 ### `featuredLinks`
 
@@ -367,6 +374,12 @@ Sometimes the canonical home of content moves outside the docs site. None of the
 Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
 
 **Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
+
+### Homepage
+
+The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-page) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
+
+`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
 ### Creating new sublanding pages
 
