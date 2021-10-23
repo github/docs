@@ -20,3 +20,7 @@ topics:
 ![包含代码空间信息的安全日志](/assets/images/help/settings/codespaces-audit-log.png)
 
 安全日志包括发生了什么操作以及何时执行的操作等详细信息。 有关 {% data variables.product.prodname_codespaces %} 操作的信息，请参阅“[{% data variables.product.prodname_codespaces %} 类别操作](/github/authenticating-to-github/reviewing-your-security-log#codespaces-category-actions)”。
+
+## 延伸阅读
+
+- "[Reviewing your organization's audit logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"

@@ -1,6 +1,6 @@
 ---
 title: Registros de codespaces
-intro: 'Overview of the logging locations used by {% data variables.product.prodname_codespaces %}.'
+intro: 'Visão geral dos locais de registros usados por {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,43 +12,43 @@ shortTitle: Registros de codespaces
 ---
 
 
-Information on {% data variables.product.prodname_codespaces %} is output to three different logs:
+As informações sobre {% data variables.product.prodname_codespaces %} são saídas para três registros diferentes:
 
-- Codespace logs
-- Creation logs
-- Extension logs ({% data variables.product.prodname_vscode %} desktop) or Browser console logs ({% data variables.product.prodname_vscode %} in the web)
+- Registros do codespace
+- Registros de criação
+- Registro de extensões ({% data variables.product.prodname_vscode %} desktop) ou registros de console do navegador ({% data variables.product.prodname_vscode %} na web)
 
-## Codespace logs
+## Registros do codespace
 
-These logs contain detailed information about the codespace, the container, the session, and the {% data variables.product.prodname_vscode %} environment. They are useful for diagnosing connection issues and other unexpected behavior. For example, the codespace freezes but the "Reload Windows" option unfreezes it for a few minutes, or you are randomly disconnected from the codespace but able to reconnect immediately.
+Esses registros contêm informações detalhadas sobre o codespace, container, sessão e ambiente de {% data variables.product.prodname_vscode %}. Eles são úteis para diagnosticar problemas de conexão e outros comportamentos inesperados. Por exemplo, o codespace congela, mas a opção "Recarregar Windows" o descongela por alguns minutos ou você será desconectado do codespace aleatoriamente, mas poderá reconectar-se imediatamente.
 
-1. If you are using {% data variables.product.prodname_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-2. Open the Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
-3. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
-4. If you are using {% data variables.product.prodname_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
+1. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, certifique-se de que esteja conectado ao codespace que deseja depurar.
+2. Abra a Paleta de Comando (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Exportar registros**. Selecione **Codespaces: Exportar registros** na lista para fazer o download dos registros.
+3. Defina o local onde salvar o arquivo zip dos registros e, em seguida, clique em **Salvar** (desktop) ou clique em **OK** (web).
+4. Se estiver usando {% data variables.product.prodname_codespaces %} no navegador, clique com o botão direito do mouse no arquivo zip dos registros na exibição do Explorer e selecione **Download…** para fazer o download para a sua máquina local.
 
-## Creation logs
+## Registros de criação
 
-These logs contain information about the container, dev container, and their configuration. They are useful for debugging configuration and setup problems.
+Estes registros contêm informações sobre o contêiner, contêiner de desenvolvimento e sua configuração. Eles são úteis para depuração de configurações e problemas de instalação.
 
-1. Connect to the codespace you want to debug.
-2. Open the Command Palette (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+1. Conecte-se ao codespace que você deseja depurar.
+2. Abra a Paleta de Comando (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)) e digite **Registros de criação**. Selecione **codespaces: Visualizar registro de criação** na lista para abrir o arquivo `creation.log`.
 
-If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
+Se você quiser compartilhar o registro com suporte, você poderá copiar o texto do registro de criação em um editor de texto e salvar o arquivo localmente.
 
-## Extension logs
+## Registros de extensão
 
-These logs are available for {% data variables.product.prodname_vscode %} desktop users only. They are useful if it seems like the {% data variables.product.prodname_codespaces %} extension or {% data variables.product.prodname_vscode %} editor are having issues that prevent creation or connection.
+Estes registros estão disponíveis apenas para usuários de área de trabalho de {% data variables.product.prodname_vscode %}. Eles são úteis para o caso de parecer que o editor de {% data variables.product.prodname_codespaces %} ou {% data variables.product.prodname_vscode %} estejam com problemas que impedem a criação ou conexão.
 
-1. In {% data variables.product.prodname_vscode %}, open the Command Palette.
-2. Type **Logs** and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer.
+1. Em {% data variables.product.prodname_vscode %}, abra a paleta de comando.
+2. Digite **Registros** e selecione **Desenvolvedor: Abrir pasta de registros de extensão** na lista para abrir a pasta de registro de extensões no explorador do arquivo do seu sistema.
 
-From this view, you can access logs generated by the various extensions that you use in {% data variables.product.prodname_vscode %}. You will see logs for GitHub Codespaces, GitHub Authentication, and Git, in addition to any other extensions you have enabled.
+Nesta visualização, você poderá acessar os registros gerados pelas várias extensões que você usa em {% data variables.product.prodname_vscode %}. Você verá registros para os codespaces e para a autenticação do GitHub e Git, além de qualquer outra extensão que você habilitou.
 
-## Browser console logs
+## Registros do console do navegador
 
-These logs are useful only if you want to debug problems with using {% data variables.product.prodname_codespaces %} in the browser. They are useful for debugging problems creating and connecting to {% data variables.product.prodname_codespaces %}.
+Esses registros são úteis apenas se você quiser depurar problemas com o uso do {% data variables.product.prodname_codespaces %} no navegador. Eles são úteis para depurar problemas de criação e conexão com {% data variables.product.prodname_codespaces %}.
 
-1. In the browser window for the codespace you want to debug, open the developer tools window.
-2. Display the "Console" tab and click **errors** in the left side bar to show only the errors.
-3. In the log area on the right, right-click and select **Save as** to save a copy of the errors to your local machine. ![Save errors](/assets/images/help/codespaces/browser-console-log-save.png)
+1. Na janela do navegador para o ambiente de codespace que você deseja depurar, abra a janela de ferramentas do desenvolvedor.
+2. Exibe a aba "Console" e clique em em **erros** na barra do lado esquerdo para mostrar apenas os erros.
+3. Na área do registro à direita, clique com o botão direito e selecione **Salvar como** para salvar uma cópia dos erros na sua máquina local. ![Salvar erros](/assets/images/help/codespaces/browser-console-log-save.png)

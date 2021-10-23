@@ -31,6 +31,12 @@ If you do not hold a trademark for the name, you can choose another username or 
 - 使用旧用户名的[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
 - 包含旧用户名的 [gists](/articles/creating-gists) 链接
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endif %}
+
 ## 仓库引用
 
 您更改用户名后，{% data variables.product.product_name %} 自动将引用重定向到您的仓库。

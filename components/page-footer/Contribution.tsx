@@ -12,9 +12,9 @@ export const Contribution = () => {
 
   return (
     <div className="f5 contribution">
-      <h2 className="f4">{t`title`}</h2>
-      <p className="color-text-secondary f6">{t`body`}</p>
-      <a className="btn btn-outline" href={contributionHref}>
+      <h2 className="f4 mb-3">{t`title`}</h2>
+      <p className="max-w-xs color-text-secondary mb-3">{t`body`}</p>
+      <a className="btn" href={contributionHref}>
         <GitPullRequestIcon size="small" className="octicon mr-1" />
         {t`button`}
       </a>

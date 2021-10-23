@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
@@ -20,7 +21,7 @@ shortTitle: Deleted or changes visibility
 
 When you delete a private repository, all of its private forks are also deleted.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Deleting a public repository
 
@@ -32,7 +33,7 @@ When you delete a public repository, one of the existing public forks is chosen 
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Changing a public repository to a private repository
 
@@ -58,7 +59,7 @@ If a private repository is made public and then deleted, its private forks will 
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Changing the visibility of an internal repository
 
@@ -82,4 +83,4 @@ If you change the visibility of an internal repository and then delete the repos
 - "[About forks](/articles/about-forks)"
 - "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "{% ifversion fpt %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

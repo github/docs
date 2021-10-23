@@ -5,6 +5,8 @@ permissions: People with write permissions to a repository can rename a branch i
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghae: 'next'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:

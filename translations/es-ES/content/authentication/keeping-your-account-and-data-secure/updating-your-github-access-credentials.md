@@ -30,7 +30,7 @@ shortTitle: Actualizar las credenciales de acceso
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Para evitar perder tu contraseña en el futuro, te sugerimos utilizar un administrador de contraseñas seguro, tal como [LastPass](https://lastpass.com/) o [1Password](https://1password.com/).
 
 {% endtip %}
 

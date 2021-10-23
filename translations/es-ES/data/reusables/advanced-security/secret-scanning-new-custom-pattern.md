@@ -1,1 +1,1 @@
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", under "Custom patterns", click {% ifversion fpt or ghes > 3.2 or ghae-next %}**New pattern**{% elsif ghes = 3.2 %}**New custom pattern**{% endif %}.
+1. Debajo de "{% data variables.product.prodname_secret_scanning_caps %}", debajo de "Patrones personalizados", haz clic en {% ifversion fpt or ghes > 3.2 or ghae-next %}**Patrón nuevo**{% elsif ghes = 3.2 %}**Patrón personalizado nuevo**{% endif %}.

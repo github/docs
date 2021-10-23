@@ -6,7 +6,7 @@ versions:
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces
-shortTitle: Disaster recovery
+shortTitle: Recuperación de desastres
 ---
 
 Nos esforzamos para asegurarnos de que {% data variables.product.prodname_codespaces %} siempre esté disponible. Sin embargo, por causas de fuerza mayor que salen de nuestro control, algunas veces se impacta el servicio en formas qeu pueden causar interrupciones de servicio no planeadas.
@@ -21,21 +21,21 @@ La siguiente orientación proporciona opciones sobre cómo manejar la interrupci
 
 {% endnote %}
 
-## Option 1: Create a new codespace in another region
+## Opción 1: Crea un codespace nuevo en otra región
 
-In the case of a regional outage, we suggest you recreate your codespace in an unaffected region to continue working. Este codespace nuevo tendrá todos los cambios desde tu última subida en {% data variables.product.prodname_dotcom %}. For information on manaully setting another region, see "[Setting your default region for Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
+En caso de que haya una interrupción regional, te sugerimos volver a crear tu codespace en una región no afectada para seguir trabajando. Este codespace nuevo tendrá todos los cambios desde tu última subida en {% data variables.product.prodname_dotcom %}. Para obtener más información sobre cómo configurar otra región manualmente, consulta la sección "[Configurar tu región predeterminada para los Codespaces](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)".
 
-You can optimize recovery time by configuring a `devcontainer.json` in the project's repository, which allows you to define the tools, runtimes, frameworks, editor settings, extensions, and other configuration necessary to restore the development environment automatically. Para obtener más información, consulta la sección "[Configurar Codespaces para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+Puedes optimizar el tiempo de recuperación si configuras un `devcontainer.json` en el repositorio de un proyecto, el cual te permita definir las herramientas, tiempos de ejecución, configuración del editor, extensiones y otros tipos de configuración necesarios para restablecer el ambiente de desarrollo automáticamente. Para obtener más información, consulta la sección "[Configurar Codespaces para tu proyecto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
 ## Opción 2: esperar para la recuperación
 
 En este caso, no se requiere que tomes acción alguna. Debes saber que estamos trabajando diligentemente para restaurar la disponibilidad del servicio.
 
-You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
+Puedes verificar el estado de servicio actual en el [Tablero de estado](https://www.githubstatus.com/).
 
 ## Opción 3: Clona el repositorio localmente o edítalo en el buscador
 
-Mientras que los {% data variables.product.prodname_codespaces %} proporcinan el beneficio de un ambiente de desarrollador pre-configurado, siempre debe poderse acceder a tu código mediante el repositorio que se hospeda en {% data variables.product.prodname_dotcom_the_website %}. En caso de que haya una interrupción de un {% data variables.product.prodname_codespaces %}, aún podrás clonar el repositorio localmente o los archivos de edición en el editor del buscador de {% data variables.product.company_short %}. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+Mientras que los {% data variables.product.prodname_codespaces %} proporcinan el beneficio de un ambiente de desarrollador pre-configurado, siempre debe poderse acceder a tu código mediante el repositorio que se hospeda en {% data variables.product.prodname_dotcom_the_website %}. En caso de que haya una interrupción de un {% data variables.product.prodname_codespaces %}, aún podrás clonar el repositorio localmente o los archivos de edición en el editor del buscador de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Editar archivos](/repositories/working-with-files/managing-files/editing-files)".
 
 Si bien esta opción no te configura un ambiente de desarrollo, te permitirá hacer cambios a tu código fuente conforme los necesites mientras esperas a que se resuelva la interrupción del servicio.
 

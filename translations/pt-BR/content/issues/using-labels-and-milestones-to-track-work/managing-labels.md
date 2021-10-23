@@ -1,6 +1,7 @@
 ---
 title: Gerenciar etiquetas
 intro: 'Você pode classificar {% ifversion fpt %}problemas, pull requests e discussões{% else %}problemas e pull requests{% endif %} criando, editando, aplicando e excluindo etiquetas.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
   - /articles/managing-Labels
@@ -30,8 +31,6 @@ topics:
 
 Você pode gerenciar seu trabalho em {% data variables.product.product_name %} criando etiquetas para classificar {% ifversion fpt %}problemas, pull requests e discussões{% else %}problemas e pull requests{% endif %}. Você pode aplicar etiquetas no repositório em que foram criadas. Uma vez criada uma etiqueta, você poderá usá-la em qualquer {% ifversion fpt %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %} dentro desse repositório.
 
-Qualquer pessoa com acesso de leitura a um repositório pode exibir e pesquisar etiquetas do repositório. Qualquer pessoa com acesso de triagem a um repositório pode aplicar/ignorar etiquetas existentes. Para criar, editar, aplicar ou excluir uma etiqueta, é preciso ter acesso de gravação ao repositório.
-
 ## Sobre as etiquetas padrão
 
 O {% data variables.product.product_name %} fornece etiquetas padrão para todos os repositórios novos. Você pode usar essas etiquetas padrão para ajudar com a criação de um fluxo de trabalho padronizado em um repositório.
@@ -58,6 +57,8 @@ Os proprietários da organização podem personalizar as etiquetas padrão para 
 
 ## Criar uma etiqueta
 
+Anyone with write access to a repository can create a label.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
@@ -69,10 +70,14 @@ Os proprietários da organização podem personalizar as etiquetas padrão para 
 
 ## Aplicando uma etiqueta
 
+Anyone with triage access to a repository can apply and dismiss labels.
+
 1. Acesse {% ifversion fpt %}problema, pull request ou discussão{% else %}problema ou pull request{% endif %}.
 1. Na barra lateral direita, à direita de "Etiquetas", clique em {% octicon "gear" aria-label="The gear icon" %} e, em seguida, clique em uma etiqueta. ![Menu suspenso "Etiquetas"](/assets/images/help/issues/labels-drop-down.png)
 
 ## Editar uma etiqueta
+
+Anyone with write access to a repository can edit existing labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -84,6 +89,8 @@ Os proprietários da organização podem personalizar as etiquetas padrão para 
 {% data reusables.project-management.save-label %}
 
 ## Excluir uma etiqueta
+
+Anyone with write access to a repository can delete existing labels.
 
 Excluir uma etiqueta removerá a etiqueta dos problemas e pull requests.
 

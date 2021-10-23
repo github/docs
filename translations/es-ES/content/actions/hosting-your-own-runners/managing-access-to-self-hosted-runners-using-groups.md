@@ -14,7 +14,6 @@ shortTitle: Administrar grupos de ejecutores
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de los grupos de ejecutores auto-hospedados
 
@@ -173,14 +172,13 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## Mover un ejecutor auto-hospedado a un grupo
 
 Si no especificas un grupo de ejecutores durante el proceso de registro, tus ejecutores auto-hospedados nuevos se asignarán automáticamente al grupo predeterminado y después se moverán a otro grupo.
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 1. En la lista de "Ejecutores", haz clic en aquél que quieras configurar.
 1. Selecciona el menú desplegable del grupo de ejecutores.
 1. En "Mover el ejecutor al grupo", elige un grupo destino para el ejecutor.
-{% endif %}
-{% ifversion ghae or ghes %}
-1. En la sección de {% ifversion fpt %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica el grupo actual del ejecutor que quieres mover y expande la lista de miembros del grupo. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
+{% else %}
+1. En la sección de "Ejecutores auto-hospedados" de la página de configuración, ubica el grupo actual del ejecutor que quieres mover y expande la lista de miembros del grupo. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Selecciona la casilla junto al ejecutor auto-hospedado y da clic en **Mover a grupo** para ver los destinos disponibles. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. Para mover el ejecutor, da clic en el grupo de destino. ![Mover a un miembro de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
@@ -188,14 +186,13 @@ Si no especificas un grupo de ejecutores durante el proceso de registro, tus eje
 
 Los ejecutores auto-hospedados se devuelven automáticamente al grupo predeterminado cuando su grupo se elimina.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. En la lista de grupos, a la derecha del grupo que quieras borrar, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 1. Para eliminar el grupo, da clic en **Eliminar grupo**.
 1. Revisa el mensaje de confirmación y da clic en **Eliminar este grupo de ejecutores**.
-{% endif %}
-{% ifversion ghae or ghes %}
-1. En la sección de {% ifversion fpt %}"Ejecutores"{% else %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica el grupo que quieres borrar y haz clic en el botón de {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
+{% else %}
+1. En la sección de "Ejecutores auto-hospedados" de la página de ajustes, ubica el grupo que quieras borrar y haz clic en el botón {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. Para eliminar el grupo, da clic en **Eliminar grupo**. ![Ver la configuración del grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-remove.png)
 

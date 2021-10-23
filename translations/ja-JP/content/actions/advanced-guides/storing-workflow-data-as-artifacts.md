@@ -20,11 +20,10 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## ワークフローの成果物について
 
-成果物を使えば、ジョブの完了後にデータを永続化でき、そのデータを同じワークフロー中の他のジョブと共有できます。 成果物とは、ワークフロー実行中に生成されるファイル、またはファイルのコレクションです。 たとえば、ワークフローの実行が終了した後、成果物を使ってビルドとテストの出力を保存しておけます。
+成果物を使えば、ジョブの完了後にデータを永続化でき、そのデータを同じワークフロー中の他のジョブと共有できます。 成果物とは、ワークフロー実行中に生成されるファイル、またはファイルのコレクションです。 たとえば、ワークフローの実行が終了した後、成果物を使ってビルドとテストの出力を保存しておけます。 {% data reusables.actions.reusable-workflow-artifacts %}
 
 {% data reusables.github-actions.artifact-log-retention-statement %} プルリクエストの保持期間は、ユーザが新しいコミットをプルリクエストにプッシュするたびに再開されます。
 

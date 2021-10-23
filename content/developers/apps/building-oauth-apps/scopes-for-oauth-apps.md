@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 ---
@@ -45,7 +46,7 @@ Name | Description
 &emsp;`repo:status`| Grants read/write access to {% ifversion not ghae %}public{% else %}internal{% endif %} and private repository commit statuses. This scope is only necessary to grant other users or services access to private repository commit statuses *without* granting access to the code.
 &emsp;`repo_deployment`| Grants access to [deployment statuses](/rest/reference/repos#deployments) for {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. This scope is only necessary to grant other users or services access to deployment statuses, *without* granting access to the code.{% ifversion not ghae %}
 &emsp;`public_repo`| Limits access to public repositories. That includes read/write access to code, commit statuses, repository projects, collaborators, and deployment statuses for public repositories and organizations. Also required for starring public repositories.{% endif %}
-&emsp;`repo:invite` | Grants accept/decline abilities for invitations to collaborate on a repository. This scope is only necessary to grant other users or services access to invites *without* granting access to the code.{% ifversion fpt or ghes > 3.0 %}
+&emsp;`repo:invite` | Grants accept/decline abilities for invitations to collaborate on a repository. This scope is only necessary to grant other users or services access to invites *without* granting access to the code.{% ifversion fpt or ghes > 3.0 or ghec %}
 &emsp;`security_events` | Grants: <br/> read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning) <br/> read and write access to security events in the [{% data variables.product.prodname_secret_scanning %} API](/rest/reference/secret-scanning) <br/> This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}{% ifversion ghes < 3.1 %}
 &emsp;`security_events` | Grants read and write access to security events in the [{% data variables.product.prodname_code_scanning %} API](/rest/reference/code-scanning). This scope is only necessary to grant other users or services access to security events *without* granting access to the code.{% endif %}
 **`admin:repo_hook`** | Grants read, write, ping, and delete access to repository hooks in {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories. The `repo` {% ifversion not ghae %}and `public_repo` scopes grant{% else %}scope grants{% endif %} full access to repositories, including repository hooks. Use the `admin:repo_hook` scope to limit access to only repository hooks.
@@ -66,13 +67,13 @@ Name | Description
 &emsp;`user:follow`| Grants access to follow or unfollow other users.
 **`delete_repo`** | Grants access to delete adminable repositories.
 **`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.{% ifversion fpt or ghae %}
+&emsp;`read:discussion` | Allows read access for team discussions.{% ifversion fpt or ghae or ghec %}
 **`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see "[Publishing a package](/github/managing-packages-with-github-packages/publishing-a-package)".
 **`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[Installing a package](/github/managing-packages-with-github-packages/installing-a-package)".
-**`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "{% ifversion fpt or ghes > 3.0 %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."{% endif %}
+**`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."{% endif %}
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
-&emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt %}
+&emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
 **`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."{% endif %}
 
 {% note %}

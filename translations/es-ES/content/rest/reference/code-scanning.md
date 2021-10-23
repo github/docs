@@ -1,6 +1,6 @@
 ---
 title: Escaneo de código
-intro: The Code Scanning API enables you to retrieve and update the code scanning alerts and analyses from a repository.
+intro: La API de Escaneo de Código te permite recuperar y actualizar las alertas y análisis de escaneo de código desde un repositorio.
 redirect_from:
   - /v3/code-scanning
 product: '{% data reusables.gated-features.code-scanning %}'

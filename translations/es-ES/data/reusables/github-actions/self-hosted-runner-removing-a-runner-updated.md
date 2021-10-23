@@ -1,4 +1,4 @@
-1. Click **Remove**.
+1. Haz clic en **Eliminar**.
 1. Verás las instrucciones para eliminar el ejecutor auto-hospedado. Completa cualquiera de los siguientes pasos para eliminar el ejecutor, dependiendo de si aún se puede acceder a él:
 
     * **Si tienes acceso a la máquina del ejecutor:** Sigue las instrucciones en la pantalla para que el sistema operativo de tu máquina ejecute el comando de eliminación. Las instrucciones incluyen la URL solicitada y un token de tiempo limitado generado automáticamente.
@@ -9,4 +9,4 @@
         * Elimina cualquier archivo de configuración de la aplicación del ejecutor autoalojado en la máquina.
         * Elimina todos los servicios configurados si no se ejecuta en modo interactivo.
 
-    * **If you don't have access to the machine:** Click **Force remove this runner** to force {% data variables.product.product_name %} to remove the runner.
+    * **Si no tienes acceso a la máquina:** Da clic en **Forzar la eliminación de este ejecutor** para forzar a {% data variables.product.product_name %} a que remueva el ejecutor.

@@ -16,8 +16,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introdução
 
@@ -73,7 +71,7 @@ Baseado no parâmetro `agendar` (por exemplo, todos os dias à 1:30 UTC), seu fl
 
 Você pode visualizar o histórico de execução do fluxo de trabalho para ver a execução deste fluxo de trabalho periodicamente. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. Você pode definir isso com a configuração de `operations-por-run`. Para obter mais informações, consulte a documentação da ação [`ação/estale`](https://github.com/marketplace/actions/close-stale-issues).
+Este fluxo de trabalho só irá etiquetar e/ou fechar 30 problemas de cada vez para evitar exceder um limite de taxa. Você pode definir isso com a configuração de `operations-por-run`. Para obter mais informações, consulte a documentação da ação [`ação/estale`](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Próximas etapas
 

@@ -64,4 +64,4 @@ Você pode encontrar e visualizar qualquer pacote que você publicou em todas as
 
 ## Leia mais
 
-- "[Procurar pacotes](/github/searching-for-information-on-github/searching-for-packages)"
+- "[Procurar pacotes](/search-github/searching-on-github/searching-for-packages)"

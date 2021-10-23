@@ -34,7 +34,7 @@ Se você acredita que deveria ser creditado por uma consultoria de segurança, e
 {% data reusables.repositories.security-advisory-edit-cwe-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
 11. Opcionalmente, edite os "Créditos" para a consultoria de segurança. ![Créditos para uma consultoria de segurança](/assets/images/help/security/security-advisory-credits.png)
-12. Clique em **Atualizar consultoria de segurança**. !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
+12. Clique em **Atualizar consultoria de segurança**. ![Botão "Atualizar consultoria de segurança"](/assets/images/help/security/update-advisory-button.png)
 13. As pessoas listadas na seção "Créditos" receberão um e-mail ou uma notificação da web convidando-os a aceitar o crédito. Se uma pessoa aceitar, seu nome de usuário ficará visível publicamente assim que a consultoria de segurança for publicada.
 
 ## Leia mais

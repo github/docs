@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Configure publishing source
@@ -25,7 +26,7 @@ Before you configure a publishing source, make sure the branch{% ifversion ghes 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
   ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 4. Optionally, use the drop-down menu to select a folder for your publishing source.
@@ -40,4 +41,4 @@ Before you configure a publishing source, make sure the branch{% ifversion ghes 
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on {% ifversion fpt or ghes > 2.22 or ghae %}any{% else %}the `master`{% endif %} branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. For more information, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)."
+If you choose the `docs` folder on {% ifversion fpt or ghes > 2.22 or ghae or ghec %}any{% else %}the `master`{% endif %} branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. For more information, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)."

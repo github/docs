@@ -19,7 +19,7 @@ shortTitle: Migración de repositorio interno
 
 ## Acerca de los repositorios internos
 
-Los repositorios internos están disponibles desde {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Los repositorios internos están disponibles desde {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} para obtener más información, consulta la sección"[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 En lanzamientos futuros de {% data variables.product.prodname_ghe_server %}, ajustaremos la manera en la que funciona la visibilidad de los repositorios para que los conceptos público, interno y privado tengan un significado uniforme para los desarrolladores de {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}.
 

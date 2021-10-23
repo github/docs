@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
   - Pull requests
@@ -22,7 +23,7 @@ To learn about accessing your personal dashboard, see "[About your personal dash
 
 ## Following people
 
-When you follow someone on {% data variables.product.product_location %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 Click **Follow** on a person's profile page to follow them.
 
@@ -30,7 +31,7 @@ Click **Follow** on a person's profile page to follow them.
 
 ## Watching a repository
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% ifversion fpt or ghae or ghes %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Click **Watch** at the top of a repository to watch it.
 

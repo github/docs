@@ -10,7 +10,8 @@ const HEROKU_LOG_LINES_TO_SHOW = 25
 
 // Allow for a few 404 (Not Found), 429 (Too Many Requests), etc. responses from
 // the semi-unreliable Heroku API when we're polling for status updates
-const ALLOWED_MISSING_RESPONSE_COUNT = 5
+const ALLOWED_MISSING_RESPONSE_COUNT =
+  parseInt(process.env.ALLOWED_POLLING_FAILURES_PER_PHASE, 10) || 10
 const ALLOWABLE_ERROR_CODES = [404, 429, 500, 503]
 
 export default async function deployToStaging({
@@ -233,7 +234,7 @@ export default async function deployToStaging({
       // A new Build is created as a by-product of creating an AppSetup.
       // Poll until there is a Build object attached to the AppSetup.
       let setupAcceptableErrorCount = 0
-      while (!appSetup || appSetup.status === 'pending' || !build || !build.id) {
+      while (!appSetup || !build || !build.id) {
         await sleep(SLEEP_INTERVAL)
         try {
           appSetup = await heroku.get(`/app-setups/${appSetup.id}`)
@@ -243,6 +244,9 @@ export default async function deployToStaging({
           if (isAllowableHerokuError(error)) {
             setupAcceptableErrorCount += 1
             if (setupAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+              console.warn(
+                `Ignoring allowable Heroku error #${setupAcceptableErrorCount}: ${error.statusCode}`
+              )
               continue
             }
           }
@@ -272,6 +276,7 @@ See Heroku logs for more information:\n${logUrl}`
         )
       }
 
+      console.log('Heroku AppSetup finished', appSetup)
       console.log('Heroku build detected', build)
     } else {
       // If the app does exist, just manually trigger a new build
@@ -317,7 +322,7 @@ See Heroku logs for more information:\n${logUrl}`
 
     // Poll until the Build's status changes from "pending" to "succeeded" or "failed".
     let buildAcceptableErrorCount = 0
-    while (!build || build.status === 'pending' || !build.release || !build.release.id) {
+    while (!build || !build.release || !build.release.id) {
       await sleep(SLEEP_INTERVAL)
       try {
         build = await heroku.get(`/apps/${appName}/builds/${buildId}`)
@@ -326,6 +331,9 @@ See Heroku logs for more information:\n${logUrl}`
         if (isAllowableHerokuError(error)) {
           buildAcceptableErrorCount += 1
           if (buildAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${buildAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -352,6 +360,7 @@ See Heroku logs for more information:\n${logUrl}`
       `Finished Heroku build after ${Math.round((Date.now() - buildStartTime) / 1000)} seconds.`,
       build
     )
+    console.log('Heroku release detected', build.release)
 
     const releaseStartTime = Date.now() // Close enough...
     let releaseId = build.release.id
@@ -379,6 +388,9 @@ See Heroku logs for more information:\n${logUrl}`
         if (isAllowableHerokuError(error)) {
           releaseAcceptableErrorCount += 1
           if (releaseAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${releaseAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -485,6 +497,9 @@ See Heroku logs for more information:\n${logUrl}`
         if (isAllowableHerokuError(error)) {
           dynoAcceptableErrorCount += 1
           if (dynoAcceptableErrorCount <= ALLOWED_MISSING_RESPONSE_COUNT) {
+            console.warn(
+              `Ignoring allowable Heroku error #${dynoAcceptableErrorCount}: ${error.statusCode}`
+            )
             continue
           }
         }
@@ -543,7 +558,7 @@ See Heroku logs for more information:\n${logUrl}`
         timeout: 10000, // Maximum 10 second timeout per request
         retry: {
           limit: 7, // About 2 minutes 7 seconds of delay, plus active request time for 8 requests
-          statusCodes: [404].concat(got.defaults.options.retry.statusCodes), // 404 is extra
+          statusCodes: [404, 421].concat(got.defaults.options.retry.statusCodes), // prepend extras
         },
         hooks: {
           beforeRetry: [

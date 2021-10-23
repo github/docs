@@ -14,7 +14,7 @@ shortTitle: Casilla de verificción de disponible para contratarse
 
 {% warning %}
 
-Nota de obsoletización: GitHub Jobs es ahora obsoleto. La última fecha en la que se publicó un trabajo fue el 19 de mayo de 2021. The GitHub Jobs site has shut down entirely on August 19, 2021, and now redirects to the [GitHub blog post](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/) notice, which has more information on the now-completed deprecation of GitHub Jobs.
+Nota de obsoletización: GitHub Jobs es ahora obsoleto. La última fecha en la que se publicó un trabajo fue el 19 de mayo de 2021. El sitio de GitHub Jobs se cerró por completo el 19 de agosto de 2021 y ahora se redirecciona a la notificación de [la publicación del blog](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/), la cual contiene más información sobre la obsoletización de GitHub Jobs que ahora se completó.
 
 {% endwarning %}
 

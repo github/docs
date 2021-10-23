@@ -20,7 +20,7 @@ shortTitle: 生成新 SSH 密钥
 
 如果您还没有 SSH 密钥，则必须生成新 SSH 密钥用于身份验证。 如果不确定是否已经拥有 SSH 密钥，您可以检查现有密钥。 更多信息请参阅“[检查现有 SSH 密钥](/github/authenticating-to-github/checking-for-existing-ssh-keys)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghae-next or ghes > 3.1 %}
 
 如果要使用硬件安全密钥向 {% data variables.product.product_name %} 验证，则必须为硬件安全密钥生成新的 SSH 密钥。 使用密钥对进行身份验证时，您必须将硬件安全密钥连接到计算机。 更多信息请参阅 [OpenSSH 8.2 发行说明](https://www.openssh.com/txt/release-8.2)。
 
@@ -31,6 +31,12 @@ shortTitle: 生成新 SSH 密钥
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 粘贴下面的文本（替换为您的 {% data variables.product.product_name %} 电子邮件地址）。
+    {% ifversion ghae %}
+    <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
+  ```shell
+  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>" 
+  ```
+    {% else %}
   ```shell
   $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
@@ -38,20 +44,22 @@ shortTitle: 生成新 SSH 密钥
 
   **注：**如果您使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：
   ```shell
-   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
   ```
 
   {% endnote %}
+  {% endif %}
+
   This creates a new SSH key, using the provided email as a label.
   ```shell
-  > Generating public/private ed25519 key pair.
+  > Generating public/private <em>algorithm</em> key pair.
   ```
 3. 提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这将接受默认文件位置。
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_<em>algorithm</em>): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -59,7 +67,7 @@ shortTitle: 生成新 SSH 密钥
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_<em>algorithm</em>):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -67,7 +75,7 @@ shortTitle: 生成新 SSH 密钥
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/<em>algorithm</em>): <em>[Press enter]</em>
   ```
 
   {% endlinux %}
@@ -107,7 +115,7 @@ shortTitle: 生成新 SSH 密钥
       Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_ed25519
+        IdentityFile ~/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}
       ```
 
      {% note %}
@@ -137,7 +145,7 @@ shortTitle: 生成新 SSH 密钥
 
 3. 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
-   $ ssh-add -K ~/.ssh/id_ed25519
+   $ ssh-add -K ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
   ```
   {% note %}
 
@@ -189,8 +197,10 @@ shortTitle: 生成新 SSH 密钥
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 粘贴下面的文本，将电子邮件地址替换为您的 {% data variables.product.product_name %} 帐户的电子邮件地址。
   ```shell
-  $ ssh-keygen -t ed25519-sk -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "<em>your_email@example.com</em>"
   ```
+
+  {% ifversion not ghae %}
   {% note %}
 
   **注：**如果命令失败，并且您收到错误 `invalid format` 或 `feature not supported`，则表明您可能在使用不支持 Ed25519 算法的硬件安全密钥。 请输入以下命令。
@@ -199,13 +209,14 @@ shortTitle: 生成新 SSH 密钥
   ```
 
   {% endnote %}
+  {% endif %}
 4. 出现提示时，请触摸硬件安全密钥上的按钮。
 5. 当提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 接受默认文件位置。
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519_sk): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -213,7 +224,7 @@ shortTitle: 生成新 SSH 密钥
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519_sk):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -221,7 +232,7 @@ shortTitle: 生成新 SSH 密钥
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519_sk): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk): <em>[Press enter]</em>
   ```
 
   {% endlinux %}

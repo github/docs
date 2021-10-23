@@ -20,7 +20,7 @@ By using the Additional Products and Features, you also agree to the applicable 
 
 - **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, Learning Lab, Octoshift, Packages, Pages and SQL Server Images. 
 
-- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, {% ifversion ghae-next %}Connect, {% endif %}Dependabot Preview, Octoshift, Packages and Pages.
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database,{% ifversion ghae-next %}Connect, {% endif %}Dependabot Preview, Octoshift, Packages and Pages.
 
 ## Actions
 GitHub Actions enables you to create custom software development lifecycle workflows directly in your GitHub repository. Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits. 

@@ -3,6 +3,7 @@ title: Searching discussions
 intro: 'You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -41,7 +42,7 @@ To search discussions in all repositories owned by a certain user or organizatio
 You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
-| :- | :- |{% ifversion fpt or ghes %}
+| :- | :- |{% ifversion fpt or ghes or ghec %}
 | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) matches discussions in public repositories.{% endif %}
 | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) matches discussions in internal repositories.
 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) matches discussions that contain the word "tiramisu" in private repositories you can access.

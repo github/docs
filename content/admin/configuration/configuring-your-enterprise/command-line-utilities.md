@@ -624,6 +624,31 @@ A `top`-like interface for current Git operations.
 ghe-btop [ <port number> | --help | --usage ]
 ```
 
+#### ghe-governor
+
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+
+```bash
+ghe-governor <subcommand> <column> [options]
+```
+
+```
+ghe-governor -h
+Usage: ghe-governor [-h] <subcommand> args
+
+OPTIONS:
+  -h | --help        Show this message.
+
+Valid subcommands are:
+  aggregate              Find the top (n) groups of queries for a grouping function and metric
+  health                 Summarize all recent activity on one or more servers
+  top                    Find the top (n) queries for a given metric
+  dump                   Dump individual operations
+  test-quotas            Check quota information
+
+Try ghe-governor <subcommand> --help for more information on the arguments each subcommand takes.
+```
+
 ### ghe-repo
 
 This utility allows you to change to a repository's directory and open an interactive shell as the `git` user. You can perform manual inspection or maintenance of a repository via commands like `git-*` or `git-nw-*`.
@@ -795,7 +820,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)."
+This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
 

@@ -7,6 +7,7 @@ redirect_from:
   - /packages/guides/configuring-access-control-and-visibility-for-container-images
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Access control & visibility
 ---
 

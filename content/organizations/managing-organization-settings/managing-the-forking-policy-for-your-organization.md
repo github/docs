@@ -1,6 +1,6 @@
 ---
 title: Managing the forking policy for your organization
-intro: 'You can allow or prevent the forking of any private{% ifversion fpt or ghes or ghae %} and internal{% endif %} repositories owned by your organization.'
+intro: 'You can allow or prevent the forking of any private{% ifversion fpt or ghes or ghae or ghec %} and internal{% endif %} repositories owned by your organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -10,15 +10,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Manage forking policy
 ---
 
-By default, new organizations are configured to disallow the forking of private{% ifversion fpt or ghes or ghae %} and internal{% endif %} repositories.
+By default, new organizations are configured to disallow the forking of private{% ifversion fpt or ghes or ghae or ghec %} and internal{% endif %} repositories.
 
-If you allow forking of private{% ifversion fpt or ghes or ghae %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion fpt or ghes or ghae %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+If you allow forking of private{% ifversion fpt or ghes or ghae or ghec %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion fpt or ghes or ghae or ghec %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
 {% data reusables.organizations.internal-repos-enterprise %}
 

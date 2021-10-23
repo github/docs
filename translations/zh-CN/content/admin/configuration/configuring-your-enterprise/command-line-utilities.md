@@ -351,18 +351,6 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-如有需要，可将此命令返回的服务名称与 [`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html) 命令结合使用，以手动停止、启动或重启这些服务。 例如：
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-停止服务会导致安装停机，因此建议您在停止或重启任何服务之前联系 {% data variables.contact.contact_ent_support %}。
-
-{% endtip %}
-
 ### ghe-set-password
 
 使用 `ghe-set-password`，您可以设置新密码，在 [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中进行身份验证。
@@ -808,7 +796,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接至 {% data variables.product.prodname_ghe_cloud %} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)。”
+此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
 默认情况下，生成的 JSON 文件中的用户列表为加密格式。 使用 `-h` 标志可获取更多选项。
 

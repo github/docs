@@ -32,7 +32,7 @@ describe('featuredLinks', () => {
       )
     })
 
-    // Skipped. See issues/923
+    // Skipped. Docs Engineering issue: 923
     test.skip('localized intro links link to localized pages', async () => {
       const $ = await getDOM('/ja')
       const $featuredLinks = $('[data-testid=article-list] a')
@@ -46,7 +46,6 @@ describe('featuredLinks', () => {
     test('Enterprise user intro links have expected values', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
       const $featuredLinks = $('[data-testid=article-list] a')
-      console.log($featuredLinks.eq(0).attr('href'))
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`

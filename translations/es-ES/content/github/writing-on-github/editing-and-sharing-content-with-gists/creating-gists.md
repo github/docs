@@ -1,6 +1,7 @@
 ---
 title: Crear gists
 intro: 'Puedes crear dos tipos de gists: {% ifversion ghae %}internos{% else %}públicos{% endif %} y secretos. Crea un gist {% ifversion ghae %}interno{% else %}público{% endif %} si estás listo para compartir tus ideas con {% ifversion ghae %}los miembros de la emrpesa{% else %}el mundo{% endif %} o, de lo contrario, un gist secreto.'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -19,7 +20,7 @@ Todo gist es un repositorio Git, lo que significa que se puede bifurcar y clonar
 
 Los gists pueden ser {% ifversion ghae %}internos{% else %}públicos{% endif %} o secretos. Los gists {% ifversion ghae %}internos{% else %}públicos{% endif %} se muestran en {% data variables.gists.discover_url %}, en donde {% ifversion ghae %}los miembros empresariales{% else %}las personas{% endif %} pueden buscar gists nuevos conforme estos se creen. También se los puede buscar, para que puedas usarlos si deseas que otras personas encuentren tu trabajo y lo vean.
 
-Los gists secretos no se muestran en {% data variables.gists.discover_url %} y no se pueden buscar. Los gists no son privados. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. Sin embargo, si {% ifversion ghae %}cualquier otro miembro de la empresa{% else %}alguien que no conozcas{% endif %} descubre la URL, también podrán ver tu gist. Si deseas mantener tu código a salvo de las miradas curiosas, puedes optar por [crear un repositorio privado](/articles/creating-a-new-repository) en lugar de un gist.
+Los gists secretos no se muestran en {% data variables.gists.discover_url %} y no se pueden buscar. Los gists no son privados. Si envías la URL de un gist secreto a {% ifversion ghae %}otro miembro de la empresa{% else %}un amigo {% endif %}, podrán verlo. Sin embargo, si {% ifversion ghae %}cualquier otro miembro de la empresa{% else %}alguien que no conozcas{% endif %} descubre la URL, también podrán ver tu gist. Si deseas mantener tu código a salvo de las miradas curiosas, puedes optar por [crear un repositorio privado](/articles/creating-a-new-repository) en lugar de un gist.
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
@@ -42,7 +43,7 @@ Puedes fijar los gists a tu perfil para que otras personas los puedan ver fácil
 
 {% endif %}
 
-Puedes descubrir gists {% ifversion ghae %}internos{% else %}públicos{% endif %} que hayan creado otras personas si vas a la {% data variables.gists.gist_homepage %} y das clic en **Todos los gists**. Esto te llevará a una página en la que aparecen todos los gists clasificados y presentados por fecha de creación o actualización. También puedes buscar los gists por idioma con {% data variables.gists.gist_search_url %}. La búsqueda de gists usa la misma sintaxis de búsqueda que la [búsqueda de código](/articles/searching-code).
+Puedes descubrir gists {% ifversion ghae %}internos{% else %}públicos{% endif %} que hayan creado otras personas si vas a la {% data variables.gists.gist_homepage %} y das clic en **Todos los gists**. Esto te llevará a una página en la que aparecen todos los gists clasificados y presentados por fecha de creación o actualización. También puedes buscar los gists por idioma con {% data variables.gists.gist_search_url %}. La búsqueda de gists usa la misma sintaxis de búsqueda que la [búsqueda de código](/search-github/searching-on-github/searching-code).
 
 Dado que los gists son repositorios Git, puedes ver su historial de confirmaciones completo, que incluye todas las diferencias que existan. También puedes bifurcar o clonar gists. Para obtener más información, consulta "[Bifurcar y clonar gists"](/articles/forking-and-cloning-gists).
 
@@ -50,7 +51,7 @@ Puedes descargar un archivo ZIP de un gist haciendo clic en el botón **Descarga
 
 {% ifversion fpt %}
 
-Git admite la asignación de archivos GeoJSON. Estas asignaciones se muestran como gists insertos, para que las asignaciones se puedan compartir e insertar fácilmente. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+Git admite la asignación de archivos GeoJSON. Estas asignaciones se muestran como gists insertos, para que las asignaciones se puedan compartir e insertar fácilmente. Para obtener más información, consulta la sección "[Trabajar con archivos que no sean de código](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)".
 
 {% endif %}
 

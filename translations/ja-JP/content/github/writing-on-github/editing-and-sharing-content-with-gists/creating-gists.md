@@ -1,6 +1,7 @@
 ---
 title: Gist の作成
 intro: '{% ifversion ghae %}内部{% else %}パブリック{% endif %}とシークレットの 2 種類の Gist を作成できます。 アイデアを {% ifversion ghae %}Enterprise のメンバー{% else %}世界{% endif %}と共有する準備ができている場合は、{% ifversion ghae %}内部{% else %}パブリック{% endif %}の Gist を作成します。そうでない場合は、シークレットの Gist を作成します。'
+permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -42,7 +43,7 @@ Gist をプロフィールにピン止めして、他のユーザが簡単に見
 
 {% endif %}
 
-{% data variables.gists.gist_homepage %} に移動し、[**All Gists**] をクリックすると、他の人が作成した{% ifversion ghae %}内部{% else %}パブリック{% endif %} Gist を見つけることができます。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist 検索は[コード検索](/articles/searching-code)と同じ検索構文を使います。
+{% data variables.gists.gist_homepage %} に移動し、[**All Gists**] をクリックすると、他の人が作成した{% ifversion ghae %}内部{% else %}パブリック{% endif %} Gist を見つけることができます。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist 検索は[コード検索](/search-github/searching-on-github/searching-code)と同じ検索構文を使います。
 
 Gist は Git リポジトリであるため、完全なコミット履歴を diff とともに表示させることができます。 Gist はフォークしたりクローンしたりすることもできます。 詳細は「[Gist のフォークおよびクローン](/articles/forking-and-cloning-gists)」を参照してください。
 

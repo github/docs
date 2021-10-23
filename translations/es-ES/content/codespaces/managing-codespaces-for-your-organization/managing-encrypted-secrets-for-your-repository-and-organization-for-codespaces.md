@@ -72,3 +72,7 @@ Puedes revisar qué políticas de acceso se aplican a un secreto en tu organizac
 {% data reusables.github-actions.sidebar-secret %}
 1. La lista de secretos incluye cualquier política y permiso configurado. Por ejemplo: ![Lista de secretos](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Para encontrar más detalles sobre los permisos configurados para cada secreto, da clic en **Actualizar**.
+
+## Leer más
+
+- "[Administrar los secretos cifrados para tus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

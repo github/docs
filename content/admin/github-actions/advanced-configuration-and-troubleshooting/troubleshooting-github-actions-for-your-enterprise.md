@@ -4,8 +4,11 @@ intro: 'Troubleshooting common issues that occur when using {% data variables.pr
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
   ghes: '>=3.0'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Troubleshooting
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 shortTitle: Troubleshoot GitHub Actions

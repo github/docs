@@ -175,7 +175,7 @@ Puedes comunicar que un ambiente transitorio ya no existe si configuras el `stat
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## Ambientes
 
-La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener información sobre los ambientes, consulta la sección "[Ambientes](/actions/reference/environments)". Para administrar los secretos de ambiente, consulta la sección "[Secretos](/rest/reference/actions#secrets)".
+La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener más información sobre los ambientes, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". Para administrar los secretos de ambiente, consulta la sección "[Secretos](/rest/reference/actions#secrets)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}

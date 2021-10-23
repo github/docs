@@ -37,18 +37,45 @@ topics:
 
 {% endif %}
 
+{%- ifversion ghes < 3.2 %}
+
 {% data variables.product.product_location %} で使用可能な CPU およびメモリリソースによって、{% data variables.product.prodname_actions %} の最大ジョブスループットが決まります。
 
 {% data variables.product.company_short %} での内部テストでは、さまざまな CPU およびメモリ設定の {% data variables.product.prodname_ghe_server %} インスタンスで次の最大スループットが実証されました。 インスタンスのアクティビティの全体的なレベルに応じて、スループットが異なる場合があります。
 
-| vCPUs | メモリ | 最大ジョブスループット数 |
-|:----- |:--- |:------------ |
-|       |     |              |
-{%- ifversion ghes > 3.1 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 30 jobs | | 16 | 128 GB | 60 jobs | | 32 | 256 GB | 120 jobs | | 64 | 512 GB | 160 jobs |
-{%- else ifversion ghes < 3.2 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 25 jobs | | 16 | 160 GB | 35 jobs | | 32 | 256 GB | 100 jobs |
 {%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the number of jobs that can be run concurrently without performance loss.
+
+The peak quantity of concurrent jobs running without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+
+{% endif %}
+
+{%- ifversion ghes < 3.2 %}
+
+| vCPUs | メモリ    | 最大ジョブスループット数 |
+|:----- |:------ |:------------ |
+| 4     | 32 GB  | デモまたは軽いテスト   |
+| 8     | 64 GB  | 25ジョブ        |
+| 16    | 160 GB | 35ジョブ        |
+| 32    | 256 GB | 100ジョブ       |
+
+{%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+| vCPUs | メモリ    | Maximum Concurrency* |
+|:----- |:------ |:-------------------- |
+| 32    | 128 GB | 1500ジョブ              |
+| 64    | 256 GB | 1900ジョブ              |
+| 96    | 384 GB | 2200ジョブ              |
+
+*Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
+
+{%- endif %}
+
 
 既存のインスタンスのユーザに対して {% data variables.product.prodname_actions %} の{% ifversion ghes = 2.22 %}ベータを有効化した{% else %}有効化する{% endif %}場合は、ユーザのアクティビティのレベルとインスタンスの自動化を確認し、ユーザーに適切な CPU とメモリをプロビジョニングしたことを確認してください。 {% data variables.product.prodname_ghe_server %}のキャパシティとパフォーマンスのモニタリングに関する詳しい情報については「[アプラインアンスのモニタリング](/admin/enterprise-management/monitoring-your-appliance)」を参照してください。
 

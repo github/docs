@@ -81,7 +81,6 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 ## GitHub Actions
 
-{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}

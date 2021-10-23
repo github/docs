@@ -28,6 +28,10 @@ shortTitle: Authentication to GitHub
 
 IdP を使用して、ブラウザ {% ifversion ghae %} で {% data variables.product.product_name %} に認証できます。 詳しい情報については、いくつかの方法で{% else %}「[SAML シングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」を参照してください。
 
+- {% ifversion fpt %}
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)". If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
+{% endif %}
+
 - **ユーザ名とパスワードのみ**
     - {% data variables.product.product_name %} でユーザアカウントを作成するときにパスワードを作成します。 パスワードマネージャを使用して、ランダムで一意のパスワードを生成することをお勧めします。 詳しい情報については、「[強力なパスワードを作成する](/github/authenticating-to-github/creating-a-strong-password)」を参照してください。
 - **2 要素認証 (2FA)**（推奨）

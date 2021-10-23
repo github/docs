@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -104,7 +105,7 @@ To search commits in all repositories owned by a certain user or organization, u
 The `is` qualifier matches commits from repositories with the specified visibility. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
-| ------------- | ------------- |{% ifversion fpt or ghes %}
+| ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
 | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %}
 | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.

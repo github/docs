@@ -5,6 +5,7 @@ versions:
   ghae: '*'
 ---
 
+{% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.ae-beta %}
 
 {% note %}
@@ -20,7 +21,8 @@ versions:
 You can add {% data variables.actions.hosted_runner %}s that use the base Azure operating system images.
 To add {% data variables.actions.hosted_runner %}s to your organization or enterprise, contact {% data variables.product.prodname_dotcom %} support and have the following information ready:
  - Required operating system: Available options are listed at ["Software specifications](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)."
- - Choose a name for each pool of {% data variables.actions.hosted_runner %}s. These names are created as labels, allowing you to route your workflows to these runners. For more information, see ["Using {% data variables.actions.hosted_runner %}s in a workflow](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)."
+ - Choose a name for each pool of {% data variables.actions.hosted_runner %}s. These names are created as labels, allowing you to route your workflows to these runners. For more information, see ["Using {% data variables.actions.hosted_runner %}s in a workflow](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)."{% ifversion ghae-next %}
+{% data reusables.actions.autoscaling-parameters %}{% endif %}
  - Where to add the {% data variables.actions.hosted_runner %}: Identify the names of the organizations and enterprises that will receive the runners.
 
 ## Adding an {% data variables.actions.hosted_runner %} with a custom image
@@ -34,7 +36,8 @@ Once you've created a custom image using the above steps, contact {% data variab
   - Image name.
   - Version.
   - VM SKU for the new pool.
-  - Choose a name for each pool of {% data variables.actions.hosted_runner %}s. These names are created as labels, allowing you to route your workflows to these runners. For more information, see ["Using {% data variables.actions.hosted_runner %}s in a workflow](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)."
+  - Choose a name for each pool of {% data variables.actions.hosted_runner %}s. These names are created as labels, allowing you to route your workflows to these runners. For more information, see ["Using {% data variables.actions.hosted_runner %}s in a workflow](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)."{% ifversion ghae-next %}
+{% data reusables.actions.autoscaling-parameters %}{% endif %}
   - Where to add the {% data variables.actions.hosted_runner %}: Identify the names of the organizations and enterprises that will receive the runners.
 
 ## Reviewing your {% data variables.actions.hosted_runner %}s

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -18,11 +19,11 @@ shortTitle: Commit signature verification
 ---
 ## About commit signature verification
 
-You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
 ![Verified commit](/assets/images/help/commits/verified-commit.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
@@ -47,7 +48,7 @@ Repository administrators can enforce required commit signing on a branch to blo
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
 {% endif %}
 
@@ -55,7 +56,7 @@ Repository administrators can enforce required commit signing on a branch to blo
 
 You can use GPG to sign commits with a GPG key that you generate yourself.
 
-{% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your {% data variables.product.product_name %} account.
+{% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 To sign commits using GPG and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
@@ -82,7 +83,7 @@ To sign commits using S/MIME and have those commits verified on {% data variable
 
 You don't need to upload your public key to {% data variables.product.product_name %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Signature verification for bots
 
 Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.

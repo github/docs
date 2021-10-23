@@ -175,7 +175,7 @@ When you set the state of a deployment to `success`, then all prior non-transien
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## 环境
 
-环境 API 允许您创建、配置和删除环境。 有关环境的更多信息，请参阅“[环境](/actions/reference/environments)”。 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
+环境 API 允许您创建、配置和删除环境。 For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}

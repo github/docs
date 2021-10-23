@@ -34,4 +34,4 @@ topics:
 - "[为 wiki 创建页脚或侧栏](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
 - "[编辑 wiki 内容](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
 - "[查看 wiki 的更改记录](/articles/viewing-a-wiki-s-history-of-changes)"
-- "[搜索 wikis](/articles/searching-wikis)"
+- "[搜索 wikis](/search-github/searching-on-github/searching-wikis)"

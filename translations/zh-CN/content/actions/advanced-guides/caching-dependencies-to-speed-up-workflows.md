@@ -15,8 +15,6 @@ topics:
   - Workflows
 ---
 
-{% data reusables.actions.ae-beta %}
-
 ## 关于缓存工作流程依赖项
 
 工作流程运行通常在不同运行之间重新使用相同的输出或下载的依赖项。 例如，Maven、Gradle、npm 和 Yarn 等软件包和依赖项管理工具都会对下载的依赖项保留本地缓存。
