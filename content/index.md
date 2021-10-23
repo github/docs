@@ -1,4 +1,4 @@
----
+https://github.com/nicehash/NiceHashQuickMiner/blob/5419651e37a383bd49503c7c73db79d6f58910a4/update/latest_version.json---
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
