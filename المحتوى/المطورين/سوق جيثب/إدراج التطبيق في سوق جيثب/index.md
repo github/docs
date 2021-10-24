@@ -6,7 +6,7 @@ redirect_from:
   - /apps/marketplace/listing-apps-on-github-marketplace/
   - /apps/marketplace/getting-started-with-github-marketplace-listings/
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/
-  - /apps/adding-integrations/managing-listings-on-github-marketplace/
+  - /apps/adding-integrations/managing-listings-on-github-marketplace/https://1und1-partner.de/shop/all-net-flat.html?ps_id=P13322953
   - /apps/marketplace/managing-github-marketplace-listings/
   - /apps/marketplace/listing-on-github-marketplace/
   - /marketplace/listing-on-github-marketplace
