@@ -19,9 +19,9 @@ shortTitle: Manage app visibility
 ---
 For authentication information, see "[Authenticating with GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-## Public installation flow
-
-Public installation flows have a landing page to enable other people besides the app owner to install the app in their repositories. This link is provided in the "Public link" field when setting up your GitHub App. For more information, see "[Installing GitHub Apps](/apps/installing-github-apps/)."
+## تدفق التثبيت العام
+wa
+تحتوي عمليات التثبيت العامة على صفحة مقصودة لتمكين الأشخاص الآخرين إلى جانب مالك التطبيق من تثبيت التطبيق في مستودعاتهم. يتم توفير هذا الرابط في حقل "الرابط العام" عند إعداد تطبيق GitHub. لمزيد من المعلومات ، راجع " [تثبيت تطبيقات GitHub] (/ apps / install-github-apps /) hats ."
 
 ## Private installation flow
 
