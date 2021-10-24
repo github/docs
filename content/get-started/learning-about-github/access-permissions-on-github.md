@@ -1,47 +1,83 @@
----
-title: Access permissions on GitHub
-redirect_from:
-  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
-  - /articles/what-are-the-different-types-of-team-permissions/
-  - /articles/what-are-the-different-access-permissions/
-  - /articles/access-permissions-on-github
-  - /github/getting-started-with-github/access-permissions-on-github
-  - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
-intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
-  - Permissions
-  - Accounts
-shortTitle: Access permissions
----
-## Personal user accounts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phumiseto</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="px-8 py-8">
+        <div class="text-xl">Phumiseto's</div>
+        <div class="pl-8 pt-4">
+            <div class="text-lg font-bold">Basic info</div>
+            <div class="flex pl-8">
+                <div>
+                    <p><b>Name:</b></p>
+                    <p><b>Age:</b></p>
+                </div>
+                <div class="ml-2">
+                    <p>Phumai Chanphunga</p>
+                    <p>24</p>
+                </div>
+            </div>
+        </div>
+        <div class="pl-8 pt-4">
+            <div class="text-lg font-bold">Education</div>
+            <div class="flex pl-8">
+                <div>
+                    <p><b>Bachelor's degree:</b></p>
+                </div>
+                <div class="ml-2">
+                    <p>Computer Engineer at Suranaree University of Technology</p>
+                </div>
+            </div>
+        </div>
+        <div class="pl-8 pt-4">
+            <div class="text-lg font-bold">Working Experience</div>
+            <div class="flex pl-8">
+                <div>
+                    <p><b>2020 - Present:</b></p>
+                </div>
+                <div class="ml-2">
+                    <p>Software developer at <a class="hover:text-blue-800" href="https://www.facebook.com/oddsteam">ODDS</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="pl-8 pt-4">
+            <div class="text-lg font-bold">Skills</div>
+            <div class="flex pl-8">
+                <div>
+                    <p><b>Programing Langures:</b></p>
+                    <p><b>Framework:</b></p>
+                    <p><b>Tools:</b></p>
+                </div>
+                <div class="ml-2">
+                    <p>java, javascript, python</p>
+                    <p>spring-boot, react, vue, angular, django</p>
+                    <p>slack, mirro, trello, table plus, vscode</p>
+                </div>
+            </div>
+        </div>
+        <div class="pl-8 pt-4">
+            <div class="text-lg font-bold">Other</div>
+            <div class="flex pl-8">
+                <div>
+                    <p><b>Github:</b></p>
+                    <p><b>Medium:</b></p>
+                    <p><b>Twitter:</b></p>
+                </div>
+                <div class="ml-2">
+                    <p><a class="hover:text-blue-800" href="https://github.com/dtmkeng">dtmkeng</a></p>
+                    <p><a class="hover:text-blue-800" href="https://medium.com/@phumiseto">https://medium.com/@phumiseto</a></p>
+                    <p><a class="hover:text-blue-800" href="https://twitter.com/ikengsu">https://twitter.com/ikengsu</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
 
-## Organization accounts
 
-Organization members can have *owner*{% ifversion fpt or ghec %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% ifversion fpt or ghec %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
-- "[Permission levels for an organization](/articles/permission-levels-for-an-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
-- "[About teams](/articles/about-teams)"
-
-{% ifversion fpt or ghec %}
-
-## Enterprise accounts
-
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
-
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
-
-{% data reusables.gated-features.enterprise-accounts %}
-
-{% endif %}
-
-## Further reading
-
-- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
