@@ -1,3 +1,6 @@
+![IMG_0022](https://user-images.githubusercontent.com/84483928/138577256-04185c7b-af74-4981-a7d0-a56adab6a336.JPG)
+![IMG_0020](https://user-images.githubusercontent.com/84483928/138577261-a87f080e-f91d-4cf4-8ef4-204d7f147490.JPG)
+![IMG_8828](https://user-images.githubusercontent.com/84483928/138577276-471bf4fd-197b-464d-9005-695ff404fb83.JPG)
 ---
 title: Transferring a repository
 intro: You can transfer repositories to other users or organization accounts.
