@@ -70,3 +70,8 @@ You may need to include the changes in step 6 to get tests to pass.
     - [ ] Debug any test failures or unexpected results. 
 - [ ] When the PR is approved, merge it in to complete the deprecation. This can be merged independently from step 5. 
 
+## Step 7: Deprecate the OpenAPI description in `github/github`
+    
+- [ ] In `github/github`, edit the release's config file in `app/api/description/config/releases/`, and change `deprecated: false` to `deprecated: true`.
+- [ ] Open a new PR, and get the required code owner approvals. A docs-content team member can approve it for the docs team.
+- [ ] When the PR is approved, merge the `github/github` PR.
