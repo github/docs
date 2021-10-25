@@ -124,7 +124,7 @@
     "babel-plugin-styled-components": "^1.13.3",
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.2",
-    "commander": "^8.2.0",
+    "commander": "^8.3.0",
     "count-array-values": "^1.2.1",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
