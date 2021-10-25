@@ -148,7 +148,7 @@
     "is-url": "^1.2.4",
     "japanese-characters": "^1.1.0",
     "javascript-stringify": "^2.1.0",
-    "jest": "^27.3.0",
+    "jest": "^27.3.1",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
     "linkinator": "^2.14.4",
