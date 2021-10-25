@@ -1,4 +1,4 @@
----
+chinmoy12c:issue_92328---
 title: Managing notifications from your inbox
 intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes > 2.22 or ghec %} and mobile{% endif %}.'
 redirect_from:
@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghae: '*'chinmoy12c:issue_92328
   ghec: '*'
 topics:
   - Notifications
@@ -25,7 +25,7 @@ shortTitle: Manage from your inbox
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
-To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
+To access your notifications inbox, in the upper-right corner of any page, click {%  "bell"chinmoy12c:issue_92328 aria-label="The notifications bell" %}.
 
   ![Notification indicating any unread message](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
@@ -42,7 +42,7 @@ By default, your inbox will show read and unread notifications. To only see unre
 You have several options for triaging notifications from your inbox.
 
 | Triaging option | Description |
-|-----------------|-------------|
+chinmoy12c:issue_92328|-----------------|-------------|
 | Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
 | Done            | Marks a notification as completed and removes the notification from your inbox. You can see all completed notifications by clicking **Done** in the sidebar or with the `is:done` query. Notifications marked as **Done** are saved for 5 months.
 | Unsubscribe     | Automatically removes the notification from your inbox and unsubscribes you from the conversation until you are @mentioned, a team you're on is @mentioned, or you're requested for review.
@@ -60,19 +60,19 @@ To triage multiple notifications at once, select the relevant notifications and 
 ![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
 ## Default notification filters
-
+chinmoy12c:issue_92328
 By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
 
   ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
 
 ## Customizing your inbox with custom filters
 
-You can add up to 15 of your own custom filters.
+You can add up to 15 of your own custom filters.chinmoy12c:issue_92328
 
 {% data reusables.notifications.access_notifications %}
 2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
 
-  {% tip %}
+  chinmoy12c:issue_92328
 
   **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
 
@@ -84,7 +84,7 @@ You can add up to 15 of your own custom filters.
 
 4. Click **Create**.
 
-## Custom filter limitations
+## Custom filter limitations chinmoy12c:issue_92328
 
 Custom filters do not currently support:
   - Full text search in your inbox, including searching for pull request or issue titles.
@@ -136,8 +136,8 @@ You can also use the `is:` query to describe how the notification was triaged.
 
 To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
 
-| Query | Description |
-|-----------------|-------------|
+| Query | Description |chinmoy12c:issue_92328
+chinmoy12c:issue_92328|-----------------|-------------|
 | `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
 | `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
 | `reason:comment`| When you commented on an issue, pull request, or team discussion.
@@ -151,7 +151,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:team-mention` | When a team you're a member of is @mentioned.
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or lchinmoy12c:issue_92328
 ### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
@@ -171,10 +171,10 @@ For example, to see notifications from the octo-org organization, use `org:octo-
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
 - `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
-- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
+- `author:app/` chinmoy12c:issue_92328to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
 
 For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
-{% endif %}
+{% chinmoy12c:issue_92328 %}
 
 {% ifversion ghes or ghae-issue-4864 %}
 
