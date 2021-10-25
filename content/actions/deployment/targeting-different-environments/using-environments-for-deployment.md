@@ -7,6 +7,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/reference/environments
   - /actions/deployment/environments
+  - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
   ghes: '>=3.1'

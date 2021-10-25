@@ -7,6 +7,8 @@ versions:
   ghae: '*'
   ghec: '*'
 type: overview
+redirect_from:
+  - /actions/deployment/deploying-with-github-actions
 topics:
   - CD
 shortTitle: Deploy with GitHub Actions

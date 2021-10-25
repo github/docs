@@ -7,9 +7,11 @@ versions:
   ghae: '*'
   ghec: '*'
 type: overview
+redirect_from:
+  - /actions/deployment/about-continuous-deployment
 topics:
   - CD
-shortTitle: Continuous deployment
+shortTitle: About continuous deployment
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -30,6 +32,14 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 {% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. {% endif %}For more information about these features, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% endif %}
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+## Using OpenID Connect to access cloud resources
+
+{% data reusables.actions.about-oidc-short-overview %}
+
+{% endif %}
 
 ## Workflow templates and third party actions
 

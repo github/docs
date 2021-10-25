@@ -3,6 +3,7 @@ title: Deploying to Azure App Service
 intro: You can deploy to Azure App Service as part of your continuous deployment (CD) workflows.
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
+  - /actions/deployment/deploying-to-azure-app-service
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,6 +26,16 @@ shortTitle: Deploy to Azure App Service
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy an application to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
 Azure App Service can run web apps in several languages, but this guide demonstrates deploying an existing Node.js project.
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**Note**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
+{% endif %}
 
 ## Prerequisites
 

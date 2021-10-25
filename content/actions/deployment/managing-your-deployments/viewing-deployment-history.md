@@ -11,6 +11,7 @@ topics:
 shortTitle: View deployment history
 redirect_from:
   - /developers/overview/viewing-deployment-history
+  - /actions/deployment/viewing-deployment-history
 ---
 
 {% data reusables.actions.ae-beta %}

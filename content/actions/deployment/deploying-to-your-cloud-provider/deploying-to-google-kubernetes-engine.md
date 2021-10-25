@@ -3,6 +3,7 @@ title: Deploying to Google Kubernetes Engine
 intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
+  - /actions/deployment/deploying-to-google-kubernetes-engine
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,6 +26,16 @@ shortTitle: Deploy to Google Kubernetes Engine
 This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**Note**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
+{% endif %}
 
 ## Prerequisites
 

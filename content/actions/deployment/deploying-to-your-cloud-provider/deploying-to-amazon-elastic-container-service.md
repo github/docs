@@ -3,6 +3,7 @@ title: Deploying to Amazon Elastic Container Service
 intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
+  - /actions/deployment/deploying-to-amazon-elastic-container-service
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,6 +26,16 @@ shortTitle: Deploy to Amazon ECS
 This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
 
 On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**Note**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
+{% endif %}
 
 ## Prerequisites
 
