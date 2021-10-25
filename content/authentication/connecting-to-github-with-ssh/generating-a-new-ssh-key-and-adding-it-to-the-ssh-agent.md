@@ -150,6 +150,8 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
   {% note %}
 
   **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `-K` option. 
+  
+  **Note:** If you are using MacOS Monterey (12.0) or higher the -K command is deprecated and you should use --apple-use-keychain instead.
 
   If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
 
