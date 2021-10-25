@@ -28,7 +28,7 @@ redirect_from:
 
 ## Sobre {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+{% data reusables.code-scanning.about-code-scanning %} Para obter informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
 Você pode executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %} usando {% data variables.product.prodname_actions %}. Como alternativa, se você usar um sistema de integração contínua ou um sistema de entrega/Continuous Delivery (CI/CD) de terceiros você poderá executar a análise {% data variables.product.prodname_codeql %} no seu sistema existente e enviar os resultados para {% data variables.product.product_location %}.
 
@@ -91,8 +91,8 @@ Para obter mais informações, consulte "[Executar o {% data variables.product.p
 
 {% endif %}
 
-<!--Content for GHAE and GHES 3.0 only. Only CodeQL runner is available -->
-{% ifversion ghes = 3.0 or ghae %}
+<!--Content for GHES 3.0 only. Only CodeQL runner is available -->
+{% ifversion ghes = 3.0 %}
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 Se você adicionar {% data variables.product.prodname_codeql_runner %} ao seu sistema de terceiros, chame a ferramenta para analisar o código e fazer o upload dos resultados do SARIF para {% data variables.product.product_name %}. Os alertas de {% data variables.product.prodname_code_scanning %} resultantes são exibidos junto com todos os alertas gerados dentro de {% data variables.product.product_name %}.

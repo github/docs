@@ -1,6 +1,7 @@
 ---
 title: Crear una solicitud de extracción
 intro: 'Crea una solicitud de extracción para proponer y colaborar en los cambios en un repositorio. Estos cambios se proponen en una *rama*, lo cual garantiza que la rama predeterminada contenga únicamente trabajo finalizado y aprobado.'
+permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
@@ -13,7 +14,7 @@ topics:
   - Pull requests
 ---
 
-Todo usuario que tenga permisos de lectura para un repositorio puede crear una solicitud de extracción, pero tú debes tener permisos de escritura para poder crear una rama. Si deseas crear una rama nueva para tu solicitud de extracción y no tienes permisos de escritura para el repositorio, puedes bifurcar antes el repositorio. Para obtener más información, consulta "[Crear una solicitud de extracción a partir de una bifurcación](/articles/creating-a-pull-request-from-a-fork)" y "
+Si deseas crear una rama nueva para tu solicitud de extracción y no tienes permisos de escritura para el repositorio, puedes bifurcarlo primero. Para obtener más información, consulta "[Crear una solicitud de extracción a partir de una bifurcación](/articles/creating-a-pull-request-from-a-fork)" y "
 [Acerca de las bifurcaciones](/articles/about-forks)".</p> 
 
 Puedes especificar en qué rama deseas fusionar tus cambios cuando creas tu solicitud de extracción. Las solicitudes de extracción solo se pueden abrir entre dos ramas que sean diferentes.
@@ -200,13 +201,13 @@ gh pr create --web
 
 {% codespaces %}
 
-1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
+1. Una vez que confirmaste los cambios en tu copia local del repositorio, haz clic en el icono de **Crear Solicitud de Cambios**. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
 
 1. Verifica que el repositorio y la rama local desde la que estás haciendo la fusión y la rama y repositorio remotos hacia los que estés haciendo la fusión sean correctos. Después, asigna un nombre y descripción a la solicitud de cambios. ![Barra lateral de control de código fuente con el botón de preparación resaltado](/assets/images/help/codespaces/codespaces-commit-pr.png)
 
 1. Da clic en **Crear**.
 
-For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+Para obtener más información sobre cómo crear solicitudes de cambios en {% data variables.product.prodname_codespaces %}, consulta la sección "[Utilizar los Codespaces para solicitudes de cambios](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)".
 
 {% endcodespaces %}
 

@@ -103,21 +103,21 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 {% ifversion fpt or ghes > 3.2 or ghae-next %}
 ## branch_protection_rule
 
-Activity related to a branch protection rule. For more information, see "[About branch protection rules](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)."
+Atividade relacionada a uma regra de proteção do branch. Para obter mais informações, consulte[Sobre as regras de proteção do branch](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)".
 
 ### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with at least `read-only` access on repositories administration
+- {% data variables.product.prodname_github_apps %} com pelo menos acesso `somente leitura` na administração de repositórios
 
 ### Objeto da carga do webhook
 
-| Tecla        | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                                                                                                                                                                                                                                                                                |
-| `rule`       | `objeto` | The branch protection rule. Includes a `name` and all the [branch protection settings](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings. |
-| `alterações` | `objeto` | If the action was `edited`, the changes to the rule.                                                                                                                                                                                                                                                                                                                                                                         |
+| Tecla        | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`, `editado` ou `excluído`.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `rule`       | `objeto` | A regra de proteção do branch. Inclui um `nome` e todas as [configurações de proteção de branch](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) aplicadas a branches que correspondem ao nome. As configurações binárias são booleanas. As configurações de multi-nível tem um dos valores a seguir:`off`, `non_admins` ou `everyone`. As listas do criador e da criação são matrizes de strings. |
+| `alterações` | `objeto` | Se a ação foi `editada`, as alterações para a regra.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -136,7 +136,7 @@ Activity related to a branch protection rule. For more information, see "[About 
 
 - Os webhooks de repositório só recebem cargas para os tipos de evento `criados` e `concluídos` em um repositório
 - Os webhooks da organização só recebem cargas para os tipos de eventos `criados` e `concluídos` nos repositórios
-- {% data variables.product.prodname_github_apps %} with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `requested_action`. As cargas do tipo de evento `solicitadas` e `requested_action` são enviadas apenas para o {% data variables.product.prodname_github_app %} que está sendo solicitado. {% data variables.product.prodname_github_apps %} with the `checks:write` are automatically subscribed to this webhook event.
+- {% data variables.product.prodname_github_apps %} com a permissão `checks:read` recebem cargas para os tipos de evento `criados` e `concluídos` que ocorrem no repositório onde o aplicativo está instalado. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `requested_action`. As cargas do tipo de evento `solicitadas` e `requested_action` são enviadas apenas para o {% data variables.product.prodname_github_app %} que está sendo solicitado. {% data variables.product.prodname_github_apps %} com `checks:write` são automaticamente inscritos neste evento webhook.
 
 ### Objeto da carga do webhook
 
@@ -160,7 +160,7 @@ Activity related to a branch protection rule. For more information, see "[About 
 
 - Os webhooks de repositório só recebem cargas para os tipos de evento `concluídos` em um repositório
 - Os webhooks da organização só recebem cargas para os tipos de eventos `concluídos` nos repositórios
-- {% data variables.product.prodname_github_apps %} with the `checks:read` permission receive payloads for the `created` and `completed` events that occur in the repository where the app is installed. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `ressolicitados.`. As cargas de evento `solicitadas` e `ressolicitadas` são enviadas apenas para {% data variables.product.prodname_github_app %} que está sendo solicitado. {% data variables.product.prodname_github_apps %} with the `checks:write` are automatically subscribed to this webhook event.
+- {% data variables.product.prodname_github_apps %} com a permissão `checks:read` recebem cargas para os tipos de evento `criados` e `concluídos` que ocorrem no repositório onde o aplicativo está instalado. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `ressolicitados.`. As cargas de evento `solicitadas` e `ressolicitadas` são enviadas apenas para {% data variables.product.prodname_github_app %} que está sendo solicitado. {% data variables.product.prodname_github_apps %} com `checks:write` são automaticamente inscritos neste evento webhook.
 
 ### Objeto da carga do webhook
 
@@ -182,7 +182,7 @@ Os {% data variables.product.prodname_github_app %}s com a permissão `security_
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `security_events :read` permission
+- {% data variables.product.prodname_github_apps %} com a permissão de `security_events :read`
 
 ### Objeto da carga do webhook
 
@@ -190,7 +190,7 @@ Os {% data variables.product.prodname_github_app %}s com a permissão `security_
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto do `remetente` é {% ifversion fpt %}`github` {% elsif ghes > 3.0 %}`github-enterprise` {% else %}vazio {% endif %}para todas as outras ações.
+</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `remetente` é {% ifversion fpt %}`github`{% elsif ghes > 3.0 or ghae-next %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
 
 ### Exemplo de carga de webhook
 
@@ -204,7 +204,7 @@ Os {% data variables.product.prodname_github_app %}s com a permissão `security_
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
@@ -226,7 +226,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 ### Disponibilidade
 
-- {% data variables.product.prodname_github_apps %} with the `content_references:write` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `content_references:write`
 
 ### Exemplo de carga de webhook
 
@@ -246,7 +246,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
@@ -275,7 +275,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
@@ -318,7 +318,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `deployments` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `implantações`
 
 ### Objeto da carga do webhook
 
@@ -343,7 +343,7 @@ Os eventos de webhook são acionados com base na especificidade do domínio que 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `deployments` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `implantações`
 
 ### Objeto da carga do webhook
 
@@ -374,7 +374,7 @@ Atividade relacionada a uma discussão. Para obter mais informações, consulte 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `discussions` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `discussões`
 
 ### Objeto da carga do webhook
 
@@ -400,7 +400,7 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `discussions` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `discussões`
 
 ### Objeto da carga do webhook
 
@@ -448,7 +448,7 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
@@ -466,7 +466,7 @@ Atividade relacionada a um comentário em uma discussão. Para obter mais inform
 
 Este evento ocorre quando alguém revoga a autorização de um {% data variables.product.prodname_github_app %}. Um {% data variables.product.prodname_github_app %} recebe este webhook por padrão e não pode cancelar a assinatura deste evento.
 
-{% data reusables.webhooks.authorization_event %} For details about user-to-server requests, which require {% data variables.product.prodname_github_app %} authorization, see "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+{% data reusables.webhooks.authorization_event %} Para obter informações sobre solicitações de usuário para servidor, que exigem autorização do {% data variables.product.prodname_github_app %}, consulte "[Identificando e autorizando usuários para {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
 ### Disponibilidade
 
@@ -491,7 +491,7 @@ Este evento ocorre quando alguém revoga a autorização de um {% data variables
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
@@ -549,7 +549,7 @@ Este evento ocorre quando alguém revoga a autorização de um {% data variables
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `issues` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `problemas`
 
 ### Objeto da carga do webhook
 
@@ -572,7 +572,7 @@ Este evento ocorre quando alguém revoga a autorização de um {% data variables
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `issues` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `problemas`
 
 ### Objeto da carga do webhook
 
@@ -595,7 +595,7 @@ Este evento ocorre quando alguém revoga a autorização de um {% data variables
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `metadados`
 
 ### Objeto da carga do webhook
 
@@ -646,7 +646,7 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `integrantes`
 
 ### Objeto da carga do webhook
 
@@ -668,7 +668,7 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 ### Disponibilidade
 
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `integrantes`
 
 ### Objeto da carga do webhook
 
@@ -713,7 +713,7 @@ O webhook em que este evento está configurado em foi excluído. Este evento só
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `pull_requests`
 
 ### Objeto da carga do webhook
 
@@ -736,7 +736,7 @@ O webhook em que este evento está configurado em foi excluído. Este evento só
 {% ifversion ghes or ghae %}
 - Os webhooks do GitHub Enterprise recebem apenas eventos `criados` e `excluídos`. Para mais informações, consulte "[Webhooks globais](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Os webhooks da organização recebem apenas os eventos `excluídos`, `adicionados`, `removidos`, `renomeado` e `convidados`
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `integrantes`
 
 ### Objeto da carga do webhook
 
@@ -762,7 +762,7 @@ O webhook em que este evento está configurado em foi excluído. Este evento só
 ### Disponibilidade
 
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `organization_administration` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `organization_administration`
 
 ### Objeto da carga do webhook
 
@@ -811,7 +811,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `pages` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `pages`
 
 ### Objeto da carga do webhook
 
@@ -836,7 +836,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} receive a ping event with an `app_id` used to register the app
+- {% data variables.product.prodname_github_apps %} recebe um evento de ping com um `app_id` usado para registrar o aplicativo
 
 ### Objeto da carga do webhook
 
@@ -862,7 +862,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
 ### Objeto da carga do webhook
 
@@ -884,7 +884,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
 ### Objeto da carga do webhook
 
@@ -906,7 +906,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `repository_projects` ou `organization_projects`
 
 ### Objeto da carga do webhook
 
@@ -928,7 +928,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `metadados`
 
 ### Objeto da carga do webhook
 
@@ -952,7 +952,7 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `pull_requests`
 
 ### Objeto da carga do webhook
 
@@ -977,7 +977,7 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `pull_requests`
 
 ### Objeto da carga do webhook
 
@@ -999,7 +999,7 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `pull_requests` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `pull_requests`
 
 ### Objeto da carga do webhook
 
@@ -1028,28 +1028,33 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
-| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                        |
-| -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `string`  | O [`git ref completo`](/rest/reference/git#refs) que foi empurrado. Exemplo: `refs/heads/master`.                                                                                                                                                                                                                                |
-| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                                   |
-| `depois`                   | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                                     |
-| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (O array inclui um máximo de 20 commits. Se necessário, você pode usar a [API de Commits](/rest/reference/repos#commits) para obter commits adicionais. Este limite é aplicado apenas aos eventos da linha do tempo e não é aplicado às entregas do webhook.) |
-| `commits[][id]`            | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                                 |
-| `commits[][timestamp]`     | `string`  | O carimbo de tempo ISO 8601 do commit.                                                                                                                                                                                                                                                                                           |
-| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                            |
-| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                        |
-| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                          |
-| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                            |
-| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                                  |
-| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                        |
-| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit.                                                                                                                                                                                                                                                                                      |
-| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit.                                                                                                                                                                                                                                                                                    |
-| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit.                                                                                                                                                                                                                                                                                        |
-| `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                            |
+| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ref`                      | `string`  | O [`git ref completo`](/rest/reference/git#refs) que foi empurrado. Exemplo: `refs/heads/main` ou `refs/tags/v3.14.1`.                                                                                                                                                                                                                                                                                                                             |
+| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `depois`                   | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `created`                  | `boolean` | Se este push criou o `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `deleted`                  | `boolean` | Se este push excluiu o `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `forced`                   | `boolean` | Se este push foi um push forçado do `ref`.                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `head_commit`              | `objeto`  | Para pushes em que `after` é ou aponta para um objeto de commit, uma representação expandida desse commit. Para pushes em que `after` refere-se a um objeto de tag anotada, uma representação expandida do commit apontada pela tag anotada.                                                                                                                                                                                                       |
+| `compare`                  | `string`  | A URL que mostra as alterações na atualização deste `ref`, do commit `before` para o commit `after`. Para um `ref` recém-criado que é diretamente baseado no branch padrão, esta é a comparação entre o cabeçalho do branch padrão e o commit `after`. Caso contrário, isso mostra todos os commits até o commit `after`.                                                                                                                          |
+| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (Os commits que sofreram push são todos commits incluídos no `compare` entre o commit `before` e o commit `after`.) O array inclui um máximo de 20 commits. Se necessário, você pode usar a [API de Commits](/rest/reference/repos#commits) para obter commits adicionais. Este limite é aplicado apenas aos eventos da linha do tempo e não é aplicado às entregas do webhook. |
+| `commits[][id]`            | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `commits[][timestamp]`     | `string`  | O carimbo de tempo ISO 8601 do commit.                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                                                                                                                                          |
+| `commits[][added]`         | `array`   | Um array de arquivos adicionados no commit.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `commits[][modified]`      | `array`   | Um array de arquivos modificados pelo commit.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `commits[][removed]`       | `array`   | Um array de arquivos removidos no commit.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                                                                                                                                              |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1067,7 +1072,7 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `contents` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `conteúdo`
 
 ### Objeto da carga do webhook
 
@@ -1089,7 +1094,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 ### Disponibilidade
 
-- {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
+- {% data variables.product.prodname_github_apps %} deve ter a permissão do conteúdo `` para receber este webhook.
 
 ### Exemplo de carga de webhook
 
@@ -1104,7 +1109,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 - Os webhooks do repositório recebem todos os tipos de eventos, exceto `excluído`
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission receive all event types except `deleted`
+- {% data variables.product.prodname_github_apps %} com a permissão de `metadados`, recebe todos os tipos de eventos, exceto `excluídos`
 
 ### Objeto da carga do webhook
 
@@ -1173,7 +1178,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `secret_scanning_alerts:read` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `secret_scanning_alerts:read`
 
 ### Objeto da carga do webhook
 
@@ -1196,7 +1201,7 @@ Atividade relacionada a uma consultora de segurança. Uma consultoria de seguran
 
 ### Disponibilidade
 
-- {% data variables.product.prodname_github_apps %} with the `security_events` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `security_events`
 
 ### Objeto da carga do webhook
 
@@ -1264,7 +1269,7 @@ Você só pode criar um webhook de patrocínio em {% data variables.product.prod
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `statuses` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `status`
 
 ### Objeto da carga do webhook
 
@@ -1292,7 +1297,7 @@ Você só pode criar um webhook de patrocínio em {% data variables.product.prod
 ### Disponibilidade
 
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `integrantes`
 
 ### Objeto da carga do webhook
 
@@ -1323,7 +1328,7 @@ Você só pode criar um webhook de patrocínio em {% data variables.product.prod
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `members` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `integrantes`
 
 ### Objeto da carga do webhook
 
@@ -1364,7 +1369,7 @@ O ator do evento é o [usuário](/rest/reference/users) que favoritou um reposit
 
 - Webhooks do repositório
 - Webhooks da organização
-- {% data variables.product.prodname_github_apps %} with the `metadata` permission
+- {% data variables.product.prodname_github_apps %} com a permissão `metadados`
 
 ### Objeto da carga do webhook
 
@@ -1385,7 +1390,7 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 ### Disponibilidade
 
-- {% data variables.product.prodname_github_apps %} must have the `contents` permission to receive this webhook.
+- {% data variables.product.prodname_github_apps %} deve ter a permissão do conteúdo `` para receber este webhook.
 
 ### Exemplo de carga de webhook
 
@@ -1402,7 +1407,7 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 - Webhooks do repositório
 - Webhooks da organização
-- Enterprise webhooks
+- Webhooks corporativos
 
 ### Objeto da carga do webhook
 
@@ -1423,7 +1428,7 @@ Quando uma execução do fluxo de trabalho de {% data variables.product.prodname
 
 ### Disponibilidade
 
-- {% data variables.product.prodname_github_apps %} with the `actions` or `contents` permissions.
+- {% data variables.product.prodname_github_apps %} com as permissões `ações` ou `conteúdos`.
 
 ### Objeto da carga do webhook
 

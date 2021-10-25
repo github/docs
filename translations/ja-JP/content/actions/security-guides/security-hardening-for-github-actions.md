@@ -18,7 +18,6 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概要
 
@@ -48,7 +47,7 @@ miniTocMaxHeadingLevel: 3
     - シークレットを定期的にローテーションして、不正使用されたシークレットが有効である期間を短縮します。
 {% ifversion fpt or ghes > 3.0 or ghae %}
 - **シークレットへのアクセスのレビューを必須とすることを検討する**
-    - 必須のレビュー担当者を使って環境のシークレットを保護できます。 レビュー担当者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。 緩急尾へのシークレットの保存、あるいは環境にレビュー担当者を必須とすることの詳細については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」及び「[環境](/actions/reference/environments)」を参照してください。
+    - 必須のレビュー担当者を使って環境のシークレットを保護できます。 レビュー担当者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。 For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 {% endif %}
 
 ## Using `CODEOWNERS` to monitor changes
@@ -182,6 +181,12 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 * **作成者を信頼できる場合に限り、アクションをタグにピン止めする**
 
   コミット SHA に対するピン止めが最も安全なオプションですが、タグを指定する方が便利で広く使用されています。 タグを指定する場合は、アクションの作成者が信頼できることを確認してください。 {% data variables.product.prodname_marketplace %} の「Verified creator」バッジは便利な判断材料で、 {% data variables.product.prodname_dotcom %} で身元が確認されたチームによって作成されたアクションであることを示しています。 作者が信頼できる場合でも、このアプローチにはリスクがあることに注意してください。悪意のある人がアクションを保存しているリポジトリにアクセスすると、タグが移動または削除される可能性があります。
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Reusing third-party workflows
+
+The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+{% endif %}
 
 ## Potential impact of a compromised runner
 

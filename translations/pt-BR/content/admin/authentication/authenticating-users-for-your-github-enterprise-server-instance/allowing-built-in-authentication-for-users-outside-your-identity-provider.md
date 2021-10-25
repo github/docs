@@ -13,7 +13,7 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Authentication outside IdP
+shortTitle: Autenticação fora do IdP
 ---
 
 ## Sobre a autenticação integrada para usuários de fora do provedor de identidade

@@ -1,7 +1,7 @@
 ---
-title: Expressions
-shortTitle: Expressions
-intro: You can evaluate expressions in workflows and actions.
+title: Expressões
+shortTitle: Expressões
+intro: Você pode avaliar expressões em fluxos de trabalho e ações.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
@@ -12,11 +12,10 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-## About expressions
+## Sobre as expressões
 
-Você pode usar expressões para configurar variáveis por programação em arquivos de fluxo de trabalho e acessar contextos. Uma expressão pode ser qualquer combinação de valores literais, referências a um contexto ou funções. É possível combinar literais, referências de contexto e funções usando operadores. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+Você pode usar expressões para configurar variáveis por programação em arquivos de fluxo de trabalho e acessar contextos. Uma expressão pode ser qualquer combinação de valores literais, referências a um contexto ou funções. É possível combinar literais, referências de contexto e funções usando operadores. Para obter mais informações sobre os contextos, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
 Expressões são comumente usadas com a condicional `if` palavra-chave em um arquivo de fluxo de trabalho para determinar se uma etapa deve ser executada. Quando uma condicional `if` for `true`, a etapa será executada.
 
@@ -286,7 +285,7 @@ etapas:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. Um trabalho ou uma etapa não será executado(a) quando uma falha crítica impedir a tarefa de ser executada. Por exemplo, se houver falha ao obter as fontes.
+Faz com que a etapa seja sempre executada e retorna `verdadeiro`, mesmo quando cancelada. Um trabalho ou uma etapa não será executado(a) quando uma falha crítica impedir a tarefa de ser executada. Por exemplo, se houver falha ao obter as fontes.
 
 #### Exemplo
 

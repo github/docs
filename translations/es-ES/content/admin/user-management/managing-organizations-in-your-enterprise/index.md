@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/categories/admin-bootcamp/
   - /enterprise/admin/user-management/organizations-and-teams
   - /enterprise/admin/user-management/managing-organizations-in-your-enterprise
-intro: 'Las organizaciones son ideales para crear grupos diferentes de usuarios dentro de tu empresa, como divisiones o grupos trabajando en proyectos similares.  {% ifversion ghae %}Internal{% else %}Public and internal{% endif %} repositories that belong to an organization are accessible to members of other organizations in the enterprise, while private repositories are inaccessible to anyone but members of the organization that are granted access.'
+intro: 'Las organizaciones son ideales para crear grupos diferentes de usuarios dentro de tu empresa, como divisiones o grupos trabajando en proyectos similares.  Los repositorios {% ifversion ghae %}internos{% else %}Los repositorios públicos e internos{% endif %} que pertenecen a una organización son accesibles para los miembros de otras organizaciones en la empresa, mientras que los repositorios privados no son accesibles para nadie mas que los miembros de la organización que cuenta con este acceso.'
 versions:
   ghes: '*'
   ghae: '*'

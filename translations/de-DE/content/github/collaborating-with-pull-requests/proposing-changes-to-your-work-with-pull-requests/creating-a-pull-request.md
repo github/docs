@@ -1,6 +1,7 @@
 ---
 title: Pull Request erstellen
 intro: 'Erstelle einen Pull Request, um Änderungen an einem Repository vorzuschlagen und um daran mitzuarbeiten. These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
+permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
@@ -13,7 +14,7 @@ topics:
   - Pull requests
 ---
 
-Jeder, der Leseberechtigungen für ein Repository besitzt, kann einen Pull Request erstellen. Du benötigst jedoch Schreibberechtigungen, um einen Branch zu erstellen. Wenn Du einen neuen Branch für Deinen Pull Request erstellen möchtest, aber keine Schreibberechtigung hast, kannst Du das Repository zunächst forken. Weitere Informationen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“ und „
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. Weitere Informationen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“ und „
 Informationen zu Forks</a.></p> 
 
 Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möchtest, wenn Du Deinen Pull Request erstellst. Pull Requests können nur zwischen zwei unterschiedlichen Branches geöffnet werden.

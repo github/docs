@@ -13,7 +13,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Übersicht
 
@@ -62,7 +61,7 @@ Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variable
 
 ## Sharing data between jobs
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artefakte sind die Dateien, die erstellt werden, wenn Sie Ihren Code erstellen und testen. Artefakte können beispielsweise Binär- oder Paketdateien, Testergebnisse, Screenshots oder Protokolldateien sein. Artifacts are associated with the workflow run where they were created and can be used by another job.
+If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artefakte sind die Dateien, die erstellt werden, wenn Sie Ihren Code erstellen und testen. Artefakte können beispielsweise Binär- oder Paketdateien, Testergebnisse, Screenshots oder Protokolldateien sein. Artifacts are associated with the workflow run where they were created and can be used by another job. {% data reusables.actions.reusable-workflow-artifacts %}
 
 For example, you can create a file and then upload it as an artifact.
 

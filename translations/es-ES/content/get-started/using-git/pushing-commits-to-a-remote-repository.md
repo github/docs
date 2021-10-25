@@ -14,7 +14,7 @@ versions:
 shortTitle: Subir confirmaciones a un remoto
 ---
 
-## About `git push`
+## Acerca de `git push`
 El comando `git push` toma dos argumentos:
 
 * Un nombre remoto, por ejemplo, `origin`

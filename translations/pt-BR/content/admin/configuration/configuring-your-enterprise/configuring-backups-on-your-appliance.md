@@ -68,7 +68,7 @@ Podem ser necessários mais recursos dependendo do uso, como atividade do usuár
 
   {% note %}
 
-  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+  **Observação:** Se o seu {% data variables.product.product_location %} for implantado como um cluster ou em uma configuração de alta disponibilidade usando um balanceador de carga, o `GHE_HOSTNAME` poderá ser o nome de host do balanceador da carga, desde que permita o acesso SSH (na porta 122) a {% data variables.product.product_location %}.
 
   {% endnote %}
 
@@ -105,9 +105,9 @@ Em caso de interrupção prolongada ou evento catastrófico no site primário, �
 
 {% note %}
 
-**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+**Observação:** Ao executar backup para {% data variables.product.product_location %}, aplicam-se as mesmas regras de suporte de versão. Você só pode restaurar dados de no máximo duas versões do recursos para trás.
 
-For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+Por exemplo, se você receber um backup do GHES 3.0.x, você poderá restaurá-lo em uma instância GHES 3.2.x. No entanto, você não poderá restaurar dados de um backup do GHES 2.22.x para 3.2., porque seriam três saltos entre as versões (2.22 > 3.0 > 3.1 > 3.2). Primeiro, você deverá restaurar em uma instância de 3.1.x e, em seguida, atualizar para 3.2.x.
 
 {% endnote %}
 

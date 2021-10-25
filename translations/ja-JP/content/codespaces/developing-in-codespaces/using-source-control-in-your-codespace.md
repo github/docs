@@ -30,9 +30,7 @@ shortTitle: ソースコントロール
 
 ## ブランチの作成または切り替え
 
-1. 現在のブランチがステータスバーに表示されていない場合は、codespace の下部でステータスバーを右クリックし、[**Source control**] を選択します。
-1. ステータスバーでブランチ名をクリックします。 ![ステータスバーにあるブランチ](/assets/images/help/codespaces/branch-in-status-bar.png)
-1. ドロップダウンで、切り替えるブランチをクリックするか、新しいブランチ名を入力して [**Create new branch**] をクリックします。 ![ブランチメニューから選択](/assets/images/help/codespaces/create-new-branch.png)
+{% data reusables.codespaces.create-or-switch-branch %}
 
 {% tip %}
 
@@ -64,16 +62,11 @@ If the dev container configuration has been changed since you created the codesp
 
 ## 変更をコミットする
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. 変更をステージングするには、変更したファイルの隣にある [**+**] をクリックするか、複数のファイルを変更してすべてをステージングする場合は [**Changes**] の隣をクリックします。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-stage.png)
-1. 行った変更について説明するコミットメッセージを入力します。 ![コミットメッセージがあるソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-commit-message.png)
-1. ステージングされた変更をコミットするには、ソースコントロールサイドバーの上部にあるチェックマークをクリックします。 ![チェックマークアイコンをクリックする](/assets/images/help/codespaces/codespaces-commit-checkmark-icon.png)
+{% data reusables.codespaces.source-control-commit-changes %}
 
 ## プルリクエストを発行する
 
-1. リポジトリのローカルコピーに変更をコミットしてから、[**Create Pull Request**] アイコンをクリックします。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. マージ元のローカルブランチとリポジトリ、およびマージ先のリモートブランチとリポジトリが正しいことを確認します。 そして、プルリクエストにタイトルと説明を付けます。 ![ステージングボタンが強調表示されたソースコントロールサイドバー](/assets/images/help/codespaces/codespaces-commit-pr.png)
-1. ** Create（作成）**をクリックしてください。
+{% data reusables.codespaces.source-control-pull-request %}
 
 ## リモートリポジトリに変更をプッシュする
 

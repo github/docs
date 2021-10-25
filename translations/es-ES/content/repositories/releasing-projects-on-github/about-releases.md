@@ -34,6 +34,9 @@ Puedes recibir notificaciones cuando se publican nuevos lanzamientos en un repos
 Cualquiera que tenga acceso de lectura a un repositorio podrá ver y comparar los lanzamientos, pero únicamente aquellos con permisos de escritura en éste podrán administrarlos. Para obtener más información, consulta "[Administrar lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository)."
 
 {% ifversion fpt %}
+
+Puedes crear notas de lanzamiento manualmente mientras administras un lanzamiento. Como alternativa, puedes generar notas de lanzamiento automáticamente desde una plantilla predeterminada o personalizar tu propia plantilla de notas de lanzamiento. Para obtener más información, consulta la sección "[Notas de lanzamiento generadas automáticamente](/repositories/releasing-projects-on-github/automatically-generated-release-notes)".
+
 Las personas con permisos administrativos sobre un repositorio pueden elegir si los objetos de {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) se incluirán en los archivos ZIP y en los archivos .tar que {% data variables.product.product_name %} crea para cada lanzamiento. Para obtener más información, consulta la sección "[Administrar los objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
 {% endif %}
 

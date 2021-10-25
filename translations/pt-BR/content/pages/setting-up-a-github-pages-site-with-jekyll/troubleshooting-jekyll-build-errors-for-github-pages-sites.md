@@ -157,7 +157,7 @@ Este erro significa que você tem permalinks relativos, que não são compatíve
 
 Permalinks são URLs permanentes que fazem referência a uma determinada página no seu site. Os permalinks absolutos iniciam com a raiz do site, enquanto os permalinks relativos iniciam com a pasta que contém a página referenciada. O {% data variables.product.prodname_pages %} e o Jekyll não são mais compatíveis com permalinks relativos. Para obter mais informações sobre permalinks, consulte "[Permalinks](https://jekyllrb.com/docs/permalinks/)" na documentação do Jekyll.
 
-Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_config.yml* e reformate os permalinks relativos no site com permalinks absolutos. For more information, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_config.yml* e reformate os permalinks relativos no site com permalinks absolutos. Para obter mais informações, consulte "[Editando arquivos](/repositories/working-with-files/managing-files/editing-files)".
 
 ## O link simbólico não existe no repositório do site
 

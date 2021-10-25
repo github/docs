@@ -36,7 +36,7 @@ Organization のすべてのリポジトリについて {% data variables.produc
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 ## Organization の {% data variables.product.prodname_actions %} 権限の管理
 
@@ -63,7 +63,12 @@ Organization のワークフローをすべて無効にすることも、Organiz
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。 ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
+   {%- ifversion ghes %}
+   ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
+   {%- else %}
+   ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   {%- endif %}
 1. [**Save**] をクリックします。
 
 {% endif %}
@@ -71,7 +76,9 @@ Organization のワークフローをすべて無効にすることも、Organiz
 {% ifversion fpt %}
 ## パブリックフォークからのワークフローに対する必須の承認の設定
 
-{% data reusables.actions.workflow-run-approve-public-fork %} 以下の手順で、Organizationに対してこの動作を設定できます。 この設定を変更すると、Enterpriseレベルでの設定が上書きされます。
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for an organization using the procedure below. この設定を変更すると、Enterpriseレベルでの設定が上書きされます。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

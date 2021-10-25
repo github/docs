@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o nome do branch-padrão para seus repositórios
-intro: 'You can set the default branch name for new repositories that you create on {% data variables.product.product_location %}.'
+intro: 'Você pode definir os novos repositórios para nome do branch-padrão que você criar em {% data variables.product.product_location %}.'
 versions:
   fpt: '*'
   ghes: '>=3.0'

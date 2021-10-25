@@ -1,7 +1,7 @@
 ---
 title: Using workflow templates
 shortTitle: Using templates
-intro: You can set up CI using a workflow template that matches the language and tooling you want to use.
+intro: '{% data variables.product.product_name %} provides workflow templates for a variety of languages and tooling.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
@@ -17,34 +17,37 @@ type: tutorial
 topics:
   - Workflows
   - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-对仓库具有写入权限的任何人都可以使用 {% data variables.product.prodname_actions %} 设置持续集成 (CI)。
+## 关于工作流程模板
 
-在设置 CI 后，可以根据您的需求自定义工作流程。
+{% data variables.product.product_name %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. 例如，如果您使用 [Node.js](https://nodejs.org/en/)，{% data variables.product.product_name %} 将提议使用模板文件来安装 Node.js 包和运行测试。
+
+You can also create your own workflow templates to share with your organization. For more information, see "[Creating workflow templates](/actions/learn-github-actions/creating-workflow-templates)."
+
+## Using workflow templates
+
+Anyone with write permission to a repository can set up {% data variables.product.prodname_actions %} workflows for CI/CD or other automation.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. 找到与您要用的语言和工具匹配的模板，然后单击 **Set up this workflow（设置此工作流程）**。 ![设置工作流程按钮](/assets/images/help/repository/setup-workflow-button.png)
-5. 单击 **Start commit（开始提交）**。 ![开始提交按钮](/assets/images/help/repository/start-commit.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
-
-在推送到仓库后，您可以在 {% data variables.product.prodname_dotcom %} 上跟踪持续集成工作流程运行的状态和详细日志，并接收自定义的通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)”和“[管理工作流程运行](/articles/managing-a-workflow-run)”。
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-更多信息请参阅“[添加工作流程状态徽章](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
+1. If you already have a workflow in your repository, click **New workflow**.
+1. Find the template that you want to use, then click **Set up this workflow**.
+1. If the workflow template contains comments detailing additional setup steps, follow these steps.
+1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
+1. 单击 **Start commit（开始提交）**。
+1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## 延伸阅读
 
 - "[关于持续集成](/articles/about-continuous-integration)"
-- "[管理工作流程运行](/articles/managing-a-workflow-run)"
+- "[Managing workflow runs](/actions/managing-workflow-runs)"
+- "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 - "[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 {% ifversion fpt %}
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"

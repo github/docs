@@ -28,7 +28,7 @@ Quando um {% data variables.product.prodname_oauth_app %} quiser identificar voc
 
 ## Acesso do {% data variables.product.prodname_oauth_app %}
 
-{% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %} pode ter acesso *a* ou acesso de *gravação* aos seus dados de {% data variables.product.product_name %}.
 
 - O **acesso de leitura** permite que um app apenas *observe* os dados.
 - O **acesso de gravação** permite que um app *altere* os dados.
@@ -43,7 +43,7 @@ Quando um {% data variables.product.prodname_oauth_app %} quiser identificar voc
 
 Os *escopos* são grupos de permissões nomeados que um {% data variables.product.prodname_oauth_app %} pode solicitar para acessar dados públicos e privados.
 
-Quando quiser usar um {% data variables.product.prodname_oauth_app %} que se integre ao {% data variables.product.product_name %}, esse app permitirá que você saiba qual tipo de acesso aos seus dados será necessário. Se você conceder acesso ao app, este poderá executar ações em seu nome, como ler ou modificar os dados. Por exemplo, se você desejar usar um app que solicite o escopo `user:email`, o app terá acesso somente leitura aos seus endereços de e-mail privados. For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Quando quiser usar um {% data variables.product.prodname_oauth_app %} que se integre ao {% data variables.product.product_name %}, esse app permitirá que você saiba qual tipo de acesso aos seus dados será necessário. Se você conceder acesso ao app, este poderá executar ações em seu nome, como ler ou modificar os dados. Por exemplo, se você desejar usar um app que solicite o escopo `user:email`, o app terá acesso somente leitura aos seus endereços de e-mail privados. Para obter mais informações, consulte "[Sobre escopos para {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 
@@ -55,7 +55,7 @@ Quando quiser usar um {% data variables.product.prodname_oauth_app %} que se int
 
 ### Tipos de dados solicitados
 
-{% data variables.product.prodname_oauth_apps %} can request several types of data.
+{% data variables.product.prodname_oauth_apps %} pode solicitar vários tipos de dados.
 
 | Tipos de dados            | Descrição                                                                                                                                                                                                                                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,30 +71,30 @@ Quando quiser usar um {% data variables.product.prodname_oauth_app %} que se int
 
 ## Solicitar permissões atualizadas
 
-When {% data variables.product.prodname_oauth_apps %} request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
+Quando {% data variables.product.prodname_oauth_apps %} solicitar novas permissões de acesso, você será notificado sobre as diferenças entre as permissões atuais e as novas permissões.
 
 {% ifversion fpt %}
 
-## {% data variables.product.prodname_oauth_apps %} and organizations
+## {% data variables.product.prodname_oauth_apps %} e organizações
 
 Ao autorizar um {% data variables.product.prodname_oauth_app %} para sua conta de usuário pessoal, você também verá como a autorização vai afetar cada organização da qual você faz parte.
 
 - **Para organizações *com* restrições de acesso do {% data variables.product.prodname_oauth_app %}, você poderá solicitar que os administradores da organização aprovem o aplicativo para uso nessa organização.** Se a organização não aprovar o aplicativo, o aplicativo só poderá acessar os recursos públicos da organização. Se você for administrador de uma organização, você mesmo poderá [aprovar o aplicativo](/articles/approving-oauth-apps-for-your-organization).
 
-- **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
+- **Para organizações *sem restrições de acesso de* {% data variables.product.prodname_oauth_app %} o aplicativo será autorizado automaticamente para acesso aos recursos da organização.** Por esta razão, você deve ter cuidado com {% data variables.product.prodname_oauth_apps %} você aprova para acessar os recursos da sua conta pessoal, bem como todos os recursos da organização.
 
 Se você pertence a alguma organização que force o logon único SAML, você deve ter uma sessão de SAML ativa para cada organização toda cada vez que autorizar um {% data variables.product.prodname_oauth_app %}.
 
 {% note %}
 
-**Note:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize the app.
+**Observação:** Se você encontrar erros ao efetuar a autenticação em uma organização que impõe o logon único do SAML, talvez você precise revogar o aplicativo OAuth da página de configurações da sua [página de configurações da sua conta](https://github.com/settings/applications) e repetir o fluxo de autenticação para autorizar novamente o aplicativo.
 
 {% endnote %}
 
 ## Leia mais
 
 - "[Sobre restrições de acesso do {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)"
-- "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
+- "[Autorizando aplicativos GitHub](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
 - "[Suporte do {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-support)"
 
 {% endif %}

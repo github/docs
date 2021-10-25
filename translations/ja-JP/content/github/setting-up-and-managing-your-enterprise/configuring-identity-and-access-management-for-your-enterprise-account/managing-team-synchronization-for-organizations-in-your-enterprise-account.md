@@ -12,6 +12,8 @@ redirect_from:
 shortTitle: Teamの同期の管理
 ---
 
+{% data reusables.enterprise-accounts.emu-scim-note %}
+
 ## Enterprise アカウントのチーム同期について
 
 Azure AD を IdP として使用する場合は、Enterprise アカウントのチーム同期を有効にして、Organization のオーナーとチームメンテナが、Enterprise アカウントが所有する Organization のチームを IdP グループと同期できるようにすることができます。

@@ -15,11 +15,11 @@
 | Azure                     | Certificado de Administración de Servicios de Azure         |
 | Azure                     | Secuencia de Conexión de Azure SQL                          |
 | Azure                     | Clave de Cuenta de Almacenamiento de Azure                  |
-| Checkout.com              | Checkout.com Production Secret Key                          |
-| Checkout.com              | Checkout.com Test Secret Key                                |
+| Checkout.com              | Clave secreta de productión de Checkout.com                 |
+| Checkout.com              | Clave secreta de pruebas de Checkout.com                    |
 | Clojars                   | Token de Despliegue de Clojars                              |
 | CloudBees CodeShip        | Credencial de Codeship de CloudBees                         |
-| Contributed Systems       | Contributed Systems Credentials                             |
+| Sistemas Contribuidos     | Credenciales de los sistemas contribuidos                   |
 | Databricks                | Token de Acceso de Databricks                               |
 | Datadog                   | Clave de API de Datadog                                     |
 | Discord                   | Token de Bot de Discord                                     |
@@ -27,7 +27,7 @@
 | Doppler                   | Token de Servicio de Doppler                                |
 | Doppler                   | Token de CLI de Doppler                                     |
 | Doppler                   | Token de SCIM de Doppler                                    |
-| Doppler                   | Doppler Audit Token                                         |
+| Doppler                   | Token de auditoría de Doppler                               |
 | Dropbox                   | Token de Acceso de Dropbox                                  |
 | Dropbox                   | Token de Acceso de Vida Corta de Dropbox                    |
 | Dynatrace                 | Token de Acceso de Dynatrace                                |
@@ -58,10 +58,10 @@
 | NuGet                     | Clave de API de NuGet                                       |
 | OpenAI                    | Clave de la API de OpenAI                                   |
 | Palantir                  | Token Web de JSON de Palantir                               |
-| PlanetScale               | PlanetScale Database Password                               |
-| PlanetScale               | PlanetScale OAuth Token                                     |
-| PlanetScale               | PlanetScale Service Token                                   |
-| Plivo                     | Plivo Auth ID and Token                                     |
+| PlanetScale               | Contraseña de base de datos de PlanetScale                  |
+| PlanetScale               | Token de OAuth de PlanetScale                               |
+| PlanetScale               | Token de Servicio de PlanetScale                            |
+| Plivo                     | Token e ID de Auth de Plivo                                 |
 | Postman                   | Clave de API de Postman                                     |
 | Proctorio                 | Clave de Consumidor de Proctorio                            |
 | Proctorio                 | Clave de Enlace de Proctorio                                |

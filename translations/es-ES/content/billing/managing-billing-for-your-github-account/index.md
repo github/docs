@@ -1,7 +1,7 @@
 ---
 title: Administrar la facturación para tu cuenta de GitHub
 shortTitle: Tu cuenta de GitHub
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghes or ghae %}You can manage billing for {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghes %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes mejorar, bajar de nivel y ver los cambios pendientes a la suscripción de tu cuenta en cualquier momento.{% elsif ghes or ghae %}Puedes administrar la configuración de {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghes %} desde tu cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
   - /categories/97/articles/

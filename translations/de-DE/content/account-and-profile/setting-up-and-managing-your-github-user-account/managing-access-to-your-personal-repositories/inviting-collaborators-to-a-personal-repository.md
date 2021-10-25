@@ -24,6 +24,8 @@ Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffs
 
 {% ifversion fpt %}
 
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
 {% note %}
 
 **Hinweis:** {% data variables.product.company_short %} beschränkt die Anzahl an Personen, die innerhalb von 24 Stunden zu einem Repository eingeladen werden können. Wenn Du diese Grenze überschreitest, musst Du entweder 24 Stunden warten oder eine Organisation erstellen, um mit mehr Benutzern zusammenzuarbeiten.

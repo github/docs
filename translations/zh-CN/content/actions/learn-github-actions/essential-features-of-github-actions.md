@@ -13,7 +13,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## 概览
 
@@ -62,7 +61,7 @@ jobs:
 
 ## 在作业之间共享数据
 
-如果作业生成您要与同一工作流程中的另一个作业共享的文件，或者您要保存这些文件供以后参考，可以将它们作为_构件_存储在 {% data variables.product.prodname_dotcom %} 中。 构件是创建并测试代码时所创建的文件。 例如，构件可能包含二进制或包文件、测试结果、屏幕截图或日志文件。 构件与其创建时所在的工作流程运行相关，可被另一个作业使用。
+如果作业生成您要与同一工作流程中的另一个作业共享的文件，或者您要保存这些文件供以后参考，可以将它们作为_构件_存储在 {% data variables.product.prodname_dotcom %} 中。 构件是创建并测试代码时所创建的文件。 例如，构件可能包含二进制或包文件、测试结果、屏幕截图或日志文件。 构件与其创建时所在的工作流程运行相关，可被另一个作业使用。 {% data reusables.actions.reusable-workflow-artifacts %}
 
 例如，您可以创建一个文件，然后将其作为构件上传。
 

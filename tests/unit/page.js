@@ -346,7 +346,7 @@ describe('Page class', () => {
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
           .href
       ).toBe(expectedPath)
-      expect(page.permalinks.length).toBe(1)
+      expect(page.permalinks.length).toBe(2)
     })
 
     test('permalinks for enterprise-only pages', async () => {
@@ -403,6 +403,7 @@ describe('Page class', () => {
       ])
     })
 
+    // Docs Engineering issue: 970
     it.skip('renders learning tracks that have been defined', async () => {
       // getLinkData.mockImplementation((guides) => { return guides })
       const guides = ['/path/guide1', '/path/guide2']
@@ -486,6 +487,7 @@ describe('Page class', () => {
       expect(page.includeGuides).toStrictEqual(['/path/guide1', '/path/guide2', '/path/guide3'])
     })
 
+    // Docs Engineering issue: 971
     it.skip('renders guides and topics', async () => {
       /* getLinkData.mockImplementation(() => {
         return [{
@@ -553,10 +555,11 @@ describe('Page class', () => {
   })
 
   describe('page.versions frontmatter', () => {
+    // Docs Engineering issue: 972
     test.skip('pages that apply to older enterprise versions', async () => {
       // There are none of these in the content at this time!
     })
-
+    // Docs Engineering issue: 972
     test.skip('pages that apply to newer enterprise versions', async () => {
       // There are none of these in the content at this time!
     })

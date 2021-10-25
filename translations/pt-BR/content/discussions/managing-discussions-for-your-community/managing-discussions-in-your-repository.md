@@ -16,7 +16,7 @@ Os proprietários da organização podem escolher as permissões necessárias pa
 
 Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
-When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. Para obter mais informações, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
+Quando uma discussão fornece uma ideia ou um erro que está pronto para ser trabalhado, você pode criar um novo problema a partir de uma discussão. Para obter mais informações, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)".
 
 Para obter mais informações sobre como facilitar uma discussão saudável, consulte "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)".
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre como facilitar uma discussão saudável, con
 
 ## Pré-requisitos
 
-To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+Para gerenciar as discussões em um repositório, {% data variables.product.prodname_discussions %} deve estar habilitado para o repositório. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
 ## Alterar a categoria para uma discussão
 
@@ -56,7 +56,7 @@ Editar uma discussão fixada não irá alterar a categoria da discussão. Para o
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. Na barra lateral direita, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar discussão fixada**. !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. Na barra lateral direita, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar discussão fixada**. !["Editar discussão fixada" na barra lateral direita para discussão](/assets/images/help/discussions/click-edit-pinned-discussion.png)
 1. Personalize a aparência da discussão fixada. ![Opções de personalização para uma discussão fixada](/assets/images/help/discussions/customize-pinned-discussion.png)
 1. Clique em **Fixar discussão**. ![Botão "Fixar discussão" nas opções de personalização para discussão fixada](/assets/images/help/discussions/click-pin-discussion-button.png)
 

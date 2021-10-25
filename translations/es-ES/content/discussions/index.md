@@ -1,6 +1,5 @@
 ---
 title: Documentación sobre los debates de GitHub
-beta_product: true
 shortTitle: GitHub Discussions
 intro: '{% data variables.product.prodname_discussions %} es un foro de comunicación colaborativa para la comunidad que circunda un proyecto de código abierto. Los miembros de la comunidad pueden hacer preguntas y proporcionar respuestas, compartir actualizaciones, tener conversaciones abiertas y dar seguimiento a las decisiones que afectan la forma de trabajar de la misma.'
 introLinks:
@@ -24,6 +23,7 @@ featuredLinks:
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
 changelog:
   label: discussions
+examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:

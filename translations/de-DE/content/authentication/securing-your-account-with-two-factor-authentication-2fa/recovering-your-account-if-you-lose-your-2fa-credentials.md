@@ -71,6 +71,12 @@ Sie kannst die Anmeldeinformationen oder die Wiederherstellungscodes Deiner Zwei
 
 ## Authentifizierung mit einem Kontowiederherstellungstoken
 
+{% warning %}
+
+**Warning:** Account recovery tokens are deprecated and will be disabled on **December 1st, 2021**. Please ensure you have configured other two-factor recovery methods. For more information, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
+
+{% endwarning %}
+
 Wenn Du den Zugriff auf die Zwei-Faktor-Authentifizierungsmethoden für Dein {% data variables.product.product_name %}-Konto verlierst, kannst Du Dein Kontowiederherstellungstoken von einem Partner-Wiederherstellungsanbieter abrufen und den {% data variables.product.prodname_dotcom %}-Support darum bitten, es zu prüfen.
 
 Wenn Du keinen Zugriff auf Deine Zwei-Faktor-Authentifizierungsmethoden oder Wiederherstellungscodes hast und ein Kontowiederherstellungstoken mit „Recover Accounts Elsewhere" bei Facebook gespeichert hast, kannst Du möglicherweise mit diesem Token wieder Zugriff auf Dein Konto erlangen.

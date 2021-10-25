@@ -1,1 +1,1 @@
-1. Under "Billing information", complete the form, then click **Save**.
+1. Debajo de "Información de facturación", completa el formato y luego haz clic en **Guardar**.

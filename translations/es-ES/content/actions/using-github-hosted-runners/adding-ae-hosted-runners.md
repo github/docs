@@ -5,7 +5,7 @@ versions:
   ghae: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 {% note %}
 
@@ -19,7 +19,8 @@ Los {% data variables.actions.hosted_runner %} pueden utilizar la simagenes base
 
 Puedes agregar {% data variables.actions.hosted_runner %} que utilicen las imágenes base del sistema operativo de Azure. Para agregar {% data variables.actions.hosted_runner %} a tu organización o empresa, contacta al soporte de {% data variables.product.prodname_dotcom %} y ten a la mano la siguiente información:
  - Sistema operativo requerido: Se listan las opciones disponibles en ["Especificaciones de software](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)".
- - Elige un nombre para cada agrupación de {% data variables.actions.hosted_runner %}. Estos nombres se crean como etiquetas, lo cual te permite enrutar tus flujos de trabajo a estos ejecutores. Para obtener más información, consulta la sección "[Utilizar {% data variables.actions.hosted_runner %} en un flujo de trabajo](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)".
+ - Elige un nombre para cada agrupación de {% data variables.actions.hosted_runner %}. Estos nombres se crean como etiquetas, lo cual te permite enrutar tus flujos de trabajo a estos ejecutores. Para obtener más información, consulta la sección "[Utilizar {% data variables.actions.hosted_runner %}s en un flujo de trabajo](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)".{% ifversion ghae-next %}
+{% data reusables.actions.autoscaling-parameters %}{% endif %}
  - Dónde agregar el {% data variables.actions.hosted_runner %}: Identifica los nombres de las organizaciones y empresas que recibirán los ejecutores.
 
 ## Agregar un {% data variables.actions.hosted_runner %} con una imagen personalizada
@@ -33,7 +34,8 @@ Una vez que hayas creado una imagen personalizado utilizando los pasos anteriore
   - Nombre de imagen.
   - Versión.
   - SKU de la MV para la agrupación nueva.
-  - Elige un nombre para cada agrupación de {% data variables.actions.hosted_runner %}. Estos nombres se crean como etiquetas, lo cual te permite enrutar tus flujos de trabajo a estos ejecutores. Para obtener más información, consulta la sección "[Utilizar {% data variables.actions.hosted_runner %} en un flujo de trabajo](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)".
+  - Elige un nombre para cada agrupación de {% data variables.actions.hosted_runner %}. Estos nombres se crean como etiquetas, lo cual te permite enrutar tus flujos de trabajo a estos ejecutores. Para obtener más información, consulta la sección "[Utilizar {% data variables.actions.hosted_runner %}s en un flujo de trabajo](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)".{% ifversion ghae-next %}
+{% data reusables.actions.autoscaling-parameters %}{% endif %}
   - Dónde agregar el {% data variables.actions.hosted_runner %}: Identifica los nombres de las organizaciones y empresas que recibirán los ejecutores.
 
 ## Revisar tus {% data variables.actions.hosted_runner %}

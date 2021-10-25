@@ -1,7 +1,7 @@
 ---
-title: Automating builds and tests
-shortTitle: Build and test
-intro: 'You can automatically build and test your projects with {% data variables.product.prodname_actions %}.'
+title: Automatizando criações e testes
+shortTitle: Criar e testar
+intro: 'Você pode criar e testar automaticamente os seus projetos com {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'

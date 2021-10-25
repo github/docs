@@ -145,6 +145,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 | `assign`           | 您被分配到议题。                                                                                                                                                     |
 | `作者`               | 您创建了帖子。                                                                                                                                                      |
 | `注释，评论`            | 您评论了帖子。                                                                                                                                                      |
+| `ci_activity`      | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.                                                               |
 | `邀请`               | 您接受了参与仓库的邀请。                                                                                                                                                 |
 | `manual`           | 您订阅了帖子（通过议题或拉取请求）                                                                                                                                            |
 | `提及`               | 您在内容中被特别 **@提及**。                                                                                                                                            |

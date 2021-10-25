@@ -31,7 +31,7 @@ Hay dos tipos de verificaciones de estado en {% data variables.product.product_n
 - Verificaciones
 - Estados
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
+Las _verificaciones_ son diferentes de los _estados_, porque brindan anotaciones por línea, mensajes más detallados y solo están disponibles para el uso con {% data variables.product.prodname_github_apps %}.
 
 Los propietarios de la organización y los usuarios con acceso de escritura a un repositorio pueden crear verificaciones y estados con la API de {% data variables.product.product_name %}. Para obtener más información, consulta la secciónes "[Verificaciones](/rest/reference/checks)" y "[Estados](/rest/reference/repos#statuses)".
 
@@ -40,6 +40,12 @@ Los propietarios de la organización y los usuarios con acceso de escritura a un
 Cuando se configuran las _verificaciones_ en un repositorio, las solicitudes de extracción tienen una pestaña **Checks** (Verificaciones) en la que puedes ver los resultados detallados de la compilación desde las verificaciones de estado y volver a ejecutar las verificaciones fallidas.
 
 ![Verificaciones de estado dentro de una solicitud de extracción](/assets/images/help/pull_requests/checks.png)
+
+{% note %}
+
+**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+
+{% endnote %}
 
 Cuando una línea específica en una confirmación hace que una verificación falle, verás los detalles acerca de la falla, adevertencia o aviso al lado del código relevante en la pestaña **Archivos** de la solicitud de extracción.
 

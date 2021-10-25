@@ -1,6 +1,7 @@
 ---
 title: 创建拉取请求
 intro: 创建拉取请求以提议和协作处理对仓库的更改。 这些更改在*分支*中提议，以确保默认分支只包含已完成和已批准的工作。
+permissions: 'Anyone with read access to a repository can create a pull request. {% data reusables.enterprise-accounts.emu-permission-propose %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
   - /articles/creating-a-pull-request
@@ -13,7 +14,7 @@ topics:
   - Pull requests
 ---
 
-对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。 如果要为拉取请求创建新分支，又没有仓库的写入权限，可以先对仓库复刻。 更多信息请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”和“[关于复刻](/articles/about-forks)”。
+If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. 更多信息请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”和“[关于复刻](/articles/about-forks)”。
 
 您可以在创建拉取请求时指定要将更改合并到哪个分支。 拉取请求只能在不同的两个分支之间打开。
 

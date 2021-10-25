@@ -79,7 +79,7 @@ Para volver a habilitar los Enlaces Universales, sostén cualquier enlace de {% 
 
 Si encuentras un error en {% data variables.product.prodname_mobile %}, puedes mandarnos un mensaje de correo electrónico a <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} on [{% data variables.product.prodname_discussions %}](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
+Puedes emitir solicitudes de características o cualquier otro tipo de retroalimentación para {% data variables.product.prodname_mobile %} en los [{% data variables.product.prodname_discussions %}](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
 ## Abandonar los lanzamientos beta para iOS
 

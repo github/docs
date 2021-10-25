@@ -19,7 +19,7 @@ Esta guía te muestra cómo utilizar las {% data variables.product.prodname_gith
 
 ## Prerrequisitos
 
-Para crear una propuesta, necesitas un repositorio. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. El repositorio debe tener habilitadas las propuestas. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)." Para obtener más información acerca de habilitar las propuestas si están inhabilitadas en tu repositorio, consulta la sección "[Inhabilitar las propuestas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
+Para crear una propuesta, necesitas un repositorio. Puedes utilizar un repositorio existente al cual tengas acceso de escritura o puedes crear un repositorio nuevo. {% data reusables.enterprise-accounts.emu-permission-repo %} El repositorio debe tener habilitadas las propuestas. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)." Para obtener más información acerca de habilitar las propuestas si están inhabilitadas en tu repositorio, consulta la sección "[Inhabilitar las propuestas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
 
 ## Abrir una propuesta en blanco
 

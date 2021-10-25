@@ -4,18 +4,20 @@ intro: 'Estas guías de {% data variables.product.prodname_education %} te ayuda
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+shortTitle: Guías
 ---
 
-### Inicia con {% data variables.product.product_name %}
+## Inicia con {% data variables.product.product_name %}
 
 Los maestros, alumnos e investigadores pueden utilizar herramientas de {% data variables.product.product_name %} para enriquecer un currículum de desarrollo de software y desarrollar habilidades colaborativas para el mundo real.
 
 - [Regístrate para una nueva cuenta de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Guía de inicio rápido de Git y {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/quickstart)
+- [Acerca de Educación GitHub para estudiantes](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students)
 - [Postularse para un descuento de investigador o educador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
 - [Aplicar un paquete de desarrollo para alumnos](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
 
-### Ejecuta un curso de desarrollo de software con {% data variables.product.company_short %}
+## Ejecuta un curso de desarrollo de software con {% data variables.product.company_short %}
 
 Administra un aula, asigna y revisa el trabajo de tus alumnos y enseña a la nueva generación de desarrolladores de software con {% data variables.product.prodname_classroom %}.
 
@@ -28,7 +30,7 @@ Administra un aula, asigna y revisa el trabajo de tus alumnos y enseña a la nue
 - [Deja retroalimentación con solicitudes de cambios](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
 - [Utiliza las calificaciones automáticas](/education/manage-coursework-with-github-classroom/use-autograding)
 
-### Aprende a desarrollar software
+## Aprende a desarrollar software
 
 Incorpora a {% data variables.product.prodname_dotcom %} en tu educación y utiliza las mismas herramientas que los profesionales.
 
@@ -37,7 +39,7 @@ Incorpora a {% data variables.product.prodname_dotcom %} en tu educación y util
 - [Prueba {% data variables.product.prodname_desktop %}](/desktop)
 - [Prueba {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
-### Contribuye con la comunidad
+## Contribuye con la comunidad
 
 Participa en la comunidad, obtén capacitación de {% data variables.product.company_short %} y aprende o enseña nuevas habilidades.
 

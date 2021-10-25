@@ -64,6 +64,14 @@ Toda persona que utilice {% data variables.product.product_location %} tiene su 
 
 {% endif %}
 
+{% ifversion fpt %}
+### {% data variables.product.prodname_emus %}
+
+Con las {% data variables.product.prodname_emus %}, en vez de utilizar tu cuenta personal, los miembros de una {% data variables.product.prodname_emu_enterprise %} son cuentas aprovisionadas utilizando el proveedor de identidad empresarial (IdP). Los {% data variables.product.prodname_managed_users_caps %} se autentican utilizando su IdP en vez de un nombre de usuario y contraseña de {% data variables.product.prodname_dotcom_the_website %}.
+
+Los {% data variables.product.prodname_managed_users_caps %} solo pueden interactuar con usuarios, repositorios y organizaciones que son parte de la empresa. Los {% data variables.product.prodname_managed_users_caps %} tienen acceso de solo lectura para el resto del {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+{% endif %}
+
 ## Cuentas de organización
 
 Las organizaciones son cuentas compartidas donde grupos de personas pueden colaborar en muchos proyectos a la vez. Los propietarios y los administradores pueden administrar el acceso de los miembros a los datos y los proyectos de la organización con características administrativas y de seguridad sofisticadas.

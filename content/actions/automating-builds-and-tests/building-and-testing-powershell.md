@@ -1,13 +1,13 @@
 ---
 title: Building and testing PowerShell
 intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
@@ -19,6 +19,7 @@ shortTitle: Build & test PowerShell
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)

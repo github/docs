@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Overview
 
@@ -27,11 +29,11 @@ The actions you use in your workflow can be defined in:
 - The same repository where your workflow file references the action
 - A published Docker container image on Docker Hub
 
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
+{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Browsing Marketplace actions in the workflow editor
 
@@ -80,7 +82,7 @@ steps:
 
 ### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% ifversion fpt or ghes > 3.0 or ghae %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
 
 ```yaml
 steps:

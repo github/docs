@@ -1,6 +1,6 @@
 ---
-title: Setting up your C# (.NET) project for Codespaces
-shortTitle: Setting up your C# (.NET) project
+title: Configurar tu proyecto de C# (.NET) para Codespaces
+shortTitle: Configurar tu proyecto de C# (.NET)
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 intro: 'Inicia con tu proyecto de C# (.NET) en {% data variables.product.prodname_codespaces %} creando un contenedor dev personalizado.'
@@ -25,11 +25,11 @@ Esta guía te muestra cómo configurar tu proyecto de C# (.NET) en {% data varia
 
 ## Paso 1: Abre tu proyecto en un codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+1. Debajo del nombre de repositorio, utiliza el menú desplegable de **Código {% octicon "code" aria-label="The code icon" %}** y, en la pestaña de **Codespaces**, haz clic en {% octicon "plus" aria-label="The plus icon" %} **Codespace nuevo**.
 
   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
-  If you don’t see this option, {% data variables.product.prodname_codespaces %} isn't available for your project. See [Access to {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) for more information.
+  Si no ves esta opción, entonces los {% data variables.product.prodname_codespaces %} no están disponibles para tu proyecto. Consulta la sección de [Acceso a los {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) para obtener más información.
 
 Cuando creas un codespace, tu proyecto se crea en una MV remota dedicada a ti. Predeterminadamente, el contenedor de tu codespace tiene muchos lenguajes de programación y tiempos de ejecución, incluyendo a .NET. También incluye un conjunto de herramientas comunes como git, wget, rsync, openssh y nano.
 
@@ -168,7 +168,7 @@ Ahora que agregaste tu contenedor dev y tienes un entendimiento básico de lo qu
 
 1. En el explorador, expande la carpeta `.devcontainer` y selecciona el archivo `devcontainer.json` del árbol para abrirlo.
 
-  ![devcontainer.json file in the Explorer](/assets/images/help/codespaces/devcontainers-options.png)
+  ![Archivo de devcontainer.json en el explorador](/assets/images/help/codespaces/devcontainers-options.png)
 
 2. Actualiza tu lista de `extensions` en tu archivo `devcontainer.json` para agregar algunas extensiones que son útiles al trabajar con tu proyecto.
 

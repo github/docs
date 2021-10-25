@@ -14,7 +14,7 @@ versions:
 shortTitle: Fazer push de commits para um controle remoto
 ---
 
-## About `git push`
+## Sobre `git push`
 O comando `git push` usa dois argumentos:
 
 * Um nome de remote, por exemplo, `origin`

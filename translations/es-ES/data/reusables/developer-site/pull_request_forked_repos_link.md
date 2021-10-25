@@ -1,4 +1,4 @@
-#### Eventos de solicitud de extracción para repositorios bifurcados
+### Eventos de solicitud de extracción para repositorios bifurcados
 
 {% note %}
 

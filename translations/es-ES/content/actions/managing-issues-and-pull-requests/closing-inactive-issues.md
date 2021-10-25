@@ -16,8 +16,6 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introducción
 
@@ -73,7 +71,7 @@ Con base en el parámetro `schedule` (por ejemplo, todos los días a la 1:39 UTC
 
 Puedes ver el historial de tus ejecuciones de flujo de trabajo para ver que este flujo de trabajo se ejecute regularmente. Para obtener más información, consulta la sección "[Visualizar el historial de ejecuciones de un flujo de trabajo](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. Puedes configurar esto con el ajuste de `operations-per-run`. Para obtener más información, consulta la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
+Este flujo de trabajo solo etiquetará o cerrará 30 propuestas a la vez para evitar exceder el límite de tasa. Puedes configurar esto con el ajuste de `operations-per-run`. Para obtener más información, consulta la [documentación de la acción `actions/stale`](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: Managing repository access for your codespaces
-shortTitle: Repository access
+title: Administrar el acceso de tus codespaces a los repositorios
+shortTitle: Acceso a los repositorios
 intro: 'Puedes administrar los repositorios a los cuales pueden acceder los {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -20,3 +20,7 @@ Cuando habilitas el acceso y la seguridad de un repositorio que pertenezca a tu 
 {% data reusables.user_settings.codespaces-tab %}
 1. Debajo de "Acceso y seguridad"; selecciona la configuración que quieras para tu cuenta de usurio. ![Botones radiales para adminsitrar los repositorios confiables](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
 1. Si eliges "Repositorios seleccionados", selecciona el menú desplegable y luego da clic en un repositorio para permitir que los codespaces de éste accedan al resto de los repositorios que te pertenecen. Repite esto para todos los repositorios cuyos codespaces quieras que accedan al resto de tus repositorios. ![Menú desplegable de "Repositorios seleccionados"](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+
+## Leer más
+
+- "[Managing repository access for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces)"
