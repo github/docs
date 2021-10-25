@@ -131,7 +131,7 @@
     "csv-parse": "^4.16.3",
     "dedent": "^0.7.0",
     "domwaiter": "^1.3.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
