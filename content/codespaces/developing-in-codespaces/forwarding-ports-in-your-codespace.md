@@ -15,8 +15,6 @@ topics:
 shortTitle: Forward ports
 ---
 
- 
-
 ## About forwarded ports
 
 Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on port 4000, you can access the application from your browser to test and debug the application.
@@ -25,7 +23,7 @@ When an application running inside a codespace outputs a port to the console, {%
 
 ![Automatic port forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
 
-You can also forward a port manually, label forwarded ports, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
+You can also forward a port manually, label forwarded ports, share forwarded ports with members of your organization, share forwarded ports publicly, and add forwarded ports to the codespace configuration.
 
 ## Forwarding a port
 
@@ -57,11 +55,17 @@ You can label a port to make the port more easily identifiable in a list.
 
 ## Sharing a port
 
-If you want to share a forwarded port with others, you need to make the port public. After you make a port public, anyone with the port's URL can view the running application without needing to authenticate.
+{% note %}
+
+**Note:** You can only make a port private to an organization if your organization uses {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}. This feature is not currently available in the beta version of {% data variables.product.prodname_codespaces %}.
+
+{% endnote %}
+
+If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone with the port's URL can view the running application without needing to authenticate.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to share, then click **Make Public**.
-  ![Option to make port public in right-click menu](/assets/images/help/codespaces/make-public-option.png)
+1. Right click the port that you want to share, select the "Port Visibility" menu, then click **Private to Organization** or **Public**.
+  ![Option to select port visibility in right-click menu](/assets/images/help/codespaces/make-public-option.png)
 1. To the right of the local address for the port, click the copy icon.
   ![Copy icon for port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
 1. Send the copied URL to the person you want to share the port with.
