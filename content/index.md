@@ -46,6 +46,7 @@ childGroups:
     - get-started
     - account-and-profile
     - authentication
+    - billing
   - name: Collaborative coding
     octicon: 'CommentDiscussionIcon'
     children:
@@ -81,7 +82,6 @@ childGroups:
   - name: Enterprise and Teams
     octicon: 'OrganizationIcon'
     children:
-    - billing
     - organizations
     - admin
   - name: Community
