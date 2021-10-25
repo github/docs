@@ -14,7 +14,7 @@
     "@primer/components": "^30.3.0",
     "@primer/css": "^17.9.0",
     "@primer/octicons": "^15.1.0",
-    "@primer/octicons-react": "^15.1.0",
+    "@primer/octicons-react": "^16.1.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.6.3",
     "ajv-formats": "^2.1.1",
