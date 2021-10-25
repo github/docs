@@ -11,7 +11,7 @@
   "dependencies": {
     "@alex_neo/jest-expect-message": "^1.0.5",
     "@hapi/accept": "^5.0.2",
-    "@primer/components": "^30.3.0",
+    "@primer/components": "^31.0.0",
     "@primer/css": "^17.9.0",
     "@primer/octicons": "^15.1.0",
     "@primer/octicons-react": "^15.1.0",
