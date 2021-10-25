@@ -120,7 +120,7 @@
     "@typescript-eslint/parser": "^4.31.1",
     "async": "^3.2.1",
     "await-sleep": "0.0.1",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^1.13.3",
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.2",
