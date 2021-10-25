@@ -1,4 +1,4 @@
----
+repo-sync---
 title: Enabling Codespaces for your organization
 shortTitle: Enabling Codespaces
 intro: 'You can control which users in your organization can use {% data variables.product.prodname_codespaces %}.'
