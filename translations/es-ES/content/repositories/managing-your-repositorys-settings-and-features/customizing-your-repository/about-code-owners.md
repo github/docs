@@ -17,7 +17,7 @@ topics:
 
 Las personas con permisos administrativos o de propietario pueden configurar un archivo CODEOWNERS en un repositorio.
 
-Las personas que elijas como propietarios del código deben tener permisos de escritura para el repositorio. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
+Las personas que elijas como propietarios del código deben tener permisos de escritura para el repositorio. Cuando el propietario del código es un equipo, ese equipo debe ser visible y tener permisos de escritura, incluso si todos los miembros individuales del equipo ya tienen permisos de escritura, a través de la membresía de la organización o a través de la membresía de otro equipo.
 
 ## Acerca de los propietarios del código
 
@@ -42,16 +42,16 @@ Cada archivo CODEOWNERS asigna los propietarios del código para una única rama
 Para que los propietarios del código reciban las solicitudes de revisión, el archivo CODEOWNERS debe estar en la rama base de la solicitud de extracción. Por ejemplo, si asignas `@octocat` como el propietario del código para los archivos *.js* en la rama `gh-pages` de tu repositorio, `@octocat` recibirá las solicitudes de revisión cuando una solicitud de extracción con cambios en los archivos *.js* se abra entre la rama de encabezado y `gh-pages`.
 
 {% ifversion fpt or ghae or ghes > 3.2 %}
-## CODEOWNERS file size
+## Tamaño de archivo de CODEOWNERS
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
+Los archivos de CODEOWNERS deben ser de menos de 3 MB. Un archivo de CODEOWNERS que sobrepase este límite no se cargará, lo cual significa que la información de los propietarios de código no se mostrará y que no se solicitará que los propietarios de código adecuados revisen los cambios en una solicitud de cambios.
 
-To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry.
+Para reducir el tamaño de tu archivo de CODEOWNERS, considera utilizar patrones de comodín para consolidar varias entradas en una.
 {% endif %}
 
 ## Sintáxis de CODEOWNERS
 
-Un archivo de CODEOWNERS utiliza un patrón que sigue la mayoría de las mismas reglas que utilizan los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), con [algunas excepciones](#syntax-exceptions). El patrón es seguido por uno o más nombres de usuarios o nombres de equipos de {% data variables.product.prodname_dotcom %} usando el formato estándar `@username` o `@org/team-name`. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. También puedes hacer referencia a un usuario mediante una dirección de correo electrónico que haya sido agregada a su cuenta de {% data variables.product.product_name %}, por ejemplo `user@example.com`.
+Un archivo de CODEOWNERS utiliza un patrón que sigue la mayoría de las mismas reglas que utilizan los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), con [algunas excepciones](#syntax-exceptions). El patrón es seguido por uno o más nombres de usuarios o nombres de equipos de {% data variables.product.prodname_dotcom %} usando el formato estándar `@username` o `@org/team-name`. Los usuarios deben tener acceso de `read` en el repositorio y los equipos deben tener acceso explícito de `write`, incluso si los miembros de dichos equipos ya tienen acceso. También puedes hacer referencia a un usuario mediante una dirección de correo electrónico que haya sido agregada a su cuenta de {% data variables.product.product_name %}, por ejemplo `user@example.com`.
 
 Si cualquier línea de tu archivo de CODEOWNERS contiene una sintaxi inválida, el archivo no se detectará y no se utilizará para solicitar revisiones.
 ### Ejemplo de un archivo CODEOWNERS
@@ -109,8 +109,8 @@ Hay algunas reglas de sintaxis para los archivos de gitignore que no funcionan c
 - Utilizar `!` para negar un patrón
 - Utilizar `[ ]` para definir un rango de carácter
 
-## CODEOWNERS and branch protection
-Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
+## Protección de rama y de CODEOWNERS
+Los propietarios de los repositorios pueden agregar reglas de protección de rama para asegurarse de que los propietarios de los archivos que se modificaron revisen el código que cambió. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
 
 
 ### Ejemplo de un archivo CODEOWNERS

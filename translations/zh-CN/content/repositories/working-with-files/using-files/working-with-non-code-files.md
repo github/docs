@@ -188,6 +188,14 @@ GitHub 支持呈现 PDF 文档。
 
 ![呈现的散文更改](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+
+### Disabling Markdown rendering
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### 可视化属性更改
 
 我们提供一个描述属性更改的工具提示，与字词不同的是，这些更改在呈现的文档中不可见。 例如，如果链接 URL 从一个网站更改为另一个，我们将显示类似如下的工具提示：

@@ -76,6 +76,14 @@ prodname_actions: 'GitHub Actions'
 prodname_debug: 'Depuración de GitHub'
 #GitHub Discussions
 prodname_discussions: 'GitHub Discussions'
+#GitHub Enterprise Managed Users
+prodname_emu_idp_application: 'Usuario Administrado de GitHub Enterprise'
+prodname_emus: 'Usuarios Administrados de Enterprise'
+prodname_managed_user: 'usuario administrado'
+prodname_managed_users: 'usuarios administrados'
+prodname_managed_users_caps: 'Usuarios administrados'
+prodname_emu_enterprise: 'empresa con usuarios administrados'
+prodname_emu_org: 'organización con usuarios administrados'
 #GitHub Issues
 prodname_github_issues: 'Propuestas de GitHub'
 #GitHub Packages
@@ -94,6 +102,7 @@ prodname_security_center: 'Centro de seguridad'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'Acerca de GitHub Codespaces'
+prodname_serverless: 'editor basado en la web'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'Soporte de la Comunidad de GitHub'
 prodname_blog: 'el blog de GitHub'
@@ -135,6 +144,8 @@ prodname_dependabot_version_updates: 'Actualizaciones de versión del dependabot
 #GitHub Archive Program
 prodname_archive: 'Programa de Archivo de GitHub'
 prodname_arctic_vault: 'Bóveda de Código del Ártico'
+#GitHub Copilot
+prodname_copilot: 'Copiloto de GitHub'
 #Links
 product_url: >-
   {% ifversion fpt %}github.com{% else %}[hostname]{% endif %}

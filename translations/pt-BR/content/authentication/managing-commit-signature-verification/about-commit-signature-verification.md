@@ -86,7 +86,7 @@ Não é preciso fazer upload da chave pública no {% data variables.product.prod
 {% ifversion fpt %}
 ## Verificação de assinatura para bots
 
-Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. Se um commit ou uma tag tiver uma assinatura de bot que possa ser verificada de maneira criptográfica, o {% data variables.product.product_name %} marcará o commit ou tag como verificado.
+As organizações e {% data variables.product.prodname_github_apps %} que exigem a assinatura de commit podem usar bots para assinar commits. Se um commit ou uma tag tiver uma assinatura de bot que possa ser verificada de maneira criptográfica, o {% data variables.product.product_name %} marcará o commit ou tag como verificado.
 
 A verificação de assinatura para bots somente funcionará se a solicitação for verificada e autenticada como o {% data variables.product.prodname_github_app %} ou bot e se não tiver informações de autor personalizadas, informações de committer personalizadas e nenhuma informação de assinatura personalizada, como API de commits.
 {% endif %}

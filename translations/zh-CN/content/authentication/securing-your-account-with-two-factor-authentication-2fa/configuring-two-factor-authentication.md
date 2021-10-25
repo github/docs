@@ -28,6 +28,12 @@ shortTitle: 配置 2FA
 
 {% endwarning %}
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account. 2FA should be configured through your identity provider.
+
+{% endif %}
+
 ## 使用 TOTP 移动应用程序配置双重身份验证
 
 基于时间的一次性密码 (TOTP) 应用程序可自动生成在特定时间后变化的验证码。 我们建议使用基于云的 TOTP 应用程序，例如：

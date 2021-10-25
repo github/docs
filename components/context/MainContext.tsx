@@ -62,6 +62,10 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
+  communityRedirect: {
+    name: string
+    href: string
+  }
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
@@ -110,6 +114,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
+    communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',

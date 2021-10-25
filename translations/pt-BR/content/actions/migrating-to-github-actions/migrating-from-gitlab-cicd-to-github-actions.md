@@ -18,7 +18,6 @@ shortTitle: Fazer a migração a partir da CI/CD do GitLab
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -133,7 +132,7 @@ Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para {% d
 
 ## Imagens do Docker
 
-Tanto o GitLab CI/CD quanto o {% data variables.product.prodname_actions %} são compatíveis com trabalhos executados em uma imagem do Docker. In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
+Tanto o GitLab CI/CD quanto o {% data variables.product.prodname_actions %} são compatíveis com trabalhos executados em uma imagem do Docker. Na CI/CD do GitLab, as imagens do Docker são definidas com uma chave `de imagem`, enquanto em {% data variables.product.prodname_actions %}, isso é feito com a chave `contêiner`.
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -212,7 +211,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 ## Dependências entre trabalhos
 

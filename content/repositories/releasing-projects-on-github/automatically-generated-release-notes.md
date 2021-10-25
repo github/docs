@@ -1,19 +1,17 @@
 ---
 title: Automatically generated release notes
 intro: You can automatically generate release notes for your GitHub releases
-permissions: 'Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.'
+permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Automated release notes
+communityRedirect:
+  name: Provide GitHub Feedback
+  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
 ---
-
-{% note %}
-
-**Note:** {% data reusables.repositories.auto-gen-release-public-beta %}
-
-{% endnote %}
 
 ## About automatically generated release notes
 
@@ -25,8 +23,8 @@ Automatically generated release notes provide an automated alternative to manual
 {% data reusables.repositories.releases %}
 3. Click **Draft a new release**.
    ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
-  {% ifversion fpt %}
+4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
+  {% ifversion fpt or ghec %}
   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
 5. If you are creating a new tag, click **Create new tag**.
 ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
@@ -34,7 +32,7 @@ Automatically generated release notes provide an automated alternative to manual
   ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
 6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-  {% ifversion fpt %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
 7. To the top right of the description text box, click **Auto-generate release notes**.
@@ -74,17 +72,17 @@ changelog:
     authors:
       - octocat
   categories:
-  - title: Breaking Changes 🛠
-    labels:
-    - Semver-Major
-    - breaking-change
-  - title: Exciting New Features 🎉
-    labels:
-    - Semver-Minor
-    - enhancement
-  - title: Other Changes
-    labels:
-       - "*"
+    - title: Breaking Changes 🛠
+      labels:
+        - Semver-Major
+        - breaking-change
+    - title: Exciting New Features 🎉
+      labels:
+        - Semver-Minor
+        - enhancement
+    - title: Other Changes
+      labels:
+        - "*"
 ```
 {% endraw %}
 
@@ -92,7 +90,7 @@ changelog:
 
 | Parameter | Description |Required | Value |
 | :- | :- | :- | :- |
-|`changelog` | Defines the contents within it as the custom template for your release notes.|Required. | No value accpeted.|
+|`changelog` | Defines the contents within it as the custom template for your release notes.|Required. | No value accepted.|
 |`exclude`| Creates a category of pull requests to be excluded from the release. Can be set at the top-level of the changelog to apply to all categories or applied on a per-category basis. |Optional | No value accepted.|
 |`authors`| Specifies authors to be excluded from the release.| Optional for `exclude` category.| Accepts usernames and bots as values.|
 |`categories`| Defines the nested contents as custom categories to be included in the template. |Optional | No value accepted.|

@@ -8,6 +8,7 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Teams & people

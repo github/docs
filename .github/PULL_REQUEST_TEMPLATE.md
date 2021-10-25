@@ -5,7 +5,7 @@ See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribu
 
 For changes to content in [site policy](https://github.com/github/docs/tree/main/content/github/site-policy), see the [CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
 
-We cannot accept changes to our translated content right now. See the [contributing.md](/main/CONTRIBUTING.md#earth_asia-translations) for more information.
+We cannot accept changes to our translated content right now. See the [types-of-contributions.md](/main/contributing/types-of-contributions.md#earth_asia-translations) for more information.
 
 Thanks again!
 -->

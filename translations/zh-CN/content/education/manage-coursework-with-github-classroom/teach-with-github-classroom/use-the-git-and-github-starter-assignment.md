@@ -8,12 +8,6 @@ redirect_from:
 shortTitle: 入门作业
 ---
 
-{% note %}
-
-**注意：**Git 和 {% data variables.product.company_short %} 起始作业目前处于测试阶段，可能会更改。
-
-{% endnote %}
-
 Git 和 {% data variables.product.company_short %} 起始作业是一个预制课程，概括了 Git 和 {% data variables.product.company_short %} 的基础知识，并将学生与资源联系起来以了解更多关于具体主题的信息。
 
 ## 基本要求

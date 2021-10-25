@@ -68,29 +68,31 @@ Si utilizas el flujo de trabajo predeterminado, el {% data variables.product.pro
 
 Si escaneas al subir, entonces los resultados aparecen en la pestaña de **Seguridad** de tu repositorio. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
-{% note %}
-
-**Nota**: Si quieres que las alertas del {% data variables.product.prodname_code_scanning %} aparezcan como verificaciones de solicitudes de cambio, debes utilizar el evento `pull_request` que se describe más adelante.
-
-{% endnote %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+{% endif %}
 
 ### Escanear las solicitudes de extracción
 
-El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza el evento `pull_request` para activar un escaneo de código sobre las solilcitudes de cambios que se dirigen a la rama predeterminada. {% ifversion ghes %}El evento de `pull_request` no se activará si la solicitud de cambios se abrió desde una bifurcación privada.{% else %}Si una solicitud de cambios es de una bifurcación privada, el evento de `pull_request` solo se activará si seleccionaste la opción de "Ejecutar flujos de trabajo desde solicitudes de cambios de la bifurcación" en la configuración del repositorio. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+El {% data variables.product.prodname_codeql_workflow %} predeterminado utiliza el evento `pull_request` para activar un escaneo de código sobre las solilcitudes de cambios que se dirigen a la rama predeterminada. {% ifversion ghes %}El evento de `pull_request` no se activará si la solicitud de cambios se abrió desde una bifurcación privada.{% else %}Si una solicitud de cambios es de una bifurcación privada, el evento de `pull_request` solo se activará si seleccionaste la opción de "Ejecutar flujos de trabajo desde solicitudes de cambios de la bifurcación" en la configuración del repositorio. Para obtener más información, consulta la sección "[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)".{% endif %}
 
 Para obtener más información acerca del evento `pull_request`, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
 
 Si escaneas las solicitudes de cambios, entonces los resultados aparecerán como alertas en una verificación de solicitud de cambios. Para obtener màs informaciònPara obtener más información, consulta la sección "[Clasificar las alertas del escaneo de código en las solicitudes de cambios](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-### Defining the severities causing pull request check failure
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+ Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+{% endif %}
 
-By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
+### Definir las gravedades que causan el fallo en la verificación de las solicitudes de cambio
+
+Predeterminadamente, solo las alertas con un nivel de gravedad de `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} o nivel de gravedad de seguridad de `Crítica` o `Alta`{% endif %} ocasionarán que falle la verificación de una solicitud de cambios y la verificación aún tendrá éxito con aquellas alertas de gravedades menores. Puedes cambiar los niveles de gravedad de las alertas{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} y de las gravedades de seguridad{% endif %} que ocasionarán el fallo de una verificación de solicitud de cambios en los ajustes de tu repositorio. Para obtener más información sobre los niveles de gravedad, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
+1. Debajo de "Escaneo de código", a la derecha de "Fallo de verificación", utiliza el menú desplegable para seleccionar el nivel de gravedad que quisieras que ocasionara un fallo de verificación en la solicitud de cambios.
 {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}
 ![Configuración de fallo de verificación](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
@@ -155,7 +157,7 @@ Este flujo de trabajo escanea:
 
 ## Especificar un sistema operativo
 
-Si tu código requiere un sistema operativo específico para compilar, puedes configurarlo en tu flujo de trabajo. Edita el valor de `jobs.analyze.runs-on` para especificar el sistema operativo para la máquina que ejecuta tus acciones de {% data variables.product.prodname_code_scanning %}. {% ifversion ghes %}Especificas el sistema operativo utilizando una etiqueta adecuada como el segundo elemento en un arreglo de dos elementos, después de `self-hosted`.{% else %}
+Si tu código requiere un sistema operativo específico para compilar, puedes configurarlo en tu flujo de trabajo. Edita el valor de `jobs.analyze.runs-on` para especificar el sistema operativo para la máquina que ejecuta tus acciones de {% data variables.product.prodname_code_scanning %}. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
 Si eliges utilizar une ejecutor auto-hospedado para el escaneo de código, puedes especificar un sistema operativo si utilizas una etiqueta adecuada como el segundo elemento en un arreglo de dos elementos, después de `self-hosted`.{% endif %}
 
@@ -168,9 +170,9 @@ jobs:
 
 {% ifversion fpt %}Para obtener más información, consulta la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Agregar ejecutores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
 
-{% data variables.product.prodname_code_scanning_capc %} es compatible con las últimas versiones de macOs, Ubuntu, y Windows. Los valores habituales para esta configuración son por lo tanto: `ubuntu-latest`, `windows-latest`, y `macos-latest`. Para obtener más información, consulta las secciones {% ifversion ghes %}"[Sintaxis de flujos de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" y "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}".
+{% data variables.product.prodname_code_scanning_capc %} es compatible con las últimas versiones de macOs, Ubuntu, y Windows. Los valores habituales para esta configuración son por lo tanto: `ubuntu-latest`, `windows-latest`, y `macos-latest`. For more information, see {% ifversion ghes %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
-{% ifversion ghes %}Debes asegurarte de qeu Git esté en la variable "PATH" en tus ejecutores auto-hospedados.{% else %}Si utilizas el ejecutor auto-hospedado, debes asegurarte de que git esté en la variable "PATH".{% endif %}
+{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## Especificar la ubicación de las bases de datos de {% data variables.product.prodname_codeql %}
@@ -234,7 +236,6 @@ Como alternativa, puedes instalar las dependencias de Python manualmente en cual
 ```yaml
 jobs:
   CodeQL-Build:
-
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
     permissions:
       security-events: write
@@ -266,7 +267,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next %}
 ## Configurar una cateogría para el análisis
 
 Utiliza `category` para distinguir entre análisis múltiples de la misma herramienta y confirmación, pero que se lleven a cabo en lenguajes o partes diferentes del código. La categoría que especificas en tu flujo de trabajo se incluirá en el archivo de resultados de SARIF.
@@ -285,7 +286,7 @@ Este parámetro es particularmente útil si trabajas en monorepositorios y tiene
 ```
 {% endraw %}
 
-Si no especificas un parámetro de `category` en tu flujo de trabajo, {% data variables.product.product_name %} generará un nombre de categoría para ti con base en el nombre del archivo de flujo de trabajo que activó la acción, el nombre de la acción y cualquier variable de la matriz. Por ejemplo:
+If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. Por ejemplo:
 - El flujo de trabajo `.github/workflows/codeql-analysis.yml` y la acción `analyze` producirán la categoría `.github/workflows/codeql.yml:analyze`.
 - Las variables Del flujo de trabajo de `.github/workflows/codeql-analysis.yml`, la acción `analyze`, y la matriz de `{language: javascript, os: linux}` producirán la categoría `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
 
@@ -300,19 +301,19 @@ La categoría que especificaste no sobrescribirá los detalles del objeto `runAu
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% if codeql-packs %}
-### Using {% data variables.product.prodname_codeql %} query packs
+### Utilizar los paquetes de consultas de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+Para agregar uno o más paquetes de consulta de {% data variables.product.prodname_codeql %} (beta), agrega una entrada de `with: packs:` dentro de la sección de `uses: github/codeql-action/init@v1` del flujo de trabajo. Dentro de `packs` especificas uno o más paquetes a utilizar y, opcionalmente, la versión a descargar. Donde no especifiques una versión, se descargará la más reciente. Si quieres utilizar paquetes que no están disponibles al público, necesitarás configurar la variable de ambiente `GITHUB_TOKEN` como un secreto que tenga acceso a los paquetes. Para obtener más información, consulta las secciones "[Autenticación en un flujo de trabajo](/actions/reference/authentication-in-a-workflow)" y "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
 {% note %}
 
-**Note:** For workflows that generate {% data variables.product.prodname_codeql %} databases for multiple languages, you must instead specify the {% data variables.product.prodname_codeql %} query packs in a configuration file. For more information, see "[Specifying {% data variables.product.prodname_codeql %} query packs](#specifying-codeql-query-packs)" below.
+**Nota:** Para el caso de los flujos de trabajo que generan bases de dato de {% data variables.product.prodname_codeql %} para lenguajes múltiples, en su lugar, debes especificar los paquetes de consultas de {% data variables.product.prodname_codeql %} en un archivo de configuración. Para obtener más información, consulta la sección "[Especificar los paquetes de consultas de {% data variables.product.prodname_codeql %}](#specifying-codeql-query-packs)" a continuación.
 
 {% endnote %}
 
-In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the three {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run. The latest version of `pack1` is downloaded as no version is specified. Version 1.2.3 of `pack2` is downloaded, as well as the latest version of `pack3` that is compatible with version 1.2.3.
+En el siguiente ejemplo, `scope` es la organización o cuenta personal que publicó el paquete. Cuando se ejecuta el flujo de trabajo, los tres paquetes de consulta de {% data variables.product.prodname_codeql %} se descargan de {% data variables.product.product_name %} y se ejecutan las consultas predeterminadas o suite de consultas para cada paquete. La última versión de `pack1` se descarga, ya que no se especificó ninguna versión. Se descarga la versión 1.2.3 del `pack2`, así como la última versión del `pack3` que es compatible con la versión 1.2.3.
 
 {% raw %}
 ``` yaml
@@ -323,9 +324,9 @@ In the example below, `scope` is the organization or personal account that publi
 ```
 {% endraw %}
 
-### Using queries in QL packs
+### Utilizar las consultas en los paquetes de QL
 {% endif %}
-Para agregar uno o más conjuntos de consultas, agrega una sección de `queries` a tu archivo de configuración. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+Para agregar uno o más conjuntos de consultas, agrega una sección de `queries` a tu archivo de configuración. Si las consultas están en un repositorio privado, utiliza el parámetro `external-repository-token` para especificar un token que tiene acceso para verificar el repositorio privado.
 
 {% raw %}
 ``` yaml
@@ -342,12 +343,12 @@ También puedes ejecutar conjuntos de consultas adicionales si los especificas e
 {% data reusables.code-scanning.codeql-query-suites %}
 
 {% if codeql-packs %}
-### Working with custom configuration files
+### Trabajar con archivos de configuración personalizados
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. Para encontrar ejemplos de archivos de configuración, consulta la sección "[Ejemplos de archivos de configuración](#example-configuration-files)".
+Si también utilizas un archivo de configuración para los ajustes personalizados, cualquier {% if codeql-packs %}paquete o{% endif %} consulta adicional especificados en tu flujo de trabajo se utilizarán en vez de aquellos especificados en el archivo de configuración. Si quieres ejecutar el juego combinado de {% if codeql-packs %}paquetes o {% endif %} consultas adicionales, coloca un prefijo en el valor de {% if codeql-packs %}`packs` o {% endif %}`queries` en el flujo de trabajo con el símbolo `+`. Para encontrar ejemplos de archivos de configuración, consulta la sección "[Ejemplos de archivos de configuración](#example-configuration-files)".
 
-In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+En el siguiente ejemplo, el símbolo `+` garantiza que los {% if codeql-packs %}paquetes y {% endif %}consultas adicionales especificados se utilicen juntos con cualquiera que se haya especificado en el archivo de configuración referenciado.
 
 ``` yaml
 - uses: github/codeql-action/init@v1
@@ -361,7 +362,7 @@ In the following example, the `+` symbol ensures that the specified additional {
 
 ## Utilizar una herramienta de escaneo de código de terceros
 
-A custom configuration file is an alternative way to specify additional {% if codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
+Un archivo de configuración personalizado es una forma alterna de especificar {% if codeql-packs %}paquetes y{% endif %} consultas adicionales a ejecutar. También puedes utilizar el archivo para inhabilitar las consultas predeterminadas y para especificar qué directorios escanear durante el análisis.
 
 En el archivo de flujo de trabajo, utiliza el parámetro `config-file` de la acción `init` para especificar la ruta al archivo de configuración que quieres utilizar. Este ejemplo carga el archivo de configuración _./.github/codeql/codeql-config.yml_.
 
@@ -386,11 +387,11 @@ El archivo de configuración se ubica en un repositorio privado externo, utiliza
 Los ajustes en el archivo de configuración se escriben en formato YAML.
 
 {% if codeql-packs %}
-### Specifying {% data variables.product.prodname_codeql %} query packs
+### Especificar paquetes de consultas de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
+Especificas paquetes de consultas de {% data variables.product.prodname_codeql %} en un arreglo. Nota que el formato es deferente a aquél que utiliza el archivo de flujo de trabajo.
 
 {% raw %}
 ``` yaml
@@ -404,7 +405,7 @@ packs:
 ```
 {% endraw %}
 
-If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
+Si tienes un flujo de trabajo que genere más de una base de datos de {% data variables.product.prodname_codeql %}, puedes especificar cualquier paquete de consultas de {% data variables.product.prodname_codeql %} para que se ejecute en un archivo de configuración personalizado utilizando un mapa de paquetes anidado.
 
 {% raw %}
 ``` yaml

@@ -44,7 +44,7 @@ Puedes etiquetar un puerto para hacerlo más fácil de identificar en una lista.
 
 ## Compartir un puerto
 
-If you want to share a forwarded port with others, you need to make the port public. Después de que lo haces público, cualquiera con la URL del puerto puede ver la aplicación que se ejecuta sin necesidad de autenticarse.
+Si quieres compartir un puerto reenviado con otros, necesitas hacerlo público. Después de que lo haces público, cualquiera con la URL del puerto puede ver la aplicación que se ejecuta sin necesidad de autenticarse.
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Haz clic derecho en el puerto que quieres compartir y luego en **Hacer público**. ![Opción para hacer el puerto público en el menú de clic derecho](/assets/images/help/codespaces/make-public-option.png)

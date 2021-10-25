@@ -43,7 +43,7 @@ Como alternativa, você pode habilitar o {% data variables.product.prodname_acti
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes > 2.22 or ghae-next %}
 
 ## Gerenciando as permissões do {% data variables.product.prodname_actions %} para o seu repositório
 
@@ -72,14 +72,21 @@ Como alternativa, você pode habilitar o {% data variables.product.prodname_acti
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Em **Permissões de ações**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/repository/actions-policy-allow-list.png)
+1. Em **Permissões de ações**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
+   {%- ifversion ghes %}
+   ![Adicionar ações para permitir lista](/assets/images/help/repository/actions-policy-allow-list.png)
+   {%- else %}
+   ![Adicionar ações para permitir lista](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   {%- endif %}
 2. Clique em **Salvar**.
 {% endif %}
 
 {% ifversion fpt %}
 ## Configurar a aprovação necessária para fluxos de trabalho de bifurcações públicas
 
-{% data reusables.actions.workflow-run-approve-public-fork %} Você pode configurar este comportamento para um repositório usando o procedimento abaixo. A modificação desta configuração substitui a configuração definida no nível da organização ou empresa.
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure this behavior for a repository using the procedure below. A modificação desta configuração substitui a configuração definida no nível da organização ou empresa.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -123,6 +130,43 @@ As permissões padrão também podem ser configuradas nas configurações da org
 
 <p spaces-before="0">{% endif %}</p></li>
 </ol>
+
+<p spaces-before="0">{% ifversion fpt or ghes &#062; 3.3 or ghae-issue-4757 %}</p>
+
+<h2 spaces-before="0">Allowing access to components in an internal repository</h2>
+
+<p spaces-before="0">{% note %}</p>
+
+<p spaces-before="0"><strong x-id="1">Observação:</strong> {% data reusables.gated-features.internal-repos %}</p>
+
+<p spaces-before="0">{% endnote %}</p>
+
+<p spaces-before="0">Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "<a href="/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories">About repositories</a>." </p>
+
+<p spaces-before="0">To configure whether workflows in an internal repository can be accessed from outside the repository:</p>
+
+<ol start="1">
+<li>On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.</li>
+<li><p spaces-before="0">Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} <strong x-id="1">Settings</strong>.
+</p>
+
+<p spaces-before="0">{% data reusables.repositories.settings-sidebar-actions %}</p></li>
+<li><p spaces-before="0">Under <strong x-id="1">Access</strong>, choose one of the access settings:
+<img src="/assets/images/help/settings/actions-access-settings.png" alt="Set the access to Actions components" /></p></li>
+</ol>
+
+<ul>
+<li><strong x-id="1">Not accessible</strong> - Workflows in other repositories can't use workflows in this repository.</li>
+<li><strong x-id="1">Accessible by any repository in the organization</strong> - Workflows in other repositories can use workflows in this repository as long as they are part of the same organization.</li>
+<li><strong x-id="1">Accessible by any repository in the enterprise</strong> - Workflows in other repositories can use workflows in this repository as long as they are part of the same enterprise.
+
+<ol start="1">
+<li><p spaces-before="0">Clique em <strong x-id="1">Salvar</strong> para aplicar as configurações.
+</p>
+
+<p spaces-before="0">{% endif %}</p></li>
+</ol></li>
+</ul>
 
 <p spaces-before="0">{% ifversion fpt or ghes &#062; 2.22 or ghae %}</p>
 

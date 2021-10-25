@@ -70,10 +70,10 @@ shortTitle: View subscriptions
 
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンメニューを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Watch しているリポジトリを評価し、それらの更新がまだ関連していて有用であるかどうかを判断します。 リポジトリを Watch すると、そのリポジトリのすべての会話が通知されます。
-{% ifversion ghae or ghes < 3.1 %}
-  ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
   ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% else %}
+  ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications.png)
 {% endif %}
 
   {% tip %}

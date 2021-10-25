@@ -19,7 +19,6 @@ shortTitle: Migrarse desde Travis CI
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -205,7 +204,7 @@ Los jobs simultáneos y los tiempos de ejecución de los flujos de trabajo en {%
 ### Utilizar lenguajes diferentes en {% data variables.product.prodname_actions %}
 
 Cuando trabajas con lenguajes diferentes en {% data variables.product.prodname_actions %}, pueeds crear un paso en tu job para configurar tus dependencias de lenguaje. Para obtener más información acerca de cómo trabajar con un lenguaje en particular, consulta la guía específica:
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Crear y probar Node.js o Python](/actions/guides/building-and-testing-nodejs-or-python)
   - [Compilar y probar PowerShell](/actions/guides/building-and-testing-powershell)
   - [Construir y probar Java con Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Construir y probar Java con Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -238,7 +237,7 @@ Cuando te migras a {% data variables.product.prodname_actions %}, hay varios ace
 
 ## Sintaxis de migración para condicionales y expresiones
 
-Para ejecutar jobs bajo expresiones condicionales, Travis CI y {% data variables.product.prodname_actions %} comparten una sintaxis condicional de tipo `if` similar. {% data variables.product.prodname_actions %} te permite utilizar la condicional `if` para prevenir que un paso o un job se ejecuten a menos de que se cumpla con la condición. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para ejecutar jobs bajo expresiones condicionales, Travis CI y {% data variables.product.prodname_actions %} comparten una sintaxis condicional de tipo `if` similar. {% data variables.product.prodname_actions %} te permite utilizar la condicional `if` para prevenir que un paso o un job se ejecuten a menos de que se cumpla con la condición. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 Este ejemplo demuestra cómo una condicional de tipo `if` puede controlar si un paso se ejecuta o no:
 

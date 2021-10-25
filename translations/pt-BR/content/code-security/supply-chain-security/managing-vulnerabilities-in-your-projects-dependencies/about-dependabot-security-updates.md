@@ -51,7 +51,7 @@ Ao fazer merge de um pull request que contém uma atualização de segurança, o
 
 ## Sobre pontuações de compatibilidade
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. Estes são calculados a partir de testes de CI em outros repositórios públicos onde a mesma atualização de segurança foi gerada. Uma pontuação de compatibilidade da atualização é a porcentagem de execuções de CI que foram aprovadas durante a atualização entre versões específicas da dependência.
+O {% data variables.product.prodname_dependabot_security_updates %} pode incluir uma pontuação de compatibilidade para que você saiba se atualizar uma dependência poderá causar alterações significativas no seu projeto. Estes são calculados a partir de testes de CI em outros repositórios públicos onde a mesma atualização de segurança foi gerada. Uma pontuação de compatibilidade da atualização é a porcentagem de execuções de CI que foram aprovadas durante a atualização entre versões específicas da dependência.
 
 ## Sobre notificações para atualizações de segurança de {% data variables.product.prodname_dependabot %}
 

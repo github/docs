@@ -25,11 +25,13 @@ Solo los propietarios y mantenedores de la organización en un equipo padre pued
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion fpt %}
-1. Como opción, si tu cuenta organizacional o empresarial utiliza la sincronización de equipos, para conectar un grupo de proveedor de identidad a tu equipo, utiliza el menú desplegable "Grupos de Proveedor de Identidad", y selecciona hasta 5 grupos. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)". ![Menú desplegable para elegir los grupos de proveedor de identidad](/assets/images/help/teams/choose-an-idp-group.png)
+1. Opcionalmente, si tu cuenta organizacional o empresarial utiliza la sincronización de equipos o si tu empresa utiliza {% data variables.product.prodname_emus %}, conecta un grupo de proveedor de identidad a tu equipo.
+    * Si tu empresa utiliza {% data variables.product.prodname_emus %}, utiliza el menú desplegable de "Grupos de Proveedor de Identidad" y selecciona un solo grupo de proveedor de identidad para conectarlo al equipo nuevo. Para obtener más información, consulta la sección "[Administrar las membrecías de equipo con grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+    * Si tu cuenta organizacional o empresarial utiliza la sincronización de equipos, utiliza el menú desplegable de "Grupo de Proveedor de Identidad" y selecciona hasta cinco grupos de proveedor de identidad para conectar al equipo nuevo. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)". ![Menú desplegable para elegir los grupos de proveedor de identidad](/assets/images/help/teams/choose-an-idp-group.png)
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
-9. También puede [darle acceso al equipo a los repositorios de la organización](/articles/managing-team-access-to-an-organization-repository).
+1. También puede [darle acceso al equipo a los repositorios de la organización](/articles/managing-team-access-to-an-organization-repository).
 
 ## Leer más
 

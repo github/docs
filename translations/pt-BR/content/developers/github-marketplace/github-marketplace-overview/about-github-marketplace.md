@@ -31,11 +31,11 @@ Para publicar aplicativos com planos grátis, você só precisa atender aos requ
 
 ### Novo nos aplicativos?
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)."
+Se você estiver interessado em criar um aplicativo para {% data variables.product.prodname_marketplace %}, mas você é novo em {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_apps %}, consulte "[Criando {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" ou "[Criando {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)."
 
 ### {% data variables.product.prodname_github_apps %} vs. {% data variables.product.prodname_oauth_apps %}
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}, embora você possa anunciar OAuth e {% data variables.product.prodname_github_apps %} em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" e "[Fazendo a migração de {% data variables.product.prodname_oauth_apps %} para {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)".
 
 ## Publicar um aplicativo na visão geral de {% data variables.product.prodname_marketplace %}
 

@@ -36,6 +36,8 @@ Organisationsmitglieder können folgende Rollen haben: *Inhaber*{% ifversion fpt
 
 *Enterprise-Inhaber* haben die endgültige Kontrolle über das Enterprise-Konto und können sämtliche Aktionen im Enterprise-Konto durchführen. *Abrechnungsmanager* können die Abrechnungseinstellungen Deines Enterprise-Kontos verwalten. Mitglieder und externe Mitarbeiter von Organisationen im Besitz Deines Enterprise-Kontos sind automatisch Mitglieder des Enterprise-Kontos, aber sie haben keinen Zugriff auf das Enterprise-Konto selbst oder dessen Einstellungen. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
 
+If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and are fully managed by the identity provider. The {% data variables.product.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.product.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}

@@ -85,7 +85,7 @@ sections:
     - 'El actualizar una instancia que ejecuta un lanzamiento 2.13 previamente, pero no uno de tipo 2.14, da como resultado un error de migración de base de datos que se relacionaba con la transición de datos `AddRepositoryIdToCheckRuns`.'
     - "Después de actualizar de la versión 3.0.x a la 3.1.x, en algunos casos, puede que GitHub actions falle con un error de tipo: `An unexpected error occurred when executing this workflow.` Para solucionar este problema, conéctate al shell administrativo (ssh) y ejecuta:\n```\nghe-actions-console -s actions -c \"Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B\"\n```\n"
     - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
-    - 'Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
   deprecations:
     - heading: 'Obsoletización de GitHub Enterprise Server 2.20'
       notes:

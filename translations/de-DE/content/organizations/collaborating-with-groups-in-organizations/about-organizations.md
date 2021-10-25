@@ -24,6 +24,8 @@ Mit Enterprise-Konten können Inhaber Richtlinien und Abrechnungen für mehrere 
 
 Bei Organisationen, die einem Enterprise-Konto angehören, wird die Abrechnung auf der Ebene des Enterprise-Kontos verwaltet, und die Abrechnungseinstellungen sind auf der Organisationsebene nicht verfügbar. Enterprise-Inhaber können Richtlinien für alle Organisationen im Enterprise-Konto festlegen oder den Organisationsinhabern erlauben, die Richtlinien auf Organisationsebene festzulegen. Organisationsinhaber können die für Deine Organisation erzwungenen Einstellungen auf der Ebene des Enterprise-Kontos nicht ändern. Wenn Du Fragen zu einer Richtlinie oder einer Einstellung für Deine Organisation hast, wende Dich an den Inhaber Deines Enterprise-Kontos.
 
+{% data reusables.enterprise-accounts.invite-organization %}
+
 {% data reusables.gated-features.enterprise-accounts %}
 
 {% data reusables.organizations.org-ownership-recommendation %} Weitere Informationen findest Du unter „[Die Inhaber-Kontinuität für Deine Organisation aufrechterhalten](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."

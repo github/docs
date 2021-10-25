@@ -1,6 +1,6 @@
 ---
 title: Entender las conexiones entre repositorios
-intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+intro: Puedes entender mejor las conexiones que existen entre los repositorios si ves la red y las bifurcaciones de este y los proyectos que dependen de él.
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -19,12 +19,12 @@ versions:
   ghae: '*'
 topics:
   - Repositories
-shortTitle: Connections between repositories
+shortTitle: Conexiones entre repositorios
 ---
 
 ## Ver la red de un repositorio
 
-'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.' product: '{% data reusables.gated-features.repository-insights %}'
+'La gráfica de red muestra el historial de ramas de toda la red del repositorio, incluyendo las ramas en el repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones únicas para la red'. producto: '{% data reusables.gated-features.repository-insights %}'
 
 ![Gráfico de red del repositorio](/assets/images/help/graphs/repo_network_graph.png)
 

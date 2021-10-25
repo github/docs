@@ -18,6 +18,12 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 ## Uploading your license to {% data variables.product.product_location_enterprise %}
 
+{% warning %}
+
+**Warning:** Updating your license causes a small amount of downtime for {% data variables.product.product_location %}.
+
+{% endwarning %}
+
 1. Sign into {% data variables.product.product_location_enterprise %} as a site administrator.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

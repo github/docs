@@ -17,7 +17,6 @@ shortTitle: Events that trigger workflows
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## Configuring workflow events
 
@@ -164,6 +163,26 @@ on:
   repository_dispatch:
     types: [opened, deleted]
 ```
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+## Workflow reuse events
+
+`workflow_call` is a keyword used as the value of `on` in a workflow, in the same way as an event. It indicates that a workflow can be called from another workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+### `workflow_call`
+
+| Webhook event payload       | Activity types | `GITHUB_SHA`                | `GITHUB_REF`                |
+| --------------------------- | -------------- | --------------------------- | --------------------------- |
+| Same as the caller workflow | n/a            | Same as the caller workflow | Same as the caller workflow |
+
+#### Пример
+
+To make a workflow reusable it must include `workflow_call` as one of the values of `on`. The example below only runs the workflow when it's called from another workflow:
+
+```yaml
+on: workflow_call
+```
+{% endif %}
 
 ## Webhook events
 

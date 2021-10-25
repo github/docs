@@ -1,7 +1,7 @@
 ---
 title: ディスカッションに参加する
 intro: '{% data variables.product.product_name %} のプロジェクトのリポジトリ内のフォーラムで、コミュニティやメンテナと会話することができます。'
-permissions: People with read permissions to a repository can participate in discussions in the repository.
+permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
 shortTitle: Participate in discussion

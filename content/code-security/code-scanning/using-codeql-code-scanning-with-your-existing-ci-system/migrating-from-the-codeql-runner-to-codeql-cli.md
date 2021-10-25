@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: 'next'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning

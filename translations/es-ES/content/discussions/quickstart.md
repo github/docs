@@ -18,17 +18,17 @@ Los debates proporcionan un espacio para que existan conversaciones colaborativa
 
 Los propietarios de los repositorios y las personas con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios privados o públicos.
 
-When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
+Cuando habilitas los {% data variables.product.prodname_discussions %} por primera vez, se te invitará a configurar una publicación de bienvenida.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Debajo de tu nombre de repositorio, da clic en {% octicon "gear" aria-label="The gear icon" %} **Configuración**. ![Botón de configuración pública](/assets/images/help/discussions/public-repo-settings.png)
-1. Debajo de "Características", da clic en **Configurar debates**. ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
+1. Debajo de "Características", da clic en **Configurar debates**. ![Configurar un botón de debate debajo de las "Características" para habilitar o inhabilitar los debates de GitHub en un repositorio](/assets/images/help/discussions/setup-discussions-button.png)
 1. Debajo de "Iniciar un debate nuevo" edita la plantilla para que se apegue con los recursos y el tono que quieras configurar para tu comunidad.
 1. Da clic en **Iniciar debate**. ![Botón de "Iniciar debate"](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ## Aceptar contribuyentes en tus debates
 
-You can welcome your community and introduce a new way to communicate in a repository by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. El fijar y bloquear los debates ayuda a que las personas sepan si una publicación se hizo a manera de anuncio. Puedes utilizar los anuncios como una forma de vincular a las personas con más recursos y ofrecerles orientación para abrir debates en tu comunidad. Para obtener más información sobre cómo fijar un debate, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)".
+Puedes dar la bienvenida a tu comunidad e introducir una forma nueva de comunicarse en un repositorio si creas una publicación de bienvenida y anclas la publicación a tu página de {% data variables.product.prodname_discussions %}. El fijar y bloquear los debates ayuda a que las personas sepan si una publicación se hizo a manera de anuncio. Puedes utilizar los anuncios como una forma de vincular a las personas con más recursos y ofrecerles orientación para abrir debates en tu comunidad. Para obtener más información sobre cómo fijar un debate, consulta la sección "[Administrar los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)".
 
 
 ## Configurar los lineamientos comunitarios para los contribuyentes
@@ -39,7 +39,7 @@ Para obtener más información sobre proporcionar lineamientos para tu proyecto,
 
 ## Crear un debate nuevo
 
-Any authenticated user who can view a repository can create a discussion.
+Cualquier usuario autenticado que pueda ver un repositorio puede crear un debate.
 
 {% data reusables.discussions.starting-a-discussion %}
 

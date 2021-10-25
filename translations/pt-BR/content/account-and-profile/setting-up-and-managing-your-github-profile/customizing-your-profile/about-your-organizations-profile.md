@@ -15,9 +15,9 @@ topics:
 shortTitle: Perfil da organização
 ---
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories. You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+Opcionalmente, é possível optar por adicionar uma descrição, localidade, site e endereço de e-mail da sua organização e fixar os repositórios importantes. Você pode personalizar o perfil da sua organização adicionando um arquivo README.md. Para obter mais informações, consulte "[Personalizar o perfil da sua organização](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".
 
-{% ifversion fpt %}Para confirmar a identidade da organização e exibir um selo "Verificado" na página do perfil da organização, você deve verificar os domínios da organização com o {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."{% endif %}
+{% ifversion fpt %}Para confirmar a identidade da organização e exibir um selo "Verificado" na página do perfil da organização, você deve verificar os domínios da organização com o {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".{% endif %}
 
 {% ifversion fpt or ghes > 3.2 %}
 ![Exemplo de página de perfil da organização](/assets/images/help/organizations/org_profile_with_overview.png)

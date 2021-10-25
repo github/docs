@@ -15,8 +15,6 @@ topics:
   - Workflows
 ---
 
-{% data reusables.actions.ae-beta %}
-
 ## Sobre a memorização das dependências do fluxo de trabalho
 
 As execuções do fluxo de trabalho geralmente reutilizam as mesmas saídas ou dependências baixadas de uma execução para outra. Por exemplo, as ferramentas de gerenciamento de pacotes e de dependência, como, por exemplo, Maven, Gradle, npm e Yarn mantêm uma cache local de dependências baixadas.
@@ -27,9 +25,9 @@ Para memorizar as dependências para um trabalho, você precisará usar a ação
 
 Se você estiver armazenando gems do Ruby, disso considere usar a ação mantida pelo Ruby, que pode armazenar em cache as instalações do pacote na iniciação. Para obter mais informações, consulte [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
-To cache and restore dependencies for npm, Yarn, or pnpm, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
+Para armazenar em cache e restaurar as dependências do npm, Yarn ou pnpm, você pode usar a ação [`actions/setup-node`](https://github.com/actions/setup-node).
 
-Gradle and Maven caching is available with [`actions/setup-java` action](https://github.com/actions/setup-java).
+O cache do Gradle e Maven está disponível com a ação [`actions/setup-java`](https://github.com/actions/setup-java).
 
 {% warning %}
 
@@ -50,9 +48,9 @@ Com `v2` da ação da `cache`, você pode acessar a cache nos fluxos de trabalho
 
 Um fluxo de trabalho pode acessar e restaurar um cache criado no branch atual, no branch de base (incluindo branches base de repositórios bifurcados) ou no branch-padrão (geralmente `principal`). Por exemplo, um cache criado no branch-padrão pode ser acessado a partir de qualquer pull request. Além disso, se o branch `feature-b` tiver o branch de base `feature-a`, um fluxo de trabalho acionado em `feature-b` teria acesso a caches criados no branch-padrão (`principal`), `feature-a` e `feature-b`.
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches. Por exemplo, um cache criado para o branch `feature-a` (com a base no `principal`) não seria acessível para um pull request para o branch `feature-b` (com a base no `principal`).
+As restrições de acesso fornecem o isolamento da cache e a segurança ao criar um limite lógico entre os diferentes branches. Por exemplo, um cache criado para o branch `feature-a` (com a base no `principal`) não seria acessível para um pull request para o branch `feature-b` (com a base no `principal`).
 
-Multiple workflows within a repository share cache entries. A cache created for a branch within a workflow can be accessed and restored from another workflow for the same repository and branch.
+Vários fluxos de trabalho dentro de um repositório compartilham entradas de cache. Uma cache criada para um branch de um fluxo de trabalho pode ser acessada e restaurada a partir de outro fluxo de trabalho para o mesmo repositório e branch.
 
 ## Usar a ação `cache`
 
@@ -140,7 +138,7 @@ Para memorizar os arquivos em mais de um diretório, você precisará de uma eta
 
 ### Usar contextos para criar chaves da cache
 
-Uma chave da cache pode incluir quaisquer contextos, funções, literais e operadores suportados por {% data variables.product.prodname_actions %}. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Uma chave da cache pode incluir quaisquer contextos, funções, literais e operadores suportados por {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 Usar expressões para criar uma `chave` permite que você crie automaticamente uma nova cache quando as dependências forem alteradas. Por exemplo, você pode criar uma `chave` usando uma expressão que calcula o hash de um arquivo `package-lock.json` de npm.
 

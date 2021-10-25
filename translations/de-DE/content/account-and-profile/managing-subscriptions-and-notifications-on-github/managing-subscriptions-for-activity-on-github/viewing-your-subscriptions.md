@@ -70,10 +70,10 @@ Viele Personen vergessen Repositorys, die sie in der Vergangenheit beobachtet ha
 
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Watched repositories** (beobachtete Repositorys). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evaluiere die von Dir beobachteten Repositorys und entscheide, ob deren Aktualisierungen für Dich immer noch relevant und hilfreich sind. Wenn Du ein Repository beobachtest, wirst Du über alle Unterhaltungen für dieses Repository benachrichtigt.
-{% ifversion ghae or ghes < 3.1 %}
-  ![Seite der beobachteten Benachrichtigungen](/assets/images/help/notifications-v2/watched-notifications.png)
-{% elsif fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next %}
   ![Seite der beobachteten Benachrichtigungen](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% else %}
+  ![Seite der beobachteten Benachrichtigungen](/assets/images/help/notifications-v2/watched-notifications.png)
 {% endif %}
 
   {% tip %}

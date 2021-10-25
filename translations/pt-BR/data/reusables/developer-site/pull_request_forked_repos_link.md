@@ -1,4 +1,4 @@
-#### Eventos de pull request para repositórios bifurcados
+### Eventos de pull request para repositórios bifurcados
 
 {% note %}
 

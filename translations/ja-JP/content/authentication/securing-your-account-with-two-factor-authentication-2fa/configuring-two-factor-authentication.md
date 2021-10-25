@@ -28,6 +28,12 @@ shortTitle: Configure 2FA
 
 {% endwarning %}
 
+{% ifversion fpt %}
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account. 2FA should be configured through your identity provider.
+
+{% endif %}
+
 ## TOTP モバイルアプリを使って 2要素認証を設定する
 
 時間ベースのワンタイムパスワード (TOTP) アプリケーションは、認証コードを自動的に生成します。このコードは、一定の時間が過ぎた後は変化します。 以下のような、クラウドベースの TOTP アプリの利用をおすすめします:

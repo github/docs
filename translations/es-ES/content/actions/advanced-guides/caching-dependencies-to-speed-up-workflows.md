@@ -15,8 +15,6 @@ topics:
   - Workflows
 ---
 
-{% data reusables.actions.ae-beta %}
-
 ## Acerca de almacenar en caché las dependencias de flujo de trabajo
 
 Las ejecuciones de flujo de trabajo a menudo reutilizan las mismas salidas o dependencias descargadas de una ejecución a otra. Por ejemplo, las herramientas de administración de paquetes y dependencias como Maven, Gradle, npm y Yarn mantienen una caché local de las dependencias descargadas.
@@ -140,7 +138,7 @@ Para almacenar en caché los archivos en más de un directorio, necesitarás un 
 
 ### Usar contextos para crear claves de caché
 
-Una clave de caché puede incluir cualquiera de los contextos, funciones, literales y operadores admitidos por {% data variables.product.prodname_actions %}. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Una clave de caché puede incluir cualquiera de los contextos, funciones, literales y operadores admitidos por {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 Usar expresiones para crear una `key` te permite crear automáticamente una nueva caché cuando las dependencias han cambiado. Por ejemplo, puedes crear una `key` utilizando una expresión que calcule el hash de un archivo `package-lock.json` de npm.
 

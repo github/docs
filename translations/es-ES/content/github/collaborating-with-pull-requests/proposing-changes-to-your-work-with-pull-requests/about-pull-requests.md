@@ -24,7 +24,7 @@ topics:
 
 {% endnote %}
 
-You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+Puedes crear solicitudes de cambios en {% data variables.product.prodname_dotcom_the_website %}, con {% data variables.product.prodname_desktop %}, en {% data variables.product.prodname_codespaces %}, en {% data variables.product.prodname_mobile %} y cuando utilizas el CLI de GitHub.
 
 Después de inicializar una solicitud de extracción, verás una página de revisión que muestra una descripción general de alto nivel de los cambios entre tu rama (la rama de comparación) y la rama base del repositorio. Puedes agregar un resumen de los cambios propuestos, revisar los cambios hechos por las confirmaciones, agregar etiquetas, hitos y asignatarios, y hacer @mención de equipos o colaboradores individuales. Para obtener más información, consulta "[Crear una solicitud de extracción](/articles/creating-a-pull-request)".
 

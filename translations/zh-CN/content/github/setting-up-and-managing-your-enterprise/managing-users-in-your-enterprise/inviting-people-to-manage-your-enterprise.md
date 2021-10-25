@@ -28,6 +28,12 @@ If you want to manage owners and billing managers for an enterprise account on {
 
 {% endif %}
 
+{% ifversion fpt %}
+
+If your enterprise uses {% data variables.product.prodname_emus %}, enterprise owners can only be added or removed through your identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% endif %}
+
 {% tip %}
 
 **提示：**有关管理企业帐户拥有的组织中用户的更多信息，请参阅“[管理组织中的成员资格](/articles/managing-membership-in-your-organization)”和“[通过角色管理人们对组织的访问](/articles/managing-peoples-access-to-your-organization-with-roles)”。
