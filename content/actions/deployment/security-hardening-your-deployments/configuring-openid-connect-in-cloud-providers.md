@@ -37,16 +37,14 @@ If your cloud provider doesn't yet offer an official action, you can update your
 
 ### Adding permissions settings
 
-The workflow will likely require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. For example:
+The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
 
-```yaml
-name: Example deployment workflow
-on:
-  workflow_dispatch:
-
+```yaml{:copy}
 permissions:
   id-token: write
 ```
+
+You may need to specify additional permissions here, depending on your workflow's requirements. 
 
 ### Using official actions
 
