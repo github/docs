@@ -40,5 +40,5 @@ $ git merge <em>BRANCH-NAME</em>
 
 - "[About pull request merges](/articles/about-pull-request-merges/)"
 - "[About pull requests](/articles/about-pull-requests/)"
-- "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line"
+- "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)"
 - "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)"
