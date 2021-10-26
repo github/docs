@@ -8,7 +8,7 @@ redirect_from:
   - /code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: issue-4864
   ghec: '*'
 type: overview

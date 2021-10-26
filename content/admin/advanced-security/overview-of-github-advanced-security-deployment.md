@@ -4,7 +4,7 @@ intro: 'Help your company successfully prepare to adopt {% data variables.produc
 product: '{% data variables.product.prodname_GH_advanced_security %} is a set of security features designed to make enterprise code more secure. It is available for {% data variables.product.prodname_ghe_server %} 3.0 or higher, {% data variables.product.prodname_ghe_cloud %}, and open source repositories. To learn more about the features, included in {% data variables.product.prodname_GH_advanced_security %}, see "[About GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)."'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:

@@ -89,25 +89,15 @@ describe('server', () => {
       const firstSidebarTitle = sidebarTitles.shift()
       const firstSidebarHref = sidebarHrefs.shift()
 
-      const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, productTitles)
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
 
-      const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, productHrefs)
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
       expect(firstSidebarTitle).toBe('All products')
       expect(firstSidebarHref).toBe('/en')
       expect(
-        titlesInSidebarButNotProducts.length,
-        `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`
-      ).toBe(0)
-      expect(
         titlesInProductsButNotSidebar.length,
         `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
-      ).toBe(0)
-      expect(
-        hrefsInSidebarButNotProducts.length,
-        `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`
       ).toBe(0)
       expect(
         hrefsInProductsButNotSidebar.length,
@@ -741,7 +731,7 @@ describe('GitHub Enterprise URLs', () => {
     ).toBe(1)
     expect(
       $(
-        `section.container-xl a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/github"]`
+        `section.container-xl a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/get-started"]`
       ).length
     ).toBe(1)
   })

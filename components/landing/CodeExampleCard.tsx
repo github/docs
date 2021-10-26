@@ -14,7 +14,10 @@ export const CodeExampleCard = ({ example }: Props) => {
     >
       <div className="p-4">
         <h4 dangerouslySetInnerHTML={{ __html: example.title }} />
-        <p className="mt-2 mb-4 color-text-tertiary">{example.description}</p>
+        <p
+          className="mt-2 mb-4 color-text-tertiary"
+          dangerouslySetInnerHTML={{ __html: example.description }}
+        />
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
             return (

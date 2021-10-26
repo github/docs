@@ -4,7 +4,7 @@ intro: 'Learn how to plan, prepare, and implement a phased approach for rolling 
 product: '{% data reusables.gated-features.advanced-security %}'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
