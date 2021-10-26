@@ -36,7 +36,7 @@ function getUserLanguage(browserLanguages) {
 
 // determine language code from a path. Default to en if no valid match
 export function getLanguageCodeFromPath(path) {
-  const maybeLanguage = path.split('/')[path.startsWith('/_next/data/') ? 4 : 1].slice(0, 2)
+  const maybeLanguage = (path.split('/')[path.startsWith('/_next/data/') ? 4 : 1] || '').slice(0, 2)
   return languageCodes.includes(maybeLanguage) ? maybeLanguage : 'en'
 }
 
