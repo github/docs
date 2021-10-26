@@ -325,6 +325,7 @@ jobs:
 
       - name: Extract user-changes to temp directory
         run: |
+          zstd -d -q $RUNNER_TEMP/app.tar.zst -o $RUNNER_TEMP/app.tar
           mkdir $RUNNER_TEMP/app
           tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
 

@@ -14,8 +14,6 @@ children:
   - /copilot
   - /writing-on-github
   - /importing-your-projects-to-github
-  - /managing-security-vulnerabilities
-  - /finding-security-vulnerabilities-and-errors-in-your-code
   - /customizing-your-github-workflow
   - /extending-github
   - /working-with-github-support
@@ -24,3 +22,4 @@ children:
   - /site-policy-deprecated
   - /setting-up-and-managing-your-enterprise
 ---
+

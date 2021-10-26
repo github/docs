@@ -4,7 +4,7 @@ intro: 'You can use a number of {% data variables.product.prodname_dotcom %} fea
 permissions: Organization owners can configure organization security settings.
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to

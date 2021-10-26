@@ -630,7 +630,7 @@ describe('Page class', () => {
       // and placeholder.yml has:
       //
       // versions:
-      //   ghes: '<2.22'
+      //   ghes: '<3.0'
       //   ghae: '*'
       //
       // So we expect to get the versioning from both.
@@ -653,7 +653,7 @@ describe('Page class', () => {
       // because lib/get-applicable-versions only returns currently supported versions,
       // so as soon as 2.21 is deprecated, a test for that _not_ to exist will not be meaningful.
       // But by testing that the _latest_ GHES version is returned, we can ensure that the
-      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<2.22`.
+      // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
       expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)

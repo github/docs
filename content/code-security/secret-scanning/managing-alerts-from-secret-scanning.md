@@ -7,7 +7,7 @@ redirect_from:
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -26,7 +26,7 @@ shortTitle: Manage secret alerts
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 3. In the left sidebar, click **Secret scanning alerts**. 
-   {% ifversion fpt or ghes > 2.22 or ghec %}
+   {% ifversion fpt or ghes or ghec %}
    !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
@@ -36,7 +36,7 @@ shortTitle: Manage secret alerts
    {% ifversion fpt or ghec %}
    ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
    {% ifversion ghae %}
@@ -46,7 +46,7 @@ shortTitle: Manage secret alerts
    {% ifversion fpt or ghec %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
-   {% ifversion ghes > 2.22 or ghae %}
+   {% ifversion ghes or ghae %}
    ![Drop-down menu for resolving an alert from secret scanning](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
    {% endif %}
 
