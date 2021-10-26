@@ -59,10 +59,13 @@ jobs:
             notAllowed:
               - '*.js'
               - '*.mjs'
+              - '*.cjs'
               - '*.ts'
               - '*.tsx'
               - '*.json'
               - '.npmrc'
+              - '.babelrc*'
+              - '.env*'
               - 'script/**'
               - 'Procfile'
 
