@@ -109,7 +109,7 @@ You can add some of the most common features by selecting them when configuring 
 You can also add or remove features outside of the **Add Development Container Configuration Files** workflow. 
 1. Access the Command Palette (`Shift + Command + P` / `Ctrl + Shift + P`), then start typing "configure". Select **Codespaces: Configure Devcontainer Features**.
   ![The Configure Devcontainer Features command in the command palette](/assets/images/help/codespaces/codespaces-configure-features.png)
-2. Update your selections and select **OK**.
+2. Update your feature selections, then click **OK**.
   ![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
 1. To apply the changes, in the bottom right corner of the screen, click **Rebuild now**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-changes-to-your-configuration)."
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/rebuild-prompt.png)
