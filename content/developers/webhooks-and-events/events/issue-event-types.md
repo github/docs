@@ -446,7 +446,7 @@ The issue was pinned.
 
 ## ready_for_review
 
-The pull request was marked as ready for review.
+A draft pull request was marked as ready for review.
 
 ### Availability
 
