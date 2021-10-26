@@ -7,6 +7,7 @@ allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
   fpt: '*'
+  ghec: '*'
 includeGuides:
   - /codespaces/getting-started/quickstart
   - /codespaces/getting-started/deep-dive

@@ -3,6 +3,8 @@ title: Understanding your software supply chain
 versions:
   fpt: '*'
   ghes: '>=3.0'
+  ghae: "issue-4864"
+  ghec: '*'
 topics:
   - Dependency graph
   - Dependencies

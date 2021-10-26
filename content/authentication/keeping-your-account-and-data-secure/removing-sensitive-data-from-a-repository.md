@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -23,7 +24,7 @@ You can remove the file from the latest commit with `git rm`. For information on
 
 {% warning %}
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your {% data variables.product.product_name %} repository. However, it's important to note that those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. However, it's important to note that those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
 **Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! If you committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
 
@@ -123,7 +124,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
-7. Once you're happy with the state of your repository, force-push your local changes to overwrite your {% data variables.product.product_name %} repository, as well as all the branches you've pushed up:
+7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up:
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -183,5 +184,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 ## Further reading
 
 - [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History){% ifversion fpt or ghae or ghes > 2.22 %}
+- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History){% ifversion fpt or ghae or ghes > 2.22 or ghec %}
 - "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"{% endif %}

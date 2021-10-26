@@ -79,9 +79,18 @@ jobs:
                 name: prRepoName
               }
             } = run
-            const headLabel = `${prRepoOwner}:${headBranch}`
 
             const prIsInternal = owner === prRepoOwner && repo === prRepoName
+            let headLabel = `${prRepoOwner}:${headBranch}`
+
+            // If the PR is external, prefix its head branch name with the
+            // forked repo owner's login and their fork repo name e.g.
+            // "octocat/my-fork:docs".  We need to include the fork repo
+            // name as well to account for an API issue (this will work fine
+            // if they don't have a different fork repo name).
+            if (!prIsInternal) {
+              headLabel = `${prRepoOwner}/${prRepoName}:${headBranch}`
+            }
 
             // If the PR is external, prefix its head branch name with the
             // forked repo owner's login, e.g. "octocat:docs"
@@ -284,7 +293,7 @@ jobs:
 
       - if: ${{ github.repository == 'github/docs-internal' }}
         name: Setup node to clone early access
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
           node-version: 16.8.x
           cache: npm
@@ -448,7 +457,7 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
           node-version: 16.8.x
           cache: npm

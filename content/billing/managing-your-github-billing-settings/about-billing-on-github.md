@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -14,7 +15,7 @@ topics:
 ## Paid features and products
 
 You can upgrade your personal account or organization to a paid subscription at any time. You can also choose to purchase apps from {% data variables.product.prodname_marketplace %} or upgrade storage and bandwidth for {% data variables.large_files.product_name_long %}. For more information, see:
-- "[About billing for {% data variables.product.product_name %} accounts](/articles/about-billing-for-github-accounts)"
+- "[About billing for {% data variables.product.prodname_dotcom %} accounts](/articles/about-billing-for-github-accounts)"
 - "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)"
 - "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)"

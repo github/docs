@@ -7,6 +7,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/deleting-a-codespace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

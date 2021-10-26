@@ -1,6 +1,6 @@
 ---
 title: Viewing a project's contributors
-intro: 'You can see who contributed commits to a repository{% ifversion fpt %} and its dependencies{% endif %}.'
+intro: 'You can see who contributed commits to a repository{% ifversion fpt or ghec %} and its dependencies{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: View project contributors
@@ -20,7 +21,7 @@ shortTitle: View project contributors
 
 You can view the top 100 contributors to a repository{% ifversion ghes or ghae %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
@@ -48,4 +49,4 @@ If you don't appear in a repository's contributors graph, it may be because:
 
 If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/articles/about-pull-requests)."
 
-If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.product_name %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."

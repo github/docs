@@ -4,14 +4,18 @@ intro: 'You can update the actions that are bundled with your enterprise, or use
 versions:
   ghes: '*'
   ghae: next
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - GitHub Connect
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Your enterprise instance includes a number of built-in actions that you can use in your workflows. For more information about the bundled actions, see "[Official actions bundled with your enterprise instance](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)."
 

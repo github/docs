@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Remove files
 ---
 ## Removing a single file
@@ -38,9 +39,9 @@ shortTitle: Remove files
 
 ## {% data variables.large_files.product_name_short %} objects in your repository
 
-After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% ifversion fpt %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
+After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% ifversion fpt or ghec %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
 
-To remove {% data variables.large_files.product_name_short %} objects from a repository, {% ifversion fpt %}delete and recreate the repository. When you delete a repository, any associated issues, stars, and forks are also deleted. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archived objects are purged after three months.{% endif %}
+To remove {% data variables.large_files.product_name_short %} objects from a repository, {% ifversion fpt or ghec %}delete and recreate the repository. When you delete a repository, any associated issues, stars, and forks are also deleted. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archived objects are purged after three months.{% endif %}
 
 {% note %}
 

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Manage runner groups
 ---
@@ -14,10 +15,11 @@ shortTitle: Manage runner groups
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About self-hosted runner groups
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note:** All organizations have a single default self-hosted runner group. Only enterprise accounts and organizations owned by enterprise accounts can create and manage additional self-hosted runner groups.
@@ -33,13 +35,13 @@ When new runners are created, they are automatically assigned to the default gro
 
 ## Creating a self-hosted runner group for an organization
 
-All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group.
+All organizations have a single default self-hosted runner group. Organizations within an enterprise account can create additional self-hosted groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a self-hosted runner group with the REST API, see "[Self-hosted runner groups](/rest/reference/actions#self-hosted-runner-groups)."
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
 
 When creating a group, you must choose a policy that defines which repositories have access to the runner group.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
@@ -83,13 +85,13 @@ When creating a group, you must choose a policy that defines which repositories 
 
 ## Creating a self-hosted runner group for an enterprise
 
-Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups.
+Enterprises can add their self-hosted runners to groups for access management. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account. Organization admins can then assign additional granular repository access policies to the enterprise runner groups. For information about how to create a self-hosted runner group with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
 
 Self-hosted runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can assign the runner to a specific group during the registration process, or you can later move the runner from the default group to a custom group.
 
 When creating a group, you must choose a policy that defines which organizations have access to the runner group.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -118,7 +120,7 @@ When creating a group, you must choose a policy that defines which organizations
     ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for organization access.
 
-   {% ifversion fpt or ghes > 2.22 or ghae %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% elsif ghes = 2.22 %}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+   {% ifversion fpt or ghes > 2.22 or ghae or ghec %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% elsif ghes = 2.22 %}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
 
    {% warning %}
 
@@ -137,7 +139,7 @@ When creating a group, you must choose a policy that defines which organizations
 ## Changing the access policy of a self-hosted runner group
 
 You can update the access policy of a runner group, or rename a runner group.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modify the access options, or change the runner group name.
@@ -172,7 +174,7 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## Moving a self-hosted runner to a group
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 1. In the "Runners" list, click the runner that you want to configure.
 1. Select the Runner group dropdown menu.
@@ -189,7 +191,7 @@ If you don't specify a runner group during the registration process, your new se
 
 Self-hosted runners are automatically returned to the default group when their group is removed.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 1. To remove the group, click **Remove group**.

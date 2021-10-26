@@ -1,16 +1,17 @@
 ---
 title: Removing workflow artifacts
 intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Remove workflow artifacts
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Deleting an artifact
 
@@ -29,13 +30,13 @@ shortTitle: Remove workflow artifacts
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Under **Artifacts**, click {% octicon "trash" aria-label="The trash icon" %} next to the artifact you want to remove.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}
     ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
     {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Setting the retention period for an artifact
 
 Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."

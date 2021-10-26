@@ -24,4 +24,4 @@ jobs:
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
           exempt-pr-labels: 'never-stale'
-          exempt-issue-labels: 'never-stale'
+          exempt-issue-labels: 'never-stale, help wanted, waiting for review'

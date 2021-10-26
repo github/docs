@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.0'
   ghae: '*'
+  ghec: '*'
 learningTracks:
   - security_advisories
   - dependabot_alerts

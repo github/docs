@@ -175,6 +175,8 @@ sections:
         # https://github.com/github/releases/issues/1587
         - '{% data variables.product.prodname_ghe_server %} 3.2 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information on the new performance targets on a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
 
+        - The [{% data variables.product.prodname_actions %} Runner](https://github.com/actions/runner) application in {% data variables.product.prodname_ghe_server %} 3.2 has been updated to [v2.279.0](https://github.com/actions/runner/releases/tag/v2.279.0).
+
     - heading: 'GitHub Packages changes'
       notes:
         # https://github.com/github/releases/issues/1088
