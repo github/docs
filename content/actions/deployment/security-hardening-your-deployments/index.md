@@ -9,6 +9,5 @@ versions:
 children:
   - /about-security-hardening-with-openid-connect
   - /configuring-openid-connect-in-cloud-providers
-  - /using-oidc-with-your-reusable-workflows
 ---
 
