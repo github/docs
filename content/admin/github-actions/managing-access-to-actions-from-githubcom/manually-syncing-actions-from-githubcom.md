@@ -6,7 +6,7 @@ redirect_from:
   - /admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   ghes: '*'
-  ghae: 'next'
+  ghae: next
 type: tutorial
 topics:
   - Actions

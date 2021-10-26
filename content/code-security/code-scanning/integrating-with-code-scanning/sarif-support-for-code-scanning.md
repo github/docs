@@ -11,7 +11,7 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning/sarif-support-for-code-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: reference

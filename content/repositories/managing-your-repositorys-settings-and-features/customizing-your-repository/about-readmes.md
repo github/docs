@@ -65,6 +65,10 @@ The auto-generated table of contents is enabled by default for all Markdown file
 
 {% data reusables.repositories.relative-links %}
 
+## Wikis
+
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+
 ## Further reading
 
 - "[Adding a file to a repository](/articles/adding-a-file-to-a-repository)"
