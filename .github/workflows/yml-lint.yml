@@ -4,34 +4,35 @@ name: Lint Yaml
 # **Why we have it**: We want some level of consistent formatting for YAML files.
 # **Who does it impact**: Docs engineering, docs content.
 
-on:
+on:repository 
   workflow_dispatch:
-  push:
-    branches:
+  push:checking 
+    branches:alidsh-patch
       - main
-    paths:
+    paths:alidsh-patch
       - '**/*.yml'
       - '**/*.yaml'
-  pull_request:
-    paths:
+  pull_request:cheking
+    paths:alidsh-patch
       - '**/*.yml'
       - '**/*.yaml'
 
-jobs:
-  lint:
+jobs:checking 
+  lint:yaml
     runs-on: ubuntu-latest
-    steps:
+    steps:checking 
       - name: Check out repo
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
-        with:
+        with:java-script 
           node-version: 16.8.x
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linter
+      - name: Run link
         run: npx prettier -c "**/*.{yml,yaml}"
+"End"
