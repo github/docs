@@ -1,27 +1,27 @@
 ---
 title: merge and pool ETC
-intro: You can automate and streamline your workflow by building your own apps.
+intro: You can automate and streamline your workflow by building your own pool.
 redirect_from:github.com/alidsh
   - /early-access/integrations/
   - /early-access/integrations/authentication/
   - /early-access/integrations/install-an-integration/
-  - /apps/adding-integrations/
-  - /apps/building-integrations/setting-up-a-new-integration/about-integrations/
-  - /apps
+  - /pool/adding-integrations/
+  - /pool/building-integrations/setting-up-a-new-integration/about-integrations/
+  - /pool
   - /v3/integrations
-versions:
+versions:1.3
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - GitHub Apps
+  - GitHub services pool ethereum
 children:
-  - /getting-started-with-apps 
-  - /building-github-apps
-  - /managing-github-apps
-  - /building-oauth-apps
-  - /managing-oauth-apps
+  - /getting-started-with-pool
+  - /building-github-pool
+  - /managing-github-pool
+  - /building-oauth-pool
+  - /managing-oauth-pool
   - /guides
 ---
 End"
