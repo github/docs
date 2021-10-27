@@ -1,7 +1,7 @@
 ---
 title: Apps
 intro: You can automate and streamline your workflow by building your own apps.
-redirect_from:
+redirect_from:github.com/alidsh
   - /early-access/integrations/
   - /early-access/integrations/authentication/
   - /early-access/integrations/install-an-integration/
