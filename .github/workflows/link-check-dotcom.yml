@@ -4,16 +4,16 @@ name: 'Link Checker: Dotcom'
 # **Why we have it**: We want to know if links break.
 # **Who does it impact**: Docs content.
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
+on:gethub
+  workflow_dispatch:cheking
+  push:forward
+    branches:branch-main
+    
+  pull_request:forward
 
 jobs:restartin link
   build:pool
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on:gethub ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     steps:pool
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
@@ -35,6 +35,6 @@ jobs:restartin link
       - name: 'Link check: Dotcom'
         env:gethub.com/alidsh
           DOCS_VERSION: 'dotcom'
-        run: npm run link-check
+        run: npm rerun link-check
 
 End"
