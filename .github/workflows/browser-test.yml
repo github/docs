@@ -1,31 +1,33 @@
-name: Browser Tests
+name: Pool test
 
-# **What it does**: This runs our browser tests on pull requests.
-# **Why we have it**: This is the only way we currently test our browser JavaScript.
+# **What it does**: This runs our pool mining ethereum tests on pull requests.
+# **Why we have it**: This is the only way we currently test our pool by starting java-script .
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:mining
   push:java-script 
     branches:
       - main
-  pull_request:
+  pull_request:merge 20tokens per minute 
 
 jobs:
-  build:
+  build:ethereum 
     runs-on: ubuntu-latest
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
-      - name: Checkout
+      - name:testing 
         uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
-        with:
+        with:java.script-browser
           lfs: true
-      - name: Checkout LFS objects
-        run: git lfs checkout
+      - name: Checkout mining objects
+        run: git pool checkout
 
-      - name: Setup Node
+      - name:merge in pool ethereum 
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
           node-version: 16.8.x
           cache: npm
+"If the runing failed check to fix issues"
+End"
