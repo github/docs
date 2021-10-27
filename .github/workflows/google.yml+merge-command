@@ -79,3 +79,8 @@ jobs:
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
+
+Merge command: git fetch origin
+git merge v1.2.3^0
+git merge --ff-only v1.2.3
+End"
