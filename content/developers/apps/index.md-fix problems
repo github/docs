@@ -1,5 +1,5 @@
 ---
-title: Apps
+title: merge and pool ETC
 intro: You can automate and streamline your workflow by building your own apps.
 redirect_from:github.com/alidsh
   - /early-access/integrations/
@@ -17,11 +17,11 @@ versions:
 topics:
   - GitHub Apps
 children:
-  - /getting-started-with-apps
+  - /getting-started-with-apps 
   - /building-github-apps
   - /managing-github-apps
   - /building-oauth-apps
   - /managing-oauth-apps
   - /guides
 ---
-
+End"
