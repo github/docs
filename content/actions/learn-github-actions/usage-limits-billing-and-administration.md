@@ -71,7 +71,6 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 If you reuse a workflow, billing is always associated with the caller workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Artifact and log retention policy
 
 You can configure the artifact and log retention period for your repository, organization, or enterprise account.
@@ -83,7 +82,6 @@ For more information, see:
 - "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
 - "[Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
 - "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
-{% endif %}
 
 ## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
@@ -94,7 +92,6 @@ For more information, see:
 - "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
 - "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Disabling and enabling workflows
 
 You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
@@ -102,4 +99,3 @@ You can enable and disable individual workflows in your repository on {% data va
 {% data reusables.actions.scheduled-workflows-disabled %}
 
 For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
-{% endif %}

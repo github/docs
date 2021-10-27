@@ -27,11 +27,9 @@ When someone with admin or owner permissions has enabled required reviews, they 
 
 {% ifversion fpt or ghae or ghes or ghec %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% ifversion fpt or ghae or ghes > 2.22 or ghec %}
 If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![Code owner for a file in a repository](/assets/images/help/repository/code-owner-for-a-file.png)
-{% endif %}
 
 ## CODEOWNERS file location
 
@@ -116,7 +114,6 @@ There are some syntax rules for gitignore files that do not work in CODEOWNERS f
 ## CODEOWNERS and branch protection
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[About protected branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." 
 
-
 ### Example of a CODEOWNERS file
 ```
 # In this example, any change inside the `/apps` directory
@@ -135,7 +132,6 @@ Repository owners can add branch protection rules to ensure that changed code is
 # Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
-
 
 
 ## Further reading
