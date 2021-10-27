@@ -42,6 +42,7 @@ topics:
   - Issues
   - Pull requests
 shortTitle: Filter and search
+type: how_to
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}

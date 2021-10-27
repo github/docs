@@ -90,7 +90,7 @@ Using a predefined configuration is a great idea if you need some additional ext
 1. Click **OK**.
   ![OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 1. To apply the changes, in the bottom right corner of the screen, click **Rebuild now**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-changes-to-your-configuration)."
-  !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/rebuild-prompt.png)
+  !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ### Adding additional features to your `devcontainer.json` file
 
