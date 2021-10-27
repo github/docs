@@ -63,7 +63,6 @@ describe('breadcrumbs', () => {
         '/en/github-cli/github-cli/about-github-cli'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      console.log(`dbg: breadcrumbs`, $breadcrumbs)
       expect($breadcrumbs).toHaveLength(3)
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub CLI')
       expect($breadcrumbs[1].attribs.title).toBe('category: GitHub CLI')
