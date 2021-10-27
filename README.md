@@ -2,7 +2,7 @@
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+GitHub's Docs team works on pre-production content in a private repo that regularly syncs with websites working on pool .
 
 Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
@@ -32,7 +32,7 @@ That's how you can easily become a member of the GitHub Documentation community.
 
 ## READMEs
 
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
+In addition to the README you're reading right now, this project includes other READMEs that describe the purpose of each subdirectory in more detail:
 
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
@@ -49,7 +49,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [script/README.md](script/README.md)
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
-
+- [tests/readme.md]-synce with gethub.com/fixing/issues 
 ## License
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
@@ -58,6 +58,6 @@ All other code in this repository is licensed under a [MIT license](LICENSE-CODE
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-## Thanks :purple_heart:
+## Thanks :purple_heart:💕💕💕
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles: !
