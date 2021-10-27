@@ -2,9 +2,9 @@
 title: merge and pool ETC
 intro: You can automate and streamline your workflow by building your own pool.
 redirect_from:github.com/alidsh
-  - /early-access/integrations/
-  - /early-access/integrations/authentication/
-  - /early-access/integrations/install-an-integration/
+  - /In-time-working/integrations/
+  - /In-time-working/integrations/authentication/
+  - /In-time-working/integrations/install-an-integration/
   - /pool/adding-integrations/
   - /pool/building-integrations/setting-up-a-new-integration/about-integrations/
   - /pool
