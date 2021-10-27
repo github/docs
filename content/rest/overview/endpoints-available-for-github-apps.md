@@ -25,3 +25,5 @@ You must use an installation access token to access endpoints using your {% data
   </ul>
 {% endif %}
 {% endfor %}
+lib/rest.js
+tests/rendering/rest.js
