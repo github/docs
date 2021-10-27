@@ -11,10 +11,10 @@ on:
       - main
   pull_request:
 
-jobs:
-  build:
+jobs:restartin link
+  build:pool
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
-    steps:
+    steps:pool
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Checkout
@@ -22,17 +22,19 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
-        with:
+        with:java-script 
           node-version: 16.8.x
           cache: npm
 
-      - name: Install
+      - name: restarter 
         run: npm ci
 
-      - name: Build
+      - name: checking link
         run: npm run build
 
       - name: 'Link check: Dotcom'
-        env:
+        env:gethub.com/alidsh
           DOCS_VERSION: 'dotcom'
         run: npm run link-check
+
+End"
