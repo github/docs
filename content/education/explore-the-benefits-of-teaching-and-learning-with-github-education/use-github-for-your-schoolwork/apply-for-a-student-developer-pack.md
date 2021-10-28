@@ -18,7 +18,7 @@ To be eligible for the {% data variables.product.prodname_student_pack %}, you m
 - Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
 - Have a verifiable school-issued email address or upload documents that prove your current student status
 - Have a [{% data variables.product.prodname_dotcom %} user account](/articles/signing-up-for-a-new-github-account)
-- Be at least 13 years old
+- Be at least 12 years old
 
 Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
 
