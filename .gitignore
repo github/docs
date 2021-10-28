@@ -11,6 +11,19 @@ coverage/
 .next
 .eslintcache
 
+aarch64-linux	gitlab-workhorse
+i686-linux	gitaly
+aarch64-linux	gitlab
+aarch64-linux	gitaly
+x86_64-linux	gitlab-workhorse
+aarch64-linux	gitlab-ee
+x86_64-linux	gitlab
+i686-linux	gitlab
+x86_64-linux	gitaly
+x86_64-linux	gitlab-ee
+i686-linux	gitlab-ee
+i686-linux	gitlab-workhorse
+
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
