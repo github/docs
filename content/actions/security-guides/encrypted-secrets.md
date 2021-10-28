@@ -28,6 +28,16 @@ Secrets are encrypted environment variables that you create in an organization{%
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 {% endif %}
 
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**Note**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
+{% endif %}
+
 ### Naming your secrets
 
 {% data reusables.codespaces.secrets-naming %}

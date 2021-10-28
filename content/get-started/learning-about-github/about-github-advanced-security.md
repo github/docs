@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} makes extra security featur
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -34,7 +34,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
-{% ifversion ghes > 2.22 or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Deploying GitHub Advanced Security in your enterprise
 
@@ -44,10 +44,10 @@ To review the rollout phases we recommended in more detail, see "[Deploying {% d
 
 {% endif %}
 
-{% ifversion ghes > 2.22 or ghae %}
+{% ifversion ghes or ghae %}
 ## Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.product.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features)."
 {% endif %}
 

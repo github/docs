@@ -24,11 +24,7 @@ versions:
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
-{% else %}
-Workflow commands use the `echo` command in a specific format.
-{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -70,12 +66,12 @@ The following table shows which toolkit functions are available within a workflo
 
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
-| `core.addPath`    | {% ifversion fpt or ghes > 2.22 or ghae or ghec %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |
+| `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
 | `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 | `core.notice`    | `notice` |{% endif %}
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
-| `core.exportVariable` | {% ifversion fpt or ghes > 2.22 or ghae or ghec %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %} |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
@@ -85,22 +81,6 @@ The following table shows which toolkit functions are available within a workflo
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
 | `core.warning`    | `warning` |
-
-{% ifversion ghes < 3.0 %}
-## Setting an environment variable
-
-```
-::set-env name={name}::{value}
-```
-
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
-
-### Example
-
-``` bash
-echo "::set-env name=action_state::yellow"
-```
-{% endif %}
 
 ## Setting an output parameter
 
@@ -117,22 +97,6 @@ Optionally, you can also declare output parameters in an action's metadata file.
 ``` bash
 echo "::set-output name=action_fruit::strawberry"
 ```
-
-{% ifversion ghes < 3.0 %}
-## Adding a system path
-
-```
-::add-path::{path}
-```
-
-Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
-
-### Example
-
-``` bash
-echo "::add-path::/path/to/dir"
-```
-{% endif %}
 
 ## Setting a debug message
 
@@ -302,7 +266,6 @@ The `STATE_processID` variable is then exclusively available to the cleanup scri
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Environment Files
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
@@ -386,4 +349,3 @@ This example demonstrates how to add the user `$HOME/.local/bin` directory to `P
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
-{% endif %}
