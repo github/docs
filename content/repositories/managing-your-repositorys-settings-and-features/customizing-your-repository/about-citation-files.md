@@ -151,7 +151,7 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 
 ## Citing a dataset
 
-If your repository contains a dataset, you can set `type: dataset` in your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
 
 ## Other citation files
 
