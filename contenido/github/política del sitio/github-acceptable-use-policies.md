@@ -1,4 +1,4 @@
----
+--- 
 title: GitHub Acceptable Use Policies
 redirect_from:
   - /articles/github-acceptable-use-policies
