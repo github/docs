@@ -34,6 +34,8 @@ By default, a codespace can only access the repository from which it was created
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
+
+- If Codespaces does not exist in the left sidebar, ensure that that you're on a [GitHub plan](https://github.com/pricing) that supports Codespaces
 1. Under "User permissions", select one of the following options:
 
    * **Allow for all users** to allow all your organization members to use {% data variables.product.prodname_codespaces %}.
