@@ -8,6 +8,7 @@ redirect_from:
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Dependabot

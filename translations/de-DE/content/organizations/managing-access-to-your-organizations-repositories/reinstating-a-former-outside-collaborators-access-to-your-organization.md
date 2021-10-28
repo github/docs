@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Reinstate collaborator
 ---
 
-When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -31,8 +32,9 @@ Bei der Wiedereinsetzung eines ehemaligen externen Mitarbeiters kannst Du Folgen
 {% tip %}
 
 **Tips**:
- - Nur der Organisationsinhaber kann den Zugriff eines externen Mitarbeiters auf seine Organisation wieder einsetzen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
- - Auch wenn der Flow „Mitglied wieder einsetzen“ unter {% data variables.product.product_location %} für die Beschreibung der Wiedereinsetzung eines externen Mitarbeiters den Begriff „Mitglied“ verwendet, erhält ein ehemaliger externer Mitarbeiter bei der Wiedereinsetzung mit seinen früheren Berechtigungen lediglich seine früheren [Berechtigungen als externer Mitarbeiter](/articles/permission-levels-for-an-organization/#outside-collaborators).{% ifversion fpt %}
+
+ - Nur der Organisationsinhaber kann den Zugriff eines externen Mitarbeiters auf seine Organisation wieder einsetzen. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+ - Auch wenn der Flow „Mitglied wieder einsetzen“ unter {% data variables.product.product_location %} für die Beschreibung der Wiedereinsetzung eines externen Mitarbeiters den Begriff „Mitglied“ verwendet, erhält ein ehemaliger externer Mitarbeiter bei der Wiedereinsetzung mit seinen früheren Berechtigungen lediglich seine früheren [Berechtigungen als externer Mitarbeiter](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% ifversion fpt or ghec %}
  - Wenn Deine Organisation ein benutzerabhängiges Abonnement abgeschlossen hat, muss eine Lizenz verfügbar sein, bevor Du ein neues Mitglied zur Organisation einladen oder ein ehemaliges Organisationsmitglied wieder einsetzen kannst. Weitere Informationen findest Du unter „[Informationen zu benutzerbasierten Preisen](/articles/about-per-user-pricing)“.{% endif %}
 
 {% endtip %}
@@ -42,8 +44,8 @@ Bei der Wiedereinsetzung eines ehemaligen externen Mitarbeiters kannst Du Folgen
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
-{% ifversion fpt %}
-6. Klicke auf **Invite and reinstate** (Einladen und wieder einsetzen) oder auf **Invite and start fresh** (Einladen und neu beginnen), um festzulegen, ob Du den externen Mitarbeiter mit seinen früheren Zugriffsberechtigungen innerhalb der Organisation wieder einsetzen möchtest oder ob Du die früheren Berechtigungen löschen und neu festlegen möchtest.
+{% ifversion fpt or ghec %}
+1. Klicke auf **Invite and reinstate** (Einladen und wieder einsetzen) oder auf **Invite and start fresh** (Einladen und neu beginnen), um festzulegen, ob Du den externen Mitarbeiter mit seinen früheren Zugriffsberechtigungen innerhalb der Organisation wieder einsetzen möchtest oder ob Du die früheren Berechtigungen löschen und neu festlegen möchtest.
 
   {% warning %}
 
@@ -63,15 +65,15 @@ Bei der Wiedereinsetzung eines ehemaligen externen Mitarbeiters kannst Du Folgen
 
   ![Auswählen, ob Einstellungen wiederhergestellt werden sollen](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 7. Wenn Du die früheren Berechtigungen eines ehemaligen externen Mitarbeiters gelöscht hast, wähle eine neue Rolle für den Benutzer aus, und füge ihn optional zu einem oder mehreren Teams hinzu. Klicke dann auf **Send invitation** (Einladung senden). ![Rollen- und Teamoptionen und Schaltfläche „Send invitation“ (Einladung senden)](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
 7. Wenn Du die früheren Berechtigungen eines ehemaligen externen Mitarbeiters gelöscht hast, wähle eine neue Rolle für den Benutzer aus, und füge ihn optional zu einem oder mehreren Teams hinzu. Klicke dann auf **Add member** (Mitglied hinzufügen). ![Rollen- und Teamoptionen und Schaltfläche „Add member“ (Mitglied hinzufügen)](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 8. Die eingeladene Person erhält per E-Mail eine Einladung zur Organisation. Um externer Mitarbeiter der Organisation zu werden, muss die eingeladene Person die Einladung annehmen. {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ## Weiterführende Informationen
 
-- „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

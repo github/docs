@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Ignorierte Dateien für ein einzelnes Repository konfigurieren
@@ -26,6 +27,8 @@ GitHub pflegt eine offizielle Liste an empfohlenen *.gitignore*-Dateien für vie
    ```shell
    $ touch .gitignore
   ```
+
+   If the command succeeds, there will be no output.
 
 Ein Beispiel einer *.gitignore*-Datei findest Du unter „[Einige gängige .gitignore-Konfigurationen](https://gist.github.com/octocat/9257657)" im Octocat-Repository.
 

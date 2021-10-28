@@ -3,6 +3,7 @@ title: Administrar tu preferencia de representación de tamaño de pestaña
 intro: Puedes administrar la cantidad de espacios que representa una pestaña en tu cuenta de usuario.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Administrar el tamaño de tu pestaña

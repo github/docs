@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -33,9 +34,9 @@ Nach der Änderung Deines Organisationsnamens wird Dein alter Organisationsname 
 ### Änderungen, die nicht automatisch erfolgen
 
 Nach der Änderung Deines Organisationsnamens können folgende Probleme auftreten:
-- Links auf die bisherige Profilseite Ihrer Organisation, wie `https://{% data variables.command_line.backticks %}/previousorgname`, geben einen 404-Fehler zurück. Wir empfehlen Dir die Aktualisierung der Links auf Deine Organisation von anderen Websites{% ifversion fpt %}, beispielsweise von Deinen LinkedIn- oder Twitter-Profilen{% endif %}.
+- Links auf die bisherige Profilseite Ihrer Organisation, wie `https://{% data variables.command_line.backticks %}/previousorgname`, geben einen 404-Fehler zurück. Wir empfehlen Dir die Aktualisierung der Links auf Deine Organisation von anderen Websites{% ifversion fpt or ghec %}, beispielsweise von Deinen LinkedIn- oder Twitter-Profilen{% endif %}.
 - API-Anforderungen mit dem alten Organisationsnamen geben einen 404-Fehler zurück. Wir empfehlen Dir die Aktualisierung Deines alten Organisationsnamens in Deinen API-Anforderungen.
-- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% ifversion fpt %}
+- There are no automatic [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% ifversion fpt or ghec %}
 - If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[Connecting your identity provider to your organization](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
 
 ## Namen Deiner Organisation ändern

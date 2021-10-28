@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -49,11 +50,13 @@ Abrechnungsmanager können **nicht**
 
 ## Abrechnungsmanager einladen
 
+{% ifversion ghec %}
 {% note %}
 
 **Note:** If your organization is managed using [Enterprise Accounts](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) you will not be able to invite Billing Managers at the organization level.
 
 {% endnote %}
+{% endif %}
 
 Der eingeladene Benutzer erhält eine Einladungs-E-Mail, in der er darum gebeten wird, Abrechnungsmanager für Deine Organisation zu werden. Wenn der eingeladene Benutzer in der E-Mail auf den Link zum Annehmen der Einladung klickt, wird er automatisch als Abrechnungsmanager zur Organisation hinzugefügt. Wenn er noch kein GitHub-Konto besitzt, wird er auf eine Seite umgeleitet, auf der er ein Konto erstellen kann. Nach der Erstellung des Kontos wird er automatisch als Abrechnungsmanager zur Organisation hinzugefügt.
 

@@ -1,6 +1,6 @@
 ---
 title: Rollenbasierten Zugriff von Personen auf Deine Organisation verwalten
-intro: 'Die Rolle einer Person in Deiner Organisation bestimmt die Ebene ihres Zugriffs auf Deine Organisationen und deren Einstellungen und Deine Daten. Du kannst Personen zu Inhabern, Mitgliedern oder Abrechnungsmanagern für Deine Organisation machen oder ihnen Team-Betreuer-Berechtigungen erteilen.'
+intro: 'You can control access to your organizations''s settings and repositories by giving people organization, repository, and team roles.'
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
@@ -9,15 +9,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 children:
-  - /permission-levels-for-an-organization
+  - /roles-in-an-organization
   - /maintaining-ownership-continuity-for-your-organization
-  - /giving-team-maintainer-permissions-to-an-organization-member
+  - /managing-custom-repository-roles-for-an-organization
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
+  - /managing-security-managers-in-your-organization
 shortTitle: Manage access with roles
 ---
 

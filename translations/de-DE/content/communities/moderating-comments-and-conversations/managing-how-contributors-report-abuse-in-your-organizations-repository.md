@@ -3,6 +3,7 @@ title: 'Verwalten, wie Mitwirkende Missbrauch im Repository Deiner Organisation 
 intro: 'Du kannst Mitwirkenden erlauben, störendes Verhalten direkt an die Repository-Betreuer zu melden.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:

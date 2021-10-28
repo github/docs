@@ -11,24 +11,25 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configure 2FA
 ---
 
-Du kannst die Zwei-Faktor-Authentifizierung per Mobilanwendung{% ifversion fpt %} oder per SMS konfigurieren{% endif %}. Du kannst auch einen Sicherheitsschlüssel hinzufügen.
+Sie können die Zwei-Faktor-Authentifizierung per Mobilanwendung{% ifversion fpt or ghec %} oder per SMS konfigurieren{% endif %}. Du kannst auch einen Sicherheitsschlüssel hinzufügen.
 
-Wir empfehlen dringend, eine TOTP-Anwendung (Time-based One-Time Password) zu verwenden, um die Zwei-Faktor-Authentifizierung (2FA) zu konfigurieren.{% ifversion fpt %} TOTP-Anwendungen sind zuverlässiger als SMS, besonders bei Standorten außerhalb der USA.{% endif %} TOTP-Anwendungen unterstützen das sichere Backup Deiner Authentifizierungscodes in der Cloud und sie können wiederhergestellt werden, wenn Du den Zugriff auf Dein Gerät verlierst.
+Wir empfehlen dringend, eine TOTP-Anwendung (Time-based One-time Password) zu verwenden, um die Zwei-Faktor-Authentifizierung (2FA) zu konfigurieren.{% ifversion fpt or ghec %}TOTP-Anwendungen sind zuverlässiger als SMS, besonders bei Standorten außerhalb der USA.{% endif %} TOTP-Anwendungen unterstützen das sichere Backup Ihrer Authentifizierungscodes in der Cloud und die Wiederherstellung, wenn Sie nicht mehr auf Ihr Gerät zugreifen können.
 
 {% warning %}
 
 **Warnung:**
-- Wenn Sie ein Mitglied{% ifversion fpt %}, Abrechnungsmanager,{% endif %} oder externer Mitarbeiter eines privaten Repositorys einer Organisation sind, die die Zwei-Faktor-Authentifizierung voraussetzt, müssen Sie die Organisation verlassen, bevor Sie die 2FA bei {% data variables.product.product_location %} deaktivieren können.
+- Wenn Sie ein Mitglied{% ifversion fpt or ghec %}, Abrechnungsmanager,{% endif %} oder externer Mitarbeiter eines privaten Repositorys einer Organisation sind, die die Zwei-Faktor-Authentifizierung voraussetzt, müssen Sie die Organisation verlassen, bevor Sie die 2FA bei {% data variables.product.product_location %} deaktivieren können.
 - Wenn Du die 2FA deaktivierst, verlierst Du automatisch den Zugriff auf die Organisation und alle privaten Forks, die Du in den privaten Repositorys der Organisation hast. Um wieder auf die Organisation und Deine Forks zuzugreifen, aktiviere die Zwei-Faktor-Authentifizierung erneut und wende Dich an einen Organisationsinhaber.
 
 {% endwarning %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account. 2FA should be configured through your identity provider.
 
@@ -57,7 +58,7 @@ Eine TOTP-Anwendung (Time-based One-Time Password) erzeugt automatisch einen Aut
 6. Under "Authentication verification", do one of the following:
     - Scanne den QR-Code mit der App Deines Mobilgeräts. Nach dem Scannen zeigt die App einen sechsstelligen Code an, den Du auf {% data variables.product.product_name %} eingeben kannst.
     - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead. ![Klicke auf „enter this text code“ (Diesen Code eingeben)](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-7. Die TOTP-Mobilanwendung speichert Dein {% data variables.product.product_name %}-Konto und erzeugt alle paar Sekunden einen neuen Authentifizierungscode. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". If your recovery codes are not automatically displayed, click **Continue**. ![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
+7. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". If your recovery codes are not automatically displayed, click **Continue**. ![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {%- else %}
 5. Klicke auf der Seite zur Zwei-Faktor-Authentifizierung auf **Set up using an app** (Mit einer App einrichten).
@@ -69,11 +70,11 @@ Eine TOTP-Anwendung (Time-based One-Time Password) erzeugt automatisch einen Aut
 8. Führe auf der Seite zur Zwei-Faktor-Authentifizierung eine der folgenden Aktionen durch:
     - Scanne den QR-Code mit der App Deines Mobilgeräts. Nach dem Scannen zeigt die App einen sechsstelligen Code an, den Du auf {% data variables.product.product_name %} eingeben kannst.
     - Wenn Du den QR-Code nicht scannen kannst, klicke auf **enter this text code** (Diesen Textcode eingeben), um einen Code anzuzeigen, den Du kopieren und manuell auf{% data variables.product.product_name %} eingeben kannst. ![Klicke auf „enter this text code“ (Diesen Code eingeben)](/assets/images/help/2fa/totp-click-enter-code.png)
-9. Die TOTP-Mobilanwendung speichert Dein {% data variables.product.product_name %}-Konto und erzeugt alle paar Sekunden einen neuen Authentifizierungscode. Gib auf der 2FA-Seite auf {% data variables.product.product_name %} den Code ein, und klicke auf **Enable** (Aktivieren). ![Feld zum Aktivieren von TOTP](/assets/images/help/2fa/totp-enter-code.png)
+9. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. Gib auf der 2FA-Seite auf {% data variables.product.product_name %} den Code ein, und klicke auf **Enable** (Aktivieren). ![Feld zum Aktivieren von TOTP](/assets/images/help/2fa/totp-enter-code.png)
 {%- endif %}
 {% data reusables.two_fa.test_2fa_immediately %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Zwei-Faktor-Authentifizierung mit SMS konfigurieren
 
@@ -109,9 +110,9 @@ Bevor Du diese Methode verwendest, stelle sicher, dass Du SMS empfangen kannst. 
 
 Auf den meisten Geräten und Browsern kannst Du einen physikalischen Sicherheitsschlüssel über USB oder NFC verwenden. Einige Browser können Fingerabdruckleser, Gesichtserkennung oder Passwort / PIN als Sicherheitsschlüssel auf Deinem Gerät verwenden.
 
-Die Authentifizierung mit einem Sicherheitsschlüssel ist *zweitrangig* gegenüber der Authentifizierung mit einer TOTP-Anwendung{% ifversion fpt %} oder SMS{% endif %}. Wenn Du Deinen Sicherheitsschlüssel verlierst, kannst Du immer noch den Code Deines Telefons für die Anmeldung verwenden.
+Die Authentifizierung mit einem Sicherheitsschlüssel ist *zweitrangig* gegenüber der Authentifizierung mit einer TOTP-Anwendung{% ifversion fpt or ghec %} oder SMS{% endif %}. Wenn Du Deinen Sicherheitsschlüssel verlierst, kannst Du immer noch den Code Deines Telefons für die Anmeldung verwenden.
 
-1. Du musst die 2FA bereits mit einer TOTP-Mobilanwendung{% ifversion fpt %} oder SMS{% endif %} konfiguriert haben.
+1. Du musst die 2FA bereits mit einer TOTP-Mobilanwendung{% ifversion fpt or ghec %} oder SMS{% endif %} konfiguriert haben.
 2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}

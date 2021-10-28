@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -47,7 +48,7 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -77,12 +78,12 @@ If your workflow fails with an error `No source code was seen during the build` 
   strategy:
     fail-fast: false
     matrix:
-      # Override automatic language detection by changing the list below
-      # Supported options are:
-      # ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
+      # Override automatic language detection by changing the list below.
+      # Supported options are listed in a comment in the default workflow.
       language: ['go', 'javascript']
   ```
-For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
+
+   For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 1. Your {% data variables.product.prodname_code_scanning %} workflow is analyzing a compiled language (C, C++, C#, or Java), but the code was not compiled. By default, the {% data variables.product.prodname_codeql %} analysis workflow contains an `autobuild` step, however, this step represents a best effort process, and may not succeed in building your code, depending on your specific build environment. Compilation may also fail if you have removed the `autobuild` step and did not include build steps manually.  For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but portions of your build are cached to improve performance (most likely to occur with build systems like Gradle or Bazel). Since {% data variables.product.prodname_codeql %} observes the activity of the compiler to understand the data flows in a repository, {% data variables.product.prodname_codeql %} requires a complete build to take place in order to perform analysis.
 1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but compilation does not occur between the `init` and `analyze` steps in the workflow. {% data variables.product.prodname_codeql %} requires that your build happens in between these two steps in order to observe the activity of the compiler and perform analysis.
@@ -105,7 +106,7 @@ For more information, see the workflow extract in "[Automatic build for a compil
 
 For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-{% ifversion fpt or ghes > 3.1  or ghae-next %}
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
 ## Lines of code scanned are lower than expected
 
 For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
@@ -170,7 +171,7 @@ If you split your analysis into multiple workflows as described above, we still 
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Results differ between analysis platforms
 
 If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
@@ -185,11 +186,11 @@ If the run of a workflow for {% data variables.product.prodname_code_scanning %}
 
 ## Error: "Out of disk" or "Out of memory"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the hosted {% data variables.product.prodname_actions %} runner.
-{% ifversion fpt %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+{% ifversion fpt or ghec %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
 {% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Error: 403 "Resource not accessible by integration" when using {% data variables.product.prodname_dependabot %}
 
 {% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, and the workflow will run with read-only scopes. Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.

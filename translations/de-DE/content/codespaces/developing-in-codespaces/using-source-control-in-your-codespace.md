@@ -4,6 +4,7 @@ intro: After making changes to a file in your codespace you can quickly commit t
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

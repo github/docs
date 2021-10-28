@@ -20,12 +20,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Large files
 ---
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} versucht genügend Speicher für alle Git-Repositories bereitzustellen, obwohl es harte Grenzen für Datei- und Repository-Größen gibt. Um die Leistungsfähigkeit und Zuverlässigkeit für unsere Benutzer zu gewährleisten, überwachen wir aktiv die Signale des gesamtheitlichen Repository-Zustands. Der Repository-Zustand ist eine Funktion verschiedener zusammenhängender Faktoren wie Größe, Commit-Frequenz, Inhalte und Strukturen.
 
 ### File size limits
@@ -47,7 +48,7 @@ If you need to distribute large files within your repository, you can create rel
 
 Git is not designed to handle large SQL files. Um große Datenbanken mit anderen Entwicklern zu teilen, empfehlen wir [Dropbox](https://www.dropbox.com/).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Repository size limits
 
 Wir empfehlen, dass Repositories klein bleiben, idealerweise weniger als 1 GB, und weniger als 5 GB wird dringend empfohlen. Kleinere Repositorys sind schneller zu klonen und einfacher zu bearbeiten und zu pflegen. Wenn Dein Repository unsere Infrastruktur übermäßig belastet, wirst Du allenfalls eine E-Mail von {% data variables.contact.github_support %} erhalten, in der Du um Korrekturmaßnahmen gebeten wirst. Wir versuchen flexibel zu sein, speziell mit großen Projekten mit vielen Mitarbeitern, und wir werden wenn immer möglich gemeinsam einen Lösung finden. Du kannst verhindern, dass Dein Repository unsere Infrastruktur beeinträchtigt, indem Du die Größe und den Zustand Deines Repository effektiv verwaltest. Ratschläge und ein Werkzeug für die Analyse Deiner Repositorys findest du im [`github/git-sizer`](https://github.com/github/git-sizer)-Repository.
@@ -97,7 +98,7 @@ Wenn Du eine Datei in einem früheren Commit hinzugefügt hast, musst Du sie aus
 
 Wenn Du große Dateien innerhalb Deines Repositorys verteilen musst, kannst Du Releases auf {% data variables.product.product_location %} erstellen. Releases erlauben Dir, Software, Release-Hinweise und Links zu Binärdateien zu paketieren, damit andere Personen diese nutzen können. Weitere Informationen findest Du unter „[Informationen zu Releases](/github/administering-a-repository/about-releases).“
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Wir begrenzen weder die Gesamtgröße der binären Release-Dateien noch die Bandbreite, die für deren Bereitstellung verwendet wird. Allerdings muss jede einzelne Datei kleiner sein als {% data variables.large_files.max_lfs_size %}.
 

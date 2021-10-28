@@ -1,4 +1,4 @@
-{% ifversion ghes %}
-サイト管理者は、
-{% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. 詳しい情報については、「[{% data variables.product.prodname_ghe_server %}の脆弱性のある依存関係に関するセキュリティアラートの有効化](/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)」を参照してください。
+{% ifversion ghes or ghae-issue-4864 %}
+Enterprise owners must enable
+{% data variables.product.prodname_dependabot %} alerts for vulnerable dependencies for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
 {% endif %}

@@ -1,6 +1,6 @@
 ---
 title: E-Mail-Adresse für Commits festlegen
-intro: 'You can set the email address that is used to author commits on {% data variables.product.product_name %} and on your computer.'
+intro: 'You can set the email address that is used to author commits on {% data variables.product.product_location %} and on your computer.'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -24,13 +25,13 @@ shortTitle: Set commit email address
 
 ## Informationen zu E-Mail-Adressen für Commits
 
-{% data variables.product.product_name %} verwendet Ihre E-Mail-Adresse für Commits zur Verknüpfung Ihrer Commits mit Ihrem {% data variables.product.product_name %}-Konto. Du kannst den Commits, die Du über die Befehlszeile überträgst, wie auch Deinen webbasierten Git-Operationen jeweils eine eigene E-Mail-Adresse zuordnen.
+{% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.product.product_location %}. Du kannst den Commits, die Du über die Befehlszeile überträgst, wie auch Deinen webbasierten Git-Operationen jeweils eine eigene E-Mail-Adresse zuordnen.
 
-Für webbasierte Git-Operationen legst Du die E-Mail-Adresse für Commits auf {% data variables.product.product_name %} fest. Für Commits, die Du per Push über die Befehlszeile überträgst, legst Du die E-Mail-Adresse für Commits in Git fest.
+For web-based Git operations, you can set your commit email address on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Für Commits, die Du per Push über die Befehlszeile überträgst, legst Du die E-Mail-Adresse für Commits in Git fest.
 
-{% ifversion fpt %}Alle Commits, die Sie vor der Änderung Ihrer E-Mail-Adresse für Commits durchgeführt haben, bleiben mit Ihrer früheren E-Mail-Adresse verbunden.{% else %}Nach der Änderung Ihrer E-Mail-Adresse für Commits auf {% data variables.product.product_name %} wird die neue E-Mail-Adresse standardmäßig allen zukünftigen webbasierten Git-Operationen zugeordnet. Alle Commits, die Du vor der Änderung Deiner Commit-E-Mail-Adresse durchgeführt hast, bleiben mit Deiner früheren E-Mail-Adresse verbunden.{% endif %}
+{% ifversion fpt or ghec %}Alle Commits, die Sie vor der Änderung Ihrer E-Mail-Adresse für Commits durchgeführt haben, bleiben mit Ihrer früheren E-Mail-Adresse verbunden.{% else %}Nach der Änderung Ihrer E-Mail-Adresse für Commits auf {% data variables.product.product_name %} wird die neue E-Mail-Adresse standardmäßig allen zukünftigen webbasierten Git-Operationen zugeordnet. Alle Commits, die Du vor der Änderung Deiner Commit-E-Mail-Adresse durchgeführt hast, bleiben mit Deiner früheren E-Mail-Adresse verbunden.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -40,21 +41,21 @@ Für webbasierte Git-Operationen legst Du die E-Mail-Adresse für Commits auf {%
 
 {% endif %}
 
-{% ifversion fpt %}Wenn Sie Ihre persönliche E-Mail-Adresse privat halten möchten, können Sie als Ihre E-Mail-Adresse für Commits eine von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse verwenden. Wenn Du eine `no-reply`-E-Mail-Adresse für Commits verwenden möchtest, die Du über die Befehlszeile überträgst, gib diese E-Mail-Adresse bei der Festlegung Deiner Commit-E-Mail-Adresse in Git an. Wenn Du eine `no-reply`-E-Mail-Adresse für webbasierte Git-Operationen verwenden möchtest, lege Deine Commit-E-Mail-Adresse auf GitHub fest, und wähle dabei **Keep my email address private** (E-Mail-Adresse privat halten) aus.
+{% ifversion fpt or ghec %}If you'd like to keep your personal email address private, you can use a `no-reply` email address from {% data variables.product.product_name %} as your commit email address. Wenn Du eine `no-reply`-E-Mail-Adresse für Commits verwenden möchtest, die Du über die Befehlszeile überträgst, gib diese E-Mail-Adresse bei der Festlegung Deiner Commit-E-Mail-Adresse in Git an. Wenn Du eine `no-reply`-E-Mail-Adresse für webbasierte Git-Operationen verwenden möchtest, lege Deine Commit-E-Mail-Adresse auf GitHub fest, und wähle dabei **Keep my email address private** (E-Mail-Adresse privat halten) aus.
 
 Du kannst auch festlegen, dass Commits, die Du über die Befehlszeile überträgst, blockiert werden, wenn diese Deine persönliche E-Mail-Adresse offenlegen. Weitere Informationen findest Du unter „[Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)“.{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your {% data variables.product.product_name %} account{% ifversion fpt %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% ifversion not ghae %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% ifversion not ghae %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Hinweis:** Wenn Sie Ihr {% data variables.product.product_name %}-Konto _nach_ dem 18. Juli 2017 erstellt haben, ist Ihre von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse eine siebenstellige ID-Nummer und Ihr Benutzername hat folgende Form: <code><em>ID+username</em>@users.noreply.github.com</code>. Wenn Sie Ihr {% data variables.product.product_name %}-Konto _vor_ dem 18. Juli 2017 erstellt haben, ist Ihre von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse Ihr Benutzername in der Form <code><em>username</em>@users.noreply.github.com</code>. Eine auf Deiner ID basierende `no-reply`-E-Mail-Adresse wird Dir von {% data variables.product.product_name %} bereitgestellt, wenn Du in den E-Mail-Einstellungen **Keep my email address private** (E-Mail-Adresse privat halten) aktivierst (respektive zunächst deaktivierst und dann erneut aktivierst).
+**Note:** If you created your account on {% data variables.product.product_location %} _after_ July 18, 2017, your `no-reply` email address for {% data variables.product.product_name %} is a seven-digit ID number and your username in the form of <code><em>ID+username</em>@users.noreply.github.com</code>. If you created your account on {% data variables.product.product_location %} _prior to_ July 18, 2017, your `no-reply` email address from {% data variables.product.product_name %} is <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `no-reply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
 
 {% endnote %}
 
-Wenn Sie Ihre Commits unter der von {% data variables.product.product_name %} bereitgestellten `no-reply`-E-Mail-Adresse durchführen und später [Ihren Benutzernamen ändern](/articles/changing-your-github-username), können diese Commits nicht mehr Ihrem {% data variables.product.product_name %}-Konto zugeordnet werden. Dies gilt jedoch nicht, wenn Sie die von {% data variables.product.product_name %} bereitgestellte ID-basierte `no-reply`-Adresse verwenden. Weitere Informationen findest Du unter „[{% data variables.product.prodname_dotcom %}-Benutzernamen ändern](/articles/changing-your-github-username)“.{% endif %}
+If you use your `noreply` email address for {% data variables.product.product_name %} to make commits and then [change your username](/articles/changing-your-github-username), those commits will not be associated with your account on {% data variables.product.product_location %}. This does not apply if you're using the ID-based `noreply` address from {% data variables.product.product_name %}. Weitere Informationen findest Du unter „[{% data variables.product.prodname_dotcom %}-Benutzernamen ändern](/articles/changing-your-github-username)“.{% endif %}
 
 ## Deine Commit-E-Mail-Adresse auf {% data variables.product.prodname_dotcom %} festlegen
 
@@ -63,12 +64,12 @@ Wenn Sie Ihre Commits unter der von {% data variables.product.product_name %} be
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
 {% data reusables.user_settings.add_and_verify_email %}
-{% data reusables.user_settings.select_primary_email %}{% ifversion fpt %}
+{% data reusables.user_settings.select_primary_email %}{% ifversion fpt or ghec %}
 {% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
 
 ## Deine Commit-E-Mail-Adresse in Git festlegen
 
-Mit dem Befehl `git config` können Sie die Ihren Git-Commits zugeordnete E-Mail-Adresse ändern. Die neue E-Mail-Adresse wird bei allen zukünftigen Commits angezeigt, die Sie über die Befehlszeile per Push an {% data variables.product.product_name %} übertragen. Alle Commits, die Sie vor der Änderung Ihrer E-Mail-Adresse für Commits durchgeführt haben, bleiben mit Ihrer früheren E-Mail-Adresse verbunden.
+Mit dem Befehl `git config` können Sie die Ihren Git-Commits zugeordnete E-Mail-Adresse ändern. Die neue E-Mail-Adresse wird bei allen zukünftigen Commits angezeigt, die Sie über die Befehlszeile per Push an {% data variables.product.product_location %} übertragen. Alle Commits, die Sie vor der Änderung Ihrer E-Mail-Adresse für Commits durchgeführt haben, bleiben mit Ihrer früheren E-Mail-Adresse verbunden.
 
 ### E-Mail-Adresse für alle Repositorys auf Deinem Computer festlegen
 
@@ -86,7 +87,7 @@ Mit dem Befehl `git config` können Sie die Ihren Git-Commits zugeordnete E-Mail
 
 ### E-Mail-Adresse für ein einzelnes Repository festlegen
 
-{% data variables.product.product_name %} verwendet die in Ihrer lokalen Git-Konfiguration festgelegte E-Mail-Adresse zur Zuordnung Ihrer über die Befehlszeile übertragenen Commits zu Ihrem {% data variables.product.product_name %}-Konto.
+{% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your account on {% data variables.product.product_location %}.
 
 Sie können die E-Mail-Adresse für Ihre Commits an einem bestimmten Repository ändern. Dadurch werden Ihre globalen Git-Konfigurationseinstellungen ausschließlich für dieses eine Repository überschrieben, d. h., die anderen Repositorys sind von dieser Änderung nicht betroffen.
 

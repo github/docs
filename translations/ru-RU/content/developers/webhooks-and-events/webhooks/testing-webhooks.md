@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -18,7 +19,7 @@ Now that you've [configured your local server](/webhooks/configuring/), you migh
 
 Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a delivery was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
 
-{% data variables.product.product_name %} keeps a log of each webhook delivery for {% ifversion fpt %} 30 {% else %} 8 {% endif %} days.
+{% data variables.product.product_name %} keeps a log of each webhook delivery for {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} days.
 
 ![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
 

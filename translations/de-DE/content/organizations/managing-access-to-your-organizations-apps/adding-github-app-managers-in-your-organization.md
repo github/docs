@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Add GitHub App managers
 ---
 
-Weitere Informationen zu den Berechtigungen für {% data variables.product.prodname_github_app %}-Manager findest Du unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization#github-app-managers).“
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Giving someone the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
 
@@ -32,7 +33,7 @@ Weitere Informationen zu den Berechtigungen für {% data variables.product.prodn
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Gib unter „App managers“ (App-Manager) den Benutzernamen der Person ein, die Du als GitHub App-Manager für die App festlegen möchtest. Klicke anschließend auf **Grant** (Erteilen). ![Einen {% data variables.product.prodname_github_app %}-Manager für eine bestimmte App hinzufügen](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Weiterführende Informationen
 
 - „[Informationen zu {% data variables.product.prodname_dotcom %}-Marketplace](/articles/about-github-marketplace/)“

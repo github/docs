@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ Wenn Du Dein Passwort geändert hast, solltest Du zum Schutz Deines Kontos die f
 
 - [Aktiviere die Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication) für Dein Konto, damit für den Zugriff mehr als nur ein Passwort erforderlich ist.
 - [Überprüfe Deine SSH-Schlüssel](/articles/reviewing-your-ssh-keys), [Deployment-Schlüssel](/articles/reviewing-your-deploy-keys) und [autorisierten Integrationen](/articles/reviewing-your-authorized-integrations), und widerrufe nicht autorisierte oder unbekannte Zugriffe in Deinen SSH- und Anwendungseinstellungen.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [Verifiziere alle E-Mail-Adressen](/articles/verifying-your-email-address). Wenn ein Angreifer seine E-Mail-Adresse zu Deinem Konto hinzugefügt hat, könnte er damit eine unerwünschte Zurücksetzung des Passworts erzwingen.
 {% endif %}
 - [Überprüfe das Sicherheitsprotokoll Deines Kontos](/github/authenticating-to-github/reviewing-your-security-log). So erhältst Du einen Überblick über die verschiedenen Konfigurationen Deiner Repositorys. Beispielsweise kannst Du sicherstellen, dass keine privaten Repositorys in öffentliche Repositorys umgewandelt oder keine Repositorys übertragen wurden.

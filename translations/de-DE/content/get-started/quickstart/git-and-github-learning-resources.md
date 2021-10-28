@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - GitHub
 shortTitle: Learning resources
@@ -22,7 +23,7 @@ Familiarize yourself with Git by visiting the [official Git project site](https:
 
 ## {% data variables.product.product_name %} verwenden
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_learning %} bietet kostenlose interaktive Kurse, die in {% data variables.product.prodname_dotcom %} integriert sind und automatisch sofort Feedback und Hilfestellungen geben. Lernen Sie, wie Sie Ihren ersten Pull Request erstellen, Ihren ersten Open-Source-Beitrag leisten, eine {% data variables.product.prodname_pages %}-Website erstellen und vieles mehr. Weitere Informationen zu den angebotenen Kursen findest Du unter [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
@@ -56,8 +57,8 @@ Auf unserem {% data variables.product.prodname_dotcom %} [YouTube-Kanal „GitHu
 
 ## Extras
 
-Ein interaktiver [Online-Git-Kurs](http://www.codeschool.com/courses/git-real) von [Code School](http://codeschool.com) bietet Dutzende von Übungen in mehreren Leveln in einem unterhaltsamen Spieleformat. Gerne kannst Du unsere [.gitignore-Vorlagen](https://github.com/github/gitignore) an Deine Anforderungen anpassen.
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Gerne kannst Du unsere [.gitignore-Vorlagen](https://github.com/github/gitignore) an Deine Anforderungen anpassen.
 
-Erweitern Sie Ihre {% data variables.product.prodname_dotcom %}-Reichweite durch {% ifversion fpt %}[Integrationen](/articles/about-integrations){% else %}Integrationen{% endif %} oder die Installation von [{% data variables.product.prodname_desktop %}](https://desktop.github.com) und des robusten Texteditors [Atom](https://atom.io).
+Erweitern Sie Ihre {% data variables.product.prodname_dotcom %}-Reichweite durch {% ifversion fpt or ghec %}[Integrationen](/articles/about-integrations){% else %}Integrationen{% endif %} oder die Installation von [{% data variables.product.prodname_desktop %}](https://desktop.github.com) und des robusten Texteditors [Atom](https://atom.io).
 
 Erfahre in den [Open-Source-Leitfäden](https://opensource.guide/), wie Du Open-Source-Projekte starten und weiterentwickeln kannst.

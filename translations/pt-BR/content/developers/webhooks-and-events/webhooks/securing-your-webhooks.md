@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -36,9 +37,9 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## Validar cargas do GitHub
 
-Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. Esta assinatura de hash está incluída com os cabeçalhos de cada solicitação como {% ifversion fpt or ghes > 2.22 or ghae %}`X-Hub-Signature-256`{% elsif ghes < 3.0 %}`X-Hub-Signature`{% endif %}.
+Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **Observação:** Para compatibilidade com versões anteriores, também incluímos o cabeçalho `X-Hub-Signature` gerado usando a função de hash SHA-1. Se possível, recomendamos que você use o cabeçalho `X-Hub-Signature-256` para melhorar a segurança. O exemplo abaixo demonstra o uso do cabeçalho `X-Hub-Signature-256`.
@@ -70,15 +71,10 @@ post '/payload' do
   "I got some JSON: #{push.inspect}"
 end
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 def verify_signature(payload_body)
   signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
   return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end{% elsif ghes < 3.0 %}
-def verify_signature(payload_body)
-  signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
-end{% endif %}
+end
 ```
 
 {% note %}
@@ -89,7 +85,7 @@ end{% endif %}
 
 A sua linguagem e implementações do servidor podem ser diferentes deste código de exemplo. No entanto, há uma série de aspectos muito importantes a destacar:
 
-* Não importa qual implementação você usar, a assinatura hash começa com {% ifversion fpt or ghes > 2.22 or ghae %}}`sha256=`{% elsif ghes < 3.0 %}`sha1=`{% endif %}, usando a chave do token do seu segredo e o texto da sua carga.
+* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
 * Não **se recomenda** usar um operador simples de`==`. Um método como [`secure_compare`][secure_compare] executa uma comparação de strings "tempo constante", o que ajuda a mitigar certos ataques de tempo contra operadores de igualdade regular.
 

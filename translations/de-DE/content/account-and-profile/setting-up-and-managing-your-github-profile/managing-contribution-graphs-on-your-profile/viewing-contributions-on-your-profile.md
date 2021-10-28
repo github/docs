@@ -1,6 +1,6 @@
 ---
 title: Beiträge auf Deinem Profil anzeigen
-intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: View contributions
 ---
 
-{% ifversion fpt or ghes %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
+{% ifversion fpt or ghes or ghec %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes or ghec %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
 
 {% note %}
 
@@ -40,11 +41,11 @@ Bestimmte Aktionen zählen auf Deiner Profilseite als Beiträge:
 
 ## Beliebte Repositorys
 
-Dieser Abschnitt zeigt Deine Repositorys mit den meisten Beobachtern (Watcher) an. {% ifversion fpt or ghes %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
+Dieser Abschnitt zeigt Deine Repositorys mit den meisten Beobachtern (Watcher) an. {% ifversion fpt or ghes or ghec %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![Beliebte Repositorys](/assets/images/help/profile/profile_popular_repositories.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Angeheftete Repositorys
 
@@ -83,7 +84,7 @@ Zeitstempel werden für Commits und Pull Requests unterschiedlich berechnet:
 
 ![Aktivitätsübersicht im Profil](/assets/images/help/profile/activity-overview-section.png)
 
-Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv Sie in der Organisation sind. Wenn Sie in Ihrer Profil-Bio eine Organisation @erwähnen und Sie ein Organisationsmitglied sind, wird diese Organisation in der Aktivitätsübersicht priorisiert. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
+Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv Sie in der Organisation sind. Wenn Sie in Ihrer Profil-Bio eine Organisation @erwähnen und Sie ein Organisationsmitglied sind, wird diese Organisation in der Aktivitätsübersicht priorisiert. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
 ## Beitragsaktivität
 
@@ -91,11 +92,11 @@ Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste 
 
 ![Zeitfilter für Beitragsaktivität](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion fpt or ghes or ghae-next %}
+{% ifversion fpt or ghes or ghae-next or ghec %}
 
 ## Beiträge von {% data variables.product.prodname_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen
 
-If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
 
 {% endif %}
 

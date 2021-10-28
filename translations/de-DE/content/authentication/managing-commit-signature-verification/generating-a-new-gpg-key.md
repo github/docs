@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**Hinweis:** Bevor Du einen neuen GPG-Schlüssel erzeugst, musst Du unbedingt Deine E-Mail-Adresse verifizieren. Wenn Du Deine E-Mail-Adresse noch nicht verifiziert hast, kannst Du keine Commits und Tags mit GPG signieren.{% ifversion fpt %} Weitere Informationen findest Du unter „[E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.{% endif %}
+**Hinweis:** Bevor Du einen neuen GPG-Schlüssel erzeugst, musst Du unbedingt Deine E-Mail-Adresse verifizieren. Wenn Du Deine E-Mail-Adresse noch nicht verifiziert hast, kannst Du keine Commits und Tags mit GPG signieren.{% ifversion fpt or ghec %} Weitere Informationen findest Du unter „[E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.{% endif %}
 
 {% endnote %}
 
@@ -43,7 +44,7 @@ topics:
 
   {% note %}
 
-  **Hinweis:** Wenn Du zur Eingabe Deiner E-Mail-Adresse aufgefordert wirst, stelle sicher, dass Du die verifizierte E-Mail-Adresse für Dein GitHub-Konto eingibst. {% data reusables.gpg.private-email %} {% ifversion fpt %} Weitere Informationen finden Sie unter „[E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“ und „[Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
+  **Hinweis:** Wenn Du zur Eingabe Deiner E-Mail-Adresse aufgefordert wirst, stelle sicher, dass Du die verifizierte E-Mail-Adresse für Dein GitHub-Konto eingibst. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} Weitere Informationen finden Sie unter „[E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“ und „[Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
 
   {% endnote %}
 

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +21,7 @@ topics:
 
 Wenn Du Issues zukünftig erneut aktivieren möchtest, sind alle Issues wieder verfügbar, die zuvor hinzugefügt wurden.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 

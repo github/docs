@@ -8,12 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre executores auto-hospedados
 
@@ -56,7 +58,7 @@ Você pode usar qualquer máquina como um executor auto-hospedado, desde que ela
 * A máquina tem recursos de hardware suficientes para o tipo de fluxos de trabalho que você planeja executar. O aplicativo do executor auto-hospedado requer apenas recursos mínimos.
 * Se você desejar executar fluxos de trabalho que usam ações do contêiner do Docker ou dos contêineres de serviço, você deverá usar uma máquina Linux e o Docker deve estar instalados.
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Dimensionar automaticamente os seus executores auto-hospedados
 
 Você pode aumentar ou diminuir automaticamente o número de executores auto-hospedados no seu ambiente em resposta aos eventos que você receber. Para obter mais informações, consulte "[Dimensionamento automático com executores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
@@ -118,7 +120,7 @@ As seguintes arquiteturas de processador são compatíveis com o aplicativo do e
 
 ## Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
 
-Algumas configurações extras podem ser necessárias para usar ações de {% data variables.product.prodname_dotcom_the_website %} com {% data variables.product.prodname_ghe_server %} ou para usar as ações `actions/setup-LANGUAGE` com executores auto-hospedados sem acesso à internet. Para obter mais informações, consulte "[Comunicação entre os executores auto-hospedados e {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)".
+Algumas configurações extras podem ser necessárias para usar ações de {% data variables.product.prodname_dotcom_the_website %} com {% data variables.product.prodname_ghe_server %} ou para usar as ações `de configuração/configuração LANGUAGE` com executores auto-hospedados sem acesso à internet. Para obter mais informações, consulte "[Comunicação entre os executores auto-hospedados e {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)".
 
 {% endif %}
 
@@ -135,7 +137,7 @@ Se você usa uma lista de endereços IP para a
 conta da sua organização ou empresa de {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do seu executor auto-hospedado à lista de permissão. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.prodname_dotcom %} URLs listadas abaixo.
 
@@ -159,11 +161,11 @@ pkg-containers-az.githubusercontent.com
 *.blob.core.windows.net
 ```
 
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar política para as configurações de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 
 {% else %}
 
-Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com {% data variables.product.product_location %}.
+Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.product_location %}.
 
 {% endif %}
 

@@ -4,6 +4,7 @@ intro: 'Puedes configurar tu editor predeterminado para {% data variables.produc
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 shortTitle: Configurar el editor predeterminado

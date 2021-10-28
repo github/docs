@@ -8,7 +8,9 @@ redirect_from:
   - /code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 type: overview
 topics:
   - Dependabot
@@ -30,12 +32,14 @@ shortTitle: Dependabotアラート
 
 ## 脆弱性のある依存関係の検出
 
-{% data variables.product.prodname_dependabot %}は、脆弱な依存関係を検出し、以下の場合に{% data variables.product.prodname_dependabot_alerts %}を送信します。
+{% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% ifversion fpt %}
+{% data variables.product.prodname_dependabot %}は脆弱性のある依存関係を検出し、以下の場合に{% data variables.product.prodname_dependabot_alerts %}を送信します。
+
+{% ifversion fpt or ghec %}
 - {% data variables.product.prodname_advisory_database %} に新しい脆弱性が追加されたとき。 詳しい情報については、「[{% data variables.product.prodname_advisory_database %} のセキュリティの脆弱性を参照する](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)」および「[{% data variables.product.prodname_security_advisories %} について](/code-security/security-advisories/about-github-security-advisories)」を参照してください。{% else %}
-- 新しいアドバイザリデータが {% data variables.product.prodname_dotcom_the_website %} から 1 時間ごとに {% data variables.product.prodname_ghe_server %} に同期されたとき。 {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-- リポジトリの依存関係グラフが変更されたとき。 たとえば、コントリビューターがコミットをプッシュして、依存しているパッケージまたはバージョンを変更したとき{% ifversion fpt %}、またはいずれかの依存関係のコードが変更されたときなどです{% endif %}。 詳しい情報については、「[依存関係グラフについて](/code-security/supply-chain-security/about-the-dependency-graph)」を参照してください。
+- 新しいアドバイザリデータが {% data variables.product.prodname_dotcom_the_website %} から 1 時間ごとに {% data variables.product.product_location %} に同期されたとき。 {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+- リポジトリの依存関係グラフが変更されたとき。 たとえば、コントリビューターがコミットをプッシュして、依存しているパッケージまたはバージョンを変更したとき{% ifversion fpt or ghec %}、またはいずれかの依存関係のコードが変更されたときなどです{% endif %}。 詳しい情報については、「[依存関係グラフについて](/code-security/supply-chain-security/about-the-dependency-graph)」を参照してください。
 
 {% data reusables.repositories.dependency-review %}
 
@@ -51,18 +55,18 @@ shortTitle: Dependabotアラート
 
 {% data reusables.repositories.enable-security-alerts %}
 
-{% ifversion fpt %}{% data variables.product.prodname_dotcom %} は、_パブリック_リポジトリ内の脆弱性のある依存関係を検出し、デフォルト設定で {% data variables.product.prodname_dependabot_alerts %} を生成します。 プライベートリポジトリの所有者、または管理アクセス権を持つユーザは、リポジトリの依存関係グラフと {% data variables.product.prodname_dependabot_alerts %} を有効にすることで、{% data variables.product.prodname_dependabot_alerts %} を有効化できます。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} は、_パブリック_リポジトリ内の脆弱性のある依存関係を検出し、デフォルト設定で {% data variables.product.prodname_dependabot_alerts %} を生成します。 プライベートリポジトリの所有者、または管理アクセス権を持つユーザは、リポジトリの依存関係グラフと {% data variables.product.prodname_dependabot_alerts %} を有効にすることで、{% data variables.product.prodname_dependabot_alerts %} を有効化できます。
 
 ユーザアカウントまたは Organization が所有するすべてのリポジトリの {% data variables.product.prodname_dependabot_alerts %} を有効または無効にすることもできます。 詳しい情報については、「[ユーザーアカウントのセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」または「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
-{% data variables.product.prodname_dependabot_alerts %} に関連するアクションの権限要件については、「[Organization のリポジトリ権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)」を参照してください。
+For information about access requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
 
 {% data variables.product.product_name %} は依存関係グラフの生成をすぐに開始し、脆弱性のある依存関係が特定されるとすぐにアラートを生成します。 グラフは通常数分以内に入力されますが、多くの依存関係を持つリポジトリの場合は時間がかかる場合があります。 詳しい情報については、「[プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)」を参照してください。
 {% endif %}
 
-{% data variables.product.product_name %} が脆弱性のある依存関係を特定すると、{% data variables.product.prodname_dependabot %} アラートを生成し、リポジトリのセキュリティタブに表示します。 アラートには、プロジェクト内で影響を受けるファイルへのリンクと、修正バージョンに関する情報が含まれています。 {% data variables.product.product_name %} は、影響を受けるリポジトリのメンテナに、通知設定に従って新しいアラートについて通知します。 詳しい情報については、「[脆弱性のある依存関係に対する通知を設定する](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)」を参照してください。
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes > 3.0 %} on the Security tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes > 3.0 %}a link to the affected file in the project, and {% endif %}information about a fixed version. {% data variables.product.product_name %} may also notify the maintainers of affected repositories about the new alert according to their notification preferences. 詳しい情報については、「[脆弱性のある依存関係に対する通知を設定する](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.prodname_dependabot_security_updates %} が有効になっているリポジトリの場合、アラートには、マニフェストまたはロックファイルを脆弱性を解決する最小バージョンに更新するためのPull Requestへのリンクも含まれる場合があります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 {% endif %}
 
@@ -74,9 +78,9 @@ shortTitle: Dependabotアラート
 
 ## {% data variables.product.prodname_dependabot %}アラートへのアクセス
 
-{% ifversion fpt %}リポジトリのセキュリティタブ、もしくは{% endif %}リポジトリの依存関係グラフにおいて、特定のプロジェクトに影響するすべてのアラートを見ることができます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
+{% ifversion fpt or ghec %}リポジトリのセキュリティタブ、もしくは{% endif %}リポジトリの依存関係グラフにおいて、特定のプロジェクトに影響するすべてのアラートを見ることができます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
 
-デフォルトでは、新しい{% data variables.product.prodname_dependabot_alerts %}に関して影響を受けるリポジトリに管理権限を持っている人に通知を行います。 {% ifversion fpt %}{% data variables.product.product_name %}は、いかなるリポジトリについても特定された脆弱性を公開することはありません。 {% data variables.product.prodname_dependabot_alerts %} を、自分が所有または管理者権限を持っているリポジトリで作業している追加のユーザや Team に表示することもできます。 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」を参照してください。
+デフォルトでは、新しい{% data variables.product.prodname_dependabot_alerts %}に関して影響を受けるリポジトリに管理権限を持っている人に通知を行います。 {% ifversion fpt or ghec %}{% data variables.product.product_name %}は、いかなるリポジトリについても特定された脆弱性を公開することはありません。 {% data variables.product.prodname_dependabot_alerts %} を、自分が所有または管理者権限を持っているリポジトリで作業している追加のユーザや Team に表示することもできます。 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)」を参照してください。
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
@@ -84,9 +88,9 @@ shortTitle: Dependabotアラート
 
 {% data variables.product.prodname_advisory_database %}内の特定の脆弱性に対応するすべての{% data variables.product.prodname_dependabot_alerts %}を見ることもできます。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 - 「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」
 - [リポジトリ内の脆弱な依存関係を表示・更新する](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)
-- [{% data variables.product.product_name %} によるデータの利用方法と保護方法を理解する](/categories/understanding-how-github-uses-and-protects-your-data){% endif %}
+- [{% data variables.product.prodname_dotcom %} によるデータの利用方法と保護方法を理解する](/categories/understanding-how-github-uses-and-protects-your-data){% endif %}

@@ -1,3 +1,3 @@
-Du kannst die Single Sign-On-Identität anzeigen, die ein Mitglied mit seinem {% data variables.product.product_name %}-Konto verknüpft hat.
+You can view the single sign-on identity that a member has linked to their account on {% data variables.product.product_location %}.
 
-Wenn ein Mitglied die falsche Identität mit seinem {% data variables.product.product_name %}-Konto verknüpft, kannst Du die verknüpfte Identität widerrufen, damit das Mitglied es erneut versuchen kann.
+If a member links the wrong identity to their account on {% data variables.product.product_location %}, you can revoke the linked identity to allow the member to try again.

@@ -1,6 +1,6 @@
 ---
 title: Team への Organization メンバーの追加
-intro: 'オーナーあるいはチームメンテナ権限を持っている人は、Organization のメンバーを Team に加えることができます。 オーナー権限を持っている人は、{% ifversion fpt %}メンバーではない人を Team および Organization に参加するよう招待{% else %}メンバーではない人を Team および Organization に追加{% endif %}することもできます。'
+intro: 'オーナーあるいはチームメンテナ権限を持っている人は、Organization のメンバーを Team に加えることができます。 オーナー権限を持っている人は、{% ifversion fpt or ghec %}メンバーではない人を Team および Organization に参加するよう招待{% else %}メンバーではない人を Team および Organization に追加{% endif %}することもできます。'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ shortTitle: Teamへのメンバーの追加
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-{% ifversion fpt %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
 ## 参考リンク
 

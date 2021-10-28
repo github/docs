@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 redirect_from:
@@ -18,7 +19,7 @@ shortTitle: Fazer merge do PR automaticamente
 
 Se você habilitar o merge automático para um pull request, este será mesclado automaticamente quando todas as revisões necessárias forem atendidas e as verificações de status forem aprovadas. O merge automático impede que você espere que os sejam atendidos para que você possa passar para outras tarefas.
 
-Antes de usar o merge automático com um pull request, o merge automático deve ser habilitado para o repositório. Para obter mais informações, consulte "[Gerenciar merge automático para pull requests no seu repositório](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."{% ifversion fpt or ghae-next or ghes > 3.1 %}
+Antes de usar o merge automático com um pull request, o merge automático deve ser habilitado para o repositório. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 Depois que você ativar o merge automático para uma pull request, se alguém que não tiver permissões de gravação no repositório fizer push de novas alterações no branch principal ou alterar o branch de base do pull request, o merge automático será desabilitado. Por exemplo, se um mantenedor permitir o merge automático para um pull request a partir de uma bifurcação, o merge automático será desabilitado depois que um colaborador fizer push de novas alterações no pull request.{% endif %}
 

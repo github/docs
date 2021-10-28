@@ -2,15 +2,15 @@
 #TODO: Replace with support.github.com once portal is deprecated.
 contact_ent_support: '[GitHub Enterprise-Support](https://enterprise.githubsupport.com/hc/en-us) oder [GitHub Premium-Support](https://premium.githubsupport.com)'
 contact_support: >-
-  {% ifversion fpt %}[GitHub Support](https://support.github.com/contact?tags=docs-generic){% else %}your site administrator{% endif %}
+  {% ifversion fpt or ghec %}[GitHub Support](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}your site administrator{% elsif ghae %}your enterprise owner{% endif %}
 report_abuse: >-
-  {% ifversion fpt %}[Missbrauch melden](https://github.com/contact/report-abuse){% endif %}
+  {% ifversion fpt or ghec %}[Missbrauch melden](https://github.com/contact/report-abuse){% endif %}
 report_content: >-
-  {% ifversion fpt %}[Missbrauch melden](https://github.com/contact/report-content){% endif %}
+  {% ifversion fpt or ghec %}[Missbrauch melden](https://github.com/contact/report-content){% endif %}
 contact_dmca: >-
-  {% ifversion fpt %}[Formular für Urheberrechtsansprüche](https://github.com/contact/dmca){% endif %}
+  {% ifversion fpt or ghec %}[Formular für Urheberrechtsansprüche](https://github.com/contact/dmca){% endif %}
 contact_privacy: >-
-  {% ifversion fpt %}[Datenschutzkontaktformular](https://github.com/contact/privacy){% endif %}
+  {% ifversion fpt or ghec %}[Datenschutzkontaktformular](https://github.com/contact/privacy){% endif %}
 contact_enterprise_sales: "[GitHub's Vertriebsteam](https://enterprise.github.com/contact)"
 contact_feedback_actions: '[Feedback-Formular für GitHub Actions](https://support.github.com/contact/feedback?contact[category]=actions)'
 #The team that provides Standard Support

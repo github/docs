@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Add a file
@@ -39,7 +40,7 @@ Für Dateien, die Sie über einen Browser zu einem Repository hinzufügen, gilt 
 
 ## Eine Datei über die Befehlszeile zu einem Repository hinzufügen
 
-Sie können eine vorhandene Datei über die Befehlszeile in ein {% data variables.product.product_name %}-Repository hochladen.
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
 
 {% tip %}
 

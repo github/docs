@@ -38,6 +38,8 @@ Wenn Du unsicher bist, ob der Issue außerhalb des Bereiches liegt, öffne ein T
 
 ## {% data variables.contact.enterprise_support %} kontaktieren
 
+{% data reusables.support.zendesk-deprecation %}
+
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
 - Installation und Verwendung von {% data variables.product.prodname_advanced_security %}
 - Ursachen für unterstützte Fehler erkennen und überprüfen

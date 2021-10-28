@@ -6,6 +6,8 @@ shortTitle: Revisión de dependencias
 versions:
   fpt: '*'
   ghes: '>= 3.2'
+  ghae: issue-4864
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -25,10 +27,14 @@ redirect_from:
 
 Si una solicitud de cambios apunta a la rama predeterminada de tu repositorio y contiene cambios a los archivos de bloqueo o de manifiesto empaquetados, puedes mostrar una revisión de dependencias para ver qué ha cambiado. La revisión de dependencias incluye detalles de los cambios a las dependencias indirectas en los archivos de bloqueo, y te dice si cualquiera de las dependencias que se agregaron o actualizaron contienen vulnerabilidades conocidas.
 
+{% ifversion fpt or ghec %}
 La revisión de dependencias se encuentra disponible en:
 
 * Todos los repositorios públicos.
 * Los repositorios privados que pertenecen a las organizaciones con una licencia de {% data variables.product.prodname_advanced_security %} que tengan la gráfica dependencias habilitada. Para obtener más información, consulta la sección "[Explorar las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
+{% elsif ghes or ghae %}
+La revisión de dependencias se encuentra disponible cuando se habilita la gráfica de dependencias de {% data variables.product.product_location %} y cuando se habilita la {% data variables.product.prodname_advanced_security %} para la organización o el repositorio.
+{% endif %}
 
 Algunas veces puede que solo quieras actualizar la versión de una dependencia en un manifiesto y generar una solicitud de cambios. Sin embargo, si la versión actualizada de esta dependencia directa también tiene dependencias actualizadas, tu solicitud de cambios podría tener más cambios de lo que esperas. La revisión de dependencias para cada archivo de bloqueo y de manifiesto proporciona un aforma sencilla para ver lo que ha cambiado y te deja saber si cualquiera de las versiones nuevas de las dependencias contienen vulnerabilidades conocidas.
 
@@ -40,4 +46,4 @@ La revisión de dependencias es compatible con los mismos lenguajes de programac
 
 ## Habilitar la revisión de dependencias
 
-La característica de revisión de dependencias se encuentra disponible cuando habilitas la gráfica de dependencias. {% ifversion fpt %}Para obtener más información, consulta la sección "[Habilitar la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)".{% endif %}{% ifversion ghes > 3.1 %}Para obtener más información, consulta la sección "[Habilitar las alertas para dependencias vulnerables en{% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
+La característica de revisión de dependencias se encuentra disponible cuando habilitas la gráfica de dependencias. {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph and Dependabot alerts on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}

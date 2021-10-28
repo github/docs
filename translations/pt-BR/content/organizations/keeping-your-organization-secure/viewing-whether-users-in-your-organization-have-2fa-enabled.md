@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Uso da 2FA na organização
 
 {% note %}
 
-**Observação:** você pode exigir que todos os integrantes{% ifversion fpt %}, inclusive proprietários, gerentes de cobrança e{% else %} e{% endif %} colaboradores externos na sua organização tenham a autenticação de dois fatores habilitada. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
+**Observação:** você pode exigir que todos os integrantes{% ifversion fpt or ghec %}, inclusive proprietários, gerentes de cobrança e{% else %} e{% endif %} colaboradores externos na sua organização tenham a autenticação de dois fatores habilitada. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/articles/requiring-two-factor-authentication-in-your-organization)".
 
 {% endnote %}
 

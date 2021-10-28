@@ -1,13 +1,13 @@
 ---
 title: PowerShell のビルドとテスト
 intro: PowerShell プロジェクトのビルドとテストのための継続的インテグレーション (CI) ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
@@ -19,6 +19,7 @@ shortTitle: Build & test PowerShell
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - リポジトリのルートディレクトリに`resultsfile.log`というファイルが存在するかをチェックします。
 * `Should -Be $true` - Pesterを使って期待される結果を定義します。 結果が期待どおりではなかった場合、{% data variables.product.prodname_actions %}はこれを失敗したテストとしてフラグを立てます。 例:
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![失敗したPesterテスト](/assets/images/help/repository/actions-failed-pester-test.png)

@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configure 2FA recovery
@@ -51,7 +52,7 @@ Wenn Du einen Wiederherstellungscode genutzt hast, um wieder Zugriff auf Dein Ko
 
 Du kannst einen Sicherheitsschlüssel als sekundäre Zwei-Faktor-Authentifizierungsmethode festlegen und diesen Schlüssel nutzen, um erneut Zugriff auf Dein Konto zu erhalten. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)“.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Eine Fallback-Authentifizierungsnummer festlegen
 

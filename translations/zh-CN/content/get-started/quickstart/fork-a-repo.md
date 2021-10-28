@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -37,7 +38,7 @@ topics:
 
 有关将开源原则应用于组织在 {% data variables.product.product_location %} 上的开发工作的详细信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部来源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](https://choosealicense.com/)”。
 
@@ -56,7 +57,7 @@ topics:
 
 您可能为了对上游或原始仓库提议更改而复刻项目。 在这种情况下，最好定期将您的复刻与上游仓库同步。 为此，您需要在命令行上使用 Git。 您可以使用刚才复刻的 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库练习设置上游仓库。
 
-1. 在 {% data variables.product.product_location %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
 
 {% endwebui %}
@@ -89,7 +90,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
 {% include tool-switcher %}
 {% webui %}
 
-1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -139,7 +140,7 @@ gh repo fork <em>repository</em> --clone=true
 {% include tool-switcher %}
 {% webui %}
 
-1. 在 {% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 将目录更改为您克隆的复刻的位置。
@@ -200,7 +201,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 ## 另找一个仓库进行复刻
 复刻仓库，开始参与项目。 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}您可以浏览 [Explore](https://github.com/explore) 以查找项目并开始参与开源仓库。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+{% ifversion fpt or ghec %}您可以浏览 [Explore](https://github.com/explore) 以查找项目并开始参与开源仓库。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 
 {% endif %}
 

@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: Active SAML sessions

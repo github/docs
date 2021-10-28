@@ -30,6 +30,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Troubleshoot Jekyll errors
@@ -40,7 +41,7 @@ shortTitle: Troubleshoot Jekyll errors
 Wenn beim Erstellen Ihrer {% data variables.product.prodname_pages %}-Website (lokal oder auf {% data variables.product.product_name %}) mit Jekyll ein Fehler auftritt, können Sie die Fehlerbehebung mithilfe der Fehlermeldungen durchführen. Weitere Informationen zu Fehlermeldungen und zum Abrufen dieser Meldungen findest Du unter „[Behebung von Jekyll-Build-Fehlern bei {% data variables.product.prodname_pages %}-Websites](/articles/about-jekyll-build-errors-for-github-pages-sites).“
 
 Wenn Du eine generische Fehlermeldung erhalten hast, suche nach häufigen Fehlern.
-- Du verwendest nicht unterstützte Plug-Ins. Weitere Informationen finden Sie unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll#plugins)“.{% ifversion fpt %}
+- Du verwendest nicht unterstützte Plug-Ins. Weitere Informationen finden Sie unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll#plugins)“.{% ifversion fpt or ghec %}
 - Dein Repository hat die Größenbeschränkung für Repositorys überschritten. Weitere Informationen findest Du unter „[Wie lautet mein Disk-Kontingent?](/articles/what-is-my-disk-quota)“.{% endif %}
 - Du hast die `source`-Einstellung in der Datei *_config.yml* geändert. {% data variables.product.prodname_pages %} überschreibt diese Einstellung beim Build-Prozess.
 - Ein Dateiname in Deiner Veröffentlichungsquelle enthält einen Doppelpunkt (`:`). Dies wird nicht unterstützt.
@@ -163,7 +164,7 @@ Zur Fehlerbehebung entferne die Konfigurationsoption `relative_permalinks` aus d
 
 Dieser Fehler bedeutet, dass die Website einen symbolischen Link (Symlink) enthält, der sich nicht in der Veröffentlichungsquelle für die Website befindet. Weitere Informationen zu Symlinks findest Du unter „[Symbolic Link](https://en.wikipedia.org/wiki/Symbolic_link)“ (Symbolische Verknüpfung) auf Wikipedia.
 
-Zur Fehlerbehebung prüfe, ob die in der Fehlermeldung genannte Datei für den Build der Website erforderlich ist. Falls nicht (oder falls die Datei kein Symlink sein soll), lösche die Datei. Wenn die Datei, auf die der Symlink verweist, für den Build der Website erforderlich ist, stelle sicher, dass die Datei oder das Verzeichnis, auf das der Symlink verweist, in der Veröffentlichungsquelle der Website vorhanden ist. To include external assets, consider using {% ifversion fpt %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
+Zur Fehlerbehebung prüfe, ob die in der Fehlermeldung genannte Datei für den Build der Website erforderlich ist. Falls nicht (oder falls die Datei kein Symlink sein soll), lösche die Datei. Wenn die Datei, auf die der Symlink verweist, für den Build der Website erforderlich ist, stelle sicher, dass die Datei oder das Verzeichnis, auf das der Symlink verweist, in der Veröffentlichungsquelle der Website vorhanden ist. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[Using submodules with {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)."{% endif %}
 
 ## Syntaxfehler in der „for“-Schleife
 
