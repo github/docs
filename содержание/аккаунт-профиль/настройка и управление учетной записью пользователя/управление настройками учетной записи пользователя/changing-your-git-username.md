@@ -1,5 +1,5 @@
 ---
-title: Changing your GitHub username
+title: Changing your Gig username
 intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
   - /articles/how-to-change-your-username/
