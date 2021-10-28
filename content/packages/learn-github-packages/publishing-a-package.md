@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -21,13 +22,13 @@ You can help people understand and use your package by providing a description a
 
 {% data reusables.package_registry.public-or-private-packages %} A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 If a new version of a package fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 {% endif %}
 
 ## Publishing a package
 
-You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Create or use an existing access token with the appropriate scopes for the task you want to accomplish. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
 2. Authenticate to {% data variables.product.prodname_registry %} using your access token and the instructions for your package client.

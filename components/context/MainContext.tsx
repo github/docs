@@ -5,12 +5,19 @@ import type { BreadcrumbT } from 'components/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 
-type ProductT = {
+export type ProductT = {
   external: boolean
   href: string
   id: string
   name: string
   versions?: Array<string>
+}
+
+export type ProductGroupT = {
+  name: string
+  icon: string
+  octicon: string
+  children: Array<ProductT>
 }
 
 type VersionItem = {
@@ -62,6 +69,7 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
+  productGroups: Array<ProductGroupT>
   communityRedirect: {
     name: string
     href: string
@@ -114,6 +122,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
+    productGroups: req.context.productGroups,
     communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,

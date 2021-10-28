@@ -48,6 +48,28 @@ describe('breadcrumbs', () => {
       expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
     })
 
+    test('works for ghec billing page', async () => {
+      const $ = await getDOM(
+        '/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise'
+      )
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+      expect($breadcrumbs).toHaveLength(3)
+      expect($breadcrumbs[0].attribs.title).toBe('product: Billing and payments')
+    })
+
+    test('works for pages that have overlapping product names', async () => {
+      const $ = await getDOM(
+        // article path has overlap with `/en/github`
+        '/en/github-cli/github-cli/about-github-cli'
+      )
+      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+      console.log(`dbg: breadcrumbs`, $breadcrumbs)
+      expect($breadcrumbs).toHaveLength(3)
+      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub CLI')
+      expect($breadcrumbs[1].attribs.title).toBe('category: GitHub CLI')
+      expect($breadcrumbs[2].attribs.title).toBe('article: About GitHub CLI')
+    })
+
     test('parses Liquid variables inside titles', async () => {
       const $ = await getDOM('/en/enterprise/admin/enterprise-support')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')

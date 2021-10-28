@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /using-github-actions-for-project-management
   - /adding-labels-to-issues
@@ -15,3 +16,5 @@ children:
   - /removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /scheduling-issue-creation
 ---
+
+{% data reusables.actions.ae-beta %}

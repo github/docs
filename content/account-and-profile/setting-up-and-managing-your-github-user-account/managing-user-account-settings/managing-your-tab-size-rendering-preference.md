@@ -1,8 +1,9 @@
 ---
 title: Managing your tab size rendering preference
-intro: 'You can manage the number of spaces a tab is equal to for your user account.'
+intro: You can manage the number of spaces a tab is equal to for your user account.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Managing your tab size
