@@ -70,11 +70,21 @@ When you add a `CITATION.cff` file to the default branch of your repository, it 
 
 If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
-Resource | Type
---------- | -----
-Research article | `article`
-Conference paper | `conference-paper`
-Book | `book`
+| Resource | CFF type | BibTeX type | APA annotation |
+|----------|----------|-------------|----------------|
+| Journal article/paper | `article` | `@article` | |
+| Book | `book` | `@book` | |
+| Booklet (bound but not published) | `pamphlet` | `@booklet` | |
+| Conference article/paper | `conference-paper` | `@inproceedings` | [Conference paper] |
+| Conference proceedings | `conference`, `proceedings` | `@proceedings` | |
+| Data set | `data`, `database` | `@misc` | [Data set] |
+| Magazine article | `magazine-article` | `@article` | |
+| Manual | `manual` | `@manual` | |
+| Misc/generic/other | `generic`, any other CFF type | `@misc` | |
+| Newspaper article | `newspaper-article` | `@article` | |
+| Software |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [Computer software] |
+| Report/technical report | `report` | `@techreport` | |
+| Unpublished | `unpublished` | `@unpublished` | |
 
 Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
