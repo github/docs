@@ -41,14 +41,14 @@ export const Breadcrumbs = () => {
               title={title}
               className={cx(
                 'd-inline-block px-2',
-                pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+                pathWithLocale === breadcrumb.href && 'color-fg-muted'
               )}
             >
               {breadcrumb.title}
             </Link>
           ),
           i !== arr.length - 1 ? (
-            <span className="color-text-tertiary" key={`${i}-slash`}>
+            <span className="color-fg-muted" key={`${i}-slash`}>
               /
             </span>
           ) : null,

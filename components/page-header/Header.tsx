@@ -27,7 +27,7 @@ export const Header = () => {
     currentLayoutName === 'release-notes'
 
   return (
-    <div className="border-bottom color-border-secondary no-print">
+    <div className="border-bottom color-border-muted no-print">
       {error !== '404' && <HeaderNotifications />}
 
       <header className={cx('container-xl px-3 px-md-6 pt-3 pb-3 position-relative z-3')}>
@@ -57,12 +57,12 @@ export const Header = () => {
           <div className="d-flex flex-justify-between">
             <div className="d-flex flex-items-center" id="github-logo-mobile" role="banner">
               <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
-                <MarkGithubIcon size={32} className="color-icon-primary" />
+                <MarkGithubIcon size={32} className="color-fg-default" />
               </Link>
 
               <Link
                 href={`/${router.locale}`}
-                className="f4 text-semibold color-text-primary no-underline no-wrap pl-2"
+                className="f4 text-semibold color-fg-default no-underline no-wrap pl-2"
               >
                 {t('github_docs')}
               </Link>
@@ -84,14 +84,12 @@ export const Header = () => {
           <div className="relative">
             <div
               className={cx(
-                'width-full position-absolute left-0 right-0 color-shadow-large color-bg-primary px-2 px-md-4 pb-3',
+                'width-full position-absolute left-0 right-0 color-shadow-large color-bg-default px-2 px-md-4 pb-3',
                 isMenuOpen ? 'd-block' : 'd-none'
               )}
             >
               <div className="mt-3 mb-2">
-                <h4 className="f5 text-normal color-text-secondary ml-3">
-                  {t('explore_by_product')}
-                </h4>
+                <h4 className="f5 text-normal color-fg-muted ml-3">{t('explore_by_product')}</h4>
 
                 <ProductPicker />
               </div>

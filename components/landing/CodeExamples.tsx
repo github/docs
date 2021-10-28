@@ -63,10 +63,7 @@ export const CodeExamples = () => {
       )}
 
       {isSearching && searchResults.length === 0 && (
-        <div
-          data-testid="code-examples-no-results"
-          className="py-4 text-center color-text-secondary"
-        >
+        <div data-testid="code-examples-no-results" className="py-4 text-center color-fg-muted">
           <div className="mb-3">
             <SearchIcon size={24} />{' '}
           </div>

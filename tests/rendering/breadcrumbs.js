@@ -36,7 +36,7 @@ describe('breadcrumbs', () => {
       expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
       expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
       expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
-      expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
+      expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
@@ -110,7 +110,7 @@ describe('breadcrumbs', () => {
         'category: Enforcing best practices with GitHub Policies'
       )
       expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
-      expect($breadcrumbLinks[1].attribs.class.includes('color-text-tertiary')).toBe(true)
+      expect($breadcrumbLinks[1].attribs.class.includes('color-fg-muted')).toBe(true)
     })
   })
 

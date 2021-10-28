@@ -25,7 +25,7 @@ export const SidebarNav = () => {
       >
         <Link
           href={`/${router.locale}`}
-          className="color-text-primary"
+          className="color-fg-default"
           aria-hidden="true"
           tabIndex={-1}
         >
@@ -33,7 +33,7 @@ export const SidebarNav = () => {
         </Link>
         <Link
           href={`/${router.locale}`}
-          className="f4 text-semibold color-text-primary no-underline no-wrap pl-2 flex-auto"
+          className="f4 text-semibold color-fg-default no-underline no-wrap pl-2 flex-auto"
         >
           {t('github_docs')}
         </Link>
