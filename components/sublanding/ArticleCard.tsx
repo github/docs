@@ -16,7 +16,7 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
         <div className="h6 text-uppercase" data-testid="article-card-type">
           {typeLabel}
         </div>
-        <p className="color-text-secondary my-3">{card.intro}</p>
+        <p className="color-text-secondary my-3" dangerouslySetInnerHTML={{ __html: card.intro }} />
         {card.topics.length > 0 && (
           <div>
             {card.topics.map((topic) => {

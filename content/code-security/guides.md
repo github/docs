@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 layout: product-sublanding
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 learningTracks:
