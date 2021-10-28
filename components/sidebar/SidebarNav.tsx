@@ -14,11 +14,11 @@ export const SidebarNav = () => {
 
   return (
     <div
-      className="d-none d-lg-block color-bg-tertiary position-sticky top-0 overflow-y-auto flex-shrink-0 pb-5"
-      style={{ width: 286, height: '100vh' }}
+      className="d-none d-lg-block bg-primary position-sticky top-0 overflow-y-auto flex-shrink-0 pb-5 border-right"
+      style={{ width: 326, height: '100vh' }}
     >
       <div
-        className="d-flex flex-items-center p-4 position-sticky top-0 color-bg-tertiary"
+        className="d-flex flex-items-center p-4 position-sticky top-0 bg-primary"
         style={{ zIndex: 3 }}
         id="github-logo"
         role="banner"

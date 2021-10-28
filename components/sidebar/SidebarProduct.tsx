@@ -62,7 +62,7 @@ export const SidebarProduct = () => {
                     key={childPage.href + i}
                     data-is-active-category={isActive}
                     data-is-current-page={isActive && isStandaloneCategory}
-                    className={cx('py-1', isActive && 'color-bg-info')}
+                    className={cx('py-1', isActive && 'color-bg-inset')}
                   >
                     {isStandaloneCategory ? (
                       <Link
