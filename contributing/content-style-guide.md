@@ -48,6 +48,19 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
+- If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+  - **Use**:
+
+    ```
+    GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+    ```
+
+  - **Avoid**:
+ 
+    ```
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
+
 
 ### Commands
 

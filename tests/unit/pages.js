@@ -176,7 +176,7 @@ describe('pages module', () => {
     test('yields a non-empty object with more unique entries than pages', async () => {
       // Why does it contain MORE unique entries, you ask?
       // TL;DR: The pages array contains one item per Page + language, with a `permalinks` array
-      // property for each product version supported (free-pro-team, enterprise-server@2.22, etc.)
+      // property for each product version supported (free-pro-team, enterprise-server@3.0, etc.)
       // The pageMap, on the other hand, is keyed by unique URLs, so it has 1-N (where N is the
       // number of product versions supported) keys pointing to the same Page + language object
 
