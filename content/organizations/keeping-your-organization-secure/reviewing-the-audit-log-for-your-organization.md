@@ -746,4 +746,5 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 ## Further reading
 
-- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"
+- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5146 %}
+- "[Exporting member information for your organization](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
