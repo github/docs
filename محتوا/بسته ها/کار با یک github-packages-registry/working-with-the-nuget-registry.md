@@ -234,3 +234,4 @@ Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not s
 ## Further reading
 
 - "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+4c4a6f7ab85aaf2d1a139bec7a2d2d6e1a586a51
