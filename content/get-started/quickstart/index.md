@@ -27,3 +27,4 @@ redirect_from:
   - /github/getting-started-with-github/quickstart/
 ---
 
+https://github.com/github/docs/tree/github:main
