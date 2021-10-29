@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { useMainContext } from './context/MainContext'
+import { useMainContext } from '../context/MainContext'
 import { Link } from 'components/Link'
 
 export type BreadcrumbT = {

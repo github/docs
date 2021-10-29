@@ -1,5 +1,4 @@
 import cx from 'classnames'
-import { Breadcrumbs } from '../Breadcrumbs'
 import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
 import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -46,7 +45,6 @@ export const SubLandingHero = () => {
     <div>
       <header className="d-flex gutter mb-6">
         <div className="col-12">
-          <Breadcrumbs />
           <h1 className="my-3">{title} guides</h1>
           {intro && <Lead>{intro}</Lead>}
         </div>
