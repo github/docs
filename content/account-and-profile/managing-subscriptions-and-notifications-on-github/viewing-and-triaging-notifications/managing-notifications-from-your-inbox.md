@@ -1,6 +1,6 @@
 ---
 title: Managing notifications from your inbox
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes > 2.22 or ghec %} and mobile{% endif %}.'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes or ghec %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -21,7 +21,7 @@ shortTitle: Manage from your inbox
 
 ## About your inbox
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 

@@ -41,10 +41,10 @@ The repository owner has full control of the repository. In addition to the acti
 | Manage the repository's topics | "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" |{% ifversion fpt or ghec %}
 | Manage security and analysis settings for the repository | "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% ifversion fpt or ghec %}
 | Enable the dependency graph for a private repository | "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)" |{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
-| Delete and restore packages | "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" |{% endif %}{% ifversion ghes = 2.22 or ghes = 3.0 or ghae %}
+| Delete and restore packages | "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)" |{% endif %}{% ifversion ghes = 3.0 or ghae %}
 | Delete packages | "[Deleting packages](/packages/learn-github-packages/deleting-a-package)" |{% endif %}
 | Customize the repository's social media preview | "[Customizing your repository's social media preview](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)" |
-| Create a template from the repository | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 or ghec %}
+| Create a template from the repository | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | Control access to {% data variables.product.prodname_dependabot_alerts %} alerts for vulnerable dependencies | "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
 | Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)" |
 | Manage data use for a private repository | "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"|{% endif %}
@@ -88,4 +88,4 @@ Collaborators can also perform the following actions.
 
 ## Further reading
 
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
