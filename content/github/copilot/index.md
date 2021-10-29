@@ -1,6 +1,6 @@
 ---
 title: GitHub Copilot
-intro: 'You can use {% data variables.product.prodname_dotcom %} Copilot to assist with your programming in Visual Studio Code, Jetbrains Idea and Vim.'
+intro: 'You can use {% data variables.product.prodname_dotcom %} Copilot to assist with your programming in the editor of your choice.'
 versions:
   fpt: '*'
 children:
