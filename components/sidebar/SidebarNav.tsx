@@ -18,7 +18,7 @@ export const SidebarNav = () => {
       style={{ width: 326, height: '100vh' }}
     >
       <div
-        className="d-flex flex-items-center p-4 position-sticky top-0 bg-primary"
+        className="d-flex flex-items-center p-4 position-sticky top-0 color-bg-default"
         style={{ zIndex: 3 }}
         id="github-logo"
         role="banner"
