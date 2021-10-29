@@ -55,8 +55,8 @@ If you add a task list to the body of an issue, the list has added functionality
 
 You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
 
-{% ifversion fpt %} ![Reordered task list for GitHub.com](/assets/images/help/writing/task-list-reordered.gif) {% endif %}
-{% ifversion not fpt %} ![Reordered task list for GitHub.com](/assets/images/help/writing/task-list-reordered-ghes.gif) {% endif %}
+{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-list-reorder.gif) {% endif %}
 
 {% ifversion fpt %}
 
