@@ -16,7 +16,7 @@ shortTitle: Delete your user account
 ---
 Deleting your user account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %} Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted - instead, they'll be associated with our [Ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
-{% ifversion fpt or ghec %} The account name also becomes available to anyone else to use on a new account, and we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. {% endif %}
+{% ifversion fpt or ghec %} When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
 
 If you’re the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your user account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your user account.
 
