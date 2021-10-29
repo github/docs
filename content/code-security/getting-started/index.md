@@ -4,7 +4,7 @@ shortTitle: Getting started
 intro: 'Introduction to code security with {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
