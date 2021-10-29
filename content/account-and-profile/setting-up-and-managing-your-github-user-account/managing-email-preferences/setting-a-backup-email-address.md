@@ -1,4 +1,4 @@
----
+---my gmail backup codes some
 title: Setting a backup email address
 intro: 'Use a backup email address as an additional destination for security-relevant account notifications{% ifversion not ghae %} and to securely reset your password if you can no longer access your primary email address{% endif %}.'
 redirect_from:
