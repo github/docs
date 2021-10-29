@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
+import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
@@ -13,9 +14,17 @@ enum ViewState {
 }
 
 export const Survey = () => {
+  const { asPath } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    // Always reset the form if navigating to a new page because what
+    // you might have said or started to say belongs exclusively to
+    // to the page you started on.
+    setState(ViewState.START)
+  }, [asPath])
 
   function vote(state: ViewState) {
     return () => {
