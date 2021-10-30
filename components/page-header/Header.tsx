@@ -108,13 +108,10 @@ export const Header = () => {
           {/* mobile menu contents */}
           <div className="relative">
             <div
-              className={cx(
-                'width-full position-absolute left-0 right-0 color-shadow-large color-bg-default px-2 px-md-4 pb-3',
-                isMenuOpen ? 'd-block' : 'd-none'
-              )}
+              className={cx('width-full position-sticky top-0', isMenuOpen ? 'd-block' : 'd-none')}
             >
               <div className="mt-3 mb-2">
-                <div className="mb-3 ml-2">
+                <div className="pt-3 mb-4 ml-2">
                   <Breadcrumbs />
                 </div>
                 <h4 className="f5 text-normal color-fg-muted ml-3">{t('explore_by_product')}</h4>
