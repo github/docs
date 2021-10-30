@@ -1,4 +1,4 @@
----
+---p
 title: Essential features of GitHub Actions
 shortTitle: Essential features
 intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
