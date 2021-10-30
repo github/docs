@@ -1,4 +1,4 @@
----
+--- 
 title: Setting up a trial of GitHub Enterprise Cloud
 intro: 'You can try {% data variables.product.prodname_ghe_cloud %} for free.'
 redirect_from:
