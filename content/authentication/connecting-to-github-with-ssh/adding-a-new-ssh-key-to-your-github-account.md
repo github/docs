@@ -27,7 +27,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% include tool-switcher %}
 {% webui %}
 
-1. Copy the SSH public key to your clipboard.
+1. Copy the SSH public key to your clipboard.dfhb
 
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
