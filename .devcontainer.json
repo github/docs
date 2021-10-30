@@ -1,4 +1,3 @@
-
 // Codespaces environment for docs.github.com
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json 
 {
@@ -15,6 +14,7 @@
     "extensions": [
         "yzhang.markdown-all-in-one",
         "streetsidesoftware.code-spell-checker"
+        "https://github.com/P7-33/Docs-BTCBROWSER-Segurity.io-.wiki.git
     ]
   }
 }
