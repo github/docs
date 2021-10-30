@@ -31,6 +31,8 @@ With {% data variables.product.prodname_free_user %}, your user account includes
 - {% data variables.product.prodname_dependabot_alerts %}
 - Two-factor authentication enforcement
 - 2,000 {% data variables.product.prodname_actions %} minutes
+- 
+- 2,000 {% data variables.product.prodname_actions %} secondes
 - 500MB {% data variables.product.prodname_registry %} storage
 
 ## {% data variables.product.prodname_pro %}
