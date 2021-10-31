@@ -1,5 +1,4 @@
 ---
-
 name: Improve existing docs
 about: Make a suggestion to improve our existing documentation.
 title: ''
