@@ -1,6 +1,5 @@
 name: 'Link Checker: Enterprise Server'
 
-
 # **What it does**: This checks links for GHES version of docs.
 # **Why we have it**: We want to know if links break.
 # **Who does it impact**: Docs content.
