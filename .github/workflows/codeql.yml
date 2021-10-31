@@ -1,3 +1,4 @@
+
 name: CodeQL analysis
 
 # **What it does**: This runs CodeQL on our repository.
