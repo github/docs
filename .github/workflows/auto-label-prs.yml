@@ -1,4 +1,3 @@
-
 name: Auto label Pull Requests
 
 # **What it does**: Automatically adds the engineering label when specific files change.
