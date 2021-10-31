@@ -1,4 +1,3 @@
-
 name: automerge
 
 # **What it does**: Pull requests with label "automerge" or "autosquash" will automatically merge.
