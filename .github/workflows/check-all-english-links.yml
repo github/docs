@@ -1,4 +1,3 @@
-
 name: Check all English links
 
 # **What it does**: This script once a day checks all English links and reports in issues.
