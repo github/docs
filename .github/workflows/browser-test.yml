@@ -1,4 +1,3 @@
-
 name: Browser Tests
 
 # **What it does**: This runs our browser tests on pull requests.
