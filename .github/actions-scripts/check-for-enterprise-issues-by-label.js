@@ -1,4 +1,3 @@
-
 #!/usr/bin/env node
 
 const github = require('@actions/github')
