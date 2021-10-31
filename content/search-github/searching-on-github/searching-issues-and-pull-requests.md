@@ -142,6 +142,10 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 
 <!-- TODO -->
 
+{% tip %}
+*Tip*: You can view a list of all the issues and pull requests you created, are assigned, mentioned on, or are requested as a reviewer of (pull requests only) using the *Issues* and *Pull Requests* links shown in the top menu bar when you're logged in.
+{% endtip %}
+
 {% ifversion fpt or ghes or ghae or ghec %}
 ## Search for linked issues and pull requests
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
