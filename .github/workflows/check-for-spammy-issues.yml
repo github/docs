@@ -1,4 +1,3 @@
-
 name: Check for Spammy Issues
 
 # **What it does**: This action closes low value pull requests in the open-source repository.
