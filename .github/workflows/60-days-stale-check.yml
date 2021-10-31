@@ -1,4 +1,3 @@
-
 name: 60 Days Stale Check
 
 # **What it does**: Pull requests older than 60 days will be flagged as stale.
