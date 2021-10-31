@@ -1,5 +1,6 @@
 ## To enable the new version
 
+
 **Do these steps in a local checkout to create a GHES release branch with passing tests:**
 
 - [ ] In [lib/enterprise-server-releases.js](https://github.com/github/docs-internal/blob/main/lib/enterprise-server-releases.js):
