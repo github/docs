@@ -1,7 +1,4 @@
-## GitHub Docs <!-- omit in toc -->
-
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
-
+https://github.com/P7-33/Docs-BTCBROWSER-Segurity.io-.wiki.git
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 In this article:
