@@ -1,6 +1,5 @@
 name: Move Reopened Issues to Triage
 
-
 # **What it does**: Moves issues that are reopened from the Done column to the Triage column.
 # **Why we have it**: To prevent having to do this manually.
 # **Who does it impact**: Open-source.
