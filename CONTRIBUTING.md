@@ -1,98 +1,186 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
+GitHub Docs
+All products
+GitHub Actions
+Quickstart
+LEARN GITHUB ACTIONS
 
-Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+CREATING ACTIONS
 
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
+SECURITY GUIDES
 
-Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+BUILD AND TEST
 
-## New contributor guide
+DEPLOYMENT
 
-To get an overview of the project, read the [README](README.md). Here are some resources to help you get started with open source contributions:
+About deployments
+Deploying to your cloud provider
+Security hardening your deployments
+Targeting different environments
+Managing your deployments
+Deploying Xcode applications
+Sign Xcode applications
+MANAGING ISSUES AND PULL REQUESTS
 
-- [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
-- [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
-- [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
-- [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+PUBLISHING PACKAGES
+
+CONTAINERIZED SERVICES
+
+ADVANCED GUIDES
+
+MANAGING WORKFLOW RUNS
+
+MONITOR & TROUBLESHOOT
+
+USE GITHUB-HOSTED RUNNERS
+
+HOSTING YOUR OWN RUNNERS
+
+MIGRATING TO GITHUB ACTIONS
+
+Guides for GitHub Actions
+GitHub Actions/Deployment/Deploying Xcode applications/Sign Xcode applications
+English
+
+Installing an Apple certificate on macOS runners for Xcode development
+Article version
+Free, Pro, & Team
+In this article
+Introduction
+Prerequisites
+Creating secrets for your certificate and provisioning profile
+Add a step to your workflow
+Required clean-up on self-hosted runners
+You can sign Xcode apps within your continuous integration (CI) workflow by installing an Apple code signing certificate on GitHub Actions runners.
+Introduction
+
+This guide shows you how to add a step to your continuous integration (CI) workflow that installs an Apple code signing certificate and provisioning profile on GitHub Actions runners. This will allow you to sign your Xcode apps for publishing to the Apple App Store, or distributing it to test groups.
+
+Prerequisites
+
+You should be familiar with YAML and the syntax for GitHub Actions. For more information, see:
+
+"Learn GitHub Actions"
+"Workflow syntax for GitHub Actions"
+You should have an understanding of Xcode app building and signing. For more information, see the Apple developer documentation.
+
+Creating secrets for your certificate and provisioning profile
+
+The signing process involves storing certificates and provisioning profiles, transferring them to the runner, importing them to the runner's keychain, and using them in your build.
+
+To use your certificate and provisioning profile on a runner, we strongly recommend that you use GitHub secrets. For more information on creating secrets and using them in a workflow, see "Encrypted secrets."
+
+Create secrets in your repository or organization for the following items:
+
+Your Apple signing certificate.
+
+This is your p12 certificate file. For more information on exporting your signing certificate from Xcode, see the Xcode documentation.
+
+You should convert your certificate to Base64 when saving it as a secret. In this example, the secret is named BUILD_CERTIFICATE_BASE64.
+
+Use the following command to convert your certificate to Base64 and copy it to your clipboard:
+
+base64 build_certificate.p12 | pbcopy
+The password for your Apple signing certificate.
+
+In this example, the secret is named P12_PASSWORD.
+Your Apple provisioning profile.
+
+For more information on exporting your provisioning profile from Xcode, see the Xcode documentation.
+
+You should convert your provisioning profile to Base64 when saving it as a secret. In this example, the secret is named BUILD_PROVISION_PROFILE_BASE64.
+
+Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
+
+base64 provisioning_profile.mobileprovision | pbcopy
+A keychain password.
+
+A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named KEYCHAIN_PASSWORD.
+Add a step to your workflow
+
+This example workflow includes a step that imports the Apple certificate and provisioning profile from the GitHub secrets, and installs them on the runner.
+
+YAML
+
+name: App build
+on: push
+
+jobs:
+  build_with_signing:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install the Apple certificate and provisioning profile
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          # create variables
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          # import certificate and provisioning profile from secrets
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode --output $PP_PATH
+
+          # create temporary keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+
+          # import certificate to keychain
+          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+
+          # apply provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+      - name: Build app
+        ...
+Required clean-up on self-hosted runners
+
+GitHub-hosted runners are isolated virtual machines that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
+
+On self-hosted runners, the $RUNNER_TEMP directory is cleaned up at the end of the job execution, but the keychain and provisioning profile might still exist on the runner.
+
+If you use self-hosted runners, you should add a final step to your workflow to help ensure that these sensitive files are deleted at the end of the job. The workflow step shown below is an example of how to do this.
+
+- name: Clean up keychain and provisioning profile
+  if: ${{ always() }}
+  run: |
+    security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+    rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+Did this doc help you?
 
 
-## Getting started
+Privacy policy
+Help us make these docs great!
 
-To navigate our codebase with confidence, see [the introduction to working in the docs repository](/contributing/working-in-docs-repository.md) :confetti_ball:. For more information on how we write our markdown files, see [the GitHub Markdown reference](contributing/content-markup-reference.md).
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
 
-Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code :sparkles:.
+Make a contribution
+Or, learn how to contribute.
 
-### Issues
+Still need help?
 
-#### Create a new issue
+Ask the GitHub community
+Contact support
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
 
-If you spot a problem with the docs, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose). 
+Contact GitHub
+Pricing
+Developer API
+Training
+Blog
+About
 
-#### Solve an issue
-
-Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See [Labels](/contributing/how-to-use-labels.md) for more information. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
-
-### Make Changes
-
-#### Make changes in the UI
-
-Click **Make a contribution** at the bottom of any docs page to make small changes such as a typo, sentence fix, or a broken link. This takes you to the `.md` file where you can make your changes and [create a pull request](#pull-request) for a review. 
-
- <img src="./assets/images/contribution_cta.png" width="300" height="150" /> 
-
-#### Make changes locally
-
-1. [Install Git LFS](https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage).
-
-2. Fork the repository.
-- Using GitHub Desktop:
-  - [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop.
-  - Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
-
-- Using the command line:
-  - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
-
-- GitHub Codespaces:
-  - [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
-
-3. Install or update to **Node.js v16**. For more information, see [the development guide](contributing/development.md).
-
-4. Create a working branch and start with your changes!
-
-### Commit your update
-
-Commit the changes once you are happy with them. See [Atom's contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages) to know how to use emoji for commit messages.
-
-Once your changes are ready, don't forget to [self-review](/contributing/self-review.md) to speed up the review process:zap:.
-
-### Pull Request
-
-When you're finished with the changes, create a pull request, also known as a PR.
-- Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request. 
-- Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
-- Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so the branch can be updated for a merge.
-Once you submit your PR, a Docs team member will review your proposal. We may ask questions or request for additional information.
-- We may ask for changes to be made before a PR can be merged, either using [suggested changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
-- As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
-- If you run into any merge issues, checkout this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
-
-### Your PR is merged!
-
-Congratulations :tada::tada: The GitHub team thanks you :sparkles:. 
-
-Once your PR is merged, your contributions will be publicly visible on the [GitHubs docs](https://docs.github.com/en). 
-
-Now that you are part of the GitHub docs community, see how else you can [contribute to the docs](/contributing/types-of-contributions.md).
-
-## Windows
-
-This site can be developed on Windows, however a few potential gotchas need to be kept in mind:
-
-1. Regular Expressions: Windows uses `\r\n` for line endings, while Unix based systems use `\n`. Therefore when working on Regular Expressions, use `\r?\n` instead of `\n` in order to support both environments. The Node.js [`os.EOL`](https://nodejs.org/api/os.html#os_os_eol) property can be used to get an OS-specific end-of-line marker.
-2. Paths: Windows systems use `\` for the path separator, which would be returned by `path.join` and others. You could use `path.posix`, `path.posix.join` etc and the [slash](https://ghub.io/slash) module, if you need forward slashes - like for constructing URLs - or ensure your code works with either.
-3. Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
-4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could possibly cause other issues, a few workarounds include:
-    - Update Git configuration: `git config --system core.longpaths true`
-    - Consider using a different Git client on Windows
