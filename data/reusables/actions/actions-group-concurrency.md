@@ -57,7 +57,7 @@ To only cancel in-progress runs on a per-workflow basis:
 {% raw %}
 ```yaml
 concurrency: 
-  group: ${{github.workflow}}-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 ```
 {% endraw %}
@@ -67,7 +67,7 @@ With fallback:
 {% raw %}
 ```yaml
 concurrency: 
-  group: ${{github.workflow}}-${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 ```
 {% endraw %}
