@@ -8,6 +8,7 @@ permissions: 'Organization owners and team maintainers can synchronize a {% data
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,15 +23,15 @@ shortTitle: IdPとの同期
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% ifversion fpt %}最大 5 つの IdP グループを {% data variables.product.product_name %} チームに接続できます。{% elsif ghae %}{% data variables.product.product_name %} の Team を 1 つの IdP グループに接続できます。 グループ内のすべてのユーザは自動的にチームに追加され、メンバーとして親 Organization にも追加されます。 グループを Team から切断すると、Team のメンバーシップを介して Organization のメンバーになったユーザは Organization から削除されます。{% endif %} IdP グループを複数の {% data variables.product.product_name %} Team に割り当てることができます。
+{% ifversion fpt or ghec %}最大 5 つの IdP グループを {% data variables.product.product_name %} チームに接続できます。{% elsif ghae %}{% data variables.product.product_name %} の Team を 1 つの IdP グループに接続できます。 グループ内のすべてのユーザは自動的にチームに追加され、メンバーとして親 Organization にも追加されます。 グループを Team から切断すると、Team のメンバーシップを介して Organization のメンバーになったユーザは Organization から削除されます。{% endif %} IdP グループを複数の {% data variables.product.product_name %} Team に割り当てることができます。
 
-{% ifversion fpt %}Team 同期は、5000 以上のメンバーがいる IdP グループをサポートしていません。{% endif %}
+{% ifversion fpt or ghec %}Team 同期は、5000 以上のメンバーがいる IdP グループをサポートしていません。{% endif %}
 
-いったん {% data variables.product.prodname_dotcom %} Team が IdP グループに接続されたら、IdP 管理者はアイデンティティプロバイダを通して Team メンバーシップを変更する必要があります。 {% data variables.product.product_name %}で、{% ifversion fpt %} または API を使用して{% endif %}Team のメンバーシップを管理することはできません。
+いったん {% data variables.product.prodname_dotcom %} Team が IdP グループに接続されたら、IdP 管理者はアイデンティティプロバイダを通して Team メンバーシップを変更する必要があります。 {% data variables.product.product_name %}で、{% ifversion fpt or ghec %} または API を使用して{% endif %}Team のメンバーシップを管理することはできません。
 
-{% ifversion fpt %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 IdP を通じた Team メンバーシップ変更はすべて、Team 同期ボットによる変更として {% data variables.product.product_name %} の Audit log に記載されます。 IdP は、Team メンバーシップのデータを 1 時間に 1 回 {% data variables.product.prodname_dotcom %} に送信します。 Team を IdP グループに接続すると、Team メンバーが削除される場合があります。 詳細は「[同期される Team のメンバーに関する要件](#requirements-for-members-of-synchronized-teams)」を参照してください。
 {% endif %}
 
@@ -42,9 +43,9 @@ IdP上でグループのメンバーシップが変更された場合、IdPはId
 
 IdP グループに接続された Team を含めて {% data variables.product.prodname_dotcom %} Team のリポジトリに対するアクセスを管理するには、{% data variables.product.product_name %} で変更を行う必要があります。 詳細は「[Team について](/articles/about-teams)」および「[Organization リポジトリへの Team のアクセスを管理する](/articles/managing-team-access-to-an-organization-repository)」を参照してください。
 
-{% ifversion fpt %}API を使用して Team の同期を管理することもできます。 詳しい情報については、「[Team 同期](/rest/reference/teams#team-sync)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}API を使用して Team の同期を管理することもできます。 詳しい情報については、「[Team 同期](/rest/reference/teams#team-sync)」を参照してください。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 同期される Team のメンバーに関する要件
 
 チームを IdP グループに接続した後、Team 同期により、次の場合にのみ IdP グループの各メンバーが {% data variables.product.product_name %} 上の対応するチームに追加されます。
@@ -52,18 +53,18 @@ IdP グループに接続された Team を含めて {% data variables.product.p
 - そのユーザがすでに {% data variables.product.product_name %} のユーザアカウントでログインしており、少なくとも 1 回は SAML シングルサインオンを介して Organization または Enterprise アカウントに認証されている場合。
 - そのユーザの SSO ID が IdP グループのメンバーである場合。
 
-これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 詳しい情報については、「[Organization へのメンバーの SAML アクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)」と「[Enterprise へのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)」を参照してください。
+これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
 
 削除された Team メンバーは、SSO を使って Organization または Enterprise アカウントに認証され、接続先の IdP グループに移動すれば、再び Team に自動的に追加できます。
 
-意図しない Team メンバーの削除を避けるために、Organization または Enterprise アカウントで SAML SSO を施行し、メンバーシップデータを同期するため新しい Team を作成し、IdP グループのメンバーシップを確認してから既存の Team を同期することをおすすめします。 For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+意図しない Team メンバーの削除を避けるために、Organization または Enterprise アカウントで SAML SSO を施行し、メンバーシップデータを同期するため新しい Team を作成し、IdP グループのメンバーシップを確認してから既存の Team を同期することをおすすめします。 For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Configuring SAML single sign-on for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 
 {% endif %}
 
 ## 必要な環境
 
-{% ifversion fpt %}
-{% data variables.product.product_name %} チームに接続する前に、Organization またはEnterprise のオーナーは、Organization または Enterprise アカウントの Team 同期を有効にする必要があります。 詳しい情報については、「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」と「[Enterprise アカウントで Team 同期を管理する](/github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account)」を参照してください。
+{% ifversion fpt or ghec %}
+{% data variables.product.product_name %} チームに接続する前に、Organization またはEnterprise のオーナーは、Organization または Enterprise アカウントの Team 同期を有効にする必要があります。 For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 Team メンバーを誤って削除しないように、お使いの IdP の管理ポータルにアクセスし、現在の各 Team メンバーが、接続しようとしている IdP グループにも属していることを確認してください。 アイデンティティプロバイダにこうしたアクセスができない場合は、IdP 管理者にお問い合わせください。
 
@@ -83,7 +84,7 @@ IdP グループを {% data variables.product.product_name %} Team に接続す�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 6. [Identity Provider Groups] で、ドロップダウンメニューを使用して最大 5 つまでアイデンティティプロバイダグループを選択します。 ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
 6. [Identity Provider Group] で、ドロップダウンメニューを使用してリストからアイデンティティプロバイダグループを選択します。 ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
 7. [**Save changes**] をクリックします。
@@ -96,7 +97,7 @@ IdP グループを {% data variables.product.product_name %} Team に接続す�
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 6. [Identity Provider Groups] で、切断したい IdP グループの右にある {% octicon "x" aria-label="X symbol" %} をクリックします。 ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
 6. [Identity Provider Groups] で、切断したい IdP グループの右にある {% octicon "x" aria-label="X symbol" %} をクリックします。 ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
 7. [**Save changes**] をクリックします。

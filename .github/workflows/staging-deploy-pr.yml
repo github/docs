@@ -251,7 +251,7 @@ jobs:
   prepare-for-deploy:
     needs: [pr-metadata, check-pr-before-prepare]
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -325,7 +325,6 @@ jobs:
 
       - name: Extract user-changes to temp directory
         run: |
-          zstd -d -q $RUNNER_TEMP/app.tar.zst -o $RUNNER_TEMP/app.tar
           mkdir $RUNNER_TEMP/app
           tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
 
@@ -447,7 +446,7 @@ jobs:
   deploy:
     needs: [pr-metadata, prepare-for-deploy, check-pr-before-deploy]
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 10
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.

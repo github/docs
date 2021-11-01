@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
@@ -28,25 +29,19 @@ You can choose the default branch for a repository. The default branch is the ba
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## Требования
 
 To change the default branch, your repository must have more than one branch. For more information, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
 ## Changing the default branch
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -56,12 +51,3 @@ To change the default branch, your repository must have more than one branch. Fo
 1. Click **Update**. !["Update" button after choosing a new default branch](/assets/images/help/repository/repository-options-defaultbranch-update.png)
 1. Read the warning, then click **I understand, update the default branch.** !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. In the default branch drop-down, choose the new default branch. ![Default branch dropdown selector](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. Click **Update**.
-
-{% endif %}

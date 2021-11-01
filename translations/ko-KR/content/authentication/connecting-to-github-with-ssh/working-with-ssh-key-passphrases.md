@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: SSH key passphrases
@@ -23,7 +24,7 @@ With SSH keys, if someone gains access to your computer, they also gain access t
 You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
 
 ```shell
-$ ssh-keygen -p -f ~/.ssh/id_ed25519
+$ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
 > Enter old passphrase: <em>[Type old passphrase]</em>
 > Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>

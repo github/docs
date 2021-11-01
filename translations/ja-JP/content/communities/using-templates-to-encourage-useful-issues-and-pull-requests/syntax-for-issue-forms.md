@@ -4,6 +4,7 @@ intro: Issue フォームには、さまざまな入力タイプ、検証、デ�
 product: 'Issue フォームは、{% data variables.product.prodname_dotcom_the_website %} の公開リポジトリのベータで利用できます。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---

@@ -8,12 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Informationen zu selbst-gehosteten Runnern
 
@@ -56,7 +58,7 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * Der Rechner verfügt über genügend Hardwareressourcen für den Typ der Workflows, den Du ausführen möchtest. Die Anwendung für selbst-gehostete Runner selbst erfordert nur minimale Ressourcen.
 * Wenn Du Workflows ausführen willst, die Docker-Container-Aktionen oder Service-Container verwenden, brauchst Du eine Linux-Maschine und Docker muss installiert sein.
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Autoscaling your self-hosted runners
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
@@ -135,7 +137,7 @@ If you use an IP address allow list for your
 {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. Weitere Informationen findest Du auf „[Zugelassene IP-Adressen für Deine Organisation verwalten](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Du musst sicherstellen, dass der Rechner über den entsprechenden Netzwerkzugriff verfügt, um mit den nachfolgend aufgelisteten {% data variables.product.prodname_dotcom %}-URLs zu kommunizieren.
 
@@ -159,7 +161,7 @@ pkg-containers-az.githubusercontent.com
 *.blob.core.windows.net
 ```
 
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 
 {% else %}
 

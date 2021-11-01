@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 shortTitle: Borrar & restablecer un paquete
 ---
 
@@ -37,13 +38,13 @@ En {% data variables.product.prodname_dotcom %}, también puedes restablecer un 
 
 ## Soporte de la API de paquetes
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Puedes utiliza la API de REST para administrar tus paquetes. Para obtener más información, consulta la sección "[API del {% data variables.product.prodname_registry %}](/rest/reference/packages)".
 
 {% endif %}
 
-En el caso de los paquetes que heredan sus permisos y accesos de los repositorios, puedes utilizar GraphQL para borrar las versiones de los paquetes específicos.{% ifversion fpt %} La API de GraphQL del {% data variables.product.prodname_registry %} no es compatible con contenedores o imágenes de Docker que utilicen el designador de nombre `https://ghcr.io/OWNER/PACKAGE-NAME`. Para obtener más información sobre la compatibilidad de GraphQL, consulta la sección "[Borrar una versión de un paquete con alcance de repositorio con GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)".
+En el caso de los paquetes que heredan sus permisos y accesos de los repositorios, puedes utilizar GraphQL para borrar las versiones de los paquetes específicos.{% ifversion fpt or ghec %} La API de GraphQL del {% data variables.product.prodname_registry %} no es compatible con contenedores o imágenes de Docker que utilicen el designador de nombre `https://ghcr.io/OWNER/PACKAGE-NAME`. Para obtener más información sobre la compatibilidad de GraphQL, consulta la sección "[Borrar una versión de un paquete con alcance de repositorio con GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)".
 
 {% endif %}
 
@@ -57,9 +58,9 @@ Los paquetes en {% data variables.product.prodname_registry %} con alcance de re
 - maven
 - Gradle
 - NuGet
-{% ifversion not fpt %}- Las imágenes de Docker en `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+{% ifversion not fpt or ghec %}- Las imágenes de Docker en `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Para borrar un paquete que tenga permisos granulares separados de un repositorio, tales como imágenes de contenedor que se almacenan en `https://ghcr.io/OWNER/PACKAGE-NAME`, debes tener acceso administrativo en este.
  <!--PLACEHOLDER - once packages restructuring is done this is a good place to link to the access control and visibility article.-->
@@ -83,7 +84,7 @@ Para borrar una versión de un paquete con alcance de repositorio debes tener pe
 
 En el caso de los paquetes que heredan sus permisos y acceso de los repositorios, puedes utilizar a GraphQL para borrar las versiones específicas de estos.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 GraphQL no es compatible con contenedores o imagenes de Docker en `ghcr.io`.
 {% endif %}<!--PLACEHOLDER for when API link is live:  For full support, use the REST API. For more information, see the "\[{% data variables.product.prodname_registry %} API\](/rest/reference/packages)." -->Usa la mutación `deletePackageVersion` en la API de GraphQL. Debes usar un token con ámbitos `read:packages`, `delete:packages` y `repo`. Para obtener más información acerca de los tokens, consulta "[Acerca de {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)".
 
@@ -97,13 +98,13 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-Para encontrar todos los paquetes privados que publicaste en {% data variables.product.prodname_registry %}, junto con los ID de versión de los paquetes, puedes usar la conexión `registryPackagesForQuery`. Necesitarás un token con los ámbitos `read:packages` y `repo`. Necesitarás un token con los ámbitos `read:packages` y `repo`.
+Para encontrar todos los paquetes privados que publicaste en {% data variables.product.prodname_registry %}, junto con los ID de versión de los paquetes, puedes usar la conexión `registryPackagesForQuery`. Necesitarás un token con los ámbitos `read:packages` y `repo`. For more information, see the [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) connection or the [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) interface.
 
-Para obtener más información acerca de la mutación `deletePackageVersion`, consulta "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)".
+Para obtener más información acerca de la mutación `deletePackageVersion`, consulta "[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)".
 
 No puedes borrar directamente todo un paquete utilizando GraphQL, pero si borras cada versión de un paquete, este ya no se mostrará en {% data variables.product.product_name %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Borrar una versión de un paquete con alcance de usuario en {% data variables.product.prodname_dotcom %}
 
 Para borrar una versión específica de un paquete con alcance de usuario en {% data variables.product.prodname_dotcom %}, tal como para una imagen de Docker en `ghcr.io`, sigue estos pasos. Para borrar un paquete completo, consulta la sección "[Borrar un paquete entero con alcance de usuario en {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)".
@@ -141,7 +142,7 @@ Para borrar un paquete completo con alcance de repositorio, debes tener permisos
 4. Debajo de "Zona de Peligro", haz clic en **Borrar este paquete**.
 5. Para confirmar, revisa el mensaje de confirmación, ingresa el nombre de tu paquete, y haz clic en **Entriendo, borrar este paquete.** ![Botón para confirmar la eliminación del paquete](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Borrar un paquete completo con alcance de usuario en {% data variables.product.prodname_dotcom %}
 
 Para revisar quién puede borrar un paquete, consulta la sección "[Permisos necesarios](#required-permissions-to-delete-or-restore-a-package)".
@@ -172,7 +173,7 @@ Puedes restablecer un paquete o versión que hayas borrado si:
 Por ejemplo, si borraste un paquete de rubygem con el nombre `octo-package` que tuviera un alcance para el repositorio `octo-repo-owner/octo-repo`, entonces solo podrías restablecer el paquete si su designador de nombre `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` estuviera disponible todavía, suponiendo que no hayan pasado 30 días.
 
 También debes de cumplir con estos requisitos de permisos:
-  - Para los paquetes con alcance de repositorio: Tienes permisos de administrador en el repositorio al que pertenece el paquete que se borró.{% ifversion fpt %}
+  - Para los paquetes con alcance de repositorio: Tienes permisos de administrador en el repositorio al que pertenece el paquete que se borró.{% ifversion fpt or ghec %}
   - Para los paquetes con alcance de cuenta de usuario: El paquete borrado pertenece a tu cuenta de usuario.
   - Para los paquetes con alcance de organización: Tienes permisos de administrador en el paquete que se borró en la organización a la cual este pertenece.{% endif %}
 
@@ -182,7 +183,7 @@ Una vez que se restablezca el paquete, este utilizará el designador de nombre q
 
 ### Restablecer un paquete en una organización
 
-Puedes restablecer un paquete borrado a través de la configuración de cuenta de tu organización siempre y cuando dicho paquete estuviera en uno de tus repositorios{% ifversion fpt %} o tuviera permisos granulares y tuviera el alcance de tu cuenta de organización{% endif %}.
+Puedes restablecer un paquete borrado a través de la configuración de cuenta de tu organización siempre y cuando dicho paquete estuviera en uno de tus repositorios{% ifversion fpt or ghec %} o tuviera permisos granulares y tuviera el alcance de tu cuenta de organización{% endif %}.
 
 Para revisar quién puede restablecer un paquete en una organización, consulta la sección "[Permisos necesarios](#required-permissions-to-delete-or-restore-a-package)".
 
@@ -192,7 +193,7 @@ Para revisar quién puede restablecer un paquete en una organización, consulta 
 4. Debajo de "Paquetes Borrados", junto al paquete que quieres restablecer, haz clic en **Restablecer**. ![Botón de restaurar](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. Para confirmar, teclea el nombre del paquete y haz clic en **Entiendo las consencuencias, restablecer este paquete**. ![Botón de confirmación para restablecer el paquete](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Restablecer un paquete con alcance de cuenta de usuario
 

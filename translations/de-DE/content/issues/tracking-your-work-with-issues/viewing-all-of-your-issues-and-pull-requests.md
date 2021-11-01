@@ -10,9 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
 shortTitle: View all your issues & PRs
+type: how_to
 ---
 
 Deine Dashboards für Issues und Pull Requests sind im oberen Bereich jeder Seite verfügbar. In jedem Dashboard kannst Du die Liste filtern, um nach Issues oder Pull Requests zu suchen, die von Dir erstellt wurden, die Dir zugewiesen sind oder in denen Du erwähnt wurdest. Darüber hinaus kannst Du nach Pull Requests suchen, für die Du einen Review ausführen sollst.
@@ -22,4 +25,4 @@ Deine Dashboards für Issues und Pull Requests sind im oberen Bereich jeder Seit
 
 ## Weiterführende Informationen
 
-- {% ifversion fpt or ghes or ghae %}„[Deine Abonnements ansehen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}„[Liste der von Dir beobachteten Repositorys](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

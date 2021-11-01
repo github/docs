@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,13 +26,11 @@ topics:
 
 管理者あるいはオーナー権限を持つ誰かがレビュー必須を有効化した場合、作者がリポジトリ中でプルリクエストをマージできるための条件としてコードオーナーからの承認を必須とすることもできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)を参照してください。
 
-{% ifversion fpt or ghae or ghes %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+{% ifversion fpt or ghae or ghes or ghec %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
-{% ifversion fpt or ghae or ghes > 2.22 %}
 ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリで、ファイルを参照して {% octicon "shield-lock" aria-label="The edit icon" %} にカーソルを合わせることができます。
 
 ![リポジトリ内のファイルのコードオーナー](/assets/images/help/repository/code-owner-for-a-file.png)
-{% endif %}
 
 ## CODEOWNERSファイルの場所
 
@@ -41,7 +40,7 @@ CODEOWNERS ファイルを使うためには、コードオーナーを追加し
 
 コードオーナーがレビューのリクエストを受け取るためには、CODEOWNERS ファイルがプルリクエストの base ブランチになければなりません。 たとえばリポジトリ中の`gh-pages`ブランチの、*.js*ファイルのコードオーナーとして`@octocat`を割り当てたなら、*.js*に変更を加えるプルリクエストがheadブランチと`gh-pages`の間でオープンされると、`@octocat`はレビューのリクエストを受けることになります。
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
@@ -51,7 +50,7 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 ## CODEOWNERSの構文
 
-CODEOWNERS ファイルは、[一部の例外](#syntax-exceptions)を除いて、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使用されるルールのほとんどに従うパターンを使用します。 パターンの後には1つ以上の{% data variables.product.prodname_dotcom %}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. たとえば `user@example.com` のような、ユーザの {% data variables.product.product_name %} アカウントに追加されたメールアドレスでユーザを参照することもできます。
+CODEOWNERS ファイルは、[一部の例外](#syntax-exceptions)を除いて、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使用されるルールのほとんどに従うパターンを使用します。 パターンの後には1つ以上の{% data variables.product.prodname_dotcom %}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
 CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。
 ### CODEOWNERS ファイルの例
@@ -116,7 +115,6 @@ gitignore ファイルには、CODEOWNERS ファイルでは動作しないい�
 ## CODEOWNERS and branch protection
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)」を参照してください。
 
-
 ### CODEOWNERS ファイルの例
 ```
 # In this example, any change inside the `/apps` directory
@@ -135,7 +133,6 @@ Repository owners can add branch protection rules to ensure that changed code is
 # Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
-
 
 
 ## 参考リンク

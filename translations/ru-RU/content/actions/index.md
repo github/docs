@@ -26,7 +26,7 @@ featuredLinks:
     - /actions/security-guides/encrypted-secrets
 changelog:
   label: actions
-  prefix: 'GitHub Actions:'
+  prefix: 'GitHub Actions: '
 examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
@@ -43,6 +43,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /quickstart
   - /learn-github-actions
@@ -59,5 +60,6 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /migrating-to-github-actions
+  - /guides
 ---
 

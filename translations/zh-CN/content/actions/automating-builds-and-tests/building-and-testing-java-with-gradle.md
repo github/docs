@@ -1,7 +1,6 @@
 ---
 title: 使用 Gradle 构建和测试 Java
 intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以使用 Gradle 构建和测试 Java 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-gradle
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -19,6 +19,7 @@ shortTitle: 构建和测试 Java & Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -109,7 +110,7 @@ steps:
 
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
 
 {% raw %}
 ```yaml{:copy}

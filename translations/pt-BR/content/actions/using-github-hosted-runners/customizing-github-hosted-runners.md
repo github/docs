@@ -1,10 +1,10 @@
 ---
 title: Personalizando executores hospedados no GitHub
 intro: Você pode instalar software adicional em executores hospedados no GitHub como parte do seu fluxo de trabalho.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -13,6 +13,7 @@ shortTitle: Personalize executores
 
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Se você precisar de pacotes de software adicionais em executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá criar um trabalho que instale os pacotes como parte de seu fluxo de trabalho.
 

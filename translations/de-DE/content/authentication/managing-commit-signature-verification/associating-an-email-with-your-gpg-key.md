@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -17,7 +18,7 @@ shortTitle: Associate email with GPG key
 
 {% note %}
 
-Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität un
   ```shell
   $ gpg> adduid
   ```
-6. Folge den Aufforderungen, Deinen echten Namen, Deine E-Mail-Adresse und allenfalls Kommentare anzugeben. Du kannst Deine Einträge ändern, indem Du `N`, `C` oder `E` auswählst. {% data reusables.gpg.private-email %} {% ifversion fpt %} Weitere Informationen finden Sie unter „[Ihre Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
+6. Folge den Aufforderungen, Deinen echten Namen, Deine E-Mail-Adresse und allenfalls Kommentare anzugeben. Du kannst Deine Einträge ändern, indem Du `N`, `C` oder `E` auswählst. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} Weitere Informationen finden Sie unter „[Ihre Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

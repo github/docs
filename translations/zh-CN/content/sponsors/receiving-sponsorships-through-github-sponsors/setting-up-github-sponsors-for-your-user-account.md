@@ -1,12 +1,13 @@
 ---
 title: 为您的用户帐户设置 GitHub Sponsors
-intro: '要成为被赞助的开发者，请加入 {% data variables.product.prodname_sponsors %}、填写被赞助开发者个人资料、创建赞助等级、提交您的银行和税务信息并在您的 {% data variables.product.prodname_dotcom %} 帐户上启用双重身份验证。'
+intro: '要成为被赞助的开发者，请加入 {% data variables.product.prodname_sponsors %}、填写被赞助开发者个人资料、创建赞助等级、提交您的银行和税务信息并为您在 {% data variables.product.product_location %} 上的帐户启用双重身份验证。'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - User account
@@ -76,7 +77,7 @@ shortTitle: 设置用户帐户
 
 ## 在您的 {% data variables.product.prodname_dotcom %} 帐户上启用双重身份验证 (2FA)。
 
-在成为被赞助的开发者之前，您必须在 {% data variables.product.product_name %} 帐户上启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
+在成为被赞助的开发者之前，您必须为您在 {% data variables.product.product_location %} 上的帐户启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
 
 ## 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 

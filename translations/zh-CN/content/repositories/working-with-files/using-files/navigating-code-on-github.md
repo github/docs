@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-files-in-a-repository/managing-files-on-github/navigating-code-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -26,12 +27,6 @@ topics:
 - Ruby
 - TypeScript
 
-{% note %}
-
-**注**：代码导航适用于活动的分支。 如果为您启用了此功能，但您看不到功能和方法定义的链接，请推送至分支并重试。
-
-{% endnote %}
-
 ## 跳至功能或方法的定义
 
 您可以在文件中单击函数或方法调用，跳至同一仓库中该函数或方法的定义。
@@ -43,6 +38,12 @@ topics:
 您可以在文件中单击函数或方法调用，然后单击 **References（引用）**选项卡，查找同一仓库中该函数或方法的所有引用。
 
 ![查找所有引用选项卡](/assets/images/help/repository/find-all-references-tab.png)
+
+## Troubleshooting code navigation
+
+If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
+- Code navigation only works for active branches. Push to the branch and try again.
+- Code navigation only works for repositories with less than 100,000 files.
 
 ## 延伸阅读
 - “[搜索代码](/github/searching-for-information-on-github/searching-code)”

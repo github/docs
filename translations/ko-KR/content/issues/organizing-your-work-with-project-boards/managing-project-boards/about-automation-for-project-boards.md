@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Automation for project boards
@@ -43,5 +44,5 @@ You can track the progress on your project board. Cards in the "To do", "In prog
 For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ## 더 읽을거리
-- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% ifversion fpt %}
+- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}

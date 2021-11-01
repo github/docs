@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Missing contributions
@@ -16,7 +17,7 @@ shortTitle: Missing contributions
 
 ## About your contribution graph
 
-Beim Beteiligungsdiagramm für Ihr Profil handelt es sich um einen Eintrag Ihrer Beiträge für {% data variables.product.product_name %}-Repositorys. Beiträge werden nicht entsprechend Deiner lokalen Zeitzone, sondern entsprechend der UTC-Zone (Coordinated Universal Time, koordinierte Weltzeit) mit Zeitstempeln versehen. Beiträge werden nur gezählt, falls sie bestimmte Kriterien erfüllen. In manchen Fällen muss Dein Diagramm allenfalls neu erstellt werden, damit die Beiträge angezeigt werden.
+Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.product.product_location %}. Beiträge werden nicht entsprechend Deiner lokalen Zeitzone, sondern entsprechend der UTC-Zone (Coordinated Universal Time, koordinierte Weltzeit) mit Zeitstempeln versehen. Beiträge werden nur gezählt, falls sie bestimmte Kriterien erfüllen. In manchen Fällen muss Dein Diagramm allenfalls neu erstellt werden, damit die Beiträge angezeigt werden.
 
 ## Gezählte Beiträge
 
@@ -26,7 +27,7 @@ Issues, pull requests and discussions will appear on your contribution graph if 
 
 ### Commits
 Commits werden in Deinem Beteiligungsdiagramm angezeigt, falls sie **alle** folgenden Bedingungen erfüllen:
-- Die für die Commits verwendete E-Mail-Adresse ist mit Ihrem {% data variables.product.product_name %}-Konto verknüpft.
+- The email address used for the commits is associated with your account on {% data variables.product.product_location %}.
 - Die Commits wurden in einem eigenständigen Repository vorgenommen und nicht in einem Fork.
 - Die Commits wurden
   - In the repository's default branch
@@ -50,7 +51,7 @@ Nachdem Du einen Commit erstellt hast, der die Anforderung erfüllt, um als Beit
 
 ### Your local Git commit email isn't connected to your account
 
-Commits must be made with an email address that is connected to your account on {% data variables.product.product_name %}{% ifversion fpt %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 Du kannst die für einen Commit verwendete E-Mail-Adresse überprüfen. Füge dazu `.patch` am Ende einer Commit-URL hinzu, also beispielsweise <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -63,11 +64,11 @@ Subject: [PATCH] updated index for better welcome message
 
 Bei der im Feld `From:` (Von) angegebenen E-Mail-Adresse handelt es sich um die Adresse, die in den [Einstellungen für die lokale Git-Konfiguration](/articles/set-up-git) festgelegt wurde. In diesem Beispiel lautet die für den Commit verwendete E-Mail-Adresse `octocat@nowhere.com`.
 
-If the email address used for the commit is not connected to your account on {% data variables.product.product_name %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your {% data variables.product.product_name %} account. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
+If the email address used for the commit is not connected to your account on {% data variables.product.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 
-Es ist nicht möglich, {% data variables.product.product_name %}-Konten generische E-Mail-Adressen hinzuzufügen wie beispielsweise `jane@computer.local`. Falls Du eine solche E-Mail-Adresse für Deine Commits verwendest, werden die Links weder mit Deinem {% data variables.product.product_name %}-Profil verknüpft noch in Deinem Beteiligungsdiagramm angezeigt.
+**Warning**: Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts. If you use such an email for your commits, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
 
 {% endwarning %}
 
@@ -81,7 +82,7 @@ Falls sich Deine Commits auf einem Nicht-Standard- oder Nicht-`gh-pages`-Branch 
 
 {% warning %}
 
-Durch das Ändern des Standardbranch des Repositorys wird er für alle Repository-Mitarbeiter geändert. Führe diese Aktion nur dann aus, wenn Du willst, dass der neue Branch zur neuen Basis wird, auf der alle künftigen Pull Requests und Commits durchgeführt werden.
+**Warning**: Changing the default branch of the repository will change it for all repository collaborators. Führe diese Aktion nur dann aus, wenn Du willst, dass der neue Branch zur neuen Basis wird, auf der alle künftigen Pull Requests und Commits durchgeführt werden.
 
 {% endwarning %}
 
@@ -89,7 +90,7 @@ Durch das Ändern des Standardbranch des Repositorys wird er für alle Repositor
 
 Die in einem Fork durchgeführten Commits werden nicht auf Deine Beiträge angerechnet. Führe eine der folgenden Aktionen durch, damit sie angerechnet werden:
 - [Öffne einen Pull Request](/articles/creating-a-pull-request), damit Deine Änderungen in das übergeordnete Repository zusammengeführt werden.
-- Wenden Sie sich an {% data variables.contact.contact_support %}, falls Sie den Fork trennen und in ein eigenständiges Repository auf {% data variables.product.product_name %} umwandeln möchten. Wenn der Fork eigene Forks hat, musst Du {% data variables.contact.github_support %} wissen lassen, ob die Forks mit Deinem Repository in ein neues Netzwerk verschoben werden sollen oder im aktuellen Netzwerk verbleiben sollen. Weitere Informationen findest Du unter „[Informationen zu Forks](/articles/about-forks/).“
+- To detach the fork and turn it into a standalone repository on {% data variables.product.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. Weitere Informationen findest Du unter „[Informationen zu Forks](/articles/about-forks/).“
 
 ## Weiterführende Informationen
 

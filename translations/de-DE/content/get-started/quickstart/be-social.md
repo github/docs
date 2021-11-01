@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
   - Pull requests
@@ -23,7 +24,7 @@ Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[
 
 ## Personen folgen
 
-Wenn Sie jemandem auf {% data variables.product.product_location %} folgen, werden Sie auf Ihrem persönlichen Dashboard über die Aktivitäten dieser Person benachrichtigt. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
+When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
 
 Klicke auf der Profilseite einer Person auf **Follow** (Folgen), um ihr zu folgen.
 
@@ -31,7 +32,7 @@ Klicke auf der Profilseite einer Person auf **Follow** (Folgen), um ihr zu folge
 
 ## Ein Repository beobachten
 
-Du kannst ein Repository beobachten, um über neue Pull Requests und Issues benachrichtigt zu werden. Wenn der Inhaber das Repository aktualisiert, siehst Du die Änderungen auf Deinem persönlichen Dashboard. Weitere Informationen findest Du auf {% ifversion fpt or ghae or ghes %}„[Deine Abonnements ansehen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}[Benachrichtigungen von Repositorys aktivieren und deaktivieren](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Du kannst ein Repository beobachten, um über neue Pull Requests und Issues benachrichtigt zu werden. Wenn der Inhaber das Repository aktualisiert, siehst Du die Änderungen auf Deinem persönlichen Dashboard. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Klicke oben bei einem Repository, das Du beobachten möchtest, auf **Watch** (Beobachten).
 

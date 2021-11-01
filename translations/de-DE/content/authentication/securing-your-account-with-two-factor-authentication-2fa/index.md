@@ -1,6 +1,6 @@
 ---
 title: Dein Konto durch Zwei-Faktor-Authentifizierung (2FA) schützen
-intro: 'Sie können Ihr {% data variables.product.product_name %}-Konto so einrichten, dass zur Anmeldung neben dem Passwort auch ein Authentifizierungscode erforderlich ist.'
+intro: 'You can set up your account on {% data variables.product.product_location %} to require an authentication code in addition to your password when you sign in.'
 redirect_from:
   - /categories/84/articles/
   - /categories/two-factor-authentication-2fa/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 children:

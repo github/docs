@@ -40,7 +40,7 @@ Wenn Du den private Modus nicht aktiviert hast, hat das Migrationsskript keine A
 ## Die Migration durchführen
 
 1. Stellen Sie eine Verbindung zur Verwaltungsshell her. Weitere Informationen findest Du unter "[Auf die administrative Shell (SSH) zugreifen](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)."
-{% ifversion ghes > 2.22 or ghae %}
+{% ifversion ghes or ghae %}
 2. Führe den Migrationsbefehl aus.
    ```shell
    github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log

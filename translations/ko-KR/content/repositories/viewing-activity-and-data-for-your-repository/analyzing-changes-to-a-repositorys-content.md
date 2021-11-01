@@ -17,6 +17,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Analyze changes
@@ -44,7 +45,7 @@ The bottom graph shows the average number of commits by day of the week for the 
 
 The code frequency graph displays the content additions and deletions for each week in a repository's history.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![코드 주파수 그래프](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 

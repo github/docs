@@ -4,6 +4,7 @@ intro: 'Puedes utilizar {% data variables.product.prodname_codespaces %} en tu b
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

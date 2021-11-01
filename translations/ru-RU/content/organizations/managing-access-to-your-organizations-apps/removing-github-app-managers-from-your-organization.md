@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Remove GitHub App managers
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization#github-app-managers)."
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
 
@@ -32,7 +33,7 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Under "App managers", find the username of the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, and click **Revoke**. ![Revoke {% data variables.product.prodname_github_app %} manager permissions](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Дополнительная литература
 
 - "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"

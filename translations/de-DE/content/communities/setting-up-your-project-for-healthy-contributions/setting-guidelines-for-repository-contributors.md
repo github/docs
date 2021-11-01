@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors/
   - /articles/setting-guidelines-for-repository-contributors
@@ -25,9 +26,9 @@ Mitarbeitern helfen die Richtlinien, korrekt formulierte Pull Requests einzureic
 
 Sowohl Inhaber als auch Mitarbeiter sparen dank Beitragsrichtlinien Zeit und Mühen, die durch fehlerhaft formulierte Pull Requests oder Issues entstehen, die abgelehnt und erneut eingereicht werden müssen.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Du kannst Standard-Beitragsrichtlinien für Deine Organisation{% ifversion fpt or ghes %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Du kannst Standard-Beitragsrichtlinien für Deine Organisation{% ifversion fpt or ghes or ghec %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -62,6 +63,6 @@ Wenn Sie nun nicht wissen, was Sie hier festlegen sollen, finden Sie nachfolgend
 - [Beitragsrichtlinien](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) des Open Government.
 
 ## Weiterführende Informationen
-- Abschnitt „[Starting an Open Source Project](https://opensource.guide/starting-a-project/)“ (Open-Source-Projekt starten) der Open-Source-Leitfäden{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- Abschnitt „[Starting an Open Source Project](https://opensource.guide/starting-a-project/)“ (Open-Source-Projekt starten) der Open-Source-Leitfäden{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}

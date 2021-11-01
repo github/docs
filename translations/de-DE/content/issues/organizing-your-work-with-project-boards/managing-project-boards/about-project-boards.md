@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,7 +21,7 @@ Projektboards bestehen aus Issues, Pull Requests und Hinweisen, die als Tickets 
 
 Projektboard-Tickets enthalten relevante Metadaten für Issues und Pull Requests, wie Kennzeichnungen, Bearbeiter, Status und den öffnenden Benutzer. {% data reusables.project-management.edit-in-project %}
 
-Sie können außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_name %} verwenden. Über Hinweise können Sie auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
+Sie können außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_location %} verwenden. Über Hinweise können Sie auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
 
 Arten von Projektboards:
 
@@ -66,7 +67,7 @@ Weitere Informationen zur Automatisierung von Projektboards findest Du unter „
 ## Weiterführende Informationen
 
 - „[Ein Projektboard erstellen](/articles/creating-a-project-board)“
-- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% ifversion fpt %}
+- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% ifversion fpt or ghec %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board)“
 - „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“

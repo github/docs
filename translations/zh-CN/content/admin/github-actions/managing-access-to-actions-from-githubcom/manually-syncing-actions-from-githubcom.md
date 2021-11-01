@@ -7,13 +7,16 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: next
+type: tutorial
 topics:
+  - Actions
   - Enterprise
 shortTitle: 手动同步操作
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
@@ -21,7 +24,7 @@ shortTitle: 手动同步操作
 
 推荐的允许从 {% data variables.product.prodname_dotcom_the_website %} 访问操作的方法是启用自动访问所有操作。 通过使用 {% data variables.product.prodname_github_connect %} 将 {% data variables.product.product_name %} 与 {% data variables.product.prodname_ghe_cloud %} 集成可实现这一点。 更多信息请参阅“[启用使用 {% data variables.product.prodname_github_connect %} 自动访问 {% data variables.product.prodname_dotcom_the_website %} 操作](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
 
-However, if you want stricter control over which actions are allowed in your enterprise, you{% else %}You{% endif %} can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise.
+但是，如果您想更严格地控制企业中允许的操作，{% else %}{% endif %}您可以按照本指南使用 {% data variables.product.company_short %} 的开源 [`actions-sync`](https://github.com/actions/actions-sync) 工具将各个操作仓库从 {% data variables.product.prodname_dotcom_the_website %} 同步到企业。
 
 ## 关于 `actions-sync` 工具
 
@@ -34,7 +37,7 @@ However, if you want stricter control over which actions are allowed in your ent
 ## 基本要求
 
 * 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业中。 以下示例演示如何将操作同步到名为 `synced-actions` 的组织。 更多信息请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
-* 您必须在企业上创建可以创建并写入目标组织中的仓库的个人访问令牌 (PAT)。 For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion ghes %}
+* 您必须在企业上创建可以创建并写入目标组织中的仓库的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。{% ifversion ghes %}
 * 如果您想同步 {% data variables.product.product_location %} 上 `actions` 组织中的捆绑操作，您必须是 `actions` 组织的所有者。
 
   {% note %}
@@ -54,14 +57,13 @@ However, if you want stricter control over which actions are allowed in your ent
 This example demonstrates using the `actions-sync` tool to sync an individual action from {% data variables.product.prodname_dotcom_the_website %} to an enterprise instance.
 
 {% note %}
-
-**Note:** This example uses the `actions-sync sync` command, which requires concurrent access to both the {% data variables.product.prodname_dotcom_the_website %} API and your enterprise instance's API from your machine. If you can only access one system at a time, you can use the `actions-sync pull` and `push` commands. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#not-connected-instances).
+**注**：此示例使用 `actions-sync sync` 命令，它要求从您的计算机同时访问 {% data variables.product.prodname_dotcom_the_website %} API 和企业实例的 API。 如果您一次只能访问一个系统，您可以使用 `actions-sync pull` 和 `push` 命令。 更多信息请参阅 [`actions-sync` README](https://github.com/actions/actions-sync#not-connected-instances)。
 
 {% endnote %}
 
-1. Download and extract the latest [`actions-sync` release](https://github.com/actions/actions-sync/releases) for your machine's operating system.
+1. 为机器的操作系统下载并提取最新的 [`actions-sync` release](https://github.com/actions/actions-sync/releases)。
 1. 创建一个目录来存储工具的缓存文件。
-1. Run the `actions-sync sync` command:
+1. 运行 `actions-sync sync` 命令：
 
    ```shell
    ./actions-sync sync \

@@ -1,6 +1,6 @@
 ---
 title: Fazer downgrade da sua assinatura do GitHub
-intro: 'Você pode rebaixar sua assinatura para qualquer tipo de conta {% data variables.product.product_name %} a qualquer momento.'
+intro: 'Você pode fazer o downgrade da assinatura para qualquer tipo de conta em {% data variables.product.product_location %} a qualquer momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /articles/downgrading-your-personal-account-s-billing-plan/
@@ -19,6 +19,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Downgrades

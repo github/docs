@@ -3,6 +3,7 @@ title: Häufig gestellte Fragen zu Änderungen an den GitHub-Plänen
 intro: 'GitHub hat angekündigt, dass ab dem 14. April 2020 alle GitHub-Kernfunktionen kostenlos verfügbar sind.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub
 redirect_from:
@@ -91,6 +92,6 @@ Wenn Du derzeit mit Rechnung bezahlst, sende eine E-Mail an Deinen Kundenbetreue
 
 ## Wie wird sich dies auf Nutzer und Organisationen in Regionen auswirken, in denen die US-Regierung Sanktionen verhängt? government sanctions are applied?
 
-Due to U.S. Aufgrund der Restriktionen unter dem amerikanischen Handelskontrollgesetz kann GitHub keine Dienstleistungen für private Repositorys oder bezahlte Dienstleistungen für Konten in von den USA sanktionierten Regionen anbieten. sanctioned regions. GitHub hat jedoch den Zugriff auf kostenlose öffentliche Repository-Dienstleistungen beibehalten. Weitere Informationen findest Du unter [GitHub und Handelskontrollen](/github/site-policy/github-and-trade-controls).
+Due to U.S. Aufgrund der Restriktionen unter dem amerikanischen Handelskontrollgesetz kann GitHub keine Dienstleistungen für private Repositorys oder bezahlte Dienstleistungen für Konten in von den USA sanktionierten Regionen anbieten. sanctioned regions. GitHub hat jedoch den Zugriff auf kostenlose öffentliche Repository-Dienstleistungen beibehalten. Weitere Informationen findest Du unter [GitHub und Handelskontrollen](/free-pro-team@latest/github/site-policy/github-and-trade-controls).
 
 GitHub will continue advocating with U.S. GitHub wird sich weiterhin bei den US-Regulierungsbehörden für den größtmöglichen Zugang zu kostenlosen Code-Zusammenarbeitsdienste für Entwickler in sanktionierten Regionen einsetzen, einschließlich kostenloser privater Repositorys. Wir glauben, dass das Angebot dieser kostenlosen Dienste die US-Außenpolitik zur Förderung des freien Informationsflusses und der freien Meinungsäußerung in diesen Regionen unterstützt. foreign policy of encouraging the free flow of information and free speech in those regions.

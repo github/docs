@@ -1,6 +1,6 @@
 ---
 title: Sicherung eines Repositorys durchführen
-intro: 'Du kannst{% ifversion ghes or ghae %} Git und{% endif %} die API {% ifversion fpt %}oder ein Drittanbieter-Werkzeug {% endif %}für die Sicherung Deines Repositorys verwenden.'
+intro: 'You can use{% ifversion ghes or ghae %} Git and{% endif %} the API {% ifversion fpt or ghec %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
   - /github/creating-cloning-and-archiving-repositories/backing-up-a-repository
@@ -9,11 +9,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Um ein Archiv Deines Repositorys herunterzuladen, kannst du die API für die Migration von Benutzern oder Organisationen verwenden. For more information, see "[Migrations](/rest/reference/migrations)."
 {% else %}
@@ -23,7 +24,7 @@ Du kannst Deine Repositorys manuell herunterladen und sichern:
 - Um die Git-Daten eines Repositorys auf Deinen lokalen Computer herunterzuladen, musst Du das Repository klonen. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 - Du kannst auch das Wiki Deines Repositorys herunterladen. Weitere Informationen findest Du unter „[Wiki-Seiten hinzufügen oder bearbeiten](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages).“
 
-Wenn Du ein Repository oder Wiki klonst, werden nur Git-Daten wie Projektdateien und der Commit-Verlauf heruntergeladen. Mithilfe unserer API kannst Du andere Elemente Deines {% data variables.product.product_name %}-Repositorys auf Deinen lokalen Computer herunterladen:
+Wenn Du ein Repository oder Wiki klonst, werden nur Git-Daten wie Projektdateien und der Commit-Verlauf heruntergeladen. You can use our API to export other elements of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to your local machine:
 
 - [Issues](/rest/reference/issues#list-issues-for-a-repository)
 - [Pull Requests](/rest/reference/pulls#list-pull-requests)
@@ -38,7 +39,7 @@ Wenn Du ein Repository oder Wiki klonst, werden nur Git-Daten wie Projektdateien
 
 Once you have {% ifversion ghes or ghae %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup or storage service such as [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview/), [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Backup-Tools (Sicherungswerkzeuge) von Drittanbietern
 
 Es sind mehrere Self-Service-Tools verfügbar, mit denen Du die Sicherung von Repositorys automatisieren kannst. Im Gegensatz zu Archivierungsprojekten, welche _alle_ nicht ausgeschlossenen öffentlichen Repositorys auf {% data variables.product.product_name %} archivieren und ihre Daten für jedermann zugänglich machen, werden Sicherungswerkzeuge die Daten von _spezifischen_ Repositorys herunterladen und sie in einem neuen Branch oder Verzeichnis organisieren. Weitere Informationen zu Archivierungsprojekten findest Du unter „[Über die Archivierung von Inhalt und Daten auf {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)." For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).

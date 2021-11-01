@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Basic formatting syntax
 ---
 
@@ -55,7 +56,7 @@ Text that is not a quote
 
 ## Code zitieren
 
-Du kannst Code oder einen Befehl innerhalb eines Satzes mit einfachen Backticks zitieren. The text within the backticks will not be formatted.{% ifversion fpt or ghae-next or ghes > 3.1 %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
+Du kannst Code oder einen Befehl innerhalb eines Satzes mit einfachen Backticks zitieren. The text within the backticks will not be formatted.{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} You can also press the `command` or `Ctrl` + `e` keyboard shortcut to insert the backticks for a code block within a line of Markdown.{% endif %}
 
 ```markdown
 Verwende `git status`, um alle neuen oder geänderten Dateien aufzulisten, die noch nicht freigegeben wurden.
@@ -80,7 +81,7 @@ Weitere Informationen findest Du unter „[Erstellen und Hervorheben von Codebl�
 
 ## Links
 
-Du kannst einen Inline-Link erstellen, indem Du den Text in eckige Klammern `[ ]` einschließt und dann die URL in runde Klammern `( )` einschließt. {% ifversion fpt or ghae-next or ghes > 3.1 %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
+Du kannst einen Inline-Link erstellen, indem Du den Text in eckige Klammern `[ ]` einschließt und dann die URL in runde Klammern `( )` einschließt. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}
 
 `Diese Website wurde mit [GitHub Pages](https://pages.github.com/) erstellt.`
 
@@ -108,7 +109,7 @@ You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then w
 
 ![Rendered Image](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
 {% tip %}
 
@@ -208,7 +209,7 @@ Weitere Informationen findest Du unter „[Informationen zu Aufgabenlisten](/art
 
 ## Personen und Teams erwähnen
 
-Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. Weitere Informationen zu Benachrichtigungen findest Du unter {% ifversion fpt or ghes or ghae %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. Weitere Informationen zu Benachrichtigungen findest Du unter {% ifversion fpt or ghes or ghae or ghec %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support Wie findet ihr diese Aktualisierungen?`
 
@@ -236,7 +237,7 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 ![Inhaltsanhang](/assets/images/github-apps/content_reference_attachment.png)
 
-Um Inhaltsanhänge zu sehen, musst Du eine {% data variables.product.prodname_github_app %} besitzen, die das API für Inhaltsanhänge nutzt, welche auf dem Repository installiert ist.{% ifversion fpt %} Weitere Informationen findest Du unter „[Eine App in Deinem persönlichen Konto installieren](/articles/installing-an-app-in-your-personal-account)“ und „[Eine App in Deiner Organisation installieren](/articles/installing-an-app-in-your-organization)“.{% endif %}
+Um Inhaltsanhänge zu sehen, musst Du eine {% data variables.product.prodname_github_app %} besitzen, die das API für Inhaltsanhänge nutzt, welche auf dem Repository installiert ist.{% ifversion fpt or ghec %} Weitere Informationen findest Du unter „[Eine App in Deinem persönlichen Konto installieren](/articles/installing-an-app-in-your-personal-account)“ und „[Eine App in Deiner Organisation installieren](/articles/installing-an-app-in-your-organization)“.{% endif %}
 
 Für URLs, die Teil eines Markdown-Links sind, werden keine Inhaltsanhänge angezeigt.
 
@@ -262,7 +263,7 @@ For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](
 
 Um einen neuen Absatz zu erstellen, lasse eine Zeile zwischen den Textzeilen leer.
 
-{% ifversion fpt or ghae-next or ghes > 3.3 %}
+{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
 ## Footnotes
 
 You can add footnotes to your content by using this bracket syntax:
@@ -270,12 +271,27 @@ You can add footnotes to your content by using this bracket syntax:
 ```
 Here is a simple footnote[^1].
 
+A footnote can also have multiple lines[^2].  
+
+You can also use words, to fit your writing style more closely[^note].
+
 [^1]: My reference.
+[^2]: Every new line should be prefixed with 2 spaces.  
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
 The footnote will render like this:
 
 ![Rendered footnote](/assets/images/site/rendered-footnote.png)
+
+{% tip %}
+
+**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+{% endtip %}
 {% endif %}
 
 ## Hiding content with comments
@@ -296,7 +312,7 @@ Sie können {% data variables.product.product_name %} anweisen, die Markdown-For
 
 Weitere Informationen findest Du unter „[Markdown-Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)“ von Daring Fireball.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ## Disabling Markdown rendering
 
