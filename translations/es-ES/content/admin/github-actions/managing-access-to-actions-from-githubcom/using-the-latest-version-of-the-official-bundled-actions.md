@@ -4,8 +4,11 @@ intro: 'Puedes actualizar las acciones que vienen en paquete para tu empresa o u
 versions:
   ghes: '*'
   ghae: next
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - GitHub Connect
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Utilizar las acciones empaquetadas más recientes
@@ -13,6 +16,7 @@ shortTitle: Utilizar las acciones empaquetadas más recientes
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Tu instancia empresarial incluye varias acciones integradas que puedes utilizar en tus flujos de trabajo. Para obtener más información sobre las acciones en paquete, consulta la sección "[Acciones oficiales que vienen en paquete con tu instancia empresarial](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)".
 

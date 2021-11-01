@@ -21,6 +21,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -42,10 +43,13 @@ By default, the restrictions of a branch protection rule don't apply to people w
 For each branch protection rule, you can choose to enable or disable the following settings.
 - [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 - [Require status checks before merging](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
 - [Include administrators](#include-administrators)
 - [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
 - [Allow force pushes](#allow-force-pushes)
@@ -100,7 +104,7 @@ Du kannst die erforderlichen Statusprüfungen entweder als "loose" (locker) oder
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
@@ -108,11 +112,11 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 ### Require signed commits
 
-When you enable required commit signing on a branch, contributors {% ifversion fpt %}and bots{% endif %} can only push commits that have been signed and verified to the branch. Weitere Informationen findest Du unter „[Über die Verifikation von Commit-Signaturen](/articles/about-commit-signature-verification)."
+When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. Weitere Informationen findest Du unter „[Über die Verifikation von Commit-Signaturen](/articles/about-commit-signature-verification)."
 
 {% note %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **Hinweise:**
 
 * If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
@@ -124,9 +128,9 @@ When you enable required commit signing on a branch, contributors {% ifversion f
 
 {% endnote %}
 
-Du kannst jederzeit lokale Commits zum Branch übertragen, wenn die Commits signiert und verifiziert sind. {% ifversion fpt %}Du kannst signierte und verifizierte Commits auch mittels Pull Request auf {% data variables.product.product_name %} in einen Branch zusammenführen . Du kannst jedoch auf {% data variables.product.product_name %} keinen Pull Request in einen Branch squashen und zusammenführen, außer wenn Du der Autor des Pull Request bist.{% else %} Du kannst jedoch auf {% data variables.product.product_name %} keinen Pull Request in den Branch zusammenführen.{% endif %} Du kannst Pull Requests lokal {% ifversion fpt %}squashen und {% endif %}zusammenführen. Weitere Informationen findest Du unter "[Pull Requests lokal ausckecken](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
+Du kannst jederzeit lokale Commits zum Branch übertragen, wenn die Commits signiert und verifiziert sind. {% ifversion fpt or ghec %}Du kannst signierte und verifizierte Commits auch mittels Pull Request auf {% data variables.product.product_name %} in einen Branch zusammenführen . Du kannst jedoch auf {% data variables.product.product_name %} keinen Pull Request in einen Branch squashen und zusammenführen, außer wenn Du der Autor des Pull Request bist.{% else %} Du kannst jedoch auf {% data variables.product.product_name %} keinen Pull Request in den Branch zusammenführen.{% endif %} Du kannst Pull Requests lokal {% ifversion fpt or ghec %}squashen und {% endif %}zusammenführen. Weitere Informationen findest Du unter "[Pull Requests lokal ausckecken](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
+{% ifversion fpt or ghec %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
 
 ### Require linear history
 
@@ -134,13 +138,21 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Bevor Du einen linearen Commit-Verlauf verlangen kannst, muss Dein Repository Squash-Merge oder Rebase-Merge erlauben. Weitere Informationen findest Du unter „[Konfigurieren von Pull-Request-Merges](/github/administering-a-repository/configuring-pull-request-merges)."
 
+{% ifversion fpt or ghec %}
+### Require merge queue
+
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-references %}
+
+{% endif %}
 ### Include administrators
 
 By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.
 
 ### Restrict who can push to matching branches
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 

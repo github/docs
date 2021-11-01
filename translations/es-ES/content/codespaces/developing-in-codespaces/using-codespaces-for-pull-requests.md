@@ -5,6 +5,7 @@ intro: 'Puedes utilizar los {% data variables.product.prodname_codespaces %} en 
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

@@ -30,7 +30,7 @@ jobs:
 
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -59,10 +59,13 @@ jobs:
             notAllowed:
               - '*.js'
               - '*.mjs'
+              - '*.cjs'
               - '*.ts'
               - '*.tsx'
               - '*.json'
               - '.npmrc'
+              - '.babelrc*'
+              - '.env*'
               - 'script/**'
               - 'Procfile'
 
@@ -124,10 +127,6 @@ jobs:
             app.json \
             Procfile
 
-          ls -lh app.tar
-          zstd -q app.tar -o app.tar.zst
-          ls -lh app.tar.zst
-
       # Upload only the files needed to run this application.
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
@@ -135,4 +134,4 @@ jobs:
         uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
         with:
           name: pr_build
-          path: app.tar.zst
+          path: app.tar

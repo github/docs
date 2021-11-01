@@ -15,7 +15,6 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { VersionPicker } from 'components/VersionPicker'
-import { Breadcrumbs } from 'components/Breadcrumbs'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -60,12 +59,10 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          topper={<Breadcrumbs />}
+          topper={<ArticleTitle>{title}</ArticleTitle>}
           topperSidebar={<VersionPicker />}
           intro={
             <>
-              <ArticleTitle>{title}</ArticleTitle>
-
               {contributor && (
                 <Callout variant="info" className="mb-3">
                   <p>

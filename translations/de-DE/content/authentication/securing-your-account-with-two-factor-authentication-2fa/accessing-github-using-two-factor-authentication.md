@@ -11,6 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Access GitHub with 2FA
@@ -20,7 +21,7 @@ With two-factor authentication enabled, you'll need to provide an authentication
 
 ## Einen 2FA-Code bei der Anmeldung in die Website bereitstellen
 
-Nachdem Sie sich mit Ihrem Passwort bei {% data variables.product.product_name %} angemeldet haben, werden Sie aufgefordert, einen Authentifizierungscode aus {% ifversion fpt %}einer SMS oder{% endif %} Ihrer TOTP-App einzugeben.
+Nachdem Sie sich mit Ihrem Passwort bei {% data variables.product.product_name %} angemeldet haben, werden Sie aufgefordert, einen Authentifizierungscode aus {% ifversion fpt or ghec %}einer SMS oder{% endif %} Ihrer TOTP-App einzugeben.
 
 Nachdem Sie sich mit Ihrem Passwort bei {% data variables.product.product_name %} angemeldet haben, werden Sie erst dann wieder aufgefordert, Ihren Authentifizierungscode für die Zwei-Faktor-Authentifizierung anzugeben, wenn Sie sich abgemeldet haben, ein neues Gerät verwenden oder Ihre Sitzung abläuft.
 
@@ -30,7 +31,7 @@ Wenn Sie sich dafür entschieden haben, die Zwei-Faktor-Authentifizierung mit ei
 
 Wenn Du die mobile Anwendung nach der Konfiguration der Zwei-Faktor-Authentifizierung löschst, musst Du Deinen Wiederherstellungscode angeben, um Zugriff auf Dein Konto zu erhalten. Weitere Informationen findest Du unter „[Dein Konto beim Verlust der Anmeldeinformationen für die Zwei-Faktor-Authentifizierung wiederherstellen](/articles/recovering-your-account-if-you-lose-your-2fa-credentials),“
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Eine SMS empfangen
 

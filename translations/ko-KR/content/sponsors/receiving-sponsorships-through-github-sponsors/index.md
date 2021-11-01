@@ -8,6 +8,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-through-github-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /about-github-sponsors-for-open-source-contributors
   - /setting-up-github-sponsors-for-your-user-account

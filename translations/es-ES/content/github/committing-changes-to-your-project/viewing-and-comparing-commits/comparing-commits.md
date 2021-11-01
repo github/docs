@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 Para comparar versiones diferentes de tu repositorio, añade `/compare` a la ruta del mismo.
@@ -29,9 +30,9 @@ Aquí hay un ejemplo de una [comparación entre dos ramas](https://github.com/oc
 
 ## Comparar etiquetas
 
-Cuando compares etiquetas de lanzamiento se te mostrarán los cambios que se han realizado a tu repositorio desde el último lanzamiento. {% ifversion fpt or ghae or ghes %}Para obtener más información, consulta la sección "[Comparar lanzamientos](/github/administering-a-repository/comparing-releases)".{% endif %}
+Cuando compares etiquetas de lanzamiento se te mostrarán los cambios que se han realizado a tu repositorio desde el último lanzamiento. {% ifversion fpt or ghae or ghes or ghec %}Para obtener más información, consulta la sección "[Comparar lanzamientos](/github/administering-a-repository/comparing-releases)".{% endif %}
 
-{% ifversion fpt or ghae or ghes %}Para comparar etiquetas, puedes seleccionar un nombre de etiqueta del menú desplegable `compare` en la parte superior de la página. {% else %}En vez de teclear un nombre de rama, teclea el nombre de tu etiqueta en el menú desplegable de `compare`.{% endif %}
+{% ifversion fpt or ghae or ghes or ghec %}Para comparar etiquetas, puedes seleccionar un nombre de etiqueta del menú desplegable `compare` en la parte superior de la página. {% else %}En vez de teclear un nombre de rama, teclea el nombre de tu etiqueta en el menú desplegable de `compare`.{% endif %}
 
 Aquí hay un ejemplo de una [comparación entre dos etiquetas](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 

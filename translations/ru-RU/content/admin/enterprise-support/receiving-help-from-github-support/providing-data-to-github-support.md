@@ -65,9 +65,6 @@ After you submit your support request, we may ask you to share a support bundle 
 - `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
 - `collectd/logs/collectd.log`: Collectd logs
 - `mail-logs/mail.log`: SMTP email delivery logs
-{% ifversion ghes < 3.0 %}
-- `hookshot-logs/exceptions.log`: Webhook delivery errors
-{% endif %}
 
 For more information, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)."
 

@@ -37,10 +37,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
 shortTitle: Filter and search
+type: how_to
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -102,7 +104,7 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 - [需要审查](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)后才能合并的拉取请求
 - 审查者已批准的拉取请求
 - 审查者要求更改的拉取请求
-- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 %}
+- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Pull requests that someone has asked you directly to review{% endif %}
 - [有人要求您或您所属团队进行审查](/articles/requesting-a-pull-request-review)的拉取请求
 
@@ -163,7 +165,7 @@ gh pr list --search "team:octo-org/octo-team"
 - 按标签过滤议题和拉取请求：`state:open type:issue label:"bug"`
 - 使用 `-` before the term: `state:open type:issue -author:octocat` 过滤搜索词。
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
@@ -173,7 +175,7 @@ gh pr list --search "team:octo-org/octo-team"
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 对于议题，您还可以使用搜索来：
 
 - 通过关闭引用过滤链接到拉取请求的议题：`linked:pr`
@@ -186,9 +188,9 @@ gh pr list --search "team:octo-org/octo-team"
 - 过滤审查者已批准的拉取请求：`state:open type:pr review:approved`
 - 过滤审查者要求更改的拉取请求：`state:open type:pr review:changes_requested`
 - 按[审查者](/articles/about-pull-request-reviews/)过滤拉取请求：`state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- 按申请审查的团队过滤拉取请求：`state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
+- 按申请审查的团队过滤拉取请求：`state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - 过滤链接到拉取请求可能关闭的议题的拉取请求：`linked:issue`{% endif %}
 
 ## 排序议题和拉取请求

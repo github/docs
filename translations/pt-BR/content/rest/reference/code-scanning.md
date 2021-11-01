@@ -1,6 +1,6 @@
 ---
 title: Varredura de código
-intro: The Code Scanning API enables you to retrieve and update the code scanning alerts and analyses from a repository.
+intro: A API de digitalização de código permite recuperar e atualizar os alertas de verificação de código e análises de um repositório.
 redirect_from:
   - /v3/code-scanning
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 topics:
   - API
@@ -20,7 +21,7 @@ miniTocMaxHeadingLevel: 3
 
 A API de {% data variables.product.prodname_code_scanning %} permite que você recupere e atualize alertas de {% data variables.product.prodname_code_scanning %} alertas de um repositório. Você pode usar os pontos de extremidade para criar relatórios automatizados para os alertas de {% data variables.product.prodname_code_scanning %} em uma organização ou fazer upload dos resultados de análise gerados usando as ferramentas off-line de {% data variables.product.prodname_code_scanning %}. Para obter mais informações, consulte "[Encontrar vulnerabilidades e erros de segurança no seu código](/github/finding-security-vulnerabilities-and-errors-in-your-code).
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### Tipo de mídia personalizada para {% data variables.product.prodname_code_scanning %}
 
 Existe um tipo de mídia personalizada com suporte para a API REST de {% data variables.product.prodname_code_scanning %}. 

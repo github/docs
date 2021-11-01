@@ -9,12 +9,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Organization membership
 ---
 
-Ein Organisationsinhaber kann Dich einladen, seiner Organisation als Mitglied, Abrechnungsmanager oder Inhaber beizutreten. Ein Organisationsinhaber oder Mitglied mit Administratorberechtigungen für ein Repository kann Dich einladen, als externer Mitarbeiter in einem oder mehreren Repositorys zusammenzuarbeiten. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
+Ein Organisationsinhaber kann Dich einladen, seiner Organisation als Mitglied, Abrechnungsmanager oder Inhaber beizutreten. Ein Organisationsinhaber oder Mitglied mit Administratorberechtigungen für ein Repository kann Dich einladen, als externer Mitarbeiter in einem oder mehreren Repositorys zusammenzuarbeiten. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Auf Deiner Profilseite kannst Du auf Organisationen zugreifen, denen Du angehörst. Weitere Informationen findest Du unter „[Auf eine Organisation zugreifen](/articles/accessing-an-organization).“
 
@@ -38,9 +39,9 @@ Weitere Informationen findest Du in der <a href="/articles/github-privacy-statem
 
 Die Sichtbarkeit Deiner Mitgliedschaft in einer Organisation ist standardmäßig auf privat eingestellt. Du kannst wählen, ob Du einzelne Mitgliedschaften in Organisationen in Deinem Profil veröffentlichen möchtest. Weitere Informationen findest Du unter „[Mitgliedschaft in einer Organisation veröffentlichen oder ausblenden](/articles/publicizing-or-hiding-organization-membership).“
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-Wenn Deine Organisation zu einem Enterprise-Konto gehört, bist Du automatisch Mitglied des Enterprise-Kontos und für Inhaber des Enterprise-Kontos sichtbar. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/articles/about-enterprise-accounts).“
+Wenn Deine Organisation zu einem Enterprise-Konto gehört, bist Du automatisch Mitglied des Enterprise-Kontos und für Inhaber des Enterprise-Kontos sichtbar. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/admin/overview/about-enterprise-accounts).“
 
 {% endif %}
 

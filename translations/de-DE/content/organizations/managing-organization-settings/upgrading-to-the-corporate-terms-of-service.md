@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -23,4 +24,4 @@ Die Standardnutzungsbedingungen sind eine Vereinbarung zwischen {% data variable
 5. Klicke auf **Accept terms** (Nutzungsbedingungen akzeptieren), um den Unternehmensnutzungsbedingungen im Auftrag Deiner Entität zuzustimmen. ![Schaltfläche „Accept terms“ (Nutzungsbedingungen akzeptieren)](/assets/images/help/organizations/accept-terms-button.png)
 
 ## Weiterführende Informationen
-- „[Unternehmensnutzungsbedingungen für GitHub](/articles/github-corporate-terms-of-service/)“
+- „[Unternehmensnutzungsbedingungen für GitHub](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)“

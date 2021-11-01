@@ -9,18 +9,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Configure
 ---
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Issuevorlagen erstellen
 
@@ -38,7 +39,7 @@ shortTitle: Configure
 10. Lege unterhalb der Commit-Mitteilungsfelder fest, ob Du Deine Vorlage direkt an den Standardbranch freigeben oder einen neuen Branch erstellen und einen Pull Request öffnen möchtest. Weitere Informationen zu Pull Requests findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests).“ ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Klicke auf **Commit changes** (Änderungen freigeben). Sobald diese Änderungen in den Standardbranch zusammengeführt wurden, steht die Vorlage für Mitarbeiter zur Verfügung, wenn sie neue Issues im Repository erstellen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating issue forms
 
@@ -61,7 +62,7 @@ Here is the rendered version of the issue form. ![A rendered issue form](/assets
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## Konfigurieren der Vorlagenauswahl
 
 {% data reusables.repositories.issue-template-config %}

@@ -8,6 +8,7 @@ redirect_from:
   - /developers/github-marketplace/handling-plan-cancellations
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Plan cancellations

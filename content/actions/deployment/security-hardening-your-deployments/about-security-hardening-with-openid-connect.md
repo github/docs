@@ -224,6 +224,13 @@ You can now update your YAML workflows to use OIDC access tokens instead of secr
 
 ## Enabling OpenID Connect for your cloud provider
 
-To enable and configure OIDC for your cloud provider, see the following guide:
+To enable and configure OIDC for your specific cloud provider, see the following guides:
+
+- ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+- ["Configuring OpenID Connect in Azure"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- ["Configuring OpenID Connect in Google Cloud Platform"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform)
+- ["Configuring OpenID Connect in Hashicorp Vault"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
+
+To enable and configure OIDC for another cloud provider, see the following guide:
 
 - ["Configuring OpenID Connect in cloud providers"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)

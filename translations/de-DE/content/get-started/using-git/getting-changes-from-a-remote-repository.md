@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Get changes from a remote
 ---
 
@@ -77,5 +78,5 @@ Da `pull` das Zusammenführen der abgerufenen Änderungen auslöst, solltest Du 
 
 ## Weiterführende Informationen
 
-- „[Mit Remote-Repositorys arbeiten“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)“{% ifversion fpt %}
+- „[Mit Remote-Repositorys arbeiten“ aus dem _Pro Git_-Buch](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)“{% ifversion fpt or ghec %}
 - „[Verbindungsprobleme beheben](/articles/troubleshooting-connectivity-problems)“{% endif %}

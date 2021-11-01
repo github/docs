@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
@@ -65,8 +66,16 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {%- endif %}
 1. Optionally, select **Require signed commits**. ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
 1. Optionally, select **Require linear history**. ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %} ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
+
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+
+  {% endtip %}
+{%- endif %}
 1. Optionally, select **Include administrators**. ![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
-1. Optionally,{% ifversion fpt %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
+1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**. ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch. ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**. ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)

@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 redirect_from:
@@ -36,7 +37,7 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 Manchmal werden sich die Ergebnisse der Statuschecks für den Test-Merge-Commit und Head-Commit widersprechen. If the test merge commit has a status, the test merge commit must pass. Anderenfalls muss der Status des Head-Commit bestanden sein, bevor Du den Branch zusammenführen kannst. For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
 

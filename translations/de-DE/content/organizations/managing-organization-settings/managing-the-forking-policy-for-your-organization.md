@@ -1,6 +1,6 @@
 ---
 title: Die Forking-Richtlinie für Deine Organisation verwalten
-intro: 'You can allow or prevent the forking of any private{% ifversion fpt or ghes or ghae %} and internal{% endif %} repositories owned by your organization.'
+intro: 'You can allow or prevent the forking of any private{% ifversion fpt or ghes or ghae or ghec %} and internal{% endif %} repositories owned by your organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -10,15 +10,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Manage forking policy
 ---
 
-Standardmäßig sind neue Organisationen so konfiguriert, dass sie das Forken von privaten{% ifversion fpt or ghes or ghae %} und internen{% endif %} Repositorys verbieten.
+Standardmäßig sind neue Organisationen so konfiguriert, dass sie das Forken von privaten{% ifversion fpt or ghes or ghae or ghec %} und internen{% endif %} Repositorys verbieten.
 
-Wenn Du das Forken von privaten{% ifversion fpt or ghes or ghae %} und internen{% endif %} Repositorys auf Organisationsebene zulässt, kannst Du auch die Möglichkeit konfigurieren, ein bestimmtes privates{% ifversion fpt or ghes or ghae %} oder internes{% endif %} Repository zu forken. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+Wenn Du das Forken von privaten{% ifversion fpt or ghes or ghae or ghec %} und internen{% endif %} Repositorys auf Organisationsebene zulässt, kannst Du auch die Möglichkeit konfigurieren, ein bestimmtes privates{% ifversion fpt or ghes or ghae or ghec %} oder internes{% endif %} Repository zu forken. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -31,4 +32,4 @@ Wenn Du das Forken von privaten{% ifversion fpt or ghes or ghae %} und internen{
 ## Weiterführende Informationen
 
 - „[Informationen zu Forks](/articles/about-forks)“
-- „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

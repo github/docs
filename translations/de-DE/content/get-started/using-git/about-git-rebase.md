@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 In der Regel verwendest Du `git rebase` in folgenden Fällen:

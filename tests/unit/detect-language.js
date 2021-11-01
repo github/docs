@@ -6,6 +6,10 @@ describe('detect-language - getLanguageCodeFromPath', () => {
     expect(getLanguageCodeFromPath('/_next/data/development/ja/articles/foo')).toBe('ja')
   })
 
+  test('should not error on /_next/data/ input', () => {
+    expect(getLanguageCodeFromPath('/_next/data/')).toBe('en')
+  })
+
   test('should return for paths with an extension', () => {
     expect(getLanguageCodeFromPath('/ja.json')).toBe('ja')
     expect(getLanguageCodeFromPath('/_next/data/development/ja.json')).toBe('ja')

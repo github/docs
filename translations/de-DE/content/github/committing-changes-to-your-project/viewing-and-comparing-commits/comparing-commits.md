@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 Um verschiedene Versionen Deines Repositorys zu vergleichen, füge `/compare` (vergleichen) zum Pfad Deines Repository hinzu.
@@ -29,9 +30,9 @@ Hier siehst Du ein Beispiel für einen [Vergleich zwischen zwei Branches](https:
 
 ## Tags vergleichen
 
-Ein Vergleich der Release-Tags zeigt Dir die Änderungen an Deinem Repository seit dem letzten Release. {% ifversion fpt or ghae or ghes %}Weitere Informationen findest Du unter „[Releases vergleichen](/github/administering-a-repository/comparing-releases)."{% endif %}
+Ein Vergleich der Release-Tags zeigt Dir die Änderungen an Deinem Repository seit dem letzten Release. {% ifversion fpt or ghae or ghes or ghec %}Weitere Informationen findest Du unter „[Releases vergleichen](/github/administering-a-repository/comparing-releases)."{% endif %}
 
-{% ifversion fpt or ghae or ghes %}Um Tags zu vergleichen, kannst Du einen Tagnamen aus dem Dropdownmenü `compare` (vergleichen) oben auf der Seite auswählen.{% else %} Anstatt einen Branchnamen einzugeben, gib den Namen Deines Tags im Dropdownmenü `compare` (vergleichen) ein.{% endif %}
+{% ifversion fpt or ghae or ghes or ghec %}Um Tags zu vergleichen, kannst Du einen Tagnamen aus dem Dropdownmenü `compare` (vergleichen) oben auf der Seite auswählen.{% else %} Anstatt einen Branchnamen einzugeben, gib den Namen Deines Tags im Dropdownmenü `compare` (vergleichen) ein.{% endif %}
 
 Hier siehst Du ein Beispiel für einen [Vergleich zwischen zwei Tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 

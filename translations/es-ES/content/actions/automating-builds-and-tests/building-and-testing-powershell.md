@@ -1,13 +1,13 @@
 ---
 title: Compilar y probar PowerShell
 intro: Puedes crear un flujo de trabajo de integración continua (IC) para compilar y probar tu proyecto de PowerShell.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
@@ -19,6 +19,7 @@ shortTitle: Compila & prueba PowerShell
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - Revisa si un archivo que se llama `resultsfile.log` está presente en el directorio raíz del repositorio.
 * `Should -Be $true` - Utiliza Pester para definir un resultado esperado. Si el resultado es inesperado, entonces {% data variables.product.prodname_actions %} lo marca como una prueba fallida. Por ejemplo:
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Prueba fallida de Pester](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![Prueba fallida de Pester](/assets/images/help/repository/actions-failed-pester-test.png)

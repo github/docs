@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 ---
@@ -43,7 +44,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 Wenn Sie von Ihrem Computer eine Verbindung zu einem anderen Netzwerk ohne Firewall herstellen können, können Sie versuchen, eine SSH-Verbindung mit {% data variables.product.product_name %} herzustellen. Wenn alles problemlos funktioniert, bitten Sie Ihren Netzwerkadministrator darum, die Firewall-Einstellungen zu ändern, damit Sie eine SSH-Verbindung mit {% data variables.product.product_name %} herstellen können.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### SSH über den HTTPS-Port verwenden
 
@@ -51,7 +52,7 @@ Wenn die Verwendung von HTTPS nicht in Frage kommt und Dein Firewall-Administrat
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Weiterführende Informationen
 

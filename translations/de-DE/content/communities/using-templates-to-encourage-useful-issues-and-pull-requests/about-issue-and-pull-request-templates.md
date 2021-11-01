@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: About templates
@@ -15,7 +16,7 @@ shortTitle: About templates
 
 Nachdem Du in Deinem Repository Vorlagen für Issues und Pull Requests erstellt hast, können Mitarbeiter die Vorlagen verwenden, um Issues zu öffnen oder vorgeschlagene Änderungen in ihren Pull Requests gemäß den Beitragsrichtlinien des Repositorys zu beschreiben. Weitere Informationen zum Hinzufügen von Beitragsrichtlinien zu einem Repository findest Du unter „[Richtlinien für Repository-Mitarbeiter festlegen](/articles/setting-guidelines-for-repository-contributors).“
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 You can create default issue and pull request templates for your organization or user account. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
@@ -23,25 +24,25 @@ You can create default issue and pull request templates for your organization or
 
 ## Vorlagen für Issues
 
-When you create issue templates for your repository using the issue template builder{% ifversion fpt %} or with issue forms{% endif %}, contributors can select the appropriate template when they open new issues in the repository.
+When you create issue templates for your repository using the issue template builder{% ifversion fpt or ghec %} or with issue forms{% endif %}, contributors can select the appropriate template when they open new issues in the repository.
 
 ![„Neuer Issue"-Seite mit Auswahlmöglichkeiten für Issuevorlagen](/assets/images/help/issues/new-issue-page-with-multiple-templates.png)
 
-Issue templates are helpful when you want to provide guidance for opening issues while allowing contributors to specify the content of their issues. {% ifversion fpt %} If you want contributors to provide specific, structured information when they open issues, issue forms help ensure that you receive your desired information.{% endif %}
+Issue templates are helpful when you want to provide guidance for opening issues while allowing contributors to specify the content of their issues. {% ifversion fpt or ghec %} If you want contributors to provide specific, structured information when they open issues, issue forms help ensure that you receive your desired information.{% endif %}
 
 Mit dem Vorlagengenerator kannst Du für jede Vorlage einen Titel und eine Beschreibung angeben, den Vorlageninhalt hinzufügen und einen Commit der Vorlage auf dem Standardbranch durchführen oder einen Pull Request im Repository öffnen. Der Vorlagengenerator fügt automatisch das YAML-Titelei-Markup hinzu, das erforderlich ist, damit die Vorlage auf der „Neuer Issue"-Seite angezeigt wird. Weitere Informationen findest Du unter „[Issuevorlagen für Dein Repository konfigurieren](/articles/configuring-issue-templates-for-your-repository).“
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 With issue forms, you can create templates that have web form fields using the {% data variables.product.prodname_dotcom %} form schema. When a contributor opens an issue using an issue form, the form inputs are converted to a standard markdown issue comment. You can specify different input types and set inputs as required to help contributors open actionable issues in your repository. For more information, see "[Configuring issue templates for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)" and "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% data reusables.repositories.issue-template-config %} Weitere Informationen findest Du unter „[Issuevorlagen für Dein Repository konfigurieren](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 
-Issue-Vorlagen werden auf dem Standardbranch des Repositorys in einem verborgenen `.github/ISSUE_TEMPLATE`-Verzeichnis gespeichert. Wenn Sie eine Vorlage in einem anderen Branch erstellen, steht sie Mitarbeitern nicht zur Verfügung. Issue template filenames are not case sensitive, and need a *.md* extension.{% ifversion fpt %} Issue templates created with issue forms need a *.yml* extension.{% endif %} {% data reusables.repositories.valid-community-issues %}
+Issue-Vorlagen werden auf dem Standardbranch des Repositorys in einem verborgenen `.github/ISSUE_TEMPLATE`-Verzeichnis gespeichert. Wenn Sie eine Vorlage in einem anderen Branch erstellen, steht sie Mitarbeitern nicht zur Verfügung. Issue template filenames are not case sensitive, and need a *.md* extension.{% ifversion fpt or ghec %} Issue templates created with issue forms need a *.yml* extension.{% endif %} {% data reusables.repositories.valid-community-issues %}
 
-Es ist möglich, manuell eine einzelne Issue-Vorlage in Markdown mit dem Workflow für ältere Issue-Vorlagen zu erstellen, wobei die Projektmitarbeiter automatisch den Inhalt der Vorlage im Issue-Text sehen. However, we recommend using the upgraded multiple issue template builder{% ifversion fpt %} or issue forms{% endif %} to create issue templates. Weitere Informationen zum veralteten Workflow finden Sie unter „[Eine einzelne Issue-Vorlage für Ihr Repository manuell erstellen](/articles/manually-creating-a-single-issue-template-for-your-repository)“.
+Es ist möglich, manuell eine einzelne Issue-Vorlage in Markdown mit dem Workflow für ältere Issue-Vorlagen zu erstellen, wobei die Projektmitarbeiter automatisch den Inhalt der Vorlage im Issue-Text sehen. However, we recommend using the upgraded multiple issue template builder{% ifversion fpt or ghec %} or issue forms{% endif %} to create issue templates. Weitere Informationen zum veralteten Workflow finden Sie unter „[Eine einzelne Issue-Vorlage für Ihr Repository manuell erstellen](/articles/manually-creating-a-single-issue-template-for-your-repository)“.
 
 {% data reusables.repositories.security-guidelines %}
 

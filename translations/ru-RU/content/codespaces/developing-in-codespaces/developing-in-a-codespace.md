@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -48,9 +49,9 @@ For more information on using {% data variables.product.prodname_vscode %}, see 
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Using the Command Palette
+### Using the {% data variables.product.prodname_vscode_command_palette %}
 
-The Command Palette allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the Command Palette in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)."
+The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
 
 ## Navigating to an existing codespace
 

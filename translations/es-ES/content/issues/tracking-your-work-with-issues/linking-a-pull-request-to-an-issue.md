@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Enlace a la solicitud de cambios o propuesta
@@ -26,7 +27,7 @@ shortTitle: Enlace a la solicitud de cambios o propuesta
 
 ## Acerca de las propuestas y solicitudes de cambios vinculadas
 
-Puedes enlazar un informe de problemas a una solicitud de extracción {% ifversion fpt or ghes or ghae %} manualmente o {% endif %}utilizando una palabra clave compatible en la descripción de esta solicitud.
+Puedes enlazar un informe de problemas a una solicitud de extracción {% ifversion fpt or ghes or ghae or ghec %} manualmente o {% endif %}utilizando una palabra clave compatible en la descripción de esta solicitud.
 
 Cuando enlazas una solicitud de extracción al informe de problemas al que ésta hace referencia, los colaboradores pueden ver si alguien está trabajando en dicho informe.
 
@@ -54,12 +55,12 @@ La sintaxis para palabras clave de cierre dependerá de si el informe de problem
 | Propuesta en un repositorio diferente | *PALABRA CLAVE* *PROPIETARIO*/*Repositorio*#*NÚMERO DE PROPUESTA* | `Fixes octo-org/octo-repo#100`                                 |
 | Propuestas múltiples                  | Utilizar la sintaxis completa para cada informe                   | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae %}Solo las solicitudes de extracción enlazadas manualmente se podrán desenlazar de la misma forma. Para desenlazar un informe de problemas que hayas enlazado previamente utilizando una palabra clave, deberás editar la descripción de la solicitud de extracción y así poder eliminar la palabra clave.{% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}Solo las solicitudes de extracción enlazadas manualmente se podrán desenlazar de la misma forma. Para desenlazar un informe de problemas que hayas enlazado previamente utilizando una palabra clave, deberás editar la descripción de la solicitud de extracción y así poder eliminar la palabra clave.{% endif %}
 
 También puedes utilizar palabras clave de cierre en un mensaje de confirmación. La propuesta se cerrará cuando fusiones la confirmación en la rama predeterminada, pero la solicitud de cambios que contiene la confirmación no se listará como una solicitud de cambios enlazada.
 
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Vincular una solicitud de cambios manualmente a una propuesta
 
 Cualquiera con permisos de escritura en un repositorio puede enlazar una solicitud de extracción a un problema manualmente.

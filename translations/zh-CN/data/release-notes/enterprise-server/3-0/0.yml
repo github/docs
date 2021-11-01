@@ -64,7 +64,7 @@ sections:
         - Web 挂钩事件传输系统已被新设计，以提高传输量、加快传送速度和减少延迟消息。它还在 {% data variables.product.prodname_ghe_server %} 3.0+ 中使用较少的 CPU 和内存。
         - 组织和企业所有者现在可以通过新的 `team.promote_maintainer` 和 `team.demote_maintainer` 审核日志事件查看团队成员何时被提升为或降级为审核日志中的团队维护者。更多信息请参阅“[已审核的操作](/enterprise-server@3.0/admin/user-management/audited-actions)”。
         - '现有 {% data variables.product.prodname_pages %} 站点的仓库维护员可以[轻松更新其以前的默认分支名称](/enterprise-server@3.0/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)。'
-        - Additional hardware resources are required to run {% data variables.product.prodname_ghe_server %} with any of Actions, Packages or Advanced Security enabled. For more information on the minimum required resources for each supported platform, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)."
+        - 需要额外的硬件资源才能运行启用了任何 Actions、Packages 或 Advanced Security 的 {% data variables.product.prodname_ghe_server %}。有关每个支持平台所需的最低资源的更多信息，请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise-server@3.0/admin/installation/setting-up-a-github-enterprise-server-instance)”。
         - 管理员现在可以[发布消息](/enterprise-server@3.0/admin/user-management/customizing-user-messages-for your enter-enterprises)，所有用户都必须接受。这可以帮助登记新用户以及显示其他组织特定的信息和政策。
     - 
       heading: 安全性更改

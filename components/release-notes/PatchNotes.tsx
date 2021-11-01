@@ -16,16 +16,6 @@ const SectionToLabelMap: Record<string, string> = {
   backups: 'Backups',
 }
 
-const ColorMap = {
-  features: 'var(--color-auto-green-5)',
-  bugs: 'var(--color-auto-yellow-5)',
-  known_issues: 'var(--color-auto-blue-5)',
-  security_fixes: 'var(--color-auto-pink-5)',
-  changes: 'var(--color-auto-green-5)',
-  deprecations: 'var(--color-auto-purple-5)',
-  backups: 'var(--color-auto-orange-5)',
-}
-
 type Props = {
   patch: ReleaseNotePatch
   withReleaseNoteLabel?: boolean
@@ -35,7 +25,6 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
     <>
       {Object.entries(patch.sections).map(([key, sectionItems], i, arr) => {
         const isLast = i === arr.length - 1
-        const primaryColor = ColorMap[key as keyof typeof ColorMap] || ColorMap.features
         return (
           <div
             key={key}
@@ -47,10 +36,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
           >
             {withReleaseNoteLabel && (
               <div className="col-12 col-xl-3 mb-5">
-                <span
-                  className="px-3 py-2 text-small text-bold text-uppercase color-text-inverse"
-                  style={{ backgroundColor: primaryColor }}
-                >
+                <span className="px-3 py-2 text-small text-bold text-uppercase color-bg-emphasis color-fg-on-emphasis">
                   {SectionToLabelMap[key] || 'INVALID SECTION'}
                 </span>
               </div>
@@ -67,9 +53,8 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
                     <h4
                       id={slug}
                       className={cx(styles.sectionHeading, 'text-uppercase text-bold f4')}
-                      style={{ color: primaryColor }}
                     >
-                      <Link href={`#${slug}`} className="text-inherit">
+                      <Link href={`#${slug}`} className="color-fg-inherit">
                         {item.heading}
                       </Link>
                     </h4>

@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## About repository archival
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Hinweis:** Wenn Du einen alten Abrechnungsplan pro Repository hast, wird Dir Dein archiviertes Repository weiterhin in Rechnung gestellt. Wenn Du keine Gebühren für ein archiviertes Repository entrichten möchtest, musst Du ein Upgrade auf ein neues Produkt durchführen. Weitere Informationen findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products).“

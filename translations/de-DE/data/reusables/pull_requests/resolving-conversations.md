@@ -12,7 +12,7 @@ Die gesamte Unterhaltung wird reduziert und als aufgelöst markiert. Dadurch las
 
 Wenn der Vorschlag in einem Kommentar nicht in den Geltungsbereich Deines Pull Requests fällt, kannst Du einen neuen Issue öffnen, das das Feedback nachverfolgt und zum ursprünglichen Kommentar zurück verknüpft. Weitere Informationen findest Du unter „[Öffnen eines Issue aus einem Kommentar](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 #### Discovering and navigating conversations
 
 You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.

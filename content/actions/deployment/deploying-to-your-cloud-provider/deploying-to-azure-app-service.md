@@ -31,7 +31,7 @@ Azure App Service can run web apps in several languages, but this guide demonstr
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %}
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 

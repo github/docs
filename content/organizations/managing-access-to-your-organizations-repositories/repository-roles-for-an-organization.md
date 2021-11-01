@@ -29,6 +29,12 @@ From least access to most access, the roles for an organization repository are:
 - **Maintain**: Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
 - **Admin**: Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
 
+{% ifversion fpt %}
+If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% elsif ghec %}
+You can create custom repository roles. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+{% endif %}
+
 Organization owners can set base permissions that apply to all members of an organization when accessing any of the organization's repositories. For more information, see "[Setting base permissions for an organization](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
 
 Organization owners can also choose to further limit access to certain settings and actions across the organization. For more information on options for specific settings, see "[Managing organization settings](/articles/managing-organization-settings)."
@@ -57,6 +63,7 @@ Some of the features listed below are limited to organizations using {% data var
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|
+| Manage [individual](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository), [team](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository), and [outside collaborator](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization) access to the repository | | | | | **X** |
 | Pull from the person or team's assigned repositories | **X** | **X** | **X** | **X** | **X** |
 | Fork the person or team's assigned repositories | **X** | **X** | **X** | **X** | **X** |
 | Edit and delete their own comments | **X** | **X** | **X** | **X** | **X** |

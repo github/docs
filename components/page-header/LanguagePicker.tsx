@@ -20,7 +20,7 @@ export const LanguagePicker = ({ variant }: Props) => {
     return (
       <Details {...getDetailsProps()} data-testid="language-picker">
         <summary
-          className="d-block btn btn-invisible color-text-primary"
+          className="d-block btn btn-invisible color-fg-default"
           aria-label="Toggle language list"
         >
           <div className="d-flex flex-items-center flex-justify-between">
@@ -55,7 +55,7 @@ export const LanguagePicker = ({ variant }: Props) => {
 
   return (
     <Details {...getDetailsProps()} data-testid="language-picker" className="position-relative">
-      <summary className="d-block btn btn-invisible color-text-primary">
+      <summary className="d-block btn btn-invisible color-fg-default">
         <Text>{selectedLang.nativeName || selectedLang.name}</Text>
         <Dropdown.Caret />
       </summary>

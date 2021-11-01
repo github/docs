@@ -19,6 +19,8 @@ Obwohl wir bestrebt sind, auf automatisierte Supportanfragen zu reagieren, benö
 
 ## {% data variables.contact.enterprise_support %} kontaktieren
 
+{% data reusables.support.zendesk-deprecation %}
+
 {% data variables.contact.enterprise_support %} customers can open a support ticket using the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.contact_ae_portal %}{% endif %}. Lege die Priorität des Tickets fest: „{% data variables.product.support_ticket_priority_urgent %}“ (dringend), „{% data variables.product.support_ticket_priority_high %}“ (hoch), „{% data variables.product.support_ticket_priority_normal %}“ (normal) oder „{% data variables.product.support_ticket_priority_low %}“ (niedrig). Weitere Informationen findest Du unter „[Einem Ticket eine Priorität zuweisen](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)“ und „[Ein Ticket einreichen](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)“.
 
 ## {% data variables.contact.enterprise_support %} kontaktieren
