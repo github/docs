@@ -114,7 +114,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Configuring a custom artifact retention period
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
@@ -129,7 +128,6 @@ You can define a custom retention period for individual artifacts created by a w
 ```
 
 The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
-{% endif %}
 
 ## Downloading or deleting artifacts
 

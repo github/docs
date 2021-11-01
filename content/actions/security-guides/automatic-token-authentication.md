@@ -106,6 +106,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
 | deployments   | read/write  | none | read |
+| id_token      | read/write  | none | read |
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
