@@ -60,7 +60,7 @@ You can use the command palette to navigate to any page that you have access to 
 
 4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
 
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctl</kbd><kbd>Enter</kbd> (Windows and Linx) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
@@ -87,7 +87,7 @@ You can use the command palette to search for anything on {% data variables.prod
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctl</kbd><kbd>Enter</kbd> (Windows and Linx) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Running commands from the {% data variables.product.prodname_command_palette %}
 
