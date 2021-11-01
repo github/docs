@@ -8,6 +8,7 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -79,7 +80,7 @@ For more information about setting up Stripe Connect using Open Collective, see 
 
 ## Zwei-Faktor-Authentifizierung (2FA) für Dein {% data variables.product.prodname_dotcom %}-Konto aktivieren
 
-Bevor Deine Organisation eine unterstütze Organisation werden kann, muss Du 2FA auf Deinem {% data variables.product.product_name %}-Konto aktivieren. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.
+Before your organization can become a sponsored organization, you must enable 2FA for your account on {% data variables.product.product_location %}. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.
 
 ## Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
 

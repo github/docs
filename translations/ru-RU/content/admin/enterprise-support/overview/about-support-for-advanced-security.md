@@ -38,6 +38,8 @@ If you're uncertain if the issue is out of scope, open a ticket and we're happy 
 
 ## Contacting {% data variables.contact.enterprise_support %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
 - Installing and using {% data variables.product.prodname_advanced_security %}
 - Identifying and verifying the causes of supported errors

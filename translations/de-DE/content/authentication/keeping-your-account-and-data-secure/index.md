@@ -1,6 +1,6 @@
 ---
 title: Dein Konto und Deine Daten schützen
-intro: 'Zur Sicherheit Ihrer persönlichen Daten sollten Sie Ihr {% data variables.product.product_name %}-Konto und die dazugehörigen Daten schützen.'
+intro: 'To protect your personal information, you should keep both your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and any associated data secure.'
 redirect_from:
   - /articles/keeping-your-account-and-data-secure
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management

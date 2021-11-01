@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Add a license to a repo
@@ -21,7 +22,7 @@ Open-Source-Lizenzen ermöglichen es anderen, das Projekt in Deinem Repository k
 ## Eine Open-Source-Lizenz zu Deinem Repository hinzufügen
 
 <!--Dotcom version uses the license tool-->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. Gib im Feld für den Dateinamen *LICENSE* oder *LICENSE.md* (in Großbuchstaben) ein.

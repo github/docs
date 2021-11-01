@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% tip %}
@@ -25,6 +26,6 @@ Webhooks können ausgelöst werden, wenn eine Reihe von Aktionen in einem Reposi
 * Eine {% data variables.product.prodname_pages %}-Website wird erstellt
 * Ein neues Mitglied wird zu einem Team hinzugefügt.
 
-Unter Verwendung der {% data variables.product.product_name %}-API kannst Du diese Webhooks dazu bringen, einen externen Issue-Tracker zu aktualisieren, CI-Builds auszulösen, einen Backup-Spiegel zu aktualisieren oder sogar eine Bereitstellung auf Deinem Produktionsserver durchzuführen.
+Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
 
 Um einen neuen Webhook einzurichten, benötigst Du Zugriff auf einen externen Server und Du musst Dich mit den benötigten technischen Verfahren vertraut machen. For help on building a webhook, including a full list of actions you can associate with, see "[Webhooks](/webhooks)."

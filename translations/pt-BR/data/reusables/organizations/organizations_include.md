@@ -5,7 +5,7 @@ As organizações incluem:
 - A capacidade para os proprietários da organização verem a autenticação de dois fatores [two-factor authentication (2FA) status](/articles/about-two-factor-authentication) (status de autenticação de dois fatores)
 - A opção de [Exigir que todos os integrantes da organização usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can use organizations for free, with
 {% data variables.product.prodname_free_team %}, which includes unlimited collaborators on unlimited public repositories with full features, and unlimited private repositories with limited features.
 
@@ -13,5 +13,7 @@ For additional features, including sophisticated user authentication and managem
 
 If you use {% data variables.product.prodname_ghe_cloud %}, you have the option to purchase a license for {% data variables.product.prodname_GH_advanced_security %} and use the features on private repositories. {% data reusables.advanced-security.more-info-ghas %}
 
+{% ifversion fpt %}
 {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 {% endif %}

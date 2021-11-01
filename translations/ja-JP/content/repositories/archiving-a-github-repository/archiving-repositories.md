@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## About repository archival
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **ノート：**過去のリポジトリ単位の支払いプランを利用している場合、アーカイブされたリポジトリについても支払いが続くことになります。 アーカイブされたリポジトリに対する支払いをしたくない場合には、新しい製品にアップグレードしなければなりません。 詳細は「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。

@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,16 +26,16 @@ Du kannst Repositorys einzeln besitzen oder die Inhaberschaft an Repositorys mit
 
 Du kannst einschränken, wer Zugriff auf ein Repository hat, indem Du die Sichtbarkeit des Repositorys auswählst. Weitere Informationen findest Du unter „[Über Sichtbarkeit von Repositorys](#about-repository-visibility)."
 
-Bei benutzereigenen Repositorys kannst du anderen Personen Mitarbeiterzugriff geben, damit sie an Deinem Projekt mitarbeiten können. Wenn ein Repository im Besitz einer Organisation ist, kannst Du den Mitgliedern der Organisation Zugriffsberechtigungen für die Mitarbeit in Deinem Repository erteilen. Weitere Informationen findest Du unter „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository/)“ und „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization/).“
+Bei benutzereigenen Repositorys kannst du anderen Personen Mitarbeiterzugriff geben, damit sie an Deinem Projekt mitarbeiten können. Wenn ein Repository im Besitz einer Organisation ist, kannst Du den Mitgliedern der Organisation Zugriffsberechtigungen für die Mitarbeit in Deinem Repository erteilen. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Mit {% data variables.product.prodname_free_team %} für Benutzerkonten und Organisationen kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten oder an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang. Um erweiterte Werkzeuge für private Repositorys zu erhalten, kannst Du auf {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} oder{% data variables.product.prodname_ghe_cloud %} upgraden. {% data reusables.gated-features.more-info %}
 {% else %}
 Jede Person und Organisation kann unbegrenzte Repositorys besitzen und eine unbegrenzte Anzahl von Mitarbeitern in alle Repositorys einladen.
 {% endif %}
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt %}
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - You can use pull requests to propose changes to a repository. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests).“
 - You can use project boards to organize and prioritize your issues and pull requests. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/github/managing-your-work-on-github/about-project-boards).“
@@ -43,9 +44,9 @@ You can use repositories to manage your work and collaborate with others.
 
 ## Informationen zur Sichtbarkeit eines Repositorys
 
-You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion fpt or ghes %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion fpt or ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
 
-{% ifversion ghae %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% ifversion fpt or ghes %} If you're creating the repository in an organization{% ifversion fpt %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}
+{% ifversion ghae %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% ifversion fpt or ghes or ghec %} If you're creating the repository in an organization{% ifversion fpt or ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}
 
 {% ifversion ghes %}
 If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. {% ifversion ghes %} Internal repositories are accessible to enterprise members. Weitere Informationen findest Du unter "[Über interne Repositorys](#about-internal-repositories)."{% endif %}
@@ -55,11 +56,11 @@ Private repositories are only accessible to you, people you explicitly share acc
 Public repositories are accessible to everyone on the internet. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {% endif %}
 
-Organisationsinhaber haben immer Zugriff auf jedes Repository, das in einer Organisation erstellt wurde. Weitere Informationen findest Du unter„[Berechtigungsebenen für die Repositorys einer Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization).“
+Organisationsinhaber haben immer Zugriff auf jedes Repository, das in einer Organisation erstellt wurde. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Personen mit Administratorberechtigungen für ein Repository können die Sichtbarkeit eines vorhandenen Repositorys ändern. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility).“
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## Informationen zu internen Repositorys
 
 {% note %}
@@ -70,7 +71,15 @@ Personen mit Administratorberechtigungen für ein Repository können die Sichtba
 
 {% data reusables.repositories.about-internal-repos %} Weitere Informationen zu innersource findest Du im Whitepaper von {% data variables.product.prodname_dotcom %} „[Eine Einführung zu innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt %}outside of the enterprise{% else %}who are not members of an organization{% endif %}, including outside collaborators on organization repositories. For more information, see {% ifversion fpt or ghae %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.product.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 

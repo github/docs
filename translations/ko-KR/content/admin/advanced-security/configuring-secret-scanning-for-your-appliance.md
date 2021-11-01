@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Advanced Security

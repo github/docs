@@ -1,17 +1,18 @@
 ---
 title: Using workflow run logs
 intro: 'You can view, search, and download the logs for each job in a workflow run.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Auf der Workflow-Lauf-Seite können sie sehen, ob ein Workflow-Lauf ausgeführt wird oder abgeschlossen ist. Sie müssen mit einem {% data variables.product.prodname_dotcom %}-Konto angemeldet sein, um Workflow-Informationen anzuzeigen, auch für öffentliche Repositories. Weitere Informationen finden Sie unter „[Zugriffsberechtigungen auf GitHub](/articles/access-permissions-on-github)“.
 
@@ -46,16 +47,11 @@ Sie können die Build-Protokolle für einen bestimmten Schritt durchsuchen. Beim
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 1. Gib in der oberen rechten Ecke der Protokollausgabe im Suchfeld **Search logs** (Protokolle durchsuchen) eine Suchanfrage ein.
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
-{% else %}
-1. Um jeden Schritt, den Sie in Ihre Suche einbeziehen möchten, einzublenden, klicken Sie auf den Schritt. ![Name des Schrittes](/assets/images/help/repository/failed-check-step.png)
-1. Gib in der oberen rechten Ecke der Protokollausgabe im Suchfeld **Search logs** (Protokolle durchsuchen) eine Suchanfrage ein. ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box.png)
 {% endif %}
 
 ## Herunterladen von Protokollen
@@ -67,16 +63,12 @@ Sie können die Protokolldateien von Ihrem Workflowlauf herunterladen. Sie könn
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
-1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Dropdownmenü zum Herunterladen von Protokollen](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Dropdownmenü zum Herunterladen von Protokollen](/assets/images/help/repository/download-logs-drop-down-updated.png)
   {% endif %}
-{% else %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**. ![Dropdownmenü zum Herunterladen von Protokollen](/assets/images/help/repository/download-logs-drop-down.png)
-{% endif %}
 
 ## Logs löschen
 
@@ -86,24 +78,19 @@ Du kannst die Logdateien aus Deiner Workflow-Ausführung löschen. {% data reusa
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. Um die Logdateien zu löschen, klicke auf **Delete all logs** (Alle Logs löschen) und überprüfe die Bestätigungsanfrage.
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
   ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
 After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
-{% else %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. Um die Logdateien zu löschen, klicke auf **Delete all logs** (Alle Logs löschen) und überprüfe die Bestätigungsanfrage. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
-{% endif %}
 
 ## Viewing logs with {% data variables.product.prodname_cli %}
 

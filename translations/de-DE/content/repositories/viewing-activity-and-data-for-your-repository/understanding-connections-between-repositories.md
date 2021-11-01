@@ -1,6 +1,7 @@
 ---
 title: Verbindungen zwischen Repositorys verstehen
 intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -17,6 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Connections between repositories
@@ -24,7 +26,7 @@ shortTitle: Connections between repositories
 
 ## Netzwerk eines Repositorys anzeigen
 
-'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.' product: '{% data reusables.gated-features.repository-insights %}'
+Das Netzwerkdiagramm zeigt den Branch-Verlauf des gesamten Repository-Netzwerks an, einschließlich der Branches des Root-Repositorys und der Branches der Forks, die netzwerkspezifische Commits enthalten.
 
 ![Repository-Netzwerkdiagramm](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -46,7 +48,7 @@ Das Mitgliederdiagramm zeigt alle Forks eines Repositorys.
 
 Die Forks sind alphabetisch nach dem Benutzernamen der Person geordnet, die das Repository geforkt hat. Sie können auf den Benutzernamen klicken, um zur {% data variables.product.product_name %}-Profilseite des Benutzers weitergeleitet zu werden, oder auf den Forknamen, um zum entsprechenden Fork des Repositorys weitergeleitet zu werden.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Repository-Mitgliederdiagramm](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -62,7 +64,7 @@ Die Forks sind alphabetisch nach dem Benutzernamen der Person geordnet, die das 
 {% data reusables.repositories.accessing-repository-graphs %}
 3. Klicke in der linken Seitenleiste auf **Forks** (Forks). ![Registerkarte „Forks“ (Forks)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Viewing the dependencies of a repository
 
 You can use the dependency graph to explore the code your repository depends on.

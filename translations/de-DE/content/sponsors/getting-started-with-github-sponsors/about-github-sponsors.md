@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -22,7 +23,7 @@ topics:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
-Wenn du ein unterstützter Entwickler oder eine unterstütze Organisation wirst, gelten zusätzliche Bedingungen für {% data variables.product.prodname_sponsors %}. Weitere Informationen findest Du unter „[GitHub Sponsors Zusätzliche Bedingungen](/github/site-policy/github-sponsors-additional-terms)."
+Wenn du ein unterstützter Entwickler oder eine unterstütze Organisation wirst, gelten zusätzliche Bedingungen für {% data variables.product.prodname_sponsors %}. For more information, see "[GitHub Sponsors Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)."
 
 ## Informationen zu {% data variables.product.prodname_matching_fund %}
 
@@ -32,7 +33,7 @@ Wenn du ein unterstützter Entwickler oder eine unterstütze Organisation wirst,
 
 {% endnote %}
 
-Der {% data variables.product.prodname_matching_fund %} zielt darauf ab, Mitgliedern der {% data variables.product.prodname_dotcom %}-Community zu helfen, die Open-Source-Software entwickeln, welche die [{% data variables.product.prodname_dotcom %}-Community-Richtlinien](/github/site-policy/github-community-guidelines) fördert. Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
 
 Um für {% data variables.product.prodname_matching_fund %} berechtigt zu sein, musst Du ein Profil erstellen, das eine Community anzieht, die Dich langfristig unterstützen wird. For more information about creating a strong profile, see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)."
 

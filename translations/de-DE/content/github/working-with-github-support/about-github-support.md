@@ -5,6 +5,7 @@ redirect_from:
   - /articles/about-github-support
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -25,12 +26,14 @@ Um zu prüfen, ob es derzeit Probleme gibt, die die Dienstleistungen von {% data
 
 ## {% data variables.contact.github_support %} kontaktieren
 
+{% data reusables.support.zendesk-deprecation %}
+
 You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}.
 
 To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}. Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
 
 ## {% data variables.contact.github_support %} temporären Zugriff auf ein privates Repository gewähren
 
-Wenn der {% data variables.contact.github_support %} auf ein privates Repository zugreifen muss, um Deine Supportanfrage zu bearbeiten, erhält der Inhaber des Repositorys eine E-Mail mit einem Link, um den temporären Zugriff zuzulassen oder abzulehnen. Der Inhaber hat 20 Tage Zeit, um die Anfrage anzunehmen oder abzulehnen, bevor diese abläuft. Wenn der Inhaber die Anfrage annimmt, hat der {% data variables.contact.github_support %} fünf Tage lang Zugriff auf das Repository.
+Wenn der {% data variables.contact.github_support %} auf ein privates Repository zugreifen muss, um Ihre Supportanfrage zu bearbeiten, erhält der Inhaber des Repositorys eine E-Mail mit einem Link, um den temporären Zugriff zuzulassen oder abzulehnen. Der Inhaber hat 20 Tage Zeit, um die Anfrage anzunehmen oder abzulehnen, bevor diese abläuft. Wenn der Inhaber die Anfrage annimmt, hat der {% data variables.contact.github_support %} fünf Tage lang Zugriff auf das Repository.
 
-Der {% data variables.contact.github_support %} greift ohne Deine ausdrückliche Zustimmung niemals auf Deine privaten Repositorys zu. Weitere Informationen findest Du in den [Nutzungsbedingungen](/articles/github-terms-of-service#3-access).
+Der {% data variables.contact.github_support %} greift ohne Ihre ausdrückliche Zustimmung niemals auf Ihre privaten Repositorys zu. Weitere Informationen finden Sie in den [Nutzungsbedingungen](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).

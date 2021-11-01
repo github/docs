@@ -8,6 +8,7 @@ redirect_from:
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Dependabot
@@ -181,7 +182,7 @@ updates:
   | `直接`  | 所有                                             | 所有明确定义的依赖项。                                                     |
   | `间接`  | `bundler`、`pip`、`composer`、`cargo`             | 直接依赖关系的依赖项（也称为子依赖项或暂时依赖项）。                                      |
   | `all` | 所有                                             | 所有明确定义的依赖项。 对于 `bundler`、`pip`、`composer`、`cargo` 以及直接依赖关系的依赖项。 |
-  | `生产`  | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | Only dependencies in the "Production dependency group".         |
+  | `生产`  | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | 仅“产品依赖项组”中的依赖项。                                                 |
   | `开发`  | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | 仅“产品依赖项组”中的依赖项。                                                 |
 
 ```yaml
@@ -539,7 +540,7 @@ updates:
 
 ### `schedule.day`
 
-When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at a random set time for the repository. 使用 `schedule.day` 可指定替代的更新检查日期。
+设置 `weekly` 更新计划时，默认情况下，{% data variables.product.prodname_dependabot %} 会在星期一为仓库随机设置的时间检查新版本。 使用 `schedule.day` 可指定替代的更新检查日期。
 
 支持的值
 
@@ -566,7 +567,7 @@ updates:
 
 ### `schedule.time`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. 使用 `schedule.time` 可指定在一天中的其他时间来检查更新（格式：`h:mm`）。
+默认情况下，{% data variables.product.prodname_dependabot %} 在仓库的随机设置时间检查新版本。 使用 `schedule.time` 可指定在一天中的其他时间来检查更新（格式：`h:mm`）。
 
 ```yaml
 # Set a time for checks
@@ -582,7 +583,7 @@ updates:
 
 ### `schedule.timezone`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. 使用 `schedule.timezone` 可指定其他时区。 时区标识符必须来自 [iana](https://www.iana.org/time-zones) 维护的时区数据库。 更多信息请参阅 [tz 数据库时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)。
+默认情况下，{% data variables.product.prodname_dependabot %} 在仓库的随机设置时间检查新版本。 使用 `schedule.timezone` 可指定其他时区。 时区标识符必须来自 [iana](https://www.iana.org/time-zones) 维护的时区数据库。 更多信息请参阅 [tz 数据库时区列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)。
 
 ```yaml
 # Specify the timezone for checks
@@ -827,7 +828,7 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+`maven-repository` 类型支持用户名和密码。
 
 {% raw %}
 ```yaml
@@ -844,7 +845,7 @@ registries:
 
 `npm-registration` 类型支持用户名和密码或令牌。
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
+使用用户名和密码时，`.npmrc`的 auth 令牌可能包含 `base64` 编码 的`_password`；但是，{% data variables.product.prodname_dependabot %} 配置文件中引用的密码必须是原始（未编码）密码。
 
 {% raw %}
 ```yaml

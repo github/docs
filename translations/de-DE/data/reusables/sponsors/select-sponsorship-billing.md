@@ -1,1 +1,1 @@
-4. Prüfe unter „Billing information“ (Abrechnungsinformationen) Deine Zahlungsdetails. Wenn Du die Zahlungsdetails für Dein {% data variables.product.product_name %}-Konto ändern möchtest, klicke auf **Edit** (Bearbeiten). Folge dann den Anweisungen zum Ausfüllen des Zahlungsformulars.
+4. Prüfe unter „Billing information“ (Abrechnungsinformationen) Deine Zahlungsdetails. Optionally, to change the payment details for your entire account on {% data variables.product.product_location %}, click **Edit**. Folge dann den Anweisungen zum Ausfüllen des Zahlungsformulars.

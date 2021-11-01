@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **注意：**改进的作业列表目前处于测试阶段，可能会更改。
@@ -27,9 +28,9 @@ topics:
 
 任务列表是一组任务，每个任务都在单独的行上呈现，带有可点击的复选框。 您可以选中或取消选中复选框来将任务标记为完成或未完成。
 
-您可以使用 Markdown 在 {% data variables.product.product_name %} 上的任何评论中创建任务列表。 {% ifversion fpt %}如果您在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。{% endif %}
+您可以使用 Markdown 在 {% data variables.product.product_name %} 上的任何评论中创建任务列表。 {% ifversion fpt or ghec %}如果您在列表中引用议题、拉取请求或讨论，则引用将展开以显示标题和状态。{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 当任务列表在初始评论中时，您可以查看议题和拉取请求列表中的任务列表摘要信息。
 {% else %}
 

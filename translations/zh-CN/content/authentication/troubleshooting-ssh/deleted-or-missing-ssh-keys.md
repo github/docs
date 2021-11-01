@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/troubleshooting-ssh/deleted-or-missing-ssh-keys
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: 已删除或缺少的 SSH 密钥

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -25,13 +26,13 @@ Du kannst Code nur mit den diesen Qualifizierern der Codesuche durchsuchen. Spez
 
 Aufgrund der Komplexität der Codesuche gelten bei der Durchführung der Suche Einschränkungen:
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
 - Code in [Forks](/articles/about-forks) ist nur durchsuchbar, wenn für den Fork mehr Sterne vergeben wurden als für das übergeordnete Repository. Forks mit weniger Sternen als das übergeordnete Repository sind **nicht** für die Codesuche indiziert. Um Forks mit mehr Sternen als das übergeordnete Repository in die Suchergebnisse einzuschließen, musst Du Deiner Abfrage `fork:true` oder `fork:only` hinzufügen. Weitere Informationen findest Du unter „[Forks durchsuchen](/search-github/searching-on-github/searching-in-forks).“
-- Only the _default branch_ is indexed for code search.{% ifversion fpt %}
+- Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
 - Nur Dateien kleiner 384 KB sind durchsuchbar.{% else %}* Nur Dateien kleiner 5 MB sind durchsuchbar.
 - Nur die ersten 500 KB jeder Datei sind durchsuchbar.{% endif %}
-- Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt %}
+- Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
 - Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
 - Deine Quellcode-Suche muss mindestens einen Suchbegriff enthalten, ausgenommen bei [`filename`-Suchen](#search-by-filename). Beispielsweise ist eine Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ungültig, [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist dagegen gültig.
 - Die Suchergebnisse können maximal zwei gefundene Fragmente der gleichen Datei anzeigen, selbst wenn die Datei mehr Treffer enthält.
@@ -108,5 +109,5 @@ Der Kennzeichner `extension` sucht Codedateien mit einer bestimmten Dateierweite
 ## Weiterführende Informationen
 
 - „[Suchergebnisse sortieren](/search-github/getting-started-with-searching-on-github/sorting-search-results/)“
-- „[Durchsuchen von Forks](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt %}
+- „[Durchsuchen von Forks](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
 - „[Navigieren von Code auf {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

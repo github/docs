@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Automate with OAuth tokens
 ---
 
@@ -18,7 +19,7 @@ Erstelle ein persönliches Zugriffstoken auf der Einstellungsseite Deiner Anwend
 
 {% tip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **Tipps:**
 - Du musst Deine E-Mail-Adresse verifizieren, bevor Du ein persönliches Zugriffstoken erstellen kannst. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address).“
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -28,7 +29,7 @@ Erstelle ein persönliches Zugriffstoken auf der Einstellungsseite Deiner Anwend
 
 {% endtip %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ## Schritt 2: Ein Repository klonen
 

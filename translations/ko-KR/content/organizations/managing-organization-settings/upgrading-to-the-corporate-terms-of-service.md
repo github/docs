@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -23,4 +24,4 @@ The Standard Terms of Service is an agreement between {% data variables.product.
 5. To agree to the Corporate Terms of Service on behalf of your entity, click **Accept terms**. ![Accept terms button](/assets/images/help/organizations/accept-terms-button.png)
 
 ## 더 읽을거리
-- "[GitHub Corporate Terms of Service](/articles/github-corporate-terms-of-service/)"
+- "[GitHub Corporate Terms of Service](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)"

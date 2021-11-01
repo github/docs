@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Visibilidad de cambios o de borrados
@@ -21,7 +22,7 @@ shortTitle: Visibilidad de cambios o de borrados
 
 Cuando eliminas un repositorio privado, todas sus bifurcaciones privadas también se eliminan.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Eliminar un repositorio público
 
@@ -33,7 +34,7 @@ Cuando eliminas un repositorio público, se elige una de sus bifurcaciones públ
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Convertir un repositorio público en un repositorio privado
 
@@ -59,7 +60,7 @@ Si un repositorio privado se convierte en público y después se elimina, sus bi
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Cambiar la visibilidad de un repositorio interno
 
@@ -83,4 +84,4 @@ Si cambias la visibilidad de un repositorio interno y luego lo borras, las bifur
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
 - "[Administrar la política de bifurcación para tu repositorio](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[Administrar la política de bifurcación para tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "{% ifversion fpt %}[Requerir políticas de administración de repositorios en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

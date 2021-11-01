@@ -3,6 +3,7 @@ title: Kontinuität der Inhaberschaft der Repositorys Deines Benutzerkontos sich
 intro: 'Du kannst jemanden einladen, Deine eigenen Repositorys zu verwalten, wenn Du nicht dazu in der Lage bist.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -22,7 +23,7 @@ Wir empfehlen, einen anderen {% data variables.product.company_short %}-Benutzer
 
 Nachfolger können sich nicht an Deinem Konto anmelden.
 
-Ein ernannter Nachfolger kann Deine öffentlichen Repositories verwalten, wenn er eine Sterbeurkunde vorgelegt hat und dann 7 Tage wartet, oder wenn er einen Nachruf vorgelegt hat und dann 21 Tage wartet. Weitere Informationen findest Du unter „[{% data variables.product.company_short %} Richtlinie zu verstorbenen Benutzern](/github/site-policy/github-deceased-user-policy)."
+Ein ernannter Nachfolger kann Deine öffentlichen Repositories verwalten, wenn er eine Sterbeurkunde vorgelegt hat und dann 7 Tage wartet, oder wenn er einen Nachruf vorgelegt hat und dann 21 Tage wartet. For more information, see "[{% data variables.product.company_short %} Deceased User Policy](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)."
 
 Um den Zugriff zur Verwaltung von Repositorys als Nachfolger zu beantragen, kontaktiere [GitHub-Support](https://support.github.com/contact?tags=docs-accounts).
 

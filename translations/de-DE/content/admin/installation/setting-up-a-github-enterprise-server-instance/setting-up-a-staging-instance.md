@@ -32,7 +32,7 @@ Zum sorgfältigen Testen einer {% data variables.product.prodname_ghe_server %}-
 2. Richten Sie eine neue Instanz ein, die als Ihre Staging-Umgebung fungiert. Sie können dieselben Leitfäden zum Bereitstellen und Installieren Ihrer Testinstanz verwenden, die Sie für Ihre Produktionsinstanz verwenden. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)“.
 3. Stellen Sie Ihr Backup auf Ihrer Testinstanz wieder her. Weitere Informationen finden Sie im Abschnitt „Backup wiederherstellen“ unter „[Backups auf Ihrer Appliance konfigurieren](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)“.
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Weiterführende Informationen
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"

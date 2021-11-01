@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -57,7 +58,7 @@ topics:
 
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)
 - 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」
-- 「[混乱を生むコメントを管理する](/communities/moderating-comments-and-conversations/managing-disruptive-comments)」{% ifversion fpt %}
+- 「[混乱を生むコメントを管理する](/communities/moderating-comments-and-conversations/managing-disruptive-comments)」{% ifversion fpt or ghec %}
 - 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」
 - 「[リポジトリでのインタラクションを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」{% endif %}
 - 「[コメントの変更を追跡する](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)」

@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - LFS

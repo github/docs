@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Configuring ignored files for a single repository
@@ -26,6 +27,8 @@ GitHub maintains an official list of recommended *.gitignore* files for many pop
    ```shell
    $ touch .gitignore
   ```
+
+   If the command succeeds, there will be no output.
 
 For an example *.gitignore* file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
 

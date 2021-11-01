@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -89,7 +90,7 @@ gh repo clone <em>https://github.com/cli/cli</em>
 - クローンするリポジトリへのアクセス権を持っている。 詳しい情報については、「[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)」を参照してください。
 - クローンするデフォルトブランチが存在する。 詳しい情報については、「クローンするリポジトリへのアクセス権を持っている」を参照してください。 詳細については、「[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout) 」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 参考リンク
 

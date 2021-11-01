@@ -1,7 +1,6 @@
 ---
 title: Informationen zur fortlaufenden Integration
 intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
@@ -20,6 +20,7 @@ shortTitle: Kontinuierliche Integration
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Informationen zur fortlaufenden Integration
 
@@ -35,7 +36,7 @@ Zum Erstellen und Testen des Codes ist ein Server erforderlich. Sie können Aktu
 {% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows können auf {% data variables.product.prodname_dotcom %}gehosteten virtuellen Maschinen oder auf Computern ausgeführt werden, die Sie selbst hosten. For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
 {% endif %}
 
-Sie können Ihren CI-Workflow so konfigurieren, dass er ausgeführt wird, wenn ein {% data variables.product.product_name %} Ereignis auftritt (z. B. wenn neuer Code an Ihr Repository übertragen wird), nach einem festgelegten Zeitplan oder wenn ein externes Ereignis mithilfe des Repository-Dispatch-Webhooks auftritt.
+Sie können den CI-Workflow so konfigurieren, dass er bei einem {% data variables.product.prodname_dotcom %}-Ereignis (z. B. wenn neuer Code per Push in das Repository eingebracht wird), nach einem festen Zeitplan oder bei einem externen Ereignis anhand des Sende-Webhooks des Repositorys ausgeführt wird.
 
 {% data variables.product.product_name %} führt die CI-Tests aus und stellt die Ergebnisse jedes Tests in der Pullanforderung bereit, sodass Sie sehen können, ob die Änderung in Ihrem Zweig einen Fehler verursacht. Sobald alle CI-Tests in einem Workflow bestanden wurden, können die per Push übermittelten Änderungen von einem Teammitglied geprüft oder zusammengeführt werden. Wenn ein Test nicht bestanden wird, liegt die Ursache eventuell in einer Ihrer Änderungen.
 
@@ -51,10 +52,10 @@ Eine Definition von gebräuchliche Begriffe finden Sie unter "[Kernkonzepte für
 
 {% data variables.product.product_name %} bietet CI-Workflowvorlagen für eine Vielzahl von Sprachen und Frameworks.
 
-Browse the complete list of CI workflow templates offered by {% data variables.product.product_name %} in the {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+Browse the complete list of CI workflow templates offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
 
 ## Weiterführende Informationen
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[ Abrechnung für {% data variables.product.prodname_actions %} verwalten](/billing/managing-billing-for-github-actions)"
 {% endif %}

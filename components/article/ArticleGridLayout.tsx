@@ -56,6 +56,7 @@ const Container = styled(Box)`
 
   @media (min-width: ${themeGet('breakpoints.3')}) {
     max-width: none;
+    padding-top: ${themeGet('space.4')};
     grid-template-rows: auto 1fr;
     grid-template-columns: minmax(500px, 720px) minmax(220px, 1fr);
     grid-template-areas:
@@ -71,7 +72,7 @@ const SidebarContent = styled(Box)`
   @media (min-width: ${themeGet('breakpoints.3')}) {
     position: sticky;
     padding-top: ${themeGet('space.4')};
-    top: 0;
+    top: 4em;
     max-height: calc(100vh - ${themeGet('space.4')});
     overflow-y: auto;
     padding-bottom: ${themeGet('space.4')};

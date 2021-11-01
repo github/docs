@@ -28,6 +28,8 @@ After submitting your support request and optional diagnostic information, {% da
 
 ## Submitting a ticket using the {% data variables.contact.enterprise_portal %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
 5. Click **Submit a Ticket** ![Submit a ticket to Enterprise Support team](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

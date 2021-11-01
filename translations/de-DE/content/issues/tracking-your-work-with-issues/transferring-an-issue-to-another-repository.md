@@ -10,14 +10,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Transfer an issue
 ---
 
-Für die Übertragung eines offenen Issues in ein anderes Repository benötigst Du Schreibberechtigung sowohl für das Repository, aus dem der Issue stammt, wie auch für das Repository, in das der Issue übertragen wird. Weitere Informationen finden Sie unter„[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“.
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Du kannst Issues nur zwischen Repositorys übertragen, die demselben Benutzer- oder Organisationskonto angehören. {% ifversion fpt or ghes %}You can't transfer an issue from a private repository to a public repository.{% endif %}
+Du kannst Issues nur zwischen Repositorys übertragen, die demselben Benutzer- oder Organisationskonto angehören. {% ifversion fpt or ghes or ghec %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
 Wenn Du einen Issue überträgst, bleiben seine Kommentare und Bearbeiter erhalten. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“
 
@@ -54,4 +55,4 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 - „[Informationen zu Issues](/articles/about-issues)“
 - „[Sicherheitsprotokoll überprüfen](/articles/reviewing-your-security-log)“
-- „[Auditprotokoll Deiner Organisation überprüfen](/articles/reviewing-the-audit-log-for-your-organization)“
+- „[Auditprotokoll Deiner Organisation überprüfen](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)“

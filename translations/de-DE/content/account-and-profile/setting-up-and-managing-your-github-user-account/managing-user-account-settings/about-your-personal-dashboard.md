@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Your personal dashboard
@@ -44,10 +45,10 @@ Im Abschnitt „All activity" (Alle Aktivitäten) in Deinem Newsfeed kannst Du A
 
 In Ihrem News-Feed werden Aktualisierungen angezeigt, wenn ein Benutzer, dem Sie folgen,
 - Ein Repository mit einem Stern versieht.
-- Follows another user.{% ifversion fpt or ghes %}
+- Follows another user.{% ifversion fpt or ghes or ghec %}
 - Creates a public repository.{% endif %}
 - Einen Issue oder Pull Request mit der Kennzeichnung „help wanted“ oder „good first issue“ in einem von Dir beobachteten Repository öffnet.
-- Pushes commits to a repository you watch.{% ifversion fpt or ghes %}
+- Pushes commits to a repository you watch.{% ifversion fpt or ghes or ghec %}
 - Forks a public repository.{% endif %}
 - Publishes a new release.
 
@@ -55,7 +56,7 @@ Weitere Informationen zu Sternen für Repositorys und zum Folgen von Personen fi
 
 ## Empfohlene Repositorys erkunden
 
-Im Abschnitt "Explore repositories" (Repositories erkunden) auf der rechten Seite Deines Dashboards kannst Du empfohlene Repositorys in Deinen Communities erkunden. Empfehlungen basieren auf den von Dir markierten oder besuchten Repositorys, auf den Personen, denen Du folgst und auf den Aktivitäten innerhalb der Repositorys, auf die Du Zugriff hast.{% ifversion fpt %} Weitere Informationen findest Du unter „[Möglichkeiten zum Beitragen an Open Source auf {% data variables.product.prodname_dotcom %} finden](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Im Abschnitt "Explore repositories" (Repositories erkunden) auf der rechten Seite Deines Dashboards kannst Du empfohlene Repositorys in Deinen Communities erkunden. Empfehlungen basieren auf den von Dir markierten oder besuchten Repositorys, auf den Personen, denen Du folgst und auf den Aktivitäten innerhalb der Repositorys, auf die Du Zugriff hast.{% ifversion fpt or ghec %} Weitere Informationen findest Du unter „[Möglichkeiten zum Beitragen an Open Source auf {% data variables.product.prodname_dotcom %} finden](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Weiterführende Informationen
 

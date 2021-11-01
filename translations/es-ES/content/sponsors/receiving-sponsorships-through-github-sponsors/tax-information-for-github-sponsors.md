@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -58,17 +59,17 @@ Si eres un contribuyente en los Estados Unidos y ganas más de 600 dólares esta
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
-## Sales tax
+## Impuestos de ventas
 
-GitHub is providing information to assist you in calculating your sales tax obligations. This information is not personalized to your country or tax situation and we recommend you talk to a professional to understand your specific obligations. However, we'd like to provide some high-level information to help you understand the general principles of digital sales tax.
+GitHub está proporcionando información par ayudarte a calcular tus deberes de impuestos de ventas. Esta información no está personalizada para tu país o situación fiscal y te recomendamos que consultes a un profesional para entender tus obligaciones fiscales específicas. Sin embargo, nos gustaría proporcionarte información de alto nivel para ayudarte a entender los principios generales de los impuestos por ventas digitales.
 
-In most countries around the world, sales tax for digital transactions is based on the location of the recipient, not on the seller. For example, if you are a maintainer in the United States and you provide a taxable benefit to a Sponsor in Germany, German sales tax would apply.
+En la mayoría de los países del mundo, los impuestos de ventas por transacciones digitales se basan en la ubicación del receptor y no del vendedor. Por ejemplo, si eres un mantenedor en los Estados Unidos y proporcionas un beneficio gravable a un Patrocinador en Alemania, se aplicarían los impuestos de ventas para Alemania.
 
-Sales tax is generally only applicable when a good or service of value is being provided. Goodwill/general support/undying appreciation is not normally taxable.
+Los impuestos de ventas se aplican generalmente solo cuando se proporciona un bien o se cobra por un servicio. Los actos de buena fe/apoyo general/apreciación leal no se gravan habitualmente.
 
-In the US, both B2B (business-to-business) and B2C (business-to-consumer) are subject to sales tax.
+En los EE.UU., tanto las ventas de B2B (negocio a negocio) como de B2C (negocio a cliente) están sujetos a tener impuestos gravables.
 
-In the EU and most other countries and regions, B2C sales are subject to sales tax. B2B sales are not subject to tax. C2C and C2B sales where a consumer is not registered for VAT are not taxable.
+En los EE.UU. y en la mayoría del resto de los países y regiones, las ventas de B2C están sujetas a tener impuestos gravables. Las ventas de B2B no están sujetas a ser gravables. Las ventas de C2C y C2B, en donde los consumidores no se registraron para declarar IVA, no son gravables.
 
 ## Leer más
 

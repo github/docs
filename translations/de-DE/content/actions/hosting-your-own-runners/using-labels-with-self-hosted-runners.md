@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Label runners
 ---
@@ -12,13 +13,14 @@ shortTitle: Label runners
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Informationen zum Einsatz von Labels zur Weiterleitung von Jobs an bestimmte Typen von selbst-gehosteten Runnern findest Du unter „[Nutze selbstgehostete Läufer in einem Workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)“.
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
 ## Einen benutzerdefinierten Label erstellen
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
@@ -34,7 +36,7 @@ Informationen zum Einsatz von Labels zur Weiterleitung von Jobs an bestimmte Typ
 Das benutzerdefinierte Label wird erstellt und dem selbst-gehosteten Runner zugewiesen. Benutzerdefinierte Labels können von selbst-gehosteten Runnern entfernt werden, aber sie können derzeit nicht manuell gelöscht werden. {% data reusables.github-actions.actions-unused-labels %}
 {% endif %}
 ## Ein Label einem selbst-gehosteten Runner zuweisen
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}
@@ -48,7 +50,7 @@ Das benutzerdefinierte Label wird erstellt und dem selbst-gehosteten Runner zuge
 1. Klicke auf ein Label, um es Deinem selbst-gehosteten Runner zuzuweisen.
 {% endif %}
 ## Ein benutzerdefiniertes Labels von einem selbst-gehosteten Runner entfernen
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.github-actions.runner-label-settings %}

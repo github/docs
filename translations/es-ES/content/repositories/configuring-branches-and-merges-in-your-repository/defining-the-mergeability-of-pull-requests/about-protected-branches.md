@@ -21,6 +21,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -42,10 +43,13 @@ Predeterminadamente, las restricciones de una regla de protección de rama no ap
 Para cada regla de protección de rama, puedes elegir habilitar o inhabilitar la siguiente configuración.
 - [Requerir revisiones de solicitudes de cambio antes de fusionarlas](#require-pull-request-reviews-before-merging)
 - [Requerir verificaciones de estado antes de las fusiones](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 - [Requiere que haya resolución en las conversaciones antes de la fusión](#require-conversation-resolution-before-merging){% endif %}
 - [Requerir confirmaciones firmadas](#require-signed-commits)
 - [Requerir un historial linear](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
 - [Incluir administradores](#include-administrators)
 - [Restringir quiénes pueden subir a las ramas coincidentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir las subidas forzadas](#allow-force-pushes)
@@ -100,7 +104,7 @@ Puedes configurar las verificaciones de estado requeridas para que sean "laxas" 
 
 Para obtener información sobre la solución de problemas, consulta la sección "[Solucionar probelmas para las verificaciones de estado requeridas](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 ### Requerir la resolución de conversaciones antes de fusionar
 
 Requiere que se resuelvan todos los comentarios de la solicitud de cambios antes de qeu se pueda fusionar con una rama protegida. Esto garantiza que todos los comentarios se traten o reconozcan antes de fusionar.
@@ -108,11 +112,11 @@ Requiere que se resuelvan todos los comentarios de la solicitud de cambios antes
 
 ### Requerir confirmaciones firmadas
 
-Cuando habilitas el requerir el firmado de confirmaciones en una rama, los colaboradores {% ifversion fpt %}y bots{% endif %} solo podrán subir a la rama aquellas confirmaciones que se hayan firmado y verificado. Para obtener más información, consulta "[Acerca de la verificación de firmas en las confirmaciones](/articles/about-commit-signature-verification)."
+Cuando habilitas el requerir el firmado de confirmaciones en una rama, los colaboradores {% ifversion fpt or ghec %}y bots{% endif %} solo podrán subir a la rama aquellas confirmaciones que se hayan firmado y verificado. Para obtener más información, consulta "[Acerca de la verificación de firmas en las confirmaciones](/articles/about-commit-signature-verification)."
 
 {% note %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **Notas:**
 
 * Si habilitaste el modo vigilante, el cual indica que tus confirmaciones siempre se firmarán, cualquier confirmación que {% data variables.product.prodname_dotcom %} identifique como "Verificada parcialmente" se permitirá en aquellas ramas que requieran confirmaciones firmadas. Para obtener más información sobre el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
@@ -124,9 +128,9 @@ Cuando habilitas el requerir el firmado de confirmaciones en una rama, los colab
 
 {% endnote %}
 
-Siempre puedes subir confirmaciones locales a la rama si estas se firmaron y verificaron. {% ifversion fpt %}También puedes fusionar las confirmaciones firmadas y verificadas en la rama utilizando una solicitud de extracción en {% data variables.product.product_name %}. Sin embargo, no puedes combinar y fusionar una solicitud de extracción en la rama en {% data variables.product.product_name %} a menos de que seas el autor de dicha solicitud.{% else %} Sin embargo, no puedes fusionar solicitudes de extracción en la rama en {% data variables.product.product_name %}.{% endif %} Puedes {% ifversion fpt %}combinar y {% endif %}fusionar las solicitudes de extracción localmente. Para obtener más información, consulta la sección "[Revisar las solicitudes de extracción localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
+Siempre puedes subir confirmaciones locales a la rama si estas se firmaron y verificaron. {% ifversion fpt or ghec %}También puedes fusionar las confirmaciones firmadas y verificadas en la rama utilizando una solicitud de extracción en {% data variables.product.product_name %}. Sin embargo, no puedes combinar y fusionar una solicitud de extracción en la rama en {% data variables.product.product_name %} a menos de que seas el autor de dicha solicitud.{% else %} Sin embargo, no puedes fusionar solicitudes de extracción en la rama en {% data variables.product.product_name %}.{% endif %} Puedes {% ifversion fpt or ghec %}combinar y {% endif %}fusionar las solicitudes de extracción localmente. Para obtener más información, consulta la sección "[Revisar las solicitudes de extracción localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
 
-{% ifversion fpt %} Para obtener más información sobre los métodos de fusión consulta la sección "[Acerca de los métodos de fusión en {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)".{% endif %}
+{% ifversion fpt or ghec %} Para obtener más información sobre los métodos de fusión consulta la sección "[Acerca de los métodos de fusión en {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)".{% endif %}
 
 ### Requerir un historial linear
 
@@ -134,13 +138,21 @@ El requerir un historial de confirmaciones linear previene que los colaboradores
 
 Antes de poder requerir un historial de confirmaciones linear, tu repositorio deberá permitir fusiones combinadas o fusiones de rebase. Para obtener más información, consulta "[Configurar las fusiones de solicitud de extracción](/github/administering-a-repository/configuring-pull-request-merges)."
 
+{% ifversion fpt or ghec %}
+### Require merge queue
+
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-references %}
+
+{% endif %}
 ### Incluir administradores
 
 Predeterminadamente, las reglas de rama protegida no aplican a las personas con permisos administrativos en un repositorio. Puedes habilitar esta configuración para incluir a los administradores en tus reglas de rama protegida.
 
 ### Restringir quiénes pueden subir a las ramas coincidentes
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Puedes habilitar restricciones de rama si tu repositorio le pertenece a una organización que utilice {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 

@@ -4,6 +4,7 @@ intro: 'Você pode aprender sobre {% data variables.product.product_name %} e ge
 redirect_from:
   - /enterprise/admin/overview
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:
