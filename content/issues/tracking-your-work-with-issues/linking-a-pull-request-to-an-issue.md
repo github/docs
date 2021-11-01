@@ -58,6 +58,7 @@ Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123,
 
 You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
+Just like the issue, you can link a pull request with closing keywords in a commit message. However, the closing keyword only works when the commit is made to the default branch.
 
 {% ifversion fpt or ghes or ghae or ghec %}
 ## Manually linking a pull request to an issue
