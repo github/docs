@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Die letzte Commit-Mitteilung erneut schreiben
@@ -25,7 +26,7 @@ Wenn der Commit nur in Ihrem lokalen Repository vorhanden ist und nicht zu {% da
 2. Gib `git commit --amend` ein, und drücke die **Eingabetaste**.
 3. Bearbeite in einem Texteditor die Commit-Mitteilung, und speichere den Commit.
     - Du kannst einen Co-Autor hinzufügen, indem Du einen Trailer zum Commit hinzufügst. Weitere Informationen findest Du unter „[Commit mit mehreren Autoren erstellen](/articles/creating-a-commit-with-multiple-authors).“
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
     - Du kannst Commits im Namen Deiner Organisation erstellen, indem Du einen Trailer zum Commit hinzufügst. Weitere Informationen findest Du unter „[Einen Commit im Namen einer Organisation erstellen](/articles/creating-a-commit-on-behalf-of-an-organization).“
 {% endif %}
 

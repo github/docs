@@ -1,6 +1,6 @@
 ---
 title: 配置 GitHub Pages 站点的发布源
-intro: '如果您使用 {% data variables.product.prodname_pages %} 站点的默认发布源，您的站点将自动发布。 您也可以从不同的分支或文件夹发布{% ifversion ghes < 3.0 %}项目{% endif %}站点。'
+intro: '如果您使用 {% data variables.product.prodname_pages %} 站点的默认发布源，您的站点将自动发布。 You can also choose to publish your site from a different branch or folder.'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages/
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 配置发布源
@@ -20,20 +21,17 @@ shortTitle: 配置发布源
 
 ## 选择发布源
 
-在配置发布源之前，请确保要用作发布源的分支{% ifversion ghes < 3.0 %} 或文件夹{% endif %} 已存在于您的仓库中。{% ifversion ghes < 3.0 %} 例如，从仓库的 `master` 分支上的 `/docs` 文件夹中发布项目站点之前，您或协作者必须在仓库的默认 `master` 分支上创建 `/docs` 文件夹。{% endif %}
+Before you configure a publishing source, make sure the branch you want to use as your publishing source already exists in your repository.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 3. 在“{% data variables.product.prodname_pages %}”下，使用 **None（无）**或 **Branch（分支）**下拉菜单选择发布源。 ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
 4. （可选）使用下拉菜单选择发布源的文件夹。 ![用于选择发布源文件夹的下拉菜单](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-5. 单击 **Save（保存）**。 ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png){% else %}
-3. 在“{% data variables.product.prodname_pages %}”下，使用 **Source（源）**下拉菜单选择发布源。 ![用于选择发布源的下拉菜单](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
+5. 单击 **Save（保存）**。 ![用于保存对发布源设置的更改的按钮](/assets/images/help/pages/publishing-source-save.png)
 
 ## {% data variables.product.prodname_pages %} 站点发布问题疑难排解
 
 {% data reusables.pages.admin-must-push %}
 
-如果选择 {% ifversion fpt or ghes > 2.22 or ghae %}任意{% else %} `master`{% endif %} 分支上的 `docs` 文件夹作为发布源，然后从仓库的该分支中删除了 `/docs` 文件夹，则您的站点将不会构建，并且您将收到提示缺失 `/docs` 文件夹的页面构建错误。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误疑难排解](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)”。
+If you choose the `docs` folder on any branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误疑难排解](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)”。

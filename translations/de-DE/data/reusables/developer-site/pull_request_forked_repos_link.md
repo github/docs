@@ -1,4 +1,4 @@
-### Pull-Request-Ereignisse für geforkte Repositorys
+#### Pull-Request-Ereignisse für geforkte Repositorys
 
 {% note %}
 
@@ -10,7 +10,7 @@ Wenn Sie einen Pull Request an das Basis-Repository aus einem geforkten Reposito
 
 Workflows werden standardmäßig nicht für geforkte Repositorys ausgeführt. Du musst GitHub Actions auf der Registerkarte **Actions** (Aktionen) im geforkten Repository aktivieren.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 When a first-time contributor submits a pull request to a public repository, a maintainer with write access may need to approve running workflows on the pull request. For more information, see "[Approving workflow runs from public forks](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)."
 {% endif %}
 

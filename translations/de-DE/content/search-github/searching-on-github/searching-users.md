@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -89,7 +90,7 @@ Mit dem Qualifizierer `followers` kannst Du Benutzer nach der Anzahl ihrer Follo
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) findet Benutzer mit mehr als 1.000 Followern.                                           |
 |                           | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) sucht Benutzer mit 1 bis 10 Followern, deren Name das Wort „sparkle“ enthält. |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Search based on ability to sponsor
 

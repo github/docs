@@ -5,6 +5,7 @@ intro: 'Você pode usar o log de segurança para revisar todas as ações relaci
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Developer

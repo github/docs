@@ -4,7 +4,8 @@ intro: 'Informationen zur Funktionsweise des {% data variables.product.prodname_
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces
@@ -58,7 +59,7 @@ As you develop in your codespace, it will save any changes to your files every f
 
 ### Closing or stopping your codespace
 
-To stop your codespace you can [use the command palette](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes.
+To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes.
 
 When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
 
@@ -71,9 +72,9 @@ Port forwarding determines which ports are made accessible to you from the remot
 
 ![Diagram showing how port forwarding works in a codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+When an application running inside {% data variables.product.prodname_codespaces %} outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal or in the toast message to open the port in a browser. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
-While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can [manually make a port public](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) to share access through a URL.
+While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
 
 Running your application when you first land in your codespace can make for a fast inner dev loop. As you edit, your changes are automatically saved and available on your forwarded port. To view changes, go back to the running application tab in your browser and refresh it.
 

@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors/
   - /articles/setting-guidelines-for-repository-contributors
@@ -25,9 +26,9 @@ Para los colaboradores, las pautas los ayudan a verificar que están presentando
 
 Tanto para los propietarios como para los colaboradores, las pautas de contribución ahorran tiempo y evitan inconvenientes generados por solicitudes de extracción o propuestas creadas de manera incorrecta que deben ser rechazadas o se deben volver a presentar.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Puedes crear lineamientos de contribución predeterminados para tu organización{% ifversion fpt or ghes %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear lineamientos de contribución predeterminados para tu organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -62,6 +63,6 @@ Si estás confundido, aquí hay algunos buenos ejemplos de pautas de contribuci�
 - Pautas de contribución de Open Government [](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## Leer más
-- La sección de la Guía de código abierto "[Iniciar un proyecto de código abierto](https://opensource.guide/starting-a-project/)"{% ifversion fpt %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes %}
+- La sección de la Guía de código abierto "[Iniciar un proyecto de código abierto](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
 - "[Agregar una licencia a un repositorio](/articles/adding-a-license-to-a-repository)"{% endif %}

@@ -5,6 +5,7 @@ redirect_from:
   - /articles/about-github-support
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -25,6 +26,8 @@ To see if there are currently any incidents affecting services on {% data variab
 
 ## Contacting {% data variables.contact.github_support %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}.
 
 To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}. Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
@@ -33,4 +36,4 @@ To report account, security, and abuse issues, or to receive assisted support fo
 
 If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days.
 
-{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/articles/github-terms-of-service#3-access).
+{% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).

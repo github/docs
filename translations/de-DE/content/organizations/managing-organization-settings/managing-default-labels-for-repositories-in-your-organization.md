@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,11 +23,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 5. Klicke unter „Repository labels" (Repository-Kennzeichnungen) auf **New label** (neue Kennzeichnung). ![Schaltfläche „New label" (Neue Kennzeichnung)](/assets/images/help/organizations/new-label-button.png)
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
@@ -37,11 +35,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 {% data reusables.project-management.edit-label %}
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
@@ -52,11 +47,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 {% data reusables.project-management.delete-label %}
 {% data reusables.project-management.confirm-label-deletion %}
 

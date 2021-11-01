@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Review proposed changes
@@ -39,7 +40,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
 {% endwebui %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% codespaces %}
 
@@ -52,7 +53,7 @@ For more information on reviewing pull requests in {% data variables.product.pro
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 ## Reviewing dependency changes
 
 {% data reusables.dependency-review.beta %}

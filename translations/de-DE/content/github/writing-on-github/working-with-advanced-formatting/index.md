@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /organizing-information-with-tables
   - /creating-and-highlighting-code-blocks

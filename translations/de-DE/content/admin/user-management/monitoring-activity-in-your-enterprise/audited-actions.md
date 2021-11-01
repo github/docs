@@ -84,7 +84,6 @@ topics:
 | `issue_comment.update` | Ein Kommentar zu einem Issue (nicht der ursprüngliche) wurde geändert.                                                                                         |
 | `issue.destroy`        | Ein Issue wurde aus dem Repository gelöscht. Weitere Informationen finden Sie unter „[Issue löschen](/github/managing-your-work-on-github/deleting-an-issue)“. |
 
-
 ## Organisationen
 
 | Aktion             | Beschreibung                                                                                                                                                                                                                                |
@@ -144,12 +143,12 @@ topics:
 
 ## Teams
 
-| Aktion                    | Beschreibung                                                                             |
-| ------------------------- | ---------------------------------------------------------------------------------------- |
-| `team.create`             | Einem Team wurde ein Benutzerkonto oder ein Repository hinzugefügt.                      |
-| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes > 2.22 or ghae %}
+| Aktion                    | Beschreibung                                                                      |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `team.create`             | Einem Team wurde ein Benutzerkonto oder ein Repository hinzugefügt.               |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | A user was demoted from a team maintainer to a team member.{% endif %}
-| `team.destroy`            | A team was deleted.{% ifversion ghes > 2.22 or ghae %}
+| `team.destroy`            | A team was deleted.{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
 
 ## Benutzer
@@ -165,7 +164,7 @@ topics:
 | `user.destroy`                  | A user deleted his or her account, triggering `user.async_delete`.{% ifversion ghes %}
 | `user.failed_login`             | Ein Benutzer hat versucht, sich mit einem falschen Benutzernamen, Passwort oder Zwei-Faktor-Authentifizierungscode anzumelden.                                       |
 | `user.forgot_password`          | A user requested a password reset via the sign-in page.{% endif %}
-| `user.login`                    | A user signed in.{% ifversion ghes > 2.22 or ghae %}
+| `user.login`                    | A user signed in.{% ifversion ghes or ghae %}
 | `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
 | `user.promote`                  | Ein gewöhnliches Benutzerkonto wurde auf einen Websiteadministrator hochgestuft.                                                                                     |
 | `user.remove_email`             | Eine E-Mail-Adresse wurde aus einem Benutzerkonto entfernt.                                                                                                          |

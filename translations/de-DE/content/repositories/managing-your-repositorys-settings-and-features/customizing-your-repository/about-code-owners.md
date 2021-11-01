@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,13 +26,11 @@ Code-Besitzer werden automatisch zur Überprüfung aufgefordert, wenn jemand ein
 
 Wenn ein Benutzer mit Administrator- oder Inhaberberechtigungen die erforderlichen Reviews aktiviert hat, kann er optional auch die Genehmigung von einem Codeinhaber anfordern, bevor der Autor einen Pull Request im Repository zusammenführen kann. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging).“
 
-{% ifversion fpt or ghae or ghes %}Wenn ein Team die Zuweisung zur Code-Überprüfung aktiviert hat, werden die individuellen Genehmigungen alleine nicht die Anforderung für die Genehmigung des Codeinhabers in einem geschützten Zweig erfüllen. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+{% ifversion fpt or ghae or ghes or ghec %}Wenn ein Team die Zuweisung zur Code-Überprüfung aktiviert hat, werden die individuellen Genehmigungen alleine nicht die Anforderung für die Genehmigung des Codeinhabers in einem geschützten Zweig erfüllen. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% ifversion fpt or ghae or ghes > 2.22 %}
 Wenn eine Datei einen Codeinhaber hat, kannst Du sehen, wer der Codeinhaber ist, bevor Du einen Pull Request öffnest. Im Repository kannst Du zur Datei navigieren und den Mauszeiger über {% octicon "shield-lock" aria-label="The edit icon" %} bewegen.
 
 ![Codeinhaber für eine Datei in einem Repository](/assets/images/help/repository/code-owner-for-a-file.png)
-{% endif %}
 
 ## Speicherort der CODEOWNERS-Datei
 
@@ -41,7 +40,7 @@ Jede CODEINHABER-Datei ordnet die Codeinhaber für einen einzelnen Branch im Rep
 
 Damit Codeinhaber Review-Anfragen erhalten können, muss sich die CODEINHABER-Datei auf dem Basis-Branch des Pull Requests befinden. Wenn Sie beispielsweise `@octocat` als Codeinhaber für *.js*-Dateien auf dem Branch `gh-pages` Ihres Repositorys festlegen, erhält `@octocat` Review-Anforderungen, wenn ein Pull Request mit Änderungen für die *.js*-Dateien zwischen dem Head-Branch und dem Branch `gh-pages` geöffnet wird.
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
@@ -51,7 +50,7 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 ## CODEOWNERS-Syntax
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. Du kannst auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {% data variables.product.product_name %}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 ### Beispiel für eine CODEOWNERS-Datei
@@ -116,7 +115,6 @@ There are some syntax rules for gitignore files that do not work in CODEOWNERS f
 ## CODEOWNERS and branch protection
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches).“
 
-
 ### Beispiel für eine CODEOWNERS-Datei
 ```
 # In this example, any change inside the `/apps` directory
@@ -135,7 +133,6 @@ Repository owners can add branch protection rules to ensure that changed code is
 # Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
-
 
 
 ## Weiterführende Informationen

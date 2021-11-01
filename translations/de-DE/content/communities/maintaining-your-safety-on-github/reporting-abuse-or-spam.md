@@ -6,6 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -57,7 +58,7 @@ Wenn „gemeldeter Inhalt" für ein öffentliches Repository aktiviert ist, kann
 
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
 - „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- „[Störende Kommentare verwalten](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- „[Störende Kommentare verwalten](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/communities/maintaining-your-safety-on-github)"
 - „[Interaktionen in Deinem Repository einschränken](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)“{% endif %}
 - „[Änderungen an einem Kommentar verfolgen](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)“

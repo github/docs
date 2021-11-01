@@ -8,7 +8,7 @@ sections:
     - 'Resque worker counts were displayed incorrectly during maintenance mode. {% comment %} https://github.com/github/enterprise2/pull/26899, https://github.com/github/enterprise2/pull/26883 {% endcomment %}'
     - 'Allocated memcached memory could be zero in clustering mode. {% comment %} https://github.com/github/enterprise2/pull/26928, https://github.com/github/enterprise2/pull/26832 {% endcomment %}'
     - 'Non-empty binary files displayed an incorrect file type and size on the pull request "Files" tab. {% comment %} https://github.com/github/github/pull/192810, https://github.com/github/github/pull/172284, https://github.com/github/coding/issues/694 {% endcomment %}'
-    - 'Fixes {% data variables.product.prodname_pages %} builds so they take into account the NO_PROXY setting of the appliance. This is relevant to appliances configured with an HTTP proxy only. (update 2021-09-30) {% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
+    - 'Corrige versões {% data variables.product.prodname_pages %} para que elas levem em conta a configuração NO_PROXY do aparelho. Isto é relevante para os aparelhos configurados apenas com um proxy HTTP. (atualização 2021-09-30) {% comment %} https://github.com/github/pages/pull/3360 {% endcomment %}'
   known_issues:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
@@ -16,5 +16,5 @@ sections:
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
-    - If {% data variables.product.prodname_actions %} is enabled for {% data variables.product.prodname_ghe_server %}, teardown of a replica node with `ghe-repl-teardown` will succeed, but may return `ERROR:Running migrations`.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

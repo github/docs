@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Splitting a subfolder
 ---
 
@@ -48,7 +49,7 @@ Wenn Du bei der Erstellung eines Repository-Klons einen Ordner in ein separates 
   The repository should now only contain the files that were in your subfolder(s).
 
 6. [Erstelle ein neues Repository](/articles/creating-a-new-repository/) auf {% data variables.product.product_name %}.
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres neuen {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 

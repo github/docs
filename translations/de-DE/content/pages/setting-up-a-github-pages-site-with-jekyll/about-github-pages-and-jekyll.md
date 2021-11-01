@@ -23,6 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub Pages & Jekyll
@@ -73,10 +74,10 @@ Du kannst `site.github` zu einem Beitrag oder einer Seite hinzufügen, um Reposi
 
 {% data reusables.pages.add-jekyll-theme %} Weitere Informationen findest Du unter „[Themes](https://jekyllrb.com/docs/themes/)“ (Designs) in der Jekyll-Dokumentation.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Sie können zu Ihrer Website auf {% data variables.product.prodname_dotcom %} ein unterstütztes Design hinzufügen. Weitere Informationen findest Du unter „[Unterstützte Designs](https://pages.github.com/themes/)“ auf der {% data variables.product.prodname_pages %}-Website und unter „[Ein Design mit dem Theme-Chooser zur {% data variables.product.prodname_pages %}-Website hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser).“
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
 
 Du kannst alle Standardeinstellungen Deines Designs überschreiben, indem Du die Dateien des Designs bearbeitest. Weitere Informationen findest Du in der Dokumentation zu Deinem Design und unter „[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)“ (Standardeinstellungen Deines Designs überschreiben) in der Jekyll-Dokumentation.
 

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
@@ -21,7 +22,7 @@ shortTitle: Deleted or changes visibility
 
 Wenn Du ein privates Repository löschst, werden alle zugehörigen privaten Forks ebenfalls gelöscht.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Öffentliches Repository löschen
 
@@ -33,7 +34,7 @@ Wenn Du ein öffentliches Repository löschst, wird einer der vorhandenen öffen
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Öffentliches Repository in ein privates Repository ändern
 
@@ -59,7 +60,7 @@ Wenn ein privates Repository auf öffentlich festgelegt und anschließend gelös
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Changing the visibility of an internal repository
 
@@ -83,4 +84,4 @@ If you change the visibility of an internal repository and then delete the repos
 - „[Informationen zu Forks](/articles/about-forks)“
 - „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "{% ifversion fpt %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

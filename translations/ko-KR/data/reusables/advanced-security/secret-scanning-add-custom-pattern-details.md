@@ -4,4 +4,4 @@
    1. Provide a sample test string to make sure your configuration is matching the patterns you expect.
 
    ![Create a custom {% data variables.product.prodname_secret_scanning %} pattern form](/assets/images/help/repository/secret-scanning-create-custom-pattern.png)
-1. When you are satisfied with your new custom pattern, click {% ifversion fpt or ghes > 3.2 or ghae-next %}**Create pattern**{% elsif ghes = 3.2 %}**Create custom pattern**{% endif %}.
+1. When you are satisfied with your new custom pattern, click {% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}**Create pattern**{% elsif ghes = 3.2 %}**Create custom pattern**{% endif %}.

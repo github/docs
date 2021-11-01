@@ -7,8 +7,9 @@ redirect_from:
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Secret scanning
@@ -25,27 +26,27 @@ shortTitle: Manage secret alerts
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 3. In the left sidebar, click **Secret scanning alerts**.
-   {% ifversion fpt or ghes > 2.22 %}
+   {% ifversion fpt or ghes or ghec %}
    !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
    !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
 4. Klicke unter „Secret scanning" (nach Geheimnissen durchsuchen) auf die Warnung, die Du ansehen willst.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Liste der Warnungen aus „secret scanning" (Durchsuchen nach Geheimnissen)](/assets/images/help/repository/secret-scanning-click-alert.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    ![Liste der Warnungen aus „secret scanning" (Durchsuchen nach Geheimnissen)](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
    {% ifversion ghae %}
    ![Liste der Warnungen aus „secret scanning" (Durchsuchen nach Geheimnissen)](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
 5. Optionally, use the "Mark as" drop-down menu and click a reason for resolving an alert.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Dropdownmenü für das Auflösen von Warnungen aus „secret scanning" (Durchsuchen nach Geheimnissen)](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
-   {% ifversion ghes > 2.22 or ghae %}
+   {% ifversion ghes or ghae %}
    ![Dropdownmenü für das Auflösen von Warnungen aus „secret scanning" (Durchsuchen nach Geheimnissen)](/assets/images/help/repository/secret-scanning-resolve-alert-ghe.png)
    {% endif %}
 
@@ -56,7 +57,7 @@ Sobald ein Geheimnis an ein Repository übergeben wurde, solltest Du das Geheimn
 - Bei einem kompromittierten, persönlichen {% data variables.product.prodname_dotcom %}-Zugriffstoken, lösche das kompromittierte Token, erstelle ein neues Token und aktualisiere alle Dienste, die das alte Token verwenden. Weitere Informationen findest Du unter „[Ein persönliches Zugriffstoken für die Befehlszeile erstellen](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).“
 - Für alle anderen Geheimnisse überprüfe zuerst, dass das zu {% data variables.product.product_name %} übergebene Geheimnis gültig ist. Falls ja, erstelle ein neues Geheimnis, aktualisiere alle Dienste, die das alte Geheimnis nutzen und lösche dann das alte Geheimnis.
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
 
 When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.

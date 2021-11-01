@@ -3,9 +3,12 @@ title: 企业 GitHub Actions 故障排除
 intro: '在 {% data variables.product.prodname_ghe_server %} 上使用 {% data variables.product.prodname_actions %} 时的常见问题疑难解答。'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Troubleshooting
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 shortTitle: GitHub Actions 故障排除

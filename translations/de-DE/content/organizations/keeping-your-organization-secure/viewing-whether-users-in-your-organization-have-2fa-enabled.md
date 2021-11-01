@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Usage of 2FA in organization
 
 {% note %}
 
-**Hinweis:** Du kannst festlegen, dass alle Mitglieder{% ifversion fpt %}einschließlich Inhabern, Abrechnungsmanagern und{% else %} und{% endif %} externen Mitarbeiter in Deiner Organisation die Zwei-Faktor-Authentifizierung aktiviert haben müssen. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
+**Hinweis:** Du kannst festlegen, dass alle Mitglieder{% ifversion fpt or ghec %}einschließlich Inhabern, Abrechnungsmanagern und{% else %} und{% endif %} externen Mitarbeiter in Deiner Organisation die Zwei-Faktor-Authentifizierung aktiviert haben müssen. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
 
 {% endnote %}
 

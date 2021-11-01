@@ -1,6 +1,6 @@
 ---
 title: E-Mail-Voreinstellungen verwalten
-intro: 'Sie können die mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adressen ändern oder E-Mail-Adressen hinzufügen. Sie können auch E-Mails verwalten, die Sie von {% data variables.product.product_name %} erhalten.'
+intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Sie können auch E-Mails verwalten, die Sie von {% data variables.product.product_name %} erhalten.'
 redirect_from:
   - /categories/managing-email-preferences/
   - /articles/managing-email-preferences
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

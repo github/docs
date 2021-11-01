@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -43,7 +44,7 @@ Cuando se configuran las _verificaciones_ en un repositorio, las solicitudes de 
 
 {% note %}
 
-**Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
+**Nota:** La pestaña de **Verificaciones** solo se llena para las solicitudes de cambios si configuras _verificaciones_ y no _estados_ en el repositorio.
 
 {% endnote %}
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organizações e contas corporativas
 
 As contas corporativas permitem que proprietários gerenciem centralmente a política e a cobrança para várias organizações do {% data variables.product.prodname_dotcom_the_website %}.

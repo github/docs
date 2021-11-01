@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -20,7 +21,7 @@ Du bist nicht dazu verpflichtet, eine Lizenz auszuwählen. Bedenke jedoch, dass 
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility).“
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility).“
 
 {% endnote %}
 
@@ -89,9 +90,9 @@ Die Lizenzauswahl ist nur verfügbar, wenn Du auf GitHub ein neues Projekt erste
 
 ## Haftungsausschluss
 
-Das Ziel der Bemühungen von GitHub zur Open-Source-Lizenzierung ist es, Dir einen Ausgangspunkt für eine fundierte Entscheidung zu geben. GitHub zeigt Lizenzinformationen an, um Benutzer über Open-Source-Lizenzen und die Projekte, bei denen diese Lizenzen verwendet werden, zu informieren. Wir hoffen, dass wir Dir damit helfen. Bedenke aber bitte, dass wir keine Juristen sind und wie alle Menschen Fehler machen können. Aus diesem Grund stellt GitHub die Informationen ohne Gewähr bereit und übernimmt keine Zusicherungen im Hinblick auf alle auf oder über GitHub bereitgestellten Informationen und Lizenzen. Außerdem lehnt GitHub jegliche Haftung für Schäden ab, die sich aus der Nutzung der Lizenzinformationen ergeben. Wenn Du Fragen hinsichtlich der richtigen Lizenz für Deinen Code oder andere damit verbundene rechtliche Probleme hast, empfehlen wir, juristische Unterstützung einzuholen.
+Das Ziel der Bemühungen von GitHub zur Open-Source-Lizenzierung ist es, Dir einen Ausgangspunkt für eine fundierte Entscheidung zu geben. GitHub zeigt Lizenzinformationen an, um Benutzer über Open-Source-Lizenzen und die Projekte, bei denen diese Lizenzen verwendet werden, zu informieren. Wir hoffen, dass wir Dir damit helfen. Bedenke aber bitte, dass wir keine Juristen sind und wie alle Menschen Fehler machen können. For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. Wenn Du Fragen hinsichtlich der richtigen Lizenz für Deinen Code oder andere damit verbundene rechtliche Probleme hast, empfehlen wir, juristische Unterstützung einzuholen.
 
 ## Weiterführende Informationen
 
-- Der Abschnitt „[The Legal Side of Open Source](https://opensource.guide/legal/)“ (Die rechtlichen Aspekte von Open Source) in den Open-Source-Leitfäden{% ifversion fpt %}
+- Der Abschnitt „[The Legal Side of Open Source](https://opensource.guide/legal/)“ (Die rechtlichen Aspekte von Open Source) in den Open-Source-Leitfäden{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

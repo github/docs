@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 redirect_from:
@@ -17,7 +18,7 @@ Um Dir zu helfen, Deine Abonnements zu verstehen und zu entscheiden, ob du Dich 
 
 {% note %}
 
-**Hinweis:** Anstatt Dich abzumelden, hast Du die Möglichkeit, ein Repository zu ignorieren. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da Du in diesem Fall auch keine Benachrichtigung erhältst, wenn Du @erwähnt wirst. {% ifversion fpt %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
+**Hinweis:** Anstatt Dich abzumelden, hast Du die Möglichkeit, ein Repository zu ignorieren. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da Du in diesem Fall auch keine Benachrichtigung erhältst, wenn Du @erwähnt wirst. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -61,7 +62,7 @@ Wenn Du ein Repository nicht mehr beobachtest, meldest Du Dich von zukünftigen 
 {% data reusables.notifications.access_notifications %}
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Watched repositories** (beobachtete Repositorys). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Nimm auf der Seite der beobachteten Repositorys eine Bewertung dieser Repositorys vor und wähle dann aus:
-  {% ifversion fpt or ghes > 3.0 or ghae-next %}
+  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
     - Ein Repository nicht mehr beobachten
     - Ignore all notifications for a repository
     - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)

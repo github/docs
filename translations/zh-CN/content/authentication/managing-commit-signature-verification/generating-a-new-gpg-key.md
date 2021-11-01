@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**注：**在生成新 GPG 密钥之前，请确保已验证您的电子邮件地址。 如果尚未验证电子邮件地址，您将无法使用 GPG 对提交和标记签名。{% ifversion fpt %}更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
+**注：**在生成新 GPG 密钥之前，请确保已验证您的电子邮件地址。 如果尚未验证电子邮件地址，您将无法使用 GPG 对提交和标记签名。{% ifversion fpt or ghec %}更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
 
 {% endnote %}
 
@@ -43,7 +44,7 @@ topics:
 
   {% note %}
 
-  **注：**要求您输入电子邮件地址时，请确保输入您 GitHub 帐户的经验证电子邮件地址。 {% data reusables.gpg.private-email %} {% ifversion fpt %}  更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”和“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
+  **注：**要求您输入电子邮件地址时，请确保输入您 GitHub 帐户的经验证电子邮件地址。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”和“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
 
   {% endnote %}
 

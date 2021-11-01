@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -24,20 +25,6 @@ Organization のすべてのリポジトリについて {% data variables.produc
 
 あるいは、Organization のすべてのリポジトリについて {% data variables.product.prodname_actions %} を有効化したうえで、ワークフローで実行できるアクションを制限することができます。 {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% ifversion ghes < 3.0 %}
-
-## Organization の {% data variables.product.prodname_actions %} 権限の管理
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. [**Local and third-party Actions**] で、オプションを選択します。 ![この Organization でアクションを有効化、無効化、制限](/assets/images/help/repository/enable-org-actions.png)
-1. [**Save**] をクリックします。
-
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 ## Organization の {% data variables.product.prodname_actions %} 権限の管理
 
 Organization のワークフローをすべて無効にすることも、Organization でどのアクションを使用できるかを設定するポリシーを設定することもできます。
@@ -46,7 +33,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 {% note %}
 
-**注釈:** Organizationが、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 詳しい情報については、 {% ifversion fpt %}「[Enterprise アカウントで {% data variables.product.prodname_actions %} のポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% else %}"[Enterprise で{% data variables.product.prodname_actions %} のポリシーを施行する](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」{% endif %}を参照してください。
+**注釈:** Organizationが、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
@@ -71,9 +58,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
    {%- endif %}
 1. [**Save**] をクリックします。
 
-{% endif %}
-
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## パブリックフォークからのワークフローに対する必須の承認の設定
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
@@ -88,7 +73,7 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 ## プライベートリポジトリのフォークのワークフローを有効にする
 
 {% data reusables.github-actions.private-repository-forks-overview %}
@@ -101,7 +86,7 @@ You can configure this behavior for an organization using the procedure below. �
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Organizationに対する`GITHUB_TOKEN`の権限の設定
 
 {% data reusables.github-actions.workflow-permissions-intro %}

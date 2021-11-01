@@ -19,10 +19,6 @@ shortTitle: Configure package ecosystems
 
 To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
 
-{% ifversion ghes = 2.22 %}
-To use
-{% data variables.product.prodname_registry %} with Docker, you must have subdomain isolation enabled for your instance. For more information, see "[Enabling subdomain isolation](/enterprise/admin/configuration/enabling-subdomain-isolation)."
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

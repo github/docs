@@ -4,6 +4,7 @@ intro: 'This article provides troubleshooting steps for common issues you may ex
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces
@@ -13,7 +14,7 @@ shortTitle: Creation and deletion
 ## Creating codespaces
 
 ### No access to create a codespace
-{% data variables.product.prodname_codespaces %} are not available for all repositories. If the “Open with Codespaces” button is missing, {% data variables.product.prodname_codespaces %} may not be available for that repository. Weitere Informationen findest du unter „[Einen Codespace erstellen](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)."
+{% data variables.product.prodname_codespaces %} are not available for all repositories. If the "Open with Codespaces" button is missing, {% data variables.product.prodname_codespaces %} may not be available for that repository. Weitere Informationen findest du unter „[Einen Codespace erstellen](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)."
 
 If you believe your organization has [enabled {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization#about-enabling-codespaces-for-your-organization), make sure that an organization owner or billing manager has set the spending limit for {% data variables.product.prodname_codespaces %}. Weitere Informationen findest Du unter „[Ausgabenlimit für {% data variables.product.prodname_codespaces %} verwalten](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
 
@@ -53,4 +54,4 @@ Some more destructive options:
 This codespace is currently running in recovery mode due to a container error.
 ```
 
-Review the creation logs, update the configuration as needed, and run **Codespaces: Rebuild Container** in the command palette to retry. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."
+Review the creation logs, update the configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. For more information, see " [Codespaces logs](/codespaces/troubleshooting/codespaces-logs)" and "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)."

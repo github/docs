@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Get changes from a remote
 ---
 
@@ -77,5 +78,5 @@ Because `pull` performs a merge on the retrieved changes, you should ensure that
 
 ## 더 읽을거리
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
 - "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"{% endif %}

@@ -10,12 +10,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Recover an account with 2FA
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
@@ -29,12 +30,12 @@ shortTitle: Recover an account with 2FA
 
 Verwende einen Deiner Wiederherstellungscodes, um automatisch wieder Zugriff auf Dein Konto zu erhalten. Vielleicht hast Du Deine Wiederherstellungscodes in einem Passwort-Manager oder im Download-Ordner Deines Computers gespeichert. Der standardmäßige Dateiname für Wiederherstellungscodes lautet `github-recover-codes.txt`. Weitere Informationen zu Wiederherstellungscodes findest Du unter „[Wiederherstellungsmethoden bei der Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).“
 
-{% data reusables.two_fa.username-password %}{% ifversion fpt %}
+{% data reusables.two_fa.username-password %}{% ifversion fpt or ghec %}
 2. Klicke unter „Having Problems?" (Hast Du Probleme?) auf **Enter a two-factor recovery code** (Gib einen Zwei-Faktor-Wiederherstellungscode ein). ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
 2. Klicke auf der 2FA-Seite unter „Don't have your phone?“ (Hast Du Dein Telefon nicht?) auf **Enter a two-factor recovery code** (Einen Zwei-Faktor-Wiederherstellungscode eingeben). ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
 3. Gib einen Deiner Wiederherstellungscodes ein, und klicke dann auf **Verify** (Verifizieren). ![Feld zum Eingeben eines Wiederherstellungscodes und Schaltfläche „Verify“ (Verifizieren)](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Authentifizierung mit einer Fallback-Nummer
 
 Wenn Du Deine primäre TOTP-App oder Telefonnummer verlierst, kannst Du einen Zwei-Faktor-Authentifizierungscode eingeben, der an Deine Fallback-Nummer gesendet wurde, um automatisch wieder Zugriff auf Dein Konto zu erhalten.
@@ -44,7 +45,7 @@ Wenn Du Deine primäre TOTP-App oder Telefonnummer verlierst, kannst Du einen Zw
 
 Wenn Du die Zwei-Faktor-Authentifizierung mit einem Sicherheitsschlüssel konfiguriert hast, kannst Du den Sicherheitsschlüssel als sekundäre Authentifizierungsmethode verwenden, um automatisch wieder Zugriff auf Dein Konto zu erhalten. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)“.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Authentifizierung mit einem verifizierten Gerät, einem SSH-Token oder einem persönlichen Zugriffstoken
 
 If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
@@ -77,7 +78,7 @@ Sie kannst die Anmeldeinformationen oder die Wiederherstellungscodes Deiner Zwei
 
 {% endwarning %}
 
-Wenn Du den Zugriff auf die Zwei-Faktor-Authentifizierungsmethoden für Dein {% data variables.product.product_name %}-Konto verlierst, kannst Du Dein Kontowiederherstellungstoken von einem Partner-Wiederherstellungsanbieter abrufen und den {% data variables.product.prodname_dotcom %}-Support darum bitten, es zu prüfen.
+If you lose access to the two-factor authentication methods for your account on {% data variables.product.product_location %}, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
 
 Wenn Du keinen Zugriff auf Deine Zwei-Faktor-Authentifizierungsmethoden oder Wiederherstellungscodes hast und ein Kontowiederherstellungstoken mit „Recover Accounts Elsewhere" bei Facebook gespeichert hast, kannst Du möglicherweise mit diesem Token wieder Zugriff auf Dein Konto erlangen.
 
@@ -91,7 +92,7 @@ Wenn Du nicht in der Lage bist, den Zugang zu Deinem Konto wieder herzustellen, 
 {% endwarning %}
 
 1. Rufe auf Facebook die Seite [Security Settings](https://www.facebook.com/settings?tab=security) (Sicherheitseinstellungen) auf, und klicke dann auf **Recover Accounts Elsewhere**. ![Facebook-Seite mit Sicherheitseinstellungen und Link zu „Recover Accounts Elsewhere"](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. Klicke auf das Wiederherstellungstoken, das mit Deinem {% data variables.product.product_name %}-Konto verknüpft ist. ![Liste der auf Facebook gespeicherten Wiederherstellungstoken](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
+2. Click the recovery token associated with your account on {% data variables.product.product_location %}. ![Liste der auf Facebook gespeicherten Wiederherstellungstoken](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. Um Dein Kontowiederherstellungstoken einzulösen, klicke auf **Recover This Account** (Dieses Konto wiederherstellen). Ein neues Fenster wird geöffnet, das Dich auf {% data variables.product.product_name %} zurückführt. ![Modales Feld mit Informationen zu Deinem Wiederherstellungstoken und Schaltfläche „Recover This Account“ (Dieses Konto wiederherstellen)](/assets/images/help/settings/security-recover-account-facebook.png)
 4. Benachrichtige den {% data variables.contact.contact_support %}, dass Dein Kontowiederherstellungstoken bereit für den Review ist.
 {% endif %}

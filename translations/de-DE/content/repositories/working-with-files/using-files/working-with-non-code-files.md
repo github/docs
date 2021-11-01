@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Mit Nicht-Codedateien arbeiten
@@ -46,7 +47,7 @@ shortTitle: Mit Nicht-Codedateien arbeiten
 
 ### Bilder anzeigen
 
-Sie können Bilder direkt in Ihrem {% data variables.product.product_name %}-Repository suchen und aus dem Repository anzeigen:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![Inline-Bild](/assets/images/help/images/view.png)
 
@@ -135,7 +136,7 @@ GitHub unterstützt das Rendering von Tabellendaten in den Formaten *.csv* (komm
 
 ![Beispiel für eine gerenderte CSV-Datei](/assets/images/help/repository/rendered_csv.png)
 
-In der Anzeige wird jede _CSV_- oder _TSV_-Datei, die in einem {% data variables.product.product_name %}-Repository festgeschrieben ist, automatisch als interaktive Tabelle mit Kopfzeile und Zeilennummerierung wiedergegeben. Standardmäßig wird davon ausgegangen, dass die erste Zeile die Kopfzeile mit den Spaltenüberschriften ist.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. Standardmäßig wird davon ausgegangen, dass die erste Zeile die Kopfzeile mit den Spaltenüberschriften ist.
 
 Durch Klicken auf die Zeilennummer kannst Du eine bestimmte Zeile verknüpfen, oder durch drücken der Umschalttaste mehrere Zeilen auswählen. Kopiere einfach die URL, und sende sie einem anderen Benutzer.
 
@@ -188,7 +189,7 @@ Zum Anzeigen der im Zuge eines Commits vorgenommenen Änderungen an einem Dokume
 
 ![Änderungen an gerendertem Fließtext](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ### Disabling Markdown rendering
 

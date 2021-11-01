@@ -3,6 +3,7 @@ title: Gemeldete Inhalte im Repository Deiner Organisation verwalten
 intro: 'Nachdem ein Mitwirkender einen störenden Inhalt in einem Repository gemeldet hat, können die Repository-Betreuer den Bericht ansehen und verwalten.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:

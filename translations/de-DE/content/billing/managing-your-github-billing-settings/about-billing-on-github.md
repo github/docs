@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## Kostenpflichtige Funktionen und Produkte
 
 Du kannst Dein persönliches Konto oder Deine Organisation jederzeit auf ein kostenpflichtiges Abonnement heraufstufen. Sie können auch Apps von {% data variables.product.prodname_marketplace %} kaufen oder Speicher und Bandbreite für {% data variables.large_files.product_name_long %} upgraden. Weitere Informationen findest Du unter:
-- „[Informationen zur Abrechnung für {% data variables.product.product_name %}-Konten](/articles/about-billing-for-github-accounts)“
+- „[Informationen zur Abrechnung für {% data variables.product.prodname_dotcom %}-Konten](/articles/about-billing-for-github-accounts)“
 - „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)“
 - „[Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)“
 - „[Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)“

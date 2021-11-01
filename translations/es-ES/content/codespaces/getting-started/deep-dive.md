@@ -4,7 +4,8 @@ intro: 'Comprender cómo funciona {% data variables.product.prodname_codespaces 
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces
@@ -58,7 +59,7 @@ Conforme desarrollas en tu codespace, este guardará cualquier cambio en tus arc
 
 ### Cerrar o detener tu codespace
 
-Para detener tu codespace, puedes [utilizar la paleta de comandos](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). Si sales de tu codespace sin ejecutar el comando para detenerlo (por ejemplo, cerrar la pestaña del buscador) o si dejas el codespace ejecutándose sin interacción, este y sus procesos en ejecución seguirán hasta que ocurra una ventana de inactividad, después de la cual se detendrá el codespace.  Predeterminadamente, la ventana de inactividad es de 30 minutos.
+To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). Si sales de tu codespace sin ejecutar el comando para detenerlo (por ejemplo, cerrar la pestaña del buscador) o si dejas el codespace ejecutándose sin interacción, este y sus procesos en ejecución seguirán hasta que ocurra una ventana de inactividad, después de la cual se detendrá el codespace.  Predeterminadamente, la ventana de inactividad es de 30 minutos.
 
 Cuando cierras o detienes tu codespace, todos los cambios sin confirmar se preservan hasta que te conectes al codespace nuevamente.
 
@@ -71,9 +72,9 @@ El reenvío de puertos determina cuáles de ellos se hicieron accesibles para ti
 
 ![Diagrama que muestra cómo funciona el reenvío de puertos en un codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-Cuando una aplicción que se ejecuta dentro del {% data variables.product.prodname_codespaces %} da salida a un puerto hacia la consola, el {% data variables.product.prodname_codespaces %} detecta el patrón de URL del host local y reenvía el puerto automáticamente. Puedes hacer clic en la URL de la terminal o en el mensaje de notificación para abrir el puerto en un buscador. Para obtener más información sobre el reenvío de puertos, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+Cuando una aplicción que se ejecuta dentro del {% data variables.product.prodname_codespaces %} da salida a un puerto hacia la consola, el {% data variables.product.prodname_codespaces %} detecta el patrón de URL del host local y reenvía el puerto automáticamente. Puedes hacer clic en la URL de la terminal o en el mensaje de notificación para abrir el puerto en un buscador. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. Para obtener más información sobre el reenvío de puertos, consulta la sección "[Reenviar puertos en tu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-Si bien los puertos pueden reenviarse automáticamente, no son accesibles públicamente en la internet. Predeterminadamente, todos los puertos son privados, pero puedes [hacer un puerto público manualmente](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) para compartir el acceso mediante una URL.
+Si bien los puertos pueden reenviarse automáticamente, no son accesibles públicamente en la internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
 
 El ejecutar tu aplicación cuando llegas por primera vez a tu codespace puede convertirse en un bucle de desarrollador interno rápido. Mientras editas, tus cambios se guardan automáticamente y se ponen disponibles en tu puerto reenviado. Para ver los cambios, regresa a la pestaña de la aplicación en ejecución en tu buscador y actualízala.
 

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,13 +26,11 @@ Cuando alguien abre una solicitud de extracción que modifica el código que per
 
 Cuando alguien con permisos administrativos o de propietario ha activado las revisiones requeridas, opcionalmente, también pueden solicitar aprobación de un propietario del código antes de que el autor pueda fusionar una solicitud de extracción en el repositorio. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
-{% ifversion fpt or ghae or ghes %}Si un equipo habilitó las tareas de revisión de código, las aprobaciones individuales no satisfarán el requisito de aprobación del propietario del código en una rama protegida. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)".{% endif %}
+{% ifversion fpt or ghae or ghes or ghec %}Si un equipo habilitó las tareas de revisión de código, las aprobaciones individuales no satisfarán el requisito de aprobación del propietario del código en una rama protegida. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)".{% endif %}
 
-{% ifversion fpt or ghae or ghes > 2.22 %}
 Si un archivo tiene un propietario del código, puedes ver quién es éste antes de que abras una solicitud de extracción. Puedes buscar el archivo en el repositorio y pasar el puntero sobre {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![Dueño del código de un archivo en un repositorio](/assets/images/help/repository/code-owner-for-a-file.png)
-{% endif %}
 
 ## Ubicación del archivo CODEOWNERS
 
@@ -41,7 +40,7 @@ Cada archivo CODEOWNERS asigna los propietarios del código para una única rama
 
 Para que los propietarios del código reciban las solicitudes de revisión, el archivo CODEOWNERS debe estar en la rama base de la solicitud de extracción. Por ejemplo, si asignas `@octocat` como el propietario del código para los archivos *.js* en la rama `gh-pages` de tu repositorio, `@octocat` recibirá las solicitudes de revisión cuando una solicitud de extracción con cambios en los archivos *.js* se abra entre la rama de encabezado y `gh-pages`.
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Tamaño de archivo de CODEOWNERS
 
 Los archivos de CODEOWNERS deben ser de menos de 3 MB. Un archivo de CODEOWNERS que sobrepase este límite no se cargará, lo cual significa que la información de los propietarios de código no se mostrará y que no se solicitará que los propietarios de código adecuados revisen los cambios en una solicitud de cambios.
@@ -51,7 +50,7 @@ Para reducir el tamaño de tu archivo de CODEOWNERS, considera utilizar patrones
 
 ## Sintáxis de CODEOWNERS
 
-Un archivo de CODEOWNERS utiliza un patrón que sigue la mayoría de las mismas reglas que utilizan los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), con [algunas excepciones](#syntax-exceptions). El patrón es seguido por uno o más nombres de usuarios o nombres de equipos de {% data variables.product.prodname_dotcom %} usando el formato estándar `@username` o `@org/team-name`. Los usuarios deben tener acceso de `read` en el repositorio y los equipos deben tener acceso explícito de `write`, incluso si los miembros de dichos equipos ya tienen acceso. También puedes hacer referencia a un usuario mediante una dirección de correo electrónico que haya sido agregada a su cuenta de {% data variables.product.product_name %}, por ejemplo `user@example.com`.
+Un archivo de CODEOWNERS utiliza un patrón que sigue la mayoría de las mismas reglas que utilizan los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), con [algunas excepciones](#syntax-exceptions). El patrón es seguido por uno o más nombres de usuarios o nombres de equipos de {% data variables.product.prodname_dotcom %} usando el formato estándar `@username` o `@org/team-name`. Los usuarios deben tener acceso de `read` en el repositorio y los equipos deben tener acceso explícito de `write`, incluso si los miembros de dichos equipos ya tienen acceso. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
 Si cualquier línea de tu archivo de CODEOWNERS contiene una sintaxi inválida, el archivo no se detectará y no se utilizará para solicitar revisiones.
 ### Ejemplo de un archivo CODEOWNERS
@@ -112,7 +111,6 @@ Hay algunas reglas de sintaxis para los archivos de gitignore que no funcionan c
 ## Protección de rama y de CODEOWNERS
 Los propietarios de los repositorios pueden agregar reglas de protección de rama para asegurarse de que los propietarios de los archivos que se modificaron revisen el código que cambió. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
 
-
 ### Ejemplo de un archivo CODEOWNERS
 ```
 # In this example, any change inside the `/apps` directory
@@ -131,7 +129,6 @@ Los propietarios de los repositorios pueden agregar reglas de protección de ram
 # Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
-
 
 
 ## Leer más

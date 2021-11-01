@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Abrechnung für GitHub-Konten
-intro: '{% data variables.product.product_name %} bietet kostenlose und kostenpflichtige Produkte für jeden Entwickler und jedes Team.'
+intro: '{% data variables.product.company_short %} bietet kostenlose und kostenpflichtige Produkte für jeden Entwickler und jedes Team.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account/
@@ -14,6 +14,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Accounts
@@ -23,7 +24,7 @@ topics:
 shortTitle: About billing
 ---
 
-Weitere Informationen zu den für Dein Konto verfügbaren Produkten findest Du unter „[Produkte von {% data variables.product.product_name %}](/articles/github-s-products)“. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data variables.product.product_name %} bietet keine benutzerdefinierten Produkte oder Abonnements an.
+Weitere Informationen zu den für Dein Konto verfügbaren Produkten findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products)“. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data variables.product.product_name %} bietet keine benutzerdefinierten Produkte oder Abonnements an.
 
 Du kannst zwischen einer monatlichen oder jährlichen Abrechnung wählen und Dein Abonnement jederzeit herauf- oder herabstufen. Weitere Informationen findest Du unter „[Abrechnung für Dein {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account).“
 
