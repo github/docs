@@ -3,7 +3,7 @@ title: 管理企业的手机版 GitHub
 intro: '您可以决定经验证的用户是否可以通过 {% data variables.product.prodname_mobile %} 连接 {% data variables.product.product_location %}。'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise

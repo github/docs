@@ -7,6 +7,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/referencing-and-citing-content
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Reference & cite content
@@ -14,7 +15,7 @@ shortTitle: Reference & cite content
 
 ## Permanente Identifizierung für Dein Repository mit Zenodo ausgeben
 
-Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; deutsch digitale Objektkennungen) bezeichnet, lassen sich Deine Repositorys in akademischer Literatur leichter referenzieren. Sie können das Datenarchivierungstool [Zenodo](https://zenodo.org/about) zur Archivierung eines {% data variables.product.product_name %}-Repositorys und zur Ausgabe einer DOI für das Archiv verwenden.
+Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; deutsch digitale Objektkennungen) bezeichnet, lassen sich Deine Repositorys in akademischer Literatur leichter referenzieren. You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 

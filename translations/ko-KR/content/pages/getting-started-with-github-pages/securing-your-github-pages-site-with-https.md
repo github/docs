@@ -7,6 +7,7 @@ redirect_from:
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Secure site with HTTPS

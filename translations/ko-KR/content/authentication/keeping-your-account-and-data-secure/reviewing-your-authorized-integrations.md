@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -30,6 +31,6 @@ shortTitle: Authorized integrations
 3. Review the {% data variables.product.prodname_github_apps %} that have access to your account. For those that you don't recognize or that are out of date, click **Revoke**. To revoke all {% data variables.product.prodname_github_apps %}, click **Revoke all**. ![List of authorized {% data variables.product.prodname_github_app %}](/assets/images/help/settings/revoke-github-app.png)
 
 ## 더 읽을거리
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[About integrations](/articles/about-integrations)"{% endif %}
 - "[Reviewing your authorized applications (OAuth)](/articles/reviewing-your-authorized-applications-oauth)"

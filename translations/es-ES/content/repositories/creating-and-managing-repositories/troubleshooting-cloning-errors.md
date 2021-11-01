@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -92,7 +93,7 @@ Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Pa
 
 ## Error: Repositorio no encontrado
 
-{% ifversion fpt or ghae %}Si ves este error al clonar un repositorio, significa que éste no existe o que no tienes permiso para acceder a él.{% else %}Si ves este error cuando clonas un repositorio, significa que éste no existe, no tienes permiso para acceder a él, o {% data variables.product.product_location %} se encuentra en modo privado.{% endif %} Hay algunas cuantas formas de solucionar este error, dependiendo de cuál sea su causa.
+{% ifversion fpt or ghae or ghec %}Si ves este error al clonar un repositorio, significa que éste no existe o que no tienes permiso para acceder a él.{% else %}Si ves este error cuando clonas un repositorio, significa que éste no existe, no tienes permiso para acceder a él, o {% data variables.product.product_location %} se encuentra en modo privado.{% endif %} Hay algunas cuantas formas de solucionar este error, dependiendo de cuál sea su causa.
 
 ### Comprueba que no haya errores tipográficos
 

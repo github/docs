@@ -7,13 +7,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Convert organization to user
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 1. [Sign up](/articles/signing-up-for-a-new-github-account) for a new GitHub user account.
 2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).

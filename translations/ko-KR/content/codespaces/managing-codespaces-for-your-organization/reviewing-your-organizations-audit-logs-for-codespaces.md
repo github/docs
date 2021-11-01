@@ -5,6 +5,7 @@ intro: 'You can use the audit log to review all actions related to {% data varia
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

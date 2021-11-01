@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,7 +21,7 @@ shortTitle: Tell Git your signing key
 
 ## Telling Git about your GPG key
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
@@ -53,7 +54,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 ## Telling Git about your GPG key
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 
@@ -76,7 +77,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 ## Telling Git about your GPG key
 
-If you're using a GPG key that matches your committer identity and your verified email address associated with your {% data variables.product.product_name %} account, then you can begin signing commits and signing tags.
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
 

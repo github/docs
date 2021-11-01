@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Informationen zu Remote-Repositorys
@@ -64,15 +65,15 @@ Wenn Du an der Befehlszeile mittels HTTPS-URLs `git clone`-, `git fetch`-, `git 
 
 {% endtip %}
 
- {% ifversion fpt %}Wenn Du lieber SSH verwenden möchtest, aber keine Verbindung über Port 22 herstellen kannst, kannst du SSH allenfalls über den HTTPS-Port verwenden. Weitere Informationen findest Du unter „[SSH über den HTTPS-Port verwenden](/github/authenticating-to-github/using-ssh-over-the-https-port)."{% endif %}
+ {% ifversion fpt or ghec %}Wenn Du lieber SSH verwenden möchtest, aber keine Verbindung über Port 22 herstellen kannst, kannst du SSH allenfalls über den HTTPS-Port verwenden. Weitere Informationen findest Du unter „[SSH über den HTTPS-Port verwenden](/github/authenticating-to-github/using-ssh-over-the-https-port)."{% endif %}
 
 ## Mit SSH-URLs klonen
 
-SSH-URLs stellen über das sichere Protokoll SSH den Zugriff auf ein Git-Repository bereit. Um diese URLs verwenden zu können, musst Du ein SSH-Schlüsselpaar auf Deinem Computer generieren und den **öffentlichen** Schlüssel zu Deinem {% data variables.product.product_name %}-Konto hinzufügen. Weitere Informationen findest Du unter „[Zu {% data variables.product.prodname_dotcom %} mit SSH verbinden](/github/authenticating-to-github/connecting-to-github-with-ssh)."
+SSH-URLs stellen über das sichere Protokoll SSH den Zugriff auf ein Git-Repository bereit. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Weitere Informationen findest Du unter „[Zu {% data variables.product.prodname_dotcom %} mit SSH verbinden](/github/authenticating-to-github/connecting-to-github-with-ssh)."
 
 Wenn Du mittels SSH-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`-Befehle an ein Remote-Repository sendest, musst Du ein Passwort eingeben und Deine SSH-Schlüssel-Passphrase bereitstellen. Weitere Informationen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/github/authenticating-to-github/working-with-ssh-key-passphrases).“
 
-{% ifversion fpt %}Wenn Du auf eine Organisation zugreifst, die SAML Single Sign-On (SSO) einsetzt, musst Du vor dem Authentifizieren Deinen SSH-Schlüssel für den Zugriff auf die Organisation autorisieren. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines SSH-Schlüssels für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
+{% ifversion fpt or ghec %}Wenn Du auf eine Organisation zugreifst, die SAML Single Sign-On (SSO) einsetzt, musst Du vor dem Authentifizieren Deinen SSH-Schlüssel für den Zugriff auf die Organisation autorisieren. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines SSH-Schlüssels für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
 
 {% tip %}
 
@@ -80,7 +81,7 @@ Wenn Du mittels SSH-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## Cloning with {% data variables.product.prodname_cli %}
 

@@ -4,6 +4,7 @@ intro: 'You can define different input types, validations, default assignees, an
 product: 'Issue forms are available in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---

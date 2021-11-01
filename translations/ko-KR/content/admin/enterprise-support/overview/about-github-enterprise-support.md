@@ -47,6 +47,11 @@ For more information, see "[About {% data variables.contact.premium_support %} f
 
 ## Contacting {% data variables.contact.enterprise_support %}
 
+{% ifversion ghes %}
+{% data reusables.support.zendesk-deprecation %}
+{% endif %}
+
+
 You can contact {% data variables.contact.enterprise_support %} through {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} the {% data variables.contact.ae_azure_portal %}{% endif %} to report issues in writing. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 
 {% ifversion ghes %}

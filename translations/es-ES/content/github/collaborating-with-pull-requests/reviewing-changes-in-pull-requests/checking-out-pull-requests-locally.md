@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Verificar una solicitud de cambios localmente
@@ -28,7 +29,7 @@ shortTitle: Verificar una solicitud de cambios localmente
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. En la lista de solicitudes de cambios, haz clic en aquella que quieras modificar.{% ifversion fpt %}
+2. En la lista de solicitudes de cambios, haz clic en aquella que quieras modificar.{% ifversion fpt or ghec %}
 3. Para elegir dónde te gustaría abrir la solicitud de extracción, selecciona la opción **Abrir con {% octicon "triangle-down" aria-label="The down triangle icon" %}** del menú desplegable y da clic en una de las pestañas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. En la caja de fusión, da clic en **instrucciones para línea de comandos**. Sigue la secuencia de pasos para disminuir la solicitud de extracción propuesta. ![Enlace para acceder a las instrucciones de la solicitud de extracción de la línea de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. De manera opcional, para ver los cambios propuestos en {% data variables.product.prodname_desktop %}, da clic en **abrir en {% data variables.product.prodname_desktop %}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}

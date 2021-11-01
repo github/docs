@@ -30,7 +30,7 @@ topics:
 
 ## Cluster initialisieren
 
-Zum Initialisieren des Clusters benötigen Sie eine Clusterkonfigurationsdatei (`cluster.conf`). Weitere Informationen finden Sie unter „[Informationen zur Clusterkonfigurationsdatei](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)“.
+Zum Initialisieren des Clusters benötigen Sie eine Clusterkonfigurationsdatei (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. Führen Sie auf dem ersten Knoten, der konfiguriert wurde, `ghe-cluster-config-init` aus.  Dadurch wird der Cluster initialisiert, wenn in der Clusterkonfigurationsdatei nicht konfigurierte Knoten vorhanden sind.
 2. Führen Sie `ghe-cluster-config-apply` aus. Dadurch wird die Datei `cluster.conf` validiert, die Konfiguration auf jede Knotendatei angewendet und die konfigurierten Dienste auf jedem Knoten angezeigt.

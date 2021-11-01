@@ -1,6 +1,6 @@
 ---
 title: Tipos de contas do GitHub
-intro: 'Sua conta de usuário é o que identifica você no {% data variables.product.product_location %}. Ela pode ser integrante de qualquer número de organizações.{% ifversion fpt %} As organizações podem pertencer a contas corporativas.{% endif %}'
+intro: 'Sua conta de usuário é o que identifica você no {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% ifversion fpt or ghec %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -21,7 +22,7 @@ topics:
   - Security
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Para uma lista completa de recursos para cada {% data variables.product.product_name %} produto, consulte produtos do "[{% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
@@ -29,7 +30,7 @@ Para uma lista completa de recursos para cada {% data variables.product.product_
 
 Cada pessoa que utiliza {% data variables.product.product_location %} tem sua própria conta de usuário, que inclui:
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 - Repositórios públicos e privados ilimitados com o {% data variables.product.prodname_free_user %}
 - Colaboradores ilimitados com {% data variables.product.prodname_free_user %}
@@ -43,7 +44,7 @@ Cada pessoa que utiliza {% data variables.product.product_location %} tem sua pr
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -64,12 +65,12 @@ Cada pessoa que utiliza {% data variables.product.product_location %} tem sua pr
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_emus %}
 
 Com {% data variables.product.prodname_emus %}, em vez de usar sua conta pessoal, os integrantes de um {% data variables.product.prodname_emu_enterprise %} são contas fornecidas que usam o provedor de identidade da empresa (IdP). {% data variables.product.prodname_managed_users_caps %} efetua a autenticação usando seu IdP ao invés de um usuário e senha de {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data variables.product.prodname_managed_users_caps %} só pode interagir com usuários, repositórios e organizações que fazem parte das suas empresas. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura ao restante de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+{% data variables.product.prodname_managed_users_caps %} só pode interagir com usuários, repositórios e organizações que fazem parte das suas empresas. {% data variables.product.prodname_managed_users_caps %} tem acesso somente leitura ao restante de {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 {% endif %}
 
 ## Contas da organização
@@ -78,7 +79,7 @@ As organizações são contas compartilhadas, onde grupos de pessoas podem colab
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Contas corporativas
 
@@ -88,6 +89,6 @@ Com contas corporativas, é possível gerenciar centralmente a política e a cob
 
 ## Leia mais
 
-{% ifversion fpt %}- "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
+{% ifversion fpt or ghec %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
 - "[Criar uma conta de organização](/articles/creating-a-new-organization-account)"

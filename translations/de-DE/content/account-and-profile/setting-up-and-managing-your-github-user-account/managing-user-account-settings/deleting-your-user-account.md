@@ -9,14 +9,15 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Dein Benutzerkonto löschen
 ---
 
-Wenn Du Dein Benutzerkonto löschst, werden alle dazugehörigen Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten Deines Kontos ebenfalls gelöscht. {% ifversion fpt %} Deine Issues, Pull Requests und Kommentare in Repositorys von anderen Benutzern werden nicht gelöscht, sondern mit unserem [Ghost user](https://github.com/ghost) (Geisterbenutzer) verknüpft.{% else %}Deine Issues, Pull Requests und Kommentare in Repositorys von anderen Benutzern werden nicht gelöscht.{% endif %}
+Wenn Du Dein Benutzerkonto löschst, werden alle dazugehörigen Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten Deines Kontos ebenfalls gelöscht. {% ifversion fpt or ghec %} Deine Issues, Pull Requests und Kommentare in Repositorys von anderen Benutzern werden nicht gelöscht, sondern mit unserem [Ghost user](https://github.com/ghost) (Geisterbenutzer) verknüpft.{% else %}Deine Issues, Pull Requests und Kommentare in Repositorys von anderen Benutzern werden nicht gelöscht.{% endif %}
 
-{% ifversion fpt %} Außerdem steht der Name Deines Kontos wieder für andere Benutzer zur Verfügung, und Deine Abrechnung wird beendet. Die mit dem Konto verknüpfte E-Mail-Adresse wird für die Nutzung mit einem anderen {% data variables.product.product_name %}-Konto frei. {% endif %}
+{% ifversion fpt or ghec %} When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
 
 Wenn Du der alleinige Inhaber einer Organisation bist, musst Du die Inhaberschaft auf eine andere Person übertragen oder die Organisation löschen, bevor Du Dein Benutzerkonto löschen kannst. Wenn es noch weitere Inhaber Deiner Organisation gibt, musst Du Dich selbst aus der Organisation löschen, bevor Du Dein Benutzerkonto löschen kannst.
 
@@ -43,7 +44,7 @@ Bevor Du Dein Benutzerkonto löschst, erstelle Kopien aller Repositorys, private
     - Wenn Du der alleinige Inhaber einer Organisation bist, musst Du die Inhaberschaft auf eine andere Person übertragen oder die Organisation löschen.
     - Wenn es andere Inhaber der Organisation gibt, musst Du Dich selbst aus der Organisation entfernen. ![Schaltfläche zum Löschen des Kontos](/assets/images/help/settings/settings-account-delete.png)
 4. Fülle das Dialogfeld „Are you sure you want to do this?“ (Möchtest Du das wirklich tun?) aus, um zu bestätigen, dass Du die Folgen der Kontolöschung verstanden hast: ![Dialogfeld zum Bestätigen der Kontolöschung](/assets/images/help/settings/settings-account-deleteconfirm.png)
-  {% ifversion fpt %}– Denken Sie daran, dass alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten von Ihrem Konto ebenfalls gelöscht werden, dass Ihre Abrechnung beendet wird und Ihr Benutzername wieder für die Verwendung auf {% data variables.product.product_name %} freigegeben wird.
+  {% ifversion fpt or ghec %}– Denken Sie daran, dass alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten von Ihrem Konto ebenfalls gelöscht werden, dass Ihre Abrechnung beendet wird und Ihr Benutzername wieder für die Verwendung auf {% data variables.product.product_name %} freigegeben wird.
   {% else %}– Denke daran, dass alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Seiten von Deinem Konto ebenfalls gelöscht werden und Dein Benutzername wieder für die Verwendung auf {% data variables.product.product_name %} freigegeben wird.
   {% endif %}– Gib im ersten Feld Deinen {% data variables.product.product_name %}-Benutzernamen oder Deine E-Mail-Adresse ein.
     - Gib im zweiten Feld den Text von der Aufforderung ein.

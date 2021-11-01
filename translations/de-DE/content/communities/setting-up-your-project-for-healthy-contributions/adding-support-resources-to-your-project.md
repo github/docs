@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Add support resources
@@ -17,7 +18,7 @@ Um Personen auf bestimmte Support-Ressourcen zu verweisen, kannst Du eine SUPPOR
 
 ![Support-Richtlinien](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 You can create default support resources for your organization or user account. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 

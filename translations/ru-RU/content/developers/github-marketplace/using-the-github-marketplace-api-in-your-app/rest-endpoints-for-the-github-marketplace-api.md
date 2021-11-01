@@ -8,6 +8,7 @@ redirect_from:
   - /developers/github-marketplace/rest-endpoints-for-the-github-marketplace-api
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: REST API

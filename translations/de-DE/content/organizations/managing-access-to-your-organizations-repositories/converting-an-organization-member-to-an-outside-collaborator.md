@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,11 +26,11 @@ Wenn Organisationsmitglieder in externe Mitarbeiter umgewandelt wurden, haben si
 - Ein sichtbares Team @erwähnen
 - Ein Team-Betreuer sein
 
-Weitere Informationen findest Du unter „[Berechtigungsebenen für eine Organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)."
+For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Wir empfehlen Dir, den Zugriff des Organisationsmitglieds auf Repositorys zu überprüfen, um sicherzustellen, dass dessen Zugriff den Erwartungen entspricht. Weitere Informationen findest Du unter „[Den Zugriff einer Person auf ein Repository einer Organisation verwalten](/articles/managing-an-individual-s-access-to-an-organization-repository)“
 
-Wenn Du ein Organisationsmitglied in einen externen Mitarbeiter umwandelst, werden seine Berechtigungen als Organisationsmitglied drei Monate lang gespeichert. Dadurch kannst Du seine Mitgliedsberechtigungen wiederherstellen, wenn Du innerhalb dieser Zeit{% ifversion fpt %} diesen Mitarbeiter einlädst, der Organisation erneut beizutreten{% else %} diesen Mitarbeiter erneut zu Deiner Organisation hinzufügst{% endif %}. Weitere Informationen findest Du unter „[Ehemaliges Mitglied Deiner Organisation wieder einsetzen](/articles/reinstating-a-former-member-of-your-organization).“
+Wenn Du ein Organisationsmitglied in einen externen Mitarbeiter umwandelst, werden seine Berechtigungen als Organisationsmitglied drei Monate lang gespeichert. Dadurch kannst Du seine Mitgliedsberechtigungen wiederherstellen, wenn Du innerhalb dieser Zeit{% ifversion fpt or ghec %} diesen Mitarbeiter einlädst, der Organisation erneut beizutreten{% else %} diesen Mitarbeiter erneut zu Deiner Organisation hinzufügst{% endif %}. Weitere Informationen findest Du unter „[Ehemaliges Mitglied Deiner Organisation wieder einsetzen](/articles/reinstating-a-former-member-of-your-organization).“
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

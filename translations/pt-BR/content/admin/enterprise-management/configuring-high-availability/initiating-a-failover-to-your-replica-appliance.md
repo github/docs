@@ -25,7 +25,14 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       ```shell
       $ ghe-maintenance -s
       ```
-2. Quando o número de operações ativas do Git chegar a zero, aguarde 30 segundos.
+2.  Quando o número de operações ativas do Git, consultas MySQL e tarefas do Resque alcançam zero, aguarde 30 segundos.
+
+    {% note %}
+
+    **Observação:** O Nomad sempre terá trabalhos em execução, mesmo no modo de manutenção. Portanto, você pode ignorar esses trabalhos com segurança.
+
+    {% endnote %}
+
 3. Para verificar todos os canais de replicação que reportarem `OK`, use o comando `ghe-repl-status -vv`.
   ```shell
   $ ghe-repl-status -vv

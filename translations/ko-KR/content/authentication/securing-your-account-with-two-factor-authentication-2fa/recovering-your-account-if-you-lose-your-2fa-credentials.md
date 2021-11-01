@@ -10,12 +10,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Recover an account with 2FA
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
@@ -29,12 +30,12 @@ shortTitle: Recover an account with 2FA
 
 Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
-{% data reusables.two_fa.username-password %}{% ifversion fpt %}
+{% data reusables.two_fa.username-password %}{% ifversion fpt or ghec %}
 2. Under "Having Problems?", click **Enter a two-factor recovery code**. ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
 2. On the 2FA page, under "Don't have your phone?", click **Enter a two-factor recovery code**. ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
 3. Type one of your recovery codes, then click **Verify**. ![Field to type a recovery code and Verify button](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Authenticating with a fallback number
 
 If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
@@ -44,7 +45,7 @@ If you lose access to your primary TOTP app or phone number, you can provide a t
 
 If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Authenticating with a verified device, SSH token, or personal access token
 
 If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
@@ -77,7 +78,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 
 {% endwarning %}
 
-If you lose access to the two-factor authentication methods for your {% data variables.product.product_name %} account, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
+If you lose access to the two-factor authentication methods for your account on {% data variables.product.product_location %}, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
 
 If you don't have access to your two-factor authentication methods or recovery codes and you've stored an account recovery token with Facebook using Recover Accounts Elsewhere, you may be able to use your token to regain access to your account.
 
@@ -91,7 +92,7 @@ If you're unable to regain access to your account, generate a one-time password 
 {% endwarning %}
 
 1. On Facebook, navigate to your [Security Settings](https://www.facebook.com/settings?tab=security), then click **Recover Accounts Elsewhere**. ![Facebook security settings page with Recover Accounts Elsewhere link](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. Click the recovery token associated with your {% data variables.product.product_name %} account. ![List of recovery tokens stored on Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
+2. Click the recovery token associated with your account on {% data variables.product.product_location %}. ![List of recovery tokens stored on Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. To redeem your account recovery token, click **Recover This Account**. A new window will open, returning you to {% data variables.product.product_name %}. ![Modal box with information about your recovery token and Recover This Account button](/assets/images/help/settings/security-recover-account-facebook.png)
 4. Contact {% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
 {% endif %}

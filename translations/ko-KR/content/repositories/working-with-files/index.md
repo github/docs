@@ -1,6 +1,6 @@
 ---
 title: Working with files
-intro: 'Learn how to manage and use files in repositories.'
+intro: Learn how to manage and use files in repositories.
 redirect_from:
   - /categories/81/articles/
   - /categories/manipulating-files/
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:

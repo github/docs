@@ -10,11 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -94,7 +95,7 @@ As with a bare clone, a mirrored clone includes all remote branches and tags, bu
 $ git fetch -p origin
 $ git push --mirror
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Дополнительная литература
 
 * "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"

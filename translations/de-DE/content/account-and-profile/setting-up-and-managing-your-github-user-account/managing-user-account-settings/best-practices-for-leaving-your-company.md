@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Leaving your company
@@ -16,7 +17,7 @@ Bevor Du Dein Unternehmen verlässt, stelle sicher, dass Du die folgenden Angabe
 
 - Widerrufe die Verifizierung Deiner beruflichen E-Mail-Adresse, indem Du [sie in den E-Mail-Einstellungen löschst](/articles/changing-your-primary-email-address). Du kannst die Adresse dann ohne erneute Verifizierung wieder hinzufügen, damit zugehörige Commits mit Deinem Konto verknüpft bleiben.
 - [Ändere die primäre E-Mail-Adresse](/articles/changing-your-primary-email-address) von der beruflichen in Deine private E-Mail-Adresse um.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [Verifiziere die neue primäre E-Mail-Adresse](/articles/verifying-your-email-address).
 {% endif %}
 - [Ändere Deinen GitHub-Benutzernamen](/articles/changing-your-github-username), um alle Verweise auf Dein Unternehmen oder Deine Organisation zu entfernen, falls erforderlich.

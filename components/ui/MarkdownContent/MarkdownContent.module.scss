@@ -38,7 +38,7 @@
     & > a[class~="doctocat-link"] {
       padding: 8px;
       margin-left: -32px;
-      color: var(--color-text-secondary);
+      color: var(--color-fg-muted);
       &:active,
       &:focus {
         outline: none;

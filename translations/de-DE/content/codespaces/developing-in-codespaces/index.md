@@ -4,6 +4,7 @@ intro: 'Create a codespace to get started with developing your project inside a 
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:
@@ -15,5 +16,6 @@ children:
   - /forwarding-ports-in-your-codespace
   - /changing-the-machine-type-for-your-codespace
   - /using-codespaces-in-visual-studio-code
+  - /using-codespaces-with-github-cli
 ---
 

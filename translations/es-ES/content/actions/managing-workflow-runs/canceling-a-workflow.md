@@ -1,15 +1,16 @@
 ---
 title: Cancelar un flujo de trabajo
 intro: 'Puedes cancelar una ejecución de flujo de trabajo que esté en curso. Cuando cancelas una ejecución de flujo de trabajo, {% data variables.product.prodname_dotcom %} cancela todsos los jobs y pasos que son parte de ésta.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -20,7 +21,7 @@ versions:
 {% data reusables.repositories.navigate-to-workflow %}
 1. Desde la lista de ejecuciones de flujo de trabajo, da clic en el nombre de la ejecución en estado de `queued` o `in progress` que quieras cancelar. ![Nombre de la ejecución de flujo de trabajo](/assets/images/help/repository/in-progress-run.png)
 1. En la esquina superior derecha del flujo de trabajo, da clic en **Cancelar flujo de trabajo**.
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
  ![Botón de cancelar el conjunto de verificaciones](/assets/images/help/repository/cancel-check-suite-updated.png)
 {% else %}
  ![Botón de cancelar el conjunto de verificaciones](/assets/images/help/repository/cancel-check-suite.png)

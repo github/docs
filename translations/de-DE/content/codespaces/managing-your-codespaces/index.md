@@ -4,6 +4,7 @@ intro: 'You can use {% data variables.product.prodname_github_codespaces %} sett
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 redirect_from:

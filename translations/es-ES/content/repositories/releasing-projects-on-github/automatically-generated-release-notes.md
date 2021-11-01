@@ -4,16 +4,14 @@ intro: Puedes generar notas de lanzamiento automáticamente para tus lanzamiento
 permissions: Repository collaborators and people with write access to a repository can generate and customize automated release notes for a release.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Notas de lanzamiento automatizadas
+communityRedirect:
+  name: Provide GitHub Feedback
+  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
 ---
-
-{% note %}
-
-**Nota:**{% data reusables.repositories.auto-gen-release-public-beta %}
-
-{% endnote %}
 
 ## Acerca de las notas de lanzamiento generadas automáticamente
 
@@ -24,15 +22,15 @@ Las notas de lanzamiento generadas automáticamente proporcionan una alternativa
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 3. Haz clic en **Borrador de un nuevo lanzamiento**. ![Botón Borrador de lanzamientos](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt %}Haz clic en **Elige una etiqueta** y teclea {% else %}Teclea{% endif %} un número de versión para tu lanzamiento. Como alternativa, selecciona una etiqueta existente.
-  {% ifversion fpt %}
+4. {% ifversion fpt or ghec %}Haz clic en **Elige una etiqueta** y teclea {% else %}Teclea{% endif %} un número de versión para tu lanzamiento. Como alternativa, selecciona una etiqueta existente.
+  {% ifversion fpt or ghec %}
   ![Ingresa una etiqueta](/assets/images/help/releases/releases-tag-create.png)
 5. Si estás creando una etiqueta nueva, haz clic en **Crear etiqueta nueva**. ![Confirma si quieres crear una etiqueta nueva](/assets/images/help/releases/releases-tag-create-confirm.png)
   {% else %}
   ![Versión de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
 6. Si creaste una etiqueta nueva, utiliza el menú desplegable para seleccionar la rama que contiene el proyecto que quieres lanzar.
-  {% ifversion fpt %}![Elige una rama](/assets/images/help/releases/releases-choose-branch.png)
+  {% ifversion fpt or ghec %}![Elige una rama](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![Rama de lanzamientos con etiquetas](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
 7. En la caja de texto de descripción que se encuentra en la esquina superior derecha, haz clic en **Autogenerar notas de lanzamiento**. ![Autogenerar notas de lanzamiento](/assets/images/help/releases/auto-generate-release-notes.png)

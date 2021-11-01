@@ -9,12 +9,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Add a project locally
 ---
 
 ## About adding existing projects to {% data variables.product.product_name %}
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% tip %}
 
@@ -26,7 +25,7 @@ shortTitle: Add a project locally
 
 ## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
 1. In the command line, navigate to the root directory of your project.
 1. Initialisiere das lokale Verzeichnis als Git-Repository.
@@ -75,7 +74,7 @@ shortTitle: Add a project locally
   $ git commit -m "First commit"
   # Gibt die verfolgten Aenderungen frei und bereitet sie fuer den Push in ein Remote-Repository vor. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. [Fügen Sie im Terminal die URL für das Remote-Repository hinzu](/github/getting-started-with-github/managing-remote-repositories), an das Ihr lokales Repository per Push übergeben werden soll.
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -110,7 +109,7 @@ shortTitle: Add a project locally
   $ git commit -m "First commit"
   # Gibt die verfolgten Aenderungen frei und bereitet sie fuer den Push in ein Remote-Repository vor. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. Geben Sie in der Eingabeaufforderung [die URL für das Remote-Repository](/github/getting-started-with-github/managing-remote-repositories) ein, an das Ihr lokales Repository per Push übergeben werden soll.
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -145,7 +144,7 @@ shortTitle: Add a project locally
   $ git commit -m "First commit"
   # Gibt die verfolgten Aenderungen frei und bereitet sie fuer den Push in ein Remote-Repository vor. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. [Fügen Sie im Terminal die URL für das Remote-Repository hinzu](/github/getting-started-with-github/managing-remote-repositories), an das Ihr lokales Repository per Push übergeben werden soll.
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>

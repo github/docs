@@ -3,8 +3,9 @@ title: Administrar el nombre de la rama predeterminada para tus repositorios
 intro: 'Puedes configurar el nombre de la rama predeterminada para los repositorios nuevos que crees en {% data variables.product.product_location %}.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

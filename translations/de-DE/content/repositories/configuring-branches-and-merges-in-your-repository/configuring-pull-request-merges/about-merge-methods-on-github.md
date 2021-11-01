@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: About merge methods
@@ -16,9 +17,17 @@ shortTitle: About merge methods
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} Sie können eine Art von Merge-Methode, beispielsweise Commit-Squashing oder Rebasing, erzwingen, indem Sie nur die gewünschte Methode für Ihr Repository aktivieren.
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 Die Standard-Mergemethode erzeugt einen Merge-Commit. Du kannst verhindern, dass Merge-Commits an einen geschützten Branch übertragen werden, indem Du einen linearen Commit-Verlauf erzwingst. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-linear-history)."{% endif %}
 
 ## Deine Merge-Commits squashen

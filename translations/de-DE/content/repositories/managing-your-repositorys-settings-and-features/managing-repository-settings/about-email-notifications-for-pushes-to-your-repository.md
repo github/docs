@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Email notifications for pushes
@@ -30,7 +31,7 @@ In jeder E-Mail-Benachrichtigung für einen Push an ein Repository werden die ne
 - Die Dateien, die im Rahmen des Commits geändert wurden
 - Die Commit-Mitteilung
 
-Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repository erhältst. Weitere Informationen findest Du unter {% ifversion fpt or ghae or ghes %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}„[Über E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." Du kannst auch E-Mail-Benachrichtigungen für Pushes ausschalten. Weitere Informationen findest Du unter „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}.“
+Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repository erhältst. Weitere Informationen findest Du unter {% ifversion fpt or ghae or ghes or ghec %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}„[Über E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." Du kannst auch E-Mail-Benachrichtigungen für Pushes ausschalten. Weitere Informationen findest Du unter „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}.“
 
 ## E-Mail-Benachrichtigungen für Pushes in Dein Repository aktivieren
 
@@ -42,7 +43,7 @@ Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repositor
 7. Click **Setup notifications**. ![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## Weiterführende Informationen
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 - „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 {% else %}
 - „[Über Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"

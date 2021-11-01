@@ -1,12 +1,13 @@
 ---
 title: Facturación y pagos para GitHub
 shortTitle: Facturación y pagos
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes mejorar, bajar de nivel y ver los cambios pendientes de la suscripción de tu cuenta en cualquier momento.{% elsif ghes or ghae %}{% data variables.product.company_short %} cobra por el uso {% ifversion ghae %} de {% data variables.product.product_name %} para los miembros de tu empresa{% elsif ghes %} plazas de licencia de {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} y cualquier servicio adicional que compres{% endif %}{% endif %}.{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %} ofrece productos gratuitos y de pago para todas las cuentas. Puedes mejorar, bajar de nivel y ver los cambios pendientes de la suscripción de tu cuenta en cualquier momento.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} cobra por el uso {% ifversion ghec or ghae %} de {% data variables.product.product_name %} para los miembros de tu empresa{% elsif ghes %} plazas de licencia de {% data variables.product.product_name %}{% ifversion ghes > 3.0 %} y cualquier servicio adicional que compres{% endif %}{% endif %}.{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:

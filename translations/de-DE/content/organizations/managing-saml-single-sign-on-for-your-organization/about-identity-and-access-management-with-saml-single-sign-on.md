@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -21,9 +22,9 @@ shortTitle: IAM with SAML SSO
 
 {% data reusables.saml.saml-accounts %}
 
-Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Enforcing SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/enforcing-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Configuring SAML single sign-on for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 
-{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
+{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -35,7 +36,7 @@ Mitglieder müssen sich regelmäßig bei Deinem IdP anmelden, um sich zu authent
 
 Um auf die geschützten Ressourcen der Organisation über das API und Git in der Befehlszeile zuzugreifen, müssen Mitglieder sich mit einem persönlichen Zugangs-Token oder SSH-Schlüssel autorisieren und authentifizieren. Weitere Informationen findest Du unter „[Autorisieren eines persönlichen Zugriffstokens für die Benutzung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" und „[Autorisieren eines SSH-Schlüssels für die Benutzung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
-Beim ersten Mal, wenn ein Mitglied SAML SSO verwendet, um auf Deine Organisation zuzugreifen, erstellt {% data variables.product.prodname_dotcom %} automatisch einen Datensatz, der Deine Organisation, das Konto des Mitglieds auf {% data variables.product.prodname_dotcom %} und das Konto des Mitglieds auf Deinem IdP miteinander verknüpft. Du kannst die verknüpfte SAML-Identität, aktive Sitzungen und autorisierte Anmeldeinformationen für Mitglieder Deiner Organisation oder Deines Enterprise-Kontos anzeigen und widerrufen. Weitere Informationen findest Du unter „[Den SAML-Zugriff eines Mitglieds auf Deine Organisation anzeigen und verwalten](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" und „[Den SAML-Zugriff eines Benutzers auf Dein Enterprise-Konto ansehen und verwalten](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)."
+The first time a member uses SAML SSO to access your organization, {% data variables.product.prodname_dotcom %} automatically creates a record that links your organization, the member's account on {% data variables.product.product_location %}, and the member's account on your IdP. Du kannst die verknüpfte SAML-Identität, aktive Sitzungen und autorisierte Anmeldeinformationen für Mitglieder Deiner Organisation oder Deines Enterprise-Kontos anzeigen und widerrufen. Weitere Informationen findest Du unter „[Den SAML-Zugriff eines Mitglieds auf Deine Organisation anzeigen und verwalten](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" und „[Den SAML-Zugriff eines Benutzers auf Dein Enterprise-Konto ansehen und verwalten](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
 
 If members are signed in with a SAML SSO session when they create a new repository, the default visibility of that repository is private. Otherwise, the default visibility is public. For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 

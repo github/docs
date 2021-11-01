@@ -2,7 +2,6 @@
 title: Abhängigkeiten zwischenspeichern um Workflows zu beschleunigen
 shortTitle: Abhängigkeiten „cachen“ (zwischenspeichern)
 intro: 'Um Deine Workflows schneller und effizienter zu gestalten, kannst Du Caches für Abhängigkeiten und andere häufig wiederverwendete Dateien erstellen und verwenden.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -10,6 +9,7 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
