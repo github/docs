@@ -99,7 +99,7 @@
   "devDependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.15.8",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.15.8",
