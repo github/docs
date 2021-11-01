@@ -77,4 +77,4 @@ To  authenticate using a {% data variables.product.prodname_dotcom %} App, it mu
 
 You can register and delete enterprise self-hosted runners using [the API](/rest/reference/enterprise-admin#github-actions). To authenticate to the API, your autoscaling implementation can use an access token.
 
-Your access token will requite the `manage_runners:enterprise` scope.
+Your access token will require the `manage_runners:enterprise` scope.
