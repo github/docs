@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Push commits to a remote
 ---
 
@@ -100,7 +101,7 @@ git fetch upstream
 ## 参考リンク
 
 - [「Pro Git」ブックの「リモート」の章](https://git-scm.com/book/ch5-2.html)
-- [`git remote` の man ページ](https://git-scm.com/docs/git-remote.html)
+- [`git remote` main page](https://git-scm.com/docs/git-remote.html)
 - [Git チートシート](/articles/git-cheatsheet)
 - [Git のワークフロー](/github/getting-started-with-github/git-workflows)
 - 「[Git ハンドブック](https://guides.github.com/introduction/git-handbook/)」

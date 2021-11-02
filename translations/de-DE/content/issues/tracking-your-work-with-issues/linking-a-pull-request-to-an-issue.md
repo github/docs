@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Link PR to issue
@@ -26,7 +27,7 @@ shortTitle: Link PR to issue
 
 ## Über verknüpfte Issues und Pull Requests
 
-Du kannst einen Issue mit einem Pull-Request {% ifversion fpt or ghes or ghae %}manuell oder {% endif %}mit einem unterstützten Schlüsselwort in der Pull-Request Beschreibung verknüpfen.
+Du kannst einen Issue mit einem Pull-Request {% ifversion fpt or ghes or ghae or ghec %}manuell oder {% endif %}mit einem unterstützten Schlüsselwort in der Pull-Request Beschreibung verknüpfen.
 
 Wenn Du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet.
 
@@ -54,12 +55,12 @@ Die Syntax für schließende Schlüsselwörter hängt davon ab, ob der Issue im 
 | Issue ist in einem unterschiedlichen Repository | *SCHLÜSSELWORT* *INHABER*/*REPOSITORY*#*ISSUE-NUMMER* | `Fixes octo-org/octo-repo#100`                                 |
 | Mehrfache Issues                                | Verwende für jeden Issue die vollständige Syntax      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae %}Nur manuell verknüpfte Pull Requests können manuell getrennt werden. Um die Verknüpfung eines Issues zu lösen, den Du über ein Schlüsselwort verknüpft hast, musst Du die Pull-Request-Beschreibung bearbeiten, um das Schlüsselwort zu entfernen.{% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}Nur manuell verknüpfte Pull Requests können manuell getrennt werden. Um die Verknüpfung eines Issues zu lösen, den Du über ein Schlüsselwort verknüpft hast, musst Du die Pull-Request-Beschreibung bearbeiten, um das Schlüsselwort zu entfernen.{% endif %}
 
 Du kannst schließende Schlüsselwörter auch in einer Commit-Mitteilung verwenden. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Einen Pull Request manuell mit einem Issue verknüpfen
 
 Jeder, der Schreibberechtigung auf ein Repository hat, kann einen Pull Request manuell mit einem Issue verknüpfen.

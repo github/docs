@@ -6,6 +6,7 @@ redirect_from:
 intro: '{% data variables.product.product_name %} verwendet die Daten Ihres Repositorys, um Sie mit relevanten Tools, Personen, Projekten und Informationen zu verknüpfen.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
@@ -20,7 +21,7 @@ shortTitle: GitHub's use of your data
 
 {% data reusables.user_settings.export-data %} Weitere Informationen finden Sie unter „[Archiv der Daten Ihres persönlichen Kontos anfordern](/articles/requesting-an-archive-of-your-personal-account-s-data)“.
 
-If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/articles/github-terms-of-service/). Die Informationen, die wir erhalten, stammen ausschließlich aus aggregierten Daten. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
+If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service). Die Informationen, die wir erhalten, stammen ausschließlich aus aggregierten Daten. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
 
 Wir kündigen wesentliche neue Funktionen, die Metadaten oder aggregierte Daten nutzen, auf dem [{% data variables.product.prodname_dotcom %}-Blog](https://github.com/blog) an.
 
@@ -34,6 +35,6 @@ Um potenzielle Sicherheitsschwachstellen zu erkennen, prüft {% data variables.p
 
 ## Datenschutz und Datenfreigabe
 
-Daten aus privaten Repositorys werden maschinell erfasst und nie von {% data variables.product.product_name %}-Mitarbeitern gelesen. Menschliche Augen sehen niemals den Inhalt Ihrer privaten Repositorys, außer in den in unseren [Nutzungsbedingungen](/articles/github-terms-of-service/#3-access) beschriebenen Fällen.
+Daten aus privaten Repositorys werden maschinell erfasst und nie von {% data variables.product.product_name %}-Mitarbeitern gelesen. Menschliche Augen sehen niemals den Inhalt Ihrer privaten Repositorys, außer in den in unseren [Nutzungsbedingungen](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access) beschriebenen Fällen.
 
 Ihre personenbezogenen Daten oder Repository-Daten werden nicht an Dritte weitergegeben. Unter Umständen geben wir aggregierte Daten, die wir aus unserer Analyse gewonnen haben, an unsere Partner weiter.

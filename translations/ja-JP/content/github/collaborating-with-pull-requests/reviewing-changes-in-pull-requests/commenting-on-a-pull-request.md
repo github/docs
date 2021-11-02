@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Comment on a PR
@@ -60,5 +61,5 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 ## 参考リンク
 
 - [GitHubでの執筆](/github/writing-on-github)
-{% ifversion fpt %}- 「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」
+{% ifversion fpt or ghec %}- 「[乱用やスパムをレポートする](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)」
 {% endif %}

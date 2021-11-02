@@ -4,6 +4,7 @@ intro: 'Você pode definir diferentes tipos de entrada, validações, responsáv
 product: 'Os formulários de problemas estão disponíveis em beta para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---

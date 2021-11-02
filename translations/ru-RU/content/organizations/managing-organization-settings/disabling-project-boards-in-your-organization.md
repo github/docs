@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Disable project boards
@@ -18,7 +19,7 @@ After you disable organization-wide project boards, it won’t be possible to cr
 
 After you disable repository project boards in an organization, it won't be possible to create new project boards in any repositories in the organization, and any existing project boards in repositories in the organization will become inaccessible at their previous URLs. Project boards at the organization level are not affected.
 
-When you disable project boards, you will no longer see project board information in timelines or [audit logs](/articles/reviewing-the-audit-log-for-your-organization/).
+When you disable project boards, you will no longer see project board information in timelines or [audit logs](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
 
 
 {% data reusables.profile.access_org %}

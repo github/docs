@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -63,19 +64,22 @@ Manage [projects](/rest/reference/projects).
 
 **Custom media type:** `inertia-preview` **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Update:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Commit search
 
 [Search commits](/rest/reference/search).
 
 **Custom media type:** `cloak-preview` **Announced:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Repository topics
 
 View a list of [repository topics](/articles/about-topics/) in [calls](/rest/reference/repos) that return repository results.
 
 **Custom media type:** `mercy-preview` **Announced:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Codes of conduct
@@ -96,13 +100,14 @@ Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Require signed commits
 
 You can now use the API to manage the setting for [requiring signed commits on protected branches](/rest/reference/repos#branches).
 
 **Custom media type:** `zzzax-preview` **Announced:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Require multiple approving reviews
@@ -113,13 +118,6 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 
 {% endif %}
 
-{% ifversion ghes < 3.0 %}
-## Check runs and check suites API
-
-Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/rest/reference/checks#runs) and [Check suites](/rest/reference/checks#suites) APIs for more details.
-
-**Custom media type:** `antiope-preview` **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -139,7 +137,7 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 **Custom media type:** `starfox-preview` **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## GitHub App Manifests
 
@@ -204,13 +202,14 @@ You can use a new endpoint to [update a pull request branch](/rest/reference/pul
 **Custom media types:** `lydian-preview` **Announced:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Create and use repository templates
 
 You can use a new endpoint to [Create a repository using a template](/rest/reference/repos#create-a-repository-using-a-template) and [Create a repository for the authenticated user](/rest/reference/repos#create-a-repository-for-the-authenticated-user) that is a template repository by setting the `is_template` parameter to `true`. [Get a repository](/rest/reference/repos#get-a-repository) to check whether it's set as a template repository using the `is_template` key.
 
 **Custom media types:** `baptiste-preview` **Announced:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## New visibility parameter for the Repositories API

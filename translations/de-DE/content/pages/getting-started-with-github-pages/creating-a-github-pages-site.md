@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Create a GitHub Pages site
@@ -41,9 +42,15 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.pages.decide-publishing-source %}
 3. Wenn Deine ausgewählte Veröffentlichungsquelle bereits vorhanden ist, navigiere zu dieser Quelle. Wenn Deine ausgewählte Veröffentlichungsquelle nicht vorhanden ist, erstelle die Veröffentlichungsquelle.
 4. Erstelle im Root der Veröffentlichungsquelle eine neue Datei mit dem Namen `index.md`, die den Inhalt enthält, der auf der Hauptseite Deiner Website angezeigt werden soll.
+
+  {% tip %}
+
+  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+
+  {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}{% ifversion fpt %}
+{% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
@@ -51,9 +58,9 @@ shortTitle: Create a GitHub Pages site
 
 ## Nächste Schritte:
 
-Du kannst Deiner Website weitere Seiten hinzufügen, indem Du zusätzliche neue Dateien erstellst. Jede Datei wird auf Deiner Website im selben Verzeichnis verfügbar sein wie Deine Veröffentlichungsquelle. Wenn beispielsweise die Veröffentlichungsquelle für Deine Projekt-Website der Branch `gh-pages` ist und Du eine neue Datei mit dem Namen `/about/contact-us.md` auf dem Branch `gh-pages` erstellst, ist die Datei unter {% ifversion fpt %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` verfügbar.
+Du kannst Deiner Website weitere Seiten hinzufügen, indem Du zusätzliche neue Dateien erstellst. Jede Datei wird auf Deiner Website im selben Verzeichnis verfügbar sein wie Deine Veröffentlichungsquelle. Wenn beispielsweise die Veröffentlichungsquelle für Deine Projekt-Website der Branch `gh-pages` ist und Du eine neue Datei mit dem Namen `/about/contact-us.md` auf dem Branch `gh-pages` erstellst, ist die Datei unter {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` verfügbar.
 
-Du kannst auch ein Design hinzufügen, um das Aussehen der Website anzupassen. Weitere Informationen findest Du unter {% ifversion fpt %}„[Ein Design mit dem Theme Chooser zu Deiner {% data variables.product.prodname_pages %}-Website hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}„[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}.“
+Du kannst auch ein Design hinzufügen, um das Aussehen der Website anzupassen. Weitere Informationen findest Du unter {% ifversion fpt or ghec %}„[Ein Design mit dem Theme Chooser zu Deiner {% data variables.product.prodname_pages %}-Website hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}„[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}.“
 
 Um Ihre Website noch weiter anzupassen, können Sie Jekyll verwenden, einen Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %}. Weitere Informationen finden Sie unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll)“.
 

@@ -3,6 +3,7 @@ title: GitHub Sponsors のプロフィールを非公開にする
 intro: 'スポンサーがいない場合は、{% data variables.product.prodname_sponsors %} のプロフィールを非公開にすることができます。'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source

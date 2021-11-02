@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -16,14 +17,14 @@ shortTitle: Remove a member
 
 Nur Organisationsinhaber können Mitglieder aus einer Organisation entfernen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
 **Warning:** When you remove members from an organization:
 - Die Anzahl der bezahlten Lizenzen wird nicht automatisch heruntergesetzt. Um nach dem Entfernen von Benutzern aus der Organisation für weniger Lizenzen zu bezahlen, folge den Schritten im Artikel „[Die bezahlten Benutzer Deiner Organisation heruntersetzen](/articles/downgrading-your-organization-s-paid-seats)."
 - Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. Eine Synchronisation ihrer lokalen Kopien mit den Repositorys Deiner Organisation ist allerdings nicht mehr möglich. Die privaten Forks eines entfernten Benutzers können wiederhergestellt werden, wenn der Benutzer innerhalb von drei Monaten nach dem Entfernen aus der Organisation [wieder als Organisationsmitglied eingesetzt wird](/articles/reinstating-a-former-member-of-your-organization). Es untersteht Deiner Verantwortung, dafür Sorge zu tragen, dass die Personen, denen Du den Zugriff auf ein Repository entziehst, vertrauliche Informationen oder geistiges Eigentum von ihren Systemen löschen.
--  If your organization is owned by an enterprise account, removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts).“
+-  If your organization is owned by an enterprise account, removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).“
 - Any organization invitations sent by a removed member, that have not been accepted, are cancelled and will not be accessible.
 
 {% endwarning %}
@@ -41,7 +42,7 @@ Nur Organisationsinhaber können Mitglieder aus einer Organisation entfernen.
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Um einer Person, die Deine Organisation verlässt, den Umstieg zu erleichtern und sicherzustellen, dass sie vertrauliche Informationen oder geistiges Eigentum von ihren Systemen löscht, empfehlen wir Dir die Bereitstellung einer Checkliste mit Best Practices zum Verlassen Deiner Organisation. Ein Beispiel findest Du unter „[Best Practices für das Verlassen Deines Unternehmens](/articles/best-practices-for-leaving-your-company/).“
 

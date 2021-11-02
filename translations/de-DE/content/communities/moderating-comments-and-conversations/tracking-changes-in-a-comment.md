@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Track comment changes
@@ -33,5 +34,5 @@ Wenn Du sensible Informationen aus dem Änderungsverlauf eines Kommentars lösch
 
 ## Weiterführende Informationen
 
-{% ifversion fpt %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“{% endif %}
+{% ifversion fpt or ghec %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“{% endif %}
 - „[Kommentar bearbeiten](/articles/editing-a-comment)“

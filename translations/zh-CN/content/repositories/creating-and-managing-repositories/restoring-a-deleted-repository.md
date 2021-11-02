@@ -7,11 +7,15 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/restoring-a-deleted-repository
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 shortTitle: 恢复已删除的仓库
 ---
 
+{% ifversion fpt or ghec %}
 任何人都可以恢复其用户帐户拥有的已删除仓库。 组织所有者可以恢复该组织所拥有的已删除仓库。
 
 ## 关于仓库恢复
@@ -44,3 +48,7 @@ shortTitle: 恢复已删除的仓库
 ## 延伸阅读
 
 - "[删除仓库](/articles/deleting-a-repository)"
+
+{% else %}
+Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。
+{% endif %}

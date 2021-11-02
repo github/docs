@@ -3,6 +3,7 @@ title: El editor basado en web de github.dev
 intro: 'Utiliza el github.dev {% data variables.product.prodname_serverless %} desde tu repositorio o solicitud de cambios para crear y confirmar cambios.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -32,7 +33,7 @@ El {% data variables.product.prodname_serverless %} se ejecuta completamente en 
 
 ## Abrir el {% data variables.product.prodname_serverless %}
 
-You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} in either of the following ways:
+Puedes abrir cualquier repositorio de {% data variables.product.prodname_dotcom %} en el {% data variables.product.prodname_serverless %} en cualquiera de las siguientes formas:
 
 - Presiona `.` cuando estés buscando cualquier repositorio o solicitud de cambios en {% data variables.product.prodname_dotcom %}.
 - Cambiando la URL de "github.com" a "github.dev".

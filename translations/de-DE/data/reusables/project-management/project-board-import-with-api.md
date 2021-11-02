@@ -1,1 +1,1 @@
-Du kannst das API von {% data variables.product.prodname_dotcom %} verwenden, um ein Projektboard zu importieren. For more information, see "[importProject](/graphql/reference/mutations#importproject/)."
+Du kannst das API von {% data variables.product.prodname_dotcom %} verwenden, um ein Projektboard zu importieren. For more information, see "[importProject]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#importproject/)."

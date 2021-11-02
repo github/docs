@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -19,11 +20,11 @@ shortTitle: Commit signature verification
 
 ## Informationen zur Verifizierung einer Commit-Signatur
 
-You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
 ![Verifizierter Commit](/assets/images/help/commits/verified-commit.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
@@ -48,7 +49,7 @@ Repository-Administratoren können die obligatorische Commit-Signatur auf einem 
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits, die von {% data variables.product.product_name %} signiert sind, werden auf {% data variables.product.product_name %} einen verifizierten Status haben. Sie können die Signatur lokal mit dem unter https://github.com/web-flow.gpg verfügbaren öffentlichen Schlüssel verifizieren. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
 {% endif %}
 
@@ -56,7 +57,7 @@ Repository-Administratoren können die obligatorische Commit-Signatur auf einem 
 
 Sie können GPG verwenden, um Commits mit einem GPG-Schlüssel zu signieren, den Sie selbst generieren.
 
-{% data variables.product.product_name %} verwendet OpenPGP-Bibliotheken, um zu bestätigen, dass Deine lokal signierten Commits und Tags kryptographisch mit einem öffentlichen Schlüssel verifizierbar sind, den Du zu Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast.
+{% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 Um Commits mit GPG zu signieren und diese Commits auf {% data variables.product.product_name %} verifizieren zu lassen, führe die folgenden Schritte aus:
 
@@ -83,7 +84,7 @@ Um Commits mit S/MIME zu signieren und diese Commits auf {% data variables.produ
 
 Du musst Deinen öffentlichen Schlüssel nicht auf {% data variables.product.product_name %} hochladen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Signaturverifizierung für Bots
 
 Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. Wenn ein Commit oder Tag eine Bot-Signatur hat, die kryptografisch verifiziert werden kann, wird der Commit oder das Tag von {% data variables.product.product_name %} als verifiziert gekennzeichnet.

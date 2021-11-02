@@ -14,7 +14,7 @@ export const ProductPicker = () => {
   return (
     <Details {...getDetailsProps()} className="details-reset">
       <summary
-        className="d-block color-text-primary btn btn-invisible"
+        className="d-block color-fg-default btn btn-invisible"
         role="button"
         aria-label="Toggle products list"
       >

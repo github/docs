@@ -42,7 +42,7 @@ export const VersionPicker = ({ variant = 'default', popoverVariant, hideLabel }
         >
           {(variant === 'compact' || variant === 'inline') && (
             <summary
-              className="d-block btn btn-invisible color-text-primary"
+              className="d-block btn btn-invisible color-fg-default"
               aria-haspopup="true"
               aria-label="Toggle version list"
             >
@@ -82,7 +82,7 @@ export const VersionPicker = ({ variant = 'default', popoverVariant, hideLabel }
                     setOpen(false)
                   }}
                   href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-                  className="f6 no-underline color-text-tertiary pl-3 pr-2 no-wrap"
+                  className="f6 no-underline color-fg-muted pl-3 pr-2 no-wrap"
                 >
                   {t('all_enterprise_releases')}{' '}
                   <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
@@ -111,7 +111,7 @@ export const VersionPicker = ({ variant = 'default', popoverVariant, hideLabel }
                     setOpen(false)
                   }}
                   href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-                  className="f6 no-underline color-text-tertiary pl-3 pr-2 no-wrap"
+                  className="f6 no-underline color-fg-muted pl-3 pr-2 no-wrap"
                 >
                   {t('all_enterprise_releases')}{' '}
                   <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />

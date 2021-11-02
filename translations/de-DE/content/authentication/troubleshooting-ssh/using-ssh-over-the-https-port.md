@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Use SSH over HTTPS port

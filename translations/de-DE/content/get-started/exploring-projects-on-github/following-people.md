@@ -1,6 +1,6 @@
 ---
 title: Personen folgen
-intro: 'Sie können Personen auf {% data variables.product.product_name %} folgen, um Benachrichtigungen über ihre Aktivitäten zu erhalten{% ifversion fpt %} und Projekte in ihren Communitys zu entdecken{% endif %}.'
+intro: 'Sie können Personen auf {% data variables.product.product_name %} folgen, um Benachrichtigungen über ihre Aktivitäten zu erhalten{% ifversion fpt or ghec %} und Projekte in ihren Communitys zu entdecken{% endif %}.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-follow %}'
 redirect_from:
   - /articles/following-people
@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
 ---
 
 ## About followers on {% data variables.product.product_name %}
 
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
+When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
 
 You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
 
@@ -62,7 +63,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Weiterführende Informationen
 
 - „[Repositorys mit Sternen speichern](/articles/saving-repositories-with-stars/)“

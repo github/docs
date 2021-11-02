@@ -8,14 +8,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: With multiple authors
 ---
 
 ## Erforderliche Co-Autor-Informationen
 
-Bevor Du einen Co-Autor zu einem Commit hinzufügen kannst, musst Du die richtige E-Mail-Adresse für jeden Co-Autor kennen. Damit der Commit des Co-Autors als Beitrag zählt, musst Du die E-Mail-Adresse verwenden, die mit seinem {% data variables.product.product_name %}-Konto verknüpft ist.
+Bevor Du einen Co-Autor zu einem Commit hinzufügen kannst, musst Du die richtige E-Mail-Adresse für jeden Co-Autor kennen. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Wenn ein Co-Autor seine E-Mail-Adresse als privat festgelegt hat, musst Du die von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse verwenden, um die Daten des Co-Autors zu schützen. Andernfalls ist die E-Mail-Adresse des Co-Autors in der Commit-Mitteilung öffentlich einsehbar. Wenn Sie Ihre E-Mail-Adresse öffentlich machen möchten, können Sie die von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse für Git-Vorgänge verwenden und andere Co-Autoren bitten, Ihre `no-reply`-Adresse in Commit-Trailern zu verwenden.
 

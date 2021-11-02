@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -32,7 +33,7 @@ Sobald Du einen Pull Request erstellt hast, kannst Du Commits aus Deinem Themen-
 
 Andere Mitarbeiter können Deine vorgeschlagenen Änderungen überprüfen, Review-Kommentare hinzufügen, zur Diskussion über den Pull Request beitragen und sogar Commits zum Pull Request hinzufügen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Auf der Registerkarte „Conversation“ (Unterhaltung) siehst Du Informationen über den aktuellen Bereitstellungsstatus des Branches und vergangene Bereitstellungsaktivitäten. Weitere Informationen findest Du unter „[Bereitstellungsaktivitäten für ein Repository anzeigen](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository).“
 {% endif %}
 

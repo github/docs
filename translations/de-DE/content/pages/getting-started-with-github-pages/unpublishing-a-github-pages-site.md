@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Unpublish Pages site
@@ -23,7 +24,7 @@ shortTitle: Unpublish Pages site
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Wenn das Repository einen Branch `gh-pages` enthält, lösche den Branch `gh-pages`. Weitere Informationen findest Du unter „[Branches in Deinem Repository erstellen und löschen](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch).“
-3. If the `gh-pages` branch was your publishing source, {% ifversion fpt %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
+3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 5. Wählen Sie unter „{% data variables.product.prodname_pages %}“ im Dropdownmenü „**Source**“ (Quelle) die Option **None** (Keine) aus. ![Dropdownmenü zum Auswählen einer Veröffentlichungsquelle](/assets/images/help/pages/publishing-source-drop-down.png)

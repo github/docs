@@ -16,6 +16,7 @@ redirect_from:
   - /developers/github-marketplace/setting-pricing-plans-for-your-listing
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 掲載する価格プランの設定

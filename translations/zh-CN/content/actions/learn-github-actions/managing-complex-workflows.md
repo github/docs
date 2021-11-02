@@ -1,11 +1,12 @@
 ---
 title: 管理复杂的工作流程
 shortTitle: 管理复杂的工作流程
-intro: '本指南说明如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、相关作业、缓存、生成矩阵、{% ifversion fpt or ghes > 3.0 or ghae %}环境{% endif %}和标签。'
+intro: '本指南说明如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、相关作业、缓存、生成矩阵、{% ifversion fpt or ghes > 3.0 or ghae or ghec %}环境{% endif %}和标签。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -13,10 +14,11 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 概览
 
-This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+本文介绍了 {% data variables.product.prodname_actions %} 的一些高级功能，可帮助您创建更复杂的工作流程。
 
 ## 存储密码
 
@@ -87,7 +89,7 @@ jobs:
 
 更多信息请参阅 [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 缓存依赖项
 
 {% data variables.product.prodname_dotcom %} 托管的运行器启动为每个作业的新环境，如果您的作业定期重复使用依赖项，您可以考虑缓存这些文件以帮助提高性能。 缓存一旦创建，就可用于同一仓库中的所有工作流程。
@@ -142,7 +144,7 @@ jobs:
 
 ## 使用标签路由工作流程
 
-此功能可帮助您将作业分配到特定的托管运行器。 如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+此功能可帮助您将作业分配到特定的托管运行器。 如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 除了 `self-hosted` 的默认标签之外，您还可以向自托管运行器分配标签。 然后，您可以在 YAML 工作流程中引用这些标签，确保以可预测的方式安排作业。{% ifversion not ghae %} {% data variables.product.prodname_dotcom %} 托管的运行器已指定预定义的标签。{% endif %}
 
 {% ifversion ghae %}
 此示例显示工作流程如何使用标签来指定所需的运行器：
@@ -163,19 +165,19 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.
+工作流程只能在一个所有标签处于 `runs-on` 数组中的运行器上运行。 作业将优先转到具有指定标签的空闲自托管运行器。 如果没有可用且具有指定标签的 {% data variables.product.prodname_dotcom %} 托管运行器存在，作业将转到 {% data variables.product.prodname_dotcom %} 托管的运行器。
 
-To learn more about self-hosted runner labels, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)." To learn more about
-{% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+要了解自托管运行器标签的更多信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。 要详细了解
+{% data variables.product.prodname_dotcom %} 托管的运行器标签，请参阅[“支持的运行器和硬件资源”](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)。
 {% endif %}
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 ## 使用环境
 
-您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
 {% endif %}
 
 ## 使用工作流程模板
@@ -189,4 +191,4 @@ To learn more about self-hosted runner labels, see ["Using labels with self-host
 
 ## 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows, secrets, and runners with your organization](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)."
+要继续了解 {% data variables.product.prodname_actions %}，请参阅“[与组织共享工作流程、秘密和运行器](/actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization)”。

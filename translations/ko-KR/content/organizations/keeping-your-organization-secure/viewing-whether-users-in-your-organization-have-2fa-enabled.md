@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Usage of 2FA in organization
 
 {% note %}
 
-**Note:** You can require that all members{% ifversion fpt %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. For more information, see "[Requiring two-factor authentication in your organization](/articles/requiring-two-factor-authentication-in-your-organization)."
+**Note:** You can require that all members{% ifversion fpt or ghec %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. For more information, see "[Requiring two-factor authentication in your organization](/articles/requiring-two-factor-authentication-in-your-organization)."
 
 {% endnote %}
 

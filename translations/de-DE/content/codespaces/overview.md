@@ -11,7 +11,8 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/about-codespaces
   - /codespaces/about-codespaces
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces

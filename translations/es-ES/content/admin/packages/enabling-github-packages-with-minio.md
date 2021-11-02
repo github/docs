@@ -3,8 +3,11 @@ title: Habilitar los GitHub Packages con MinIO
 intro: 'Configura el {% data variables.product.prodname_registry %} con MinIO como tu almacenamiento externo.'
 versions:
   ghes: '*'
+type: tutorial
 topics:
   - Enterprise
+  - Packages
+  - Storage
 shortTitle: Habilitar los paquetes con MinIO
 ---
 
@@ -30,20 +33,14 @@ Asegúrate que tu ID de clave de acceso y secreto de almacenamiento externo de M
 
 ## Habilitar el {% data variables.product.prodname_registry %} con el almacenamiento externo de MinIO
 
-Aunque MinIO no aparece actualmente en la interface de usuario bajo "Almacenamiento de paquetes", aún es {% ifversion ghes = 2.22 %} oficialmente{% endif %} compatible con el {% data variables.product.prodname_registry %} en {% data variables.product.prodname_enterprise %}. También debes tomar en cuenta que el almacenamiento de objetos de MinIO es compatible con la API de S3 y puedes ingresar los detalles del bucket de MinIO en vez de aquellos de AWS S3.
+Although MinIO does not currently appear in the user interface under "Package Storage", MinIO is still  supported by {% data variables.product.prodname_registry %} on {% data variables.product.prodname_enterprise %}. También debes tomar en cuenta que el almacenamiento de objetos de MinIO es compatible con la API de S3 y puedes ingresar los detalles del bucket de MinIO en vez de aquellos de AWS S3.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% ifversion ghes = 2.22 %}
-1. Debajo de "URL de Servicio de AWS", teclea la URL de MinIO para la región de tu bucket. ![Campo de URL de servicio de AWS](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. Debajo de "Bucket de AWS S3", teclea el nombre del bucket de MinIO que quieras utilizar para almacenar artefactos de paquetes. ![Campo de espacio de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. Debajo de "Clave de Acceso de AWS S3", teclea tu clave de acceso para MinIO. ![Campo de clave de acceso de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. Debajo de "Clave secreta de AWS S3", teclea tu clave secreta para MinIO. ![Campo de clave secreta de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. Debajo de "Región de AWS S3", teclea tu región para MinIO. ![Campo de región de AWS S3](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% ifversion ghes > 2.22 %}
+
+{% ifversion ghes %}
 1. Debajo de "Almacenamiento de Paquetes", selecciona **Amazon S3**.
 1. Ingresa tus detalles de bucket de almacenamiento de MinIO en la configuración de almacenamiento de AWS.
     - **AWS Service URL:** La URL de hospedaje para tu bucket de MinIO.

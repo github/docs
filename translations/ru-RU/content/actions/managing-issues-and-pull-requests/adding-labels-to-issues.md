@@ -1,13 +1,13 @@
 ---
 title: Adding labels to issues
 intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/adding-labels-to-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,6 +16,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -40,7 +41,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
           - opened
     jobs:
       label_issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write{% endif %}
         steps:

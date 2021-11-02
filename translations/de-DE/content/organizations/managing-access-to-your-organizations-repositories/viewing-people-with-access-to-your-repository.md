@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ Anhand dieser Informationen können Administratoren außenstehende Personen unte
 
 ## Personen mit Zugriff auf Dein Repository anzeigen
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Hinweis**: Du kannst auch eine kombinierte Übersicht über Teams und Personen mit Zugriff auf Dein Repository sehen. Weitere Informationen findest Du unter „[Teams und Personen mit Zugriff auf Dein Repository verwalten](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."

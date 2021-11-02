@@ -8,6 +8,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
@@ -28,7 +29,7 @@ shortTitle: 赞助贡献者
 - 作为重视开源的组织，培养品牌知名度
 - 感谢开源开发者构建库来补充您的组织提供的产品
 
-您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
+您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织想要通过发票付款，您可以在 [通过发票支付 {% data variables.product.prodname_sponsors %}](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice) 上了解更多信息。
 
 {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
 
@@ -44,7 +45,7 @@ shortTitle: 赞助贡献者
 
 {% note %}
 
-**注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/github/site-policy/github-sponsors-additional-terms)。
+**注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)。
 
 {% endnote %}
 

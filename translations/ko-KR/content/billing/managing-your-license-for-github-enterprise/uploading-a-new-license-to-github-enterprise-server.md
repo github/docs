@@ -18,6 +18,12 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 ## Uploading your license to {% data variables.product.product_location_enterprise %}
 
+{% warning %}
+
+**Warning:** Updating your license causes a small amount of downtime for {% data variables.product.product_location %}.
+
+{% endwarning %}
+
 1. Sign into {% data variables.product.product_location_enterprise %} as a site administrator.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -26,24 +32,3 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 1. To select your license, click **License file**, or drag your license file onto **License file**. ![Upload license file](/assets/images/enterprise/management-console/upload-license.png)
 1. Click **Upload**. ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
 
-{% ifversion ghes < 3.0 %}
-
-If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."
-
-## 문제 해결
-
-In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
-
-{% data reusables.enterprise_installation.ssh-into-instance %}
-1. Restart the services for Git authentication and the HTTP server.
-
-    {% warning %}
-
-    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
-
-    {% endwarning %}
-   
-        sudo systemctl restart github-gitauth github-unicorn
-1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
-
-{% endif %}

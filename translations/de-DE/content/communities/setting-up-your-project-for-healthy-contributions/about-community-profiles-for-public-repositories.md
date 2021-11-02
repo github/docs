@@ -7,6 +7,7 @@ redirect_from:
   - /github/building-a-strong-community/about-community-profiles-for-public-repositories
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Community profiles

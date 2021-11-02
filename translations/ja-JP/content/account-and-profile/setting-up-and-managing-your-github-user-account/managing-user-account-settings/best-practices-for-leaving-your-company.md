@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Leaving your company
@@ -16,7 +17,7 @@ shortTitle: Leaving your company
 
 - [メール設定から会社のメールアドレスを削除](/articles/changing-your-primary-email-address)して、会社のメールアドレスを検証済みではなくしてください。 その後、検証なしにアドレスを追加しなおして、関連するコミットをアカウントに関連付けされたままに保っておくことができます。
 - 会社のメールから個人のメールへ、[プライマリメールアドレスを変更](/articles/changing-your-primary-email-address)してください。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [新しいプライマリメールアドレスを検証](/articles/verifying-your-email-address)してください。
 {% endif %}
 - 必要に応じて [GitHub のユーザ名を変更](/articles/changing-your-github-username)して、会社への言及があれば削除してください。

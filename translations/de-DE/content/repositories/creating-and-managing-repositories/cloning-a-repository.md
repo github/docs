@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -89,7 +90,7 @@ Wenn Du ein Repository nicht klonen kannst, überprüfe Folgendes:
 - Du hast die Berechtigung zum Zugriff auf das Repository, das Du klonen willst. Weitere Informationen findest du auf „[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)" (Fehler: Repository nicht gefunden).
 - Der Standardbranch, den Du klonen willst, existiert immer noch. Für weitere Informationen, prüfe, ob Du die Berechtigungen zum Zugriff auf das zu klonende Repository hast. Weitere Informationen findest Du unter „[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)" (Fehler: HEAD des Remote enthält eine nicht existierende Referenz, auschecken nicht möglich).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Weiterführende Informationen
 

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Benachrichtigungen
-intro: 'Benachrichtigungen bieten Aktualisierungen über die Aktivitäten auf {% data variables.product.product_name %} , die Du abonniert hast. Du kannst den Posteingang für Benachrichtigungen verwenden, um deine Updates anzupassen, zu selektieren und zu verwalten.'
+intro: 'Benachrichtigungen bieten Aktualisierungen über die Aktivitäten auf {% data variables.product.product_location %} , die Du abonniert hast. Du kannst den Posteingang für Benachrichtigungen verwenden, um deine Updates anzupassen, zu selektieren und zu verwalten.'
 redirect_from:
   - /articles/notifications/
   - /articles/about-notifications
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 ---
@@ -21,14 +22,14 @@ topics:
 
 ## Benachrichtigungen und Abonnements
 
-Über ein Abonnement kannst Du festlegen, dass Du Aktualisierungen zu bestimmten Aktivitäten auf {% data variables.product.product_name %} erhalten willst. Benachrichtigungen sind Aktualisierungen, die Du für bestimmte Aktivitäten erhältst, die Du abonniert hast.
+Über ein Abonnement kannst Du festlegen, dass Du Aktualisierungen zu bestimmten Aktivitäten auf {% data variables.product.product_location %} erhalten willst. Benachrichtigungen sind Aktualisierungen, die Du für bestimmte Aktivitäten erhältst, die Du abonniert hast.
 
 ### Abonnement-Optionen
 
 Du kannst Benachrichtigungen abonnieren für:
 - Eine Unterhaltung in einem spezifischen Issue, Pull Request oder Gist.
 - Alle Aktivitäten in einem Repository oder in einer Team-Diskussion.
-- CI-Aktivität wie beispielsweise der Status von Workflows in Repositorys, die mit {% data variables.product.prodname_actions %} aufgesetzt wurden. {% ifversion fpt or ghes > 3.0 or ghae-next %}
+- CI-Aktivität wie beispielsweise der Status von Workflows in Repositorys, die mit {% data variables.product.prodname_actions %} aufgesetzt wurden. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 - Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
 - Releases in a repository.{% endif %}
 
@@ -50,19 +51,19 @@ Im Allgemeinen wirst Du automatisch Unterhaltungen abonniert erhalten, wenn folg
 
 Standardmäßig überwachst Du auch automatisch alle Repositorys, die Du erstellst und die im Besitz Deines Benutzerkonto sind.
 
-Um für Unterhaltungen, die Du automatisch abonniert hast, keine Benachrichtigungen mehr zu erhalten, kannst Du Deine Benachrichtigungseinstellungen ändern oder die Abonnements und Beobachtungen für Aktivitäten auf {% data variables.product.product_name %} direkt abmelden. Weitere Informationen findest Du unter „[Deine Abonnements verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+Um für Unterhaltungen, die Du automatisch abonniert hast, keine Benachrichtigungen mehr zu erhalten, kannst Du Deine Benachrichtigungseinstellungen ändern oder die Abonnements und Beobachtungen für Aktivitäten auf {% data variables.product.product_location %} direkt abmelden. Weitere Informationen findest Du unter „[Deine Abonnements verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
 ## Benachrichtigungen und Abonnements anpassen
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes > 2.22 %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
 
-Konfiguriere Deine Benachrichtigungseinstellungen, um die Art von Aktualisierungen anzupassen, die Du erhalten möchtest, und wohin sie gesendet werden sollen. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications).”
+Konfiguriere Deine Benachrichtigungseinstellungen, um die Art von Aktualisierungen anzupassen, die Du erhalten möchtest, und wohin sie gesendet werden sollen. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
 
 Um Deine Abonnements übersichtlich zu halten, überprüfe Deine Abonnements und Deine verfolgten Repositorys regelmäßig und melde sie bei Bedarf ab. Weitere Informationen findest Du unter „[Abonnements für Aktivitäten auf GitHub verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 
-Um anzupassen, wie Du Aktualisierungen für bestimmte Pull Requests oder Issues erhalten möchtest, kannst Du Deine Einstellungen innerhalb des Issues oder Pull Requests konfigurieren. Weitere Informationen findest Du unter „[Eine einzelne Benachrichtigung selektieren](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
+Um anzupassen, wie Du Aktualisierungen für bestimmte Pull Requests oder Issues erhalten möchtest, kannst Du Deine Einstellungen innerhalb des Issues oder Pull Requests konfigurieren. Weitere Informationen findest Du unter „[Eine einzelne Benachrichtigung auswählen](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)."
 {% endif %}
 
@@ -92,7 +93,7 @@ Aus Deinem Posteingang heraus kannst Du auch mehrere Benachrichtigungen auf einm
 
 ## Deinen Posteingang für Benachrichtigungen anpassen
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. Zum Beispiel kannst Du einen benutzerdefinierten Filter für ein Open-Source-Projekt erstellen, zu dem Du beiträgst, und nur Benachrichtigungen für das Repository sehen, in dem Du erwähnt bist. Weitere Informationen findest du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." Weitere Beispiele für die Anpassung Deines Selektions-Workflows findest Du unter „[Einen Workflow für das Selektieren Deiner Benachrichtigungen anpassen](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. Zum Beispiel kannst Du einen benutzerdefinierten Filter für ein Open-Source-Projekt erstellen, zu dem Du beiträgst, und nur Benachrichtigungen für das Repository sehen, in dem Du erwähnt bist. Weitere Informationen findest du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)." Weitere Beispiele für die Anpassung Deines Selektions-Workflows findest Du unter „[Einen Workflow für das Selektieren Deiner Benachrichtigungen anpassen](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
 ## Richtlinie zur Aufbewahrung von Benachrichtigungen
 

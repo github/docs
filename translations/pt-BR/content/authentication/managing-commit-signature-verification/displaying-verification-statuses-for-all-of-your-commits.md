@@ -4,6 +4,7 @@ shortTitle: Exibindo verificação para todos os commits
 intro: Você pode habilitar o modo vigilante para verificação de assinatura de commit para marcar todos os seus commits e tags com um status de verificação de assinatura.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management

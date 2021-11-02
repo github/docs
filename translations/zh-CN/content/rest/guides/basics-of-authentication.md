@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -50,7 +51,7 @@ end
 ```
 
 客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。
-{% ifversion fpt %} **永远_不要_**将该事项的这些值存储在
+{% ifversion fpt or ghec %} **永远_不要_**将该事项的这些值存储在
 {% data variables.product.product_name %} 中或任何其他公共的地方。{% endif %} 建议将它们存储为
 [环境变量][about env vars]--我们正是这样做的。
 
@@ -132,7 +133,7 @@ end
 
 仅在发出请求之前检查作用域是不够的，因为用户可能会在检查与实际请求之间的时间段更改作用域。 如果发生这种情况，您期望成功的 API 调用可能会以 `404` 或 `401` 状态失败，或者返回不同的信息子集。
 
-为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% ifversion fpt or ghes %} [检查令牌的有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌的有效性](/rest/reference/apps#check-an-authorization){% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
+为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% ifversion fpt or ghes or ghec %} [检查令牌的有效性](/rest/reference/apps#check-a-token){% else %}[检查令牌的有效性](/rest/reference/apps#check-an-authorization){% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
 
 ### 发出经过身份验证的请求
 
@@ -264,7 +265,7 @@ get '/callback' do
 end
 ```
 
-许多代码应该看起来很熟悉。 例如，我们仍使用 `RestClient.get` 来调用 {% data variables.product.product_name %} API，仍将结果传递到 ERB 模板（在此处被称为 `advanced.erb`）中进行呈现。
+许多代码应该看起来很熟悉。 例如，我们仍使用 `RestClient.get` 来调用 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API，仍将结果传递到 ERB 模板（在此处被称为 `advanced.erb`）中进行呈现。
 
 此外，我们现在采用 `authenticated?` 方法来检查用户是否已通过身份验证。 如果否，则调用 `authenticate!` 方法，该方法执行 OAuth 流并使用授予的令牌和作用域更新会话。
 

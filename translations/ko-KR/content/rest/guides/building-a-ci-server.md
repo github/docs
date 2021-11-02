@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -83,7 +84,7 @@ To test out this proof-of-concept, make some changes in a branch in your test re
 
 With our server in place, we're ready to start our first requirement, which is setting (and updating) CI statuses. Note that at any time you update your server, you can click **Redeliver** to send the same payload. There's no need to make a new pull request every time you make a change!
 
-Since we're interacting with the {% data variables.product.product_name %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. We'll configure that client with
+Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. We'll configure that client with
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
