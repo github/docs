@@ -323,13 +323,17 @@ jobs:
           name: pr_build
           path: ${{ runner.temp }}
 
-      - name: Extract user-changes to temp directory
+      # For security reasons, only extract the tar from docs-internal
+      # This allows us to add search indexes and early access content to the build
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Extract user-changes to temp directory
         run: |
           mkdir $RUNNER_TEMP/app
           tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
 
       # Move the LFS content into the temp directory in chunks (destructively)
-      - name: Move the LFS objects
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Move the LFS objects
         run: |
           git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/app/$(dirname {})"; mv {} "$RUNNER_TEMP/app/$(dirname {})/"'
 
@@ -341,8 +345,14 @@ jobs:
           mv content/early-access "$RUNNER_TEMP/app/content/"
           mv data/early-access "$RUNNER_TEMP/app/data/"
 
-      - name: Create a gzipped archive
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create a gzipped archive (docs-internal)
         run: tar -cz --file app.tar.gz "$RUNNER_TEMP/app/"
+
+      # gzip the app.tar from github/docs so we're working with the same format
+      - if: ${{ github.repository == 'github/docs' }}
+        name: Create a gzipped archive (docs)
+        run: gzip -9 < "$RUNNER_TEMP/app.tar" > app.tar.gz
 
       - name: Create a Heroku build source
         id: build-source
