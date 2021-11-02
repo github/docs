@@ -12,11 +12,12 @@ redirect_from:
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
-intro: '{% data variables.product.product_name %} 的核心是名为 Git 的开源版本控制系统 (VCS) 。 Git 负责在您计算机上本地发生的、与 {% data variables.product.product_name %} 有关的所有内容。'
+intro: '{% data variables.product.prodname_dotcom %} 的核心是名为 Git 的开源版本控制系统 (VCS) 。 Git 负责在您计算机上本地发生的、与 {% data variables.product.prodname_dotcom %} 有关的所有内容。'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -26,7 +27,7 @@ topics:
 
 ## 使用 Git
 
-要在命令行中使用 Git，您将需要在计算机上下载、安装和配置 Git。 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. 更多信息请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
+要在命令行中使用 Git，您将需要在计算机上下载、安装和配置 Git。 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. 更多信息请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
 如果要在本地使用 Git，但不想使用命令行，您可以下载并安装 [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) 客户端。  更多信息请参阅“[安装和配置 {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)”。
 
@@ -45,7 +46,7 @@ topics:
 
 ## 后续步骤：使用来自 Git 的 {% data variables.product.prodname_dotcom %} 进行身份验证
 
-从 Git 连接到 {% data variables.product.product_name %} 仓库时，您将需要使用 HTTPS 或 SSH 通过 {% data variables.product.product_name %} 进行身份验证。
+从 Git 连接到 {% data variables.product.prodname_dotcom %} 仓库时，您将需要使用 HTTPS 或 SSH 通过 {% data variables.product.product_name %} 进行身份验证。
 
 {% note %}
 
@@ -63,10 +64,10 @@ topics:
 
 ## 祝贺
 
-恭喜。您现在已将 Git 和 {% data variables.product.product_name %} 全部设置完毕！ 您现在可以选择创建仓库以放置项目。 这是备份代码的好方法，易于在世界各地分享代码。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
+恭喜。您现在已将 Git 和 {% data variables.product.prodname_dotcom %} 全部设置完毕！ 您现在可以选择创建仓库以放置项目。 这是备份代码的好方法，易于在世界各地分享代码。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
 
 您可以通过复刻创建仓库的副本，并提出您希望看到的更改，而不会影响上游仓库。 更多信息请参阅“[复刻仓库](/articles/fork-a-repo)”。
 
-{% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
+Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
 
 {% data reusables.support.connect-in-the-forum-bootcamp %}

@@ -8,17 +8,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Restrict repository creation
 ---
 
-Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt or ghec %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 Organisationsinhaber können immer jede Art von Repository erstellen.
 
-{% ifversion fpt %}Enterprise-Inhaber{% else %}Website-Administratoren{% endif %} können die Optionen einschränken, die Du für die Richtlinie zur Erstellung von Repositorys in Deiner Organisation zur Verfügung hast. For more information, see {% ifversion fpt %}"[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)."{% else %}"[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
+{% ifversion fpt or ghec %}Enterprise-Inhaber{% else %}Website-Administratoren{% endif %} können die Optionen einschränken, die Du für die Richtlinie zur Erstellung von Repositorys in Deiner Organisation zur Verfügung hast. For more information, see "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
 
 {% warning %}
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/octicons-react'
@@ -11,12 +11,15 @@ import { ProductPicker } from 'components/page-header/ProductPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Search } from 'components/Search'
 import { VersionPicker } from 'components/VersionPicker'
+import { Breadcrumbs } from './Breadcrumbs'
+import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
   const { relativePath, currentLayoutName, error } = useMainContext()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scroll, setScroll] = useState(false)
 
   // the graphiql explorer utilizes `?query=` in the url and we don't want our search bar to mess that up
   const updateSearchParams = router.asPath !== 'graphql/overview/explorer'
@@ -26,16 +29,38 @@ export const Header = () => {
     currentLayoutName === 'product-sublanding' ||
     currentLayoutName === 'release-notes'
 
+  useEffect(() => {
+    function onScroll() {
+      setScroll(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
   return (
-    <div className="border-bottom color-border-secondary no-print">
+    <div
+      className={`${
+        scroll
+          ? cx(
+              styles.header,
+              'border-bottom color-border-muted no-print position-sticky top-0 z-3 color-shadow-medium color-bg-default'
+            )
+          : 'border-bottom color-border-muted no-print position-sticky top-0 z-3 color-shadow-small'
+      }`}
+    >
       {error !== '404' && <HeaderNotifications />}
 
-      <header className={cx('container-xl px-3 px-md-6 pt-3 pb-3 position-relative z-3')}>
+      <header className={cx('container-xl px-3 px-md-6 pt-3 pb-3 z-3')}>
         {/* desktop header */}
         <div
           className="d-none d-lg-flex flex-justify-end flex-items-center"
           data-testid="desktop-header"
         >
+          <div className="mr-auto">
+            <Breadcrumbs />
+          </div>
           {showVersionPicker && (
             <div className="mr-2">
               <VersionPicker hideLabel={true} variant="compact" />
@@ -57,12 +82,12 @@ export const Header = () => {
           <div className="d-flex flex-justify-between">
             <div className="d-flex flex-items-center" id="github-logo-mobile" role="banner">
               <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
-                <MarkGithubIcon size={32} className="color-icon-primary" />
+                <MarkGithubIcon size={32} className="color-fg-default" />
               </Link>
 
               <Link
                 href={`/${router.locale}`}
-                className="f4 text-semibold color-text-primary no-underline no-wrap pl-2"
+                className="f4 text-semibold color-fg-default no-underline no-wrap pl-2"
               >
                 {t('github_docs')}
               </Link>
@@ -83,15 +108,13 @@ export const Header = () => {
           {/* mobile menu contents */}
           <div className="relative">
             <div
-              className={cx(
-                'width-full position-absolute left-0 right-0 color-shadow-large color-bg-primary px-2 px-md-4 pb-3',
-                isMenuOpen ? 'd-block' : 'd-none'
-              )}
+              className={cx('width-full position-sticky top-0', isMenuOpen ? 'd-block' : 'd-none')}
             >
               <div className="mt-3 mb-2">
-                <h4 className="f5 text-normal color-text-secondary ml-3">
-                  {t('explore_by_product')}
-                </h4>
+                <div className="pt-3 mb-4 ml-2">
+                  <Breadcrumbs />
+                </div>
+                <h4 className="f5 text-normal color-fg-muted ml-3">{t('explore_by_product')}</h4>
 
                 <ProductPicker />
               </div>

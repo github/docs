@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## Productos y características pagos
 
 Puedes actualizar tu cuenta personal u organización a una suscripción paga en cualquier momento. También puedes elegir comprar apps desde {% data variables.product.prodname_marketplace %} o actualizar el almacenamiento y el ancho de banda para {% data variables.large_files.product_name_long %}. Para obtener más información, consulta:
-- "[Acerca de la facturación para las cuentas de {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"
+- "[Acerca de la facturación para las cuentas de {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"
 - "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)"
 - "[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Acerca de la facturación para {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)"

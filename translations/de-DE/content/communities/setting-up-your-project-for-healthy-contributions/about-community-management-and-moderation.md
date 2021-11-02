@@ -3,6 +3,7 @@ title: Über Community-Verwaltung und -Moderation
 intro: '{% data variables.product.prodname_dotcom %} bietet Werkzeuge für Repository-Betreuer, die helfen, Verhaltensstandards in ihren Gemeinschaften auf {% data variables.product.prodname_dotcom_the_website %} zu etablieren und durchzusetzen.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:

@@ -10,6 +10,7 @@ intro: 'Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sin
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: User into an organization
@@ -41,7 +42,7 @@ Wenn Du möchtest, dass Deine Organisation denselben Namen aufweist, den Du aktu
 Du kannst Dein persönliches Benutzerkonto auch direkt in eine Organisation umwandeln. Beim Umwandeln Deines Kontos geschieht Folgendes:
  - Die Repositorys werden so beibehalten, wie sie sind, ohne dass Du sie manuell an ein anderes Konto übertragen musst
  - Es werden automatisch Mitarbeiter zu Teams eingeladen, wobei die Berechtigungen den bisherigen Berechtigungen entsprechen.
- {% ifversion fpt %}– Bei Benutzerkonten auf {% data variables.product.prodname_pro %} wird die Abrechnung automatisch auf [das bezahlte {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) umgestellt, ohne dass Du die Zahlungsinformationen erneut eingeben, Deinen Abrechnungszeitraum anpassen oder doppelt bezahlen musst.{% endif %}
+ {% ifversion fpt or ghec %}– Bei Benutzerkonten auf {% data variables.product.prodname_pro %} wird die Abrechnung automatisch auf [das bezahlte {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) umgestellt, ohne dass Du die Zahlungsinformationen erneut eingeben, Deinen Abrechnungszeitraum anpassen oder doppelt bezahlen musst.{% endif %}
 
 1. Erstelle ein neues persönliches Konto, mit dem Du Dich nach der Umwandlung bei GitHub anmelden und auf die Organisation und Deine Repositorys zugreifst.
 2.  [Verlasse alle Organisationen](/articles/removing-yourself-from-an-organization), denen das Benutzerkonto angehört, das Du gerade umwandelst.
@@ -56,11 +57,11 @@ Du kannst Dein persönliches Benutzerkonto auch direkt in eine Organisation umwa
 
 {% tip %}
 
-**Tipp:** Wenn Du ein Benutzerkonto in eine Organisation umwandelst, fügen wir Mitarbeiter von Repositorys, die zum Konto gehören, als *externe Mitarbeiter* zur neuen Organisation hinzu. Du kannst dann *externe Mitarbeiter* dazu einladen, Mitglieder Deiner neuen Organisation zu werden. Weitere Informationen findest Du unter „[Berechtigungsebenen für eine Organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)."
+**Tipp:** Wenn Du ein Benutzerkonto in eine Organisation umwandelst, fügen wir Mitarbeiter von Repositorys, die zum Konto gehören, als *externe Mitarbeiter* zur neuen Organisation hinzu. Du kannst dann *externe Mitarbeiter* dazu einladen, Mitglieder Deiner neuen Organisation zu werden. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 {% endtip %}
 
 ## Weiterführende Informationen
 - „[Teams einrichten](/articles/setting-up-teams)“
-{% ifversion fpt %}- „[Benutzer zum Beitritt zu Deiner Organisation einladen](/articles/inviting-users-to-join-your-organization)“{% endif %}
+{% ifversion fpt or ghec %}- „[Benutzer zum Beitritt zu Deiner Organisation einladen](/articles/inviting-users-to-join-your-organization)“{% endif %}
 - „[Auf eine Organisation zugreifen](/articles/accessing-an-organization)“

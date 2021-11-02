@@ -18,5 +18,5 @@ shortTitle: Manage GitHub Packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-  {% ifversion ghes > 2.22 %}
+  {% ifversion ghes %}
   {% endif %}

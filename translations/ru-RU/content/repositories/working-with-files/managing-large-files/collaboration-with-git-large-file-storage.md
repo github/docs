@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Collaboration
 ---
 
@@ -31,7 +32,7 @@ For more information about pointer files, see "[About {% data variables.large_fi
 
 To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Pushing large files to forks
 

@@ -2,7 +2,6 @@
 title: Sintaxis de metadatos para acciones de GitHub
 shortTitle: Sintaxis de metadatos
 intro: Puedes crear acciones para realizar tareas en tu repositorio. Las acciones requieren un archivo de metadatos que use la sintaxis YAML.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -12,11 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
@@ -213,7 +214,7 @@ Por ejemplo, este `cleanup.js` únicamente se ejecutará en ejecutores basados e
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Requerido** Los pasos que planeas ejecutar en esta acción. Estos pueden ser ya sea pasos de `run` o de `uses`.
 {% else %}
 **Requerido** Los pasos que planeas ejecutar en esta acción.
@@ -221,7 +222,7 @@ Por ejemplo, este `cleanup.js` únicamente se ejecutará en ejecutores basados e
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Opcional** El comando que quieres ejecutar. Este puede estar dentro de la línea o ser un script en tu repositorio de la acción:
 {% else %}
 **Requerido** El comando que quieres ejecutar. Este puede estar dentro de la línea o ser un script en tu repositorio de la acción:
@@ -251,7 +252,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Opcional** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Requerido si se configuró `run`.
 {% else %}
 **Requerido** El shell en donde quieres ejecutar el comando. Puedes utilizar cualquiera de los shells listados [aquí](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell). Requerido si se configuró `run`.
@@ -267,13 +268,13 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 #### `runs.steps[*].env`
 
-**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar las variables de ambiente que se almacenan en el flujo de trabajo, utiliza {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso compuesto.
+**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 #### `runs.steps[*].working-directory`
 
 **Opcional**  Especifica el directorio de trabajo en donde se ejecuta un comando.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 #### `runs.steps[*].uses`
 
 **Opcional**  Selecciona una acción a ejecutar como parte de un paso en tu job. Una acción es una unidad de código reutilizable. Puedes usar una acción definida en el mismo repositorio que el flujo de trabajo, un repositorio público o en una [imagen del contenedor Docker publicada](https://hub.docker.com/).

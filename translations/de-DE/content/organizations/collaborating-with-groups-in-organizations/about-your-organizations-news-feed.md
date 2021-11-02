@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,8 +21,8 @@ Im Newsfeed einer Organisation sind die neuesten Aktivitäten in Bezug auf die R
 
 ## Auf den Newsfeed Deiner Organisation zugreifen
 
-1. {% data variables.product.signin_link %} bei Ihrem {% data variables.product.product_name %}-Konto.
+1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 2. Öffnen Sie Ihr {% data reusables.user_settings.personal_dashboard %}.
 3. Klicke auf den Kontextumschalter des Kontos in der oberen linken Ecke der Seite. ![Kontextumschalter-Schaltfläche in Enterprise](/assets/images/help/organizations/account_context_switcher.png)
-4. Select an organization from the drop-down menu.{% ifversion fpt %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
+4. Select an organization from the drop-down menu.{% ifversion fpt or ghec %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
 ![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

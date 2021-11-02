@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: Visualizar assinaturas
@@ -38,7 +39,7 @@ Quando sua caixa de entrada tiver muitas notificações para gerenciar, consider
 Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)".
 
 Para ter uma visão geral das assinaturas de seu repositório, consulte "[Revisando repositórios que você está inspecionando](#reviewing-repositories-that-youre-watching).
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 {% tip %}
 
 **Dica:** Você pode selecionar os tipos de evento a serem notificados utilizando a opção **Personalizar** na lista suspensa **Inspecionar/Cancelar inspeção** na sua [página](https://github.com/watching) ou em qualquer página de repositório em {% data variables.product.product_name %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
@@ -70,7 +71,7 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" e clique em **Repositórios inspecionados**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Avalie os repositórios que você está inspecionando e decida se suas atualizações ainda são relevantes e úteis. Quando você inspeciona um repositório, você será notificado de todas as conversas desse repositório.
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
   ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 {% else %}
   ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications.png)
@@ -78,7 +79,7 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
   {% tip %}
 
-  **Dica:** Em vez de inspecionar um repositório, considere apenas receber notificações {% ifversion fpt or ghes > 3.0 or ghae-next %}quando houver atualizações para {% data reusables.notifications-v2.custom-notification-types %} (se habilitado para o repositório), ou qualquer combinação dessas opções,{% else %}para versões em um repositório,{% endif %} ou sem inspecionar um repositório.
+  **Dica:** Em vez de inspecionar um repositório, considere apenas receber notificações {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}quando houver atualizações para {% data reusables.notifications-v2.custom-notification-types %} (se habilitado para o repositório), ou qualquer combinação dessas opções,{% else %}para versões em um repositório,{% endif %} ou sem inspecionar um repositório.
 
   Quando você deixa de inspecionar um repositório, você ainda pode ser notificado quando for @mencionado ou estiver participando de um thread. Ao definir a configuração para receber notificações de certos tipos de evento, você só será notificado quando houver atualizações desses tipos de eventos no repositório, quando você estiver participando de um tópico ou quando você ou a sua equipe for @mentioned.
 

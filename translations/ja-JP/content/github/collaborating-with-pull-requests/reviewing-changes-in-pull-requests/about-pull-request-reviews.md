@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: About PR reviews
@@ -18,11 +19,11 @@ shortTitle: About PR reviews
 
 プルリクエストがオープンになった後、*読み取り*アクセスを持つすべてのユーザは、提案された変更をレビューしてコメントできます。 また、作者がプルリクエストから直接適用できるコード行への特定の変更を提案することもできます。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。
 
-リポジトリオーナーとコラボレーターは、特定の人物にプルリクエストのレビューをリクエストできます。 また、Organization メンバーは、リポジトリの読み取りアクセス権を持つ Team にプルリクエストのレビューをリクエストできます。 詳細は「[プルリクエストのレビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。 {% ifversion fpt or ghae or ghes %}Teamメンバーのサブセットを指定して、Team 全体に代わって自動で割り当てることができます。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+リポジトリオーナーとコラボレーターは、特定の人物にプルリクエストのレビューをリクエストできます。 また、Organization メンバーは、リポジトリの読み取りアクセス権を持つ Team にプルリクエストのレビューをリクエストできます。 詳細は「[プルリクエストのレビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。 {% ifversion fpt or ghae or ghes or ghec %}Teamメンバーのサブセットを指定して、Team 全体に代わって自動で割り当てることができます。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
 レビューにより、提案された変更についての議論がなされ、その変更がリポジトリのコントリビューションのガイドラインやその他の品質標準を満たすことを保証しやすくなります。 コードの特定の種類や領域に対して、どの個人や Team をオーナーとするかを、CODEOWNERS ファイルで定義できます。 プルリクエストが、定義されたオーナーを持っているコードを変更するものである場合、オーナーである個人あるいはTeam がレビューを担当するよう、自動的にリクエストされます。 詳細は「[コードオーナーについて](/articles/about-code-owners/)」を参照してください。
 
-{% ifversion fpt %}レビューが必要なプルリクエストのリマインダーをスケジュールできます。 詳しい情報については、「[プルリクエストのスケジュールされたリマインダーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}レビューが必要なプルリクエストのリマインダーをスケジュールできます。 詳しい情報については、「[プルリクエストのスケジュールされたリマインダーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)」を参照してください。{% endif %}
 
 ![凝固メント付きの変更をリクエストするレビューのヘッダ](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 

@@ -45,7 +45,7 @@ You must ensure that Git is in the PATH variable on any self-hosted runners you 
 
 ### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
 
 The {% data variables.product.prodname_codeql %} action is included in your installation of {% data variables.product.prodname_ghe_server %}. If {% data variables.product.prodname_ghe_server %} has access to the internet, the action will automatically download the {% data variables.product.prodname_codeql %} bundle required to perform analysis. Alternatively, you can use a synchronization tool to make the {% data variables.product.prodname_codeql %} analysis bundle available locally. For more information, see "[Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access](#configuring-codeql-analysis-on-a-server-without-internet-access)" below.
@@ -59,13 +59,6 @@ If you set up the {% data variables.product.prodname_codeql %} action sync tool,
 
 {% endif %}
 
-{% ifversion ghes = 2.22 %}
-To run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %}, the appropriate actions must be available locally. You can make the actions available in three ways.
-
-- **Recommended**: You can use [{% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud) to automatically download actions from {% data variables.product.prodname_dotcom_the_website %}. The machine that hosts your instance must be able to access {% data variables.product.prodname_dotcom_the_website %}. This approach ensures that you get the latest software automatically. For more information, see "[Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)."
-- If you want to use the {% data variables.product.prodname_codeql_workflow %}, you can sync the repository from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}, by using the {% data variables.product.prodname_codeql %} Action sync tool available at [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/). You can use this tool regardless of whether {% data variables.product.product_location %} or your {% data variables.product.prodname_actions %} runners have access to the internet, as long as you can access both {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %} simultaneously on your computer.
-- You can create a local copy of an action's repository on your server, by cloning the {% data variables.product.prodname_dotcom_the_website %} repository that contains the action. For example, if you want to use the actions for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can create a repository in your instance called `github/codeql-action`, then clone the [repository](https://github.com/github/codeql-action) from {% data variables.product.prodname_dotcom_the_website %}, and then push that repository to your instance's `github/codeql-action` repository. You will also need to download any of the releases from the repository on {% data variables.product.prodname_dotcom_the_website %} and upload them to your instance's `github/codeql-action` repository as releases.
-{% endif %}
 
 ### Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}
 1. If you want to download action workflows on demand from {% data variables.product.prodname_dotcom_the_website %}, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see "[Enabling {% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect)."

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Enlazado con el usuario incorrecto
 ---
 
@@ -20,7 +21,7 @@ shortTitle: Enlazado con el usuario incorrecto
 
 ## Las confirmaciones se vinculan con otro usuario
 
-Si tus confirmaciones están vinculadas a otro usuario, eso significa que la dirección de correo electrónico en tus ajustes de configuración locales de git están conectados a esa cuenta de usuario en {% data variables.product.product_name %}. En este caso, puedes cambiar el correo electrónico en los ajustes de tu configuración local de Git{% ifversion ghae %} a la dirección asociada con tu cuenta en {% data variables.product.product_name %} para vincular tus confirmaciones subsecuentes. Las confirmaciones antiguas no se vincularán. Para obtener más información, consulta la sección "[Configurar tu dirección de correo electrónico para confirmaciones](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)".{% else %} y agregar una dirección de correo electrónico nueva a tu cuenta de {% data variables.product.product_name %} para vincular confirmaciones futuras a tu cuenta.
+Si tus confirmaciones están vinculadas a otro usuario, eso significa que la dirección de correo electrónico en tus ajustes de configuración locales de git están conectados a esa cuenta de usuario en {% data variables.product.product_name %}. En este caso, puedes cambiar el correo electrónico en los ajustes de tu configuración local de Git{% ifversion ghae %} a la dirección asociada con tu cuenta en {% data variables.product.product_name %} para vincular tus confirmaciones subsecuentes. Las confirmaciones antiguas no se vincularán. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %} and add the new email address to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} account to link future commits to your account.
 
 1. Para cambiar la dirección de correo electrónico en tu configuración local de Git, sigue los pasos en "[Configurar tu dirección de correo electrónico para confirmaciones](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)". Si trabajas en máquinas múltiples, necesitarás cambiar esta configuración en cada una de ellas.
 2. Agrega la dirección de correo electrónico del paso 2 los ajustes de tu cuenta siguiendo los pasos en "[Agregar una dirección de correo electrónico a tu cuenta de GitHub](/articles/adding-an-email-address-to-your-github-account)".{% endif %}

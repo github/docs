@@ -3,6 +3,7 @@ title: Gerenciar as configurações de segurança e análise para a sua conta de
 intro: 'Você pode controlar recursos que protegem e analisam o código nos seus projetos no {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:
@@ -43,4 +44,4 @@ Para obter uma visão geral da segurança do repositório, consulte "[Proteger s
 
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Gerenciar vulnerabilidades nas dependências do seu projeto](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
-{% ifversion fpt %}- "[Manter suas dependências atualizadas automaticamente](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+{% ifversion fpt or ghec %}- "[Manter suas dependências atualizadas automaticamente](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}

@@ -1,6 +1,6 @@
 ---
 title: Organisationsmitglieder zu einem Team hinzufügen
-intro: 'Benutzer mit Inhaber- oder Team-Betreuer-Berechtigungen können Organisationsmitglieder zu Teams hinzufügen. Benutzer mit Inhaberberechtigungen können auch {% ifversion fpt %}Nicht-Mitglieder zu einem Team und zur Organisation einladen{% else %}Nicht-Mitglieder zu einem Team und zur Organisation hinzufügen.{% endif %}'
+intro: 'Benutzer mit Inhaber- oder Team-Betreuer-Berechtigungen können Organisationsmitglieder zu Teams hinzufügen. Benutzer mit Inhaberberechtigungen können auch {% ifversion fpt or ghec %}Nicht-Mitglieder zu einem Team und zur Organisation einladen{% else %}Nicht-Mitglieder zu einem Team und zur Organisation hinzufügen.{% endif %}'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ shortTitle: Add members to a team
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-{% ifversion fpt %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
 ## Weiterführende Informationen
 

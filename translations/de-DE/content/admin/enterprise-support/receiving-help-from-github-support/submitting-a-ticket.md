@@ -28,6 +28,8 @@ Nachdem Sie Ihre Supportanfrage und optionale Diagnoseinformationen abgesendet h
 
 ## Ticket über das {% data variables.contact.enterprise_portal %} einreichen
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. Rufen Sie das {% data variables.contact.contact_enterprise_portal %} auf.
 5. Klicke auf **Submit a Ticket** (Ticket einreichen) ![Ein Ticket beim Enterprise-Support-Team einreichen](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

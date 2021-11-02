@@ -28,6 +28,8 @@ Depois de enviar sua solicitação de suporte e as informações opcionais de di
 
 ## Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. Navegue até o {% data variables.contact.contact_enterprise_portal %}.
 5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

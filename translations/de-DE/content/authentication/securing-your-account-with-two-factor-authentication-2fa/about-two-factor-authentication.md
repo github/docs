@@ -8,12 +8,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: About 2FA
 ---
 
-Bei {% data variables.product.product_name %} ist die zweite Form der Authentifizierung ein Code, der von einer Anwendung auf Deinem mobilen Gerät generiert{% ifversion fpt %} oder Dir als Textnachricht (SMS) gesendet{% endif %} wird. Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, generiert {% data variables.product.product_name %} einen Authentifizierungscode, wenn sich jemand bei Ihrem {% data variables.product.product_name %}-Konto anmelden möchte. Eine Anmeldung bei Deinem Konto ist nur möglich, wenn jemand sowohl Dein Passwort kennt als auch Zugriff auf den Authentifizierungscode auf Deinem Telefon hat.
+Bei {% data variables.product.product_name %} ist die zweite Form der Authentifizierung ein Code, der von einer Anwendung auf Deinem mobilen Gerät generiert{% ifversion fpt or ghec %} oder Dir als Textnachricht (SMS) gesendet{% endif %} wird. After you enable 2FA, {% data variables.product.product_name %} generates an authentication code any time someone attempts to sign into your account on {% data variables.product.product_location %}. Eine Anmeldung bei Deinem Konto ist nur möglich, wenn jemand sowohl Dein Passwort kennt als auch Zugriff auf den Authentifizierungscode auf Deinem Telefon hat.
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
@@ -27,7 +28,7 @@ Weitere Informationen findest Du unter „[Mit Zwei-Faktor-Authentifizierung auf
 
 {% data reusables.two_fa.about-recovery-codes %} Weitere Informationen findest Du unter „[Dein Konto beim Verlust der 2FA-Anmeldeinformationen wiederherstellen](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).“
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
@@ -39,6 +40,6 @@ Weitere Informationen findest Du unter „[Mit Zwei-Faktor-Authentifizierung auf
 
 ## Zwei-Faktor-Authentifizierung in Deiner Organisation erzwingen
 
-Organisationsinhaber könnnen verlangen, dass Organisationsmitglieder{% ifversion fpt %}, Abrechnungsmanager,{% endif %} und externe Mitarbeiter die Zwei-Faktor-Authentifizierung verwenden, um ihre persönlichen Konten zu schützen. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
+Organisationsinhaber könnnen verlangen, dass Organisationsmitglieder{% ifversion fpt or ghec %}, Abrechnungsmanager,{% endif %} und externe Mitarbeiter die Zwei-Faktor-Authentifizierung verwenden, um ihre persönlichen Konten zu schützen. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
 
 {% data reusables.two_fa.auth_methods_2fa %}

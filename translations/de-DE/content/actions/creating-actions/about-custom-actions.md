@@ -1,7 +1,6 @@
 ---
 title: About custom actions
 intro: 'Aktionen sind einzelne Aufgaben, die Du kombinieren kannst, um Aufträge zu erstellen und Deinen Workflow anzupassen. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Action development
@@ -20,12 +20,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About custom actions
 
 Zum Erstellen von Aktionen Kannst Du benutzerdefinierten Code schreiben, der mit Deinem Repository auf die gewünschte Weise interagiert und sich dabei beispielsweise in die APIs von {% data variables.product.prodname_dotcom %} und in öffentlich zugängliche Drittanbieter-APIs integriert. Mit einer Aktion können Sie beispielsweise npm-Module veröffentlichen, SMS-Nachrichten bei dringenden Problemen senden oder produktionsreifen Code bereitstellen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Sie können eigene Aktionen schreiben und ausschließlich in Ihrem Workflow verwenden oder auch Ihre erstellten Aktionen mit der {% data variables.product.prodname_dotcom %}-Community schreiben. Die erstellten Aktionen können nur dann freigegeben werden, wenn das Repository öffentlich ist.
 {% endif %}
 
@@ -65,15 +66,15 @@ A _composite_ action allows you to combine multiple workflow steps within one ac
 
 Wenn Du eine Aktion entwickelst, die von anderen Personen genutzt werden soll, empfehlen wir, die Aktion in ihrem eigenen Repository zu belassen, also nicht mit anderem Anwendungscode zu einem Bundle zusammenzufassen. Damit kannst Du die Aktion wie jede andere Software versionieren, nachverfolgen und veröffentlichen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Wenn Sie eine Aktion in einem eigenen Repository speichern, kann die {% data variables.product.prodname_dotcom %}-Community die Aktion eher entdecken. Außerdem wird damit die Codebasis begrenzt, auf die die Entwickler bei der Fehlerbehebung und bei der Erweiterung der Aktion angewiesen sind, und die Versionierung der Aktion wird von der Versionierung des anderen Anwendungscodes getrennt.
 {% endif %}
 
-{% ifversion fpt %}If you're building an action that you don't plan to make available to the public, you {% else %} You{% endif %} can store the action's files in any location in your repository. Wenn der Aktions-, der Workflow- und der Anwendungscode in einem einzigen Repository abgelegt werden sollen, empfehlen wir, die Aktionen im Verzeichnis `.github` zu speichern. Beispiel: `.github/actions/action-a` und `.github/actions/action-b`.
+{% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to the public, you {% else %} You{% endif %} can store the action's files in any location in your repository. Wenn der Aktions-, der Workflow- und der Anwendungscode in einem einzigen Repository abgelegt werden sollen, empfehlen wir, die Aktionen im Verzeichnis `.github` zu speichern. Beispiel: `.github/actions/action-a` und `.github/actions/action-b`.
 
 ## Compatibility with {% data variables.product.prodname_ghe_server %}
 
-To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% data variables.product.prodname_dotcom %} API URLs. You should instead use environment variables to refer to the {% data variables.product.prodname_dotcom %} API:
+To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
 
 - Verwenden Sie für die REST-API die `GITHUB_API_URL` -Umgebungsvariable.
 - Verwenden Sie für GraphQL die Umgebungsvariable `GITHUB_GRAPHQL_URL` .
@@ -127,7 +128,7 @@ Schritte:
 
 ### Using a commit's SHA for release management
 
-Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. {% ifversion fpt or ghes > 3.0 or ghae %}You must use a commit's full SHA value, and not an abbreviated value.{% else %}Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.{% endif %}
+Each Git commit receives a calculated SHA value, which is unique and immutable. Your action's users might prefer to rely on a commit's SHA value, as this approach can be more reliable than specifying a tag, which could be deleted or moved. However, this means that users will not receive further updates made to the action. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}You must use a commit's full SHA value, and not an abbreviated value.{% else %}Using a commit's full SHA value instead of the abbreviated value can help prevent people from using a malicious commit that uses the same abbreviation.{% endif %}
 
 ```yaml
 Schritte:

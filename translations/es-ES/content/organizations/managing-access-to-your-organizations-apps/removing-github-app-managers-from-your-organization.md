@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Eliminar administradores de GitHub Apps
 ---
 
-Para más información sobre los permisos del administrador de {% data variables.product.prodname_github_app %}, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization#github-app-managers)".
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Eliminar los {% data variables.product.prodname_github_app %} permisos de un administrador para toda la organización
 
@@ -32,7 +33,7 @@ Para más información sobre los permisos del administrador de {% data variables
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. En "App managers" (Administradores de app), encuentra el nombre de usuario de la persona para la que quieres eliminar {% data variables.product.prodname_github_app %} los permisos de administrador, luego haz clic en **Revoke** (Revocar). ![Revocar {% data variables.product.prodname_github_app %} permisos de administrador](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leer más
 
 - "[Acerca de {% data variables.product.prodname_dotcom %} Mercado](/articles/about-github-marketplace/)"

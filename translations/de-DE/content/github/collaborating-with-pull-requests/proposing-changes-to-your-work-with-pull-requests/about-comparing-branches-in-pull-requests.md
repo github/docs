@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Compare branches
@@ -20,10 +21,7 @@ shortTitle: Compare branches
 
 {% endnote %}
 
-Du kannst die vorgeschlagenen Änderungen in einem Pull Request auf der Registerkarte „Files changed“ (Geänderte Dateien) anzeigen.
-{% ifversion ghes < 3.0 %}
-![Registerkarte für geänderte Pull-Request-Dateien](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
+You can view proposed changes in a pull request in the Files changed tab. ![Registerkarte für geänderte Pull-Request-Dateien](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 Anstatt die Commits selbst anzuzeigen, können Sie die vorgeschlagenen Änderungen so anzeigen, wie sie in den Dateien erscheinen, sobald der Pull Request gemergt wurde. Die Dateien werden in alphabetischer Reihenfolge auf der Registerkarte „Files changed“ (Geänderte Dateien) angezeigt. Ergänzungen zu den Dateien erscheinen grün und sind durch ein „`+`“-Zeichen gekennzeichnet , wohingegen entfernte Inhalte rot erscheinen und durch ein „`-`“-Zeichen gekennzeichnet sind.
 

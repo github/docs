@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% tip %}
@@ -25,6 +26,6 @@ webhook は、リポジトリあるいは Organization にさまざまなアク�
 * {% data variables.product.prodname_pages %}サイトの構築
 * Team への新しいメンバーの追加
 
-{% data variables.product.product_name %}API を使えば、これらの webhook に外部の Issue トラッカーを更新させたり、CI ビルドを走らせたり、バックアップミラーを更新したり、さらにはプロダクションサーバーへデプロイしたりすることができます。
+Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
 
 新しい webhook をセットアップするには、外部サーバーにアクセスでき、関連する技術的な手順に精通している必要があります。 関連付けられるアクションの完全なリストを含む、webhook の作成に関するヘルプについては、「[ webhook](/webhooks)」を参照してください。

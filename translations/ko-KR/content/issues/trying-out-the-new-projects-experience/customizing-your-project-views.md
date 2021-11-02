@@ -4,6 +4,7 @@ intro: 'Display the information you need by changing the layout, grouping, sorti
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Projects
@@ -11,9 +12,9 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Command palette
+## Project command palette
 
-Use the command palette to quickly change settings and run commands in your project.
+Use the project command palette to quickly change settings and run commands in your project.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing any part of a command or navigate through the command palette window to find a command. See the next sections for more examples of commands.
@@ -29,13 +30,21 @@ You can view your project as a table or as a board.
 
 ## Show or hide fields
 
-In table layout, you can show or hide a specific field.
+You can show or hide a specific field.
+
+In table layout:
 
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing the action you want to take ("show" or "hide") or the name of the field.
 3. Select the desired command (for example: "Show: Milestone").
 4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} to the right of the table. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
 5. Alternatively, select the drop-down menu next to the field name and click **Hide field**.
+
+In board layout:
+
+1. Select the drop-down menu next to the view name.
+2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
+3. In the menu that appears, select fields to add them and deselect fields to remove them from the view.
 
 ## Reorder fields
 
@@ -97,22 +106,22 @@ Follow similar steps to remove a grouping.
 
 ## 필터
 
-In table layout, you can filter by field values.
+Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. As you type, possible values will appear.
+
+- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+
+Alternatively, use the command palette.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Start typing "Filter by" or the name of the field you want to filter by.
 3. Select the desired command (e.g. "Filter by Status").
 4. Enter the value that you want to filter for (for example: "In progress"). You can also filter for the absence of specific values (for example: "Exclude status") or the absence of all values (for example: "No status").
-5. Alternatively, click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Enter the field name and value that you want to filter by. As you type, possible values will appear.
 
-   To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-
-   To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-
-   To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-
-   Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-6. Alternatively, select the drop-down menu next to the view name and click the menu item that indicates the desired filter.
+In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
 ## Save views
 
@@ -147,5 +156,5 @@ To delete a view:
 
 ## 더 읽을거리
 
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)
+- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"

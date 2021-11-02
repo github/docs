@@ -4,6 +4,7 @@ intro: '{% data variables.product.product_name %} について学び、{% ifvers
 redirect_from:
   - /enterprise/admin/overview
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:

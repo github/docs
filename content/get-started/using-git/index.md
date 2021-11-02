@@ -16,6 +16,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /about-git
   - /pushing-commits-to-a-remote-repository
   - /getting-changes-from-a-remote-repository
   - /dealing-with-non-fast-forward-errors

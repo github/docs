@@ -10,16 +10,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Organization's profile
 ---
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories. You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion not ghes and not ghae %} You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
 
-{% ifversion fpt %}Um die Identität Ihrer Organisation zu bestätigen und einen „Verifiziert“-Badge auf der Profilseite Ihrer Organisation anzuzeigen, müssen Sie die Domains Ihrer Organisation mit {% data variables.product.product_name %} verifizieren. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."{% endif %}
+{% ifversion fpt or ghec %}Um die Identität Ihrer Organisation zu bestätigen und einen „Verifiziert“-Badge auf der Profilseite Ihrer Organisation anzuzeigen, müssen Sie die Domains Ihrer Organisation mit {% data variables.product.product_name %} verifizieren. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."{% endif %}
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ![Beispiel einer Profilseite einer Organisation](/assets/images/help/organizations/org_profile_with_overview.png)
 {% else %}
 ![Beispiel einer Profilseite einer Organisation](/assets/images/help/profile/org_profile.png)

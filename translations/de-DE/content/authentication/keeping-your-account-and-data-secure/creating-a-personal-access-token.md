@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -26,29 +27,29 @@ shortTitle: Create a PAT
 
 Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
 
-{% ifversion fpt %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
+{% ifversion fpt or ghec %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
 
-{% ifversion fpt %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
-A token with no assigned scopes can only access public information. Um den Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wählen Sie `repo` aus. For more information, see “[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)”.
+A token with no assigned scopes can only access public information. Um den Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wählen Sie `repo` aus. For more information, see "[Available scopes](/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
 
 ## Ein Token erstellen
 
-{% ifversion fpt %}1. [Überprüfe Deine E-Mail-Adresse](/github/getting-started-with-github/verifying-your-email-address), falls Du dies noch nicht getan hast.{% endif %}
+{% ifversion fpt or ghec %}1. [Überprüfe Deine E-Mail-Adresse](/github/getting-started-with-github/verifying-your-email-address), falls Du dies noch nicht getan hast.{% endif %}
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 {% data reusables.user_settings.personal_access_tokens %}
 {% data reusables.user_settings.generate_new_token %}
-5. Geben Sie dem Token einen beschreibenden Namen. ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 %}
+5. Geben Sie dem Token einen beschreibenden Namen. ![Token description field](/assets/images/help/settings/token_description.png){% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
 6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker. ![Token expiration field](/assets/images/help/settings/token_expiration.png){% endif %}
 7. Wähle die Scopes oder Berechtigungen aus, die Du diesem Token zuweisen möchtest. Um das Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wähle **repo** aus.
-   {% ifversion fpt or ghes %}
+   {% ifversion fpt or ghes or ghec %}
    ![Token-Scopes auswählen](/assets/images/help/settings/token_scopes.gif)
    {% elsif ghae %}
    ![Token-Scopes auswählen](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 8. Klicke auf **Generate token** (Token erzeugen). ![Schaltfläche „Generate token“ (Token erzeugen)](/assets/images/help/settings/generate_token.png)
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
    {% elsif ghes > 3.1 or ghae-next %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
@@ -61,7 +62,7 @@ A token with no assigned scopes can only access public information. Um den Token
 
    {% endwarning %}
 
-{% ifversion fpt %}9. Um Ihren Token für die Authentifizierung bei einer Organisation zu verwenden, die SAML SSO nutzt, [autorisieren Sie den Token für die Nutzung einer SAML-SSO-Organisation](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
+{% ifversion fpt or ghec %}9. Um Ihren Token für die Authentifizierung bei einer Organisation zu verwenden, die SAML SSO nutzt, [autorisieren Sie den Token für die Nutzung einer SAML-SSO-Organisation](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
 
 ## Ein Token in der Befehlszeile verwenden
 
@@ -75,5 +76,5 @@ Instead of manually entering your PAT for every HTTPS Git operation, you can cac
 
 ## Weiterführende Informationen
 
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 %}
+- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 - "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
