@@ -28,3 +28,4 @@ For information about how to enable the merge queue protection setting, see "[Ma
 
 - "[Adding a pull request to the merge queue](pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue)"
 - "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)"
+ 
