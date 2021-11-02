@@ -25,7 +25,7 @@ shortTitle: Merge an upstream repo
   ```shell
   $ git pull https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git <em>BRANCH_NAME</em>
   ```
-5. If there are conflicts, resolve them. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts".
+5. If there are conflicts, resolve them. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)".
 6. Commit the merge.
 7. Review the changes and ensure they are satisfactory.
 8. Push the merge to your GitHub repository.
