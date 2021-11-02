@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Check out a PR locally
@@ -28,7 +29,7 @@ shortTitle: Check out a PR locally
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. Klicke in der Liste der Pull-Requests auf die Pull-Requests, die Du ändern möchtest.{% ifversion fpt %}
+2. Klicke in der Liste der Pull-Requests auf die Pull-Requests, die Du ändern möchtest.{% ifversion fpt or ghec %}
 3. Um auszuwählen, wo Du den Pull Request öffnen willst, wähle das Dropdownmenü „**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**" und klicke auf eine der Registerkarten. ![Link um auf die Pull-Request-Anweisungen in der Befehlszeile zuzugreifen](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. Klicke im Merge-Feld auf **Befehlszeilenanweisungen**. Führen Sie nacheinander die Schritte durch, um den vorgeschlagenen Pull Request herunterzuladen. ![Links zum Zugriff auf Anleitungen zu Befehlszeilen-Pull-Requests](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. Klicke optional zur Ansicht der vorgeschlagenen Änderungen mit {% data variables.product.prodname_desktop %} auf **öffne dies mit {% data variables.product.prodname_desktop %}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}

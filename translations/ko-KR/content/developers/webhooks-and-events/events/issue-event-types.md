@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
@@ -131,7 +132,7 @@ A comment was added to the issue or pull request.
 | `html_url`           | `문자열`     | The HTML URL of the issue comment.                                                                                                              |
 | `issue_url`          | `문자열`     | The HTML URL of the issue.                                                                                                                      |
 | `id`                 | `integer` | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `문자열`     | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                       |
+| `node_id`            | `문자열`     | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.                   |
 | `사용자`                | `개체`      | The person who commented on the issue.                                                                                                          |
 | `created_at`         | `문자열`     | The timestamp indicating when the comment was added.                                                                                            |
 | `updated_at`         | `문자열`     | The timestamp indicating when the comment was updated or created, if the comment is never updated.                                              |
@@ -157,7 +158,7 @@ A commit was added to the pull request's `HEAD` branch.
 | 이름         | 유형                 | 설명                                                                                                                                             |
 | ---------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sha`      | `문자열`              | The SHA of the commit in the pull request.                                                                                                     |
-| `node_id`  | `문자열`              | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                      |
+| `node_id`  | `문자열`              | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.                  |
 | `url`      | `문자열`              | The REST API URL to retrieve the commit.                                                                                                       |
 | `html_url` | `문자열`              | The HTML URL of the commit.                                                                                                                    |
 | `저자`       | `개체`               | The person who authored the commit.                                                                                                            |
@@ -580,7 +581,7 @@ The pull request was reviewed.
 | 이름                   | 유형        | 설명                                                                                                                                              |
 | -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                 | `integer` | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `문자열`     | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                       |
+| `node_id`            | `문자열`     | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.                   |
 | `사용자`                | `개체`      | The person who commented on the issue.                                                                                                          |
 | `본문`                 | `문자열`     | The review summary text.                                                                                                                        |
 | `commit_id`          | `문자열`     | The SHA of the latest commit in the pull request at the time of the review.                                                                     |
@@ -707,7 +708,7 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## user_blocked
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).

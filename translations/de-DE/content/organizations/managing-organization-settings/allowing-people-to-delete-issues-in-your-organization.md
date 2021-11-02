@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -16,7 +17,7 @@ shortTitle: Allow issue deletion
 
 Standardmäßig können Issues in den Repositorys einer Organisation nicht gelöscht werden. Ein Organisationsinhaber muss diese Funktion erst für alle Repositorys der Organisation aktivieren.
 
-Nach der Aktivierung können Organisationsinhaber und Personen mit Administratorberechtigungen für ein Repository der Organisation Issues löschen. Zu den Personen mit Administratorberechtigungen für ein Repository gehören Organisationsmitglieder und externe Mitarbeiter mit Administratorberechtigungen. Weitere Informationen findest Du unter „[Repository-Berechtigungsebenen für eine Organisation](/articles/repository-permission-levels-for-an-organization/)“ und „[Einen Issue löschen](/articles/deleting-an-issue).“
+Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

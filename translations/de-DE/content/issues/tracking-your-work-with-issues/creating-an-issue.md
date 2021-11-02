@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Hiermit wird ein Issue erstellt.
+type: how_to
 ---
 
 Mit Issues kannst Du Fehler, Verbesserungen oder andere Anforderungen nachverfolgen. Weitere Informationen findest Du unter „[Informationen zu Issues](/issues/tracking-your-work-with-issues/about-issues).“
@@ -88,7 +90,7 @@ Du kannst neue Issues von einer bestimmten Codezeile oder über mehreren Codezei
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from discussion
 
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 Wenn Du ein Projektboard verwendest, um Deine Arbeit zu verfolgen und zu priorisieren, kannst Du Notizen im Projektboard zu Issues umwandeln. Weitere Informationen findest Du unter „[Über Projektboards](/github/managing-your-work-on-github/about-project-boards)" und „[Notizen zu einem Projektboard hinzufügen](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from a task list item
 
@@ -127,7 +129,7 @@ You can use query parameters to open issues. Abfrageparameter sind optionale Bes
 
 {% endtip %}
 
-Du musst die erforderlichen Berechtigungen für jede Aktion haben, um den entsprechenden Abfrageparameter zu verwenden. Beispielsweise benötigst Du die Berechtigung, einem Issue eine Kennzeichnung hinzuzufügen, um den Abfrageparameter `labels` (Kennzeichnung) zu verwenden. Weitere Informationen findest Du unter„[Berechtigungsebenen für die Repositorys einer Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization).“
+Du musst die erforderlichen Berechtigungen für jede Aktion haben, um den entsprechenden Abfrageparameter zu verwenden. Beispielsweise benötigst Du die Berechtigung, einem Issue eine Kennzeichnung hinzuzufügen, um den Abfrageparameter `labels` (Kennzeichnung) zu verwenden. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 

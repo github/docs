@@ -5,6 +5,7 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -14,7 +15,7 @@ If your account uses a paid {% data variables.product.prodname_dotcom %} product
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-If you do not have an enterprise account, please use the {% data variables.contact.enterprise_portal %} to submit tickets. For more information about enterprise accounts, see "[About enterprise accounts](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)."
+If you do not have an enterprise account, please use the {% data variables.contact.enterprise_portal %} to submit tickets. For more information about enterprise accounts, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
 ## Submitting a ticket using the {% data variables.contact.support_portal %}
 
@@ -30,6 +31,8 @@ If you do not have an enterprise account, please use the {% data variables.conta
 7. Click **Send request**. ![Send request button](/assets/images/help/support/send-request-button.png)
 
 ## Submitting a ticket using the {% data variables.contact.enterprise_portal %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
 5. Click **Submit a Ticket** ![Submit a ticket to Enterprise Support team](/assets/images/enterprise/support/submit-ticket-button.png)

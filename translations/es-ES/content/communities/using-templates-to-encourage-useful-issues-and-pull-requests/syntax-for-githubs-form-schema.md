@@ -3,6 +3,7 @@ title: Sintaxis para el modelado de formato de GitHub
 intro: 'Puedes utilizar el modelado de formato de {% data variables.product.company_short %} para configurar los formatos para las características compatibles.'
 versions:
   fpt: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community

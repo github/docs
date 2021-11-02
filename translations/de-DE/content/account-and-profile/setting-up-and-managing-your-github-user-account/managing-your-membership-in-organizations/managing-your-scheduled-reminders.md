@@ -3,6 +3,7 @@ title: Verwalten Deiner geplanten Erinnerungen
 intro: 'Du kannst in Slack Erinnerungen erhalten, wenn für Dich oder Dein Team Pull Requests auf einen Review warten.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:

@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -44,7 +45,7 @@ Antes de poder configurar o {% data variables.product.prodname_code_scanning %} 
 
 {% data reusables.code-scanning.edit-workflow %}
 
-A análise de {% data variables.product.prodname_codeql %} é apenas um tipo de {% data variables.product.prodname_code_scanning %} que você pode fazer em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} em  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contém outros fluxos de trabalho de {% data variables.product.prodname_code_scanning %} que você pode usar. {% ifversion fpt %}Você pode encontrar uma seleção destes na página "Comece com {% data variables.product.prodname_code_scanning %}", que você pode acessar na aba **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.{% endif %} Os exemplos específicos fornecidos neste artigo estão relacionados ao arquivo de {% data variables.product.prodname_codeql_workflow %}.
+A análise de {% data variables.product.prodname_codeql %} é apenas um tipo de {% data variables.product.prodname_code_scanning %} que você pode fazer em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} em  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contém outros fluxos de trabalho de {% data variables.product.prodname_code_scanning %} que você pode usar. {% ifversion fpt or ghec %}Você pode encontrar uma seleção destes na página "Comece com {% data variables.product.prodname_code_scanning %}", que você pode acessar na aba **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.{% endif %} Os exemplos específicos fornecidos neste artigo estão relacionados ao arquivo de {% data variables.product.prodname_codeql_workflow %}.
 
 ## Editing a code scanning workflow
 
@@ -68,7 +69,7 @@ Se você usar o fluxo de trabalho padrão, o {% data variables.product.prodname_
 
 Se você fizer uma varredura no push, os resultados aparecerão na aba **Segurança** do repositório. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository). "
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
 Além disso, quando uma verificação de `on:push` retorna resultados que podem ser mapeados com um pull request aberto, esses alertas serão automaticamente exibidos no pull request nos mesmos lugares que outros alertas de pull request. Os alertas são identificados comparando a análise existente do cabeçalho do branch com a análise do branch de destino. Para obter mais informações sobre alertas de {% data variables.product.prodname_code_scanning %} em pull requests, consulte "[Triando alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 {% endif %}
 
@@ -80,20 +81,20 @@ Para obter mais informações sobre o evento `pull_request` , consulte "[Sintaxe
 
 Se você realizar uma varredura de pull requests, os resultados aparecerão como alertas em uma verificação de pull request. Para obter mais informações, consulte "[Alertas de varredura de código de triagem em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
  O uso o gatilho `pull_request`, configurado para verificar o commit de merge do pull request, em vez do commit do cabeçalho, produzirá resultados mais eficientes e precisos do que digitalizar o cabeçalho do branch em cada push. No entanto, se você usa um sistema de CI/CD que não pode ser configurado para acionar em pull requests, você ainda poderá usar o gatilho `on:push` e {% data variables.product.prodname_code_scanning %} mapeará os resultados para abrir os pull requests no branch e adicionar os alertas como anotações no pull request. Para obter mais informações, consulte "[Digitalizando ao enviar por push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)".
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Definindo as severidades que causam falha na verificação de pull request
 
-Por padrão, apenas os alertas com o nível de  gravidade `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} ou nível de segurança `Critical` ou `High`{% endif %} farão com que ocorra uma falha no pull request e uma verificação será bem-sucedida com alertas de menor gravidade. É possível alterar os níveis de gravide dos alertas{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} e de gravidades de segurança{% endif %} que causarão uma falha de verificação de pull request nas configurações do seu repositório. Para obter mais informações sobre os níveis de gravidade, consulte "[Gerenciar alertas de digitalização de códigos para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details).
+Por padrão, apenas os alertas com o nível de  gravidade `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} ou nível de segurança `Critical` ou `High`{% endif %} farão com que ocorra uma falha no pull request e uma verificação será bem-sucedida com alertas de menor gravidade. É possível alterar os níveis de gravide dos alertas{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} e de gravidades de segurança{% endif %} que causarão uma falha de verificação de pull request nas configurações do seu repositório. Para obter mais informações sobre os níveis de gravidade, consulte "[Gerenciar alertas de digitalização de códigos para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Em "Varredura de código", à direita de "Verificar falha", use o menu suspenso para selecionar o nível de gravidade que você gostaria de fazer com que um pull request falhasse.
-{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}
+{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}
 ![Verificar falha de configuração](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
 ![Verificar falha de configuração](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
@@ -168,13 +169,13 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% ifversion fpt %}Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
+{% ifversion fpt or ghec %}Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
 
 O {% data variables.product.prodname_code_scanning_capc %} é compatível com as versões mais recentes do macOS, Ubuntu, e Windows. Portanto, os valores típicos para essa configuração são `ubuntu-latest`, `windows-latest` e `macos-latest`. Para obter mais informações, consulte {% ifversion ghes %}" %}"[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" e "[Usando rótulos com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
 {% ifversion ghes %}Você deve garantir que o Git esteja na variável do PATH em seus executores auto-hospedados.{% else %}Se você usa um executor auto-hospedado, você deve garantir que o Git esteja na variável de PATH.{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Especificar o local para bancos de dados de {% data variables.product.prodname_codeql %}
 
 Em geral você não precisa se preocupar com o lugar em que {% data variables.product.prodname_codeql_workflow %} coloca bancos de dados de {% data variables.product.prodname_codeql %}, uma vez que as etapas posteriores encontrarão automaticamente bancos de dados criados nas etapas anteriores. No entanto, se estiver escrevendo um fluxo de trabalho personalizado que exige que o banco de dados de {% data variables.product.prodname_codeql %} esteja em um local específico do disco, por exemplo, para fazer o upload do banco de dados como um artefato de fluxo de trabalho você pode especificar essa localização usando o parâmetro `db-location` na ação `init`.
@@ -222,7 +223,7 @@ Se o seu fluxo de trabalho não contiver uma matriz denominada `linguagem`, o {%
   with:
     languages: cpp, csharp, python
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Analisar as dependências do Python
 
 Para executores hospedados no GitHub, que usam apenas Linux, o {% data variables.product.prodname_codeql_workflow %} tentará instalar automaticamente as dependências do Python para dar mais resultados para a análise do CodeQL. Você pode controlar este comportamento especificando o parâmetro `setup-python-dependencies` para a ação chamada pela etapa "Initialize CodeQL". Por padrão, esse parâmetro é definido como `verdadeiro`:
@@ -236,7 +237,7 @@ Alternativamente, você pode instalar as dependências do Python manualmente em 
 ```yaml
 jobs:
   CodeQL-Build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write
       actions: read{% endif %}
@@ -267,7 +268,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Configurar uma categoria para a análise
 
 Use a `categoria` para distinguir entre múltiplas análises para a mesma ferramenta e commit, mas executada em diferentes linguagens ou diferentes partes do código. A categoria especificada no seu fluxo de trabalho será incluída no arquivo de resultados SARIF.
@@ -441,7 +442,7 @@ Se você desejar apenas executar consultas personalizadas, você poderá desabil
 
 ### Especificar diretórios para serem varridos
 
-Para as linguagens interpretadas com as quais {% data variables.product.prodname_codeql %} é compatível (Python e JavaScript/TypeScript), você pode restringir {% data variables.product.prodname_code_scanning %} para arquivos em diretórios específicos adicionando um array de `caminhos` para o arquivo de configuração. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
+For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
 
 ``` yaml
 paths:

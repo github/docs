@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-Die Diagramme eines Repositorys geben Dir Informationen über {% ifversion fpt %}Traffic, vom Repository abhängige Projekte, {% endif %}Mitarbeiter und Commits des Repositorys sowie die Forks und das Netzwerk eines Repositorys. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
+Die Diagramme eines Repositorys geben Dir Informationen über {% ifversion fpt or ghec %}Traffic, vom Repository abhängige Projekte, {% endif %}Mitarbeiter und Commits des Repositorys sowie die Forks und das Netzwerk eines Repositorys. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {% data variables.product.prodname_free_user %} verfügbar:
 - Pulse

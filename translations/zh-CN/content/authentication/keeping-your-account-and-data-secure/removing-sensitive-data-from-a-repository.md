@@ -1,6 +1,6 @@
 ---
 title: 从仓库中删除敏感数据
-intro: 如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 To entirely remove unwanted files from a repository's history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
+intro: 如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 要从仓库的历史记录中彻底删除不需要的文件，您可以使用 `git filter-repo` 工具或 BFG Repo-Cleaner 开源工具。
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -12,27 +12,28 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: 删除敏感数据
 ---
 
-The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。
+`git filter-repo` 工具和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。
 
-您可以使用 `git rm` 从最新提交中删除该文件。 For information on removing a file that was added with the latest commit, see "[About large files on {% data variables.product.prodname_dotcom %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
+您可以使用 `git rm` 从最新提交中删除该文件。 有关删除使用最新提交添加的文件的信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的大文件](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)”。
 
 {% warning %}
 
-本文将告知您如何使含有敏感数据的提交从 {% data variables.product.product_name %} 仓库中的任何分支或标记均无法访问。 但需要注意的是，这些提交在您仓库的任何克隆或复刻中、直接通过 {% data variables.product.product_name %} 上缓存视图中其 SHA-1 哈希以及通过引用它们的任何拉取请求可能仍然可访问。 You cannot remove sensitive data from other users' clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 但需要注意的是，这些提交在您仓库的任何克隆或复刻中、直接通过 {% data variables.product.product_name %} 上缓存视图中其 SHA-1 哈希以及通过引用它们的任何拉取请求可能仍然可访问。 您无法从仓库的其他用户的克隆或复刻删除敏感数据，但您可以通过联系 {% data variables.contact.contact_support %}，永久删除 {% data variables.product.product_name %} 上拉取请求中敏感数据的缓存视图和引用。
 
-**Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised.** If you committed a password, change it! 如果您提交了密钥，请生成新密钥。 Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. Consider these limitations in your decision to rewrite your repository's history.
+**警告：将提交推送到 {% data variables.product.product_name %} 后，应考虑提交中受到影响的任何敏感。**如果您提交了密码，请更改密码！ 如果您提交了密钥，请生成新密钥。 删除泄露的数据并不能解决其初始暴露问题，尤其是在仓库的现有克隆或复刻中。 在重写仓库历史记录的决定中考虑这些限制。
 
 {% endwarning %}
 
 ## 从仓库的历史记录中清除文件
 
-You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
+您可以使用 `git filter-repo` 工具或 BFG Repo-Cleaner 开源工具从仓库历史记录中清除文件。
 
 ### 使用 BFG
 
@@ -58,21 +59,21 @@ $ git push --force
 
 有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) 的文档。
 
-### Using git filter-repo
+### 使用 git filter-repo
 
 {% warning %}
 
-**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. 要取消储藏您已储藏的上一组更改，请运行 `git stash show -p | git apply -R`。 For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
+**警告：**如果您在储藏更改后运行 `git filter-repo`，则无法使用其他 stash 命令检索您的更改。 运行 `git filter-repo` 之前，我们建议取消储藏您进行的任何更改。 要取消储藏您已储藏的上一组更改，请运行 `git stash show -p | git apply -R`。 更多信息请参阅 [Git 工具 - 隐藏和清理](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning)。
 
 {% endwarning %}
 
-To illustrate how `git filter-repo` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
+为说明 `git filter-repo` 的工作方式，我们将向您展示如何从仓库的历史记录中删除含有敏感数据的文件，然后将其添加到 `.gitignore` 以确保不会意外重新提交。
 
-1. Install the latest release of the [git filter-repo](https://github.com/newren/git-filter-repo) tool. You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
+1. 安装最新版本的 [git filter-repo](https://github.com/newren/git-filter-repo) 工具。 您可以手动或使用软件包管理器安装 `git-filter-repo`。 例如，要使用 HomeBrew 安装工具，请使用 `brew install` 命令。
   ```
   brew install git-filter-repo
   ```
-  For more information, see [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
+  更多信息请参阅 `newren/git-filter-repo` 仓库中的 [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md)。
 
 2. 如果其历史记录中没有包含敏感数据仓库的本地副本，则[克隆仓库](/articles/cloning-a-repository/)到本地计算机。
   ```shell
@@ -91,7 +92,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 4. 运行以下命令，将 `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` 替换为**您要删除的文件的路径，而不仅仅是其文件名**。 这些参数将：
     - 强制 Git 处理但不检出每个分支和标记的完整历史记录
     - 删除指定的文件，以及因此生成的任何空提交
-    - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
+    - 删除一些配置，例如存储在 *.git/config* 文件中的远程 URL。 您可能需要提前备份此文件以供以后恢复。
     - **覆盖现有的标记**
         ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
@@ -124,7 +125,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 6. 仔细检查您是否已从仓库历史记录中删除所需的所有内容，并且所有分支均已检出。
-7. 对仓库的状态感到满意后，强制推送本地更改以覆盖 {% data variables.product.product_name %} 仓库，以及您已向上推送的所有分支：
+7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, as well as all the branches you've pushed up:
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -147,15 +148,15 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   >  + 48dc599...051452f main -> main (forced update)
   ```
 
-## Fully removing the data from {% data variables.product.prodname_dotcom %}
+## 完全从 {% data variables.product.prodname_dotcom %} 中删除数据
 
-After using either the BFG tool or `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
+在使用 BFG 工具或 `git filter-repo` 删除敏感数据并将更改推至 {% data variables.product.product_name %} 后，您必须再采取一些步骤，以完全从 {% data variables.product.product_name %} 中删除数据。
 
-1. 联系 {% data variables.contact.contact_support %}，请求他们删除 {% data variables.product.product_name %} 上拉取请求中敏感数据的缓存视图和引用。 Please provide the name of the repository and/or a link to the commit you need removed.
+1. 联系 {% data variables.contact.contact_support %}，请求他们删除 {% data variables.product.product_name %} 上拉取请求中敏感数据的缓存视图和引用。 请提供仓库名称和/或您需要删除的提交链接。
 
 2. 告知协作者[变基](https://git-scm.com/book/en/Git-Branching-Rebasing)而*不是*合并他们从旧的（污染的） 仓库历史记录创建的任何分支。 一次合并提交可能会重新引入您刚刚遇到清除问题的部分或全部污染的历史记录。
 
-3. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+3. 经过一段时间并且您确信 BFG 工具 / `git filter-repo` 没有任何意外的副作用后，您可以通过以下命令（使用 Git 1.8.5 或更新版本）强制取消引用本地仓库中的所有对象并进行垃圾回收：
   ```shell
   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
   $ git reflog expire --expire=now --all
@@ -183,6 +184,6 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 ## 延伸阅读
 
-- [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
-- [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History){% ifversion fpt or ghae or ghes > 2.22 %}
-- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"{% endif %}
+- [`git filter-repo` 手册页](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
+- [Pro Git：Git 工具 - 重写历史记录](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"

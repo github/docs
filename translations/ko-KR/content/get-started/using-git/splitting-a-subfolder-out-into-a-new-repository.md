@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Splitting a subfolder
 ---
 
@@ -48,7 +49,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
   The repository should now only contain the files that were in your subfolder(s).
 
 6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
-7. At the top of your new {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 

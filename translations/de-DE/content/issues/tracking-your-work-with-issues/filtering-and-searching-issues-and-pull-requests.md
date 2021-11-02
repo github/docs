@@ -37,10 +37,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
 shortTitle: Filter and search
+type: how_to
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -102,7 +104,7 @@ Du kannst die Pull-Request-Liste eines Repositorys filtern, um folgende Pull Req
 - Pull Requests, für die vor dem Merge [ein Review erforderlich ist](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
 - Pull Requests, die ein Reviewer genehmigt hat
 - Pull Requests, bei denen ein Reviewer um Änderungen gebeten hat
-- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 %}
+- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Pull requests that someone has asked you directly to review{% endif %}
 - Pull Requests, um denen [Du oder ein Team, bei dem Du Mitglied bist, um einen Review gebeten wurde](/articles/requesting-a-pull-request-review)
 
@@ -163,7 +165,7 @@ Mithilfe von Suchbegriffen zu Issues und Pull Requests kannst Du:
 - Issues und Pull Requests nach Kennzeichnung filtern: `state:open type:issue label:"bug"`.
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
@@ -173,7 +175,7 @@ Mithilfe von Suchbegriffen zu Issues und Pull Requests kannst Du:
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 Für Issues kannst Du die Suche auf für folgendes benutzen:
 
 - Filtere für Issues, die zu einem Pull Request über eine schließende Referenz verknüpft sind:`linked:pr`
@@ -186,9 +188,9 @@ Bei Pull Requests kannst Du die Suche auch verwenden, um:
 - Von einem Reviewer genehmigte Pull Requests zu filtern: `state:open type:pr review:approved`
 - Pull Requests zu filtern, in denen ein Reviewer um Änderungen gebeten hat: `state:open type:pr review:changes_requested`
 - Pull Requests nach [Reviewer](/articles/about-pull-request-reviews/) zu filtern: `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filter pull requests by the specific user [requested for review](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- Pull Requests nach einem Team filtern, das für dein Review angefordert wurde: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
+- Pull Requests nach einem Team filtern, das für dein Review angefordert wurde: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - Nach Pull Requests filtern, die zu einem Issue verknüpft sind, die der Pull Request schließen könnte: `linked:issue`{% endif %}
 
 ## Issues und Pull Requests sortieren

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Uso de la 2FA en la organización
 
 {% note %}
 
-**Nota:** puedes solicitar que todos los miembros {% ifversion fpt %}, incluidos, los propietarios, gerentes de facturación y{% else %} y{% endif %} colaboradores externos en tu organización tengan habilitada la autenticación de dos factores. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/articles/requiring-two-factor-authentication-in-your-organization)".
+**Nota:** puedes solicitar que todos los miembros {% ifversion fpt or ghec %}, incluidos, los propietarios, gerentes de facturación y{% else %} y{% endif %} colaboradores externos en tu organización tengan habilitada la autenticación de dos factores. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/articles/requiring-two-factor-authentication-in-your-organization)".
 
 {% endnote %}
 

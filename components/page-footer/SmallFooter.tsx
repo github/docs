@@ -4,7 +4,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 export const SmallFooter = () => {
   const { t } = useTranslation('footer')
   return (
-    <footer className="container-xl px-3 mt-6 mb-8 px-md-6 position-relative d-flex flex-row-reverse flex-xl-row flex-wrap flex-xl-nowrap flex-justify-center flex-xl-justify-between f6 color-text-secondary">
+    <footer className="container-xl px-3 mt-6 mb-8 px-md-6 position-relative d-flex flex-row-reverse flex-xl-row flex-wrap flex-xl-nowrap flex-justify-center flex-xl-justify-between f6 color-fg-muted">
       <ul className="list-style-none d-flex flex-wrap col-12 col-xl-5 flex-justify-center flex-xl-justify-between mb-2 mb-xl-0">
         <li className="mr-3 mr-xl-0">&copy; {new Date().getFullYear()} GitHub, Inc.</li>
         <li className="mr-3 mr-xl-0">
@@ -31,7 +31,7 @@ export const SmallFooter = () => {
       <a
         aria-label="Homepage"
         title="GitHub"
-        className="d-none d-xl-block color-text-secondary"
+        className="d-none d-xl-block color-fg-muted"
         href="https://github.com"
       >
         <MarkGithubIcon size={24} />

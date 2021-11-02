@@ -1,5 +1,5 @@
 ---
-title: Secret scanning partner program
+title: Secret scanningパートナープログラム
 intro: 'サービスプロバイダーは、{% data variables.product.prodname_dotcom %}とパートナーになり、シークレットスキャンニングを通じてシークレットトークンのフォーマットを保護できます。シークレットスキャンニングは、そのシークレットのフォーマットで誤って行われたコミットを検索し、サービスプロバイダーの検証用エンドポイントに送信します。'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -8,55 +8,56 @@ redirect_from:
   - /developers/overview/secret-scanning
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Secret scanning
 ---
 
-{% data variables.product.prodname_dotcom %}は、既知のシークレットフォーマットに対してリポジトリをスキャンし、誤ってコミットされたクレデンシャルが不正利用されることを防ぎます。 {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
+{% data variables.product.prodname_dotcom %}は、既知のシークレットフォーマットに対してリポジトリをスキャンし、誤ってコミットされたクレデンシャルが不正利用されることを防ぎます。 {% data variables.product.prodname_secret_scanning_caps %}は、デフォルトでパブリックなリポジトリで行われ、プライベートリポジトリではリポジトリ管理者またはOrganizationのオーナーが有効化できます。 サービスプロバイダーは{% data variables.product.prodname_dotcom %}と連携し、シークレットのフォーマットが{% data variables.product.prodname_secret_scanning %}に含まれるようにすることができます。
 
 シークレットのフォーマットに対する一致がパブリックリポジトリで見つかった場合、選択したHTTPのエンドポイントにペイロードが送信されます。
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
+{% data variables.product.prodname_secret_scanning %}が設定されたプライベートリポジトリでシークレットフォーマットへの一致が見つかった場合、リポジトリの管理者とコミッターにアラートが発せられ、{% data variables.product.prodname_dotcom %}上で{% data variables.product.prodname_secret_scanning %}の結果を見て管理できます。 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
 
-This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
+この記事では、サービスプロバイダーとして{% data variables.product.prodname_dotcom %}とパートナーになり、{% data variables.product.prodname_secret_scanning %}パートナープログラムに参加する方法を説明します。
 
-## The {% data variables.product.prodname_secret_scanning %} process
+## {% data variables.product.prodname_secret_scanning %}のプロセス
 
-#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
+#### パブリックリポジトリにおける{% data variables.product.prodname_secret_scanning %}の動作
 
-The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
+以下の図は、パブリックリポジトリに対する{% data variables.product.prodname_secret_scanning %}のプロセスをまとめたもので、一致があった場合にサービスプロバイダへの検証エンドポイントに送信されています。
 
-![シークレットのスキャンニングと、サービスプロバイダーの検証エンドポイントへの一致の送信のプロセスのフロー図。](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
+![シークレットのスキャンニングと、サービスプロバイダーの検証エンドポイントへの一致の送信のプロセスのフロー図。](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %}フロー")
 
-## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
+## {% data variables.product.prodname_dotcom %}の{% data variables.product.prodname_secret_scanning %}プログラムへの参加
 
 1. プロセスを開始するために、{% data variables.product.prodname_dotcom %}に連絡してください。
 1. スキャンしたい関連シークレットを特定し、それらを捕捉するための正規表現を作成してください。
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
+1. パブリックリポジトリで見つかったシークレットの一致に対応するために、{% data variables.product.prodname_secret_scanning %}のメッセージペイロードを含む{% data variables.product.prodname_dotcom %}からのwebhookを受け付けるシークレットアラートサービスを作成してください。
 1. シークレットアラートサービスに、署名検証を実装してください。
 1. シークレットアラートサービスに、シークレットの破棄とユーザへの通知を実装してください。
-1. Provide feedback for false positives (optional).
+1. 誤検知に対するフィードバックを行ないます (任意)。
 
 ### プロセスを開始するための{% data variables.product.prodname_dotcom %}への連絡
 
-To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+登録のプロセスを開始するには、<a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>にメールを送信してください。
 
-You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
+{% data variables.product.prodname_secret_scanning %}プログラムの詳細が送信されます。手続きを進めるには、{% data variables.product.prodname_dotcom %}の参加規約に同意する必要があります。
 
 ### シークレットの特定と正規表現の作成
 
-To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
+シークレットをスキャンするには、{% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_secret_scanning %}に含める各シークレットについて以下の情報が必要です。
 
 * シークレットの種類に対する、ユニークで人が読める名前。 後にこれを使って、メッセージペイロード中の`Type`値が生成されます。
 * このシークレットの種類を見つける正規表現。 できるかぎり正確にしてください。そうすることで、誤検知の数を減らすことができます。
 * {% data variables.product.prodname_dotcom %}からのメッセージを受信するエンドポイントのURL。 これは各シークレットの種類ごとにユニークである必要はありません。
 
-Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+この情報を<a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>に送信してください。
 
 ### シークレットアラートサービスの作成
 
-提供したURLに、パブリックでインターネットからアクセスできるHTTPエンドポイントを作成してください。 When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
+提供したURLに、パブリックでインターネットからアクセスできるHTTPエンドポイントを作成してください。 パブリックリポジトリで正規表現への一致が見つかった場合、{% data variables.product.prodname_dotcom %}はHTTPの`POST`メッセージをエンドポイントに送信します。
 
 #### エンドポイントに送信されるPOSTの例
 
@@ -86,15 +87,15 @@ Content-Length: 0123
 
 {% note %}
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token (no scopes required) as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+**注釈**: 上記の公開鍵エンドポイントにリクエストを送信する際、レート制限に達する場合があります。 レート制限を回避するには、以下のサンプルで示すように個人アクセストークン (スコープ不要) を使うか、条件付きリクエストを利用できます。 詳しい情報については、「[REST APIを使ってみる](/rest/guides/getting-started-with-the-rest-api#conditional-requests)」を参照してください。
 
 {% endnote %}
 
-次のメッセージを受信したとして、以下のコードは署名検証の方法を示しています。 The code snippets assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens) to avoid hitting rate limits. The PAT does not need any scopes/permissions.
+次のメッセージを受信したとして、以下のコードは署名検証の方法を示しています。 このコードスニペットは、レート制限を回避するため、`GITHUB_PRODUCTION_TOKEN`という環境変数に生成されたPATが設定されていることを前提としています (https://github.com/settings/tokens)。 このPATには、スコープや権限は不要です。
 
 {% note %}
 
-**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
+**注釈**: 署名は生のメッセージ本文を利用して生成されます。 そのため、署名の検証にもJSONの文字列を解析して変換するのではなく、生のメッセージ本文を利用することが重要です。これは、メッセージの並べ替えやスペースの変更を避けるためです。
 
 {% endnote %}
 
@@ -273,7 +274,7 @@ openssl_key = OpenSSL::PKey::EC.new(current_key)
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
 ```
 
-**Validation sample in JavaScript**
+**JavaScriptでの検証サンプル**
 ```js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -317,15 +318,15 @@ const verify_signature = async (payload, signature, keyID) => {
 
 ### シークレットアラートサービスへのシークレットの破棄とユーザ通知の実装
 
-For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. これをシークレットアラートサービスへどのように実装するかは実装者に任されていますが、{% data variables.product.prodname_dotcom %}がメッセージを送信したすべてのシークレットは、公開され、侵害されたものと考えることをおすすめします。
+パブリックリポジトリでの{% data variables.product.prodname_secret_scanning %}では、シークレットアラートサービスを拡張して、公開されたシークレットを取り除き、影響されたユーザに通知できます。 これをシークレットアラートサービスへどのように実装するかは実装者に任されていますが、{% data variables.product.prodname_dotcom %}がメッセージを送信したすべてのシークレットは、公開され、侵害されたものと考えることをおすすめします。
 
-### Provide feedback for false positives
+### 誤検知に対するフィードバック
 
-We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+当社は、パートナーのレスポンスにおいて検出された個々のシークレットについて、妥当性のフィードバックを収集しています。 参加を希望する場合は、<a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>までメールでご連絡ください。
 
-When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential. We accept feedback in the following formats.
+当社がシークレットを報告する際は、トークン、型識別子、コミットURLを含む各要素のJSON配列を送信します。 当社がフィードバックを受け取る際、あなたは検出されたトークンが正しい認証情報を持っているかいないかについての情報を送信します。 フィードバックは以下のフォーマットで受け取ります。
 
-You can send us the raw token:
+生のトークンは以下のように送信できます。
 
 ```
 [
@@ -336,7 +337,7 @@ You can send us the raw token:
   }
 ]
 ```
-You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
+また、SHA-256を使用して一方向暗号化ハッシュを実行した後、ハッシュ形式でトークンを提供することも可能です。
 
 ```
 [
@@ -347,13 +348,13 @@ You may also provide the token in hashed form after performing a one way cryptog
   }
 ]
 ```
-A few important points:
-- You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
-- For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
-- The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
+重要な点をいくつか挙げます。
+- トークンは、生の形式 ("token_raw") またはハッシュ形式 ("token_hash") のいずれか1つだけを送信してください。両方を送信しないでください。
+- 生のトークンをハッシュ化する場合、SHA-256のみを使用します。他のハッシュ化アルゴリズムは使用しないでください。
+- ラベルは、トークンが真陽性 ("true_positive") か誤検知 ("false_positive") かを示します。 これら2つの、小文字のリテラル文字列のみを受け付けます。
 
 {% note %}
 
-**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+**注釈:** 誤検知に関するデータを提供するパートナーに対しては、リクエストタイムアウトの値を大きめ (30秒) に設定します。 30秒よりも長めのタイムアウトが必要な場合、<a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>までメールでご連絡ください。
 
 {% endnote %}

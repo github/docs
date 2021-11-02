@@ -12,6 +12,7 @@ redirect_from:
 versions:
   ghes: '>=3.1'
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -27,7 +28,7 @@ shortTitle: View Advanced Security usage
 
 You can check how many seats your license includes and how many of them are currently used.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

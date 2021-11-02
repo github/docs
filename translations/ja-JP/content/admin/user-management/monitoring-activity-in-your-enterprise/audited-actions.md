@@ -84,7 +84,6 @@ topics:
 | `issue_comment.update` | Issue （最初以外）のコメントが変更されました。                                                                                           |
 | `issue.destroy`        | Issue がリポジトリから削除されました。 詳しい情報については、「[>Issue を削除する](/github/managing-your-work-on-github/deleting-an-issue)」を参照してください。 |
 
-
 ## Organization
 
 | アクション              | 説明                                                                                                                                                                                             |
@@ -144,12 +143,12 @@ topics:
 
 ## Team
 
-| アクション                     | 説明                                                                   |
-| ------------------------- | -------------------------------------------------------------------- |
-| `team.create`             | ユーザアカウントまたはリポジトリが Team に追加されました。                                     |
-| `team.delete`             | ユーザアカウントまたはリポジトリが Team から削除されました。{% ifversion ghes > 2.22 or ghae %}
+| アクション                     | 説明                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `team.create`             | ユーザアカウントまたはリポジトリが Team に追加されました。                                                  |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | ユーザがチームメンテナからチームメンバーに降格されました。{% endif %}
-| `team.destroy`            | Team が削除されました。{% ifversion ghes > 2.22 or ghae %}
+| `team.destroy`            | Team が削除されました。{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | ユーザーがチームメンバーからチームメンテナに昇格しました。{% endif %}
 
 ## ユーザ
@@ -165,7 +164,7 @@ topics:
 | `user.destroy`                  | ユーザが自分のアカウントを削除し、`user.async_delete` をトリガーしました。{% ifversion ghes %}
 | `user.failed_login`             | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                               |
 | `user.forgot_password`          | ユーザがサインインページでパスワードリセットを申請しました。{% endif %}
-| `user.login`                    | ユーザがサインインしました。{% ifversion ghes > 2.22 or ghae %}
+| `user.login`                    | ユーザがサインインしました。{% ifversion ghes or ghae %}
 | `user.mandatory_message_viewed` | ユーザが必須メッセージを表示します（詳細については、「[ユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください） | {% endif %}
 | `user.promote`                  | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                  |
 | `user.remove_email`             | ユーザアカウントからメールアドレスが削除されました。                                                                                                                    |

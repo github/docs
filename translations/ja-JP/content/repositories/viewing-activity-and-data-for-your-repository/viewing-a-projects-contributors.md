@@ -1,6 +1,6 @@
 ---
 title: プロジェクトのコントリビューターを表示する
-intro: 'リポジトリへのコミットにコントリビュートした人{% ifversion fpt %}とその依存関係{% endif %}を表示できます。'
+intro: 'リポジトリへのコミットにコントリビュートした人{% ifversion fpt or ghec %}とその依存関係{% endif %}を表示できます。'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: View project contributors
@@ -21,7 +22,7 @@ shortTitle: View project contributors
 
 コントリビューターグラフで{% ifversion ghes or ghae %}、コミットの共作者を含めて{% endif %}、リポジトリに貢献した上位 100 人のコントリビューターを表示できます。 マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 プロジェクトの Python 依存関係に貢献した人のリストも表示されます。 この、コミュニティコントリビューターのリストを表示するには、`https://github.com/REPO-OWNER/REPO-NAME/community_contributors` にアクセスしてください。
 {% endif %}
 
@@ -47,4 +48,4 @@ shortTitle: View project contributors
 
 リポジトリ内のあなたのコミットがすべてデフォルト以外のブランチにある場合、コントリビュータグラフには表示されません。 たとえば、`gh-pages`ブランチに対して行われたコミットは、`gh-pages`がリポジトリのデフォルトのブランチでない限り、グラフに含まれません。 コミットをデフォルトブランチにマージするため、プルリクエストを作成できます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)を参照してください。
 
-コミットの作成に使用したメールアドレスが {% data variables.product.product_name %} のアカウントに接続されていない場合、コミットはアカウントにリンクされず、コントリビュータグラフに表示されません。 詳しい情報については、「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address){% ifversion not ghae %}」および「[{% data variables.product.product_name %} アカウントにメールアドレスを追加する](/articles/adding-an-email-address-to-your-github-account){% endif %}」を参照してください。
+コミットの作成に使用したメールアドレスが {% data variables.product.product_name %} のアカウントに接続されていない場合、コミットはアカウントにリンクされず、コントリビュータグラフに表示されません。 詳しい情報については、「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address){% ifversion not ghae %}」および「[{% data variables.product.prodname_dotcom %} アカウントにメールアドレスを追加する](/articles/adding-an-email-address-to-your-github-account){% endif %}」を参照してください。

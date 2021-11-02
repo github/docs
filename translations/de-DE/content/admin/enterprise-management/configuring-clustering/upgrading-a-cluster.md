@@ -79,7 +79,7 @@ Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {% data variables.product.
   > gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
   > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
   ```
-5. Der Upgrade-Prozess startet den primären MySQL-Knoten nach dem Abschluss neu. Verify that you can `ping` each node after it reboots.{% ifversion ghes > 2.22 %}
+5. Der Upgrade-Prozess startet den primären MySQL-Knoten nach dem Abschluss neu. Verify that you can `ping` each node after it reboots.{% ifversion ghes %}
 6. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
 7. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
 8. Führen Sie an der Verwaltungsshell eines beliebigen Knotens den Befehl `ghe-cluster-maintenance -u` aus, um den Wartungsmodus zu beenden.

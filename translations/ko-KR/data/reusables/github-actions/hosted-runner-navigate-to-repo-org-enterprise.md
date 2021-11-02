@@ -12,4 +12,4 @@
    * **If using an enterprise-level runner**: Under "{% octicon "law" aria-label="The law icon" %} Policies", click **Actions**.
 
      ![Actions setting](/assets/images/help/settings/actions-enterprise-policies.png)
-  
+

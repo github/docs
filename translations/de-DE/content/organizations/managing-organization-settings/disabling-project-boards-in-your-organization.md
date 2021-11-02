@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Disable project boards
@@ -18,7 +19,7 @@ Wenn Du organisationsweite Projektboards deaktiviert hast, kannst Du keine neuen
 
 Wenn Du Repository-Projektboards in einer Organisation deaktiviert hast, kannst Du keine neuen Projektboards in den Repositorys der Organisation mehr erstellen. Auf vorhandene Projektboards in Repositorys der Organisation kannst Du nicht mehr über deren frühere URL zugreifen. Projektboards auf Organisationsebene sind nicht betroffen.
 
-Wenn Du Projektboards deaktivierst, kannst du keine Projektboard-Informationen mehr in Zeitleisten oder [Auditprotokollen](/articles/reviewing-the-audit-log-for-your-organization/) sehen.
+Wenn Du Projektboards deaktivierst, kannst du keine Projektboard-Informationen mehr in Zeitleisten oder [Auditprotokollen](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization) sehen.
 
 
 {% data reusables.profile.access_org %}

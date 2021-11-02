@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: Change insight visibility
 
 Organisationsinhaber können Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke der Organisation festlegen. Standardmäßig können alle Mitglieder einer Organisation die Abhängigkeiten-Einblicke der Organisation anzeigen.
 
-Enterprise-Inhaber können Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke aller Organisationen im Enterprise-Konto festlegen. Weitere Informationen findest Du unter „[Eine Richtlinie für Abhängigkeiten-Einblicke in Deinem Enterprise-Konto erzwingen](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account).“
+Enterprise-Inhaber können Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke aller Organisationen im Enterprise-Konto festlegen. For more information, see "[Enforcing policies for dependency insights in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

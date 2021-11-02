@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Remove files
 ---
 
@@ -39,9 +40,9 @@ shortTitle: Remove files
 
 ## {% data variables.large_files.product_name_short %}-Objekte in Ihrem Repository
 
-Die {% data variables.large_files.product_name_short %}-Objekte von Dateien, die Sie aus {% data variables.large_files.product_name_short %} entfernt haben, sind nach wie vor im Remote-Speicher vorhanden{% ifversion fpt %} und werden Ihrer {% data variables.large_files.product_name_short %}-Speicher-Quota weiterhin angerechnet{% endif %}.
+Die {% data variables.large_files.product_name_short %}-Objekte von Dateien, die Sie aus {% data variables.large_files.product_name_short %} entfernt haben, sind nach wie vor im Remote-Speicher vorhanden{% ifversion fpt or ghec %} und werden Ihrer {% data variables.large_files.product_name_short %}-Speicher-Quota weiterhin angerechnet{% endif %}.
 
-Um {% data variables.large_files.product_name_short %}-Objekte aus einem Repository zu entfernen, {% ifversion fpt %}lösche und erstelle das Repository erneut. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
+Um {% data variables.large_files.product_name_short %}-Objekte aus einem Repository zu entfernen, {% ifversion fpt or ghec %}lösche und erstelle das Repository erneut. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
 
 {% note %}
 

@@ -7,6 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot

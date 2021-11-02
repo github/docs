@@ -7,11 +7,15 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/restoring-a-deleted-repository
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 shortTitle: Restore deleted repository
 ---
 
+{% ifversion fpt or ghec %}
 Alle Benutzer können gelöschte Repositorys wiederherstellen, die zu ihrem eigenen Benutzerkonto gehörten. Organisationsinhaber können gelöschte Repositorys wiederherstellen, die im Eigentum der Organisation standen.
 
 ## Informationen zur Repository-Wiederherstellung
@@ -44,3 +48,7 @@ Beim Wiederherstellen eines Repositorys werden etwaige Releaseanhänge oder Team
 ## Weiterführende Informationen
 
 - „[Repository löschen](/articles/deleting-a-repository)“
+
+{% else %}
+Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. Weitere Informationen findest Du unter „[Ein gelöschtes Repository wiederherstellen](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository).“
+{% endif %}

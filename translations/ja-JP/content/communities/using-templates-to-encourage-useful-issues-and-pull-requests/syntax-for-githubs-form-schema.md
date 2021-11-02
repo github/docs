@@ -3,6 +3,7 @@ title: GitHub のフォームスキーマの構文
 intro: '{% data variables.product.company_short %} のフォームスキーマを使用して、サポートされている機能のフォームを設定できます。'
 versions:
   fpt: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community

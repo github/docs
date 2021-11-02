@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -35,6 +36,8 @@ Sie können außerdem mit LDAP Sync {% data variables.product.product_location %
 ## Sichtbarkeit eines Teams
 
 {% data reusables.organizations.types-of-team-visibility %}
+
+You can view all the teams you belong to on your personal dashboard. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams).“
 
 ## Teamseiten
 

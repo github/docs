@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -68,7 +69,7 @@ origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</e
 
 Ihr Benutzername folgt unmittelbar auf `https://{% data variables.command_line.backticks %}/`.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Weiterführende Informationen
 
 - „[Eigene E-Mail-Adresse überprüfen](/articles/verifying-your-email-address)“

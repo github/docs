@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Entender la sintaxis de búsqueda
@@ -86,7 +87,7 @@ Si tu consulta de búsqueda contiene espacios en blanco, tendrás que encerrarla
 
 Algunos símbolos que no son alfanuméricos, como los espacios, se quitan de las consultas de búsqueda de código que van entre comillas; por lo tanto, los resultados pueden ser imprevistos.
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Consultas con nombres de usuario
 
 Si tu consulta de búsqueda contiene un calificador que requiere un nombre de usuario, tal como `user`, `actor`, o `assignee`, puedes utilizar cualquier nombre de usuario de {% data variables.product.product_name %} para especificar una persona en concreto, o utilizar `@me`, para especificar el usuario actual.

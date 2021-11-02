@@ -3,7 +3,7 @@ title: 在启用 GitHub Actions 的情况下备份和恢复 GitHub Enterprise Se
 shortTitle: 备份和恢复
 intro: '外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在常规 {% data variables.product.prodname_ghe_server %} 备份中，必须单独备份。'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions

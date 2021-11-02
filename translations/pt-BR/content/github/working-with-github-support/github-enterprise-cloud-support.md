@@ -7,6 +7,7 @@ redirect_from:
 intro: 'O {% data variables.product.prodname_ghe_cloud %} inclui um tempo de resposta alvo de oito horas para solicitações de suporte prioritárias, de segunda a sexta-feira, em seu fuso horário local.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub Enterprise Cloud
@@ -17,6 +18,8 @@ shortTitle: GitHub Enterprise Cloud
 **Observação: ** clientes {% data variables.product.prodname_ghe_cloud %} podem assinar o {% data variables.contact.premium_support %}. Para obter mais informações, consulte "[Sobre o {% data variables.contact.premium_support %} para o {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)".
 
 {% endnote %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 É possível enviar perguntas prioritárias se você tiver comprado o {% data variables.product.prodname_ghe_cloud %} ou se for integrante, colaborador externo ou gerente de cobrança de uma organização {% data variables.product.prodname_dotcom %} atualmente assinante do {% data variables.product.prodname_ghe_cloud %}.
 

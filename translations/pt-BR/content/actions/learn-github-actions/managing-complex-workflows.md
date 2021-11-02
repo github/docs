@@ -1,11 +1,12 @@
 ---
 title: Gerenciar fluxos de trabalhos complexos
 shortTitle: Gerenciar fluxos de trabalhos complexos
-intro: 'Este guia mostra como usar as funcionalidades avançadas de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação{% ifversion fpt or ghes > 3.0 or ghae %} ambientes,{% endif %} e etiquetas.'
+intro: 'Este guia mostra como usar as funcionalidades avançadas de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação{% ifversion fpt or ghes > 3.0 or ghae or ghec %} ambientes,{% endif %} e etiquetas.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -13,6 +14,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Visão Geral
 
@@ -87,7 +89,7 @@ jobs:
 
 Para obter mais informações, consulte [`>jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Memorizar dependências
 
 Executores hospedados em {% data variables.product.prodname_dotcom %} são iniciados como ambientes novos para cada trabalho. Portanto, se os seus trabalhos reutilizam dependências regularmente, você pode considerar fazer armazenamento em cache desses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
@@ -171,7 +173,7 @@ Etiquetas de executores hospedados em {% data variables.product.prodname_dotcom 
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 ## Usar ambientes
 

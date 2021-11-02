@@ -5,6 +5,7 @@ redirect_from:
   - /forum
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 children:

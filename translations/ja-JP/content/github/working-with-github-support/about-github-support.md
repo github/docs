@@ -5,6 +5,7 @@ redirect_from:
   - /articles/about-github-support
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -25,12 +26,14 @@ topics:
 
 ## {% data variables.contact.github_support %} への連絡
 
+{% data reusables.support.zendesk-deprecation %}
+
 {% data variables.contact.community_support_forum %} を使用して、トピックの閲覧、質問、ソリューションの共有、{% data variables.contact.community_support %} との直接やり取りができます。
 
 アカウント、セキュリティ、不正使用の問題の報告、または有料アカウントのサポートを受けるには、{% data variables.contact.contact_support_portal %}にアクセスしてください。 {% data variables.product.prodname_dotcom_the_website %} にユーザアカウントを持たない {% data variables.product.prodname_ghe_server %} の管理者の場合は、{% data variables.contact.contact_enterprise_portal %} にアクセスしてください。 Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
 
 ## プライベートリポジトリへの一時アクセスを {% data variables.contact.github_support %} に許可する
 
-サポートリクエストへの対応のために{% data variables.contact.github_support %}がプライベートリポジトリにアクセスしなければならない場合、リポジトリのオーナーは一時的なアクセスの許可もしくは拒否のリンクを含むメールを受け取ります。 オーナーは 20 日以内にリクエストを受け入れるか拒否してください。それを過ぎるとリクエストは有効期限切れになります。 オーナーがリクエストを受け入れると、{% data variables.contact.github_support %} はリポジトリに 5 日間アクセスできるようになります。
+サポートリクエストに対応するために {% data variables.contact.github_support %} がプライベートリポジトリにアクセスしなければならない場合、リポジトリのオーナーは一時的なアクセスを受け入れるか拒否するリンクが含まれているメールを受け取ります。 オーナーは 20 日以内にリクエストを受け入れるか拒否してください。それを過ぎるとリクエストは有効期限切れになります。 オーナーがリクエストを受け入れると、{% data variables.contact.github_support %} はリポジトリに 5 日間アクセスできるようになります。
 
-{% data variables.contact.github_support %} は、明示的な合意をいただかない限り、プライベートリポジトリには決してアクセスしません。 詳細は「[利用規約](/articles/github-terms-of-service#3-access)」を参照してください。
+{% data variables.contact.github_support %} は、明示的な合意をいただかない限り、プライベートリポジトリには決してアクセスしません。 詳細は「[利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access)」を参照してください。

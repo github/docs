@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: View subscriptions
@@ -38,7 +39,7 @@ Wenn Dein Posteingang zu viele Benachrichtigungen zum Verwalten hat, überlege D
 Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)."
 
 Eine Übersicht Deiner Repository-Abonnements findest Du unter „[Repositorys überprüfen, die Du beobachtest](#reviewing-repositories-that-youre-watching).
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 {% tip %}
 
 **Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.product_name %}. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
@@ -70,7 +71,7 @@ Viele Personen vergessen Repositorys, die sie in der Vergangenheit beobachtet ha
 
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Watched repositories** (beobachtete Repositorys). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Evaluiere die von Dir beobachteten Repositorys und entscheide, ob deren Aktualisierungen für Dich immer noch relevant und hilfreich sind. Wenn Du ein Repository beobachtest, wirst Du über alle Unterhaltungen für dieses Repository benachrichtigt.
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
   ![Seite der beobachteten Benachrichtigungen](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 {% else %}
   ![Seite der beobachteten Benachrichtigungen](/assets/images/help/notifications-v2/watched-notifications.png)
@@ -78,7 +79,7 @@ Viele Personen vergessen Repositorys, die sie in der Vergangenheit beobachtet ha
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications {% ifversion fpt or ghes > 3.0 or ghae-next %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+  **Tip:** Instead of watching a repository, consider only receiving notifications {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
 
   Wenn Du ein Repository nicht mehr beobachtest, kannst du immer noch benachrichtigt werden, wenn Du @erwähnt wirst oder in einem Thread teilnimmst. When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
 

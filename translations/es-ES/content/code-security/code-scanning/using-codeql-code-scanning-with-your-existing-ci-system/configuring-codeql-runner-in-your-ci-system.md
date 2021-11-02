@@ -12,8 +12,9 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -190,7 +191,7 @@ Analiza el código en las bases de datos de {% data variables.product.prodname_c
 | `--no-upload`                        |           | Ninguno. Impide que el {% data variables.product.prodname_codeql_runner %} cargue los resultados a {% data variables.product.product_name %}.                                                                                                                                                                                                                              |
 | `--output-dir`                       |           | Directorio en donde se almacenan los archivos SARIF de salida. El predeterminado está en el directorio de archivos temporales.                                                                                                                                                                                                                                               |
 | `--ram`                              |           | Cantidad de memoria a utilizar cuando ejecutes consultas. El valor predeterminado es utilizar toda la memoria disponible.                                                                                                                                                                                                                                                    |
-| <nobr>`--no-add-snippets`</nobr>   |           | Ninguno. Excluye los fragmentos de código de la salida de SARIF. |{% ifversion fpt or ghes > 3.1 or ghae %}
+| <nobr>`--no-add-snippets`</nobr>   |           | Ninguno. Excluye los fragmentos de código de la salida de SARIF. |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | <nobr>`--category`<nobr>             |           | Categoría para incluir el archivo de resultados SARIF para este análisis. La categoría puede utilizarse pra distinguir análisis múltiples de la misma herramienta y confirmación, pero que se llevan a cabo en lenguajes diferentes o en partes diferentes del código. Este valor aparecerá en la propiedad `<run>.automationDetails.id` de SARIF v2.1.0. 
 {% endif %}
 | `--threads`                          |           | Cantidad de hilos a utilizar cuando se ejecutan las consultas. El valor predeterminado es utilizar todos los núcleos disponibles.                                                                                                                                                                                                                                            |
