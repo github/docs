@@ -44,7 +44,7 @@ By default, the validation only includes the audience (`aud`) condition, so you 
 "Condition": {
   "StringEquals": {
     "token.actions.githubusercontent.com:aud": "https://github.com/octo-org",
-    "token.actions.githubusercontent.com:sub": "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+    "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
 ```
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
@@ -84,7 +84,7 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: write    # This is required for actions/checkout@v1
+      contents: read    # This is required for actions/checkout@v1
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
