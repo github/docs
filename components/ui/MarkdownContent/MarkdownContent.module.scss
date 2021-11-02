@@ -44,6 +44,9 @@
         outline: none;
       }
     }
+    &:target {
+      scroll-margin-top: 75px;
+    }
   }
 
   [class~="note"],
