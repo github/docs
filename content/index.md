@@ -53,6 +53,7 @@ childGroups:
     children:
     - codespaces
     - repositories
+    - pull-requests
     - discussions
   - name: CI/CD and DevOps
     octicon: 'GearIcon'
@@ -113,4 +114,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-
