@@ -41,14 +41,9 @@ export const Header = () => {
 
   return (
     <div
-      className={`${
-        scroll
-          ? cx(
-              styles.header,
-              'border-bottom color-border-muted no-print position-sticky top-0 z-3 color-shadow-medium color-bg-default'
-            )
-          : 'border-bottom color-border-muted no-print position-sticky top-0 z-3 color-shadow-small'
-      }`}
+      className={`border-bottom color-border-muted no-print position-sticky top-0 z-3  ${
+        scroll ? 'color-shadow-medium' : 'color-shadow-small'
+      } color-bg-default`}
     >
       {error !== '404' && <HeaderNotifications />}
 
@@ -58,7 +53,7 @@ export const Header = () => {
           className="d-none d-lg-flex flex-justify-end flex-items-center"
           data-testid="desktop-header"
         >
-          <div className="mr-auto">
+          <div className={cx('mr-auto', scroll && styles.breadcrumbs)}>
             <Breadcrumbs />
           </div>
           {showVersionPicker && (
