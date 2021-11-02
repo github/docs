@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Fluxo de criação de manifesto do aplicativo
@@ -60,7 +61,7 @@ A pessoa que está criando o aplicativo será redirecionada para uma página do 
  | `name`                | `string`           | O nome do aplicativo GitHub.                                                                                                                                                                                                                                  |
  | `url`                 | `string`           | **Obrigatório.** A página inicial do seu aplicativo GitHub.                                                                                                                                                                                                   |
  | `hook_attributes`     | `objeto`           | A configuração do webhook do aplicativo GitHub.                                                                                                                                                                                                               |
- | `redirect_url`        | `string`           | O URL completo para onde redirecionar um usuário iniciar a criação de um aplicativo GitHub a partir de um manifesto.{% ifversion fpt or ghae-next or ghes > 3.0 %}
+ | `redirect_url`        | `string`           | O URL completo para onde redirecionar um usuário iniciar a criação de um aplicativo GitHub a partir de um manifesto.{% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}
  | `callback_urls`       | `array de strigns` | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação. Você pode fornecer até 10 URLs de chamada de retorno.{% else %}
  | `callback_url`        | `string`           | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação.{% endif %}
  | `descrição`           | `string`           | Uma descrição do aplicativo GitHub.                                                                                                                                                                                                                           |
@@ -100,7 +101,7 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae-next or ghes > 3.0 %}"callback_urls": [
+   {% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
@@ -135,7 +136,7 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae-next or ghes > 3.0 %}"callback_urls": [
+   {% ifversion fpt or ghae-next or ghes > 3.0 or ghec %}"callback_urls": [
      "https://example.com/callback"
    ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,

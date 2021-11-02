@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
@@ -65,8 +66,16 @@ Cuando creas una regla de rama, la rama que especifiques no tendrá que en el re
 {%- endif %}
 1. Opcionalmente, selecciona **Requerir confirmaciones firmadas**. ![Opción Requerir confirmaciones firmadas](/assets/images/help/repository/require-signed-commits.png)
 1. Opcionalmente, selecciona **Requerir un historial linear**. ![Opción para requerir historial linear](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %} ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
+
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+
+  {% endtip %}
+{%- endif %}
 1. También puedes seleccionar **Incluir administradores**. ![Casilla de verificación Incluir administradores](/assets/images/help/repository/include-admins-protected-branches.png)
-1. Opcionalmente,{% ifversion fpt %} si tu repositorio pertenece a una organización que utilice {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %},{% endif %} habilita las restricciones de rama.
+1. Opcionalmente,{% ifversion fpt or ghec %} si tu repositorio pertenece a una organización que utilice {% data variables.product.prodname_team %} o {% data variables.product.prodname_ghe_cloud %},{% endif %} habilita las restricciones de rama.
    - Selecciona **Restringir quién puede subir a las ramas coincidentes**. ![Casilla de verificación para restricción de rama](/assets/images/help/repository/restrict-branch.png)
    - Busca y selecciona las personas, equipos, o apps que tendrán permiso para subir información a la rama protegida. ![Búsqueda de restricciones de rama](/assets/images/help/repository/restrict-branch-search.png)
 1. Opcionalmente, debajo de "Reglas que se aplican a todos, incluyendo administradores", selecciona **permitir las subidas forzadas**. ![Permitir la opción de subida de información forzada](/assets/images/help/repository/allow-force-pushes.png)

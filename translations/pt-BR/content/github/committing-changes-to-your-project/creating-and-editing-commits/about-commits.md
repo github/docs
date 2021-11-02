@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Sobre commits
@@ -17,7 +18,7 @@ versions:
 
 Você pode adicionar um coautor em qualquer commit em que colaborar. Para obter mais informações, consulte "[Criar um commit com vários autores](/github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Também é possível criar um commit em nome de uma organização. Para obter mais informações, consulte "[Criar um commit em nome de uma organização](/github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization)".{% endif %}
 
 O rebase permite que você altere uma série de commits e pode modificar a ordem dos commits na sua linha do tempo. Para obter mais informações, consulte "[Sobre o rebase do git](/github/getting-started-with-github/about-git-rebase)".

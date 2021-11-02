@@ -7,6 +7,7 @@ redirect_from:
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

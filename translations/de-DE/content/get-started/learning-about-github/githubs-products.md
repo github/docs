@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -77,7 +78,7 @@ Zusätzlich zu den mit {% data variables.product.prodname_free_team %} verfügba
   - Entwürfe für Pull Requests
   - Team-Pull-Request-Reviewer
   - Geplante Erinnerungen
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - The option to enable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can enable {% data variables.product.prodname_github_codespaces %} for the organization by setting a spending limit and granting user permissions for members of their organization. For more information, see "[Enabling Codespaces for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)."
 {% endif %}
@@ -93,8 +94,8 @@ Zusätzlich zu den mit {% data variables.product.prodname_team %} verfügbaren F
 - zusätzliche Steuerungsoptionen für Sicherheit, Compliance und Bereitstellung
 - Authentifizierung mit SAML Single Sign-On
 - Zugriffsbereitstellung mit SAML oder SCIM
-- {% data variables.product.prodname_github_connect %}{% ifversion fpt or ghae or ghes > 2.22 %}
-- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}
+- {% data variables.product.prodname_github_connect %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)“.
 
 {% data variables.product.prodname_ghe_cloud %} umfasst außerdem
 - {% data variables.contact.enterprise_support %}. Weitere Informationen findest Du unter „<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Support</a>“ und „<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Nachtrag</a>.“
@@ -102,8 +103,8 @@ Zusätzlich zu den mit {% data variables.product.prodname_team %} verfügbaren F
 - 50 GB {% data variables.product.prodname_registry %}-Speicher
 - Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
 - A service level agreement for 99.9% monthly uptime
-- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "<a href="/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users" class="dotcom-only">About {% data variables.product.prodname_emus %}</a>."
-- Die Option, die Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen mit Enterprise-Konto zentral zu verwalten. Weitere Informationen findest Du unter "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>" (Über Enterprise-Konten).
+- The option to configure your enterprise for {% data variables.product.prodname_emus %}, so you can provision and manage members with your identity provider and restrict your member's contributions to just your enterprise. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+- Die Option, die Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen mit Enterprise-Konto zentral zu verwalten. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).“
 
 Du kannst eine Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} zu testen. Weitere Informationen findest Du unter „<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Eine Testversion von {% data variables.product.prodname_ghe_cloud %} einrichten</a>.“
 

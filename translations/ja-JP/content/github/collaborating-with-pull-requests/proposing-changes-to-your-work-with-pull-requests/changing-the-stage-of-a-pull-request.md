@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのステージの変更
-intro: 'プルリクエストのドラフトをレビュー準備完了としてマークしたり{% ifversion fpt or ghae or ghes %}、プルリクエストをドラフトに変換したりすることができます{% endif %}。'
+intro: 'プルリクエストのドラフトをレビュー準備完了としてマークしたり{% ifversion fpt or ghae or ghes or ghec %}、プルリクエストをドラフトに変換したりすることができます{% endif %}。'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Change the state
@@ -20,7 +21,7 @@ shortTitle: Change the state
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
@@ -32,7 +33,7 @@ shortTitle: Change the state
 2. プルリクエストのリストで、レビューの準備ができたことを示すマークを付けたいプルリクエストクリックします。
 3. マージボックスで、[**Ready for review**] をクリックします。 ![[Ready for review] ボタン](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## プルリクエストをドラフトに変換する
 

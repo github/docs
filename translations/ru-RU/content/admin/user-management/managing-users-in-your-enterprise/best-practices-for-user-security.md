@@ -31,4 +31,4 @@ We strongly recommend requiring your users to install and use a password manager
 
 To limit the potential attack surface in the event of a security breach, we strongly recommend only giving users access to teams and repositories that they absolutely need to do their work. Since members with the Owner role can access all teams and repositories in the organization, we strongly recommend keeping this team as small as possible.
 
-For more information on configuring teams and team permissions, see "[Permission levels for an organization repository](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
+For more information on configuring teams and team permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."

@@ -9,7 +9,7 @@ Mitglieder mit Team-Betreuer-Berechtigungen können folgende Aktionen durchführ
 - [Teamdiskussionen löschen](/articles/managing-disruptive-comments/#deleting-a-comment)
 - [Dem Team Organisationsmitglieder hinzufügen](/articles/adding-organization-members-to-a-team)
 - [Organisationsmitglieder aus dem Team entfernen](/articles/removing-organization-members-from-a-team)
-- [Ein vorhandenes Teammitglied zum Team-Betreuer hochstufen](/articles/giving-team-maintainer-permissions-to-an-organization-member)
-- Entfernen des Zugriffs eines Teams auf Repositorys{% ifversion fpt or ghes or ghae %}
-- [Code-Review-Zuweisung für das Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt %}
+- [Ein vorhandenes Teammitglied zum Team-Betreuer hochstufen](/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member)
+- Entfernen des Zugriffs eines Teams auf Repositorys{% ifversion fpt or ghes or ghae or ghec %}
+- [Code-Review-Zuweisung für das Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
 - [Geplante Erinnerungen für Pull Requests verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

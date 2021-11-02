@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Informationen zu Gists
@@ -37,7 +38,7 @@ In folgenden Fällen erhältst Du eine Benachrichtigung:
 - Jemand erwähnt Dich in einem Gist.
 - You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Du kannst Gists an Deinem Profil anheften, damit andere Personen sie leichter sehen. Weitere Informationen finden Sie unter „[Elemente an Ihr Profil anheften](/articles/pinning-items-to-your-profile)“.
 
@@ -49,7 +50,7 @@ Da es sich bei Gists um Git-Repositorys handelt, kannst Du ihren vollständigen 
 
 Um eine ZIP-Datei eines Gists herunterzuladen, klicke oben im Gist auf die Schaltfläche **Download ZIP** (ZIP herunterladen). Du kannst einen Gist in jedem Textfeld einbetten, das JavaScript unterstützt, z. B. in Blog-Beiträgen. Um den eingebetteten Code abzurufen, klicke neben der **Einbettungs-URL** eines Gists auf das Symbol für die Zwischenablage. Um eine bestimmte Gist-Datei einzubetten, hänge an die **Einbettungs-URL** `?file=FILENAME` an.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in eingebetteten Gists angezeigt, sodass Du die Karten leicht freigeben und einbetten kannst. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
 
@@ -59,7 +60,7 @@ Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in ein
 
 Follow the steps below to create a gist.
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.

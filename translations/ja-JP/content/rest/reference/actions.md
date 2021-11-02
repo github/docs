@@ -1,17 +1,18 @@
 ---
 title: アクション
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /v3/actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_actions %} API では、REST API を使用して {% data variables.product.prodname_actions %} を管理できます。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. 詳しい情報については、「[{% data variables.product.prodname_actions %} のドキュメント](/actions)」を参照してください。
 
@@ -29,7 +30,7 @@ miniTocMaxHeadingLevel: 3
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## 権限
 
 権限 API では、どの組織とリポジトリが {% data variables.product.prodname_actions %} を実行できるか、どのアクションを実行できるかについて権限を設定できます。 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)」を参照してください。

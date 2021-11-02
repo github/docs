@@ -1,6 +1,6 @@
 ---
 title: Salvar repositórios com estrelas
-intro: 'Você pode favoritar repositórios e tópicos para acompanhar projetos que você considera interessantes{% ifversion fpt %} e descobrir conteúdo relacionado no seu feed de notícias{% endif %}.'
+intro: 'Você pode favoritar repositórios e tópicos para acompanhar projetos que você considera interessantes{% ifversion fpt or ghec %} e descobrir conteúdo relacionado no seu feed de notícias{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Salve repositórios com estrelas
@@ -24,7 +25,7 @@ Você pode pesquisar, classificar e filtrar seus repositórios e tópicos com es
 
 A estrela facilita a localização posterior de um repositório ou tópico. Você pode ver todos os repositórios e tópicos marcados com estrelas acessando sua {% data variables.explore.your_stars_page %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Você pode favoritar repositórios e tópicos para descobrir projetos semelhantes em {% data variables.product.product_name %}. Quando você marca repositórios ou tópicos com estrelas, o {% data variables.product.product_name %} pode recomendar um conteúdo relacionado na exibição de descoberta do seu feed de notícias. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 

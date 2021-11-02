@@ -69,9 +69,9 @@ Es gibt zwei Snapshot-Typen:
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes %}Notes{% else %}Note{% endif %}**:
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
 
 - {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. Informationen zum Installieren eines Hotpatches in einer Clusterumgebung finden Sie unter „[Cluster-Upgrade](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)“.
@@ -232,7 +232,7 @@ Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{
 
 Um ein Rollback von einer Feature-Veröffentlichung durchzuführen, stellen Sie diese über einen VM-Snapshot wieder her, um sicherzustellen, dass die Root- und Datenpartitionen einen konsistenten Zustand aufweisen. Weitere Informationen finden Sie unter „[Snapshot erstellen](#taking-a-snapshot)“.
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Weiterführende Informationen
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"

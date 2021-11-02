@@ -10,8 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -87,7 +92,7 @@ Du kannst auch Workflows automatisieren, um Dein Projektboard mit dem Status der
 ## Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
-- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% ifversion fpt %}
+- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% ifversion fpt or ghec %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Ein Projektboard schließen](/articles/closing-a-project-board)“
 - „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards)“

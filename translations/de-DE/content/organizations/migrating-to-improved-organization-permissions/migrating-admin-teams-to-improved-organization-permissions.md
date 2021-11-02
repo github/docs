@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ Frühere Administratorenteams sind Teams, die mit der Administrator-Berechtigung
 
 Du kannst diese Berechtigung entfernen, indem Du Deine früheren Administratorenteams auf die optimierten Organisationsberechtigungen migrierst.
 
-Weitere Informationen finden Sie unter„[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“.
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 

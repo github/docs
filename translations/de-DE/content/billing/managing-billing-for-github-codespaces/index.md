@@ -4,6 +4,7 @@ shortTitle: Codespaces
 intro: 'Du kannst Deine Nutzung ansehen und ein Ausgabenlimit für {% data variables.product.prodname_codespaces %} setzen.'
 versions:
   fpt: '*'
+  ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 children:
   - /about-billing-for-codespaces

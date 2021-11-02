@@ -1,6 +1,6 @@
 ---
 title: Verwalten der Forking-Richtlinie für Dein Repository
-intro: 'Du kannst das Forken eines bestimmten privaten{% ifversion fpt or ghae or ghes %} oder internen{% endif %} Repositorys einer Organisation erlauben oder verhindern.'
+intro: 'Du kannst das Forken eines bestimmten privaten{% ifversion fpt or ghae or ghes or ghec %} oder internen{% endif %} Repositorys einer Organisation erlauben oder verhindern.'
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Die Forking-Richtlinie verwalten
 ---
 
-Ein Organisationsinhaber muss Forks von privaten{% ifversion fpt or ghae or ghes %} und internen{% endif %} Repositorys auf der Organisationsebene erlauben, bevor Du Forks für ein bestimmtes Repository erlauben oder verbieten kannst. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Deine Organisation verwalten](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+Ein Organisationsinhaber muss Forks von privaten{% ifversion fpt or ghae or ghes or ghec %} und internen{% endif %} Repositorys auf der Organisationsebene erlauben, bevor Du Forks für ein bestimmtes Repository erlauben oder verbieten kannst. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Deine Organisation verwalten](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -27,4 +28,4 @@ Ein Organisationsinhaber muss Forks von privaten{% ifversion fpt or ghae or ghes
 ## Weiterführende Informationen
 
 - „[Informationen zu Forks](/articles/about-forks)“
-- „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

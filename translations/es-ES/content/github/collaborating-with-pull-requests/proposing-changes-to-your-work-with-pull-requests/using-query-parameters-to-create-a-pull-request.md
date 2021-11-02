@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -17,7 +18,7 @@ Puedes utilizar parámetros de consulta para abrir solicitudes de cambios. Los p
 
 {% endtip %}
 
-Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una solicitud de cambios si quieres utilizar el parámetro de consulta `labels`. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
+Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una solicitud de cambios si quieres utilizar el parámetro de consulta `labels`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Si creas una URL inválida utilizando parámetros de consulta o si no tienes los permisos adecuados, la URL devolverá una página de error `404 Not Found`. Si creas una URL que exceda el límite del servidor, esta devolverá una página de error `414 URI Too Long`.
 

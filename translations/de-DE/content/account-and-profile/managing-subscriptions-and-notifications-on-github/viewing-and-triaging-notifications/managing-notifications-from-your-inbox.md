@@ -1,6 +1,6 @@
 ---
 title: Benachrichtigungen über Deinen Posteingang verwalten
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes > 2.22 %} and mobile{% endif %}.'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% ifversion fpt or ghes or ghec %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: Manage from your inbox
@@ -21,7 +22,7 @@ shortTitle: Manage from your inbox
 
 ## Über Deinen Posteingang
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings).“
 {% endif %}
 
@@ -98,7 +99,7 @@ Benutzerdefinierte Filter unterstützen im Moment nicht:
 These are the types of filters that you can use:
   - Nach Repository filtern mit `Repo:`
   - Nach Diskussionstyp filtern mit `is:`
-  - Filter by notification reason with `reason:`{% ifversion fpt %}
+  - Filter by notification reason with `reason:`{% ifversion fpt or ghec %}
   - Filter by notification author with `author:`
   - Filter by organization with `org:`{% endif %}
 
@@ -108,21 +109,21 @@ To add a `repo:` filter, you must include the owner of the repository in the que
 
 ### Unterstützte `is:`-Abfragen
 
-Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_location %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion not ghae %}
-- `is:repository-vulnerability-alert`
+- `is:repository-invitation`{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+- `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
-- `is:team-discussion`{% ifversion fpt %}
+- `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion not ghae %}
-For information about reducing noise from notifications for {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 Du kannst die Abfrage `is:` auch verwenden, um zu beschreiben, wie die Benachrichtigung selektiert wurde.
@@ -145,13 +146,13 @@ Um Benachrichtigungen nach dem Grund zu filtern, weshalb Du eine Aktualisierung 
 | `reason:invitation`       | Wenn Du in ein Team, eine Organisation oder ein Repository eingeladen wirst.                                                                  |
 | `reason:manual`           | Wenn Du auf einem Issue oder Pull Request **Subscribe** (Abonnieren) klickst, die Du noch nicht abonniert hattest.                            |
 | `reason:mention`          | Du wurdest direkt @erwähnt.                                                                                                                   |
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% ifversion not ghae %}
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
 | `reason:state-change`     | Wenn der Status eines Pull Request oder Issue geändert wird. Beispielsweise wird ein Issue geschlossen oder ein Pull Request zusammengeführt. |
 | `reason:team-mention`     | Wenn ein Team, dem Du angehörst, @erwähnt wird.                                                                                               |
 | `reason:ci-activity`      | Wenn ein Repository CI-Aktualisierungen hat, wie beispielsweise einen neuen Status für eine Workflow-Ausführung.                              |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
@@ -164,10 +165,10 @@ For example, to see notifications from the octo-org organization, use `org:octo-
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## {% data variables.product.prodname_dependabot %} custom filters
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
 - `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
@@ -176,8 +177,11 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
 {% endif %}
 
-{% ifversion ghes %}
-If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
+{% ifversion ghes or ghae-issue-4864 %}
+
+If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+- `is:repository_vulnerability_alert`
+- `reason:security_alert`
 
 For more information about {% data variables.product.prodname_dependabot %}, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 {% endif %}

@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Create an issue
+type: how_to
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."
@@ -88,7 +90,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from discussion
 
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 If you're using a project board to track and prioritize your work, you can convert project board notes to issues. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a project board](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from a task list item
 
@@ -127,7 +129,7 @@ You can use query parameters to open issues. Query parameters are optional parts
 
 {% endtip %}
 
-You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)."
+You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 

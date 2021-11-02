@@ -1,6 +1,6 @@
 ---
 title: Mover um arquivo para um novo local
-intro: 'You can move a file to a different directory on {% data variables.product.product_name %} or by using the command line.'
+intro: 'Você pode transferir um arquivo para um diretório diferente em {% data variables.product.product_name %} ou usando a linha de comando.'
 redirect_from:
   - /articles/moving-a-file-to-a-new-location
   - /github/managing-files-in-a-repository/moving-a-file-to-a-new-location
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Mover um arquivo
@@ -19,7 +20,7 @@ shortTitle: Mover um arquivo
 
 Além de alterar o local do arquivo, também é possível [atualizar o conteúdo de seu arquivo](/articles/editing-files-in-your-repository) ou [dar um novo nome a ele](/articles/renaming-a-file) no mesmo commit.
 
-## Moving a file to a new location on {% data variables.product.product_name %}
+## Transferindo um arquivo para um novo local em {% data variables.product.product_name %}
 
 {% tip %}
 

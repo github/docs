@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Collaboration
 ---
 
@@ -31,7 +32,7 @@ Weitere Informationen über Pointer-Dateien findest Du unter „[Über {% data v
 
 Um Änderungen an großen Dateien zu sehen, checke den Pull Request lokal aus, um den Diff zu überprüfen. Weitere Informationen findest Du unter "[Pull Requests lokal ausckecken](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Große Dateien zu Forks pushen
 

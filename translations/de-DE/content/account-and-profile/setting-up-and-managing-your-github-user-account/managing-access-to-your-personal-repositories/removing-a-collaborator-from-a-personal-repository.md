@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -29,7 +30,7 @@ Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. Klicke rechts neben dem Mitarbeiter, den Du entfernen möchtest, auf {% octicon "trash" aria-label="The trash icon" %}. ![Schaltfläche „Remove collaborator" (Entfernen des Mitarbeiters)](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

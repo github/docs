@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Create from a template
@@ -18,7 +19,7 @@ shortTitle: Create from a template
 
 Jeder, der über Leseberechtigung auf eine Repository-Vorlage verfügt, kann ein Repository anhand dieser Vorlage erstellen. Weitere Informationen findest Du unter „[Repository-Vorlage erstellen](/articles/creating-a-template-repository).“
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
@@ -26,7 +27,7 @@ Jeder, der über Leseberechtigung auf eine Repository-Vorlage verfügt, kann ein
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 Du kannst die Verzeichnisstruktur und die Dateien nur aus dem Standard-Branch des Vorlagen-Repositorys einbinden oder alle Branches einbinden. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
 {% endif %}
 
@@ -43,7 +44,7 @@ Weitere Informationen zu Forks findest Du unter „[Informationen zu Forks](/art
 2. Klicke oberhalb der Dateiliste auf **Use this template** (Diese Vorlage verwenden). ![Schaltfläche „Use this template“ (Diese Vorlage verwenden)](/assets/images/help/repository/use-this-template-button.png)
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes %}
+{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes or ghec %}
 6. Um optional die Verzeichnisstruktur und die Dateien aller Branches der Vorlage und nicht nur aus dem Standard-Branch einzubinden, wähle **Include all branches** (Alle Branches einbinden). ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 8. Klicke auf **Create repository from template** (Repository anhand der Vorlage erstellen).

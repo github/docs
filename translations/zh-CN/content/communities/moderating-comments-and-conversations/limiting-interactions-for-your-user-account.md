@@ -3,6 +3,7 @@ title: 限制用户帐户的交互
 intro: 您可以在用户帐户拥有的所有公共仓库中对某些用户临时限制活动一段时间。
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account

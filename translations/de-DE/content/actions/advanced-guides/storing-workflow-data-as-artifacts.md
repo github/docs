@@ -2,7 +2,6 @@
 title: Storing workflow data as artifacts
 shortTitle: Storing workflow artifacts
 intro: Mit Artefakten kannst Du Daten zwischen Aufträgen in einem Workflow freigeben und Daten nach Abschluss des Workflows speichern.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -13,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -20,6 +20,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Informationen zu Workflow-Artefakten
 
@@ -34,7 +35,7 @@ Dies sind einige der gängigen Artefakte, die du hochladen kannst:
 - Binäre oder komprimierte Dateien
 - Ergebnisse zur Stresstest-Leistungsausgabe und Codeabdeckung
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Das Speichern von Artefakten verwendet Speicherplatz auf {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Abrechnung für {% data variables.product.prodname_actions %} verwalten](/billing/managing-billing-for-github-actions)“.
 
@@ -46,7 +47,7 @@ Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verw
 
 Artefakte werden während eines Workflow-Laufs hochgeladen und Du kannst den Namen und die Größe eines Artefakts in der Benutzeroberfläche anzeigen. Wenn ein Artefakt mit der {% data variables.product.product_name %}-Oberfläche heruntergeladen wird, werden alle Dateien, die als Teil des Artefakts einzeln hochgeladen wurden, zusammen in eine einzige Datei gezippt. Die Abrechnung erfolgt anhand der Größe des hochgeladenen Artefakts und nicht der Größe der Zip-Datei erfolgt.
 
-{% data variables.product.product_name %} bietet zwei Aktionen, über die Sie Build-Artefakte hoch- und herunterladen können. For more information, see the {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
+{% data variables.product.product_name %} bietet zwei Aktionen, über die Sie Build-Artefakte hoch- und herunterladen können. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
 
 Daten zwischen Aufträgen freigeben:
 
@@ -61,7 +62,7 @@ Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dei
 
 Durch die Ergebnisse der Erstellung und des Tests Deines Codes werden oft zum Debuggen von Testfehlern einsetzbare Dateien und bereitstellbarer Produktionscode erstellt. Du kannst einen Workflow konfigurieren, um den per Push-Vorgang an Dein Repository übertragenen Code zu erstellen und zu testen und um einen erfolgreichen oder fehlerhaften Status zu melden. Du kannst die Build- und Testausgabe hochladen, um sie für Bereitstellungen, zum Debuggen fehlerhafter Tests oder von Abstürzen und zum Anzeigen der Testsuite-Abdeckung zu verwenden.
 
-Du kannst die Aktion `upload-artifact` verwenden um Artefakte hochzuladen. Beim Hochladen eines Artefakts können Sie eine einzelne Datei oder ein Verzeichnis oder mehrere Dateien oder Verzeichnisse angeben. Sie können auch bestimmte Dateien oder Verzeichnisse ausschließen und Platzhaltermuster verwenden. Es wird empfohlen, einen Namen für ein Artefakt bereitzustellen, aber wenn kein Name angegeben wird, wird `Artefakt` als Standardname verwendet. For more information on syntax, see the {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
+Du kannst die Aktion `upload-artifact` verwenden um Artefakte hochzuladen. Beim Hochladen eines Artefakts können Sie eine einzelne Datei oder ein Verzeichnis oder mehrere Dateien oder Verzeichnisse angeben. Sie können auch bestimmte Dateien oder Verzeichnisse ausschließen und Platzhaltermuster verwenden. Es wird empfohlen, einen Namen für ein Artefakt bereitzustellen, aber wenn kein Name angegeben wird, wird `Artefakt` als Standardname verwendet. For more information on syntax, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 ### Beispiel
 
@@ -113,7 +114,6 @@ jobs:
           pfad: output/test/code-coverage.html
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Configuring a custom artifact retention period
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
@@ -128,7 +128,6 @@ You can define a custom retention period for individual artifacts created by a w
 ```
 
 The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
-{% endif %}
 
 ## Artefakte herunterladen oder löschen
 
@@ -164,11 +163,11 @@ Sie können auch alle Artefakte in einem Workflow herunterladen, der ausgeführt
 
 Wenn Sie alle Artefakte einer Workflowausführung herunterladen, wird ein Verzeichnis für jedes Artefakt mit seinem Namen erstellt.
 
-For more information on syntax, see the {% ifversion fpt %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
+For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 ## Daten zwischen Aufträgen in einem Workflow weitergeben
 
-Du kannst die Aktionen `upload-artifact` und `download-artifact` verwenden, um innerhalb eines Workflows Daten zwischen Jobs auszutauschen. In diesem Beispiel-Workflow wird veranschaulicht, wie Daten zwischen Aufträgen im selben Workflow weitergegeben werden. For more information, see the {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
+Du kannst die Aktionen `upload-artifact` und `download-artifact` verwenden, um innerhalb eines Workflows Daten zwischen Jobs auszutauschen. In diesem Beispiel-Workflow wird veranschaulicht, wie Daten zwischen Aufträgen im selben Workflow weitergegeben werden. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
 
 Von den Artefakten eines vorherigen Auftrags abhängige Aufträge müssen auf den erfolgreichen Abschluss des abhängigen Auftrags warten. Bei diesem Workflow kommt das Stichwort `needs` zum Einsatz, um sicherzustellen, dass `job_1`, `job_2` und `job_3` sequenziell ausgeführt werden. Beispielsweise schreibt `job_2` vor, dass `job_1` die Syntax `needs: job_1` verwendet.
 
@@ -242,13 +241,13 @@ Jobs:
 ```
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen weitergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen weitergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Weiterführende Informationen
 

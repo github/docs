@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -30,7 +31,7 @@ $ git remote set-url origin <em>new_url</em>
 
 For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Wenn Du vorhast, ein Repository mit einer {% data variables.product.prodname_pages %}-Website umzubenennen, empfehlen wir Dir, eine benutzerdefinierte Domäne für Deine Website zu verwenden. Dadurch wird sichergestellt, dass die URL der Website nicht durch Umbenennung des Repository beeinträchtigt wird. Weitere Informationen findest Du unter „[Über benutzerdefinierte Domänen und {% data variables.product.prodname_pages %}-Websites](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)."
 

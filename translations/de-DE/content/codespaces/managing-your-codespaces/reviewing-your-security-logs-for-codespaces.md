@@ -5,6 +5,7 @@ intro: 'You can use the security log to review all actions related to {% data va
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Developer

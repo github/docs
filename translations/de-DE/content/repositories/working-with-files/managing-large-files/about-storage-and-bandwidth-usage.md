@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Storage & bandwidth
 ---
 
@@ -23,7 +24,7 @@ Ein Beispiel:
 - Wenn Du eine 500-MB-Datei herunterlädst, die mit LFS verfolgt wird, verwendest Du 500 MB der vom Repository-Inhaber zur Verfügung gestellten Bandbreite. Wenn ein Mitarbeiter eine Änderung an eine Datei überträgt und Du die neue Version in Dein lokales Repository lädst, verwendest Du weitere 500 MB Bandbreite, wodurch die Gesamtnutzung für diese beiden Downloads bei 1 GB Bandbreite liegt.
 - If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 

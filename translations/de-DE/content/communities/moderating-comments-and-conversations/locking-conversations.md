@@ -8,11 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-Es ist angemessen, eine Unterhaltung zu sperren, wenn die gesamte Unterhaltung nicht konstruktiv ist oder den Verhaltenskodex Deiner Community{% ifversion fpt %} oder die [Community-Richtlinien](/articles/github-community-guidelines) von GitHub{% endif %} verletzen. Wenn Du eine Unterhaltung sperrst, kannst Du auch einen Grund dafür angeben, der dann öffentlich sichtbar ist.
+Es ist angemessen, eine Unterhaltung zu sperren, wenn die gesamte Unterhaltung nicht konstruktiv ist oder den Verhaltenskodex Deiner Community{% ifversion fpt or ghec %} oder die [Community-Richtlinien](/free-pro-team@latest/github/site-policy/github-community-guidelines) von GitHub{% endif %} verletzen. Wenn Du eine Unterhaltung sperrst, kannst Du auch einen Grund dafür angeben, der dann öffentlich sichtbar ist.
 
 Das Sperren einer Unterhaltung erstellt ein Zeitleistenereignis, das für alle Benutzer mit Lesezugriff auf das Repository sichtbar ist. Der Benutzername der Person, die die Unterhaltung gesperrt hat, ist jedoch nur für Benutzer mit Schreibzugriff auf das Repository zu sehen. Für Personen ohne Schreibzugriff ist das Zeitleistenereignis anonymisiert.
 
@@ -32,7 +33,7 @@ Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu such
 
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
 - „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- „[Störende Kommentare verwalten](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- „[Störende Kommentare verwalten](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/communities/maintaining-your-safety-on-github)"
 - „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
 - „[Interaktionen in Deinem Repository einschränken](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

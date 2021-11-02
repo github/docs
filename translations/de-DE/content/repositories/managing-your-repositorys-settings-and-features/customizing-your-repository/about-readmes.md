@@ -11,15 +11,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## Informationen zu README-Dateien
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 %}, citation file{% endif %}{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 or ghec %}, citation file{% endif %}{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
 
-For more information about providing guidelines for your project, see {% ifversion fpt %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
+For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 Die README-Datei ist oft das erste Element, das ein Benutzer beim Besuch Deines Repositorys sieht. README-Dateien enthalten in der Regel folgende Informationen:
 - Was ist die Aufgabe des Projekts?
@@ -32,7 +33,7 @@ Wenn Sie Ihre README-Datei im Stammverzeichnis, im Ordner `docs` oder im verborg
 
 ![Hauptseite des github/scientist-Repositorys und seiner README-Datei](/assets/images/help/repository/repo-with-readme.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -40,7 +41,7 @@ Wenn Sie Ihre README-Datei im Stammverzeichnis, im Ordner `docs` oder im verborg
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 ## Auto-generated table of contents for README files
 
@@ -63,6 +64,10 @@ The auto-generated table of contents is enabled by default for all Markdown file
 ## Relative Links und Bildpfade in README-Dateien
 
 {% data reusables.repositories.relative-links %}
+
+## Wikis
+
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. Weitere Informationen findest Du unter „[Informationen zu Wikis](/communities/documenting-your-project-with-wikis/about-wikis).“
 
 ## Weiterführende Informationen
 

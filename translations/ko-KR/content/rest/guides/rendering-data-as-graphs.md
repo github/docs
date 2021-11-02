@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
  
 
 
-In this guide, we're going to use the API to fetch information about repositories that we own, and the programming languages that make them up. Then, we'll visualize that information in a couple of different ways using the [D3.js][D3.js] library. To interact with the {% data variables.product.product_name %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+In this guide, we're going to use the API to fetch information about repositories that we own, and the programming languages that make them up. Then, we'll visualize that information in a couple of different ways using the [D3.js][D3.js] library. To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
 
 If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication] guide before starting this example. You can find the complete source code for this project in the [platform-samples][platform samples] repository.
 
@@ -75,7 +76,7 @@ run Example::MyGraphApp
 
 ## Fetching repository information
 
-This time, in order to talk to the {% data variables.product.product_name %} API, we're going to use the [Octokit Ruby library][Octokit]. This is much easier than directly making a bunch of REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained, so you know it'll work.
+This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit Ruby library][Octokit]. This is much easier than directly making a bunch of REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained, so you know it'll work.
 
 Authentication with the API via Octokit is easy. Just pass your login and token to the `Octokit::Client` constructor:
 
