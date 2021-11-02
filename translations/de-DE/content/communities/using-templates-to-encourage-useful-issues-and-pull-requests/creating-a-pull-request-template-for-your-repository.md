@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Create a PR template
@@ -17,9 +18,9 @@ Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues
 
 Du kannst in einem der unterstützten Ordner ein Unterverzeichnis *PULL_REQUEST_TEMPLATE* erstellen, um mehrere Pull-Request-Vorlagen zu speichern. Mit dem Abfrageparameter `template` kannst Du die Vorlage wählen, mit der der Pull-Request-Text ausgefüllt werden soll. Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Issues und Pull Requests mit Abfrageparametern](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters).“
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-Du kannst Standardvorlagen für Pull Request für Deine Organisation{% ifversion fpt or ghes %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Du kannst Standardvorlagen für Pull Request für Deine Organisation{% ifversion fpt or ghes or ghec %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

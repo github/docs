@@ -10,9 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
 shortTitle: Create & edit milestones
+type: how_to
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

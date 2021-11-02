@@ -1,6 +1,6 @@
 ---
 title: Managing labels
-intro: 'You can classify {% ifversion fpt %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
@@ -24,34 +24,38 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
+type: how_to
 ---
   ## Informationen zu Kennzeichnungen
 
-You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
+You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
 ## About default labels
 
 {% data variables.product.product_name %} bietet in jedem neuen Repository Standardkennzeichnungen. Mithilfe dieser Standardkennzeichnungen kannst Du einen Standardworkflow in einem Repository erstellen.
 
-| Kennzeichnung      | Beschreibung                                                                                                                             |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | Kennzeichnet ein unerwartetes Problem oder unbeabsichtigtes Verhalten{% ifversion fpt or ghes %}
+| Kennzeichnung      | Beschreibung                                                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `bug`              | Kennzeichnet ein unerwartetes Problem oder unbeabsichtigtes Verhalten{% ifversion fpt or ghes or ghec %}
 | `documentation`    | Kennzeichnet die Notwendigkeit für Verbesserungen oder Ergänzungen der Dokumentation{% endif %}
-| `duplicate`        | Indicates similar {% ifversion fpt %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
-| `enhancement`      | Kennzeichnet neue Funktionsanfragen                                                                                                      |
-| `good first issue` | Kennzeichnet einen geeigneten Issue für erstmalig Mitwirkende                                                                            |
-| `help wanted`      | Kennzeichnet, dass ein Betreuer Hilfe bei einem Issue oder Pull Request benötigt                                                         |
-| `invalid`          | Indicates that an {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} is no longer relevant  |
-| `question`         | Indicates that an {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} needs more information |
-| `wontfix`          | Indicates that work won't continue on an {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}
+| `duplicate`        | Indicates similar {% ifversion fpt or ghec %}issues, pull requests, or discussions{% else %}issues or pull requests{% endif %}
+| `enhancement`      | Kennzeichnet neue Funktionsanfragen                                                                                                              |
+| `good first issue` | Kennzeichnet einen geeigneten Issue für erstmalig Mitwirkende                                                                                    |
+| `help wanted`      | Kennzeichnet, dass ein Betreuer Hilfe bei einem Issue oder Pull Request benötigt                                                                 |
+| `invalid`          | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} is no longer relevant  |
+| `question`         | Indicates that an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} needs more information |
+| `wontfix`          | Indicates that work won't continue on an {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}
 
 Standardkennzeichnungen sind in jedem neuen Repository beinhaltet, wenn das Repository erstellt wird, aber Du kannst die Kennzeichnungen später bearbeiten oder löschen.
 
 Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 Organisationsinhaber können die Standardkennzeichnungen für Repositories in ihrer Organisation anpassen. Weitere Informationen findest Du unter „[Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 
@@ -72,7 +76,7 @@ Anyone with write access to a repository can create a label.
 
 Anyone with triage access to a repository can apply and dismiss labels.
 
-1. Navigate to the {% ifversion fpt %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
+1. Navigate to the {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
 1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label. !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
 
 ## Eine Kennzeichnung bearbeiten
@@ -100,6 +104,6 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ## Weiterführende Informationen
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes %}
-- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt %}
+- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
+- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

@@ -11,6 +11,7 @@ redirect_from:
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: リストの要件
@@ -22,7 +23,7 @@ shortTitle: リストの要件
 
 ## すべての{% data variables.product.prodname_marketplace %}リストの要件
 
-{% data variables.product.prodname_marketplace %}上のすべてのリストは、{% data variables.product.product_name %}コミュニティに価値を提供するツールのためのものでなければなりません。 公開のためにリストをサブミットする際には、[{% data variables.product.prodname_marketplace %}開発者契約](/articles/github-marketplace-developer-agreement/)の条項を読んで同意しなければなりません。
+{% data variables.product.prodname_marketplace %}上のすべてのリストは、{% data variables.product.product_name %}コミュニティに価値を提供するツールのためのものでなければなりません。 公開のためにリストをサブミットする際には、[{% data variables.product.prodname_marketplace %}開発者契約](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)の条項を読んで同意しなければなりません。
 
 ### すべてのアプリケーションに対するユーザ体験の要件
 
@@ -58,8 +59,8 @@ shortTitle: リストの要件
 
 有料アプリケーション (または有料プランを提供するアプリケーション) を公開するには、以下の要件も満たす必要があります。
 
-- {% data variables.product.prodname_github_apps %} should have a minimum of 100 installations.
-- {% data variables.product.prodname_oauth_apps %} should have a minimum of 200 users.
+- {% data variables.product.prodname_github_apps %}は最低100件のインストールが必要です。
+- {% data variables.product.prodname_oauth_apps %}は最低200ユーザが必要です。
 - すべての有料アプリケーションは、新規購入、アップグレード、ダウングレード、キャンセル、無料トライアルの{% data variables.product.prodname_marketplace %}購入イベントを処理できなければなりません。 詳しい情報については、以下の「[有料アプリケーションの支払い要件](#billing-requirements-for-paid-apps)」を参照してください。
 
 アプリケーションを{% data variables.product.prodname_marketplace %}上で公開する準備ができたら、アプリケーション掲載のために検証をリクエストする必要があります。
@@ -74,7 +75,7 @@ shortTitle: リストの要件
 
 アプリケーションは支払いを処理する必要はありませんが、{% data variables.product.prodname_marketplace %}購入イベントを使って新規の購入、アップグレード、ダウングレード、キャンセル、無料トライアルを管理できなければなりません。 これらのイベントをアプリケーションに統合する方法については、「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
-GitHubの支払いAPIを使えば、顧客はGitHubを離れることなくアプリケーションを購入し、自分の{% data variables.product.product_name %}アカウントにすでに結合されている支払い方法でサービスに対する支払いを行えます。
+GitHubの支払いAPIを使えば、顧客はGitHubを離れることなくアプリケーションを購入し、自分の{% data variables.product.product_location %}のアカウントにすでに結合されている支払い方法でサービスに対する支払いを行えます。
 
 - アプリケーションは、有料のサブスクリプションの購入について、月次及び年次の支払いをサポートしなければなりません。
 - リストは、無料及び有料プランの任意の組み合わせを提供できます。 無料プランはオプションですが、推奨されます。 詳しい情報については「[{% data variables.product.prodname_marketplace %}リストの価格プランの設定](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)」を参照してください。

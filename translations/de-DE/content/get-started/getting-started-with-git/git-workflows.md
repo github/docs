@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 Du kannst die {% data variables.product.prodname_dotcom %}-Flow-Methode übernehmen, um zu standardisieren, wie Dein Team auf {% data variables.product.prodname_dotcom %} zusammenarbeitet. For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."

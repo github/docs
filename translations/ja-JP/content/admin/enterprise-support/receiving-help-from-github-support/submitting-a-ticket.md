@@ -28,6 +28,8 @@ You can submit a ticket for support with {% data variables.product.prodname_ghe_
 
 ## {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. {% data variables.contact.contact_enterprise_portal %} に移動します。
 5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

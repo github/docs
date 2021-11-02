@@ -1,6 +1,6 @@
 ---
 title: Managing the forking policy for your repository
-intro: 'You can allow or prevent the forking of a specific private{% ifversion fpt or ghae or ghes %} or internal{% endif %} repository owned by an organization.'
+intro: 'You can allow or prevent the forking of a specific private{% ifversion fpt or ghae or ghes or ghec %} or internal{% endif %} repository owned by an organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Manage the forking policy
 ---
 
-An organization owner must allow forks of private{% ifversion fpt or ghae or ghes %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+An organization owner must allow forks of private{% ifversion fpt or ghae or ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -27,4 +28,4 @@ An organization owner must allow forks of private{% ifversion fpt or ghae or ghe
 ## 더 읽을거리
 
 - "[About forks](/articles/about-forks)"
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

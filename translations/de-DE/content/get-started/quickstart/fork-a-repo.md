@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -37,7 +38,7 @@ Open-Source-Software basiert auf der Idee, dass wir durch gemeinsamen Code besse
 
 For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen Benutzers erstellst, musst Du unbedingt eine Lizenzdatei hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
 
@@ -56,7 +57,7 @@ Wenn Sie es noch nicht getan haben, müssen Sie zunächst [Git einrichten](/arti
 
 Du forkst vielleicht ein Projekt, um Änderungen an das vorgelagerte - oder originale - Repository vorzuschlagen. In diesem Fall ist es ratsam, Ihren Fork regelmäßig mit dem vorgelagerten Repository zu synchronisieren. Zu diesem Zweck müssen Sie Git in der Befehlszeile verwenden. Das Festlegen des vorgelagerten Repositorys kannst Du mit demselben Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) üben, das Du gerade geforkt hast.
 
-1. Navigieren Sie auf {% data variables.product.product_location %} zum Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. Klicke in der oberen rechte Ecke der Seite auf **Fork**. ![Schaltfläche „Fork“ (Fork)](/assets/images/help/repository/fork_button.jpg)
 
 {% endwebui %}
@@ -89,7 +90,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
 {% include tool-switcher %}
 {% webui %}
 
-1. Navigiere auf {% data variables.product.product_name %} zu **Deinem Fork** des Repositorys „Spoon-Knife“.
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -139,7 +140,7 @@ Wenn Du ein Projekt forkst, um Änderungen für das Original-Repository vorzusch
 {% include tool-switcher %}
 {% webui %}
 
-1. Navigiere auf {% data variables.product.product_name %} zum Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Change directories to the location of the fork you cloned.
@@ -200,7 +201,7 @@ Du kannst nun jede Änderung am Fork vornehmen, einschließlich:
 ## Ein anderes Repository zum Forken finden
 Forken Sie ein Repository, um an einem Projekt mitzuarbeiten. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}Du kannst [Erkunden](https://github.com/explore) verwenden, um Projekte zu finden und an Open-Source-Repositorys mitzuarbeiten. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}Du kannst [Erkunden](https://github.com/explore) verwenden, um Projekte zu finden und an Open-Source-Repositorys mitzuarbeiten. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 

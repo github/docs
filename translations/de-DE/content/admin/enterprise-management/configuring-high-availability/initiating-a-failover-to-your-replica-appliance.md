@@ -25,7 +25,14 @@ Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, d
       ```shell
       $ ghe-maintenance -s
       ```
-2. Wenn die Anzahl der aktiven Git-Vorgänge null erreicht, sollten Sie 30 Sekunden lang warten.
+2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
+
+    {% note %}
+
+    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+
+    {% endnote %}
+
 3. Führen Sie den Befehl `ghe-repl-status -vv` aus, um zu verifizieren, dass alle Replikationskanäle `OK` ausgeben.
   ```shell
   $ ghe-repl-status -vv

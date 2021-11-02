@@ -7,13 +7,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 将组织转换为用户
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 1. [注册](/articles/signing-up-for-a-new-github-account)新 GitHub 用户帐户。
 2. [将用户的角色更改为所有者](/articles/changing-a-person-s-role-to-owner)。

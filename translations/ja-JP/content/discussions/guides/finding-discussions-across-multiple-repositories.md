@@ -3,6 +3,7 @@ title: 複数のリポジトリにわたってディスカッションを検索�
 intro: 複数のリポジトリ間で作成または参加したすべてのディスカッションに簡単にアクセスできます。
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Find discussions
 ---
 

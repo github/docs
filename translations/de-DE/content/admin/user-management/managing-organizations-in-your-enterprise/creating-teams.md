@@ -14,7 +14,7 @@ topics:
   - User account
 ---
 
-Teams sind zentral für viele gemeinschaftliche Features von {% data variables.product.prodname_dotcom %}, beispielsweise Team-@Erwähnungen, um die entsprechenden Teilnehmer dahingehend zu informieren, dass Sie deren Beiträge oder Aufmerksamkeit anfordern möchten. Weitere Informationen finden Sie unter „[Berechtigungsebenen für die Repositorys einer Organisation](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)“.
+Teams sind zentral für viele gemeinschaftliche Features von {% data variables.product.prodname_dotcom %}, beispielsweise Team-@Erwähnungen, um die entsprechenden Teilnehmer dahingehend zu informieren, dass Sie deren Beiträge oder Aufmerksamkeit anfordern möchten. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Ein Team kann eine Gruppe in Ihrem Unternehmen darstellen oder Personen mit bestimmten Interessen oder Expertenwissen enthalten. So könnte beispielsweise ein Team aus Barrierefreiheitsexperten auf {% data variables.product.product_location %} aus Personen unterschiedlicher Abteilungen bestehen. Teams können funktionale Anliegen vertreten, welche die bestehende Bereichshierarchie eines Unternehmens ergänzen.
 

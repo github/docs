@@ -95,7 +95,7 @@ Wenn sich Backup-Versuche überschneiden, wird der Befehl `ghe-backup` mit einer
 
 Im Falle eines längeren Ausfalls oder einer Katastrophe am Hauptstandort können Sie {% data variables.product.product_location %} wiederherstellen. Stellen Sie dazu eine andere {% data variables.product.prodname_enterprise %}-Appliance bereit, und führen Sie auf dem Backup-Host eine Wiederherstellung aus. Sie müssen der Ziel-{% data variables.product.prodname_enterprise %}-Appliance den SSH-Schlüssel des Backup-Hosts als einen autorisierten SSH-Schlüssel hinzufügen, bevor Sie eine Appliance wiederherstellen.
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."

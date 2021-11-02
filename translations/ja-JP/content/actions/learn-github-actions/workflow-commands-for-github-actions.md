@@ -2,7 +2,6 @@
 title: GitHub Actionsのワークフローコマンド
 shortTitle: ワークフロー コマンド
 intro: ワークフロー内あるいはアクションのコード内でシェルコマンドを実行する際には、ワークフローコマンドを利用できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,20 +13,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## ワークフローコマンドについて
 
 アクションは、 環境変数を設定する、他のアクションに利用される値を出力する、デバッグメッセージを出力ログに追加するなどのタスクを行うため、ランナーマシンとやりとりできます。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ほとんどのワークフローコマンドは特定の形式で `echo` コマンドを使用しますが、他のワークフローコマンドはファイルへの書き込みによって呼び出されます。 詳しい情報については、「[環境ファイル](#environment-files)」を参照してください。
-{% else %}
-ワークフローコマンドは、特定のフォーマットで `echo` コマンドを使います。
-{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -67,44 +64,24 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 以下の表は、ワークフロー内で使えるツールキット関数を示しています。
 
-| ツールキット関数                                                                                                    | 等価なワークフローのコマンド                                                |
-| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `core.addPath`                                                                                              |                                                               |
-| {% ifversion fpt or ghes > 2.22 or ghae %}環境ファイル `GITHUB_PATH` を使用してアクセス可能{% else %} `add-path` {% endif %} |                                                               |
-|                                                                                                             |                                                               |
-| `core.debug`                                                                                                | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
-| `core.notice`                                                                                               | `notice` 
+| ツールキット関数              | 等価なワークフローのコマンド                                                        |
+| --------------------- | --------------------------------------------------------------------- |
+| `core.addPath`        | Accessible using environment file `GITHUB_PATH`                       |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| `core.notice`         | `notice` 
 {% endif %}
-| `core.error`                                                                                                | `error`                                                       |
-| `core.endGroup`                                                                                             | `endgroup`                                                    |
-| `core.exportVariable`                                                                                       |                                                               |
-| {% ifversion fpt or ghes > 2.22 or ghae %}環境ファイル `GITHUB_ENV` を使用してアクセス可能{% else %} `set-env` {% endif %}   |                                                               |
-|                                                                                                             |                                                               |
-| `core.getInput`                                                                                             | 環境変数の`INPUT_{NAME}`を使ってアクセス可能                                 |
-| `core.getState`                                                                                             | 環境変数の`STATE_{NAME}`を使ってアクセス可能                                 |
-| `core.isDebug`                                                                                              | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                                 |
-| `core.saveState`                                                                                            | `save-state`                                                  |
-| `core.setFailed`                                                                                            | `::error`及び`exit 1`のショートカットとして使われる                            |
-| `core.setOutput`                                                                                            | `set-output`                                                  |
-| `core.setSecret`                                                                                            | `add-mask`                                                    |
-| `core.startGroup`                                                                                           | `group`                                                       |
-| `core.warning`                                                                                              | `警告`                                                          |
-
-{% ifversion ghes < 3.0 %}
-## 環境変数の設定
-
-```
-::set-env name={name}::{value}
-```
-
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. 環境変数では、大文字と小文字が区別され、句読点を含めることができます。
-
-### サンプル
-
-``` bash
-echo "::set-env name=action_state::yellow"
-```
-{% endif %}
+| `core.error`          | `error`                                                               |
+| `core.endGroup`       | `endgroup`                                                            |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`                        |
+| `core.getInput`       | 環境変数の`INPUT_{NAME}`を使ってアクセス可能                                         |
+| `core.getState`       | 環境変数の`STATE_{NAME}`を使ってアクセス可能                                         |
+| `core.isDebug`        | 環境変数の`RUNNER_DEBUG`を使ってアクセス可能                                         |
+| `core.saveState`      | `save-state`                                                          |
+| `core.setFailed`      | `::error`及び`exit 1`のショートカットとして使われる                                    |
+| `core.setOutput`      | `set-output`                                                          |
+| `core.setSecret`      | `add-mask`                                                            |
+| `core.startGroup`     | `group`                                                               |
+| `core.warning`        | `warning`                                                             |
 
 ## 出力パラメータの設定
 
@@ -122,22 +99,6 @@ echo "::set-env name=action_state::yellow"
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-{% ifversion ghes < 3.0 %}
-## システムパスの追加
-
-```
-::add-path::{path}
-```
-
-現在のジョブ内にある、続くすべてのアクションにおいて、システム `PATH` 変数の前に、ディレクトリを付加します。 現在実行中のアクションは、新しいパス変数にアクセスできません。
-
-### サンプル
-
-``` bash
-echo "::add-path::/path/to/dir"
-```
-{% endif %}
-
 ## デバッグメッセージの設定
 
 ```
@@ -152,7 +113,7 @@ echo "::add-path::/path/to/dir"
 echo "::debug::Set the Octocat variable"
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
 ## Setting a notice message
 
@@ -306,7 +267,6 @@ console.log('::save-state name=processID::12345')
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## 環境ファイル
 
 ワークフローの実行中に、ランナーは特定のアクションを実行する際に使用できる一時ファイルを生成します。 これらのファイルへのパスは、環境変数を介して公開されます。 コマンドを適切に処理するには、これらのファイルに書き込むときに UTF-8 エンコーディングを使用する必要があります。 複数のコマンドを、改行で区切って同じファイルに書き込むことができます。
@@ -390,4 +350,3 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
-{% endif %}

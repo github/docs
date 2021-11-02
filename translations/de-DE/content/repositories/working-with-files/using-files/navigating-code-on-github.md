@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-files-in-a-repository/managing-files-on-github/navigating-code-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -26,12 +27,6 @@ Code navigation uses the open source library [`tree-sitter`](https://github.com/
 - Ruby
 - TypeScript
 
-{% note %}
-
-**Hinweis**: Code-Navigation funktioniert für aktive Branches. Wenn die Funktion für Dich aktiviert ist, jedoch keine Links zu den Definitionen der Funktionen und Methoden angezeigt werden, führe einen Push-Vorgang an den Branch durch und versuche es erneut.
-
-{% endnote %}
-
 ## Zur Definition einer Funktion oder Methode wechseln
 
 Du kannst zur Definition einer Funktion oder Methoden innerhalb des gleichen Repository springen, indem Du auf den Funktions- oder Methodenaufruf in einer Datei klickst.
@@ -43,6 +38,12 @@ Du kannst zur Definition einer Funktion oder Methoden innerhalb des gleichen Rep
 Du findest alle Referenzen für eine Funktion oder Methode innerhalb eines Repositorys, indem Du auf den Funktions- oder Methodenaufruf in einer Datei klickst und dann auf die Registerkarte **Referenzen** klickst.
 
 ![Registerkarte „Find all references" (Suche nach allen Referenzen)](/assets/images/help/repository/find-all-references-tab.png)
+
+## Troubleshooting code navigation
+
+If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
+- Code navigation only works for active branches. Push to the branch and try again.
+- Code navigation only works for repositories with less than 100,000 files.
 
 ## Weiterführende Informationen
 - „[Code durchsuchen](/github/searching-for-information-on-github/searching-code)“

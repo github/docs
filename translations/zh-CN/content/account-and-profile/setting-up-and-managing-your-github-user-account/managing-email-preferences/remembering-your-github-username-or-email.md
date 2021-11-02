@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -68,7 +69,7 @@ origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</e
 
 您的用户名是紧跟在 `https://{% data variables.command_line.backticks %}/` 之后的内容。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 延伸阅读
 
 - “[验证电子邮件地址](/articles/verifying-your-email-address)”

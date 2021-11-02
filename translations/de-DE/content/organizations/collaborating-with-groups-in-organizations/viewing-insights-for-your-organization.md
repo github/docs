@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: View organization insights
 ---
 
-Alle Mitglieder einer Organisation können Organisationseinblicke anzeigen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
+Alle Mitglieder einer Organisation können Organisationseinblicke anzeigen. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Mithilfe von Einblicken in Organisationsaktivitäten kannst Du besser nachvollziehen, wie die Mitglieder Deiner Organisation {% data variables.product.product_name %} verwenden, um zusammenzuarbeiten und Code zu erstellen. Mithilfe von Abhängigkeits-Einblicken kannst Du die Open-Source-Nutzung Deiner Organisation nachverfolgen, melden und entsprechend darauf reagieren.
 
@@ -54,5 +55,5 @@ Mithilfe von Abhängigkeits-Einblicken kannst Du Schwachstellen, Lizenzen und an
 ## Weiterführende Informationen
  - „[Informationen zu Organisationen](/organizations/collaborating-with-groups-in-organizations/about-organizations)“
  - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
- - „[Die Sichtbarkeit der Einblicke zu den Abhängigkeiten Ihrer Organisation ändern](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)“
- - „[Eine Richtlinie für Einblicke in die Abhängigkeiten in Ihrem Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)“
+ - "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
+- "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}

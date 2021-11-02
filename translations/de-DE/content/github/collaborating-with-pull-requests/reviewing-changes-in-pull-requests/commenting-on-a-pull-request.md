@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Comment on a PR
@@ -60,5 +61,5 @@ Alle, die den Pull Request oder das Repository beobachten, erhalten eine Benachr
 ## Weiterführende Informationen
 
 - "[Writing on GitHub](/github/writing-on-github)"
-{% ifversion fpt %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
+{% ifversion fpt or ghec %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
 {% endif %}

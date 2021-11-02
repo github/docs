@@ -4,6 +4,7 @@ intro: 'You can set your default editor for {% data variables.product.prodname_c
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 shortTitle: Set the default editor

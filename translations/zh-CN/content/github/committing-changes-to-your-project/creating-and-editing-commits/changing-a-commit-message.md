@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## 重写最近的提交消息
@@ -25,7 +26,7 @@ versions:
 2. 键入 `git commit --amend`，然后按 **Enter** 键。
 3. 在文本编辑器中编辑提交消息，然后保存该提交。
     - 通过在提交中添加尾行可添加合作作者。 更多信息请参阅“[创建有多个作者的提交](/articles/creating-a-commit-with-multiple-authors)”。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
     - 通过在提交中添加尾行可创建代表组织的提交。 更多信息请参阅“[创建代表组织的提交](/articles/creating-a-commit-on-behalf-of-an-organization)”
 {% endif %}
 

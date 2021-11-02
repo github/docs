@@ -7,6 +7,7 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 ---

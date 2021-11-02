@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.2'
   ghae: next
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -23,9 +24,9 @@ topics:
 
 ## {% data variables.product.prodname_secret_scanning %}のカスタムパターンについて
 
-{% data variables.product.company_short %}は、{% ifversion fpt %}パブリック及びプライベート{% endif %}リポジトリ上で{% data variables.product.company_short %}及び{% data variables.product.company_short %}パートナーが提供するシークレットのパターンの{% data variables.product.prodname_secret_scanning %}を行います。 {% data variables.product.prodname_secret_scanning %}パートナープログラムに関する詳しい情報については「<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanningパートナープログラム</a>」を参照してください。
+{% data variables.product.company_short %}は、{% ifversion fpt or ghec %}パブリック及びプライベート{% endif %}リポジトリ上で{% data variables.product.company_short %}及び{% data variables.product.company_short %}パートナーが提供するシークレットのパターンの{% data variables.product.prodname_secret_scanning %}を行います。 {% data variables.product.prodname_secret_scanning %}パートナープログラムに関する詳しい情報については「<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Secret scanningパートナープログラム</a>」を参照してください。
 
-ただし、{% ifversion fpt %}プライベート{% endif %}リポジトリ中で他のシークレットのパターンをスキャンしたいこともあるでしょう。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt %}private{% endif %} repository.
+ただし、{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリ中で他のシークレットのパターンをスキャンしたいこともあるでしょう。 たとえば、Organizationの内部的なシークレットのパターンを持っていることもあるかもしれません。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
@@ -58,7 +59,7 @@ topics:
 
 ## Organizationのカスタムパターンの定義
 
-カスタムパターンを定義する前に、Organizationの中のスキャンしたい{% ifversion fpt %}プライベート{% endif %}リポジトリで{% data variables.product.prodname_secret_scanning %}が有効化されていることを確認しなければなりません。 Organization内のすべての{% ifversion fpt %}プライベート{% endif %}リポジトリで{% data variables.product.prodname_secret_scanning %}を有効化するには、「[Organizationのセキュリティと分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
+カスタムパターンを定義する前に、Organizationの中のスキャンしたい{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリで{% data variables.product.prodname_secret_scanning %}が有効化されていることを確認しなければなりません。 Organization内のすべての{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリで{% data variables.product.prodname_secret_scanning %}を有効化するには、「[Organizationのセキュリティと分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
 {% note %}
 
@@ -73,11 +74,11 @@ topics:
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
-パターンを作成すると、{% data variables.product.prodname_secret_scanning %}はすべてのブランチのGit履歴全体を含めて、Organization内の{% ifversion fpt %}プライベート{% endif %}リポジトリでシークレットをスキャンします。 Organizationのオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %}アラートの表示に関する詳しい情報については「[{% data variables.product.prodname_secret_scanning %}空のアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
+パターンを作成すると、{% data variables.product.prodname_secret_scanning %}はすべてのブランチのGit履歴全体を含めて、Organization内の{% ifversion fpt or ghec %}プライベート{% endif %}リポジトリでシークレットをスキャンします。 Organizationのオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %}アラートの表示に関する詳しい情報については「[{% data variables.product.prodname_secret_scanning %}空のアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
 
 ## Defining a custom pattern for an enterprise account
 
-Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 
 {% note %}
 
@@ -89,12 +90,12 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
-1. Under "Secret scanning custom patterns", click {% ifversion fpt or ghes > 3.2 or ghae-next %}**New pattern**{% elsif ghes = 3.2 %}**New custom pattern**{% endif %}.
+1. Under "Secret scanning custom patterns", click {% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}**New pattern**{% elsif ghes = 3.2 %}**New custom pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt %}private{% endif %} repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organizationのオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %}アラートの表示に関する詳しい情報については「[{% data variables.product.prodname_secret_scanning %}空のアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt or ghec %}private{% endif %} repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organizationのオーナーとリポジトリの管理者は、シークレットが見つかるとアラートを受け、シークレットが見つかったリポジトリでアラートをレビューできます。 {% data variables.product.prodname_secret_scanning %}アラートの表示に関する詳しい情報については「[{% data variables.product.prodname_secret_scanning %}空のアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Editing a custom pattern
 
 When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.

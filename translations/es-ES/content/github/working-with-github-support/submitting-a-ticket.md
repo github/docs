@@ -5,6 +5,7 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -14,7 +15,7 @@ Si tu cuenta utiliza un producto pagado de {% data variables.product.prodname_do
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-Si no tienes una cuenta empresarial, por favor, utiliza el {% data variables.contact.enterprise_portal %} para emitir tickets. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Acerca de las cuentas empresariales](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)".
+Si no tienes una cuenta empresarial, por favor, utiliza el {% data variables.contact.enterprise_portal %} para emitir tickets. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Acerca de las cuentas empresariales](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
 ## Enviar un ticket mediante el {% data variables.contact.support_portal %}
 
@@ -30,6 +31,8 @@ Si no tienes una cuenta empresarial, por favor, utiliza el {% data variables.con
 7. Da clic en **Enviar solicitud**. ![Botón de eenviar solicitud](/assets/images/help/support/send-request-button.png)
 
 ## Emitir un ticket utilizando el {% data variables.contact.enterprise_portal %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 1. Navegar por el {% data variables.contact.contact_enterprise_portal %}.
 5. Da clic en **Emite un Ticket** ![Emite un ticket al equipo de Soporte Empresarial](/assets/images/enterprise/support/submit-ticket-button.png)

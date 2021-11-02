@@ -9,7 +9,7 @@
 - 
   term: 帐户恢复令牌
   description: >-
-    **Deprecated and will be disabled December 1st, 2021.** The authentication credential stored as part of an account recovery setup called Recover Accounts Elsewhere that allows you to store this backup credential.
+    **已废弃，将在 2021 年 12 月 1 日禁用。** 作为帐户恢复设置一部分存储的身份验证凭据称为“异地恢复帐户”，用于存储此备份凭据。
 - 
   term: API 预览
   description: >-
@@ -574,7 +574,7 @@
 - 
   term: 异地恢复帐户
   description: >-
-    **Deprecated and will be disabled December 1st, 2021.** Allows users to add an extra security factor to their GitHub account in case they lose access to their two-factor authentication method or recovery codes. Users can associate their GitHub account with their Facebook account by storing an authentication credential in the form of an account recovery token for their GitHub account with Facebook.
+    **已废弃，将在 2021 年 12 月 1 日禁用。**允许用户在无法使用双重身份验证方法或恢复代码时向其 GitHub 帐户添加额外一重安全保护。用户可以通过 Facebook 以帐户恢复令牌的形式存储其 GitHub 帐户的身份验证凭据，将其 GitHub 帐户与其 Facebook 帐户相关联。
 - 
   term: 恢复代码
   description: 帮助您重新获取对 GitHub 帐户的访问权限的代码。
@@ -656,7 +656,7 @@
 - 
   term: server-to-server request
   description: >-
-    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via [the GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app). See also, "[user-to-server request](#user-to-server-request)."
+    作为机器人的应用程序使用的 API 请求，而不受任何特定用户的影响。 例如，一个按计划运行的应用程序关闭长期不活动的议题。使用这种身份验证的应用程序不使用许可的 GitHub 帐户，如果企业的结算方案允许使用一定数量的许可证，服务器到服务器的机器人不消耗您的GitHub 许可证。 服务器到服务器请求中使用的令牌通过 [GitHub API](/rest/reference/apps#create-an-installation-access-token-for-an-app) 程序化获取。另请参阅“[user-to-server request](#user-to-server-request)”。
 - 
   term: 服务挂钩
   description: >-
@@ -684,7 +684,7 @@
   description: >-
     拉取请求中的可视表现形式，表示您的提交符合您参与的仓库所设定的条件。
 - 
-  term: status checks
+  term: 状态检查
   description: >-
     状态检查是外部进程，例如持续集成构建，它们针对您在仓库中的每个提交而运行。更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
 - 
@@ -718,7 +718,7 @@
   description: >-
     探索特定主题领域的仓库、查找要参与的项目以及发现特定问题的新解决方案的一种方式。
 - 
-  term: traffic graph
+  term: 流量图
   description: >-
     显示仓库流量的仓库图，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点及热门内容。
 - 
@@ -741,9 +741,9 @@
   term: 用户名
   description: 用户在 GitHub 上的句柄。
 - 
-  term: user-to-server request
+  term: 用户到服务器请求
   description: >-
-    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)." See also, "[server-to-server request](#server-to-server-request)."
+    代表特定用户执行任务的应用程序使用的 API 请求。如果任务通过用户到服务器进行身份验证，则在 GitHub 上显示为用户通过应用程序完成的。例如，您可以选择从第三方应用程序中创建议题，应用程序将代表 GitHub 执行此操作。应用程序可以使用用户到服务器请求执行的任务范围受到应用及用户权限和访问的限制。用户到服务器请求中使用的令牌是通过 OAuth 获得的。更多信息请参阅“[识别和授权 GitHub App 的用户](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)”。另请参阅“[服务器到服务器请求](#server-to-server-request)”。
 - 
   term: 可见团队
   description: 可被每个组织成员查看和 @提及的团队。

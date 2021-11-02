@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,9 +19,13 @@ shortTitle: Set base permissions
 
 Du kannst Basisberechtigungen festlegen, die für alle Mitglieder einer Organisation gelten, wenn sie auf eines der Repositorys der Organisation zugreifen. Basisberechtigungen gelten nicht für externen Mitarbeiter.
 
-{% ifversion fpt %}Standardmäßig haben Mitglieder einer Organisation **Lese**-Berechtigung für die Repositorys der Organisation.{% endif %}
+{% ifversion fpt or ghec %}Standardmäßig haben Mitglieder einer Organisation **Lese**-Berechtigung für die Repositorys der Organisation.{% endif %}
 
-Wenn jemand mit Administratorberechtigungen auf die Repositorys einer Organisation einem Mitglied eine höhere Berechtigungsstufe für das Repository gewährt, überschreibt die höhere Berechtigungsstufe die Basisberechtigung.
+If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
+
+{% ifversion ghec %}
+If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+{% endif %}
 
 ## Basisberechtigungen festlegen
 
@@ -32,5 +37,5 @@ Wenn jemand mit Administratorberechtigungen auf die Repositorys einer Organisati
 
 ## Weiterführende Informationen
 
-- „[Berechtigungsebenen für die Repositorys einer Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)“
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - „[Externe Mitarbeiter zu Organisations-Repositorys hinzufügen](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)“

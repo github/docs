@@ -14,7 +14,7 @@ Professoren, Lehrer und Mentoren können die Onlineschulungen von Campus Advisor
 
 {% note %}
 
-**Hinweis:** Als Kursleiter kannst Du keine {% data variables.product.prodname_dotcom %}-Konten für Deine Studenten erstellen. Studenten müssen ihre eigenen {% data variables.product.prodname_dotcom %}-Konten erstellen.
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 

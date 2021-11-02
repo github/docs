@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Push commits to a remote
 ---
 
@@ -100,7 +101,7 @@ For more information on working with forks, see "[Syncing a fork](/articles/sync
 ## Дополнительная литература
 
 - [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
-- [`git remote` man page](https://git-scm.com/docs/git-remote.html)
+- [`git remote` main page](https://git-scm.com/docs/git-remote.html)
 - "[Git cheatsheet](/articles/git-cheatsheet)"
 - "[Git workflows](/github/getting-started-with-github/git-workflows)"
 - "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

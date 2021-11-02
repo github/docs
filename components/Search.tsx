@@ -219,7 +219,7 @@ export function Search({
             )}
             style={{
               background:
-                'var(--color-bg-primary) url("/assets/images/octicons/search.svg") no-repeat 6px',
+                'var(--color-canvas-default) url("/assets/images/octicons/search.svg") no-repeat 6px',
             }}
             type="search"
             placeholder={t`placeholder`}
@@ -297,14 +297,14 @@ function ShowSearchResults({
               key={url}
               data-testid="search-result"
               className={cx(
-                'list-style-none overflow-hidden rounded-3 color-text-primary border',
-                isActive ? 'color-bg-tertiary' : 'color-border-transparent'
+                'list-style-none overflow-hidden rounded-3 color-fg-default border',
+                isActive ? 'color-bg-subtle' : 'color-border-transparent'
               )}
               onMouseEnter={() => setActiveHit(index)}
             >
-              <div className={cx('py-3 px-3', isActive && 'color-border-secondary')}>
+              <div className={cx('py-3 px-3', isActive && 'color-border-muted')}>
                 <a
-                  className="no-underline color-text-primary"
+                  className="no-underline color-fg-default"
                   href={url}
                   onClick={(event) => {
                     event.preventDefault()

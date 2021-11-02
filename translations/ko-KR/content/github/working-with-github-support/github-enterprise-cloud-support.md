@@ -7,6 +7,7 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_cloud %} includes a target eight-hour response time for priority support requests, Monday to Friday in your local time zone.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub Enterprise Cloud
@@ -17,6 +18,8 @@ shortTitle: GitHub Enterprise Cloud
 **Note:** {% data variables.product.prodname_ghe_cloud %} customers can sign up for {% data variables.contact.premium_support %}. For more information, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."
 
 {% endnote %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 You can submit priority questions if you have purchased {% data variables.product.prodname_ghe_cloud %} or if you're a member, outside collaborator, or billing manager of a {% data variables.product.prodname_dotcom %} organization currently subscribed to {% data variables.product.prodname_ghe_cloud %}.
 

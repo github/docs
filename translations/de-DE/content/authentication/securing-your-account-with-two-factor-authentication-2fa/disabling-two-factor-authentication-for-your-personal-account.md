@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Disable 2FA
@@ -17,7 +18,7 @@ Wir empfehlen dringend, Dein Konto mit der Zwei-Faktor-Authentifizierung zu sch�
 
 {% warning %}
 
-**Warnung:** Wenn Sie ein Mitglied{% ifversion fpt %}, Abrechnungsmanager{% endif %} oder externer Mitarbeiter eines öffentlichen Repositorys einer Organisation sind, die die Zwei-Faktor-Authentifizierung voraussetzt, und Sie die 2FA deaktivieren, werden Sie automatisch aus der Organisation entfernt und verlieren den Zugriff auf deren Repositorys. Um wieder auf die Organisation zugreifen zu können, aktiviere die Zwei-Faktor-Authentifizierung erneut und wende Dich an einen Organisationsinhaber.
+**Warnung:** Wenn Sie ein Mitglied{% ifversion fpt or ghec %}, Abrechnungsmanager{% endif %} oder externer Mitarbeiter eines öffentlichen Repositorys einer Organisation sind, die die Zwei-Faktor-Authentifizierung voraussetzt, und Sie die 2FA deaktivieren, werden Sie automatisch aus der Organisation entfernt und verlieren den Zugriff auf deren Repositorys. Um wieder auf die Organisation zugreifen zu können, aktiviere die Zwei-Faktor-Authentifizierung erneut und wende Dich an einen Organisationsinhaber.
 
 {% endwarning %}
 

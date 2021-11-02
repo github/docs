@@ -4,7 +4,7 @@
 }
 
 .searchResultTitle mark {
-  color: var(--color-text-link);
+  color: var(--color-accent-fg);
 }
 
 .searchResultIntro mark {
@@ -28,7 +28,7 @@
   right: 0;
   width: 0;
   border-radius: 3px;
-  background: var(--color-bg-primary);
+  background: var(--color-canvas-default);
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
   transition: width 0.3s ease-in-out;
   padding-top: 64px;
@@ -57,7 +57,7 @@
 }
 
 .searchOverlayOpen {
-  background: var(--color-bg-backdrop);
+  background: var(--color-primer-canvas-backdrop);
   position: fixed;
   top: 0;
   right: 0;

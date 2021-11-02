@@ -4,6 +4,7 @@ shortTitle: Best practices for community conversations
 intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
