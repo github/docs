@@ -42,6 +42,14 @@ A time-based one-time password (TOTP) application automatically generates an aut
 - [LastPass Authenticator](https://lastpass.com/auth/)
 - [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
 
+Other options include:
+- [FreeOTP](https://freeotp.github.io/)
+- [OnlyKey](https://onlykey.io)
+- [Authenticator](https://gitlab.gnome.org/World/Authenticator)
+- [Keepass](https://keepass.info/help/base/placeholders.html#otp)
+
+As TOTP is an [open specification](https://datatracker.ietf.org/doc/html/rfc6238), there are also numerous other implementations, but as passwords are security sensitive, please choose how you manage them with care.
+
 {% tip %}
 
 **Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time. If 2FA is already enabled and you want to add another device, you must re-configure 2FA from your security settings.
