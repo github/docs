@@ -1,6 +1,6 @@
 ---
 title: Repositorys mit Sternen speichern
-intro: 'You can star repositories and topics to keep track of projects you find interesting{% ifversion fpt %} and discover related content in your news feed{% endif %}.'
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% ifversion fpt or ghec %} and discover related content in your news feed{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Save repos with stars
@@ -24,7 +25,7 @@ You can search, sort, and filter your starred repositories and topics on your {%
 
 Mit Stern zu versehen macht es einfacher, Repositorys oder Themen später wieder zu finden. Du kannst alle Repositorys und Themen, die Du mit Stern versehen hast, auf Deiner {% data variables.explore.your_stars_page %} sehen.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Du kannst Repositorys und Themen mit Sternen versehen, um auf {% data variables.product.product_name %} auf für Dich relevante Projekte hingewiesen zu werden. Sofern verfügbar, schlägt Ihnen {% data variables.product.product_name %} in diesem Fall in der Erkennungsansicht Ihres News-Feeds ähnliche Inhalte vor. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 

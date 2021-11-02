@@ -1,6 +1,6 @@
 ---
 title: Adding a new SSH key to your GitHub account
-intro: 'To configure your {% data variables.product.product_name %} account to use your new (or existing) SSH key, you''ll also need to add it to your {% data variables.product.product_name %} account.'
+intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
@@ -9,16 +9,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Add a new SSH key
 ---
 
-Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
+Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
 * [Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-After adding a new SSH key to your {% data variables.product.product_name %} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
+After adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
 
 {% data reusables.ssh.key-type-support %}
 
@@ -32,8 +33,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
   ```
 
   {% tip %}
@@ -65,8 +66,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
   ```
 
   {% tip %}
@@ -97,8 +98,8 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ cat ~/.ssh/id_ed25519.pub
-  # Then select and copy the contents of the id_ed25519.pub file
+  $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Then select and copy the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file
   # displayed in the terminal to your clipboard
   ```
 
@@ -138,7 +139,7 @@ gh ssh-key add <em>key-file</em> --title "personal laptop"
 
 {% endcli %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 더 읽을거리
 
 - "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"

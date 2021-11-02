@@ -29,7 +29,7 @@ When restricted email notifications are enabled in an organization, members can 
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. For more information about outside collaborators, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)."
+Outside collaborators are not subject to restrictions on email notifications for verified or approved domains. For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 
 If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified or approved for the enterprise account, in addition to any domains verified or approved for the organization. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 

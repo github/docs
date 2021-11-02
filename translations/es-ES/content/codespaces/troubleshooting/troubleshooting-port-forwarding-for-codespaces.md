@@ -4,6 +4,7 @@ intro: Pasos de solución de problemas para los problemas comunes del reenvío d
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

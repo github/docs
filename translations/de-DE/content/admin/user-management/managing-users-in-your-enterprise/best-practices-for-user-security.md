@@ -31,4 +31,4 @@ We strongly recommend requiring your users to install and use a password manager
 
 Um im Falle einer Sicherheitsverletzung die potenzielle Angriffsfläche zu begrenzen, sollten Sie Benutzern unbedingt nur den Zugriff auf Teams und Repositorys gewähren, den sie zum Erledigen ihrer Arbeit unbedingt benötigen. Da Mitglieder mit der Inhaberrolle auf alle Teams und Repositorys in der Organisation zugreifen können, wird dringend empfohlen, dieses Team möglichst klein zu halten.
 
-Weitere Informationen zum Konfigurieren von Teams und Teamberechtigungen finden Sie unter „[Berechtigungsebenen für die Repositorys einer Organisation](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)“.
+For more information on configuring teams and team permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."

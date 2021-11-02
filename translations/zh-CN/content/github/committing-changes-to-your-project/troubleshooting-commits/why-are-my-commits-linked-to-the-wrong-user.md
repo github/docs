@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 链接到错误的用户
 ---
 
@@ -20,7 +21,7 @@ shortTitle: 链接到错误的用户
 
 ## 提交链接到其他用户
 
-如果您的提交链接到其他用户，则意味着本地 Git 配置设置中的电子邮件地址已连接到该用户在 {% data variables.product.product_name %}上的帐户。 在这种情况下，您可以将本地 Git 配置设置中的电子邮件{% ifversion ghae %} 更改为 {% data variables.product.product_name %} 上与您的帐户关联的地址，以链接您未来的提交。 原来的提交不会进行链接。 更多信息请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”。{% else %}并且将新的电子邮件地址添加到 {% data variables.product.product_name %} 帐户以将未来的提交链接到您的帐户。
+如果您的提交链接到其他用户，则意味着本地 Git 配置设置中的电子邮件地址已连接到该用户在 {% data variables.product.product_name %}上的帐户。 在这种情况下，您可以将本地 Git 配置设置中的电子邮件{% ifversion ghae %} 更改为 {% data variables.product.product_name %} 上与您的帐户关联的地址，以链接您未来的提交。 原来的提交不会进行链接。 更多信息请参阅“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”。{% else %}并且将新的电子邮件地址添加到您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户以将未来的提交链接到您的帐户。
 
 1. 要更改本地 Git 配置中的电子邮件地址，请按照“[设置提交电子邮件地址](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)”中的步骤操作。 如果您在多台计算机上工作，则需要在每台计算机上更改此设置。
 2. 按照“[添加电子邮件地址到 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account)”中的步骤操作，将步骤 2 中的电子邮件地址添加到您的帐户设置。{% endif %}

@@ -30,6 +30,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Solucionar los errores de Jekyll
@@ -40,7 +41,7 @@ shortTitle: Solucionar los errores de Jekyll
 Si Jekyll encuentra un error al compilar tu sitio de {% data variables.product.prodname_pages %} localmente o en {% data variables.product.product_name %}, puede usar los mensajes de error para solucionar los problemas. Para obtener más información acerca de los mensajes de error y de cómo verlos, consulta "[Acerca de los errores de compilación de Jekyll para sitios de {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
 
 Si recibiste un mensaje de error genérico, revisa los problemas comunes.
-- Estás usando plugins no compatibles. Para obtener más información, consulta "[Acerca de las {% data variables.product.prodname_pages %} y Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% ifversion fpt %}
+- Estás usando plugins no compatibles. Para obtener más información, consulta "[Acerca de las {% data variables.product.prodname_pages %} y Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% ifversion fpt or ghec %}
 - Tu repositorio ha excedido nuestros límites de tamaño del repositorio. Para obtener más información, consulta "[¿Cuál es mi cuota de disco?](/articles/what-is-my-disk-quota)"{% endif %}
 - Cambiaste el parámetro `fuente` de tu archivo *_config.yml*. {% data variables.product.prodname_pages %} reemplaza este parámetro durante el proceso de compilación.
 - Un nombre de archivo en tu fuente de publicación contiene dos puntos (`:`), los cuales no se admiten.
@@ -163,7 +164,7 @@ Para solucionar el problema, elimina la línea `relativa_permalinks` de tu archi
 
 Este error significa que tu sitio incluye un enlace simbólico (symlink) que no existe en la fuente de publicación de tu sitio. Para obtener más información acerca de los enlaces simbólicos, consulta "[Enlace simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" en Wikipedia.
 
-Para solucionar el problema, determina si el archivo en el mensaje de error se utiliza para compilar tu sitio. De lo contrario, o si no quieres que el archivo sea un enlace simbólico, elimina el archivo. Si el archivo de enlace simbólico se necesita para compilar tu sitio, asegúrate de que el archivo o el directorio al que hace referencia el enlace simbólico esté en la fuente de publicación de tu sitio. Para incluir activos externos, considera usar {% ifversion fpt %}`submódulo de git` o {% endif %}un administrador de paquetes de terceros como [Bower](https://bower.io/).{% ifversion fpt %} Para obtener más información, consulta "[Usar submódulos con las {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
+Para solucionar el problema, determina si el archivo en el mensaje de error se utiliza para compilar tu sitio. De lo contrario, o si no quieres que el archivo sea un enlace simbólico, elimina el archivo. Si el archivo de enlace simbólico se necesita para compilar tu sitio, asegúrate de que el archivo o el directorio al que hace referencia el enlace simbólico esté en la fuente de publicación de tu sitio. Para incluir activos externos, considera usar {% ifversion fpt or ghec %}`submódulo de git` o {% endif %}un administrador de paquetes de terceros como [Bower](https://bower.io/).{% ifversion fpt or ghec %} Para obtener más información, consulta "[Usar submódulos con las {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
 
 ## Error de sintaxis en el bucle 'for'
 

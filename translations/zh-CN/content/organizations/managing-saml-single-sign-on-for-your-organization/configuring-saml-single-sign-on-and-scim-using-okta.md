@@ -7,6 +7,7 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -76,7 +77,7 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 
 ## 延伸阅读
 
-- “[使用 Okta 为企业帐户配置 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta)”
+- “[使用 Okta 为企业帐户配置 SAML 单点登录](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)”
 - "[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - Okta 文档中的[了解 SAML](https://developer.okta.com/docs/concepts/saml/)
 - Okta 文档中的[了解 SCIM](https://developer.okta.com/docs/concepts/scim/)

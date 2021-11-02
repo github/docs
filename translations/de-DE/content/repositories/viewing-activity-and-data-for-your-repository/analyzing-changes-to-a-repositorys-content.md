@@ -17,6 +17,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Analyze changes
@@ -44,7 +45,7 @@ Im folgenden Diagramm wird die durchschnittliche Anzahl an Commits nach Wochenta
 
 Das Code-Verlaufsdiagramm zeigt für jede Woche im Verlauf eines Repositorys die hinzugefügten und gelöschten Inhalte an.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Code-Verlaufsdiagramm](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 

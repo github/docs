@@ -1,7 +1,6 @@
 ---
 title: Creating a JavaScript action
 intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -20,6 +20,7 @@ shortTitle: JavaScript action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introduction
 
@@ -128,7 +129,6 @@ try {
 
 If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
-
 ## Creating a README
 
 To let people know how to use your action, you can create a README file. A README is most helpful when you plan to share your action publicly, but is also a great way to remind you or your team how to use the action.
@@ -173,7 +173,6 @@ with:
 From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
-
 
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -265,11 +264,11 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. {% ifversion fpt or ghes > 3.0 or ghae %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organisationen und Enterprise-Konten
 
 Mit Enterprise-Konten können Inhaber Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen zentral verwalten.

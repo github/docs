@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-files-in-a-repository/managing-files-on-github/navigating-code-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -26,12 +27,6 @@ topics:
 - Ruby
 - TypeScript
 
-{% note %}
-
-**注釈**: コードナビゲーションは、アクティブなブランチで機能します。 この機能があなたに対して有効化されていて、関数やメソッドの定義へのリンクが表示されていない場合は、ブランチにプッシュしてから再試行してください。
-
-{% endnote %}
-
 ## 関数やメソッドの定義にジャンプする
 
 ファイル内の関数またはメソッドの呼び出しをクリックすることで、同じリポジトリ内の関数またはメソッドの定義にジャンプできます。
@@ -43,6 +38,12 @@ topics:
 ファイル内の関数またはメソッドの呼び出しをクリックして [**References**] タブをクリックすることで、同じリポジトリ内の関数またはメソッドの全リファレンスを検索することができます。
 
 ![[Find all references] タブ](/assets/images/help/repository/find-all-references-tab.png)
+
+## Troubleshooting code navigation
+
+If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
+- Code navigation only works for active branches. Push to the branch and try again.
+- Code navigation only works for repositories with less than 100,000 files.
 
 ## 参考リンク
 - 「[コード検索](/github/searching-for-information-on-github/searching-code)」

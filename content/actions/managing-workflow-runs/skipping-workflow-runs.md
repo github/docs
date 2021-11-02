@@ -1,10 +1,10 @@
 ---
 title: Skipping workflow runs
-intro: 'You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.'
+intro: You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.
 versions:
   fpt: '*'
-  ghes: '>=3.0'
-  ghae: 'ghae-next'
+  ghes: '*'
+  ghae: ghae-next
   ghec: '*'
 shortTitle: Skip workflow runs
 ---

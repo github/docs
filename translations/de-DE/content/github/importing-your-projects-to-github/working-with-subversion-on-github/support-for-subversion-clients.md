@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: Unterstützung für Subversion-Clients
 ---
 

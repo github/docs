@@ -9,6 +9,7 @@ redirect_from:
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Verify your email address
@@ -57,11 +58,11 @@ shortTitle: Verify your email address
 
 検証用リンクは、24 時間で期限が切れます。 24 時間以内にメールを検証しなかった場合、新たなメール検証用リンクをリクエストできます。 詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
 
-検証メールのリンクを 24 時間以内にクリックし、エラーページが表示された場合は、正しい {% data variables.product.prodname_dotcom %} アカウントにサインインしているか確認してください。
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.product_location %}.
 
-1. 個人 {% data variables.product.prodname_dotcom %} アカウントの {% data variables.product.signout_link %}
+1. {% data variables.product.signout_link %} of your personal account on {% data variables.product.product_location %}.
 2. ブラウザを閉じて再起動します。
-3. 個人 {% data variables.product.prodname_dotcom %} アカウントへの {% data variables.product.signin_link %}
+3. {% data variables.product.signin_link %} to your personal account on {% data variables.product.product_location %}.
 4. 弊社が送ったメール上の検証リンクをクリックします。
 
 ## 参考リンク

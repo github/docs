@@ -9,6 +9,7 @@ redirect_from:
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Verify your email address
@@ -57,11 +58,11 @@ Wenn Du Deine E-Mail-Adresse nicht verifizierst, bist Du nicht in der Lage:
 
 Der Verifizierungslink läuft nach 24 Stunden ab. Wenn Du Deine E-Mail-Adresse nicht innerhalb von 24 Stunden verifizierst, kannst Du einen weiteren Link zur Verifizierung der E-Mail anfordern. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address).“
 
-Wenn Du innerhalb von 24 Stunden auf den Link in der Bestätigungs-E-Mail klickst und Du auf eine Fehlerseite umgeleitet wirst, solltest Du sicherstellen, dass Du Dich beim richtigen {% data variables.product.prodname_dotcom %}-Konto angemeldet hast.
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.product_location %}.
 
-1. {% data variables.product.signout_link %} von Ihrem persönliche {% data variables.product.prodname_dotcom %}-Konto.
+1. {% data variables.product.signout_link %} of your personal account on {% data variables.product.product_location %}.
 2. Beende Deinen Browser, und starte ihn neu.
-3. {% data variables.product.signin_link %} bei Ihrem persönlichen {% data variables.product.prodname_dotcom %}-Konto.
+3. {% data variables.product.signin_link %} to your personal account on {% data variables.product.product_location %}.
 4. Klicke auf den Verifizierungslink in der E-Mail, die wir Dir gesendet haben.
 
 ## Weiterführende Informationen

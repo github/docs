@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Request a PR review
@@ -16,7 +17,7 @@ shortTitle: Request a PR review
 
 Inhaber und Mitarbeiter eines Repositorys, das einem Benutzerkonto angehört, können Pull Requests zuweisen. Organisationsmitglieder mit Triage-Berechtigungen für ein Repository können einen Pull-Request-Review zuweisen.
 
-Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/articles/access-permissions-on-github) auf ein benutzereigenes Repository gewährt wurde, einen Pull-Request-Review zuweisen. Organisationsmitglieder können jeder Person oder jedem Team mit Lesezugriff auf das Repository einen Pull-Request-Review zuweisen. Der angeforderte Reviewer respektive das angeforderte Team erhält eine Benachrichtigung, dass Du einen Pull-Request-Review von ihm angefordert hast. {% ifversion fpt or ghae or ghes %}Wenn Du einen Review von einem Team angefordert hast und wenn Code-Review-Zuweisung aktiviert ist, werden spezifische Mitglieder angefordert und das Team wird als Reviewer entfernt werden. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/articles/access-permissions-on-github) auf ein benutzereigenes Repository gewährt wurde, einen Pull-Request-Review zuweisen. Organisationsmitglieder können jeder Person oder jedem Team mit Lesezugriff auf das Repository einen Pull-Request-Review zuweisen. Der angeforderte Reviewer respektive das angeforderte Team erhält eine Benachrichtigung, dass Du einen Pull-Request-Review von ihm angefordert hast. {% ifversion fpt or ghae or ghes or ghec %}Wenn Du einen Review von einem Team angefordert hast und wenn Code-Review-Zuweisung aktiviert ist, werden spezifische Mitglieder angefordert und das Team wird als Reviewer entfernt werden. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% note %}
 

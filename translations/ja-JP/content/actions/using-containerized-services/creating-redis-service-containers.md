@@ -2,7 +2,6 @@
 title: Redisサービスコンテナの作成
 shortTitle: Redis サービス コンテナ
 intro: サービスコンテナを使って、ワークフロー中でRedisのクライアントを作成できます。 このガイドでは、コンテナで実行されるジョブか、ランナーマシン上で直接実行されるジョブのためのRedisサービスの作成例を紹介します。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
   - /actions/configuring-and-managing-workflows/creating-redis-service-containers
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Containers
@@ -19,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 

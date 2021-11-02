@@ -14,7 +14,7 @@ topics:
   - User account
 ---
 
-Los equipos son centrales para muchas de las características colaborativas de {% data variables.product.prodname_dotcom %}, como las @menciones del equipo para notificar a las partes correspondientes que les quieres solicitar su colaboración o atención. Para obtener más información, consulta "[Niveles de permisos para el repositorio de una organizazión](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
+Los equipos son centrales para muchas de las características colaborativas de {% data variables.product.prodname_dotcom %}, como las @menciones del equipo para notificar a las partes correspondientes que les quieres solicitar su colaboración o atención. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Un equipo puede representar a un grupo dentro de tu empresa o incluir personas con ciertos intereses o experiencia. Por ejemplo, un equipo de expertos en accesibilidad en {% data variables.product.product_location %} podría estar compuesto por personas de diferentes departamentos. Los equipos pueden representar inquietudes de carácter funcional que complementan la jerarquía divisional existente de una empresa.
 

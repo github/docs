@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,9 @@ Wenn {% data variables.product.prodname_oauth_app %}-Zugriffseinschränkungen ak
 
 {% endtip %}
 
+{% ifversion fpt %}
 To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 
 ## {% data variables.product.prodname_oauth_app %}-Zugriffseinschränkungen einrichten
 

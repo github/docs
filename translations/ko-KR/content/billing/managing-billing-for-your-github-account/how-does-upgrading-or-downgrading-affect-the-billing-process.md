@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,15 +21,15 @@ Das Forking eines Repositorys ist ähnlich wie das Kopieren eines Repositorys, m
 
 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-If you're a member of a {% data variables.product.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+If you're a member of a {% data variables.product.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-Das Löschen eines Forks wird das ursprüngliche vorgelagerte Repository nicht löschen. Du kannst beliebige Änderungen an Deiner Fork vornehmen – Mitarbeiter hinzufügen, Dateien umbenennen, {% data variables.product.prodname_pages %} generieren –, ohne Auswirkungen auf das Original.{% ifversion fpt %} Du kannst ein geforktes Repository nach dem Löschen nicht wiederherstellen. Weitere Informationen findest Du unter „[Ein gelöschtes Repository wiederherstellen](/articles/restoring-a-deleted-repository)“.{% endif %}
+Das Löschen eines Forks wird das ursprüngliche vorgelagerte Repository nicht löschen. Du kannst beliebige Änderungen an Deiner Fork vornehmen – Mitarbeiter hinzufügen, Dateien umbenennen, {% data variables.product.prodname_pages %} generieren –, ohne Auswirkungen auf das Original.{% ifversion fpt or ghec %} Du kannst ein geforktes Repository nach dem Löschen nicht wiederherstellen. Weitere Informationen findest Du unter „[Ein gelöschtes Repository wiederherstellen](/articles/restoring-a-deleted-repository)“.{% endif %}
 
 In Open-Source-Projekten werden Forks oft verwendet, um mehrfach Ideen oder Änderungen durchzuspielen, bevor sie an das vorgelagerte Repository zurückgesendet werden. Wenn Du Änderungen in Deiner benutzereigenen Fork vornimmst und einen Pull Request öffnest, die Deine Arbeit mit dem vorgelagerten Repository vergleicht, kannst Du jedem mit Push-Zugriff auf das vorgelagerte Repository die Erlaubnis geben, Änderungen in deinen Pull-Request-Branch zu übertragen. Dies beschleunigt die Zusammenarbeit, indem es den Repository-Betreuern erlaubt, Commits zu erstellen oder Tests vor dem Zusammenführen lokal aus einer benutzereigenen Fork zu Deinem Pull-Request-Branch auszuführen. Du kannst keine Push-Berechtigungen an eine Fork geben, die einer Organisation gehört.
 
@@ -40,5 +41,5 @@ If you want to create a new repository from the contents of an existing reposito
 
 - „[Informationen zu gemeinschaftlichen Entwicklungsmodellen](/articles/about-collaborative-development-models)“
 - „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“
-- [Open-Source-Leitfäden](https://opensource.guide/){% ifversion fpt %}
+- [Open-Source-Leitfäden](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

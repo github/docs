@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -20,7 +21,7 @@ Sie können auf {% data variables.product.product_name %} Themen suchen, zugehö
 1. Navigiere zu „https://github.com/search“.
 2. Gib ein Stichwort zum Thema ein. ![Suchfeld](/assets/images/help/search/search-field.png)
 3. Klicke in der linken Seitenleiste auf **Topics** (Themen), um die Suche auf Themen einzuschränken.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ![Ergebnisseite der Suche nach Jekyll-Repositorys mit hervorgehobener Option „Topics“ (Themen) in der Seitenleiste](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
 ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
 

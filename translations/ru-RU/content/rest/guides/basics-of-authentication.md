@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -50,7 +51,7 @@ end
 ```
 
 Your client ID and client secret keys come from [your application's configuration page][app settings].
-{% ifversion fpt %} You should **never, _ever_** store these values in
+{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
 {% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
@@ -132,7 +133,7 @@ Also, since there's a hierarchical relationship between scopes, you should check
 
 Checking for scopes only before making requests is not enough since it's possible that users will change the scopes in between your check and the actual request. In case that happens, API calls you expected to succeed might fail with a `404` or `401` status, or return a different subset of information.
 
-To help you gracefully handle these situations, all API responses for requests made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes]. This header contains the list of scopes of the token that was used to make the request. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes %} [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}. Use this information to detect changes in token scopes, and inform your users of changes in available application functionality.
+To help you gracefully handle these situations, all API responses for requests made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes]. This header contains the list of scopes of the token that was used to make the request. In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %} [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}. Use this information to detect changes in token scopes, and inform your users of changes in available application functionality.
 
 ### Making authenticated requests
 
@@ -264,7 +265,7 @@ get '/callback' do
 end
 ```
 
-Much of the code should look familiar. For example, we're still using `RestClient.get` to call out to the {% data variables.product.product_name %} API, and we're still passing our results to be rendered in an ERB template (this time, it's called `advanced.erb`).
+Much of the code should look familiar. For example, we're still using `RestClient.get` to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered in an ERB template (this time, it's called `advanced.erb`).
 
 Also, we now have the `authenticated?` method which checks if the user is already authenticated. If not, the `authenticate!` method is called, which performs the OAuth flow and updates the session with the granted token and scopes.
 

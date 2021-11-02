@@ -1,6 +1,6 @@
 ---
 title: リポジトリ
-intro: 'Repos APIを使うと、パブリック及びプライベートの{% data variables.product.product_name %}リポジトリのワークフローの作成、管理、制御ができます。'
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -17,7 +18,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Autolinks
 
 {% tip %}
@@ -72,7 +73,7 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## コミュニティ
 
 {% for operation in currentRestOperations %}
@@ -172,7 +173,7 @@ When you set the state of a deployment to `success`, then all prior non-transien
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## 環境
 
 Environments APIを使うと、環境を作成、設定、削除できます。 For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
@@ -202,7 +203,7 @@ Repository Invitations API を使用すると、他のユーザにリポジト�
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 
 ## Git LFS
 
@@ -295,7 +296,7 @@ GitHub App を開発していて、外部サービスについて詳細な情報
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## トラフィック
 
 プッシュアクセスを持つリポジトリに対し、トラフィック API はリポジトリグラフが提供する情報へのアクセスを提供します。 For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
@@ -363,9 +364,9 @@ PubSubHubbub リクエストは複数回送信できます。 フックがすで
 
 ##### パラメータ
 
-| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                               |
-| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                                                                                                                                                           |
-| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                                                                                                                                                       |
-| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                                                                                                                                                                |
-| `hub.secret`   | `string` | 送信する本文コンテンツの ハッシュ署名を生成する共有秘密鍵。  GitHubからきたプッシュを、そのリクエストのボディを{% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature`もしくは`X-Hub-Signature-256`ヘッダ{% elsif ghes < 3.0 %}`X-Hub-Signature`ヘッダ{% elsif ghae %}`X-Hub-Signature-256`ヘッダ{% endif %}と比較して、検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                                                                                                                                                                                                                                      |
+| `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `hub.secret`   | `string` | 送信する本文コンテンツの ハッシュ署名を生成する共有秘密鍵。  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |

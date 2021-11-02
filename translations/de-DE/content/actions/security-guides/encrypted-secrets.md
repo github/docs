@@ -1,7 +1,6 @@
 ---
 title: Encrypted secrets
-intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes > 3.0 %}, repository, or repository environments{% else %} or repository{% endif %}.'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes > 3.0 or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -12,28 +11,40 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Informationen zu verschlüsselten Geheimnissen
 
-Secrets are encrypted environment variables that you create in an organization{% ifversion fpt or ghes > 3.0 or ghae %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
+Secrets are encrypted environment variables that you create in an organization{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
+{% endif %}
+
+{% ifversion fpt or ghec or ghae-issue-4856 %}
+
+{% note %}
+
+**Hinweis**: {% data reusables.actions.about-oidc-short-overview %}
+
+{% endnote %}
+
 {% endif %}
 
 ### Benennen Ihrer Geheimnisse
 
 {% data reusables.codespaces.secrets-naming %}
 
-  For example, {% ifversion fpt or ghes > 3.0 or ghae %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
+  For example, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
+  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
 To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. Vermeide beispielsweise Geheimnisse zu erstellen, die JSON oder codierte Git-Blobs enthalten.
 
@@ -49,7 +60,7 @@ Du kannst verschlüsselte Geheimnisse in einer Workflow-Datei verwenden und lese
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
 {% endif %}
 
@@ -81,7 +92,7 @@ Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Bere
 1. Geben Sie den Wert für Ihr Geheimnis ein.
 1. Klicken Sie auf **Add secret** (Geheimnis hinzufügen).
 
-If your repository {% ifversion fpt or ghes > 3.0 or ghae %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
+If your repository {% ifversion fpt or ghes > 3.0 or ghae or ghec %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
 {% endwebui %}
 
@@ -105,7 +116,7 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% endcli %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## Creating encrypted secrets for an environment
 
@@ -279,13 +290,13 @@ steps:
 
 ## Einschränkungen für Geheimnisse
 
-You can store up to 1,000 organization secrets{% ifversion fpt or ghes > 3.0 or ghae %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
+You can store up to 1,000 organization secrets{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, 100 repository secrets, and 100 environment secrets{% else %} and 100 repository secrets{% endif %}.
 
 A workflow created in a repository can access the following number of secrets:
 
 * All 100 repository secrets.
 * If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
-{% ifversion fpt or ghes > 3.0 or ghae %}* All 100 environment secrets.{% endif %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}* All 100 environment secrets.{% endif %}
 
 Geheimnisse sind auf 64 KB beschränkt. Um Geheimnisse zu verwenden, die größer als 64 KB sind, können Sie verschlüsselte Geheimnisse in Ihrem Repository speichern und die Passphrase zur Entschlüsselung als Geheimnis auf {% data variables.product.prodname_dotcom %} speichern. Sie können beispielsweise `gpg` verwenden, um Ihre Anmeldeinformationen lokal zu verschlüsseln, bevor Sie die Datei in Ihrem Repository auf {% data variables.product.prodname_dotcom %} einchecken. Weitere Informationen finden Sie auf der „[gpg-Manpage](https://www.gnupg.org/gph/de/manual/r1023.html)“.
 

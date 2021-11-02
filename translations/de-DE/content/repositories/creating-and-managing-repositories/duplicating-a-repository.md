@@ -10,11 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -94,7 +95,7 @@ Wie ein leerer Klon enthält ein gespiegelter Klon alle Remote-Branches und Tags
 $ git fetch -p origin
 $ git push --mirror
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Weiterführende Informationen
 
 * "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"

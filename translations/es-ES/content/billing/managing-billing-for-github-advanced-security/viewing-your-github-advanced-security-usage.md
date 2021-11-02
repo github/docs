@@ -12,6 +12,7 @@ redirect_from:
 versions:
   ghes: '>=3.1'
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -27,7 +28,7 @@ shortTitle: Visualizar el uso de la Seguridad Avanzada
 
 Puedes verificar cuántas plazas incluye tu licencia y cuántas de ellas se están utilizando.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

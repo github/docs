@@ -1,6 +1,6 @@
 ---
 title: Exibir um resumo da atividade do repositório
-intro: 'You can view an overview of a repository''s pull request, issue, and commit activity.'
+intro: 'Você pode ter uma visão geral do pull request, problema e atividade do commit de um repositório.'
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
@@ -10,18 +10,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Visualizar atividade do repositório
 ---
 
-## About Pulse
+## Sobre o Pulse
 
-É possível exibir uma visão geral da atividade de um repositório por meio do gráfico Pulse. Pulse includes a list of open and merged pull requests, open and closed issues, and a graph showing the commit activity for the top 15 users who committed to the default branch of the project in the selected [time period](/articles/viewing-a-summary-of-repository-activity#filtering-by-time).
+É possível exibir uma visão geral da atividade de um repositório por meio do gráfico Pulse. O Pulse inclui uma lista de pull requests abertos e mesclados, problemas abertos e fechados e um gráfico que mostra a atividade de commit para os 15 principais usuários que fizeram o commit com o branch padrão do projeto no [período de tempo](/articles/viewing-a-summary-of-repository-activity#filtering-by-time) selecionado.
 
 Os coautores de commit serão incluídos no resumo da atividade de commit caso tenha sido feito merge dos commits deles no branch padrão do repositório e eles estejam entre os 15 principais usuários que contribuíram com a maioria dos commits.
 
-## Accessing Pulse
+## Acessando o Pulse
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

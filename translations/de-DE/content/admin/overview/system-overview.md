@@ -21,6 +21,8 @@ Für {% data variables.product.prodname_ghe_server %} sind zwei Storage-Volumes 
 
 Das Root-Dateisystem ist im verteilten Maschinen-Image enthalten. Es enthält das Basisbetriebssystem und die {% data variables.product.prodname_ghe_server %}-Anwendungsumgebung. Das Root-Dateisystem sollte als flüchtig behandelt werden. Daten auf dem Root-Dateisystem werden beim Upgrade auf künftige {% data variables.product.prodname_ghe_server %}-Versionen ersetzt.
 
+The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
+
 Das Root-Dateisystem enthält Folgendes:
   - benutzerdefinierte Zertifikate der Zertifizierungsstelle (CA) (in */usr/local/share/ca-certificates*)
   - benutzerdefinierte Netzwerkkonfigurationen

@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -27,7 +28,7 @@ Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) sup
 
 It's important to *not* try and guess the format of the pagination URL. Not every API call uses the same structure. Instead, extract the pagination information from [the Link Header](/rest#pagination), which is sent with every request.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Basic authentication errors
 
 On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -16,14 +17,14 @@ shortTitle: Remover um integrante
 
 Somente proprietários da organização podem remover integrantes da organização.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
 **Aviso:** Ao remover integrantes de uma organização:
 - O número de licenças pagas não faz o downgrade automaticamente. Para pagar menos licenças depois de remover os usuários da sua organização, siga as etapas em "[Fazer o downgrade das estações pagas da sua organização](/articles/downgrading-your-organization-s-paid-seats)".
 - Os integrantes removidos perderão o acesso às bifurcações privadas dos repositórios privados da sua organização, mas ainda poderão ter cópias locais. No entanto, eles não conseguem sincronizar as cópias locais com os repositórios da organização. As bifurcações privadas poderão ser restauradas se o usuário for [restabelecido como um integrante da organização](/articles/reinstating-a-former-member-of-your-organization) em até três meses após sua remoção da organização. Em última análise, você é responsável por garantir que as pessoas que perderam o acesso a um repositório excluam qualquer informação confidencial ou de propriedade intelectual.
--  If your organization is owned by an enterprise account, removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. Para obter mais informações, consulte "[Sobre contas corporativas](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts)".
+-  Se a organização pertence a uma conta corporativa, os integrantes removidos também perderão acesso a bifurcações privadas dos repositórios internos da organização, se o integrante removido não for integrante de outra organização pertencente à mesma conta corporativa. Para obter mais informações, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 - Quaisquer convites para organizações enviados por um integrante removido que não foram aceitos, serão cancelados e não serão acessíveis.
 
 {% endwarning %}
@@ -34,14 +35,14 @@ Somente proprietários da organização podem remover integrantes da organizaç�
 
 **Aviso:** Ao remover integrantes de uma organização:
  - Os integrantes removidos perderão o acesso às bifurcações privadas dos repositórios privados da sua organização, mas ainda poderão ter cópias locais. No entanto, eles não conseguem sincronizar as cópias locais com os repositórios da organização. As bifurcações privadas poderão ser restauradas se o usuário for [restabelecido como um integrante da organização](/articles/reinstating-a-former-member-of-your-organization) em até três meses após sua remoção da organização. Em última análise, você é responsável por garantir que as pessoas que perderam o acesso a um repositório excluam qualquer informação confidencial ou de propriedade intelectual.
-- Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization in your enterprise.
+- Os integrantes removidos também perderão acesso a bifurcações privadas dos repositórios internos da sua organização, se o integrante removido não for um integrante de outra organização na sua empresa.
  - Quaisquer convites para organizações enviados pelo usuário removido, que não foram aceitos, serão cancelados e não serão acessíveis.
 
 {% endwarning %}
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Para auxiliar a transição e garantir a exclusão das informações confidenciais ou de propriedade intelectual, recomendamos o compartilhamento de uma lista de práticas recomendadas ao sair da organização com o usuário que está sendo removido. Consulte um exemplo em "[Práticas recomendadas para sair da empresa](/articles/best-practices-for-leaving-your-company/)".
 

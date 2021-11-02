@@ -5,6 +5,7 @@ redirect_from:
   - /v3/scim
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -12,7 +13,7 @@ miniTocMaxHeadingLevel: 3
 
 ### SCIM Provisioning for Organizations
 
-The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% data variables.product.product_name %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
