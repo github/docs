@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - High availability
   - Infrastructure
+shortTitle: Initiate failover to appliance
 ---
 
 Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, das Replikat manuell hochzustufen und den Traffic weiterzuleiten. Die Durchschnittszeit beträgt zwischen 2 und 10 Minuten.
@@ -24,7 +25,14 @@ Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, d
       ```shell
       $ ghe-maintenance -s
       ```
-2. Wenn die Anzahl der aktiven Git-Vorgänge null erreicht, sollten Sie 30 Sekunden lang warten.
+2.  When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
+
+    {% note %}
+
+    **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+
+    {% endnote %}
+
 3. Führen Sie den Befehl `ghe-repl-status -vv` aus, um zu verifizieren, dass alle Replikationskanäle `OK` ausgeben.
   ```shell
   $ ghe-repl-status -vv
@@ -46,6 +54,6 @@ Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, d
       $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Dienstprogramme zur Replikationsverwaltung](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)“

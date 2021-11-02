@@ -35,7 +35,7 @@ export function Search({
 }: Props) {
   const router = useRouter()
   const [query, setQuery] = useState(router.query.query || '')
-  const [results, setResults] = useState<Array<SearchResult>>([])
+  const [results, setResults] = useState<Array<SearchResult> | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [activeHit, setActiveHit] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -74,21 +74,21 @@ export function Search({
         closeSearch()
         break
       case 'ArrowDown':
-        if (!results.length) break
+        if (results === null || !results.length) break
         event.preventDefault() // prevent window scrolling
         if (activeHit >= results.length) break
         setActiveHit(activeHit + 1)
         break
       case 'ArrowUp':
-        if (!results.length) break
+        if (results === null || !results.length) break
         event.preventDefault() // prevent window scrolling
         if (activeHit === 0) break
         setActiveHit(activeHit - 1)
         break
       case 'Enter':
         // look for a link in the given hit, then visit it
-        if (activeHit === 0 || !results.length) break
-        window.location.href = results[activeHit - 1]?.url
+        if (results === null || activeHit === 0 || !results.length) break
+        onGotoResult(results[activeHit - 1]?.url, activeHit)
         break
     }
   }
@@ -132,7 +132,7 @@ export function Search({
         })
         setResults(response.ok ? await response.json() : [])
       } else {
-        setResults([])
+        setResults(null)
       }
     } finally {
       setIsLoading(false)
@@ -151,12 +151,26 @@ export function Search({
   // Close panel if overlay is clicked
   function closeSearch() {
     setQuery('')
-    setResults([])
+    setResults(null)
   }
 
   // Prevent the page from refreshing when you "submit" the form
   function preventRefresh(evt: React.FormEvent) {
     evt.preventDefault()
+  }
+
+  function onGotoResult(url: string, index: number) {
+    if (results) {
+      sendEvent({
+        type: EventType.searchResult,
+        search_result_query: Array.isArray(query) ? query[0] : query,
+        search_result_index: index,
+        search_result_total: results.length,
+        search_result_rank: (results.length - index) / results.length,
+        search_result_url: url,
+      })
+    }
+    document.location.href = url
   }
 
   const SearchResults = (
@@ -170,51 +184,14 @@ export function Search({
           query && styles.resultsContainerOpen
         )}
       >
-        {results.length > 0 ? (
-          <ol data-testid="search-results" className="d-block mt-2">
-            {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
-              const isActive = index === activeHit
-              return (
-                <li
-                  key={url}
-                  data-testid="search-result"
-                  className={cx(
-                    'list-style-none overflow-hidden rounded-3 color-text-primary border',
-                    isActive ? 'color-bg-tertiary' : 'color-border-transparent'
-                  )}
-                  onMouseEnter={() => setActiveHit(index)}
-                >
-                  <div className={cx('py-3 px-3', isActive && 'color-border-secondary')}>
-                    <a className="no-underline color-text-primary" href={url}>
-                      {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
-                      <div
-                        className={'d-block opacity-60 text-small pb-1'}
-                        dangerouslySetInnerHTML={{ __html: breadcrumbs }}
-                      />
-                      <div
-                        className={cx(styles.searchResultTitle, 'd-block f4 font-weight-semibold')}
-                        dangerouslySetInnerHTML={{
-                          __html: heading ? `${title}: ${heading}` : title,
-                        }}
-                      />
-                      <div
-                        className={cx(styles.searchResultContent, 'd-block overflow-hidden')}
-                        style={{ maxHeight: '4rem' }}
-                        dangerouslySetInnerHTML={{ __html: content }}
-                      />
-                    </a>
-                  </div>
-                </li>
-              )
-            })}
-          </ol>
-        ) : (
-          isOverlay && (
-            <div className="mt-2 px-6">
-              {isLoading ? <span>{t('loading')}...</span> : <span>{t('no_results')}.</span>}
-            </div>
-          )
-        )}
+        <ShowSearchResults
+          isOverlay={isOverlay}
+          isLoading={isLoading}
+          results={results}
+          activeHit={activeHit}
+          setActiveHit={setActiveHit}
+          onGotoResult={onGotoResult}
+        />
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
@@ -242,7 +219,7 @@ export function Search({
             )}
             style={{
               background:
-                'var(--color-bg-primary) url("/assets/images/octicons/search.svg") no-repeat 6px',
+                'var(--color-canvas-default) url("/assets/images/octicons/search.svg") no-repeat 6px',
             }}
             type="search"
             placeholder={t`placeholder`}
@@ -273,5 +250,111 @@ export function Search({
         </>
       )}
     </>
+  )
+}
+
+function ShowSearchResults({
+  isOverlay,
+  isLoading,
+  results,
+  activeHit,
+  setActiveHit,
+  onGotoResult,
+}: {
+  isOverlay: boolean
+  isLoading: boolean
+  results: SearchResult[] | null
+  activeHit: number
+  setActiveHit: (index: number) => void
+  onGotoResult: (url: string, index: number) => void
+}) {
+  const { t } = useTranslation('search')
+
+  if (results !== null) {
+    if (results.length === 0) {
+      // When there results, but exactly 0, it matters if this is the overlay or not.
+      if (isOverlay) {
+        return (
+          <div className="mt-2 px-6">
+            {isLoading ? <span>{t('loading')}...</span> : <span>{t('no_results')}.</span>}
+          </div>
+        )
+      } else {
+        return (
+          <p data-testid="no-search-results" className="d-block mt-4">
+            {t('no_results')}.
+          </p>
+        )
+      }
+    }
+    // When there are search results, it doesn't matter if this is overlay or not.
+    return (
+      <ol data-testid="search-results" className="d-block mt-4">
+        {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
+          const isActive = index === activeHit
+          return (
+            <li
+              key={url}
+              data-testid="search-result"
+              className={cx(
+                'list-style-none overflow-hidden rounded-3 color-fg-default border',
+                isActive ? 'color-bg-subtle' : 'color-border-transparent'
+              )}
+              onMouseEnter={() => setActiveHit(index)}
+            >
+              <div className={cx('py-3 px-3', isActive && 'color-border-muted')}>
+                <a
+                  className="no-underline color-fg-default"
+                  href={url}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    onGotoResult(url, index)
+                  }}
+                >
+                  {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
+                  <div
+                    className={'d-block opacity-60 text-small pb-1'}
+                    dangerouslySetInnerHTML={{ __html: breadcrumbs }}
+                  />
+                  <div
+                    className={cx(styles.searchResultTitle, 'd-block f4 text-semibold')}
+                    dangerouslySetInnerHTML={{
+                      __html: heading ? `${title}: ${heading}` : title,
+                    }}
+                  />
+                  <div
+                    className={cx(styles.searchResultContent, 'd-block overflow-hidden')}
+                    style={{ maxHeight: '4rem' }}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                  />
+                </a>
+              </div>
+            </li>
+          )
+        })}
+      </ol>
+    )
+  }
+
+  // We have no results at all, but perhaps we're waiting.
+  if (isOverlay) {
+    return (
+      <div className="mt-2 px-6">
+        {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
+      </div>
+    )
+  }
+  return (
+    <p data-testid="results-spacer" className="d-block mt-4">
+      {/*
+        This exists so that there's always *something* displayed in the
+        DOM with or without a search result.
+        That way, the vertical space is predetermined as a minimum.
+        Note: Perhaps it would be better to use CSS but by using a
+        real, but empty, DOM element, the height is always minimal and
+        always perfectly accurate.
+      */}
+      {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
+    </p>
   )
 }

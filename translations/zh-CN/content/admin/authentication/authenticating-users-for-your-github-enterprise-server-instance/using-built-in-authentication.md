@@ -6,18 +6,19 @@ redirect_from:
   - /enterprise/admin/authentication/using-built-in-authentication
   - /admin/authentication/using-built-in-authentication
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
   - Authentication
   - Enterprise
   - Identity
+shortTitle: 使用内置身份验证
 ---
 
 您可以创建用户将在登录和注销页面上看到的自定义消息。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)”。
 
-### 配置内置身份验证
+## 配置内置身份验证
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -27,12 +28,25 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### 创建帐户并添加用户
+## 创建账户
 
-在实例创建完成后，您需要创建自己的管理员帐户并使用它配置用户。
+在实例创建完成后，您需要创建自己的管理员帐户。
 
 1. 在 `http(s)://[hostname]/join` 的“Create Admin Account”页面下，选择您的用户名、密码和电子邮件地址，然后单击 **Create an account**。 ![创建管理员帐户](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
 {% data reusables.enterprise_site_admin_settings.sign-in %}
+
+## 邀请用户
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
 {% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
+
+{% tip %}
+
+**提示：** 如果在设备上配置通知电子邮件，邀请也将发送到提供的电子邮件地址。
+
+{% endtip %}
+
+## 延伸阅读
+
+- "[配置通知电子邮件](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

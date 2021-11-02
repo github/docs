@@ -2,19 +2,19 @@
 contact_ent_support: '[GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com)'
 
 contact_support: >-
-  {% ifversion fpt %}[GitHub Support](https://support.github.com/contact?tags=docs-generic){% else %}your site administrator{% endif %}
+  {% ifversion fpt or ghec %}[GitHub Support](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}your site administrator{% elsif ghae %}your enterprise owner{% endif %}
 
 report_abuse: >-
-  {% ifversion fpt %}[Report abuse](https://github.com/contact/report-abuse){% endif %}
+  {% ifversion fpt or ghec %}[Report abuse](https://github.com/contact/report-abuse){% endif %}
 
 report_content: >-
-  {% ifversion fpt %}[Report content](https://github.com/contact/report-content){% endif %}
+  {% ifversion fpt or ghec %}[Report content](https://github.com/contact/report-content){% endif %}
 
 contact_dmca: >-
-  {% ifversion fpt %}[Copyright claims form](https://github.com/contact/dmca){% endif %}
+  {% ifversion fpt or ghec %}[Copyright claims form](https://github.com/contact/dmca){% endif %}
 
 contact_privacy: >-
-  {% ifversion fpt %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
+  {% ifversion fpt or ghec %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
 
 contact_enterprise_sales: "[GitHub's Sales team](https://enterprise.github.com/contact)"
 

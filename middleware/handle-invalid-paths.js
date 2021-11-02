@@ -49,7 +49,7 @@ export default function handleInvalidPaths(req, res, next) {
   }
 
   // Prevent various malicious injection attacks targeting Next.js
-  if (req.path.match(/^\/_next[^/]/)) {
+  if (req.path.match(/^\/_next[^/]/) || req.path === '/_next/data' || req.path === '/_next/data/') {
     return next(404)
   }
 

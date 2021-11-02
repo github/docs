@@ -1,6 +1,6 @@
 ---
 title: Repositories
-intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} respositories.'
+intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -17,7 +18,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4742 %}
 ## Autolinks
 
 {% tip %}
@@ -73,7 +74,7 @@ The Repo Commits API supports listing, viewing, and comparing commits in a repos
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Community
 
 {% for operation in currentRestOperations %}
@@ -175,10 +176,10 @@ You can communicate that a transient environment no longer exists by setting its
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Environments
 
-The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
@@ -206,6 +207,16 @@ Use the API endpoint for adding a collaborator. For more information, see "[Add 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+
+## Git LFS
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
 
 ## Merging
 
@@ -309,7 +320,7 @@ If you are developing a GitHub App and want to provide more detailed information
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Traffic
 
 For repositories that you have push access to, the traffic API provides access
@@ -384,4 +395,4 @@ Name | Type | Description
 ``hub.mode``|`string` | **Required**. Either `subscribe` or `unsubscribe`.
 ``hub.topic``|`string` |**Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
 ``hub.callback``|`string` | The URI to receive the updates to the topic.
-``hub.secret``|`string` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.
+``hub.secret``|`string` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.

@@ -1,13 +1,16 @@
 ---
 title: 移行
+intro: 'The Migration API lets you migrate the repositories and users of your  organization from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /v3/migrations
   - /v3/migration
   - /v3/migration/migrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -16,7 +19,7 @@ topics:
 
 ## Organization
 
-移行 API を使用できるのは、認証済みの Organization オーナーのみです。 詳細については、「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#permission-levels-for-an-organization)」と「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
+移行 API を使用できるのは、認証済みの Organization オーナーのみです。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
 
 {% data variables.migrations.organization_migrations_intro %}
 

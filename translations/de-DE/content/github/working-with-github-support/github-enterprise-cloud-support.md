@@ -6,9 +6,11 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} umfasst eine angestrebte Reaktionszeit von acht Stunden für Supportanfragen mit hoher Priorität, von Montag bis Freitag in Deiner lokalen Zeitzone.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
+shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}
@@ -16,6 +18,8 @@ topics:
 **Hinweis:** {% data variables.product.prodname_ghe_cloud %}-Kunden können sich für {% data variables.contact.premium_support %} registrieren. Weitere Informationen findest Du unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud).“
 
 {% endnote %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 Sie können Prioritätsfragen einreichen, wenn Sie {% data variables.product.prodname_ghe_cloud %} gekauft haben oder ein Mitglied, externer Mitarbeiter oder Abrechnungsmanager einer {% data variables.product.prodname_dotcom %}-Organisation sind, die aktuell {% data variables.product.prodname_ghe_cloud %} abonniert hat.
 

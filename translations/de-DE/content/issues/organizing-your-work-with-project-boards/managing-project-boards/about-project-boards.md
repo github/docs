@@ -7,18 +7,21 @@ redirect_from:
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Projektboards bestehen aus Issues, Pull Requests und Hinweisen, die als Tickets in Spalten Deiner Wahl kategorisiert werden. Du kannst per Drag-and-Drop oder Tastenkürzel Tickets innerhalb einer Spalte neu anordnen, Tickets von Spalte zu Spalte verschieben und die Reihenfolge der Spalten ändern.
 
 Projektboard-Tickets enthalten relevante Metadaten für Issues und Pull Requests, wie Kennzeichnungen, Bearbeiter, Status und den öffnenden Benutzer. {% data reusables.project-management.edit-in-project %}
 
-Sie können außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_name %} verwenden. Über Hinweise können Sie auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
+Sie können außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_location %} verwenden. Über Hinweise können Sie auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
 
 Arten von Projektboards:
 
@@ -26,7 +29,7 @@ Arten von Projektboards:
 - **Organisationsweite Projektboards** können Issues und Pull Requests aus jedem Repository enthalten, das einer Organisation gehört.  {% data reusables.project-management.link-repos-to-project-board %} Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
 - **Repository-Projektboards** sind auf Issues und Pull Requests innerhalb eines einzelnen Repositorys ausgerichtet. Sie können auch Hinweise enthalten, die auf Issues und Pull Requests in anderen Repositorys verweisen.
 
-### Projektboards erstellen und anzeigen
+## Projektboards erstellen und anzeigen
 
 Um ein Projektboard für Deine Organisation zu erstellen, musst Du Mitglied der Organisation sein. Organisationsinhaber und Personen mit Administratorberechtigungen für Projektboards können den Zugriff auf das Projektboard anpassen.
 
@@ -44,7 +47,7 @@ Du kannst außerdem [Projektboards in einem Repository deaktivieren](/articles/d
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-### Vorlagen für Projektboards
+## Vorlagen für Projektboards
 
 Mit Vorlagen kannst Du schnell ein neues Projektboard erstellen. Wenn Du eine Vorlage für die Erstellung eines Projektboards verwendest, enthält Dein neues Board Spalten sowie Tickets mit Tipps zur Verwendung von Projektboards. Du kannst auch eine Vorlage mit bereits konfigurierter Automatisierung wählen.
 
@@ -61,10 +64,10 @@ Weitere Informationen zur Automatisierung von Projektboards findest Du unter „
 
 {% data reusables.project-management.copy-project-boards %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Ein Projektboard erstellen](/articles/creating-a-project-board)“
-- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% if currentVersion == "free-pro-team@latest" %}
+- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% ifversion fpt or ghec %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board)“
 - „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“

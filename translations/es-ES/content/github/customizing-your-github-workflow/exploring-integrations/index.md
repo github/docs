@@ -6,7 +6,8 @@ intro: |-
 redirect_from:
   - /articles/exploring-integrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /about-integrations
   - /about-github-marketplace

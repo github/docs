@@ -6,9 +6,10 @@ redirect_from:
   - /articles/disabling-wikis
   - /github/building-a-strong-community/disabling-wikis
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -19,6 +20,6 @@ Quando um wiki é desativado, o conteúdo dele é oculto, mas não apagado. Se v
 {% data reusables.repositories.sidebar-settings %}
 3. Em Features (Recursos), desmarque **Wiki**. ![Caixa de seleção Wiki disable (Desabilitação de wikis)](/assets/images/help/wiki/wiki_enable_disable.png)
 
-### Leia mais
+## Leia mais
 
 - "[Alterar permissões de acesso para wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"

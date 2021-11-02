@@ -8,32 +8,32 @@ redirect_from:
   - /packages/guides/pushing-and-pulling-docker-images
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
   - /packages/managing-container-images-with-github-container-registry
+  - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
+  - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
+  - /packages/guides/container-guides-for-github-packages/enabling-improved-container-support
+  - /packages/guides/enabling-improved-container-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Container registry
 ---
 
-{% data reusables.package_registry.container-registry-beta %}
-
-{% data reusables.package_registry.docker-vs-container-registry %}
-
-### 关于 {% data variables.product.prodname_container_registry %} 支持
-
-要推送和拉取容器映像，组织管理员或个人帐户所有者必须启用 {% data variables.product.prodname_container_registry %}。 更多信息请参阅“[使用 {% data variables.product.prodname_container_registry %} 启用改进的容器支持](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)”。
-
-安装或发布 Docker 映像时，容器注册表支持外部层，例如 Windows 映像。
+## 关于 {% data variables.product.prodname_container_registry %} 支持
 
 {% data variables.product.prodname_container_registry %} 目前支持以下容器映像格式：
 
 * [Docker 映像清单 V2，架构 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Open Container Initiative (OCI) 规格](https://github.com/opencontainers/image-spec)
 
-### 向 {% data variables.product.prodname_container_registry %} 验证
+在安装或发布 Docker 映像时，{% data variables.product.prodname_container_registry %} 支持外部层，如 Windows 映像。
+
+## 向 {% data variables.product.prodname_container_registry %} 验证
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-### 推送容器映像
+## 推送容器映像
 
 此示例推送最新版本的 `IMAGE-NAME`。
   ```shell
@@ -47,9 +47,9 @@ versions:
 
 首次发布包时，默认可见性是私有的。 要更改可见性或设置访问权限，请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”。
 
-### 拉取容器映像
+## 拉取容器映像
 
-#### 通过摘要拉取
+### 通过摘要拉取
 
 为了确保始终使用相同的映像，您可以通过 `digest` SHA 值指定要拉取的准确容器映像版本。
 
@@ -67,13 +67,13 @@ versions:
   $ docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-#### 按名称拉取
+### 按名称拉取
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME
   ```
 
-#### 按名称和版本拉取
+### 按名称和版本拉取
 
 显示按名称和 `1.14.1` 版本标记拉取映像的 Docker CLI 示例：
   ```shell
@@ -87,7 +87,7 @@ versions:
   > ghcr.io/orgname/image-name/release:1.14.1
   ```
 
-#### 按名称和最新版本拉取
+### 按名称和最新版本拉取
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
@@ -97,14 +97,14 @@ versions:
   > ghcr.io/user/image-name:latest
   ```
 
-### 构建容器映像
+## 构建容器映像
 
 此示例构建 `hello_docker` 映像：
   ```shell
   $ docker build -t hello_docker .
   ```
 
-### 标记容器映像
+## 标记容器映像
 
 1. 找到要标记的 Docker 映像的 ID。
   ```shell

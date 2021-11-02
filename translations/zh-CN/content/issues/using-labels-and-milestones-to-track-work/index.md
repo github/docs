@@ -1,11 +1,12 @@
 ---
 title: 使用标签和里程碑来跟踪工作
 shortTitle: 标签和里程碑
-intro: '标签和里程碑用于在 {% data variables.product.prodname_dotcom %} 上分类和跟踪工作'
+intro: '使用标签和里程碑在 {% data variables.product.prodname_dotcom %} 上分类和跟踪工作.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Issues
 children:

@@ -6,19 +6,21 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/about-github-security-advisories
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
+shortTitle: 安全通告
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### 关于 {% data variables.product.prodname_security_advisories %}
+## 关于 {% data variables.product.prodname_security_advisories %}
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %} 更多信息请参阅“[关于协调披露安全漏洞](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)”。
 
@@ -40,7 +42,7 @@ topics:
 
 {% data reusables.repositories.github-security-lab %}
 
-### CVE 识别号
+## CVE 识别号
 
 {% data variables.product.prodname_security_advisories %} 基于通用漏洞披露 (CVE) 列表而构建。 在 {% data variables.product.prodname_dotcom %} 上的安全通告表是符合 CVE 描述格式的标准化表格。
 
@@ -50,6 +52,6 @@ topics:
 
 在您发布了安全通告并且 {% data variables.product.prodname_dotcom %} 为漏洞分配 CVE 标识号后，{% data variables.product.prodname_dotcom %} 会将 CVE 发布到 MITRE 数据库。 更多信息请参阅“[发布安全通告](/github/managing-security-vulnerabilities/publishing-a-security-advisory#requesting-a-cve-identification-number)”。
 
-### 对于发布的安全通告的 {% data variables.product.prodname_dependabot_alerts %}
+## 对于发布的安全通告的 {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.repositories.github-reviews-security-advisories %}

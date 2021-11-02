@@ -6,16 +6,18 @@ redirect_from:
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Convert admin team
 ---
 
 Um Mitgliedern der alten Administratorenteams die Berechtigung zum Erstellen von Repositorys zu entziehen, erstelle ein neues Team für diese Mitglieder, stelle dabei sicher, dass das Team den erforderlichen Zugriff auf die Repositorys der Organisation hat, und lösche dann das alte Administratorenteam.
 
-Weitere Informationen findest Du unter„[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization/).“
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 

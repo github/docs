@@ -2,11 +2,13 @@
 title: Inhabilitar tu cuenta de GitHub Sponsors
 intro: 'Si ya no quieres participar en {% data variables.product.prodname_sponsors %}, puedes inhabilitar tu cuenta de {% data variables.product.prodname_sponsors %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Inhabilitar tu cuenta
 ---
 
 Si estás recibiendo pagos de patrocinio, necesitas contactar al Soporte de GitHub para inhabilitar tu cuenta de {% data variables.product.prodname_sponsors %}.

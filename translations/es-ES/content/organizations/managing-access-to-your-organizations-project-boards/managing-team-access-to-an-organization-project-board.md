@@ -5,12 +5,14 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Administrar el acceso de los equipos
 ---
 
 {% warning %}
@@ -21,7 +23,7 @@ topics:
 
 {% endwarning %}
 
-### Otorgarle a un equipo acceso a un tablero de proyecto
+## Otorgarle a un equipo acceso a un tablero de proyecto
 
 Puedes otorgarle a un equipo completo el mismo nivel de permiso a un tablero de proyecto.
 
@@ -41,7 +43,7 @@ Puedes otorgarle a un equipo completo el mismo nivel de permiso a un tablero de 
 9. Para agregar un equipo, haz clic en **Add a team: Select team (Agregar un equipo: seleccionar equipo)**. Después, elige un equipo del menú desplegable o busca el equipo que deseas agregar. ![Agregar un menú desplegable de equipo con una lista de equipos en la organización](/assets/images/help/projects/add-a-team.png)
 10. Junto al nombre del equipo, utiliza el menú desplegable para seleccionar el nivel de permiso deseado: **Read** (Lectura), **Write** (Escritura) o **Admin** (Administración). ![Menú desplegable de permisos de equipo con opciones de lectura, escritura o administrador](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
-### Configurar el acceso de un equipo a un tablero de proyecto
+## Configurar el acceso de un equipo a un tablero de proyecto
 
 Si un equipo hereda el acceso a un tablero de proyecto desde un equipo padre, deberás cambiar el acceso de dicho equipo padre a este tablero para actualizar el acceso de los equipos hijos.
 

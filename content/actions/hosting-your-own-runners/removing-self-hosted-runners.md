@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Remove self-hosted runners
 ---
@@ -27,15 +28,23 @@ shortTitle: Remove self-hosted runners
 
 {% endnote %}
 
-To remove a self-hosted runner from a user repository you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. We recommend that you also have access to the self-hosted runner machine.
+To remove a self-hosted runner from a user repository you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
-
+{% ifversion fpt or ghec %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
+{% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
+{% endif %}
+{% ifversion ghae or ghes %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
-
+{% endif %}
 ## Removing a runner from an organization
 
 {% note %}
@@ -46,15 +55,22 @@ To remove a self-hosted runner from a user repository you must be the repository
 
 {% endnote %}
 
-To remove a self-hosted runner from an organization, you must be an organization owner. We recommend that you also have access to the self-hosted runner machine.
+To remove a self-hosted runner from an organization, you must be an organization owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}
-
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.settings-sidebar-actions %}
+{% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
+{% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
+{% else %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
-
+{% endif %}
 ## Removing a runner from an enterprise
 
 {% note %}
@@ -64,17 +80,21 @@ To remove a self-hosted runner from an organization, you must be an organization
 {% data reusables.github-actions.self-hosted-runner-auto-removal %}
 
 {% endnote %}
-
-{% ifversion fpt %}
-To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
-{% elsif ghes or ghae %}
-To remove a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
-{% endif %}
-
 {% data reusables.github-actions.self-hosted-runner-reusing %}
 
+{% ifversion fpt or ghec %}
+To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to add a self-hosted runner with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+{% data reusables.github-actions.settings-sidebar-actions-runner-selection %}
+{% data reusables.github-actions.self-hosted-runner-removing-a-runner-updated %}
+{% elsif ghae or ghes %}
+To remove a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.github-actions.self-hosted-runner-removing-a-runner %}
+{% endif %}

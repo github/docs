@@ -6,16 +6,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /admin/enterprise-management/removing-a-high-availability-replica
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
   - High availability
   - Enterprise
   - Infrastructure
+shortTitle: Remove a HA replica
 ---
 
-### 一時的なレプリケーションの停止
+## 一時的なレプリケーションの停止
 
 1. 必要に応じて、Geo-replication レプリカ用の Geo DNS エントリを削除することで、そのレプリカにユーザトラフィックを処理させないようにします。
 2. レプリケーションを一時的に停止させたいレプリカで、ghe-repl-stop を実行します。
@@ -27,7 +28,7 @@ topics:
   $ ghe-repl-start
   ```
 
-### レプリケーションの恒久的な削除
+## レプリケーションの恒久的な削除
 
 1. 必要に応じて、Geo-replication レプリカ用の Geo DNS エントリを削除することで、そのレプリカにユーザトラフィックを処理させないようにします。
 2. レプリケーションを削除するレプリカで、`ghe-repl-stop` を実行します。
@@ -39,7 +40,7 @@ topics:
   $ ghe-repl-teardown
   ```
 
-  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  {% ifversion ghes %}
   {% note %}
 
   **注釈:** {% data variables.product.prodname_actions %} を有効化している場合は、以前のレプリカサーバーを使用停止するか、その {% data variables.product.prodname_actions %} 設定を更新して別の外部ストレージを使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} の High Availability 設定](/admin/github-actions/high-availability-for-github-actions#high-availability-replicas)」を参照してください。

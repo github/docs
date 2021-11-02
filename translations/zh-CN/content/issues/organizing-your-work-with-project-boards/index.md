@@ -3,9 +3,10 @@ title: 使用项目板组织工作
 shortTitle: 项目板
 intro: '在 {% data variables.product.prodname_dotcom %} 上使用项目板管理工作'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Projects
@@ -20,3 +21,4 @@ redirect_from:
   - /archiving-cards-on-a-project-board
 ---
 
+{% data reusables.projects.project_boards_old %}

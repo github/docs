@@ -6,12 +6,16 @@ redirect_from:
   - /articles/filtering-cards-on-a-project-board
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Filtrar las tarjetas en el tablero
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 En una tarjeta, puedes dar clic en cualquier asignado, hito, o etiqueta para filtrar el tablero de proyecto de acuerdo con ese calificador. Para limpiar la búsqueda, puedes dar clic en el mismo asignado, hito o etiqueta nuevamente.
 
@@ -26,7 +30,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 - Filtrar por comprobación de estado usando `status:pending`, `status:success` o `status:failure`
 - Filtrar tarjetas por tipo usando `type:issue`, `type:pr` o `type:note`
 - Filtrar tarjetas por estado y tipo usando `is:open`, `is:closed` o `is:merged` y `is:issue`, `is:pr` o `is:note`
-- Filtra tarjetas por las propuestas que están vinculadas a una solicitud de cambios mediante una referencia de cierre utilizando `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- Filtrar tarjetas por informes de problemas que se enlazan con alguna solicitud de extracción mediante una referencia de cierre utilizando `linked:pr`{% ifversion fpt or ghes or ghae or ghec %}
 - Filtrar tarjetas por repositorio en un tablero de proyecto de toda la organización utilizando `repo:ORGANIZATION/REPOSITORY`{% endif %}
 
 1. Dirígete al tablero de proyecto que contenga las tarjetas que desees filtrar.
@@ -38,7 +42,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 
 {% endtip %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

@@ -6,18 +6,20 @@ redirect_from:
   - /articles/disabling-project-boards-in-your-organization
   - /github/managing-your-work-on-github/disabling-project-boards-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Inhabilitar los tableros de proyecto
 ---
 
 Una vez que inhabilites tableros de proyecto que se usan en toda la organización, ya no se podrán crear nuevos tableros de proyecto a nivel de la organización, y ya no se podrá acceder a ningún tablero de proyecto existente a nivel de la organización en su URL anterior. Los tableros de proyecto en los repositorios de la organización no se ven afectados.
 
 Una vez que inhabilites tableros de proyecto de repositorios en una organización, ya no se podrán crear nuevos tableros de proyecto en ningún repositorio de la organización, y ya no se podrá acceder a ningún tablero de proyecto de los repositorios existentes en la organización en sus URL anteriores. Los tableros de proyecto a nivel de la organización no se ven afectados.
 
-Cuando inhabilitas tableros de proyecto, ya no ves su información de manera cronológica o de acuerdo con los [registros de auditoría](/articles/reviewing-your-security-log/).
+Cuando inhabilitas los tableros de proyecto, ya no ves la información de los tableros de proyecto de manera cronológica o de acuerdo con los [registros de auditoría](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
 
 
 {% data reusables.profile.access_org %}
@@ -29,7 +31,7 @@ Cuando inhabilitas tableros de proyecto, ya no ves su información de manera cro
 
 {% data reusables.organizations.disable_project_board_results %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"

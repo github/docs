@@ -8,10 +8,10 @@ redirect_from:
   - /articles/removing-a-credit-card-associated-with-your-organization/
   - /articles/removing-a-payment-method-associated-with-your-organization/
   - /articles/removing-a-payment-method
-  - /github/setting-up-and-managing-billing-and-payments-on-github/removing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/removing-a-payment-method
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -28,7 +28,7 @@ Se estiver pagando a assinatura do {% data variables.product.product_name %} com
 
 {% endtip %}
 
-### Remover a forma de pagamento da conta pessoal
+## Remover a forma de pagamento da conta pessoal
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
@@ -36,7 +36,7 @@ Se estiver pagando a assinatura do {% data variables.product.product_name %} com
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}
 
-### Remover a forma de pagamento da organização
+## Remover a forma de pagamento da organização
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

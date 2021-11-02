@@ -31,3 +31,4 @@ sections:
       printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
       sudo /usr/sbin/logrotate -f /etc/logrotate.conf
       ```
+    - '当副本节点在高可用性配置下离线时，{% data variables.product.product_name %} 仍可能将 {% data variables.product.prodname_pages %} 请求路由到离线节点，从而减少用户的 {% data variables.product.prodname_pages %} 可用性。'

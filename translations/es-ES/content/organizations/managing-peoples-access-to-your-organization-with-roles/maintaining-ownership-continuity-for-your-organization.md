@@ -9,15 +9,17 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Mantener la continuidad de la propiedad
 ---
 
-### Acerca de mantener la continuidad de propiedad para tu organización
+## Acerca de mantener la continuidad de propiedad para tu organización
 
 {% data reusables.organizations.org-ownership-recommendation %}
 
@@ -29,7 +31,7 @@ Los propietarios de una organización tienen acceso administrativo completo a la
 
 {% endnote %}
 
-### Designar un propietario de organización
+## Designar un propietario de organización
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}

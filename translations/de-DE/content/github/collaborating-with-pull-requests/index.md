@@ -9,9 +9,10 @@ redirect_from:
   - /categories/collaborating-on-projects-using-issues-and-pull-requests/
   - /categories/collaborating-with-issues-and-pull-requests/
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 children:
@@ -22,5 +23,6 @@ children:
   - /addressing-merge-conflicts
   - /reviewing-changes-in-pull-requests
   - /incorporating-changes-from-a-pull-request
+shortTitle: Collaborate with pull requests
 ---
 

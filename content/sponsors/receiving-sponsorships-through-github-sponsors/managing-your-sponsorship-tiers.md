@@ -7,6 +7,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
@@ -32,6 +33,7 @@ shortTitle: Manage payment tiers
   ![Edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 

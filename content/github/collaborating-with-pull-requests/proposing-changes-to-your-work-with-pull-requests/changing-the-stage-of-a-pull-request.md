@@ -1,6 +1,6 @@
 ---
 title: Changing the stage of a pull request
-intro: 'You can mark a draft pull request as ready for review{% ifversion fpt or ghae or ghes %} or convert a pull request to a draft{% endif %}.'
+intro: 'You can mark a draft pull request as ready for review{% ifversion fpt or ghae or ghes or ghec %} or convert a pull request to a draft{% endif %}.'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Change the state
@@ -19,7 +20,7 @@ shortTitle: Change the state
 
 {% data reusables.pull_requests.mark-ready-review %} 
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
@@ -32,7 +33,7 @@ shortTitle: Change the state
 3. In the merge box, click **Ready for review**.
   ![Ready for review button](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Converting a pull request to a draft
 

@@ -7,14 +7,14 @@ redirect_from:
   - /articles/about-campus-advisors
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 教授、教师和辅导员可使用 Campus Advisors 在线培训掌握 Git 和 {% data variables.product.prodname_dotcom %}，通过 {% data variables.product.prodname_dotcom %} 学习最佳教学方法。  更多信息请参阅 "[Campus Advisors](https://education.github.com/teachers/advisors)"。
 
 {% note %}
 
-**注：**作为讲师，无法为学生创建 {% data variables.product.prodname_dotcom %} 帐户。 学生必须创建自己的 {% data variables.product.prodname_dotcom %} 帐户。
+**注：**作为讲师，无法在 {% data variables.product.product_location %} 上为学生创建帐户。 学生必须在 {% data variables.product.product_location %} 上创建自己的帐户。
 
 {% endnote %}
 

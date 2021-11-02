@@ -7,17 +7,19 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Sponsor a contributor
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorships
+## About sponsorships
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -27,7 +29,7 @@ You can sponsor an account on behalf of your user account to invest in projects 
 - Developing brand awareness as an organization that values open source
 - Thanking open source developers for building libraries that complement the product your organization offers
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
+You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
 
 {% data reusables.sponsors.no-fees %} Weitere Informationen finden Sie unter „[Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)“.
 
@@ -43,11 +45,11 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 {% note %}
 
-**Hinweis:** {% data variables.product.prodname_dotcom %} ist nicht dafür verantwortlich, wie Entwickler sich selbst darstellen, noch befürwortet {% data variables.product.prodname_dotcom %} irgendwelche unterstützten Open-Source-Projekte. Sämtliche Aussagen liegen in der alleinigen Verantwortung des Entwicklers, welcher die Beiträge erhält. Vergewissere Dich, dass Du einer Person vertrauen kannst, bevor du eine Unterstützung offerierst. Weitere Informationen findest Du unter „[{% data variables.product.prodname_sponsors %} Zusatzbedingungen](/github/site-policy/github-sponsors-additional-terms)".
+**Hinweis:** {% data variables.product.prodname_dotcom %} ist nicht dafür verantwortlich, wie Entwickler sich selbst darstellen, noch befürwortet {% data variables.product.prodname_dotcom %} irgendwelche unterstützten Open-Source-Projekte. Sämtliche Aussagen liegen in der alleinigen Verantwortung des Entwicklers, welcher die Beiträge erhält. Vergewissere Dich, dass Du einer Person vertrauen kannst, bevor du eine Unterstützung offerierst. Weitere Informationen findest Du unter „[{% data variables.product.prodname_sponsors %} Zusatzbedingungen](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)".
 
 {% endnote %}
 
-### Sponsoring an account
+## Sponsoring an account
 
 Before you can sponsor an account, you must have a verified email address. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/github/getting-started-with-github/verifying-your-email-address).“
 

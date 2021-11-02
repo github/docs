@@ -2,9 +2,10 @@
 title: Comenzar con las apps
 intro: Aprende cómo crear apps y como configurar tu ambiente de desarrollo.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 children:

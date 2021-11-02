@@ -1,11 +1,12 @@
 ---
-title: Getting started with code security
+title: Code Securityを使い始める
 shortTitle: はじめましょう
-intro: 'Introduction to code security with {% data variables.product.product_name %}.'
+intro: '{% data variables.product.product_name %}のコードセキュリティの紹介'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
   - Dependencies

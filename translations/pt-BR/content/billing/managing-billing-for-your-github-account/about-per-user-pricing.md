@@ -4,10 +4,10 @@ intro: 'Com os preços por usuário, as organizações pagam com base no tamanho
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
-  - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-per-user-pricing
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Licensing
@@ -20,13 +20,13 @@ As organizações que usam uma assinatura paga realizada antes de 11 de maio de 
 
 Para obter mais informações sobre produtos com preços por usuário, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/githubs-products)".
 
-### Quantas licenças preciso para minha organização?
+## Quantas licenças preciso para minha organização?
 
-Os proprietários da organização e integrantes preenchem uma licença cada um. Se você enviou um convite pendente a um integrante em potencial da organização, o convite corresponderá a uma licença. {% data reusables.organizations.org-invite-expiration %}
+Os proprietários da organização e integrantes preenchem uma licença cada um. Se você enviou um convite pendente a um integrante em potencial da organização, o convite corresponderá a uma licença. {% data reusables.organizations.org-invite-scim %}
 
 Os colaboradores externos e contas bot serão considerados no total de licenças pagas da sua organização se receberem acesso a um repositório privado.
 
-### Como posso adicionar ou fazer downgrade das licença pagas da minha organização?
+## Como posso adicionar ou fazer downgrade das licença pagas da minha organização?
 
 Você pode adicionar licenças pagas à sua organização a qualquer momento. Se estiver pagando por mais licenças do que está usando, você também poderá remover licenças pagas da sua organização. Para obter mais informações, consulte "
 
@@ -36,7 +36,7 @@ Em caso de dúvidas sobre a assinatura da organização, entre em contato com o 
 
 
 
-### Se eu mantiver minha organização em um plano por repositório, posso atualizar ou fazer downgrade para um plano por repositório diferente?
+## Se eu mantiver minha organização em um plano por repositório, posso atualizar ou fazer downgrade para um plano por repositório diferente?
 
 Você pode atualizar ou fazer downgrade entre planos pagos herdados nas configurações de cobrança da sua organização. Quando você atualiza para um plano com mais repositórios privados, movemos imediatamente sua conta para o novo plano e cobramos a diferença do preço, dividido pelo número de dias restantes em seu ciclo de cobrança.
 
@@ -44,6 +44,6 @@ Quando você faz downgrade para um plano pago herdado com menos repositórios pr
 
 
 
-### Leia mais
+## Leia mais
 
 - "[Como a atualização ou o downgrade afetam o processo de cobrança?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"

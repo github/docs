@@ -6,11 +6,13 @@ redirect_from:
   - /articles/what-are-the-differences-between-subversion-and-git
   - /github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Subversion & Git differences
 ---
 
-### Verzeichnisstruktur
+## Verzeichnisstruktur
 
 Jede *Referenz* oder gekennzeichnete Snapshot eines Commits in einem Projekt ist in bestimmten Unterverzeichnissen organisiert, beispielsweise `trunk`, `branches` und `tags`. Beispielsweise kann ein SVN-Projekt mit zwei in Entwicklung befindlichen Features wie folgt aussehen:
 
@@ -42,15 +44,15 @@ Ein Git-Workflow sieht wie folgt aus:
 
 Im Gegensatz zu SVN bleibt die Verzeichnisstruktur mit Git identisch. Basierend auf Deinem Branch ändern sich jedoch die Dateiinhalte.
 
-### Subprojekte einbeziehen
+## Subprojekte einbeziehen
 
 Ein *Subprojekt* ist ein Projekt, das außerhalb Deines Hauptprojekts entwickelt und verwaltet wird. In der Regel importierst Du ein Subprojekt, um Deinem Projekte einige Funktionen hinzuzufügen, ohne den Code selbst verwalten zu müssen. Sobald das Subprojekt aktualisiert wird, kannst Du es mit Deinem Projekt synchronisieren, um sicherzustellen, dass alles aktuell ist.
 
 In SVN wird ein Subprojekt als *SVN-extern* bezeichnet. In Git wird es als ein *Git-Submodul* bezeichnet. Obwohl sich beide konzeptionell ähneln, werden Git-Submodule nicht automatisch auf dem neuesten Stand gehalten. Du musst explizit darum bitten, dass eine neue Version in Dein Projekt eingelesen wird.
 
-Weitere Informationen findest Du unter „[Git Tools Submodule](https://git-scm.com/book/en/Git-Tools-Submodules)" in der Git-Dokumentation.
+For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
-### Verlauf beibehalten
+## Verlauf beibehalten
 
 SVN geht davon aus, dass sich der Verlauf eines Projekts niemals ändert. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
@@ -60,7 +62,7 @@ SVN geht davon aus, dass sich der Verlauf eines Projekts niemals ändert. Git al
 
 {% endtip %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Von GitHub unterstützte Subversion-Eigenschaften](/articles/subversion-properties-supported-by-github)“
 - [„Branching und Merging“ im Buch _Git SCM_](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

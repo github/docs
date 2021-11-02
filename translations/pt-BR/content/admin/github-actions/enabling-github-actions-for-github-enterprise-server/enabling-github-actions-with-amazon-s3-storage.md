@@ -3,14 +3,19 @@ title: Habilitar o GitHub Actions com armazenamento do Amazon S3
 intro: 'Você pode habilitar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} e usar o armazenamento Amazon S3 para armazenar artefatos gerados por execuções de fluxo de trabalho.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Infrastructure
+  - Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
+shortTitle: Armazenamento do Amazon S3
 ---
 
-### Pré-requisitos
+## Pré-requisitos
 
 {% data reusables.actions.enterprise-s3-support-warning %}
 
@@ -20,7 +25,7 @@ Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se 
 
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Habilitar {% data variables.product.prodname_actions %} com armazenamento do Amazon S3
+## Habilitar {% data variables.product.prodname_actions %} com armazenamento do Amazon S3
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

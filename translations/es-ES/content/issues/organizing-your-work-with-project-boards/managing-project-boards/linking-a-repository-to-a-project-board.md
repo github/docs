@@ -6,12 +6,16 @@ redirect_from:
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Enlazar un repositorio al tablero
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar repositorios que sean propiedad de la cuenta de usuario u organización al mismo. Para obtener más información, consulta la sección "[Permisos para una organización sobre el tablero de proyecto](/articles/project-board-permissions-for-an-organization/)" o "[Niveles de permiso para tableros de proyecto propiedad de un usuario](/articles/permission-levels-for-user-owned-project-boards/)".
 
@@ -31,6 +35,6 @@ Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar rep
 
 {% endnote %}
 
-### Leer más
+## Leer más
 
 - "[Acerca de los tableros de proyectos](/articles/about-project-boards)"

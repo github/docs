@@ -4,7 +4,8 @@ intro: 'Sie können Ihren {% data variables.product.product_name %}-Workflow mit
 redirect_from:
   - /articles/exploring-integrations
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /about-integrations
   - /about-github-marketplace

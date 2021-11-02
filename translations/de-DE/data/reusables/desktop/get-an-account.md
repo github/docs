@@ -1,4 +1,4 @@
-Sie müssen bereits ein {% data variables.product.prodname_dotcom %}- oder {% data variables.product.prodname_enterprise %}-Konto haben.
+you must already have an account on {% data variables.product.product_location %}.
 
-- Weitere Informationen zum Erstellen eines {% data variables.product.prodname_dotcom %}-Kontos findest Du unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account/)“.
+- For more information on creating an account on {% data variables.product.product_location %} account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)".
 - Für ein {% data variables.product.prodname_enterprise %}-Konto wendest Du Dich bitte an Deinen {% data variables.product.prodname_enterprise %}-Websiteadministrator.

@@ -5,10 +5,11 @@ redirect_from:
   - /developers/github-marketplace/about-verified-creator-badges
   - /developers/github-marketplace/about-marketplace-badges
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
 
-### 对于 GitHub 应用程序
+## 对于 GitHub 应用程序
 
 {% data variables.product.prodname_marketplace %} 上的某些应用有 {% octicon "verified" aria-label="The verified badge" %} 徽章以及显示“发布者域名和电子邮件已验证”的工具提示。 这意味着该应用由下列组织拥有：
 
@@ -30,9 +31,9 @@ versions:
 
 有关在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求，请参阅“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
 
-有关如何查找要使用的应用程序，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)”。
+有关如何查找要使用的应用程序，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)”。
 
-### 对于 GitHub Actions
+## 对于 GitHub Actions
 
 带有 {% octicon "verified" aria-label="The verified badge" %} 或已验证创作者徽章的操作表示 {% data variables.product.prodname_dotcom %} 已验证操作的创建者为合作伙伴组织。
 

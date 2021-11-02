@@ -1,4 +1,4 @@
-##### Mapeos de puertos de protocolo TCP de PROXY
+### Mapeos de puertos de protocolo TCP de PROXY
 
 | Puerto fuente | Puerto de destino |  Descripción del servicio   |
 |:-------------:|:-----------------:|:---------------------------:|

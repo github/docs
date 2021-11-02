@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
   - /admin/enterprise-management/initializing-the-cluster
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering
@@ -15,12 +15,12 @@ topics:
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### {% data variables.product.prodname_ghe_server %} installieren
+## {% data variables.product.prodname_ghe_server %} installieren
 
 1. Stellen Sie auf jedem Clusterknoten {% data variables.product.prodname_ghe_server %} bereit, und installieren Sie es. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
 2. Konfigurieren Sie mithilfe der Verwaltungsshell oder DHCP **nur** die IP-Adresse jedes Knotens. Konfigurieren Sie keine anderen Einstellungen.
 
-### Ersten Knoten konfigurieren
+## Ersten Knoten konfigurieren
 
 1. Stellen Sie eine Verbindung zum Knoten her, der als `mysql-master` in `cluster.conf` vorgesehen ist. Weitere Informationen findest Du unter „[Informationen zur Clusterkonfigurations-Datei](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)“.
 2. Rufen Sie in Ihrem Webbrowser `https://<ip address>:8443/setup/` auf.
@@ -28,16 +28,16 @@ topics:
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
-### Cluster initialisieren
+## Cluster initialisieren
 
-Zum Initialisieren des Clusters benötigen Sie eine Clusterkonfigurationsdatei (`cluster.conf`). Weitere Informationen finden Sie unter „[Informationen zur Clusterkonfigurationsdatei](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)“.
+Zum Initialisieren des Clusters benötigen Sie eine Clusterkonfigurationsdatei (`cluster.conf`). For more information, see "[About the cluster configuration file](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)".
 
 1. Führen Sie auf dem ersten Knoten, der konfiguriert wurde, `ghe-cluster-config-init` aus.  Dadurch wird der Cluster initialisiert, wenn in der Clusterkonfigurationsdatei nicht konfigurierte Knoten vorhanden sind.
 2. Führen Sie `ghe-cluster-config-apply` aus. Dadurch wird die Datei `cluster.conf` validiert, die Konfiguration auf jede Knotendatei angewendet und die konfigurierten Dienste auf jedem Knoten angezeigt.
 
 Führen Sie den Befehl `ghe-cluster-status` aus, um den Status eines in Ausführung befindlichen Clusters zu überprüfen.
 
-### Informationen zur Clusterkonfigurationsdatei
+## Informationen zur Clusterkonfigurationsdatei
 
 Die Clusterkonfigurationsdatei (`cluster.conf`) definiert die Knoten im Cluster und welche Dienste sie ausführen. Weitere Informationen findest Du unter [„About cluster nodes“ (Informationen zu Cluster-Knoten)](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-cluster-nodes).
 

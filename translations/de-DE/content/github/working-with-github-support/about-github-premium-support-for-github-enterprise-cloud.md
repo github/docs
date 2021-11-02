@@ -5,9 +5,11 @@ redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
+shortTitle: GitHub Premium-Support
 ---
 
 {% note %}
@@ -18,11 +20,11 @@ topics:
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- In diesem Artikel sind die Bedingungen des {% data variables.contact.premium_support %}s für {% data variables.product.prodname_ghe_cloud %}-Kunden aufgeführt. Die Bedingungen sind für Kunden von {% data variables.product.prodname_ghe_server %} oder {% data variables.product.prodname_enterprise %}-Kunden, die {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %} gemeinsam erwerben, möglicherweise anders. Weitere Informationen findest Du unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“ und „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise).“
+- In diesem Artikel sind die Bedingungen des {% data variables.contact.premium_support %}s für {% data variables.product.prodname_ghe_cloud %}-Kunden aufgeführt. Die Bedingungen sind für Kunden von {% data variables.product.prodname_ghe_server %} oder {% data variables.product.prodname_enterprise %}-Kunden, die {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %} gemeinsam erwerben, möglicherweise anders. Weitere Informationen findest Du unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“ und „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise).“
 
 {% endnote %}
 
-### Informationen zu {% data variables.contact.premium_support %}
+## Informationen zu {% data variables.contact.premium_support %}
 
 {% data variables.contact.premium_support %} bietet Folgendes:
   - Schriftlicher Unterstützung in englischer Sprache, rund um die Uhr über unser Supportportal
@@ -40,13 +42,13 @@ topics:
 
 {% data reusables.support.contacting-premium-support %}
 
-### Geschäftszeiten
+## Geschäftszeiten
 
 Der {% data variables.contact.premium_support %} ist rund um die Uhr verfügbar.
 
 {% data reusables.support.service-level-agreement-response-times %}
 
-### Einem Support-Ticket eine Priorität zuweisen
+## Einem Support-Ticket eine Priorität zuweisen
 
 Wenn Du {% data variables.contact.premium_support %}kontaktierst, kannst Du eine von vier Prioritäten für das Ticket auswählen: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} oder {% data variables.product.support_ticket_priority_low %}.
 
@@ -54,7 +56,7 @@ Wenn Du {% data variables.contact.premium_support %}kontaktierst, kannst Du eine
 
 {% data reusables.support.ghec-premium-priorities %}
 
-### Support-Tickets lösen und schließen
+## Support-Tickets lösen und schließen
 
 Der {% data variables.contact.premium_support %} kann ein Ticket als gelöst betrachten, nachdem er eine Erklärung, Empfehlung, Gebrauchsanweisung oder Anleitung zur Problemumgehung gegeben hat,
 
@@ -66,6 +68,6 @@ Der {% data variables.contact.premium_support %} kann Tickets schließen, wenn s
 
 {% data reusables.support.accessing-premium-content %}
 
-### Weiterführende Informationen
+## Weiterführende Informationen
 
 - „[Ein Ticket einreichen](/articles/submitting-a-ticket)“

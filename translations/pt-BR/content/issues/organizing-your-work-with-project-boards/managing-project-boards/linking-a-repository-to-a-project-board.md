@@ -6,12 +6,16 @@ redirect_from:
   - /articles/linking-a-repository-to-a-project-board
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Vincular repositório ao quadro
 ---
+
+{% data reusables.projects.project_boards_old %}
 
 Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincular repositórios pertencentes a essa organização ou conta de usuário ao quadro de projeto. Para obter mais informações, consulte "[Permissões de quadro de projeto da organização](/articles/project-board-permissions-for-an-organization/)" ou "[Níveis de permissão para quadros de projetos de propriedade de usuários](/articles/permission-levels-for-user-owned-project-boards/)".
 
@@ -31,6 +35,6 @@ Qualquer pessoa com permissões de gravação em um quadro de projeto pode vincu
 
 {% endnote %}
 
-### Leia mais
+## Leia mais
 
 - "[Sobre quadros de projetos](/articles/about-project-boards)"

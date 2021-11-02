@@ -5,9 +5,10 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 ![Respostas salvas](/assets/images/help/settings/saved-replies.png)
@@ -20,7 +21,7 @@ Depois que uma resposta salva é adicionada, ela pode ser usada em problemas e p
 
 Também é possível usar a resposta salva "Duplicate issue" (Problema duplicado) fornecida pelo {% data variables.product.product_name %} para marcar um problema como duplicação e rastreá-lo com um problema semelhante.
 
-### Leia mais
+## Leia mais
 
 - "[Criar uma resposta salva](/articles/creating-a-saved-reply)"
 - "[Usar respostas salvas](/articles/using-saved-replies)"

@@ -5,7 +5,8 @@ redirect_from:
   - /articles/about-github-importer
   - /github/importing-your-projects-to-github/about-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
 
 GitHub 导入工具是一种可快速将源代码仓库（包括提交和修订记录）导入 GitHub 的工具。
@@ -21,7 +22,7 @@ GitHub 导入工具是一种可快速将源代码仓库（包括提交和修订�
 | 将大文件移至 [Git Large 文件存储](/articles/about-git-large-file-storage)               |     **X**      |   **X**   | **X** |       |
 | 从仓库删除大文件                                                                      |     **X**      |   **X**   | **X** |       |
 
-### 延伸阅读
+## 延伸阅读
 
 - "[使用 GitHub 导入工具导入仓库](/articles/importing-a-repository-with-github-importer)"
 - "[使用 GitHub 导入工具更新提交作者属性](/articles/updating-commit-author-attribution-with-github-importer)"

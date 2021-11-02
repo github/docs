@@ -5,22 +5,24 @@ redirect_from:
   - /articles/subversion-properties-supported-by-github
   - /github/importing-your-projects-to-github/subversion-properties-supported-by-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Propiedades compatibles con GitHub
 ---
 
-### Archivos ejecutables (svn:executable)
+## Archivos ejecutables (svn:executable)
 
 Convertimos propiedades `svn:executable` al actualizar el modo archivo directamente antes de agregarlo al repositorio de Git.
 
-### Tipos MIME (svn:mime-type)
+## Tipos MIME (svn:mime-type)
 
 {% data variables.product.product_name %} internalmente rastrea las propiedades mime-type de los archivos y las confirmaciones que los agregaron.
 
-### Ignorar elementos sin versión (svn:ignore)
+## Ignorar elementos sin versión (svn:ignore)
 
 Si has configurado que los archivos y los directorios se ignoren en Subversion, {% data variables.product.product_name %} los rastrearemos de manera interna. Los archivos ignorados por los clientes de Subversion son completamente distintos a las entradas en un archivo *.gitignore*.
 
-### Propiedades admitidas actualmente
+## Propiedades admitidas actualmente
 
 {% data variables.product.product_name %} no admite actualmente `svn:externals`, `svn:global-ignores`, o culaquier propiedad no enumerada anteriormente, incluidas las propiedades personalizadas.

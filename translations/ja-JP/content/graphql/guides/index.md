@@ -4,9 +4,10 @@ intro: GraphQLの始め方、RESTからGraphQLへの移行、様々なタスク�
 redirect_from:
   - /v4/guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 children:

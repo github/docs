@@ -6,11 +6,13 @@ redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
   - /github/collaborating-with-issues-and-pull-requests/approving-a-pull-request-with-required-reviews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: Revisiones requeridas
 ---
 
 Para obtener más información sobre las revisiones requeridas, consulta la sección "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
@@ -36,7 +38,7 @@ Puedes comentar una solicitud de extracción, aprobar los cambios o solicitar me
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Leer más
+## Leer más
 
 - "[Revisar los cambios propuestos en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Comentar sobre una solicitud de extracción](/articles/commenting-on-a-pull-request)"

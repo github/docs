@@ -6,7 +6,8 @@ redirect_from:
   - /apps/marketplace/integrating-with-the-github-marketplace-api/
   - /marketplace/integrating-with-the-github-marketplace-api
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 children:
@@ -16,5 +17,6 @@ children:
   - /handling-new-purchases-and-free-trials
   - /handling-plan-changes
   - /handling-plan-cancellations
+shortTitle: Uso de la API de Marketplace
 ---
 

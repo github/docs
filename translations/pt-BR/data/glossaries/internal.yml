@@ -63,7 +63,7 @@
 - 
   term: Azure DevOps
   description: >-
-    A Microsoft product offering source code hosting, issues, CI/CD pipelines, and other developer services. The on-premises version was formerly known as Team Foundation Server. The cloud-hosted version was formerly known as Visual Studio Team Services.
+    Um produto da Microsoft que oferece hospedagem de código-fonte, problemas, pipelines de CI/CD e outros serviços de desenvolvedor. Anteriormente, a versão local era conhecida como Team Foundation Server. A versão hospedada em nuvem era anteriormente conhecida como Visual Studio Team Services.
 - 
   term: repositório bare
   description: >-
@@ -229,7 +229,7 @@
 - 
   term: GPG
   description: >-
-    GNU Privacy Guard. Software de criptografia usado para criptografar (e descriptografar) arquivos que tenham dados confidenciais.
+    Guarda de Privacidade do GNU. Software de criptografia que você pode usar para criptografar (e descriptografar) arquivos que contêm dados confidenciais
 - 
   term: chave GPG
   description: Chave de criptografia usada com GPG.
@@ -652,7 +652,7 @@
 - 
   term: Team Foundation Server
   description: >-
-    The former name of a Microsoft product that provides source code management and other team services. Now known as Azure DevOps Server.
+    O antigo nome de um produto da Microsoft que fornece gerenciamento de código-fonte e outros serviços de equipe. Agora é conhecido como Azure DevOps Server.
 - 
   term: Textile
   description: >-

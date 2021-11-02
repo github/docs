@@ -5,10 +5,12 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-accounts-data
 intro: '{% data reusables.user_settings.export-data %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
+shortTitle: Request account archive
 ---
 
 {% data variables.product.product_name %} は、個人アカウントの活動からリポジトリとプロファイルのメタデータを保存します。 個人アカウントのデータは、{% data variables.product.prodname_dotcom_the_website %} での設定または User Migration API によりエクスポートできます。
@@ -23,7 +25,7 @@ topics:
 
 生成された `tar.gz` ファイルには、データのエクスポートを開始したときに保存されたデータが反映されます。
 
-### 個人アカウントのデータのアーカイブをダウンロードする
+## 個人アカウントのデータのアーカイブをダウンロードする
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
@@ -32,7 +34,7 @@ topics:
 5. メール内のダウンロードリンクをクリックし、要求されたらパスワードを再入力します。
 6. ダウンロードできる `tar.gz` ファイルにリダイレクトされます。
 
-### 個人アカウントのデータのアーカイブへのアクセスを削除する
+## 個人アカウントのデータのアーカイブへのアクセスを削除する
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}

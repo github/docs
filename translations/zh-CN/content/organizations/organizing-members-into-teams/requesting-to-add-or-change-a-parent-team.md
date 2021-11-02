@@ -5,12 +5,14 @@ redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-or-change-a-parent-team
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 添加或更改父团队
 ---
 
 申请添加或更改团队的父团队时，申请会发送给父团队的维护员。 新父团队的维护员批准申请后，您的团队将作为子团队嵌套在组织的层次结构中该父团队下。
@@ -29,7 +31,7 @@ topics:
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. 单击 **Confirm changes（确认更改）**以发送添加或更改父团队的申请。 ![包含仓库访问权限更改相关信息的模态框](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### 延伸阅读
+## 延伸阅读
 
 - "[关于团队](/articles/about-teams)"
 - “[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”

@@ -1,5 +1,5 @@
 {% warning %}
 
-**Warning:** When creating workflows and actions, you should always consider whether your code might execute untrusted input from possible attackers. Certain contexts should be treated as untrusted input, as an attacker could insert their own malicious content. For more information, see "[Understanding the risk of script injections](/actions/learn-github-actions/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)."
+**Aviso:** Ao criar fluxos de trabalho e ações, você sempre deve considerar se seu código pode executar entradas não confiáveis de possíveis invasores. Certos contextos devem ser tratados como entradas não confiáveis, uma vez que um invasor pode inserir seu próprio conteúdo malicioso. Para obter mais informações, consulte "[Entender o risco de injeções de scripts](/actions/learn-github-actions/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
 
 {% endwarning %}

@@ -1,13 +1,15 @@
 ---
 title: Ein Git-Repository über die Befehlszeile importieren
-intro: '{% if currentVersion == "free-pro-team@latest" %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
+intro: '{% ifversion fpt %}Wenn [GitHub Importer](/articles/importing-a-repository-with-github-importer) nicht für Deine Zwecke geeignet ist, z. B. wenn Dein vorhandener Code in einem privaten Netzwerk verwaltet wird, dann empfehlen wir, den Import über die Befehlszeile vorzunehmen.{% else %}Das Importieren von Git-Projekten über die Befehlszeile ist eine geeignete Methode, wenn Dein vorhandener Code in einem privaten Netzwerk verwaltet wird.{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Import repo locally
 ---
 
 Bevor Du startest, stelle sicher, dass Dir Folgendes vorliegt:
@@ -22,7 +24,7 @@ Um die Methode vorzuführen und zu erläutern, verwenden wir
 - ein externes Konto mit dem Namen **extuser**,
 - einen externen Git-Host mit dem Namen `https://external-host.com`,
 - ein persönliches {% data variables.product.product_name %}-Benutzerkonto mit dem Namen **ghuser**,
-- ein {% data variables.product.product_name %}-Repository mit dem Namen **repo.git**.
+- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
 
 {% endtip %}
 
@@ -36,7 +38,7 @@ Um die Methode vorzuführen und zu erläutern, verwenden wir
   ```shell
   $ cd <em>repo.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
-  # Uebertraegt den Spiegel auf das neue {% data variables.product.product_name %} Repository
+  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
 4. Entferne das temporäre lokale Repository.
   ```shell

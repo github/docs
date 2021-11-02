@@ -5,14 +5,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /articles/upgrading-or-downgrading-your-client-s-paid-organization
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
-  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
   - Upgrades
+shortTitle: アップグレードまたはダウングレード
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -25,7 +26,7 @@ topics:
 
 {% endtip %}
 
-### Organization の有料シート数をアップグレードする
+## Organization の有料シート数をアップグレードする
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -34,7 +35,7 @@ topics:
 
 シートを追加した後は、追加したシート数と支払いサイクルの残り時間に基づいて、Organization のファイルに支払われた支払い方法に比例額が課金されます。
 
-### Organization の有料シート数を無料にダウングレードする
+## Organization の有料シート数を無料にダウングレードする
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}

@@ -6,26 +6,28 @@ redirect_from:
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
   - Repositories
+shortTitle: Publicar asesorías
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 
 Cualquiera con permisos de administrador en una asesoría de seguridad puede publicarla.
 
-### Prerrequisitos
+## Prerrequisitos
 
 Antes de que puedas publicar una asesoría de seguridad o solicitar un número de identificación de CVE, debes crear un borrador de asesoría de seguridad y proporcionar información acerca de las versiones de tu proyecto que se vieron afectadas por la vulnerabilidad de seguridad. Para obtener más información, consulta la sección "[Crear una asesoría de seguridad](/github/managing-security-vulnerabilities/creating-a-security-advisory)".
 
 Si creaste una asesoría de seguridad pero no has proporcionado detalles sobre las versiones de tu proyecto que afectó la vulnerabilidad, puedes editarla. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad](/github/managing-security-vulnerabilities/editing-a-security-advisory)".
 
-### Acerca de publicar una asesoría de seguridad
+## Acerca de publicar una asesoría de seguridad
 
 Cuando publicas una asesoría de seguridad, notificas a tu comunidad acerca de la vulnerabilidad de seguridad que se dirige en dicha asesoría. El publicar una asesoría de seguridad facilita a tu comunidad el actualizar las dependencias de los paquetes y el investigar el impacto de la vulnerabilidad de seguridad.
 
@@ -60,9 +62,21 @@ Después de que publicas una asesoría de seguridad, la URL de la misa permanece
 
 Si necesitas actualizar o corregir información en una asesoría de seguridad que hayas publicado, puedes editarla. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad](/github/managing-security-vulnerabilities/editing-a-security-advisory)".
 
-### Pedir el número de identificación de CVE
+## Publicar una asesoría de seguridad
 
-Cualquiera con permisos de administrador en una asesoría de seguridad puede solicitar un número de identificación de CVE para la asesoría de seguridad.
+El publicar una asesoría de seguridad borra la bifurcación temporal privada para la misma.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+4. En el listado de "Asesorías de Seguridad", da clic sobre la que quieras publicar. ![Asesoría de seguridad en el listado](/assets/images/help/security/security-advisory-in-list.png)
+5. En la parte inferior de la página, da clic sobre **Publicar asesoría**. ![Botón para publicar aviso](/assets/images/help/security/publish-advisory-button.png)
+
+## {% data variables.product.prodname_dependabot_alerts %} para las asesorías de seguridad publicadas
+
+{% data reusables.repositories.github-reviews-security-advisories %}
+
+## Solicitar un número de identificación de CVE (Opcional)
 
 {% data reusables.repositories.request-security-advisory-cve-id %} Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)".
 
@@ -73,20 +87,6 @@ Cualquiera con permisos de administrador en una asesoría de seguridad puede sol
 5. Utiliza el menú desplegable de **Publicar asesoría** y da clic en **Solicitar CVE**. ![Solicitar un CVE en el menú desplegable](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. Da clic en **Solicitar CVE**. ![Botón "Solicitar CVE"](/assets/images/help/security/security-advisory-request-cve-button.png)
 
-### Publicar una asesoría de seguridad
-
-El publicar una asesoría de seguridad borra la bifurcación temporal privada para la misma.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-advisories %}
-4. En el listado de "Asesorías de Seguridad", da clic sobre la que quieras publicar. ![Asesoría de seguridad en el listado](/assets/images/help/security/security-advisory-in-list.png)
-5. En la parte inferior de la página, da clic sobre **Publicar asesoría**. ![Botón para publicar aviso](/assets/images/help/security/publish-advisory-button.png)
-
-### {% data variables.product.prodname_dependabot_alerts %} para las asesorías de seguridad publicadas
-
-{% data reusables.repositories.github-reviews-security-advisories %}
-
-### Leer más
+## Leer más
 
 - "[retirar una asesoría de seguridad](/github/managing-security-vulnerabilities/withdrawing-a-security-advisory)"

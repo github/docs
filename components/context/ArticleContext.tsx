@@ -2,19 +2,21 @@ import { createContext, useContext } from 'react'
 
 export type LearningTrack = {
   trackName?: string
+  trackProduct?: string
   prevGuide?: { href: string; title: string }
   nextGuide?: { href: string; title: string }
 }
 
 export type MiniTocItem = {
-  indentationLevel: number
   platform: string
   contents: string
+  items?: MiniTocItem[]
 }
 
 export type ArticleContextT = {
   title: string
   intro: string
+  effectiveDate: string
   renderedPage: string
   miniTocItems: Array<MiniTocItem>
   contributor: { name: string; URL: string } | null
@@ -39,18 +41,21 @@ export const useArticleContext = (): ArticleContextT => {
 
 export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   const page = req.context.page
+
+  if (page.effectiveDate) {
+    if (isNaN(Date.parse(page.effectiveDate))) {
+      throw new Error(
+        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY'
+      )
+    }
+  }
+
   return {
     title: page.titlePlainText,
     intro: page.intro,
+    effectiveDate: page.effectiveDate || '',
     renderedPage: req.context.renderedPage || '',
-    miniTocItems:
-      (req.context.miniTocItems || []).map((item: any) => {
-        return {
-          indentationLevel: item.indentationLevel || 0,
-          platform: item.platform || '',
-          contents: item.contents || '',
-        }
-      }) || [],
+    miniTocItems: req.context.miniTocItems || [],
     contributor: page.contributor || null,
     permissions: page.permissions || '',
     includesPlatformSpecificContent: page.includesPlatformSpecificContent || false,

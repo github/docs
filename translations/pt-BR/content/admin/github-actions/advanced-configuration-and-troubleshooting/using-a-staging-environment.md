@@ -2,7 +2,7 @@
 title: Usar um ambiente de preparo
 intro: 'Aprenda a usar {% data variables.product.prodname_actions %} com ambientes de preparo de {% data variables.product.prodname_ghe_server %}.'
 versions:
-  enterprise-server: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions
@@ -11,6 +11,7 @@ topics:
   - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
+shortTitle: Usar uma área de teste
 ---
 
 Pode ser útil ter um ambiente de preparo ou de teste para {% data variables.product.product_location %} para que você possa testar atualizações ou novas funcionalidades antes de implementá-las no seu ambiente de produção.

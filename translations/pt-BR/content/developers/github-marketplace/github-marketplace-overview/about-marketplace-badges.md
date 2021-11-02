@@ -5,10 +5,11 @@ redirect_from:
   - /developers/github-marketplace/about-verified-creator-badges
   - /developers/github-marketplace/about-marketplace-badges
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 ---
 
-### Para aplicativos GitHub
+## Para aplicativos GitHub
 
 Alguns aplicativos em {% data variables.product.prodname_marketplace %} têm o selo {% octicon "verified" aria-label="The verified badge" %} e uma dica que diz "domínio de editor e e-mail verificados". Isso significa que o aplicativo é propriedade de uma organização que tem:
 
@@ -30,9 +31,9 @@ Alguns aplicativos em {% data variables.product.prodname_marketplace %} têm o s
 
 Para obter mais informações sobre os requisitos para a listagem de um aplicativo em {% data variables.product.prodname_marketplace %}, consulte "[Requisitos para listar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-Para obter informações sobre como encontrar aplicativos para usar, consulte "[Pesquisar {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)".
+Para obter informações sobre como encontrar aplicativos para usar, consulte "[Pesquisar {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)".
 
-### Para ações no GitHub
+## Para ações no GitHub
 
 Ações com {% octicon "verified" aria-label="The verified badge" %} ou com o selo de criador verificado indicam que {% data variables.product.prodname_dotcom %} verificou o criador da ação como uma organização parceira.
 

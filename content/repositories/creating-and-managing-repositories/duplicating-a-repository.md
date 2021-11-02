@@ -10,9 +10,20 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
+{% ifversion fpt or ghec %} 
+
+{% note %}
+
+**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+
+{% endnote %}
+
+{% endif %}
+
 Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
 
 ## Mirroring a repository
@@ -83,7 +94,7 @@ As with a bare clone, a mirrored clone includes all remote branches and tags, bu
 $ git fetch -p origin
 $ git push --mirror
 ```
-{% ifversion fpt %} 
+{% ifversion fpt or ghec %} 
 ## Further reading
 
 * "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"

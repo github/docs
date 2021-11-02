@@ -5,14 +5,16 @@ redirect_from:
   - /articles/preparing-to-require-two-factor-authentication-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-require-two-factor-authentication-in-your-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Prepararse para requerir 2FA
 ---
 
-Te recomendamos que notifiques {% if currentVersion == "free-pro-team@latest" %}a los miembros de la organización, colaboradores externos y gerentes de facturación{% else %}miembros de la organización y colaboradores externos{% endif %} por lo menos una semana antes de que comiences a requerir 2FA para tu organización.
+Recomendamos que notifiques a {% ifversion fpt or ghec %}los miembros de la organización, a los colaboradores externos y a los gerentes de facturación{% else %}miembros de la organización y colaboradores externos{% endif %} por lo menos una semana antes de requerir 2FA en tu organización.
 
 Cuando solicitas que se use la autenticación de dos factores para tu organización, los miembros, los colaboradores externos y los gerentes de facturación (incluidas las cuentas bot) que no utilizan 2FA se eliminarán de tu organización y perderán acceso a sus repositorios. También perderán acceso a las bifurcaciones de sus repositorios privados de la organización.
 

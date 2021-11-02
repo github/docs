@@ -1,19 +1,21 @@
 ---
 title: GitHub Sponsors für Dein Benutzerkonto aufsetzen
-intro: 'Um ein unterstützter Entwickler zu werden, musst Du {% data variables.product.prodname_sponsors %} beitreten, Dein Formular für unterstützte Entwickler ausfüllen, Sponsoring-Stufen erstellen, Deine Bank- und Steuerdaten einreichen und die Zwei-Faktor-Authentifizierung für Dein {% data variables.product.prodname_dotcom %}-Konto aktivieren.'
+intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - User account
   - Sponsors profile
+shortTitle: Set up for user account
 ---
 
-### {% data variables.product.prodname_sponsors %} beitreten
+## {% data variables.product.prodname_sponsors %} beitreten
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -27,7 +29,7 @@ Um {% data variables.product.prodname_sponsors %} als eine Organisation beizutre
 
 Wenn Du ein Bankkonto in einer unterstützten Region hast, wird {% data variables.product.prodname_dotcom %} Deine Bewerbung innerhalb von zwei Wochen überprüfen.
 
-### Formular für unterstützte Entwickler ausfüllen
+## Formular für unterstützte Entwickler ausfüllen
 
 Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft hat, kannst Du Dein Profil als unterstützter Entwickler aufsetzen, damit Personen beginnen können, Dich zu unterstützen.
 
@@ -39,7 +41,7 @@ Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### Sponsoring-Stufen erstellen
+## Sponsoring-Stufen erstellen
 
 {% data reusables.sponsors.tier-details %}
 
@@ -49,11 +51,12 @@ Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 {% data reusables.sponsors.add-more-tiers %}
 
-### Deine Bankinformationen einreichen
+## Deine Bankinformationen einreichen
 
 Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen, um Deine Bankinformationen durch das Erstellen eines Stripe Connect-Kontos einzureichen. Your region of residence and the region of your bank account must match. {% data reusables.sponsors.stripe-supported-regions %}
 
@@ -62,7 +65,7 @@ Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
-### Deine Steuerinformationen einreichen
+## Deine Steuerinformationen einreichen
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
@@ -72,11 +75,11 @@ Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
-### Zwei-Faktor-Authentifizierung (2FA) für Dein {% data variables.product.prodname_dotcom %}-Konto aktivieren
+## Zwei-Faktor-Authentifizierung (2FA) für Dein {% data variables.product.prodname_dotcom %}-Konto aktivieren
 
-Bevor Du ein unterstützter Entwickler werden kannst, musst Du die 2FA für Dein {% data variables.product.product_name %}-Konto aktivieren. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.
+Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.product.product_location %}. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.
 
-### Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
+## Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Klicke auf **Request approval** (Genehmigung beantragen). ![Schaltfläche „Request approval" (Beantragen der Genehmigung)](/assets/images/help/sponsors/request-approval-button.png)

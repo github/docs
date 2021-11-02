@@ -41,7 +41,9 @@ async function checkPortAvailability() {
   const portInUse = await portUsed.check(port)
   if (portInUse) {
     console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
-    console.log('Try running `killall node` to shut down all your running node processes.\n\n\n')
+    console.log(
+      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.\n\n\n`
+    )
     console.log('\x07') // system 'beep' sound
     process.exit(1)
   }
@@ -56,6 +58,16 @@ async function startServer() {
     if (process.env.HEROKU_PRODUCTION_APP || process.env.GITHUB_ACTIONS) {
       await warmServer()
     }
+  } else {
+    // Warm up as soon as possible when in development.
+    // The `warmServer()` function is idempotent and it will soon be used
+    // by some middleware, but there's no point in having a started server
+    // without this warmed up. Besides, by starting this slow thing now,
+    // it can start immediately instead of waiting for the first request
+    // to trigger it to warm up. That way, when in development and triggering
+    // a `nodemon` restart, there's a good chance the warm up has come some
+    // way before you manage to reach for your browser to do a page refresh.
+    await warmServer()
   }
 
   // Workaround for https://github.com/expressjs/express/issues/1101

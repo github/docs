@@ -5,12 +5,14 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Gerenciar acesso de equipe
 ---
 
 {% warning %}
@@ -21,7 +23,7 @@ topics:
 
 {% endwarning %}
 
-### Conceder a uma equipe acesso a um quadro de projeto
+## Conceder a uma equipe acesso a um quadro de projeto
 
 Você pode dar a uma equipe inteira o mesmo nível de permissão em um quadro de projeto.
 
@@ -41,7 +43,7 @@ Você pode dar a uma equipe inteira o mesmo nível de permissão em um quadro de
 9. Para adicionar uma equipe, clique em **Add a team: Select team** (Adicionar uma equipe: Selecionar equipe). Depois, escolha uma equipe no menu suspenso ou pesquise a equipe que você deseja adicionar. ![Menu suspenso Add a team (Adicionar uma equipe) com lista de equipes na organização](/assets/images/help/projects/add-a-team.png)
 10. Ao lado do nome da equipe, use o menu suspenso para selecionar o nível de permissão desejado: **Read** (Leitura), **Write** (Gravação) ou **Admin** (Administrador). ![Menu suspenso Team permissions (Permissões de equipe) com opções read, write e admin (leitura, gravação e administrador)](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
-### Configurar o acesso de uma equipe a um quadro de projeto
+## Configurar o acesso de uma equipe a um quadro de projeto
 
 Se o acesso de uma equipe a um quadro de projeto for herdado de uma equipe principal, você deverá alterar o acesso da equipe principal ao quadro de projeto para atualizar o acesso das equipes secundárias.
 
