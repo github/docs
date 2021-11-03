@@ -11,6 +11,7 @@ redirect_from:
   - /developers/github-marketplace/requirements-for-listing-an-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 列出要求
@@ -22,7 +23,7 @@ shortTitle: 列出要求
 
 ## 对所有 {% data variables.product.prodname_marketplace %} 上架产品的要求
 
-{% data variables.product.prodname_marketplace %} 中的所有上架产品应该是能够为 {% data variables.product.product_name %} 社区提供价值的工具。 提交要发布的上架信息时，您必须阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”的条款。
+{% data variables.product.prodname_marketplace %} 中的所有上架产品应该是能够为 {% data variables.product.product_name %} 社区提供价值的工具。 提交要发布的上架信息时，您必须阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)”的条款。
 
 ### 所有应用程序的用户体验要求
 
@@ -58,8 +59,8 @@ shortTitle: 列出要求
 
 要发布付费应用程序（或提供付费计划的应用程序），您还必须满足以下要求：
 
-- {% data variables.product.prodname_github_apps %} should have a minimum of 100 installations.
-- {% data variables.product.prodname_oauth_apps %} should have a minimum of 200 users.
+- {% data variables.product.prodname_github_apps %} 应至少有 100 个安装设施。
+- {% data variables.product.prodname_oauth_apps %} 应至少有 200 个用户。
 - 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。 更多信息请参阅下面的“[付费应用程序的计费要求](#billing-requirements-for-paid-apps)”。
 
 当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证应用程序上架信息。
@@ -74,7 +75,7 @@ shortTitle: 列出要求
 
 您的应用程序无需处理付款，但需要使用 {% data variables.product.prodname_marketplace %} 购买事件来管理新购买、升级、降级、取消和免费试用。 有关如何将这些事件集成到您的应用程序中，请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-GitHub 的计费 API 允许客户在不离开 GitHub 的情况下购买应用程序，并使用已附加到其 {% data variables.product.product_name %} 帐户的付款方式来支付服务费用。
+GitHub 的计费 API 允许客户在不离开 GitHub 的情况下购买应用程序，并使用已附加到其在 {% data variables.product.product_location %} 上帐户的付款方式来支付服务费用。
 
 - 应用程序必须在付费订阅计划中支持月度和年度计费。
 - 上架产品可提供免费和付费计划的任何组合。 免费计划是可选项，但建议提供。 更多信息请参阅“[设置 {% data variables.product.prodname_marketplace %} 上架产品的定价计划](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)”。

@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -44,7 +45,7 @@ shortTitle: 配置代码扫描
 
 {% data reusables.code-scanning.edit-workflow %}
 
-您可以为 {% data variables.product.prodname_code_scanning %} 编写配置文件。 {% data variables.product.prodname_marketplace %}{% ifversion ghes %} 在 {% data variables.product.prodname_dotcom_the_website %} 上，{% endif %}包含您可以使用的其他 {% data variables.product.prodname_code_scanning %} 工作流程。 {% ifversion fpt %}您可以在“{% data variables.product.prodname_code_scanning %} 使用入门”页找到这些选项，该页面可从 **{% octicon "shield" aria-label="The shield symbol" %} Security（安全）**选项卡访问。{% endif %}本文给出的具体示例与 {% data variables.product.prodname_codeql_workflow %} 文件相关。
+您可以为 {% data variables.product.prodname_code_scanning %} 编写配置文件。 {% data variables.product.prodname_marketplace %}{% ifversion ghes %} 在 {% data variables.product.prodname_dotcom_the_website %} 上，{% endif %}包含您可以使用的其他 {% data variables.product.prodname_code_scanning %} 工作流程。 {% ifversion fpt or ghec %}您可以在“{% data variables.product.prodname_code_scanning %} 使用入门”页找到这些选项，该页面可从 **{% octicon "shield" aria-label="The shield symbol" %} Security（安全）**选项卡访问。{% endif %}本文给出的具体示例与 {% data variables.product.prodname_codeql_workflow %} 文件相关。
 
 ## Editing a code scanning workflow
 
@@ -68,32 +69,32 @@ shortTitle: 配置代码扫描
 
 如果您在推送时扫描，则结果将出现在仓库的 **Security（安全性）**选项卡中。 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
 Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 {% endif %}
 
 ### 扫描拉取请求
 
-默认 {% data variables.product.prodname_codeql_workflow %} 使用 `pull_request` 事件在针对默认分支的拉取请求上触发代码扫描。 {% ifversion ghes %}如果从私有复刻打开拉取请求，`pull_request` 事件不会触发。{% else %}如果拉取请求来自私有复刻，`pull_request` 事件仅在仓库设置中选择了“Run workflows from fork pull requests（从复刻拉取请求运行工作流程）”选项时触发。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+默认 {% data variables.product.prodname_codeql_workflow %} 使用 `pull_request` 事件在针对默认分支的拉取请求上触发代码扫描。 {% ifversion ghes %}如果从私有复刻打开拉取请求，`pull_request` 事件不会触发。{% else %}如果拉取请求来自私有复刻，`pull_request` 事件仅在仓库设置中选择了“Run workflows from fork pull requests（从复刻拉取请求运行工作流程）”选项时触发。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)”。{% endif %}
 
 有关 `pull_request` 事件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
 
 如果您扫描拉取请求，则结果在拉取请求检查中显示为警报。 更多信息请参阅“[对拉取请求中的代码扫描警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
  Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Defining the severities causing pull request check failure
 
-By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
+By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}
+{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}
 ![检查失败设置](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
 ![检查失败设置](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
@@ -157,7 +158,7 @@ on:
 
 ## 指定操作系统
 
-如果您的代码需要使用特定的操作系统进行编译，您可以在工作流程中配置它。 编辑 `jobs.analyze.runs-on` 的值以指定运行 {% data variables.product.prodname_code_scanning %} 操作的机器操作系统。 {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
+如果您的代码需要使用特定的操作系统进行编译，您可以在工作流程中配置它。 编辑 `jobs.analyze.runs-on` 的值以指定运行 {% data variables.product.prodname_code_scanning %} 操作的机器操作系统。 {% ifversion ghes %}在 `self-hosted` 之后，使用适当的标签作为双元素数组中的第二个元素来指定操作系统。{% else %}
 
 如果选择使用自托管的运行器进行代码扫描，可以在 `self-hosted` 之后，使用适当的标签作为双元素数组中的第二个元素来指定操作系统。{% endif %}
 
@@ -168,13 +169,13 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% ifversion fpt %}更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。{% endif %}
+{% ifversion fpt or ghec %}更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。{% endif %}
 
-{% data variables.product.prodname_code_scanning_capc %} 支持 macOS、Ubuntu 和 Windows 的最新版本。 因此，此设置的典型值为：`ubuntu-latest`、`windows-latest` 和 `macos-latest`。 For more information, see {% ifversion ghes %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" and "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
+{% data variables.product.prodname_code_scanning_capc %} 支持 macOS、Ubuntu 和 Windows 的最新版本。 因此，此设置的典型值为：`ubuntu-latest`、`windows-latest` 和 `macos-latest`。 更多信息请参阅{% ifversion ghes %}“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)”和“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}”[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}“。
 
-{% ifversion ghes %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
+{% ifversion ghes %}您必须确保 Git 位于自托管运行器的 PATH 变量中。{% else %}如果您使用自托管运行器，必须确保 Git 在 PATH 变量中。{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## 指定 {% data variables.product.prodname_codeql %} 数据库的位置
 
 一般来说，您不必担心 {% data variables.product.prodname_codeql_workflow %} 放置 {% data variables.product.prodname_codeql %} 数据库的位置，因为以后的步骤会自动找到以前步骤创建的数据库。 但是，如果您正在编写一个自定义工作流步骤，要求 {% data variables.product.prodname_codeql %} 数据库位于特定的磁盘位置，例如将数据库作为工作流程工件上传，则可以使用 `init` 下的 `db-location` 参数指定该位置。
@@ -222,7 +223,7 @@ jobs:
   with:
     languages: cpp, csharp, python
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 分析 Python 依赖项
 
 对于仅使用 Linux 的 GitHub 托管的运行器，{% data variables.product.prodname_codeql_workflow %} 将尝试自动安装 Python 依赖项以提供更多 CodeQL 分析结果。 可通过为“初始化 CodeQL”步骤调用的操作指定 `setup-python-dependencies` 参数来控制此行为。 默认情况下，此参数设置为 `true`：
@@ -236,7 +237,7 @@ jobs:
 ```yaml
 jobs:
   CodeQL-Build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write
       actions: read{% endif %}
@@ -267,7 +268,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## 配置分析类别
 
 使用`类别`来区分同一工具和提交的多次分析，但是在不同语言或代码的不同部分进行。 您在工作流程中指定的类别将包含在 SARIF 结果文件中。
@@ -286,7 +287,7 @@ jobs:
 ```
 {% endraw %}
 
-If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. 例如：
+如果您没有在工作流程中指定 `category` 参数，则 {% data variables.product.product_name %} 将根据触发操作的工作流程文件的名称、操作名称和任何矩阵变量为您生成类别名称。 例如：
 - `.github/workflows/codeql-analysis.yml` 工作流程和 `analyze` 操作将产生类别 `.github/workflows/codeql.yml:analyze`。
 - `.github/workflows/codeql-analysis.yml` 工作流程、`analyze` 操作和 `{language: javascript, os: linux}` 矩阵变量将产生类别 `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`。
 
@@ -441,7 +442,7 @@ queries:
 
 ### 指定要扫描的目录
 
-对于 {% data variables.product.prodname_codeql %} 支持的解释语言（Python 和 JavaScript/TypeScript），您可以通过在配置文件中添加 `paths` 数组将 {% data variables.product.prodname_code_scanning %} 限制到特定目录中的文件。 添加 `paths-ignore` 数组可从分析排除特定目录中的文件。
+For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. 添加 `paths-ignore` 数组可从分析排除特定目录中的文件。
 
 ``` yaml
 paths:

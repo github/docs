@@ -2,7 +2,6 @@
 title: Sintaxe de fluxo de trabalho para o GitHub Actions
 shortTitle: Sintaxe de fluxo de trabalho
 intro: Um fluxo de trabalho é um processo automatizado configurável constituído de um ou mais trabalhos. Você deve criar um arquivo YAML para definir a configuração do seu fluxo de trabalho.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,10 +11,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre sintaxe YAML para fluxos de trabalho
 
@@ -183,7 +184,7 @@ Os diffs limitam-se a 300 arquivos. Se houver arquivos alterados que não corres
 
 Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/articles/about-comparing-branches-in-pull-requests)".
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
 Ao usar a palavra-chave `workflow_call`, você poderá, opcionalmente, especificar entradas que são passadas para o fluxo de trabalho chamado no fluxo de trabalho de chamada. As entradas para fluxos de trabalho reutilizáveis são especificadas com o mesmo formato que entradas de ações. Para obter mais informações sobre as entradas, consulte "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)". Para obter mais informações sobre a palavra-chave `workflow_call`, consulte "[Eventos que acionam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
@@ -290,7 +291,7 @@ O fluxo de trabalho acionado recebe as entradas no contexto `github.event.inputs
 
 Para obter mais informações sobre a sintaxe cron, consulte "[Eventos que acionam fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## `permissões`
 
 Você pode modificar as permissões padrão concedidas ao `GITHUB_TOKEN`, adicionando ou removendo o acesso conforme necessário, para que você permita apenas o acesso mínimo necessário. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
@@ -350,7 +351,7 @@ defaults:
     working-directory: scripts
 ```
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `concorrência`
 
 A moeda garante que apenas um único trabalho ou fluxo de trabalho que usa o mesmo grupo de concorrência seja executado de cada vez. Um grupo de concorrência pode ser qualquer string ou expressão. A expressão só pode usar o contexto [`github`](/actions/learn-github-actions/contexts#github-context). Para obter mais informações sobre expressões, consulte "[Expressões](/actions/learn-github-actions/expressions)".
@@ -368,13 +369,15 @@ Cada trabalho é executado em um ambiente de executor especificado por `runs-on`
 
 Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
-Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/rest/reference/actions#workflow-jobs)".
+Se precisar encontrar o identificador exclusivo de uma tarefa em execução em um fluxo de trabalho, você poderá usar a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/rest/reference/actions#workflow-jobs)".
 
 ## `jobs.<job_id>`
 
-Cada trabalho deve ter um id associado. A chave `job_id` é uma string, e seu valor é um mapa dos dados de configuração do trabalho. Você deve substituir `<job_id>` por uma string exclusiva para o objeto `jobs`. `<job_id>` deve começar por uma letra ou `_`, além de conter somente caracteres alfanuméricos, `-` ou `_`.
+Crie um identificador para sua tarefa conferindo-lhe um nome único. A chave `job_id` é uma string, e seu valor é um mapa dos dados de configuração do trabalho. Você deve substituir `<job_id>` por uma string exclusiva para o objeto `jobs`. `<job_id>` deve começar por uma letra ou `_`, além de conter somente caracteres alfanuméricos, `-` ou `_`.
 
 ### Exemplo
+
+Neste exemplo, foram criados dois trabalhos e seus valores de `job_id` são `my_first_job` e `my_second_job`.
 
 ```yaml
 jobs:
@@ -419,7 +422,7 @@ jobs:
   job2:
     needs: job1
   job3:
-    if: always()
+    if: {% raw %}${{ always() }}{% endraw %}
     needs: [job1, job2]
 ```
 
@@ -476,7 +479,7 @@ runs-on: [self-hosted, linux]
 
 Para obter mais informações, consulte "[Sobre executores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" e "[Usar executores auto-hospedados em um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## `jobs.<job_id>.permissions`
 
 Você pode modificar as permissões padrão concedidas ao `GITHUB_TOKEN`, adicionando ou removendo o acesso conforme necessário, para que você permita apenas o acesso mínimo necessário. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)".
@@ -504,7 +507,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 O ambiente ao qual o trabalho faz referência. Todas as regras de proteção do ambiente têm de ser aprovadas para que um trabalho que faça referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
@@ -538,8 +541,7 @@ environment:
 {% endraw %}
 {% endif %}
 
-
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% note %}
@@ -791,7 +793,7 @@ empregos:
         usa: docker://alpine:3.8
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Exemplo: Usando o {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
@@ -877,7 +879,7 @@ Com a palavra-chave `working-directory` (diretório de trabalho), é possível e
 
 ### Usar um shell específico
 
-Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell. O comando do shell executado internamente executa um arquivo temporário que contém os comandos especificados na palavra-chave `run`.
+Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell. O comando do shell que é executado internamente executa um arquivo temporário que contém os comandos especificados na palavra-chave `executar`.
 
 | Plataforma compatível | Parâmetro `shell` | Descrição                                                                                                                                                                                                                                                                  | Comando executado internamente                  |
 | --------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -951,7 +953,6 @@ steps:
 ```
 
 O comando usado, `perl` neste exemplo, deve ser instalado no executor.
-
 
 {% ifversion ghae %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
 {% else %}
@@ -1271,9 +1272,7 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro {% ifversion ghes < 3.0 %}público{% endif %}.
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
+Imagem Docker a ser usada como contêiner para executar a ação. The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1290,7 +1289,6 @@ container:
      password: ${{ secrets.ghcr_token }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.container.env`
 
@@ -1361,9 +1359,7 @@ serviços:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro {% ifversion ghes < 3.0 %}público{% endif %}.
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1386,7 +1382,6 @@ services:
       password: ${{ secrets.DOCKER_PASSWORD }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.services.<service_id>.env`
 
@@ -1425,7 +1420,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
 O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job.

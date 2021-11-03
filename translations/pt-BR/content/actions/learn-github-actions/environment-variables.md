@@ -1,7 +1,6 @@
 ---
 title: Variáveis de ambiente
 intro: '{% data variables.product.prodname_dotcom %} define as variáveis do ambiente para cada execução do fluxo de trabalho {% data variables.product.prodname_actions %}. Você também pode definir variáveis de ambiente personalizadas no seu arquivo do fluxo de trabalho.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -11,10 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre as variáveis de ambiente
 
@@ -44,7 +45,7 @@ Para usar o valor de uma variável de ambiente em um arquivo do fluxo de trabalh
 
 Se você usar a chave `executar` do arquivo de fluxo de trabalho para ler variáveis de ambiente de dentro do sistema operacional do executor (como mostrado no exemplo acima), a variável será substituída no sistema operacional do executor depois que a tarefa for enviada para o executor. Para outras partes de um arquivo de fluxo de trabalho, você deve usar o contexto `env` para ler variáveis de ambiente. Isso ocorre porque as chaves do fluxo de trabalho (como `se`) exigem que a variável seja substituída durante o processamento do fluxo de trabalho antes de ser enviada para o executor.
 
-Você também pode usar o {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` environment file{% else %} `set-env` fluxo de trabalho{% endif %} para definir uma variável de ambiente que as seguintes etapas em um trabalho podem usar. O comando do {% ifversion fpt or ghes > 2.22 or ghae %}arquivo de ambiente{% else %} `set-env` {% endif %} pode ser usado diretamente por uma ação ou como um comando do shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
+You can also use the `GITHUB_ENV` environment file to set an environment variable that the following steps in a job can use. The environment file can be used directly by an action or as a shell command in a workflow file using the `run` keyword. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
 
 ## Variáveis padrão de ambiente
 

@@ -5,6 +5,7 @@ redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

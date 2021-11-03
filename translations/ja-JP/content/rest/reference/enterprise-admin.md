@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 shortTitle: Enterprise管理
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -60,7 +61,7 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Audit log
 
@@ -70,7 +71,7 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 支払い
 
 {% for operation in currentRestOperations %}
@@ -81,6 +82,7 @@ Enterprise の現在のバージョンは、すべての API のレスポンス�
 
 ## GitHub Actions
 
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}

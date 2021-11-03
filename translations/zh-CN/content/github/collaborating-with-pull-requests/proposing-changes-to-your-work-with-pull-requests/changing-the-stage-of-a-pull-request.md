@@ -1,6 +1,6 @@
 ---
 title: 更改拉取请求的阶段
-intro: '您可以将拉取请求草稿标记为可供审查{% ifversion fpt or ghae or ghes %}或将拉取请求转换为草稿{% endif %}。'
+intro: '您可以将拉取请求草稿标记为可供审查{% ifversion fpt or ghae or ghes or ghec %}或将拉取请求转换为草稿{% endif %}。'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 更改状态
@@ -20,7 +21,7 @@ shortTitle: 更改状态
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 将拉取请求标记为可供审查。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh pr 准备`](https://cli.github.com/manual/gh_pr_ready)”。
@@ -32,7 +33,7 @@ shortTitle: 更改状态
 2. 在“Pull Requests（拉取请求）”列表中，单击要标记为可供审查的拉取请求。
 3. 在合并框中，单击 **Ready for review（可供审查）**。 ![可供审查按钮](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## 将拉取请求转换为草稿
 

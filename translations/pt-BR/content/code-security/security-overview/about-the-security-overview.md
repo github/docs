@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
+  ghec: '*'
 type: how_to
 topics:
   - Security overview
@@ -24,7 +25,7 @@ shortTitle: Sobre a visão geral de segurança
 
 Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
-A visão geral de segurança indica se {% ifversion fpt or ghes > 3.1 %} as funcionalidades segurança{% endif %}{% ifversion ghae-next %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} estão habilitadas para os repositórios pertencentes à sua organização e consolida alertas para cada funcionalidade.{% ifversion fpt or ghes > 3.1 %} As funcionalidades de segurança includem recursos de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %}, consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre alertas de dependências vulneráveis](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
+The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %}security{% endif %}{% ifversion ghae-next %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
 Para obter mais informações sobre como proteger seu código nos níveis do repositório e da organização, consulte "[Protegendo seu repositório](/code-security/getting-started/securing-your-repository)" e "[Protegendo sua organização](/code-security/getting-started/securing-your-organization)".
 
@@ -102,7 +103,7 @@ O nível de risco para um repositório é determinado pelo número e gravidade d
 
 ### Filtrar por tipo de repositório
 
-| Qualificador | Descrição | | -------- | -------- |{% ifversion fpt or ghes > 3.1 %} | `is:public` | Exibe repositórios públicos. |{% endif %} | `is:internal` | Exibe repositórios internos. | | `is:private` | Exibe repositórios privados. | | `archived:true` | Exibe repositórios arquivados. |
+| Qualifier | Description | | -------- | -------- |{% ifversion fpt or ghes > 3.1 or ghec %} | `is:public` | Display public repositories. |{% endif %} | `is:internal` | Exibe repositórios internos. | | `is:private` | Exibe repositórios privados. | | `archived:true` | Exibe repositórios arquivados. |
 
 ### Filtrar por equipe
 

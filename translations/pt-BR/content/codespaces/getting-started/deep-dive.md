@@ -4,7 +4,8 @@ intro: 'Entender o funcionamento do {% data variables.product.prodname_codespace
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces
@@ -58,7 +59,7 @@ Durante a configuração de pós-criação, você ainda poderá usar o terminal 
 
 ### Fechando ou interrompendo seu codespace
 
-Para parar seu código, você pode [usar a paleta de comandos](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Comando + P` (Mac) / `Ctrl + Shift + P` (Windows)). Se você sair do seu codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador), ou se você sair do codespace em execução sem interação, o codespace e os seus processos em execução continuarão até que ocorra uma janela de inatividade, após a qual o código será interrompido.  Por padrão, a janela de inatividade é de 30 minutos.
+To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). Se você sair do seu codespace sem executar o comando de interrupção (por exemplo, fechando a aba do navegador), ou se você sair do codespace em execução sem interação, o codespace e os seus processos em execução continuarão até que ocorra uma janela de inatividade, após a qual o código será interrompido.  Por padrão, a janela de inatividade é de 30 minutos.
 
 Ao fechar ou interromper o seu codespace, todas as alterações não autorizadas são preservadas até você conectar-se ao codespace novamente.
 
@@ -71,9 +72,9 @@ O encaminhamento de portas determina quais portas podem ser acessadas por você 
 
 ![Diagrama que mostra como funciona o encaminhamento de porta em um codespace](/assets/images/help/codespaces/port-forwarding.png)
 
-Quando um aplicativo em execução dentro de {% data variables.product.prodname_codespaces %} produz uma porta para o console, {% data variables.product.prodname_codespaces %} detecta o padrão da URL do host local e encaminha a porta automaticamente. Você pode clicar na URL no terminal ou na mensagem de alerta para abrir a porta em um navegador. Para obter mais informações sobre o encaminhamento de portas, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
+Quando um aplicativo em execução dentro de {% data variables.product.prodname_codespaces %} produz uma porta para o console, {% data variables.product.prodname_codespaces %} detecta o padrão da URL do host local e encaminha a porta automaticamente. Você pode clicar na URL no terminal ou na mensagem de alerta para abrir a porta em um navegador. By default, {% data variables.product.prodname_codespaces %} forwards the port using HTTP. Para obter mais informações sobre o encaminhamento de portas, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 
-Embora as portas possam ser encaminhadas automaticamente, elas não podem ser acessadas pelo público na internet. Por padrão, todas as portas são privadas, mas você pode [tornar uma porta pública manualmente](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) para compartilhar acesso por meio de uma URL.
+Embora as portas possam ser encaminhadas automaticamente, elas não podem ser acessadas pelo público na internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[Sharing a port](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
 
 A execução do seu aplicativo ao chegar pela primeira vez no seu codespace pode fazer um loop de desenvolvimento rápido interno. À medida que você edita, as alterações são salvas automaticamente e ficam disponíveis na sua porta encaminhada. Para visualizar as alterações, volte para a aba do aplicativo em execução no seu navegador e atualize-as.
 

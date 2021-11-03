@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Obter alterações de um controle remoto
 ---
 
@@ -77,5 +78,5 @@ Você deve garantir que fez commit de seu trabalho local antes de executar o com
 
 ## Leia mais
 
-- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt %}
+- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
 - "[Solucionar problemas de conectividade](/articles/troubleshooting-connectivity-problems)"{% endif %}

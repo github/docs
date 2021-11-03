@@ -4,6 +4,7 @@ intro: リポジトリ内のディスカッションを分類、スポットラ�
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Manage discussions
 ---
 

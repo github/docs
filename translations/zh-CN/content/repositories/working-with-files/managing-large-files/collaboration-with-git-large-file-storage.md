@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 协作
 ---
 
@@ -31,7 +32,7 @@ shortTitle: 协作
 
 要查看对大型文件所做的更改，请在本地检出拉取请求以查看差异。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 推送大文件到复刻
 

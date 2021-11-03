@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -28,15 +29,11 @@ Debes tener acceso de escritura para un repositorio para crear una rama, abrir u
 
 {% data reusables.branches.new-repo-default-branch %} La rama predeterminada es la rama que {% data variables.product.prodname_dotcom %} muestra cuando alguien visita tu repositorio. La rama predeterminada también es la rama inicial que Git verifica localmente cuando alguien clona el repositorio. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-Predeterminadamente, {% data variables.product.product_name %} nombra la rama predeterminada como {% ifversion fpt or ghes > 2.22 or ghae %}`main`{% else %}`master`{% endif %} en cualquier repositorio nuevo.
+By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.change-default-branch %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## Trabajando con las ramas
 

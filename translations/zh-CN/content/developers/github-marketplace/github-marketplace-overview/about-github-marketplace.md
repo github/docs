@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
@@ -31,11 +32,11 @@ topics:
 
 ### 不熟悉应用程序？
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)."
+如果您有兴趣为 {% data variables.product.prodname_marketplace %} 创建应用程序，但对于 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_apps %} 比较陌生，请参阅“[构建 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”或“[构建 {% data variables.product.prodname_oauth_apps %}](/developers/apps/building-oauth-apps)”。
 
-### {% data variables.product.prodname_github_apps %} vs. {% data variables.product.prodname_oauth_apps %}
+### {% data variables.product.prodname_github_apps %} 与 {% data variables.product.prodname_oauth_apps %} 的比较
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}，尽管您可以在 {% data variables.product.prodname_marketplace %} 同时列出OAuth 和 {% data variables.product.prodname_github_apps %}。 更多信息请参阅“[{% data variables.product.prodname_github_apps %} 与 {% data variables.product.prodname_oauth_apps %} 之间的差异](/apps/differences-between-apps/)”和“[将 {% data variables.product.prodname_oauth_apps %} 迁移到 {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)”。
 
 ## 将应用程序发布到 {% data variables.product.prodname_marketplace %} 概述
 
@@ -49,7 +50,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 1. 添加定价计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 
-1. 阅读并接受“[{% data variables.product.prodname_marketplace %} 开发者协议](/articles/github-marketplace-developer-agreement/)”的条款。
+1. 读取并接受"\[{% data variables.product.prodname_marketplace %} 开发者协议\](/free-profound proteam@latest/github/site-policy/github-marketplace-developer-agreement." 的条款。
 
 1. 提交要在 {% data variables.product.prodname_marketplace %} 中发布的上架信息。 更多信息请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication)”。
 
