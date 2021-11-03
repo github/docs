@@ -4,6 +4,7 @@ intro: 您可以为您的议题表单定义不同的输入类型、验证、默�
 product: '议题表单可用于 {% data variables.product.prodname_dotcom_the_website %} 上公共仓库的测试版'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---

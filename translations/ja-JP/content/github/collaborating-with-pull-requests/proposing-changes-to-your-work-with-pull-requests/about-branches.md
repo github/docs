@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -28,15 +29,11 @@ topics:
 
 {% data reusables.branches.new-repo-default-branch %} デフォルトブランチは、誰かがあなたのリポジトリにアクセスしたときに {% data variables.product.prodname_dotcom %} が表示されるブランチです。 また、デフォルトブランチは、誰かがリポジトリのクローンを作成したときに Git がローカルでチェックアウトする最初のブランチでもあります。 {% data reusables.branches.default-branch-automatically-base-branch %}
 
-デフォルトでは、{% data variables.product.product_name %} は新しいリポジトリのデフォルトブランチ {% ifversion fpt or ghes > 2.22 or ghae %}`main`{% else %}`master`{% endif %} に名前を付けます。
+By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.set-default-branch %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## ブランチを使用する
 

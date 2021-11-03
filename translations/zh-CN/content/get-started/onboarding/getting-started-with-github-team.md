@@ -7,14 +7,14 @@ versions:
 
 This guide will walk you through setting up, configuring and managing your {% data variables.product.prodname_team %} account as an organization owner.
 
-## Part 1: Configuring your {% data variables.product.product_name %} account
+## Part 1: Configuring your account on {% data variables.product.product_location %}
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
 
 ### 1. 关于组织
 组织是共享帐户，其中业务和开源项目可一次协助处理多个项目。 所有者和管理员可通过复杂的安全和管理功能管理成员对组织数据和项目的访问。 For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a user account or log in to your existing {% data variables.product.prodname_dotcom %} account. 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)”。
+Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)”。
 
 Once your user account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. 更多信息请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
@@ -66,7 +66,7 @@ You can help to make your organization more secure by recommending or requiring 
 {% data reusables.getting-started.customizing-and-automating %}
 ### 1. Using {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Using the {% data variables.product.prodname_dotcom %} API
+### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
 ### 3. Building {% data variables.product.prodname_actions %}

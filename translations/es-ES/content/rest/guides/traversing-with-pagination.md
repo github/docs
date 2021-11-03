@@ -8,12 +8,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Desplazarse con la paginación
 ---
 
-La API de {% data variables.product.product_name %} proporciona una gran cantidad de información para el consumo de los desarrolladores. La mayoría de las veces incluso podrías encontrar que estás pidiendo _demasiada_ información y, para mantener felices a nuestros servidores, la API [paginará los elementos solicitados][pagination] automáticamente.
+The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume. La mayoría de las veces incluso podrías encontrar que estás pidiendo _demasiada_ información y, para mantener felices a nuestros servidores, la API [paginará los elementos solicitados][pagination] automáticamente.
 
 En esta guía haremos algunos llamados a la API de Búsqueda de e iteraremos sobre los resultados utilizando la paginación. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
 

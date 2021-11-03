@@ -1,6 +1,6 @@
 ---
 title: Organization のフォークポリシーを管理する
-intro: 'Organization が所有するプライベート{% ifversion fpt or ghes or ghae %}およびインターナル{% endif %}リポジトリのフォークを許可または禁止できます。'
+intro: 'Organization が所有するプライベート{% ifversion fpt or ghes or ghae or ghec %}およびインターナル{% endif %}リポジトリのフォークを許可または禁止できます。'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -10,15 +10,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: フォークポリシーの管理
 ---
 
-デフォルトでは、新しい Organization はプライベート{% ifversion fpt or ghes or ghae %}およびインターナル{% endif %}リポジトリのフォークを禁止するように設定されます。
+デフォルトでは、新しい Organization はプライベート{% ifversion fpt or ghes or ghae or ghec %}およびインターナル{% endif %}リポジトリのフォークを禁止するように設定されます。
 
-Organization レベルでプライベート{% ifversion fpt or ghes or ghae %} およびインターナル{% endif %}リポジトリのフォークを許可する場合は、特定のプライベート{% ifversion fpt or ghes or ghae %}またはインターナル{% endif %}リポジトリをフォークする機能も設定することができます。 詳細は「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
+Organization レベルでプライベート{% ifversion fpt or ghes or ghae or ghec %} およびインターナル{% endif %}リポジトリのフォークを許可する場合は、特定のプライベート{% ifversion fpt or ghes or ghae or ghec %}またはインターナル{% endif %}リポジトリをフォークする機能も設定することができます。 詳細は「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -31,4 +32,4 @@ Organization レベルでプライベート{% ifversion fpt or ghes or ghae %} �
 ## 参考リンク
 
 - [フォークについて](/articles/about-forks)
-- [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

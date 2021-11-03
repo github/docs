@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -16,7 +17,7 @@ topics:
 
 对于任何拉取请求，{% data variables.product.product_name %} 都提供三种注释视图：作为整体的[拉取请求注释][PR comment]、拉取请求中的[特定行注释][PR line comment] 和拉取请求中的[特定提交注释][commit comment]。
 
-每个类型的注释将通过 {% data variables.product.product_name %} API 的不同部分。 在本指南中，我们将探讨如何访问和处理每种注释。 对于每个示例，我们将使用在 "octocat" 仓库中[创建的样本拉取请求][sample PR]。 同样，您可以在[我们的平台样本仓库][platform-samples]中找到样本。
+每种类型的评论都会经过 API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} 的不同部分。 在本指南中，我们将探讨如何访问和处理每种注释。 对于每个示例，我们将使用在 "octocat" 仓库中[创建的样本拉取请求][sample PR]。 同样，您可以在[我们的平台样本仓库][platform-samples]中找到样本。
 
 ## 拉取请求注释
 

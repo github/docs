@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 删除或更改可见性
@@ -21,7 +22,7 @@ shortTitle: 删除或更改可见性
 
 当您删除私有仓库时，其所有私有复刻也将被删除。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## 删除公共仓库
 
@@ -33,7 +34,7 @@ shortTitle: 删除或更改可见性
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## 将公共仓库更改为私有仓库
 
@@ -59,7 +60,7 @@ shortTitle: 删除或更改可见性
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## 更改内部仓库的可见性
 
@@ -83,4 +84,4 @@ shortTitle: 删除或更改可见性
 - "[关于复刻](/articles/about-forks)"
 - "[管理仓库的复刻策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[管理组织的复刻策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "{% ifversion fpt %}[在企业帐户中执行仓库管理策略](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[在企业中执行仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

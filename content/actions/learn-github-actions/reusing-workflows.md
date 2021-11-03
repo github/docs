@@ -1,12 +1,12 @@
 ---
 title: Reusing workflows
 shortTitle: Reusing workflows
-intro: 'Learn how to avoid duplication when creating a workflow by reusing existing workflows.'
+intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '>=3.4'
-  ghae: 'issue-4757'
+  ghae: issue-4757
   ghec: '*'
 type: how_to
 topics:
@@ -33,7 +33,7 @@ A workflow that uses another workflow is referred to as a "caller" workflow. The
 
 If you reuse a workflow from a different repository, any actions in the called workflow run as if they were part of the caller workflow. For example, if the called workflow uses `actions/checkout`, the action checks out the contents of the repository that hosts the caller workflow, not the called workflow.
 
-When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+When a reusable workflow is triggered by a caller workflow, the `github` context is always associated with the caller workflow. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. For more information about the `github` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 ## Access to reusable workflows
 

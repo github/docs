@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Issueの作成
+type: how_to
 ---
 
 Issue は、バグ、拡張、その他リクエストの追跡に使用できます。 詳細は「[Issue について](/issues/tracking-your-work-with-issues/about-issues)」を参照してください。
@@ -88,7 +90,7 @@ IssueもしくはPull Requestのコメントから、新しいIssueをオープ�
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from discussion
 
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 プロジェクトボードを使用して作業の追跡や優先順位付けをしている場合、プロジェクトボードの注釈を Issue に変換できます。 詳しい情報については、 「[プロジェクトボードについて](/github/managing-your-work-on-github/about-project-boards)」と「[プロジェクト ボードへのメモの追加](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## タスクリストのアイテムからのIssueの作成
 
@@ -127,7 +129,7 @@ Issueをオープンするのにクエリパラメータを利用できます。
 
 {% endtip %}
 
-クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 たとえばクエリパラメータの`labels`を使うには、Issueにラベルを追加する権限を持っていなければなりません。 詳細は「[Organization のためのリポジトリ権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)」を参照してください。
+クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 たとえばクエリパラメータの`labels`を使うには、Issueにラベルを追加する権限を持っていなければなりません。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
