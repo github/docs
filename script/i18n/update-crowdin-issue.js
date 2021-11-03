@@ -9,7 +9,7 @@
 // [end-readme]
 
 import dotenv from 'dotenv'
-import Github from './helpers/github.js'
+import Github from '../helpers/github.js'
 import { execSync } from 'child_process'
 
 dotenv.config()

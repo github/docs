@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // Use this script as part of the Crowdin merge process to output a list of parsing and rendering
-// errors in translated files and run script/reset-translated-file.js on them.
+// errors in translated files and run script/i18n/reset-translated-file.js on them.
 //
 // [end-readme]
 
@@ -23,7 +23,7 @@ try {
 // 2. Check for rendering errors and output to file. Note this one must be run SECOND.
 console.log('Checking for rendering errors...')
 try {
-  execSync(`script/test-render-translation.js > ${renderErrorsLog}`)
+  execSync(`script/i18n/test-render-translation.js > ${renderErrorsLog}`)
 } catch (error) {
   console.log('There were new rendering errors!')
 }
@@ -31,7 +31,7 @@ try {
 // Reset the broken files.
 console.log('Resetting broken files...')
 execSync(
-  `cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/reset-translated-file.js --prefer-main`
+  `cat ${parsingErrorsLog} ${renderErrorsLog} | egrep "^translations/.*/(.+.md|.+.yml)$" | uniq | xargs -L1 script/i18n/reset-translated-file.js --prefer-main`
 )
 
 // Print a message with next steps.
