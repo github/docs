@@ -1,6 +1,6 @@
 ---
 title: 行为准则
-intro: The Codes of Conduct API lets you to retreive the information about a particular respository's code of conduct.
+intro: 行为准则 API 可让您检索有关特定仓库行为准则的信息。
 redirect_from:
   - /v3/codes_of_conduct
   - /v3/codes-of-conduct
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

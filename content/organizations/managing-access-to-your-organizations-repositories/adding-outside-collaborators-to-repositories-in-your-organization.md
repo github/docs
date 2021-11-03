@@ -13,13 +13,18 @@ topics:
   - Organizations
   - Teams
 shortTitle: Add outside collaborator
+permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---
 
 ## About outside collaborators
 
-{% data reusables.organizations.owners-and-admins-can %} add outside collaborators to a repository, unless an organization owner has restricted the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/articles/setting-permissions-for-adding-outside-collaborators)."
-
 {% data reusables.organizations.outside-collaborators-use-seats %}
+
+An organization owner can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/articles/setting-permissions-for-adding-outside-collaborators)."
+
+{% ifversion ghes %}
+Before you can add someone as an outside collaborator on a repository, the person must have a user account on {% data variables.product.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a user account for the person. For more information, see "[Using built-in authentication](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)."
+{% endif %}
 
 {% ifversion not ghae %}
 If your organization [requires members and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), they must enable two-factor authentication before they can accept your invitation to collaborate on an organization repository.

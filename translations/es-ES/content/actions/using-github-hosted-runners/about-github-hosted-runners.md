@@ -1,7 +1,6 @@
 ---
 title: Acerca de los ejecutores hospedados en GitHub
 intro: '{% data variables.product.prodname_dotcom %} ofrece máquinas virtuales alojadas para ejecutar flujos de trabajo. La máquina virtual contiene un entorno de herramientas, paquetes y configuraciones disponibles para que {% data variables.product.prodname_actions %} los utilice.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -13,12 +12,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: Ejecutores hospedados en GitHub
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de ejecutores alojados en {% data variables.product.prodname_dotcom %}
 
@@ -131,7 +132,7 @@ Las acciones que se ejecutan en contenedores Docker tienen directorios estático
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leer más
 - "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"

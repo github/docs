@@ -11,7 +11,7 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -38,7 +38,7 @@ You can manage a subset of security and analysis features for public repositorie
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
 
-You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion fpt or ghes > 2.22 or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion fpt or ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -80,7 +80,7 @@ Organization owners and repository administrators can only grant access to view 
    {% ifversion fpt or ghec %}
    ![Search field for granting people or teams access to security alerts](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    ![Search field for granting people or teams access to security alerts](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search-ghe.png)
    {% endif %}
    {% ifversion ghae %}
@@ -88,7 +88,7 @@ Organization owners and repository administrators can only grant access to view 
    {% endif %}
    
 5. Click **Save changes**.
-   {% ifversion fpt or ghes > 2.22 or ghec %}
+   {% ifversion fpt or ghes or ghec %}
    !["Save changes" button for changes to security alert settings](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
    {% endif %}
     {% ifversion ghae %}
@@ -104,7 +104,7 @@ Organization owners and repository administrators can only grant access to view 
    {% ifversion fpt or ghec %}  
    !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x-ghe.png)
    {% endif %}
    {% ifversion ghae %}

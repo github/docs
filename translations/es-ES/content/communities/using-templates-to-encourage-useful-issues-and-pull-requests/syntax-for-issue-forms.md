@@ -4,6 +4,7 @@ intro: 'Puedes definir diferentes tipos de entrada, validaciones, asingados pred
 product: 'Los formatos de propuesta están disponibles en beta para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Community
 ---

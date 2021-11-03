@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Sintaxis de formato básica
 ---
 
@@ -55,7 +56,7 @@ Texto que no es una cita
 
 ## Código de cita
 
-Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto entre las comillas simples no se formateará.{% ifversion fpt or ghae-next or ghes > 3.1 %} También puedes presionar el atajo de teclado `command` o `Ctrl` + `e` para insertar las comillas simples para un bloque de código dentro de una línea o texto de marcado.{% endif %}
+Puedes indicar un código o un comando dentro de un enunciado con comillas simples. El texto entre las comillas simples no se formateará.{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} También puedes presionar el atajo de teclado `command` o `Ctrl` + `e` para insertar las comillas simples para un bloque de código dentro de una línea o texto de marcado.{% endif %}
 
 ```markdown
 Usa `git status` para enumerar todos los archivos nuevos o modificados que aún no han sido confirmados.
@@ -80,7 +81,7 @@ Para obtener más información, consulta "[Crear y resaltar bloques de código](
 
 ## Enlaces
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 %}También puedes utilizar el atajo de teclado `command + k` para crear un enlace.{% endif %}
+Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}También puedes utilizar el atajo de teclado `command + k` para crear un enlace.{% endif %}
 
 `Este sitio se construyó usando [GitHub Pages](https://pages.github.com/).`
 
@@ -108,7 +109,7 @@ Puedes mostrar una imagen si agregas un `!` y pones el texto alternativo entre `
 
 ![Imagen interpretada](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} es compatible con incrustar imágenes en tus propuestas, solicitudes de cambio{% ifversion fpt %}, debates{% endif %}, comentarios y archivos `.md`. Puedes mostrar una imagen desde tu repositorio, agregar un enlace a una imagen en línea o cargar una imagen. Para obtener más información, consulta la sección "[Cargar activos](#uploading-assets)".
+{% data variables.product.product_name %} es compatible con incrustar imágenes en tus propuestas, solicitudes de cambio{% ifversion fpt or ghec %}, debates{% endif %}, comentarios y archivos `.md`. Puedes mostrar una imagen desde tu repositorio, agregar un enlace a una imagen en línea o cargar una imagen. Para obtener más información, consulta la sección "[Cargar activos](#uploading-assets)".
 
 {% tip %}
 
@@ -184,7 +185,7 @@ En este ejemplo, puedes agregar un elemento de la lista anidada debajo del eleme
 
 ![Lista con un elemento de lista anidado](/assets/images/help/writing/nested-list-example-3.png)
 
-Puedes crear múltiples niveles de listas anidadas mediante el mismo método. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+Puedes crear múltiples niveles de listas anidadas mediante el mismo método. Por ejemplo, ya que el primer elemento de la lista anidada tiene siete caracteres (`␣␣␣␣␣-␣`) antes del contenido `First nested list item` de la misma, necesitarás colocar sangría de siete espacios en el segundo elemento de esta.
 
 ```markdown
 100. Primer elemento de la lista
@@ -208,7 +209,7 @@ Para obtener más información, consulta "[Acerca de las listas de tareas](/arti
 
 ## Mencionar personas y equipos
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir `@` más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% ifversion fpt or ghes or ghae %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
+Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir `@` más el nombre de usuario o el nombre del equipo. Esto activará una notificación y llamará su atención hacia la conversación. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% ifversion fpt or ghes or ghae or ghec %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
 
 `@github/support ¿Qué piensas sobre estas actualizaciones?`
 
@@ -236,7 +237,7 @@ Algunas {% data variables.product.prodname_github_apps %} proporcionan informaci
 
 ![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
 
-Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que use la API de los adjuntos de contenido instalada en el repositorio.{% ifversion fpt %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
+Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que use la API de los adjuntos de contenido instalada en el repositorio.{% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
 
@@ -262,7 +263,7 @@ Para encontrar una lista completa de emojis y códigos disponibles, consulta el 
 
 Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas de texto.
 
-{% ifversion fpt or ghae-next or ghes > 3.3 %}
+{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
 ## Notas al pie
 
 Puedes agregar notas al pie para tu contenido si utilizas esta sintaxis de corchetes:
@@ -270,12 +271,27 @@ Puedes agregar notas al pie para tu contenido si utilizas esta sintaxis de corch
 ```
 Esta es una nota al pie sencilla[^1].
 
+A footnote can also have multiple lines[^2].  
+
+You can also use words, to fit your writing style more closely[^note].
+
 [^1]: Mi referencia.
+[^2]: Every new line should be prefixed with 2 spaces.  
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
 La nota al pie se verá así:
 
 ![Nota al pie interpretada](/assets/images/site/rendered-footnote.png)
+
+{% tip %}
+
+**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+{% endtip %}
 {% endif %}
 
 ## Ocultar el contenido con comentarios
@@ -296,7 +312,7 @@ Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) 
 
 Para obtener más información, consulta "[Sintaxis de Markdown" de Daring Fireball](https://daringfireball.net/projects/markdown/syntax#backslash),
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ## Inhabilitar la representación del lenguaje de marcado
 

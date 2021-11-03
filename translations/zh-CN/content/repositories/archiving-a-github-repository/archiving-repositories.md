@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## About repository archival
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **注：**如果原本有各仓库计费计划，您仍然需要对存档的仓库付费。 如果不想对存档的仓库付费，则必须升级到新产品。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”。

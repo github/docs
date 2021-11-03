@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Fundamentals
@@ -24,14 +25,14 @@ El flujo de {% data variables.product.prodname_dotcom %} es un flujo de trabajo 
 
 ## Prerrequisitos
 
-Para seguir el flujo de {% data variables.product.prodname_dotcom %}, necesitarás una cuenta de {% data variables.product.prodname_dotcom %} y un repositorio. Para obtener más información sobre cómo crear una cuenta, consulta la sección "[Registrarse para {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obtener más información sobre cómo crear un repositorio, consulta la sección "[Crear un repositorio](/github/getting-started-with-github/create-a-repo)".{% ifversion fpt %} Para obtener más información sobre cómo encontrar un repositorio existente en el cual contribuir, consulta la sección "[Encontrar formas para contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
+Para seguir el flujo de {% data variables.product.prodname_dotcom %}, necesitarás una cuenta de {% data variables.product.prodname_dotcom %} y un repositorio. Para obtener más información sobre cómo crear una cuenta, consulta la sección "[Registrarse para {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obtener más información sobre cómo crear un repositorio, consulta la sección "[Crear un repositorio](/github/getting-started-with-github/create-a-repo)".{% ifversion fpt or ghec %} Para obtener más información sobre cómo encontrar un repositorio existente en el cual contribuir, consulta la sección "[Encontrar formas para contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
 
 ## Seguir el flujo de {% data variables.product.prodname_dotcom %}
 
 {% tip %}
 
-{% ifversion fpt %}
-**Tip:** Puedes completar todos los pasos del flujo de {% data variables.product.prodname_dotcom %} mediante la interface web de {% data variables.product.prodname_dotcom %}, la línea de comandos y el [{% data variables.product.prodname_cli %}](https://cli.github.com), o por [{% data variables.product.prodname_desktop %}](/desktop).
+{% ifversion fpt or ghec %}
+**Tip:** Puedes completar todos los pasos del flujo de {% data variables.product.prodname_dotcom %} mediante la interface web de {% data variables.product.prodname_dotcom %}, la línea de comandos y el [{% data variables.product.prodname_cli %}](https://cli.github.com), o por [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop).
 {% else %}
 **Tip:** Puedes completar todos los pasos del flujo de {% data variables.product.prodname_dotcom %} a través de la interface web de {% data variables.product.prodname_dotcom %} o a través de la línea de comandos y el [{% data variables.product.prodname_cli %}](https://cli.github.com).
 {% endif %}

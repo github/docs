@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -38,7 +39,7 @@ miniTocMaxHeadingLevel: 3
 
 此 API 仅适用于团队组织中经过身份验证的成员。 OAuth 访问令牌需要 `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **注：**当您为具有组织身份提供程序 (IdP) 的团队设置了团队同步时，如果尝试使用 API 更改团队的成员身份，则会看到错误。 如果您有权访问 IdP 中的组成员身份，可以通过身份提供程序管理 GitHub 团队成员身份，该提供程序会自动添加和删除组织的成员。 更多信息请参阅“<a href="/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization" class="dotcom-only">在身份提供程序与 GitHub 之间同步团队</a>”。
@@ -51,7 +52,29 @@ miniTocMaxHeadingLevel: 3
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes %}
+{% ifversion ghec %}
+## External groups
+
+The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
+
+要使用此 API，经过身份验证的用户必须是团队维护员或与团队关联的组织的所有者。
+
+{% note %}
+
+**注意：**
+
+- The external groups API is only available for organizations that are part of a enterprise using {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+- If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
+
+{% endnote %}
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% ifversion fpt or ghes or ghec %}
 ## 团队同步
 
 团队同步 API 允许您管理 {% data variables.product.product_name %} 团队与外部身份提供程序 (IdP) 组之间的连接。 要使用此 API，经过身份验证的用户必须是团队维护员或与团队关联的组织的所有者。 用于身份验证的令牌还需要获得授权才能与 IdP (SSO) 提供程序一起使用。 更多信息请参阅“<a href="/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on" class="dotcom-only">授权个人访问令牌用于 SAML 单点登录组织</a>”。
@@ -60,7 +83,7 @@ miniTocMaxHeadingLevel: 3
 
 {% note %}
 
-**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}.
+**注意：** 团队同步 API 不能与 {% data variables.product.prodname_emus %} 一起使用。 To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
 
 {% endnote %}
 

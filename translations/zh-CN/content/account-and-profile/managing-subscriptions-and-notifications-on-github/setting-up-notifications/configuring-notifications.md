@@ -1,6 +1,6 @@
 ---
 title: 配置通知
-intro: '选择 {% data variables.product.product_name %} 上您想要接收其通知的活动类型以及您希望如何发送这些更新。'
+intro: '选择 {% data variables.product.prodname_dotcom %} 上您想要接收其通知的活动类型以及您希望如何发送这些更新。'
 redirect_from:
   - /articles/about-web-notifications
   - /format-of-notification-emails/
@@ -19,6 +19,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 ---
@@ -29,13 +30,13 @@ topics:
 
 ## 通知递送选项
 
-您可以在以下位置的 {% data variables.product.product_name %} 上接收活动的通知。
+您可以在以下位置的 {% data variables.product.product_location %} 上接收活动的通知。
 
-  - {% data variables.product.product_name %} Web 界面{% ifversion fpt or ghes > 2.22 %}中的通知收件箱
-  - {% data variables.product.prodname_mobile %} 上的通知收件箱，它与 {% data variables.product.product_name %} 上的收件箱同步{% endif %}
-  - 使用经验证电子邮件地址的电子邮件客户端，也可以与 {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} 及 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱同步
+  - {% data variables.product.product_location %} Web 界面{% ifversion fpt or ghes or ghec %}中的通知收件箱
+  - {% data variables.product.prodname_mobile %} 上的通知收件箱，它与 {% data variables.product.product_location %} 上的收件箱同步{% endif %}
+  - 使用经验证电子邮件地址的电子邮件客户端，也可以与 {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 及 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱同步
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} 更多信息请参阅“[选择通知设置](#choosing-your-notification-settings)”。
 {% endif %}
 
@@ -43,17 +44,17 @@ topics:
 
 ### 通知收件箱的优点
 
-{% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱包含专为您的 {% data variables.product.product_name %} 通知流程设计的分类选项，包括：
+{% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱包含专为您的 {% data variables.product.prodname_dotcom %} 通知流程设计的分类选项，包括：
   - 一次对多种通知进行分类。
   - 将已完成的通知标记为**完成**并从收件箱中删除它们。 要查看标记为**完成**的所有通知，请使用 `is:done` 查询。
   - 保存通知以供以后查看。 保存的通知将在收件箱中标记并无限期保留。 要查看所有已保存的通知，请使用 `is:saved` 查询。
   - 取消订阅并从收件箱中删除通知。
-  - 从通知收件箱预览 {% data variables.product.product_name %} 上产生通知的议题、拉取请求或团队讨论。
+  - 从通知收件箱预览 {% data variables.product.product_location %} 上产生通知的议题、拉取请求或团队讨论。
   - 使用 `reasons` 标签查看收件箱中收到通知的最新原因之一。
   - 创建自定义过滤器，以便按需要关注不同的通知。
   - 按仓库或日期对收件箱中的通知进行分组，以快速概览通知，减少上下文切换
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 此外，您可以通过 {% data variables.product.prodname_mobile %} 在移动设备上接收和分类通知。 更多信息请参阅“[使用移动版 GitHub 管理通知设置](#managing-your-notification-settings-with-github-for-mobile)”或“[移动版 GitHub](/github/getting-started-with-github/github-for-mobile)”。
 {% endif %}
 
@@ -74,9 +75,9 @@ topics:
 {% ifversion ghae or ghes < 3.1 %}
 ### 配置通知
 {% endif %}
-You can configure notifications for a repository on the repository page, or on your watching page.{% ifversion ghes < 3.1 %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
+您可以在资源库页面或在您观看页面上配置仓库的通知。{% ifversion ghes < 3.1 %} 您可以选择仅接收有关仓库中发布的通知，或忽略有关仓库的所有通知。{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 ### 关于自定义通知
 您可以自定义仓库的通知。 例如，您可以选择仅在仓库中发生一类或多类事件 ({% data reusables.notifications-v2.custom-notification-types %}) 的更新时收到通知，或者忽略仓库的所有通知。
@@ -85,7 +86,7 @@ You can configure notifications for a repository on the repository page, or on y
 ### 参与对话
 每当您在对话中发表评论或有人 @提及您的用户名时，您都在_参与_对话。 默认情况下，当您参与对话时，会自动订阅该对话。 您可以通过单击议题或拉取请求上的 **Unsubscribe（取消订阅）**或通过通知收件箱中的 **Unsubscribe（取消订阅）**选项，手动取消订阅已参与的对话。
 
-对于您关注或参与的对话，您可以选择是通过电子邮件还是 {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱接收通知。
+对于您关注或参与的对话，您可以选择是通过电子邮件还是 {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱接收通知。
 
 ![参与和关注通知选项](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -93,17 +94,17 @@ You can configure notifications for a repository on the repository page, or on y
   - 如果您不希望将通知发送到您的电子邮件地址，请取消选中 **email（电子邮件）**以便参与和查看通知。
   - 如果您希望在参与对话时通过电子邮件接收通知，则可以选中“Participating（参与）”下的 **email（电子邮件）**。
 
-如果您未对 Web{% ifversion fpt or ghes > 2.22 %} 和移动{% endif %}启用关注或参与通知，则您的通知收件箱不会收到任何更新。
+如果您未对 Web{% ifversion fpt or ghes or ghec %} 和移动{% endif %}启用关注或参与通知，则您的通知收件箱不会收到任何更新。
 
 ## 自定义电子邮件通知
 
-在启用电子邮件通知后，{% data variables.product.product_name %} 将以多部分电子邮件向您发送通知，其中包含内容的 HTML 和明文副本。 电子邮件通知内容包含出现在 {% data variables.product.product_name %} 上的原始内容中的任何 Markdown、@提及、表情符号、哈希链接等。 如果您只想查看电子邮件中的文本，可以配置电子邮件客户端只显示明文副本。
+在启用电子邮件通知后，{% data variables.product.product_location %} 将以多部分电子邮件向您发送通知，其中包含内容的 HTML 和明文副本。 电子邮件通知内容包含出现在 {% data variables.product.product_location %} 上的原始内容中的任何 Markdown、@提及、表情符号、哈希链接等。 如果您只想查看电子邮件中的文本，可以配置电子邮件客户端只显示明文副本。
 
 {% data reusables.notifications.outbound_email_tip %}
 
 {% data reusables.notifications.shared_state %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 如果您使用 Gmail，可以单击通知电子邮件旁边的按钮访问生成该通知的原始议题或拉取请求。
 
@@ -111,7 +112,7 @@ You can configure notifications for a repository on the repository page, or on y
 
 {% endif %}
 
-选择一个默认电子邮件地址，用于发送您参与或关注的对话的更新。 您还可以指定希望使用默认电子邮件地址接收 {% data variables.product.product_name %} 上哪些活动的更新。 例如，选择您的默认电子邮件地址是否要接收以下更新：
+选择一个默认电子邮件地址，用于发送您参与或关注的对话的更新。 您还可以指定希望使用默认电子邮件地址接收 {% data variables.product.product_location %} 上哪些活动的更新。 例如，选择您的默认电子邮件地址是否要接收以下更新：
   - 对问题和拉取请求的评论。
   - 拉取请求审查.
   - 拉取请求推送。
@@ -125,18 +126,18 @@ You can configure notifications for a repository on the repository page, or on y
 
 ## 过滤电子邮件通知
 
-{% data variables.product.product_name %} 发送的每封电子邮件通知都包含标头信息。 每封电子邮件的标头信息都是一致的，因此可用于电子邮件客户端中过滤或转发所有 {% data variables.product.product_name %} 通知，或特定类型的 {% data variables.product.product_name %} 通知。
+{% data variables.product.product_location %} 发送的每封电子邮件通知都包含标头信息。 每封电子邮件的标头信息都是一致的，因此可用于电子邮件客户端中过滤或转发所有 {% data variables.product.prodname_dotcom %} 通知，或特定类型的 {% data variables.product.prodname_dotcom %} 通知。
 
 如果您认为收到的通知不属于您，请检查 `X-GitHub-recepient` 和 `X-GitHub-recipient-Address` 标头。 这些标头显示预期的收件人。 根据您的电子邮件设置，您可能会收到预期发给其他用户的通知。
 
-来自 {% data variables.product.product_name %} 的电子邮件通知包含以下标头信息：
+来自 {% data variables.product.product_location %} 的电子邮件通知包含以下标头信息：
 
 | 标头                     | 信息                                                                                                                                                                                                                                  |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `From` 地址              | 此地址始终是 {% ifversion fpt %}'`notifications@github.com`'{% else %}'网站管理员配置的无需回复电子邮件地址'{% endif %}。                                                                                                                                    |
+| `From` 地址              | 此地址始终是 {% ifversion fpt or ghec %}'`notifications@github.com`'{% else %}'网站管理员配置的无需回复电子邮件地址'{% endif %}。                                                                                                                            |
 | `To` 字段                | 此字段直接连接到线程。{% ifversion not ghae %} 如果您回复电子邮件，将在对话中添加一个新的评论。{% endif %}
-| `Cc` 地址                | 如果您订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给您。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：您被分配到议题或拉取请求。</li><li>`author`：您创建了议题或拉取请求。</li><li>`ci_activity`：当 {% data variables.product.prodname_actions %} 工作流程运行被请求或完成时。</li><li>`comment`：您评论了议题或拉取请求。</li><li>`manual`：您手动订阅的议题或拉取请求有更新。</li><li>`mention`：您提及了议题或拉取请求。</li><li>`push`：有人提交了您订阅的拉取请求。</li><li>`review_requested`：您或您所在的团队已请求审查拉取请求。</li>{% ifversion not ghae %}<li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到您要接收其漏洞警报的仓库中存在漏洞。</li>{% endif %}<li>`state_change`：您订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：您查看的仓库有更新。</li><li>`team_mention`：您所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：您打开、评论或关闭了议题或拉取请求。</li></ul>                                                |
-| `mailing list` 字段      | 此字段识别仓库名称及其所有者。 此地址的格式始终是 `<仓库名称>.<仓库所有者>.{% data variables.command_line.backticks %}`。 |{% ifversion fpt or ghes %}
+| `Cc` 地址                | 如果您订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给您。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：您被分配到议题或拉取请求。</li><li>`author`：您创建了议题或拉取请求。</li><li>`ci_activity`：当 {% data variables.product.prodname_actions %} 工作流程运行被请求或完成时。</li><li>`comment`：您评论了议题或拉取请求。</li><li>`manual`：您手动订阅的议题或拉取请求有更新。</li><li>`mention`：您提及了议题或拉取请求。</li><li>`push`：有人提交了您订阅的拉取请求。</li><li>`review_requested`：您或您所在的团队已请求审查拉取请求。</li>{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}<li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到您要接收其漏洞警报的仓库中存在漏洞。</li>{% endif %}<li>`state_change`：您订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：您查看的仓库有更新。</li><li>`team_mention`：您所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：您打开、评论或关闭了议题或拉取请求。</li></ul>                                                |
+| `mailing list` 字段      | 此字段识别仓库名称及其所有者。 此地址的格式始终是 `<仓库名称>.<仓库所有者>.{% data variables.command_line.backticks %}`。 |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | `X-GitHub-Severity` 字段 | {% data reusables.repositories.security-alerts-x-github-severity %} 可能的严重程度等级包括：<ul><li>`低`</li><li>`中`</li><li>`高`</li><li>`严重`</li></ul>更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 
 {% endif %}
 
@@ -146,8 +147,8 @@ You can configure notifications for a repository on the repository page, or on y
 {% data reusables.notifications-v2.manage-notifications %}
 3. 在通知设置页面上，选择在以下情况下如何接收通知：
     - 在您关注的仓库或团队讨论或参与的对话中发生了更新。 更多信息请参阅“[关于参与和关注通知](#about-participating-and-watching-notifications)”。
-    - 您获得了新仓库的访问权限或加入了新团队。 更多信息请参阅“[自动关注](#automatic-watching)”。{% ifversion fpt or ghes %}
-    - 您的仓库中有新的 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}。 更多信息请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#dependabot-alerts-notification-options)”。 {% endif %} {% ifversion fpt %}
+    - 您获得了新仓库的访问权限或加入了新团队。 更多信息请参阅“[自动关注](#automatic-watching)”。{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+    - 您的仓库中有新的 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}。 更多信息请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#dependabot-alerts-notification-options)”。 {% endif %} {% ifversion fpt or ghec %}
     - 在使用 {% data variables.product.prodname_actions %} 设置的仓库上有工作流程运行更新。 更多信息请参阅“[{% data variables.product.prodname_actions %} 通知选项](#github-actions-notification-options)”。{% endif %}
 
 ## 自动关注
@@ -160,17 +161,17 @@ You can configure notifications for a repository on the repository page, or on y
 
 ## 配置单个仓库的关注设置
 
-您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% ifversion fpt or ghes > 3.0 or ghae-next %}特定事件类型，如 {% data reusables.notifications-v2.custom-notification-types %}（如已对仓库启用）{% else %}新版本{% endif %}的通知，或者完全忽略单个仓库。
+您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}特定事件类型，如 {% data reusables.notifications-v2.custom-notification-types %}（如已对仓库启用）{% else %}新版本{% endif %}的通知，或者完全忽略单个仓库。
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+2. 在右上角，选择“Watch（关注）”下拉菜单以单击关注选项。
+{% ifversion fpt or ghes > 3.0 or ghae-issue-4910 or ghec %}
    ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
 
    **Custom（自定义）** 选项可用于进一步自定义通知，以便除了参与和 @提及之外，您仅在仓库中发生特定事件时才收到通知。
 {% else %}
      ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png){% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-issue-4910 or ghec %}
    ![仓库下拉菜单中的自定义关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png) 如果选择“Issues（议题）”，您将收到仓库中每个议题（包括在您选择此选项之前存在的议题）的更新通知并订阅它们。 如果您被此仓库中的拉取请求 @提及，则除了收到有关议题的通知外，您还将收到有关该特定拉取请求更新的通知并订阅它们。
 {% endif %}
 
@@ -188,7 +189,7 @@ You can configure notifications for a repository on the repository page, or on y
 
 ### 自定义每个组织的电子邮件路由
 
-如果您是多个组织的成员，您可以配置每个组织发送通知任何{% ifversion fpt %}您已验证的电子邮件地址{% else %}您已添加到 {% data variables.product.product_name %} 帐户的电子邮件地址{% endif %}。 {% ifversion fpt %} 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
+如果您是多个组织的成员，您可以配置每个组织发送通知到任何{% ifversion fpt or ghec %} 您已验证的电子邮件地址{% else %} 帐户的电子邮件地址{% endif %}。 {% ifversion fpt or ghec %} 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
@@ -198,21 +199,17 @@ You can configure notifications for a repository on the repository page, or on y
 5. 选择一个经验证电子邮件地址，然后单击 **Save（保存）**。    
    ![切换每个组织的电子邮件地址](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
-{% ifversion not ghae %}
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## {% data variables.product.prodname_dependabot_alerts %} 通知选项
-{% else %}
-## 安全警报通知选项
-{% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-有关您可获得的通知递送方法的更多信息，以及有关优化 {% ifversion fpt or ghes %}{% data variables.product.prodname_dependabot_alerts %}安全警报{% else %}通知的建议{% endif %}，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
+有关您可获得的通知递送方法的更多信息，以及有关优化 {% ifversion fpt or ghes or ghec %}{% data variables.product.prodname_dependabot_alerts %}安全警报{% else %}通知的建议{% endif %}，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## {% data variables.product.prodname_actions %} 通知选项
 
 选择您希望如何接收所关注仓库的工作流程运行更新，通过 {% data variables.product.prodname_actions %} 设置。 您也可以选择仅接收关于失败的工作流程运行的通知。
@@ -221,7 +218,7 @@ You can configure notifications for a repository on the repository page, or on y
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 ## 使用 {% data variables.product.prodname_mobile %} 管理通知设置
 
 安装 {% data variables.product.prodname_mobile %} 时，您将自动选择 web 通知。 在应用程序中，您可以为以下事件启用推送通知。
@@ -250,7 +247,7 @@ You can configure notifications for a repository on the repository page, or on y
 
 ## 使用 {% data variables.product.prodname_mobile %} 配置个别仓库的关注设置
 
-您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% ifversion fpt %}特定事件类型，如议题、拉取请求、讨论（如已对仓库启用）以及{% endif %}新版本的通知，或者完全忽略单个仓库。
+您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% ifversion fpt or ghec %}特定事件类型，如议题、拉取请求、讨论（如已对仓库启用）以及{% endif %}新版本的通知，或者完全忽略单个仓库。
 
 1. 在 {% data variables.product.prodname_mobile %} 上，导航到仓库的主页面。
 2. 点击 **Watch（关注）**。 ![{% data variables.product.prodname_mobile %} 上的关注按钮](/assets/images/help/notifications-v2/mobile-watch-button.png)

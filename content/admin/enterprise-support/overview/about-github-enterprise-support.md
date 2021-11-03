@@ -47,7 +47,7 @@ For more information, see "[About {% data variables.contact.premium_support %} f
 ## Contacting {% data variables.contact.enterprise_support %}
 
 {% ifversion ghes %}
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 {% endif %}
 
 

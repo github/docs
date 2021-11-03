@@ -1,6 +1,6 @@
 ---
 title: Gerenciando a política de bifurcação para seu repositório
-intro: 'Você pode permitir ou impedir a bifurcação de um repositório privado específico{% ifversion fpt or ghae or ghes %} ou interno{% endif %} pertencente a uma organização.'
+intro: 'Você pode permitir ou impedir a bifurcação de um repositório privado específico{% ifversion fpt or ghae or ghes or ghec %} ou interno{% endif %} pertencente a uma organização.'
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Gerenciar a política de bifurcação
 ---
 
-Um proprietário de organização deve permitir bifurcações de repositórios privados{% ifversion fpt or ghae or ghes %} e internos{% endif %} no nível da organização antes que você possa permitir ou impedir bifurcações de um repositório específico. Para obter mais informações, consulte "[Gerenciando a política de bifurcação para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".
+Um proprietário de organização deve permitir bifurcações de repositórios privados{% ifversion fpt or ghae or ghes or ghec %} e internos{% endif %} no nível da organização antes que você possa permitir ou impedir bifurcações de um repositório específico. Para obter mais informações, consulte "[Gerenciando a política de bifurcação para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -27,4 +28,4 @@ Um proprietário de organização deve permitir bifurcações de repositórios p
 ## Leia mais
 
 - "[Sobre bifurcações](/articles/about-forks)"
-- "[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

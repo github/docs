@@ -38,6 +38,10 @@ You can view {% ifversion ghec %}all the {% data variables.product.prodname_ghe_
 {% ifversion ghec %}1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**.
   !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/members-pending.png){% endif %}
 
+## Viewing dormant users
+
+You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+
 ## Further reading
 
 - "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

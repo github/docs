@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -28,7 +29,7 @@ topics:
 ## Acerca de los resultados del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios
 
 En los repositorios donde se configura el {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambios, éste verificará el código en dicha solicitud. Predeterminadamente, esto se limita a solicitudes de cambios que apuntan a la rama predeterminada, pero puedes cambiar esta configuración dentro de {% data variables.product.prodname_actions %} o en un sistema de IC/EC de terceros. Si el fusionar los cambios puede introducir alertas nuevas de {% data variables.product.prodname_code_scanning %} a la rama destino, éstas se reportarán como resultados de verificación en la solicitud de cambios. Las alertas también se muestran como anotaciones en la pestaña de **Archivos que cambiaron** de la solicitud de cambios. Si tienes permisos de escritura para el repositorio, puedes ver cualquier alerta del {% data variables.product.prodname_code_scanning %} existente en la pestaña de **Seguridad**. Para obtener más información sobre las alertas de los repositorios, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
 In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
 {% endif %}
 
@@ -42,18 +43,18 @@ Hay muchas opciones para configurar el {% data variables.product.prodname_code_s
 
 Para todas las configuraciones del {% data variables.product.prodname_code_scanning %}, la verificación que contiene los resultados del {% data variables.product.prodname_code_scanning %} es: **resultados de {% data variables.product.prodname_code_scanning_capc %}**. Los resultados para cada herramienta de análisis se muestran por separado. Cualquier alerta nueva que ocasionen los cambios en la solicitud de cambios se muestran como anotaciones.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4902 %} Para ver el conjunto de alertas completo de la rama analizada, haz clic en **Ver todas las alertas de rama**. Esto abre la vista completa de alertas en donde puedes filtrar todas las de la rama por tipo, gravedad, etiqueta, etc. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)".
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4902 or ghec %} Para ver el conjunto de alertas completo de la rama analizada, haz clic en **Ver todas las alertas de rama**. Esto abre la vista completa de alertas en donde puedes filtrar todas las de la rama por tipo, gravedad, etiqueta, etc. Para obtener más información, consulta la sección "[Administrar las alertas del escaneo de código para tu repositorio](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)".
 
 ![verificación de resultados de {% data variables.product.prodname_code_scanning_capc %} en una solicitud de cambios](/assets/images/help/repository/code-scanning-results-check.png)
 {% endif %}
 
 ### Fallos de verificación de resultados de {% data variables.product.prodname_code_scanning_capc %}
 
-Si la verificación de los resultados del {% data variables.product.prodname_code_scanning %} encuentra cualquier problema con una gravedad de `error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}, `critical`, o `high`,{% endif %} la verificación fallará y el error se reportará en los resultados de verificación. Si todos los resultados que encontró el {% data variables.product.prodname_code_scanning %} tienen gravedades menores, las alertas se tratarán como advertencias o notas y la verificación tendrá éxito.
+Si la verificación de los resultados del {% data variables.product.prodname_code_scanning %} encuentra cualquier problema con una gravedad de `error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}, `critical`, o `high`,{% endif %} la verificación fallará y el error se reportará en los resultados de verificación. Si todos los resultados que encontró el {% data variables.product.prodname_code_scanning %} tienen gravedades menores, las alertas se tratarán como advertencias o notas y la verificación tendrá éxito.
 
 ![Verificación fallida del {% data variables.product.prodname_code_scanning %} en una solicitud de cambios](/assets/images/help/repository/code-scanning-check-failure.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}Puedes anular el comportamiento predeterminado de los ajustes de tu repositorio si especificas el nivel de gravedad {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} y las gravedades de seguridad {% endif %} que ocasionarán el fallo de una verificación de solicitud de cambios. Para obtener más información, consulta la sección "[Definir las gravedades que ocasionan un fallo en la verificación de las solicitudes de cambios](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}Puedes anular el comportamiento predeterminado de los ajustes de tu repositorio si especificas el nivel de gravedad {% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} y las gravedades de seguridad {% endif %} que ocasionarán el fallo de una verificación de solicitud de cambios. Para obtener más información, consulta la sección "[Definir las gravedades que ocasionan un fallo en la verificación de las solicitudes de cambios](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
 {% endif %}
 
 ### Otras verificaciones del {% data variables.product.prodname_code_scanning %}

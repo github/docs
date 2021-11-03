@@ -15,7 +15,7 @@
     code {
       font-size: 85%;
       padding: 0.2em 0.4em;
-      background-color: var(--color-markdown-code-bg);
+      background-color: var(--color-canvas-subtle);
       border-radius: 6px;
     }
 
@@ -35,8 +35,8 @@
       vertical-align: top;
       z-index: 1;
       top: 0;
-      background: var(--color-bg-primary);
-      box-shadow: 0 3px 0 0 var(--color-auto-gray-4);
+      background: var(--color-canvas-default);
+      box-shadow: 0 3px 0 0 var(--color-canvas-subtle);
       padding: 12px 8px;
       border: 0px;
     }

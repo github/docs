@@ -7,8 +7,12 @@ redirect_from:
   - /admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: 在 XenServer 上安装
 ---
 
@@ -55,5 +59,5 @@ shortTitle: 在 XenServer 上安装
 
 ## 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

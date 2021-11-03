@@ -3,6 +3,7 @@ title: Desabilitando sua conta do GitHub Sponsors
 intro: 'Se você não quiser mais participar em {% data variables.product.prodname_sponsors %}, você pode desabilitar a sua conta de {% data variables.product.prodname_sponsors %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
