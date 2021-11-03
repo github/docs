@@ -18,11 +18,13 @@ If you do not have an enterprise account, please use the {% data variables.conta
 
 ## Submitting a ticket using the {% data variables.contact.support_portal %}
 
+{% data reusables.support.zendesk-old-tickets %}
+
 1. Navigate to the {% data variables.contact.contact_support_portal %}.
-2. Under "Name," type your name.
-![Name field](/assets/images/help/support/name-field.png)
-3. Use the Email drop-down menu, and select the email address you'd like {% data variables.contact.github_support %} to contact.
-![Email field](/assets/images/help/support/email-field.png)
+2. Select the **Account or organization** drop-down menu and click the name of the account, organization, or enterprise your ticket is regarding.
+![Account field](/assets/images/help/support/account-field.png)
+2. Select the **From** drop-down menu and click the email address you'd like {% data variables.contact.github_support %} to contact.
+![Email field](/assets/images/help/support/from-field.png)
 4. Under "Subject", type a descriptive title for the issue you're having.
 ![Subject field](/assets/images/help/support/subject-field.png)
 5. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. Helpful information may include:
@@ -33,16 +35,6 @@ If you do not have an enterprise account, please use the {% data variables.conta
 6. Optionally, attach files by dragging and dropping, uploading, or pasting from the clipboard.
 7. Click **Send request**.
 ![Send request button](/assets/images/help/support/send-request-button.png)
-
-## Submitting a ticket using the {% data variables.contact.enterprise_portal %}
-
-{% data reusables.support.zendesk-deprecation %}
-
-1. Navigate to the {% data variables.contact.contact_enterprise_portal %}.
-5. Click **Submit a Ticket**
-  ![Submit a ticket to Enterprise Support team](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
 ## Further reading
 - "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"

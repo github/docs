@@ -1,1 +1,0 @@
-1. Erfasse den Namen und die E-Mail-Adresse jedes Co-Autoren.{% ifversion fpt or ghec %} Wenn eine Person ihre E-Mail-Adresse privat halten möchte, solltest Du ihre von {% data variables.product.product_name %} zur Verfügung gestellte `no-reply` E-Mail benutzen, um ihre Privatsphäre zu schützen.{% endif %}
