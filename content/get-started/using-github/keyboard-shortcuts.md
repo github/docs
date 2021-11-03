@@ -19,6 +19,8 @@ versions:
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
 Below is a list of some of the available keyboard shortcuts.
+
+You can disable character key shortcuts, while still keeping shortcuts provided by your web browser and shortcuts using modifier keys enabled, in your accessibility settings. For more information, see "[Accessibility keyboard shortcuts](/get-started/using-github/keyboard-shortcuts)."
 {% if command-palette %}
 The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
