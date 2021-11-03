@@ -2,7 +2,6 @@
 title: Almacenar los datos de los flujos de trabajo como artefactos
 shortTitle: Almacenar artefactos de los flujos de trabajo
 intro: Los artefactos te permiten compartir datos entre puestos en un flujo de trabajo y almacenar los datos una vez que se ha completado ese flujo de trabajo.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -13,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -20,6 +20,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de los artefactos de flujo de trabajo
 
@@ -34,7 +35,7 @@ Estos son algunos de los artefactos comunes que puedes subir:
 - Archivos binarios o comprimidos
 - Resultados de la prueba de rendimiento y resultados de cobertura del código
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
@@ -46,7 +47,7 @@ Los artefactos caducan automáticamente después de 90 días, pero siempre puede
 
 Los artefactos se cargan durante una ejecución de flujo de trabajo y puedes ver el nombre y tamaño de estos en la IU. Cuando se descarga un artefacto utilizando la IU de {% data variables.product.product_name %}, todos los archivos que se hayan subido de manera individual como parte del mismo se comprimirán en un solo archivo. Esto significa que los costos se calcularán con base en el tamaño del artefacto cargado y no en aquél del archivo comprimido.
 
-{% data variables.product.product_name %} proporciona dos acciones que puedes usar para cargar y descargar artefactos de construcción. Para obtener más información, consulta las acciones {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) y [download-artifact](https://github.com/actions/download-artifact){% else %} `actions/upload-artifact` y `download-artifact` en {% data variables.product.product_location %}{% endif %}.
+{% data variables.product.product_name %} proporciona dos acciones que puedes usar para cargar y descargar artefactos de construcción. Para obtener más información, consulta las acciones {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) y [download-artifact](https://github.com/actions/download-artifact){% else %} `actions/upload-artifact` y `download-artifact` en {% data variables.product.product_location %}{% endif %}.
 
 Para compartir datos entre jobs:
 
@@ -61,7 +62,7 @@ Puedes crear un flujo de trabajo de integración continua (CI) para construir y 
 
 El resultado de la construcción y la prueba de tu código frecuentemente produce archivos que puedes usar para depurar fallas de prueba y códigos de producción que puedes implementar. Puedes configurar un flujo de trabajo para construir y probar el código subido a tu repositorio e informar un estado satisfactorio o de falla. Puedes cargar los resultados de construcción y prueba para usar en implementaciones, pruebas de depuración fallidas o fallos, y para visualizar la cobertura del conjunto de prueba.
 
-Puedes usar la acción `upload-Artifact` para cargar artefactos. Cuando cargues un artefacto, puedes especificar un archivo sencillo o un directorio, o varios archivos o directorios. También puedes excluir ciertos archivos o directorios y utilizar patrones de comodín. Te recomendamos que proporciones un nombre para cada artefacto pero, si no se lo das, entonces el nombre predeterminado que se utilizará será `artifact`. Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact){% else %} `actions/upload-artifact` en {% data variables.product.product_location %}{% endif %}.
+Puedes usar la acción `upload-Artifact` para cargar artefactos. Cuando cargues un artefacto, puedes especificar un archivo sencillo o un directorio, o varios archivos o directorios. También puedes excluir ciertos archivos o directorios y utilizar patrones de comodín. Te recomendamos que proporciones un nombre para cada artefacto pero, si no se lo das, entonces el nombre predeterminado que se utilizará será `artifact`. Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact){% else %} `actions/upload-artifact` en {% data variables.product.product_location %}{% endif %}.
 
 ### Ejemplo
 
@@ -113,7 +114,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Configurar un periodo de retención de artefactos personalizado
 
 Puedes definir un periodo de retención personalizado para los artefactos indivudales que crea un flujo de trabajo. Cuando utilices un flujo de trabajo para crear un artefacto nuevo, puedes utilizar `retention-days` con la acción `upload-artifact`. Este ejemplo ilustra cómo configurar un periodo de retención personalizado de 5 días para el artefacto que se llama `my-artifact`:
@@ -128,7 +128,6 @@ Puedes definir un periodo de retención personalizado para los artefactos indivu
 ```
 
 El valor `retention-days` no puede exceder el límite de retención que configuró el repositorio, organización o empresa.
-{% endif %}
 
 ## Descargar o eliminar artefactos
 
@@ -164,11 +163,11 @@ También puedes descargar todos los artefactos en una ejecución de flujo de tra
 
 Si descargas todos los artefactos de una ejecución de flujo de trabajo, se creará un directorio para cada uno de ellos utilizando su nombre.
 
-Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt %}[actions/download-artifact](https://github.com/actions/download-artifact){% else %} `actions/download-artifact` en {% data variables.product.product_location %}{% endif %}.
+Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact){% else %} `actions/download-artifact` en {% data variables.product.product_location %}{% endif %}.
 
 ## Pasar datos entre jobs en un flujo de trabajo
 
-Puedes usar las acciones `upload-artifact` y `download-artifact` para compartir datos entre jobs en un flujo de trabajo. Este flujo de trabajo de ejemplo ilustra cómo pasar datos entre jobs en el mismo flujo de trabajo. Para obtener más información, consulta las acciones {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) y [download-artifact](https://github.com/actions/download-artifact){% else %} `actions/upload-artifact` y `download-artifact` en {% data variables.product.product_location %}{% endif %}.
+Puedes usar las acciones `upload-artifact` y `download-artifact` para compartir datos entre jobs en un flujo de trabajo. Este flujo de trabajo de ejemplo ilustra cómo pasar datos entre jobs en el mismo flujo de trabajo. Para obtener más información, consulta las acciones {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) y [download-artifact](https://github.com/actions/download-artifact){% else %} `actions/upload-artifact` y `download-artifact` en {% data variables.product.product_location %}{% endif %}.
 
 Los jobs que dependen de los artefactos de un trabajo anterior deben esperar que el trabajo dependiente se complete exitosamente. Este flujo de trabajo usa la palabra clave `needs` para garantizar que `job_1`, `job_2` y `job_3` se ejecuten secuencialmente. Por ejemplo, `job_2` requiere `job_1` mediante la sintaxis `needs: job_1`.
 
@@ -242,13 +241,13 @@ jobs:
 ```
 
 La ejecución de flujo de trabajo archivará cualquier artefacto que haya generado. Para obtener más información sobre cómo descargar los artefactos archivados, consulta la sección "[Descargar artefactos de flujo de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Flujo de trabajo que pasa datos entre jobs para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![Flujo de trabajo que pasa datos entre jobs para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leer más
 

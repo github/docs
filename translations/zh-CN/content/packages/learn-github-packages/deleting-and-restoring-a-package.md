@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 shortTitle: 删除和恢复包
 ---
 
@@ -37,13 +38,13 @@ shortTitle: 删除和恢复包
 
 ## 包 API 支持
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 您可以使用 REST API 来管理您的包。 更多信息请参阅“[{% data variables.product.prodname_registry %} API](/rest/reference/packages)”。
 
 {% endif %}
 
-对于继承其权限和从仓库访问权限的包，您可以使用 GraphQL 来删除特定的包。{% ifversion fpt %} {% data variables.product.prodname_registry %} GraphQL API 不支持使用包命名空间 `https://ghcr.io/OWNER/PACKAGE-NAME` 的容器或 Docker 映像。 有关 GraphQL 支持的更多信息，请参阅“[使用 GraphQL 删除仓库范围包的版本](#deleting-a-version-of-a-repository-scoped-package-with-graphql)”。
+对于继承其权限和从仓库访问权限的包，您可以使用 GraphQL 来删除特定的包。{% ifversion fpt or ghec %} {% data variables.product.prodname_registry %} GraphQL API 不支持使用包命名空间 `https://ghcr.io/OWNER/PACKAGE-NAME` 的容器或 Docker 映像。 有关 GraphQL 支持的更多信息，请参阅“[使用 GraphQL 删除仓库范围包的版本](#deleting-a-version-of-a-repository-scoped-package-with-graphql)”。
 
 {% endif %}
 
@@ -57,9 +58,9 @@ shortTitle: 删除和恢复包
 - maven
 - Gradle
 - NuGet
-{% ifversion not fpt %}- Docker 映像位于 `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
+{% ifversion not fpt or ghec %}- Docker 映像位于 `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 要删除与仓库分开的具有粒度权限的软件包，例如存储在 `https://ghcr.io/OWNER/PACKAGE-NAME` 上的容器映像，您必须对该包具有管理员访问权限。
  <!--PLACEHOLDER - once packages restructuring is done this is a good place to link to the access control and visibility article.-->
@@ -83,7 +84,7 @@ shortTitle: 删除和恢复包
 
 对于从仓库继承其许可和访问权限的包，您可以使用 GraphQL 删除特定的包版本。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 `ghcr.io` 上的容器或 Docker 映像不支持 GraphQL。
 {% endif %}<!--PLACEHOLDER for when API link is live:  For full support, use the REST API. For more information, see the "\[{% data variables.product.prodname_registry %} API\](/rest/reference/packages)." -->在 GraphQL API 中使用 `deletePackageVersion` 突变。 必须使用具有 `read:packages`、`delete:packages` 和 `repo` 作用域的令牌。 有关令牌的更多信息，请参阅“[关于 {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)”。
 
@@ -97,13 +98,13 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-要查找已发布到 {% data variables.product.prodname_registry %} 的所有私有包以及包的版本 ID，您可以使用 `registryPackagesForQuery` 连接。 您需要具有 `read:packages` 和 `repo` 作用域的令牌。 更多信息请参阅“[`registryPackagesForQuery`](/v4/object/registrypackageconnection/)”。
+要查找已发布到 {% data variables.product.prodname_registry %} 的所有私有包以及包的版本 ID，您可以使用 `registryPackagesForQuery` 连接。 您需要具有 `read:packages` 和 `repo` 作用域的令牌。 更多信息请参阅 [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) 连接或 [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) 接口。
 
-有关 `deletePackageVersion` 突变的更多信息，请参阅“[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)”。
+有关 `deletePackageVersion` 突变的更多信息，请参阅“[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)”。
 
 您不能直接使用 GraphQL 删除整个包，但如果您删除包的每个版本，该包将不再显示在 {% data variables.product.product_name %} 上。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 在 {% data variables.product.prodname_dotcom %} 上删除用户范围的包版本
 
 要在 {% data variables.product.prodname_dotcom %} 上删除用户范围包的特定版本，例如 `ghcr.io` 上的 Docker 映像，请使用以下步骤。 要删除整个包，请参阅“[删除 {% data variables.product.prodname_dotcom %} 上整个用户范围的包](#deleting-an-entire-user-scoped-package-on-github)”。
@@ -141,7 +142,7 @@ HOSTNAME/graphql
 4. 在“Danger Zone（危险区域）”下，单击**Delete this package（删除此包）**。
 5. 要确认，请查看确认消息，输入您的包名称，然后单击 **I understand, delete this package（我了解，删除此包）**。 ![确认包删除按钮](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 在 {% data variables.product.prodname_dotcom %} 上删除整个用户范围的包
 
 要查看谁可以删除包，请参阅“[必需权限](#required-permissions-to-delete-or-restore-a-package)”。
@@ -172,9 +173,9 @@ HOSTNAME/graphql
 例如，如果您删除了名为 `octo-package` 且范围为 repo `octo-repo-owner/octo-repo` 的 rubygem 包，则您仅在包名称空间 `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` 仍然可用且 30 天未过时才可恢复包。
 
 您还必须满足这些权限要求之一：
-  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt %}
+  - 对于仓库范围的包：您必须对拥有删除的包的仓库具有管理员权限。{% ifversion fpt or ghec %}
   - 对于用户帐户范围的包：您的用户帐户拥有已删除的包。
-  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
+  - 对于组织范围的包：您对拥有包的组织中删除的包具有管理员权限。{% endif %}
 
 更多信息请参阅“[必需权限](#required-permissions-to-delete-or-restore-a-package)”。
 
@@ -182,7 +183,7 @@ HOSTNAME/graphql
 
 ### 恢复组织中的包
 
-You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories{% ifversion fpt %} or had granular permissions and was scoped to your organization account{% endif %}.
+您可以通过组织帐户设置恢复已删除的包，只要该包位于您的一个仓库中{% ifversion fpt or ghec %} 或具有粒度权限，并且范围限于您的组织帐户。{% endif %}
 
 要查看谁可以恢复组织中的包，请参阅“[必需权限](#required-permissions-to-delete-or-restore-a-package)”。
 
@@ -192,7 +193,7 @@ You can restore a deleted package through your organization account settings, as
 4. 在“Deleted Packages（已删除的包）”下要恢复的包旁边，单击 **Restore（恢复）**。 ![恢复按钮](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. 要确认，请输入包名称，然后单击**I understand the consequences, restore this package（我明白后果，恢复此包）**。 ![恢复包确认按钮](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### 恢复用户帐户范围的包
 

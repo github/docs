@@ -9,12 +9,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 本地添加项目
 ---
 
-## About adding existing projects to {% data variables.product.product_name %}
-
-{% data reusables.repositories.migrating-from-codeplex %}
+## 关于将现有项目添加到 {% data variables.product.product_name %}
 
 {% tip %}
 
@@ -24,37 +23,37 @@ shortTitle: 本地添加项目
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-## Adding a project to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+## 通过 {% data variables.product.prodname_cli %} 添加项目到 {% data variables.product.product_name %}
 
-{% data variables.product.prodname_cli %} 是用于从计算机的命令行使用 {% data variables.product.product_name %} 的开源工具。 {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} 是用于从计算机的命令行使用 {% data variables.product.prodname_dotcom %} 的开源工具。 {% data variables.product.prodname_cli %} 可以简化使用命令行将现有项目添加到 {% data variables.product.product_name %} 的过程。 要了解有关 {% data variables.product.prodname_cli %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
-1. In the command line, navigate to the root directory of your project.
+1. 在命令行中，导航到项目的根目录。
 1. 将本地目录初始化为 Git 仓库。
 
     ```shell
     git init -b main
     ```
 
-1. To create a repository for your project on {% data variables.product.product_name %}, use the `gh repo create` subcommand. Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
+1. 要在 {% data variables.product.product_name %} 上为项目创建仓库，请使用 `gh repo create` 子命令。 Replace `project-name` with the desired name for your repository. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
 
    ```shell
    gh repo create <em>project-name</em>
    ```
 
 1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
-1. Pull changes from the new repository that you created. (If you created a `.gitignore` or `LICENSE` file in the previous step, this will pull those changes to your local directory.)
+1. 从您创建的新仓库中拉取更改。 （如果您在前一步中创建了 `.gitignore` 或 `LICENSE` 文件，这会将这些更改拉取到您的本地目录。）
 
     ```shell
     git pull --set-upstream origin main
     ```
 
-1. Stage, commit, and push all of the files in your project.
+1. 暂存、提交和推送项目中的所有文件。
 
     ```shell
     git add . && git commit -m "initial commit" && git push
     ```
 
-## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
+## 不使用 {% data variables.product.prodname_cli %} 而添加项目到 {% data variables.product.product_name %}
 
 {% mac %}
 
@@ -75,7 +74,7 @@ shortTitle: 本地添加项目
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. 在 {% data variables.product.product_name %} 仓库的 Quick Setup（快速设置）页面顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. 在仓库顶部 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的快速设置页面，点击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 以复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. 在终端上，[添加远程仓库的 URL](/github/getting-started-with-github/managing-remote-repositories)（将在该 URL 推送本地仓库）。
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -110,7 +109,7 @@ shortTitle: 本地添加项目
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. 在 {% data variables.product.product_name %} 仓库的 Quick Setup（快速设置）页面顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. 在仓库顶部 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的快速设置页面，点击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 以复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. 在命令提示中，[添加远程仓库的 URL](/github/getting-started-with-github/managing-remote-repositories)（将在该 URL 推送本地仓库）。
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>
@@ -145,7 +144,7 @@ shortTitle: 本地添加项目
   $ git commit -m "First commit"
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. 在 {% data variables.product.product_name %} 仓库的 Quick Setup（快速设置）页面顶部，单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. 在仓库顶部 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 的快速设置页面，点击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 以复制远程仓库 URL。 ![创建远程仓库 URL 字段](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. 在终端上，[添加远程仓库的 URL](/github/getting-started-with-github/managing-remote-repositories)（将在该 URL 推送本地仓库）。
   ```shell
   $ git remote add origin <em> &lt;REMOTE_URL> </em>

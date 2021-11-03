@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: 了解搜索语法
@@ -86,7 +87,7 @@ shortTitle: 了解搜索语法
 
 某些非字母数字符号（例如空格）会从引号内的代码搜索查询中删除，因此结果可能出乎意料。
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## 使用用户名的查询
 
 如果搜索查询包含需要用户名的限定符，例如 `user`、`actor` 或 `assignee`，您可以使用任何 {% data variables.product.product_name %} 用户名指定特定人员，或使用 `@me` 指定当前用户。

@@ -3,6 +3,7 @@ title: 为组织申请发布者验证
 intro: 要为应用程序提供付费计划或在应用程序上架信息中包含 Marketplace 徽章，您必须完成组织的发布者验证流程。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

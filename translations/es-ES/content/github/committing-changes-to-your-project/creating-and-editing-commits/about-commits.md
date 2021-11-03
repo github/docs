@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Acerca de las confirmaciones
@@ -17,7 +18,7 @@ versions:
 
 Puedes agregar un co-autor en cualquier confirmación en la que colabores. Para obtener más información, consulta "[Crear una confirmación con múltiples autores](/github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 También puedes crear una confirmación en nombre de una organización. Para obtener más información, consulta la sección "[Crear una confirmación en nombre de una organización](/github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization)".{% endif %}
 
 El rebase te permite cambiar varias confirmaciones y puede modificar el órden de éstas en tu línea de tiempo. Para obtener más información, consulta la sección [Accerca del rebase de Git](/github/getting-started-with-github/about-git-rebase)".

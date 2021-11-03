@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organizaciones y cuentas de empresa
 
 Las cuentas de empresa le permiten a los propietarios administrar en forma centralizada las políticas y la facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}.

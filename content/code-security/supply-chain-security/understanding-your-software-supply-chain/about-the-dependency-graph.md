@@ -6,7 +6,7 @@ redirect_from:
   - /code-security/supply-chain-security/about-the-dependency-graph
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: issue-4864
   ghec: '*'
 type: overview
@@ -59,7 +59,7 @@ You can use the dependency graph to:
 - Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)." {% ifversion fpt or ghec %}
 - View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
 - View and update vulnerable dependencies for your repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% ifversion fpt or ghes > 3.1 or ghec %}
-- See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."{% endif %}
+- See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)."{% endif %}
 
 ## Enabling the dependency graph
 
@@ -85,6 +85,8 @@ The recommended formats explicitly define which versions are used for all direct
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
+{%- ifversion fpt or ghes > 3.3 %}
+| Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 

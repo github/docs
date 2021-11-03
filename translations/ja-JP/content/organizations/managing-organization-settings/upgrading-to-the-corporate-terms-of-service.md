@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/upgrading-to-the-corporate-terms-of-service
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -23,4 +24,4 @@ shortTitle: 企業利用規約へのアップグレード
 5. エンティティを代表して企業利用規約に同意するには、[**Accept terms**] をクリックします。 ![[Accept terms] ボタン](/assets/images/help/organizations/accept-terms-button.png)
 
 ## 参考リンク
-- 「[GitHub の企業利用規約](/articles/github-corporate-terms-of-service/)」
+- 「[GitHub の企業利用規約](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)」

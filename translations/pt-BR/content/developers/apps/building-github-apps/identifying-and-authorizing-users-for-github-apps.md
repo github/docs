@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Identificar & autorizar usuários
@@ -25,7 +26,7 @@ Quando o seu aplicativo GitHub age em nome de um usuário, ele realiza solicita�
 
 Para autorizar usuários para aplicativos-padrão executados no navegador, use o [fluxo de aplicativo web](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 Para autorizar usuários para aplicativos sem acesso direto ao navegador, como ferramentas de CLI ou gerentes de credenciais do Git, use o [fluxo de dispositivos](#device-flow). O fluxo de dispositivo usa o OAuth 2.0 [Concessão de autorização do dispositivo](https://tools.ietf.org/html/rfc8628).
 
@@ -50,13 +51,13 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 
 #### Parâmetros
 
-| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                                 |
-| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                         |
-| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                               |
-| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                      |
+| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                                         |
+| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 or ghec %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
+| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                                 |
+| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                       |
+| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                              |
 
 {% note %}
 
@@ -84,13 +85,13 @@ Faça um pedido para o seguinte ponto de extremidade para receber um token de ac
 
 #### Parâmetros
 
-| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                 |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                            |
-| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                           |
-| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                      |
-| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                             |
+| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                    |
+| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                   |
+| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                              |
+| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 or ghec %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
+| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                                     |
 
 #### Resposta
 
@@ -98,9 +99,9 @@ Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `e
 
 ```json
 {
-  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "access_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": 28800,
-  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token": "{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
   "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
@@ -120,7 +121,7 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## Fluxo de dispositivo
 
@@ -167,11 +168,11 @@ Como as permissões de nível de usuário são concedidas em uma base de usuári
 
 ## Solicitações de usuário para servidor
 
-Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Seu aplicativo pode fazer as seguintes solicitações usando pontos de extremidade do [GraphQL v4](/graphql) ou [REST v3](/rest).
+Embora a maior parte da interação da sua API deva ocorrer usando os tokens de acesso de servidor para servidor, certos pontos de extremidade permitem que você execute ações por meio da API usando um token de acesso do usuário. Your app can make the following requests using [GraphQL v4]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) or [REST v3](/rest) endpoints.
 
 ### Pontos de extremidade compatíveis
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Executores de ações
 
 * [Listar aplicativos executores para um repositório](/rest/reference/actions#list-runner-applications-for-a-repository)
@@ -205,7 +206,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir o segredo de uma organização](/rest/reference/actions#delete-an-organization-secret)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Artefatos
 
 * [Listar artefatos para um repositório](/rest/reference/actions#list-artifacts-for-a-repository)
@@ -247,7 +248,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 * [Listar implementações](/rest/reference/repos#list-deployments)
 * [Criar uma implementação](/rest/reference/repos#create-a-deployment)
-* [Obter uma implementação](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae %}
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% ifversion fpt or ghes or ghae or ghec %}
 * [Excluir um deploy](/rest/reference/repos#delete-a-deployment){% endif %}
 
 #### Eventos
@@ -295,7 +296,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 * [Listar repositórios acessíveis ao token de acesso do usuário](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Limites de interação
 
 * [Obter restrições de interação para uma organização](/rest/reference/interactions#get-interaction-restrictions-for-an-organization)
@@ -340,7 +341,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Bloquear um problema](/rest/reference/issues#lock-an-issue)
 * [Desbloquear um problema](/rest/reference/issues#unlock-an-issue)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Trabalhos
 
 * [Obter um trabalho para uma execução de fluxo de trabalho](/rest/reference/actions#get-a-job-for-a-workflow-run)
@@ -393,7 +394,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir um webhook da organização](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
 * [Consultar um webhook da organização](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Convites da organização
 
 * [Listar convites pendentes para organizações](/rest/reference/orgs#list-pending-organization-invitations)
@@ -429,7 +430,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Remover a aplicação do hook pre-receive para uma organização](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 #### Projetos da aquipe da organização
 
 * [Listar projetos da equipe](/rest/reference/teams#list-team-projects)
@@ -445,7 +446,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Adicionar ou atualizar as permissões do repositório da equipe](/rest/reference/teams#add-or-update-team-repository-permissions)
 * [Remover um repositório de uma equipe](/rest/reference/teams#remove-a-repository-from-a-team)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Sincronizar equipe da organização
 
 * [Listar grupos de idp para uma equipe](/rest/reference/teams#list-idp-groups-for-a-team)
@@ -460,7 +461,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter uma equipe por nome](/rest/reference/teams#get-a-team-by-name)
 * [Atualizar uma equipe](/rest/reference/teams#update-a-team)
 * [Excluir uma equipe](/rest/reference/teams#delete-a-team)
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [Listar convites pendentes da equipe](/rest/reference/teams#list-pending-team-invitations)
 {% endif %}
 * [Listar integrantes da equipe](/rest/reference/teams#list-team-members)
@@ -481,14 +482,14 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar organizações para o usuário autenticado](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
 * [Listar organizações para um usuário](/rest/reference/orgs#list-organizations-for-a-user)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Autorizações de credencial das organizações
 
 * [Listar autorizações do SAML SSO para uma organização](/rest/reference/orgs#list-saml-sso-authorizations-for-an-organization)
 * [Remover uma autorização do SAML SSO para uma organização](/rest/reference/orgs#remove-a-saml-sso-authorization-for-an-organization)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Scim das organizações
 
 * [Listar identidades provisionadas de SCIM](/rest/reference/scim#list-scim-provisioned-identities)
@@ -499,7 +500,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Excluir um usuário de SCIM de uma organização](/rest/reference/scim#delete-a-scim-user-from-an-organization)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Importação de fonte
 
 * [Obter um status de importação](/rest/reference/migrations#get-an-import-status)
@@ -582,7 +583,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Reações
 
-{% ifversion fpt or ghes or ghae %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Excluir uma reação](/rest/reference/reactions#delete-a-reaction){% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction-legacy){% else %}* [Delete a reaction](/rest/reference/reactions#delete-a-reaction){% endif %}
 * [Listar reações para um comentário de commit](/rest/reference/reactions#list-reactions-for-a-commit-comment)
 * [Criar reação para um comentário de commit](/rest/reference/reactions#create-reaction-for-a-commit-comment)
 * [Listar reações para um problema](/rest/reference/reactions#list-reactions-for-an-issue)
@@ -594,7 +595,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar reações para um comentário de discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion-comment)
 * [Criar reação para um comentário de discussão em equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)
 * [Listar reações para uma discussão de equipe](/rest/reference/reactions#list-reactions-for-a-team-discussion)
-* [Criar reação para uma discussão de equipe](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae %}
+* [Create reaction for a team discussion](/rest/reference/reactions#create-reaction-for-a-team-discussion){% ifversion fpt or ghes or ghae or ghec %}
 * [Excluir uma reação de comentário de commit](/rest/reference/reactions#delete-a-commit-comment-reaction)
 * [Excluir uma reação do problema](/rest/reference/reactions#delete-an-issue-reaction)
 * [Excluir uma reação a um comentário do commit](/rest/reference/reactions#delete-an-issue-comment-reaction)
@@ -632,7 +633,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Desmarque um repositório como favorito para o usuário autenticado](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
 * [Listar repositórios inspecionados por um usuário](/rest/reference/activity#list-repositories-watched-by-a-user)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Correções de segurança automatizadas no repositório
 
 * [Habilitar as correções de segurança automatizadas](/rest/reference/repos#enable-automated-security-fixes)
@@ -701,7 +702,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 #### Comunidade do repositório
 
 * [Obter o código de conduta para um repositório](/rest/reference/codes-of-conduct#get-the-code-of-conduct-for-a-repository)
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [Obter métricas do perfil da comunidade](/rest/reference/repos#get-community-profile-metrics)
 {% endif %}
 
@@ -714,7 +715,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter um README do repositório](/rest/reference/repos#get-a-repository-readme)
 * [Obter a licença para um repositório](/rest/reference/licenses#get-the-license-for-a-repository)
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 #### Envio de eventos do repositório
 
 * [Criar um evento de envio de repositório](/rest/reference/repos#create-a-repository-dispatch-event)
@@ -788,7 +789,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter a contagem semanal do commit](/rest/reference/repos#get-the-weekly-commit-count)
 * [Obter a contagem do commit por hora para cada dia](/rest/reference/repos#get-the-hourly-commit-count-for-each-day)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Alertas de vulnerabilidade de repositório
 
 * [Habilitar alertas de vulnerabilidade](/rest/reference/repos#enable-vulnerability-alerts)
@@ -834,7 +835,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter todos os tópicos do repositório](/rest/reference/repos#get-all-repository-topics)
 * [Substituir todos os tópicos do repositório](/rest/reference/repos#replace-all-repository-topics)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Tráfego
 
 * [Obter clones do repositório](/rest/reference/repos#get-repository-clones)
@@ -843,7 +844,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter visualizações de páginas](/rest/reference/repos#get-page-views)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Bloquear usuário
 
 * [Listar usuários bloqueados pelo usuário autenticado](/rest/reference/users#list-users-blocked-by-the-authenticated-user)
@@ -856,10 +857,10 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Desbloquear usuário](/rest/reference/users#unblock-a-user)
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 #### Emails do usuário
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [Configurar visibilidade do e-mail principal para o usuário autenticado](/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user)
 {% endif %}
 * [Listar endereços de e-mail para o usuário autenticado](/rest/reference/users#list-email-addresses-for-the-authenticated-user)
@@ -897,13 +898,13 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 * [Obter o usuário autenticado](/rest/reference/users#get-the-authenticated-user)
 * [Listar instalações de aplicativos acessíveis ao token de acesso do usuário](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token)
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * [Listar assinaturas para o usuário autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 {% endif %}
 * [Listar usuários](/rest/reference/users#list-users)
 * [Obter um usuário](/rest/reference/users#get-a-user)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Execuções do fluxo de trabalho
 
 * [Listar execuções do fluxo de trabalho para um repositório](/rest/reference/actions#list-workflow-runs-for-a-repository)
@@ -916,7 +917,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter uso da execução do fluxo de trabalho](/rest/reference/actions#get-workflow-run-usage)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Fluxos de trabalho
 
 * [Listar fluxos de trabalho do repositório](/rest/reference/actions#list-repository-workflows)
@@ -924,7 +925,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter uso do workflow](/rest/reference/actions#get-workflow-usage)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
 ## Leia mais
 

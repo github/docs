@@ -8,7 +8,7 @@
 
 现在，在审查拉取请求时，您将能够查看工作流程运行并下载生成的构件。
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down-updated.png)
 {% else %}
 ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)

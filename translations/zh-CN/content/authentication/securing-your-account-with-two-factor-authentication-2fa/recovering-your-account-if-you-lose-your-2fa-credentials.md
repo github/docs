@@ -10,12 +10,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 使用 2FA 找回帐户
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
@@ -29,12 +30,12 @@ shortTitle: 使用 2FA 找回帐户
 
 使用您的恢复代码之一自动重新进入您的帐户。 您可能已将恢复代码保存到密码管理器或计算机的下载文件夹中。 恢复代码的默认文件名为 `github-recovery-codes.txt`。 有关恢复代码的更多信息，请参阅“[配置双因素身份验证恢复方法](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)”。
 
-{% data reusables.two_fa.username-password %}{% ifversion fpt %}
+{% data reusables.two_fa.username-password %}{% ifversion fpt or ghec %}
 2. 在“Having Problems?（有问题？）”下，单击 **Enter a two-factor recovery code（输入双重恢复代码）**。 ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
 2. 在 2FA 页面上的“Don't have your phone?（没有您的电话？）”下，单击 **Enter a two-factor recovery code（输入双因素恢复代码）**。 ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
 3. 输入恢复代码之一，然后单击 **Verify（验证）**。 ![输入恢复代码的字段和验证按钮](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 使用后备号码进行身份验证
 
 如果无法访问主要 TOTP 应用程序或电话号码，则可以提供发送到后备号码的双因素身份验证码，以自动重新获得对帐户的访问权限。
@@ -44,7 +45,7 @@ shortTitle: 使用 2FA 找回帐户
 
 如果您使用安全密钥配置双重身份验证，则可以使用安全密钥作为辅助身份验证方法来自动重新获得对帐户的访问权限。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 使用经过验证的设备、SSH 令牌或个人访问令牌进行身份验证
 
 如果您知道 {% data variables.product.product_name %} 密码但无法访问双重身份验证凭据，或没有双重身份验证恢复代码，则可以将一次性密码发送到经验证的电子邮件地址，以开始验证过程，重新获得对帐户的访问权限。
@@ -77,7 +78,7 @@ shortTitle: 使用 2FA 找回帐户
 
 {% endwarning %}
 
-如果无法访问 {% data variables.product.product_name %} 帐户的双因素身份验证方法，您可以从合作伙伴的恢复提供程序提取帐户恢复令牌，并请求 {% data variables.product.prodname_dotcom %} 支持人员进行审查。
+If you lose access to the two-factor authentication methods for your account on {% data variables.product.product_location %}, you can retrieve your account recovery token from a partner recovery provider and ask {% data variables.product.prodname_dotcom %} Support to review it.
 
 如果您无法访问双因素身份验证方法或恢复代码，并且已通过 Facebook 使用“异地恢复帐户”存储帐户恢复令牌，则可以使用您的令牌重新获得对帐户的访问权限。
 
@@ -91,7 +92,7 @@ shortTitle: 使用 2FA 找回帐户
 {% endwarning %}
 
 1. 在 Facebook 中，导航到 [Security Settings（安全设置）](https://www.facebook.com/settings?tab=security)，然后单击 **Recover Accounts Elsewhere（异地恢复帐户）**。 ![含有异地恢复帐户链接的 Facebook 安全设置页面](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. 单击与您的 {% data variables.product.product_name %} 帐户关联的恢复令牌。 ![Facebook 中存储的恢复令牌列表](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
+2. Click the recovery token associated with your account on {% data variables.product.product_location %}. ![Facebook 中存储的恢复令牌列表](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. 要取回帐户恢复令牌，请单击 **Recover This Account（恢复此帐户）**。 此时将打开一个新窗口，将您返回到 {% data variables.product.product_name %}。 ![含有恢复令牌相关信息的模态框和恢复此帐户按钮](/assets/images/help/settings/security-recover-account-facebook.png)
 4. 联系 {% data variables.contact.contact_support %}，告知他们您的帐户恢复令牌已准备好进行审查。
 {% endif %}

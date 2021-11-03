@@ -23,6 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub Pages & Jekyll
@@ -61,7 +62,7 @@ kramdown:
 - 结尾为 `~`
 - 被配置文件中的 `exclude` 设置排除
 
-If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
+如果您想要 Jekyll 处理其中任何文件，可以使用配置文件中的 `includes` 设置。
 
 ## 前页附属资料
 
@@ -73,10 +74,10 @@ If you want Jekyll to process any of these files, you can use the `include` sett
 
 {% data reusables.pages.add-jekyll-theme %} 更多信息请参阅 Jekyll 文档中的“[主题](https://jekyllrb.com/docs/themes/)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 您可以在 {% data variables.product.prodname_dotcom %} 上添加支持的主题到站点。 更多信息请参阅 {% data variables.product.prodname_pages %} 站点上“[支持的主题](https://pages.github.com/themes/)"和"[使用主题选择器添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)”。
 
-要使用 {% data variables.product.prodname_dotcom %} 上托管的任何其他开源 Jekyll 主题，您可以手动添加主题。{% else %} 您可以手动添加主题到站点。{% endif %} 更多信息请参阅{% ifversion fpt %} [{% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) 上托管的主题和 {% else %}{% data variables.product.prodname_pages %} 站点上 "[支持的主题](https://pages.github.com/themes/)"和{% endif %}“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
+要使用 {% data variables.product.prodname_dotcom %} 上托管的任何其他开源 Jekyll 主题，您可以手动添加主题。{% else %} 您可以手动添加主题到站点。{% endif %} 更多信息请参阅{% ifversion fpt or ghec %} [{% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) 上托管的主题和 {% else %}{% data variables.product.prodname_pages %} 站点上 "[支持的主题](https://pages.github.com/themes/)"和{% endif %}“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
 
 您可以通过编辑主题文件来覆盖任何主题的默认值。 更多信息请参阅您的主题文档和 Jekyll 文档中的“[覆盖主题默认值](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)“。
 

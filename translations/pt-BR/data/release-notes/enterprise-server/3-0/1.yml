@@ -35,7 +35,7 @@ sections:
     - 'Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.'
     - 'Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório onde o caminho do arquivo tem mais de 255 caracteres.'
     - 'Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.'
-    - 'When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us).'
+    - 'Quando o modo de manutenção está habilitado, alguns serviços continuam listados como "processos ativos". Espera-se que os serviços identificados sejam executados durante o modo de manutenção. Se você tiver problemas e tiver dúvidas, entre em contato com o [Suporte do GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us).'
     - 'O registro duplicado para `/var/log/messages`, `/var/log/syslog`, e `/var/log/user.log` geraram um aumento na utilização do volume raiz.'
     - 'Os usuários podem ignorar uma mensagem obrigatória sem marcar todas as caixas de seleção.'
     - '[Script de hook de pre-receive](/admin/policies/execuing-policy-with-pre-receive-hooks) não pode escrever arquivos temporários, o que pode gerar falha na execução de script. Os usuários que usam hooks pre-receive devem testar em um ambiente de treinamento para ver se os scripts exigem acesso de gravação.'
@@ -69,4 +69,4 @@ sections:
 
       2. Se mostrar que um ou mais nós foram afetados, reinicie os nós afetados.
     - 'Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.'
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

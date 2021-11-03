@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -15,7 +16,7 @@ topics:
 ## Recursos e produtos pagos
 
 Você pode atualizar sua conta pessoal ou organização para uma assinatura paga a qualquer momento. Também é possível optar por comprar aplicativos no {% data variables.product.prodname_marketplace %} ou atualizar o armazenamento e a largura de banda para o {% data variables.large_files.product_name_long %}. Para obter mais informações, consulte:
-- "[Sobre a cobrança das contas do {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"
+- "[Sobre a cobrança das contas do {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"
 - "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)"
 - "[Sobre a cobrança do {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)"

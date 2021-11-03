@@ -75,7 +75,9 @@ describe('pages module', () => {
 
       const message = `Found ${duplicates.length} duplicate redirect_from ${
         duplicates.length === 1 ? 'path' : 'paths'
-      }.\n
+      }. 
+      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files. 
+      You may also receive this error if you have defined the same children property more than once.\n
   ${duplicates.join('\n')}`
       expect(duplicates.length, message).toBe(0)
     })
@@ -176,7 +178,7 @@ describe('pages module', () => {
     test('yields a non-empty object with more unique entries than pages', async () => {
       // Why does it contain MORE unique entries, you ask?
       // TL;DR: The pages array contains one item per Page + language, with a `permalinks` array
-      // property for each product version supported (free-pro-team, enterprise-server@2.22, etc.)
+      // property for each product version supported (free-pro-team, enterprise-server@3.0, etc.)
       // The pageMap, on the other hand, is keyed by unique URLs, so it has 1-N (where N is the
       // number of product versions supported) keys pointing to the same Page + language object
 

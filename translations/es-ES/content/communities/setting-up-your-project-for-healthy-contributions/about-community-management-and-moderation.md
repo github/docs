@@ -3,6 +3,7 @@ title: Acerca de la gestión y moderación de la comunidad
 intro: '{% data variables.product.prodname_dotcom %} ofrece herramientas para que los mantenedores de repositorios puedan establecer y dar cumplimiento a los estándares de comportamiento en sus comunidades dentro de {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:

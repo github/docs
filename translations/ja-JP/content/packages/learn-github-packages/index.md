@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /introduction-to-github-packages
   - /about-permissions-for-github-packages

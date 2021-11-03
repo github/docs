@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
 Você só pode excluir problemas em um repositório que pertença à sua conta de usuário. Não é possível excluir problemas em um repositório pertencente a outra conta de usuário, mesmo que você seja um colaborador nela.
 
-Para excluir um problema em um repositório que pertença a uma organização, o proprietário da organização deve permitir a exclusão de um problema dos repositórios da organização e você deve ter permissões de administrador ou de proprietário no repositório. Para obter mais informações, consulte "[Permitir a exclusão de problemas na organização](/articles/allowing-people-to-delete-issues-in-your-organization)" e "[Níveis de permissão do repositório para organizações](/articles/repository-permission-levels-for-an-organization/)".
+Para excluir um problema em um repositório que pertença a uma organização, o proprietário da organização deve permitir a exclusão de um problema dos repositórios da organização e você deve ter permissões de administrador ou de proprietário no repositório. For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Os colaboradores não recebem uma notificação quando você exclui um problema. Ao acessarem a URL de um problema excluído, os colaboradores verão uma mensagem informando que o problema foi eliminado. As pessoas com permissões de administrador ou proprietário no repositório também verão o nome de usuário da pessoa que excluiu o problema e quando isso ocorreu.
 

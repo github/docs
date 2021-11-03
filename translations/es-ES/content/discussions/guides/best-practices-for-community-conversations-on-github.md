@@ -4,6 +4,7 @@ shortTitle: Mejores prácticas para las conversaciones comunitarias
 intro: 'Puedes utilizar los debates para hacer una lluvia de ideas con tu equipo y, en algún momento, migrar la conversación a una propuesta cuando estés listo para delimitar el trabajo.'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 

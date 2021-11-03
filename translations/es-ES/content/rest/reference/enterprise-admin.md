@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 shortTitle: Administración empresarial
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -60,7 +61,7 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Registro de auditoría
 
@@ -70,7 +71,7 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Facturación
 
 {% for operation in currentRestOperations %}
@@ -81,6 +82,7 @@ La versión actual de tu empresa se devuelve en el encabezado de respuesta de ca
 
 ## GitHub Actions
 
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}

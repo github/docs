@@ -1,7 +1,6 @@
 ---
 title: 触发工作流程的事件
 intro: '您可以配置工作流程在 {% data variables.product.product_name %} 上发生特定活动时运行、在预定的时间运行，或者在 {% data variables.product.product_name %} 外部的事件发生时运行。'
-product: '{% data reusables.gated-features.actions %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -12,11 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 触发工作流程的事件
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 配置工作流程事件
 
@@ -62,7 +63,7 @@ shortTitle: 触发工作流程的事件
 │ │ ┌───────────── day of the month (1 - 31)
 │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
 │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-│ │ │ │ │                                   
+│ │ │ │ │
 │ │ │ │ │
 │ │ │ │ │
 * * * * *
@@ -99,11 +100,11 @@ shortTitle: 触发工作流程的事件
 
 您可以直接在工作流程中配置事件的自定义输入属性、默认输入值和必要输入。 当工作流程运行时，您可以访问 `github.event.inputs` 上下文中的输入值。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
-您可以使用 {% data variables.product.product_name %} API 以及从 {% data variables.product.product_name %} 手动触发工作流程运行。 更多信息请参阅“[手动配置工作流程](/actions/managing-workflow-runs/manually-running-a-workflow)。
+You can manually trigger a workflow run using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and from {% data variables.product.product_name %}. 更多信息请参阅“[手动配置工作流程](/actions/managing-workflow-runs/manually-running-a-workflow)。
 
  当您在 {% data variables.product.prodname_dotcom %} 上触发事件时，可以在 {% data variables.product.prodname_dotcom %} 上直接提供 `ref` 和任何 `inputs`。 更多信息请参阅“[对操作使用输入和输出](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)”。
 
- 要使用 REST API 触发自定义 `workflow_dispatch` web 挂钩事件，您必须发送 `POST` 请求到 {% data variables.product.prodname_dotcom %} API 端点，并提供 `ref` 和任何必要的 `inputs`。 更多信息请参阅“[创建工作流程调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”REST API 端点。
+ To trigger the custom `workflow_dispatch` webhook event using the REST API, you must send a `POST` request to a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API endpoint and provide the `ref` and any required `inputs`. 更多信息请参阅“[创建工作流程调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”REST API 端点。
 
 #### 示例
 
@@ -150,9 +151,9 @@ jobs:
 
 {% data reusables.github-actions.branch-requirement %}
 
-当您想要触发在 {% data variables.product.product_name %} 外发生的活动的工作流程时，可以使用 {% data variables.product.prodname_dotcom %} API 触发名为 [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) 的 web 挂钩事件。 更多信息请参阅“[创建仓库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”。
+You can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API to trigger a webhook event called [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) when you want to trigger a workflow for activity that happens outside of {% data variables.product.prodname_dotcom %}. 更多信息请参阅“[创建仓库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”。
 
-要触发自定义 `repository_dispatch` web 挂钩事件，必须将 `POST` 请求发送到 {% data variables.product.product_name %} API 端点，并提供 `event_type` 名称来描述活动类型。 要触发工作流程运行，还必须配置工作流程使用 `repository_dispatch` 事件。
+To trigger the custom `repository_dispatch` webhook event, you must send a `POST` request to a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API endpoint and provide an `event_type` name to describe the activity type. 要触发工作流程运行，还必须配置工作流程使用 `repository_dispatch` 事件。
 
 #### 示例
 
@@ -164,7 +165,7 @@ on:
     types: [opened, deleted]
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Workflow reuse events
 
 `workflow_call` is a keyword used as the value of `on` in a workflow, in the same way as an event. It indicates that a workflow can be called from another workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
@@ -189,6 +190,28 @@ on: workflow_call
 您可以将工作流程配置为在 {% data variables.product.product_name %} 上生成 web 挂钩事件时运行。 某些事件有多种触发事件的活动类型。 如果有多种活动类型触发事件，则可以指定哪些活动类型将触发工作流程运行。 更多信息请参阅“[web 挂钩](/webhooks)”。
 
 并非所有 web 挂钩事件都触发工作流程。 要了解可用 web 挂钩事件及其有效负载的完整列表，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+### `branch_protection_rule`
+
+Runs your workflow anytime the `branch_protection_rule` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[BranchProtectionRule]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#branchprotectionrule)."
+
+{% data reusables.github-actions.branch-requirement %}
+
+| Web 挂钩事件有效负载                                                                 | 活动类型                                                   | `GITHUB_SHA` | `GITHUB_REF` |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------ | ------------ | ------------ |
+| [`branch_protection_rule`](/webhooks/event-payloads/#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | 默认分支上的最新提交   | 默认分支         |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+For example, you can run a workflow when a branch protection rule has been `created` or `deleted`.
+
+```yaml
+on:
+  branch_protection_rule:
+    types: [created, deleted]
+```
+{% endif %}
 
 ### `check_run`
 
@@ -304,10 +327,10 @@ on:
 
 {% endnote %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### `讨论`
 
-在发生 `discussion` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %}有关 GraphQL API 的信息，请参阅“[讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+在发生 `discussion` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %}有关 GraphQL API 的信息，请参阅“[讨论]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)”。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -327,7 +350,7 @@ on:
 
 ### `discussion_comment`
 
-在发生 `discussion_comment` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %}有关 GraphQL API 的信息，请参阅“[讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+在发生 `discussion_comment` 事件的任何时间运行您的工作流程。 {% data reusables.developer-site.multiple_activity_types %}有关 GraphQL API 的信息，请参阅“[讨论]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)”。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -595,9 +618,9 @@ on:
 
 {% endnote %}
 
-| Web 挂钩事件有效负载                                             | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`            | `GITHUB_REF`                        |
-| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------- |
-| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
+| Web 挂钩事件有效负载                                             | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`            | `GITHUB_REF`                        |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------- |
+| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 您可以使用 `types` 关键词扩展或限制默认活动类型。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
@@ -651,8 +674,6 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 ### `pull_request_target`
 
 此事件在拉取请求基础的上下文中运行，而不是像 `pull_request` 事件一样在合并提交中运行。  这样可以防止从拉取请求的头部执行不安全的工作流程代码，以免更改您的仓库或窃取您在工作流程中使用的任何机密。 此事件允许您根据事件有效负载的内容创建工作流程来标识和评论拉取请求，等等。
@@ -663,9 +684,9 @@ on:
 
 {% endwarning %}
 
-| Web 挂钩事件有效负载                                                    | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`   | `GITHUB_REF` |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | PR 基分支上的最后一次提交 | PR 基础分支      |
+| Web 挂钩事件有效负载                                                    | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`   | `GITHUB_REF` |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | PR 基分支上的最后一次提交 | PR 基础分支      |
 
 默认情况下，工作流程仅在 `pull_request_target` 的活动类型为 `opened`、`synchronize` 或 `reopened` 时运行。 要让更多活动类型触发工作流程，请使用 `types` 关键词。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#onevent_nametypes)”。
 
@@ -676,8 +697,6 @@ on:
   pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
-
-{% endif %}
 
 ### `推送`
 
@@ -785,8 +804,6 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 ### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
@@ -808,12 +825,10 @@ on:
   workflow_run:
     workflows: ["Run Tests"]
     branches: [main]
-    types: 
+    types:
       - completed
       - requested
 ```
-
-{% endif %}
 
 要根据上次工作流程运行的结果有条件地运行工作流程作业，您可以使用 [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) 或 [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) 有条件地结合上次运行的`结论`。 例如：
 

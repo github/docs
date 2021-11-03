@@ -1,21 +1,22 @@
 ---
 title: Sobre monitoramento e solução de problemas
 intro: 'Você pode utilizar as ferramentas em {% data variables.product.prodname_actions %} para monitorar e depurar seus fluxos de trabalho.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Sobre monitoramento e solução de problemas
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Monitorando seus fluxos de trabalho
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### Usar o gráfico de visualização
 
@@ -33,7 +34,7 @@ Para obter mais informações, consulte "[Usar o gráfico de visualização](/ac
 
 Para obter mais informações, consulte "[Adicionando um selo de status do fluxo de trabalho](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Visualizar o tempo de execução do trabalho
 
 Para identificar quanto tempo um trabalho levou para ser executado, você pode ver seu tempo de execução. Por exemplo:

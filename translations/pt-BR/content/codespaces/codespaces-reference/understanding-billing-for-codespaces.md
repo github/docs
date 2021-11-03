@@ -3,6 +3,7 @@ title: Entendendo a cobrança para Codespaces
 intro: 'Saiba como seu uso de {% data variables.product.prodname_codespaces %} é cobrado.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces

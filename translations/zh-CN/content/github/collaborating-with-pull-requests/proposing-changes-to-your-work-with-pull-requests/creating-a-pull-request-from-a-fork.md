@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 从复刻创建 PR

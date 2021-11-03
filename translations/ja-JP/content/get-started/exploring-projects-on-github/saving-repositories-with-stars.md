@@ -1,6 +1,6 @@
 ---
 title: Star を付けてリポジトリを保存する
-intro: 'リポジトリや Topics に Star を付けて、興味のあるプロジェクトを追跡し{% ifversion fpt %}、ニュースフィードで関連コンテンツを見つけることができます{% endif %}。'
+intro: 'リポジトリや Topics に Star を付けて、興味のあるプロジェクトを追跡し{% ifversion fpt or ghec %}、ニュースフィードで関連コンテンツを見つけることができます{% endif %}。'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Save repos with stars
@@ -24,7 +25,7 @@ You can search, sort, and filter your starred repositories and topics on your {%
 
 Star を付けることで、リポジトリやトピックが後で見つけやすくなります。 {% data variables.explore.your_stars_page %} にアクセスすると、Star 付きのリポジトリとトピックを確認することができます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 リポジトリとトピックに Star を付けることで、{% data variables.product.product_name %} 上で類似のプロジェクトを見つけることができます。 リポジトリあるいはトピックに Star を付けると、{% data variables.product.product_name %} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 
