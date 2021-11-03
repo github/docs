@@ -45,7 +45,7 @@ Para obtener más información sobre cómo utilizar {% data variables.product.pr
 ### Ejecutar tu app desde un codespace
 {% data reusables.codespaces.about-port-forwarding %} Para obtener más información, consulta la sección "[Abrir puertos en tu codespace](/github/developing-online-with-codespaces/forwarding-ports-in-your-codespace)".
 
-### Configramr tus cambios
+### Confirmar tus cambios
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
