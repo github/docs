@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -37,7 +38,7 @@ O software de código aberto baseia-se na ideia de que ao compartilhar códigos,
 
 Para obter mais informações sobre a aplicação dos princípios de código aberto ao trabalho de desenvolvimento da sua organização em {% data variables.product.product_location %}, consulte o white paper de {% data variables.product.prodname_dotcom %} "[Uma introdução ao innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](https://choosealicense.com/)" em choosealicense.com.
 
@@ -56,7 +57,7 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 
 Você pode bifurcar um projeto para propor alterações no repositório upstream ou original. Nesse caso, uma boa prática é sincronizar regularmente sua bifurcação com o repositório upstream. Para isso, é necessário usar Git na linha de comando. Pratique configurando o repositório upstream com o mesmo repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) que você acabou de bifurcar.
 
-1. Em {% data variables.product.product_location %}, navegue até o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. No canto superior direito da página, clique em **Fork** (Bifurcação). ![Botão Fork (Bifurcação)](/assets/images/help/repository/fork_button.jpg)
 
 {% endwebui %}
@@ -89,7 +90,7 @@ Agora, você tem uma bifurcação do repositório Spoon-Knife, mas você não te
 {% include tool-switcher %}
 {% webui %}
 
-1. Em {% data variables.product.product_name %}, vá até **your fork** (sua bifurcação) no repositório Spoon-Knife.
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -139,7 +140,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
 {% include tool-switcher %}
 {% webui %}
 
-1. Em {% data variables.product.product_name %}, vá até o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Mude os diretórios para a localidade da bifurcação que você clonou.
@@ -200,7 +201,7 @@ Você pode fazer alterações em uma bifurcação, incluindo:
 ## Localize outro repositório para bifurcar
 Bifurque um repositório para começar a contribuir com um projeto. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}Você pode navegar em [Explore](https://github.com/explore) (Explorar) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}Você pode navegar em [Explore](https://github.com/explore) (Explorar) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 

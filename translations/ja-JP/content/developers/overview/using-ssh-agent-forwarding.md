@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: SSHエージェントのフォワーディング
@@ -150,7 +151,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. ただし、以下のコマンドでキーチェーンにSSHキーをインポートできます。
+macOSでは、再起動時に`ssh-agent`が起動し直されると、キーは「忘れられて」しまいます。 ただし、以下のコマンドでキーチェーンにSSHキーをインポートできます。
 
 ```shell
 $ ssh-add -K <em>yourkey</em>

@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/creating-a-codespace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -17,7 +18,7 @@ topics:
 
 ## Sobre a criação do codespace
 
-Você pode criar um codespace em {% data variables.product.prodname_dotcom_the_website %} ou em {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.codespaces-are-personal %}
+You can create a codespace on {% data variables.product.prodname_dotcom_the_website %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data reusables.codespaces.codespaces-are-personal %}
 
 Os codespaces são associados a um branch específico de um repositório e o repositório não pode estar vazio. {% data reusables.codespaces.concurrent-codespace-limit %} Para obter mais informações, consulte "[Excluir um codespace](/github/developing-online-with-codespaces/deleting-a-codespace)".
 
@@ -61,13 +62,51 @@ Se você deseja criar um codespace para um repositório pertencente à sua conta
 
 ## Criar um codespace
 
+{% include tool-switcher %}
+
+{% webui %}
+
 {% data reusables.repositories.navigate-to-repo %}
 2. No nome do repositório, use o menu suspenso "Branch", e selecione o branch para o qual você deseja criar um codespace.
 
-  ![Menu suspenso do branch](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Menu suspenso do branch](/assets/images/help/codespaces/branch-drop-down.png)
 
 3. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na aba **Codespaces** de código, clique em {% octicon "plus" aria-label="The plus icon" %} **Novo codespace**.
 
-  ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
+   ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
    Se você é integrante de uma organização e está criando um codespace em um repositório pertencente a essa organização, você poderá selecionar a opção de um tipo de máquina diferente. Na caixa de diálogo, escolha um tipo de máquina e clique em **Criar codespace**. ![Escolha do tipo da máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+{% endwebui %}
+
+{% vscode %}
+
+{% data reusables.codespaces.creating-a-codespace-in-vscode %}
+
+{% endvscode %}
+
+{% cli %}
+
+{% data reusables.cli.cli-learn-more %}
+
+To create a new codespace, use the `gh codespace create` subcommand.
+
+```shell
+gh codespace create 
+```
+
+You are prompted to choose a repository, a branch, and a machine type (if more than one is available).
+
+Alternatively, you can use flags to specify some or all of the options:
+
+```shell
+gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>machine-type</em> 
+```
+
+Replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
+
+Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your user account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
+
+For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
+
+{% endcli %}

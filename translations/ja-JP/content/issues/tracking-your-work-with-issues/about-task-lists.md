@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **ノート:** 改善されたタスクリストは現在ベータであり、変更されることがあります。
@@ -27,9 +28,9 @@ topics:
 
 タスクリストはタスクの集合で、それぞれのタスクはクリックできるチェックボックス付きの行に個別に表示されます。 タスクが完了しているか未完了かをマークするために、チェックボックスを選択あるいは選択解除できます。
 
-{% data variables.product.product_name %}上の任意のコメント内で、Markdownを使ってタスクリストを作成できます。 {% ifversion fpt %}タスクリストでIssue、Pull Request、ディスカッションを参照すると、その参照はタイトルと状態を表示するように展開されます。{% endif %}
+{% data variables.product.product_name %}上の任意のコメント内で、Markdownを使ってタスクリストを作成できます。 {% ifversion fpt or ghec %}タスクリストでIssue、Pull Request、ディスカッションを参照すると、その参照はタイトルと状態を表示するように展開されます。{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 タスクリストが先頭のコメント内にある場合、タスクリストのサマリ情報を Issue およびプルリクエストのリスト中で見ることができます。
 {% else %}
 

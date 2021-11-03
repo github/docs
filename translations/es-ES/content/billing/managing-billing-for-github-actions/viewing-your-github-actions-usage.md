@@ -1,12 +1,12 @@
 ---
 title: Visualizar el uso de tu GitHub Actions
 intro: 'Puedes ver los detalles de tu uso de minutos y almacenamiento para {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Actions

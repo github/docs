@@ -6,8 +6,9 @@ redirect_from:
 permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ Quando um integrante da sua organização cria um novo repositório na sua organ
 
 {% data reusables.branches.change-default-branch %}
 
-Se um proprietário da empresa tiver aplicado uma política para o nome do branch padrão para sua empresa, você não poderá definir um nome do branch padrão para sua organização. Em vez disso, você pode alterar o branch padrão para repositórios individuais. Para mais informações, consulte {% ifversion fpt %}"[Aplicar políticas de gerenciamento do repositório na sua empresa](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)"{% else %}"[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)"{% endif %} e "[Alterar o branch padrão](/github/administering-a-repository/changing-the-default-branch)"
+Se um proprietário da empresa tiver aplicado uma política para o nome do branch padrão para sua empresa, você não poderá definir um nome do branch padrão para sua organização. Em vez disso, você pode alterar o branch padrão para repositórios individuais. For more information, see {% ifversion fpt %}"[Enforcing repository management policies in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
 ## Definir o nome do branch-padrão
 

@@ -30,6 +30,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Solucionar erros do Jekyll
@@ -40,7 +41,7 @@ shortTitle: Solucionar erros do Jekyll
 Se o Jekyll encontrar um erro ao criar seu site do {% data variables.product.prodname_pages %} localmente ou no {% data variables.product.product_name %}, você poderá usar mensagens de erro para solucionar problemas. Para obter mais informações sobre mensagens de erro e como visualizá-las, consulte "[Sobre erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
 
 Se você recebeu uma mensagem de erro genérica, verifique os problemas comuns.
-- Você está usando plugins incompatíveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% ifversion fpt %}
+- Você está usando plugins incompatíveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% ifversion fpt or ghec %}
 - Seu repositório excedeu os limites de tamanho. Para obter mais informações, consulte "[Qual é a minha quota de disco?](/articles/what-is-my-disk-quota)"{% endif %}
 - Você alterou a configuração `source` no arquivo *_config.yml*. {% data variables.product.prodname_pages %} substitui essa configuração durante o processo de criação.
 - Um nome de arquivo na fonte de publicação contém dois pontos (`:`), o que não é permitido.
@@ -163,7 +164,7 @@ Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_con
 
 Este erro significa que seu site inclui um link simbólico que não existe na fonte de publicação do site. Para obter mais informações sobre links simbólicos, consulte "[Link simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" na Wikipédia.
 
-Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. Se o arquivo de link simbólico for necessário para criar seu site, verifique se o arquivo ou o diretório a que ele faz referência está na fonte de publicação do site. Para incluir ativos externos, considere usar {% ifversion fpt %}`submódulo do Git` ou {% endif %}um gerenciador de pacotes terceirizado como o [Bower](https://bower.io/).{% ifversion fpt %} Para obter mais informações, consulte "[Usar submódulos com o {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
+Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. Se o arquivo de link simbólico for necessário para criar seu site, verifique se o arquivo ou o diretório a que ele faz referência está na fonte de publicação do site. Para incluir ativos externos, considere usar {% ifversion fpt or ghec %}`submódulo do Git` ou {% endif %}um gerenciador de pacotes terceirizado como o [Bower](https://bower.io/).{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Usar submódulos com o {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
 
 ## Erro de sintaxe no loop 'for'
 

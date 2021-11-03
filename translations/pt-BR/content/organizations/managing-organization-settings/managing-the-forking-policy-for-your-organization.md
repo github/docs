@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a política de bifurcação da sua organização
-intro: 'Você pode permitir ou impedir a bifurcação de qualquer repositório privado{% ifversion fpt or ghes or ghae %} e interno{% endif %} pertencente à sua organização.'
+intro: 'Você pode permitir ou impedir a bifurcação de qualquer repositório privado{% ifversion fpt or ghes or ghae or ghec %} e interno{% endif %} pertencente à sua organização.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -10,15 +10,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Gerenciar política de bifurcação
 ---
 
-Por padrão, as novas organizações estão configuradas para não permitir a bifurcação de repositórios privados{% ifversion fpt or ghes or ghae %} e internos{% endif %}.
+Por padrão, as novas organizações estão configuradas para não permitir a bifurcação de repositórios privados{% ifversion fpt or ghes or ghae or ghec %} e internos{% endif %}.
 
-Se você permitir a bifurcação de repositórios privados{% ifversion fpt or ghes or ghae %} e internos{% endif %} no nível da organização você também poderá configurar a capacidade de bifurcar um repositório privado{% ifversion fpt or ghes or ghae %} ou interno{% endif %}. Para obter mais informações, consulte "[Gerenciar a política de bifurcação do seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)".
+Se você permitir a bifurcação de repositórios privados{% ifversion fpt or ghes or ghae or ghec %} e internos{% endif %} no nível da organização você também poderá configurar a capacidade de bifurcar um repositório privado{% ifversion fpt or ghes or ghae or ghec %} ou interno{% endif %}. Para obter mais informações, consulte "[Gerenciar a política de bifurcação do seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)".
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -31,4 +32,4 @@ Se você permitir a bifurcação de repositórios privados{% ifversion fpt or gh
 ## Leia mais
 
 - "[Sobre bifurcações](/articles/about-forks)"
-- "[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. すでにリポジトリを作成していて、ユーザによるリポジトリへのアクセスを禁止する場合は、リポジトリをプライベートにすることができます。 リポジトリの表示をプライベートに変更しても、他のユーザによって作成された既存のフォークまたはローカルコピーは存続します。 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. すでにリポジトリを作成していて、ユーザによるリポジトリへのアクセスを禁止する場合は、リポジトリをプライベートにすることができます。 リポジトリの表示をプライベートに変更しても、他のユーザによって作成された既存のフォークまたはローカルコピーは存続します。 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
 
 {% endnote %}
 
@@ -89,9 +90,9 @@ topics:
 
 ## 免責事項
 
-GitHub がオープンソース ライセンスへの取り組みで目指しているのは、ユーザが十分な情報に基づいて選択できるように基盤を作ることです。 GitHub は、オープンソース ライセンスとそれを使用しているプロジェクトについての情報をユーザが取得できるように、ライセンス情報を掲載しています。 その情報がお役に立つことを願っていますが、GitHub は法律の専門家ではなく、誤りがないとは言えません。 そのため、GitHub は情報を「現状有姿」で提供するものであり、GitHub で、または GitHub を通じて提供する情報またはライセンスについては何らの保証もせず、かかるライセンス情報の利用に起因する損害については責任を負いません。 コードに適したライセンスや、ライセンスに関する他の法的な問題について不明な点がある場合は、必ず専門家にご相談ください。
+GitHub がオープンソース ライセンスへの取り組みで目指しているのは、ユーザが十分な情報に基づいて選択できるように基盤を作ることです。 GitHub は、オープンソース ライセンスとそれを使用しているプロジェクトについての情報をユーザが取得できるように、ライセンス情報を掲載しています。 その情報がお役に立つことを願っていますが、GitHub は法律の専門家ではなく、誤りがないとは言えません。 For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. コードに適したライセンスや、ライセンスに関する他の法的な問題について不明な点がある場合は、必ず専門家にご相談ください。
 
 ## 参考リンク
 
-- オープンソース ガイドの「[オープンソースの法的な側面](https://opensource.guide/legal/)」セクションをお読みください。{% ifversion fpt %}
+- オープンソース ガイドの「[オープンソースの法的な側面](https://opensource.guide/legal/)」セクションをお読みください。{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

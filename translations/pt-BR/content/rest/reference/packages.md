@@ -1,9 +1,10 @@
 ---
 title: Pacotes
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+intro: 'Com a API do {% data variables.product.prodname_registry %}, você pode gerenciar pacotes para seus repositórios e organizações de {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

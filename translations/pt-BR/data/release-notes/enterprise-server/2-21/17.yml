@@ -9,7 +9,7 @@ sections:
     - A execução do `ghe-cluster-config-init` não era totalmente contabilizada pelo código de saída de trabalhos em segundo plano, o que gerou a manipulação imprópria de verificações de precursores.
   changes:
     - Os registros irão girar com base no tamanho e tempo.
-    - Use a relative number for consul and nomad `bootstrap_expect` allowing for a cluster to bootstrap even if a handful of nodes are down.
+    - Use uma quantidade relativa para o `bootstrap_expect` cônsul e nômago permitindo que um cluster seja inicializado mesmo que alguns nós estejam fora de serviço.
   known_issues:
     - Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras personalizadas de firewall não são mantidas durante uma atualização.
@@ -18,8 +18,8 @@ sections:
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
     - Os alertas de segurança não são relatados ao fazer push em um repositório na linha de comando.
     - |
-      Log rotation may fail to signal services to transition to new log files, leading to older log files continuing to be used, and eventual root disk space exhaustion.
-      To remedy and/or prevent this issue, run the following commands in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), or contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) for assistance:
+      A rotação do registro pode falhar ao sinalizar serviços para a transição para novos arquivos de registro, fazendo com que os arquivos de registro mais antigos continuem sendo usados e gerando, eventualmente, a exaustão de espaço no disco de raiz.
+      Para remediar e/ou evitar esse problema, execute os seguintes comandos no [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) ou entre em contato com o [Suporte do GitHub Enterprise](https://enterprise. ithubsupport.com/hc/en-us) para obter assistência:
 
       ```
       printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate

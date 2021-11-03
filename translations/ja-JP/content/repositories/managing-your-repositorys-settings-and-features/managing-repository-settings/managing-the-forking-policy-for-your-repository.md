@@ -1,6 +1,6 @@
 ---
 title: リポジトリのフォークポリシーを管理する
-intro: 'Organization が所有する特定のプライベート{% ifversion fpt or ghae or ghes %}または内部{% endif %}リポジトリのフォークを許可または禁止できます。'
+intro: 'Organization が所有する特定のプライベート{% ifversion fpt or ghae or ghes or ghec %}または内部{% endif %}リポジトリのフォークを許可または禁止できます。'
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: フォークポリシーの管理
 ---
 
-Organization のオーナーは、特定のリポジトリのフォークを許可または禁止する前に、Organization レベルでプライベート{% ifversion fpt or ghae or ghes %}および内部{% endif %}リポジトリのフォークを許可する必要があります。 詳細は「[Organization のフォークポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
+Organization のオーナーは、特定のリポジトリのフォークを許可または禁止する前に、Organization レベルでプライベート{% ifversion fpt or ghae or ghes or ghec %}および内部{% endif %}リポジトリのフォークを許可する必要があります。 詳細は「[Organization のフォークポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」を参照してください。
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -27,4 +28,4 @@ Organization のオーナーは、特定のリポジトリのフォークを許�
 ## 参考リンク
 
 - [フォークについて](/articles/about-forks)
-- [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

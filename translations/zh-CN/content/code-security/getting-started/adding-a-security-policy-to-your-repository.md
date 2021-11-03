@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Security policies
@@ -20,7 +21,7 @@ shortTitle: 添加安全策略
 
 ## 关于安全政策
 
-要向人说明如何报告项目中的安全漏洞，{% ifversion fpt or ghes > 3.0 %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
+要向人说明如何报告项目中的安全漏洞，{% ifversion fpt or ghes > 3.0 or ghec %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
@@ -33,7 +34,7 @@ shortTitle: 添加安全策略
 
 {% endtip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 当有人报告您的项目中的安全漏洞后，您可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 有关 {% data variables.product.prodname_dotcom %} 中报告和披露漏洞的过程的更多信息，请参阅“[关于协调披露安全漏洞](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)”。 有关 {% data variables.product.prodname_security_advisories %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
 {% data reusables.repositories.github-security-lab %}
@@ -58,5 +59,5 @@ shortTitle: 添加安全策略
 ## 延伸阅读
 
 - "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt %}
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

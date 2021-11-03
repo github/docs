@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-github-hosted-runners
   - /customizing-github-hosted-runners
@@ -20,3 +21,4 @@ shortTitle: Utilizar los ejecutores hospedados en GitHub
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}

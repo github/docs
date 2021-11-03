@@ -1,21 +1,22 @@
 ---
 title: About monitoring and troubleshooting
 intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor and debug your workflows.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: About monitoring and troubleshooting
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Monitoring your workflows
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### 使用可视化图表
 
@@ -33,7 +34,7 @@ For more information, see "[Using the visualization graph](/actions/monitoring-a
 
 更多信息请参阅“[添加工作流程状态徽章](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 查看作业执行时间
 
 To identify how long a job took to run, you can view its execution time. 例如：

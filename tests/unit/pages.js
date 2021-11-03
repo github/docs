@@ -75,7 +75,9 @@ describe('pages module', () => {
 
       const message = `Found ${duplicates.length} duplicate redirect_from ${
         duplicates.length === 1 ? 'path' : 'paths'
-      }.\n
+      }. 
+      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files. 
+      You may also receive this error if you have defined the same children property more than once.\n
   ${duplicates.join('\n')}`
       expect(duplicates.length, message).toBe(0)
     })

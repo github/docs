@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -83,7 +84,7 @@ end
 
 服务器就位后，我们就可以开始实现第一个要求，即设置（和更新）CI 状态。 请注意，无论何时更新服务器，都可以单击 **Redeliver（重新交付）**以发送相同的有效负载。 不需要每次进行更改时都发出新的拉取请求！
 
-由于我们在与 {% data variables.product.product_name %} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb] 来管理我们的交互。 我们将配置该客户端：
+由于我们在与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb] 来管理我们的交互。 我们将配置该客户端：
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!

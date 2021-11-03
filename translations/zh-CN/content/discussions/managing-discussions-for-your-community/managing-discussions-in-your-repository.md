@@ -4,6 +4,7 @@ intro: 您可以对仓库中的讨论进行分类、聚焦、转让或删除。
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 管理讨论
 ---
 
@@ -16,7 +17,7 @@ shortTitle: 管理讨论
 
 作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 为协作者制定行为守则或参与指南将有助于促进协作和富有成效的论坛。 有关创建社区资源的更多信息，请参阅“[为项目中添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
 
-When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)”。
+当讨论产生可以解决的想法或漏洞时，您可以从讨论创建新议题。 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)”。
 
 有关引导健康的讨论的更多信息，请参阅“[调解评论和对话](/communities/moderating-comments-and-conversations)”。
 
@@ -24,7 +25,7 @@ When a discussion yields an idea or bug that is ready to be worked on, you can c
 
 ## 基本要求
 
-To manage discussions in a repository, {% data variables.product.prodname_discussions %} must be enabled for the repository. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)."
+要管理仓库中的讨论，必须为仓库启用 {% data variables.product.prodname_discussions %}。 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
 ## 更改讨论类别
 
@@ -56,7 +57,7 @@ To manage discussions in a repository, {% data variables.product.prodname_discus
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. 在右侧侧边栏中，单击 {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion（编辑固定的讨论）**。 !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+1. 在右侧侧边栏中，单击 {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion（编辑固定的讨论）**。 ![讨论右侧边栏中的"编辑固定的讨论"](/assets/images/help/discussions/click-edit-pinned-discussion.png)
 1. 自定义固定的讨论的外观。 ![固定讨论的自定义选项](/assets/images/help/discussions/customize-pinned-discussion.png)
 1. 单击 **Pin discussion（固定讨论）**。 ![固定的讨论自定义选项下的"固定讨论"按钮](/assets/images/help/discussions/click-pin-discussion-button.png)
 
