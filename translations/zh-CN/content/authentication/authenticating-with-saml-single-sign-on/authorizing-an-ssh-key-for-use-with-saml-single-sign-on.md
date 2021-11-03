@@ -8,6 +8,7 @@ redirect_from:
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: 使用 SAML 的 SSH 密钥

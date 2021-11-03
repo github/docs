@@ -7,6 +7,7 @@ shortTitle: Usar executores hospedados no AE
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 ## Usar {% data variables.actions.hosted_runner %}s em um fluxo de trabalho
 

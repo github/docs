@@ -1,9 +1,10 @@
 ---
 title: Enterprise のアイデンティティおよびアクセス管理について
 shortTitle: アイデンティティとアクセス管理について
-intro: '{% ifversion ghes %}{% data variables.product.prodname_ghe_server %} のビルトイン認証を使用するか、CAS、LDAP、または SAML{% else %}SAML シングルサインオン (SSO) と System for Cross-domain Identity Management (SCIM){% endif %} のいずれかを選択して、{% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghes or ghae %} から {% data variables.product.product_location %} で Enterprise が所有する Organization へのアクセスを一元管理できます{% endif %}。'
+intro: 'You can use SAML single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% ifversion ghae %}to {% data variables.product.product_location %}{% endif %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
+  ghec: '*'
   ghae: '*'
 type: overview
 topics:
@@ -14,11 +15,43 @@ topics:
   - Identity
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
+  - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/about-identity-and-access-management-for-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 ---
 
 ## Enterprise のアイデンティティおよびアクセス管理について
 
-{% ifversion ghae %}
+{% ifversion ghec %}
+
+{% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+
+SAML SSO を有効にした後、使用する IdP によっては、追加のアイデンティおよびアクセス管理機能を有効にできる場合があります。 {% data reusables.scim.enterprise-account-scim %}
+
+IdP として Azure AD を使用している場合は、Team 同期を使用して、各 Organization 内の Team メンバーシップを管理できます。 {% data reusables.identity-and-permissions.about-team-sync %} 詳しい情報については、「[Enterprise アカウントで Organization の Team 同期を管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)」を参照してください。
+
+{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+
+## {% data variables.product.prodname_emus %}について
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
+
+Configuring {% data variables.product.prodname_emus %} for SAML single-sign on and user provisioning involves following a different process than you would for an enterprise that isn't using {% data variables.product.prodname_managed_users %}. If your enterprise uses {% data variables.product.prodname_emus %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+
+## サポートされている IdP
+
+以下の IdP はテスト済みで公式にサポートされています。 SAML SSO の場合、SAML 2.0 標準を実装するすべてのアイデンティティプロバイダに対して限定的なサポートが提供されています。 詳しい情報については、OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security) を参照してください。
+
+| IdP                                   |                              SAML                              |                           Team の同期                            |
+| ------------------------------------- |:--------------------------------------------------------------:|:-------------------------------------------------------------:|
+| Active Directory フェデレーションサービス (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} |                                                               |
+| Azure Active Directory (Azure AD)     | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
+| OneLogin                              | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
+| PingOne                               | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
+| Shibboleth                            | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
+
+{% elsif ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
@@ -33,5 +66,5 @@ IdP で {% data variables.product.product_name %} のアプリケーションを
 ## 参考リンク
 
 - OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security)
-- IETF Web サイトの [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644)
-- [Enterprise へのネットワークトラフィックを制限する](/admin/configuration/restricting-network-traffic-to-your-enterprise)
+- [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website{% ifversion ghae %}
+- [Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise){% endif %}

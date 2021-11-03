@@ -1,12 +1,13 @@
 ---
 title: REST API 中的资源
-intro: '了解如何导航 {% data variables.product.prodname_dotcom %} API 提供的资源。'
+intro: '了解如何导航 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 提供的资源。'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -20,15 +21,15 @@ topics:
 
     Accept: application/vnd.github.v3+json
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-有关 GitHub GraphQL API 的信息，请参阅 [v4 文档](/graphql)。 有关迁移到 GraphQL 的信息，请参阅“[从 REST 迁移](/graphql/guides/migrating-from-rest-to-graphql)”。
+有关 GitHub GraphQL API 的信息，请参阅 [v4 文档]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql)。 有关迁移到 GraphQL 的信息，请参阅“[从 REST 迁移]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/migrating-from-rest-to-graphql)”。
 
 {% endif %}
 
 ## 架构
 
-{% ifversion fpt %}所有 API 访问都通过 HTTPS 进行，{% else %}API {% endif %}可以从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
+{% ifversion fpt or ghec %}所有 API 访问都通过 HTTPS 进行，{% else %}API {% endif %}可以从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
 作为 JSON 发送和接收。
 
 ```shell
@@ -52,7 +53,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 空白字段作为 `null` 包含在其中，而不是被忽略。
 
-所有时间戳以 ISO 8601 格式返回：
+所有时间戳以 ISO 8601 格式返回 UTC 时间：
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -100,7 +101,7 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  请注意，OAuth2 令牌可使用生产应用程序的 [web 应用程序流](/developers/apps/authorizing-oauth-apps#web-application-flow)来获取。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### OAuth2 键/密钥
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -111,10 +112,12 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 使用 `client_id` 和 `client_secret`_不会_验证为用户，只会识别您的 OAuth 应用程序以提高速率限制。 权限仅授予用户，而不授予应用程序，因此只会返回未经验证用户可以看到的数据。 因此，您应该仅在服务器到服务器的场景中使用 OAuth2 键/密钥。 不要将 OAuth 应用程序的客户端密钥泄露给用户。
 
-在私有模式下无法使用 OAuth2 键和密钥进行身份验证，尝试验证时会返回 `401 Unauthorized`。 更多信息请参阅“[启用私有模式](/enterprise/admin/installation/enabling-private-mode)”。
+{% ifversion ghes %}
+在私有模式下无法使用 OAuth2 键和密钥进行身份验证，尝试验证时会返回 `401 Unauthorized`。 更多信息请参阅“[启用私有模式](/admin/configuration/configuring-your-enterprise/enabling-private-mode)”。
+{% endif %}
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 阅读[有关未经验证速率限制的更多信息](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)。
 
@@ -137,7 +140,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 在短时间内检测到多个使用无效凭据的请求后，API 将暂时拒绝该用户的所有身份验证尝试（包括使用有效凭据的尝试），并返回 `403 Forbidden`：
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae %}
+$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% ifversion ghes %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/2 403
 > {
@@ -167,13 +170,13 @@ $ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.prod
 您可以向根端点发出 `GET` 请求，以获取 REST API 支持的所有端点类别：
 
 ```shell
-$ curl {% ifversion fpt or ghae %}
+$ curl {% ifversion fpt or ghae or ghec %}
 -u <em>username</em>:<em>token</em> {% endif %}{% ifversion ghes %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 ## GraphQL 全局节点 ID
 
-请参阅“[使用全局节点 ID](/graphql/guides/using-global-node-ids)”指南，详细了解如何通过 REST API 查找 `node_id` 以及如何在 GraphQL 操作中使用它们。
+请参阅“[使用全局节点 ID]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)”指南，详细了解如何通过 REST API 查找 `node_id` 以及如何在 GraphQL 操作中使用它们。
 
 ## 客户端错误
 
@@ -248,7 +251,7 @@ API v3 尽可能对每个操作使用适当的 HTTP 请求方法。
 
 ## 超媒体
 
-所有资源都可以具有一个或多个链接到其他资源的 `*_url` 属性。  这些属性旨在提供明确的 URL，使适当的 API 客户端不需要自己构建 URL。  强烈建议 API 客户端使用这些属性。  这样做有助于开发者未来更容易升级 API。  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
+所有资源都可以具有一个或多个链接到其他资源的 `*_url` 属性。  这些属性旨在提供明确的 URL，使适当的 API 客户端不需要自己构建 URL。  强烈建议 API 客户端使用这些属性。  这样做有助于开发者未来更容易升级 API。  所有 URI 都应成为适当的 [RFC 6570][rfc] URI 模板。
 
 然后，您可以使用 [uri_template][uri] gem 等命令扩展这些模板：
 
@@ -284,7 +287,7 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-The [Link header](https://datatracker.ietf.org/doc/html/rfc5988) includes pagination information. 例如：
+[链接标头](https://datatracker.ietf.org/doc/html/rfc5988)包括分页信息： 例如：
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
@@ -295,7 +298,7 @@ _该示例包括换行符，以提高可读性。_
 
     Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](https://datatracker.ietf.org/doc/html/rfc6570).
+此 `Link` 响应标头包含一个或多个[超媒体](/rest#hypermedia)链接关系，其中一些可能需要扩展为 [URI 模板](https://datatracker.ietf.org/doc/html/rfc6570)。
 
 可能的 `rel` 值为：
 
@@ -310,7 +313,7 @@ This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) 
 
 对于使用基本验证或 OAuth 的 API 请求，每小时最多可发出 5,000 个请求。 无论是使用[基本验证](#basic-authentication)还是 [OAuth 令牌](#oauth2-token-sent-in-a-header)，经验证的请求都与经验证的用户相关联。 这意味着在使用同一用户拥有的不同令牌进行验证时，该用户授权的所有 OAuth 应用程序将共享同一配额——每小时 5,000 个请求。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的用户，使用 OAuth 令牌对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源发出的请求上限已提升至每小时 15,000 点。
 
@@ -388,11 +391,11 @@ $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}
 
 如果使用基本验证或 OAuth 时超出了速率限制，您可以通过缓存 API 响应和使用[条件请求](#conditional-requests)来解决此问题。
 
-### Secondary rate limits
+### 二级费率限制
 
-为了在 {% data variables.product.product_name %} 上提供优质的服务，使用 API 时，某些操作可能会受到额外的速率限制。 For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
+为了在 {% data variables.product.product_name %} 上提供优质的服务，使用 API 时，某些操作可能会受到额外的速率限制。 例如，使用 API 快速创建内容、主动轮询而不是使用 web 挂钩、发出多个并发请求或重复请求计算成本高昂的数据，可能会导致二级费率限制。
 
-Secondary rate limits are not intended to interfere with legitimate use of the API. 您的正常速率限制应该是您目标的唯一限制。 为确保您成为 API 的好公民，请查看我们的[最佳实践指南](/guides/best-practices-for-integrators/)。
+二级费率限制无意干扰 API 的合法使用。 您的正常速率限制应该是您目标的唯一限制。 为确保您成为 API 的好公民，请查看我们的[最佳实践指南](/guides/best-practices-for-integrators/)。
 
 如果您的应用程序触发此速率限制，您将收到信息响应：
 
@@ -407,7 +410,7 @@ Secondary rate limits are not intended to interfere with legitimate use of the A
 > }
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 必需用户代理
 
@@ -438,7 +441,7 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 大多数响应返回 `ETag` 标头。 许多响应还会返回 `Last-Modified` 标头。 您可以根据这些标头的值，分别使用 `If-None-Match` 和 `If-Modified-Since` 标头对这些资源发出后续请求。 如果资源没有更改，服务器将返回 `304 Not Modified`。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -581,12 +584,14 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 
 ## 时区
 
-某些创建新数据的请求（例如创建新的提交）允许您在指定或生成时间戳时提供时区信息。 我们按照优先顺序应用以下规则来确定 API 调用的时区信息。
+某些创建新数据的请求（例如创建新的提交）允许您在指定或生成时间戳时提供时区信息。 我们按照优先顺序应用以下规则来确定这些 API 调用的时区信息。
 
 * [明确提供带有时区信息的 ISO 8601 时间戳](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [使用 `Time-Zone` 标头](#using-the-time-zone-header)
 * [使用用户的最后一个已知时区](#using-the-last-known-timezone-for-the-user)
 * [在没有其他时区信息的情况下默认使用 UTC](#defaulting-to-utc-without-other-timezone-information)
+
+请注意，这些规则仅适用于传递给 API 的数据，而不适用于 API 返回的数据。 如“[架构](#schema)”中所述，API 返回的时间戳为 UTC 时间、ISO 8601 格式。
 
 ### 明确提供带有时区信息的 ISO 8601 时间戳
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -16,7 +17,7 @@ topics:
 
 各プルリクエストに対して、{% data variables.product.product_name %} は 3 種類のコメント表示を提供しています。プルリクエスト全体に対する[プルリクエストのコメント][PR comment]、プルリクエスト内の[特定行のコメント][PR line comment]、そしてプルリクエスト内の[特定のコメントへのコメント][commit comment]です。
 
-コメントの各タイプは、{% data variables.product.product_name %} API の別々の部分を経由します。 このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
+Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
 
 ## プルリクエストのコメント
 

@@ -53,6 +53,7 @@
     - Scripts
   versions:
     fpt: '*'
+    ghec: '*'
 - 
   #Dependabot configuration only relevant to GitHub.com
   #Convert "languages" to "package-ecosystems" for Dependabot configurations
@@ -71,6 +72,7 @@
     - Configuration
   versions:
     fpt: '*'
+    ghec: '*'
 - 
   title: Solicitud de cambios de actualización de versión del Dependabot
   description: Ejemplo de solicitud de cambios que genera la configuración de actualizaciones de versión del Dependabot en el repositorio de Super linter.
@@ -82,3 +84,4 @@
     - Solicitudes de cambios
   versions:
     fpt: '*'
+    ghec: '*'

@@ -30,12 +30,13 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
-Windows Server 2016
+Windows Server 2016<sup>[deprecated]</sup>
 </td>
 <td>
 <code>windows-2016</code>
 </td>
 <td>
+Migrate to Windows 2019 or Windows 2022. Para obtener más información, consulta <A href="https://github.blog/changelog/2021-10-19-github-actions-the-windows-2016-runner-image-will-be-removed-from-github-hosted-runners-on-march-15-2022/">la publicación del blog</A>.
 </td>
 </tr>
 <tr>
@@ -84,6 +85,6 @@ macOS Catalina 10.15
 
 {% warning %}
 
-<b>Nota:</b> Las imágenes beta se proporcionan "tal cual", "con todas las fallas" y "tal como están disponibles" y se excluyen del acuerdo de nivel de servicio y de la garantía. El soporte al cliente podría no cubrir las imágenes beta.
+<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. El soporte al cliente podría no cubrir las imágenes beta.
 
 {% endwarning %}

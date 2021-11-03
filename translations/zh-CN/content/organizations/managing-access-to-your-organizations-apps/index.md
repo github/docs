@@ -1,6 +1,6 @@
 ---
 title: 管理对组织应用程序的访问
-intro: 'As an organization owner, you can allow individual organization members to manage {% data variables.product.prodname_github_apps %} in your organization.'
+intro: '作为组织所有者，您可以允许个别组织成员管理组织中的 {% data variables.product.prodname_github_apps %}。'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-apps
   - /articles/managing-access-to-your-organizations-apps
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

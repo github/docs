@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
@@ -20,10 +21,10 @@ Cuando creas una organización nueva desde cero, esta no tiene ningún repositor
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. Sigue las propuestas para crear tu organización. {% ifversion fpt %}Para obtener más información sobre los planes disponibles para tu equipo, consulta los productos de "[{% data variables.product.prodname_dotcom %}](/articles/githubs-products)."{% endif %}
+4. Sigue las propuestas para crear tu organización. {% ifversion fpt or ghec %}Para obtener más información sobre los planes disponibles para tu equipo, consulta los productos de "[{% data variables.product.prodname_dotcom %}](/articles/githubs-products)."{% endif %}
 
 ## Leer más
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Establecer tu correo electrónico de facturación](/articles/setting-your-billing-email)"{% endif %}
 - "[Acerca de las organizaciones](/articles/about-organizations)"

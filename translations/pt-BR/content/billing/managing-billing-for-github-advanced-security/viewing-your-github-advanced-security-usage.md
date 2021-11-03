@@ -12,6 +12,7 @@ redirect_from:
 versions:
   ghes: '>=3.1'
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -27,7 +28,7 @@ shortTitle: Visualizar o uso avançado de segurança
 
 Você pode verificar quantas estações a sua licença inclui e quantas delas são usadas atualmente.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -5,6 +5,7 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -14,7 +15,7 @@ topics:
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-如果您没有企业帐户，请使用 {% data variables.contact.enterprise_portal %} 提交工单。 有关企业帐户的更多信息，请参阅“[关于企业帐户](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)”。
+如果您没有企业帐户，请使用 {% data variables.contact.enterprise_portal %} 提交工单。 有关企业帐户的更多信息，请参阅“[关于企业帐户](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)”。
 
 ## 使用 {% data variables.contact.support_portal %}提交事件单
 
@@ -30,6 +31,8 @@ topics:
 7. 单击 **Send request（发送请求）**。 ![发送请求按钮](/assets/images/help/support/send-request-button.png)
 
 ## 使用 {% data variables.contact.enterprise_portal %} 提交事件单
+
+{% data reusables.support.zendesk-deprecation %}
 
 1. 导航到 {% data variables.contact.contact_enterprise_portal %}。
 5. 单击 **Submit a Ticket（提交事件单）** ![将事件单提交至 Enterprise 支持团队](/assets/images/enterprise/support/submit-ticket-button.png)

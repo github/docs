@@ -5,6 +5,7 @@ intro: 'Inicia con tu proyecto de JavaScript, Node.js o TypeScript en {% data va
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
 type: tutorial

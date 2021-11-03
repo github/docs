@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
 
 Events APIは、GitHub上のアクティビティによってトリガーされる様々な種類のイベントを返します。 各イベントのレスポンスは共有プロパティを含むとともに、イベントの種類によって決まる固有の`payload`オブジェクトを持ちます。 [イベントオブジェクトの共通プロパティ](#event-object-common-properties)は、すべてのイベントが共有するプロパティを示すものであり、各イベントの種類にはそのイベントに固有の`payload`プロパティが示されています。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -164,7 +165,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -191,11 +192,11 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 ### イベントの`payload`オブジェクト
 
-| キー             | 種類       | 説明                                       |
-| -------------- | -------- | ---------------------------------------- |
-| `action`       | `string` | 実行されたアクション. `created `になりうる。             |
-| `pull_request` | `オブジェクト` | The pull request the review pertains to. |
-| `レビュー`         | `オブジェクト` | 影響されるレビュー。                               |
+| キー             | 種類       | 説明                           |
+| -------------- | -------- | ---------------------------- |
+| `action`       | `string` | 実行されたアクション. `created `になりうる。 |
+| `pull_request` | `オブジェクト` | レビューが関連するプルリクエスト。            |
+| `レビュー`         | `オブジェクト` | 影響されるレビュー。                   |
 
 ## PullRequestReviewCommentEvent
 
@@ -244,7 +245,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}

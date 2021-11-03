@@ -5,6 +5,7 @@ intro: 'Iniciar con tu proyecto de Python en {% data variables.product.prodname_
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
 type: tutorial

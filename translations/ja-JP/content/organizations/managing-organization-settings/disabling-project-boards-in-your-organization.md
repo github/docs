@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: プロジェクトボードの無効化
@@ -18,7 +19,7 @@ Organization 全体でプロジェクトボードを無効化すると、Organiz
 
 Organization 内にあるリポジトリのプロジェクトボードを無効化すると、Organization 内のどのリポジトリでもプロジェクトボードを新たに作成できなくなり、既存の Organization 内にあるリポジトリのプロジェクトボードはそれまでの URL でアクセスできなくなります。 Organization レベルのプロジェクトボードは影響を受けません。
 
-プロジェクトボードを無効化すると、タイムラインや[監査ログ](/articles/reviewing-the-audit-log-for-your-organization/)でプロジェクトボード情報を見ることができなくなります。
+プロジェクトボードを無効化すると、タイムラインや[監査ログ](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)でプロジェクトボード情報を見ることができなくなります。
 
 
 {% data reusables.profile.access_org %}

@@ -6,12 +6,13 @@ redirect_from:
   - /github/customizing-your-github-workflow/installing-an-app-in-your-personal-account
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Install app user account
 ---
 
 {% data reusables.marketplace.marketplace-apps-only %}
 
-有料プランを使用している場合は、Organization のこれまでの支払い方法を使って、現在の請求日にアプリケーション プランの料金を支払います。
+有料プランを使用している場合は、個人アカウントのこれまでの支払い方法を使って、現在の請求日にアプリケーション プランの料金を支払います。
 
 {% data reusables.marketplace.free-trials %}
 

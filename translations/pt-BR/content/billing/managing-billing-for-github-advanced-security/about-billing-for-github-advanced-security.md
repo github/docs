@@ -1,6 +1,6 @@
 ---
 title: Sobre a cobrança para o GitHub Advanced Security
-intro: 'Caso você queira usar {% data variables.product.prodname_GH_advanced_security %} funcionalidades{% ifversion fpt %} em um repositório privado ou interno{% endif %}, você precisará de uma licença.{% ifversion fpt %} Essas funcionalidades estão disponíveis gratuitamente para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+intro: 'Caso você queira usar {% data variables.product.prodname_GH_advanced_security %} funcionalidades{% ifversion fpt or ghec %} em um repositório privado ou interno{% endif %}, você precisará de uma licença.{% ifversion fpt or ghec %} Essas funcionalidades estão disponíveis gratuitamente para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -20,7 +21,7 @@ shortTitle: Cobrança da segurança avançada
 
 ## Sobre a cobrança do {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Se quiser usar funcionalidades de {% data variables.product.prodname_GH_advanced_security %} em qualquer repositório, além de um repositório público em {% data variables.product.prodname_dotcom_the_website %}, você precisará de uma licença. Para obter mais informações sobre {% data variables.product.prodname_GH_advanced_security %}, consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
@@ -30,7 +31,7 @@ Você pode disponibilizar funcionalidades adicionais para segurança de código,
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.advanced-security.license-overview %}
 
@@ -42,15 +43,15 @@ Para discutir licenciamento de {% data variables.product.prodname_GH_advanced_se
 
 {% data reusables.advanced-security.about-committer-numbers-ghec-ghes %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.advanced-security.managing-license-usage-ghec-ghes %}
 
 {% endif %}
 
-É possível aplicar políticas que permitam ou não o uso de {% data variables.product.prodname_advanced_security %} por parte de organizações pertencentes à conta corporativa. Para obter mais informações, consulte "{% ifversion ghes %}[Aplicando políticas para {% data variables.product.prodname_advanced_security %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% elsif fpt or ghae %}[Aplicando políticas para {% data variables.product.prodname_advanced_security %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account){% endif %}."
+É possível aplicar políticas que permitam ou não o uso de {% data variables.product.prodname_advanced_security %} por parte de organizações pertencentes à conta corporativa. Para obter mais informações, consulte "[Aplicando políticas para {% data variables.product.prodname_advanced_security %} na suaempresa]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}{% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Para obter mais informações sobre a visualização do uso da licença, consulte "[Visualizar o seu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 
