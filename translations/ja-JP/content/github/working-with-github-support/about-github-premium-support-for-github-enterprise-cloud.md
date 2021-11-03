@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub Premium Support
@@ -19,7 +20,7 @@ shortTitle: GitHub Premium Support
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- この記事に記載されているのは、{% data variables.product.prodname_ghe_cloud %} のお客様向け {% data variables.contact.premium_support %} 規約です。 {% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_ghe_cloud %} を一緒に購入された {% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_enterprise %} のお客様に対する規約は異なる場合があります。 詳細は「[{% data variables.product.prodname_ghe_server %} の {% data variables.contact.premium_support %} について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」および「[{% data variables.product.prodname_enterprise %} の {% data variables.contact.premium_support %} について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)」を参照してください。
+- この記事に記載されているのは、{% data variables.product.prodname_ghe_cloud %} のお客様向け {% data variables.contact.premium_support %} 規約です。 {% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_ghe_cloud %} を一緒に購入された {% data variables.product.prodname_ghe_server %} または {% data variables.product.prodname_enterprise %} のお客様に対する規約は異なる場合があります。 詳細は「[{% data variables.product.prodname_ghe_server %} の {% data variables.contact.premium_support %} について](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」および「[{% data variables.product.prodname_enterprise %} の {% data variables.contact.premium_support %} について](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)」を参照してください。
 
 {% endnote %}
 

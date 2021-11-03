@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -20,7 +21,7 @@ topics:
 
 {% note %}
 
-**注：**如果您在 {% data variables.product.product_name %} 的公共仓库中发布源代码，{% ifversion fpt %}根据[服务条款](/articles/github-terms-of-service)，{% endif %}其他 {% data variables.product.product_location %} 用户有权利查看您的仓库并对其复刻。 如果您已创建仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将仓库的可见性变为私有时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
+**注：**如果您在 {% data variables.product.product_name %} 的公共仓库中发布源代码，{% ifversion fpt or ghec %}根据[服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)，{% endif %}其他 {% data variables.product.product_location %} 用户有权利查看您的仓库并对其复刻。 如果您已创建仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将仓库的可见性变为私有时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
 
 {% endnote %}
 
@@ -89,9 +90,9 @@ topics:
 
 ## 免责声明
 
-GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决定。 GitHub 显示许可信息以帮助用户了解开源许可以及使用它们的项目。 我们希望它有帮助，但请记住，我们不是律师，像其他人一样，我们也会犯错。 因此，GitHub“按原样”提供信息，对提供或通过其提供的任何信息或许可不做任何保证，并对使用许可信息所造成的损害不承担责任。 如果对适合您的代码的许可有任何疑问，或有任何其他相关的问题，最好咨询专业人员。
+GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决定。 GitHub 显示许可信息以帮助用户了解开源许可以及使用它们的项目。 我们希望它有帮助，但请记住，我们不是律师，像其他人一样，我们也会犯错。 For that reason, GitHub provides the information on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the license information. 如果对适合您的代码的许可有任何疑问，或有任何其他相关的问题，最好咨询专业人员。
 
 ## 延伸阅读
 
-- 开源指南的“[开源的法律方面](https://opensource.guide/legal/)”部分{% ifversion fpt %}
+- 开源指南的“[开源的法律方面](https://opensource.guide/legal/)”部分{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

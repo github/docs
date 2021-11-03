@@ -1,1 +1,0 @@
-Weitere Informationen zu Commit-E-Mail-Adressen{% ifversion fpt %}, einschließlich Deiner von {% data variables.product.product_name %} bereitgestellten `no-reply` E-Mail-Adresse,{% endif %} findest Du unter „[Festlegen Deiner Commit-E-Mail-Adresse](/articles/setting-your-commit-email-address)."

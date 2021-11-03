@@ -2,7 +2,6 @@
 title: Usando modelos de fluxo de trabalho
 shortTitle: Usando modelos
 intro: '{% data variables.product.product_name %} fornece modelos de fluxo de trabalho para uma série de linguagens e ferramentas.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
   - /github/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions
@@ -13,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -22,6 +22,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre os modelos do fluxo de trabalho
 
@@ -49,6 +50,6 @@ Qualquer pessoa com a permissão de gravação em um repositório pode configura
 - "[Gerenciando execuções de fluxo de trabalho](/actions/managing-workflow-runs)"
 - "[Sobre o monitoramento e solução de problemas](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 - "[Aprenda {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

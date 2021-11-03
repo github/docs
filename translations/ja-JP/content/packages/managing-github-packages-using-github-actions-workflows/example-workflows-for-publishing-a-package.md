@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: ワークフローの例
 ---
 

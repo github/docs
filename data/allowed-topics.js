@@ -43,6 +43,7 @@ export default [
   'Codespaces',
   'Collaboration',
   'Community',
+  'Copilot',
   'Contacting sponsors',
   'Containers',
   'CVEs',

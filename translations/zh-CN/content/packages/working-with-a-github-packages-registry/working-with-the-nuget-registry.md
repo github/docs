@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: NuGet 注册表
 ---
 
@@ -30,7 +31,7 @@ shortTitle: NuGet 注册表
 在 {% data variables.product.prodname_actions %} 工作流程中通过以下命令使用 `GITHUB_TOKEN` 向 {% data variables.product.prodname_registry %} 验证，而不是对仓库的 nuget.config 文件中的令牌进行硬编码。
 
 ```shell
-dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
@@ -55,7 +56,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 <configuration>
     <packageSources>
         <clear />
-        <add key="github" value="https://{% ifversion fpt %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
+        <add key="github" value="https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
     </packageSources>
     <packageSourceCredentials>
         <github>
@@ -89,12 +90,11 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ## 发布包
 
-您可以通过使用 *nuget.config* 文件进行身份验证{% ifversion fpt or ghes > 2.22 or ghae %}或使用包含 {% data variables.product.prodname_dotcom %} 个人访问令牌 (PAT) 的 `--api-key` 命令行选项，向 {% data variables.product.prodname_registry %} 发布包{% endif %}。
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT).
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ### 使用 GitHub PAT 作为 API 密钥发布包
 
-如果您还没有用于 {% data variables.product.prodname_dotcom %} 帐户的 PAT，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+如果您还没有用于 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上帐户的 PAT，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 1. 创建一个新项目。
   ```shell
@@ -112,7 +112,6 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 {% data reusables.package_registry.viewing-packages %}
 
-{% endif %}
 
 ### 使用 *nuget.config* 文件发布包
 
@@ -139,7 +138,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
       <Authors>Octocat</Authors>
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
 
   </Project>
@@ -173,7 +172,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
     <Authors>Octodog</Authors>
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octodog!</PackageDescription>
-    <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
@@ -190,7 +189,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
     <Authors>Octocat</Authors>
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octocat!</PackageDescription>
-    <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
@@ -214,7 +213,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
       <Authors>Octocat</Authors>
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -235,4 +234,4 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ## 延伸阅读
 
-- "{% ifversion fpt or ghes > 3.0 %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 可視性の変更

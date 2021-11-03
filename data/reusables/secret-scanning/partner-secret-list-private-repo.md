@@ -127,6 +127,8 @@ Lob | Lob Live API Key | lob_live_api_key{% endif %}
 Lob | Lob Test API Key | lob_test_api_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}

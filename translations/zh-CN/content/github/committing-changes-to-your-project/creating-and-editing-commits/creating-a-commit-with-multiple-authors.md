@@ -8,14 +8,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 有多个作者
 ---
 
 ## 必需的合作作者信息
 
-向提交添加合作作者之前，您必须知道用于每个合作作者的适当电子邮件地址。 对于计为贡献的合作作者提交，必须使用与其 {% data variables.product.product_name %} 帐户相关联的电子邮件地址。
+向提交添加合作作者之前，您必须知道用于每个合作作者的适当电子邮件地址。 为使合作作者的提交计为贡献，您必须使用与他们在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户相关联的电子邮件。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 如果有人选择对其电子邮件地址保密，则应使用其 {% data variables.product.product_name %}-提供的 `no-reply` 电子邮件地址以保护其隐私。 否则，合作作者的电子邮件地址将在提交消息中公开。 如果要保密您的电子邮件地址，您可以选择使用 {% data variables.product.product_name %}-为 Git 操作提供的 `no-reply` 电子邮件地址，并要求其他合作作者在提交尾行中列出您的 `no-reply` 电子邮件地址。
 

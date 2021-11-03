@@ -10,8 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Projects
+  - Project management
+type: how_to
 ---
 
 {% data reusables.projects.project_boards_old %}
@@ -87,7 +92,7 @@ topics:
 ## 延伸阅读
 
 - "[关于项目板](/articles/about-project-boards)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt %}
+- "[编辑项目板](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[关闭项目板](/articles/closing-a-project-board)"
 - “[关于项目板的自动化](/articles/about-automation-for-project-boards)”
