@@ -1,6 +1,6 @@
 ---
 title: Enforcing policies for Advanced Security in your enterprise
-intro: "You can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features within your enterprise's organizations, or allow policies to be set in each organization."
+intro: 'You can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_GH_advanced_security %} in an enterprise.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:

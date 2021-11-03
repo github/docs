@@ -47,18 +47,11 @@ You can search the build logs for a particular step. When you search logs, only 
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Search box to search logs](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
-{% else %}
-1. To expand each step you want to include in your search, click the step.
-  ![Step name](/assets/images/help/repository/failed-check-step.png)
-1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
-  ![Search box to search logs](/assets/images/help/repository/search-log-box.png)
 {% endif %}
 
 ## Downloading logs
@@ -70,17 +63,12 @@ You can download the log files from your workflow run. You can also download a w
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 1. In the upper right corner, click {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
   {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated.png)
   {% endif %}
-{% else %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
-  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down.png)
-{% endif %}
 
 ## Deleting logs
 
@@ -90,7 +78,6 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
     {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
@@ -104,13 +91,6 @@ You can delete the log files from your workflow run. {% data reusables.repositor
   ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
   {% endif %}
 After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
-{% else %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
-  ![Delete all logs](/assets/images/help/repository/delete-all-logs.png)
-After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
-{% endif %}
 
 ## Viewing logs with {% data variables.product.prodname_cli %}
 

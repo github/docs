@@ -1,7 +1,7 @@
 ---
 title: Configuring SCIM provisioning for Enterprise Managed Users with Okta
 shortTitle: Set up provisioning with Okta
-intro: 'You can provision new users and manage their membership of your enterprise and teams using Okta as your identity provider.'
+intro: You can provision new users and manage their membership of your enterprise and teams using Okta as your identity provider.
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'

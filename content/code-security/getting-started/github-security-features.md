@@ -3,7 +3,7 @@ title: GitHub security features
 intro: 'An overview of {% data variables.product.prodname_dotcom %} security features.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview
@@ -20,7 +20,7 @@ topics:
 
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Available for all repositories
 {% endif %}
 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
@@ -40,7 +40,7 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 {% endif %}
 
-{% ifversion ghes > 2.22 or ghae-issue-4864 %}
+{% ifversion ghes or ghae-issue-4864 %}
 ### {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
@@ -54,18 +54,16 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-issue-4864 or ghec %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ### Dependency graph
 The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
-
 ## Available {% ifversion fpt or ghec %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 These features are available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
 {% endif %}
 
@@ -76,8 +74,6 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 ### {% data variables.product.prodname_secret_scanning_caps %} alerts
 
 {% ifversion fpt or ghec %}For private repositories, view {% else %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-
-{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Dependency review

@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -28,6 +29,7 @@ Você pode usar campos personalizados para adicionar metadados às suas tarefas.
 - um campo numérico para monitorar a complexidade de uma tarefa
 - um único campo de seleção para rastrear se uma tarefa tem prioridade baixa, média ou alta
 - um campo de texto para adicionar uma observação rápida
+- an iteration field to plan work week-by-week
 
 ### Visualizando seu projeto de diferentes perspectivas
 
@@ -45,17 +47,17 @@ Para ajudar você a concentrar-se em aspectos específicos do seu projeto, você
 
 Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
 
-### Trabalhando com a paleta de comandos
+### Working with the project command palette
 
-Você pode usar a paleta de comandos para alterar rapidamente as visualizações ou adicionar campos. A paleta de comandos guia você para que você não precise memorizar atalhos de teclado personalizados. Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+You can use the project command palette to quickly change views or add fields. A paleta de comandos guia você para que você não precise memorizar atalhos de teclado personalizados. Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
 
 ### Automatizando tarefas de gerenciamento de projetos
 
-Você pode usar a API do GraphQL e {% data variables.product.prodname_actions %} para automatizar tarefas cotidianas de gerenciamento de projeto. Para obter mais informações, consulte "[Usando a API para gerenciar projetos](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)" e "[Automatizando projetos](/issues/trying-out-the-new-projects-experience/automating-projects)".
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." You can also use the GraphQL API and {% data variables.product.prodname_actions %} to automate routine project management tasks. For more information, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)" and "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
 
 ## Comparação de projetos (beta) com os projetos que não são beta
 
-Projetos (beta) é uma nova versão personalizável dos projetos. Os projetos (beta) estão disponíveis apenas para um número limitado de usuários beta. A versão que não é beta dos projetos está disponível para todos os usuários. Para saber mais sobre a versão beta, consulte [{% data variables.product.prodname_github_issues %}](https://github.com/features/issues). Para obter mais informações sobre a versão que não é beta dos projetos, consulte "[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
+Projetos (beta) é uma nova versão personalizável dos projetos. Para obter mais informações sobre a versão que não é beta dos projetos, consulte "[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
 
 ## Compartilhando feedback
 

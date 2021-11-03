@@ -14,7 +14,7 @@ topics:
   - User account
 ---
 
-Teamは、team@メンションのように適切なグループに入力や注目を求めたい場合に通知をするような、{% data variables.product.prodname_dotcom %}のコラボレーションの機能の多くにおいて中心的な役割を果たします。 詳しい情報については[Organizationのリポジトリの権限レベル](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)を参照してください。
+Teamは、team@メンションのように適切なグループに入力や注目を求めたい場合に通知をするような、{% data variables.product.prodname_dotcom %}のコラボレーションの機能の多くにおいて中心的な役割を果たします。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Teamは、企業内のグループを表したり、特定の関心や専門分野を持つ人々を含めたりできます。 たとえば{% data variables.product.product_location %}のアクセシビリティの専門家のTeamは、様々な部署からの人々で構成されるといったことがあります。 Teamは、企業の既存の部門階層を補完する機能的な関心事項を表します。
 

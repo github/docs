@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 topics:
   - Repositories
@@ -17,7 +18,7 @@ shortTitle: 管理自动合并
 
 ## 关于自动合并
 
-如果您允许自动合并仓库中的拉取请求，则具有写入权限的用户可以配置仓库中的单个拉取请求在满足所有合并要求时自动合并。 {% ifversion fpt or ghae-next or ghes > 3.1 %}如果没有写入权限的人将更改推送到已启用自动合并的拉请求，将对该拉取请求禁用自动合并。 {% endif %}更多信息请参阅“[自动合并拉取请求](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)”。
+如果您允许自动合并仓库中的拉取请求，则具有写入权限的用户可以配置仓库中的单个拉取请求在满足所有合并要求时自动合并。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. {% endif %}更多信息请参阅“[自动合并拉取请求](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)”。
 
 ## 管理自动合并
 

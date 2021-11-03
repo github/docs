@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Observação:** A lista de tarefas melhorada está atualmente na versão beta e sujeita a alterações.
@@ -27,9 +28,9 @@ topics:
 
 Uma lista de tarefas é um conjunto de tarefas que cada uma interpreta em uma linha separada com uma caixa de seleção clicável. Você pode selecionar ou desmarcar as caixas de seleção para marcar as tarefas como concluídas ou não concluídas.
 
-Você pode usar Markdown para criar uma lista de tarefas em qualquer comentário em {% data variables.product.product_name %}. {% ifversion fpt %}Se você fizer referência a um problema, pull request, ou discussão em uma lista de tarefas, a referência irá desenrolar-se para mostrar o título e o estado.{% endif %}
+Você pode usar Markdown para criar uma lista de tarefas em qualquer comentário em {% data variables.product.product_name %}. {% ifversion fpt or ghec %}Se você fizer referência a um problema, pull request, ou discussão em uma lista de tarefas, a referência irá desenrolar-se para mostrar o título e o estado.{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 Você poderá exibir informações de resumo da lista de tarefas nas listas de problemas e pull requests quando a lista de tarefas estiver no comentário inicial.
 {% else %}
 

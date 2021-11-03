@@ -27,7 +27,7 @@ Each audit log entry shows applicable information about an event, such as:
 - Which country the action took place in
 - The date and time the action occurred
 
-You can search the audit log for specific events and export audit log data. For more information on searching the audit log and on specific organization events, see "[Reviewing the audit log for your organization](/articles/reviewing-the-audit-log-for-your-organization)."
+You can search the audit log for specific events and export audit log data. For more information on searching the audit log and on specific organization events, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -33,7 +34,7 @@ topics:
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
+{% data reusables.codespaces.use-chrome %} 更多信息请参阅“[代码空间客户端故障排除](/codespaces/troubleshooting/troubleshooting-codespaces-clients)”。
 
 ### 个性化代码空间
 
@@ -48,13 +49,13 @@ topics:
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### 使用命令调色板
+### Using the {% data variables.product.prodname_vscode_command_palette %}
 
-命令调色板允许您访问并管理 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode %} 的许多功能。 更多信息请参阅“[在 {% data variables.product.prodname_codespaces %} 中使用命令调色板](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)”。
+The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
 
 ## 导航到现有代码空间
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. 单击您要在其中开发的代码空间的名称。 ![代码空间的名称](/assets/images/help/codespaces/click-name-codespace.png)
 
-Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.
+或者，您可以通过导航到创建代码空间的仓库并选择 **{% octicon "code" aria-label="The code icon" %} 代码**来查看仓库的任何活动代码空间。 下拉菜单将显示仓库的所有活动代码空间。

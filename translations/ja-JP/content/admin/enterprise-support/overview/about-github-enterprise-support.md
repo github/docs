@@ -47,6 +47,11 @@ You can contact {% data variables.contact.enterprise_support %} through {% data 
 
 ## {% data variables.contact.enterprise_support %} への連絡
 
+{% ifversion ghes %}
+{% data reusables.support.zendesk-deprecation %}
+{% endif %}
+
+
 {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %}{% data variables.contact.ae_azure_portal %}{% endif %} を通じて {% data variables.contact.enterprise_support %} に連絡し、問題を書面でレポートすることができます。 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。
 
 {% ifversion ghes %}
