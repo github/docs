@@ -1,21 +1,22 @@
 ---
 title: Acerca del monitoreo y solución de problemas
 intro: 'Puedes utilizar las herramientas en las {% data variables.product.prodname_actions %} para monitorear y depurar tus flujos de trabajo.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Acerca de monitorear y solucionar problemas
+  ghec: '*'
+shortTitle: Acerca del monitoreo y solución de problemas
 miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Monitorear tus flujos de trabajo
 
-{% ifversion fpt or ghae or ghes > 3.0 %}
+{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### Utilizar la gráfica de visualización
 
@@ -33,7 +34,7 @@ Para obtener más información, consulta la sección "[Utilizar el gráfico de v
 
 Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Visualizar el tiempo de ejecución de un job
 
 Para identificar qué tanto tomará un job en ejecutarse, puedes ver su tiempo de ejecución. Por ejemplo:

@@ -47,6 +47,11 @@ Para obtener más información, consulta "[Acerca de{% data variables.contact.pr
 
 ## Ponerte en contacto con {% data variables.contact.enterprise_support %}
 
+{% ifversion ghes %}
+{% data reusables.support.zendesk-deprecation %}
+{% endif %}
+
+
 Puedes contactar a {% data variables.contact.enterprise_support %} a través del {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} del {% data variables.contact.ae_azure_portal %}{% endif %} para reportar los problemas por escrito. Para obtener más información, consulta la sección "[Recibir ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
 {% ifversion ghes %}

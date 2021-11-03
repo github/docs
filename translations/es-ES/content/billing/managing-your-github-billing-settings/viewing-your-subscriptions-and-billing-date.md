@@ -11,6 +11,7 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Accounts
@@ -34,4 +35,4 @@ shortTitle: Suscripciones & fecha de facturación
 
 ## Leer más
 
-- "[Acerca de la facturación para las cuentas de {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"
+- "[Acerca de la facturación para las cuentas de {% data variables.product.prodname_dotcom %}](/articles/about-billing-for-github-accounts)"

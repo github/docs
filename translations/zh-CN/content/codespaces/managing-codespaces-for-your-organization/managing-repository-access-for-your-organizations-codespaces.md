@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -17,7 +18,7 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
 ---
 
-默认情况下，代码空间只能访问创建它的仓库。 为组织拥有的仓库启用访问和安全后，则为该仓库创建的任何代码空间都将对该组织拥有的和代码空间创建者有权访问的所有其他仓库具有读取和写入权限。 如果要限制代码空间可以访问的仓库，您可以将其限制为创建代码空间的仓库或特定仓库。 您应该只对您信任的仓库启用访问和安全。
+默认情况下，代码空间只能访问创建它的仓库。 为组织拥有的仓库启用访问和安全后，则为该仓库创建的任何代码空间都将对该组织拥有的和代码空间创建者有权访问的所有其他仓库具有读取和写入权限。 If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. 您应该只对您信任的仓库启用访问和安全。
 
 要管理组织中的哪些用户可以使用 {% data variables.product.prodname_codespaces %}，请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
 

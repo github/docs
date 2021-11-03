@@ -1,1 +1,0 @@
-1. Überprüfe die Informationen zur Gebühr und zu Deinem Abrechnungsdatum. Klicke anschließend auf **Upgrade my account** (Mein Konto aktualisieren) oder auf **Upgrade my organization's account** (Konto meiner Organisation aktualisieren).

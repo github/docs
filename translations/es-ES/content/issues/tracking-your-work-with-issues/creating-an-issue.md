@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Crear un informe de problemas
+type: how_to
 ---
 
 Las propuestas se pueden usar para hacer un seguimiento de los errores, mejoras u otras solicitudes. Para obtener más información, consulta "[Acerca de las propuestas](/issues/tracking-your-work-with-issues/about-issues)".
@@ -88,7 +90,7 @@ Puedes abrir una nueva propuesta desde una línea específica o líneas de códi
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Crear una propuesta a partir de un debate
 
@@ -109,7 +111,7 @@ Cuando creas una propuesta a partir de un debate, el contenido de la publicació
 
 Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes convertir las notas del mismo en informes de problemas. Para obtener más información, consulta la sección "[Acerca de los tableros de proyecto](/github/managing-your-work-on-github/about-project-boards)" y "[Agregar notas a un tablero de proyecto](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Crear una propuesta desde un elemento de lista de tareas
 
@@ -127,7 +129,7 @@ Puedes consultar parámetros para abrir propuestas. Los parámetros de consulta 
 
 {% endtip %}
 
-Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una propuesta para usar el parámetro de consulta `labels`. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
+Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una propuesta para usar el parámetro de consulta `labels`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Si creas una URL inválida utilizando parámetros de consulta o si no tienes los permisos adecuados, la URL devolverá una página de error `404 Not Found`. Si creas una URL que exceda el límite del servidor, esta devolverá una página de error `414 URI Too Long`.
 

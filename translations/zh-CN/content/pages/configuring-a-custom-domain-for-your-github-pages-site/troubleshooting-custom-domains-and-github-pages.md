@@ -10,6 +10,7 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 排除自定义域的故障
@@ -32,10 +33,10 @@ shortTitle: 排除自定义域的故障
 
 如果将站点的默认域指向自定义域时遇到问题，请联系 DNS 提供商。
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+您还可以使用以下方法之一来测试自定义域的 DNS 记录是否正确配置：
 
-- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- CLI 工具，如 `dig`。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+- 在线 DNS 查找工具。
 
 ## 自定义域名不受支持
 

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
@@ -21,7 +22,7 @@ shortTitle: Deleted or changes visibility
 
 プライベートリポジトリを削除すると、そのプライベートフォークもすべて削除されます。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## パブリックリポジトリを削除する
 
@@ -33,7 +34,7 @@ shortTitle: Deleted or changes visibility
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## パブリックリポジトリをプライベートリポジトリに変更する
 
@@ -59,7 +60,7 @@ shortTitle: Deleted or changes visibility
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## 内部リポジトリの表示を変更する
 
@@ -83,4 +84,4 @@ Enterprise のポリシーでフォークが許可されている場合、内部
 - [フォークについて](/articles/about-forks)
 - 「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」
 - 「[Organization のフォークポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」
-- "{% ifversion fpt %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

@@ -9,7 +9,7 @@ permissions: Repository administrators and organization owners can view and upda
 shortTitle: View vulnerable dependencies
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: issue-4864
   ghec: '*'
 type: how_to

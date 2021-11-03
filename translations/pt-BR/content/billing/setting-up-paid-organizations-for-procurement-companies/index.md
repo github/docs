@@ -9,6 +9,7 @@ redirect_from:
   - /articles/setting-up-paid-organizations-for-procurement-companies
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /about-organizations-for-procurement-companies
   - /creating-and-paying-for-an-organization-on-behalf-of-a-client

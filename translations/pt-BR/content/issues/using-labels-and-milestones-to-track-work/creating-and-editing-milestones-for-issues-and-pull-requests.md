@@ -10,9 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
+  - Project management
 shortTitle: Criar & editar marcos
+type: how_to
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
