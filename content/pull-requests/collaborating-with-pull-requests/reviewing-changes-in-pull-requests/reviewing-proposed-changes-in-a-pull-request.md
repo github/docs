@@ -30,11 +30,20 @@ You can review changes in a pull request one file at a time. While reviewing the
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-next %}
+
+   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
+
+   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+
+   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
+{% endif %}
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
-5. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
-  ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
+1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
+
+   ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
 
 Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
 
@@ -76,7 +85,8 @@ After you finish reviewing a file, you can mark the file as viewed, and the file
 
 {% data reusables.repositories.changed-files %}
 2. On the right of the header of the file you've finished reviewing, select **Viewed**.
-  ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
+
+   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
 
 ## Submitting your review
 
@@ -86,7 +96,9 @@ After you've finished reviewing all the files you want in the pull request, subm
 {% data reusables.repositories.review-changes %}
 {% data reusables.repositories.review-summary-comment %}
 4. Select the type of review you'd like to leave:
-  ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+
+   ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
+
     - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
     - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
     - Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
