@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Gerenciar grupos de executores
 ---
@@ -14,10 +15,11 @@ shortTitle: Gerenciar grupos de executores
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre grupos de executores auto-hospedados
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Observação:** Todas as organizações têm um único grupo de executores auto-hospedados padrão. Somente contas corporativas e organizações pertencentes a contas corporativas podem criar e gerenciar grupos de executores auto-hospedados adicionais.
@@ -33,13 +35,13 @@ Quando novos executores são criados, eles são atribuídos automaticamente ao g
 
 ## Criar um grupo de executor auto-hospedado para uma organização
 
-Todas as organizações têm um único grupo de executores auto-hospedados padrão. As organizações dentro de uma conta corporativa podem criar outros grupos auto-hospedados. Os administradores da organização podem permitir o acesso de repositórios individuais a um grupo de executor.
+Todas as organizações têm um único grupo de executores auto-hospedados padrão. As organizações dentro de uma conta corporativa podem criar outros grupos auto-hospedados. Os administradores da organização podem permitir o acesso de repositórios individuais a um grupo de executor. Para obter informações sobre como criar um grupo de executores auto-hospedados com a API REST, consulte "[grupos de executores auto-hospedados](/rest/reference/actions#self-hosted-runner-groups)."
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode mover um executor do grupo- padrão para qualquer grupo que você criar.
 
 Ao criar um grupo, você deverá escolher uma política que defina quais repositórios têm acesso ao grupo do executor.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
@@ -64,7 +66,7 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
 
-   {% ifversion ghes > 2.22 or ghae %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. Esta configuração não pode ser substituída se você estiver configurando o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}{% ifversion ghes = 2.22 %}Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios, por todos os repositórios privados ou por todos os repositórios na organização.{% endif %}
+   {% ifversion ghes or ghae %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
 
    {% warning %}
 
@@ -80,16 +82,15 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 1. Clique em **Salvar grupo** para criar o grupo e aplicar a política.
 {% endif %}
 
-
 ## Criar um grupo de executor auto-hospedado para uma empresa
 
-As empresas podem adicionar seus executores auto-hospedados a grupos para gerenciamento de acesso. As empresas podem criar grupos de executores auto-hospedados acessíveis a organizações específicas na conta corporativa. Os administradores da organização podem atribuir políticas adicionais granulares de acesso ao repositório para os grupos de executores corporativos.
+As empresas podem adicionar seus executores auto-hospedados a grupos para gerenciamento de acesso. As empresas podem criar grupos de executores auto-hospedados acessíveis a organizações específicas na conta corporativa. Os administradores da organização podem atribuir políticas adicionais granulares de acesso ao repositório para os grupos de executores corporativos. Para obter informações sobre como criar um grupo de executores auto-hospedados com a API REST, consulte as [APIs da administração da empresa do GitHub Actions](/rest/reference/enterprise-admin#github-actions).
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode atribuir o executor a um grupo específico durante o processo de registro, ou você pode mover o executor do grupo-padrão para um grupo personalizado.
 
 Ao criar um grupo, você deve escolher uma política que defina quais organizações têm acesso ao grupo de executores.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -118,7 +119,7 @@ Ao criar um grupo, você deve escolher uma política que defina quais organizaç
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso à organização.
 
-   {% ifversion fpt or ghes > 2.22 or ghae %} Você pode configurar um grupo de executor para que possa ser acessado por uma lista específica de organizações ou todas as organizações da empresa. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. Esta configuração não pode ser substituída se você estiver configurando o grupo de executores da organização que foi compartilhado por uma empresa.{% elsif ghes = 2.22 %}Você pode configurar um grupo de executores para que possa ser acessado por todas as organizações da empresa ou escolher organizações específicas.{% endif %}
+    Você pode configurar um grupo de executores para que possa ser acessado por uma lista específica de organizações ou por todas as organizações da empresa. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
 
    {% warning %}
 
@@ -137,7 +138,7 @@ Ao criar um grupo, você deve escolher uma política que defina quais organizaç
 ## Alterar a política de acesso de um grupo de executores auto-hospedados
 
 Você pode atualizar a política de acesso de um grupo de executores ou renomear um grupo de executores.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modifique as opções de acesso ou altere o nome do grupo dp executor.
@@ -172,8 +173,8 @@ Não foi possível encontrar nenhum grupo de executor auto-hospedado denominado 
 ## Mover um executor auto-hospedado para um grupo
 
 Se você não especificar o grupo de um executor durante o processo de registro, seus novos executores auto-hospedados são automaticamente atribuídos ao grupo padrão e poderão ser transferidos para outro grupo.
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
 1. Na lista de "Executores", clique no executor que você deseja configurar.
 1. Selecione o menu suspenso do grupo do executor.
 1. Em "Transferir executor para o grupo", escolha um grupo de destino para o executor.
@@ -186,7 +187,7 @@ Se você não especificar o grupo de um executor durante o processo de registro,
 
 Os executores auto-hospedados são retornados automaticamente ao grupo-padrão quando seu grupo é removido.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. Na lista de grupos, à direita do grupo que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 1. Para remover o grupo, clique em **Remover grupo**.

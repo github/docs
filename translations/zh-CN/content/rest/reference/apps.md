@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -29,7 +30,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 ## OAuth 应用程序 API
 
-您可以使用此 API 来管理 OAuth 应用程序用于管理用户的 {% data variables.product.prodname_dotcom %} 帐户的 OAuth 令牌。
+您可以使用此 API 来管理 OAuth 应用程序用于访问人们在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户的 OAuth 令牌。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -45,7 +46,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
 有关 {% data variables.product.prodname_marketplace %} 的更多信息，请参阅“[GitHub Marketplace](/marketplace/)”。
@@ -56,7 +57,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 此 API 包括允许您使用**存根数据**测试 {% data variables.product.prodname_github_app %} 的端点。 存根数据是硬编码的假数据，不会根据实际订阅而更改。
 
-要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
+要使用存根数据进行测试，请使用存根端点代替其对应的生产端点。 这允许您在 {% data variables.product.prodname_marketplace %} 上列出 {% data variables.product.prodname_github_apps %} 之前测试 API 逻辑是否成功。
 
 在部署您的 {% data variables.product.prodname_github_app %} 之前，请务必将存根端点替换为生产端点。
 
@@ -66,10 +67,10 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Web 挂钩
 
-A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
+{% data variables.product.prodname_github_app %} 的 web 挂钩允许您在某些事件发生时接收 HTTP `POST` 有效载荷。 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

@@ -3,7 +3,8 @@ title: GitHub para móviles
 intro: 'Clasifica, colabora y administra tu trabajo en {% data variables.product.product_name %} desde tu dispositivo móvil.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Mobile
 redirect_from:
@@ -43,7 +44,7 @@ Puedes ingresar simultáneamente a la versión móvil con una cuenta de usuario 
 
 Debes instalar {% data variables.product.prodname_mobile %} 1.4 o posterior en tu dispositivo para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}.
 
-Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. Para obtener más información, consulta las secciones {% ifversion ghes %}"[Notas de lanzamiento](/enterprise-server/admin/release-notes)" y {% endif %}"[Administrar {% data variables.product.prodname_mobile %} para tu empresa](/admin/configuration/managing-github-for-mobile-for-your-enterprise)".
+Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/managing-github-for-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
 Durante el beta para {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, debes estar firmado con una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %}.
 

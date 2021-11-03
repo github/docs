@@ -23,7 +23,9 @@ shortTitle: 导入到您的企业
 
 ## 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
-一旦[准备迁移](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)，您即可使用以下步骤来完成迁移。
+在将数据迁移到企业之前，您必须准备数据并解决任何冲突。 更多信息请参阅“[准备迁移数据到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
+
+在准备数据并解决冲突后，您可以将导入的数据应用于 {% data variables.product.product_name %}。
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 

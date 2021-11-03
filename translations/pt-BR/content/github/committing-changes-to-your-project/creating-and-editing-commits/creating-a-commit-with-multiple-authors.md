@@ -10,14 +10,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Com vários autores
 ---
 
 ## Informações obrigatórias do coautor
 
-Para poder adicionar um coautor a um commit, você deve saber o e-mail adequado a ser usado para cada coautor. Para que o commit do coautor conte como uma contribuição, você deve usar o e-mail associado à conta do {% data variables.product.product_name %} dele.
+Para poder adicionar um coautor a um commit, você deve saber o e-mail adequado a ser usado para cada coautor. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Se uma pessoa optar por manter o respectivo endereço de e-mail privado, você deverá usar o e-mail `no-reply` dela fornecido pelo {% data variables.product.product_name %} para proteger a privacidade. Caso contrário, o e-mail do coautor estará disponível para o público na mensagem do commit. Se desejar manter seu e-mail privado, você poderá usar um e-mail `no-reply` fornecido pelo {% data variables.product.product_name %} para operações de Git e pedir que outros coautores listem seu e-mail `no-reply` nos trailers de commit.
 

@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Dependabot
@@ -51,7 +52,7 @@ topics:
 
 ## 关于兼容性分数
 
-{% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. 这些分数是根据已生成相同安全更新的其他公共仓库中的 CI 测试计算的。 更新的兼容性分数是在依赖项的特定版本之间进行更新时，CI 运行被视为通过的百分比。
+{% data variables.product.prodname_dependabot_security_updates %} 可能包括兼容性分数，以便您了解更新依赖项是否可能导致对项目的重大更改。 这些分数是根据已生成相同安全更新的其他公共仓库中的 CI 测试计算的。 更新的兼容性分数是在依赖项的特定版本之间进行更新时，CI 运行被视为通过的百分比。
 
 ## 关于 {% data variables.product.prodname_dependabot %} 安全更新通知
 

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## コミットについて
@@ -17,7 +18,7 @@ versions:
 
 共同作業しているコミットに共作者を追加できます。 詳しい情報については、「[複数の作者を持つコミットを作成する](/github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Organization に代わってコミットを作成することもできます。 詳しい情報については、「[Organization の代理でコミットを作成する](/github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization)」を参照してください。{% endif %}
 
 リベースを使用すると、一連のコミットを変更したり、タイムラインでのコミットの順序を変更したりできます。 詳しい情報については、「[Git リベースについて](/github/getting-started-with-github/about-git-rebase)」を参照してください。

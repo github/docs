@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 推送提交到远程
 ---
 
@@ -100,7 +101,7 @@ git fetch upstream
 ## 延伸阅读
 
 - ["Pro Git" 书中的“远程”一章](https://git-scm.com/book/ch5-2.html)
-- [`git remote` 手册页](https://git-scm.com/docs/git-remote.html)
+- [`git remote` main page](https://git-scm.com/docs/git-remote.html)
 - "[Git 小抄](/articles/git-cheatsheet)"
 - "[Git 工作流程](/github/getting-started-with-github/git-workflows)"
 - "[Git 手册](https://guides.github.com/introduction/git-handbook/)"

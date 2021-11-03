@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: View releases & tags
 ---
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **ヒント**: {% data variables.product.prodname_cli %} を使用してリリースを表示することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh release view`](https://cli.github.com/manual/gh_release_view)」を参照してください。

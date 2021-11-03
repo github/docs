@@ -9,18 +9,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Configurar
 ---
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Crear plantillas de reporte de problemas
 
@@ -38,7 +39,7 @@ shortTitle: Configurar
 10. Debajo de los campos del mensaje de confirmación, decide si deseas confirmar tu plantilla directamente en la rama predeterminada o si deseas crear una nueva rama y abrir una solicitud de extracción. Para obtener más información acerca de las solicitudes de extracción, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)". ![Elecciòn de la plantilla de propuesta para mantener o abrir una solicitud de cambios](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Haz clic en **Commit changes** (Confirmar cambios). Una vez que estos cambios se fusionen en la rama predeterminada, la plantilla estará disponible para que la usen los colaboradores cuando abran nuevas propuestas en el repositorio.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Crear formatos de propuestas
 
@@ -61,7 +62,7 @@ Aquí está la versión interpretada de un formato de propuesta.  ![Un formato d
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## Configurar el selector de plantillas
 
 {% data reusables.repositories.issue-template-config %}

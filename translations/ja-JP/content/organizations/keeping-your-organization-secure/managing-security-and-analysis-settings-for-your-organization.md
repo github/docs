@@ -7,8 +7,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ shortTitle: セキュリティと分析の管理
 
 ## セキュリティおよび分析設定の管理について
 
-{% data variables.product.prodname_dotcom %} を使用して、Organization のリポジトリを保護できます。 Organization でメンバーが作成する既存または新規のリポジトリすべてについて、セキュリティおよび分析機能を管理できます。 {% ifversion fpt %}{% data variables.product.prodname_GH_advanced_security %} のライセンスをお持ちの場合は、これらの機能へのアクセスを管理することもできます。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+{% data variables.product.prodname_dotcom %} を使用して、Organization のリポジトリを保護できます。 Organization でメンバーが作成する既存または新規のリポジトリすべてについて、セキュリティおよび分析機能を管理できます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_GH_advanced_security %} のライセンスをお持ちの場合は、これらの機能へのアクセスを管理することもできます。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
@@ -30,15 +31,15 @@ shortTitle: セキュリティと分析の管理
 
 表示されるページでは、Organization 内のリポジトリのすべてのセキュリティおよび分析機能を有効化または無効化にできます。
 
-{% ifversion fpt %}Organization が {% data variables.product.prodname_GH_advanced_security %} のライセンスを持つ Enterprise に属している場合、ページには {% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれます。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
+{% ifversion fpt or ghec %}Organization が {% data variables.product.prodname_GH_advanced_security %} のライセンスを持つ Enterprise に属している場合、ページには {% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれます。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
 
 {% ifversion ghes > 3.0 %}{% data variables.product.prodname_GH_advanced_security %} のライセンスをお持ちの場合、ページには {% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれています。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
 
-{% ifversion ghae %}このページには、{% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれます。{% endif %}
+{% ifversion ghae %}このページには、{% data variables.product.prodname_advanced_security %} 機能を有効化または無効化するオプションも含まれます。 {% data variables.product.prodname_GH_advanced_security %} を使用するリポジトリは、ページの下部に一覧表示されます。{% endif %}
 
 ## すべての既存のリポジトリに対して機能を有効化または無効化する
 
-すべてのリポジトリの機能を有効化または無効化できます。 {% ifversion fpt %}変更が Organization 内のリポジトリに与える影響は、リポジトリの可視性によって決まります。
+すべてのリポジトリの機能を有効化または無効化できます。 {% ifversion fpt or ghec %}変更が Organization 内のリポジトリに与える影響は、リポジトリの可視性によって決まります。
 
 - **依存関係グラフ** - この機能はパブリックリポジトリに対して常に有効になっているため、変更はプライベートリポジトリにのみ影響します。
 - **{% data variables.product.prodname_dependabot_alerts %}** - 変更はすべてのリポジトリに影響します。
@@ -49,8 +50,8 @@ shortTitle: セキュリティと分析の管理
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. Organization のセキュリティと分析の設定に移動します。 詳しい情報については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
-2. [Configure security and analysis features] で、機能の右側にある [**Disable all**] または [**Enable**] をクリックします。 {% ifversion fpt or ghes > 3.0 %}{% data variables.product.prodname_GH_advanced_security %} のライセンスにシートがない場合、「{% data variables.product.prodname_GH_advanced_security %}」の制御は無効になります。{% endif %}
-   {% ifversion fpt %}
+2. [Configure security and analysis features] で、機能の右側にある [**Disable all**] または [**Enable**] をクリックします。 {% ifversion fpt or ghes > 3.0 or ghec %}{% data variables.product.prodname_GH_advanced_security %} のライセンスにシートがない場合、「{% data variables.product.prodname_GH_advanced_security %}」の制御は無効になります。{% endif %}
+   {% ifversion fpt or ghec %}
    ![[Configure security and analysis] 機能の [Enable all] または [Disable all] ボタン](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
    {% endif %}
    {% ifversion ghes > 3.0 %}
@@ -62,18 +63,18 @@ shortTitle: セキュリティと分析の管理
    {% ifversion ghae %}
    ![[Configure security and analysis] 機能の [Enable all] または [Disable all] ボタン](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
    {% endif %}
-   {% ifversion fpt or ghes = 3.0 %}
+   {% ifversion fpt or ghes = 3.0 or ghec %}
 3. オプションで、Organization の新しいリポジトリに対して機能をデフォルトで有効にすることもできます。
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![新規のリポジトリの [Enable by default] オプション](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
    ![新規のリポジトリの [Enable by default] オプション](/assets/images/enterprise/3.0/organizations/security-and-analysis-secret-scanning-enable-by-default.png)
    {% endif %}
    {% endif %}
-   {% ifversion fpt or ghes = 3.0 %}
+   {% ifversion fpt or ghes = 3.0 or ghec %}
 4. Organization のすべてのリポジトリに対してこの機能を有効または無効にするには、[**Disable FEATURE**] または [**Enable FEATURE**] をクリックします。
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![機能 を無効または有効にするボタン](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -89,11 +90,11 @@ shortTitle: セキュリティと分析の管理
 ## 新しいリポジトリが追加されたときに機能を自動的に有効化または無効化する
 
 1. Organization のセキュリティと分析の設定に移動します。 詳しい情報については、「[セキュリティと分析の設定を表示する](#displaying-the-security-and-analysis-settings)」を参照してください。
-2. [Configure security and analysis features]の下で、機能の右から、Organizatin中の新しいリポジトリ{% ifversion fpt %}あるいはすべての新しいプライベートリポジトリ{% endif %}でデフォルトでその機能を有効または無効にします。
-   {% ifversion fpt or ghes > 3.1 %}
+2. [Configure security and analysis features]の下で、機能の右から、Organizatin中の新しいリポジトリ{% ifversion fpt or ghec %}あるいはすべての新しいプライベートリポジトリ{% endif %}でデフォルトでその機能を有効または無効にします。
+   {% ifversion fpt or ghec %}
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
-   {% ifversion ghes = 3.1 %}
+   {% ifversion ghes > 3.0 %}
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -103,7 +104,7 @@ shortTitle: セキュリティと分析の管理
    ![新規のリポジトリに対して機能を有効または無効にするチェックボックス](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## {% data variables.product.prodname_dependabot %} のプライベート依存関係へのアクセスを許可する
 
@@ -123,7 +124,7 @@ shortTitle: セキュリティと分析の管理
 1. あるいは、リストからリポジトリを差k除するには、リポジトリの右の{% octicon "x" aria-label="The X icon" %}をクリックします。 ![リポジトリを削除する [X] ボタン](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 
 ## Organization 内の個々のリポジトリから {% data variables.product.prodname_GH_advanced_security %} へのアクセスを削除する
 
@@ -145,7 +146,7 @@ shortTitle: セキュリティと分析の管理
 ## 参考リンク
 
 - 「[リポジトリをセキュアにする](/code-security/getting-started/securing-your-repository)」
-- [シークレットスキャンニングについて](/github/administering-a-repository/about-secret-scanning){% ifversion fpt %}
+- [シークレットスキャンニングについて](/github/administering-a-repository/about-secret-scanning){% ifversion fpt or ghec %}
 - [依存関係を自動的に更新する](/github/administering-a-repository/keeping-your-dependencies-updated-automatically){% endif %}{% ifversion not ghae %}
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
 - 「[プロジェクトの依存関係にある脆弱性を管理する](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)」{% endif %}
