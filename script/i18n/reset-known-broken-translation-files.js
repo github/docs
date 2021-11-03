@@ -38,7 +38,10 @@ async function main() {
   const brokenFiles = body.replace(/^[\s\S]*?## List of Broken Translations/m, '').trim()
 
   // Turn it into a simple array of files.
-  const brokenFilesArray = brokenFiles.split('\n').map((line) => line.replace('- [ ] ', '').trim())
+  const brokenFilesArray = brokenFiles
+    .split('\n')
+    .filter((line) => !line.toLowerCase().startsWith('- [x]'))
+    .map((line) => line.replace('- [ ] ', '').trim())
 
   // Run the script to revert them.
   await Promise.all(
