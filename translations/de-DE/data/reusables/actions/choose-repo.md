@@ -1,1 +1,0 @@
-Choose a repository where you want to apply this project management workflow. You can use an existing repository that you have write access to, or you can create a new repository. Weitere Informationen zum Erstellen eines Repositorys findest Du unter „[Ein neues Repository erstellen](/articles/creating-a-new-repository).“

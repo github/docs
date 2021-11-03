@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dependabot %} and all related features are covered by [{% data variables.product.prodname_dotcom %}'s Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service).
