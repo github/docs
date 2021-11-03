@@ -28,7 +28,7 @@ A codespace is a development environment that's hosted in the cloud. You can cus
 
 ## Using Codespaces
 
-You can create a codespace from any branch or commit in your repository and begin developing using cloud-based compute resources. 
+You can create a codespace from any branch or commit in your repository and begin developing using cloud-based compute resources. {% data reusables.codespaces.links-to-get-started %}
 
 To customize the runtimes and tools in your codespace, you can create a custom configuration to define an environment (or _dev container_) that is specific for your repository. Using a dev container allows you to specify a Docker environment for development with a well-defined tool and runtime stack that can reference an image, Dockerfile, or docker-compose. This means that anyone using the repository will have the same tools available to them when they create a codespace.
 
@@ -38,6 +38,6 @@ You can also personalize aspects of your codespace environment by using a public
 
 ## About billing for {% data variables.product.prodname_codespaces %}
 
-For information on billing for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+For information on pricing, storage, and usage for {% data variables.product.prodname_codespaces %}, see "[Managing billing for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_codespaces %} for an organization, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."

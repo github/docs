@@ -106,7 +106,14 @@ For a full list of supported commands, see "[{% data variables.product.prodname_
 
 3. If the command you want is not displayed, check your scope then start entering the command name in the text box.
 
-4. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it. 
+4. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it.
+
+## Closing the command palette
+
+When the command palette is active, you can use one of the following keyboard shortcuts to close the command palette:
+
+- Search and navigation mode: <kbd>esc</kbd> or <kbd>Ctrl</kbd><kbd>k</kbd> (Windows and Linux)  <kbd>⌘</kbd><kbd>k</kbd> (Mac)
+- Command mode: <kbd>esc</kbd> or <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux)  <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac)
 
 ## {% data variables.product.prodname_command_palette %} reference
 

@@ -18,10 +18,17 @@ shortTitle: Visual Studio Code
 ---
 
  
+## About {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}
+
+You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. To use {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}, you need to install the {% data variables.product.prodname_github_codespaces %} extension. For more information on setting up Codespaces in {% data variables.product.prodname_vscode %}, see "[Prerequisites](#prerequisites)."
+
+By default, if you create a new codespace on {% data variables.product.prodname_dotcom_the_website %}, it will open in the browser. If you would prefer to open any new codespaces in {% data variables.product.prodname_vscode %} automatically, you can set your default editor to be {% data variables.product.prodname_vscode %}. For more information, see "[Setting your default editor for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)."
+
+If you prefer to work in the browser, but want to continue using your existing {% data variables.product.prodname_vscode %} extensions, themes, and shortcuts, you can turn on Settings Sync. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)."
 
 ## Prerequisites
 
-To develop in a codespace directly in {% data variables.product.prodname_vscode %}, you must sign into the {% data variables.product.prodname_github_codespaces %} extension. The {% data variables.product.prodname_github_codespaces %} extension requires {% data variables.product.prodname_vscode %} October 2020 Release 1.51 or later.
+To develop in a codespace directly in {% data variables.product.prodname_vscode %}, you must install and sign into the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.product_name %} credentials. The {% data variables.product.prodname_github_codespaces %} extension requires {% data variables.product.prodname_vscode %} October 2020 Release 1.51 or later.
 
 Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) in the {% data variables.product.prodname_vscode %} documentation.
 
