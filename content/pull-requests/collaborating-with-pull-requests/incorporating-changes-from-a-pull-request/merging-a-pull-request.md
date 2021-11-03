@@ -103,4 +103,4 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 - "[Reverting a pull request](/articles/reverting-a-pull-request)"
 - "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {% data variables.product.prodname_desktop %}
 - "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts"
+- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
