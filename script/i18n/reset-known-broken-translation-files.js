@@ -3,12 +3,12 @@
 // [start-readme]
 //
 // Use this script as part of the Crowdin merge process to get the list of known broken
-// files and run script/reset-translated-file.js on them.
+// files and run script/i18n/reset-translated-file.js on them.
 //
 // [end-readme]
 
 import dotenv from 'dotenv'
-import Github from './helpers/github.js'
+import Github from '../helpers/github.js'
 import { promisify } from 'util'
 import ChildProcess from 'child_process'
 
@@ -44,7 +44,7 @@ async function main() {
   await Promise.all(
     brokenFilesArray.map(async (file) => {
       console.log(`resetting ${file}`)
-      await exec(`script/reset-translated-file.js --prefer-main ${file}`)
+      await exec(`script/i18n/reset-translated-file.js --prefer-main ${file}`)
     })
   )
 
