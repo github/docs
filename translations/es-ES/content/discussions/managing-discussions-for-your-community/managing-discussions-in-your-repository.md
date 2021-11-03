@@ -4,6 +4,7 @@ intro: 'Puedes categorizar, resaltar, transferir o borrar los debates en un repo
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Administrar los debates
 ---
 

@@ -28,6 +28,8 @@ topics:
 
 ## 使用 {% data variables.contact.enterprise_portal %} 提交事件单
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. 导航到 {% data variables.contact.contact_enterprise_portal %}。
 5. 单击 **Submit a Ticket（提交事件单）** ![将事件单提交至 Enterprise 支持团队](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

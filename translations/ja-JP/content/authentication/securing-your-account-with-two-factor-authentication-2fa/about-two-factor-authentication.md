@@ -8,12 +8,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: About 2FA
 ---
 
-{% data variables.product.product_name %}では、2 番目の形態の認証は、モバイルデバイス上のアプリケーションで生成された{% ifversion fpt %}、もしくはテキストメッセージ (SMS) で送信された{% endif %}コードです。 2FA を有効化すると、{% data variables.product.product_name %}は誰かが {% data variables.product.product_name %}アカウントにサインインしようとすると認証コードを生成します。 誰かがアカウントサインインできるのは、パスワードを知っており、電話上の認証コードも利用できる場合のみです。
+{% data variables.product.product_name %}では、2 番目の形態の認証は、モバイルデバイス上のアプリケーションで生成された{% ifversion fpt or ghec %}、もしくはテキストメッセージ (SMS) で送信された{% endif %}コードです。 After you enable 2FA, {% data variables.product.product_name %} generates an authentication code any time someone attempts to sign into your account on {% data variables.product.product_location %}. 誰かがアカウントサインインできるのは、パスワードを知っており、電話上の認証コードも利用できる場合のみです。
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
@@ -27,7 +28,7 @@ shortTitle: About 2FA
 
 {% data reusables.two_fa.about-recovery-codes %}詳しい情報については [2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% warning %}
 
@@ -39,6 +40,6 @@ shortTitle: About 2FA
 
 ## Organization で 2 要素認証を要求する
 
-Organization のオーナーは、Organization のメンバー{% ifversion fpt %}、支払いマネージャー{% endif %}および外部のコラボレータが個人アカウントをセキュアに保つために 2 要素認証を使うことを要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
+Organization のオーナーは、Organization のメンバー{% ifversion fpt or ghec %}、支払いマネージャー{% endif %}および外部のコラボレータが個人アカウントをセキュアに保つために 2 要素認証を使うことを要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
 
 {% data reusables.two_fa.auth_methods_2fa %}

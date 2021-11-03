@@ -14,7 +14,7 @@ Thanks again!
 
 Closes [issue link]
 
-<!-- 
+<!--
 - If there's an existing issue for your change, please link to it.
 - If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
 
@@ -24,8 +24,8 @@ Closes [issue link]
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging (look for the latest deployment event in your pull request's timeline, then click **View deployment**).
-- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/contributing/self-review.md#self-review).
+- [ ] I have reviewed my changes in staging (look for "Automatically generated comment" and click **Modified** to view your latest changes).
+- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/CONTRIBUTING.md#self-review).
 
 ### Writer impact (This section is for GitHub staff members only):
 

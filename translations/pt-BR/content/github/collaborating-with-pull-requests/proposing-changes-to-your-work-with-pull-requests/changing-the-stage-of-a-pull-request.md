@@ -1,6 +1,6 @@
 ---
 title: Alterar o stage de uma pull request
-intro: 'Você pode marcar uma pull request de rascunho como pronta para revisão{% ifversion fpt or ghae or ghes %} ou converter uma pull request para rascunho{% endif %}.'
+intro: 'Você pode marcar uma pull request de rascunho como pronta para revisão{% ifversion fpt or ghae or ghes or ghec %} ou converter uma pull request para rascunho{% endif %}.'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Alterar o estado
@@ -20,7 +21,7 @@ shortTitle: Alterar o estado
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Dicas**: Você também pode marcar um pull request como pronto para revisão usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)na documentação de {% data variables.product.prodname_cli %}.
@@ -32,7 +33,7 @@ shortTitle: Alterar o estado
 2. Na lista "Pull requests", clique na pull request que deseja marcar como pronta para revisão.
 3. Na caixa de merge, clique em **Pronto para revisar**. ![Botão Ready for review (Pronta para revisão)](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Convertendo uma pull request em rascunho
 

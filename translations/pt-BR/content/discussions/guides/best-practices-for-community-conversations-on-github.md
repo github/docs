@@ -4,6 +4,7 @@ shortTitle: Práticas recomendadas para conversas comunitárias
 intro: 'Você pode usar discussões para levantar hipóteses com a sua equipe e, por fim, transferir a conversa para um problema quando você estiver pronto para definir o escopo do trabalho.'
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 

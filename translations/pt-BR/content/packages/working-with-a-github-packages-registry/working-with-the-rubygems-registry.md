@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Registro do Rubygems
 ---
 
@@ -61,7 +62,7 @@ Por exemplo, você criaria ou editaria um arquivo *~/.gem/credentials* para incl
 gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
 ```
 
-Para instalar gems, você deve efetuar a autenticação no {% data variables.product.prodname_registry %}, editando o arquivo *~/.gemrc* para o seu projeto incluir `https://USERNAME:TOKEN@{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. Você deve substituir:
+To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. Você deve substituir:
   - `NOME DE USUÁRIO` pelo seu nome de usuário no {% data variables.product.prodname_dotcom %}.
   - `TOKEN` pelo seu token de acesso pessoal.
   - `PROPRIETÁRIO` com o nome da conta do usuário ou da organização que é proprietário do repositório que contém o seu projeto.{% ifversion ghes %}
@@ -78,7 +79,7 @@ Se você não tiver um arquivo *~/.gemrc*, crie um arquivo *~/.gemrc* usando est
 :bulk_threshold: 1000
 :sources:
 - https://rubygems.org/
-- https://USERNAME:TOKEN@{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
+- https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
 :update_sources: true
 :verbose: true  
 
@@ -87,7 +88,7 @@ Se você não tiver um arquivo *~/.gemrc*, crie um arquivo *~/.gemrc* usando est
 Para autenticar com o bundler, configure o Bundler para usar o seu token de acesso pessoal, substituindo *USERNAME* com seu {% data variables.product.prodname_dotcom %} nome de usuário, *TOKEN* com seu token de acesso pessoal, e *OWNER* com o nome do usuário ou conta da organização proprietária do repositório que contém o seu projeto.{% ifversion ghes %} Substitua `URL REGISTRO` pelo URL do registro Rubygems da sua instância. Se sua instância tiver o isolamento de subdomínio habilitado, use `rubygems.HOSTNAME`. Se a sua instância estiver com o isolamento de subdomínio desabilitado, use `HOSTNAME/registry/rubygems`. Em ambos os casos, substitua *HOSTNAME* pelo nome de host da sua instância de {% data variables.product.prodname_ghe_server %}.{% elsif ghae %}Substitua `REGISTRY-URL` pela URL do registro do Rubygems da sua instância, `rubygems.HOSTNAME`. Substitua *HOSTNAME* pelo nome de host de {% data variables.product.product_location %}.{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
+$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```
 
 ## Publicar um pacote
@@ -105,7 +106,7 @@ $ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGI
 
   ```shell
   $ gem push --key github \
-  --host https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
+  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
   <em>OCTO-GEM-0.0.1</em>.gem
   ```
 
@@ -114,7 +115,7 @@ $ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGI
 Para publicar vários gems no mesmo repositório, você pode incluir a URL no repositório de {% data variables.product.prodname_dotcom %} no campo `github_repo` em `gem.metadata`. Se você incluir este campo, {% data variables.product.prodname_dotcom %} corresponderá ao repositório baseado neste valor, ao invés de usar o nome do gem.{% ifversion ghes or ghae %} Substitua *HOSTNAME* pelo nome de host de {% data variables.product.product_location %}.{% endif %}
 
 ```ruby
-gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
+gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
 ## Instalar um pacote
@@ -129,7 +130,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 
   gem "rails"
 
-  source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
+  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
     gem "GEM NAME"
   end
   ```
@@ -137,7 +138,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 3. Para versões do Bundler anteriores à 1.7.0, você deve adicionar uma nova `fonte` global. Para obter mais informações sobre como usar o Bundler, consulte a [documentação bundler.io](http://bundler.io/v1.5/gemfile.html).
 
   ```ruby
-  source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
+  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
   source "https://rubygems.org"
 
   gem "rails"
@@ -151,4 +152,4 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 
 ## Leia mais
 
-- "{% ifversion fpt or ghes > 3.0 %}[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Excluir um pacote](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

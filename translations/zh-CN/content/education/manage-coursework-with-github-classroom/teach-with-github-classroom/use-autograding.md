@@ -71,15 +71,15 @@ redirect_from:
     - 要删除测试，请点击测试名称右侧的 {% octicon "trash" aria-label="The trash icon" %}。  ![用于删除自动评分测试的垃圾桶图标](/assets/images/help/classroom/autograding-click-trash.png)
 1. 在页面底部，单击 **Update assignment（更新作业）**。 ![页面底部的"更新作业"按钮](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## 查看和下载自动分级测试的结果
 
-### Download autograding results
+### 下载自动评分结果
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+您也可以通过“Download（下载）”按钮下载学生自动评分的 CSV。 这将生成并下载一个包含学生仓库链接、其 {% data variables.product.prodname_dotcom %} 处理、名册标识、提交时间戳和自动评分的CSV。
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![选择"下载" 按钮会显示"下载成绩突出显示" 和另一个选项"下载仓库"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### 查看单个日志
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}

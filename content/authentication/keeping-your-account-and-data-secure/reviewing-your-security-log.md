@@ -259,7 +259,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `change_password` | Triggered when you change your password.
 | `forgot_password` | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
 | `hide_private_contributions_count` | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
-| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes > 2.22 or ghae %}
+| `login` | Triggered when you log in to {% data variables.product.product_location %}.{% ifversion ghes or ghae %}
 `mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
 | `failed_login` | Triggered when you failed to log in successfully.
 | `remove_email` | Triggered when you remove an email address.

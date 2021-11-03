@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -29,7 +30,7 @@ shortTitle: Remove a collaborator
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. 削除するコラボレーターの右で、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

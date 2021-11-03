@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Notificações de e-mail para pushes
@@ -30,7 +31,7 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 - Os arquivos que foram alterados como parte do commit
 - A mensagem do commit;
 
-É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. Para obter mais informações, consulte {% ifversion fpt or ghae or ghes %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Sobre e-mails de notificação](/github/receiving-notifications-about-activity-on-github/about-email-notifications)"." Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
+É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. Para obter mais informações, consulte {% ifversion fpt or ghae or ghes or ghec %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Sobre e-mails de notificação](/github/receiving-notifications-about-activity-on-github/about-email-notifications)"." Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
 [Escolher o método de entrega das suas notificações](/enterprise/{{ page.version }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}".</p> 
 
 
@@ -57,7 +58,7 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 
 ## Leia mais
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" 
   

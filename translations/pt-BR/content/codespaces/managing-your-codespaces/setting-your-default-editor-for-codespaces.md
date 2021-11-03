@@ -4,6 +4,7 @@ intro: 'Você pode definir seu editor padrão para {% data variables.product.pro
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 shortTitle: Definir o editor padrão

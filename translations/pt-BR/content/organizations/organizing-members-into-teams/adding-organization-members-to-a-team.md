@@ -1,6 +1,6 @@
 ---
 title: Adicionar integrantes da organização a uma equipe
-intro: 'As pessoas com permissões de proprietário ou mantenedor de equipe podem adicionar integrantes da organização às equipes. As pessoas com permissões de proprietário também podem {% ifversion fpt %}convidar não integrantes para ingressar em{% else %}adicionar não integrantes a{% endif %} uma equipe e na organização.'
+intro: 'As pessoas com permissões de proprietário ou mantenedor de equipe podem adicionar integrantes da organização às equipes. As pessoas com permissões de proprietário também podem {% ifversion fpt or ghec %}convidar não integrantes para ingressar em{% else %}adicionar não integrantes a{% endif %} uma equipe e na organização.'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ shortTitle: Adicionar integrantes a uma equipe
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
-{% ifversion fpt %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
 ## Leia mais
 

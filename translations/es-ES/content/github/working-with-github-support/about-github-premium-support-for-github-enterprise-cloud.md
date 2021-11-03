@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: Soporte prémium de GitHub
@@ -19,7 +20,7 @@ shortTitle: Soporte prémium de GitHub
 
 - {% data reusables.support.data-protection-and-privacy %}
 
-- Este artículo contiene los términos de {% data variables.contact.premium_support %} para clientes de {% data variables.product.prodname_ghe_cloud %}. Es posible que los términos sean diferentes para los clientes de {% data variables.product.prodname_ghe_server %} o los clientes de {% data variables.product.prodname_enterprise %} que compran {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %} de manera conjunta. Para obtener más información, consulta "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" y "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)".
+- Este artículo contiene los términos de {% data variables.contact.premium_support %} para clientes de {% data variables.product.prodname_ghe_cloud %}. Es posible que los términos sean diferentes para los clientes de {% data variables.product.prodname_ghe_server %} o los clientes de {% data variables.product.prodname_enterprise %} que compran {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %} de manera conjunta. Para obtener más información, consulta "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)" y "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_enterprise %}](/enterprise-server@latest/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise)".
 
 {% endnote %}
 

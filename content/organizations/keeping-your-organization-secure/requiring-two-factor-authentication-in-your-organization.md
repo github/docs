@@ -55,7 +55,7 @@ Before you require use of two-factor authentication, we recommend notifying {% i
 
 ## Viewing people who were removed from your organization
 
-To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search your organization's audit log](/articles/reviewing-the-audit-log-for-your-organization/#accessing-the-audit-log) for people removed from your organization. The audit log event will show if a person was removed for 2FA non-compliance.
+To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search your organization's audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log) for people removed from your organization. The audit log event will show if a person was removed for 2FA non-compliance.
 
 ![Audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
