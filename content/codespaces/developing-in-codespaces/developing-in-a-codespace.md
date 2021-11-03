@@ -22,6 +22,8 @@ topics:
 
 {% data variables.product.prodname_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
+{% data reusables.codespaces.links-to-get-started %}
+
 ![Codespace overview with annotations](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
 1. Side Bar - By default, this area shows your project files in the Explorer.

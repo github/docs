@@ -1,2 +1,0 @@
-Du kannst Standard-Issuevorlagen {% ifversion fpt or ghes or ghae or ghec %} und ein Standard-Konfigurationsfile für Issue-Vorlagen{% endif %} für Deine Organisation{% ifversion fpt or ghes or ghae or ghec %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-
