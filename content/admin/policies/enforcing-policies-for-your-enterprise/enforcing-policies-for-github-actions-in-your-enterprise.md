@@ -1,6 +1,6 @@
 ---
 title: Enforcing policies for GitHub Actions in your enterprise
-intro: "You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise's organizations, or allow policies to be set in each organization."
+intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -44,7 +44,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.actions.enterprise-actions-permissions %}
 1. Click **Save**.
 
-{% ifversion ghec or ghes > 2.22 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ### Allowing select actions to run
 
@@ -61,7 +61,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
    {%- endif %}
 {% endif %}
 
-{% ifversion ghec or ghes > 2.22 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
 
@@ -96,7 +96,7 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% endif %}
 
-{% ifversion ghec or ghes > 2.22 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ### Enforcing a policy for fork pull requests in private repositories
 

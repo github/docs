@@ -4,6 +4,7 @@ intro: 'Puedes administrar y revisar la forma en que los usuarios de tu organiza
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Criar a partir de um modelo
@@ -18,7 +19,7 @@ shortTitle: Criar a partir de um modelo
 
 Qualquer pessoa com permissões de leitura em um repositório de modelos pode criar um repositório a partir desse modelo. Para obter mais informações, consulte "[Criar um repositório de modelos](/articles/creating-a-template-repository)".
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Dica**: Você também pode criar um repositório a partir de um modelo usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {% data variables.product.prodname_cli %}.
@@ -26,7 +27,7 @@ Qualquer pessoa com permissões de leitura em um repositório de modelos pode cr
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 Você pode optar por incluir a estrutura do diretório e os arquivos apenas a partir do branch-padrão do repositório de modelos ou incluir todos os branches. Os branches criados a partir de um modelo têm histórico não relacionado, o que significa que você não pode criar pull requests ou fazer merge entre os branches.
 {% endif %}
 
@@ -43,7 +44,7 @@ Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcaçõe
 2. Acima da lista de arquivos, clique em **Use this template** (Usar este modelo). ![Botão Use this template (Usar este modelo)](/assets/images/help/repository/use-this-template-button.png)
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes %}
+{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes or ghec %}
 6. Opcionalmente, para incluir a estrutura de diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 8. Clique em **Create repository from template** (Criar repositório a partir do modelo).

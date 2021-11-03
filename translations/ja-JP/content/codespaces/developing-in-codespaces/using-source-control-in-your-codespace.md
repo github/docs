@@ -4,6 +4,7 @@ intro: Codespace 内のファイルに変更を加えた後、変更をすばや
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

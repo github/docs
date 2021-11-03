@@ -9,7 +9,7 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to

@@ -1,6 +1,6 @@
 ---
 title: Switching your SAML configuration from an organization to an enterprise account
-intro: 'Learn special considerations and best practices for replacing an organization-level SAML configuration with an enterprise-level SAML configuration.'
+intro: Learn special considerations and best practices for replacing an organization-level SAML configuration with an enterprise-level SAML configuration.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:

@@ -2,6 +2,7 @@
 title: 计费
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

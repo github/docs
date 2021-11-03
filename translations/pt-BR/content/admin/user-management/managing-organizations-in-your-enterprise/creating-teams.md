@@ -14,7 +14,7 @@ topics:
   - User account
 ---
 
-As equipes são essenciais para vários recursos de colaboração do {% data variables.product.prodname_dotcom %}, como as @menções, que chamam a atenção dos integrantes envolvidos em alguma questão específica. Para obter mais informações sobre como configurar equipes e permissões de equipe, consulte "[Níveis de permissão nos repositórios da organização](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
+As equipes são essenciais para vários recursos de colaboração do {% data variables.product.prodname_dotcom %}, como as @menções, que chamam a atenção dos integrantes envolvidos em alguma questão específica. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Uma equipe pode representar um grupo dentro da empresa ou incluir pessoas com determinados interesses ou experiências. Por exemplo, uma equipe de especialistas em acessibilidade da {% data variables.product.product_location %} pode envolver pessoas de vários departamentos. As equipes podem representar interesses funcionais que complementam a hierarquia das divisões de uma empresa.
 

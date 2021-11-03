@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 添加外部协作者
 ---
 
-## About outside collaborators
+## 关于外部协作者
 
 {% data reusables.organizations.owners-and-admins-can %} 可将外部协作者添加到仓库，除非组织所有者限制了邀请协作者的能力。 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.
 
@@ -27,14 +28,14 @@ shortTitle: 添加外部协作者
 {% data reusables.organizations.outside_collaborator_forks %}
 
 {% ifversion fpt %}
-To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+为了进一步支持团队的协作能力，您可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括受保护的分支机构和私有仓库的代码所有者等功能。 {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-## Adding outside collaborators to a repository
+## 添加外部协作者到仓库
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. 在搜索字段中，开始键入您想邀请的人员的姓名，然后单击匹配列表中的姓名。 ![搜索字段以键入要邀请加入仓库的人员姓名](/assets/images/help/repository/manage-access-invite-search-field.png)

@@ -54,7 +54,8 @@ describe('header', () => {
   })
 
   describe('notices', () => {
-    test('displays a "localization in progress" notice for WIP languages', async () => {
+    // Docs engineering issue: 1055
+    test.skip('displays a "localization in progress" notice for WIP languages', async () => {
       const $ = await getDOM('/de')
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href="/en"]').length).toBe(1)

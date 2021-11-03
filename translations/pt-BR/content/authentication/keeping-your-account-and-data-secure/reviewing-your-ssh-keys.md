@@ -1,6 +1,6 @@
 ---
 title: Revisar suas chaves SSH
-intro: 'Para manter suas credenciais protegidas, você deve auditar regularmente as chaves SSH e as chaves de implantação, bem como revisar os aplicativos autorizados que acessam sua conta do {% data variables.product.product_name %}.'
+intro: 'Para manter suas credenciais seguras, você deve regularmente auditar as suas chaves SSH, chaves de implantação e revisar os aplicativos autorizados que acessam a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe/
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -34,24 +35,13 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Encontre e anote a impressão digital da chave pública. {% ifversion ghes < 3.0 %}Se você estiver usnado OpenSSH 6.7 ou anterior:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  Se estiver usando OpenSSH 6.8 ou posterior:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+6. Encontre e anote a impressão digital da chave pública.
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-7. As chaves SSH keys {% data variables.product.product_name %} <em x-id="3">devem</em> corresponder às chaves no computador.
+7. As chaves SSH keys {% data variables.product.product_name %} *devem* corresponder às chaves no computador.
 
 {% endmac %}
 
@@ -59,12 +49,11 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Aqueles que você não reconhece, ou que estão desatualizados, clique em **Excluir**. Se houver chaves SSH válidas que deseja manter, clique em <strong x-id="1">Approve</strong> (Aprovar).
-    ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves SSH válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Observação:** quando estiver auditando as chaves SSH devido a um erro em uma operação do Git, a chave não verificada que causou o  [erro de auditoria da chave SSH](/articles/error-we-re-doing-an-ssh-key-audit) estará em destaque na lista de chaves SSH.
+     **Observação:** quando estiver auditando as chaves SSH devido a um erro em uma operação do Git, a chave não verificada que causou o [erro de auditoria da chave SSH](/articles/error-we-re-doing-an-ssh-key-audit) estará em destaque na lista de chaves SSH.
 
   {% endtip %}
 
@@ -74,24 +63,13 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. Encontre e anote a impressão digital da chave pública. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  Se estiver usando OpenSSH 6.8 ou posterior:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+6. Encontre e anote a impressão digital da chave pública.
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-7. As chaves SSH keys {% data variables.product.product_name %} <em x-id="3">devem</em> corresponder às chaves no computador.
+7. As chaves SSH keys {% data variables.product.product_name %} *devem* corresponder às chaves no computador.
 
 {% endwindows %}
 
@@ -99,12 +77,11 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Aqueles que você não reconhece, ou que estão desatualizados, clique em **Excluir**. Se houver chaves SSH válidas que deseja manter, clique em <strong x-id="1">Approve</strong> (Aprovar).
-    ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves SSH válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Observação:** quando estiver auditando as chaves SSH devido a um erro em uma operação do Git, a chave não verificada que causou o  [erro de auditoria da chave SSH](/articles/error-we-re-doing-an-ssh-key-audit) estará em destaque na lista de chaves SSH.
+     **Observação:** quando estiver auditando as chaves SSH devido a um erro em uma operação do Git, a chave não verificada que causou o [erro de auditoria da chave SSH](/articles/error-we-re-doing-an-ssh-key-audit) estará em destaque na lista de chaves SSH.
 
   {% endtip %}
 
@@ -112,20 +89,11 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Encontre e anote a impressão digital da chave pública. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
+6. Encontre e anote a impressão digital da chave pública.
   ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
-
-  Se estiver usando OpenSSH 6.8 ou posterior:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
-```shell $ ssh-add -l -E sha256
-> 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA) ```{% endif %}
 
 7. As chaves SSH keys {% data variables.product.product_name %} *devem* corresponder às chaves no computador.
 

@@ -7,7 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: issue-4864
   ghec: '*'
 type: how_to

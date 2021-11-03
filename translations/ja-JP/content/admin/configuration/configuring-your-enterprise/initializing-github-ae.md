@@ -14,7 +14,7 @@ redirect_from:
 
 Enterprise を初期化する前に、{% data variables.product.product_name %} を購入する必要があります。 詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
-{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. Enterprise オーナーの詳細については、「[Enterprise 内のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
+{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. Enterprise オーナーの詳細については、「[Enterprise 内のロール](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)」を参照してください。
 
 {% note %}
 

@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -49,4 +50,4 @@ Isto significa que, para o ExempleApp criar um novo problema em nome da Alice, e
 
 * {% data variables.product.prodname_github_app %} do ExampleApp solicita acesso de gravação aos problemas.
 * Um usuário que tenha acesso de administrador ao repositório A deve ter instalado o {% data variables.product.prodname_github_app %} do ExampleApp no repositório A.
-* Alice deve ter lido a permissão para o Repo A. Para obter informações sobre quais permissões são necessárias para executar várias atividades, consulte "[Níveis de permissão do Repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#repository-access-for-each-permission-level).".
+* Alice deve ter lido a permissão para o Repo A. Para obter informações sobre quais permissões são necessárias para executar várias atividades, consulte "[Funções do Repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization).".

@@ -3,6 +3,7 @@ title: Dependabot.comからGitHubネイティブのDependabotへのアップグ�
 intro: 依存関係を継続的に更新できるようにするPull Requestをマージすることによって、GitHubネイティブのDependabotへアップグレードできます。
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories

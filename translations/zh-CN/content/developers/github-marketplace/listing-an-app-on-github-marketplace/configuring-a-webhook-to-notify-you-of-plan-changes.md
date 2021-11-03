@@ -10,6 +10,7 @@ redirect_from:
   - /developers/github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 计划更改的 web 挂钩

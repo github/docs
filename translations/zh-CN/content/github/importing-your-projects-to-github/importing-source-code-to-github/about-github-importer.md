@@ -6,6 +6,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/about-github-importer
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 GitHub 导入工具是一种可快速将源代码仓库（包括提交和修订记录）导入 GitHub 的工具。

@@ -101,7 +101,7 @@ Let's commit a change to the *README* file.
 
 Now that you have created a project, you can start committing changes.
 
-*README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository. Follow these steps to add a *README* file. 
+*README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository. Follow these steps to add a *README* file.
 
 1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
 1. Create a *README* file with some information about the project.

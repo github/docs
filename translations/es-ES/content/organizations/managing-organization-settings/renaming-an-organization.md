@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -33,9 +34,9 @@ Después de cambiar el nombre de tu organización, el nombre antiguo de tu organ
 ### Cambios que no son automáticos
 
 Después de cambiar el nombre de tu organización:
-- Los enlaces a la página de perfil de tu organización anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, generarán un error 404. Recomendamos que actualices los enlaces a tu organización desde otros sitios{% ifversion fpt %}, como tus perfiles de LinkedIn o Twitter{% endif %}.
+- Los enlaces a la página de perfil de tu organización anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, generarán un error 404. Recomendamos que actualices los enlaces a tu organización desde otros sitios{% ifversion fpt or ghec %}, como tus perfiles de LinkedIn o Twitter{% endif %}.
 - Las solicitudes API que utilizan el nombre de la organización antiguo generarán un error 404. Recomendamos que actualices el nombre de la organización antiguo en tus solicitudes API.
-- No hay redireccionamientos automáticos de [@mención](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) para los equipos que utilizan el nombre antiguo de la organización.{% ifversion fpt %}
+- No hay redireccionamientos automáticos de [@mención](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) para los equipos que utilizan el nombre antiguo de la organización.{% ifversion fpt or ghec %}
 - Si se habilita el inicio de sesión único (SSO) para la organización, debes actualizar el nombre de la misma en la aplicación para {% data variables.product.prodname_ghe_cloud %} en tu proveedor de identidad (IdP). Si no actualizas el nombre de organización en tu IdP, los miembros de esta ya no podrán autenticarse con tu IdP para acceder a los recursos de la organización. Para obtener más información, consulta la sección "[Conectar a tu proveedor de identidad con tu organización](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)."{% endif %}
 
 ## Cambiar el nombre de tu organización

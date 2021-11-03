@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: PagesのJekyllビルドエラー
@@ -18,7 +19,7 @@ shortTitle: PagesのJekyllビルドエラー
 
 ## Jekyllのビルドエラーについて
 
-サイトの公開元に変更をプッシュした後で、{% data variables.product.prodname_pages %}がサイトのビルドを試行しない場合があります。{% ifversion fpt %}
+サイトの公開元に変更をプッシュした後で、{% data variables.product.prodname_pages %}がサイトのビルドを試行しない場合があります。{% ifversion fpt or ghec %}
 - 変更をプッシュしたユーザーがメールアドレスを検証していない。 詳しい情報については、「[メールアドレスの検証](/articles/verifying-your-email-address)」を参照してください。{% endif %}
 - デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/developers/overview/managing-deploy-keys#machine-users)」を参照してください。
 - 公開元をビルドするようにCIサービスを設定していない。 たとえば、Travis CI は `gh-pages` ブランチを、セーフリストに追加しない限りビルドしません。 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。

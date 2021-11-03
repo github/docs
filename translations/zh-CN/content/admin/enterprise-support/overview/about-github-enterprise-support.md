@@ -33,7 +33,7 @@ shortTitle: GitHub Enterprise 支持
   - 通过我们的支持门户网站全天候提供书面支持
   - 全天候电话支持
   - 保证初始响应时间的服务等级协议 (SLA)
-  - Customer Reliability Engineers
+  - 客户可靠性工程师
   - 高级内容访问权限
   - 按时健康状态检查
   - 管理的管理员小时数
@@ -46,6 +46,11 @@ shortTitle: GitHub Enterprise 支持
 {% data reusables.support.scope-of-support %}
 
 ## 联系 {% data variables.contact.enterprise_support %}
+
+{% ifversion ghes %}
+{% data reusables.support.zendesk-deprecation %}
+{% endif %}
+
 
 您可以通过 {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} {% data variables.contact.ae_azure_portal %}{% endif %} 联系 {% data variables.contact.enterprise_support %}，以书面报告问题。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 

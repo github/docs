@@ -1,18 +1,20 @@
 ---
 title: Utilizar GitHub Actions para la administración de proyectos
 intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para automatizar muchas de tus tareas de administración de proyectos.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/using-github-actions-for-project-management
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Project management
 shortTitle: Acciones apra la administración de proyectos
 ---
+
+{% data reusables.actions.ae-beta %}
 
 Puedes utilizar las {% data variables.product.prodname_actions %} para automatizar tus tareas de administración de proyectos si creas flujos de trabajo. Cada flujo de trabajo contiene una serie de tareas que se llevan a cabo automáticamente cada que se ejecuta el flujo de trabajo. Por ejemplo, puedes crear un flujo de trabajo que se ejecute cada vez que se crea una propuesta para que se agregue una etiqueta, se deje un comentario y se mueva la propuesta a otro tablero de proyecto.
 
