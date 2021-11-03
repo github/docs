@@ -5,6 +5,7 @@ intro: 'Audit log を使用して、{% data variables.product.prodname_codespace
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

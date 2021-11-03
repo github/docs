@@ -11,6 +11,7 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -31,7 +32,7 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
+Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 For more information, see "[Managing team synchronization for organizations in your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 

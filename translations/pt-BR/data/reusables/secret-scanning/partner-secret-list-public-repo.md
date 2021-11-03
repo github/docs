@@ -35,6 +35,7 @@
 | Finicity                  | Chave do aplicativo de Finicity                           |
 | Frame.io                  | Token web do JSON de Frame.io                             |
 | Frame.io                  | Token do desenvolvedor de Frame.io                        |
+| FullStory                 | FullStory API Key                                         |
 | GitHub                    | Token de acesso pessoal do GitHub                         |
 | GitHub                    | GitHub OAuth Access Token                                 |
 | GitHub                    | GitHub Refresh Token                                      |

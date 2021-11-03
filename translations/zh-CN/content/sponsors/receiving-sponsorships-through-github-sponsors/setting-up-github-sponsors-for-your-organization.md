@@ -8,6 +8,7 @@ redirect_from:
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -79,7 +80,7 @@ shortTitle: 为组织设置
 
 ## 在您的 {% data variables.product.prodname_dotcom %} 帐户上启用双重身份验证 (2FA)。
 
-在您的组织成为被赞助的组织之前，您必须在 {% data variables.product.product_name %} 帐户上启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
+在您的组织成为被赞助的组织之前，您必须为您在 {% data variables.product.product_location %} 上的帐户启用 2FA。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。
 
 ## 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 

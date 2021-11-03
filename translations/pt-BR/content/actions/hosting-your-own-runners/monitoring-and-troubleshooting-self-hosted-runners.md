@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
 shortTitle: Monitorar & solucionar problemas
@@ -17,6 +18,7 @@ shortTitle: Monitorar & solucionar problemas
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Verificar o status de um executor auto-hospedado usando {% data variables.product.prodname_dotcom %}
 
@@ -24,7 +26,7 @@ shortTitle: Monitorar & solucionar problemas
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Em {% ifversion fpt or ghes > 3.1 or ghae-next %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, você pode ver uma lista de executores registrados, incluindo nome do executor, etiqueta e status.
+1. Em {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, você pode ver uma lista de executores registrados, incluindo nome do executor, etiqueta e status.
 
     Pode haver os seguintes status:
 

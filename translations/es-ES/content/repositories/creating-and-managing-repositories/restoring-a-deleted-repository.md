@@ -7,11 +7,15 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/restoring-a-deleted-repository
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 shortTitle: Restablecer el repositorio borrado
 ---
 
+{% ifversion fpt or ghec %}
 Cualquier usuario puede restaurar repositorios eliminados que le pertenecieron a su propia cuenta de usuario. Los propietarios de la organización pueden restaurar repositorios eliminados que le pertenecieron a la organización.
 
 ## Acerca de la restauración de repositorios
@@ -44,3 +48,7 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 ## Leer más
 
 - "[Borrar un repositorio](/articles/deleting-a-repository)"
+
+{% else %}
+Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. Para obtener más información, consulta "[Restaurar un repositorio eliminado](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+{% endif %}

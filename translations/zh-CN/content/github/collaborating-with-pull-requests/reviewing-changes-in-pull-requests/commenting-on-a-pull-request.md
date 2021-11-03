@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 对 PR 的评论
@@ -60,5 +61,5 @@ shortTitle: 对 PR 的评论
 ## 延伸阅读
 
 - "[在 GitHub 上编写](/github/writing-on-github)"
-{% ifversion fpt %}-“[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
+{% ifversion fpt or ghec %}-“[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 {% endif %}

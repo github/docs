@@ -84,7 +84,6 @@ topics:
 | `issue_comment.update` | Cambió un comentario sobre un problema (diferente al inicial).                                                                                                              |
 | `issue.destroy`        | Se eliminó un problema del repositorio. Para obtener más información, consulta la sección "[Borrar una propuesta](/github/managing-your-work-on-github/deleting-an-issue)". |
 
-
 ## Organizaciones
 
 | Acción             | Descripción                                                                                                                                                                                                                                                           |
@@ -144,12 +143,12 @@ topics:
 
 ## Equipos
 
-| Acción                    | Descripción                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------- |
-| `team.create`             | Se agregó una cuenta de usuario o repositorio a un equipo.                                      |
-| `team.delete`             | Se eliminó una cuenta de usuario o repositorio de un equipo.{% ifversion ghes > 2.22 or ghae %}
+| Acción                    | Descripción                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------- |
+| `team.create`             | Se agregó una cuenta de usuario o repositorio a un equipo.                                |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | Se bajó de categoría a un usuario de mantenedor de equipo a miembro de equipo.{% endif %}
-| `team.destroy`            | Se borró un equipo.{% ifversion ghes > 2.22 or ghae %}
+| `team.destroy`            | Se borró un equipo.{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | Se promovió a un usuario de miembro de equipo a mantenedor de equipo.{% endif %}
 
 ## Usuarios
@@ -165,7 +164,7 @@ topics:
 | `user.destroy`                  | Un usuario borró su cuenta, lo cual activó a `user.async_delete`.{% ifversion ghes %}
 | `user.failed_login`             | Un usuario intentó registrarse con un nombre de usuario, contraseña o código de autenticación de dos factores incorrecto.                                                                              |
 | `user.forgot_password`          | Un usuario solicitó el restablecimiento de una contraseña a través de la página de inicio de sesión.{% endif %}
-| `user.login`                    | Un usuario inició sesión.{% ifversion ghes > 2.22 or ghae %}
+| `user.login`                    | Un usuario inició sesión.{% ifversion ghes or ghae %}
 | `user.mandatory_message_viewed` | Un usuario vió un mensaje mandatorio (consulta "[Personalizar los mensajes de usuario](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obtener más detalles) | {% endif %}
 | `user.promote`                  | Se ascendió una cuenta de usuario común a administrador del sitio.                                                                                                                                     |
 | `user.remove_email`             | Se eliminó una dirección de correo electrónico de una cuenta de usuario.                                                                                                                               |

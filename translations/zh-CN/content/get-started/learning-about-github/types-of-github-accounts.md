@@ -1,6 +1,6 @@
 ---
 title: GitHub 帐户的类型
-intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 您的用户帐户可以是任意数量组织的成员。{% ifversion fpt %} 组织可属于企业帐户。{% endif %}'
+intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 Your user account can be a member of any number of organizations.{% ifversion fpt or ghec %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -21,7 +22,7 @@ topics:
   - Security
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 有关各 {% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
 {% endif %}
 
@@ -29,7 +30,7 @@ topics:
 
 使用 {% data variables.product.product_location %} 的每个人都有其自己的用户帐户，其中包括：
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 - 使用 {% data variables.product.prodname_free_user %} 的无限公共和私有仓库
 - 使用 {% data variables.product.prodname_free_user %} 的无限协作者
@@ -43,7 +44,7 @@ topics:
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -64,12 +65,12 @@ topics:
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_emus %}
 
 With {% data variables.product.prodname_emus %}, instead of using your personal account, members of an {% data variables.product.prodname_emu_enterprise %} are provisioned accounts using the enterprise's identity provider (IdP). {% data variables.product.prodname_managed_users_caps %} authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password.
 
-{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 {% endif %}
 
 ## 组织帐户
@@ -78,7 +79,7 @@ With {% data variables.product.prodname_emus %}, instead of using your personal 
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 企业帐户
 
@@ -88,6 +89,6 @@ With {% data variables.product.prodname_emus %}, instead of using your personal 
 
 ## 延伸阅读
 
-{% ifversion fpt %}-“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”
+{% ifversion fpt or ghec %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - “[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”{% endif %}
 - “[创建新组织帐户](/articles/creating-a-new-organization-account)”

@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: RubyGemsレジストリ
 ---
 
@@ -61,7 +62,7 @@ gemの公開なら*~/.gem/credentials*ファイルを編集することで、単
 gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
 ```
 
-gemをインストールするには、プロジェクトの*~/.gemrc*ファイルを編集し、`https://USERNAME:TOKEN@{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`を含めることによって{% data variables.product.prodname_registry %}の認証を受けなければなりません。 以下のように置き換えてください。
+To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by editing the *~/.gemrc* file for your project to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`. 以下のように置き換えてください。
   - `USERNAME`を{% data variables.product.prodname_dotcom %}のユーザ名で。
   - `TOKEN`を個人アクセストークンで。
   - `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザまたはOrganizationアカウント名で。{% ifversion ghes %}
@@ -78,7 +79,7 @@ gemをインストールするには、プロジェクトの*~/.gemrc*ファイ�
 :bulk_threshold: 1000
 :sources:
 - https://rubygems.org/
-- https://USERNAME:TOKEN@{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
+- https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
 :update_sources: true
 :verbose: true  
 
@@ -87,7 +88,7 @@ gemをインストールするには、プロジェクトの*~/.gemrc*ファイ�
 Bundlerで認証を受けるには、個人アクセストークンを使うようにBundlerを設定してください。 *USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*OWNER*をプロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で置き換えます。{% ifversion ghes %}}`REGISTRY-URL` をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif ghae %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
+$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```
 
 ## パッケージを公開する
@@ -105,7 +106,7 @@ $ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGI
 
   ```shell
   $ gem push --key github \
-  --host https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
+  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER</em> \
   <em>OCTO-GEM-0.0.1</em>.gem
   ```
 
@@ -114,7 +115,7 @@ $ bundle config https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGI
 複数のgemを同じリポジトリに公開したい場合は、{% data variables.product.prodname_dotcom %}リポジトリの`gem.metadata`にある`github_repo`フィールドに、URL を記述できます。 このフィールドを含めた場合、{% data variables.product.prodname_dotcom %} は、gem 名の代わりに、この値を元にしてリポジトリを照合します。{% ifversion ghes or ghae %}*HOSTNAME*を、{% data variables.product.product_location %} のホスト名に置き換えます。{% endif %}
 
 ```ruby
-gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
+gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
 ```
 
 ## パッケージをインストールする
@@ -129,7 +130,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 
   gem "rails"
 
-  source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
+  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
     gem "GEM NAME"
   end
   ```
@@ -137,7 +138,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 3. 1.7.0以前のバージョンのBundlerの場合、新しいグローバルな`source`を追加する必要があります。 Bundlerの利用に関する詳しい情報については[bundler.ioのドキュメンテーション](http://bundler.io/v1.5/gemfile.html)を参照してください。
 
   ```ruby
-  source "https://{% ifversion fpt %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
+  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER"
   source "https://rubygems.org"
 
   gem "rails"
@@ -151,4 +152,4 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt %}github.com{% else %}
 
 ## 参考リンク
 
-- 「{% ifversion fpt or ghes > 3.0 %}[パッケージの削除と復元](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージの削除](/packages/learn-github-packages/deleting-a-package){% endif %}」
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

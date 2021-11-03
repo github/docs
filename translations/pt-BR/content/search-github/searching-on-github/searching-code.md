@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -25,13 +26,13 @@ Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de
 
 Devido à complexidade da pesquisa de códigos, a execução das pesquisas apresenta algumas restrições:
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
 - O código em [bifurcações](/articles/about-forks) só poderá ser pesquisado se a bifurcação tiver mais estrelas do que o repositório principal. Bifurcações com menos estrelas do que o repositório principal **não** são indexadas para pesquisa de códigos. Para incluir bifurcações com mais estrelas que o repositório principal delas nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/search-github/searching-on-github/searching-in-forks)".
-- Apenas o _branch-padrão_ é indexado para a busca de código.{% ifversion fpt %}
+- Apenas o _branch-padrão_ é indexado para a busca de código.{% ifversion fpt or ghec %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
 - Somente os primeiros 500 KB de cada arquivo são pesquisados.{% endif %}
-- Apenas repositórios com menos de 500.000 arquivos são pesquisáveis.{% ifversion fpt %}
+- Apenas repositórios com menos de 500.000 arquivos são pesquisáveis.{% ifversion fpt or ghec %}
 - Apenas repositórios que tiveram atividade ou apareceram nos resultados de pesquisa do último ano são pesquisáveis.{% endif %}
 - Com exceção das pesquisas por [`filename`](#search-by-filename), é necessário incluir pelo menos um termo da pesquisa ao pesquisar o código-fonte. Por exemplo, pesquisar [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) não é válido, enquanto pesquisar [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) é.
 - Os resultados da pesquisa exibem no máximo dois fragmentos do mesmo arquivo, mas o arquivo pode ter mais resultados.
@@ -61,11 +62,11 @@ Para pesquisar códigos em todos os repositórios de um determinado usuário ou 
 
 Você pode usar o qualificador `path` para pesquisar o código-fonte que aparece em um local específico de um repositório. Use o `path:/` para pesquisar os arquivos que estão no diretório raiz de um repositório. Ou especifique o nome ou o caminho do diretório para pesquisar os arquivos presentes nesse diretório e em seus subdiretórios.
 
-| Qualifier                  | Exemplo                                                                                                                                                                                                                                                                                                                          |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) identifica os arquivos _readme_ com a palavra "octocat" localizados no diretório raiz de um repositório.                                                                                         |
-| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in the <em>cgi-bin</em> directory, or in any of its subdirectories.                                                                                              |
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in the <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>). |
+| Qualifier                  | Exemplo                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>path:/</code>  | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) identifica os arquivos _readme_ com a palavra "octocat" localizados no diretório raiz de um repositório.                                                                                                     |
+| <code>path:<em>DIRECTORY</em></code>  | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) corresponde a arquivos Perl com a palavra "form" no diretório <em>cgi-bin</em> ou em qualquer um dos seus subdiretórios.                                                                                             |
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) correspone aos arquivos JavaScript com a palavra "console" no diretório <em>app/public</em> ou em qualquer um dos seus subdiretórios (mesmo que estejam em <em>app/public/js/form-validators</em>). |
 
 ## Pesquisar por linguagem
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
@@ -108,5 +109,5 @@ O qualificador `extension` identifica os arquivos de código com uma determinada
 ## Leia mais
 
 - "[Ordenar os resultados da pesquisa](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
-- "[Pesquisar nas bifurcações](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt %}
+- "[Pesquisar nas bifurcações](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
 - "[Navegar pelo código em {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

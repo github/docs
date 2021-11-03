@@ -3,7 +3,8 @@ title: GitHub para dispositivos móveis
 intro: 'Faça triagem, colabore e gerencie seu trabalho em {% data variables.product.product_name %} do seu dispositivo móvel.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Mobile
 redirect_from:
@@ -43,7 +44,7 @@ Você pode estar conectado simultaneamente em um celular com uma conta de usuár
 
 Você precisa instalar {% data variables.product.prodname_mobile %} 1.4 ou superior no seu dispositivo para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}.
 
-Para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} deve ser a versão 3.0 ou superior, e o proprietário da empresa deverá habilitar o suporte móvel para a sua empresa. Para obter mais informações, consulte {% ifversion ghes %}"[Notas de versão](/enterprise-server/admin/release-notes)e {% endif %}"[Gerenciando {% data variables.product.prodname_mobile %} para sua empresa](/admin/configuration/managing-github-for-mobile-for-your-enterprise)".
+Para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} deve ser a versão 3.0 ou superior, e o proprietário da empresa deverá habilitar o suporte móvel para a sua empresa. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/managing-github-for-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
 Durante o beta para {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, você deve estar conectado com uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.
 
