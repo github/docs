@@ -1,1 +1,0 @@
-1. Um optional eine bestimmte Änderung an der Zeile{% ifversion fpt or ghes or ghae or ghec %} oder den Zeilen{% endif %} vorzuschlagen, klicke auf {% octicon "diff" aria-label="The diff symbol" %} und bearbeite den Text innerhalb des Vorschlagsblocks. ![Vorschlagsblock](/assets/images/help/pull_requests/suggestion-block.png)
