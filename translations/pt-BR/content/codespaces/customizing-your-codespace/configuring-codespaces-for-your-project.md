@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -21,7 +22,9 @@ shortTitle: Configure o seu projeto
 
 ## Sobre contêineres de desenvolvimento
 
-Um contêiner de desenvolvimento, ou dev container, é o ambiente que {% data variables.product.prodname_codespaces %} usa para fornecer as ferramentas e tempos de execução de que seu projeto precisa para desenvolvimento. Ao trabalhar com um contêiner de desenvolvimento em {% data variables.product.prodname_codespaces %} você pode [usar a configuração padrão](#using-the-default-configuration), [usar uma configuração predefinida](#using-a-predefined-container-configuration) ou [criar sua própria configuração](#creating-a-custom-codespace-configuration). A opção escolhida depende das ferramentas, tempo de execução, dependências e fluxos de trabalho que um usuário pode precisar para ter sucesso com seu projeto.
+Um contêiner de desenvolvimento, ou dev container, é o ambiente que {% data variables.product.prodname_codespaces %} usa para fornecer as ferramentas e tempos de execução de que seu projeto precisa para desenvolvimento. If your project does not already have a dev container defined, {% data variables.product.prodname_codespaces %} will use the default configuration, which contains many of the common tools that your team might need for development with your project. For more information, see "[Using the default configuration](#using-the-default-configuration)."
+
+If you want all users of your project to have a consistent environment that is tailored to your project, you can add a dev container to your repository. You can use a predefined configuration to select a common configuration for various project types with the option to further customize your project or you can create your own custom configuration. For more information, see "[Using a predefined container configuration](#using-a-predefined-container-configuration)" and "[Creating a custom codespace configuration](#creating-a-custom-codespace-configuration)." A opção escolhida depende das ferramentas, tempo de execução, dependências e fluxos de trabalho que um usuário pode precisar para ter sucesso com seu projeto.
 
 {% data variables.product.prodname_codespaces %} permite a personalização em uma base por projeto e por branch com um arquivo `devcontainer.json`. Este arquivo de configuração determina o ambiente de cada novo codespace que alguém criar para o repositório, definindo um contêiner de desenvolvimento que pode incluir estruturas, ferramentas, extensões e encaminhamento de porta. Um arquivo Docker também pode ser usado ao lado do arquivo `devcontainer.json` na pasta `devcontainer` para definir tudo o que é necessário para criar uma imagem de contêiner.
 
@@ -82,8 +85,27 @@ Usar uma configuração predefinida é uma ótima ideia se você precisa de uma 
 
 {% data reusables.codespaces.command-palette-container %}
 1. Clique na definição que você deseja usar. ![Lista de definições de contêiner predefinidas](/assets/images/help/codespaces/predefined-container-definitions-list.png)
-1. Siga as instruções para personalizar sua definição.
+1. Siga as instruções para personalizar sua definição. For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
 1. Clique em **OK**. ![Botão OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-changes-to-your-configuration)". !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
+
+### Adding additional features to your `devcontainer.json` file
+
+{% note %}
+
+**Note:** This feature is in beta and subject to change.
+
+{% endnote %}
+
+You can add features to your predefined container configuration to customize which tools are available and extend the functionality of your workspace without creating a custom codespace configuration. For example, you could use a predefined container configuration and add the {% data variables.product.prodname_cli %} as well. You can make these additional features available for your project by adding the features to your `devcontainer.json` file when you set up your container configuration.
+
+You can add some of the most common features by selecting them when configuring your predefined container. For more information on the available features, see the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) in the `vscode-dev-containers` repository.
+
+![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
+
+You can also add or remove features outside of the **Add Development Container Configuration Files** workflow.
+1. Access the Command Palette (`Shift + Command + P` / `Ctrl + Shift + P`), then start typing "configure". Select **Codespaces: Configure Devcontainer Features**. ![The Configure Devcontainer Features command in the command palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+2. Update your feature selections, then click **OK**. ![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
 1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-changes-to-your-configuration)". !["Codespaces: Reconstruir contêiner" na paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 
 

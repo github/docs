@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 概要
 
@@ -35,7 +37,7 @@ topics:
 
 ### ワークフロー
 
-ワークフローは、リポジトリに追加する自動化された手順です。 ワークフローは 1 つ以上のジョブで構成されており、スケジュールまたはイベントによってトリガーできます。 ワークフローを使用して、{% data variables.product.prodname_dotcom %} でプロジェクトをビルド、テスト、パッケージ、リリース、またはデプロイできます。 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+ワークフローは、リポジトリに追加する自動化された手順です。 ワークフローは 1 つ以上のジョブで構成されており、スケジュールまたはイベントによってトリガーできます。 ワークフローを使用して、{% data variables.product.prodname_dotcom %} でプロジェクトをビルド、テスト、パッケージ、リリース、またはデプロイできます。 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
 ### イベント
 
@@ -211,21 +213,20 @@ YAML 構文を使用してワークフローファイルを作成する方法を
 
 ![ワークフローの概要](/assets/images/help/images/overview-actions-event.png)
 
-
 ## ジョブのアクティビティを表示する
 
-ジョブの実行が開始されると、{% ifversion fpt or ghes > 3.0 or ghae %}実行の進行状況{% endif %}の視覚化グラフが表示され、{% data variables.product.prodname_dotcom %} での各ステップのアクティビティが表示されます。
+ジョブの実行が開始されると、{% ifversion fpt or ghes > 3.0 or ghae or ghec %}実行の進行状況{% endif %}の視覚化グラフが表示され、{% data variables.product.prodname_dotcom %} での各ステップのアクティビティが表示されます。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。 ![リポジトリに移動](/assets/images/help/images/learn-github-actions-repository.png)
 1. 左サイドバーで、表示するワークフローをクリックします。 ![ワークフロー結果のスクリーンショット](/assets/images/help/images/learn-github-actions-workflow.png)
 1. [Workflow runs] で、表示する実行の名前をクリックします。 ![ワークフロー実行のスクリーンショット](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. [**Jobs**] または視覚化グラフで、表示するジョブをクリックします。 ![ジョブを選択](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. 各ステップの結果を表示します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result.png)

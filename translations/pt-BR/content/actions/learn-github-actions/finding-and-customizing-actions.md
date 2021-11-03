@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Visão Geral
 
@@ -27,11 +29,11 @@ As ações que você usa no seu fluxo de trabalho podem ser definidas em:
 - O mesmo repositório onde o arquivo do fluxo de trabalho faz referência à ação
 - Uma imagem publicada do contêiner Docker no Docker Hub
 
-{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade de {% data variables.product.prodname_dotcom %}. {% ifversion fpt %}[a página de {% data variables.product.prodname_marketplace %} ](https://github.com/marketplace/actions/) permite filtrar ações por categoria. {% endif %}
+{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade de {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghec %}[a página de {% data variables.product.prodname_marketplace %} ](https://github.com/marketplace/actions/) permite filtrar ações por categoria. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Navegação nas ações do Marketplace no editor de fluxo de trabalho
 
@@ -77,7 +79,7 @@ steps:
 
 ### Usar SHAs
 
-Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% ifversion fpt or ghes > 3.0 or ghae %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
+Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
 
 ```yaml
 steps:

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:
@@ -24,4 +25,4 @@ children:
   - /getting-started-with-the-checks-api
 ---
 
-La intención de esta sección de documentos es que comiences a operar tan pronto como sea posible con aplicaciones de la API de {% data variables.product.product_name %} reales. Abordaremos todo lo que necesitas saber, desde la autenticación, hasta manipular los resultados, e incluso hasta combiar los resultados con otras apps. Cada tutorial en esta sección tendrá un proyecto, y cada proyecto se almacenará y documentará en nuestro repositorio público de [platform-samples](https://github.com/github/platform-samples). ![El Electrocat](/assets/images/electrocat.png)
+This section of the documentation is intended to get you up-and-running with real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. Abordaremos todo lo que necesitas saber, desde la autenticación, hasta manipular los resultados, e incluso hasta combiar los resultados con otras apps. Cada tutorial en esta sección tendrá un proyecto, y cada proyecto se almacenará y documentará en nuestro repositorio público de [platform-samples](https://github.com/github/platform-samples). ![El Electrocat](/assets/images/electrocat.png)

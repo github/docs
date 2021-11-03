@@ -1,1 +1,0 @@
-Bevor Du Deine Website erstellen kannst, musst Du ein Repository für Deine Website auf {% data variables.product.product_name %} haben. Wenn Du Deine Website nicht in einem vorhandenen Repository erstellst, findest Du weitere Informationen unter „[Erstellen eines Repositorys für Deine Website](#creating-a-repository-for-your-site)."

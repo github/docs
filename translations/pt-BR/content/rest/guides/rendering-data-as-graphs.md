@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
  
 
 
-Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. Para interagir com a API de {% data variables.product.product_name %}, vamos usar a excelente biblioteca do Ruby, [Octokit][Octokit].
+Neste guia, vamos usar a API para obter informações sobre repositórios dos quais somos proprietários e as linguagens de programação que as compõem. Em seguida, vamos visualizar essas informações de algumas formas diferentes usando a biblioteca [D3.js][D3.js]. To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
 
 Caso você ainda não o tenha feito, você deve ler o guia ["Princípios básicos da autentifcação"][basics-of-authentication] antes de iniciar este exemplo. Você pode encontrar o código-fonte completo para este projeto no repositório de [platform-samples][platform samples].
 
@@ -75,7 +76,7 @@ run Example::MyGraphApp
 
 ## Buscar informações do repositório
 
-Dessa vez, para falar com a API {% data variables.product.product_name %}, vamos usar a [a biblioteca do Ruby, Octokit][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
+This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit Ruby library][Octokit]. Isso é muito mais fácil do que fazer diretamente um monte de chamadas de REST. Além disso, o Octokit foi desenvolvido por um GitHubber e é mantido ativamente, para que você saiba que vai funcionar.
 
 É fácil a autenticação com a API através do Octokit. Basta passar seu login e token para o `Octokit::Client` do cliente:
 

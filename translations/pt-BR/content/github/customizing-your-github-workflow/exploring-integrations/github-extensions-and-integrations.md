@@ -7,6 +7,7 @@ redirect_from:
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Extensões & integrações
 ---
 
@@ -32,7 +33,7 @@ A extensão {% data variables.product.product_name %} para Visual Studio, permit
 
 ## Ferramentas de gerenciamento de projetos
 
-Você pode integrar sua conta pessoal de {% data variables.product.product_name %} ou organização com ferramentas de gerenciamento de projetos de terceiros, como o Jira.
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
 
 ### Integração Jira Cloud e {% data variables.product.product_name %}.com
 
@@ -40,7 +41,7 @@ Você pode integrar sua conta pessoal de {% data variables.product.product_name 
 
 ## Ferramentas de comunicação de equipe
 
-Você pode integrar sua conta pessoal de {% data variables.product.product_name %} ou a organização com ferramentas de comunicação de equipes de terceiros, como o Slack ou o Microsoft Teams.
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Integração com Slack e {% data variables.product.product_name %}
 

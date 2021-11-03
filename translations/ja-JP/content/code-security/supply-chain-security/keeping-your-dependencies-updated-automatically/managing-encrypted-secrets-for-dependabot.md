@@ -6,6 +6,7 @@ redirect_from:
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot

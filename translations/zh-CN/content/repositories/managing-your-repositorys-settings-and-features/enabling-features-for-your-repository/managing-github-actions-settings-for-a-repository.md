@@ -10,7 +10,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+type: how_to
 topics:
+  - Actions
+  - Permissions
   - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
@@ -26,25 +30,6 @@ shortTitle: Manage GitHub Actions settings
 
 此外，您可以在您的仓库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作。 {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% ifversion ghes < 3.0 %}
-
-## 管理仓库的 {% data variables.product.prodname_actions %} 权限
-
-{% note %}
-
-**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% ifversion fpt %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif ghes %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
-
-{% endnote %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-4. 在“Actions permissions（操作权限）”下，选择一个选项。 ![启用、禁用或限制此仓库的操作](/assets/images/help/repository/enable-repo-actions.png)
-
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 ## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
 您可以禁用仓库的所有工作流程，或者设置策略来配置哪些动作可用于仓库中。
@@ -53,9 +38,7 @@ shortTitle: Manage GitHub Actions settings
 
 {% note %}
 
-**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% ifversion fpt %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif ghes %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
-
-{% endif %}
+**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
 
 {% endnote %}
 
@@ -79,9 +62,8 @@ shortTitle: Manage GitHub Actions settings
    ![添加操作到允许列表](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
 2. 单击 **Save（保存）**。
-{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 配置公共复刻工作流程所需的批准
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
@@ -96,7 +78,6 @@ You can configure this behavior for a repository using the procedure below. 修�
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
 ## 为私有仓库复刻启用工作流程
 
 {% data reusables.github-actions.private-repository-forks-overview %}
@@ -107,9 +88,8 @@ You can configure this behavior for a repository using the procedure below. 修�
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
-{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## 为您的仓库设置 `GITHUB_TOKENN` 的权限
 
 {% data reusables.github-actions.workflow-permissions-intro %}
@@ -127,7 +107,7 @@ You can configure this behavior for a repository using the procedure below. 修�
 1. 单击 **Save（保存）**以应用设置。
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Allowing access to components in an internal repository
 
 {% note %}
@@ -150,7 +130,6 @@ To configure whether workflows in an internal repository can be accessed from ou
 1. 单击 **Save（保存）**以应用设置。
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
 您可以为仓库中的 {% data variables.product.prodname_actions %} 构件和日志配置保留期。
@@ -165,4 +144,3 @@ To configure whether workflows in an internal repository can be accessed from ou
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
-{% endif %}

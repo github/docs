@@ -14,6 +14,7 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Gerenciar um domínio personalizado
@@ -70,7 +71,7 @@ Para configurar um domínio apex, como `example.com`, você deve configurar um a
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 4. Em "Domínio personalizado,", digite o seu domínio personalizado e clique em **Salvar**. Isso criará um commit que adiciona um arquivo _CNAME_ à raiz da sua fonte de publicação. ![Botão Salvar domínio personalizado](/assets/images/help/pages/save-custom-apex-domain.png)
-5. Navegue até o provedor DNS e crie um registro `ALIAS`, `ANAME` ou `A`. You can also create `AAAA` records for IPv6 support. {% data reusables.pages.contact-dns-provider %}
+5. Navegue até o provedor DNS e crie um registro `ALIAS`, `ANAME` ou `A`. Você também pode criar registros de `AAAA` para suporte ao IPv6. {% data reusables.pages.contact-dns-provider %}
     - Para criar um registro `ALIAS` ou `ANAME`, aponte o domínio apex para o domínio padrão do seu site. {% data reusables.pages.default-domain-information %}
     - Para criar registros `A`, aponte seu domínio apex para os endereços IP para {% data variables.product.prodname_pages %}.
       ```shell
@@ -79,18 +80,17 @@ Para configurar um domínio apex, como `example.com`, você deve configurar um a
       185.199.110.153
       185.199.111.153
       ```
-    - To create `AAAA` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
-      ```shell
-      2606:50c0:8000::153
+    - Para criar os registros de </code>AAAA`, aponte o seu domínio apex para os endereços IP para {% data variables.product.prodname_pages %}.
+<pre><code class="shell">      2606:50c0:8000::153
       2606:50c0:8001::153
       2606:50c0:8002::153
       2606:50c0:8003::153
-      ```
+`</pre>
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. Para confirmar que o registro DNS foi configurado corretamente, use o comando `dig`, substituindo _WW.EXAMPLE.COM_ pelo domínio apex. Confirme que os resultados correspondem aos endereços IP do {% data variables.product.prodname_pages %} acima.
-   - For `A` records.
+   - Para registros de `A`.
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t A
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.108.153
@@ -98,7 +98,7 @@ Para configurar um domínio apex, como `example.com`, você deve configurar um a
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.110.153
     > <em>EXAMPLE.COM</em>     3600    IN A     185.199.111.153
     ```
-   - For `AAAA` records.
+   - Para registros `AAAA`.
     ```shell
     $ dig <em>EXAMPLE.COM</em> +noall +answer -t AAAA
     > <em>EXAMPLE.COM</em>     3600    IN AAAA     2606:50c0:8000::153

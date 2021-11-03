@@ -6,6 +6,7 @@ permissions:
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none
+  id_token: read|write|none
   issues: read|write|none
   discussions: read|write|none
   packages: read|write|none

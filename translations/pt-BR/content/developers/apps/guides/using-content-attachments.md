@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
@@ -121,7 +122,7 @@ curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \
 }'
 ```
 
-Para obter mais informações sobre `node_id`, consulte "[Usando IDs de nós globais](/graphql/guides/using-global-node-ids)".
+For more information on `node_id`, see "[Using Global Node IDs]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids)."
 
 ## Exemplo de uso de manifestos do Probot e do aplicativo GitHub
 

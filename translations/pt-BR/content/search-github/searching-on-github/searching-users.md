@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -89,7 +90,7 @@ Você pode filtrar usuários com base no número de seguidores usando o qualific
 | <code>followers:<em>n</em></code> | [**followers:>=1000**](https://github.com/search?q=followers%3A%3E%3D1000&type=Users) corresponde a usuários com 1.000 seguidores ou mais.                                    |
 |                           | [**sparkle followers:1..10**](https://github.com/search?q=sparkle+followers%3A1..10&type=Users) identifica os usuários com 1 a 10 seguidores com a palavra "sparkle" no nome. |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Pesquisar com base na capacidade de patrocinador
 

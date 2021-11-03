@@ -36,7 +36,7 @@ shortTitle: 配置 DNS 服务器
   ```
 3. 附加任何 `nameserver` 条目，然后保存文件。
 4. 验证变更后，请保存文件。
-5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+5. 要向 {% data variables.product.product_location %} 添加新的域名服务器条目，请运行以下命令：
   ```shell
   $ sudo service resolvconf restart
   $ sudo service dnsmasq restart
