@@ -9,11 +9,11 @@
 // while we wait for translators to fix them.
 //
 // Usage:
-// script/reset-translated-file.js <filename>
+// script/i18n/reset-translated-file.js <filename>
 //
 // Examples:
 //
-// $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
+// $ script/i18n/reset-translated-file.js translations/es-XL/content/actions/index.md
 //
 // [end-readme]
 
