@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.4'
   ghae: issue-4757
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -14,6 +15,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% note %}
 
@@ -31,7 +33,7 @@ A un flujo de trabajo que utiliza otro flujo de trabajo se le llama flujo de tra
 
 Si utilizas un flujo de trabajo desde un repositorio diferente, cualquier acción en el flujo de trabajo llamado se ejecutará como si fuera parte del llamante. Por ejemplo, si el flujo de trabajo llamado utiliza `actions/checkout`, la acción verifica el contenido del repositorio que hospeda el flujo de trabajo llamante y no el llamado.
 
-Cuando un flujo de trabajo llamante activa uno reutilizable, el contexto `github` siempre se asocia con el flujo llamante. Para obtener más información sobre el contexto `github`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+Cuando un flujo de trabajo llamante activa uno reutilizable, el contexto `github` siempre se asocia con el flujo llamante. The called workflow is automatically granted access to `github.token` and `secrets.GITHUB_TOKEN`. Para obtener más información sobre el contexto `github`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
 ## Acceso a los flujos de trabajo reutilizables
 
@@ -48,7 +50,6 @@ Otros flujos de trabajo pueden usar uno reutilizable si cualquiera de los siguie
 * Ninguna variable de ambiente que se configure en un contexto de `env` que se defina a nivel del flujo de trabajo en aquél llamante se propagará al flujo llamado. Para obtener más información sobre el contexto `env`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)".
 
 Se eliminarán las siguientes limitaciones cuando la reutilización del flujo de trabajo salga del beta:
-* Los flujos de trabajo reutilizables no pueden referenciar a los ejecutores auto-hospedados.
 * No puedes configurar la concurrencia de un flujo de trabajo llamado desde el flujo llamante. Para obtener más información sobre `jobs.<job_id>.concurrency`, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency)".
 * El flujo de trabajo llamante no puede acceder a las salidas que genera un flujo de trabajo llamado.
 

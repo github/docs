@@ -3,7 +3,8 @@ title: 'Configurar tu proyecto para {% data variables.product.prodname_codespace
 intro: 'Aprende cómo iniciar con los {% data variables.product.prodname_codespaces %}, incluyendo cómo configurar y hacer ajustes para lenguajes específicos.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces
 children:

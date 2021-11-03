@@ -3,6 +3,7 @@ title: Managing spending limits for Codespaces
 intro: '{% data variables.product.prodname_codespaces %} の使用に対して利用上限を設定できます。'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
@@ -23,8 +24,10 @@ Once you've reached your spending limit, your organization or repository will no
 
 {% data variables.product.prodname_codespaces %}の価格に関する詳細な情報については、「[{% data variables.product.prodname_codespaces %}の支払いについて](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)」を参照してください。
 
+{% ifversion ghec %}
 ## Using your Azure Subscription
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+{% endif %}
 
 ## Organizationの {% data variables.product.prodname_codespaces %} に対する利用上限を管理する
 

@@ -10,6 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Accounts
@@ -28,11 +29,11 @@ shortTitle: 割引されたサブスクリプション
 
 ## 個人アカウントへの割引
 
-{% data variables.product.prodname_free_user %} で学生と教員が無制限のパブリックリポジトリとプライベートリポジトリを使用できることに加えて、検証済みの学生は {% data variables.product.prodname_student_pack %} に申請し、{% data variables.product.prodname_dotcom %} パートナーからのさらなるメリットを受けていただけます。 詳しい情報については、「[学生向け開発者パックに応募する](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)」を参照してください。
+{% data variables.product.prodname_free_user %} で学生と教員が無制限のパブリックリポジトリとプライベートリポジトリを使用できることに加えて、検証済みの学生は {% data variables.product.prodname_student_pack %} に申請し、{% data variables.product.prodname_dotcom %} パートナーからのさらなるメリットを受けていただけます。 詳しい情報については、「[学生向け開発者パックに応募する](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)」を参照してください。
 
 ## 学校・大学向け割引
 
-検証済みの教職員は教育や学術研究の目的で {% data variables.product.prodname_team %} に申し込むことができます。 詳しい情報については、「[教室や研究で {% data variables.product.prodname_dotcom %} を使う](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」を参照してください。 また、学生のために教材をお求めいただくこともできます。 詳しい情報については [{% data variables.product.prodname_education %}](https://education.github.com/) にアクセスして下さい。
+検証済みの教職員は教育や学術研究の目的で {% data variables.product.prodname_team %} に申し込むことができます。 詳しい情報については、「[教室や研究で {% data variables.product.prodname_dotcom %} を使う](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」を参照してください。 また、学生のために教材をお求めいただくこともできます。 詳しい情報については [{% data variables.product.prodname_education %}](https://education.github.com/) にアクセスして下さい。
 
 ## 非営利目的や図書館への割引
 

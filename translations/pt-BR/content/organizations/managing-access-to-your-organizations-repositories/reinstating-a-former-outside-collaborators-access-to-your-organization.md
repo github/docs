@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Restabelecer colaborador
 ---
 
-Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. Você poderá restaurar os privilégios do usuário se {% ifversion fpt %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
+Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -31,8 +32,9 @@ Ao restabelecer um ex-colaborador externo, você pode restaurar:
 {% tip %}
 
 **Dicas**:
- - Somente proprietários da organização podem restabelecer o acesso de um colaborador externo à organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
- - O fluxo de restabelecimento de um integrante no {% data variables.product.product_location %} pode usar o termo "integrante" para descrever o restabelecimento de um colaborador externo, mas se você restabelecer o usuário e mantiver os privilégios anteriores, ele terá apenas as [permissões anteriores de colaborador externo](/articles/permission-levels-for-an-organization/#outside-collaborators).{% ifversion fpt %}
+
+ - Somente proprietários da organização podem restabelecer o acesso de um colaborador externo à organização. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+ - O fluxo de restabelecimento de um integrante no {% data variables.product.product_location %} pode usar o termo "integrante" para descrever o restabelecimento de um colaborador externo, mas se você restabelecer o usuário e mantiver os privilégios anteriores, ele terá apenas as [permissões anteriores de colaborador externo](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% ifversion fpt or ghec %}
  - Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma licença não utilizada disponível para você poder convidar um integrante para participar da organização ou restabelecer um ex-integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)."{% endif %}
 
 {% endtip %}
@@ -42,8 +44,8 @@ Ao restabelecer um ex-colaborador externo, você pode restaurar:
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
-{% ifversion fpt %}
-6. Escolha restaurar os privilégios anteriores do colaborador externo na organização clicando em **Invite and reinstate** (Convidar e restabelecer) ou escolha apagar os privilégios anteriores e definir novas permissões de acesso clicando em **Invite and start fresh** (Convidar e começar do zero).
+{% ifversion fpt or ghec %}
+1. Escolha restaurar os privilégios anteriores do colaborador externo na organização clicando em **Invite and reinstate** (Convidar e restabelecer) ou escolha apagar os privilégios anteriores e definir novas permissões de acesso clicando em **Invite and start fresh** (Convidar e começar do zero).
 
   {% warning %}
 
@@ -63,15 +65,15 @@ Ao restabelecer um ex-colaborador externo, você pode restaurar:
 
   ![Escolher se deseja restaurar as configurações](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 7. Se você apagou os privilégios anteriores de um ex-colaborador externo, escolha uma função para o usuário e adicione-o em algumas equipes (opcional), depois clique em **Send invitation** (Enviar convite). ![Opções Role and team (Função e equipe) e botão send invitation (enviar convite)](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
 7. Se você apagou os privilégios anteriores de um ex-colaborador externo, escolha uma função para o usuário e adicione-o em algumas equipes (opcional), depois clique em **Add member** (Adicionar integrante). ![Opções Role and team (Função e equipe) e botão add member (adicionar integrante)](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 8. A pessoa convidada receberá um e-mail com um convite para participar da organização. Ela precisará aceitar o convite antes de se tornar um colaborador externo na organização. {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ## Leia mais
 
-- "[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

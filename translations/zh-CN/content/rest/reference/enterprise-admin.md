@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise 管理
-intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. Among the tasks you can perform with this API are many relating to GitHub Actions.'
+intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. 您可以使用此 API 执行的任务包括很多与 GitHub Actions 相关的任务。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 shortTitle: 企业管理
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -60,7 +61,7 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 审核日志
 
@@ -70,7 +71,7 @@ http(s)://<em>hostname</em>/
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 计费
 
 {% for operation in currentRestOperations %}
@@ -81,6 +82,7 @@ http(s)://<em>hostname</em>/
 
 ## GitHub Actions
 
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Dividir una subcarpeta
 ---
 
@@ -48,7 +49,7 @@ Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales 
   El repositorio debería ahora únicamente contener archivos que estuvieron en tu(s) subcarpeta(s)
 
 6. [Crea un nuevo repositorio](/articles/creating-a-new-repository/) en {% data variables.product.product_name %}.
-7. En la parte superior de la página nueva Quick Setup del repositorio {% data variables.product.product_name %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 

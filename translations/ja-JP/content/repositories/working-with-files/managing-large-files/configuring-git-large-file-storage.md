@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Configure Git LFS
 ---
 
@@ -62,5 +63,5 @@ shortTitle: Configure Git LFS
 
 ## 参考リンク
 
-- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」{% ifversion fpt %}
+- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」{% ifversion fpt or ghec %}
 - 「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」{% endif %}

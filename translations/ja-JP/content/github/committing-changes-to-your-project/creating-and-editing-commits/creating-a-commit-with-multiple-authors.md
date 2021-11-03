@@ -8,14 +8,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: With multiple authors
 ---
 
 ## 必要な共作者情報
 
-コミットに共作者を追加する前に、各共作者に使う適切なメールアドレスを知っておく必要があります。 共作者のコミットがコントリビューションとしてカウントされるためには、{% data variables.product.product_name %} アカウントに関連付けられているメールアドレスを使う必要があります。
+コミットに共作者を追加する前に、各共作者に使う適切なメールアドレスを知っておく必要があります。 For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 メールアドレスをプライベートにしておきたい人がいる場合、その人のプライバシーを保護するために、{% data variables.product.product_name %} が提供する `no-reply` メールを使わなければなりません。 そうしない場合、コミットメッセージで共作者のメールアドレスが公開されます。 自分のメールアドレスをプライベートにしておきたい場合、Git の操作のために {% data variables.product.product_name %} が提供する `no-reply` メールアドレスを使い、他の共作者に、`no-reply` メールアドレスをコミットのトレーラーに載せるよう依頼できます。
 

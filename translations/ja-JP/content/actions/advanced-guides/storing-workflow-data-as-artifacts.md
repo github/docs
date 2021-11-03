@@ -2,7 +2,6 @@
 title: ワークフロー データを成果物として保存する
 shortTitle: ワークフローの成果物を保存する
 intro: 成果物を使うと、ワークフロー内のジョブ間でデータを共有し、ワークフローが完了したときに、そのワークフローのデータを保存できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -13,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -20,6 +20,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## ワークフローの成果物について
 
@@ -34,7 +35,7 @@ topics:
 - バイナリあるいは圧縮されたファイル
 - ストレステストのパフォーマンス出力およびコードカバレッジの結果
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 成果物の保存には、{% data variables.product.product_name %}上のストレージ領域が使われます。 {% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いの管理](/billing/managing-billing-for-github-actions)」を参照してください。
 
@@ -46,7 +47,7 @@ topics:
 
 成果物はワークフローの実行中にアップロードされ、成果物の名前とサイズはUIで見ることができます。 {% data variables.product.product_name %}のUIを使って成果物がダウンロードされる場合、成果物の一部として個別にアップロードされたすべてのファイルはzipして1つのファイルにまとめられます。 これはすなわち、支払いはこのzipファイルのサイズではなく、アップロードされた成果物のサイズを元に計算されるということです。
 
-{% data variables.product.product_name %}には、ビルドの成果物のアップロードとダウンロードに使用できるアクションが2つあります。 詳しい情報については、 {% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
+{% data variables.product.product_name %}には、ビルドの成果物のアップロードとダウンロードに使用できるアクションが2つあります。 詳しい情報については、 {% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
 
 ジョブ間でデータを共有するには:
 
@@ -61,7 +62,7 @@ topics:
 
 コードのビルドおよびテストからの出力によって、多くの場合、エラーのデバッグに使用できるファイルと、デプロイできる本番コードが生成されます。 リポジトリにプッシュされるコードをビルドしてテストし、成功または失敗のステータスをレポートするワークフローを構成することができます。 デプロイメントに使用するビルドおよびテスト出力をアップロードし、失敗したテストまたはクラッシュをデバッグしてテストスイートのカバレッジを確認できます。
 
-成果物をアップロードするには、`upload-artifact`アクションが使用できます。 成果物をアップロードする場合は、単一のファイルまたはディレクトリ、あるいは複数のファイルまたはディレクトリを指定できます。 また、特定のファイルやディレクトリを除外したり、ワイルドカードパターンを使用したりすることもできます。 成果物の名前を指定することをおすすめしますが、名前を指定しない場合は、 `artifact` がデフォルトの名前として使用されます。 構文の詳細については、 {% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
+成果物をアップロードするには、`upload-artifact`アクションが使用できます。 成果物をアップロードする場合は、単一のファイルまたはディレクトリ、あるいは複数のファイルまたはディレクトリを指定できます。 また、特定のファイルやディレクトリを除外したり、ワイルドカードパターンを使用したりすることもできます。 成果物の名前を指定することをおすすめしますが、名前を指定しない場合は、 `artifact` がデフォルトの名前として使用されます。 構文の詳細については、 {% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
 
 ### サンプル
 
@@ -113,7 +114,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## カスタムの成果物の保持期間を設定する
 
 ワークフローによって作成された個々のアーティファクトのカスタム保存期間を定義できます。 ワークフローを使用して新しいアーティファクトを作成する場合、`upload-artifact` アクションで `retention-days` を使用できます。 この例は、`my-artifact` という名前のアーティファクトに 5 日間のカスタム保存期間を設定する方法を示しています。
@@ -128,7 +128,6 @@ jobs:
 ```
 
 `retention-days` の値は、リポジトリ、Organization、または Enterprise によって設定された保持制限を超えることはできません。
-{% endif %}
 
 ## 成果物のダウンロードあるいは削除
 
@@ -164,11 +163,11 @@ During a workflow run, you can use the [`download-artifact`](https://github.com/
 
 ワークフロー実行のすべての成果物をダウンロードすると、各成果物のディレクトリーがその名前を使用して作成されます。
 
-構文の詳細については、{% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
+構文の詳細については、{% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
 
 ## ワークフローのジョブ間でデータを受け渡す
 
-`upload-artifact`アクションと`download-artifact`アクションを使うと、ワークフローのジョブ間でデータを共有できます。 以下のワークフローの例では、同じワークフローのジョブ間でデータを受け渡す方法を説明しています。 詳しい情報については、 {% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
+`upload-artifact`アクションと`download-artifact`アクションを使うと、ワークフローのジョブ間でデータを共有できます。 以下のワークフローの例では、同じワークフローのジョブ間でデータを受け渡す方法を説明しています。 詳しい情報については、 {% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
 
 前のジョブの成果物に依存するジョブは、前のジョブが正常に完了するまで待つ必要があります。 このワークフローは、`needs`キーワードを使用して`job_1`、`job_2`、`job_3`を順次実行することができます。 たとえば、`job_2`は`needs: job_1`構文を使って`job_1`を必要とすることができます。
 
@@ -242,13 +241,13 @@ jobs:
 ```
 
 ワークフローの実行により、生成された成果物がアーカイブされます。 アーカイブされた成果物のダウンロードの詳細については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 参考リンク
 

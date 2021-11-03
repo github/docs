@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -46,8 +47,22 @@ IssueとPull Requestには、コラボレータと容易にコミュニケーシ
 
 ## 自動化の利用
 
-タスクを自動化すると、忙しい作業に費やす時間を減らし、プロジェクト自体により多くの時間を割けるようになります。 手動でやることを覚えておく必要が減れば、それだけプロジェクトは耐震の状態に保たれるようになります。 {% data variables.product.prodname_actions %}とGraphQL APIを使えば、プロジェクトの管理タスクを自動化できます。 たとえば、レビュー待ちのPull Requestを追跡するために、Pull Requestをプロジェクトに追加し、そのステータスを"needs review"に設定するようなワークフローを作成できます。このプロセスは、Pull Requestが"ready for review"としてマークされたときに自動的にトリガーできます。
+You can automate tasks to spend less time on busy work and more time on the project itself. 手動でやることを覚えておく必要が減れば、それだけプロジェクトは耐震の状態に保たれるようになります。
+
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+
+Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
 
 - ワークフローの例については「[プロジェクトの自動化](/issues/trying-out-the-new-projects-experience/automating-projects)」を参照してください。
 - APIに関する詳しい情報については「[プロジェクトを管理するためのAPIの利用](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)」を参照してください。
 - {% data variables.product.prodname_actions %}に関する詳しい情報については「[{% data variables.product.prodname_actions %}](/actions)」を参照してください。
+
+## Use different field types
+
+Take advantage of the various field types to meet your needs.
+
+Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+
+Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+
+For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."

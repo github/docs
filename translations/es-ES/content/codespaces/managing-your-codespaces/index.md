@@ -4,6 +4,7 @@ intro: 'Puedes utilizar los ajustes de {% data variables.product.prodname_github
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 redirect_from:

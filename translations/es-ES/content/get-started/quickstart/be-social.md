@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
   - Pull requests
@@ -23,7 +24,7 @@ Para conocer más sobre cómo acceder a tu tablero personal, consulta "[Acerca d
 
 ## Seguir a personas
 
-Cuando sigues a alguien en {% data variables.product.product_location %}, recibirás notificaciones en tu tablero personal sobre su actividad. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
+When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
 Haz clic en **Follow** (Seguir) en la página de perfil de una persona para seguirla.
 
@@ -31,7 +32,7 @@ Haz clic en **Follow** (Seguir) en la página de perfil de una persona para segu
 
 ## Ver un repositorio
 
-Puedes ver un repositorio para recibir notificaciones para las nuevas solicitudes de extracción y propuestas. Cuando el propietario actualiza el repositorio, verás los cambios en tu tablero personal. Para obtener más información, consulta la sección {% ifversion fpt or ghae or ghes %}"[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Observar y dejar de observar un repositorio](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}".
+Puedes ver un repositorio para recibir notificaciones para las nuevas solicitudes de extracción y propuestas. Cuando el propietario actualiza el repositorio, verás los cambios en tu tablero personal. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Haz clic en **Watch** (Ver) en la parte superior del repositorio que desas ver.
 

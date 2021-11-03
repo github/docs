@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -30,6 +31,6 @@ shortTitle: Integraciones autorizadas
 3. Revisa las {% data variables.product.prodname_github_apps %}s que tienen acceso a tu cuenta. Para las que no reconozcas o las que estén desactualizadas, haz clic en **Revoke** (Revocar). Para revocar todas las {% data variables.product.prodname_github_apps %}s, haz clic en **Revocar todo**. ![Lista de {% data variables.product.prodname_github_app %} autorizadas](/assets/images/help/settings/revoke-github-app.png)
 
 ## Leer más
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Acerca de las integraciones](/articles/about-integrations)"{% endif %}
 - "[Revisar tus aplicaciones autorizadas (OAuth)](/articles/reviewing-your-authorized-applications-oauth)"
