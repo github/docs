@@ -61,7 +61,7 @@ Si la operación de búsqueda detecta cambios nuevos en el repositorio remoto, v
 1. Para recuperar los detalles de las actualizaciones para todos los remotos registrados para el repositorio actual, configura **Git: Autofetch** en `all`. ![Habilitar la recuperación automática en Git](/assets/images/help/codespaces/autofetch-all.png)
 1. Si quieres cambiar la cantidad de segundos entre cada recuperación automática, edita el valor de **Git: Autofetch Period**.
 
-## Configramr tus cambios
+## Confirmar tus cambios
 
 {% data reusables.codespaces.source-control-commit-changes %}
 
