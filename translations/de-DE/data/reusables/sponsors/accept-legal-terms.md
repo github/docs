@@ -1,1 +1,0 @@
-1. Überprüfe die [Zusatzbedingungen für {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms) und die [{% data variables.product.prodname_dotcom %}-Datenschutzerklärung](/free-pro-team@latest/github/site-policy/github-privacy-statement), und klicke dann auf **Join the waitlist** (Der Warteliste beitreten).

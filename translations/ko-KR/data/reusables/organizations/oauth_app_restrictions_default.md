@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}When you create a new organization, {% data variables.product.prodname_oauth_app %} access restrictions are enabled by default. Organization owners can [disable {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) at any time.{% endif %}
