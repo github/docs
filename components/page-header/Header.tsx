@@ -41,13 +41,18 @@ export const Header = () => {
 
   return (
     <div
-      className={`border-bottom color-border-muted no-print position-sticky top-0 z-3  ${
-        scroll ? 'color-shadow-medium' : 'color-shadow-small'
-      } color-bg-default`}
+      className={cx(
+        'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
+        styles.header
+      )}
     >
       {error !== '404' && <HeaderNotifications />}
-
-      <header className={cx('container-xl px-3 px-md-6 pt-3 pb-3 z-3')}>
+      <header
+        className={cx(
+          'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3',
+          scroll ? 'color-shadow-medium' : 'color-shadow-small'
+        )}
+      >
         {/* desktop header */}
         <div
           className="d-none d-lg-flex flex-justify-end flex-items-center"

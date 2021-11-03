@@ -1,1 +1,0 @@
-{% data variables.product.prodname_ghe_server %} uses background fetch to support push notifications without sending your information to a third-party service, so you may experience a delay in receiving push notifications.

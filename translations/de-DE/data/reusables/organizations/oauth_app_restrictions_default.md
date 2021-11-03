@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}Wenn Du eine neue Organisation erstellst, sind {% data variables.product.prodname_oauth_app %} Zugriffsbeschränkungen standardmäßig aktiviert. Organisationsinhaber können jederzeit [{% data variables.product.prodname_oauth_app %} Zugriffsbeschränkungen deaktivieren](/articles/disabling-oauth-app-access-restrictions-for-your-organization).{% endif %}
