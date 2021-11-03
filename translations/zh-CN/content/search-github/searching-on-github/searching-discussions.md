@@ -3,6 +3,7 @@ title: 搜索讨论
 intro: '您可以在 {% data variables.product.product_name %} 上搜索讨论，并使用搜索限定符缩小结果范围。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -40,7 +41,7 @@ redirect_from:
 
 您可以使用 `is` 限定符，按包含讨论的仓库的可见性进行过滤。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| 限定符  | 示例 | :- | :- |{% ifversion fpt or ghes %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) 匹配公共仓库中的讨论。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) 匹配内部仓库中的讨论。 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) 匹配您有权访问的私有仓库含有单词 "tiramisu" 的讨论。
+| 限定符  | 示例 | :- | :- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) 匹配公共仓库中的讨论。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) 匹配内部仓库中的讨论。 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) 匹配您有权访问的私有仓库含有单词 "tiramisu" 的讨论。
 
 ## 按作者搜索
 

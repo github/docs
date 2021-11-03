@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 shortTitle: Search for repositories
@@ -131,7 +132,7 @@ shortTitle: Search for repositories
 | <code>topics:<em>n</em></code> | [**topics:5**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A5&type=Repositories&ref=searchresults) は、5 つのトピックがあるリポジトリにマッチします。       |
 |                            | [**topics:>3**](https://github.com/search?utf8=%E2%9C%93&q=topics%3A%3E3&type=Repositories&ref=searchresults) は、4 つ以上のトピックがあるリポジトリにマッチします。 |
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## ライセンスで検索
 
@@ -147,9 +148,9 @@ shortTitle: Search for repositories
 
 リポジトリの可視性に基づいて検索を絞り込むことができます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) は、自分がアクセスできて「pages」という単語を含むプライベートリポジトリにマッチします。
+| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) は、自分がアクセスできて「pages」という単語を含むプライベートリポジトリにマッチします。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## リポジトリがミラーかどうかで検索
 
@@ -171,7 +172,7 @@ shortTitle: Search for repositories
 | `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) は、「GNOME」という単語を含むアーカイブされたリポジトリにマッチします。       |
 | `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) は、「GNOME」という単語を含む、アーカイブされていないリポジトリにマッチします。 |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## `good first issue` ラベルや `help wanted` ラベルの付いた Issue の数で検索
 

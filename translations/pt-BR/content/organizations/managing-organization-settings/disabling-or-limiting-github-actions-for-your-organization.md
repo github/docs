@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -24,20 +25,6 @@ Você pode habilitar o {% data variables.product.prodname_actions %} para todos 
 
 Como alternativa, você pode habilitar o {% data variables.product.prodname_actions %} para todos os repositórios na sua organização e limitar as ações que um fluxo de trabalho pode executar. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% ifversion ghes < 3.0 %}
-
-## Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Ações locais e de terceiros**, selecione uma opção. ![Habilitar, desabilitar ou limitar ações para esta organização](/assets/images/help/repository/enable-org-actions.png)
-1. Clique em **Salvar**.
-
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 ## Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
 
 Você pode desabilitar todos os fluxos de trabalho para uma organização ou definir uma política que configura quais ações podem ser usadas em uma organização.
@@ -46,7 +33,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 
 {% note %}
 
-**Observação:** Talvez você não consiga gerenciar essas configurações se a sua organização for gerenciada por uma empresa que tem uma política de substituição. Para obter mais informações, {% ifversion fpt %}"[Aplicar políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account).{% else %}"[Aplicar políticas de {% data variables.product.prodname_actions %} para a sua empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise).{% endif %}
+**Observação:** Talvez você não consiga gerenciar essas configurações se a sua organização for gerenciada por uma empresa que tem uma política de substituição. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)".
 
 {% endnote %}
 
@@ -71,14 +58,12 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
    {%- endif %}
 1. Clique em **Salvar**.
 
-{% endif %}
-
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Configurar a aprovação necessária para fluxos de trabalho de bifurcações públicas
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for an organization using the procedure below. A modificação desta configuração substitui a configuração definida no nível corporativo.
+Você pode configurar esse comportamento para uma organização seguindo o procedimento abaixo. A modificação desta configuração substitui a configuração definida no nível corporativo.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -88,7 +73,7 @@ You can configure this behavior for an organization using the procedure below. A
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 ## Habilitar fluxos de trabalho para bifurcações privadas do repositório
 
 {% data reusables.github-actions.private-repository-forks-overview %}
@@ -101,7 +86,7 @@ You can configure this behavior for an organization using the procedure below. A
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Definindo as permissões do `GITHUB_TOKEN` para a sua organização
 
 {% data reusables.github-actions.workflow-permissions-intro %}

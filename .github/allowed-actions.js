@@ -4,7 +4,7 @@
 // can be added it this list.
 
 export default [
-  'actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f', // v2.3.4
+  'actions/checkout@1e204e9a9253d643386038d443f96446fa156a97', // v2.3.5
   'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d', // v4.0.2
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', // v2.2.0
   'actions/setup-node@270253e841af726300e85d718a5f606959b2903c', // v2.4.1
@@ -33,7 +33,7 @@ export default [
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3', // v2.6
-  'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
+  'someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340', // v1.2.2
   'tjenkinson/gh-action-auto-merge-dependency-updates@c47f6255e06f36e84201ee940466e731ffa6e885', // v1.1.1
   'Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b', // v1.0.0
   'EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87',

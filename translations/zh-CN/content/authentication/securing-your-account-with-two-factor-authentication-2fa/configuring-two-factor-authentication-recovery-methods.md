@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 配置 2FA 恢复
@@ -51,7 +52,7 @@ shortTitle: 配置 2FA 恢复
 
 您可以将安全密钥设置为辅助双重身份验证方法，以便使用安全密钥恢复帐户访问。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 设置后备身份验证号码
 

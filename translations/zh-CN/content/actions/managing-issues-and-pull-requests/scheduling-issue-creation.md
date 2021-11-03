@@ -1,13 +1,13 @@
 ---
 title: 计划议题的创建
 intro: '您可以使用 {% data variables.product.prodname_actions %} 定期为日常会议或季度审查等事项创建议题。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/scheduling-issue-creation
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -16,6 +16,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -40,7 +41,7 @@ topics:
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write{% endif %}
         steps:

@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -25,16 +26,16 @@ topics:
 
 リポジトリの表示設定を選択して、リポジトリにアクセスできるユーザを制限できます。 詳細は「[リポジトリの可視性について](#about-repository-visibility)」を参照してください。
 
-ユーザが所有するリポジトリでは、他の人々にコラボレーターアクセスを与えて、プロジェクトでコラボレーションするようにできます。 リポジトリが Organization によって所有されている場合は、Organization のメンバーにアクセス権限を与え、リポジトリ上でコラボレーションするようにできます。 詳細は「[ユーザアカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository/)」および「[Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization/)」を参照してください。
+ユーザが所有するリポジトリでは、他の人々にコラボレーターアクセスを与えて、プロジェクトでコラボレーションするようにできます。 リポジトリが Organization によって所有されている場合は、Organization のメンバーにアクセス権限を与え、リポジトリ上でコラボレーションするようにできます。 For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ユーザアカウントと Organization の {% data variables.product.prodname_free_team %} を使用すると、完全な機能セットを備えた無制限のパブリックリポジトリ、または機能セットを制限した無制限のプライベートリポジトリで無制限のコラボレータと連携できます。 プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
 {% else %}
 各個人および Organization は、無制限のリポジトリを所有でき、すべてのリポジトリにコラボレータを何人でも招待できます。
 {% endif %}
 
 リポジトリを使用して、作業を管理し、他のユーザと共同作業を行うことができます。
-- Issue を使用して、ユーザフィードバックの収集、ソフトウェアバグの報告、および実行するタスクの整理を行うことができます。 詳しい情報については「[Issue について](/github/managing-your-work-on-github/about-issues)」を参照してください。{% ifversion fpt %}
+- Issue を使用して、ユーザフィードバックの収集、ソフトウェアバグの報告、および実行するタスクの整理を行うことができます。 詳しい情報については「[Issue について](/github/managing-your-work-on-github/about-issues)」を参照してください。{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - プルリクエストを使用して、リポジトリへの変更を提案できます。 詳しい情報については[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)を参照してください。
 - プロジェクトボードを使用して、Issue とプルリクエストを整理して優先順位を付けることができます。 詳細は「[プロジェクトボードについて](/github/managing-your-work-on-github/about-project-boards)」を参照してください。
@@ -43,9 +44,9 @@ topics:
 
 ## リポジトリの可視性について
 
-You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion fpt or ghes %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
+リポジトリの可視性を選択することで、リポジトリにアクセスできるユーザを制限できます{% ifversion fpt or ghes or ghec %}（パブリック、内部、プライベート{% elsif ghae %}{% else %}パブリックまたはプライベートなど）{% endif %}。
 
-{% ifversion ghae %} ユーザアカウント所有のリポジトリを作成すると、リポジトリは常にプライベートになります。 Organization 所有のリポジトリを作成するときに、プライベートリポジトリにするか内部リポジトリにするかを選択できます。{% else %}リポジトリを作成するときに、リポジトリをパブリックにするかプライベートにするかを選択できます。{% ifversion fpt or ghes %} Enterprise アカウントが所有する Organization {% ifversion fpt %} でリポジトリを作成している場合は{% endif %}、リポジトリを内部にすることもできます。{% endif %}{% endif %}
+{% ifversion ghae %} ユーザアカウント所有のリポジトリを作成すると、リポジトリは常にプライベートになります。 Organization 所有のリポジトリを作成するときに、プライベートリポジトリにするか内部リポジトリにするかを選択できます。{% else %}リポジトリを作成するときに、リポジトリをパブリックにするかプライベートにするかを選択できます。{% ifversion fpt or ghes or ghec %} Enterprise アカウントが所有する Organization {% ifversion fpt or ghec %} でリポジトリを作成している場合は{% endif %}、リポジトリを内部にすることもできます。{% endif %}{% endif %}
 
 {% ifversion ghes %}
 If {% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 {% ifversion ghes %} Internal repositories are accessible to enterprise members. 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。{% endif %}
@@ -55,11 +56,11 @@ If {% data variables.product.product_location %} is not in private mode or behin
 パブリックリポジトリには、インターネット上のすべてのユーザがアクセスできます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 内部リポジトリには、Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
 {% endif %}
 
-Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 詳細は「[Organization のためのリポジトリ権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
+Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 リポジトリの管理者権限を持つユーザは、既存のリポジトリの可視性を変更できます。 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## インターナルリポジトリについて
 
 {% note %}
@@ -70,7 +71,15 @@ Organization のオーナーは、Organization 内で作成されたすべての
 
 {% data reusables.repositories.about-internal-repos %}インナーソースに関する詳しい情報については、{% data variables.product.prodname_dotcom %}のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
 
-すべての Enterprise メンバーは内部リポジトリへの読み取り権限を持っていますが、内部リポジトリは、Organization リポジトリの外部のコラボレータを含む、{% ifversion fpt %}Enterprise 外{% else %}Organization メンバーではない{% endif %}のユーザには表示されません。 詳しい情報については、{% ifversion fpt or ghae %}「[Enterprise アカウントのロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)」および{% endif %}「[Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.product.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 

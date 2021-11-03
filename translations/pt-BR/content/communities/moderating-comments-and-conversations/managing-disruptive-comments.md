@@ -1,6 +1,6 @@
 ---
 title: Gerenciar comentários conflituosos
-intro: 'Você pode {% ifversion fpt %}ocultar, editar,{% else %}editar{% endif %} ou excluir comentários sobre problemas, pull request e commits.'
+intro: 'Você pode {% ifversion fpt or ghec %}ocultar, editar,{% else %}editar{% endif %} ou excluir comentários sobre problemas, pull request e commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Gerenciar comentários
@@ -26,7 +27,7 @@ Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido
 1. Navegue até o comentário que deseja ocultar.
 2. No canto superior direito do comentário, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Hide** (Ocultar). ![Ícone horizontal kebab e menu comment moderation (moderação de comentários) mostrando as opções edit, hide, delete (editar, ocultar, excluir)](/assets/images/help/repository/comment-menu.png)
 3. Com o menu suspenso "Choose a reason" (Selecione um motivo), clique em um motivo para ocultar o comentário. Depois clique em **Hide comment** (Ocultar comentário).
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ![Menu suspenso Choose reason for hiding comment (Selecione um motivo para ocultar o comentário)](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
   ![Menu suspenso Choose reason for hiding comment (Selecione um motivo para ocultar o comentário)](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
@@ -44,7 +45,7 @@ Qualquer pessoa com acesso de gravação em um repositório pode reexibir coment
 
 Qualquer pessoa com acesso de gravação em um repositório pode editar comentários sobre problemas, pull requests e commits.
 
-É apropriado editar um comentário e remover conteúdo que não contribui para a conversa e infringe o código de conduta da sua comunidade{% ifversion fpt %} ou as [Diretrizes da comunidade](/articles/github-community-guidelines) do GitHub{% endif %}.
+Considera-se apropriado editar um comentário e remover o conteúdo que não contribui para a conversa e viole o código de conduta da sua comunidade{% ifversion fpt or ghec %} ou as diretrizes [da Comunidade do GitHub](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
 Quando editar um comentário, anote a localização de onde o comentário foi removido e, opcionalmente, os motivos para a remoção.
 
@@ -64,7 +65,7 @@ Autores do comentário e pessoas com acesso de gravação a um repositório pode
 
 Qualquer pessoa com acesso de gravação em um repositório pode excluir comentários sobre problemas, pull requests e commits. Proprietários de organização, mantenedores de equipes e o autor do comentário também podem excluir um comentário na página da equipe.
 
-Excluir um comentário é o seu último recurso como moderador. É adequado excluir um comentário se o comentário em sua totalidade não contribui com conteúdo construtivo para uma conversa e infringe o código de conduta da sua comunidade{% ifversion fpt %} ou as [Diretrizes da comunidade](/articles/github-community-guidelines) do GitHub{% endif %}.
+Excluir um comentário é o seu último recurso como moderador. É apropriado excluir um comentário se todo o comentário não adicionar conteúdo construtivo a uma conversa e violar o código de conduta da sua comunidade{% ifversion fpt or ghec %} ou [Diretrizes da Comunidade](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
 
 Excluir um comentário cria um evento na linha do tempo visível a qualquer um com acesso de leitura no repositório. No entanto, o nome de usuário da pessoa que excluiu o comentário somente pode ser visualizado pelas pessoas com acesso de gravação ao repositório. Para qualquer pessoa sem acesso de gravação, o evento na linha do tempo é anônimo.
 

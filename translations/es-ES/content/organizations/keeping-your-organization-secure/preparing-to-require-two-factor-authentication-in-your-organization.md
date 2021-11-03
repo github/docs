@@ -7,13 +7,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Prepararse para requerir 2FA
 ---
 
-Recomendamos que notifiques a {% ifversion fpt %}los miembros de la organización, a los colaboradores externos y a los gerentes de facturación{% else %}miembros de la organización y colaboradores externos{% endif %} por lo menos una semana antes de requerir 2FA en tu organización.
+Recomendamos que notifiques a {% ifversion fpt or ghec %}los miembros de la organización, a los colaboradores externos y a los gerentes de facturación{% else %}miembros de la organización y colaboradores externos{% endif %} por lo menos una semana antes de requerir 2FA en tu organización.
 
 Cuando solicitas que se use la autenticación de dos factores para tu organización, los miembros, los colaboradores externos y los gerentes de facturación (incluidas las cuentas bot) que no utilizan 2FA se eliminarán de tu organización y perderán acceso a sus repositorios. También perderán acceso a las bifurcaciones de sus repositorios privados de la organización.
 

@@ -28,6 +28,8 @@ Después de enviar una solicitud de soporte e información de diagnóstico opcio
 
 ## Emitir un ticket utilizando el {% data variables.contact.enterprise_portal %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 1. Navegar por el {% data variables.contact.contact_enterprise_portal %}.
 5. Da clic en **Emite un Ticket** ![Emite un ticket al equipo de Soporte Empresarial](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

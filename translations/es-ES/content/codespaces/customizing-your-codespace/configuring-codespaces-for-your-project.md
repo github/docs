@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -21,7 +22,9 @@ shortTitle: Configura tu proyecto
 
 ## Acerca de los contenedores dev
 
-Un contenedor de desarrollo o contenedor dev es el ambiente que utilizan los {% data variables.product.prodname_codespaces %} para proporcionar las herramientas y tiempos de ejecución que necesita tu proyecto para su desarrollo. Cuando trabajas con un contenedor de desarrollo en {% data variables.product.prodname_codespaces %} puedes ya sea [utilizar la configuración predeterminada](#using-the-default-configuration), [utilizar una configuración predeterminada](#using-a-predefined-container-configuration) o [crear tu propia configuración](#creating-a-custom-codespace-configuration). La opción que elijas dependerá de las herramientas, tiempos de ejecución, dependencias y flujos de trabajo que el usuario pudiese necesitar para tener éxito en tu proyecto.
+Un contenedor de desarrollo o contenedor dev es el ambiente que utilizan los {% data variables.product.prodname_codespaces %} para proporcionar las herramientas y tiempos de ejecución que necesita tu proyecto para su desarrollo. If your project does not already have a dev container defined, {% data variables.product.prodname_codespaces %} will use the default configuration, which contains many of the common tools that your team might need for development with your project. For more information, see "[Using the default configuration](#using-the-default-configuration)."
+
+If you want all users of your project to have a consistent environment that is tailored to your project, you can add a dev container to your repository. You can use a predefined configuration to select a common configuration for various project types with the option to further customize your project or you can create your own custom configuration. For more information, see "[Using a predefined container configuration](#using-a-predefined-container-configuration)" and "[Creating a custom codespace configuration](#creating-a-custom-codespace-configuration)." La opción que elijas dependerá de las herramientas, tiempos de ejecución, dependencias y flujos de trabajo que el usuario pudiese necesitar para tener éxito en tu proyecto.
 
 {% data variables.product.prodname_codespaces %} permite la personalización por proyecto y por rama con un archivo `devcontainer.json`. Este archivo de configuración determina el ambiente de cada codespace nuevo que cualquier persona cree en tu repositorio definiendo un contenedor de desarrollo que puede incluir marcos de trabajo, herramientas, extensiones y reenvío de puertos. También puede utilizarse un Dockerfile junto con el archivo `devcontainer.json` en la carpeta `.devcontainer` para definir todo lo que se necesita para crear una imagen de contenedor.
 
@@ -82,8 +85,27 @@ Utilizar una configuración predefinida es una gran idea si necesitas extensibil
 
 {% data reusables.codespaces.command-palette-container %}
 1. Haz clic en la definición que quieras utilizar. ![Lista de definiciones de contenedores predefinidas](/assets/images/help/codespaces/predefined-container-definitions-list.png)
-1. Sigue los mensajes para personalizar tu definición.
+1. Sigue los mensajes para personalizar tu definición. For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
 1. Haz clic en **OK** (aceptar). ![Botón de OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+1. Para aplicar los cambios, en la esquina inferior derecha de la pantalla, haz clic en **Reconstruir ahora**. Para obtener más información sbre reconstruir tu contenedor, consulta la sección "[Acplicar los cambios a tu configuración](#applying-changes-to-your-configuration)". !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
+
+### Adding additional features to your `devcontainer.json` file
+
+{% note %}
+
+**Note:** This feature is in beta and subject to change.
+
+{% endnote %}
+
+You can add features to your predefined container configuration to customize which tools are available and extend the functionality of your workspace without creating a custom codespace configuration. For example, you could use a predefined container configuration and add the {% data variables.product.prodname_cli %} as well. You can make these additional features available for your project by adding the features to your `devcontainer.json` file when you set up your container configuration.
+
+You can add some of the most common features by selecting them when configuring your predefined container. For more information on the available features, see the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) in the `vscode-dev-containers` repository.
+
+![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
+
+You can also add or remove features outside of the **Add Development Container Configuration Files** workflow.
+1. Access the Command Palette (`Shift + Command + P` / `Ctrl + Shift + P`), then start typing "configure". Select **Codespaces: Configure Devcontainer Features**. ![The Configure Devcontainer Features command in the command palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+2. Update your feature selections, then click **OK**. ![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
 1. Para aplicar los cambios, en la esquina inferior derecha de la pantalla, haz clic en **Reconstruir ahora**. Para obtener más información sbre reconstruir tu contenedor, consulta la sección "[Acplicar los cambios a tu configuración](#applying-changes-to-your-configuration)". !["Codespaces: Reconstruir contenedor" en la paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 
 

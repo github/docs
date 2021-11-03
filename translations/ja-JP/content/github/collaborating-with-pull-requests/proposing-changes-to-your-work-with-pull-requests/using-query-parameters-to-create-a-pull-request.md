@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -17,7 +18,7 @@ You can use query parameters to open pull requests. Query parameters are optiona
 
 {% endtip %}
 
-クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 For example, you must have permission to add a label to a pull request to use the `labels` query parameter. 詳細は「[Organization のためのリポジトリ権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)」を参照してください。
+クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 For example, you must have permission to add a label to a pull request to use the `labels` query parameter. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 

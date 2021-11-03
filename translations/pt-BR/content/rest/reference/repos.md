@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -17,18 +18,18 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
-## Autolinks
+{% ifversion fpt or ghec %}
+## Links automáticos
 
 {% tip %}
 
-**Note:** The Autolinks API is in beta and may change.
+**Nota:** A API de Links automáticos está na versão beta e pode ser alterada.
 
 {% endtip %}
 
-To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+Para ajudar a agilizar o seu fluxo de trabalho, você pode usar a API para adicionar os links automáticos a recursos externos, como problemas do JIRA e tíquetes do Zendesk. Para obter mais informações, consulte "[Configurar links automáticos para fazer referência a recursos externos](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)".
 
-{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+{% data variables.product.prodname_github_apps %} exige permissões de administração do repositório com acesso de leitura ou gravação para usar a API de links automáticos.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
@@ -51,7 +52,7 @@ To help streamline your workflow, you can use the API to add autolinks to extern
 
 ### Tipos de mídia personalizados para comentários de commit
 
-Estes são os tipos de mídia compatíveis com os comentários do commit. You can read more about the use of media types in the API [here](/rest/overview/media-types).
+Estes são os tipos de mídia compatíveis com os comentários do commit. Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -72,7 +73,7 @@ A API de Commits do repositório é compatível com a listagem, visualização e
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Comunidade
 
 {% for operation in currentRestOperations %}
@@ -96,7 +97,7 @@ Use o tipo de mídia `.raw` para recuperar o conteúdo do arquivo.
 
 Para arquivos de markup, como Markdown ou AsciiDoc, você pode recuperar o HTML interpretado usando o tipo de mídia `.html`. As linguagens de markup são processadas em HTML usando nossa [biblioteca de markup](https://github.com/github/markup) de código aberto.
 
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+[Todos os objetos](/rest/reference/repos#get-repository-content) são compatíveis com o seguinte tipo de mídia personalizado:
 
     application/vnd.github.VERSION.object
 
@@ -164,7 +165,7 @@ Observe que o `repo_deployment` [OAuth escopo](/developers/apps/scopes-for-oauth
 
 ### Implantações inativas
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
+Ao definir o estado de uma implantação como `sucesso`, todas as implantações de ambiente de não produção e não transitórios anteriores no mesmo nome do ambiente irão tornar-se `inativas`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
 
 Você pode informar que um ambiente transitório não existe mais definindo seu `estado` como `inativo`.  Definir o `estado` como `inativo` mostra a implantação como `destruída` em {% data variables.product.prodname_dotcom %} e remove o acesso a ela.
 
@@ -172,10 +173,10 @@ Você pode informar que um ambiente transitório não existe mais definindo seu 
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Ambientes
 
-A API de Ambientes permite que você crie, configure e exclua ambientes. For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." Para gerenciar segredos de ambiente, consulte "[Segredos](/rest/reference/actions#secrets)".
+A API de Ambientes permite que você crie, configure e exclua ambientes. Para obter mais informações sobre ambientes, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". Para gerenciar segredos de ambiente, consulte "[Segredos](/rest/reference/actions#secrets)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
@@ -202,7 +203,7 @@ Use o ponto de extremidade da API para adicionar um colaborador. Para obter mais
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 
 ## Git LFS
 
@@ -224,7 +225,7 @@ O usuário autenticado será o autor de qualquer merge feito por meio deste pont
 
 ## Pages
 
-A API de {% data variables.product.prodname_pages %} recupera informações sobre a sua configuração do {% data variables.product.prodname_pages %} e os status das suas criações. Informações sobre o site e as criações só podem ser acessadas pelos proprietários autenticados{% ifversion not ghae %}, mesmo que os sites sejam públicos{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+A API de {% data variables.product.prodname_pages %} recupera informações sobre a sua configuração do {% data variables.product.prodname_pages %} e os status das suas criações. Informações sobre o site e as criações só podem ser acessadas pelos proprietários autenticados{% ifversion not ghae %}, mesmo que os sites sejam públicos{% endif %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
 Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} com uma chave de `status` na sua resposta, o valor pode ser:
 * `null`: O site ainda não foi criado.
@@ -295,10 +296,10 @@ Se você está desenvolvendo um aplicativo GitHub e deseja fornecer informaçõe
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Tráfego
 
-Para repositórios aos quais você tem acesso de push, a API de tráfego fornece acesso às informações fornecidas no seu gráfico de repositório. For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
+Para repositórios aos quais você tem acesso de push, a API de tráfego fornece acesso às informações fornecidas no seu gráfico de repositório. Para obter mais informações, consulte "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Visualizar tráfego para um repositório</a>. "
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
@@ -307,11 +308,11 @@ Para repositórios aos quais você tem acesso de push, a API de tráfego fornece
 
 ## Webhooks
 
-Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
+Os webhooks de repositório permitem que você receba cargas de `POST` de HTTP sempre que certos eventos ocorrerem em um repositório. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 Se você deseja configurar um único webhook para receber eventos de todos os repositórios da organização, consulte nossa documentação de API para [Webhooks de organização](/rest/reference/orgs#webhooks).
 
-In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
+Além da API REST, {% data variables.product.prodname_dotcom %} também pode servir como um núcleo de [PubSubHubbub](#pubsubhubbub) para repositórios.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
@@ -363,9 +364,9 @@ Solicitações do PubSubHubbub podem ser enviadas várias vezes. Se o hook já e
 
 ##### Parâmetros
 
-| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `string` | **Obrigatório**. `Assine` ou `cancele a assinatura`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `hub.topic`    | `string` | **Obrigatório**.  A URI do repositório do GitHub a ser assinada.  O caminho deve estar no formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `hub.callback` | `string` | A URI para receber as atualizações do tópico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `hub.secret`   | `string` | Uma chave de segredo compartilhado que gera uma assinatura de hash do conteúdo de saída do texto.  Você pode verificar se um push veio do GitHub comparando o texto da solicitação sem processar com o conteúdo dos cabeçalho do {% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature` ou `X-Hub-Signature-256` {% elsif ghes < 3.0 %}`X-Hub-Signature` {% elsif ghae %}cabeçalho `X-Hub-Signature-256` {% endif %}. Você pode ver [a documentação do PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obter mais informações. |
+| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hub.mode`     | `string` | **Obrigatório**. `Assine` ou `cancele a assinatura`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `hub.topic`    | `string` | **Obrigatório**.  A URI do repositório do GitHub a ser assinada.  O caminho deve estar no formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `hub.callback` | `string` | A URI para receber as atualizações do tópico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `hub.secret`   | `string` | Uma chave de segredo compartilhado que gera uma assinatura de hash do conteúdo de saída do texto.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. Você pode ver [a documentação do PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obter mais informações. |

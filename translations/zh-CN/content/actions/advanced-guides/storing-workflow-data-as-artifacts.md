@@ -2,7 +2,6 @@
 title: 将工作流程数据存储为构件
 shortTitle: 存储工作流程构件
 intro: 构件允许您在工作流程完成后，分享工作流程中作业之间的数据并存储数据。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -13,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -20,6 +20,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于工作流程构件
 
@@ -34,7 +35,7 @@ topics:
 - 二进制或压缩文件
 - 压力测试性能输出和代码覆盖结果
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 存储构件时使用存储空间 {% data variables.product.product_name %}。 {% data reusables.github-actions.actions-billing %} 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)”。
 
@@ -46,7 +47,7 @@ topics:
 
 构件会在工作流程运行过程中上传，您可以在 UI 中查看构件的名称和大小。 当构件使用 {% data variables.product.product_name %} UI 下载时， 作为构件一部分单独上传的所有文件都会压缩到一个 zip 文件中。 这意味着计费是根据上传的构件大小而不是 zip 文件的大小计算的。
 
-{% data variables.product.product_name %} 提供两项可用于上传和下载构建构件的操作。 更多信息请参阅 {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 和 `download-artifact` 操作{% endif %}。
+{% data variables.product.product_name %} 提供两项可用于上传和下载构建构件的操作。 更多信息请参阅 {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 和 `download-artifact` 操作{% endif %}。
 
 要在作业之间共享数据：
 
@@ -61,7 +62,7 @@ topics:
 
 构建和测试代码的输出通常会生成可用于调试测试失败的文件和可部署的生产代码。 您可以配置一个工作流程来构建和测试推送到仓库中的代码，并报告成功或失败状态。 您可以上传构建和测试输出，以用于部署、调试失败的测试或崩溃以及查看测试套件范围。
 
-您可以使用 `upload-artifact` 操作上传构件。 上传构件时，您可以指定单个文件或目录，或多个文件或目录。 您还可以排除某些文件或目录，以及使用通配符模式。 我们建议您为构件提供名称，但如果未提供名称，则会使用 `artifact` 作为默认名称。 有关语法的更多信息，请参阅 {% ifversion fpt %} {% data variables.product.product_location %} 上的 [actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` 操作{% endif %}。
+您可以使用 `upload-artifact` 操作上传构件。 上传构件时，您可以指定单个文件或目录，或多个文件或目录。 您还可以排除某些文件或目录，以及使用通配符模式。 我们建议您为构件提供名称，但如果未提供名称，则会使用 `artifact` 作为默认名称。 有关语法的更多信息，请参阅 {% ifversion fpt or ghec %} {% data variables.product.product_location %} 上的 [actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` 操作{% endif %}。
 
 ### 示例
 
@@ -113,7 +114,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## 配置自定义构件保留期
 
 您可以为工作流程创建的单个构件自定义保留期。 使用工作流程创建新构件时，可以同时使用 `retention-days` with the `upload-artifact` 操作。 此示例演示如何为名为 `my-artifact` 的构件设置 5 天的自定义保留期：
@@ -128,11 +128,10 @@ jobs:
 ```
 
 `retention-days` 值不能超过仓库、组织或企业设置的保留时间限制。
-{% endif %}
 
 ## 下载或删除构件
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
+在工作流程运行期间，您可以使用 [`download-artifact`](https://github.com/actions/download-artifact) 操作下载以前在同一工作流程运行中上传的构件。
 
 工作流程运行完成后，您可以在 {% data variables.product.prodname_dotcom %} 上或使用 REST API 下载或删除构件。 更多信息请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”、“[删除工作流程构件](/actions/managing-workflow-runs/removing-workflow-artifacts)”和“[构件 REST API](/rest/reference/actions#artifacts)”。
 
@@ -164,11 +163,11 @@ During a workflow run, you can use the [`download-artifact`](https://github.com/
 
 如果下载所有工作流程运行的构件，则每个构件使用其名称目创建目录。
 
-有关语法的更多信息，请参阅 {% ifversion fpt %}[actions/download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/download-artifact` 操作{% endif %}。
+有关语法的更多信息，请参阅 {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/download-artifact` 操作{% endif %}。
 
 ## 在工作流程中作业之间传递数据
 
-您可以使用 `upload-artifact` 和 `download-artifact` 操作在工作流程中的作业之间共享数据。 此示例工作流程说明如何在相同工作流程中的任务之间传递数据。 更多信息请参阅 {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 和 `download-artifact` 操作{% endif %}。
+您可以使用 `upload-artifact` 和 `download-artifact` 操作在工作流程中的作业之间共享数据。 此示例工作流程说明如何在相同工作流程中的任务之间传递数据。 更多信息请参阅 {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) 操作{% else %} {% data variables.product.product_location %} 上的 `actions/upload-artifact` 和 `download-artifact` 操作{% endif %}。
 
 依赖于以前作业构件的作业必须等待依赖项成功完成。 此工作流程使用 `needs` 关键词确保 `job_1`、 `job_2` 和 `job_3` 按顺序运行。 例如， `job_2` 需要 `job_1` 使用 `needs: job_1` 语法。
 
@@ -242,13 +241,13 @@ jobs:
 ```
 
 工作流程运行运行将会存档它生成的任何构件。 有关下载存档的构件的更多信息，请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 延伸阅读
 

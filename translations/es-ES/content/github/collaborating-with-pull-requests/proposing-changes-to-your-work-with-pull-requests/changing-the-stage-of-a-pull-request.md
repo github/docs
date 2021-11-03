@@ -1,6 +1,6 @@
 ---
 title: Cambiar la etapa de una solicitud de extracción
-intro: 'Puedes marcar un borrador de solicitud de extracción como listo para revisión {% ifversion fpt or ghae or ghes %} o convertir la solicitud en borrador{% endif %}.'
+intro: 'Puedes marcar un borrador de solicitud de extracción como listo para revisión {% ifversion fpt or ghae or ghes or ghec %} o convertir la solicitud en borrador{% endif %}.'
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Cambiar el estado
@@ -20,7 +21,7 @@ shortTitle: Cambiar el estado
 
 {% data reusables.pull_requests.mark-ready-review %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: También puedes marcar una solicitud de cambios como lista para revisión utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta la sección "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" en la documentación de {% data variables.product.prodname_cli %}.
@@ -32,7 +33,7 @@ shortTitle: Cambiar el estado
 2. En la lista "Pull requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas marcar como disponibles para revisión.
 3. En la caja de fusión, da clic en **Listo para revisión**. ![Botón Ready for review (Disponible para revisión)](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Convertir una solicitud de extracción en borrador
 

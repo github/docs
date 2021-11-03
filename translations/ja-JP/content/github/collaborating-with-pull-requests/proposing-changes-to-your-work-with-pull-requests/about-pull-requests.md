@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -32,7 +33,7 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 
 他のコントリビューターは、あなたが提案した変更をレビューしたり、レビューコメントを追加したり、プルリクエストのディスカッションにコントリビュートしたり、さらにはプルリクエストにコメントを追加したりできます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 [Conversation] タブで、ブランチの現在のデプロイメントステータスや過去のデプロイメントのアクティビティに関する情報を確認することができます。 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)」を参照してください。
 {% endif %}
 

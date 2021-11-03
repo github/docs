@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: 添加自托管的运行器
 ---
@@ -15,6 +16,7 @@ shortTitle: 添加自托管的运行器
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 您可以将自托管的运行器添加到 {{ site.data.variables.product.prodname_actions }}。
 
@@ -34,9 +36,9 @@ shortTitle: 添加自托管的运行器
 
 ## 添加自托管的运行器到仓库
 
-您可以将自托管的运行器添加到单个仓库中。 要将自托管的运行器添加到用户仓库，您必须是仓库所有者。 对于组织仓库，您必须是组织所有者或拥有该仓库管理员的权限。
+您可以将自托管的运行器添加到单个仓库中。 要将自托管的运行器添加到用户仓库，您必须是仓库所有者。 对于组织仓库，您必须是组织所有者或拥有该仓库管理员的权限。 有关如何使用 REST API 添加自托管运行器的信息，请参阅“[自托管运行器](/rest/reference/actions#self-hosted-runners)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
@@ -49,16 +51,16 @@ shortTitle: 添加自托管的运行器
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. 在
-{% ifversion fpt or ghes > 3.1 or ghae %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %}下，单击 **Add runner（添加运行器）**。
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %}下，单击 **Add runner（添加运行器）**。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
 ## 添加自托管的运行器到组织
 
-您可以在组织级别添加自托管的运行器，其中它们可被用于处理组织中的多个仓库的作业。 要将自托管的运行器添加到组织，您必须是组织所有者。
+您可以在组织级别添加自托管的运行器，其中它们可被用于处理组织中的多个仓库的作业。 要将自托管的运行器添加到组织，您必须是组织所有者。 有关如何使用 REST API 添加自托管运行器的信息，请参阅“[自托管运行器](/rest/reference/actions#self-hosted-runners)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
@@ -71,7 +73,7 @@ shortTitle: 添加自托管的运行器
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. 在
-{% ifversion fpt or ghes > 3.1 or ghae %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %}下，单击 **Add runner（添加运行器）**。
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %}下，单击 **Add runner（添加运行器）**。
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
 
@@ -85,8 +87,8 @@ shortTitle: 添加自托管的运行器
 
 新运行器被分配到默认组。 您可以在注册运行器后修改运行器组。 更多信息请参阅“[管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)”。
 
-{% ifversion fpt %}
-要将自托管的运行器添加到企业帐户，您必须是组织所有者。
+{% ifversion fpt or ghec %}
+要将自托管的运行器添加到企业帐户，您必须是组织所有者。 有关如何使用 REST API 添加自托管运行器的信息，请参阅[企业管理 GitHub Actions API](/rest/reference/enterprise-admin#github-actions)。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

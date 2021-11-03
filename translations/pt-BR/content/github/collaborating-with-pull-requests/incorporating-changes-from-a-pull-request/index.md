@@ -8,12 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 children:
   - /about-pull-request-merges
   - /merging-a-pull-request
   - /automatically-merging-a-pull-request
+  - /adding-a-pull-request-to-the-merge-queue
   - /closing-a-pull-request
   - /reverting-a-pull-request
 shortTitle: Incorporar alterações

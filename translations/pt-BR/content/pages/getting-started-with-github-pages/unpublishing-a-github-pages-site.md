@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Cancelar a publicação do site de páginas
@@ -23,7 +24,7 @@ shortTitle: Cancelar a publicação do site de páginas
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Se existir um branch `gh-pages` no repositório, exclua o branch `gh-pages`. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)".
-3. Se o branch `gh-pages` fosse a sua fonte de publicação, {% ifversion fpt %}pule para a etapa 6{% else %}agora o seu site não está publicado e você pode pular as etapas restantes{% endif %}.
+3. Se o branch `gh-pages` fosse a sua fonte de publicação, {% ifversion fpt or ghec %}pule para a etapa 6{% else %}agora o seu site não está publicado e você pode pular as etapas restantes{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 5. No "{% data variables.product.prodname_pages %}", use o menu suspenso **Source** (Fonte) e selecione **None** (Nenhuma). ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)

@@ -1,6 +1,7 @@
 ---
 title: Entender conexões entre repositórios
-intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+intro: É possível entender melhor as conexões que existem entre repositórios visualizando a rede e as bifurcações de um repositório e os projetos que dependem do repositório.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -17,14 +18,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
-shortTitle: Connections between repositories
+shortTitle: Conexões entre repositórios
 ---
 
 ## Exibir a rede do repositório
 
-'The network graph displays the branch history of the entire repository network, including branches of the root repository and branches of forks that contain commits unique to the network.' product: '{% data reusables.gated-features.repository-insights %}'
+O gráfico de rede exibe o histórico de branches de toda a rede do repositório, incluindo branches do repositório raiz e branches de bifurcações que contêm commits exclusivos da rede.
 
 ![Gráfico de rede do repositório](/assets/images/help/graphs/repo_network_graph.png)
 
@@ -46,7 +48,7 @@ O gráfico de integrantes exibe todas as bifurcações de um repositório.
 
 As bifurcações são listadas em ordem alfabética pelo nome de usuário da pessoa que bifurcou o repositório. É possível clicar no nome de usuário para ser redirecionado à página de perfil {% data variables.product.product_name %} do usuário ou clicar no nome da bifurcação para ser redirecionado à bifurcação específica do repositório.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![Gráfico de integrantes do repositório](/assets/images/help/graphs/repo_forks_graph_dotcom.png)
 
@@ -62,7 +64,7 @@ As bifurcações são listadas em ordem alfabética pelo nome de usuário da pes
 {% data reusables.repositories.accessing-repository-graphs %}
 3. Na barra lateral esquerda, clique em **Forks** (Bifurcações). ![Aba Forks (Bifurcações)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Visualizar as dependências de um repositório
 
 Você pode usar o gráfico de dependências para explorar o código do qual seu repositório depende.

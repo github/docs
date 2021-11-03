@@ -8,13 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
  
 
 
-在本指南中，我们将使用 API 来获取有关我们拥有的仓库以及构成这些仓库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 为了与 {% data variables.product.product_name %} API 进行交互，我们将使用卓越的 Ruby 库 [Octokit][Octokit]。
+在本指南中，我们将使用 API 来获取有关我们拥有的仓库以及构成这些仓库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 要与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 交互，我们将使用卓越的 Ruby 库 [Octokit.rb][Octokit]。
 
 在开始本示例之前，您应该阅读[“身份验证基础知识”][basics-of-authentication]指南（如果尚未阅读）。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
@@ -75,7 +76,7 @@ run Example::MyGraphApp
 
 ## 获取仓库信息
 
-这次，为了与 {% data variables.product.product_name %} API 进行对话，我们将使用 [Octokit.rb][Octokit]。 这比直接进行一大堆 REST 调用要容易得多。 另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
+这次，为了与 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 进行对话，我们将使用 [Octokit Ruby 库][Octokit]。 这比直接进行一大堆 REST 调用要容易得多。 另外，Octokit 是由 GitHubber 开发的，并且一直在积极维护，因此可以确保有效性。
 
 通过 Octokit 进行 API 身份验证非常简单。 只需将您的登录名和令牌传递到 `Octokit::Client` 构造函数：
 

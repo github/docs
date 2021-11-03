@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Sobre revisões de PR
@@ -18,11 +19,11 @@ shortTitle: Sobre revisões de PR
 
 Após a abertura de uma pull request, qualquer pessoa com acesso *de leitura* pode revisar e comentar nas alterações que ela propõe. Você também pode sugerir alterações específicas às linhas de código, que o autor pode aplicar diretamente a partir da pull request. Para obter mais informações, consulte "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)".
 
-Os proprietários de repositório e colaboradores podem solicitar uma revisão de pull request de uma pessoa específica. Os integrantes da organização também podem solicitar uma revisão de pull request de uma equipe com acesso de leitura ao repositório. Para obter mais informações, consulte "[Solicitar uma revisão de pull request](/articles/requesting-a-pull-request-review)". {% ifversion fpt or ghae or ghes %}Você pode especificar um subconjunto de integrantes da equipe que será automaticamente responsável no lugar de toda a equipe. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Os proprietários de repositório e colaboradores podem solicitar uma revisão de pull request de uma pessoa específica. Os integrantes da organização também podem solicitar uma revisão de pull request de uma equipe com acesso de leitura ao repositório. Para obter mais informações, consulte "[Solicitar uma revisão de pull request](/articles/requesting-a-pull-request-review)". {% ifversion fpt or ghae or ghes or ghec %}Você pode especificar um subconjunto de integrantes da equipe que será automaticamente responsável no lugar de toda a equipe. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 As revisões permitem discussão das alterações propostas e ajudam a garantir que as alterações atendam às diretrizes de contribuição do repositório e outros padrões de qualidade. Você pode definir quais indivíduos ou equipes possuem determinados tipos de área de código em um arquivo CODEOWNERS. Quando uma pull request modifica código que tem um proprietário definido, esse indivíduo ou equipe será automaticamente solicitado como um revisor. Para obter mais informações, consulte "[Sobre proprietários de código](/articles/about-code-owners/)".
 
-{% ifversion fpt %}Você pode agendar lembretes para pull requests que precisam ser revisadas. Para obter mais informações, consulte "[Gerenciando os lembretes agendados para pull request](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
+{% ifversion fpt or ghec %}Você pode agendar lembretes para pull requests que precisam ser revisadas. Para obter mais informações, consulte "[Gerenciando os lembretes agendados para pull request](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)."{% endif %}
 
 ![Header de revisão solicitando alterações com comentários em linha](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 

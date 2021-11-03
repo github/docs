@@ -3,6 +3,7 @@ title: Guía rápida para encontrar contribuyentes para patrocinar
 intro: Aprende algunas de las mejores prácticas para encontrar contribuyentes de código abierto para patrocinar.
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source

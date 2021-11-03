@@ -21,6 +21,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -42,10 +43,13 @@ Por padrão, as restrições de uma regra de proteção de branch não se aplica
 Para cada regra de proteção do branch, você pode escolher habilitar ou desabilitar as seguintes configurações.
 - [Exigir revisões de pull request antes do merge](#require-pull-request-reviews-before-merging)
 - [Exigir verificações de status antes do merge](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 - [Exigir resolução de conversas antes do merge](#require-conversation-resolution-before-merging){% endif %}
 - [Exigir commits assinados](#require-signed-commits)
 - [Exigir histórico linear](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
 - [Incluir administradores](#include-administrators)
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir push forçado](#allow-force-pushes)
@@ -100,7 +104,7 @@ Você pode configurar as verificações de status obrigatórias como "flexível"
 
 Para obter informações sobre a solução de problemas, consulte "[Solucionar problemas para as verificações de status obrigatórias](/github/administering-a-repository/troubleshooting-required-status-checks)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 ### Exigir resolução de conversa antes de merge
 
 Exige que todos os comentários no pull request sejam resolvidos antes de poder fazer merge em um branch protegido. Isso garante que todos os comentários sejam resolvidos ou reconhecidos antes do merge.
@@ -108,11 +112,11 @@ Exige que todos os comentários no pull request sejam resolvidos antes de poder 
 
 ### Exigir commits assinados
 
-Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores {% ifversion fpt %}e bots{% endif %} só podem fazer push de commits que foram assinados e verificados no branch. Para obter mais informações, consulte "[Sobre verificação de assinatura commit](/articles/about-commit-signature-verification)".
+Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores {% ifversion fpt or ghec %}e bots{% endif %} só podem fazer push de commits que foram assinados e verificados no branch. Para obter mais informações, consulte "[Sobre verificação de assinatura commit](/articles/about-commit-signature-verification)".
 
 {% note %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **Notas:**
 
 * Se você habilitou o modo vigilante, que indica que seus commits serão sempre assinados, todos os commits que {% data variables.product.prodname_dotcom %} indentificar como "parcialmente verificado" serão permitidos em branches que exijam commits assinados. Para obter mais informações sobre o modo vigilante, consulte "[Exibir status de verificação para todos os seus commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
@@ -124,9 +128,9 @@ Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores
 
 {% endnote %}
 
-Você sempre pode fazer push de commits locais para o branch se os commits forem assinados e verificados. {% ifversion fpt %}Você também pode mesclar commits assinados e verificados no branch usando uma pull request no {% data variables.product.product_name %}. No entanto, você não pode combinar por squash e fazer o merge de uma pull request no branch em {% data variables.product.product_name %}, a menos que você seja o autor da pull request.{% else %} No entanto, você não pode mesclar as pull requests no branch no {% data variables.product.product_name %}.{% endif %} Você pode {% ifversion fpt %}combinar por squash e {% endif %}merge pull requests localmente. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
+Você sempre pode fazer push de commits locais para o branch se os commits forem assinados e verificados. {% ifversion fpt or ghec %}Você também pode mesclar commits assinados e verificados no branch usando uma pull request no {% data variables.product.product_name %}. No entanto, você não pode combinar por squash e fazer o merge de uma pull request no branch em {% data variables.product.product_name %}, a menos que você seja o autor da pull request.{% else %} No entanto, você não pode mesclar as pull requests no branch no {% data variables.product.product_name %}.{% endif %} Você pode {% ifversion fpt or ghec %}combinar por squash e {% endif %}merge pull requests localmente. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
 
-{% ifversion fpt %} Para obter mais informações sobre métodos de merge, consulte "[Sobre métodos de merge em {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github){% endif %}
+{% ifversion fpt or ghec %} Para obter mais informações sobre métodos de merge, consulte "[Sobre métodos de merge em {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github){% endif %}
 
 ### Exigir histórico linear
 
@@ -134,13 +138,21 @@ Aplicar o histórico linear de commit impede que os colaboradores façam push de
 
 Antes de exigir um histórico de commit linear, seu repositório deve permitir merge squash ou merge rebase. Para obter mais informações, consulte "[Configurando merges da pull request](/github/administering-a-repository/configuring-pull-request-merges)".
 
+{% ifversion fpt or ghec %}
+### Require merge queue
+
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-references %}
+
+{% endif %}
 ### Incluir administradores
 
 Por padrão, as regras de branch protegidos não se aplicam a pessoas com permissões de administrador em um repositório. Você pode habilitar essa configuração para incluir administradores em suas regras de branch protegido.
 
 ### Restringir quem pode fazer push para branches correspondentes
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Você pode habilitar as restrições do branch se seu repositório for propriedade de uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 

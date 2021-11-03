@@ -6,14 +6,14 @@ intro: Se {% data variables.product.product_location %} estiver executando a cri
 sections:
   features:
     - 
-      heading: Custom patterns for secret scanning
+      heading: Padrões personalizados para digitalização de segredo
       notes:
         - |
-          {% data variables.product.prodname_GH_advanced_security %} customers can now specify custom patterns for secret scanning. When a new pattern is specified, secret scanning searches a repository's entire Git history for the pattern, as well as any new commits.
+          Os clientes de {% data variables.product.prodname_GH_advanced_security %} agora podem especificar padrões personalizados para a digitalização de segredo. Quando um novo padrão for especificado, a digitalização de segredo irá pesquisar todo o histórico do Git de um repositório para o padrão, bem como quaisquer novos commits.
 
-          User defined patterns are in beta for {% data variables.product.prodname_ghe_server %} 3.2. They can be defined at the repository, organization, and enterprise levels. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+          Os padrões definidos pelo usuário estão em beta para {% data variables.product.prodname_ghe_server %} 3.2. Eles podem ser definidos nos níveis do repositório, organização e empresa. Para obter mais informações, consulte "[Definir padrões personalizados para digitalização de segredoa](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
     - 
-      heading: Security overview for Advanced Security (beta)
+      heading: Visão geral de segurança para Segurança Avançada (beta)
       notes:
         - |
           {% data variables.product.prodname_GH_advanced_security %} customers now have an organization-level view of the application security risks detected by {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_dependabot %}, and {% data variables.product.prodname_secret_scanning %}. The security overview shows the enablement status of security features on each repository, as well as the number of alerts detected.
@@ -22,22 +22,22 @@ sections:
 
           ![Screenshot of security overview](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
     - 
-      heading: Dependency review (beta)
+      heading: Revisão de dependências (beta)
       notes:
         - |
-          {% data variables.product.prodname_GH_advanced_security %} customers can now see a rich diff of the dependencies changed in a pull request. Dependency review provides an easy-to-understand view of dependency changes and their security impact in the "Files changed" tab of pull requests. It informs you of which dependencies were added, removed, or updated, along with vulnerability information for these dependencies. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+          Os clientes de {% data variables.product.prodname_GH_advanced_security %} agora podem ver um diff avançado das dependências alteradas em um pull request. A revisão de dependências fornece uma visão de fácil compreensão de alterações das dependências e o seu impacto de segurança na aba "Arquivos alterados" dos pull requests. Ele informa quais dependências foram adicionadas, removidas ou atualizadas, junto com informações sobre vulnerabilidade para essas dependências. Para obter mais informações, consulte "[Revisar as alterações de dependências em um pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
     - 
-      heading: GitHub Actions environments
+      heading: Ambientes do GitHub Actions
       notes:
         - |
-          Environments, environment protection rules, and environment secrets are now generally available for {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}. For more information, see "[Environments](/actions/reference/environments)."
+          As ambientes, regras de proteção do ambiente e segredos de ambiente agora estão geralmente disponíveis para {% data variables.product.prodname_actions %} em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Environments](/actions/reference/environments)."
 
-          ![Environment protection rules](/assets/images/enterprise/3.2/release-notes/actions-environments.png)
+          ![Regras de proteção do ambiente](/assets/images/enterprise/3.2/release-notes/actions-environments.png)
     - 
-      heading: SSH authentication with security keys
+      heading: Autenticação SSH com chaves de segurança
       notes:
         - |
-          SSH authentication using a FIDO2 security key is now supported when you add a `sk-ecdsa-sha2-nistp256@openssh.com` or `sk-ssh-ed25519@openssh.com` SSH key to your account. SSH security keys store secret key material on a separate hardware device that requires verification, such as a tap, to operate. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
+          A autenticação SSH usando uma chave de segurança FIDO2 agora é compatível quando você adiciona uma Chave SSH `sk-ecdsa-sha2-nistp256@openssh.com` ou `sk-ssh-ed25519@openssh.com` à sua conta. As chaves de segurança SSH armazenam material da chave do segredo em um dispositivo de hardware separado que exige verificação, como um toque, para operar. Para obter mais informações, consulte "[Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key-for-a-hardware-security-key)."
     - 
       heading: 'Dark and dark dimmed themes'
       notes:
@@ -46,9 +46,9 @@ sections:
 
           ![Dark and dark dimmed themes](https://user-images.githubusercontent.com/33528647/114629560-d2231f80-9c86-11eb-9bde-cc301a97040d.gif)
     - 
-      heading: 'Approving unverified domains for email notifications'
+      heading: 'Aprovando domínios não verificados para notificações de e-mail'
       notes:
-        - 'Domains that are not able to be verified can now be approved for email notification routing. Enterprise and organization owners will be able to approve domains and immediately augment their email notification restriction policy, allowing notifications to be sent to collaborators, consultants, acquisitions, or other partners. For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#about-approval-of-domains)" and "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise#restricting-email-notifications-for-your-enterprise-account)."'
+        - 'Os domínios que não podem ser verificados agora podem ser aprovados para encaminhamento de notificação de e-mail. Os proprietários de empresas e organizações poderão aprovar domínios e ampliar imediatamente sua política de restrição de notificação por e-mail, permitir que sejam enviadas notificações para colaboradores, consultores, aquisições ou outros parceiros. Para obter mais informações, consulte "[Verificando ou aprovando um domínio para sua empresa](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#about-approval-of-domains)" e "[Restringindo notificações de e-mail para sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise#restricting-email-notifications-for-your-enterprise-account)."'
     - 
       heading: 'Git Credential Manager (GCM) secure credential storage and multi-factor authentication support'
       notes:
@@ -184,7 +184,7 @@ sections:
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
   deprecations:
     - 
       heading: Obsoletização do GitHub Enterprise Server 2.21

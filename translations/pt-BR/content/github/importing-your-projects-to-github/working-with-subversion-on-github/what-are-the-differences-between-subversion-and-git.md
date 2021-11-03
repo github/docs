@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: Subversão & diferenças do Git
 ---
 
@@ -49,7 +50,7 @@ Um *subprojeto* é um projeto desenvolvido e gerenciado em algum lugar fora do p
 
 No SVN, um subprojeto é chamado de *SVN externo*. No Git, ele é chamado de *submódulo do Git*. Embora conceitualmente semelhantes, os submódulos do Git não são mantidos atualizados de forma automática. É preciso solicitar explicitamente que uma nova versão seja trazida para o projeto.
 
-Para obter mais informações, consulte “[Submódulos de ferramentas Git](https://git-scm.com/book/en/Git-Tools-Submodules)" na documentação do Git.
+For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
 ## Preservar o histórico
 
