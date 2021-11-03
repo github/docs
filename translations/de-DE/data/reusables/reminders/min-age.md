@@ -1,1 +1,0 @@
-1. Unter „Minimum age" (Mindestalter) gib das Alter des Pull Requests in Stunden ein. Geplante Erinnerungen enthalten keine Pull Requests, die neuer sind als diese Altersgrenze. ![Feld „Ignored labels" (Ignorierte Kennzeichnungen)](/assets/images/help/settings/scheduled-reminders-min-age-field.png)
