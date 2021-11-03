@@ -6,7 +6,7 @@ redirect_from:
   - /actions/guides/using-github-cli-in-workflows
 versions:
   fpt: '*'
-  ghes: '>=2.22'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

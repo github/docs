@@ -1,7 +1,6 @@
 ---
 title: 環境変数
 intro: '{% data variables.product.prodname_dotcom %}はそれぞれの{% data variables.product.prodname_actions %}ワークフローの実行に対してデフォルトの環境変数を設定します。 ワークフローファイル中でカスタムの環境変数を設定することもできます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -11,10 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 環境変数について
 
@@ -44,7 +45,7 @@ jobs:
 
 ワークフローファイルの`run`キーを使って環境変数をランナーのオペレーティングシステム内から読む場合（上の例のように）、ジョブがランナーに送られた後に変数はランナーのオペレーティングシステム内で置き換えられます。 ワークフローファイルの他の部分では、環境変数を読むために`env`コンテキストを使わなければなりません。これは、ワークフローのキー（`if`など）で、ワークフローがランナーに送られる前に変数が置き換えられなければならないためです。
 
-You can also use the {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a job can use. The {% ifversion fpt or ghes > 2.22 or ghae %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
+You can also use the `GITHUB_ENV` environment file to set an environment variable that the following steps in a job can use. The environment file can be used directly by an action or as a shell command in a workflow file using the `run` keyword. 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
 
 ## デフォルトの環境変数
 

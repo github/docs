@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/types-of-emails-github-sends
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications

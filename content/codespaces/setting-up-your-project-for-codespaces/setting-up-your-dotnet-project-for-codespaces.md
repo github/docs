@@ -135,7 +135,7 @@ The newly added `devcontainer.json` file defines a few properties that are descr
   - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **Extensions** - These are extensions included by default.
   - **ms-dotnettools.csharp** - The Microsoft C# extension provides rich support for developing in C#, including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
-- **forwardPorts** - Any ports listed here will be forwarded automatically.
+- **forwardPorts** - Any ports listed here will be forwarded automatically. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, like `dotnet restore`, you can do that here.
 - **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
 

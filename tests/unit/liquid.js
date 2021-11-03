@@ -18,8 +18,8 @@ const shortVersionsTemplate = `
   {% ifversion ghes = 3.1 %} I am GHES = 3.1 {% endif %}
   {% ifversion ghes > 3.1 %} I am GHES > 3.1 {% endif %}
   {% ifversion ghes < 3.1 %} I am GHES < 3.1 {% endif %}
-  {% ifversion fpt or ghes < 3.0 %} I am FTP or GHES < 3.0 {% endif %}
-  {% ifversion ghes < 3.1 and ghes > 2.22 %} I am 3.0 only {% endif %}
+  {% ifversion fpt or ghes < 3.1 %} I am FTP or GHES < 3.1 {% endif %}
+  {% ifversion ghes < 3.2 and ghes > 3.0 %} I am 3.1 only {% endif %}
 `
 
 const negativeVersionsTemplate = `
@@ -79,7 +79,7 @@ describe('liquid template parser', () => {
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       // We should have TWO results because we are supporting two shortcuts
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am FPT I am FTP or GHES < 3.0')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am FPT I am FTP or GHES < 3.1')
     })
 
     test('GHAE works as expected', async () => {
@@ -108,20 +108,6 @@ describe('liquid template parser', () => {
 
     test('GHES works as expected', async () => {
       req.context = {
-        currentVersion: 'enterprise-server@2.22',
-        page: {},
-        allVersions,
-        enterpriseServerReleases,
-      }
-      await shortVersionsMiddleware(req, null, () => {})
-      const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        'I am GHES I am GHES < 3.1 I am FTP or GHES < 3.0'
-      )
-    })
-
-    test('AND statements work as expected', async () => {
-      req.context = {
         currentVersion: 'enterprise-server@3.0',
         page: {},
         allVersions,
@@ -129,7 +115,21 @@ describe('liquid template parser', () => {
       }
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am 3.0 only')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
+        'I am GHES I am GHES < 3.1 I am FTP or GHES < 3.1'
+      )
+    })
+
+    test('AND statements work as expected', async () => {
+      req.context = {
+        currentVersion: 'enterprise-server@3.1',
+        page: {},
+        allVersions,
+        enterpriseServerReleases,
+      }
+      await shortVersionsMiddleware(req, null, () => {})
+      const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES = 3.1 I am 3.1 only')
     })
 
     test('NOT statements work as expected on versions without numbered releases', async () => {

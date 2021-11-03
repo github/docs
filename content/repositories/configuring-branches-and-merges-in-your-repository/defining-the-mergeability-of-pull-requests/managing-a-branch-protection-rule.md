@@ -38,7 +38,7 @@ If a repository has multiple protected branch rules that affect the same branche
 
 Protected branch rules that mention a special character, such as `*`, `?`, or `]`, are applied in the order they were created, so older rules with these characters have a higher priority.
 
-To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name. 
+To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
 For more information about each of each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
@@ -59,7 +59,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
      ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review)."
+   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
      ![Restrict who can dismiss pull request reviews checkbox](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. Optionally, enable required status checks.
    - Select **Require status checks to pass before merging**.
@@ -76,6 +76,15 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
 1. Optionally, select **Require linear history**.
   ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
+  ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
+
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+
+  {% endtip %}
+{%- endif %}
 1. Optionally, select **Include administrators**.
 ![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.

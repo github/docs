@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -19,11 +20,11 @@ shortTitle: Verificción de la firma de confirmación
 
 ## Acerca de la verificación de firma de confirmación
 
-Puedes firmar confirmaciones y etiquetas localmente para darles a otras personas la confianza necesaria sobre el origen de un cambio que hayas realizado. Si una confirmación o etiqueta tiene una firma GPG o S/MIME que se pueda verificar criptográficamente, GitHub la marcará como {% ifversion fpt %}"Verificada" o "Verificada parcialmente".{% else %}"Verificada".{% endif %}
+Puedes firmar confirmaciones y etiquetas localmente para darles a otras personas la confianza necesaria sobre el origen de un cambio que hayas realizado. Si una confirmación o etiqueta tiene una firma GPG o S/MIME que se pueda verificar criptográficamente, GitHub la marcará como {% ifversion fpt or ghec %}"Verificada" o "Verificada parcialmente".{% else %}"Verificada".{% endif %}
 
 ![Confirmación verificada](/assets/images/help/commits/verified-commit.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Las confirmaciones y etiquetas tienen los siguientes estados de verificación dependiendo de si las habilitaste en modo vigilante. Predeterminadamente, el modo vigilante no está habilitado. Para obtener más información sobre cómo habilitar el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
@@ -48,7 +49,7 @@ Los administradores de repositorios pueden implementar la firma de confirmación
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} utilizará GPG automáticamente para firmar las confirmaciones que hagas utilizando la interface web de {% data variables.product.product_name %}, con excepción de cuando combinas y fusionas una solicitud de cambios de la cual no seas autor. Las confirmaciones que firme {% data variables.product.product_name %} tendrán un estado verificado en {% data variables.product.product_name %}. Puedes verificar la firma localmente usando la clave pública disponible en https://github.com/web-flow.gpg. La huella dactilar completa de la llave es `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. Opcionalmente, puedes elegir que {% data variables.product.product_name %} firme las confirmaciones que hagas en {% data variables.product.prodname_codespaces %}. Para obtener más información sobre cómo habilitar la verificación de GPG para tus codespaces, consulta la sección "[Administrar la verificación de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".
 {% endif %}
 
@@ -56,7 +57,7 @@ Los administradores de repositorios pueden implementar la firma de confirmación
 
 Puedes usar GPG para firmar confirmaciones con una clave GPG que generas tu mismo.
 
-{% data variables.product.product_name %} usa las bibliotecas OpenPGP para confirmar que tus confirmaciones y etiquetas firmadas localmente son criptográficamente comprobables con una clave pública que has agregado a tu cuenta de {% data variables.product.product_name %}.
+{% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 Para firmar confirmaciones usando GPG y que esas confirmaciones sean verificadas en {% data variables.product.product_name %}, sigue estos pasos:
 
@@ -83,7 +84,7 @@ Para firmar confirmaciones usando S/MIME y que esas confirmaciones sean verifica
 
 No es necesario cargar tu clave pública a {% data variables.product.product_name %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Verificación de firma para bots
 
 Las organizaciones y {% data variables.product.prodname_github_apps %} que requieren de la firma de confirmación pueden usar bots para firmar las confirmaciones. Si una confirmación o etiqueta tienen una firma de bot que es criptográficamente comprobable, {% data variables.product.product_name %} marca la confirmación o etiqueta como verificada.

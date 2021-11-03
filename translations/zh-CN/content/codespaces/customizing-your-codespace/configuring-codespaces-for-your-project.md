@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -21,7 +22,9 @@ shortTitle: 配置您的项目
 
 ## 关于开发容器
 
-开发容器是 {% data variables.product.prodname_codespaces %} 用于提供项目开发所需的工具和运行时的环境。 When working with a dev container in {% data variables.product.prodname_codespaces %} you can either [use the default configuration](#using-the-default-configuration), [use a predefined configuration](#using-a-predefined-container-configuration), or [create your own configuration](#creating-a-custom-codespace-configuration). 您选择的选项取决于用户在项目中取得成功可能需要使用的工具、运行时、依赖项和工作流程。
+开发容器是 {% data variables.product.prodname_codespaces %} 用于提供项目开发所需的工具和运行时的环境。 If your project does not already have a dev container defined, {% data variables.product.prodname_codespaces %} will use the default configuration, which contains many of the common tools that your team might need for development with your project. For more information, see "[Using the default configuration](#using-the-default-configuration)."
+
+If you want all users of your project to have a consistent environment that is tailored to your project, you can add a dev container to your repository. You can use a predefined configuration to select a common configuration for various project types with the option to further customize your project or you can create your own custom configuration. For more information, see "[Using a predefined container configuration](#using-a-predefined-container-configuration)" and "[Creating a custom codespace configuration](#creating-a-custom-codespace-configuration)." 您选择的选项取决于用户在项目中取得成功可能需要使用的工具、运行时、依赖项和工作流程。
 
 {% data variables.product.prodname_codespaces %} 允许使用 `devcontainer.json` 文件针对每个项目和每个分支进行自定义。 此配置文件通过定义可包括框架、工具、扩展和端口转发的开发容器，确定任何人为仓库创建的每个新代码空间的环境。 Dockerfile 还可与 `.devcontainer` 文件夹中的 `devcontainer.json` 文件一起使用，以定义创建容器映像所需的所有要素。
 
@@ -82,8 +85,27 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
 
 {% data reusables.codespaces.command-palette-container %}
 1. 单击要使用的定义。 ![预定义容器定义列表](/assets/images/help/codespaces/predefined-container-definitions-list.png)
-1. 按照提示自定义您的定义。
+1. 按照提示自定义您的定义。 For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
 1. 单击 **OK（确定）**。 ![确定按钮](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+1. 要应用更改，请在屏幕右下角单击 **Rebuild now（立即重建）**。 有关重建容器的更多信息，请参阅“[应用对配置的更改](#applying-changes-to-your-configuration)”。 !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
+
+### Adding additional features to your `devcontainer.json` file
+
+{% note %}
+
+**Note:** This feature is in beta and subject to change.
+
+{% endnote %}
+
+You can add features to your predefined container configuration to customize which tools are available and extend the functionality of your workspace without creating a custom codespace configuration. For example, you could use a predefined container configuration and add the {% data variables.product.prodname_cli %} as well. You can make these additional features available for your project by adding the features to your `devcontainer.json` file when you set up your container configuration.
+
+You can add some of the most common features by selecting them when configuring your predefined container. For more information on the available features, see the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) in the `vscode-dev-containers` repository.
+
+![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
+
+You can also add or remove features outside of the **Add Development Container Configuration Files** workflow.
+1. Access the Command Palette (`Shift + Command + P` / `Ctrl + Shift + P`), then start typing "configure". Select **Codespaces: Configure Devcontainer Features**. ![The Configure Devcontainer Features command in the command palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+2. Update your feature selections, then click **OK**. ![The select additional features menu during container configuration.](/assets/images/help/codespaces/select-additional-features.png)
 1. 要应用更改，请在屏幕右下角单击 **Rebuild now（立即重建）**。 有关重建容器的更多信息，请参阅“[应用对配置的更改](#applying-changes-to-your-configuration)”。 ![命令面板中的"Codespaces：重建容器"](/assets/images/help/codespaces/rebuild-prompt.png)
 
 

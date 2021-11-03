@@ -9,7 +9,7 @@ redirect_from:
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -33,7 +33,7 @@ shortTitle: Configure secret scans
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} for {% ifversion fpt or ghec %}private {% endif %}repositories
 
-{% ifversion ghes > 2.22 or ghae-next %}
+{% ifversion ghes or ghae-next %}
 You can enable {% data variables.product.prodname_secret_scanning %} for any repository that is owned by an organization. 
 {% endif %} Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
 

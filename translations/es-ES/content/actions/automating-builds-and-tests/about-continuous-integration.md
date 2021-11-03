@@ -1,7 +1,6 @@
 ---
 title: Acerca de la integración continua
-intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'Con {% data variables.product.prodname_actions %}, puedes crear flujos de trabajo de integración continua (IC) directamente en tu repositorio de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
@@ -20,6 +20,7 @@ shortTitle: Integración continua
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de la integración continua
 
@@ -35,7 +36,7 @@ Para crear y probar tu código es necesario un servidor. Puedes crear y probar l
 {% else %} Tener una IC utilizando {% data variables.product.prodname_actions %} ofrece flujos de trabajo que pueden compilar el código de tu repositorio y ejecutar tus pruebas. Los flujos de trabajo pueden ejecutarse en máquinas virtuales hospedadas en {% data variables.product.prodname_dotcom %}, o en máquinas que hospedes tú mismo. Para obtener más información, consulta las secciones "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
 {% endif %}
 
-Puedes configurar tu flujo de trabajo de IC para que se ejecute cuando ocurre un evento de {% data variables.product.product_name %} (por ejemplo, cuando se sube código nuevo a tu repositorio), en una programación configurada, o cuando ocurre un evento externo utilizando el webhook de envío del repositorio.
+Puedes configurar tu flujo de trabajo de CI para que se ejecute cuando ocurre un evento {% data variables.product.prodname_dotcom %} (por ejemplo, cuando se sube un nuevo código a tu repositorio), en un horario establecido o cuando se produce un evento externo utilizando el webhook de despacho de repositorio.
 
 {% data variables.product.product_name %} ejecuta tus pruebas de IC y proporciona los resultados de cada prueba en la solicitud de extracción para que puedas ver si el cambio en tu rama introduce un error. Cuando se superan todas las pruebas de CI en un flujo de trabajo, los cambios que subiste están listos para su revisión por parte de un miembro del equipo o para su fusión. Cuando una prueba falla, es posible que uno de tus cambios haya causado la falla.
 
@@ -47,14 +48,14 @@ Adicionalmente a ayudarte a configurar los flujos de trabajo de IC para tu proye
 
 Para obtener una definición de términos comunes, consulta "[Conceptos básicos para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
-## Workflow templates
+## Plantillas de flujo de trabajo
 
 {% data variables.product.product_name %} ofrece plantillas de flujo de trabajo de IC para varios lenguajes y marcos de trabajo.
 
-Busca en la lista completa de plantillas de flujo de trabajo para IC que ofrece {% data variables.product.product_name %} en el repositorio [actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) de {% ifversion fpt %}{% else %} repositorio `actions/starter-workflows` en {% data variables.product.product_location %}{% endif %}.
+Busca en la lista completa de plantillas de flujo de trabajo para IC que ofrece {% data variables.product.company_short %} en el repositorio [actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) de {% ifversion fpt or ghec %}{% else %} repositorio `actions/starter-workflows` en {% data variables.product.product_location %}{% endif %}.
 
 ## Leer más
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Administrar la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

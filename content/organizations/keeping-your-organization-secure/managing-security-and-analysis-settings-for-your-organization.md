@@ -7,7 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

@@ -2,7 +2,7 @@
 title: Disponibilidad alta para las GitHub Actions
 intro: 'Existen algunas especificaciones especiales para administrar las {% data variables.product.prodname_actions %} en una configuración de disponibilidad alta.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: reference
 topics:
   - Actions

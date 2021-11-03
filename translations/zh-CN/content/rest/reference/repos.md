@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -17,18 +18,18 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
-## Autolinks
+{% ifversion fpt or ghec %}
+## 自动链接
 
 {% tip %}
 
-**Note:** The Autolinks API is in beta and may change.
+**注意：** Autolink API 处于测试阶段，可能会改变。
 
 {% endtip %}
 
-To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets. For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+为了帮助简化您的工作流程，您可以使用 API 向外部资源（如 JIRA 问题和 Zendesk 事件单）添加自动链接。 更多信息请参阅“[配置自动链接以引用外部资源](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)”。
 
-{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+{% data variables.product.prodname_github_apps %} 需要有读写权限的仓库管理权限才能使用 Autolinks API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
@@ -51,7 +52,7 @@ To help streamline your workflow, you can use the API to add autolinks to extern
 
 ### 提交评论的自定义媒体类型
 
-以下是提交评论支持的媒体类型。 You can read more about the use of media types in the API [here](/rest/overview/media-types).
+以下是提交评论支持的媒体类型。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -72,7 +73,7 @@ To help streamline your workflow, you can use the API to add autolinks to extern
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 社区
 
 {% for operation in currentRestOperations %}
@@ -87,7 +88,7 @@ To help streamline your workflow, you can use the API to add autolinks to extern
 
 ### 仓库内容的自定义媒体类型
 
-[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
+[自述文件](/rest/reference/repos#get-a-repository-readme)、[文件](/rest/reference/repos#get-repository-content)和[符号链接](/rest/reference/repos#get-repository-content)支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -96,7 +97,7 @@ To help streamline your workflow, you can use the API to add autolinks to extern
 
 对于 Markdown 或 AsciiDoc 等标记文件，您可以使用 `.html` 媒体类型检索渲染的 HTML。 使用我们的开源[标记库](https://github.com/github/markup)将标记语言渲染为 HTML。
 
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+[所有对象](/rest/reference/repos#get-repository-content)都支持以下自定义媒体类型：
 
     application/vnd.github.VERSION.object
 
@@ -164,7 +165,7 @@ To help streamline your workflow, you can use the API to add autolinks to extern
 
 ### 非活动部署
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
+当您将部署状态设置为 `success` 时，同一仓库中所有先前的非瞬态、非生产环境部署将变成 `inactive`。 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
 
 您可以通过将 `state` 设为 `inactive` 来表示某个瞬态环境不再存在。  将 `state` 设为 `inactive`，表示部署在 {% data variables.product.prodname_dotcom %} 中 `destroyed` 并删除对它的访问权限。
 
@@ -172,10 +173,10 @@ When you set the state of a deployment to `success`, then all prior non-transien
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## 环境
 
-环境 API 允许您创建、配置和删除环境。 For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
+环境 API 允许您创建、配置和删除环境。 有关环境的更多信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
@@ -202,7 +203,7 @@ When you set the state of a deployment to `success`, then all prior non-transien
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 
 ## Git LFS
 
@@ -224,7 +225,7 @@ When you set the state of a deployment to `success`, then all prior non-transien
 
 ## 页面
 
-{% data variables.product.prodname_pages %} API 可检索关于您的 {% data variables.product.prodname_pages %} 配置以及构建状态的信息。 只有经过验证的所有者才能访问有关网站和构建的信息{% ifversion not ghae %}，即使网站是公开的也一样{% endif %}。 For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
+{% data variables.product.prodname_pages %} API 可检索关于您的 {% data variables.product.prodname_pages %} 配置以及构建状态的信息。 只有经过验证的所有者才能访问有关网站和构建的信息{% ifversion not ghae %}，即使网站是公开的也一样{% endif %}。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)”。
 
 在其响应中包含 `status` 键的 {% data variables.product.prodname_pages %} API 端点中，其值可能是以下值之一：
 * `null`：站点尚未构建。
@@ -295,10 +296,10 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 流量
 
-对于您具有推送权限的仓库，流量 API 提供对仓库图中所示信息的访问权限。 For more information, see "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
+对于您具有推送权限的仓库，流量 API 提供对仓库图中所示信息的访问权限。 更多信息请参阅“<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">查看仓库的流量</a>”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
@@ -307,11 +308,11 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
 
 ## Web 挂钩
 
-Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
+仓库 web 挂钩允许您在仓库内发生特定事件时接收 HTTP `POST` 有效负载。 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 如果您要设置一个 web 挂钩来接收来自组织所有仓库的事件，请参阅关于[组织 web 挂钩](/rest/reference/orgs#webhooks)的 API 文档。
 
-In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
+除了 REST API 之外， {% data variables.product.prodname_dotcom %} 还可以作为仓库的 [PubSubHubbub](#pubsubhubbub) 枢纽。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
@@ -335,7 +336,7 @@ GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsub
 
 #### 响应格式
 
-The default format is what [existing post-receive hooks should expect](/post-receive-hooks/): A JSON body sent as the `payload` parameter in a POST.  您还可以指定接收带有 `Accept` 标头或 `.json` 扩展名的原始 JSON 正文。
+默认格式为[现有接收后挂钩应具有的格式](/post-receive-hooks/)：作为 POST 中的 `payload` 参数发送的 JSON 正文。  您还可以指定接收带有 `Accept` 标头或 `.json` 扩展名的原始 JSON 正文。
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
@@ -363,9 +364,9 @@ PubSubHubbub 请求可以多次发送。 如果挂钩已经存在，它将根据
 
 ##### 参数
 
-| 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                       |
-| -------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `字符串` | **必填**。 值为 `subscribe` 或 `unsubscribe`。                                                                                                                                                                                                                                                                                                                  |
-| `hub.topic`    | `字符串` | **必填**。  要订阅的 GitHub 仓库的 URI。  路径格式必须为 `/{owner}/{repo}/events/{event}`。                                                                                                                                                                                                                                                                                 |
-| `hub.callback` | `字符串` | 要接收主题更新的 URI。                                                                                                                                                                                                                                                                                                                                            |
-| `hub.secret`   | `字符串` | 用于生成传出正文内容的哈希签名的共享密钥。  您可以通过比较原始请求正文与 {% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature` 或 `X-Hub-Signature-256` 标头{% elsif ghes < 3.0 %}`X-Hub-Signature` 标头{% elsif ghae %}`X-Hub-Signature-256` 标头{% endif %} 的内容来验证来自 GitHub 的推送。 您可以查看 [PubSubHubbub 文档](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)了解详情。 |
+| 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                               |
+| -------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `字符串` | **必填**。 值为 `subscribe` 或 `unsubscribe`。                                                                                                                                                                                                                                                                                                                          |
+| `hub.topic`    | `字符串` | **必填**。  要订阅的 GitHub 仓库的 URI。  路径格式必须为 `/{owner}/{repo}/events/{event}`。                                                                                                                                                                                                                                                                                         |
+| `hub.callback` | `字符串` | 要接收主题更新的 URI。                                                                                                                                                                                                                                                                                                                                                    |
+| `hub.secret`   | `字符串` | 用于生成传出正文内容的哈希签名的共享密钥。  您可以通过比较原始请求正文与 {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` 或 `X-Hub-Signature-256` 标头{% elsif ghes < 3.0 %}`X-Hub-Signature` 标头{% elsif ghae %}`X-Hub-Signature-256` 标头{% endif %} 的内容来验证来自 GitHub 的推送。 您可以查看 [PubSubHubbub 文档](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)了解详情。 |

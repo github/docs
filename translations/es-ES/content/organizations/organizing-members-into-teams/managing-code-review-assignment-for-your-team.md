@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -45,7 +46,7 @@ Cualquier miembro del equipo que haya configurado su estado como "Ocupado" no po
 7. Debajo de "¿Cuántos miembros del equipo deberán asignarse para revisión?", utiliza el menú desplegable y elije el número de revisores que se asignarán a cada solicitud de extracción. ![Menú desplegable de cantidad de revisores](/assets/images/help/teams/review-assignment-number.png)
 8. Debajo de "Algoritmo de ruteo", utiliza el menú desplegable y elige qué algoritmo quieres utilizar. Para obtener más información, consulta la sección "[Algoritmos de ruteo](#routing-algorithms)". ![Menú desplegable de algoritmo de ruteo](/assets/images/help/teams/review-assignment-algorithm.png)
 9. De manera opcional, para siempre omitir miembros específicos del equipo, selecciona **Nunca asignar ciertos miembros del equipo**. Después, selecciona uno o más miembros del equipo que quieras omitir siempre. ![Menú desplegable y casilla de "nunca asignar ciertos miembros del equipo"](/assets/images/help/teams/review-assignment-skip-members.png)
-10. Opcionalmente, para notificar solo a los miembros del equipo que eligió la tarea de revisión de código para cada solicitud de revisión de cambios, debajo de "Notificaciones", selecciona **no notificar a todo el equipo si se asignaron miembros específicos.**![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+10. Opcionalmente, para notificar solo a los miembros del equipo que eligió la tarea de revisión de código para cada solicitud de revisión de cambios, debajo de "Notificaciones", selecciona **no notificar a todo el equipo si se asignaron miembros específicos.**![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 11. Opcionalmente, para incluir a los miembros de los equipos hijos como revisores potenciales al asignar solicitudes, selecciona **Miembros del equipo hijo**.
 12. Opcionalmente, para contar a cualquier miembro cuya revisión se haya solicitado contra la cantidad total de miembros a asignar, selecciona **Contar las solicitudes existentes**.
 13. Opcionalmente, para eliminar la solicitud de revisión del equipo cuando se asignan miembros de este, selecciona **Solicitud de revisión de equipo**.{% endif %}
