@@ -1,6 +1,6 @@
 ---
 title: Administrar comentarios negativos
-intro: 'Puedes {% ifversion fpt %}ocultar, editar,{% else %}editar{% endif %} o eliminar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.'
+intro: 'Puedes {% ifversion fpt or ghec %}ocultar, editar,{% else %}editar{% endif %} o eliminar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Administrar comentarios
@@ -26,7 +27,7 @@ Si un comentario está fuera de tema, desactualizado o resuelto, es posible que 
 1. Navega hasta el comentario que deseas ocultar.
 2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Hide (Ocultar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar y Eliminar](/assets/images/help/repository/comment-menu.png)
 3. Utilizando el menú desplegable "Choose a reason" (Elige una razón), haz clic en una razón para ocultar el comentario. Después haz clic en **Hide comment (Ocultar comentario)**.
-  {% ifversion fpt %}
+  {% ifversion fpt or ghec %}
   ![Elija la razón para ocultar el menú desplegable de comentarios](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
   ![Elija la razón para ocultar el menú desplegable de comentarios](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
@@ -44,7 +45,7 @@ Cualquiera con acceso de escritura a un repositorio puede volver a mostrar comen
 
 Cualquiera con acceso de escritura a un repositorio puede editar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.
 
-Es correcto editar un comentario y eliminar el contenido que no contribuya a la conversación y viole el código de conducta de tu comunidad {% ifversion fpt %} o [las pautas de la comunidad de GitHub ](/articles/github-community-guidelines){% endif %}.
+Es adecuado editar un comentario y eliminar el contenido que no haga ninguna colaboración con la conversación y viole el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}.
 
 Cuando editas un comentario, toma nota de la ubicación desde la que se ha eliminado el contenido y, de manera opcional, la razón por la que se lo eliminó.
 
@@ -64,7 +65,7 @@ Los autores de los comentarios y cualquiera con acceso de escritura a un reposit
 
 Cualquiera con acceso de escritura a un repositorio puede borrar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones. Los propietarios de organizaciones, mantenedores de equipos, y el autor del comentario también pueden borrarlo en la página del equipo.
 
-Eliminar un comentario es tu último recurso como moderador. Es correcto eliminar un comentario si el comentario entero no añade un contenido constructivo a una conversación y viola el código de conducta de tu comunidad{% ifversion fpt %} o [las pautas de la comunidad de GitHub](/articles/github-community-guidelines){% endif %}.
+Eliminar un comentario es tu último recurso como moderador. Es correcto eliminar un comentario si todo este falla en añadir contenido constructivo a una conversación y viola el código de conducta de tu comunidad{% ifversion fpt or ghec %} o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de GitHub{% endif %}.
 
 Eliminar un comentario crea un evento cronológico que es visible para todos aquellos que tienen acceso de lectura al repositorio. Sin embargo, el nombre de usuario de la persona que eliminó el comentario solo es visible para personas con acceso de escritura al repositorio. Para cualquiera que no tenga acceso de escritura, el evento de cronología es anónimo.
 

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,8 +21,8 @@ Organization のニュースフィードは、その Organization が所有し�
 
 ## Organization のニュースフィードへのアクセス
 
-1. 自分の {% data variables.product.product_name %}アカウントに {% data variables.product.signin_link %}します。
+1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 2. 自分の {% data reusables.user_settings.personal_dashboard %}を開きます。
 3. ページの左上隅にあるアカウントコンテキストスイッチャーをクリックします。 ![Enterprise のコンテキストスイッチャーボタン](/assets/images/help/organizations/account_context_switcher.png)
-4. ドロップダウンメニューから Organization を選択します。{% ifversion fpt %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
+4. Select an organization from the drop-down menu.{% ifversion fpt or ghec %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
 ![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

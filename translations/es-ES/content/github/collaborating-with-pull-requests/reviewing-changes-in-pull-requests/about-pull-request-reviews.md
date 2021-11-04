@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Acerca de las revisiones de las solicitudes de cambios
@@ -18,11 +19,11 @@ shortTitle: Acerca de las revisiones de las solicitudes de cambios
 
 Después de abrir una solicitud de extracción, cualquiera con acceso de *lectura* puede revisar y comentar sobre los cambios propuestos. También puedes sugerir cambios específicos a las líneas de código que el autor puede aplicar directamente desde las solicitud de extracción. Para obtener más información, consulta "[Revisar las modificaciones propuestas en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
-Los colaboradores y los propietarios del repositorio pueden solicitar la revisión de una solicitud de extracción por parte de una persona específica. Los miembros de la organización también pueden solicitar la revisión de una solicitud de extracción por parte de un equipo con acceso de lectura al repositorio. Para obtener más información, consulta "[Solicitar la revisión de una solicitud de extracción](/articles/requesting-a-pull-request-review/)". {% ifversion fpt or ghae or ghes %}Puedes especificar un subconjunto de miembros del equipo a quienes se les asigne automáticamente en vez de que se aplique a todo el equipo. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)".{% endif %}
+Los colaboradores y los propietarios del repositorio pueden solicitar la revisión de una solicitud de extracción por parte de una persona específica. Los miembros de la organización también pueden solicitar la revisión de una solicitud de extracción por parte de un equipo con acceso de lectura al repositorio. Para obtener más información, consulta "[Solicitar la revisión de una solicitud de extracción](/articles/requesting-a-pull-request-review/)". {% ifversion fpt or ghae or ghes or ghec %}Puedes especificar un subconjunto de miembros del equipo a quienes se les asigne automáticamente en vez de que se aplique a todo el equipo. Para obtener más información, consulta la sección "[Administrar una tarea de revisión de código para tu equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)".{% endif %}
 
 Las revisiones permiten el debate de los cambios propuestos y ayudan a asegurarse de que los cambios cumplen con las pautas de contribución del repositorio y otras normas de calidad. Puedes definir qué individuos o equipos poseen ciertos tipos o áreas de código en un archivo CODEOWNERS. Cuando una solicitud de extracción modifica un código que tiene un propietario definido, ese individuo o equipo será solicitado automáticamente como revisor. Para obtener más información, consulta "[Acerca de los propietarios del código](/articles/about-code-owners/)".
 
-{% ifversion fpt %}Puedes programar recordatorios para las solicitudes de extracción que deben revisarse. Para obtener más información, consulta la sección "[ Administrar los recordatorios programados para solicitudes de extracción](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)".{% endif %}
+{% ifversion fpt or ghec %}Puedes programar recordatorios para las solicitudes de extracción que deben revisarse. Para obtener más información, consulta la sección "[ Administrar los recordatorios programados para solicitudes de extracción](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)".{% endif %}
 
 ![Encabezado de revisión solicitando cambios con comentarios en la línea](/assets/images/help/pull_requests/review-header-with-line-comment.png)
 

@@ -2,7 +2,8 @@
 title: Recuperação de desastres para codespaces
 intro: 'Este artigo descreve a orientação para um cenário de recuperação de desastre, quando uma região inteira sofre uma interrupção devido a um desastre natural de grandes proporções ou interrupção de serviço generalizada.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 product: '{% data reusables.gated-features.codespaces %}'
 topics:
   - Codespaces

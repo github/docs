@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Errores de compilación de Jekyll para las páginas
@@ -18,7 +19,7 @@ shortTitle: Errores de compilación de Jekyll para las páginas
 
 ## Acerca de los errores de compilación de Jekyll
 
-Algunas veces, {% data variables.product.prodname_pages %} no intentará compilar tu sitio después de que subas los cambios a la fuente de publicación de tu sitio.{% ifversion fpt %}
+Algunas veces, {% data variables.product.prodname_pages %} no intentará compilar tu sitio después de que subas los cambios a la fuente de publicación de tu sitio.{% ifversion fpt or ghec %}
 - La persona que subió los cambios no ha verificado su dirección de correo electrónico. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
 - Estás subiendo con una llave de despliegue. Si deseas automatizar las subidas al repositorio de tu sitio, puedes configurar un usuario de máquina en su lugar. Para obtener más información, consulta la sección "[Administrar las llaves de despliegue](/developers/overview/managing-deploy-keys#machine-users)".
 - Estás usando un servicio CI que no está configurado para compilar tu fuente de publicación. Por ejemplo, Travis CI no creará la rama `gh-pages` a menos de que agregues la rama a una lista de seguridad. Para obtener más información, consulta "[Personalizar la compilación](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" en Travis CI o en la documentación del servicio de CI.

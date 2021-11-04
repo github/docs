@@ -1,4 +1,4 @@
-### Eventos de pull request para repositórios bifurcados
+#### Eventos de pull request para repositórios bifurcados
 
 {% note %}
 
@@ -10,7 +10,7 @@ Quando você cria uma pull request a partir de um repositório bifurcado para o 
 
 Fluxos de trabalho não são executados em repositórios bifurcados por padrão. Você deve habilitar o GitHub Actions na aba **Actions** (Ações) do repositório bifurcado.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Quando um contribuidor envia um pull request para um repositório público pela primeira vez, é possível que um mantenedor com acesso de gravação tenha de aprovar fluxos de trabalho em execução no pull request. Para obter mais informações, consulte "[Aprovar fluxos de trabalho executados a partir de bifurcações públicas](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)".
 {% endif %}
 

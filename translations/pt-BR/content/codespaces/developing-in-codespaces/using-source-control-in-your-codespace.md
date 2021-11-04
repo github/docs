@@ -4,6 +4,7 @@ intro: 'Depois de fazer alterações em um arquivo no seu código, você pode fa
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

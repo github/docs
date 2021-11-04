@@ -27,7 +27,7 @@ To create and access the feedback pull request, you must enable the feedback pul
 {% data reusables.classroom.click-assignment-in-list %}
 1. To the right of the submission, click **Review**.
   ![Review button for assignment in list of submissions for an assignment](/assets/images/help/classroom/assignments-click-review-button.png)
-1. Review the pull request. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)."
+1. Review the pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
 
 ## Further reading
 

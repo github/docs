@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
 {% warning %}
 
-**Advertencia:** Si agregas una imagen {% ifversion fpt or ghes > 3.1 or ghae-next %} o video {% endif %} a un comentario de alguna propuesta o solicitud de cambios, cualquiera podrá ver la URL anonimizada sin autenticación, aún si la solicitud de cambios está en un repositorio privado{% ifversion ghes %}, o si se habilita el modo privado{% endif %}. Para mantener privados archivos de medios sensibles, estos se deben servir desde una red o servidor privados que requieran autenticación. {% ifversion fpt %}Para obtener más información sobre las URL anonimizadas, consulta la sección "[Acerca de las URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Advertencia:** Si agregas una imagen {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} o video {% endif %} a un comentario de alguna propuesta o solicitud de cambios, cualquiera podrá ver la URL anonimizada sin autenticación, aún si la solicitud de cambios está en un repositorio privado{% ifversion ghes %}, o si se habilita el modo privado{% endif %}. Para mantener privados archivos de medios sensibles, estos se deben servir desde una red o servidor privados que requieran autenticación. {% ifversion fpt or ghec %}Para obtener más información sobre las URL anonimizadas, consulta la sección "[Acerca de las URL anonimizadas](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -31,7 +32,7 @@ Para adjuntar un archivo a una propuesta o una conversación de una solicitud de
 {% endtip %}
 
 El tamaño máximo de archivo es:
-- 10MB de imágenes y gifs{% ifversion fpt %}
+- 10MB de imágenes y gifs{% ifversion fpt or ghec %}
 - 10MB para videos que se suban a un repositorio que pertenezca a un usuario u organización en un plan gratuito de GitHub
 - 100MB para videos que se suban a los repositorios que pertenezcan a un usuario u organización de un plan de pago de GitHub{% elsif fpt or ghes > 3.1 or ghae-next %}
 - 100MB para videos{% endif %}
@@ -46,7 +47,7 @@ Archivos compatibles:
 * Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
 * Archivos de texto (*.txt*)
 * PDF (*.pdf*)
-* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae-next %}
+* ZIP (*.zip*, *.gz*){% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 * Video (*.mp4*, *.mov*)
 
 {% note %}

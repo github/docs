@@ -21,6 +21,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -42,10 +43,13 @@ topics:
 ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
 - [マージ前に Pull Request レビュー必須](#require-pull-request-reviews-before-merging)
 - [マージ前にステータスチェック必須](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [署名済みコミットの必須化](#require-signed-commits)
 - [直線状の履歴必須](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
 - [管理者を含める](#include-administrators)
 - [一致するブランチにプッシュできるユーザを制限](#restrict-who-can-push-to-matching-branches)
 - [フォースプッシュを許可](#allow-force-pushes)
@@ -100,7 +104,7 @@ remote: error: Changes have been requested.
 
 トラブルシューティング情報については、「[必須ステータスチェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
@@ -108,11 +112,11 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 ### 署名済みコミットの必須化
 
-ブランチで必須のコミット署名を有効にすると、コントリビュータ{% ifversion fpt %}とボット{% endif %}は、ブランチに署名および検証されたコミットのみをプッシュできます。 詳細については、「[コミット署名の検証について](/articles/about-commit-signature-verification)」を参照してください。
+ブランチで必須のコミット署名を有効にすると、コントリビュータ{% ifversion fpt or ghec %}とボット{% endif %}は、ブランチに署名および検証されたコミットのみをプッシュできます。 詳細については、「[コミット署名の検証について](/articles/about-commit-signature-verification)」を参照してください。
 
 {% note %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **ノート:**
 
 * If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
@@ -124,9 +128,9 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 {% endnote %}
 
-コミットが署名および検証されている場合は、いつでもローカルコミットをブランチにプッシュできます。 {% ifversion fpt %}{% data variables.product.product_name %}のプルリクエストを使用して、署名および検証されているコミットをブランチにマージすることもできます。 ただし、プルリクエストの作者でない限り、プルリクエストを squash して{% data variables.product.product_name %}のブランチにマージすることはできません。{% else %}ただし、プルリクエストを{% data variables.product.product_name %}のブランチにマージすることはできません。{% endif %}プルリクエストをローカルで{% ifversion fpt %} squash および{% endif %}マージできます。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)」を参照してください。
+コミットが署名および検証されている場合は、いつでもローカルコミットをブランチにプッシュできます。 {% ifversion fpt or ghec %}{% data variables.product.product_name %}のプルリクエストを使用して、署名および検証されているコミットをブランチにマージすることもできます。 ただし、プルリクエストの作者でない限り、プルリクエストを squash して{% data variables.product.product_name %}のブランチにマージすることはできません。{% else %}ただし、プルリクエストを{% data variables.product.product_name %}のブランチにマージすることはできません。{% endif %}プルリクエストをローカルで{% ifversion fpt or ghec %} squash および{% endif %}マージできます。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)」を参照してください。
 
-{% ifversion fpt %}マージ方法の詳しい情報については、「[{% data variables.product.prodname_dotcom %}上のマージ方法について](/github/administering-a-repository/about-merge-methods-on-github)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}マージ方法の詳しい情報については、「[{% data variables.product.prodname_dotcom %}上のマージ方法について](/github/administering-a-repository/about-merge-methods-on-github)」を参照してください。{% endif %}
 
 ### 直線状の履歴必須
 
@@ -134,13 +138,21 @@ Requires all comments on the pull request to be resolved before it can be merged
 
 直線状のコミット履歴をリクエストする前に、リポジトリで squash マージまたはリベースマージを許可する必要があります。 詳しい情報については、「[プルリクエストマージを設定する](/github/administering-a-repository/configuring-pull-request-merges)」を参照してください。
 
+{% ifversion fpt or ghec %}
+### Require merge queue
+
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-references %}
+
+{% endif %}
 ### 管理者を含める
 
 デフォルトでは、保護されたブランチのルールは、リポジトリの管理者権限を持つユーザには適用されません。 この設定を有効化すると、保護されたブランチのルールを管理者にも適用できます。
 
 ### 一致するブランチにプッシュできるユーザを制限
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 

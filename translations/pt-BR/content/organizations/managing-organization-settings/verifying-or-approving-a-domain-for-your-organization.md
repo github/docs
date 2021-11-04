@@ -11,6 +11,7 @@ permissions: Organization owners can verify or approve a domain for an organizat
 versions:
   fpt: '*'
   ghes: '>=3.2'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
@@ -22,13 +23,13 @@ shortTitle: Verificar ou aprovar um domínio
 
 ## Sobre a verificação do domínio
 
-Após a verificação da propriedade dos domínios da sua organização, é exibido um selo "Verified" (Verificado) no perfil da organização. {% ifversion fpt %}If your organization is on {% data variables.product.prodname_ghe_cloud %} and has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[About your organization's profile page](/articles/about-your-organization-s-profile/)" and "<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Upgrading to the Corporate Terms of Service</a>."{% endif %}
+Após a verificação da propriedade dos domínios da sua organização, é exibido um selo "Verified" (Verificado) no perfil da organização. {% ifversion fpt or ghec %} Se a sua organização estiver no {% data variables.product.prodname_ghe_cloud %} e tiver concordado com os Termos de serviço corporativos, os proprietários da organização poderão verificar a identidade dos seus integrantes exibindo o endereço de e-mail de cada um deles no domínio verificado. Para obter mais informações, consulte "[Sobre a página de perfil da sua organização](/articles/about-your-organization-s-profile/)" e "<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">Atualizar para os Termos de serviço corporativos</a>".{% endif %}
 
-{% ifversion fpt %}If your organization is owned by an enterprise account, a{% elsif ghes %}A{% endif %} "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owner. {% ifversion fpt %}For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{% ifversion fpt or ghec %}Se sua organização pertencer a uma conta corporativa um selo "Verificado" de{% elsif ghes %}A{% endif %} será exibido no perfil da sua organização para todos os domínios verificados para a conta corporativa, além de todos os domínios verificados para a organização. Os proprietários da organização podem ver quaisquer domínios que um proprietário da empresa verificou ou aprovou e pode editar os domínios se o proprietário da organização também for um proprietário corporativo. {% ifversion fpt or ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
 
 {% data reusables.organizations.verified-domains-details %}
 
-{% ifversion fpt %}On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. Para obter mais informações, consulte "[Restringir notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)". {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
+{% ifversion fpt or ghec %}Em {% data variables.product.prodname_ghe_cloud %}, depois de verificar a propriedade do domínio da sua organização, você pode restringir notificações de e-mail para a organização para esse domínio. Para obter mais informações, consulte "[Restringir notificações de e-mail para sua organização](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)". {% ifversion fpt %}{% data reusables.enterprise.link-to-ghec-trial %}{% endif %}{% endif %}
 
 ## Sobre a aprovação de domínio
 
@@ -40,7 +41,7 @@ Após aprovar domínios para a sua organização, você pode restringir notifica
 
 Os proprietários de empresas não podem ver quais integrantes da organização ou endereços de e-mail recebem notificações dentro dos domínios aprovados.
 
-Os proprietários de empresas também podem aprovar domínios adicionais para organizações pertencentes à empresa. {% ifversion fpt %}For more information, see "[Verifying or approving a domain for your enterprise account](/github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+Os proprietários de empresas também podem aprovar domínios adicionais para organizações pertencentes à empresa. {% ifversion fpt or ghec %}For more information, see "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
 
 ## Verificando um domínio para a sua organização
 
@@ -62,7 +63,7 @@ Para verificar um domínio, você deve ter acesso para modificar registros de do
 
 ## Aprovando um domínio para a sua organização
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
 

@@ -10,9 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+  - Issues
 shortTitle: Visualizar todos os seus problemas & PRs
+type: how_to
 ---
 
 Os painéis de problemas e pull requests estão disponíveis na parte superior de qualquer página. Em cada painel, é possível filtrar a lista para encontrar problemas ou pull requests que você criou, que foram atribuídos a você ou nos quais você foi mencionado. Também é possível encontrar pull requests que você deverá revisar.
@@ -22,4 +25,4 @@ Os painéis de problemas e pull requests estão disponíveis na parte superior d
 
 ## Leia mais
 
-- {% ifversion fpt or ghes or ghae %}”[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[Listando os repositórios que você está acompanhando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

@@ -1,6 +1,6 @@
 ---
 title: プロフィールでコントリビューションを表示する
-intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: View contributions
 ---
 
-{% ifversion fpt or ghes %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
+{% ifversion fpt or ghes or ghec %}Your contribution graph shows activity from public repositories. {% endif %}匿名化されたプライベートリポジトリでのアクティビティの特定の詳細と一緒に、{% ifversion fpt or ghes or ghec %}パブリックリポジトリと{% endif %}プライベートリポジトリの両方からのアクティビティを表示することも選択できます。 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
 
 {% note %}
 
@@ -40,11 +41,11 @@ shortTitle: View contributions
 
 ## 人気のあるリポジトリ
 
-このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 {% ifversion fpt or ghes %}[リポジトリをプロフィールにピン止め](/articles/pinning-repositories-to-your-profile)すると、このセクションは「固定リポジトリ」に変わります。{% endif %}
+このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 {% ifversion fpt or ghes or ghec %}[リポジトリをプロフィールにピン止め](/articles/pinning-repositories-to-your-profile)すると、このセクションは「固定リポジトリ」に変わります。{% endif %}
 
 ![人気のあるリポジトリ](/assets/images/help/profile/profile_popular_repositories.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## Pinned repositories
 
@@ -83,7 +84,7 @@ shortTitle: View contributions
 
 ![プロフィール上のアクティビティオーバービューセクション](/assets/images/help/profile/activity-overview-section.png)
 
-アクティビティの概要に記載されている Organization は、Organization 内でのアクティビティの程度に応じて優先順位が付けられています。 プロフィール略歴で Organization に @メンションしており、あなたが Organization のメンバーである場合、その Organization がアクティビティの概要で最優先されます。 For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
+アクティビティの概要に記載されている Organization は、Organization 内でのアクティビティの程度に応じて優先順位が付けられています。 プロフィール略歴で Organization に @メンションしており、あなたが Organization のメンバーである場合、その Organization がアクティビティの概要で最優先されます。 For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)" or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
 ## コントリビューションアクティビティ
 
@@ -91,11 +92,11 @@ shortTitle: View contributions
 
 ![コントリビューションアクティビティ時間フィルター](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion fpt or ghes or ghae-next %}
+{% ifversion fpt or ghes or ghae-next or ghec %}
 
 ## {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.prodname_enterprise %} からコントリビューションを表示する
 
-If you use {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.product.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending enterprise contributions to your {% data variables.product.prodname_dotcom_the_website %} profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
 
 {% endif %}
 

@@ -8,6 +8,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams

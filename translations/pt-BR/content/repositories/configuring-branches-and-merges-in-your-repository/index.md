@@ -1,16 +1,17 @@
 ---
-title: Configuring branches and merges in your repository
-intro: 'You can manage branches in your repository, configure the way branches are merged in your repository, and protect important branches by definining the mergeability of pull requests.'
+title: Configurando branches e merges no seu repositório
+intro: 'É possível gerenciar branches no repositório, configurar a forma como os branches são mesclados no repositório e proteger branches importantes definindo o merge dos pull requests.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:
   - /managing-branches-in-your-repository
   - /configuring-pull-request-merges
   - /defining-the-mergeability-of-pull-requests
-shortTitle: Branches and merges
+shortTitle: Branches e merges
 ---
 

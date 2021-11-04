@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Vincular PR a um problema
@@ -26,7 +27,7 @@ shortTitle: Vincular PR a um problema
 
 ## Sobre problemas e pull requests vinculados
 
-Você pode vincular um problema a uma pull request {% ifversion fpt or ghes or ghae %}manualmente ou {% endif %}usando uma palavra-chave suportada na descrição da pull request.
+Você pode vincular um problema a uma pull request {% ifversion fpt or ghes or ghae or ghec %}manualmente ou {% endif %}usando uma palavra-chave suportada na descrição da pull request.
 
 Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema.
 
@@ -54,12 +55,12 @@ A sintaxe para fechar palavras-chave depende se o problema está no mesmo reposi
 | Problema em um repositório diferente | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | Múltiplos problemas                  | Usar sintaxe completa para cada problema      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae %}Somente pull requests vinculadas manualmente podem ser desvinculadas. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}Somente pull requests vinculadas manualmente podem ser desvinculadas. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
 
 Você também pode usar palavras-chave de fechamento em uma mensagem de commit. O problema será encerrado quando você mesclar o commit no branch padrão, mas o pull request que contém o commit não será listado como um pull request vinculado.
 
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## Vinculando manualmente uma pull request a um problema
 
 Qualquer pessoa com permissões de gravação em um repositório pode vincular manualmente uma pull request a um problema.

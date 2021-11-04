@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Trabajar con archivos sin código
@@ -46,7 +47,7 @@ shortTitle: Trabajar con archivos sin código
 
 ### Ver imágenes
 
-Puedes navegar y ver imágenes directamente en tu {% data variables.product.product_name %} repositorio:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![imagen alineada](/assets/images/help/images/view.png)
 
@@ -135,7 +136,7 @@ GitHub admite la representación de datos tabulares en la forma de archivos *.cs
 
 ![Muestra de CSV representado](/assets/images/help/repository/rendered_csv.png)
 
-Cuando se visualiza, cualquier archivo _.csv_ o _.tsv_ confirmado en un repositorio de {% data variables.product.product_name %} se representa automáticamente como una tabla interactiva, completa con encabezados y numeración de filas. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
 
 Puedes generar un enlace a una fila particular haciendo clic en el número de fila o seleccionar varias filas manteniendo presionada la tecla shift. Tan solo copia la URL y envíasela a un amigo.
 
@@ -188,7 +189,7 @@ Puedes hacer clic en {% octicon "file" aria-label="The paper icon" %} para ver l
 
 ![Cambios en prosa representados](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ### Inhabilitar la representación del lenguaje de marcado
 

@@ -25,4 +25,4 @@ sections:
     - O reStructuredText (RST) interpretado na interface do usuário da web pode falhar e, em vez disso, exibir texto de markup RST.
     - Ao excluir um branch após o merge de um pull request, será exibida uma mensagem de erro, embora a exclusão do branch tenha êxito.
     - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
