@@ -1,6 +1,6 @@
 ---
 title: 管理组织的复刻政策
-intro: '您可以允许或阻止对组织拥有的任何私有{% ifversion fpt or ghes or ghae %} 和内部{% endif %} 仓库进行复刻。'
+intro: '您可以允许或阻止对组织拥有的任何私有{% ifversion fpt or ghes or ghae or ghec %} 和内部{% endif %} 仓库进行复刻。'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -10,15 +10,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 管理复刻策略
 ---
 
-默认情况下，新的组织被配置为禁止复刻私有{% ifversion fpt or ghes or ghae %}和内部{% endif %}仓库。
+默认情况下，新的组织被配置为禁止复刻私有{% ifversion fpt or ghes or ghae or ghec %}和内部{% endif %}仓库。
 
-如果您在组织级别上允许复刻私有{% ifversion fpt or ghes or ghae %}和内部{% endif %}仓库，则还可以配置复刻特定{% ifversion fpt or ghes or ghae %}或内部{% endif %}仓库的能力。 更多信息请参阅“[管理仓库的复刻政策](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
+如果您在组织级别上允许复刻私有{% ifversion fpt or ghes or ghae or ghec %}和内部{% endif %}仓库，则还可以配置复刻特定{% ifversion fpt or ghes or ghae or ghec %}或内部{% endif %}仓库的能力。 更多信息请参阅“[管理仓库的复刻政策](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)”。
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -31,4 +32,4 @@ shortTitle: 管理复刻策略
 ## 延伸阅读
 
 - "[关于复刻](/articles/about-forks)"
-- "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

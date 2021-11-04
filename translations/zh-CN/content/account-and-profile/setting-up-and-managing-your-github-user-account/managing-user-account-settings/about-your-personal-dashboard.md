@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 您的个人控制板
@@ -44,10 +45,10 @@ shortTitle: 您的个人控制板
 
 当您关注的用户执行以下操作时，您会在消息馈送中看到更新：
 - 对仓库标星。
-- 关注其他用户。{% ifversion fpt or ghes %}
+- 关注其他用户。{% ifversion fpt or ghes or ghec %}
 - 创建公共仓库。{% endif %}
 - 在您关注的仓库上打开具有“需要帮助”或“良好的第一个议题”标签的议题或拉取请求。
-- 推送提交到您关注的仓库。{% ifversion fpt or ghes %}
+- 推送提交到您关注的仓库。{% ifversion fpt or ghes or ghec %}
 - 复刻公共仓库。{% endif %}
 - Publishes a new release.
 
@@ -55,7 +56,7 @@ shortTitle: 您的个人控制板
 
 ## 探索推荐的仓库
 
-在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。 建议基于您已经标星或访问过的仓库、您关注的人以及您可以访问的仓库中的活动。{% ifversion fpt %} 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。 建议基于您已经标星或访问过的仓库、您关注的人以及您可以访问的仓库中的活动。{% ifversion fpt or ghec %} 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
 
 ## 延伸阅读
 

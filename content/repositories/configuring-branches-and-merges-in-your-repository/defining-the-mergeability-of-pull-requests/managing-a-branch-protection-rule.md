@@ -38,7 +38,7 @@ If a repository has multiple protected branch rules that affect the same branche
 
 Protected branch rules that mention a special character, such as `*`, `?`, or `]`, are applied in the order they were created, so older rules with these characters have a higher priority.
 
-To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name. 
+To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
 For more information about each of each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
@@ -51,15 +51,15 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull request reviews.
-   - Under "Protect matching branches", select **Require pull request reviews before merging**.
+   - Under "Protect matching branches", select **Require a pull request before merging**.
      ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required.png)
-   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you'd like to require on the branch.
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you'd like to require on the branch. 
      ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals.png)
    - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
      ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
      ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review)."
+   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
      ![Restrict who can dismiss pull request reviews checkbox](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. Optionally, enable required status checks.
    - Select **Require status checks to pass before merging**.

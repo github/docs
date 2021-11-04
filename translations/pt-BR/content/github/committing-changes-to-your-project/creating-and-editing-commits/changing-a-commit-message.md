@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Reescrever a mensagem do commit mais recente
@@ -25,7 +26,7 @@ Se o commit existir em seu repositório local e não tiver sido publicado no {% 
 2. Digite `git commit --amend` e pressione **Enter**.
 3. No editor de texto, edite a mensagem do commit e salve o commit.
     - Você pode adicionar um coautor incluindo um trailer no commit. Para obter mais informações, consulte "[Criar um commit com vários autores](/articles/creating-a-commit-with-multiple-authors)".
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
     - É possível criar commits em nome da sua organização adicionando um trailer ao commit. Para obter mais informações, consulte "[Criar um commit em nome de uma organização](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 

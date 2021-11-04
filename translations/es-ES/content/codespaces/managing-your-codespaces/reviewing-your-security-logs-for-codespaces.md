@@ -5,6 +5,7 @@ intro: 'Puedes utilizar la bitácora de seguridad para revisar todas las accione
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
   - Developer
@@ -23,4 +24,4 @@ La bitácora de seguridad incluye detalles de qué acción ocurrió y cuándo la
 
 ## Leer más
 
-- "[Reviewing your organization's audit logs for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"
+- "[Revisarlas bitácoras de auditoríad e la organización para los {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-codespaces)"

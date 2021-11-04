@@ -26,7 +26,7 @@ shortTitle: Link PR to issue
 
 ## About linked issues and pull requests
 
-You can link an issue to a pull request {% ifversion fpt or ghes or ghae or ghec %}manually or {% endif %}using a supported keyword in the pull request description. 
+You can link an issue to a pull request {% ifversion fpt or ghes or ghae or ghec %}manually or {% endif %}using a supported keyword in the pull request description.
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
@@ -34,7 +34,7 @@ When you merge a linked pull request into the default branch of a repository, it
 
 ## Linking a pull request to an issue using a keyword
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch). 
+You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch).
 
 * close
 * closes
@@ -45,6 +45,8 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * resolve
 * resolves
 * resolved
+
+If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request will also close the referenced pull request.
 
 The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
 

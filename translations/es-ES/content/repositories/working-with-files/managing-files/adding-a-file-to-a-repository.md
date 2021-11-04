@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Agregar un archivo
@@ -39,7 +40,7 @@ Los archivos que agregues a un repositorio mediante un navegador están limitado
 
 ## Agregar un archivo a un repositorio utilizando la línea de comando
 
-Puedes cargar un archivo existente a un repositorio {% data variables.product.product_name %} utilizando la línea de comando.
+You can upload an existing file to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} using the command line.
 
 {% tip %}
 

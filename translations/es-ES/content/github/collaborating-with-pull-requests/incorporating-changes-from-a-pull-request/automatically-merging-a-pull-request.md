@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 redirect_from:
@@ -18,7 +19,7 @@ shortTitle: Fusionar una Solicitud de Cambios automáticamente
 
 Si habilitas la fusión automática para una solicitud de cambios, ésta se fusionará automáticamente cuando se cumplan todas las revisiones requeridas y cuando todas las verificaciones de estado hayan pasado. La fusión automática te evita el esperar a que los requisitos se cumplan para que puedas continuar con otras tareas.
 
-Antes de que utilices la fusión automática con una solicitud de cambios, esta característica se debe habilitar en el repositorio. Para obtener más información, consulta la sección "[Administrar la fusión automática para las solicitudes de cambios en tu repositorio](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)".{% ifversion fpt or ghae-next or ghes > 3.1 %}
+Antes de que utilices la fusión automática con una solicitud de cambios, esta característica se debe habilitar en el repositorio. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 Después de que habilitas la fusión automática para una solicitud de cambios, si alguien que no tiene permisos de escritura en el repositorio sube cambios nuevos a la rama principal o cambia la rama base de la solicitud de cambios, esta se inhabilitará. Por ejemplo, si un mantenedor habilita la fusión automática para una solicitud de cambios desde una bifurcación, esta se inhabilitará después de que el contribuyente suba cambios nuevos a la solicitud de cambios.{% endif %}
 

@@ -23,7 +23,9 @@ shortTitle: Import to your enterprise
 
 ## インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
-[移行の準備](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)ができたら、次のステップで移行を完了できます。
+Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. 詳しい情報については、「[Enterprise へのデータ移行を準備する](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
+
+After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 

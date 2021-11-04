@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: はじめに
 ---
 
@@ -24,11 +25,11 @@ shortTitle: はじめに
 
 {% data variables.product.prodname_registry %}はパッケージホスティングサービスで、{% data variables.product.prodname_dotcom %}と完全に統合されています。 {% data variables.product.prodname_registry %}は、ソースコードとパッケージを一カ所にまとめ、統合された権限管理{% ifversion not ghae %}と支払い{% endif %}を提供し、{% data variables.product.product_name %}上でのソフトウェア開発を一元化できるようにします。
 
-{% data variables.product.prodname_registry %}は、{% data variables.product.product_name %} API、{% data variables.product.prodname_actions %}、webhookと統合して、コード、CI、デプロイメントのソリューションを含むエンドツーエンドのDevOpsワークフローを作成できます。
+You can integrate {% data variables.product.prodname_registry %} with {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs, {% data variables.product.prodname_actions %}, and webhooks to create an end-to-end DevOps workflow that includes your code, CI, and deployment solutions.
 
-{% data variables.product.prodname_registry %}は、nmp、RubyGems、Apache Maven、Gradle、Docker、NuGetといった、広く使われているパッケージマネージャーに対する様々なパッケージレジストリを提供しています。 {% ifversion fpt %}{% data variables.product.prodname_dotcom %}の{% data variables.product.prodname_container_registry %}はコンテナに特化しており、DockerとOCIイメージをサポートします。{% endif %} {% data variables.product.prodname_registry %}がサポートする様々なパッケージレジストリに関する詳しい情報については「[{% data variables.product.prodname_registry %}レジストリの利用](/packages/working-with-a-github-packages-registry)」を参照してください。
+{% data variables.product.prodname_registry %}は、nmp、RubyGems、Apache Maven、Gradle、Docker、NuGetといった、広く使われているパッケージマネージャーに対する様々なパッケージレジストリを提供しています。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}の{% data variables.product.prodname_container_registry %}はコンテナに特化しており、DockerとOCIイメージをサポートします。{% endif %} {% data variables.product.prodname_registry %}がサポートする様々なパッケージレジストリに関する詳しい情報については「[{% data variables.product.prodname_registry %}レジストリの利用](/packages/working-with-a-github-packages-registry)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![コンテナレジストリ、RubyGems、npm、Apache Maven、NuGet、Gradle のパッケージサポートを示す図](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
 
@@ -42,16 +43,16 @@ shortTitle: はじめに
 
 ### パッケージの権限と可視性の概要
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| 権限                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                  |
-| {% ifversion fpt %}パッケージの権限は、パッケージがホストされているリポジトリから継承したり、{% data variables.product.prodname_container_registry %}中のパッケージであれば特定のユーザあるいはOrganizationアカウントに対して定義したりできます。 詳しい情報については「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。 {% else %}それぞれのパッケージは、ホストされているリポジトリの権限を継承します。 <br> <br> たとえば、リポジトリの読み取り権限を持つ人であれば、プロジェクトに依存関係としてパッケージをインストールでき、書き込み権限を持つ人であれば、新しいパッケージバージョンを公開できます。{% endif %} |                                                                  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                  |
-| 可視性                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | {% data reusables.package_registry.public-or-private-packages %}
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| 権限                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                  |
+| {% ifversion fpt or ghec %}パッケージの権限は、パッケージがホストされているリポジトリから継承したり、{% data variables.product.prodname_container_registry %}中のパッケージであれば特定のユーザあるいはOrganizationアカウントに対して定義したりできます。 詳しい情報については「[パッケージのアクセス制御と可視性の設定](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)」を参照してください。 {% else %}それぞれのパッケージは、ホストされているリポジトリの権限を継承します。 <br> <br> たとえば、リポジトリの読み取り権限を持つ人であれば、プロジェクトに依存関係としてパッケージをインストールでき、書き込み権限を持つ人であれば、新しいパッケージバージョンを公開できます。{% endif %} |                                                                  |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                  |
+| 可視性                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | {% data reusables.package_registry.public-or-private-packages %}
 
 詳しい情報については「[{% data variables.product.prodname_registry %}の権限について](/packages/learn-github-packages/about-permissions-for-github-packages)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_registry %}の支払いについて
 
 {% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} 詳しい情報については「[{% data variables.product.prodname_registry %}の支払いについて](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)」を参照してください。
@@ -73,7 +74,7 @@ shortTitle: はじめに
 | .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI |
 | なし         | Dockerコンテナ管理プラットフォーム          | `Dockerfile`                          | `Docker`     |
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 {% note %}
 
 **注釈:** Subdomain Isolation が無効化されている場合、Docker はサポートされません。
@@ -86,7 +87,7 @@ Subdomain Isolation の詳しい情報については、「[Subdomain Isolation 
 
 {% data variables.product.prodname_registry %}と使うためのパッケージクライアントの設定に関する詳しい情報については「[{% data variables.product.prodname_registry %}レジストリの利用](/packages/working-with-a-github-packages-registry)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Dockerと{% data variables.product.prodname_container_registry %}に関する詳しい情報については「[コンテナレジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)」を参照してください。
 {% endif %}
 ## {% data variables.product.prodname_registry %} への認証を行う
@@ -97,8 +98,8 @@ Dockerと{% data variables.product.prodname_container_registry %}に関する詳
 
 ## パッケージの管理
 
-{% ifversion fpt %}
-パッケージの削除は、{% data variables.product.product_name %}のユーザインターフェースから、もしくはREST APIを使って行えます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
+{% ifversion fpt or ghec %}
+You can delete a package in the {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} user interface or using the REST API. 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
 {% endif %}
 
 {% ifversion ghes > 3.0 %}
@@ -113,13 +114,13 @@ Dockerと{% data variables.product.prodname_container_registry %}に関する詳
 パッケージのバージョンは、{% data variables.product.product_name %}上で、またはGraphQL APIを使って削除できます。
 {% endif %}
 
-GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、 「{% ifversion fpt or ghes > 3.0 %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」および「"[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
+GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、 「{% ifversion fpt or ghes > 3.0 or ghec %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」および「"[GraphQLでの呼び出しの作成]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 webhookを設定して、パッケージの公開や更新といったパッケージ関連のイベントにサブスクライブできます。 詳しい情報については、「[`package` webhookイベント](/webhooks/event-payloads/#package)」を参照してください。
 
 ## サポートへの連絡
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.prodname_registry %}についてのフィードバックあるいは機能リクエストがある場合は、[{% data variables.product.prodname_registry %}のフィードバックフォーム](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages)を利用してください。
 
 [連絡フォーム](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages)を使い、{% data variables.product.prodname_registry %}について{% data variables.contact.github_support %}に連絡してください。

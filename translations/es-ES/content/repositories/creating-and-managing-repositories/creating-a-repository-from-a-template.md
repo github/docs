@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Crear desde una plantilla
@@ -18,7 +19,7 @@ shortTitle: Crear desde una plantilla
 
 Cualquier usuario con permisos de lectura para un repositorio de plantillas puede crear un repositorio a partir de esa plantilla. Para obtener más información, consulta "[Crear un repositorio de plantilla](/articles/creating-a-template-repository)".
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: También puedes crear un repositorio a partir de una plantilla utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" en la documentación de {% data variables.product.prodname_cli %}.
@@ -26,7 +27,7 @@ Cualquier usuario con permisos de lectura para un repositorio de plantillas pued
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 Puedes elegir incluir la estructura de directorio y archivos únicamente desde la rama predeterminada del repositorio plantilla o incluir todas las ramas. Las ramas que se creen a partir de una plantilla tienen historiales sin relación, lo cual significa que no puedes crear solicitudes de cambio ni hacer fusiones entre las ramas.
 {% endif %}
 
@@ -43,7 +44,7 @@ Para obtener más información acerca de las bifurcaciones, consulta "[Acerca de
 2. Sobre la lista, haz clic en **Usar esta plantilla**. ![Botón Use this template button (Usar esta plantilla)](/assets/images/help/repository/use-this-template-button.png)
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes %}
+{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes or ghec %}
 6. De manera opcional, para incluir la estructura de directorio y los archivos de todas las ramas en la plantilla, y no únicamente aquellos de la rama predeterminada, selecciona **Incluir todas las ramas**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 8. Haz clic en **Crear un repositorio a partir de una plantilla**.

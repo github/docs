@@ -13,17 +13,6 @@ topics:
   - Packages
 ---
 
-{% ifversion ghes = 2.22 %}
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% note %}
-
-**Nota:** Después de que se te ha invitado a unirte al beta, sigue las instrucciones de tu representante de cuenta para habilitar el {% data variables.product.prodname_registry %} para {% data variables.product.product_location %}.
-
-{% endnote %}
-
-{% endif %}
 
 {% data reusables.package_registry.packages-cluster-support %}
 
@@ -34,12 +23,12 @@ topics:
 Después de habilitar el {% data variables.product.prodname_registry %} para {% data variables.product.product_location %}, necesitarás preparar tu bucket de almacenamiento de terceros. La cantidad de almacenamiento que requieras dependerá de tu uso del {% data variables.product.prodname_registry %}, y los lineamientos de configuración podrán variar dependiendo del proveedor de almacenamiento.
 
 Proveedores de almacenamiento externo compatibles
-- Amazon Web Services (AWS) S3 {% ifversion ghes > 2.22 %}
+- Amazon Web Services (AWS) S3 {% ifversion ghes %}
 - Azure Blob Storage {% endif %}
 - MinIO
 
 Para habilitar el {% data variables.product.prodname_registry %} y configurar el almacenamiento de terceros, consulta:
-  - "[Habilitar GitHub Packages con AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes > 2.22 %}
+  - "[Habilitar GitHub Packages con AWS](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
   - "[Habilitar GitHub Packages con Azure Blob Storage](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
   - "[Habilitar GitHub Packages con MinIO](/admin/packages/enabling-github-packages-with-minio)"
 
@@ -49,6 +38,6 @@ Elige qué ecosistemas de paquetes te gustaría habilitar, inhabilitar o configu
 
 ## Paso 3: De ser necesario, asegúrate de que tienes un certificado de TLS para la URL de hospedaje de tu paquete
 
-Si está habilitado el aislamiento de subdominios para {% data variables.product.product_location %}{% ifversion ghes = 2.22 %}, el cual se necesita para utilizar el {% data variables.product.prodname_registry %} con Docker{% endif %}, necesitarás crear y cargar un certificado TLS que permita la URL de hospedaje de paquetes para cada ecosistema que quieras utilizar, tal como `npm.HOSTNAME`. Asegúrate de que cada URL de host de paquete incluya `https://`.
+If subdomain isolation is enabled for {% data variables.product.product_location %}, you will need to create and upload a TLS certificate that allows the package host URL for each ecosystem you want to use, such as `npm.HOSTNAME`. Asegúrate de que cada URL de host de paquete incluya `https://`.
 
   Puedes crear el certificado manualmente, o puedes utilizar _Let's Encrypt_. Si ya utilizas _Let's Encrypt_, debes solicitar un certificado TLS nuevo después de habilitar el {% data variables.product.prodname_registry %}. Para obtener más información acerca de las URL del host de los paquetes, consulta "[Habilitar el aislamiento de subdominios](/enterprise/admin/configuration/enabling-subdomain-isolation)". Para obtener más información sobre cómo cargar certificados TLS a {% data variables.product.product_name %}, consulta la sección "[Configurar el TLS](/enterprise/admin/configuration/configuring-tls)".
