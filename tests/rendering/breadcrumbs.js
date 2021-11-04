@@ -3,14 +3,14 @@ import { jest } from '@jest/globals'
 
 const describeInternalOnly =
   process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
-
+// Breadcrumbs were moved to the Header and in the Menu for mobile, so there are now double the Breadcrumbs
 describe('breadcrumbs', () => {
   jest.setTimeout(300 * 1000)
 
   describe('rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/github')
-      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs]')).toHaveLength(2)
     })
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
@@ -19,7 +19,7 @@ describe('breadcrumbs', () => {
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbs).toHaveLength(4)
+      expect($breadcrumbs).toHaveLength(8)
       expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
       expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
       expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
@@ -32,11 +32,11 @@ describe('breadcrumbs', () => {
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbs).toHaveLength(3)
+      expect($breadcrumbs).toHaveLength(6)
       expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
       expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
       expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
-      expect($breadcrumbs[2].attribs.class.includes('color-text-tertiary')).toBe(true)
+      expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
@@ -44,7 +44,7 @@ describe('breadcrumbs', () => {
         '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(4)
+      expect($breadcrumbs).toHaveLength(8)
       expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
     })
 
@@ -53,7 +53,7 @@ describe('breadcrumbs', () => {
         '/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(3)
+      expect($breadcrumbs).toHaveLength(6)
       expect($breadcrumbs[0].attribs.title).toBe('product: Billing and payments')
     })
 
@@ -63,8 +63,7 @@ describe('breadcrumbs', () => {
         '/en/github-cli/github-cli/about-github-cli'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      console.log(`dbg: breadcrumbs`, $breadcrumbs)
-      expect($breadcrumbs).toHaveLength(3)
+      expect($breadcrumbs).toHaveLength(6)
       expect($breadcrumbs[0].attribs.title).toBe('product: GitHub CLI')
       expect($breadcrumbs[1].attribs.title).toBe('category: GitHub CLI')
       expect($breadcrumbs[2].attribs.title).toBe('article: About GitHub CLI')
@@ -73,7 +72,7 @@ describe('breadcrumbs', () => {
     test('parses Liquid variables inside titles', async () => {
       const $ = await getDOM('/en/enterprise/admin/enterprise-support')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(2)
+      expect($breadcrumbs).toHaveLength(4)
       expect($breadcrumbs[1].attribs.title).toBe('category: Working with support')
     })
 
@@ -93,7 +92,7 @@ describe('breadcrumbs', () => {
   describeInternalOnly('early access rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/early-access/github/articles/using-gist-playground')
-      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs]')).toHaveLength(2)
     })
 
     test('early access article pages have breadcrumbs with product, category, and article', async () => {
@@ -103,15 +102,15 @@ describe('breadcrumbs', () => {
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbTitles).toHaveLength(2)
-      expect($breadcrumbLinks).toHaveLength(2)
+      expect($breadcrumbTitles).toHaveLength(4)
+      expect($breadcrumbLinks).toHaveLength(4)
       expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
       expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'category: Enforcing best practices with GitHub Policies'
       )
       expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
-      expect($breadcrumbLinks[1].attribs.class.includes('color-text-tertiary')).toBe(true)
+      expect($breadcrumbLinks[1].attribs.class.includes('color-fg-muted')).toBe(true)
     })
   })
 

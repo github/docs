@@ -8,13 +8,14 @@ redirect_from:
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Fazer o download de códigos de recuperação SAML
 ---
 
-Os códigos de recuperação não devem ser compartilhados ou distribuídos. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Os códigos de recuperação não devem ser compartilhados ou distribuídos. Recomendamos salvá-los com um gerenciador de senhas como [LastPass](https://lastpass.com/) ou [1Password](https://1password.com/).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

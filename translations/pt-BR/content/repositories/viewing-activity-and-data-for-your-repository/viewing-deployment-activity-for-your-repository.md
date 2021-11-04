@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Visualizar atividade de implantação
@@ -27,7 +28,7 @@ Também é possível ver informações de implantação na guia "Conversation" (
 ## Exibir o painel de implantações
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png)
+2. À direita da lista de arquivos, clique em **ambientes**. ![Ambientes à direita da página do repositório](/assets/images/help/repository/environments.png)
 
 ## Leia mais
  - "[Sobre pull requests](/articles/about-pull-requests)"

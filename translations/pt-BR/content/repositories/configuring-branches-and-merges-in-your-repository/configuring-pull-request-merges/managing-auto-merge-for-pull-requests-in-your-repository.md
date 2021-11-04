@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 topics:
   - Repositories
@@ -17,7 +18,7 @@ shortTitle: Gerenciar merge automático
 
 ## Sobre o merge automático
 
-Se você permitir uma merge automático para pull requests no seu repositório, as pessoas com permissões de gravação poderão configurar pull requests individuais no repositório para fazer merge automaticamente quando todos os requisitos de merge forem atendidos. {% ifversion fpt or ghae-next or ghes > 3.1 %}Se alguém que não tiver permissão de gravação fizer push de um pull request que tenha merge automático habilitado, o merge automático será desabilitado para esse pull request. {% endif %}Para obter mais informações, consulte "[Fazer merge automático de um pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".
+Se você permitir uma merge automático para pull requests no seu repositório, as pessoas com permissões de gravação poderão configurar pull requests individuais no repositório para fazer merge automaticamente quando todos os requisitos de merge forem atendidos. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. {% endif %}Para obter mais informações, consulte "[Fazer merge automático de um pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".
 
 ## Gerenciar merge automático
 

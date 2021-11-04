@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Revisar alterações propostas
@@ -39,7 +40,7 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 ![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
 {% endwebui %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% codespaces %}
 
@@ -52,7 +53,7 @@ Para obter mais informações sobre a revisão de pull requests em {% data varia
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 ## Revisar alterações de dependência
 
 {% data reusables.dependency-review.beta %}

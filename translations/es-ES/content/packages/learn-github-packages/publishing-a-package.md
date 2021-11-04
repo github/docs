@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -21,14 +22,14 @@ Puedes ayudar a la gente a entender y usar tu paquete proporcionando una descrip
 
 {% data reusables.package_registry.public-or-private-packages %} Un repositorio puede conectarse a más de un paquete. Para evitar confusiones, asegúrate de que el archivo README y la descripción proporcionen información clara de cada paquete.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Si una versión nueva de un paquete soluciona una vulnerabilidad de seguridad, deberás publicar una asesoría de seguridad en tu repositorio.
 {% data variables.product.prodname_dotcom %} revisa cada asesoría de seguridad que se publica y podría utilizarla para enviar {% data variables.product.prodname_dependabot_alerts %} a los repositorios afectados. Para obtener más información, consulta la sección "[Acerca de las Asesorías de Seguridad de GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 {% endif %}
 
 ## Publicar un paquete
 
-Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si utilizas cualquier {% ifversion fpt or ghae %}cliente de paquete compatible{% else %}tipo de paquete habilitado para tu instancia{% endif %} si sigues los mismos lineamientos generales.
+You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Crea o usa un token de acceso existente con los ámbitos adecuados para la tarea que deseas realizar. Para obtener más información, consulta la sección "[Acerca de los permisos para el {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
 2. Autentícate en {% data variables.product.prodname_registry %} mediante tu token de acceso y las instrucciones para tu cliente del paquete.

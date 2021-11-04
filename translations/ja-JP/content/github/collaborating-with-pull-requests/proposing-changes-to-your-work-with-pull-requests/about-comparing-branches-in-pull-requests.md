@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Compare branches
@@ -20,11 +21,7 @@ shortTitle: Compare branches
 
 {% endnote %}
 
-プルリクエスト中で提案された変更は、Files changed（変更されたファイル）タブで表示できます。
-{% ifversion ghes < 3.0 %}
-![プルリクエストの変更されたファイルタブ](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
-{% endif %}
+You can view proposed changes in a pull request in the Files changed tab. ![プルリクエストの変更されたファイルタブ](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 コミットそのものを見るよりは、プルリクエストがマージされた際に提案された変更がファイルに現れるのを見ることができます。 Files changed（変更されたファイル）タブ内では、ファイルはアルファベット順に表示されます。 ファイルへの追加は緑で表示され、先頭に`+`サインが付きます。削除されたコンテンツは赤で表示され、先頭に`-`サインが付きます。
 

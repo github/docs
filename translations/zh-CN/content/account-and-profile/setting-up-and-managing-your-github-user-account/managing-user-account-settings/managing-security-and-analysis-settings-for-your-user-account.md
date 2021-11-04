@@ -3,6 +3,7 @@ title: 管理用户帐户的安全和分析设置
 intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:
@@ -43,4 +44,4 @@ shortTitle: 管理安全和分析
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
 - "[管理项目依赖项中的漏洞](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
-{% ifversion fpt %}- "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+{% ifversion fpt or ghec %}- "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}

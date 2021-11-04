@@ -1,7 +1,6 @@
 ---
 title: Criar e estar o Java com o Gradle
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Gradle.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-gradle
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -19,6 +19,7 @@ shortTitle: Criar & testar Java & Gradle
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 

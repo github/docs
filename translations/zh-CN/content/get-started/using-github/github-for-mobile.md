@@ -3,7 +3,8 @@ title: 手机版 GitHub
 intro: '从移动设备对 {% data variables.product.product_name %} 上的工作进行分类、协作和管理。'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Mobile
 redirect_from:
@@ -43,7 +44,7 @@ redirect_from:
 
 您必须在设备上安装 {% data variables.product.prodname_mobile %} 1.4 或更高版本，才能使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}。
 
-要使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}，{% data variables.product.product_location %} 必须为 3.0 或更高版本，并且企业所有者必须为企业启用移动版支持。 更多信息请参阅{% ifversion ghes %}“[发行说明](/enterprise-server/admin/release-notes)”和{% endif %}“[管理企业的 {% data variables.product.prodname_mobile %}](/admin/configuration/managing-github-for-mobile-for-your-enterprise)”。
+要使用 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}，{% data variables.product.product_location %} 必须为 3.0 或更高版本，并且企业所有者必须为企业启用移动版支持。 For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/managing-github-for-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
 在 {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %} 测试期间，您必须使用 {% data variables.product.prodname_dotcom_the_website %} 上的用户帐户登录。
 

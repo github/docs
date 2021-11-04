@@ -7,6 +7,7 @@ shortTitle: 标识 AE 托管的运行器
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
+{% data reusables.actions.ae-beta %}
 
 有关如何使用标签将作业路由到特定类型的 {% data variables.actions.hosted_runner %} 的信息，请参阅“[在工作流程中使用 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-ae-hosted-runners-in-a-workflow)”。
 

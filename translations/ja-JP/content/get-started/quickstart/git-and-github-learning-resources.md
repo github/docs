@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - GitHub
 shortTitle: Learning resources
@@ -22,7 +23,7 @@ shortTitle: Learning resources
 
 ## {% data variables.product.product_name %}を使用する
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_learning %} では、即座に自動化されたフィードバックやヘルプとともに、{% data variables.product.prodname_dotcom %} に組み込まれた無料のインタラクティブなコースを提供しています。 最初のプルリクエストをオープンしたり、最初のオープンソースへのコントリビューションを行ったり、{% data variables.product.prodname_pages %} のサイトを作成したりできます。 コースについての詳細は、[{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) をご覧ください。
 
@@ -56,8 +57,8 @@ shortTitle: Learning resources
 
 ## その他
 
-[Code School](http://codeschool.com) によるインタラクティブな[オンラインの Git コース](http://www.codeschool.com/courses/git-real)では、数十の楽しいゲーム形式のエクササイズを含む 7 段階のサービスを提供しています。 [.gitignore テンプレート](https://github.com/github/gitignore)では、お客様のニーズに合わせることができます。
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. [.gitignore テンプレート](https://github.com/github/gitignore)では、お客様のニーズに合わせることができます。
 
-{% data variables.product.prodname_dotcom %} のリーチを、{% ifversion fpt %}[インテグレーション](/articles/about-integrations){% else %}インテグレーション{% endif %}、または[{% data variables.product.prodname_desktop %}](https://desktop.github.com) と堅牢な [Atom](https://atom.io) テキストエディタで拡張しましょう。
+{% data variables.product.prodname_dotcom %} のリーチを、{% ifversion fpt or ghec %}[インテグレーション](/articles/about-integrations){% else %}インテグレーション{% endif %}、または[{% data variables.product.prodname_desktop %}](https://desktop.github.com) と堅牢な [Atom](https://atom.io) テキストエディタで拡張しましょう。
 
 [オープンソースのガイド](https://opensource.guide/)で、オープンソースのプロジェクトを立ち上げ成長させる方法をご確認ください。

@@ -69,9 +69,9 @@ Há dois tipos de instantâneo:
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}Observações{% else %}Observação{% endif %}**:
+**{% ifversion ghes %}Observações{% else %}Observação{% endif %}**:
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - Se {% data variables.product.product_location %} estiver executando a compilação de um candidato à versão, você não poderá atualizar com um hotpatch.
 
 - {% endif %}Instalando um hotpatch usando o {% data variables.enterprise.management_console %} não está disponível em ambientes com cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
@@ -232,7 +232,7 @@ Para obter mais informações, consulte "[Utilitários de linha de comando](/ent
 
 Para voltar a partir de uma versão de recurso, faça a restauração partindo de um instantâneo da VM para garantir o estado consistente das partições raiz e de dados. Para obter mais informações, consulte "[Obter um instantâneo](#taking-a-snapshot)".
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Leia mais
 
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"

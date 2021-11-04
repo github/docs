@@ -1,4 +1,4 @@
-name: site-policy-sync
+name: Site policy sync
 
 # **What it does**: Updates our site-policy repo when changes happen to site policy docs.
 # **Why we have it**: We want keep site-policy repo up to date.

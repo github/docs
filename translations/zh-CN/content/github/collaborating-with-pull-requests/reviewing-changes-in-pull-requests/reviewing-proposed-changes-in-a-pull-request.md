@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 审核建议的更改
@@ -39,7 +40,7 @@ shortTitle: 审核建议的更改
 ![取消审查按钮](/assets/images/help/pull_requests/cancel-review-button.png)
 {% endwebui %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% codespaces %}
 
@@ -47,12 +48,12 @@ You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overv
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+有关在 {% data variables.product.prodname_codespaces %} 中审查拉取请求的更多信息，请参阅“[对拉取请求使用代码空间](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)”。
 
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 ## 查看依赖项更改
 
 {% data reusables.dependency-review.beta %}

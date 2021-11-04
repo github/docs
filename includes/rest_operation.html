@@ -6,7 +6,7 @@
     </h3>
     {{operation.descriptionHTML}}
   </div>
-  <pre><code><span class="color-bg-info-inverse color-text-inverse rounded-1 px-2 py-1" style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></pre>
+  <pre><code><span class="color-bg-accent-emphasis color-fg-on-emphasis rounded-1 px-2 py-1" style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></pre>
   <div>
     {%- if operation.parameters.size > 0 or operation.bodyParameters.size > 0
     -%}
@@ -76,7 +76,7 @@
           <td colspan="4" class="has-nested-table">
             {%- for childParamsGroup in bodyParam.childParamsGroups -%}
             <details>
-              <summary class="color-text-secondary">
+              <summary class="color-fg-muted">
                 <span
                   class="d-inline-block mb-3"
                   id="{{ operation.slug }}-{{ childParamsGroup.id }}"
@@ -148,7 +148,7 @@
         rounded-1
         mb-4
         p-3
-        color-border-info color-bg-info
+        color-border-accent-emphasis color-bg-accent
         f5
       "
     >

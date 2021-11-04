@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -53,7 +54,7 @@ redirect_from:
 您需要将 {% data variables.product.prodname_codeql_cli %} 包的全部内容提供给要运行 CodeQL {% data variables.product.prodname_code_scanning %} 分析的每个 CI 服务器。 例如，您可以配置每台服务器从中央内部位置复制包并提取它。 或者，您可以使用 REST API 直接从 {% data variables.product.prodname_dotcom %} 获取包，以确保您从查询的最新改进中受益。 {% data variables.product.prodname_codeql_cli %} 的更新每 2-3 周发布一次。 例如：
 
 ```shell
-$ wget https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+$ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
 $ tar -xvzf ../codeql-bundle-linux64.tar.gz
 ```
 

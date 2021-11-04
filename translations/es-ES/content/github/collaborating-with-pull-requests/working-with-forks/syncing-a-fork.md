@@ -9,11 +9,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
 ## Sincronizar una bifurcación desde la IU web
 

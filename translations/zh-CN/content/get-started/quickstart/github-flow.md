@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Fundamentals
@@ -24,14 +25,14 @@ miniTocMaxHeadingLevel: 3
 
 ## 基本要求
 
-要遵循 {% data variables.product.prodname_dotcom %} 流程，您将需要 {% data variables.product.prodname_dotcom %} 帐户和仓库。 有关如何创建帐户的信息，请参阅“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”。 有关如何创建仓库的信息，请参阅“[创建仓库](/github/getting-started-with-github/create-a-repo)”。{% ifversion fpt %} 有关如何查找要参与的现有仓库的信息，请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上开源项目的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+要遵循 {% data variables.product.prodname_dotcom %} 流程，您将需要 {% data variables.product.prodname_dotcom %} 帐户和仓库。 有关如何创建帐户的信息，请参阅“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”。 有关如何创建仓库的信息，请参阅“[创建仓库](/github/getting-started-with-github/create-a-repo)”。{% ifversion fpt or ghec %} 有关如何查找要参与的现有仓库的信息，请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上开源项目的方式](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
 
 ## 遵循 {% data variables.product.prodname_dotcom %} 流程
 
 {% tip %}
 
-{% ifversion fpt %}
-**提示：** 您可以通过 {% data variables.product.prodname_dotcom %} web 界面、命令行和 [{% data variables.product.prodname_cli %}](https://cli.github.com) 或 [{% data variables.product.prodname_desktop %}](/desktop) 完成 {% data variables.product.prodname_dotcom %} 流程。
+{% ifversion fpt or ghec %}
+**提示：** 您可以通过 {% data variables.product.prodname_dotcom %} web 界面、命令行和 [{% data variables.product.prodname_cli %}](https://cli.github.com) 或 [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop) 完成 {% data variables.product.prodname_dotcom %} 流程。
 {% else %}
 **提示：** 您可以通过 {% data variables.product.prodname_dotcom %} web 界面或者命令行和 [{% data variables.product.prodname_cli %}](https://cli.github.com) 完成 {% data variables.product.prodname_dotcom %} 流程。
 {% endif %}

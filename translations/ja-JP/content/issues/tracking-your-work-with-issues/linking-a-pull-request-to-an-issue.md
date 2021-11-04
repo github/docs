@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: IssueへのPRのリンク
@@ -26,7 +27,7 @@ shortTitle: IssueへのPRのリンク
 
 ## リンクされたIssueとプルリクエストについて
 
-{% ifversion fpt or ghes or ghae %}手動で、または{% endif %}プルリクエストの説明でサポートされているキーワードを使用して、Issueをプルリクエストにリンクすることができます。
+{% ifversion fpt or ghes or ghae or ghec %}手動で、または{% endif %}プルリクエストの説明でサポートされているキーワードを使用して、Issueをプルリクエストにリンクすることができます。
 
 プルリクエストが対処するIssueにそのプルリクエストにリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
 
@@ -54,12 +55,12 @@ shortTitle: IssueへのPRのリンク
 | Issueが別のリポジトリにある | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 複数の Issue        | Issueごとに完全な構文を使用                              | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae %}手動でリンクを解除できるのは、手動でリンクされたプルリクエストだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、プルリクエストの説明を編集してそのキーワードを削除する必要があります。{% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}手動でリンクを解除できるのは、手動でリンクされたプルリクエストだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、プルリクエストの説明を編集してそのキーワードを削除する必要があります。{% endif %}
 
 クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むプルリクエストは、リンクされたプルリクエストとしてリストされません。
 
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## 手動でプルリクエストをIssueにリンクする
 
 リポジトリへの書き込み権限があるユーザなら誰でも、手動でプルリクエストをIssueにリンクできます。

@@ -69,9 +69,9 @@ shortTitle: Upgrading GHES
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes %}注釈{% else %}注釈{% endif %}**:
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - {% data variables.product.product_location %} がリリース候補ビルドを実行している場合、ホットパッチでアップグレードすることはできません。
 
 - {% endif %}クラスタ環境では、{% data variables.enterprise.management_console %} を使ったホットパッチのインストールはできません。 クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
@@ -232,7 +232,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 フィーチャリリースからロールバックするには、ルートおよびデータパーティションが整合した状態になることを保証するため、VM スナップショットからリストアしてください。 詳細は「[スナップショットを取得する](#taking-a-snapshot)」を参照してください。
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## 参考リンク
 
 - 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」
