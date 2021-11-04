@@ -28,6 +28,7 @@ topics:
   - Issues
   - Project management
 shortTitle: Create an issue
+type: how_to
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."

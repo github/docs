@@ -1,6 +1,6 @@
 ---
 title: Ver los roles de las personas en una organización
-intro: 'Puedes ver una lista de personas en tu organización y filtrar por su rol. Para obtener más información sobre roles en la organización, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization)."'
+intro: 'Puedes ver una lista de personas en tu organización y filtrar por su rol. For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Visualizar a las personas en una organización

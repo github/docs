@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -45,7 +46,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 7. [How many team members should be assigned to review?] でドロップダウンメニューを使用し、各プルリクエストに割り当てるレビュー担当者の数を選択します。 ![[Number of reviewers] ドロップダウン](/assets/images/help/teams/review-assignment-number.png)
 8. [Routing algorithm] のドロップダウンメニューで、使用するアルゴリズムを選択します。 詳細は、「[ルーティングアルゴリズム](#routing-algorithms)」を参照してください。 ![[Routing algorithm] ドロップダウン](/assets/images/help/teams/review-assignment-algorithm.png)
 9. オプションで、Team の特定メンバーを常にスキップする場合は、[**Never assign certain team members**] を選択します。 次に、スキップする 1 つ以上の Team メンバーを選択します。 ![[Never assign certain team members] チェックボックスとラジオボタン](/assets/images/help/teams/review-assignment-skip-members.png)
-10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
+10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}

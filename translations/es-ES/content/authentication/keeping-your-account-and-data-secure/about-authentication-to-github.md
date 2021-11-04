@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -28,8 +29,8 @@ Puedes acceder a tus recursos en {% data variables.product.product_name %} de mu
 
 Puedes autenticarte en {% data variables.product.product_name %} en tu buscador {% ifversion ghae %} utilizando tu IdP. Para obtener más información, consulta la sección "[Acera de la autenticación con el inicio de sesión único de SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)".{% else %} de varias formas.
 
-- {% ifversion fpt %}
-Si eres miembro de una {% data variables.product.prodname_emu_enterprise %}, te autenticarás en {% data variables.product.product_name %} en tu buscador utilizando tu IdP. Para obtener más información , consulta la sección "[Autenticarte como un usuario administrado](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)". Si no eres miembro de una {% data variables.product.prodname_emu_enterprise %}, te autenticarás utilizando tu buscador en {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion fpt or ghec %}
+- If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
 {% endif %}
 
 - **Nombre de usuario y contraseña únicamente**
@@ -70,15 +71,15 @@ Si te autenticas sin el {% data variables.product.prodname_cli %}, debes autenti
 
 Puedes trabajar con todos los repositorios en {% data variables.product.product_name %} a través de SSH, aunque los cortafuegos y los proxys podrían rehusarse a permitir las conexiones de SSH.
 
-Si te autenticas con el{% data variables.product.prodname_cli %}, este encontrará llaves SSH públicas en tu máquina y te pedirá seleccionar una para cargar. Si el {% data variables.product.prodname_cli %}no encuentra una llave SSH pública para cargar, puede generar un par de llaves SSH pública/privada y cargar la llave pública a tu cuenta de {% data variables.product.product_name %}. Entonces podrás ya sea autenticarte con un token de acceso personal o a través del buscador web. Para obtener más información sobre cómo autenticarte con el {% data variables.product.prodname_cli %}, consulta la sección [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+Si te autenticas con el{% data variables.product.prodname_cli %}, este encontrará llaves SSH públicas en tu máquina y te pedirá seleccionar una para cargar. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Entonces podrás ya sea autenticarte con un token de acceso personal o a través del buscador web. Para obtener más información sobre cómo autenticarte con el {% data variables.product.prodname_cli %}, consulta la sección [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-Si te autenticas sin el {% data variables.product.prodname_cli %}, necesitarás generar un par de llaves SSH pública/privada en tu máquina local y agregar la llave pública a tu cuenta de {% data variables.product.product_name %}. Para obtener más información, consulta "[Generar una nueva llave SSH y agregarla a ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Cada que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te solicitará que ingreses tu frase de ingreso de la llave SSH, a menos de que hayas [almacenado la llave](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
+If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Para obtener más información, consulta "[Generar una nueva llave SSH y agregarla a ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Cada que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te solicitará que ingreses tu frase de ingreso de la llave SSH, a menos de que hayas [almacenado la llave](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 
 ### Autorizar para el inicio de sesión única de SAML
 
-{% ifversion fpt %}Para utilizar un token de acceso personal o una llave de SSH para acceder a los recursos que le pertenecen a una organización que utiliza el inicio de sesión único de SAML, también deberás autorizar el token personal o la llave SSH. Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para utilizarlo con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" o la sección "[Autorizar una llave SSH para su uso con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
+{% ifversion fpt or ghec %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para utilizarlo con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" o la sección "[Autorizar una llave SSH para su uso con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
 ## Formatos de los tokens de {% data variables.product.company_short %}
 

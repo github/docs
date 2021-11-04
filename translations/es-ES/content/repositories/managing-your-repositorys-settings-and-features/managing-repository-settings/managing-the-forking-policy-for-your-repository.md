@@ -1,6 +1,6 @@
 ---
 title: Administrar la política de ramificación para tu repositorio
-intro: 'Puedes permitir o prevenir la ramificación de un repositorio privado {% ifversion fpt or ghae or ghes %} o interno {% endif %} en específico que sea propiedad de una organización.'
+intro: 'Puedes permitir o prevenir la ramificación de un repositorio privado {% ifversion fpt or ghae or ghes or ghec %} o interno {% endif %} en específico que sea propiedad de una organización.'
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Administrar la política de bifurcación
 ---
 
-El propietario de la organización debe permitir que las ramificaciones de repositorios privados {% ifversion fpt or ghae or ghes %} e internos {% endif %} a nivel organizacional antes de que puedas permitir o impedir las ramificaciones de un repositorio específico. Para obtener más información, consulta "[Administrar la política de ramificación para tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+El propietario de la organización debe permitir que las ramificaciones de repositorios privados {% ifversion fpt or ghae or ghes or ghec %} e internos {% endif %} a nivel organizacional antes de que puedas permitir o impedir las ramificaciones de un repositorio específico. Para obtener más información, consulta "[Administrar la política de ramificación para tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
@@ -27,4 +28,4 @@ El propietario de la organización debe permitir que las ramificaciones de repos
 ## Leer más
 
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
-- "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"
+- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

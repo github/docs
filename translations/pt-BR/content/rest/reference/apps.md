@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -29,7 +30,7 @@ Um subconjunto de pontos de extremidade da API v2 de REST exige autenticação c
 
 ## API de aplicativos do OAuth
 
-Você pode usar essa API para gerenciar os tokens do OAuth que um aplicativo OAuth usa para acessar as contas {% data variables.product.prodname_dotcom %} das pessoas.
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -45,7 +46,7 @@ Para listar todas as instalações do aplicativo GitHub para uma organização, 
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
 Para obter mais informações sobre {% data variables.product.prodname_marketplace %}, consulte "[GitHub Marketplace](/marketplace/)".
@@ -56,7 +57,7 @@ A API de {% data variables.product.prodname_marketplace %} permite que você vej
 
 Esta API inclui pontos de extremidade que permitem que você [teste o seu {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) com **dados de amostra**. Os dados do de amostra têm código rígido, dados falsos e não serão alterados com base em assinaturas reais.
 
-Para fazer teste com dados de amostra, use um pontos de extremidade de amostra no lugar da sua contraparte de produção. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
+Para fazer teste com dados de amostra, use um pontos de extremidade de amostra no lugar da sua contraparte de produção. Isso permite que você teste se a lógica da API é bem-sucedida antes de anunciar {% data variables.product.prodname_github_apps %} em {% data variables.product.prodname_marketplace %}.
 
 Certifique-se de substituir pontos de extremidades de amostra pelos pontos de extremidades de produção antes de implantar seu {% data variables.product.prodname_github_app %}.
 
@@ -66,10 +67,10 @@ Certifique-se de substituir pontos de extremidades de amostra pelos pontos de ex
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Webhooks
 
-A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
+O webhook de {% data variables.product.prodname_github_app %} permite que você receba cargas `POST` de HTTP sempre que certos eventos ocorrerem para um aplicativo. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}

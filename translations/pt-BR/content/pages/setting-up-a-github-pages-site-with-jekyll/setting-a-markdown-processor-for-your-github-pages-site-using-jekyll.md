@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Definir processador de Markdown
@@ -18,9 +19,9 @@ shortTitle: Definir processador de Markdown
 
 Pessoas com permissões de gravação para um repositório podem definir um processador markdown para um site do {% data variables.product.prodname_pages %}.
 
-{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own Markdown processor, which is used to render [{% data variables.product.prodname_dotcom %} Flavored Markdown (GFM)](https://github.github.com/gfm/) throughout {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
+{% data variables.product.prodname_pages %} é compatível com dois processadores de Markdown: [kramdown](http://kramdown.gettalong.org/) e o próprio processador do Markdown de {% data variables.product.prodname_dotcom %}, que é usado para interpretar o [ Markdown enriquecido (GMF) de {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/) em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
 
-You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with either processor, but only our GFM processor will always match the results you see on {% data variables.product.product_name %}.
+Você pode usar o Markdown enriquecido de {% data variables.product.prodname_dotcom %} com qualquer um dos processadores, mas apenas o nosso processador de GFM sempre corresponderá aos resultados que você vê em {% data variables.product.product_name %}.
 
 {% data reusables.pages.navigate-site-repo %}
 2. No repositório, navegue até o arquivo *_config.yml*.

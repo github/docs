@@ -85,7 +85,7 @@ GitHub 将仔细审查规避索赔，包括技术和法律专家提出的索赔�
 
 请注意，我们对规避技术的审查流程不适用于违反我们可接受使用政策限制的内容，禁止共享未经授权的产品许可密钥、生成未经授权的产品许可密钥的软件或绕过产品许可密钥检查的软件。 虽然这些类型的索赔也可能违反 DMCA 关于规避技术的规定，但这些索赔通常很简单，不需要额外的技术和法律审查。 然而，如果索赔并不简单，例如在越狱的情况下，规避技术索赔审查程序将适用。
 
-When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer the repository owner a referral to receive independent legal consultation through [GitHub’s Developer Defense Fund](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) at no cost to them.
+当 GitHub 根据我们的规避技术索赔审查流程处理 DMCA 拆解时，我们将转介仓库所有者通过 [GitHub 的开发人员防御基金](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/)免费获得独立法律咨询。
 
 ## D. 如果我无意中错过了更改时限怎么办？
 

@@ -4,6 +4,6 @@ Para ayudar a prevenir esto, los flujos de trabajo sobre las solicitudes de camb
 
 {% note %}
 
-**Note:** Workflows triggered by `pull_request_target` events are run in the context of the base branch. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings.
+**Nota:** Los flujos de trabajo que se activan con los eventos `pull_request_target` se ejecutan en el contexto de la rama base. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings.
 
 {% endnote %}

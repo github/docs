@@ -30,7 +30,7 @@ shortTitle: GitHub 校园计划
 
 - 您必须向所有技术和学术部门提供 {% data variables.product.prodname_dotcom %} ，您的学校徽标将作为 {% data variables.product.prodname_campus_program %} 合作伙伴在 GitHub Education 网站上共享。
 
-- 企业中的新组织将自动添加到您的企业帐户。 要在添加在您的学校加入 {% data variables.product.prodname_campus_program %} 之前就存在的组织，请联系 [GitHub Education 支持](https://support.github.com/contact/education)。 有关管理企业的更多信息，请参阅“[设置和管理企业](/github/setting-up-and-managing-your-enterprise)”。 企业中的新组织将自动添加到您的企业帐户。 要添加在您的学校加入 {% data variables.product.prodname_campus_program %} 之前就存在的组织，请联系 GitHub Education 支持。
+- 企业中的新组织将自动添加到您的企业帐户。 要在添加在您的学校加入 {% data variables.product.prodname_campus_program %} 之前就存在的组织，请联系 [GitHub Education 支持](https://support.github.com/contact/education)。 有关管理企业的更多信息，请参阅[企业管理员文档](/admin)。 企业中的新组织将自动添加到您的企业帐户。 要添加在您的学校加入 {% data variables.product.prodname_campus_program %} 之前就存在的组织，请联系 GitHub Education 支持。
 
 
 要阅读更多关于 {% data variables.product.prodname_dotcom %} 隐私实践的信息，请参阅[“全球隐私实践”](/github/site-policy/global-privacy-practices)

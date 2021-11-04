@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ shortTitle: 管理Teamの移行
 
 レガシーの 管理者 Team を改善された Organization の権限に移行すれば、この機能をなくすことができます。
 
-詳細は「[Organization のためのリポジトリの権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 

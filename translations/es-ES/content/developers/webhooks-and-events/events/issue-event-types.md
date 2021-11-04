@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Events
 ---
@@ -131,7 +132,7 @@ Un comentario se agregó al informe de problemas o solicitud de extracción.
 | `html_url`               | `secuencia` | La URL de HTML para el comentario del informe de problemas.                                                                                                               |
 | `issue_url`              | `secuencia` | La URL de HTML para el informe de problemas.                                                                                                                              |
 | `id`                     | `número`    | El identificador único del evento.                                                                                                                                        |
-| `node_id`                | `secuencia` | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                 |
+| `node_id`                | `secuencia` | La [ID de Nodo Global]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) del evento.                                             |
 | `usuario`                | `objeto`    | La persona que comentó en el informe de problemas.                                                                                                                        |
 | `created_at (creado en)` | `secuencia` | La marca de tiempo que indica cuándo se agregó el comentario.                                                                                                             |
 | `updated_at`             | `secuencia` | La marca de tiempo que indica cuándo se actualizó o creó el comentario en caso de que éste jamás se haya actualizado.                                                     |
@@ -157,7 +158,7 @@ Una confirmación se agregó a la rama `HEAD` de la solicitud de extracción.
 | Nombre         | Type                | Descripción                                                                                                                                                                      |
 | -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sha`          | `secuencia`         | El SHA de la confirmación en la solicitud de extracción.                                                                                                                         |
-| `node_id`      | `secuencia`         | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                        |
+| `node_id`      | `secuencia`         | La [ID de Nodo Global]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) del evento.                                                    |
 | `url`          | `secuencia`         | La URL de la API de REST que recuperará la confirmación.                                                                                                                         |
 | `html_url`     | `secuencia`         | La URL de HTML de la confirmación.                                                                                                                                               |
 | `autor`        | `objeto`            | La persona que autorizó la confirmación.                                                                                                                                         |
@@ -580,7 +581,7 @@ Se revisió la solicitud de extracción.
 | Nombre               | Type        | Descripción                                                                                                                                                               |
 | -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                 | `número`    | El identificador único del evento.                                                                                                                                        |
-| `node_id`            | `secuencia` | La [ID de Nodo Global](/graphql/guides/using-global-node-ids) del evento.                                                                                                 |
+| `node_id`            | `secuencia` | La [ID de Nodo Global]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) del evento.                                             |
 | `usuario`            | `objeto`    | La persona que comentó en el informe de problemas.                                                                                                                        |
 | `cuerpo`             | `secuencia` | El texto de resúmen de la revisión.                                                                                                                                       |
 | `commit_id`          | `secuencia` | El SHA de la última confirmación en la soicitud de extracción al momento de la revisión.                                                                                  |
@@ -707,7 +708,7 @@ Alguien se desuscribió de recibir notificaciones para un informe de problemas o
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## user_blocked
 
 El propietario de una organización bloqueó a un usuario de la misma. Esto se hizo [a través de uno de los comentarios del usuario bloqueado sobre el informe de problemas](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).

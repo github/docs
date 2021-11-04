@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,7 +23,7 @@ Ao usar atribuições de revisão de código, a qualquer momento em que for soli
 Quando se solicita automaticamente que os proprietários de códigos façam uma revisão, a equipe será removida e substituída por indivíduos. As aprovações individuais não satisfazem o requisito para aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Sobre proprietários do código](/github/creating-cloning-and-archiving-repositories/about-code-owners)".
 
 {% ifversion fpt %}
-To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+Para desenvolver ainda mais as habilidades de colaboração da sua equipe, você pode fazer a atualização para {% data variables.product.prodname_ghe_cloud %}, que inclui funcionalidades como branches protegidos e proprietários de códigos em repositórios privados. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 ## Encaminhar algoritmos
@@ -33,7 +34,7 @@ O algoritmo round robin (rotativo) escolhe os revisores com base em quem recebeu
 
 O algoritmo do balanço de carga escolhe os revisores com base no número total de solicitações de revisão recentes de cada integrante e considera o número de revisões pendentes para cada integrante. O algoritmo do balanço de carga tenta garantir que cada integrante da equipe revise um número igual de pull requests em qualquer período de 30 dias.
 
-Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+Todos os integrantes da equipe que definiram seu status como "Ocupado" não serão selecionados para revisão. Se todos os integrantes da equipe estiverem ocupados, o pull request permanecerá atribuído à própria equipe. Para obter mais informações sobre os status do usuário, consulte "[Configurando um status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)".
 
 ## Configurar a atribuição da revisão de código
 {% data reusables.profile.access_org %}
@@ -45,10 +46,10 @@ Any team members that have set their status to "Busy" will not be selected for r
 7. Em "Quantos membros da equipe devem ser atribuídos para a revisão?, use o menu suspenso e escolha um número de revisores a serem atribuídos a cada pull request. ![Menu suspenso do número de revisores](/assets/images/help/teams/review-assignment-number.png)
 8. Em "Algoritmo de encaminhamento", use o menu suspenso e escolha qual algoritmo você gostaria de usar. Para obter mais informações, consulte "[Algoritmos de encaminhamento](#routing-algorithms)". ![Menu suspenso do algoritmo de encaminhamento](/assets/images/help/teams/review-assignment-algorithm.png)
 9. Opcionalmente, para sempre ignorar determinados membros da equipe, selecione **Nunca atribuir certos integrantes da equipe**. Em seguida, selecione um ou mais integrantes da equipe que você gostaria de ignorar sempre. ![Menu suspenso e caixa de seleção "Nunca atribuir certos integrantes da equipe"](/assets/images/help/teams/review-assignment-skip-members.png)
-10. Optionally, to only notify the team members chosen by code review assignment for each pull review request, under "Notifications" select **If assigning team members, don't notify the entire team.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 %}
-11. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
-12. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
-13. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.{% endif %}
+10. Opcionalmente, para notificar apenas os integrantes da equipe escolhidos pela atribuição de revisão de código para cada solicitação de revisão de pull request, em "Notificações", selecione **Se atribuir integrantes da equipe, não notifique toda a equipe.** ![Code review assignment notifications](/assets/images/help/teams/review-assignment-notifications.png){% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+11. Opcionalmente, para incluir integrantes de equipes secundárias como possíveis revisores ao atribuir pedidos, selecione **Integrantes da equipe secundária**.
+12. Opcionalmente, para contar todos os integrantes cuja avaliação já foi solicitada para o número total de integrantes a atribuir, selecione **Contar as solicitações existentes** existentes.
+13. Opcionalmente, para remover a solicitação de revisão da equipe ao atribuir integrantes da equipe, selecione **Pedido de revisão de equipe**.{% endif %}
 14. Clique em **Save changes** (Salvar alterações).
 
 ## Desabilitar atribuição de revisão de código
