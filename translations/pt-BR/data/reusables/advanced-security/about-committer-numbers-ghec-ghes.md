@@ -1,6 +1,6 @@
 Registramos e exibimos dois números de committers para {% data variables.product.prodname_GH_advanced_security %} em {% data variables.product.product_location %}:
 
-- **Commiters** é o número de committers que contribuíram com pelo menos um {% ifversion fpt %}repositório privado {% endif %}em uma organização e que usam uma estação na licença corporativa. Ou seja, eles também são integrantes da organização, um colaborador externo ou têm um convite pendente para ingressar em uma organização na sua empresa.
+- **Commiters** é o número de committers que contribuíram com pelo menos um {% ifversion fpt or ghec %}repositório privado {% endif %}em uma organização e que usam uma estação na licença corporativa. Ou seja, eles também são integrantes da organização, um colaborador externo ou têm um convite pendente para ingressar em uma organização na sua empresa.
 - **Único para este repositório/organização** é o número de committers que contribuíram apenas para este repositório ou para repositórios nesta organização. Este número mostra a quantidade de estações de licença que você pode liberar, desabilitando {% data variables.product.prodname_GH_advanced_security %} para esse repositório ou organização.
 
 Se não houver committers exclusivos, todos os committers ativos também contribuem para outros repositórios ou organizações que usam {% data variables.product.prodname_GH_advanced_security %}. Desabilitar o recurso para esse repositório ou organização não liberaria nenhuma estação na sua licença.

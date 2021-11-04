@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Pages 的 Jekyll 构建错误
@@ -18,7 +19,7 @@ shortTitle: Pages 的 Jekyll 构建错误
 
 ## 关于 Jekyll 构建错误
 
-有时，在您推送更改到站点的发布源之后，{% data variables.product.prodname_pages %} 不会尝试构建您的站点。{% ifversion fpt %}
+有时，在您推送更改到站点的发布源之后，{% data variables.product.prodname_pages %} 不会尝试构建您的站点。{% ifversion fpt or ghec %}
 - 推送更改的人尚未验证他们的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
 - 您使用部署密钥推送。 如果要自动推送到站点的仓库，您可以改为设置计算机用户。 更多信息请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys#machine-users)”。
 - 您使用的是未配置为构建发布源的 CI 服务。 例如，Travis CI 不会构建 `gh-pages` 分支，除非您将该分支添加到安全列表。 更多信息请参阅 Travis CI 上的“[定制构建](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)”或者 CI 服务的文档。

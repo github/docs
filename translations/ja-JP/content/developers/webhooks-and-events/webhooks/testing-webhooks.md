@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -18,7 +19,7 @@ topics:
 
 すべての webhook には独自の \[Recent Deliveries\] (最近のデリバリ) セクションがあり、デリバリの成功（緑色のチェック）や失敗（赤色の x）が一目でわかります。 また、各デリバリの試行時期を特定することもできます。
 
-{% data variables.product.product_name %} は、各 webhook デリバリのログを {% ifversion fpt %} 30 {% else %} 8 {% endif %} 日間保持します。
+{% data variables.product.product_name %} は、各 webhook デリバリのログを {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} 日間保持します。
 
 ![[Recent Deliveries] ビュー](/assets/images/webhooks_recent_deliveries.png)
 

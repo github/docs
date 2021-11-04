@@ -11,6 +11,7 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -31,7 +32,7 @@ shortTitle: Gerenciar sincronização de equipe
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-Também é possível habilitar a sincronização de equipes para organizações que pertencem a uma conta corporativa. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)".
+Também é possível habilitar a sincronização de equipes para organizações que pertencem a uma conta corporativa. For more information, see "[Managing team synchronization for organizations in your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 

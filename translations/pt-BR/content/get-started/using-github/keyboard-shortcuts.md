@@ -1,6 +1,6 @@
 ---
 title: Atalhos de teclado
-intro: 'Quase todas as páginas no {% data variables.product.product_name %} tem um atalho de teclado que executa as ações mais rapidamente.'
+intro: 'Quase todas as páginas no {% data variables.product.prodname_dotcom %} tem um atalho de teclado que executa as ações mais rapidamente.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -12,21 +12,28 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Sobre atalhos do teclado
 
-Digitar <kbd>?</kbd> no {% data variables.product.product_name %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para aquela página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
+Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
 
 Veja abaixo uma lista dos atalhos de teclado disponíveis.
+{% if command-palette %}
+The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Atalhos para o site
 
-| Atalho                       | Descrição                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".                                                                                                            |
-| <kbd>g</kbd> <kbd>n</kbd>    | Vai para suas notificações. Para obter mais informações, consulte {% ifversion fpt or ghes or ghae %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}." |
-| <kbd>esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                                                                                                                                      |
+| Atalho                       | Descrição                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>s</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)".                                                                                                                    |
+| <kbd>g</kbd> <kbd>n</kbd>    | Vai para suas notificações. Para obter mais informações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}." |
+| <kbd>esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                                                                                                                                              |
+
+{% if command-palette %}
+
+<kbd>control</kbd><kbd>k</kbd> or <kbd>command</kbd><kbd>k</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Repositórios
 
@@ -34,30 +41,33 @@ Veja abaixo uma lista dos atalhos de teclado disponíveis.
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>g</kbd> <kbd>c</kbd> | Vai para a aba **Code** (Código)                                                                                                                                                        |
 | <kbd>g</kbd> <kbd>i</kbd> | Vai para a aba **Issues** (Problemas). Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)".                                                               |
-| <kbd>g</kbd> <kbd>p</kbd> | Vai para a aba **Pull requests**. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes %}
+| <kbd>g</kbd> <kbd>p</kbd> | Vai para a aba **Pull requests**. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 | <kbd>g</kbd> <kbd>a</kbd> | Acesse a aba de **Ações**. Para obter mais informações, consulte "[Sobre ações](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | Vai para a aba **Projects** (Projetos). Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".                                             |
-| <kbd>g</kbd> <kbd>w</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt %}
+| <kbd>g</kbd> <kbd>w</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
 | <kbd>g</kbd> <kbd>g</kbd> | Acesse a aba **Discussões**. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".{% endif %}
 
 ## Edição de código-fonte
 
 | Atalho                                                          | Descrição                                                                                                                                                                                           |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt %}
+| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
 | <kbd>.</kbd>                                                    | Abre um repositório ou um pull request no editor baseado na web. Para obter mais informações, consulte "[Editor baseado na web](/codespaces/developing-in-codespaces/web-based-editor)".{% endif %}
 | <kbd>control b</kbd> ou <kbd>command b</kbd>                    | Insere formatação Markdown para texto em negrito                                                                                                                                                    |
 | <kbd>control i</kbd> ou <kbd>command i</kbd>                    | Insere formatação Markdown para texto em itálico                                                                                                                                                    |
-| <kbd>control k</kbd> ou <kbd>command k</kbd>                    | Insere formatação Markdown para criar um link                                                                                                                                                       |
+| <kbd>control k</kbd> ou <kbd>command k</kbd>                    | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
+| <kbd>control shift 7</kbd> ou <kbd>command shift 7</kbd>        | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                             |
+| <kbd>control shift 8</kbd> ou <kbd>command shift 8</kbd>        | Inserts Markdown formatting for an unordered list                                                                                                                                                   |
+| <kbd>control shift .</kbd> ou <kbd>command shift.</kbd>         | Inserts Markdown formatting for a quote{% endif %}
 | <kbd>e</kbd>                                                    | Abra o arquivo de código-fonte na aba **Editar arquivo**                                                                                                                                            |
 | <kbd>control f</kbd> ou <kbd>command f</kbd>                    | Começa a pesquisar no editor de arquivo                                                                                                                                                             |
 | <kbd>control g</kbd> ou <kbd>command g</kbd>                    | Localiza o próximo                                                                                                                                                                                  |
-| <kbd>shift control g</kbd> ou <kbd>shift command g</kbd>        | Localiza o anterior                                                                                                                                                                                 |
-| <kbd>shift control f</kbd> ou <kbd>command option f</kbd>       | Substitui                                                                                                                                                                                           |
-| <kbd>shift control r</kbd> ou <kbd>shift command option f</kbd> | Substitui todos                                                                                                                                                                                     |
+| <kbd>control shift g</kbd> or <kbd>command shift g</kbd>        | Localiza o anterior                                                                                                                                                                                 |
+| <kbd>control shift f</kbd> or <kbd>command option f</kbd>       | Substitui                                                                                                                                                                                           |
+| <kbd>control shift r</kbd> or <kbd>command shift option f</kbd> | Substitui todos                                                                                                                                                                                     |
 | <kbd>alt g</kbd>                                                | Pula para linha                                                                                                                                                                                     |
 | <kbd>control z</kbd> ou <kbd>command z</kbd>                    | Desfaz                                                                                                                                                                                              |
 | <kbd>control y</kbd> ou <kbd>command y</kbd>                    | Refaz                                                                                                                                                                                               |
-| <kbd>cmd + shift + p</kbd>                                      | Alterna entre as abas **Edit file** (Editar aquivo) e **Preview changes** (Visualizar alterações)                                                                                                   |
+| <kbd>command shift p</kbd>                                      | Alterna entre as abas **Edit file** (Editar aquivo) e **Preview changes** (Visualizar alterações)                                                                                                   |
 | <kbd>control s</kbd> ou <kbd>comando s</kbd>                    | Escrever uma mensagem de commit                                                                                                                                                                     |
 
 Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://codemirror.net/doc/manual.html#commands).
@@ -76,21 +86,21 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 
 ## Comentários
 
-| Atalho                                                               | Descrição                                                                                                                                                                                                                                   |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>control b</kbd> ou <kbd>command b</kbd>                         | Insere formatação Markdown para texto em negrito                                                                                                                                                                                            |
-| <kbd>control i</kbd> ou <kbd>command i</kbd>                         | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae-next or ghes > 3.1 %}
+| Atalho                                                               | Descrição                                                                                                                                                                                                                                           |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>control b</kbd> ou <kbd>command b</kbd>                         | Insere formatação Markdown para texto em negrito                                                                                                                                                                                                    |
+| <kbd>control i</kbd> ou <kbd>command i</kbd>                         | Insere a formatação Markdown para texto em itálico{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 | <kbd>controle e</kbd> ou <kbd>comando e</kbd>                        | Insere a formatação Markdown para código ou um comando dentro da linha{% endif %}
-| <kbd>control k</kbd> ou <kbd>command k</kbd>                         | Insere formatação Markdown para criar um link                                                                                                                                                                                               |
-| <kbd>control shift p</kbd> ou <kbd>command shift p</kbd>             | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae-next or ghes > 3.2 %}
-| <kbd>control shift 7</kbd> ou <kbd>command shift 7</kbd>             | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                                                                     |
+| <kbd>control k</kbd> ou <kbd>command k</kbd>                         | Insere formatação Markdown para criar um link                                                                                                                                                                                                       |
+| <kbd>control shift p</kbd> ou <kbd>command shift p</kbd>             | Alterna entre as abas de comentários **Escrever** e **Visualizar**{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift 7</kbd> ou <kbd>command shift 7</kbd>             | Insere a formatação de Markdown para uma lista ordenada                                                                                                                                                                                             |
 | <kbd>control shift 8</kbd> ou <kbd>command shift 8</kbd>             | Insere a formatação Markdown para uma lista não ordenada{% endif %}
-| <kbd>control enter</kbd>                                             | Envia um comentário                                                                                                                                                                                                                         |
-| <kbd>control .</kbd> e <kbd>control [número de resposta salvo]</kbd> | Abre o menu de respostas salvas e autocompleta o campo de comentário com uma resposta salva. Para obter mais informações, consulte "[Sobre respostas salvas](/articles/about-saved-replies)".{% ifversion fpt or ghae-next or ghes > 3.2 %}
-| <kbd>control shift .</kbd> ou <kbd>command shift.</kbd>              | Insere a formatação Markdown para uma citação{% endif %}{% ifversion fpt %}
+| <kbd>control enter</kbd>                                             | Envia um comentário                                                                                                                                                                                                                                 |
+| <kbd>control .</kbd> e <kbd>control [número de resposta salvo]</kbd> | Abre o menu de respostas salvas e autocompleta o campo de comentário com uma resposta salva. Para obter mais informações, consulte "[Sobre respostas salvas](/articles/about-saved-replies)".{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift .</kbd> ou <kbd>command shift.</kbd>              | Insere a formatação Markdown para uma citação{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> ou <kbd>command g</kbd>                         | Insere uma sugestão. Para obter mais informações, consulte "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)". 
 {% endif %}
-| <kbd>r</kbd>                                                         | Cita o texto selecionado em sua resposta. Para obter mais informações, consulte "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax#quoting-text)".                                                    |
+| <kbd>r</kbd>                                                         | Cita o texto selecionado em sua resposta. Para obter mais informações, consulte "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax#quoting-text)".                                                            |
 
 ## Listas de problemas e pull requests
 
@@ -112,7 +122,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>m</kbd>                                                 | Define um marco. Para obter mais informações, consulte "[Associar marcos a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)".                                                                                                                                                                                                                                                                                   |
 | <kbd>l</kbd>                                                 | Aplica uma etiqueta. Para obter mais informações, consulte "[Aplicar etiquetas a problemas e pull requests](/articles/applying-labels-to-issues-and-pull-requests/)".                                                                                                                                                                                                                                                                                      |
 | <kbd>a</kbd>                                                 | Define um responsável. Para obter mais informações, consulte "[Atribuir problemas e pull requests a outros usuários {% data variables.product.company_short %}](/articles/assigning-issues-and-pull-requests-to-other-github-users/)".                                                                                                                                                                                                                     |
-| <kbd>cmd + shift + p</kbd> ou <kbd>control + shift + p</kbd> | Alterna entre as abas **Escrever** e **Visualizar**{% ifversion fpt %}
+| <kbd>cmd + shift + p</kbd> ou <kbd>control + shift + p</kbd> | Alterna entre as abas **Escrever** e **Visualizar**{% ifversion fpt or ghec %}
 | <kbd>alt</kbd> e clique                                      | Ao criar um problema a partir de uma lista de tarefas, abra o novo formulário de problemas na aba atual, mantendo <kbd>alt</kbd> pressionado e clicando no {% octicon "issue-opened" aria-label="The issue opened icon" %} no canto superior direito da tarefa. Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".                                                |
 | <kbd>shift</kbd> e clique                                    | Ao criar um problema a partir de uma lista de tarefas, abra o novo formulário de problemas em uma nova aba mantendo <kbd>shift</kbd> pressionado e clicando em {% octicon "issue-opened" aria-label="The issue opened icon" %} no canto superior direito da tarefa. Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".                                            |
 | <kbd>command</kbd> ou <kbd>control + shift</kbd> e clique    | Ao criar um problema a partir de uma lista de tarefas, abra o novo formulário de problemas na nova janela mantendo <kbd>command</kbd> ou <kbd>controle + shift</kbd> pressionado e clicando em {% octicon "issue-opened" aria-label="The issue opened icon" %} no canto superior direito da tarefa. Para obter mais informações, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."{% endif %}
@@ -126,7 +136,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>j</kbd>                                 | Move a seleção para baixo na lista                                                                                                                                                                                                                                                                                                                                         |
 | <kbd>k</kbd>                                 | Move a seleção para cima na lista                                                                                                                                                                                                                                                                                                                                          |
 | <kbd>cmd + shift + enter </kbd>              | Adiciona um comentário único no diff da pull request                                                                                                                                                                                                                                                                                                                       |
-| <kbd>alt</kbd> e clique                      | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla `alt` e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.|{% ifversion fpt or ghes or ghae %}
+| <kbd>alt</kbd> e clique                      | Alterna entre opções de recolhimento e expansão de todos os comentários de revisão desatualizados em uma pull request ao manter pressionada a tecla `alt` e clicar em **Mostrar desatualizados** ou **Ocultar desatualizados**.|{% ifversion fpt or ghes or ghae or ghec %}
 | Clique, em seguida <kbd>shift</kbd> e clique | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."
 {% endif %}
 
@@ -170,7 +180,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | -------------- | ---------------------------------------- |
 | <kbd>esc</kbd> | Fecha o painel de visualização do cartão |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_actions %}
 
 | Atalho                                                    | Descrição                                                                            |
@@ -184,7 +194,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 {% endif %}
 
 ## Notificações
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 | Atalho               | Descrição            |
 | -------------------- | -------------------- |
 | <kbd>e</kbd>         | Marcar como pronto   |

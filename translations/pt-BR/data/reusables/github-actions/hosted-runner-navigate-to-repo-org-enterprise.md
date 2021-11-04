@@ -12,4 +12,4 @@
    * **Se estiver usando um executor de nível corporativo**: Em "Políticas de {% octicon "law" aria-label="The law icon" %}, clique em **Ações**.
 
      ![Configuração de ações](/assets/images/help/settings/actions-enterprise-policies.png)
-  
+

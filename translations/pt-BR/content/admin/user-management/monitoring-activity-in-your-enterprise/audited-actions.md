@@ -84,7 +84,6 @@ topics:
 | `issue_comment.update` | Um comentário em um problema (que não seja o inicial) foi alterado.                                                                                              |
 | `issue.destroy`        | Um problema foi excluído do repositório. Para obter mais informações, consulte "[Excluir uma problema](/github/managing-your-work-on-github/deleting-an-issue)". |
 
-
 ## Organizações
 
 | Ação               | Descrição                                                                                                                                                                                                                                        |
@@ -147,9 +146,9 @@ topics:
 | Ação                      | Descrição                                                                                              |
 | ------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `team.create`             | Um repositório ou conta de usuário foi adicionado a uma equipe.                                        |
-| `team.delete`             | Uma conta ou repositório foi removido de uma equipe.{% ifversion ghes > 2.22 or ghae %}
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | A categoria de um usuário foi rebaixada para de mantenedor da equipe para membro da equipe.{% endif %}
-| `team.destroy`            | Uma equipe foi excluída.{% ifversion ghes > 2.22 or ghae %}
+| `team.destroy`            | Uma equipe foi excluída.{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | Um usuário foi promovido de membro da equipe para mantenedor da equipe.{% endif %}
 
 ## Usuários
@@ -165,7 +164,7 @@ topics:
 | `user.destroy`                  | Um usuário excluiu a sua conta, acionando `user.async_delete`.{% ifversion ghes %}
 | `user.failed_login`             | Um usuário tentou fazer login com nome de usuário, senha ou código de autenticação de dois fatores incorretos.                                                                                   |
 | `user.forgot_password`          | Um usuário solicitou uma redefinição de senha através da página de login.{% endif %}
-| `user.login`                    | Um usuário iniciou a sessão.{% ifversion ghes > 2.22 or ghae %}
+| `user.login`                    | Um usuário iniciou a sessão.{% ifversion ghes or ghae %}
 | `user.mandatory_message_viewed` | Um usuário visualiza uma mensagem obrigatória (ver "[Personalizar mensagens de usuário](/admin/user-management/customizing-user-messages-for-your-enterprise)" para obter detalhes). {% endif %}
 | `user.promote`                  | Uma conta de usuário regular foi promovida a administrador do site.                                                                                                                              |
 | `user.remove_email`             | Um endereço de e-mail foi removido de uma conta de usuário.                                                                                                                                      |

@@ -1,6 +1,6 @@
 ---
 title: Administração do GitHub Enterprise
-intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. Among the tasks you can perform with this API are many relating to GitHub Actions.'
+intro: 'You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account. Entre as tarefas que você pode realizar com esta API, muitas estão relacionadas às ações do GitHub.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/enterprise-admin
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 shortTitle: Administração de empresas
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -60,7 +61,7 @@ A versão atual da sua empresa é retornada no cabeçalho de resposta de cada AP
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Log de auditoria
 
@@ -70,7 +71,7 @@ A versão atual da sua empresa é retornada no cabeçalho de resposta de cada AP
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Cobrança
 
 {% for operation in currentRestOperations %}
@@ -81,6 +82,7 @@ A versão atual da sua empresa é retornada no cabeçalho de resposta de cada AP
 
 ## GitHub Actions
 
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}

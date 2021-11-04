@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -28,15 +29,11 @@ Você deve ter acesso de gravação em um repositório para criar um branch, abr
 
 {% data reusables.branches.new-repo-default-branch %} O branch-padrão é o branch que {% data variables.product.prodname_dotcom %} exibe quando alguém visita o seu repositório. O branch padrão é também o branch inicial que o Git verifica localmente quando alguém clona o repositório. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-Por padrão, {% data variables.product.product_name %} nomeia o branch padrão {% ifversion fpt or ghes > 2.22 or ghae %}`main`{% else %}`master`{% endif %} em qualquer repositório novo.
+By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.change-default-branch %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## Trabalhando com branches
 

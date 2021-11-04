@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Cria um problema
+type: how_to
 ---
 
 Os problemas podem ser usados para acompanhar erros, aprimoramentos ou outras solicitações. Para obter mais informações, consulte "[Sobre problemas](/issues/tracking-your-work-with-issues/about-issues)".
@@ -88,7 +90,7 @@ Você pode abrir um novo problema a partir de um comentário em um problema ou p
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Criando um problema da discussão
 
@@ -109,7 +111,7 @@ Ao criar um problema a partir de uma discussão, o conteúdo da postagem na disc
 
 Se estiver usando um quadro de projeto para rastrear e priorizar seu trabalho, você poderá converter observações do quadro de projeto em problemas. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)" e "[Adicionando observações a um quadro de projeto](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Criando uma problema a partir de um item da lista de tarefas
 
@@ -127,7 +129,7 @@ Você pode usar parâmetros de consulta para abrir problemas. Os parâmetros de 
 
 {% endtip %}
 
-Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
+Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Se você criar uma URL inválida usando parâmetros de consulta, ou se você não tiver as permissões adequadas, a URL retornará uma página de erro `404 Not Found`. Se você criar uma URL que excede o limite do servidor, a URL retornará uma página de erro de `414 URI Too Long`.
 

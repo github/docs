@@ -259,3 +259,16 @@
 /enterprise-cloud@latest/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
 - /billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
 
+/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
+- /organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
+
+# The initializing-github-ae.md article is referenced in these code files:
+# - lib/github/private_instance_bootstrapper/internal_support_contact.rb
+# - lib/github/private_instance_bootstrapper/saml_idp_configuration.rb
+# - lib/github/private_instance_bootstrapper/policies_configuration.rb
+# This redirect ensures that the links don't resolve to the non-GHAE version 
+# of the docs as this article only exists in the GHAE docs.
+
+/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
+- /admin/configuration/configuring-your-enterprise/initializing-github-ae
+- /enterprise-server@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae

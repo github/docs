@@ -3,6 +3,7 @@ title: Manter a continuidade da propriedade dos repositórios da sua conta de us
 intro: Você pode convidar alguém para gerenciar seus repositórios pertencentes ao usuário se você não for capaz de fazê-lo.
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -22,7 +23,7 @@ Recomendamos convidar outro usuário de {% data variables.product.company_short 
 
 Os sucessores não podem acessar sua conta.
 
-Um sucessor designado pode gerenciar os seus repositórios públicos depois de apresentar um certificado de óbito após 7 dias ou apresentar um obituário após 21 dias. Para obter mais informações, consulte “[{% data variables.product.company_short %} Política de usuário finado](/github/site-policy/github-deceased-user-policy)".
+Um sucessor designado pode gerenciar os seus repositórios públicos depois de apresentar um certificado de óbito após 7 dias ou apresentar um obituário após 21 dias. Para obter mais informações, consulte “[{% data variables.product.company_short %} Política de usuário desativado](/free-pro-team@latest/github/site-policy/github-deceased-user-policy)".
 
 Para solicitar acesso para gerenciar repositórios como um sucessor, entre em contato com o [Suporte do GitHub](https://support.github.com/contact?tags=docs-accounts).
 

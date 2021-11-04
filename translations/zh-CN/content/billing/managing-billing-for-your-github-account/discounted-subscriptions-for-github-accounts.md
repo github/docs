@@ -10,6 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Accounts
@@ -28,11 +29,11 @@ shortTitle: 折扣订阅
 
 ## 个人帐户折扣
 
-拥有 {% data variables.product.prodname_free_user %} 的学生和教职工除了可使用无限公共和私有仓库外，经验证的学生还可以申请 {% data variables.product.prodname_student_pack %}，以便从 {% data variables.product.prodname_dotcom %} 合作伙伴处获得其他好处。 更多信息请参阅“[申请学生开发包](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)”。
+拥有 {% data variables.product.prodname_free_user %} 的学生和教职工除了可使用无限公共和私有仓库外，经验证的学生还可以申请 {% data variables.product.prodname_student_pack %}，以便从 {% data variables.product.prodname_dotcom %} 合作伙伴处获得其他好处。 更多信息请参阅“[申请学生开发包](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)”。
 
 ## 学校和大学折扣
 
-经验证的教师可出于教学和学术研究目的申请 {% data variables.product.prodname_team %}。 更多信息请参阅“[在课堂上和研究中使用 {% data variables.product.prodname_dotcom %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)”。 更多信息请参阅“[在课堂和研究中使用 {{ site.data.variables.product.prodname_dotcom }}](/articles/using-github-in-your-classroom-and-research)”。 更多信息请访问 [{% data variables.product.prodname_education %}](https://education.github.com/)。
+经验证的教师可出于教学和学术研究目的申请 {% data variables.product.prodname_team %}。 更多信息请参阅“[在课堂上和研究中使用 {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)”。 更多信息请参阅“[在课堂和研究中使用 {{ site.data.variables.product.prodname_dotcom }}](/articles/using-github-in-your-classroom-and-research)”。 更多信息请访问 [{% data variables.product.prodname_education %}](https://education.github.com/)。
 
 ## 非赢利组织和图书馆折扣
 
