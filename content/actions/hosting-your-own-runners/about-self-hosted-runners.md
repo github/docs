@@ -137,6 +137,8 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 {% ifversion fpt or ghec %}
 
+Since the self-hosted runner opens a connection to {% data variables.product.prodname_dotcom %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
+
 You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
 {% note %}

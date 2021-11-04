@@ -1,4 +1,4 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Para autenticarse en el {% data variables.product.prodname_container_registry %} dentro de un flujo de trabajo de {% data variables.product.prodname_actions %}, utiliza el `GITHUB_TOKEN` para tener la mejor experiencia en seguridad. Si tu flujo de trabajo está utilizando un token de acceso personal (PAT) para autenticarse en `ghcr.io`, entonces te recomendamos ampliamente que actualices tu flujo de trabajo para utilizar el `GITHUB_TOKEN`.
 

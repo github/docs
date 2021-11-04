@@ -189,17 +189,17 @@ sections:
     - 
       heading: 弃用 GitHub Enterprise Server 2.21
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.21 was discontinued on June 6, 2021**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '*{% data variables.product.prodname_ghe_server %} 2.21 自 2021 年 6 月 6 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server)。'
     - 
-      heading: Deprecation of GitHub Enterprise Server 2.22
+      heading: 弃用 GitHub Enterprise Server 2.22
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 2.22 will be discontinued on September 23, 2021**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '*{% data variables.product.prodname_ghe_server %} 2.22 自 2021 年 9 月 23 日起停止使用**。这意味着在此日期之后，即使对于关键的安全问题，也不会发布修补程序。为获得更好的性能、更高的安全性和新功能，请尽快[升级到最新版本的 {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.2/admin/enterprise-management/upgrading-github-enterprise-server)。'
     - 
       heading: XenServer Hypervisor 支持终止
       notes:
-        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window. Please contact [GitHub Support](https://enterprise.githubsupport.com/hc/en-us/signin) with questions or concerns.
+        - 从 {% data variables.product.prodname_ghe_server %} 3.1 开始，我们将开始停止对 Xen Hypervisor 的支持。计划对 {% data variables.product.prodname_ghe_server %} 3.3 完全停止支持，遵循标准的一年停止窗口期。如有疑问或顾虑，请联系 [GitHub 支持](https://enterprise.githubsupport.com/hc/en-us/signin)。
     - 
-      heading: Removal of Legacy GitHub Services
+      heading: 删除旧 GitHub 服务
       notes:
         - '{% data variables.product.prodname_ghe_server %} 3.2 removes unused GitHub Service database records. More information is available in the [deprecation announcement post](https://developer.github.com/changes/2018-04-25-github-services-deprecation/).'
     - 

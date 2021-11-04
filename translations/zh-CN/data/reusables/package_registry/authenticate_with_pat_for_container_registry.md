@@ -1,4 +1,4 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 要在 {% data variables.product.prodname_actions %} 工作流程中向 {% data variables.product.prodname_container_registry %} 验证，请使用 `GITHUB_TOKEN` 以获得最佳的安全性和体验。 如果您的工作流程使用个人访问令牌 (PAT) 向 `ghcr.io` 验证，我们强烈建议您更新工作流程以使用 `GITHUB_TOKEN`。
 

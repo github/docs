@@ -1,6 +1,8 @@
 ---
 title: 在企业中实施仓库管理策略
-intro: 企业所有者可为企业帐户拥有的所有组织实施特定仓库管理策略，或允许在每个组织中设置策略。
+intro: 您可以在企业组织内执行仓库管理策略，或允许在每个组织中设置策略。
+permissions: Enterprise owners can enforce policies for repository management in an enterprise.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -26,20 +28,34 @@ redirect_from:
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
+  - Repositories
   - Security
-shortTitle: Repository management policies
+shortTitle: 仓库管理策略
 ---
 
-## 配置企业中新仓库的默认可见性
+## 关于企业中的仓库管理策略
 
-每次有人在您的企业上创建新仓库时，此人必须选择仓库的可见性。 当您配置企业的默认可见性设置时，需要选择默认可见性。 For more information on repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+您可以执行策略来控制企业在 {% data variables.product.product_name %} 上的企业成员如何管理仓库。 您也可以允许组织所有者管理仓库管理策略。 更多信息请参阅“[创建和管理仓库](/repositories/creating-and-managing-repositories) ”和“[组织和团队](/organizations)”。
+
+{% ifversion ghes or ghae %}
+
+## 配置新仓库的默认可见性
+
+每次有人在您的企业上创建新仓库时，此人必须选择仓库的可见性。 当您配置企业的默认可见性设置时，需要选择默认可见性。 有关仓库可见性的更多信息，请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)。”
 
 如果企业所有者不允许成员创建某种类型的仓库，成员将无法创建此类仓库，即使可见性设置默认为此类型。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
 
@@ -54,20 +70,26 @@ shortTitle: Repository management policies
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-## 设置有关更改仓库可见性的策略
+{% endif %}
 
-当您阻止成员更改仓库可见性时，只有企业所有者可以更改仓库的可见性。
+## 执行 {% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %} 仓库权限的策略
 
-如果企业所有者仅允许组织所有者创建仓库，则成员将无法更改仓库可见性。 如果企业所有者只允许私有仓库成员创建私有仓库，则成员只能将仓库的可见性更改为私有。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
+在企业帐户拥有的所有组织中，您可以为组织成员设置{% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %}仓库权限级别（无、读取、写入或管理），或允许所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. 在“Repository visibility change”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. 在“{% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %} 权限”下，查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. 在“{% ifversion ghec or ghes > 3.1 or ghae-next %}基础{% else %}默认{% endif %} 权限”下，使用下拉菜单并选择策略。
+  {% ifversion ghec or ghes > 3.1 or ghae-next %}
+  ![带有仓库权限策略选项的下拉菜单](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+  {% else %}
+  ![带有仓库权限策略选项的下拉菜单](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
+  {% endif %}
 
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
+## 执行仓库创建策略
 
-## 设置仓库创建策略
+在企业拥有的所有组织中，您可以允许成员创建仓库、将仓库创建限于组织所有者或允许所有者在组织级别管理设置。 如果允许成员创建仓库，您可以选择成员能否创建公共、私有和内部仓库的任意组合。 {% data reusables.repositories.internal-repo-default %} 有关内部仓库的更多信息，请参阅“[创建内部仓库](/articles/creating-an-internal-repository)”。
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -88,10 +110,55 @@ shortTitle: Repository management policies
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. 在 **Repository policies（仓库策略）**选项卡中的“Repository forking（仓库复刻）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. 在“Repository forking”（仓库复刻）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。 ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
-## 设置仓库删除和转移的策略
+## 执行邀请{% ifversion ghec %} 外部{% endif %} 协作者参与仓库的策略
+
+在您的企业帐户拥有的所有组织中，您可以允许成员邀请{% ifversion ghec %}外部{% endif %}协作者加入仓库、将{% ifversion ghec %}外部协作者{% endif %}邀请限制为组织所有者或允许所有者在组织级别管理设置。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. 在“仓库 {% ifversion ghec %}外部协作者{% elsif ghes or ghae %}邀请{% endif %}”下，请查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. 在“仓库 {% ifversion ghec %}外部协作者{% elsif ghes or ghae %}邀请{% endif %}”下，使用下拉菜单并选择策略。
+  {% ifversion ghec %}
+  ![带有外部协作者邀请策略选项的下拉菜单](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+  {% elsif ghes or ghae %}
+  ![带邀请策略选项的下拉菜单](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
+  {% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+## 对默认分支名称实施策略
+
+在企业拥有的所有组织中，您可以为成员创建的任何新仓库设置默认分支名称。 您可以选择在所有组织中强制实施默认分支名称，或允许个别组织设置不同的名称。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. 在 **Repository policies（仓库策略）**选项卡的“Default branch name（默认分支名称）”下，输入新仓库应使用的默认分支名称。 ![输入默认分支名称的文本框](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. （可选）要对企业中的所有组织强制实施默认分支名称，请选择 **Enforce across this enterprise（在整个企业中实施）**。 ![强制实施复选框](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. 单击 **Update（更新）**。 ![更新按钮](/assets/images/help/business-accounts/default-branch-name-update.png)
+
+{% endif %}
+
+## 执行更改仓库可见性的策略
+
+在您的企业拥有的所有组织中，您可以允许具有管理员权限的成员更改仓库的可见性、将仓库可见性更改限制为组织所有者或允许所有者在组织级别管理设置。 当您阻止成员更改仓库可见性时，只有企业所有者可以更改仓库的可见性。
+
+如果企业所有者仅允许组织所有者创建仓库，则成员将无法更改仓库可见性。 如果企业所有者只允许私有仓库成员创建私有仓库，则成员只能将仓库的可见性更改为私有。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+5. 在“Repository visibility change”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+
+{% data reusables.enterprise-accounts.repository-visibility-policy %}
+
+## 执行仓库删除和转移的策略
+
+在您的企业拥有的所有组织中，您可以允许具有管理员权限的成员删除或转让仓库、将仓库删除和转让限制为组织所有者或允许所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -100,25 +167,28 @@ shortTitle: Repository management policies
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-{% ifversion fpt or ghes %}
+## 执行删除议题的策略
 
-## 设置 Git 推送限制策略
+在您的企业拥有的所有组织中，您可以允许具有管理员权限的成员删除仓库中的议题、将议题删除限制为组织所有者或允许所有者在组织级别管理设置。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. 在 **Repository policies（仓库策略）**选项卡中的“Repository issue deletion（仓库议题删除）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. 在“Repository issue deletion（仓库议题删除）”下，使用下拉菜单并选择策略。 ![带有议题删除策略选项的下拉菜单](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+
+{% ifversion ghes or ghae %}
+
+## 执行 Git 推送限制策略
 
 要使仓库大小保持可管理并防止发生性能问题，可以为企业中的仓库配置文件大小限制。
 
 默认情况下，强制执行仓库上传限制时，无法添加或上传超过 100 MB 的文件。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Repository upload limit”下，使用下拉菜单，然后单击最大对象大小。 ![包含最大对象大小选项的下拉菜单](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. （可选）要对企业中的所有仓库实施最大上传限制，请选择 **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
-
-{% endif %}
 
 ## 为仓库之间的拉取请求配置合并冲突编辑器
 
@@ -135,16 +205,12 @@ shortTitle: Repository management policies
 
 ## 配置强制推送
 
-每个仓库都从其所属的用户帐户或组织的设置继承了默认强制推送设置。 同样，每个组织和用户帐户都会从企业的强制推送设置继承默认强制推送设置。 如果更改企业的强制推送设置，则会更改任何用户或组织拥有的所有仓库。
+每个仓库从拥有该仓库的用户帐户或组织的设置继承默认强制推送设置。 每个组织和用户帐户都会从企业的强制推送设置继承默认强制推送设置。 如果您更改企业的强制推送设置，此策略适用于任何用户或组织拥有的所有仓库。
 
-### 阻止设备上的所有强制推送
+### 阻止强制推送到所有仓库
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Force pushes（强制推送）”下，使用下拉菜单，然后单击 **Allow（允许）**、**Block（阻止）**或 **Block to the default branch（阻止到默认分支）**。 ![强制推送下拉菜单](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
 5. 可以视情况选择 **Enforce on all repositories**，这将覆盖强制推送的组织和仓库级别设置。
@@ -177,6 +243,8 @@ shortTitle: Repository management policies
     - **Block** 来阻止对所有分支进行强制推送。
     - **Block to the default branch** 来仅阻止对默认分支进行强制推送。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
 6. 可以视情况选择 **Enforce on all repositories** 来覆盖仓库特定的设置。 注意，这**不**会覆盖企业范围的策略。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+
+{% endif %}
 
 {% ifversion ghes %}
 
@@ -217,14 +285,4 @@ shortTitle: Repository management policies
 7. 审查更改。 要确认，请单击 **Yes, enable anonymous Git read access（是，启用匿名 Git 读取权限）**。 ![在弹出窗口中确认匿名 Git 读取权限设置](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
 8. 或者，如果要阻止仓库管理员为此仓库更改设置，请选择 **Prevent repository admins from changing anonymous Git read access**。 ![选中复选框可阻止仓库管理员更改此仓库的匿名 Git 读取权限。](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
 
-{% endif %}
-
-{% ifversion ghes > 2.22 or ghae %}
-## 对默认分支名称实施策略
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-3. 在 **Repository policies（仓库策略）**选项卡的“Default branch name（默认分支名称）”下，输入新仓库应使用的默认分支名称。 ![输入默认分支名称的文本框](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. （可选）要对企业中的所有组织强制实施默认分支名称，请选择 **Enforce across this enterprise（在整个企业中实施）**。 ![强制实施复选框](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. 单击 **Update（更新）**。 ![更新按钮](/assets/images/help/business-accounts/default-branch-name-update.png)
 {% endif %}

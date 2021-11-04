@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 添加许可到仓库
@@ -21,7 +22,7 @@ shortTitle: 添加许可到仓库
 ## 在仓库中包含开源许可
 
 <!--Dotcom version uses the license tool-->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. 在文件名字段中，输入 *LICENSE* 或 *LICENSE.md*（全大写）。

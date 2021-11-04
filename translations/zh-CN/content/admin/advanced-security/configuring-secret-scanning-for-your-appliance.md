@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -27,7 +27,7 @@ topics:
 
 - [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470)（补充流式传输 SIMD 扩展 3）CPU 标志需要在运行 {% data variables.product.product_location %} 的 VM/KVM 上启用。
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- {% data variables.product.prodname_GH_advanced_security %} 的许可{% ifversion ghes > 3.0 %}（请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”）{% endif %}
 
 - 在管理控制台中启用的 {% data variables.product.prodname_secret_scanning_caps %}（请参阅“[为企业启用 {% data variables.product.prodname_GH_advanced_security %}](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)”）
 
@@ -50,11 +50,11 @@ grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. Check if there is {% ifversion ghes < 3.2 %}an **{% data variables.product.prodname_advanced_security %}**{% else %}a **Security**{% endif %} entry in the left sidebar.
+1. 检查在左侧边栏是否有 {% ifversion ghes < 3.2 %} **{% data variables.product.prodname_advanced_security %}**{% else %}个 **安全**{% endif %}入口。
 {% ifversion ghes < 3.2 %}
    ![高级安全侧边栏](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
 {% else %}
-   ![Security sidebar](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
+   ![安全侧边栏](/assets/images/enterprise/3.2/management-console/sidebar-security.png)
 {% endif %}
 
 {% data reusables.enterprise_management_console.advanced-security-license %}
@@ -66,7 +66,7 @@ grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," click **{% data variables.product.prodname_secret_scanning_caps %}**. ![用于启用或禁用 {% data variables.product.prodname_secret_scanning %} 的复选框](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
+1. 在“{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}安全{% endif %}”下，点击 **{% data variables.product.prodname_secret_scanning_caps %}**。 ![用于启用或禁用 {% data variables.product.prodname_secret_scanning %} 的复选框](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## 禁用 {% data variables.product.prodname_secret_scanning %}
@@ -76,5 +76,5 @@ grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," unselect **{% data variables.product.prodname_secret_scanning_caps %}**. ![用于启用或禁用 {% data variables.product.prodname_secret_scanning %} 的复选框](/assets/images/enterprise/management-console/secret-scanning-disable.png)
+1. 在“{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}安全{% endif %}”下，取消选择 **{% data variables.product.prodname_secret_scanning_caps %}**。 ![用于启用或禁用 {% data variables.product.prodname_secret_scanning %} 的复选框](/assets/images/enterprise/management-console/secret-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

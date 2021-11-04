@@ -1,1 +1,1 @@
-Há um limite de dez tokens emitidos por combinação de usuário/aplicativo/escopo. If an application creates more than 10 tokens for the same user and the same scopes, the oldest tokens with the same user/application/scope combination will be revoked.
+Há um limite de dez tokens emitidos por combinação de usuário/aplicativo/escopo. Se um aplicativo cria mais de 10 tokens para o mesmo usuário e os mesmos escopos, os tokens mais antigos com a mesma combinação de usuário/aplicativo/escopo serão revogados.

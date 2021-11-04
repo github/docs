@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,15 +21,15 @@ Bifurcar um repositório é semelhante a copiar um repositório, com duas grande
 
 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, existem outras restrições nos repositórios que você pode bifurcar. {% data reusables.enterprise-accounts.emu-forks %} Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_emus %}de](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Se você for um integrante de um {% data variables.product.prodname_emu_enterprise %}, existem outras restrições nos repositórios que você pode bifurcar. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-Excluir uma bifurcação não exclui o repositório upstream original. Você pode fazer quaisquer alterações que quiser em sua bifurcação — adicionar colaboradores, renomear arquivos, gerar {% data variables.product.prodname_pages %}— sem efeito no original.{% ifversion fpt %} Você não pode restaurar um repositório bifurcado excluído. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
+Excluir uma bifurcação não exclui o repositório upstream original. Você pode fazer quaisquer alterações que quiser em sua bifurcação — adicionar colaboradores, renomear arquivos, gerar {% data variables.product.prodname_pages %}— sem efeito no original.{% ifversion fpt or ghec %} Você não pode restaurar um repositório bifurcado excluído. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".{% endif %}
 
 Em projetos de código aberto, as bifurcações são usadas com frequência para iterar ideias ou alterações antes que elas sejam oferecidas de volta ao repositório upstream. Ao fazer alterações em sua bifurcação user-owned e abrir uma pull request que compara seu trabalho com o repositório upstream, você pode dar a qualquer pessoa com acesso push ao repositório upstream permissão para fazer push das alterações no seu branch de pull requests. Isso agiliza a colaboração ao permitir que os mantenedores de repositório façam commits ou executem testes localmente em seu branch de pull requests a partir de uma bifurcação de propriedade do usuário antes de fazer merge. Você não pode dar permissões de push a uma bifurcação de propriedade de uma organização.
 
@@ -40,5 +41,5 @@ Se você desejar criar um novo repositório a partir do conteúdo de um reposit�
 
 - "[Sobre modelos de desenvolvimento colaborativo](/articles/about-collaborative-development-models)"
 - "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)"
-- [Guias de código aberto](https://opensource.guide/){% ifversion fpt %}
+- [Guias de código aberto](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

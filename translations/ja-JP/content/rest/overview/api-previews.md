@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -63,19 +64,22 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 
 **カスタムメディアタイプ:** `inertia-preview` **発表日:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **更新日:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## コミット検索
 
 [コミットの検索](/rest/reference/search)をします。
 
 **カスタムメディアタイプ:** `cloak-preview` **発表日:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## リポジトリトピック
 
 リポジトリの結果を返す[呼び出し](/rest/reference/repos)で[リポジトリトピック](/articles/about-topics/)のリストを表示します。
 
 **カスタムメディアタイプ:** `mercy-preview` **発表日:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## 行動規範
@@ -96,13 +100,14 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## 署名済みコミットの必須化
 
 これで、API を使用して、[保護されたブランチで署名済みコミットを必須にする](/rest/reference/repos#branches)ための設定を管理できます。
 
 **カスタムメディアタイプ:** `zzzax-preview` **発表日:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## 複数の承認レビューの必須化
@@ -113,13 +118,6 @@ API を使用して、プルリクエストに対して[複数の承認レビュ
 
 {% endif %}
 
-{% ifversion ghes < 3.0 %}
-## チェック実行とチェックスイート API
-
-GitHub App がリポジトリのコードに対して外部チェックを実行できるようにします。 詳細については、[チェック実行](/rest/reference/checks#runs)と[チェックスイート](/rest/reference/checks#suites) API をご覧ください。
-
-**カスタムメディアタイプ:** `antiope-preview` **発表日:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -139,7 +137,7 @@ GitHub App がリポジトリのコードに対して外部チェックを実行
 **カスタムメディアタイプ:** `starfox-preview` **発表日:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## GitHub App マニフェスト
 
@@ -204,13 +202,14 @@ Organization メンバーによるリポジトリの作成可否、および作�
 **カスタムメディアタイプ:** `lydian-preview` **発表日:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## リポジトリテンプレートの作成および使用
 
 新しいエンドポイントで、[テンプレートを使用してリポジトリを作成](/rest/reference/repos#create-a-repository-using-a-template)し、`is_template` パラメータを `true` に設定して、テンプレートリポジトリである[認証済みユーザのリポジトリを作成](/rest/reference/repos#create-a-repository-for-the-authenticated-user)できます。 `is_template` キーを使用して、[リポジトリを取得](/rest/reference/repos#get-a-repository)し、テンプレートリポジトリとして設定されているかどうかを確認します。
 
 **カスタムメディアタイプ:** `baptiste-preview` **発表日:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Repositories API の新しい可視性パラメータ

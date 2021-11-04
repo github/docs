@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -20,12 +21,12 @@ shortTitle: Update access credentials
 {% ifversion not ghae %}
 ## 新しいパスワードをリクエストする
 
-1. 新しいパスワードをリクエストするには、{% ifversion fpt %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} にアクセスしてください。
-2. 個人 {% data variables.product.product_name %} アカウントに関連するメールアドレスを入力し、次に [**Send password reset email**] をクリックします。バックアップメールアドレスが設定されている場合、そのアドレスにメールが送られます。 ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
+1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
 3. パスワードをリセットするためのリンクがメールで届きます。 メールを受信してから 3 時間以内に、このリンクをクリックする必要があります。 弊社からメールが届かない場合、スパムフォルダを確認してください。
 4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**. ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
 5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
-  {% ifversion fpt %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![パスワードリカバリボックス](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}

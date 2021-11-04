@@ -1,6 +1,6 @@
 ---
 title: Duplicar um repositório
-intro: 'To maintain a mirror of a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
+intro: 'Para manter um espelho de um repositório sem a bifurcação, é possível executar um comando especial de clone e, em seguida, fazer push do espelho para o novo repositório.'
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
@@ -10,21 +10,22 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[About {% data variables.product.prodname_dotcom %} Importer](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
+**Observação:** Se você tem um projeto hospedado em outro sistema de controle de versão, você poderá importar automaticamente seu projeto para {% data variables.product.prodname_dotcom %} usando a ferramenta Importador de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre o importador de {% data variables.product.prodname_dotcom %}](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)."
 
 {% endnote %}
 
 {% endif %}
 
-Before you can push the original repository to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
+Antes de fazer push do repositório original para sua nova cópia ou _espelho_ do repositório, você deverá [criar o novo repositório](/articles/creating-a-new-repository) em {% data variables.product.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
 
 ## Espelhar um repositório
 
@@ -94,11 +95,11 @@ Assim como um clone bare, um clone espelhado inclui todos os branches remotes e 
 $ git fetch -p origin
 $ git push --mirror
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leia mais
 
-* "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-* "[About Git Large File Storage and GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
+* "[Enviando por push as alterações para o GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
+* "[Sobre o armazenamento de arquivos grandes do Git e do GitHub Desktop](/desktop/getting-started-with-github-desktop/about-git-large-file-storage-and-github-desktop)"
 * "[Sobre o Importador do GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
 
 {% endif %}

@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -46,8 +47,22 @@ topics:
 
 ## 使用自动化
 
-自动化任务可以减少您在繁琐工作上花费的时间，将更多的时间用于项目本身。 需要手动操作的越少，项目就越有可能保持最新状态。 {% data variables.product.prodname_actions %} 和 GraphQL API 使您能够实现例行项目管理任务自动化。 例如，要跟踪等待审查的拉取请求，您可以创建一个工作流程，将拉取请求添加到项目并将状态设置为“需要审核”；当拉取请求标记为“准备审核”时，可以自动触发此过程。
+You can automate tasks to spend less time on busy work and more time on the project itself. 需要手动操作的越少，项目就越有可能保持最新状态。
+
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+
+Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
 
 - 有关示例工作流程，请参阅“[自动化项目](/issues/trying-out-the-new-projects-experience/automating-projects)”。
 - 有关 API 的更多信息，请参阅“[使用 API 管理项目](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)”。
 - 有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅[“{% data variables.product.prodname_actions %}](/actions)”。
+
+## Use different field types
+
+Take advantage of the various field types to meet your needs.
+
+Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+
+Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+
+For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."

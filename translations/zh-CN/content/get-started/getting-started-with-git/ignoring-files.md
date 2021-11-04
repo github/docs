@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## 为单个仓库配置忽略的文件
@@ -26,6 +27,8 @@ GitHub 在 `github/gitignore` 公共仓库中维护建议用于许多常用操�
    ```shell
    $ touch .gitignore
   ```
+
+   If the command succeeds, there will be no output.
 
 例如 *.gitignore* 文件，请参阅 Octocat 仓库中的“[一些常见的 .gitignore 配置](https://gist.github.com/octocat/9257657)”。
 
