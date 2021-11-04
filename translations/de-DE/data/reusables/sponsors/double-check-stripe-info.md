@@ -1,1 +1,0 @@
-Stelle bei der Bewerbung für ein „Stripe Connect"-Konto sicher, dass alle Deine Informationen richtig sind, bevor Du Deine Bewerbung absendest. Nach dem Absenden Deiner Bewerbung ist es schwierig, Identitätsinformationen wie Deinen Name oder das Geburtsdatum zu aktualisieren.

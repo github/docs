@@ -1,6 +1,6 @@
 ---
 title: Organization の人のロールを表示する
-intro: 'Organization 内の人のリストを表示し、それらのロールでフィルタリングすることができます。 Organization のロールの詳細については、「[Organizationの権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。'
+intro: 'Organization 内の人のリストを表示し、それらのロールでフィルタリングすることができます。 For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: View people in an organization

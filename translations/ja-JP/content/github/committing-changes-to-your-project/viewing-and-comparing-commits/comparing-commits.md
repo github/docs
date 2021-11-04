@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 リポジトリの異なるバージョンを比較するには、リポジトリのパスに `/compare` を追加します。
@@ -29,9 +30,9 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ## タグを比較する
 
-リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% ifversion fpt or ghae or ghes %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
+リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% ifversion fpt or ghae or ghes or ghec %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
 
-{% ifversion fpt or ghae or ghes %}タグを比較するには、ページ上部の `compare` ドロップダウンメニューからタグ名を選択できます。{% else %}ブランチ名を入力する代わりに、`compare` ドロップダウンメニューにタグの名前を入力します。{% endif %}
+{% ifversion fpt or ghae or ghes or ghec %}タグを比較するには、ページ上部の `compare` ドロップダウンメニューからタグ名を選択できます。{% else %}ブランチ名を入力する代わりに、`compare` ドロップダウンメニューにタグの名前を入力します。{% endif %}
 
 2 つのタグ間を比較する例については、[こちらをクリック](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)してください。
 

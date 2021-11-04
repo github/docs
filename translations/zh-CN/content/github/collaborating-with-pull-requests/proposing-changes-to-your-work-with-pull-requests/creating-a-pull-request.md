@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -147,15 +148,15 @@ gh pr create --web
 
 {% enddesktop %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% codespaces %}
 
-1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon. ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
-1. 检查作为合并来源的本地分支和仓库以及作为合并目标的远程分支和仓库是否正确。 然后为拉取请求提供标题和描述。 ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-pr.png)
+1. 将更改提交到仓库的本地副本后，请单击 **Create Pull Request（创建拉取请求）**图标。 ![高亮显示暂存按钮的源控制侧边栏](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+1. 检查作为合并来源的本地分支和仓库以及作为合并目标的远程分支和仓库是否正确。 然后为拉取请求提供标题和描述。 ![GitHub 拉取请求侧栏](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. 单击 **Create（创建）**。
 
-For more information on creating pull requests in {% data variables.product.prodname_codespaces %}, see "[Using Codespaces for pull requests](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)."
+有关在 {% data variables.product.prodname_codespaces %} 中创建拉取请求的更多信息，请参阅“[对拉取请求使用代码空间](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests)”。
 
 {% endcodespaces %}
 

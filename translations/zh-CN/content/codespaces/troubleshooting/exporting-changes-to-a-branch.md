@@ -4,6 +4,7 @@ intro: This article provides steps for exporting your codespace changes to a bra
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

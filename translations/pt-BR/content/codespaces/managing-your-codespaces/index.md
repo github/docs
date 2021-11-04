@@ -4,6 +4,7 @@ intro: 'Você pode usar as configurações de {% data variables.product.prodname
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 redirect_from:

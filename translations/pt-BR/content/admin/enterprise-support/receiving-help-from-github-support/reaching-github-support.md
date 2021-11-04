@@ -19,6 +19,8 @@ Embora a nossa equipe de suporte faça o melhor para responder às solicitaçõe
 
 ## Entrar em contato com o {% data variables.contact.enterprise_support %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 Os clientes de {% data variables.contact.enterprise_support %} podem abrir um tíquete de suporte usando o {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou o {% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} o {% data variables.contact.contact_ae_portal %}{% endif %}. Marque a prioridade do tíquete como {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}. Para obter mais informações, consulte "[Atribuir uma prioridade a um tíquete de suporte](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)" e "[Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)".
 
 ## Entrar em contato com o {% data variables.contact.enterprise_support %}

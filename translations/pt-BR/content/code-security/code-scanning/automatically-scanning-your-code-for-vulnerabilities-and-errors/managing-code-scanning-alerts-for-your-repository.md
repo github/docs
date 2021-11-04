@@ -6,8 +6,10 @@ product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
+miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-from-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
@@ -36,7 +38,7 @@ Por padrão, {% data variables.product.prodname_code_scanning %} analisa seu có
 
 ## Sobre detalhes de alertas
 
-Cada alerta destaca um problema com o código e o nome da ferramenta que o identificou. Você pode ver a linha de código que acionou o alerta, bem como as propriedades do alerta, como, por exemplo, a gravidade{% ifversion fpt or ghes > 3.1 or ghae-issue-4697 %}, gravidade da segurança,{% endif %} e a natureza do problema. Os alertas também informam quando o problema foi introduzido pela primeira vez. Para os alertas identificados pela análise do {% data variables.product.prodname_codeql %} , você também verá informações sobre como corrigir o problema.
+Cada alerta destaca um problema com o código e o nome da ferramenta que o identificou. Você pode ver a linha de código que acionou o alerta, bem como as propriedades do alerta, como, por exemplo, a gravidade{% ifversion fpt or ghes > 3.1 or ghae-issue-4697 or ghec %}, gravidade da segurança,{% endif %} e a natureza do problema. Os alertas também informam quando o problema foi introduzido pela primeira vez. Para os alertas identificados pela análise do {% data variables.product.prodname_codeql %} , você também verá informações sobre como corrigir o problema.
 
 ![Exemplo de alerta de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
 
@@ -48,9 +50,9 @@ Quando {% data variables.product.prodname_code_scanning %} relata alertas de flu
 
 Níveis de gravidade do alerta podem ser `Error`, `Warning` ou `Note`.
 
-Por padrão, qualquer resultado de digitalização de código com uma gravidade de `error` irá gerar uma falha de verificação. {% ifversion fpt or ghes > 3.1 or ghae-issue-4697 %}Você pode especificar o nível de gravidade no qual os pull requests que habilitam alertas de verificação de código devem falhar. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
+Por padrão, qualquer resultado de digitalização de código com uma gravidade de `error` irá gerar uma falha de verificação. {% ifversion fpt or ghes > 3.1 or ghae-issue-4697 or ghec %}Você pode especificar o nível de gravidade no qual os pull requests que habilitam alertas de verificação de código devem falhar. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4697 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4697 or ghec %}
 ### Sobre níveis de gravidade de segurança
 
 {% data variables.product.prodname_code_scanning_capc %} exibe níveis de gravidade de segurança para alertas gerados por consultas de segurança. Níveis de severidade de segurança podem ser `graves`, `altos`, `médios` ou `baixos`.
@@ -58,6 +60,25 @@ Por padrão, qualquer resultado de digitalização de código com uma gravidade 
 Para calcular a gravidade da segurança de um alerta, usamos dados de Pontuação do Sistema de Vulnerabilidade Comum (CVSS). O CVSS é uma estrutura aberta para comunicar as características e gravidade das vulnerabilidades de software, e é comumente usado por outros produtos de segurança para pontuar alertas. Para obter mais informações sobre como os níveis de gravidade são calculados, consulte [o post do blogue](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
 
 Por padrão, qualquer resultado de verificação de código com uma gravidade de segurança de `Grave` ou `Alta` irá causar uma falha de verificação. Você pode especificar qual nível de segurança para os resultados da digitalização do código deve causar uma falha de verificação. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
+
+### Sobre etiquetas para alertas não encontrados no código do aplicativo
+
+{% data variables.product.product_name %} atribui uma etiqueta de categoria para alertas que não são encontrados no código do aplicativo. A etiqueta está relacionado à localização do alerta.
+
+- **Gerado**: Código gerado pelo processo de compilação
+- **Teste**: Código de teste
+- **Biblioteca**: Biblioteca ou código de terceiros
+- **Documentação**: Documentação
+
+{% data variables.product.prodname_code_scanning_capc %} categoriza arquivos por caminho do arquivo. Você não pode categorizar manualmente os arquivos de origem.
+
+Aqui está um exemplo da lista de alerta de {% data variables.product.prodname_code_scanning %} de um alerta marcado como ocorrendo no código da biblioteca.
+
+![Código digitalizando o alerta de biblioteca na lista](/assets/images/help/repository/code-scanning-library-alert-index.png)
+
+Na página de alerta, você pode ver que o caminho do arquivo é marcado como código da biblioteca (etiqueta `Biblioteca`).
+
+![Código digitalizando as informações do alerta de biblioteca](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
 ## Visualizar os alertas de um repositório
 
@@ -70,10 +91,10 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 1. Opcionalmente, use a caixa de pesquisa de texto livre ou os menus suspensos para filtrar alertas. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. Em "{% data variables.product.prodname_code_scanning_capc %}", clique no alerta que você gostaria de explorar.
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
   ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
   ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
@@ -81,7 +102,7 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado. ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% note %}
 
 **Observação:** Para análise de {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}, você pode ver informações sobre a última execução em um cabeçalho na parte superior da lista de alertas de {% data variables.product.prodname_code_scanning %} para o repositório.
@@ -96,7 +117,7 @@ Por exemplo, você pode ver quando o último scanner foi executada, o número de
 Você pode filtrar os alertas exibidos no modo de exibição de alertas de {% data variables.product.prodname_code_scanning %}. Isso é útil caso haja muitos alertas pois você pode se concentrar em um determinado tipo de alerta. Existem alguns filtros predefinidos e uma série de palavras-chave que você pode usar para refinar a lista de alertas exibidos.
 
 - Para usar um filtro predefinido, clique **Filtros** ou em um filtro exibido no cabeçalho da lista de alertas e escolha um filtro na lista suspensa.
-  {% ifversion fpt or ghes > 3.0 %}![Filtros predefinidos](/assets/images/help/repository/code-scanning-predefined-filters.png)
+  {% ifversion fpt or ghes > 3.0 or ghec %}![Filtros predefinidos](/assets/images/help/repository/code-scanning-predefined-filters.png)
   {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
 - Para usar uma palavra-chave, digite diretamente na caixa de texto dos filtros ou:
   1. Clique na caixa de filtros para exibir uma lista de todas as palavras-chave de filtro disponíveis.
@@ -108,16 +129,9 @@ Se você inserir vários filtros, a visualização mostrará alertas que corresp
 
 ### Restringir resultados apenas ao código do aplicativo
 
-Você pode usar o filtro "Apenas alertas no código do aplicativo" ou a palavra-chave `autofilter:true` e valor para restringir os resultados de alertas no código do aplicativo. O código do aplicativo exclui o seguinte.
+Você pode usar o filtro "Apenas alertas no código do aplicativo" ou a palavra-chave `autofilter:true` e valor para restringir os resultados de alertas no código do aplicativo. Consulte "[Sobre etiquetas para alertas que não estão no código de aplicativos](#about-labels-for-alerts-that-are-not-found-in-application-code)" acima para mais informações sobre os tipos de código que não são código do aplicativo.
 
-- Código gerado pelo processo de compilação
-- Código de teste
-- Biblioteca ou código de terceiros
-- Documentação
-
-{% data variables.product.prodname_code_scanning_capc %} categoriza arquivos por caminho do arquivo. No momento, você não pode categorizar manualmente os arquivos de origem.
-
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghec %}
 
 ## Pesquisando alertas de {% data variables.product.prodname_code_scanning %}
 
@@ -158,11 +172,11 @@ Qualquer pessoa com permissão de gravação para um repositório pode corrigir 
 
 Se você tem permissão de escrita em um repositório, você pode visualizar alertas corrigidos, vendo o resumo de alertas e clicando em **Fechado**. Para obter mais informações, consulte "[Visualizar os alertas de um repositório](#viewing-the-alerts-for-a-repository). A lista "Fechado" mostra alertas e alertas corrigidos que os usuários ignoraram.
 
-Você pode usar{% ifversion fpt or ghes > 3.1 or ghae-next %} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, marcar, por sua vez, todos os alertas correspondentes como fechados.
+Você pode usar{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, marcar, por sua vez, todos os alertas correspondentes como fechados.
 
 Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o menu suspenso "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ![Filtrar alertas por branch](/assets/images/help/repository/code-scanning-branch-filter.png)
 {% else %}
 ![Filtrar alertas por branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
@@ -198,9 +212,9 @@ Para ignorar ou excluir alertas:
 
    ![Excluir alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
-   Opcionalmente, você pode usar{% ifversion fpt or ghes > 3.1 or ghae-next %}} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas correspondentes de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
+   Opcionalmente, você pode usar{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas correspondentes de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
   ![Filtrar alertas por regra](/assets/images/help/repository/code-scanning-filter-by-rule.png)
 {% else %}
   ![Filtrar alertas por regra](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
@@ -208,7 +222,7 @@ Para ignorar ou excluir alertas:
 
 1. Se você deseja ignorar um alerta, é importante explorar primeiro o alerta para que você possa escolher o motivo correto para ignorá-lo. Clique no alerta que você deseja explorar.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
    ![Abrir um alerta da lista de resumo](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
   ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)

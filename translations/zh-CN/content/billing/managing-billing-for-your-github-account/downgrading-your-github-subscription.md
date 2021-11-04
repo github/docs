@@ -1,6 +1,6 @@
 ---
 title: 降级 GitHub 订阅
-intro: '您可以随时降级任何类型 {% data variables.product.product_name %} 帐户的订阅。'
+intro: '您可以随时降级 {% data variables.product.product_location %} 上任何类型的帐户的订阅。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /articles/downgrading-your-personal-account-s-billing-plan/
@@ -19,6 +19,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/downgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Downgrades

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## Volver a escribir el mensaje de confirmación más reciente
@@ -25,7 +26,7 @@ Si la confirmación solo existe en tu repositorio local y no se ha subido a {% d
 2. Escribe `git commit --amend` y presiona **Enter** (Intro).
 3. En tu editor de texto, edita el mensaje de confirmación y guarda la confirmación.
     - Puedes agregar un coautor al agregar una introducción a la confirmación. Para obtener más información, consulta "[Crear una confirmación con múltiples autores](/articles/creating-a-commit-with-multiple-authors)".
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
     - Puedes crear confirmaciones en nombre de tu organización agregando una introducción al mensaje de la confirmación. Para obtener más información, consulta "[Crear una confirmación en nombre de una organización](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 

@@ -5,6 +5,7 @@ intro: 'カスタム開発コンテナを作成して、{% data variables.produc
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
 type: tutorial

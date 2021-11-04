@@ -5,6 +5,7 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -14,7 +15,7 @@ topics:
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-Enterprise アカウントをお持ちでない場合は、{% data variables.contact.enterprise_portal %} を使用してチケットを送信してください。 Enterprise アカウントの詳細については、「[Enterprise アカウントについて](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)」を参照してください。
+Enterprise アカウントをお持ちでない場合は、{% data variables.contact.enterprise_portal %} を使用してチケットを送信してください。 Enterprise アカウントの詳細については、「[Enterprise アカウントについて](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)」を参照してください。
 
 ## {% data variables.contact.support_portal %} を使ってチケットをサブミットする
 
@@ -30,6 +31,8 @@ Enterprise アカウントをお持ちでない場合は、{% data variables.con
 7. [**Send request**] をクリックします。 ![[Send request] ボタン](/assets/images/help/support/send-request-button.png)
 
 ## {% data variables.contact.enterprise_portal %} を使ってチケットをサブミットする
+
+{% data reusables.support.zendesk-deprecation %}
 
 1. {% data variables.contact.contact_enterprise_portal %} に移動します。
 5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)

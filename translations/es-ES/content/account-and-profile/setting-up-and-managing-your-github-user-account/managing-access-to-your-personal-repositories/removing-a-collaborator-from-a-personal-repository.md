@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
@@ -29,7 +30,7 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. Da clic en {% octicon "trash" aria-label="The trash icon" %} a la derecha del colaborador que quieres eliminar. ![Botón para eliminar un colaborador](/assets/images/help/repository/collaborator-remove.png)
 {% else %}

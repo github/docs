@@ -1,6 +1,6 @@
 ---
 title: Revisar tus claves SSH
-intro: 'Para mantener seguras tus credenciales, debes auditar de manera regular tus claves SSH, llaves de implementación y revisar las aplicaciones autorizadas que acceden a tu {% data variables.product.product_name %} cuenta.'
+intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe/
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -34,24 +35,13 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Busca tu huella digital de llave pública y anótala. {% ifversion ghes < 3.0 %}Si estàs utilizando OpenSSH 6.7 o superior:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  Si estás usando OpenSSH 6.8 o una versión más reciente:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+6. Busca tu huella digital de llave pública y anótala.
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. Las claves SSH en {% data variables.product.product_name %} *deben* coincidir con las mismas calves en tu computadora.
 
 {% endmac %}
 
@@ -59,12 +49,11 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-    ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay claves SSH válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de claves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **Nota:** Si estás auditando tus claves SSH por una operación de Git fallida, la clave no verificada que provocó el [error de auditoría de clave SSH](/articles/error-we-re-doing-an-ssh-key-audit) se resaltará en la lista de claves SSH.
 
   {% endtip %}
 
@@ -74,24 +63,13 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. Busca tu huella digital de llave pública y anótala. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  Si estás usando OpenSSH 6.8 o una versión más reciente:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+6. Busca tu huella digital de llave pública y anótala.
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. Las claves SSH en {% data variables.product.product_name %} *deben* coincidir con las mismas calves en tu computadora.
 
 {% endwindows %}
 
@@ -99,12 +77,11 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-    ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay claves SSH válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de claves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **Nota:** Si estás auditando tus claves SSH por una operación de Git fallida, la clave no verificada que provocó el [error de auditoría de clave SSH](/articles/error-we-re-doing-an-ssh-key-audit) se resaltará en la lista de claves SSH.
 
   {% endtip %}
 
@@ -112,20 +89,11 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Busca tu huella digital de llave pública y anótala. {% ifversion ghes < 3.0 %}If you're using OpenSSH 6.7 or older:
+6. Busca tu huella digital de llave pública y anótala.
   ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
-
-  Si estás usando OpenSSH 6.8 o una versión más reciente:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
-```shell $ ssh-add -l -E sha256
-> 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA) ```{% endif %}
 
 7. Las claves SSH en {% data variables.product.product_name %} *deben* coincidir con las mismas calves en tu computadora.
 

@@ -1,7 +1,7 @@
 ---
 title: Enforcing policies for security settings in your enterprise
-intro: "You can enforce policies to manage security settings in your enterprise's organizations, or allow policies to be set in each organization."
-permissions: 'Enterprise owners can enforce policies for security settings in an enterprise.'
+intro: 'You can enforce policies to manage security settings in your enterprise''s organizations, or allow policies to be set in each organization.'
+permissions: Enterprise owners can enforce policies for security settings in an enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:

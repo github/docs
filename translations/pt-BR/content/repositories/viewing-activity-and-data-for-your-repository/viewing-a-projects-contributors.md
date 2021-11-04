@@ -1,6 +1,6 @@
 ---
 title: Exibir contribuidores do projeto
-intro: 'Você pode ver quem contribuiu com commits para um repositório{% ifversion fpt %} e as dependências dele{% endif %}.'
+intro: 'Você pode ver quem contribuiu com commits para um repositório{% ifversion fpt or ghec %} e as dependências dele{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Visualizar contribuidores do projeto
@@ -21,7 +22,7 @@ shortTitle: Visualizar contribuidores do projeto
 
 No gráfico de contribuidores, você pode visualizar os 100 principais contribuidores de um repositório{% ifversion ghes or ghae %}, incluindo coautores de commits{% endif %}. Commits de merge e commits vazios não são contabilizados como contribuições para este gráfico.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Você também pode ver uma lista de pessoas que contribuíram para as dependências Python do projeto. Para acessar essa lista de contribuidores da comunidade, visite `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
@@ -47,4 +48,4 @@ Se você não aparecer no gráfico de contribuidores de um repositório, pode se
 
 Se todos os seus commits no repositório estiverem em branches não padrão, você não estará no gráfico de contribuidores. Por exemplo, os commits no branch `gh-pages` só serão incluídos no gráfico se `gh-pages` for o branch padrão do repositório. Para que seja feito merge dos seus commits no branch padrão, você precisa criar uma pull request. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)".
 
-Se o endereço de e-mail que você usou para criar os commits não estiver conectado à sua conta em {% data variables.product.product_name %}, seus commits não serão vinculados à sua conta e você não aparecerá no gráfico de contribuidores. Para obter mais informações, consulte "[Definir o seu endereço de e-mail de commit](/articles/setting-your-commit-email-address){% ifversion not ghae %}" e "[Adicionar um endereço de e-mail à sua conta de {% data variables.product.product_name %} ](/articles/adding-an-email-address-to-your-github-account){% endif %}."
+Se o endereço de e-mail que você usou para criar os commits não estiver conectado à sua conta em {% data variables.product.product_name %}, seus commits não serão vinculados à sua conta e você não aparecerá no gráfico de contribuidores. Para obter mais informações, consulte "[Definir o seu endereço de e-mail de commit](/articles/setting-your-commit-email-address){% ifversion not ghae %}" e "[Adicionar um endereço de e-mail à sua conta de {% data variables.product.prodname_dotcom %} ](/articles/adding-an-email-address-to-your-github-account){% endif %}."

@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
+import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
@@ -13,9 +14,17 @@ enum ViewState {
 }
 
 export const Survey = () => {
+  const { asPath } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    // Always reset the form if navigating to a new page because what
+    // you might have said or started to say belongs exclusively to
+    // to the page you started on.
+    setState(ViewState.START)
+  }, [asPath])
 
   function vote(state: ViewState) {
     return () => {
@@ -55,13 +64,10 @@ export const Survey = () => {
             checked={state === ViewState.YES}
           />
           <label
-            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-info-inverse')}
+            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-accent-emphasis')}
             htmlFor="survey-yes"
           >
-            <ThumbsupIcon
-              size={16}
-              className={state === ViewState.YES ? 'color-text-white' : 'color-text-tertiary'}
-            />
+            <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
           </label>
           <input
             id="survey-no"
@@ -74,13 +80,10 @@ export const Survey = () => {
             checked={state === ViewState.NO}
           />
           <label
-            className={cx('btn', state === ViewState.NO && 'color-bg-danger-inverse')}
+            className={cx('btn', state === ViewState.NO && 'color-bg-danger-emphasis')}
             htmlFor="survey-no"
           >
-            <ThumbsdownIcon
-              size={16}
-              className={state === ViewState.NO ? 'color-text-white' : 'color-text-tertiary'}
-            />
+            <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
           </label>
         </div>
       )}
@@ -93,9 +96,7 @@ export const Survey = () => {
                 {state === ViewState.YES && t`comment_yes_label`}
                 {state === ViewState.NO && t`comment_no_label`}
               </span>
-              <span className="text-normal color-text-tertiary float-right ml-1">
-                {t`optional`}
-              </span>
+              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
             <textarea
               className="form-control input-sm width-full"
@@ -106,9 +107,7 @@ export const Survey = () => {
           <p>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
-              <span className="text-normal color-text-tertiary float-right ml-1">
-                {t`optional`}
-              </span>
+              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
             <input
               type="email"
@@ -117,7 +116,7 @@ export const Survey = () => {
               id="survey-email"
               placeholder={t`email_placeholder`}
             />
-            <span className="f6 color-text-secondary">{t`not_support`}</span>
+            <span className="f6 color-fg-muted">{t`not_support`}</span>
           </p>
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
@@ -135,11 +134,11 @@ export const Survey = () => {
       )}
 
       {state === ViewState.END && (
-        <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>
+        <p className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
 
       <Link
-        className="f6 text-normal color-text-link"
+        className="f6 text-normal color-fg-accent"
         href="/github/site-policy/github-privacy-statement"
         target="_blank"
       >

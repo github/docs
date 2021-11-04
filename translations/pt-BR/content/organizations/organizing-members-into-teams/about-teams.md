@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -35,6 +36,8 @@ Você também pode usar a sincronização LDAP para sincronizar os integrantes e
 ## Visibilidade da equipe
 
 {% data reusables.organizations.types-of-team-visibility %}
+
+You can view all the teams you belong to on your personal dashboard. Para obter mais informações, consulte "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)".
 
 ## Páginas da equipe
 
