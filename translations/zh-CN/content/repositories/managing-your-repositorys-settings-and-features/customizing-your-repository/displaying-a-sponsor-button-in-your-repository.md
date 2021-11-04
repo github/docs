@@ -8,6 +8,7 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/displaying-a-sponsor-button-in-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 显示赞助按钮

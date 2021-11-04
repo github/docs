@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## 关于提交
@@ -17,7 +18,7 @@ versions:
 
 您可以对协作处理的任何提交添加合作作者。 更多信息请参阅“[创建有多个作者的提交](/github/committing-changes-to-your-project/creating-a-commit-with-multiple-authors)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 您也可以代表组织创建提交。 更多信息请参阅“[代表组织创建提交](/github/committing-changes-to-your-project/creating-a-commit-on-behalf-of-an-organization)”{% endif %}
 
 变基允许您更改一系列提交，并且可以修改时间表中的提交顺序。 更多信息请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”。

@@ -1,13 +1,13 @@
 ---
 title: Creating a composite action
 intro: 'In this guide, you''ll learn how to build a composite action.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -16,6 +16,7 @@ shortTitle: Composite action
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -27,7 +28,7 @@ Once you complete this project, you should understand how to build your own comp
 
 ## 必要な環境
 
-始める前に、{% data variables.product.product_name %} リポジトリを作成します。
+Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 1. {% data variables.product.product_location %} に新しいパブリックリポジトリを作成します。 You can choose any repository name, or use the following `hello-world-composite-action` example. これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 

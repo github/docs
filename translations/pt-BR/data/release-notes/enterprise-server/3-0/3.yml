@@ -17,7 +17,7 @@ sections:
     - Quando o alerta de vulnerabilidade está habilitado, as atualizações para a série 3.0 falhariam.
     - Trabalhos relacionados com códigos foram colocados na fila, levando a uma acumulação de trabalhos não processados.
   changes:
-    - Use a relative number for consul and nomad `bootstrap_expect` allowing for a cluster to bootstrap even if a handful of nodes are down.
+    - Use uma quantidade relativa para o `bootstrap_expect` cônsul e nômago permitindo que um cluster seja inicializado mesmo que alguns nós estejam fora de serviço.
     - Os registros irão girar com base no tamanho e tempo.
     - Adicionado kafka-lite ao comando `ghe-cluster-status`.
   known_issues:
@@ -26,18 +26,18 @@ sections:
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
     - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório onde o caminho do arquivo tem mais de 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
-    - When maintenance mode is enabled, some services continue to be listed as "active processes". The services identified are expected to run during maintenance mode. If you experience this issue and are unsure, contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us).
+    - Quando o modo de manutenção está habilitado, alguns serviços continuam listados como "processos ativos". Espera-se que os serviços identificados sejam executados durante o modo de manutenção. Se você tiver problemas e tiver dúvidas, entre em contato com o [Suporte do GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us).
     - A interpretação do caderno Jupyter na interface do usuário pode falhar se o caderno de anotações incluir caracteres que não são ASCII UTF-8.
     - O reStructuredText (RST) interpretado na interface do usuário da web pode falhar e, em vez disso, exibir texto de markup RST.
     - As criações antigas das páginas não foram limpas, o que pode preencher o disco do usuário (`/data/user/`).
     - Ao excluir um branch após o merge de um pull request, será exibida uma mensagem de erro, embora a exclusão do branch tenha êxito.
     - |
-      Log rotation may fail to signal services to transition to new log files, leading to older log files continuing to be used, and eventual root disk space exhaustion.
-      To remedy and/or prevent this issue, run the following commands in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), or contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) for assistance:
+      A rotação do registro pode falhar ao sinalizar serviços para a transição para novos arquivos de registro, fazendo com que os arquivos de registro mais antigos continuem sendo usados e gerando, eventualmente, a exaustão de espaço no disco de raiz.
+      Para remediar e/ou evitar esse problema, execute os seguintes comandos no [shell administrativo](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) ou entre em contato com o [Suporte do GitHub Enterprise](https://enterprise. ithubsupport.com/hc/en-us) para obter assistência:
 
       ```
       printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
       sudo /usr/sbin/logrotate -f /etc/logrotate.conf
       ```
     - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
-    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

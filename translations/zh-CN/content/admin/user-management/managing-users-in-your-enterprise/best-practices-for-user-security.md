@@ -25,10 +25,10 @@ shortTitle: 用户安全最佳实践
 
 ## 需要密码管理器
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/)--on any computer they use to connect to your enterprise. 这样可以确保密码更强，大大降低被入侵或被盗的可能性。
+我们强烈建议要求您的用户在他们用于连接到企业的任何计算机上安装和使用密码管理器，例如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)。 这样可以确保密码更强，大大降低被入侵或被盗的可能性。
 
 ## 限制对团队和仓库的访问
 
 要限制出现安全漏洞时的潜在攻击面，我们强烈建议仅向用户授予完成工作所需的团队和仓库的访问权限。 由于具有所有者角色的成员可以访问组织中的所有团队和仓库，我们强烈建议尽可能减小团队的规模。
 
-有关如何配置团队和团队权限的更多信息，请参阅“[组织仓库的权限级别](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)”。
+For more information on configuring teams and team permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."

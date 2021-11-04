@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -35,6 +36,8 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 ## Team の可視性
 
 {% data reusables.organizations.types-of-team-visibility %}
+
+You can view all the teams you belong to on your personal dashboard. 詳細は「[パーソナルダッシュボードについて](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)」を参照してください。
 
 ## Team のページ
 

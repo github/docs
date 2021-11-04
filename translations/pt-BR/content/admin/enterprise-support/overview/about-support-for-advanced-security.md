@@ -38,6 +38,8 @@ Se não tem certeza se o problema está fora do escopo, abra um tíquete e ficar
 
 ## Entrar em contato com o {% data variables.contact.enterprise_support %}
 
+{% data reusables.support.zendesk-deprecation %}
+
 Você pode entrar em contato com {% data variables.contact.enterprise_support %} através do {% data variables.contact.contact_enterprise_portal %} para obter ajuda em:
 - Instalar e usar o {% data variables.product.prodname_advanced_security %};
 - Identificar e verificar as causas dos erros com suporte

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 ---
@@ -24,7 +25,7 @@ $ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock
 > fornece acesso shell.
 ```
 
-O *username* na resposta é a conta do {% data variables.product.product_name %} a que a chave está vinculada no momento. Se a resposta for parecida com "username/repo", a chave foi vinculada a um repositório como [*chave de implantação*](/guides/managing-deploy-keys#deploy-keys).
+O *nome de usuário* na resposta é a conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} à qual a chave está atualmente anexada. Se a resposta for parecida com "username/repo", a chave foi vinculada a um repositório como [*chave de implantação*](/guides/managing-deploy-keys#deploy-keys).
 
 
 Para forçar o SSH a usar apenas a chave fornecida na linha de comando, use `-o` para adicionar a opção `IdentitiesOnly=yes`:

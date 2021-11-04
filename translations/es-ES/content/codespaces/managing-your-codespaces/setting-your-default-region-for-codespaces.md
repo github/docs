@@ -4,6 +4,7 @@ intro: 'Pues configurar tu región predeterminada en la página de ajustes de pe
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 shortTitle: Configurar la región predeterminada

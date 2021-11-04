@@ -1,6 +1,6 @@
 ---
 title: Administrar las notificaciones en tu bandeja de entrada
-intro: 'Utiliza tu bandeja de entrada para clasificar y sincronizar rápidamente tus notificaciones a través de tu correo electrónico {% ifversion fpt or ghes > 2.22 %} y dispositivos móviles{% endif %}.'
+intro: 'Utiliza tu bandeja de entrada para clasificar y sincronizar rápidamente tus notificaciones a través de tu correo electrónico {% ifversion fpt or ghes or ghec %} y dispositivos móviles{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 shortTitle: Administrar desde tu bandeja de entrada
@@ -21,7 +22,7 @@ shortTitle: Administrar desde tu bandeja de entrada
 
 ## Acerca de tu bandeja de entrada
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %}Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
 {% endif %}
 
@@ -98,7 +99,7 @@ Los filtros personalizados no son compatibles actualmente con:
 Estos son los tipos de filtro que puedes utilizar:
   - Filtrar por repositorio con `repo:`
   - Filtrar por tipo de debate con `is:`
-  - Filtrar por razón de la notificación con `reason:`{% ifversion fpt %}
+  - Filtrar por razón de la notificación con `reason:`{% ifversion fpt or ghec %}
   - Filtrar por autor de la notificación con `author:`
   - Filtrar por organización con `org:`{% endif %}
 
@@ -108,21 +109,21 @@ Para agregar un filtro de `repo:`, debes incluir al propietario del repositorio 
 
 ### Queries de tipo `is:` compatibles
 
-Para filtrar las notificaciones para una actividad específica en {% data variables.product.product_name %}, puedes utililzar la consulta `is`. Por ejemplo, para ver únicamente las actualizaciones de las invitaciones al repositorio, utiliza `is:repository-invitation`{% ifversion not ghae %}, y para ver únicamente las alertas de {% ifversion fpt or ghes %}{% else %}seguridad{% endif %} del {% data variables.product.prodname_dependabot %}, utiliza `is:repository-vulnerability-alert`.{% endif %}
+Para filtrar las notificaciones para una actividad específica en {% data variables.product.product_location %}, puedes utililzar la consulta `is`. Por ejemplo, para ver únicamente las actualizaciones de las invitaciones al repositorio, utiliza `is:repository-invitation`{% ifversion not ghae %}, y para ver únicamente las alertas de {% ifversion fpt or ghes or ghec %}{% else %}seguridad{% endif %} del {% data variables.product.prodname_dependabot %}, utiliza `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`{% ifversion not ghae %}
-- `is:repository-vulnerability-alert`
+- `is:repository-invitation`{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+- `is:repository-vulnerability-alert`{% endif %}{% ifversion fpt or ghec %}
 - `is:repository-advisory`{% endif %}
-- `is:team-discussion`{% ifversion fpt %}
+- `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-{% ifversion not ghae %}
-Para obtener más información acerca de cómo reducir el ruido de las notificaciones para {% ifversion fpt or ghes %}las {% else %}alertas de seguridad{% endif %} del {% data variables.product.prodname_dependabot_alerts %}, consulta la sección "[Confirgurar las notificaciones para las dependencias vulnerables](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 También puedes utilizar la consulta `is:` para describir cómo se clasificó la notificación.
@@ -145,13 +146,13 @@ Para filtrar las notificaciones de acuerdo con la razón por la cual recibiste u
 | `reason:invitation`       | Cuando se te invita a un equipo, organización o repositorio.                                                                                                           |
 | `reason:manual`           | Cuando das clic en **Suscribirse** en un informe de problemas o solicitud de extracción al que no estuvieras suscrito.                                                 |
 | `reason:mention`          | Cuando te @mencionan directamente.                                                                                                                                     |
-| `reason:review-requested` | Ya sea tú o un equipo en el que estás solicitó revisar una solicitud de cambios.{% ifversion not ghae %}
+| `reason:review-requested` | Ya sea tú o un equipo en el que estás solicitó revisar una solicitud de cambios.{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | `reason:security-alert`   | Cuando se emite una alerta de seguridad para un repositorio.{% endif %}
 | `reason:state-change`     | Cuando el estado de un informe de problemas o solicitud de extracción cambia. Por ejemplo, se cierra un informe de problemas o se fusiona una solicitud de extracción. |
 | `reason:team-mention`     | Cuando se @menciona a algún equipo al que pertenezcas.                                                                                                                 |
 | `reason:ci-activity`      | Cuando un repositorio tiene una actualización de IC, tal como un nuevo estado de ejecución en un flujo de trabajo.                                                     |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Consultas de `author:` compatibles
 
 Para filtrar notificaciones por usuario, puedes utilizar la consulta `author:`. Un autor es el autor original del hilo (propuesta, solicitud de cambios, gist, debate, etc.) del cual se te está notificando. Por ejemplo, para ver las notificaciones de los hilos que creó el usuario Octocat, utiliza `author:octocat`.
@@ -164,10 +165,10 @@ Por ejemplo, para ver las notificaciones de la organización octo-org, utiliza `
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Filtros personalizados del {% data variables.product.prodname_dependabot %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Si utilizas el {% data variables.product.prodname_dependabot %} para mantener tus dependencias actualziadas, puedes utilizar y guardar estos filtros personalizados:
 - `is:repository_vulnerability_alert` para mostrar notificaciones para las {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` para mostrar notificaciones para las {% data variables.product.prodname_dependabot_alerts %} y las solicitudes de cambios de las actualizaciones de seguridad.
@@ -176,8 +177,11 @@ Si utilizas el {% data variables.product.prodname_dependabot %} para mantener tu
 Para obtener más información acerca del {% data variables.product.prodname_dependabot %}, consulta la sección "[Acerca de administrar dependencias vulnerables](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)".
 {% endif %}
 
-{% ifversion ghes %}
-Si utilizas el {% data variables.product.prodname_dependabot %} para mantener tus dependencias actualizadas, puedes utilizar y guardar el filtro personalizado `is:repository_vulnerability_alert` para mostrar notificaciones de las {% data variables.product.prodname_dependabot_alerts %}.
+{% ifversion ghes or ghae-issue-4864 %}
+
+If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+- `is:repository_vulnerability_alert`
+- `reason:security_alert`
 
 Para obtener más informació acera de las {% data variables.product.prodname_dependabot %}, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 {% endif %}

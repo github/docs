@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -24,13 +25,11 @@ Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositó
 **Avisos**:
 
 - Excluir um repositório irá excluir **permanentemente** anexos da versão e permissões da equipe. Esta ação **não pode** ser desfeita.
-- Excluir um repositório privado {% ifversion ghes or fpt or ghae %}ou interno {% endif %}excluirá todas as bifurcações do repositório.
+- Deleting a private or internal repository will delete all forks of the repository.
 
 {% endwarning %}
 
-{% ifversion fpt %}
-Você pode restaurar alguns repositórios excluídos em até 90 dias. Para obter mais informações, consulte "[Restaurar um repositório excluído](/articles/restoring-a-deleted-repository)".
-{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)". {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

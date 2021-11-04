@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -29,7 +30,7 @@ Un subconjunto de terminales de la API v3 de REST requiere que te autentiques co
 
 ## API de las Aplicaciones de OAuth
 
-Puedes utilizar esta API para administrar los tokens de OAuth que utiliza una aplicación de OAuth para acceder a las cuentas de {% data variables.product.prodname_dotcom %} de las personas.
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -45,7 +46,7 @@ Para listar las instalaciones de una GitHub App para una organización, consulta
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
 Para obtener más información acerca de {% data variables.product.prodname_marketplace %}, consulta "[GitHub Marketplace](/marketplace/)".
@@ -66,7 +67,7 @@ Asegúrate de reemplazar tus terminales de muestra con aquellas productivas ante
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Webhooks
 
 Un webhook de {% data variables.product.prodname_github_app %} te permite recibir cargas útiles de `POST` por HTTP cada que sucedan ciertos eventos para una app. {% data reusables.webhooks.webhooks-rest-api-links %}

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 Puedes adoptar el método de flujo de {% data variables.product.prodname_dotcom %} para estandarizar como funciona tu equipo y como colabora con {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[flujo de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/github-flow)".

@@ -1,7 +1,6 @@
 ---
 title: Criar uma ação JavaScript
 intro: 'Neste guia, você aprenderá como criar uma ação JavaScript usando o conjunto de ferramentas de ações.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -20,6 +20,7 @@ shortTitle: Ação do JavaScript
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -128,7 +129,6 @@ try {
 
 Se um erro for lançado no exemplo `index.js` acima, `core.setFailed(error.message);` usará o pacote do conjunto de ferramentas de ações [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) para registrar uma mensagem em log e definir um código de saída de falha. Para obter mais informações, consulte "[Definindo os códigos de saída para as ações](/actions/creating-actions/setting-exit-codes-for-actions)".
 
-
 ## Criar README
 
 Para que as pessoas saibam como usar sua ação, você pode criar um arquivo README. Um arquivo README é útil quando você planeja compartilhar publicamente sua ação, mas também é uma ótima maneira de lembrá-lo ou sua equipe sobre como usar a ação.
@@ -173,7 +173,6 @@ O {% data variables.product.product_name %} faz o download de cada ação execut
 No seu terminal, faça commit dos arquivos `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json` e `README.md`. Se você adicionar um arquivo `.gitignore` que lista `node_modules`, será necessário remover essa linha para fazer commit do diretório `node_modules`.
 
 Adicionar uma tag da versão para versões da sua ação é considerada uma prática recomendada. Para obter mais informações sobre versões da sua ação, consulte "[Sobre ações](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)".
-
 
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -265,11 +264,11 @@ trabalhos:
 ```
 {% endraw %}
 
-No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. {% ifversion fpt or ghes > 3.0 or ghae %}Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. {% endif %}Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
+No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. {% endif %}Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/javascript-action-workflow-run.png)

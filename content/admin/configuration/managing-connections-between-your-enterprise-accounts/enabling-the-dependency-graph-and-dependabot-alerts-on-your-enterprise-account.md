@@ -12,7 +12,7 @@ redirect_from:
 permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable the dependency graph and {% data variables.product.prodname_dependabot %} alerts on {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
-  ghae: "issue-4864" 
+  ghae: issue-4864
 type: how_to
 topics:
   - Enterprise

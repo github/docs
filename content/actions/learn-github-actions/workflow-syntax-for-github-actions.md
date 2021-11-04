@@ -182,7 +182,7 @@ The filter determines if a workflow should run by evaluating the changed files a
 
 Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
-For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
+For more information, see "[About comparing branches in pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)."
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
@@ -540,7 +540,6 @@ environment:
 ```
 {% endraw %}
 {% endif %}
-
 
 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
@@ -955,7 +954,6 @@ steps:
 
 The command used, `perl` in this example, must be installed on the runner.
 
-
 {% ifversion ghae %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
 {% else %}
 For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
@@ -1274,9 +1272,7 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% ifversion ghes < 3.0 %}public{% endif %} registry name.
-
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1293,7 +1289,6 @@ container:
      password: ${{ secrets.ghcr_token }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.container.env`
 
@@ -1364,9 +1359,7 @@ services:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% ifversion ghes < 3.0 %}public{% endif %} registry name.
-
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1389,7 +1382,6 @@ services:
       password: ${{ secrets.DOCKER_PASSWORD }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.services.<service_id>.env`
 

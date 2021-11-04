@@ -20,6 +20,7 @@ versions:
 topics:
   - Pages
 children:
+  - /quickstart
   - /getting-started-with-github-pages
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site

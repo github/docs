@@ -12,8 +12,9 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -190,7 +191,7 @@ Analisa o código nos bancos de dados do {% data variables.product.prodname_code
 | `--no-upload`                        |             | Nenhum. Impede que o {% data variables.product.prodname_codeql_runner %} faça o upload dos resultados para {% data variables.product.product_name %}.                                                                                                                                                                                            |
 | `--output-dir`                       |             | Diretório onde os arquivos SARIF de saída são armazenados. O padrão está no diretório de arquivos temporários.                                                                                                                                                                                                                                     |
 | `--ram`                              |             | A quantidade de memória a ser usada ao executar consultas. O padrão é usar toda a memória disponível.                                                                                                                                                                                                                                              |
-| <nobr>`--no-add-snippets`</nobr>   |             | Nenhum. Exclui snippets de código da saída de SARIF. |{% ifversion fpt or ghes > 3.1 or ghae %}
+| <nobr>`--no-add-snippets`</nobr>   |             | Nenhum. Exclui snippets de código da saída de SARIF. |{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | <nobr>`--category`<nobr>             |             | A categoria a incluir no arquivo de resultados SARIF para esta análise. Uma categoria pode ser usada para distinguir várias análises para a mesma ferramenta e commit, mas executado em diferentes linguagens ou diferentes partes do código. Este valor aparecerá na propriedade `<run>.automationDetails.id` no SARIF v2.1.0. 
 {% endif %}
 | `--threads`                          |             | Número de threads a serem usados ao executar consultas. O padrão é usar todos os núcleos disponíveis.                                                                                                                                                                                                                                              |

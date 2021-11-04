@@ -1,1 +1,0 @@
-You can use the `setup-node` action to create a local *.npmrc* file on the runner that configures the default registry and scope. The `setup-node` action also accepts an authentication token as input, used to access private registries or publish node packages. For more information, see [`setup-node`](https://github.com/actions/setup-node/).

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Comparar ramas
@@ -20,10 +21,7 @@ shortTitle: Comparar ramas
 
 {% endnote %}
 
-Puedes ver los cambios propuestos en una solicitud de extracción en la pestaña Archivos modificados.
-{% ifversion ghes < 3.0 %}
-![Pestaña Archivos modificados de la solicitud de extracción](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
+You can view proposed changes in a pull request in the Files changed tab. ![Pestaña Archivos modificados de la solicitud de extracción](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 En lugar de ver las confirmaciones de cambios, puedes ver los cambios propuestos ya que aparecerán en los archivos una vez que se fusiona la solicitud de extracción. Los archivos aparecen en orden alfabético dentro de la pestaña Archivos modificados. Las adiciones a los archivos aparecen en verde y están precedidas por un signo `+`, mientras que el contenido que ha sido eliminado aparece en rojo y está precedido por un signo `-`.
 
