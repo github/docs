@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Request a PR review
@@ -16,7 +17,7 @@ shortTitle: Request a PR review
 
 ユーザアカウントが所有しているリポジトリのオーナーとコラボレータは、プルリクエストのレビューを割り当てることができます。 リポジトリに対するトリアージ権限を持つ Organization メンバーは、プルリクエストのレビューを割り当てることができます。
 
-オーナーまたはコラボレータは、ユーザ所有のリポジトリに明示的に[読み取りアクセス](/articles/access-permissions-on-github)を付与された人にプルリクエストのレビューを割り当てることができます。 Organization メンバーは、リポジトリの読み取りアクセス権を持つ人や Team にプルリクエストのレビューを割り当てることができます。 リクエストされたレビュー担当者または Team は、Pull Request レビューをするようあなたが依頼したという通知を受け取ります。 {% ifversion fpt or ghae or ghes %}Team にレビューをリクエストし、コードレビューの割り当てが有効になっている場合、特定のメンバーがリクエストされ、Team はレビュー担当者として削除されます。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+オーナーまたはコラボレータは、ユーザ所有のリポジトリに明示的に[読み取りアクセス](/articles/access-permissions-on-github)を付与された人にプルリクエストのレビューを割り当てることができます。 Organization メンバーは、リポジトリの読み取りアクセス権を持つ人や Team にプルリクエストのレビューを割り当てることができます。 リクエストされたレビュー担当者または Team は、Pull Request レビューをするようあなたが依頼したという通知を受け取ります。 {% ifversion fpt or ghae or ghes or ghec %}Team にレビューをリクエストし、コードレビューの割り当てが有効になっている場合、特定のメンバーがリクエストされ、Team はレビュー担当者として削除されます。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
 {% note %}
 

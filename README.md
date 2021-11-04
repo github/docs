@@ -22,7 +22,7 @@ If you're looking for a way to contribute, you can scan through our [existing is
 
 ### Join us in discussions
 
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
+We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
 
 ### And that's it!
 
@@ -55,7 +55,7 @@ YOu can go through among them for specified details regarding the topics listed 
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
-All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
+All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
 
 When you are using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 

@@ -1,7 +1,7 @@
 ---
 title: Enforcing repository management policies in your enterprise
-intro: "You can enforce policies for repository management within your enterprise's organizations, or allow policies to be set in each organization."
-permissions: 'Enterprise owners can enforce policies for repository management in an enterprise.'
+intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+permissions: Enterprise owners can enforce policies for repository management in an enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
@@ -132,7 +132,7 @@ Across all organizations owned by your enterprise, you can allow members to invi
   ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)  
   {% endif %}
   
-{% ifversion ghec or ghes > 2.22 or ghae %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Enforcing a policy for the default branch name
 

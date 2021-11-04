@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Comparar branches
@@ -20,10 +21,7 @@ shortTitle: Comparar branches
 
 {% endnote %}
 
-É possível exibir alterações propostas em uma pull request na guia Files changed (Arquivos alterados).
-{% ifversion ghes < 3.0 %}
-![Guia Files changed (Arquivos alterados) da pull request](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
+You can view proposed changes in a pull request in the Files changed tab. ![Guia Files changed (Arquivos alterados) da pull request](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 Em vez de exibir os commits em si, você pode ver as alterações propostas como elas aparecerão nos arquivos assim que a pull request passar pelo merge. Os arquivos aparecem em ordem alfabética na guia Files changed (Arquivos alterados). As adições aos arquivos aparecem em verde e são precedidas por um sinal de `+`, enquanto o conteúdo que foi removido aparece em vermelho e é precedido por um sinal de `-`.
 

@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
@@ -20,10 +21,10 @@ shortTitle: 新しいOrganizationの作成
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. プロンプトに従って Organization を作成します。 {% ifversion fpt %}Team で利用できるプランに関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。{% endif %}
+4. プロンプトに従って Organization を作成します。 {% ifversion fpt or ghec %}Team で利用できるプランに関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。{% endif %}
 
 ## 参考リンク
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - [支払い請求先メールアドレスを設定する](/articles/setting-your-billing-email){% endif %}
 - [Organization について](/articles/about-organizations)

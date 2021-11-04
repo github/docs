@@ -1,7 +1,6 @@
 ---
 title: 发布 Docker 映像
 intro: '您可以将 Docker 映像发布到注册表，例如 Docker Hub 或 {% data variables.product.prodname_registry %}，作为持续集成 (CI) 工作流程的一部分。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Packaging
@@ -18,6 +18,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -36,7 +37,7 @@ topics:
 您可能还发现基本了解以下内容是有帮助的：
 
 - [加密的密码](/actions/reference/encrypted-secrets)"
-- "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt %}
+- "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
 - "[使用 {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
 - “[使用 Docker 注册表](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)”{% endif %}
 
@@ -110,28 +111,28 @@ jobs:
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-在下面的示例工作流程中，我们使用 Docker `login-action`{% ifversion fpt %}、`metadata-action`{% endif %} 和 `build-push-action` 操作构建 Docker 映像，如果构建成功，则将构建的映像推送到 {% data variables.product.prodname_registry %}。
+在下面的示例工作流程中，我们使用 Docker `login-action`{% ifversion fpt or ghec %}、`metadata-action`{% endif %} 和 `build-push-action` 操作构建 Docker 映像，如果构建成功，则将构建的映像推送到 {% data variables.product.prodname_registry %}。
 
 {% data variables.product.prodname_registry %} 需要的 `login-action` 选项包括：
-* `registry`：必须设置为 {% ifversion fpt %}`ghcr.io`{% else %}`docker.pkg.github.com`{% endif %}。
+* `registry`：必须设置为 {% ifversion fpt or ghec %}`ghcr.io`{% else %}`docker.pkg.github.com`{% endif %}。
 * `username`：您可以使用 {% raw %}`${{ github.actor }}`{% endraw %} 上下文自动使用触发工作流程运行的用户的用户名。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
 * `password`：您可以使用自动生成的 `GITHUB_TOKEN` 密码作为密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
 * `images`：您构建的 Docker 映像的命名空间和名称。
 {% endif %}
 
-{% data variables.product.prodname_registry %} 需要的 `build-push-action` 选项为：{% ifversion fpt %}
+{% data variables.product.prodname_registry %} 需要的 `build-push-action` 选项为：{% ifversion fpt or ghec %}
 * `context`：将构建的上下文定义为位于指定路径中的文件集。{% endif %}
-* `push`：如果设置为 `true`，则映像在构建成功后将被推送到注册表。{% ifversion fpt %}
+* `push`：如果设置为 `true`，则映像在构建成功后将被推送到注册表。{% ifversion fpt or ghec %}
 * `tags` 和 `labels`：这些由 `metadata-action` 的输出填充。{% else %}
 * `tags`：必须设置为格式 `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`。 例如，对于 `http://github.com/octo-org/octo-repo` 上名为 `octo-image` stored on {% data variables.product.prodname_dotcom %} 的映像，`tags` 选项应设置为 `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`。 您可以如下所示设置单个标记，或在列表中指定多个标记。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
-上述工作流程如被推送到“发行版”分支触发， 它会检出 GitHub 仓库，并使用 `login-action` 登录到 {% data variables.product.prodname_container_registry %}。 然后，它将提取 Docker 映像的标签和标记。 Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+上述工作流程如被推送到“发行版”分支触发， 它会检出 GitHub 仓库，并使用 `login-action` 登录到 {% data variables.product.prodname_container_registry %}。 然后，它将提取 Docker 映像的标签和标记。 最后，它使用 `build-push-action` 操作来构建映像并在 {% data variables.product.prodname_container_registry %} 上发布。
 
 {% else %}
 ```yaml{:copy}
@@ -145,7 +146,7 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}
@@ -191,7 +192,7 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}
@@ -205,10 +206,10 @@ jobs:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
 
-      - name: Log in to the {% ifversion fpt %}Container{% else %}Docker{% endif %} registry
+      - name: Log in to the {% ifversion fpt or ghec %}Container{% else %}Docker{% endif %} registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          registry: {% ifversion fpt %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 
@@ -218,7 +219,7 @@ jobs:
         with:
           images: |
             my-docker-hub-namespace/my-docker-hub-repository
-            {% ifversion fpt %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
+            {% ifversion fpt or ghec %}ghcr.io/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
 
       - name: Build and push Docker images
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -229,4 +230,4 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用两次 `login-action` 操作登录两个注册表，然后使用 `metadata-action` 操作生成标记和标签。 然后，`build-pow-action` 操作构建并推送 Docker 映像到 Docker Hub 和 {% ifversion fpt %}{% data variables.product.prodname_container_registry %}{% else %}Docker 注册表{% endif %}。
+上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用两次 `login-action` 操作登录两个注册表，然后使用 `metadata-action` 操作生成标记和标签。 Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.

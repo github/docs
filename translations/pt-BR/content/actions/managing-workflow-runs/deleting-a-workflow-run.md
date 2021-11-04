@@ -1,15 +1,16 @@
 ---
 title: Eliminar execução de um fluxo de trabalho
 intro: Você pode excluir uma execução do fluxo de trabalho que foi concluída ou que tem mais de duas semanas.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 

@@ -1,1 +1,0 @@
-4. Klicke unter „Payouts information“ (Auszahlungsinformationen) auf **Edit your bank information** (Deine Bankdaten bearbeiten). ![Link „Edit your bank information" (Deine Bankdaten bearbeiten)](/assets/images/help/sponsors/edit-bank-info.png)

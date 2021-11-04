@@ -88,11 +88,11 @@ export const HeaderNotifications = () => {
             data-type={type}
             className={cx(
               styles.container,
-              'text-center f5 color-text-primary py-4 px-6',
-              type === NotificationType.TRANSLATION && 'color-bg-info',
-              type === NotificationType.RELEASE && 'color-bg-info',
+              'text-center f5 color-fg-default py-4 px-6',
+              type === NotificationType.TRANSLATION && 'color-bg-accent',
+              type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
-              !isLast && 'border-bottom color-border-tertiary'
+              !isLast && 'border-bottom color-border-default'
             )}
             dangerouslySetInnerHTML={{ __html: content }}
           />

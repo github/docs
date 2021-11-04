@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Linked to wrong user
 ---
 
@@ -20,7 +21,7 @@ shortTitle: Linked to wrong user
 
 ## コミットは別のユーザにリンクされています
 
-コミットが別のユーザにリンクされている場合は、ローカルの Git 設定のメールアドレスが {% data variables.product.product_name %} 上のそのユーザのアカウントに接続されていることを意味します。 この場合、ローカルの Git 設定 {% ifversion ghae %} のメールを {% data variables.product.product_name %} のアカウントに関連付けられたアドレスに変更して、今後のコミットをリンクすることができます。 古いコミットはリンクされません。 詳しい情報については、「[コミットメールアドレスを設定する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)」を参照してください。{% else %}そして新しいメールアドレスを {% data variables.product.product_name %} アカウントに追加して、今後のコミットをアカウントにリンクします。
+コミットが別のユーザにリンクされている場合は、ローカルの Git 設定のメールアドレスが {% data variables.product.product_name %} 上のそのユーザのアカウントに接続されていることを意味します。 この場合、ローカルの Git 設定 {% ifversion ghae %} のメールを {% data variables.product.product_name %} のアカウントに関連付けられたアドレスに変更して、今後のコミットをリンクすることができます。 古いコミットはリンクされません。 For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %} and add the new email address to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} account to link future commits to your account.
 
 1. ローカル Git 設定でメールアドレスを変更するには、「<[コミットメールアドレスを設定する](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)」の手順に従います。 複数のマシンで作業している場合は、各マシンでこの設定を変更する必要があります。
 2. 「[GitHub アカウントにメールアドレスを追加する](/articles/adding-an-email-address-to-your-github-account)」の手順に従って、ステップ 2 のメールアドレスをアカウント設定に追加します。{% endif %}

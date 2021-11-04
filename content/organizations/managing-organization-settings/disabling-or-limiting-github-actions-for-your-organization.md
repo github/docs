@@ -25,21 +25,6 @@ You can enable {% data variables.product.prodname_actions %} for all repositorie
 
 Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions a workflow can run. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% ifversion ghes < 3.0 %}
-
-## Managing {% data variables.product.prodname_actions %} permissions for your organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Local and third-party Actions**, select an option.
-  ![Enable, disable, or limit actions for this organization](/assets/images/help/repository/enable-org-actions.png)
-1. Click **Save**.
-
-{% endif %}
-
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
-
 ## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
 You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
@@ -74,8 +59,6 @@ You can disable all workflows for an organization or set a policy that configure
    {%- endif %}
 1. Click **Save**.
 
-{% endif %}
-
 {% ifversion fpt or ghec %}
 ## Configuring required approval for workflows from public forks
 
@@ -91,7 +74,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Enabling workflows for private repository forks
 
 {% data reusables.github-actions.private-repository-forks-overview %}

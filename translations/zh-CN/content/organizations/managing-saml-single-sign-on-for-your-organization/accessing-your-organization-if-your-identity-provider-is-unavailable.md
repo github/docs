@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 不可用的身份提供程序
 ---
 
-组织管理员可以使用[下载或保存的恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)绕过单点登录。 You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+组织管理员可以使用[下载或保存的恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)绕过单点登录。 您可能已将这些保存到密码管理器，如 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/)。
 
 {% note %}
 
