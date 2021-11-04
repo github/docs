@@ -8,9 +8,9 @@ versions:
   ghec: '*'
 ---
 
-{% data variables.product.prodname_dotcom %} has a variety of keyboard shortcuts to perform actions across the site without using your mouse to navigate. While shortcuts are useful to save time, there are also instances where they can make {% data variables.product.prodname_dotcom %} harder to use and not accessible to all users, especially in the case of single key or character key shortcuts.
+{% data variables.product.prodname_dotcom %} has a variety of keyboard shortcuts to perform actions across the site without using your mouse to navigate. While shortcuts are useful to save time, there are also instances where they can make {% data variables.product.prodname_dotcom %} harder to use and less accessible, especially in the case of single key or character key shortcuts.
 
-While all keyboard shortcuts are enabled by default on {% data variables.product.prodname_dotcom %}, you can disable a majority of them in your accessibility settings. This setting does not apply to keyboard shortcuts provided by your web browser, such as those used for navigation, or shortcuts that use a modifier key such as `control` or `command`.
+All keyboard shortcuts are enabled by default on {% data variables.product.prodname_dotcom %}, but you can choose to disable character key shortcuts in your accessibility settings. This setting does not apply to keyboard shortcuts provided by your web browser, such as those used for navigation, or shortcuts that use a modifier key such as `control` or `command`.
 
 ## Disabling character key shortcuts
 
