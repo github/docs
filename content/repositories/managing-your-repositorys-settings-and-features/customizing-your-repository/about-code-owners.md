@@ -42,7 +42,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## CODEOWNERS file size
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
+CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
 To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry. 
 {% endif %}
