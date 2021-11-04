@@ -1,95 +1,102 @@
 ---
-title: About the dependency graph
-intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
+title: 依存関係グラフについて
+intro: 依存関係グラフを使って、プロジェクトの依存関係をすべて特定できます。 依存関係グラフは、幅広く一般的なパッケージエコシステムをサポートします。
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
   - /code-security/supply-chain-security/about-the-dependency-graph
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  fpt: '*'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
+type: overview
 topics:
+  - Dependency graph
+  - Dependencies
   - Repositories
+shortTitle: 依存関係グラフ
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
-### Dependency graph availability
+## 依存関係グラフの利用
 
-The dependency graph is available for every{% if currentVersion == "free-pro-team@latest" %} public{% endif %} repository that defines dependencies in a supported package ecosystem using a supported file format.{% if currentVersion == "free-pro-team@latest" %} Repository administrators can also set up the dependency graph for private repositories.{% endif %}
+{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories.{% endif %}
 
-{% data reusables.repositories.enable-security-alerts %}
+{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-### About the dependency graph
+## 依存関係グラフについて
 
-The dependency graph is a summary of the manifest and lock files stored in a repository. For each repository, it shows{% if currentVersion == "free-pro-team@latest" %}:
+依存関係グラフは、リポジトリに保存されているマニフェストファイルおよびロックファイルのサマリーです。 それぞれのリポジトリにおいて、依存関係グラフは以下を表示します。{% ifversion fpt or ghec %}
 
-- Dependencies, the ecosystems and packages it depends on
-- Dependents, the repositories and packages that depend on it{% else %} dependencies, that is, the ecosystems and packages it depends on. {% data variables.product.prodname_ghe_server %} does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}
+- リポジトリが依存している依存関係、エコシステム、パッケージ
+- リポジトリに依存する対象、リポジトリ、パッケージ{% else %}依存関係、すなわちリポジトリが依存するエコシステムとパッケージ。 {% data variables.product.product_name %}は、リポジトリに依存する対象、リポジトリ、パッケージに関する情報を計算しません。{% endif %}
 
-When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% if currentVersion == "free-pro-team@latest" %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
+{% data variables.product.product_name %}に、デフォルトブランチでサポートされているマニフェストもしくはロックファイルを変更もしくは追加するコミットをプッシュすると、依存関係グラフは自動的に更新されます。{% ifversion fpt or ghec %}加えて、誰かが依存関係のいずれかのリポジトリに変更をプッシュすると、グラフは更新されます。{% endif %}サポートされているエコシステムとマニフェストファイルに関する情報については以下の「[サポートされているパッケージエコシステム](#supported-package-ecosystems)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}
-When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+デフォルトブランチをターゲットとする、依存関係の変更を含むPull Requestを作成すると、{% data variables.product.prodname_dotcom %}は依存関係グラフを使ってそのPull Requestに依存関係のレビューを追加します。 それらは、依存関係が脆弱性を含んでいるか、もしそうならその脆弱性が修復されているバージョンを示しています。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
 
-### Dependencies included
+## 含まれる依存関係
 
-The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems. This includes:
+依存関係グラフには、サポートされているエコシステムについてマニフェストおよびロックファイル、または同等のもので詳細に定義されているリポジトリの依存関係がすべて含まれています。 これは以下のものが含まれます。
 
-- Direct dependencies, that are explicitly defined in a manifest or lock file
-- Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
+- マニフェストまたはロックファイルで明示的に定義されている、直接依存関係
+- 直接依存関係の間接依存関係。推移的な依存関係、または下位の依存関係とも言う。
 
-The dependency graph identifies indirect dependencies{% if currentVersion == "free-pro-team@latest" %} either explicitly from a lock file or by checking the dependencies of your direct dependencies. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}.
+依存関係グラフは、{% ifversion fpt or ghec %}ロックファイルから明示的に、または直接的な依存対象の依存関係をチェックして、間接的な依存関係を識別します。 最も信頼性の高いグラフを得るには、ロックファイル (または同等のもの) を使用してください。直接および間接の依存関係のうち現在どのバージョンを使用しているかが正確に定義されているからです。 ロックファイルを使用する場合、リポジトリのすべてのコントリビューターが同じバージョンを使用していることも確認してください。そのほうが、コードのテストとデバッグが容易になります。{% else %}ロックファイルから間接的な依存関係を識別します。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Dependents included
+{% ifversion fpt or ghec %}
+## 含まれる依存物
 
-For public repositories, only public repositories that depend on it or on packages that it publishes are reported. This information is not reported for private repositories.{% endif %}
+パブリックリポジトリでは、そのリポジトリに依存しているパブリックリポジトリ、もしくはそのリポジトリが公開しているパッケージのみが報告されます。 この情報は、プライベートリポジトリについては報告されません。{% endif %}
 
-### Using the dependency graph
+## 依存関係グラフの使用
 
-You can use the dependency graph to:
+依存関係グラフを使用する目的は、次のとおりです。
 
-- Explore the repositories your code depends on{% if currentVersion == "free-pro-team@latest" %}, and those that depend on it{% endif %}. For more information, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)." {% if currentVersion == "free-pro-team@latest" %}
-- View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
-- View and update vulnerable dependencies for your repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."{% if currentVersion == "free-pro-team@latest" %}
-- See information about vulnerable dependencies in pull requests. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."{% endif %}
+- コードが依存しているリポジトリ{% ifversion fpt or ghec %}、そしてそのコードに依存しているリポジトリ{% endif %}を調べること。 詳しい情報については、「[リポジトリの依存関係を調べる](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)」を参照してください。 {% ifversion fpt or ghec %}
+- Organization のリポジトリで使用されている依存関係のサマリーを 1 つのダッシュボードで確認すること。 詳細は「[Organization のインサイトを表示する](/articles/viewing-insights-for-your-organization#viewing-organization-dependency-insights)」を参照してください。{% endif %}
+- リポジトリの脆弱な依存関係を表示・更新すること。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。 {% ifversion fpt or ghes > 3.1 or ghec %}
+- Pull Request中の脆弱性がある依存関係に関する情報を見ること。 詳しい情報については「[Pull Request中の依存関係の変化のレビュー](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)」を参照してください。{% endif %}
 
-### Enabling the dependency graph
+## 依存関係グラフの有効化
 
-{% if currentVersion == "free-pro-team@latest" %}To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
+{% ifversion fpt or ghec %}依存関係グラフを生成するには、{% data variables.product.product_name %} がリポジトリの依存関係のマニフェストおよびロックファイルに読み取りアクセスできる必要があります。 依存関係グラフは、パブリックリポジトリに対しては常に自動的に生成され、プライベートリポジトリに対しては有効化を選択することができます。 For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
+{% ifversion ghes or ghae %}If the dependency graph is not available in your system, your enterprise owner can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see  "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %} If the dependency graph is not available in your system, your site administrator can enable the dependency graph and security alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+依存関係グラフを初めて有効化すると、サポートされているエコシステムのマニフェストおよびロックファイルがすぐに解析されます。 グラフは通常数分以内に入力されますが、多くの依存関係を持つリポジトリの場合は時間がかかる場合があります。 有効にすると、リポジトリにプッシュするたびに{% ifversion fpt or ghec %}、またグラフ中の他のリポジトリにプッシュするたびに{% endif %}、グラフが自動的に更新されます。
 
-{% endif %}
+## サポートされているパッケージエコシステム
 
-When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% if currentVersion == "free-pro-team@latest" %} and every push to other repositories in the graph{% endif %}.
+推奨されるフォーマットでは、直接および間接の依存関係すべてに使用されるバージョンを明示的に定義しています。 これらのフォーマットを使用したほうが、依存関係グラフは正確になります。 これは、現在のビルドのセットアップも反映し、依存関係グラフが直接及び間接の依存関係の両方で脆弱性を報告できるようにしてくれます。{% ifversion fpt or ghec %}マニフェストファイル（あるいはそれに相当するもの）から推定される間接的な依存関係は、脆弱性のある依存関係のチェックから除外されます。{% endif %}
 
-### Supported package ecosystems
-
-The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.{% if currentVersion == "free-pro-team@latest" %} Indirect dependencies that are inferred from a manifest file (or equivalent) are excluded from the checks for vulnerable dependencies.{% endif %}
-
-| Package manager | Languages | Recommended formats | All supported formats |
-| --- | --- | --- | ---|
-| Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
-| `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
-| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
-| npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
-| Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
-| RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
-| Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
+| パッケージマネージャー  | 言語                     | 推奨されるフォーマット                                        | サポートされているすべてのフォーマット                                                  |
+| ------------ | ---------------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
+| Composer     | PHP                    | `composer.lock`                                    | `composer.json`、`composer.lock`                                      |
+| `dotnet` CLI | .NET 言語 (C#、C++、F#、VB) | `.csproj`、`.vbproj`、`.nuspec`、`.vcxproj`、`.fsproj` | `.csproj`、`.vbproj`、`.nuspec`、`.vcxproj`、`.fsproj`、`packages.config` |
+{%- ifversion fpt or ghes > 3.2 or ghae %}
+| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
+{%- elsif ghes = 3.2 %}
+| Go modules | Go | `go.mod` | `go.mod` |
+{%- endif %}
+| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
+{%- ifversion fpt or ghes > 3.3 %}
+| Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% note %}
 
-**Note:** If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+**メモ:** `setup.py` ファイルで Python の依存関係をリストする場合、プロジェクトの依存関係すべてを解析してリストすることはできない場合があります。
 
 {% endnote %}
 
-### Further reading
+## 参考リンク
 
-- "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
-- "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Viewing insights for your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
-- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"{% endif %}
+- Wikipedia の「[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)」
+- 「[リポジトリの依存関係の調査](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)」{% ifversion fpt or ghec %}
+- [Organization のインサイトを表示する](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization){% endif %}
+- [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)
+- 「[脆弱性のある依存関係の検出のトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)」

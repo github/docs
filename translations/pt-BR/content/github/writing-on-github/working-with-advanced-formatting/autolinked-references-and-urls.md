@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Referências vinculadas automaticamente
 ---
 
@@ -39,7 +40,7 @@ Nas conversas do {% data variables.product.product_name %}, as referências a pr
 | `Username/Repository#` e número do problema ou da pull request          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization_name/Repository#` e número do problema ou da pull request | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Se você fizer referência a um problema, pull request ou discussão em uma lista, a referência irá desenrolar-se para mostrar o título e o estado. Para obter mais informações sobre listas de tarefas, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
 {% endif %}
 

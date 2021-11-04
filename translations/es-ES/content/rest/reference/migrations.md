@@ -7,6 +7,7 @@ redirect_from:
   - /v3/migration/migrations
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -18,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Organización
 
-La API de Migraciones solo está disponible para los propietarios autenticados de la organización. Para obtener más información, consulta las secciones "[Niveles de permiso para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#permission-levels-for-an-organization)." y "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
+La API de Migraciones solo está disponible para los propietarios autenticados de la organización. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
 
 {% data variables.migrations.organization_migrations_intro %}
 

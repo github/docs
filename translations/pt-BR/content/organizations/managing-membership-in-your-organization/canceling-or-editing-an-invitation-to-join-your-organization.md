@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ shortTitle: Cancelar ou editar convite
 
 ## Leia mais
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Convidar usuários para ingressar na organização](/articles/inviting-users-to-join-your-organization)"
 {% endif %}
 - "[Adicionar integrantes da organização a uma equipe](/articles/adding-organization-members-to-a-team)"

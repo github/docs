@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -24,13 +25,11 @@ topics:
 **警告**：
 
 - 删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
-- 删除私有 {% ifversion ghes or fpt or ghae %}或内部 {% endif %}仓库将删除仓库的所有复刻。
+- Deleting a private or internal repository will delete all forks of the repository.
 
 {% endwarning %}
 
-{% ifversion fpt %}
-您可以在 90 天内恢复一些已删除的仓库。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。
-{% endif %}
+Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. 更多信息请参阅“[恢复删除的仓库](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)”。 {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

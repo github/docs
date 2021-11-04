@@ -1,6 +1,6 @@
 ---
 title: 关于 GitHub Pages
-intro: '您可以使用 {% data variables.product.prodname_pages %} 直接从 {% data variables.product.product_name %} 仓库托管关于自己、您的组织或您的项目的站点。'
+intro: '您可以使用 {% data variables.product.prodname_pages %} 直接从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的仓库托管关于自己、您的组织或您的项目的站点。'
 redirect_from:
   - /articles/what-are-github-pages/
   - /articles/what-is-github-pages/
@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 ---
@@ -23,33 +24,33 @@ topics:
 
 {% data variables.product.prodname_pages %} 是一项静态站点托管服务，它直接从 {% data variables.product.product_name %} 上的仓库获取 HTML、CSS 和 JavaScript 文件，（可选）通过构建过程运行文件，然后发布网站。 您可以在 [{% data variables.product.prodname_pages %} 示例集合](https://github.com/collections/github-pages-examples)中查看 {% data variables.product.prodname_pages %} 站点的示例。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 您可以在 {% data variables.product.prodname_dotcom %} 的 `github.io` 域或自己的自定义域上托管站点。 更多信息请参阅“[对 {% data variables.product.prodname_pages %} 使用自定义域](/articles/using-a-custom-domain-with-github-pages)”。
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.pages.about-private-publishing %}更多信息请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。
 {% endif %}
 
 要开始使用，请参阅“[创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site)”。
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 组织所有者可禁止从组织的仓库发布 {% data variables.product.prodname_pages %} 站点。 更多信息请参阅“[管理组织的 {% data variables.product.prodname_pages %} 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。
 {% endif %}
 
 ## {% data variables.product.prodname_pages %} 站点的类型
 
-有三种类型的 {% data variables.product.prodname_pages %} 站点：项目、用户和组织。 项目站点连接到 {% data variables.product.product_name %} 上托管的特定项目，例如 JavaScript 库或配方集合。 用户和组织站点连接到特定的 {% data variables.product.product_name %} 帐户。
+有三种类型的 {% data variables.product.prodname_pages %} 站点：项目、用户和组织。 项目站点连接到 {% data variables.product.product_name %} 上托管的特定项目，例如 JavaScript 库或配方集合。 用户和组织站点连接到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的特定帐户。
 
-要发布用户站点，必须创建用户帐户所拥有的名为 {% ifversion fpt %}`<username>.github.io`{% else %}`<username> 的仓库。<hostname>`{% endif %}. 要发布组织站点，必须创建名为 {% ifversion fpt %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %} 的组织所拥有的仓库。 {% ifversion fpt %}除非您使用的是自定义域，否则用户和组织站点位于 `http(s)://<username>.github.io` 或 `http(s)://<organization>.github.io`。{% elsif ghae %}用户和组织站点位于 `http(s)://pages.<hostname>/<username>` 或 `http(s)://pages.<hostname>/<organization>`。{% endif %}
+要发布用户站点，必须创建用户帐户所拥有的名为 {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username> 的仓库。<hostname>`{% endif %}. 要发布组织站点，必须创建名为 {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %} 的组织所拥有的仓库。 {% ifversion fpt or ghec %}除非您使用的是自定义域，否则用户和组织站点位于 `http(s)://<username>.github.io` 或 `http(s)://<organization>.github.io`。{% elsif ghae %}用户和组织站点位于 `http(s)://pages.<hostname>/<username>` 或 `http(s)://pages.<hostname>/<organization>`。{% endif %}
 
-项目站点的源文件与其项目存储在同一个仓库中。 {% ifversion fpt %}除非您使用的是自定义域，否则项目站点位于 `http(s)://<username>.github.io/<repository>` 或 `http(s)://<organization>.github.io/<repository>`。{% elsif ghae %}项目站点位于 `http(s)://pages.<hostname>/<username>/<repository>/` 或 `http(s)://pages.<hostname>/<organization>/<repository>/`。{% endif %}
+项目站点的源文件与其项目存储在同一个仓库中。 {% ifversion fpt or ghec %}除非您使用的是自定义域，否则项目站点位于 `http(s)://<username>.github.io/<repository>` 或 `http(s)://<organization>.github.io/<repository>`。{% elsif ghae %}项目站点位于 `http(s)://pages.<hostname>/<username>/<repository>/` 或 `http(s)://pages.<hostname>/<organization>/<repository>/`。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 如果您私下发布站点，则站点的 URL 将有所不同。 更多信息请参阅“[更改 {% data variables.product.prodname_pages %} 站点的可见性](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)”。
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 有关自定义域如何影响站点 URL 的更多详细，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)”。
 {% endif %}
 
@@ -74,27 +75,12 @@ topics:
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 如果默认发布源在您的仓库中，{% data variables.product.prodname_pages %} 将自动从该源发布站点。 用户和组织站点的默认发布源是仓库默认分支的根目录。 项目站点的默认发布来源是 `gh-pages` 分支的根目录。
 
 如果要将站点的源文件保留在不同的位置，您可以更改站点的发布源。 您可以从仓库的任何分支发布站点 - 从该分支上仓库的根目录 `/` 或从该分支上的 `/docs` 文件夹发布。 更多信息请参阅“[配置 {% data variables.product.prodname_pages %} 站点的发布来源](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)”。
 
-如果选择任何分支的 `/docs` 文件夹作为您的发布来源，{% data variables.product.prodname_pages %} 将读取 `/docs` 文件夹中的所有内容以发布您的站点{% ifversion fpt %}（包括 _CNAME_ 文件）{% endif %}。{% ifversion fpt %}例如，当您通过 {% data variables.product.prodname_pages %} 设置编辑自定义域时，该自定义域将写入 `/docs/CNAME`。 有关 _CNAME_ 文件的更多信息，请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}
+如果选择任何分支的 `/docs` 文件夹作为您的发布来源，{% data variables.product.prodname_pages %} 将读取 `/docs` 文件夹中的所有内容以发布您的站点{% ifversion fpt or ghec %}（包括 _CNAME_ 文件）{% endif %}。{% ifversion fpt or ghec %}例如，当您通过 {% data variables.product.prodname_pages %} 设置编辑自定义域时，该自定义域将写入 `/docs/CNAME`。 有关 _CNAME_ 文件的更多信息，请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}
 
-{% else %}
-
-用户和组织站点的默认发布来源是 `master` 分支。 如果用户和组织站点的仓库是 `master` 分支，您的站点将从该分支自动发布。 您无法为用户或组织站点选择不同的发布来源。
-
-项目站点的默认发布来源是 `gh-pages` 分支。 如果项目站点的仓库有 `gh-pages` 分支，您的站点将从该分支自动发布。
-
-项目站点也可以从 `master` 分支或 `master` 分支上的 `/docs` 文件夹发布。 要从这些来源之一发布站点，您必须配置不同的发布来源。 更多信息请参阅“[配置 {% data variables.product.prodname_pages %} 站点的发布来源](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)”。
-
-如果选择 `master` 分支的 `/docs` 文件夹作为您的发布来源，{% data variables.product.prodname_pages %} 将读取 `/docs` 文件夹中的所有内容以发布您的站点{% ifversion fpt %}（包括 _CNAME_ 文件）{% endif %}。{% ifversion fpt %}例如，当您通过 {% data variables.product.prodname_pages %} 设置编辑自定义域时，该自定义域将写入 `/docs/CNAME`。 有关 _CNAME_ 文件的更多信息，请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}
-
-您不能从任何其他分支发布项目站点，即使默认分支不是 `master` 或 `gh-pages`。
-
-{% endif %}
 
 ## 静态站点生成器
 
@@ -106,18 +92,18 @@ topics:
 
 ## 使用 {% data variables.product.prodname_pages %} 的指南
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - 2016 年 6 月 15 日后创建并使用 `github.io` 域的 {% data variables.product.prodname_pages %} 站点通过 HTTPS 提供服务。 如果您在 2016 年 6 月 15 日之前创建站点，您可以为站点的流量启用 HTTPS 支持。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %}](/articles/securing-your-github-pages-site-with-https)”。
 - {% data reusables.pages.no_sensitive_data_pages %}
-- 您对 {% data variables.product.prodname_pages %} 的使用受 [GitHub 服务条款](/articles/github-terms-of-service/)的约束，包括禁止转售。
+- 您对 {% data variables.product.prodname_pages %} 的使用受 [GitHub 服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service/)的约束，包括禁止转售。
 
 ### 使用限制
 {% endif %}
 {% data variables.product.prodname_pages %} 站点受到以下使用限制的约束：
 
-  - {% data variables.product.prodname_pages %} 源仓库建议的限制为 1GB。{% ifversion fpt %}更多信息请参阅“[我的磁盘配额是多少？](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)”{% endif %}
+  - {% data variables.product.prodname_pages %} 源仓库建议的限制为 1GB。{% ifversion fpt or ghec %}更多信息请参阅“[我的磁盘配额是多少？](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)”{% endif %}
   - 发布的 {% data variables.product.prodname_pages %} 站点不得超过 1 GB。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   - {% data variables.product.prodname_pages %} 站点的*软*带宽限制为每月 100GB。
   - {% data variables.product.prodname_pages %} 站点的*软*限制为每小时 10 次构建。
 
@@ -127,7 +113,7 @@ topics:
 
 {% data variables.product.prodname_pages %} 并非旨在用于或允许用作免费的 Web 托管服务来运行您的在线业务、电子商务站点或主要针对促进商业交易或提供商业软件即服务 (SaaS) 的任何其他网站。
 
-此外，{% data variables.product.prodname_dotcom %} 不允许 {% data variables.product.prodname_pages %} 用于某些目的或活动。 有关禁止用途的列表，请参阅“[{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_pages %} 附加产品条款](/github/site-policy/github-additional-product-terms#4-pages)”。
+此外，{% data variables.product.prodname_dotcom %} 不允许 {% data variables.product.prodname_pages %} 用于某些目的或活动。 有关禁止用途的列表，请参阅“[{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_pages %} 附加产品条款](/free-pro-team@latest/github/site-policy/github-terms-for-additional-products-and-features#pages)”。
 {% endif %}
 
 ## {% data variables.product.prodname_pages %} 上的 MIME 类型

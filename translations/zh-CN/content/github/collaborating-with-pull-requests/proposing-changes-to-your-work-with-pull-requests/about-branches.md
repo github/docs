@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -28,15 +29,11 @@ topics:
 
 {% data reusables.branches.new-repo-default-branch %} 默认分支是任何人访问您的仓库时 {% data variables.product.prodname_dotcom %} 显示的分支。 默认分支也是初始分支，当有人克隆存储库时，Git 会在本地检出该分支。 {% data reusables.branches.default-branch-automatically-base-branch %}
 
-默认情况下，{% data variables.product.product_name %} 将任何新仓库中的默认分支命名为{% ifversion fpt or ghes > 2.22 or ghae %}`main`{% else %}`master`{% endif %}。
+By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.set-default-branch %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## 使用分支
 

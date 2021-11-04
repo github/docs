@@ -8,6 +8,7 @@ redirect_from:
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/changing-two-factor-authentication-delivery-methods-for-your-mobile-device
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 更改 2FA 递送方式

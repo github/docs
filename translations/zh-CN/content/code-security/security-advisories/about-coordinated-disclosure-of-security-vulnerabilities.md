@@ -4,6 +4,7 @@ intro: 漏洞披露是安全报告者与仓库维护者之间的协调工作。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories

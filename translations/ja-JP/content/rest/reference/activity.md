@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -149,7 +150,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 | `招待`               | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
 | `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                  |
 | `メンション`            | コンテンツで具体的に**@メンション**された。                                                                                                                                               |
-| `review_requested` | 自分、または自分が所属している Team が、Pull Requestのレビューを求められた。{% ifversion fpt %}
+| `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} が、リポジトリに[セキュリティの脆弱性](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)を発見した。{% endif %}
 | `state_change`     | スレッドの状態を変更した（たとえば、Issue をクローズしたり、プルリクエストをマージしたりした）。                                                                                                                    |
 | `subscribed`       | リポジトリを Watch している。                                                                                                                                                     |

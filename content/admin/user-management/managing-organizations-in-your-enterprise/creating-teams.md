@@ -36,6 +36,8 @@ A prudent combination of teams is a powerful way to control repository access. F
 
 Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.product.product_location %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
+You must be a site admin and an organization owner to create a team with LDAP sync enabled.
+
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% warning %}

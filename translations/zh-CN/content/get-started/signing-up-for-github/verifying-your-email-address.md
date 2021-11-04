@@ -9,6 +9,7 @@ redirect_from:
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 验证您的电子邮件地址
@@ -57,11 +58,11 @@ shortTitle: 验证您的电子邮件地址
 
 验证链接将在 24 小时后过期。 如果您没有在 24 小时内验证电子邮件，则可以请求其他电子邮件验证链接。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 
-如果您在 24 小时内单击了确认电子邮件中的链接并被定向到错误页面，则应确保您已登录正确的 {% data variables.product.prodname_dotcom %} 帐户。
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.product_location %}.
 
-1. {% data variables.product.signout_link %}您的个人 {% data variables.product.prodname_dotcom %} 帐户。
+1. {% data variables.product.signout_link %} of your personal account on {% data variables.product.product_location %}.
 2. 退出并重新启动浏览器。
-3. {% data variables.product.signin_link %}您的个人 {% data variables.product.prodname_dotcom %} 帐户。
+3. {% data variables.product.signin_link %} to your personal account on {% data variables.product.product_location %}.
 4. 单击我们发送给您的电子邮件中的验证链接。
 
 ## 延伸阅读

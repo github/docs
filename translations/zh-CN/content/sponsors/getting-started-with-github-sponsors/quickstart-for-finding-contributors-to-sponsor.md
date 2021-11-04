@@ -3,6 +3,7 @@ title: 查找要赞助的贡献者快速入门
 intro: 了解一些查找要赞助的开源贡献者的最佳实践。
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source

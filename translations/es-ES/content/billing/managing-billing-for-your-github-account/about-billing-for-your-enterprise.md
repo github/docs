@@ -8,9 +8,10 @@ redirect_from:
   - /enterprise/admin/overview/managing-billing-for-github-enterprise
   - /admin/overview/managing-billing-for-github-enterprise
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
+type: overview
 topics:
   - Enterprise
 shortTitle: Facturación de tu empresa
@@ -41,9 +42,9 @@ Por ejemplo, aquí mostramos los costos para los usuarios con licencias en fecha
 
 Puedes ver tu uso actual en tu [Portal de cuenta de Azure](https://portal.azure.com).
 
-{% elsif fpt or ghes %}
+{% elsif ghec or ghes %}
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 
 {% data variables.product.company_short %} cobra mensualmente por la cantidad total de miembros en tu cuenta empresarial, así como por cualquier servicio que utilices con {% data variables.product.prodname_ghe_cloud %}.
 
@@ -53,15 +54,17 @@ Cada usuario en {% data variables.product.product_location %} consume una plaza 
 
 {% endif %}
 
-{% data reusables.billing.about-invoices-for-enterprises %} Para obtener más información sobre el uso y las facturas, consulta las secciones "[Visualizar la suscripción y uso para tu cuenta empresarial](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" y {% ifversion ghes %}"<a href="/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise" class="dotcom-only">Administrar las facturas de tu empresa</a>" en la documentación de {% data variables.product.prodname_dotcom_the_website %}.{% elsif fpt %}"[Administrar las facturas de tu empresa](/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)".{% endif %}
+{% data reusables.billing.about-invoices-for-enterprises %} For more information about usage and invoices, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" and {% ifversion ghes %}"[Managing invoices for your enterprise](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}"[Managing invoices for your enterprise](/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)."{% endif %}
 
 Los administradores de tu cuenta empresarial de {% data variables.product.prodname_dotcom_the_website %} pueden acceder y administrar la facturación de la empresa.
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 
-Cada miembro de tu cuenta empresarial con una dirección de correo electrónico única consumirá una plaza. Los gerentes de facturación no consumen plazas. Cada colaborador externo de un repositorio privado que pertenezca a una organización en tu empresa consumirá una licencia, a menos de que dicho repositorio privado sea una bifurcación. Cada invitado a tu cuenta empresarial, incluyendo a los propietarios, miembros de las organizaciones y colaboradores externos, consumirán una licencia. Para obtener más información sobre los roles en una cuenta empresarial, consulta las secciones "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" y "[Invitar a personas para que administren tu empresa](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)".
+Cada miembro de tu cuenta empresarial con una dirección de correo electrónico única consumirá una plaza. Los gerentes de facturación no consumen plazas. Cada colaborador externo de un repositorio privado que pertenezca a una organización en tu empresa consumirá una licencia, a menos de que dicho repositorio privado sea una bifurcación. Cada invitado a tu cuenta empresarial, incluyendo a los propietarios, miembros de las organizaciones y colaboradores externos, consumirán una licencia. Para obtener más información sobre los roles en una cuenta empresarial, consulta las secciones "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" y "[Invitar a personas para que administren tu empresa](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)".
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
+{% ifversion ghec %}
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
+{% endif %}
 
 {% endif %}
 
@@ -75,11 +78,11 @@ Cada miembro de tu cuenta empresarial con una dirección de correo electrónico 
 
 {% data reusables.enterprise.about-deployment-methods %}
 
-{% data reusables.enterprise-licensing.about-license-sync %} Para obtener más información, consulta la sección {% ifversion fpt %}"[Sincronizar el uso de licencias entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" en la documentación de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}"[Sincronizar el uso de licencias entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".{% endif %}
+{% data reusables.enterprise-licensing.about-license-sync %} For more information, see {% ifversion ghec %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
 {% endif %}
 
 ## Leer más
 
-- "[Acerca de las cuentas empresariales]({% ifversion fpt or ghes %}/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts#about-enterprise-accounts-on-githubcom{% elsif ghae %}/admin/overview/about-enterprise-accounts{% endif %})"{% ifversion fpt or ghes %} <!-- When you're viewing the fpt version of this article, this link's anchor won't resolve, but that's okay -->
+- "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"{% ifversion ghec or ghes %}
 - "[Acerca de las licencias para GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)"{% endif %}
