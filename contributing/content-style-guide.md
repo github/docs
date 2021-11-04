@@ -204,6 +204,12 @@ To link to the same article in a different version, use this format:
 
 To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
 
+### Links to learning paths
+
+Use this format to link to a learning path.
+
+> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
+
 ### Links to external resources
 
 When linking to an external site, choose the most useful resource for the context of the link - you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
