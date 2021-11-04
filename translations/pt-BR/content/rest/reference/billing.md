@@ -2,6 +2,7 @@
 title: Cobrança
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -7,6 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories

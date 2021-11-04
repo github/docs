@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
@@ -20,10 +21,10 @@ shortTitle: 创建新组织
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. 按照提示创建组织。 {% ifversion fpt %}要详细了解可用于您的团队的计划，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。{% endif %}
+4. 按照提示创建组织。 {% ifversion fpt or ghec %}要详细了解可用于您的团队的计划，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。{% endif %}
 
 ## 延伸阅读
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[设置帐单邮箱](/articles/setting-your-billing-email)"{% endif %}
 - "[关于组织](/articles/about-organizations)"

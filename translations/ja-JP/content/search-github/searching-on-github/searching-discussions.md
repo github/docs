@@ -3,6 +3,7 @@ title: ディスカッションを検索する
 intro: '{% data variables.product.product_name %} 上のディスカッションを検索し、検索修飾子を使用して検索結果を絞り込むことができます。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -40,7 +41,7 @@ redirect_from:
 
 `is` 修飾子を使用して、ディスカッションを含むリポジトリの可視性でフィルタできます。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| 修飾子  | 例 | :- | :- |{% ifversion fpt or ghes %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) はパブリックリポジトリへのディスカッションにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) は内部リポジトリへのディスカッションにマッチします。 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) は、アクセス可能なプライベートリポジトリに「tiramisu」という単語を含むディスカッションにマッチします。
+| 修飾子  | 例 | :- | :- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Discussions) はパブリックリポジトリへのディスカッションにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Discussions) は内部リポジトリへのディスカッションにマッチします。 | `is:private` | [**is:private tiramisu**](https://github.com/search?q=is%3Aprivate+tiramisu&type=Discussions) は、アクセス可能なプライベートリポジトリに「tiramisu」という単語を含むディスカッションにマッチします。
 
 ## 作者で検索
 

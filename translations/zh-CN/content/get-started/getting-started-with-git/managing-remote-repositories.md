@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 管理远程仓库
 ---
 

@@ -13,8 +13,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -36,12 +37,12 @@ topics:
 
 ## 使用操作设置 {% data variables.product.prodname_code_scanning %}
 
-{% ifversion fpt %}使用操作运行 {% data variables.product.prodname_code_scanning %} 将消耗分钟数。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).”{% endif %}
+{% ifversion fpt or ghec %}使用操作运行 {% data variables.product.prodname_code_scanning %} 将消耗分钟数。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).”{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. 在“{% data variables.product.prodname_code_scanning_capc %} 警报”右侧，单击**设置 {% data variables.product.prodname_code_scanning %}**。 {% ifversion fpt or ghes > 3.0 or ghae-next %}如果 {% data variables.product.prodname_code_scanning %} 缺少，您必须要求组织所有者或仓库管理员启用 {% data variables.product.prodname_GH_advanced_security %}。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %} !["Set up code scanning" button to the right of "Code scanning" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
-4. Under "Get started with code scanning", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% ifversion fpt or ghes > 2.22 or ghae-next %}工作流程仅在与仓库中检测到的编程语言相关时才会显示。 {% data variables.product.prodname_codeql_workflow %} 始终显示，但仅在 {% data variables.product.prodname_codeql %} 分析支持仓库中存在的语言时才启用“Set up this workflow（设置此工作流程）”按钮。{% endif %}
+3. 在“{% data variables.product.prodname_code_scanning_capc %} 警报”右侧，单击**设置 {% data variables.product.prodname_code_scanning %}**。 {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}如果 {% data variables.product.prodname_code_scanning %} 缺少，您必须要求组织所有者或仓库管理员启用 {% data variables.product.prodname_GH_advanced_security %}。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %} !["Set up code scanning" button to the right of "Code scanning" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
+4. Under "Get started with code scanning", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)工作流程仅在与仓库中检测到的编程语言相关时才会显示。 {% data variables.product.prodname_codeql_workflow %} 始终显示，但仅在 {% data variables.product.prodname_codeql %} 分析支持仓库中存在的语言时才启用“Set up this workflow（设置此工作流程）”按钮。
 5. Optionally, to customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)."
 
    一般来说，您可以提交 {% data variables.product.prodname_codeql_workflow %} 而不对其做任何更改。 但是，许多第三方工作流程需要额外的配置，因此在提交之前请阅读工作流程中的注释。
@@ -82,7 +83,7 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 
 **注意：** 如果您提出拉取请求以将 {% data variables.product.prodname_code_scanning %} 工作流程添加到仓库，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。 如果发现任何警报，您可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面上的横幅中点击**发现的 _n_ 条警报**链接。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
   ![点击"发现的 n 条警报"链接](/assets/images/help/repository/code-scanning-alerts-found-link.png)
 {% else %}
   ![点击"发现的 n 条警报"链接](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
@@ -98,9 +99,9 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 
   ![After a scan completes, you can view alerts from a completed scan. For more information, see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning">Managing alerts from {% data variables.product.prodname_code_scanning %}</a>."](/assets/images/help/repository/code-scanning-pr-checks.png)
 
-当 {% data variables.product.prodname_code_scanning %} 作业完成后， {% data variables.product.prodname_dotcom %} 检查拉取请求是否添加了任何警报，并将“{% data variables.product.prodname_code_scanning_capc %} 结果/工具名称”条目添加到检查列表中。 在执行至少一次 {% data variables.product.prodname_code_scanning %} 后，您可以单击 **Details（详细信息）**查看分析结果。 If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}an "Analysis not found"{% else %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
+当 {% data variables.product.prodname_code_scanning %} 作业完成后， {% data variables.product.prodname_dotcom %} 检查拉取请求是否添加了任何警报，并将“{% data variables.product.prodname_code_scanning_capc %} 结果/工具名称”条目添加到检查列表中。 在执行至少一次 {% data variables.product.prodname_code_scanning %} 后，您可以单击 **Details（详细信息）**查看分析结果。 If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}an "Analysis not found"{% else %}a "Missing analysis"{% endif %} message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}
   ![Analysis not found for commit message](/assets/images/help/repository/code-scanning-analysis-not-found.png)
 
 The table lists one or more categories. Each category relates to specific analyses, for the same tool and commit, performed on a different language or a different part of the code. For each category, the table shows the two analyses that {% data variables.product.prodname_code_scanning %} attempted to compare to determine which alerts were introduced or fixed in the pull request.
@@ -110,13 +111,13 @@ For example, in the screenshot above, {% data variables.product.prodname_code_sc
   ![缺少提交消息的分析](/assets/images/enterprise/3.2/repository/code-scanning-missing-analysis.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}
 ### Reasons for the "Analysis not found" message
 {% else %}
 ### Reasons for the "Missing analysis" message
 {% endif %}
 
-在 {% data variables.product.prodname_code_scanning %} 分析拉取请求中的代码后，它需要将主题分支（用于创建拉取请求的分支）的分析与基本分支（要合并拉取请求的分支）的分析进行比较。 这允许 {% data variables.product.prodname_code_scanning %} 计算哪些警报是拉取请求新近引入的，哪些是基础分支中已经存在的，以及是否有任何现有的警报通过拉取请求中的更改来修复。 最初，如果使用拉取请求将 {% data variables.product.prodname_code_scanning %} 添加到仓库，则尚未分析基础分支，因此无法计算这些详细信息。 In this case, when you click through from the results check on the pull request you will see the {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 %}"Analysis not found"{% else %}"Missing analysis for base commit SHA-HASH"{% endif %} message.
+在 {% data variables.product.prodname_code_scanning %} 分析拉取请求中的代码后，它需要将主题分支（用于创建拉取请求的分支）的分析与基本分支（要合并拉取请求的分支）的分析进行比较。 这允许 {% data variables.product.prodname_code_scanning %} 计算哪些警报是拉取请求新近引入的，哪些是基础分支中已经存在的，以及是否有任何现有的警报通过拉取请求中的更改来修复。 最初，如果使用拉取请求将 {% data variables.product.prodname_code_scanning %} 添加到仓库，则尚未分析基础分支，因此无法计算这些详细信息。 In this case, when you click through from the results check on the pull request you will see the {% ifversion fpt or ghes > 3.2 or ghae-issue-3891 or ghec %}"Analysis not found"{% else %}"Missing analysis for base commit SHA-HASH"{% endif %} message.
 
 在其他情况下，可能没有分析对拉取请求的基础分支的最新提交。 这些包括：
 
@@ -124,7 +125,7 @@ For example, in the screenshot above, {% data variables.product.prodname_code_sc
 
   要检查是否扫描了分支，请转到 {% data variables.product.prodname_code_scanning_capc %} 页面，单击 **Branch<（分支）**下拉菜单并选择相关分支。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
   ![从 Branch（分支）下拉菜单中选择一个分支](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 {% else %}
   ![从 Branch（分支）下拉菜单中选择一个分支](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)

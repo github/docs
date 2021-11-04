@@ -5,6 +5,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
@@ -34,7 +35,7 @@ shortTitle: 编辑建议
 {% data reusables.repositories.security-advisory-edit-cwe-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
 11. （可选）编辑安全通告的“Credits（积分）”。 ![安全通告的积分](/assets/images/help/security/security-advisory-credits.png)
-12. 单击 **Update security advisory（更新安全通告）**。 !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
+12. 单击 **Update security advisory（更新安全通告）**。 !["更新安全通告" 按钮](/assets/images/help/security/update-advisory-button.png)
 13. “Credits（积分）”部分列出的人员将会收到邀请他们接受积分的电子邮件或 web 通知。 如果某人接受，则其用户名将在安全通告发布后公开可见。
 
 ## 延伸阅读

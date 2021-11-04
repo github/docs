@@ -4,6 +4,7 @@ intro: Puedes administrar el control de acceso para tu sitio de proyecto si lo p
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
@@ -14,7 +15,7 @@ shortTitle: Cambiar la visibilidad del sitio
 
 Con control de acceso para {% data variables.product.prodname_pages %}, puedes restringir el acceso a tu sitio de {% data variables.product.prodname_pages %} si lo publicas en privado. Solo las personas con acceso de lectura al repositorio desde el cual se publica el sitio pueden acceder al sitio que se publicó en privado. Puedes utilizar sitios publicados en privado para compartir tu documentación o base de conocimiento interna con los miembros de tu empresa.
 
-Si tu empresa utiliza {% data variables.product.prodname_emus %}, todos los sitios de {% data variables.product.prodname_pages %} se publicarán en privado. Para obtener más información sobre las {% data variables.product.prodname_emus %}, consulta la sección "[Acerca de las {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+Si tu empresa utiliza {% data variables.product.prodname_emus %}, todos los sitios de {% data variables.product.prodname_pages %} se publicarán en privado. Para obtener más información sobre las {% data variables.product.prodname_emus %}, consulta la sección "[Acerca de las {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 
 Si tu organización utiliza {% data variables.product.prodname_ghe_cloud %} sin {% data variables.product.prodname_emus %}, puedes elegir publicar tus sitios en privado o al público para cualquiera en la internet. El control de accesos se encuentra disponible para los sitios de proyecto que se publican desde un repositorio privado o interno que pertenezca a la organización. No puedes administrar el control de accesos para el sitio de una organización. Para obtener más información sobre los tipos de sitios de {% data variables.product.prodname_pages %}, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 

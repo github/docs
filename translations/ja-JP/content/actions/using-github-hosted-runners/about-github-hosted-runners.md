@@ -1,7 +1,6 @@
 ---
 title: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %}は、ワークフローを実行するためのホストされた仮想マシンを提供します。 仮想マシンには、{% data variables.product.prodname_actions %}で使用できるツール、パッケージ、および設定の環境が含まれています。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -13,12 +12,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_dotcom %}ホストランナーについて
 
@@ -131,7 +132,7 @@ Dockerコンテナで実行されるアクションには、 `/github`パスの�
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 参考リンク
 - 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」

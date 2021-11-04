@@ -7,8 +7,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ shortTitle: Gerenciar segurança & análise
 
 ## Sobre a gestão de configurações de segurança e análise
 
-O {% data variables.product.prodname_dotcom %} pode ajudar a proteger os repositórios na sua organização. É possível gerenciar os recursos de segurança e análise para todos os repositórios existentes ou novos que os integrantes criarem na sua organização. {% ifversion fpt %}Se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}, você também poderá gerenciar o acesso a essas funcionalidades. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+O {% data variables.product.prodname_dotcom %} pode ajudar a proteger os repositórios na sua organização. É possível gerenciar os recursos de segurança e análise para todos os repositórios existentes ou novos que os integrantes criarem na sua organização. {% ifversion fpt or ghec %}Se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}, você também poderá gerenciar o acesso a essas funcionalidades. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
@@ -30,15 +31,15 @@ O {% data variables.product.prodname_dotcom %} pode ajudar a proteger os reposit
 
 A página exibida permite que você habilite ou desabilite todas as funcionalidades de segurança e análise dos repositórios na sua organização.
 
-{% ifversion fpt %}Se a sua organização pertence a uma empresa com uma licença para {% data variables.product.prodname_GH_advanced_security %}, a página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
+{% ifversion fpt or ghec %}Se a sua organização pertence a uma empresa com uma licença para {% data variables.product.prodname_GH_advanced_security %}, a página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
 
 {% ifversion ghes > 3.0 %}Se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}, a página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
 
-{% ifversion ghae %}A página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}.{% endif %}
+{% ifversion ghae %}A página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
 
 ## Habilitar ou desabilitar um recurso para todos os repositórios existentes
 
-Você pode habilitar ou desabilitar funcionalidades para todos os repositórios. {% ifversion fpt %}O impacto de suas alterações nos repositórios da organização é determinado pela visibilidade:
+Você pode habilitar ou desabilitar funcionalidades para todos os repositórios. {% ifversion fpt or ghec %}O impacto de suas alterações nos repositórios da organização é determinado pela visibilidade:
 
 - **Gráfico de dependências** - Suas alterações afetam apenas repositórios privados porque a funcionalidade está sempre habilitada para repositórios públicos.
 - **{% data variables.product.prodname_dependabot_alerts %}** - As suas alterações afetam todos os repositórios.
@@ -49,8 +50,8 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. Acesse as configurações de segurança e análise da sua organização. Para obter mais informações, consulte "[Exibir as configurações de segurança e análise](#displaying-the-security-and-analysis-settings)".
-2. Em "Configurar recursos de segurança e análise" à direita do recurso, clique em **Desabilitar tudo** ou **Habilitar tudo**. {% ifversion fpt or ghes > 3.0 %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" fica desabilitado se você não tiver estações disponíveis na sua licença de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
-   {% ifversion fpt %}
+2. Em "Configurar recursos de segurança e análise" à direita do recurso, clique em **Desabilitar tudo** ou **Habilitar tudo**. {% ifversion fpt or ghes > 3.0 or ghec %}O controle para "{% data variables.product.prodname_GH_advanced_security %}" fica desabilitado se você não tiver estações disponíveis na sua licença de {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+   {% ifversion fpt or ghec %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-ghas-dotcom.png)
    {% endif %}
    {% ifversion ghes > 3.0 %}
@@ -62,18 +63,18 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    {% ifversion ghae %}
    ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
    {% endif %}
-   {% ifversion fpt or ghes = 3.0 %}
+   {% ifversion fpt or ghes = 3.0 or ghec %}
 3. Opcionalmente, habilite o recurso para novos repositórios na organização por padrão.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Opção de "Habilitar por padrão" para novos repositórios](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
    ![Opção de "Habilitar por padrão" para novos repositórios](/assets/images/enterprise/3.0/organizations/security-and-analysis-secret-scanning-enable-by-default.png)
    {% endif %}
    {% endif %}
-   {% ifversion fpt or ghes = 3.0 %}
+   {% ifversion fpt or ghes = 3.0 or ghec %}
 4. Clique em **Desabilitar RECURSO** ou **Habilitar RECURSO** para desabilitar ou habilitar o recurso para todos os repositórios da sua organização.
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![Botão para desabilitar ou habilitar recurso](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -89,11 +90,11 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
 ## Habilitar ou desabilitar uma funcionalidade automaticamente quando novos repositórios forem adicionados
 
 1. Acesse as configurações de segurança e análise da sua organização. Para obter mais informações, consulte "[Exibir as configurações de segurança e análise](#displaying-the-security-and-analysis-settings)".
-2. Em "Configurar funcionalidades de segurança e análise", à direita da funcionalidade, habilite ou desabilite o recurso por padrão para novos repositórios{% ifversion fpt %}, ou todos os novos repositórios privados,{% endif %} na sua organização.
-   {% ifversion fpt or ghes > 3.1 %}
+2. Em "Configurar funcionalidades de segurança e análise", à direita da funcionalidade, habilite ou desabilite o recurso por padrão para novos repositórios{% ifversion fpt or ghec %}, ou todos os novos repositórios privados,{% endif %} na sua organização.
+   {% ifversion fpt or ghec %}
    ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox-dotcom.png)
    {% endif %}
-   {% ifversion ghes = 3.1 %}
+   {% ifversion ghes > 3.0 %}
    ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
    {% ifversion ghes = 3.0 %}
@@ -103,7 +104,7 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    ![Caixa de seleção para habilitar ou desabilitar um recurso para novos repositórios](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Permitir que {% data variables.product.prodname_dependabot %} acesse dependências privadas
 
@@ -117,13 +118,13 @@ Para permitir que {% data variables.product.prodname_dependabot %} acesse um rep
 
 1. Acesse as configurações de segurança e análise da sua organização. Para obter mais informações, consulte "[Exibir as configurações de segurança e análise](#displaying-the-security-and-analysis-settings)".
 1. Em "Acesso ao repositório privado de {% data variables.product.prodname_dependabot %}", clique em **Adicionar repositórios privados** ou **Adicionar repositórios internos e privados**. ![Botão para adicionar repositórios](/assets/images/help/organizations/dependabot-private-repository-access.png)
-1. Comece a digitar o nome do repositório que você deseja permitir. ![Repository search field with filtered dropdown](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+1. Comece a digitar o nome do repositório que você deseja permitir. ![Campo de pesquisa do repositório com menu suspenso filtrado](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 1. Clique no repositório que você deseja permitir.
 
 1. Opcionalmente, para remover um repositório da lista, à direita do repositório, clique em {% octicon "x" aria-label="The X icon" %}. ![Botão "X" para remover um repositório](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 
 ## Remover acesso a {% data variables.product.prodname_GH_advanced_security %} de repositórios individuais em uma organização
 
@@ -145,7 +146,7 @@ Você pode gerenciar o acesso a funcionalidades de {% data variables.product.pro
 ## Leia mais
 
 - "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"
-- "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)"{% ifversion fpt %}
+- "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)"{% ifversion fpt or ghec %}
 - "[Manter as suas dependências atualizadas automaticamente](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}{% ifversion not ghae %}
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Gerenciar vulnerabilidades nas dependências do seu projeto](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"{% endif %}

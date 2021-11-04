@@ -11,8 +11,9 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -36,7 +37,7 @@ topics:
 
 {% data variables.product.prodname_codeql_runner %}は、サードパーティの継続的インテグレーション（CI）システム内で処理しているコードに対して{% data variables.product.prodname_code_scanning %}を実行するのに利用できるツールです。 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 多くの場合、CIシステム内で{% data variables.product.prodname_codeql_cli %}を直接使って{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}をセットアップするのが容易です。
 {% endif %}
 
@@ -47,7 +48,7 @@ topics:
 {% note %}
 
 **注釈:**
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 * {% data variables.product.prodname_codeql_runner %}は{% data variables.product.prodname_codeql %} CLIを使ってコードを分析するので、同じライセンス条件を持ちます。 {% data variables.product.prodname_dotcom_the_website %}上で管理されるパブリックリポジトリでの使用は無料であり、{% data variables.product.prodname_advanced_security %}ライセンスを持つお客様が所有するプライベートリポジトリ上で使用できます。 詳細については「[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %}の利用規約](https://securitylab.github.com/tools/codeql/license)」及び「[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)」を参照してください。
 {% else %}
 * {% data variables.product.prodname_codeql_runner %}は{% data variables.product.prodname_advanced_security %}ライセンスを持つお客様にご利用いただけます。
@@ -59,7 +60,7 @@ topics:
 
 ## {% data variables.product.prodname_codeql_runner %} をダウンロードする
 
-{% data variables.product.prodname_codeql_runner %}は、https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases からダウンロードできます。 一部のオペレーティングシステムでは、ダウンロードしたファイルの実行前に、その権限を変更する必要があります。
+{% data variables.product.prodname_codeql_runner %}は、https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases からダウンロードできます。 一部のオペレーティングシステムでは、ダウンロードしたファイルの実行前に、その権限を変更する必要があります。
 
 Linuxの場合:
 
@@ -81,7 +82,7 @@ Windowsでは、通常`codeql-runner-win.exe`ファイルの権限変更は必�
 {% data variables.product.prodname_codeql_runner %}をダウンロードし、実行できることを確認したら、{% data variables.product.prodname_code_scanning %}に使用するそれぞれのCIサーバーでランナーを利用できるようにしなければなりません。 たとえば、内部的な中央の場所からランナーをコピーするよう、各サーバーを設定することになるでしょう。 あるいは、REST API を使用して {% data variables.product.prodname_dotcom %}から直接ランナーを取得することもできます。例:
 
 ```shell
-wget https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
@@ -92,7 +93,7 @@ chmod +x codeql-runner-linux
 
 {% data variables.product.prodname_codeql %} バンドルにアクセスを与えるオプションは次の通りです。
 
-1. CI サーバーに https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action へのアクセスを許可し、{% data variables.product.prodname_codeql_runner %} がバンドルを自動的にダウンロードできるようにする。
+1. CI サーバーに https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action へのアクセスを許可し、{% data variables.product.prodname_codeql_runner %} がバンドルを自動的にダウンロードできるようにする。
 1. バンドルを手動でダウンロード/展開し、他の中央リソースに保存して、 <nobr>`--codeql-path`</nobr> フラグで、呼び出しにおいて {% data variables.product.prodname_codeql_runner %} を初期化するバンドルの場所を指定します。
 
 ## {% data variables.product.prodname_codeql_runner %} を呼び出す

@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Comentar en una solicitud de cambios
@@ -60,5 +61,5 @@ Cualquier persona que observe la solicitud de extracción o el repositorio recib
 ## Leer más
 
 - "[Escribir en GitHub](/github/writing-on-github)"
-{% ifversion fpt %}- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+{% ifversion fpt or ghec %}- "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

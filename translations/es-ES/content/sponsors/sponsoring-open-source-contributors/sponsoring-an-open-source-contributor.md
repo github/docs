@@ -8,6 +8,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
@@ -44,7 +45,7 @@ Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.prod
 
 {% note %}
 
-**Nota:**{% data variables.product.prodname_dotcom %} no se responzabiliza por cómo se auto-representan los desarrolladores ni tampoco respalda ninguno de los proyectos de código abierto patrocinados. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/github/site-policy/github-sponsors-additional-terms).
+**Nota:**{% data variables.product.prodname_dotcom %} no se responzabiliza por cómo se auto-representan los desarrolladores ni tampoco respalda ninguno de los proyectos de código abierto patrocinados. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
 

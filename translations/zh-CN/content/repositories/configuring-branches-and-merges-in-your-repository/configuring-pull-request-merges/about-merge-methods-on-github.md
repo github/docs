@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: About merge methods
@@ -16,9 +17,17 @@ shortTitle: About merge methods
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} 您可以只对仓库启用所需的方法，以实施一种合并方法，如提交压缩或变基。
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 默认合并方法创建合并提交。 通过强制实施线性提交历史记录，可以防止任何人将合并提交推送到受保护分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-linear-history)”。{% endif %}
 
 ## 压缩合并提交

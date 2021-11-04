@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
@@ -13,9 +14,9 @@ topics:
 shortTitle: Informações fiscais
 ---
 
-## W-9/W-8 tax forms
+## Formulários fiscais W-9/W-8
 
-By law, {% data variables.product.prodname_dotcom %} is required by the U.S. Internal Revenue Service (IRS) to collect tax information from all U.S. and non-U.S. maintainers. These forms are held by {% data variables.product.prodname_dotcom %} and are not required to be submitted to the IRS.
+Por lei, {% data variables.product.prodname_dotcom %} é exigido pelos EUA. Serviço de Receita Interno (IRS) para coletar informações fiscais em todos os EUA. e fora dos EUA. mantenedores. Esses formulários são mantidos por {% data variables.product.prodname_dotcom %} e não têm de ser enviados ao IRS.
 
 ### W-9 (U.S.)
 

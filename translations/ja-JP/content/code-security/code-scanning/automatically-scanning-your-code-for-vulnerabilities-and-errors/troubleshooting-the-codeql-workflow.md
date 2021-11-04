@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -47,7 +48,7 @@ topics:
 
   ```yaml
   jobs:
-    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    analyze:{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
       permissions:
         security-events: write
         actions: read{% endif %}
@@ -77,12 +78,12 @@ topics:
   strategy:
     fail-fast: false
     matrix:
-      # Override automatic language detection by changing the list below
-      # Supported options are:
-      # ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
+      # Override automatic language detection by changing the list below.
+      # Supported options are listed in a comment in the default workflow.
       language: ['go', 'javascript']
   ```
-詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
+
+   詳しい情報については、上記「[コンパイル言語の自動ビルドの失敗](#automatic-build-for-a-compiled-language-fails)」にあるワークフローの抜粋を参照してください。
 1. {% data variables.product.prodname_code_scanning %} ワークフローはコンパイルされた言語（C、C++、C#、または Java）を分析しているが、コードはコンパイルされていない。 デフォルトでは、{% data variables.product.prodname_codeql %} 分析ワークフローには `autobuild` ステップが含まれていますが、このステップはベスト エフォートプロセスを表しており、特定のビルド環境によっては、コードのビルドに失敗する可能性があります。 `autobuild` ステップを削除し、ビルドステップを手動で含めない場合も、コンパイルが失敗する可能性があります。  ビルドステップの指定に関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 1. ワークフローはコンパイルされた言語（C、C++、C#、または Java）を分析しているが、パフォーマンスを向上させるためにビルドの一部がキャッシュされている（Gradle や Bazel などのビルドシステムで発生する可能性が最も高い）。 {% data variables.product.prodname_codeql %} はコンパイラのアクティビティを監視してリポジトリ内のデータフローを理解するため、{% data variables.product.prodname_codeql %} は分析を実行するために完全なビルドを実行する必要があります。
 1. ワークフローはコンパイルされた言語（C、C++、C＃、または Java）を分析しているが、ワークフローの `init` ステップと `analyze` ステップの間でコンパイルが行われていない。 {% data variables.product.prodname_codeql %} では、コンパイラのアクティビティを監視して分析を実行するために、これらの 2 つのステップ間でビルドを行う必要があります。
@@ -105,7 +106,7 @@ topics:
 
 ビルドステップの指定に関する詳細は、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1  or ghae-next %}
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
 ## Lines of code scanned are lower than expected
 
 For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
@@ -170,7 +171,7 @@ Java、C、C++、C# などのコンパイルされた言語の場合、{% data v
 
 それでも分析が遅すぎるために、`push` または `pull_request` イベント中に実行できない場合は、`schedule` イベントでのみ分析をトリガーすることをお勧めします。 詳しい情報については、「[イベント](/actions/learn-github-actions/introduction-to-github-actions#events)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 分析プラットフォーム間で結果が異なる
 
 Pythonで書かれたコードを分析しているなら、{% data variables.product.prodname_codeql_workflow %}をLinux、macOS、Windowsのいずれで実行しているかによって、異なる結果が得られるかもしれません。
@@ -185,11 +186,11 @@ GitHubがホストするLinuxを使用したランナーでは、{% data variabl
 
 ## エラー:「ディスク不足」または「メモリ不足」
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the hosted {% data variables.product.prodname_actions %} runner.
-{% ifversion fpt %}ホストされた{% data variables.product.prodname_actions %}ランナーでこの問題が生じた場合は、弊社が問題を調査できるよう{% data variables.contact.contact_support %}に連絡してください。
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+{% ifversion fpt or ghec %}ホストされた{% data variables.product.prodname_actions %}ランナーでこの問題が生じた場合は、弊社が問題を調査できるよう{% data variables.contact.contact_support %}に連絡してください。
 {% else %}この問題が生じたら、ランナー上のメモリを増やしてみてください。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_dependabot %}を使用している際のError: 403 "Resource not accessible by integration"
 
 {% data variables.product.prodname_dependabot %}は、ワークフローの実行をトリガーする際に信頼できないと見なされ、ワークフローは読み取りのみのスコープで実行されます。 ブランチに対する{% data variables.product.prodname_code_scanning %}の結果をアップロードするには、通常`security_events: write`スコープが必要になります。 ただし、`pull_request`イベントがアクションの実行をトリガーした際には、{% data variables.product.prodname_code_scanning %}初音に結果のアップロードを許可します。 これが、{% data variables.product.prodname_dependabot %}ブランチでは`push`イベントの代わりに`pull_request`イベントを使うことをおすすめする理由です。

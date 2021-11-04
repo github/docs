@@ -26,7 +26,7 @@ shortTitle: 对操作使用 GitHub Connect
 
 ## 启用对所有 {% data variables.product.prodname_dotcom_the_website %} 操作的自动访问
 
-在企业实例上启用访问来自 {% data variables.product.prodname_dotcom_the_website %} 的所有操作之前，必须将企业连接到 {% data variables.product.prodname_dotcom_the_website %}。 For more information, see "[Connecting your enterprise to {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+在企业实例上启用访问来自 {% data variables.product.prodname_dotcom_the_website %} 的所有操作之前，必须将企业连接到 {% data variables.product.prodname_dotcom_the_website %}。 更多信息请参阅“[将企业连接到 {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {%- ifversion ghes < 3.1 %}
@@ -34,7 +34,7 @@ shortTitle: 对操作使用 GitHub Connect
 {%- endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 {%- ifversion ghes > 3.0 or ghae %}
-1. Under "Users can utilize actions from GitHub.com in workflow runs", use the drop-down menu and select **Enabled**. ![工作流程运行中用于访问 GitHub.com 上操作的下拉菜单](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
+1. 在“Users can utilize actions from GitHub.com in workflow runs（用户在工作流程运行中可以使用 GitHub.com 上的操作）”下，使用下拉菜单选择 **Enabled（已启用）**。 ![工作流程运行中用于访问 GitHub.com 上操作的下拉菜单](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 {%- else %}
 1. 在“Server can use actions from GitHub.com in workflows runs（服务器在工作流程运行中可以使用 GitHub.com 上的操作）”下，使用下拉菜单选择 **Enabled（已启用）**。 ![工作流程运行中用于访问 GitHub.com 上操作的下拉菜单](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
 {%- endif %}
