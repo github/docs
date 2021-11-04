@@ -13,7 +13,6 @@ export default [
   'alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488', // v0.8.1
   'andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90', // v1.0.4
   'crowdin/github-action@d7f217268068f1244883a993379d62d816f84f25', // v1.4.0
-  'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
   'cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa', // uses github-actions-parser v0.23.0
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911', // v3.0.2
   'dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126', // v2.15.0
