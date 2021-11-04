@@ -7,7 +7,9 @@ redirect_from:
   - /code-security/supply-chain-security/troubleshooting-the-detection-of-vulnerable-dependencies
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
+  ghae: issue-4864
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot
@@ -32,15 +34,15 @@ topics:
 *   {% data variables.product.prodname_advisory_database %} は、{% data variables.product.prodname_dotcom %} が脆弱性のある依存関係を識別するために使用するデータソースの 1 つです。 これは、{% data variables.product.prodname_dotcom %} の一般的なパッケージエコシステムの脆弱性情報がキュレーションされた無料のデータベースです。 これには、{% data variables.product.prodname_security_advisories %} から {% data variables.product.prodname_dotcom %} に直接報告されたデータと、公式フィードおよびコミュニティソースの両方が含まれます。 このデータは {% data variables.product.prodname_dotcom %} によってレビューおよびキュレーションされ、虚偽または実行不可能な情報が開発コミュニティと共有されないようにします。 {% data reusables.security-advisory.link-browsing-advisory-db %}
 *   依存関係グラフは、ユーザのリポジトリ内のすべての既知のパッケージマニフェストファイルを解析します。 たとえば、npm の場合、_package-lock.json_ ファイルを解析します。 リポジトリのすべての依存関係とパブリック依存関係のグラフを作成します。 これは、依存関係グラフを有効にし、誰かがデフォルトブランチにプッシュしたときに発生します。また、サポートされているマニフェスト形式に変更を加えるコミットが含まれています。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 *   {% data variables.product.prodname_dependabot %} は、マニフェストファイルを含むデフォルトブランチへのプッシュをスキャンします。 新しい脆弱性レコードが追加されると、既存のすべてのリポジトリがスキャンされ、脆弱性のあるリポジトリごとにアラートが生成されます。 {% data variables.product.prodname_dependabot_alerts %} は、脆弱性ごとに 1 つのアラートを作成するのではなく、リポジトリレベルで集約されます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
-*   {% ifversion fpt %}{% data variables.product.prodname_dependabot_security_updates %}は、リポジトリ中の脆弱性のある依存関係に関するアラートを受け取ったときにトリガーされます。 可能な場合、{% data variables.product.prodname_dependabot %} はリポジトリ内でプルリクエストを作成して、脆弱性を回避するために必要な最小限の安全なバージョンに脆弱性のある依存関係をアップグレードします。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」および「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」を参照してください。
+*   {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot_security_updates %}は、リポジトリ中の脆弱性のある依存関係に関するアラートを受け取ったときにトリガーされます。 可能な場合、{% data variables.product.prodname_dependabot %} はリポジトリ内でプルリクエストを作成して、脆弱性を回避するために必要な最小限の安全なバージョンに脆弱性のある依存関係をアップグレードします。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」および「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」を参照してください。
 
-    {% endif %}{% data variables.product.prodname_dependabot %}は、スケジュールに従ってではなく、何か変更があった場合にリポジトリを脆弱性のある依存関係を探してスキャンします。 たとえば、新しい依存関係が追加された場合（{% data variables.product.prodname_dotcom %}はすべてのプッシュについてこれをチェックします）や、新しい脆弱性がアドバイザリデータベースに追加され{% ifversion ghes > 2.22 %}{% data variables.product.prodname_ghe_server %}に同期され{% endif %}たときに、スキャンがトリガーされます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)」を参照してください。
+    {% endif %}{% data variables.product.prodname_dependabot %}は、スケジュールに従ってではなく、何か変更があった場合にリポジトリを脆弱性のある依存関係を探してスキャンします。 たとえば、新しい依存関係が追加された場合（{% data variables.product.prodname_dotcom %}はすべてのプッシュについてこれをチェックします）や、新しい脆弱性がアドバイザリデータベースに追加され{% ifversion ghes or ghae-issue-4864 %}{% data variables.product.product_location %}に同期され{% endif %}たときに、スキャンがトリガーされます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#detection-of-vulnerable-dependencies)」を参照してください。
 
 ## 一部のエコシステムの脆弱性アラートが表示されないのはなぜですか？
 
-{% data variables.product.prodname_dotcom %} では、脆弱性アラートのサポートを、高品質で実用的なデータを提供できる一連のエコシステムに限定しています。 {% data variables.product.prodname_advisory_database %}、依存関係グラフ、{% ifversion fpt %}、{% data variables.product.prodname_dependabot %} のセキュリティアップデート{% endif %}及び{% data variables.product.prodname_dependabot %}のアラート中のキュレーションされた脆弱性は、Java の Maven、JavaScript の npm と Yarn、.NET の NuGet、Python の pip、Ruby の RubyGems、PHP の Composer などのいくつかのエコシステムに提供されます。 今後も、より多くのエコシステムのサポートを追加していきます。 サポートされているパッケージエコシステムの概要については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
+{% data variables.product.prodname_dotcom %} では、脆弱性アラートのサポートを、高品質で実用的なデータを提供できる一連のエコシステムに限定しています。 {% data variables.product.prodname_advisory_database %}、依存関係グラフ、{% ifversion fpt or ghec %}、{% data variables.product.prodname_dependabot %} のセキュリティアップデート{% endif %}及び{% data variables.product.prodname_dependabot %}のアラート中のキュレーションされた脆弱性は、Java の Maven、JavaScript の npm と Yarn、.NET の NuGet、Python の pip、Ruby の RubyGems、PHP の Composer などのいくつかのエコシステムに提供されます。 今後も、より多くのエコシステムのサポートを追加していきます。 サポートされているパッケージエコシステムの概要については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
 
-{% data variables.product.prodname_dotcom %}セキュリティアドバイザリは他のエコシステムに対しても存在するかもしれないことには注意しておくとよいでしょう。 セキュリティアドバイザリの情報は、特定のリポジトリのメンテナによって提供されます。 このデータは、サポートされているエコシステムの情報と同じ方法でキュレーションされていません。 {% ifversion fpt %}詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。{% endif %}
+{% data variables.product.prodname_dotcom %}セキュリティアドバイザリは他のエコシステムに対しても存在するかもしれないことには注意しておくとよいでしょう。 セキュリティアドバイザリの情報は、特定のリポジトリのメンテナによって提供されます。 このデータは、サポートされているエコシステムの情報と同じ方法でキュレーションされていません。 {% ifversion fpt or ghec %}詳しい情報については、「[{% data variables.product.prodname_dotcom %} のセキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。{% endif %}
 
 **チェック**: 未捕捉の脆弱性は、サポートされていないエコシステムに適用されますか？
 
@@ -48,11 +50,11 @@ topics:
 
 依存関係グラフには、環境で明示的に宣言されている依存関係に関する情報が含まれています。 つまり、マニフェストまたはロックファイルで指定されている依存関係です。 依存関係グラフには、通常、マニフェストファイル内の依存関係の依存関係を調べることにより、ロックファイルで指定されていない場合でも、推移的な依存関係も含まれます。
 
-{% data variables.product.prodname_dependabot_alerts %} は、推移的な依存関係を含め、更新する必要のある依存関係についてアドバイスします。この場合、バージョンはマニフェストまたはロックファイルから判別できます。 {% ifversion fpt %}{% data variables.product.prodname_dependabot_security_updates %}は、{% data variables.product.prodname_dependabot %}が直接「修復」できる、依存関係が以下のような場合にのみ変更を提案します。
+{% data variables.product.prodname_dependabot_alerts %} は、推移的な依存関係を含め、更新する必要のある依存関係についてアドバイスします。この場合、バージョンはマニフェストまたはロックファイルから判別できます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot_security_updates %}は、{% data variables.product.prodname_dependabot %}が直接「修復」できる、依存関係が以下のような場合にのみ変更を提案します。
 * マニフェストまたはロックファイルで明示的に宣言されている直接依存関係
 * ロックファイルで宣言されている推移的な依存関係{% endif %}
 
-依存関係グラフには、「寛容な」依存関係は含まれていません。 「寛容な」依存関係は、パッケージマネージャーのマニフェストまたはロックファイルで参照されるのではなく、別のソースからコピーされ、リポジトリに直接またはアーカイブ内でチェックインされる個々のファイル（ZIP ファイルや JAR ファイルなど）です。
+The dependency graph doesn't include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile.
 
 **チェック**: リポジトリのマニフェストまたはロックファイル内で指定されていないコンポーネントに対する未捕捉の脆弱性はありますか？
 
@@ -96,7 +98,7 @@ topics:
 
 {% data variables.product.prodname_dependabot %} は {% data variables.product.prodname_advisory_database %} で厳選されたデータを使用するため、アラートの数は少なくなる可能性があります。ただし、受信するアラートは正確で関連性があるものです。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 依存関係の脆弱性ごとに個別のアラートが生成されますか？
 
 依存関係に複数の脆弱性がある場合、脆弱性ごとに 1 つのアラートではなく、その依存関係に対して 1 つの集約アラートのみが生成されます。
@@ -116,5 +118,5 @@ topics:
 
 - 「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」
 - [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)
-- 「[リポジトリのセキュリティ及び分析設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」{% ifversion fpt %}
+- 「[リポジトリのセキュリティ及び分析設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」{% ifversion fpt or ghec %}
 - 「[{% data variables.product.prodname_dependabot %}エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)」{% endif %}

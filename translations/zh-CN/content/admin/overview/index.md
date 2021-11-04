@@ -4,6 +4,7 @@ intro: '您可以了解{% data variables.product.product_name %}和管理{% ifve
 redirect_from:
   - /enterprise/admin/overview
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:

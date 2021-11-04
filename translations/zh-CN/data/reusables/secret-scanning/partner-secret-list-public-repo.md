@@ -15,8 +15,8 @@
 | Azure                     | Azure 服务管理证书                        |
 | Azure                     | Azure SQL 连接字符串                     |
 | Azure                     | Azure 存储账户密钥                        |
-| Checkout.com              | Checkout.com Production Secret Key  |
-| Checkout.com              | Checkout.com Test Secret Key        |
+| Checkout.com              | Checkout.com 生产密钥                   |
+| Checkout.com              | Checkout.com 测试密钥                   |
 | Clojars                   | Clojars 部署令牌                        |
 | CloudBees CodeShip        | CloudBees CodeShip 凭据               |
 | Contributed Systems       | Contributed Systems Credentials     |
@@ -35,6 +35,7 @@
 | Finicity                  | Finicity App 密钥                     |
 | Frame.io                  | Frame.io JSON Web 令牌                |
 | Frame.io                  | Frame.io Developer 令牌               |
+| FullStory                 | FullStory API Key                   |
 | GitHub                    | GitHub 个人访问令牌                       |
 | GitHub                    | GitHub OAuth 访问令牌                   |
 | GitHub                    | GitHub 刷新令牌                         |

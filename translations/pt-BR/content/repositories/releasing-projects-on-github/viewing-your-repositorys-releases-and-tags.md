@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Visualizar versões & tags
 ---
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Dica**: Você também pode ver uma versão usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`vista da versão `](https://cli.github.com/manual/gh_release_view)" na documentação do {% data variables.product.prodname_cli %}.

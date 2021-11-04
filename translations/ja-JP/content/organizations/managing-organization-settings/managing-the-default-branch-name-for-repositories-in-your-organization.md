@@ -6,8 +6,9 @@ redirect_from:
 permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ Organization のメンバーが Organization で新しいリポジトリを作�
 
 {% data reusables.branches.set-default-branch %}
 
-Enterprise のオーナーが Enterprise のデフォルトブランチ名にポリシーを適用している場合、Organization のデフォルトブランチ名を設定することはできません。 代わりに、個々のリポジトリのデフォルトブランチを変更できます。 詳しい情報については、{% ifversion fpt %}「[Enterprise でリポジトリ管理ポリシーを適用する](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)」{% else %}「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)」{% endif %} および「[デフォルトブランチを変更する](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
+Enterprise のオーナーが Enterprise のデフォルトブランチ名にポリシーを適用している場合、Organization のデフォルトブランチ名を設定することはできません。 代わりに、個々のリポジトリのデフォルトブランチを変更できます。 For more information, see {% ifversion fpt %}"[Enforcing repository management policies in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
 ## デフォルトブランチ 名を設定する
 

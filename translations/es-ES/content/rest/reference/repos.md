@@ -1,6 +1,6 @@
 ---
 title: Repositorios
-intro: 'La API de Repos te permite crear, administrar y controlar el flujo de trabajo de los repositorios de {% data variables.product.product_name %} públicos y privados.'
+intro: 'La API de Repos te permite crear, administrar y controlar el flujo de trabajo de los repositorios públicos y privados de {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -17,7 +18,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Autoenlaces
 
 {% tip %}
@@ -72,7 +73,7 @@ La API de Confirmaciones del Repositorio puede listar, ver y comparar las confir
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Comunidad
 
 {% for operation in currentRestOperations %}
@@ -172,7 +173,7 @@ Puedes comunicar que un ambiente transitorio ya no existe si configuras el `stat
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Ambientes
 
 La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener más información sobre los ambientes, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". Para administrar los secretos de ambiente, consulta la sección "[Secretos](/rest/reference/actions#secrets)".
@@ -202,7 +203,7 @@ Utiliza la terminal de la API para agregar un colaborador. Para obtener más inf
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghae or ghes > 3.2 %}
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 
 ## Git LFS
 
@@ -295,7 +296,7 @@ Si estás desarrollando una GitHub App y quieres proporcionar información más 
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Tráfico
 
 Para los repositorios en los que tienes acceso de carga, la API de tráfico proporciona acceso a la información proporcionada en tu gráfica de repositorio. Para obtener más información, consulta la sección "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Ver el tráfico hacia un repositorio</a>".
@@ -363,9 +364,9 @@ Las solicitudes de PubSubHubbub pueden enviarse varias veces. Si el gancho ya ex
 
 ##### Parámetros
 
-| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `secuencia` | **Requerido**. Ya sea `subscribe` o `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `hub.topic`    | `secuencia` | **Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe estar en el formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `hub.callback` | `secuencia` | La URI para recibir las actualizaciones del tema.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `hub.secret`   | `secuencia` | Una llave de secreto compartido que genera una firma de hash del contenido saliente del cuerpo.  Puedes verificar si una subida vino de GitHub comparando el cuerpo de la solicitud sin procesar con el contenido de los encabezados de la {% ifversion fpt or ghes > 2.22 %}`X-Hub-Signature` o `X-Hub-Signature-256`{% elsif ghes < 3.0 %}`X-Hub-Signature`{% elsif ghae %}`X-Hub-Signature-256`{% endif %}. Puedes ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles. |
+| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `secuencia` | **Requerido**. Ya sea `subscribe` o `unsubscribe`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `hub.topic`    | `secuencia` | **Requerido**.  La URI del repositorio de GitHub al cual suscribirse.  La ruta debe estar en el formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `hub.callback` | `secuencia` | La URI para recibir las actualizaciones del tema.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `hub.secret`   | `secuencia` | Una llave de secreto compartido que genera una firma de hash del contenido saliente del cuerpo.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. Puedes ver [la documentación de PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obtener más detalles. |

@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-scim
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -18,7 +19,7 @@ Se você usa [SAML SSO](/articles/about-identity-and-access-management-with-saml
 
 Se o SAML SSO for usado sem implementação do SCIM, você não terá desprovisionamento automático. Quando as sessões dos integrantes da organização expiram depois que o acesso deles é removido do IdP, eles não podem ser removidos automaticamente da organização. Os tokens autorizados concedem acesso à organização mesmo depois que as respectivas sessões expiram. Para remover o acesso, os administradores da organização podem remover o token autorizado manualmente da organização ou automatizar a remoção com o SCIM.
 
-Estes provedores de identidade são compatíveis com a API de SCIM de {% data variables.product.product_name %} para organizações. Para obter mais informações, consulte [SCIM](/rest/reference/scim) na documentação de API do {% data variables.product.product_name %}.
+Estes provedores de identidade são compatíveis com a API de SCIM de {% data variables.product.product_name %} para organizações. For more information, see [SCIM](/rest/reference/scim) in the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
 - Azure AD
 - Okta
 - OneLogin

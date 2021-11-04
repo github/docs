@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -25,13 +26,13 @@ topics:
 
 コードの検索は複雑なため、検索の実行には一定の制限があります。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
 - [フォーク](/articles/about-forks)のコードは、親リポジトリより Star が多い場合に限って検索可能です。 親リポジトリより Star が少ないフォークは、コード検索ではインデックス**されません。** 親リポジトリより Star が多いフォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/search-github/searching-on-github/searching-in-forks)」を参照してください。
-- コード検索では、_デフォルトブランチ_のみインデックスされます。{% ifversion fpt %}
+- コード検索では、_デフォルトブランチ_のみインデックスされます。{% ifversion fpt or ghec %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
 - 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
-- 500,000 ファイル未満のリポジトリのみが検索可能です。{% ifversion fpt %}
+- 500,000 ファイル未満のリポジトリのみが検索可能です。{% ifversion fpt or ghec %}
 - 昨年アクティビティがあった、または検索結果に返されたリポジトリのみが検索可能です。{% endif %}
 - [`filename`](#search-by-filename) の検索を除き、ソースコードを検索する場合、常に少なくとも検索単語を 1 つ含める必要があります。 たとえば[`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) は有効な検索ではありませんが、[`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) は有効な検索です。
 - 検索結果では、同一ファイルから取り出される部分は 2 つまでです。そのファイルはさらに多くの部分でヒットしている可能性があります。
@@ -108,5 +109,5 @@ topics:
 ## 参考リンク
 
 - 「[検索結果をソートする](/search-github/getting-started-with-searching-on-github/sorting-search-results/)」
-- "[フォーク内を検索する](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt %}
+- "[フォーク内を検索する](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
 - "[ {% data variables.product.prodname_dotcom %} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

@@ -19,10 +19,6 @@ shortTitle: 配置包生态系统
 
 要防止上传新包，可以将以前启用的生态系统设置为**只读**，同时仍允许下载现有包。
 
-{% ifversion ghes = 2.22 %}
-要将
-{% data variables.product.prodname_registry %} 用于 Docker，您必须为实例启用子域隔离。 更多信息请参阅“[启用子域隔离](/enterprise/admin/configuration/enabling-subdomain-isolation)”。
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
