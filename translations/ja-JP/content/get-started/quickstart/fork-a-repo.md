@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -37,7 +38,7 @@ topics:
 
 {% data variables.product.product_location %} に関する Organization の開発作業にオープンソースの原則を適用する方法の詳細については、{% data variables.product.prodname_dotcom %} のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 他のユーザのプロジェクトのフォークからパブリックリポジトリを作成する際は、プロジェクトの他者との共有方法を定義するライセンスファイルを必ず含めてください。 詳しい情報については、choosealicense.com の「[オープンソースのライセンスを選択する](https://choosealicense.com/)」を参照してください。
 
@@ -56,7 +57,7 @@ topics:
 
 上流または元のリポジトリへの変更を提案するために、プロジェクトをフォークする場合があります。 この場合、自分のフォークを上流のリポジトリと定期的に同期させるとよいでしょう。 これには、コマンドラインで Git を使用する必要があります。 先程フォークした同じ [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリを使用して、上流リポジトリの設定を練習できます。
 
-1. {% data variables.product.product_location %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. ページの右上にある [**Fork**] をクリックします。 ![[Fork] ボタン](/assets/images/help/repository/fork_button.jpg)
 
 {% endwebui %}
@@ -89,7 +90,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
 {% include tool-switcher %}
 {% webui %}
 
-1. {% data variables.product.product_name %} で、Spoon-Knife リポジトリの**自分のフォーク**に移動します。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -139,7 +140,7 @@ gh repo fork <em>repository</em> --clone=true
 {% include tool-switcher %}
 {% webui %}
 
-1. {% data variables.product.product_name %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
+1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Change directories to the location of the fork you cloned.
@@ -200,7 +201,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 ## フォークする他のリポジトリを見つける
 リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}[Explore](https://github.com/explore) を閲覧して、プロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+{% ifversion fpt or ghec %}[Explore](https://github.com/explore) を閲覧して、プロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 
 {% endif %}
 

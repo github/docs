@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /using-github-actions-for-project-management
   - /adding-labels-to-issues
@@ -16,3 +17,4 @@ children:
   - /scheduling-issue-creation
 ---
 
+{% data reusables.actions.ae-beta %}

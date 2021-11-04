@@ -1,6 +1,6 @@
 ---
 title: About billing for GitHub Advanced Security
-intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt %} in a private or internal repository{% endif %}, you need a license.{% ifversion fpt %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion fpt or ghec %} in a private or internal repository{% endif %}, you need a license.{% ifversion fpt or ghec %} These features are available free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -20,7 +21,7 @@ shortTitle: Advanced Security billing
 
 ## 关于 {% data variables.product.prodname_GH_advanced_security %} 的计费
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 如果您想要在 {% data variables.product.prodname_dotcom_the_website %} 上公共仓库以外的任何仓库中使用 {% data variables.product.prodname_GH_advanced_security %} 功能，将需要许可证。 有关 {% data variables.product.prodname_GH_advanced_security %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。
 
@@ -30,7 +31,7 @@ shortTitle: Advanced Security billing
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.advanced-security.license-overview %}
 
@@ -42,17 +43,17 @@ To discuss licensing {% data variables.product.prodname_GH_advanced_security %} 
 
 {% data reusables.advanced-security.about-committer-numbers-ghec-ghes %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.advanced-security.managing-license-usage-ghec-ghes %}
 
 {% endif %}
 
-您可以执行策略以允许或不允许企业帐户拥有的组织使用 {% data variables.product.prodname_advanced_security %}。 For more information, see "{% ifversion ghes %}[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% elsif fpt or ghae %}[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account){% endif %}."
+您可以执行策略以允许或不允许企业帐户拥有的组织使用 {% data variables.product.prodname_advanced_security %}。 For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+有关查看许可使用情况的更多信息，请参阅“[查看 {% data variables.product.prodname_GH_advanced_security %} 使用情况](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)”。
 
 {% endif %}
 
@@ -153,7 +154,7 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>December 4</nobr>
+      <nobr>12 月 4 日</nobr>
     </td>
     
     <td align="left">
@@ -171,7 +172,7 @@ The following example timeline demonstrates the events during a month that affec
   
   <tr>
     <td align="left">
-      <nobr>December 11</nobr>
+      <nobr>12 月 11 日</nobr>
     </td>
     
     <td align="left">

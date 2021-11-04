@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -104,7 +105,7 @@ Para buscar confirmaciones en todos los repositorios que son propiedad de una de
 
 El calificador `is` coincide con las confirmaciones de los repositorios con la visibilidad especificada. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Calificador| Ejemplo | ------------- | ------------- |{% ifversion fpt or ghes %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) coincide con las confirmaciones de los repositorios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) coincide con las confirmaciones de los repositorios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) coincide con las confirmaciones de los repositorios privados.
+| Calificador| Ejemplo | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) coincide con las confirmaciones de los repositorios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) coincide con las confirmaciones de los repositorios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) coincide con las confirmaciones de los repositorios privados.
 
 ## Leer más
 

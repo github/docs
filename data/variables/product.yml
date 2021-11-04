@@ -174,6 +174,7 @@ prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscription with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
+prodname_vscode_command_palette: 'VS Code Command Palette'
 
 # GitHub Dependabot
 prodname_dependabot: 'Dependabot'
@@ -187,6 +188,10 @@ prodname_arctic_vault: 'Arctic Code Vault'
 
 # GitHub Copilot
 prodname_copilot: 'GitHub Copilot'
+prodname_copilot_short: 'Copilot'
+
+# Command Palette
+prodname_command_palette: 'GitHub Command Palette'
 
 # Links
 product_url: >-

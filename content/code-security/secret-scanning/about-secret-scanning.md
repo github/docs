@@ -10,7 +10,7 @@ redirect_from:
   - /code-security/secret-security/about-secret-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview
@@ -43,7 +43,7 @@ When {% data variables.product.prodname_secret_scanning %} detects a set of cred
 ## About {% data variables.product.prodname_secret_scanning %} for private repositories
 {% endif %}
 
-{% ifversion ghes > 2.22 or ghae %}
+{% ifversion ghes or ghae %}
 ## About {% data variables.product.prodname_secret_scanning %} on {% data variables.product.product_name %}
 
 {% data variables.product.prodname_secret_scanning_caps %} is available on all organization-owned repositories as part of {% data variables.product.prodname_GH_advanced_security %}. It is not available on user-owned repositories.

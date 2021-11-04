@@ -1,1 +1,1 @@
-コマンドパレットを開くには、`cmd + k` (Mac)あるいは`ctrl + k` (Windows/Linux)を入力してください。
+To open the project command palette, press `Ctrl+k` (Windows and Linux) or `Command+k` (Mac).

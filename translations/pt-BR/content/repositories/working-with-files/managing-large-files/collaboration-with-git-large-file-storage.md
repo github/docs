@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Colaboração
 ---
 
@@ -31,7 +32,7 @@ Para obter mais informações sobre arquivos de ponteiro, consulte "[Sobre o {% 
 
 Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Fazer push de arquivos grandes em bifurcações
 

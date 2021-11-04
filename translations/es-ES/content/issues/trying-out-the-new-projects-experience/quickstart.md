@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Projects
@@ -18,15 +19,21 @@ Esta guía te demuestra cómo utilizar los proyectos (beta) para planear y rastr
 
 ## Prerrequisitos
 
-Para crear un proyecto, necesitas una organización de {% data variables.product.prodname_dotcom %} que sea parte del beta del proeycto. Para obtener más información sobre cómo crear una organización, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)". Para obtener más información sobre el beta, consulta la sección "[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)".
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. Para obtener más información sobre cómo crear una organización, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-En esta guía, agregarás propuestas existentes desde repositorios en tu organización a tu proyecto nuevo. Para obtener más información sobre cómo crear propuestas, consulta la sección "[Crear una propuesta](/issues/tracking-your-work-with-issues/creating-an-issue)".
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. Para obtener más información sobre cómo crear propuestas, consulta la sección "[Crear una propuesta](/issues/tracking-your-work-with-issues/creating-an-issue)".
 
 ## Crear un proyecto
 
-Primero, crea un proyecto desde la página de proyectos de tu organización.
+First, create an organization project or a user project.
+
+### Creating an organization project
 
 {% data reusables.projects.create-project %}
+
+### Creating a user project
+
+{% data reusables.projects.create-user-project %}
 
 ## Agregar propuestas a tu proyecto
 
@@ -89,11 +96,11 @@ Pudes compartir la URL con tu equipo para mantener a todos alineados con las pri
 
 Cuando guardas una vista, cualquiera que abra el proyecto verá la vista guardada. Aquí, agrupaste por prioridad, pero también puedes agregar otros modificadores, tales como clasificar, filtrar o diseño. Luego, crearás una vista nueva con el diseño modificado.
 
-## Agregar un tablero de vistas
+## Adding a board layout
 
 Para ver el progreso de las propuestas de tu proyecto, puedes cambiar al diseño de tablero.
 
-La vista de tablero se basa en el campo de estado, así que especifica un estado para cada propuesta en tu proyecto.
+The board layout is based on the status field, so specify a status for each issue in your project.
 
 ![Estado de ejemplo](/assets/images/help/projects/status_example.png)
 
@@ -118,6 +125,16 @@ Para indicar la propuesta de la vista, dale un nombre descriptivo.
 2. Reemplaza el texto existente con el nombre nuevo, `Progress`.
 
 ![Prioridades de ejemplo](/assets/images/help/projects/project-view-switch.gif)
+
+## Configure built-in automation
+
+Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+
+1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+2. Under **Default workflows**, click **Item added to project**.
+3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
+4. Next to **Set**, select **Status:Todo**.
+5. Click the **Disabled** toggle to enable the workflow.
 
 ## Pasos siguientes
 

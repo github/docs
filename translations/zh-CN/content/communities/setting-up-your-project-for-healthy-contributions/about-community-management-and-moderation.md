@@ -3,6 +3,7 @@ title: 关于社区管理和调解
 intro: '{% data variables.product.prodname_dotcom %} 提供帮助仓库维护员在 {% data variables.product.prodname_dotcom_the_website %} 社区建立和执行行为标准的工具。'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:

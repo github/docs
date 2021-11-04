@@ -6,6 +6,8 @@ shortTitle: Revisão de dependência
 versions:
   fpt: '*'
   ghes: '>= 3.2'
+  ghae: issue-4864
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -25,10 +27,14 @@ redirect_from:
 
 Se um pull request for direcionado ao branch padrão do seu repositório e contiver alterações em manifestos de pacote ou arquivos de bloqueio, você poderá exibir um comentário de dependência para ver o que foi alterado. A revisão de dependências inclui detalhes de alterações nas dependências indiretas nos arquivos de bloqueio, e informa a você se alguma das dependências adicionadas ou atualizadas contém vulnerabilidades conhecidas.
 
+{% ifversion fpt or ghec %}
 Revisão de dependência está disponível em:
 
 * Todos os repositórios públicos.
 * Repositórios privados pertencentes a organizações com uma licença de {% data variables.product.prodname_advanced_security %} com o gráfico de dependências habilitado. Para obter mais informações, consulte "[Explorar as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)".
+{% elsif ghes or ghae %}
+A revisão de dependências está disponível quando o gráfico de dependências está habilitado para {% data variables.product.product_location %} e {% data variables.product.prodname_advanced_security %} está habilitado para a organização ou repositório.
+{% endif %}
 
 Às vezes, você pode apenas querer atualizar a versão de uma dependência em um manifesto e gerar um pull request. No entanto, se a versão atualizada desta dependência direta também atualizou as dependências, seu pull request pode ter mais alterações do que o esperado. A revisão de dependência para cada manifesto e arquivo de bloqueio fornece uma maneira fácil de ver o que foi alterado e se alguma das novas versões de dependências contém vulnerabilidades conhecidas.
 
@@ -40,4 +46,4 @@ A revisão de dependências é compatível com as mesmas linguagens e os mesmos 
 
 ## Habilitar revisão de dependências
 
-O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. {% ifversion fpt %}Para obter mais informações, consulte "[Habilitar o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).{% endif %}{% ifversion ghes > 3.1 %}Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".{% endif %}
+O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph and Dependabot alerts on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}

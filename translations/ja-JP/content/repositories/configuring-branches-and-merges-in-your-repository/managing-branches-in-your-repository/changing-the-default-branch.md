@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
@@ -28,25 +29,19 @@ shortTitle: Change the default branch
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 デフォルトブランチの名前は変更することもできます。 詳しい情報については、「[ブランチの名前を変更する](/github/administering-a-repository/renaming-a-branch)」を参照してください。
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-next %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## 必要な環境
 
 デフォルトブランチを変更するには、リポジトリに複数のブランチが存在する必要があります。 詳しい情報については[リポジトリ内でのブランチの作成と削除](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)を参照してください。
 
 ## デフォルトブランチを変更する
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -56,12 +51,3 @@ shortTitle: Change the default branch
 1. [**Update**] をクリックします。 ![新しいブランチを選択後の [Update] ボタン](/assets/images/help/repository/repository-options-defaultbranch-update.png)
 1. 警告を読んでから、[**I understand, update the default branch.**] (わかりました。デフォルトのブランチを更新してください) をクリックします。 !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. デフォルトブランチのドロップダウンメニューで、新しいデフォルトブランチを選択します。 ![デフォルトブランチ ドロップダウン セレクター](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. [**Update**] をクリックします。
-
-{% endif %}

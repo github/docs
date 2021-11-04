@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 shortTitle: Eventos de webhook & cargas útiles
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% endif %}
 
@@ -48,14 +49,14 @@ Las propiedades únicas de un evento de webhook son las mismas que encontrarás 
 
 Las cargas útiles de HTTP POST que se entregan a la terminal URL configurada para tu webhook contendrán varios encabezados especiales:
 
-| Encabezado                    | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-GitHub-Event`              | Nombre del evento que desencadenó la entrega.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Encabezado                    | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-GitHub-Event`              | Nombre del evento que desencadenó la entrega.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `X-GitHub-Delivery`           | Un [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) para identificar la entrega.{% ifversion ghes or ghae %}
-| `X-GitHub-Enterprise-Version` | La versión de la instancia de {% data variables.product.prodname_ghe_server %} que envía la carga útil del HTTP POST.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `X-GitHub-Enterprise-Version` | La versión de la instancia de {% data variables.product.prodname_ghe_server %} que envía la carga útil del HTTP POST.                                                                                                                                                                                                                                                                                                                                                       |
 | `X-GitHub-Enterprise-Host`    | El nombre de host de la instancia de {% data variables.product.prodname_ghe_server %} que envió la carga útil de HTTP POST.{% endif %}{% ifversion not ghae %}
-| `X-Hub-Signature`             | Este encabezado se envía si el webhook se configura con un [`secret`](/rest/reference/repos#create-hook-config-params). Éste es el resúmen hexadecimal de HMAC del cuerpo de la solicitud y se genera utilizando la función de hash SHA-1 y el `secret` como la `key` HMAC.{% ifversion fpt or ghes > 2.22 %} La `X-Hub-Signature` se proporciona para compatibilidad con las integraciones existentes, y te recomendamos que mejor utilices la `X-Hub-Signature-256`, que es más segura.{% endif %}{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
-| `X-Hub-Signature-256`         | Este encabezado se envía si el webhook se configura con un [`secret`](/rest/reference/repos#create-hook-config-params). Este es el resumen hexadecimal de HMAC para el cuerpo de la solicitud y se genera utilizando la función de hash SHA-256 y el `secret` como la `key` HMAC.{% endif %}
+| `X-Hub-Signature`             | Este encabezado se envía si el webhook se configura con un [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
+| `X-Hub-Signature-256`         | Este encabezado se envía si el webhook se configura con un [`secret`](/rest/reference/repos#create-hook-config-params). Este es el resumen hexadecimal de HMAC para el cuerpo de la solicitud y se genera utilizando la función de hash SHA-256 y el `secret` como la `key` HMAC.                                                                                                                                                                                             |
 
 También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hookshot/`.
 
@@ -68,8 +69,8 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% ifversion ghes or ghae %}
 > X-GitHub-Enterprise-Version: 2.15.0
 > X-GitHub-Enterprise-Host: example.com{% endif %}{% ifversion not ghae %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% ifversion fpt or ghes > 2.22 or ghae %}
-> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}
+> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
 > Content-Length: 6615
@@ -100,7 +101,7 @@ También, el `User-Agent` para las solicitudes tendrá el prefijo `GitHub-Hooksh
 > }
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 ## branch_protection_rule
 
 Actividad relacionada con una regla de protección de rama. Para obtener más información, consulta la sección "[Acerca de las reglas de protección de rama](/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-rules)".
@@ -190,7 +191,7 @@ Actividad relacionada con una regla de protección de rama. Para obtener más in
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt %}`github` {% elsif ghes > 3.0 or ghae-next %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
+`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt or ghec %}`github` {% elsif ghes > 3.0 or ghae-next %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
 
 ### Ejemplo de carga útil del webhook
 
@@ -322,10 +323,10 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Type                                | Descripción                                              |
-| ------------ | ----------------------------------- | -------------------------------------------------------- |{% ifversion fpt or ghes or ghae %}
-| `Acción`     | `secuencia`                         | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment` | `objeto`                            | El [despliegue](/rest/reference/repos#list-deployments). |
+| Clave        | Type                                        | Descripción                                              |
+| ------------ | ------------------------------------------- | -------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| `Acción`     | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
+| `deployment` | `objeto`                                    | El [despliegue](/rest/reference/repos#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -347,14 +348,14 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 ### Objeto de carga útil del webhook
 
-| Clave                              | Type                                | Descripción                                                                               |
-| ---------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae %}
-| `Acción`                           | `secuencia`                         | La acción realizada. Puede ser `created`.{% endif %}
-| `deployment_status`                | `objeto`                            | El [Estado del despliegue](/rest/reference/repos#list-deployment-statuses).               |
-| `deployment_status["state"]`       | `secuencia`                         | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                    |
-| `deployment_status["target_url"]`  | `secuencia`                         | El enlace opcional agregado al estado.                                                    |
-| `deployment_status["description"]` | `secuencia`                         | La descripción opcional legible para las personas que se agrega al estado.                |
-| `deployment`                       | `objeto`                            | El [despliegue](/rest/reference/repos#list-deployments) con el que se asocia este estado. |
+| Clave                              | Type                                        | Descripción                                                                               |
+| ---------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------- |{% ifversion fpt or ghes or ghae or ghec %}
+| `Acción`                           | `secuencia`                                 | La acción realizada. Puede ser `created`.{% endif %}
+| `deployment_status`                | `objeto`                                    | El [Estado del despliegue](/rest/reference/repos#list-deployment-statuses).               |
+| `deployment_status["state"]`       | `secuencia`                                 | El estado nuevo. Puede ser `pending`, `success`, `failure`, o `error`.                    |
+| `deployment_status["target_url"]`  | `secuencia`                                 | El enlace opcional agregado al estado.                                                    |
+| `deployment_status["description"]` | `secuencia`                                 | La descripción opcional legible para las personas que se agrega al estado.                |
+| `deployment`                       | `objeto`                                    | El [despliegue](/rest/reference/repos#list-deployments) con el que se asocia este estado. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -364,12 +365,12 @@ Los eventos de webhook se desencadenan basándose en la especificidad del domini
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## debate
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
+Actividad relacionada con un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
 ### Disponibilidad
 
 - Webhooks de repositorio
@@ -394,7 +395,7 @@ Actividad relacionada con un debate. Para obtener más información, consulta la
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates](/graphql/guides/using-the-graphql-api-for-discussions)".
+La actividad relacionada con un comentario en un debate. Para obtener más información, consulta la sección "[Utilizar la API de GraphQL para los debates]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
 
 ### Disponibilidad
 
@@ -404,10 +405,10 @@ La actividad relacionada con un comentario en un debate. Para obtener más infor
 
 ### Objeto de carga útil del webhook
 
-| Clave        | Type        | Descripción                                                                                                    |
-| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------- |
-| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                               |
-| `comentario` | `objeto`    | El recurso de [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
+| Clave        | Type        | Descripción                                                                                                                                                        |
+| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Acción`     | `secuencia` | La acción realizada. Puede ser `created`, `edited`, o `deleted`.                                                                                                   |
+| `comentario` | `objeto`    | El recurso de [`discussion comment`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment). |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -615,7 +616,7 @@ Este evento ocurre cuando alguien revoca su autorización de una {% data variabl
 
 {{ webhookPayloadsForCurrentVersion.label.deleted }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## marketplace_purchase
 
 Actividad relacionada con una compra en GitHub Marketplace. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta el "[GitHub Marketplace](/marketplace/)".
@@ -753,7 +754,7 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {{ webhookPayloadsForCurrentVersion.organization.member_added }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## org_block
 
@@ -780,7 +781,7 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {% endif %}
 
-{% ifversion fpt or ghae %}
+{% ifversion fpt or ghae or ghec %}
 
 ## paquete
 
@@ -920,7 +921,7 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1087,7 +1088,7 @@ Las entregas para los eventos `review_requested` y `review_request_removed` tend
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## repository_dispatch
 
 Este evento ocurre cuando una {% data variables.product.prodname_github_app %} envía una solicitud de `POST` a la terminal "[Crear un evento de envío de repositorio](/rest/reference/repos#create-a-repository-dispatch-event)".
@@ -1125,7 +1126,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 {{ webhookPayloadsForCurrentVersion.repository.publicized }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## repository_import
 
 {% data reusables.webhooks.repository_import_short_desc %} Para recibir este evento para un repositorio personal, debes crear un repositorio vacío antes de la importación. Este evento puede activarse utilizando ya sea el [Importador de GitHub](/articles/importing-a-repository-with-github-importer/) o la [API de importaciones fuente](/rest/reference/migrations#source-imports).
@@ -1168,7 +1169,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 
 ## secret_scanning_alert
 
@@ -1193,7 +1194,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
 Actividad relacionada con una asesoría de seguridad. Una asesoría de seguridad proporciona información acerca de las vulnerabilidades relacionadas con la seguridad en el software dentro de GitHub. El conjunto de datos de la asesoría de seguridad también impulsa las alertas de seguridad de Github, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
@@ -1214,7 +1215,7 @@ Actividad relacionada con una asesoría de seguridad. Una asesoría de seguridad
 
 {{ webhookPayloadsForCurrentVersion.security_advisory.published }}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## sponsorship
 
 {% data reusables.webhooks.sponsorship_short_desc %}
@@ -1383,7 +1384,7 @@ El actor del evento es el [usuario](/rest/reference/users) que marcó el reposit
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## workflow_dispatch
 
 Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en GitHub o cuando envía una solicitud de tipo `POST` a la terminal [Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)". Para obtener más información, consulta la sección "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
@@ -1397,7 +1398,7 @@ Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en G
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 
 ## workflow_job
 
@@ -1421,7 +1422,7 @@ Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en G
 {{ webhookPayloadsForCurrentVersion.workflow_job }}
 
 {% endif %}
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 ## workflow_run
 
 Cuando una ejecución de flujo de trabajo de {% data variables.product.prodname_actions %} se solicita o se completa. Para obtener más información, consulta la sección "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows#workflow_run)".

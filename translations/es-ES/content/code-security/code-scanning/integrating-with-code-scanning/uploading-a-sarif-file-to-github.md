@@ -11,8 +11,9 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -36,10 +37,10 @@ topics:
 
 Puedes generar archivos SARIF utilizando muchas herramientas de prueba de seguridad para análisis estático, incluyendo a {% data variables.product.prodname_codeql %}. Para cargar resultados desde herramientas de terceros debes utilizar el Formato de Intercambio para Resultados de Análisis Estático (SARIF) 2.1.0. Para obtener más información, consulta la sección "[Soporte de SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)".
 
-Puedes cargar los resultados utilizando {% data variables.product.prodname_actions %}, la API del {% data variables.product.prodname_code_scanning %}, {% ifversion fpt or ghes > 3.0 or ghae-next %} el {% data variables.product.prodname_codeql_cli %}, {% endif %}o el {% data variables.product.prodname_codeql_runner %}. El mejor método de carga dependerá de cómo generas el archivo SARIF, por ejemplo, si utilizas:
+Puedes cargar los resultados utilizando {% data variables.product.prodname_actions %}, la API del {% data variables.product.prodname_code_scanning %}, {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %} el {% data variables.product.prodname_codeql_cli %}, {% endif %}o el {% data variables.product.prodname_codeql_runner %}. El mejor método de carga dependerá de cómo generas el archivo SARIF, por ejemplo, si utilizas:
 
 - {% data variables.product.prodname_actions %} para ejecutar la acción de {% data variables.product.prodname_codeql %}, no hay que hacer nada más. La acción de {% data variables.product.prodname_codeql %} carga el archivo de SARIF automáticamente cuando completa el análisis.
-- "[Administrar una ejecución de flujo de trabajo](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)" {% ifversion fpt or ghes > 3.0 or ghae-next %}
+- "[Administrar una ejecución de flujo de trabajo](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)" {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
  - El {% data variables.product.prodname_codeql_cli %} ejecutará el {% data variables.product.prodname_code_scanning %} en tu sistema de IC, puedes utilizar el CLI para cargar resultados a {% data variables.product.prodname_dotcom %} (para obtener más información, consulta la sección "[Instalar el {% data variables.product.prodname_codeql_cli %} en tu sistema de IC](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% endif %}
 - {% data variables.product.prodname_dotcom %} mostrará alertas de {% data variables.product.prodname_code_scanning %} desde el archivo SARIF cargado en tu repositorio. Si bloqueas la carga automática, cuando estés listo para cargar los resultados, puedes utilizar el comando `upload` (para obtener más información, consulta la seción "[Ejecutar el {% data variables.product.prodname_codeql_runner %} en tu sistema de IC](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").
 - Al ser una herramienta que genera resultados como un artefacto fuera de tu repositorio, puedes utilizar la API del {% data variables.product.prodname_code_scanning %} para cargar el archivo (Para encontrar más información, consulta la sección "[Cargar un análisis como datos de SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
@@ -80,7 +81,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -114,7 +115,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:

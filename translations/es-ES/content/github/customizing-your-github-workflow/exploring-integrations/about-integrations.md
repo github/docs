@@ -6,13 +6,14 @@ redirect_from:
   - /github/customizing-your-github-workflow/about-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 Puedes instalar integraciones en tu cuenta personal o en las organizaciones que posees. También puedes instalar {% data variables.product.prodname_github_apps %} de un tercero en un repositorio específico donde tengas permisos de administrador o que sea propiedad de tu organización.
 
 ## Diferencias entre las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %}
 
-Las integraciones pueden ser {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %} o cualquiera que utilice API de {% data variables.product.product_name %} o webhooks.
+Integrations can be {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, or anything that utilizes {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs or webhooks.
 
 Las {% data variables.product.prodname_github_apps %} ofrecen permisos granulares y solicitan acceso únicamente a lo que necesita la app. Las {% data variables.product.prodname_github_apps %} también ofrecen un permiso a nivel de usuario que cada uno de estos debe autorizar individualmente cuando se instala la app o cuando el integrador cambia los permisos que solicita la app.
 

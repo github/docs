@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/pricing-plans-for-github-marketplace-apps
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: 应用定价计划
@@ -14,7 +15,7 @@ shortTitle: 应用定价计划
 
 {% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
-客户使用附加到其 {% data variables.product.product_name %} 帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
+客户使用附加到其在 {% data variables.product.product_location %} 上帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
 如果您在 {% data variables.product.prodname_marketplace %} 中上架的应用程序有多个计划选项，您可以设置相应的定价计划。 例如，如果您的应用程序有两个计划选项：开源计划和专业计划，您可以为开源计划设置一个免费定价计划，为专业计划设置一个统一定价计划。 每个 {% data variables.product.prodname_marketplace %} 上架产品必须为列出的每个计划提供年度和月度价格。
 

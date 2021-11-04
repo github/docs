@@ -11,7 +11,7 @@ redirect_from:
   - /code-security/supply-chain-security/exploring-the-dependencies-of-a-repository
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: issue-4864
   ghec: '*'
 type: how_to

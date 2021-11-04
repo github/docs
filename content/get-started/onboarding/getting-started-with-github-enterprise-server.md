@@ -74,13 +74,13 @@ You can also require two-factor authentication for each of your organizations. F
 ### 2. Staying in compliance
 You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)" and "[Audit logging](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)."
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ### 3. Configuring security features for your organizations
 {% data reusables.getting-started.configuring-security-features %}
 {% endif %}
 
 {% ifversion ghes %}
-### {% ifversion ghes = 2.22 %}3.{% else %}4.{% endif %} Enabling {% data variables.product.prodname_GH_advanced_security %} features
+### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
 You can upgrade your {% data variables.product.product_name %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see "[{% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 {% endif %}
 

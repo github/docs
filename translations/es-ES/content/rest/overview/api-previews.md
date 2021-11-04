@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -63,19 +64,22 @@ Administra [proyectos](/rest/reference/projects).
 
 **Tipo de medios personalizado:** `inertia-preview` **Anunciado en:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Actualizado en:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Búsqueda de confirmación
 
 [Busca confirmaciones](/rest/reference/search).
 
 **Tipo de medios personalizados:** `cloak-preview` **Anunciado en:**[2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Temas del repositorio
 
 Ver una lista de los [temas del repositorio](/articles/about-topics/) en [llamadas](/rest/reference/repos) que devuelven los resultados del mismo.
 
 **Tipo de medios personalizados:** `mercy-preview` **Anunciado en:**[2017-01-31](https://github.com/blog/2309-introducing-topics)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Códigos de conducta
@@ -96,13 +100,14 @@ Habilita los [webhooks globales](/rest/reference/enterprise-admin#global-webhook
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Requerir confirmaciones firmadas
 
 Ahora puedes utilizar la API para administrar la configuración para [requerir confirmaciones firmadas en ramas protegidas](/rest/reference/repos#branches).
 
 **Tipo de medios personalizados:** `zzzax-preview` **Anunciado en:**[2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Requerir múltiples revisiones de aprobación
@@ -113,13 +118,6 @@ Ahora puedes [requerir múltiples revisiones de aprobación](/rest/reference/rep
 
 {% endif %}
 
-{% ifversion ghes < 3.0 %}
-## API de suites de verificación y ejecuciones de verificación
-
-Permite a una GitHub App ejecutar verificaciones externas en el código de un repositorio. Consulta las API de [Ejecuciones de verificación](/rest/reference/checks#runs) y [Suites de verificación](/rest/reference/checks#suites) para obtener más detalles.
-
-**Tipo de medios personalizados:** `antiope-preview` **Anunciado en:**[2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -139,7 +137,7 @@ Las respuestas de la API de REST para los [eventos de los informes de problemas]
 **Tipo de medios personalizados:** `starfox-preview` **Anunciado en:**[2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Manifiestos de las GitHub Apps
 
@@ -204,13 +202,14 @@ Puedes utilizar una terminal nueva para [actualizar una rama de una solicitud de
 **Tipo de medios personalizados:** `lydian-preview` **Anunciado en:**[2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Crear y utilizar plantillas de repositorio
 
 Puedes Puedes utilizar una terminal nueva para [crear un repositorio utilizando una plantilla](/rest/reference/repos#create-a-repository-using-a-template) y para [crear un repositorio para el usuario autenticado](/rest/reference/repos#create-a-repository-for-the-authenticated-user) que constituye un repositorio de plantilla si configuras el parámetro `is_template` como `true`. [Obten un repositorio](/rest/reference/repos#get-a-repository) para verificar si se configuró como un repositorio de plantilla utilizando la clave `is_template`.
 
 **Tipos de medios personalizados:** `baptiste-preview` **Anunciado en:**[2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Parámetro de visibilidad nuevo para la API de Repositorios

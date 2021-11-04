@@ -1,6 +1,6 @@
 ---
 title: 更改 GitHub 用户名
-intro: '您可以随时更改自己的 {% data variables.product.product_name %} 用户名。'
+intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
   - /articles/how-to-change-your-username/
   - /articles/changing-your-github-user-name/
@@ -12,16 +12,35 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 更改用户名
 ---
 
+{% ifversion ghec or ghes %}
+
+{% note %}
+
+{% ifversion ghec %}
+
+**Note**: Members of an {% data variables.product.prodname_emu_enterprise %} cannot change usernames. Your enterprise's IdP administrator controls your username for {% data variables.product.product_name %}. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+
+{% elsif ghes %}
+
+**Note**: If you sign into {% data variables.product.product_location %} with LDAP credentials or single sign-on (SSO), only your local administrator can change your username. For more information about authentication methods for {% data variables.product.product_name %}, see "[Authenticating users for {% data variables.product.product_location %}](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance)."
+
+{% endif %}
+
+{% endnote %}
+
+{% endif %}
+
 ## 关于用户名更改
 
-You can change your username to another username that is not currently in use.{% ifversion fpt %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
+You can change your username to another username that is not currently in use.{% ifversion fpt or ghec %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
 
-If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/articles/github-trademark-policy/) page.
+If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/free-pro-team@latest/github/site-policy/github-trademark-policy) page.
 
 If you do not hold a trademark for the name, you can choose another username or keep your current username. {% data variables.contact.github_support %} 无法为您释放不可用的用户名。 更多信息请参阅“[更改用户名](#changing-your-username)”。{% endif %}
 
@@ -31,7 +50,7 @@ If you do not hold a trademark for the name, you can choose another username or 
 - 使用旧用户名的[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
 - 包含旧用户名的 [gists](/articles/creating-gists) 链接
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
@@ -47,17 +66,17 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 ## 指向以前的个人资料页面的链接
 
-更改用户名后，指向以前的个人资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previoususername`）将返回 404 错误。 我们建议从其他位置更新指向 {% data variables.product.product_name %} 帐户的所有链接{% ifversion fpt %}，例如您的 LinkedIn 或 Twitter 个人资料{% endif %}。
+更改用户名后，指向以前的个人资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previoususername`）将返回 404 错误。 We recommend updating any links to your account on {% data variables.product.product_location %} from elsewhere{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profile{% endif %}.
 
 ## 您的 Git 提交
 
-{% ifversion fpt %}与您的 {% data variables.product.product_name %} 提供的 `noreply` 电子邮件地址关联的 Git 提交不会归于新的用户名，并且不会在您的贡献图中显示。{% endif %}如果您的 Git 提交与您已[添加到 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account)的其他电子邮件地址关联，{% ifversion fpt %}包括基于 ID 的 {% data variables.product.product_name %} 提供的 `noreply` 电子邮件地址，{% endif %}它们在您更改用户名后将继续归于您并在您的贡献图中显示。 有关设置电子邮件地址的更多详细信息，请参阅“[设置您的提交电子邮件地址](/articles/setting-your-commit-email-address)”。
+{% ifversion fpt or ghec %}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% ifversion fpt or ghec %}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. 有关设置电子邮件地址的更多详细信息，请参阅“[设置您的提交电子邮件地址](/articles/setting-your-commit-email-address)”。
 
 ## 更改用户名
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
-3. 在“Change username（更改用户名）”部分，单击 **Change username（更改用户名）**。 ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt %}
+3. 在“Change username（更改用户名）”部分，单击 **Change username（更改用户名）**。 ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
 4. 阅读有关更改用户名的警告。 如果您仍要更改用户名，请单击 **I understand, let's change my username（我了解，让我们更改用户名）**。 ![更改用户名警告按钮](/assets/images/help/settings/settings-change-username-warning-button.png)
 5. 键入新的用户名。 ![新用户名字段](/assets/images/help/settings/settings-change-username-enter-new-username.png)
 6. 如果您选择的用户名可用，请单击 **Change my username（更改我的用户名）**。 如果您选择的用户名不可用，可以尝试其他用户名或您看到的建议之一。 ![更改用户名警告按钮](/assets/images/help/settings/settings-change-my-username-button.png)
@@ -65,5 +84,5 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 ## 延伸阅读
 
-- “[我的提交为什么链接到错误的用户？](/articles/why-are-my-commits-linked-to-the-wrong-user)”{% ifversion fpt %}
-- "[{% data variables.product.prodname_dotcom %} 用户名策略](/articles/github-username-policy)"{% endif %}
+- "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+- "[{% data variables.product.prodname_dotcom %} Username Policy](/free-pro-team@latest/github/site-policy/github-username-policy)"{% endif %}

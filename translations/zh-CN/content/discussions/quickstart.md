@@ -4,6 +4,7 @@ intro: '在现有仓库上启用 {% data variables.product.prodname_discussions 
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 快速入门
 ---
 
@@ -18,17 +19,17 @@ shortTitle: 快速入门
 
 仓库所有者和具有写入访问权限的人可在其公共和私有仓库中为社区启用 {% data variables.product.prodname_discussions %}。
 
-When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
+当您首次启用 {% data variables.product.prodname_discussions %} 时，将邀请您配置欢迎帖子。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %} **Settings（设置）**。 ![公共设置按钮](/assets/images/help/discussions/public-repo-settings.png)
-1. 在“Features（功能）”下，单击 **Set up discussions（设置讨论）**。 ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
+1. 在“Features（功能）”下，单击 **Set up discussions（设置讨论）**。 ![在"Features（功能）"下设置讨论按钮，用于对仓库启用或禁用 GitHub Discussions](/assets/images/help/discussions/setup-discussions-button.png)
 1. 在“Start a new discussion（开始新讨论）”下，编辑模板以与要为社区设置的资源和语气保持一致。
 1. 单击 **Start discussion（开始讨论）**。 !["Start discussion（开始讨论）"按钮](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ## 欢迎参与您的讨论
 
-You can welcome your community and introduce a new way to communicate in a repository by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. 固定和锁定讨论有助于人们知道帖子是作为公告发布的。 您可以使用公告将人员链接到更多资源，并指导在社区中开始讨论。 有关固定讨论的更多信息，请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)”。
+您可以通过创建欢迎帖子并固定帖子到 {% data variables.product.prodname_discussions %} 页面，欢迎您的社区，并引入在仓库中沟通的新方式。 固定和锁定讨论有助于人们知道帖子是作为公告发布的。 您可以使用公告将人员链接到更多资源，并指导在社区中开始讨论。 有关固定讨论的更多信息，请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)”。
 
 
 ## 为贡献者设置社区指南
@@ -39,7 +40,7 @@ You can welcome your community and introduce a new way to communicate in a repos
 
 ## 创建新讨论
 
-Any authenticated user who can view a repository can create a discussion.
+任何可以查看仓库的认证用户都可以创建讨论。
 
 {% data reusables.discussions.starting-a-discussion %}
 

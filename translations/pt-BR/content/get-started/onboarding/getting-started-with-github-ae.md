@@ -58,9 +58,9 @@ Você pode monitorar {% data variables.product.product_location %} com o seu pai
 {% data reusables.getting-started.configuring-security-features %}
 
 ## Parte 4: Personalizando e automatizando o trabalho em {% data variables.product.product_location %}
-Você pode personalizar e automatizar o trabalho em organizações em {% data variables.product.product_location %} com a API de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_actions %} e {% data variables.product.prodname_pages %}.
+You can customize and automate work in organizations in {% data variables.product.product_location %} with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
 
-### 1. Usando a API de {% data variables.product.prodname_dotcom %}
+### 1. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
 ### 2. Criando {% data variables.product.prodname_actions %}

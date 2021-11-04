@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## 直近のコミットメッセージの書き換え
@@ -25,7 +26,7 @@ Git では、コミットメッセージのテキストはコミットの一部�
 2. `git commit --amend` と入力し、**Enter** を押します。
 3. テキストエディタでコミットメッセージを編集し、コミットを保存します。
     - コミットにトレーラーを追加することで、共作者を追加できます。 詳しい情報については、「[複数の作者を持つコミットを作成する](/articles/creating-a-commit-with-multiple-authors)」を参照してください。
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
     - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳しい情報については「[Organization の代理でコミットを作成](/articles/creating-a-commit-on-behalf-of-an-organization)」を参照してください。
 {% endif %}
 

@@ -36,7 +36,7 @@ export const SidebarHomepage = () => {
             <Link
               href={href}
               target={product.external ? '_blank' : undefined}
-              className="f4 pl-4 pr-5 py-2 color-text-primary no-underline"
+              className="f4 pl-4 pr-5 py-2 color-fg-default no-underline"
             >
               {product.name}
               {product.external && (

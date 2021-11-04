@@ -1,28 +1,29 @@
 ---
 title: Convidar colaboradores para um repositório pessoal
-intro: 'Você pode {% ifversion fpt %}convidar usuários para se tornarem{% else %}adicionar usuários como{% endif %} colaboradores em seu repositório pessoal.'
+intro: 'Você pode {% ifversion fpt or ghec %}convidar usuários para se tornarem{% else %}adicionar usuários como{% endif %} colaboradores em seu repositório pessoal.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
   - /articles/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
+product: '{% ifversion fpt %}{% data reusables.gated-features.user-repo-collaborators %}{% endif %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Repositories
 shortTitle: Convidar colaboradores
 ---
 
-Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.product_name %}](/articles/access-permissions-on-github)".
+Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)".
 
 {% data reusables.organizations.org-invite-expiration %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, você só poderá convidar outros integrantes da sua empresa para colaborar com você. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
@@ -34,10 +35,10 @@ Se você for integrante de um {% data variables.product.prodname_emu_enterprise 
 
 {% endif %}
 
-1. Pergunte o nome do usuário da pessoa que você está convidando a colaborar.{% ifversion fpt %} Caso a pessoa não tenha um nome de usuário ainda, deve se inscrever em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
+1. Pergunte o nome do usuário da pessoa que você está convidando a colaborar.{% ifversion fpt or ghec %} Caso a pessoa não tenha um nome de usuário ainda, deve se inscrever em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-manage-access %}
 1. Clique em **Convidar um colaborador**. ![Botão "Convidar um colaborador"](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. No campo de pesquisa, comece a digitar o nome da pessoa que deseja convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma pessoa para convidar para o repositório](/assets/images/help/repository/manage-access-invite-search-field-user.png)
@@ -48,7 +49,7 @@ Se você for integrante de um {% data variables.product.prodname_emu_enterprise 
 7. Selecione o nome de usuário do colaborador no menu suspenso. ![Menu suspenso lista Collaborator (Colaborador)](/assets/images/help/repository/repo-settings-collab-autofill.png)
 8. Clique em **Add collaborator** (Adicionar colaborador). ![Botão "Adicionar colaborador"](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 9. O usuário receberá um e-mail com o convite para o repositório. Ao aceitar o convite, a pessoa terá acesso de colaborador ao seu repositório.
 {% endif %}
 
