@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -50,7 +51,7 @@ GitHub Octocat in:readme user:defunkt
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-Veja "[Pesquisar no GitHub](/articles/searching-on-github/)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
+Veja "[Pesquisar no GitHub](/articles/searching-on-github/)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
 ### Limitações no tamanho da consulta
 

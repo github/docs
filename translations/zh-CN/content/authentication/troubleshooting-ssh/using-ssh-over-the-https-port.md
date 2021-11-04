@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/troubleshooting-ssh/using-ssh-over-the-https-port
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: 在 HTTPS 端口使用 SSH
@@ -30,7 +31,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 ## 启用通过 HTTPS 的 SSH 连接
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.product.product_location %} to run through that server and port.
+如果您能在端口 443 上通过 SSH 连接到 `git@ssh.{% data variables.command_line.backticks %}`，则可以覆盖您的 SSH 设置以强制与 {% data variables.product.product_location %} 的任何连接均通过该服务器和端口运行。
 
 要在您的 ssh 配置中设置此项，编辑位于 `~/.ssh/config` 的文件，添加以下部分：
 

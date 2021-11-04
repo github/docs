@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: npmレジストリ
 ---
 
@@ -20,16 +21,13 @@ shortTitle: npmレジストリ
 
 {% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## 公開したnpmバージョンに対する制限
 
 {% data variables.product.prodname_registry %}に公開したnpmパッケージのバージョンが1000を超える場合、使用中にパフォーマンスの問題やタイムアウトが発生することがあります。
 
 サービスのパフォーマンスを向上させるため、将来的には1,000を超えるパッケージのバージョンを{% data variables.product.prodname_dotcom %}に公開できなくなります。 この制限に達しないバージョンであれば、今後も読み取り可能です。
 
-この制限に達した場合は、パッケージのバージョンを削除するよう検討するか、サポートにお問い合わせください。 この制限が施行されるようになると、ドキュメントが更新され、この制限を回避する方法が記載されることになります。 詳しい情報については、 「{% ifversion fpt or ghes > 3.0 %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」または「[サポートへの連絡](/packages/learn-github-packages/about-github-packages#contacting-support)」を参照してください。
-
-{% endif %}
+この制限に達した場合は、パッケージのバージョンを削除するよう検討するか、サポートにお問い合わせください。 この制限が施行されるようになると、ドキュメントが更新され、この制限を回避する方法が記載されることになります。 詳しい情報については、 「{% ifversion fpt or ghes > 3.0 or ghec %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」または「[サポートへの連絡](/packages/learn-github-packages/about-github-packages#contacting-support)」を参照してください。
 
 ## {% data variables.product.prodname_registry %} への認証を行う
 
@@ -50,7 +48,7 @@ shortTitle: npmレジストリ
 {% endif %}
 
 ```shell
-//{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
 {% ifversion ghes %}
@@ -73,7 +71,7 @@ npmにログインすることで認証を受けるには、`npm login`コマン
 {% endif %}
 
 ```shell
-$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
@@ -128,7 +126,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
   {% endif %}
   ```shell
   "publishConfig": {
-    "registry":"https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+    "registry":"https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
   },
   ```
   {% ifversion ghes %}
@@ -151,7 +149,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 {% data variables.product.prodname_registry %} は、パッケージ名の代わりに、このURLを元にしてリポジトリを照合します。
 
 ```shell
-"repository":"https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
+"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
 ## パッケージをインストールする
@@ -160,7 +158,7 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 
 デフォルトでは、パッケージは1つのOrganizationから追加できます。 詳しい情報については「[他のOrganizationからのパッケージのインストール](#installing-packages-from-other-organizations)」を参照してください。
 
-You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes > 2.21 %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
+You also need to add the *.npmrc* file to your project so that all requests to install packages will {% ifversion ghae %}be routed to{% else %}go through{% endif %} {% data variables.product.prodname_registry %}. {% ifversion fpt or ghes or ghec %}When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.org*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.{% endif %}
 
 {% ifversion ghae %}
 By default, you can only use npm packages hosted on your enterprise, and you will not be able to use unscoped packages. For more information on package scoping, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation. If required, {% data variables.product.prodname_dotcom %} support can enable an upstream proxy to npmjs.org. Once an upstream proxy is enabled, if a requested package isn't found on your enterprise, {% data variables.product.prodname_registry %} makes a proxy request to npmjs.org.
@@ -199,8 +197,8 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 {% endif %}
 
 ```shell
-@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-@<em>OWNER</em>:registry=https://{% ifversion fpt %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
 {% ifversion ghes %}
@@ -212,7 +210,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 ```
 {% endif %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## 公式NPMレジストリを使用する
 
 {% data variables.product.prodname_registry %}では、{% data variables.product.prodname_ghe_server %}管理者がこの機能を有効化している場合、`registry.npmjs.com`の公式NPMにアクセスできます。 詳しい情報については、[公式NPMレジストリに接続する](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry)」を参照してください。
@@ -220,4 +218,4 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 
 ## 参考リンク
 
-- 「{% ifversion fpt or ghes > 3.0 %}[パッケージの削除と復元](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[パッケージの削除](/packages/learn-github-packages/deleting-a-package){% endif %}」
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

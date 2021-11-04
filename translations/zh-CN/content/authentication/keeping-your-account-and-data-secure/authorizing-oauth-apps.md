@@ -9,14 +9,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 ---
 
-当 {% data variables.product.prodname_oauth_app %} 要通过您的 {% data variables.product.product_name %} 帐户识别您时，您会看到一个页面，其中包含应用程序开发者信息，以及申请的特定数据列表。
+When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -28,7 +29,7 @@ topics:
 
 ## {% data variables.product.prodname_oauth_app %} 访问
 
-{% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %} 可以*读取*或*写入*您的 {% data variables.product.product_name %} 数据。
 
 - **读取权限**仅允许应用程序*查看*您的数据。
 - **写入权限**允许应用程序*更改*您的数据。
@@ -43,7 +44,7 @@ topics:
 
 *范围*是 {% data variables.product.prodname_oauth_app %} 可以申请访问公共及非公共数据的权限组。
 
-当您想使用集成了 {% data variables.product.product_name %} 的 {% data variables.product.prodname_oauth_app %} 时，该应用程序可让您了解需要的数据访问权限类型。 如果您授予应用程序访问权限，则应用程序将能代您执行操作，例如读取或修改数据。 例如，如果您要使用申请 `user:email` 范围的应用程序，则该应用程序对您的私有电子邮件地址具有只读权限。 For more information, see "[About scopes for {% data variables.product.prodname_oauth_apps %}](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+当您想使用集成了 {% data variables.product.product_name %} 的 {% data variables.product.prodname_oauth_app %} 时，该应用程序可让您了解需要的数据访问权限类型。 如果您授予应用程序访问权限，则应用程序将能代您执行操作，例如读取或修改数据。 例如，如果您要使用申请 `user:email` 范围的应用程序，则该应用程序对您的私有电子邮件地址具有只读权限。 更多信息请参阅“[关于 {% data variables.product.prodname_oauth_apps %} 的范围](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)”。
 
 {% tip %}
 
@@ -55,7 +56,7 @@ topics:
 
 ### 申请的数据类型
 
-{% data variables.product.prodname_oauth_apps %} can request several types of data.
+{% data variables.product.prodname_oauth_apps %} 可以申请多种类型的数据。
 
 | 数据类型   | 描述                                                                                              |
 | ------ | ----------------------------------------------------------------------------------------------- |
@@ -71,30 +72,30 @@ topics:
 
 ## 申请更新的权限
 
-When {% data variables.product.prodname_oauth_apps %} request new access permissions, they will notify you of the differences between their current permissions and the new permissions.
+当 {% data variables.product.prodname_oauth_apps %} 申请新的访问权限时，将会通知其当前权限与新权限之间的差异。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-## {% data variables.product.prodname_oauth_apps %} and organizations
+## {% data variables.product.prodname_oauth_apps %} 和组织
 
 当您授权 {% data variables.product.prodname_oauth_app %} 访问您的个人用户帐户时，您还会看到该授权对您所在的每个组织的影响。
 
 - **对于*具有* {% data variables.product.prodname_oauth_app %} 访问限制的组织，您可以申请组织管理员批准应用程序用于该组织。** 如果组织不批准应用程序，则应用程序只能访问组织的公共资源。 如果您是组织管理员，便可自己[批准应用程序](/articles/approving-oauth-apps-for-your-organization)。
 
-- **For organizations *without* {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
+- **对于*没有* {% data variables.product.prodname_oauth_app %} 访问限制的组织，应用程序将自动获得访问组织资源的授权。** 因此，在批准 {% data variables.product.prodname_oauth_apps %} 访问您的个人帐户资源以及任何组织资源时应谨慎。
 
 如果您属于任何实施 SAML 单点登录的组织，则在每次授权 {% data variables.product.prodname_oauth_app %} 时每个组织都必须有一个活动的 SAML 会话。
 
 {% note %}
 
-**Note:** If you are encountering errors authenticating to an organization that enforces SAML single sign-on, you may need to revoke the OAuth App from your [account settings page](https://github.com/settings/applications) and repeat the authentication flow to reauthorize the app.
+**注意：** 如果在向执行 SAML 单点登录的组织验证明时遇到错误，您可能需要将 OAuth 应用程序从[帐户设置页](https://github.com/settings/applications) 撤销并重复认证流程以重新授权应用程序。
 
 {% endnote %}
 
 ## 延伸阅读
 
 - "[关于 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/about-oauth-app-access-restrictions)"
-- "[Authorizing GitHub Apps](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
+- "[授权 GitHub 应用程序](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
 - "[{% data variables.product.prodname_marketplace %} support](/articles/github-marketplace-support)"
 
 {% endif %}

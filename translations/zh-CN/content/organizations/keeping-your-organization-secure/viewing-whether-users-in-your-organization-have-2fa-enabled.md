@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: 组织中 2FA 的使用
 
 {% note %}
 
-**注：**您可以要求所有成员{% ifversion fpt %}（包括组织中的所有者、帐单管理员和{% else %}{% endif %} 外部协作者）均启用双因素身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
+**注：**您可以要求所有成员{% ifversion fpt or ghec %}（包括组织中的所有者、帐单管理员和{% else %}{% endif %} 外部协作者）均启用双因素身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
 
 {% endnote %}
 

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -19,11 +20,11 @@ shortTitle: Commit signature verification
 
 ## コミット署名の検証について
 
-コミットとタグにローカルで署名して、行った変更の根拠を他のユーザに信頼してもらうことができます。 コミットまたはタグに暗号で検証可能な GPG または S/MIME 署名がある場合、GitHub はコミットまたはタグに{% ifversion fpt %}「Verified」または「Partially verified」{% else %}「Verified」のマークを付けます。{% endif %}
+コミットとタグにローカルで署名して、行った変更の根拠を他のユーザに信頼してもらうことができます。 コミットまたはタグに暗号で検証可能な GPG または S/MIME 署名がある場合、GitHub はコミットまたはタグに{% ifversion fpt or ghec %}「Verified」または「Partially verified」{% else %}「Verified」のマークを付けます。{% endif %}
 
 ![検証されたコミット](/assets/images/help/commits/verified-commit.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 コミットとタグには、警戒モードを有効にしているかどうかによって、次の検証ステータスが含まれます。 デフォルト設定では、警戒モードは有効になっていません。 警戒モードを有効にする方法については、「[すべてのコミットの検証ステータスを表示する](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)」を参照してください。
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
@@ -48,7 +49,7 @@ shortTitle: Commit signature verification
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} は GPG を自動的に使用して、{% data variables.product.product_name %} Web インターフェースを使用して行ったコミットに署名します。ただし、作者ではないプルリクエストを squash してマージする場合は除きます。 {% data variables.product.product_name %}によって署名されたコミットは、{% data variables.product.product_name %}で認証済みのステータスになります。 署名は、https://github.com/web-flow.gpgから利用できる公開鍵を使ってローカルに検証できます。 The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`. オプションとして、{% data variables.product.prodname_codespaces %} で行ったコミットを {% data variables.product.product_name %} で署名させることもできます。 Codespaces の GPG 検証を有効にする方法については、「[{% data variables.product.prodname_codespaces %} の GPG 検証の管理](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)」を参照してください。
 {% endif %}
 
@@ -56,7 +57,7 @@ shortTitle: Commit signature verification
 
 自分で生成した GPG キーで、GPG を使ってコミットに署名できます。
 
-{% data variables.product.product_name %}は、あなたがローカルで署名したコミットやタグがあなたの{% data variables.product.product_name %}アカウントに追加された公開鍵に対して暗号的に検証できることを、OpenPGPライブラリを使って確認します。
+{% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 GPG を使ってコミットに署名し、それらのコミットを {% data variables.product.product_name %} 上で検証済みにするには、以下の手順に従ってください:
 
@@ -83,7 +84,7 @@ S/MIME を使ってコミットに署名し、それらのコミットを {% dat
 
 公開鍵を {% data variables.product.product_name %}にアップロードする必要はありません。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## ボットの署名検証
 
 Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. コミットまたはタグが暗号的に検証可能なボット署名を持っている場合、{% data variables.product.product_name %} はそのコミットまたはタグを検証済みとしてマークします。

@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% tip %}
@@ -25,6 +26,6 @@ Os webhooks podem ser acionados sempre que uma variedade de ações for executad
 * Um site do {% data variables.product.prodname_pages %} é construído
 * Um novo integrante é adicionado a uma equipe
 
-Usando a API do {% data variables.product.product_name %}, você pode fazer com que esses webhooks atualizem um rastreador de problema externo, disparem compilações de CI, atualizem um espelho de backup ou até mesmo implantem no servidor de produção.
+Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
 
 Para configurar um novo webhook, você deverá acessar um servidor externo e ter familiaridade com os procedimentos técnicos envolvidos. Para obter ajuda sobre como criar um webhook, incluindo uma lista completa de ações que podem ser associadas a ele, consulte "[Webhooks](/webhooks)."

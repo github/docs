@@ -11,13 +11,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 ---
 
 Puedes agregar información personal acerca de ti mismo en tu biobiografía, como lugares en los que has trabajado previamente, proyectos con los que has colaborado o intereses que tengas que a otras personas les pueda interesar conocer sobre tí. Para obtener más información, consulta "[Agregar una biografía en tu perfil](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)".
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -29,9 +30,9 @@ Las personas que visitan tu perfil ven una cronología de tu actividad de colabo
 
 Las personas que visitan tu perfil también pueden ver la siguiente información.
 
-- Repositorios y gists que te pertenezcan o en los que contribuyas. {% ifversion fpt or ghes %}Puedes exhibir lo mejor de tu trabajo si fijas los repositorios y gists en tu perfil. Para obtener más información, consulta la sección "[Anclar elementos en tu perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".{% endif %}
+- Repositorios y gists que te pertenezcan o en los que contribuyas. {% ifversion fpt or ghes or ghec %}Puedes exhibir lo mejor de tu trabajo si fijas los repositorios y gists en tu perfil. Para obtener más información, consulta la sección "[Anclar elementos en tu perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".{% endif %}
 - Repositorios que has destacado. Para obtener más información, consulta la sección "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)".
-- Una descripción general de tu actividad en organizaciones, repositorios y equipos en los que eres más activo. Para obtener más información, consulta la sección "[Mostrar un resumen de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile).{% ifversion fpt %}
+- Una descripción general de tu actividad en organizaciones, repositorios y equipos en los que eres más activo. Para obtener más información, consulta la sección "[Mostrar un resumen de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile).{% ifversion fpt or ghec %}
 - Las insignias que muestran si utilizas {% data variables.product.prodname_pro %} o si participas en programas como {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, o el programa de desarrollador de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Personalizar tu perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)".{% endif %}
 
 También puedes establecer un estado en tu perfil para brindar información sobre tu disponibilidad. Para obtener más información, consulta "[Configurar un estado](/articles/personalizing-your-profile/#setting-a-status)".

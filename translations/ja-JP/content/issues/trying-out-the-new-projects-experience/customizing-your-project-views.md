@@ -4,6 +4,7 @@ intro: プロジェクトのレイアウト、グループ化、ソート、フ�
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Projects
@@ -11,9 +12,9 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## コマンドパレット
+## Project command palette
 
-コマンドパレットを使って、素早く設定を変更し、プロジェクト内でコマンドを実行してください。
+Use the project command palette to quickly change settings and run commands in your project.
 
 1. {% data reusables.projects.open-command-palette %}
 2. コマンドの一部を入力し始めるか、コマンドパレットウィンドウをナビゲートしてコマンドを見つけてください。 さらなるコマンドの例については、次のセクションを参照してください。
@@ -29,13 +30,21 @@ topics:
 
 ## フィールドの表示もしくは非表示
 
-テーブルレイアウトでは、特定のフィールドを表示あるいは非表示にできます。
+You can show or hide a specific field.
+
+In table layout:
 
 1. {% data reusables.projects.open-command-palette %}
 2. 行いたいアクション（"show"もしくは"hide"）もしくはフィールド名を入力し始めてください。
 3. 希望するコマンド（例:"Show: Milestone"）を選択してください。
 4. あるいは、表の右の{% octicon "plus" aria-label="the plus icon" %}をクリックしてください。 表示されるドロップダウンメニューで、表示または非表示にするフィールドを指定してください。 {% octicon "check" aria-label="check icon" %}は、表示されるフィールドを示します。
 5. あるいは、フィールド名の隣のドロップダウンメニューを選択し、**Hide field（フィールドを非表示にする）**をクリックしてください。
+
+In board layout:
+
+1. ビュー名の隣のドロップダウンメニューを選択してください。
+2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
+3. In the menu that appears, select fields to add them and deselect fields to remove them from the view.
 
 ## フィールドの並び替え
 
@@ -97,22 +106,22 @@ In the table layout, you can group items by a custom field value. アイテム�
 
 ## フィルタ
 
-テーブルレイアウトでは、フィールドの値でフィルタできます。
+Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. 入力していくと、利用できる値が表示されます。
+
+- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- 複数のフィルタは空白で区切ってください。 For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+
+Alternatively, use the command palette.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Filter by"あるいはフィルタリングに使いたいフィールド名を入力し始めてください。
 3. 希望するコマンド（たとえば"Filter by Status"）を選択してください。
 4. フィルタに使いたい値（たとえば"In progress")を入力してください。 You can also filter for the absence of specific values (for example: "Exclude status") or the absence of all values (for example: "No status").
-5. あるいは、テーブルの上部にある{% octicon "search" aria-label="the search icon" %}をクリックして、"Filter by keyword or field（キーワードあるいはフィールドでフィルタ）"バーを表示させてください。 フィルタに使いたいフィールド名と値を入力してください。 入力していくと、利用できる値が表示されます。
 
-   To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-
-   To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-
-   To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-
-   複数のフィルタは空白で区切ってください。 For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-6. Alternatively, select the drop-down menu next to the view name and click the menu item that indicates the desired filter.
+In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
 ## ビューの保存
 
@@ -147,5 +156,5 @@ In the table layout, you can group items by a custom field value. アイテム�
 
 ## 参考リンク
 
-- [プロジェクト（ベータ）について](/issues/trying-out-the-new-projects-experience/about-projects)
-- [プロジェクト（ベータ）の作成](/issues/trying-out-the-new-projects-experience/creating-a-project)
+- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"

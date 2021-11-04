@@ -42,7 +42,7 @@ export const SidebarProduct = () => {
           <li data-testid="sidebar-product" title={productTitle} className="my-2">
             <Link
               href={currentProductTree.href}
-              className="pl-4 pr-5 pb-1 f4 color-text-primary no-underline"
+              className="pl-4 pr-5 pb-1 f4 color-fg-default no-underline"
             >
               {productTitle}
             </Link>
@@ -62,12 +62,12 @@ export const SidebarProduct = () => {
                     key={childPage.href + i}
                     data-is-active-category={isActive}
                     data-is-current-page={isActive && isStandaloneCategory}
-                    className={cx('py-1', isActive && 'color-bg-info')}
+                    className={cx('py-1', isActive && 'color-bg-inset')}
                   >
                     {isStandaloneCategory ? (
                       <Link
                         href={childPage.href}
-                        className="pl-4 pr-2 py-2 d-block flex-auto mr-3 color-text-primary no-underline text-bold"
+                        className="pl-4 pr-2 py-2 d-block flex-auto mr-3 color-fg-default no-underline text-bold"
                       >
                         {childTitle}
                       </Link>
@@ -129,7 +129,7 @@ const CollapsibleSection = (props: SectionProps) => {
           href={page.href}
           className={cx(
             'd-block pl-6 pr-5 py-1 no-underline',
-            isCurrent ? 'color-text-link' : 'color-text-primary'
+            isCurrent ? 'color-fg-accent' : 'color-fg-default'
           )}
         >
           {title}
@@ -142,7 +142,7 @@ const CollapsibleSection = (props: SectionProps) => {
     <details open={defaultOpen} onToggle={onToggle} className="details-reset">
       <summary className="outline-none">
         <div className="d-flex flex-justify-between">
-          <div className="pl-4 pr-1 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline text-bold">
+          <div className="pl-4 pr-1 py-2 f6 text-uppercase d-block flex-auto mr-3 color-fg-default no-underline text-bold">
             {title}
           </div>
           <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">

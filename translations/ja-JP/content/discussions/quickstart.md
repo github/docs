@@ -4,6 +4,7 @@ intro: '既存のリポジトリで {% data variables.product.prodname_discussio
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: クイックスタート
 ---
 

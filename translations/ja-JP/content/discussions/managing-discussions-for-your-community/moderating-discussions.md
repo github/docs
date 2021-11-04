@@ -4,6 +4,7 @@ intro: 'You can promote healthy collaboration by marking comments as answers, lo
 permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
@@ -17,7 +18,7 @@ versions:
 
 ## ディスカッションをロックする
 
-会話全体が建設的でない場合、またはコミュニティの行動規範または {% data variables.product.prodname_dotcom %} の[コミュニティガイドライン](/github/site-policy/github-community-guidelines)に違反している場合は、会話をロックするのが適切です。 会話をロックして、コミュニティへのお知らせとして使用するディスカッションへのコメントを防ぐこともできます。 会話をロックしても、リポジトリへの書き込みアクセス権を持つユーザは引き続きディスカッションにコメントできます。
+会話全体が建設的でない場合、またはコミュニティの行動規範または {% data variables.product.prodname_dotcom %} の[コミュニティガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines)に違反している場合は、会話をロックするのが適切です。 会話をロックして、コミュニティへのお知らせとして使用するディスカッションへのコメントを防ぐこともできます。 会話をロックしても、リポジトリへの書き込みアクセス権を持つユーザは引き続きディスカッションにコメントできます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

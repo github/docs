@@ -9,6 +9,7 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 将主题添加到 Pages 站点
@@ -38,7 +39,7 @@ shortTitle: 将主题添加到 Pages 站点
 4. 在页面顶部单击所需的主题，然后单击 **Select theme（选择主题）**。 ![主题选项和选择主题按钮](/assets/images/help/pages/select-theme.png)
 5. 系统可能会提示您编辑站点的 *README.md* 文件。
    - 要稍后编辑该文件，请单击 **Cancel（取消）**。 ![编辑文件时取消链接](/assets/images/help/pages/cancel-edit.png)
-   - To edit the file now, see "[Editing files](/repositories/working-with-files/managing-files/editing-files)."
+   - 要现在编辑文件，请参阅“[编辑文件](/repositories/working-with-files/managing-files/editing-files)”。
 
 您选择的主题将自动应用到仓库中的 Markdown 文件。 要将主题应用到仓库中的 HTML 文件，您需要添加 YAML 前页，以指定每个文件的布局。 更多信息请参阅 Jekyll 网站上的“[前页](https://jekyllrb.com/docs/front-matter/)”。
 

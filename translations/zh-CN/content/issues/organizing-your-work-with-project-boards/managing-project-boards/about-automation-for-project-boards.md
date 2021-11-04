@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 项目板的自动化
@@ -43,5 +44,5 @@ shortTitle: 项目板的自动化
 更多信息请参阅“[跟踪项目板上的进度](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)”。
 
 ## 延伸阅读
-- "[配置项目板的自动化](/articles/configuring-automation-for-project-boards)"{% ifversion fpt %}
+- "[配置项目板的自动化](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}

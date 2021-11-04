@@ -1,1 +1,0 @@
-Die {% data variables.product.prodname_registry %}-Nutzung ist für öffentliche Pakete kostenlos. Für private Pakete erhält jedes {% data variables.product.product_name %}-Konto eine bestimmte Menge an kostenlosem Speicher und Datenübertragung, abhängig vom Produkt, das mit dem Konto verwendet wird. Any usage beyond the included amounts is controlled by spending limits.

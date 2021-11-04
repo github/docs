@@ -1,6 +1,6 @@
 ---
 title: Ver los colaboradores de un proyecto
-intro: 'Puedes ver quién aportó confirmaciones a un repositorio{% ifversion fpt %} y sus dependencias{% endif %}.'
+intro: 'Puedes ver quién aportó confirmaciones a un repositorio{% ifversion fpt or ghec %} y sus dependencias{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Visualizar a los contribuyentes del proyecto
@@ -21,7 +22,7 @@ shortTitle: Visualizar a los contribuyentes del proyecto
 
 Puedes ver hasta 100 colaboradores de un repositorio{% ifversion ghes or ghae %}, incluidos los coautores de confirmaciones,{% endif %} en el gráfico de colaboradores. Las confirmaciones de fusión y las confirmaciones vacías no se cuentan en las contribuciones para este gráfico.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 También puedes ver una lista de personas que han contribuido con las dependencias de Python del proyecto. Para acceder a esta lista de colaboradores de la comunidad, visita `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.
 {% endif %}
 
@@ -47,4 +48,4 @@ Si no apareces en el gráfico de colaboradores de un repositorio, puede deberse 
 
 Si todas tus confirmaciones en el repositorio están en ramas que no son por defecto, no estarás en el gráfico de colaboradores. Por ejemplo, las confirmaciones en la rama `gh-pages` no están incluidas en el gráfico excepto que `gh-pages` sea la rama por defecto del repositorio. Para que tus confirmaciones se fusionen en la rama por defecto, puedes crear una solicitud de extracción. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)."
 
-Si la dirección de correo electrónico que utilizaste para crear las confirmaciones no está conectada a tu cuenta en {% data variables.product.product_name %}, tus confirmaciones no se enlazarán a ésta, y no aparecerás en la gráfica de colaboradores. Para obtener más información, consulta la sección "[Configurar tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address){% ifversion not ghae %}" y "[Agregar una dirección de correo electrónico a tu cuenta de {% data variables.product.product_name %}](/articles/adding-an-email-address-to-your-github-account){% endif %}".
+Si la dirección de correo electrónico que utilizaste para crear las confirmaciones no está conectada a tu cuenta en {% data variables.product.product_name %}, tus confirmaciones no se enlazarán a ésta, y no aparecerás en la gráfica de colaboradores. Para obtener más información, consulta la sección "[Configurar tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address){% ifversion not ghae %}" y "[Agregar una dirección de correo electrónico a tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/adding-an-email-address-to-your-github-account){% endif %}".

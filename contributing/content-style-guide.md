@@ -186,6 +186,24 @@ For accessibility and readability, avoid inline or midsentence links.
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
+### Links between versions
+
+Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+
+>You can choose to allow or disallow the publication of GitHub Pages sites.
+>
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+
+To link to a different article in a different version, use this format:
+
+> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+
+To link to the same article in a different version, use this format:
+
+> For more information, see [the VERSION documentation]().
+
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
 ### Links to external resources
 
 When linking to an external site, choose the most useful resource for the context of the link - you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.

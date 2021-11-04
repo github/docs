@@ -1,13 +1,13 @@
 ---
 title: Remover uma etiqueta quando um cartão é adicionado à coluna de um quadro de projeto
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para remover automaticamente uma etiqueta quando um problema ou pull request for adicionado a uma coluna específica no quadro de um projeto.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,6 +17,7 @@ shortTitle: Remover etiqueta ao adicionar cartão
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introdução
 
@@ -42,7 +43,7 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}

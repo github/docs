@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -32,7 +33,7 @@ Una vez que has creado una solicitud de extracción, puedes subir confirmaciones
 
 Otros colaboradores pueden revisar tus cambios propuestos, agregar comentarios de revisión, contribuir con el debate sobre la solicitud de extracción e incluso agregar confirmaciones a la solicitud de extracción.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Puedes ver información sobre el estado de despliegue actual de la rama y la actividad anterior de despliegue en la pestaña de "Conversación". Para obtener más información, consulta "[Ver la actividad de implementación de un repositorio](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)".
 {% endif %}
 
