@@ -18,15 +18,14 @@ You can navigate to referring sites, excluding search engines and {% data variab
 
 Referring sites and popular content are ordered by views and unique visitors. Full clones and visitor information update hourly, while referring sites and popular content sections update daily. All data in the traffic graph uses the UTC+0 timezone, regardless of your location.
 
-The insights tab within your repository displays traffic for your repo, not your GitHub pages site itself.
+The traffic graph displays traffic for your repository, not any {% data variables.product.prodname_pages %} sites that may be published from the repository. If you want to track traffic to a {% data variables.product.prodname_pages %} site, you can configure a third-party analytics service.
 
-If you are logged in to GitHub then your own page views won’t be counted.
+If you are signed in to {% data variables.product.product_name %}, then your own page views are not included.
 
-Visitors is the total visits to your repo. Unique visitors refers to the number of individual users who have visited your repository and these are only counted once, regardless of how many times they visit the repo.
+Visitors refers to the total visits to your repository. Unique visitors refers to the number of individual users who have visited your repository. For unique visitors, each visitor is only counted once, regardless of how many times they visit the repository.
 
-Cloners refers to people to have cloned or downloaded a copy of your code from GitHub. Again, unique cloners is the number if individual users who have cloned the repo, whereas cloners is the total number of clones.
+Cloners refers to people to have cloned or downloaded your repository from {% data variables.product.product_name %}. Unique cloners is the number of individual users who have cloned the repository, whereas cloners is the total number of clones.
 
-If you want to track traffic to your actual pages site, the best way to do this is through configuring a third party analytics service, such as Google Analytics
 
 {% tip %}
 
