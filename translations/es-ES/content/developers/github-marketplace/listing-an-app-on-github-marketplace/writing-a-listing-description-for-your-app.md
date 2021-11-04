@@ -13,6 +13,7 @@ redirect_from:
   - /developers/github-marketplace/writing-a-listing-description-for-your-app
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 shortTitle: Escribir listas de descripciones
@@ -24,7 +25,7 @@ Aquí te mostramos los lineamientos de los campos que necesitas llenar en la sec
 
 ### Nombre del listado
 
-El nombre de tu listado aparecerá en la [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Tu listado no puede tener el mismo nombre que una cuenta existente de {% data variables.product.product_name %} a menos de que dicho nombre sea el de tu propio usuario u organización.
+El nombre de tu listado aparecerá en la [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Your listing cannot have the same name as an existing account on {% data variables.product.product_location %}, unless the name is your own user or organization name.
 
 ### Descripción muy corta
 

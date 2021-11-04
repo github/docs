@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - GitHub
 shortTitle: Recursos de aprendizaje
@@ -22,7 +23,7 @@ Para familiarizarte con Git, visita el [sitio oficial del proyecto Git](https://
 
 ## Uso de {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_learning %} ofrece cursos interactivos gratuitos integrados en {% data variables.product.prodname_dotcom %} con evaluación y asistencia instantáneas y automatizadas. Aprende a abrir tu primera solicitud de extracción, hacer tu primera contribución de código abierto, crear un sitio {% data variables.product.prodname_pages %}, y mucho más. Para obtener más información acerca de los cursos ofrecidos, consulta [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
@@ -56,8 +57,8 @@ Nuestro {% data variables.product.prodname_dotcom %} [canal con guías y capacit
 
 ## Extras
 
-Un [curso de Git en línea](http://www.codeschool.com/courses/git-real) interactivo de [Code School](http://codeschool.com) con siete niveles y muchos ejercicios en un formato amigable. Adapta libremente nuestras [plantillas .gitignore](https://github.com/github/gitignore) para que resuelvan tus necesidades.
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Adapta libremente nuestras [plantillas .gitignore](https://github.com/github/gitignore) para que resuelvan tus necesidades.
 
-Amplía el alcance de tu {% data variables.product.prodname_dotcom %} con[integraciones de {% ifversion fpt %}](/articles/about-integrations){% else %}integraciones{% endif %}, o instala [{% data variables.product.prodname_desktop %}](https://desktop.github.com) y el poderoso editor de texto [Atom](https://atom.io).
+Amplía el alcance de tu {% data variables.product.prodname_dotcom %} con[integraciones de {% ifversion fpt or ghec %}](/articles/about-integrations){% else %}integraciones{% endif %}, o instala [{% data variables.product.prodname_desktop %}](https://desktop.github.com) y el poderoso editor de texto [Atom](https://atom.io).
 
 Descubre cómo lanzar y hacer crecer tu proyecto de código abierto con las [Guías de código abierto](https://opensource.guide/).

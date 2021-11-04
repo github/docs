@@ -22,7 +22,7 @@ describe('learning tracks', () => {
     const $ = await getDOM('/en/code-security/guides')
     expect($('[data-testid=learning-track]').length).toBeGreaterThanOrEqual(4)
     $('[data-testid=learning-track]').each((i, trackElem) => {
-      const href = $(trackElem).find('.Box-header a').first().attr('href')
+      const href = $(trackElem).find('.Box-header a:nth-child(2)').first().attr('href')
       const found = href.match(/.*\?learn=(.*)/i)
       expect(found).not.toBeNull()
       const trackName = found[1]

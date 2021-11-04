@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Acerca de los métodos de fusión
@@ -16,9 +17,17 @@ shortTitle: Acerca de los métodos de fusión
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} Puedes implementar un tipo de método de fusión, como el cambio de base o la combinación de confirmaciones, con solo activar el método deseado para tu repositorio.
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.pull_requests.default_merge_option %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 El método de fusión predeterminado crea una confirmación de fusión. Puedes impedir que cualquiera suba confirmaciones de fusión en una rama protegida imponiendo un historiar de confirmaciones linear. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-linear-history)".{% endif %}
 
 ## Combinar tus confirmaciones de fusión

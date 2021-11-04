@@ -1,1 +1,0 @@
-Wenn Du Ausdrücke in einer `if` Bedingung verwendest, kannst Du die Syntax des Ausdrucks ({% raw %}`${{ }}`{% endraw %}) weglassen, da {% data variables.product.prodname_dotcom %} automatisch die `if` Bedingung als Ausdruck wertet.

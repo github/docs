@@ -74,22 +74,22 @@ También puedes requerir la autenticación bifactorial para cada una de tus orga
 ### 2. Mantenerse en cumplimiento
 Puedes implementar las verificaciones de estado requeridas y confirmar las verificaciones para hacer cumplir los estándares de cumplimiento de tu organización y automatizar los flujos de trabajo de cumplimiento. También puedes utilizar la bitácora de auditoría de tu organización para revisar las acciones que realiza tu equipo. Para obtener más información, consulta las secciones "[Requerir la política con ganchos de pre-recepción](/admin/policies/enforcing-policy-with-pre-receive-hooks)" y "[Generar bitácoras de auditoría](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)".
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ### 3. Configurar las características de seguridad para tus organizaciones
 {% data reusables.getting-started.configuring-security-features %}
 {% endif %}
 
 {% ifversion ghes %}
-### {% ifversion ghes = 2.22 %}3.{% else %}4.{% endif %} Habilitar las características de la {% data variables.product.prodname_GH_advanced_security %}
+### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
 Puedes mejorar tu licencia de {% data variables.product.product_name %} para que incluya la {% data variables.product.prodname_GH_advanced_security %}. Esto proporciona características adicionales que ayudan a los usuarios a encontrar y arreglar problemas de seguridad en su código, tales como el escaneo de secretos y de código. Para obtener más información, consulta la sección "[{% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 {% endif %}
 
 ## Parte 4: Personalizar y automatizar el trabajo de tu empresa en {% data variables.product.prodname_dotcom %}
-Puedes personalizar y automatizar el trabajo de las organizaciones en tu empresa con {% data variables.product.prodname_dotcom %} y las {% data variables.product.prodname_oauth_apps %}, la API de {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_actions %}, el {% data variables.product.prodname_registry %} y las {% data variables.product.prodname_pages %}.
+You can customize and automate work in organizations in your enterprise with {% data variables.product.prodname_dotcom %} and {% data variables.product.prodname_oauth_apps %}, {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %} , and {% data variables.product.prodname_pages %}.
 
 ### 1. Crear {% data variables.product.prodname_github_apps %} y {% data variables.product.prodname_oauth_apps %}
-Puedes crear integraciones con la API de {% data variables.product.prodname_dotcom %}, tal como las {% data variables.product.prodname_github_apps %} o {% data variables.product.prodname_oauth_apps %}, para utilizarlas en las organizciones de tu empresa para complementar y extender tus flujos de trabajo. Para obtener más información, consulta "[Acerca de las apps](/developers/apps/getting-started-with-apps/about-apps)."
-### 2. Utilizar la API de {% data variables.product.prodname_dotcom %}
+You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. Para obtener más información, consulta "[Acerca de las apps](/developers/apps/getting-started-with-apps/about-apps)."
+### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
 {% ifversion ghes %}

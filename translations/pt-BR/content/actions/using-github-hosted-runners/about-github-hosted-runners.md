@@ -1,7 +1,6 @@
 ---
 title: Sobre executores hospedados no GitHub
 intro: 'O {% data variables.product.prodname_dotcom %} oferece máquinas virtuais hospedadas para executar fluxos de trabalho. A máquina virtual tem um ambiente de ferramentas, pacotes e configurações disponíveis para uso no {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -13,12 +12,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: Executores hospedados no GitHub
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}
 
@@ -131,7 +132,7 @@ O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/gi
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leia mais
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"

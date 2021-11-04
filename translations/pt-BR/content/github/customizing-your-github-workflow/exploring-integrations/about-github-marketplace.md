@@ -6,6 +6,7 @@ redirect_from:
   - /github/customizing-your-github-workflow/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 Você pode descobrir, navegar e instalar ferramentas grátis e pagas, incluindo {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %} e {% data variables.product.prodname_actions %}, em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).

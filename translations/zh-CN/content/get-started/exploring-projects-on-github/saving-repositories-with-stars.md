@@ -1,6 +1,6 @@
 ---
 title: 使用星标保存仓库
-intro: '您可以对仓库和主题标星以跟踪您感兴趣的项目{% ifversion fpt %} and discover related content in your news feed{% endif %}。'
+intro: '您可以对仓库和主题标星以跟踪您感兴趣的项目{% ifversion fpt or ghec %} and discover related content in your news feed{% endif %}。'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 保存有星标的仓库
@@ -24,7 +25,7 @@ shortTitle: 保存有星标的仓库
 
 标星操作便于以后再次找到仓库或主题。 您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 您可以对仓库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 对仓库或主题加星标时，{% data variables.product.product_name %} 可能会在消息馈送的发现视图中推荐相关内容。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 {% endif %}
 

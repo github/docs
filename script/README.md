@@ -394,17 +394,17 @@ This is a convenience script for replacing the contents of translated files with
 
 It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
 
-Usage: script/reset-translated-file.js <filename>
+Usage: script/i18n/reset-translated-file.js <filename>
 
 Examples:
 
-reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
+reset a single translated file using a relative path: $ script/i18n/reset-translated-file.js translations/es-XL/content/actions/index.md
 
-reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
+reset a single translated file using a full path: $ script/i18n/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
 
-reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
+reset all language variants of a single English file (using a relative path): $ script/i18n/reset-translated-file.js content/actions/index.md $ script/i18n/reset-translated-file.js data/ui.yml
 
-reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+reset all language variants of a single English file (using a full path): $ script/i18n/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/i18n/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
 
 ---
 

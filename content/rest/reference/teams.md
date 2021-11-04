@@ -52,6 +52,28 @@ This API is only available to authenticated members of the team's organization. 
   {% if operation.subcategory == 'members' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion ghec %}
+## External groups
+
+The external groups API allows you to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
+
+To use this API, the authenticated user must be a team maintainer or an owner of the organization associated with the team.
+
+{% note %}
+
+**Notes:** 
+
+- The external groups API is only available for organizations that are part of a enterprise using {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+- If your organization uses team synchronization, you can use the Team Synchronization API. For more information, see "[Team synchronization API](#team-synchronization)."
+
+{% endnote %}
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'external-groups' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## Team synchronization
 
@@ -61,7 +83,7 @@ You can manage GitHub team members through your IdP with team synchronization. T
 
 {% note %}
 
-**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}.
+**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
 
 {% endnote %}
 

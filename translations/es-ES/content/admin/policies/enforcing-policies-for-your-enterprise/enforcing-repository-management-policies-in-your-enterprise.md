@@ -1,6 +1,8 @@
 ---
 title: Requerir políticas de administración de repositorios en tu empresa
-intro: Los propietarios de empresas pueden hacer cumplir determinadas políticas de administración de repositorios para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.
+intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+permissions: Enterprise owners can enforce policies for repository management in an enterprise.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -26,20 +28,34 @@ redirect_from:
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-repository-management-policies-in-your-enterprise
+  - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
+  - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
+  - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
+  - Repositories
   - Security
 shortTitle: Políticas de administración de repositorio
 ---
 
-## Configurar la visibilidad predeterminada para los repositorios nuevos en tu empresa
+## About policies for repository management in your enterprise
 
-Cada vez que alguien crea un repositorio nuevo en tu empresa, esta persona debe elegir una visibilidad para el mismo. Cuando configuras una visibilidad predeterminada para la empresa, eliges qué vsibilidad se seleccina predeterminadamente. Para obtener más información sobre la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management. For more information, see "[Creating and managing repositories](/repositories/creating-and-managing-repositories) and "[Organizations and teams](/organizations)."
+
+{% ifversion ghes or ghae %}
+
+## Configuring the default visibility of new repositories
+
+Each time someone creates a new repository within your enterprise, that person must choose a visibility for the repository. Cuando configuras una visibilidad predeterminada para la empresa, eliges qué vsibilidad se seleccina predeterminadamente. Para obtener más información sobre la visibilidad de los repositorios, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
 Si un propietario de empresa deja de permitir que los miembros de ésta creen ciertos tipos de repositorios, estos no podrán crear este tipo de repositorio aún si la configuración de visibilidad lo tiene como predeterminado. Para obtener más información, consulta la sección "[Configurar una política para la creación de repositorios](#setting-a-policy-for-repository-creation)".
 
@@ -54,20 +70,26 @@ Si un propietario de empresa deja de permitir que los miembros de ésta creen ci
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
-## Configurar una política para cambiar la visibilidad de un repositorio
+{% endif %}
 
-Cuando no permites que los miembros cambien la visibilidad del repositroio, únicamente los propietarios de la empresa podrán hacerlo.
+## Enforcing a policy for {% ifversion ghec or ghes > 3.1 or ghae-next %}base{% else %}default{% endif %} repository permissions
 
-Si un propietario de empresa restringió la creación de repositorios en la misma para que solo los propietarios puedan realizar esta operación, entonces los miembros no podrán cambiar la visibilidad de los repositorios. Si un propietario de una empresa restringe la creación de repositorios para que los miembros solo puedan crear repositorios privados, entonces éstos solo podrán cambiar la visibilidad de un repositorio a privada. Para obtener más información, consulta la sección "[Configurar una política para la creación de repositorios](#setting-a-policy-for-repository-creation)".
+Across all organizations owned by your enterprise, you can set a {% ifversion ghec or ghes > 3.1 or ghae-next %}base{% else %}default{% endif %} repository permission level (none, read, write, or admin) for organization members, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. En "Modificar visibilidad del repositorio", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "{% ifversion ghec or ghes > 3.1 or ghae-next %}Base{% else %}Default{% endif %} permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Under "{% ifversion ghec or ghes > 3.1 or ghae-next %}Base{% else %}Default{% endif %} permissions", use the drop-down menu and choose a policy.
+  {% ifversion ghec or ghes > 3.1 or ghae-next %}
+  ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+  {% else %}
+  ![Menú desplegable con opciones de políticas de permisos de repositorios](/assets/images/enterprise/business-accounts/repository-permissions-policy-drop-down.png)
+  {% endif %}
 
-{% data reusables.enterprise-accounts.repository-visibility-policy %}
+## Enforcing a policy for repository creation
 
-## Configurar una política para la creación de repositorios
+Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level. Si permites que los miembros creen repositorios, puedes decidir si pueden crear cualquier combinación de repositorios públicos, privados e internos. {% data reusables.repositories.internal-repo-default %} Para obtener más información acerca de los repositorios internos, consulta "[Crear un repositorio interno](/articles/creating-an-internal-repository)".
 
 {% data reusables.organizations.repo-creation-constants %}
 
@@ -82,16 +104,61 @@ Si un propietario de empresa restringió la creación de repositorios en la mism
 6. En "Creación de repositorios", usa el menú desplegable y elige una política. ![Menú desplegable con políticas para creación de repositorio](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
-## Requerir una política para bifurcar repositorios privados o internos
+## Enforcing a policy for forking private or internal repositories
 
 En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o prohibir la bifurcación de un repositorio privado o interno o permitir a los propietarios administrar la configuración a nivel organizacional para todos los que tengan acceso a éstos.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. En la pestaña **Políticas de repositorios**, en "Bifurcación de repositorios", revisa la información acerca de los cambios en la configuración. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. En "Bifurcación de repositorios", usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de bifurcación de repositorios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
-## Configurar una política para el borrado y transferencia de repositorios
+## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
+
+Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, or allow owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+3. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", use the drop-down menu and choose a policy.
+  {% ifversion ghec %}
+  ![Menú desplegable con opciones de políticas de invitación de colaboradores externos](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+  {% elsif ghes or ghae %}
+  ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)
+  {% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+## Enforcing a policy for the default branch name
+
+Across all organizations owned by your enterprise, you can set the default branch name for any new repositories that members create. Puedes elegir el requerir un nombre de rama predeterminado a través de todas las organizaciones o permitir a algunas configurar un nombre diferente.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. En la pestaña de **Políticas de los repositorios**, debajo de "Nombre de la rama predeterminada", ingresa el nombre de rama predeterminada que deberán utilizar los repositorios nuevos. ![Caja de texto para ingresar un nombre de rama predeterminado](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. Opcionalmente, para requerir el nombre de rama predeterminado para todas las organizaciones en la empresa, selecciona **Requerir en toda la empresa**. ![Casilla de requerir](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. Da clic en **Actualizar**. ![Botón de actualizar](/assets/images/help/business-accounts/default-branch-name-update.png)
+
+{% endif %}
+
+## Enforcing a policy for changes to repository visibility
+
+Across all organizations owned by your enterprise, you can allow members with admin access to change a repository's visibility, restrict repository visibility changes to organization owners, or allow owners to administer the setting on the organization level. Cuando no permites que los miembros cambien la visibilidad del repositroio, únicamente los propietarios de la empresa podrán hacerlo.
+
+Si un propietario de empresa restringió la creación de repositorios en la misma para que solo los propietarios puedan realizar esta operación, entonces los miembros no podrán cambiar la visibilidad de los repositorios. Si un propietario de una empresa restringe la creación de repositorios para que los miembros solo puedan crear repositorios privados, entonces éstos solo podrán cambiar la visibilidad de un repositorio a privada. Para obtener más información, consulta la sección "[Configurar una política para la creación de repositorios](#setting-a-policy-for-repository-creation)".
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+5. En "Modificar visibilidad del repositorio", revisa la información sobre cómo modificar los parámetros. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+
+{% data reusables.enterprise-accounts.repository-visibility-policy %}
+
+## Enforcing a policy for repository deletion and transfer
+
+Across all organizations owned by your enterprise, you can allow members with admin permissions to delete or transfer a repository, restrict repository deletion and transfers to organization owners, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -100,25 +167,28 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o proh
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
-{% ifversion fpt or ghes %}
+## Enforcing a policy for deleting issues
 
-## Configurar una política para los límites de subida de Git
+Across all organizations owned by your enterprise, you can allow members with admin access to delete issues in a repository, restrict issue deletion to organization owners, or allow owners to administer the setting on the organization level.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. En la pestaña **Políticas de repositorios**, en "Eliminación de propuestas en los repositorios", revisa la información acerca de los cambios en la configuración. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+4. En "Eliminación de propuestas en los repositorios", usa el menú desplegable y elige una política. ![Menú desplegable con opciones de políticas de eliminación de propuestas](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+
+{% ifversion ghes or ghae %}
+
+## Enforcing a policy for Git push limits
 
 Para que el tamaño de tu repositorio se mantenga en una cantidad administrable y puedas prevenir los problemas de rendimiento, puedes configurar un límite de tamaño de archivo para los repositorios de tu empresa.
 
 Cuando impones límites de carga a los repositorios, la configuración predeterminada no permite a los usuarios añadir o actualizar archivos mayores a 100 MB.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. Dentro de "Repository upload limit (Límite de subida del repositorio)", utiliza el menú desplegable y haz clic en un tamaño máximo de objeto. ![Menú desplegable con opciones de tamaño máximo de objeto](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
 5. Opcionalmente, para requerir un límite de carga máximo para todos los repositorios en tu empresa, selecciona **Requerir en todos los repositorios** ![Opción para imponer tamaño máximo de objetos en todos los repositorios](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
-
-{% endif %}
 
 ## Configurar el editor de fusión de conflictos para solicitudes de extracción entre repositorios
 
@@ -135,16 +205,12 @@ Solicitarles a los usuarios que resuelvan los conflictos de fusión en forma loc
 
 ## Configurar las cargas forzadas
 
-Cada repositorio hereda una configuración de empuje forzado por defecto desde la configuración de la cuenta del usuario o la organización a la que pertenece. De la misma forma, cada cuenta de organización y de usuario hereda una configuración de subidas forzadas de aquella de la empresa. Si cambias esta configuración para la empresa, se cambiará en todos los repositorios que le pertenezcan a cualquier usuario u organización dentro de ella.
+Each repository inherits a default force push setting from the settings of the user account or organization that owns the repository. Each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, the policy applies to all repositories owned by any user or organization.
 
-### Bloquear las cargas forzadas en tu aplicativo
+### Blocking force pushes to all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. Debajo de "Force pushes" (Empujes forzados), usa el menú desplegable y haz clic en **Allow** (Permitir), **Block** (Bloquear) o **Block to the default branch** (Bloquear en la rama predeterminada). ![Forzar empujes desplegables](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
 5. Opcionalmente, selecciona **Enforce on all repositories** (Implementar en todos los repositorios) que sobrescribirán las configuraciones a nivel de la organización y del repositorio para los empujes forzados.
@@ -177,6 +243,8 @@ Puedes sustituir los parámetros predeterminados heredados al configurar los par
     - **Block** (Bloquear) para bloquear los empujes forzados en todas las ramas.
     - **Block to the default branch** (Bloquear en la rama por defecto) para bloquear solo los empujes forzados en la rama por defecto. ![Bloquear empujes forzados](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
 6. Opcionalmente, selecciona **Enforce on all repositories** (Implementar en todos los repositorios) para sustituir los parámetros específicos del repositorio. Nota que esto **no** anulará alguna política válida en toda la empresa. ![Bloquear empujes forzados](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+
+{% endif %}
 
 {% ifversion ghes %}
 
@@ -217,14 +285,4 @@ De ser necesario, puedes prevenir que los administradores de repositorio cambien
 7. Revisa los cambios. Para confirmar, haz clic en **Sí, habilitar el acceso de lectura Git anónimo.** ![Confirma la configuración de acceso de lectura Git anónimo en la ventana emergente](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
 8. Opcionalmente, para impedir que los administradores de repositorio modifiquen estos parámetros para este repositorio, selecciona **Impedir que los administradores de repositorio modifiquen el acceso de lectura Git anónimo**. ![Selecciona la casilla de verificación para evitar que los administradores del repositorio cambien el acceso de lectura Git anónimo para este repositorio](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
 
-{% endif %}
-
-{% ifversion ghes > 2.22 or ghae %}
-## Requerir una política para el nombre de la rama predeterminada
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-3. En la pestaña de **Políticas de los repositorios**, debajo de "Nombre de la rama predeterminada", ingresa el nombre de rama predeterminada que deberán utilizar los repositorios nuevos. ![Caja de texto para ingresar un nombre de rama predeterminado](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. Opcionalmente, para requerir el nombre de rama predeterminado para todas las organizaciones en la empresa, selecciona **Requerir en toda la empresa**. ![Casilla de requerir](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. Da clic en **Actualizar**. ![Botón de actualizar](/assets/images/help/business-accounts/default-branch-name-update.png)
 {% endif %}

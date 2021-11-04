@@ -66,7 +66,7 @@ When creating a group, you must choose a policy that defines which repositories 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for repository access.
 
-   {% ifversion ghes > 2.22 or ghae %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}{% ifversion ghes = 2.22 %}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
+   {% ifversion ghes or ghae %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
 
    {% warning %}
 
@@ -81,7 +81,6 @@ When creating a group, you must choose a policy that defines which repositories 
    ![Add runner group options](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. Click **Save group** to create the group and apply the policy.
 {% endif %}
-
 
 ## Creating a self-hosted runner group for an enterprise
 
@@ -120,7 +119,7 @@ When creating a group, you must choose a policy that defines which organizations
     ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for organization access.
 
-   {% ifversion fpt or ghes > 2.22 or ghae or ghec %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% elsif ghes = 2.22 %}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+    You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
 
    {% warning %}
 
@@ -174,8 +173,8 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## Moving a self-hosted runner to a group
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
-{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-{% data reusables.github-actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+{% ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
 1. In the "Runners" list, click the runner that you want to configure.
 1. Select the Runner group dropdown menu.
 1. In "Move runner to group", choose a destination group for the runner.

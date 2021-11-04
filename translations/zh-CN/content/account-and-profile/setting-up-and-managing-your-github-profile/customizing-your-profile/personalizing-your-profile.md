@@ -14,6 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: 个性化
@@ -48,10 +49,10 @@ shortTitle: 个性化
 
 您可以更改显示在个人资料中的名称。 此名称也可能显示在您对于组织拥有的私有仓库所做的注释旁边。 更多信息请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you're a member of an {% data variables.product.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+**注：** 如果您是 {% data variables.product.prodname_emu_enterprise %} 的成员，则必须通过您的身份提供商而不是 {% data variables.product.prodname_dotcom_the_website %} 对您的个人资料名称进行任何更改。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 {% endif %}
@@ -63,7 +64,7 @@ shortTitle: 个性化
 
 在个人资料中添加个人简历，与其他 {% data variables.product.product_name %} 用户共享您自己的信息。 借助 [@提及](/articles/basic-writing-and-formatting-syntax)和表情符号，可以包含您当前或以前的工作经历、工作类型甚至您喜欢的咖啡种类。
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 更多信息请参阅“[管理个人资料自述文件](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
 
@@ -100,9 +101,9 @@ shortTitle: 个性化
 
 ![申请的审查者在用户名旁边显示“忙碌”注释](/assets/images/help/profile/request-a-review-limited-availability-status.png)
 
-如果选择“Busy（忙碌）”选项，当人们 @提及您的用户名、向您分配议题或拉取请求或者申请您进行拉取请求审查时，您的用户名旁边将会出现一条表示您在忙碌的注释。 You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。
+如果选择“Busy（忙碌）”选项，当人们 @提及您的用户名、向您分配议题或拉取请求或者申请您进行拉取请求审查时，您的用户名旁边将会出现一条表示您在忙碌的注释。 您还将被排除在分配给您所属的任何团队的拉取请求的自动审核任务之外。 更多信息请参阅“[管理团队的代码审查分配](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)”。
 
-1. 在 {% data variables.product.product_name %} 的右上角，单击您的头像，然后单击 **Set your status（设置状态）**，或者，如果您已设置状态，则单击当前状态。 ![个人资料中用于设置状态的按钮](/assets/images/help/profile/set-status-on-profile.png)
+1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set your status** or, if you already have a status set, click your current status. ![个人资料中用于设置状态的按钮](/assets/images/help/profile/set-status-on-profile.png)
 2. 要添加自定义文本到状态，请单击文本字段，然后输入状态消息。 ![用于输入状态消息的字段](/assets/images/help/profile/type-a-status-message.png)
 3. （可选）要设置表情符号状态，请单击笑脸图标并从列表中选择表情符号。 ![用于选择表情符号状态的按钮](/assets/images/help/profile/select-emoji-status.png)
 4. （可选）如果想表示您的可用性受限，请选择“Busy（忙碌）”。 ![在编辑状态选项中选择的忙碌选项](/assets/images/help/profile/limited-availability-status.png)
@@ -110,20 +111,20 @@ shortTitle: 个性化
 6. 使用下拉菜单，单击您要向其显示状态的组织。 如果不选择组织，您的状态将是公共的。 ![用于选择您的状态可见者的下拉菜单](/assets/images/help/profile/status-visibility.png)
 7. 单击 **Set status（设置状态）**。 ![用于设置状态的按钮](/assets/images/help/profile/set-status-button.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 在个人资料中显示徽章
 
 当您参与某些计划时， {% data variables.product.prodname_dotcom %} 会自动在您的个人资料中显示徽章。
 
-| 徽章                                                                                                            | 计划                                                           | 描述                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Mars 2020 Helicopter 贡献者徽章图标](/assets/images/help/profile/badge-mars-2020-small.png)                        | **Mars 2020 Helicopter 贡献者**                                 | 如果您在提交历史记录中撰写了对 Mars 2020 Helicopter 任务中使用的开放源码库相关标记的任何提交， 您将在个人资料上获得 Mars 2020 Helicopter 贡献者徽章。 悬停在徽章上会显示您参与的任务中使用的几个仓库。 要查看符合您徽章资格的完整仓库列表，请参阅“[Mars 2020 Helicopter 贡献者徽章的合格仓库列表](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#list-of-qualifying-repositories-for-mars-2020-helicopter-contributor-badge)”。 |
-| ![Arctic Code Vault 贡献者徽章图标](/assets/images/help/profile/badge-arctic-code-vault-small.png)                   | **{% data variables.product.prodname_arctic_vault %} 贡献者** | 如果您在存档于 2020 Arctic Vault 计划的仓库默认分支上编写了任何提交，您的个人资料上会获得一个 {% data variables.product.prodname_arctic_vault %} 贡献者徽章。 悬停在徽章上显示您参与的属于计划一部分的几个仓库。 有关该计划的更多信息，请参阅 [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com)。                                                                                                 |
-| ![{% data variables.product.prodname_dotcom %} 赞助者徽章图标](/assets/images/help/profile/badge-sponsors-small.png) | **{% data variables.product.prodname_dotcom %} 赞助者**         | 如果您通过 {% data variables.product.prodname_sponsors %} 赞助了开源贡献者，您的个人资料中将获得一个 {% data variables.product.prodname_dotcom %} 赞助者徽章。 单击徽章将带您到个人资料的 **Sponsoring（赞助）**选项卡。 更多信息请参阅“[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)”。                                                  |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}                                                   | **开发者计划成员**                                                  | 如果您是 {% data variables.product.prodname_dotcom %} 开发者计划的注册成员，使用 {% data variables.product.prodname_dotcom %} API 构建应用程序，您的个人资料上将获得开发者计划成员徽章。 有关 {% data variables.product.prodname_dotcom %} 开发者计划的更多信息，请参阅 [GitHub 开发者](/program/)。                                                                                                            |
-| {% octicon "star-fill" aria-label="The star icon" %}                                                          | **Pro**                                                      | 如果您使用 {% data variables.product.prodname_pro %}，您的个人资料中将获得一个 PRO 徽章。 有关 {% data variables.product.prodname_pro %} 的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products#github-pro)”。                                                                                               |
-| {% octicon "lock" aria-label="The lock icon" %}                                                               | **Security Bug Bounty Hunter**                               | 如果你帮助寻找安全漏洞，您的个人资料上将获得 Security Bug Bounty Hunter 徽章。 有关 {% data variables.product.prodname_dotcom %} 安全计划的更多信息，请参阅 [{% data variables.product.prodname_dotcom %} 安全性](https://bounty.github.com/)。                                                                                                                                               |
-| {% octicon "mortar-board" aria-label="The mortar-board icon" %}                                               | **Github Campus Expert**                                     | 如果您参加 {% data variables.product.prodname_dotcom %} 校园计划，您的个人资料上将获得 {% data variables.product.prodname_dotcom %} 校园专家徽章。 有关校园专家计划的更多信息，请参阅 [Campus Experts](https://education.github.com/experts)。                                                                                                                                               |
+| 徽章                                                                                                            | 计划                                                           | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Mars 2020 Helicopter 贡献者徽章图标](/assets/images/help/profile/badge-mars-2020-small.png)                        | **Mars 2020 Helicopter 贡献者**                                 | 如果您在提交历史记录中撰写了对 Mars 2020 Helicopter 任务中使用的开放源码库相关标记的任何提交， 您将在个人资料上获得 Mars 2020 Helicopter 贡献者徽章。 悬停在徽章上会显示您参与的任务中使用的几个仓库。 要查看符合您徽章资格的完整仓库列表，请参阅“[Mars 2020 Helicopter 贡献者徽章的合格仓库列表](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#list-of-qualifying-repositories-for-mars-2020-helicopter-contributor-badge)”。                                                                                 |
+| ![Arctic Code Vault 贡献者徽章图标](/assets/images/help/profile/badge-arctic-code-vault-small.png)                   | **{% data variables.product.prodname_arctic_vault %} 贡献者** | 如果您在存档于 2020 Arctic Vault 计划的仓库默认分支上编写了任何提交，您的个人资料上会获得一个 {% data variables.product.prodname_arctic_vault %} 贡献者徽章。 悬停在徽章上显示您参与的属于计划一部分的几个仓库。 有关该计划的更多信息，请参阅 [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com)。                                                                                                                                                                                 |
+| ![{% data variables.product.prodname_dotcom %} 赞助者徽章图标](/assets/images/help/profile/badge-sponsors-small.png) | **{% data variables.product.prodname_dotcom %} 赞助者**         | 如果您通过 {% data variables.product.prodname_sponsors %} 赞助了开源贡献者，您的个人资料中将获得一个 {% data variables.product.prodname_dotcom %} 赞助者徽章。 单击徽章将带您到个人资料的 **Sponsoring（赞助）**选项卡。 更多信息请参阅“[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)”。                                                                                                                                  |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}                                                   | **开发者计划成员**                                                  | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. 有关 {% data variables.product.prodname_dotcom %} 开发者计划的更多信息，请参阅 [GitHub 开发者](/program/)。 |
+| {% octicon "star-fill" aria-label="The star icon" %}                                                          | **Pro**                                                      | 如果您使用 {% data variables.product.prodname_pro %}，您的个人资料中将获得一个 PRO 徽章。 有关 {% data variables.product.prodname_pro %} 的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products#github-pro)”。                                                                                                                                                                               |
+| {% octicon "lock" aria-label="The lock icon" %}                                                               | **Security Bug Bounty Hunter**                               | 如果你帮助寻找安全漏洞，您的个人资料上将获得 Security Bug Bounty Hunter 徽章。 有关 {% data variables.product.prodname_dotcom %} 安全计划的更多信息，请参阅 [{% data variables.product.prodname_dotcom %} 安全性](https://bounty.github.com/)。                                                                                                                                                                                                                               |
+| {% octicon "mortar-board" aria-label="The mortar-board icon" %}                                               | **Github Campus Expert**                                     | 如果您参加 {% data variables.product.prodname_dotcom %} 校园计划，您的个人资料上将获得 {% data variables.product.prodname_dotcom %} 校园专家徽章。 有关校园专家计划的更多信息，请参阅 [Campus Experts](https://education.github.com/experts)。                                                                                                                                                                                                                               |
 
 ## 在个人资料中禁用徽章
 

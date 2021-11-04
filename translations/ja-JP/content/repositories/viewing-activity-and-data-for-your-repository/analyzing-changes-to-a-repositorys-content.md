@@ -17,6 +17,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Analyze changes
@@ -44,7 +45,7 @@ shortTitle: Analyze changes
 
 コード更新頻度グラフには、リポジトリの履歴における各週のコンテンツの追加と削除が表示されます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ![コード更新頻度グラフ](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
 

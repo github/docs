@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -19,6 +20,7 @@ shortTitle: Migrate from Travis CI
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -187,7 +189,7 @@ Travis CI から移行する場合は、{% data variables.product.prodname_actio
 
 ### シークレットを保存する
 
-{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 {% ifversion fpt or ghes > 3.0 or ghae %}環境保護ルールでは、ワークフローが環境シークレットにアクセスするための手動承認が必要になる場合があります。 {% endif %}詳しい情報については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+{% data variables.product.prodname_actions %} を使用すると、シークレットを保存して、ジョブで参照できます。 {% data variables.product.prodname_actions %} Organization は、Organization のシークレットにアクセスできるリポジトリを制限できます。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}環境保護ルールでは、ワークフローが環境シークレットにアクセスするための手動承認が必要になる場合があります。 {% endif %}詳しい情報については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
 ### ジョブとワークフロー間でファイルを共有する
 
@@ -333,7 +335,7 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} キャッシングは、{% data variables.product.prodname_dotcom %} ホストランナーにのみ適用できます。  詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ## 一般的なタスクの例
 

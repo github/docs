@@ -9,7 +9,7 @@ redirect_from:
   - /code-security/secure-coding
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

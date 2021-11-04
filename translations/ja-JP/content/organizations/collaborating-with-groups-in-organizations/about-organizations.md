@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organization と Enterprise アカウント
 
 Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。

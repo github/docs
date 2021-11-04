@@ -2,7 +2,6 @@
 title: GitHub Actionsのワークフロー構文
 shortTitle: ワークフロー構文
 intro: ワークフローは、1つ以上のジョブからなる設定可能な自動化プロセスです。 ワークフローの設定を定義するには、YAMLファイルを作成しなければなりません。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,10 +11,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## ワークフロー用のYAML構文について
 
@@ -183,7 +184,7 @@ Diffs are limited to 300 files. If there are files changed that aren't matched i
 
 詳しい情報については「[Pull Request中のブランチの比較について](/articles/about-comparing-branches-in-pull-requests)」を参照してください。
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
 When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. Inputs for reusable workflows are specified with the same format as action inputs. For more information about inputs, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)." For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
@@ -290,7 +291,7 @@ The triggered workflow receives the inputs in the `github.event.inputs` context.
 
 cron構文に関する詳しい情報については、「[ワークフローをトリガーするイベント](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## `permissions`
 
 `GITHUB_TOKEN` に付与されているデフォルトの権限を変更し、必要に応じてアクセスを追加または削除して、必要最小限のアクセスのみを許可することができます。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
@@ -350,7 +351,7 @@ defaults:
     working-directory: scripts
 ```
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `concurrency`
 
 並行処理により、同じ並行処理グループを使用する単一のジョブまたはワークフローのみが一度に実行されます。 並行処理グループには、任意の文字列または式を使用できます。 The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
@@ -368,13 +369,15 @@ defaults:
 
 ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
-ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
 
 ## `jobs.<job_id>`
 
-各ジョブには、対応するIDがあります。 `job_id`キーは文字列型で、その値はジョブの設定データのマップとなるものです。 `<job_id>`は、`jobs`オブジェクトごとに一意の文字列に置き換える必要があります。 `<job_id>`は、英字または`_`で始める必要があり、英数字と`-`、`_`しか使用できません。
+Create an identifier for your job by giving it a unique name. `job_id`キーは文字列型で、その値はジョブの設定データのマップとなるものです。 `<job_id>`は、`jobs`オブジェクトごとに一意の文字列に置き換える必要があります。 `<job_id>`は、英字または`_`で始める必要があり、英数字と`-`、`_`しか使用できません。
 
 ### サンプル
+
+In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
 
 ```yaml
 jobs:
@@ -419,7 +422,7 @@ jobs:
   job2:
     needs: job1
   job3:
-    if: always()
+    if: {% raw %}${{ always() }}{% endraw %}
     needs: [job1, job2]
 ```
 
@@ -476,7 +479,7 @@ runs-on: [self-hosted, linux]
 
 詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」及び「[ワークフロー内でのセルフホストランナーの利用](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## `jobs.<job_id>.permissions`
 
 `GITHUB_TOKEN` に付与されているデフォルトの権限を変更し、必要に応じてアクセスを追加または削除して、必要最小限のアクセスのみを許可することができます。 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
@@ -504,7 +507,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 ジョブが参照する環境。 環境を参照するジョブがランナーに送られる前に、その環境のすべて保護ルールはパスしなければなりません。 For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
@@ -538,8 +541,7 @@ environment:
 {% endraw %}
 {% endif %}
 
-
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
 
 {% note %}
@@ -791,7 +793,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
@@ -877,7 +879,7 @@ jobs:
 
 ### 特定のシェルを使用する
 
-`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -951,7 +953,6 @@ steps:
 ```
 
 使われるコマンドは（この例では`perl`）は、ランナーにインストールされていなければなりません。
-
 
 {% ifversion ghae %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
 {% else %}
@@ -1271,9 +1272,7 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-アクションを実行するコンテナとして使用するDockerイメージ。 値は、Docker Hub のイメージ名または {% ifversion ghes < 3.0 %} のパブリック{% endif %}レジストリ名にすることができます。
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
+アクションを実行するコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1290,7 +1289,6 @@ container:
      password: ${{ secrets.ghcr_token }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.container.env`
 
@@ -1361,9 +1359,7 @@ services:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-アクションを実行するサービスコンテナとして使用するDockerイメージ。 値は、Docker Hub のイメージ名または {% ifversion ghes < 3.0 %} のパブリック{% endif %}レジストリ名にすることができます。
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
+アクションを実行するサービスコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1386,7 +1382,6 @@ services:
       password: ${{ secrets.DOCKER_PASSWORD }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.services.<service_id>.env`
 
@@ -1425,7 +1420,7 @@ volumes:
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
 The location and version of a reusable workflow file to run as a job.

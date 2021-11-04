@@ -58,9 +58,9 @@ You can monitor {% data variables.product.product_location %} with your activity
 {% data reusables.getting-started.configuring-security-features %}
 
 ## Part 4: Customizing and automating work on {% data variables.product.product_location %}
-You can customize and automate work in organizations in {% data variables.product.product_location %} with the {% data variables.product.prodname_dotcom %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
+You can customize and automate work in organizations in {% data variables.product.product_location %} with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_pages %}.
 
-### 1. Using the {% data variables.product.prodname_dotcom %} API
+### 1. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
 ### 2. Building {% data variables.product.prodname_actions %}

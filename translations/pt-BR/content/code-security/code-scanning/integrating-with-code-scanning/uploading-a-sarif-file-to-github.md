@@ -11,8 +11,9 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -36,10 +37,10 @@ O {% data variables.product.prodname_dotcom %} cria alertas de {% data variables
 
 Você pode gerar arquivos SARIF usando muitas ferramentas de teste de segurança de análise estática, incluindo {% data variables.product.prodname_codeql %}. Para fazer o upload dos resultados das ferramentas de terceiros, você deve usar o formato Intercâmbio de Resultados de Análise Estática (SARIF) 2.1.0. Para obter mais informações, consulte "[Suporte SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)".
 
-Você pode enviar os resultados usando {% data variables.product.prodname_actions %}, a API de {% data variables.product.prodname_code_scanning %} {% ifversion fpt or ghes > 3.0 or ghae-next %}the {% data variables.product.prodname_codeql_cli %}, {% endif %}ou {% data variables.product.prodname_codeql_runner %}. O melhor método de upload dependerá de como você gera o arquivo SARIF. Por exemplo, se você usar:
+Você pode enviar os resultados usando {% data variables.product.prodname_actions %}, a API de {% data variables.product.prodname_code_scanning %} {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}the {% data variables.product.prodname_codeql_cli %}, {% endif %}ou {% data variables.product.prodname_codeql_runner %}. O melhor método de upload dependerá de como você gera o arquivo SARIF. Por exemplo, se você usar:
 
 - {% data variables.product.prodname_actions %} para executar a ação {% data variables.product.prodname_codeql %}, não haverá nenhuma ação adicional necessária. A ação {% data variables.product.prodname_codeql %} faz o upload do arquivo SARIF automaticamente quando ele conclui a análise.
-- O arquivo SARIF pode ser gerado a partir de uma ferramenta de análise compatível com o SARIF, que você executa no mesmo fluxo de trabalho de {% data variables.product.prodname_actions %} usado para fazer o upload do arquivo. {% ifversion fpt or ghes > 3.0 or ghae-next %}
+- O arquivo SARIF pode ser gerado a partir de uma ferramenta de análise compatível com o SARIF, que você executa no mesmo fluxo de trabalho de {% data variables.product.prodname_actions %} usado para fazer o upload do arquivo. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
  - O {% data variables.product.prodname_codeql_cli %} para executar {% data variables.product.prodname_code_scanning %} no seu sistema de CI, você pode usar a CLI para fazer o upload de resultados para {% data variables.product.prodname_dotcom %} (para mais informações, consulte "[Instalar {% data variables.product.prodname_codeql_cli %} no seu sistema de CI](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").{% endif %}
 - {% data variables.product.prodname_dotcom %} exibirá alertas de {% data variables.product.prodname_code_scanning %} do arquivo SARIF carregado em seu repositório. Se você bloquear o upload automático, quando você estiver pronto para fazer o upload dos resultados, você poderá usar o comando `enviar` (para mais informações, ver "[Executando {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").
 - Uma ferramenta que gera resultados como um artefato fora do seu repositório, você pode usar a API de {% data variables.product.prodname_code_scanning %} para fazer o upload do arquivo (para mais informações, consulte "[Enviar uma análise como dados do SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
@@ -80,7 +81,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:
@@ -114,7 +115,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write{% endif %}
     steps:

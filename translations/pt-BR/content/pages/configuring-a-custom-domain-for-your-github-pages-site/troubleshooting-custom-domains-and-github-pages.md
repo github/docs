@@ -10,6 +10,7 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Solucione o problema de um domínio personalizado
@@ -32,10 +33,10 @@ Em seguida, verifique se o arquivo _CNAME_ está formatado corretamente.
 
 Se você tiver problemas para apontar o domínio padrão do site para o domínio personalizado, entre em contato com seu provedor DNS.
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+Você também pode usar um dos seguintes métodos para testar se os registros DNS do seu domínio personalizado estão configurados corretamente:
 
-- A CLI tool such as `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- Uma ferramenta CLI como `dig`. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- Uma ferramenta de pesquisa de DNS on-line.
 
 ## Nomes de domínios personalizados que não são compatíveis
 
