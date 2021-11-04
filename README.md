@@ -10,7 +10,7 @@ Use the table of contents icon <img src="./assets/images/table-of-contents.png" 
 
 See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project. 
 
-We accept different [types of contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
+We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
 
 On the GitHub Docs site, you can click the make a contribution button to open a PR(Pull Request) for quick fixes like typos, updates, or link fixes.
 
