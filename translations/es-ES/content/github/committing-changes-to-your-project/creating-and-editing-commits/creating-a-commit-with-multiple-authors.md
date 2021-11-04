@@ -8,14 +8,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Con autores múltiples
 ---
 
 ## Información del coautor requerida
 
-Antes de agregar un coautor a una confirmación, debes saber el correo electrónico correcto para usar con cada coautor. Para que la confirmación del coautor se considere como una contribución, debes usar el correo electrónico asociado con su cuenta {% data variables.product.product_name %}.
+Antes de agregar un coautor a una confirmación, debes saber el correo electrónico correcto para usar con cada coautor. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Si una persona elige mantener la privacidad de su dirección de correo electrónico, debes usar su correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} para proteger su privacidad. Si no lo haces, el correo electrónico del coautor estará disponible para el público en el mensaje de confirmación. Si deseas mantener la privacidad de tu correo electrónico, puedes optar por usar un correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} para las operaciones Git y solicitar a los otros coautores que incluyan tu correo electrónico `no-reply` en las introducciones de cada confirmación.
 

@@ -35,7 +35,7 @@ em que a sintaxe para `versões` é a mesma que a propriedade [versões`frontmat
 
 Os dados de exemplo do produto são adicionados ao objeto de contexto `` em `middleware/contextualizers/product-examples.js`.
 
-The data is then rendered by `components/landing`.
+Os dados são interpretados por `components/landing`.
 
 ## Aplicação de esquema
 

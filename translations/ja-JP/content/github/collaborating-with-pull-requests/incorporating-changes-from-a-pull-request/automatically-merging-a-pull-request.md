@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 redirect_from:
@@ -18,7 +19,7 @@ shortTitle: Merge PR automatically
 
 プルリクエストの自動マージを有効にすると、必要なすべてのレビューを満たし、ステータスチェックに合格すると、プルリクエストが自動的にマージされます。 自動マージにより、要件が満たされるのを待つ必要がなくなるため、他のタスクに進むことができます。
 
-プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 詳しい情報については、「[リポジトリ内のプルリクエストの自動マージを管理する](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)」を参照してください。{% ifversion fpt or ghae-next or ghes > 3.1 %}
+プルリクエストで自動マージを使用する前に、リポジトリで自動マージを有効にする必要があります。 For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)."{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 プルリクエストの自動マージを有効にした後、リポジトリへの書き込み権限を持たないユーザがプルリクエストの head ブランチに新しい変更をプッシュするか、プルリクエストのベースブランチを切り替えると、自動マージは無効になります。 たとえば、メンテナがフォークからのプルリクエストの自動マージを有効にした場合、コントリビューターがプルリクエストに新しい変更をプッシュすると、自動マージは無効になります。{% endif %}
 

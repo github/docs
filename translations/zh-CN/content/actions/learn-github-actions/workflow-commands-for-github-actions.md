@@ -2,7 +2,6 @@
 title: GitHub Actions 的工作流程命令
 shortTitle: 工作流程命令
 intro: 您可以在工作流程或操作代码中运行 shell 命令时使用工作流程命令。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,20 +13,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 关于工作流程命令
 
 操作可以与运行器机器进行通信，以设置环境变量，其他操作使用的输出值，将调试消息添加到输出日志和其他任务。
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 大多数工作流程命令使用特定格式的 `echo` 命令，而其他工作流程则通过写入文件被调用。 更多信息请参阅“[环境文件](#environment-files)”。
-{% else %}
-工作流程命令使用特定格式的 `echo` 命令。
-{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -67,44 +64,24 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 下表显示了在工作流程中可用的工具包功能：
 
-| 工具包函数                                                                                              | 等效工作流程命令                                                      |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `core.addPath`                                                                                     |                                                               |
-| {% ifversion fpt or ghes > 2.22 or ghae %}可使用环境文件 `GITHUB_PATH`{% else %} `add-path` {% endif %}访问 |                                                               |
-|                                                                                                    |                                                               |
-| `core.debug`                                                                                       | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
-| `core.notice`                                                                                      | `notice` 
+| 工具包函数                 | 等效工作流程命令                                                              |
+| --------------------- | --------------------------------------------------------------------- |
+| `core.addPath`        | Accessible using environment file `GITHUB_PATH`                       |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| `core.notice`         | `notice` 
 {% endif %}
-| `core.error`                                                                                       | `error`                                                       |
-| `core.endGroup`                                                                                    | `endgroup`                                                    |
-| `core.exportVariable`                                                                              |                                                               |
-| {% ifversion fpt or ghes > 2.22 or ghae %}可使用环境文件 `GITHUB_ENV`{% else %} `set-env` {% endif %} 访问  |                                                               |
-|                                                                                                    |                                                               |
-| `core.getInput`                                                                                    | 可使用环境变量 `INPUT_{NAME}` 访问                                     |
-| `core.getState`                                                                                    | 可使用环境变量 `STATE_{NAME}` 访问                                     |
-| `core.isDebug`                                                                                     | 可使用环境变量 `RUNNER_DEBUG` 访问                                     |
-| `core.saveState`                                                                                   | `save-state`                                                  |
-| `core.setFailed`                                                                                   | 用作 `::error` 和 `exit 1` 的快捷方式                                 |
-| `core.setOutput`                                                                                   | `set-output`                                                  |
-| `core.setSecret`                                                                                   | `add-mask`                                                    |
-| `core.startGroup`                                                                                  | `组`                                                           |
-| `core.warning`                                                                                     | `警告`                                                          |
-
-{% ifversion ghes < 3.0 %}
-## 设置环境变量
-
-```
-::set-env name={name}::{value}
-```
-
-为作业中接下来运行的任何步骤创建或更新环境变量。 The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. 环境变量区分大小写，并且可以包含标点符号。
-
-### 示例
-
-``` bash
-echo "::set-env name=action_state::yellow"
-```
-{% endif %}
+| `core.error`          | `error`                                                               |
+| `core.endGroup`       | `endgroup`                                                            |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`                        |
+| `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                             |
+| `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                             |
+| `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                             |
+| `core.saveState`      | `save-state`                                                          |
+| `core.setFailed`      | 用作 `::error` 和 `exit 1` 的快捷方式                                         |
+| `core.setOutput`      | `set-output`                                                          |
+| `core.setSecret`      | `add-mask`                                                            |
+| `core.startGroup`     | `组`                                                                   |
+| `core.warning`        | `警告`                                                                  |
 
 ## 设置输出参数
 
@@ -122,22 +99,6 @@ echo "::set-env name=action_state::yellow"
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-{% ifversion ghes < 3.0 %}
-## 添加系统路径
-
-```
-::add-path::{path}
-```
-
-为当前作业中的所有后续操作将目录添加到系统 `PATH` 变量之前。 当前运行的操作无法访问新路径变量。
-
-### 示例
-
-``` bash
-echo "::add-path::/path/to/dir"
-```
-{% endif %}
-
 ## 设置调试消息
 
 ```
@@ -152,15 +113,15 @@ echo "::add-path::/path/to/dir"
 echo "::debug::Set the Octocat variable"
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
-## Setting a notice message
+## 设置通知消息
 
 ```
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+创建通知消息并将该消息打印到日志。 {% data reusables.actions.message-annotation-explanation %}
 
 {% data reusables.actions.message-parameters %}
 
@@ -254,11 +215,11 @@ echo "::add-mask::$MY_NAME"
 
 停止处理任何工作流程命令。 此特殊命令可让您记录任何内容而不会意外运行工作流程命令。 例如，您可以停止记录以输出带有注释的整个脚本。
 
-To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
+要停止处理工作流程命令，请将唯一的令牌传递给 `stop-commands`。 要继续处理工作流程命令，请传递用于停止工作流程命令的同一令牌。
 
 {% warning %}
 
-**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
+**警告：** 请确保您使用的令牌是随机生成的，且对每次运行唯一。 如下面的示例所示，您可以为每次运行生成 `github.token` 的唯一哈希值。
 
 {% endwarning %}
 
@@ -266,7 +227,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 ::{endtoken}::
 ```
 
-### Example stopping and starting workflow commands
+### 停止和启动工作流程命令的示例
 
 {% raw %}
 
@@ -306,7 +267,6 @@ console.log('::save-state name=processID::12345')
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## 环境文件
 
 在工作流程执行期间，运行器生成可用于执行某些操作的临时文件。 这些文件的路径通过环境变量显示。 写入这些文件时，您需要使用 UTF-8 编码，以确保正确处理命令。 多个命令可以写入同一个文件，用换行符分隔。
@@ -328,7 +288,7 @@ steps:
 echo "{name}={value}" >> $GITHUB_ENV
 ```
 
-为作业中接下来运行的任何步骤创建或更新环境变量。 The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. 环境变量区分大小写，并且可以包含标点符号。
+为作业中接下来运行的任何步骤创建或更新环境变量。 创建或更新环境变量的步骤无法访问新值，但在作业中的所有后续步骤均可访问。 环境变量区分大小写，并且可以包含标点符号。
 
 {% note %}
 
@@ -390,4 +350,3 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
-{% endif %}

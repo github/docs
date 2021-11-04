@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Configure commit squashing
@@ -26,5 +27,5 @@ shortTitle: Configure commit squashing
 
 ## Further reading
 
-- "[About pull request merges](/articles/about-pull-request-merges)"
-- "[Merging a pull request](/articles/merging-a-pull-request)"
+- "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"

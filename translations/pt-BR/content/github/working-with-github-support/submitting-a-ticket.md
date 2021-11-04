@@ -5,6 +5,7 @@ redirect_from:
   - /articles/submitting-a-ticket
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 ---
@@ -14,7 +15,7 @@ Se a sua conta usa um produto {% data variables.product.prodname_dotcom %} pago,
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 
-Se você não tem uma conta corporativa, use {% data variables.contact.enterprise_portal %} para enviar tíquetes. Para obter mais informações sobre contas corporativas, consulte "[Sobre contas corporativas](/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)".
+Se você não tem uma conta corporativa, use {% data variables.contact.enterprise_portal %} para enviar tíquetes. Para obter mais informações sobre contas corporativas, consulte "[Sobre contas corporativas](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
 
 ## Enviar um tíquete usando o {% data variables.contact.support_portal %}
 
@@ -30,6 +31,8 @@ Se você não tem uma conta corporativa, use {% data variables.contact.enterpris
 7. Clique em **Send request** (Enviar solicitação). ![Botão Send request (Enviar solicitação)](/assets/images/help/support/send-request-button.png)
 
 ## Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 1. Navegue até o {% data variables.contact.contact_enterprise_portal %}.
 5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)

@@ -38,6 +38,8 @@ shortTitle: Support for Advanced Security
 
 ## {% data variables.contact.enterprise_support %} への連絡
 
+{% data reusables.support.zendesk-deprecation %}
+
 以下の質問について、{% data variables.contact.contact_enterprise_portal %} を通じて {% data variables.contact.enterprise_support %} に連絡できます。
 - {% data variables.product.prodname_advanced_security %} のインストールと利用
 - サポート対象となっているエラーの原因の特定および検証
