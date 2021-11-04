@@ -1,17 +1,18 @@
 ---
 title: Acciones
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /v3/actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.actions.ae-beta %}
 
 La API de {% data variables.product.prodname_actions %} te permite administrar las {% data variables.product.prodname_actions %} utilizando la API de REST. La {% data reusables.actions.actions-authentication %} de las {% data variables.product.prodname_github_apps %} requieren los permisos que se mencionan en cada terminal. Para obtener más información, consulta la sección "[Documentación de {% data variables.product.prodname_actions %}](/actions)".
 
@@ -29,7 +30,7 @@ La API de Artefactos te permite descargar, borrar y recuperar información acerc
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Permisos
 
 La API de permisos te permite configurar permisos para indicar qué organizaciones y repositorios pueden ejecutar las {% data variables.product.prodname_actions %}, y qué acciones se pueden ejecutar. Para obtener más información, consulta la sección "[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".

@@ -43,6 +43,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /quickstart
   - /learn-github-actions
@@ -59,5 +60,6 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /migrating-to-github-actions
+  - /guides
 ---
 

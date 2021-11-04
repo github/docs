@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -33,9 +34,9 @@ Organization の名前を変更したら、古い Organization 名は他の個�
 ### 自動ではない変更
 
 Organization の名前を変更したら、次のようになります:
-- 以前の Organization プロフィールページ (`https://{% data variables.command_line.backticks %}/previousorgname` など) にリンクすると、404 エラーが返されます。 他のサイト{% ifversion fpt %} (LinkedIn や Twitter のプロフィールなど) {% endif %}からの Organization へのリンクを更新するよう推奨します。
+- 以前の Organization プロフィールページ (`https://{% data variables.command_line.backticks %}/previousorgname` など) にリンクすると、404 エラーが返されます。 他のサイト{% ifversion fpt or ghec %} (LinkedIn や Twitter のプロフィールなど) {% endif %}からの Organization へのリンクを更新するよう推奨します。
 - 古い Organization 名を使用する API リクエストでは、404 エラーが返されます。 API リクエストにある古い Organization 名を更新するようおすすめします。
-- 古い Organization 名を使用する Team へは、自動での [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) リダイレクトはありません。{% ifversion fpt %}
+- 古い Organization 名を使用する Team へは、自動での [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) リダイレクトはありません。{% ifversion fpt or ghec %}
 - OrganizationでSAMLシングルサインオン（SSO）が有効化されているなら、アイデンティティプロバイダ（IdP）で{% data variables.product.prodname_ghe_cloud %}用のアプリケーション内のOrganization名を更新しなければなりません。 IdPでOrganization名を更新しないと、OrganizationのメンバーはOrganizationのリソースにアクセスする際にIdPで認証を受けられなくなります。 詳細は「[アイデンティティプロバイダを Organization に接続する](/github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization)」を参照してください。{% endif %}
 
 ## Organization の名前を変更する

@@ -91,7 +91,7 @@ function LandingPage(props: LandingPageProps) {
   return (
     <div>
       {/* <!-- Hero --> */}
-      <section id="landing" className="color-bg-tertiary">
+      <section id="landing" className="color-bg-subtle">
         {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
         <Search autoFocus={true} variant="expanded" isOverlay={false}>
           {({ SearchInput, SearchResults }) => {

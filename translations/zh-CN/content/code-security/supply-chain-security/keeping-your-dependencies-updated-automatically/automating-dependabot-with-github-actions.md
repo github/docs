@@ -4,7 +4,8 @@ intro: '如何使用 {% data variables.product.prodname_actions %} 来自动执�
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Actions

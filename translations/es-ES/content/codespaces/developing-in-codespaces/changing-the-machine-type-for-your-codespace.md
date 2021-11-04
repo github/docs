@@ -4,7 +4,8 @@ shortTitle: Cambiar el tipo de máquina
 intro: Puedes cambiar el tipo de máquina que está ejecutando tu codespace para que estés utilizando recursos adecuados para el trabajo que estás haciendo.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 ---

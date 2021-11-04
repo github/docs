@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.2'
   ghae: next
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -23,9 +24,9 @@ topics:
 
 ## Acerca de los patrones personalizados para el {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.company_short %} lleva a cabo el {% data variables.product.prodname_secret_scanning %} en los repositorios{% ifversion fpt %}públicos y privados{% endif %} para los patrones de secretos que proporcionan los socios de {% data variables.product.company_short %} y {% data variables.product.company_short %}. Para obtener más información sobre el programa asociado del {% data variables.product.prodname_secret_scanning %}, consulta la sección "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Programa asociado de escaneo de secretos</a>".
+{% data variables.product.company_short %} lleva a cabo el {% data variables.product.prodname_secret_scanning %} en los repositorios{% ifversion fpt or ghec %}públicos y privados{% endif %} para los patrones de secretos que proporcionan los socios de {% data variables.product.company_short %} y {% data variables.product.company_short %}. Para obtener más información sobre el programa asociado del {% data variables.product.prodname_secret_scanning %}, consulta la sección "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Programa asociado de escaneo de secretos</a>".
 
-Sin embargo, puede que existan situaciones en las que quieras escanear en búsqueda de otros patrones de secreto en tus repositorios {% ifversion fpt %}privados{% endif %}. Por ejemplo, puede que tengas un patrón secreto que sea interno a tu organización. Para estos casos, puedes definir patrones personalizados del {% data variables.product.prodname_secret_scanning %} en tu empresa, organización, o epositorio {% ifversion fpt %}privado{% endif %} en{% data variables.product.product_name %}. Puedes definir hasta 100 patrones personalizados para cada cuenta de organización o empresa y hasta 20 de ellos por repositorio {% ifversion fpt %}repositorio privado{% endif %}.
+Sin embargo, puede que existan situaciones en las que quieras escanear en búsqueda de otros patrones de secreto en tus repositorios {% ifversion fpt or ghec %}privados{% endif %}. Por ejemplo, puede que tengas un patrón secreto que sea interno a tu organización. Para estos casos, puedes definir patrones personalizados del {% data variables.product.prodname_secret_scanning %} en tu empresa, organización, o epositorio {% ifversion fpt or ghec %}privado{% endif %} en{% data variables.product.product_name %}. Puedes definir hasta 100 patrones personalizados para cada cuenta de organización o empresa y hasta 20 de ellos por repositorio {% ifversion fpt or ghec %}repositorio privado{% endif %}.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
@@ -58,7 +59,7 @@ Después de que se crea tu patrón, {% data reusables.secret-scanning.secret-sca
 
 ## Definir un patrón común para una organización
 
-Antes de definir un patrón personalizado, debes asegurarte de que hayas habilitado el {% data variables.product.prodname_secret_scanning %} para los repositorios {% ifversion fpt %}privados{% endif %} que quieras escanear en tu organización. Para habilitar el {% data variables.product.prodname_secret_scanning %} en todos los repositorios {% ifversion fpt %}privados{% endif %} de tu organizción, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
+Antes de definir un patrón personalizado, debes asegurarte de que hayas habilitado el {% data variables.product.prodname_secret_scanning %} para los repositorios {% ifversion fpt or ghec %}privados{% endif %} que quieras escanear en tu organización. Para habilitar el {% data variables.product.prodname_secret_scanning %} en todos los repositorios {% ifversion fpt or ghec %}privados{% endif %} de tu organizción, consulta la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 {% note %}
 
@@ -73,11 +74,11 @@ Antes de definir un patrón personalizado, debes asegurarte de que hayas habilit
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
-Después de que se cree un patrón, el {% data variables.product.prodname_secret_scanning %} escaneará cualquier secreto en los repositorios {% ifversion fpt %}privados{% endif %} de tu organización, incluyendo el historial completo de Git en todas las ramas. Se alertará a los propietarios de organizaciones y administradores de repositorios de cualquier secreto que se encuentre y estos podrán revisar la alerta en el repositorio en donde se encontró el secreto. Para obtener más información sobre cómo ver las alertas del {% data variables.product.prodname_secret_scanning %}, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
+Después de que se cree un patrón, el {% data variables.product.prodname_secret_scanning %} escaneará cualquier secreto en los repositorios {% ifversion fpt or ghec %}privados{% endif %} de tu organización, incluyendo el historial completo de Git en todas las ramas. Se alertará a los propietarios de organizaciones y administradores de repositorios de cualquier secreto que se encuentre y estos podrán revisar la alerta en el repositorio en donde se encontró el secreto. Para obtener más información sobre cómo ver las alertas del {% data variables.product.prodname_secret_scanning %}, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
 
 ## Definir un patrón común para una cuenta empresarial
 
-Antes de definir un patrón personalizado, debes garantizar que habilitaste el escaneo de secretos para tu cuenta empresarial. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
+Antes de definir un patrón personalizado, debes garantizar que habilitaste el escaneo de secretos para tu cuenta empresarial. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} en tu empresa]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)".
 
 {% note %}
 
@@ -89,12 +90,12 @@ Antes de definir un patrón personalizado, debes garantizar que habilitaste el e
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
-1. Debajo de "Patrones personalizados del escaneo de secretos", haz clic en {% ifversion fpt or ghes > 3.2 or ghae-next %}**Patrón nuevo**{% elsif ghes = 3.2 %}**Patrón personalizado nuevo**{% endif %}.
+1. Debajo de "Patrones personalizados del escaneo de secretos", haz clic en {% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}**Patrón nuevo**{% elsif ghes = 3.2 %}**Patrón personalizado nuevo**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
-Después de que se cree tu patrón, el {% data variables.product.prodname_secret_scanning %} escaneará en búsqueda de cualquier secreto en los repositorios {% ifversion fpt %}privados{% endif %} dentro de las organizaciones de tu empresa que cuenten con la {% data variables.product.prodname_GH_advanced_security %} habilitada, incluyendo todo su historial de Git en todas las ramas. Se alertará a los propietarios de organizaciones y administradores de repositorios de cualquier secreto que se encuentre y estos podrán revisar la alerta en el repositorio en donde se encontró el secreto. Para obtener más información sobre cómo ver las alertas del {% data variables.product.prodname_secret_scanning %}, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
+Después de que se cree tu patrón, el {% data variables.product.prodname_secret_scanning %} escaneará en búsqueda de cualquier secreto en los repositorios {% ifversion fpt or ghec %}privados{% endif %} dentro de las organizaciones de tu empresa que cuenten con la {% data variables.product.prodname_GH_advanced_security %} habilitada, incluyendo todo su historial de Git en todas las ramas. Se alertará a los propietarios de organizaciones y administradores de repositorios de cualquier secreto que se encuentre y estos podrán revisar la alerta en el repositorio en donde se encontró el secreto. Para obtener más información sobre cómo ver las alertas del {% data variables.product.prodname_secret_scanning %}, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Editar un patrón personalizado
 
 Cuando guardas un cambio en un patrón personalizado, este cierra todas las alertas del {% data variables.product.prodname_secret_scanning %} que se crearon utilizando la versión anterior del patrón.

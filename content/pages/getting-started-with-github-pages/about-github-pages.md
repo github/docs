@@ -90,15 +90,18 @@ If you choose the `/docs` folder of any branch as your publishing source, {% dat
 
 {% data variables.product.prodname_pages %} does not support server-side languages such as PHP, Ruby, or Python.
 
-## Guidelines for using {% data variables.product.prodname_pages %}
+## Limits on use of {% data variables.product.prodname_pages %}
 
 {% ifversion fpt or ghec %}
-- {% data variables.product.prodname_pages %} sites created after June 15, 2016 and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[Securing your {% data variables.product.prodname_pages %} with HTTPS](/articles/securing-your-github-pages-site-with-https)."
-- {% data reusables.pages.no_sensitive_data_pages %}
-- Your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/), including the prohibition on reselling.
+{% data variables.product.prodname_pages %} sites created after June 15, 2016 and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[Securing your {% data variables.product.prodname_pages %} with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+
+### Prohibited uses
+{% endif %}
+{% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). {% data reusables.pages.no_sensitive_data_pages %}
+
+In addition, your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/), including the restrictions on get rich quick schemes, sexually obscene content, and violent or threatening content or activity.
 
 ### Usage limits
-{% endif %}
 {% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
   - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1GB.{% ifversion fpt or ghec %} For more information, see "[What is my disk quota?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
@@ -109,11 +112,6 @@ If you choose the `/docs` folder of any branch as your publishing source, {% dat
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 
-### Prohibited uses
-
-{% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS).
-
-In addition, {% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. For a list of prohibited uses, see "[{% data variables.product.prodname_dotcom %}'s Additional Product Terms for {% data variables.product.prodname_pages %}](/free-pro-team@latest/github/site-policy/github-terms-for-additional-products-and-features#pages)."
 {% endif %}
 
 ## MIME types on {% data variables.product.prodname_pages %}

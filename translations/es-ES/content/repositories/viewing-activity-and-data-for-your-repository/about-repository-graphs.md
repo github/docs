@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-Los gráficos de un repositorio te dan información sobre el tráfico de {% ifversion fpt %}, los proyectos que dependen del repositorio, {% endif %} los colaboradores y las confirmaciones para el repositorio y la red y las bifurcaciones de un repositorio. Si tú mantienes un repositorio, puedes usar estos datos para comprender mejor quién está usando tu repositorio y por qué lo están usando.
+Los gráficos de un repositorio te dan información sobre el tráfico de {% ifversion fpt or ghec %}, los proyectos que dependen del repositorio, {% endif %} los colaboradores y las confirmaciones para el repositorio y la red y las bifurcaciones de un repositorio. Si tú mantienes un repositorio, puedes usar estos datos para comprender mejor quién está usando tu repositorio y por qué lo están usando.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Algunos gráficos del repositorio solo están disponibles en repositorios públicos con {% data variables.product.prodname_free_user %}:
 - Pulso

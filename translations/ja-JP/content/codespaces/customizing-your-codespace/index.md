@@ -3,7 +3,8 @@ title: Customizing your codespace
 intro: '{% data variables.product.prodname_codespaces %} は自分専用の環境に整えることができます。 You can configure your repositories with a dev container to define their default Codespaces environment, and personalize your development experience across all of your codespaces with dotfiles and Settings Sync.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/setting-up-your-codespace
 topics:

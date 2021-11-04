@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
 
 {% warning %}
 
-**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae-next %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
+**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
 
 {% endwarning %}
 
@@ -31,7 +32,7 @@ topics:
 {% endtip %}
 
 最大文件大小为：
-- 10MB for images and gifs{% ifversion fpt %}
+- 10MB for images and gifs{% ifversion fpt or ghec %}
 - 10MB，对于上传到使用免费 GitHub 计划的用户或组织所拥有仓库的视频
 - 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% elsif fpt or ghes > 3.1 or ghae-next %}
 - 100MB for videos{% endif %}
@@ -46,7 +47,7 @@ topics:
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
 * 文本文件 (*.txt*)
 * PDF (*.pdf*)
-* ZIP（*.zip*、*.gz*）{% ifversion fpt or ghes > 3.1 or ghae-next %}
+* ZIP（*.zip*、*.gz*）{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 * 视频（*.mp4*、*.mov*）
 
 {% note %}

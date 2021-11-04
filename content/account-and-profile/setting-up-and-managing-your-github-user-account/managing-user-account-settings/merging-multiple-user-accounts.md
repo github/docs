@@ -23,6 +23,7 @@ shortTitle: Merge multiple user accounts
 1. [Transfer any repositories](/articles/how-to-transfer-a-repository) from the account you want to delete to the account you want to keep. Issues, pull requests, and wikis are transferred as well. Verify the repositories exist on the account you want to keep.
 2. [Update the remote URLs](/github/getting-started-with-github/managing-remote-repositories) in any local clones of the repositories that were moved.
 3. [Delete the account](/articles/deleting-your-user-account) you no longer want to use.
+4. To attribute past commits to the new account, add the email address you used to author the commits to the account you're keeping. For more information, see "[Why are my contributions not showing up on my profile?](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 ## Further reading
 

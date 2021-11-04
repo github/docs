@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 ---
@@ -20,15 +21,15 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-If you're a member of a {% data variables.product.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+If you're a member of a {% data variables.product.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% data reusables.enterprise-accounts.emu-forks %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 
 {% data reusables.repositories.desktop-fork %}
 
-删除复刻不会删除原始上游仓库。 您可以对复刻执行所需的任何更改—添加协作者、重命名文件、生成 {% data variables.product.prodname_pages %}—不会影响原始仓库。{% ifversion fpt %} 复刻的仓库在删除后无法恢复。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}
+删除复刻不会删除原始上游仓库。 您可以对复刻执行所需的任何更改—添加协作者、重命名文件、生成 {% data variables.product.prodname_pages %}—不会影响原始仓库。{% ifversion fpt or ghec %} 复刻的仓库在删除后无法恢复。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。{% endif %}
 
 在开源项目中，复刻常用于迭代想法或更改，然后将其提交回上游仓库。 在用户拥有的复刻中进行更改，然后打开拉取请求以比较您的工作与上游仓库，便可允许对上游仓库具有推送权限的任何推送更改到拉取请求分支。 这可加速协作，让仓库维护员在合并之前于本地从用户拥有的复刻对拉取请求进行提交或运行测试。 不可向组织拥有的复刻授予推送权限。
 
@@ -40,5 +41,5 @@ If you're a member of a {% data variables.product.prodname_emu_enterprise %}, th
 
 - "[关于协作开发模式](/articles/about-collaborative-development-models)"
 - "[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)"
-- [开源指南](https://opensource.guide/){% ifversion fpt %}
+- [开源指南](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -98,18 +98,13 @@ Each Account comes with access to the [GitHub Pages static hosting service](/git
 
 GitHub Pages is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links. 
 
-### a. Bandwidth and Usage Limits
-GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Please see our [GitHub Pages guidelines](/github/working-with-github-pages/about-github-pages) for more information. 
+_Bandwidth and Usage Limits_
 
-### b. Prohibited Uses
-Prohibited uses of GitHub Pages include
-- Content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service), [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) or [Community Guidelines](/github/site-policy/github-community-guidelines)
-- Violent or threatening content or activity
-- Excessive automated bulk activity (for example, spamming)
-- Activity that compromises GitHub users or GitHub services
-- Get-rich-quick schemes
-- Sexually obscene content
-- Content that misrepresents your identity or site purpose
+GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Please see our [GitHub Pages limits](/github/working-with-github-pages/about-github-pages) for more information. 
+
+_Prohibited Uses_
+
+GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies), or the GitHub Pages service limitations set forth in the [Pages documentation](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
 
 If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
 

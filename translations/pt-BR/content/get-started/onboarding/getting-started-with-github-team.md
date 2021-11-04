@@ -7,14 +7,14 @@ versions:
 
 Este guia irá ajudar você a configurar e gerenciar sua conta {% data variables.product.prodname_team %} como proprietário da organização.
 
-## Parte 1: Configurando sua conta de {% data variables.product.product_name %}
+## Part 1: Configuring your account on {% data variables.product.product_location %}
 Como os primeiros passos para começar com {% data variables.product.prodname_team %}, você deverá criar uma conta de usuário ou entrar na sua conta existente em {% data variables.product.prodname_dotcom %}, criar uma organização e configurar a cobrança.
 
 ### 1. Sobre organizações
 As organizações são contas compartilhadas onde empresas e projetos de código aberto podem colaborar em muitos projetos de uma vez. Os proprietários e administradores podem gerenciar o acesso de integrantes aos dados e projetos da organização com recursos avançados administrativos e de segurança. Para obter mais informações sobre os recursos das organizações, consulte "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)".
 
 ### 2. Criando uma organização e inscrevendo-se em {% data variables.product.prodname_team %}
-Antes de criar uma organização, você deverá criar a conta de um usuário ou entrar na sua conta de {% data variables.product.prodname_dotcom %} existente. Para obter mais informações, consulte "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
+Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. Para obter mais informações, consulte "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".
 
 Uma vez que a sua conta de usuário está configurada, você derá criar uma organização e escolher um plano. Aqui é onde você pode escolher uma assinatura de {% data variables.product.prodname_team %} para a sua organização. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
@@ -66,7 +66,7 @@ Você pode ajudar a tornar sua organização mais segura ao recomendar ou exigir
 {% data reusables.getting-started.customizing-and-automating %}
 ### 1. Usar {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
-### 2. Usando a API de {% data variables.product.prodname_dotcom %}
+### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
 
 ### 3. Criando {% data variables.product.prodname_actions %}

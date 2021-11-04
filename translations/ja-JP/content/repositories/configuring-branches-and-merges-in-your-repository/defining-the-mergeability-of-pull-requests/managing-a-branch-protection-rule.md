@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
   - Repositories
@@ -65,8 +66,16 @@ shortTitle: Branch protection rule
 {%- endif %}
 1. 必要に応じて、[**Require signed commits**] を選択します。 ![[Require signed commits] オプション](/assets/images/help/repository/require-signed-commits.png)
 1. 必要に応じて、[**Require linear history**] を選択します。 ![必須の直線状の履歴オプション](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %} ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
+
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+
+  {% endtip %}
+{%- endif %}
 1. オプションとして、[**Include administrators**] を選択します。 ![[Include administrators] チェックボックス](/assets/images/help/repository/include-admins-protected-branches.png)
-1. 必要に応じて、{% ifversion fpt %}{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する Organization がリポジトリを所有している場合には、{% endif %}ブランチ制限を有効化します。
+1. 必要に応じて、{% ifversion fpt or ghec %}{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する Organization がリポジトリを所有している場合には、{% endif %}ブランチ制限を有効化します。
    - [**Restrict who can push to matching branches**] を選択します。 ![ブランチ制限のチェックボックス](/assets/images/help/repository/restrict-branch.png)
    - 保護されたブランチにプッシュできる権限を持つユーザ、Team、またはアプリを検索し、選択します。 ![ブランチ制限の検索](/assets/images/help/repository/restrict-branch-search.png)
 1. 必要に応じて、[Rules applied to everyone including administrators] で [**Allow force pushes**] を選択します。 ![フォースプッシュオプションを許可する](/assets/images/help/repository/allow-force-pushes.png)

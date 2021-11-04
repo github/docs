@@ -7,6 +7,7 @@ redirect_from:
   - /github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa/countries-where-sms-authentication-is-supported
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 支持短信的国家/地区
@@ -124,7 +125,7 @@ shortTitle: 支持短信的国家/地区
 <li>坦桑尼亚</li>
 <li>多哥</li>
 <li>特立尼达和多巴哥</li>
-<li>Turkey</li>
+<li>土耳其</li>
 <li>特克斯和凯科斯群岛</li>
 <li>乌干达</li>
 <li>乌克兰</li>
