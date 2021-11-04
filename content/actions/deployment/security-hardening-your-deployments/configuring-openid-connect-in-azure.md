@@ -63,7 +63,7 @@ You may need to specify additional permissions here, depending on your workflow'
 
 The [`azure/login`](https://github.com/Azure/login) action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from Azure. For more information, see the [`azure/login`](https://github.com/Azure/login) documentation.
 
-The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
+The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources. Note that by specifying permissions you explicitly deny other permissions such as reading content and so actions such as checkout will fail. See ["Permissions for the GITHUB_TOKEN."](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) for details on token permissions.
 
 ```yaml{:copy}
 name: Run Azure Login with OpenID Connect
