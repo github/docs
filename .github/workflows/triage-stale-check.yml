@@ -2,7 +2,6 @@
 on:
   schedule:
   - cron: "45 16 * * *"  # Run each day at 16:45 UTC / 8:45 PST
-
 jobs:
   stale:
     if: github.repository == 'github/docs'
@@ -16,3 +15,11 @@ jobs:
         days-before-stale: 7
         days-before-close: 10
         stale-pr-label: 'stale'
+.github/workflows/first-responder-docs-content.yml
+.github/workflows/test.yml
+.github/workflows/triage-stale-check.yml
+javascripts/README.md
+nodemon.json
+ownership.yaml
+package.json
+tests/meta/orphan-tests.js
