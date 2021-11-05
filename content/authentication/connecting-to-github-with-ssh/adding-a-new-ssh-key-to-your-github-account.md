@@ -135,6 +135,13 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% data reusables.cli.cli-learn-more %}
 
+You'll need to authenticate the GitHub CLI with your GitHub account before being able to add an ssh-key. If you have not already done so, use the following command and follow the prompts to authenticate and add your ssh public key to your GitHub account.
+
+```shell
+gh auth login
+```
+
+If you are already authenticated, use the commands below.
 To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
