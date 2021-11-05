@@ -6,8 +6,6 @@
 //
 // [end-readme]
 
-import { fileURLToPath } from 'url'
-import path from 'path'
 import renderContent from '../../lib/render-content/index.js'
 import loadSiteData from '../../lib/site-data.js'
 import { loadPages } from '../../lib/page-data.js'
@@ -19,8 +17,7 @@ import frontmatter from '../../lib/frontmatter.js'
 import chalk from 'chalk'
 import { YAMLException } from 'js-yaml'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
+const fmSchemaProperties = frontmatter.schema.properties
 const exec = promisify(ChildProcess.exec)
 
 main()
@@ -40,8 +37,6 @@ async function main() {
     }
   }
 
-  const rootDir = path.join(__dirname, '..')
-
   const changedFilesRelPaths = execSync(
     'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.md$"',
     { maxBuffer: 1024 * 1024 * 100 }
@@ -54,19 +49,27 @@ async function main() {
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
   for (const relPath of changedFilesRelPaths) {
-    const fullPath = path.join(rootDir, relPath)
     const lang = relPath.split('/')[1]
     const context = {
       ...contextByLanguage[lang],
       pages,
-      page: pages.find((page) => page.fullPath === fullPath),
+      page: pages.find((page) => {
+        const pageRelPath = `${languages[page.languageCode].dir}/content/${page.relativePath}`
+        return pageRelPath === relPath
+      }),
       redirects: {},
     }
     if (!context.page && !relPath.includes('data/reusables')) continue
-    const fileContents = await fs.promises.readFile(fullPath, 'utf8')
-    const { content } = frontmatter(fileContents)
+    const fileContents = await fs.promises.readFile(relPath, 'utf8')
+    const { data, content } = frontmatter(fileContents)
+    const translatableFm = Object.keys(data).filter((key) => fmSchemaProperties[key].translatable)
     try {
+      // test the content
       await renderContent.liquid.parseAndRender(content, context)
+      // test each translatable frontmatter property
+      for (const key in translatableFm) {
+        await renderContent.liquid.parseAndRender(data[key], context)
+      }
     } catch (err) {
       console.log(chalk.bold(relPath))
       console.log(chalk.red(`  error message: ${err.message}`))
