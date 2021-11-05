@@ -6,16 +6,18 @@ redirect_from:
   - /articles/converting-an-admin-team-to-improved-organization-permissions
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-admin-team-to-improved-organization-permissions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Converter equipe de administração
 ---
 
 Você pode impedir os integrantes das equipes de administradores legadas de criar repositórios criando uma equipe para esses integrantes, garantindo que a equipe tenha acesso necessário aos repositórios da organização e, em seguida, excluindo a equipe de administradores legada.
 
-Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/articles/repository-permission-levels-for-an-organization/)".
+For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% warning %}
 

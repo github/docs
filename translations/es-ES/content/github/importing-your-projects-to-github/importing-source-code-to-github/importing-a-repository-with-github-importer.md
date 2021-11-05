@@ -6,7 +6,9 @@ redirect_from:
   - /articles/importing-a-repository-with-github-importer
   - /github/importing-your-projects-to-github/importing-a-repository-with-github-importer
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Utilizar el importador de GitHub
 ---
 
 {% tip %}
@@ -16,8 +18,6 @@ versions:
 {% endtip %}
 
 Si quieres hacer coincidir las confirmaciones de tu repositorio con las cuentas de usuario de GitHub de los autores durante la importación, asegúrate de que cada contribuyente de tu repositorio tenga una cuenta de GitHub antes de comenzar la importación.
-
-{% data reusables.repositories.migrating-from-codeplex %}
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -32,6 +32,6 @@ Si quieres hacer coincidir las confirmaciones de tu repositorio con las cuentas 
 
 Recibirás un correo electrónico cuando se haya importado todo el repositorio.
 
-### Leer más
+## Leer más
 
 - "[Actualizar la atribución del autor de la confirmación con Importador GitHub ](/articles/updating-commit-author-attribution-with-github-importer)"

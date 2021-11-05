@@ -9,6 +9,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-the-github-enterprise-server-appliance
   - /enterprise/admin/configuration/configuring-your-enterprise
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -18,7 +19,6 @@ children:
   - /initializing-github-ae
   - /accessing-the-management-console
   - /accessing-the-administrative-shell-ssh
-  - /configuring-data-encryption-for-your-enterprise
   - /enabling-and-scheduling-maintenance-mode
   - /configuring-backups-on-your-appliance
   - /site-admin-dashboard
@@ -33,6 +33,7 @@ children:
   - /command-line-utilities
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
+  - /configuring-the-referrer-policy-for-your-enterprise
 shortTitle: Configure your enterprise
 ---
 

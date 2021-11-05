@@ -7,14 +7,14 @@ redirect_from:
   - /articles/about-campus-advisors
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
 
 教授、教師、メンバーはCampus Advisorsオンライントレーニングを使ってGitと{% data variables.product.prodname_dotcom %}をマスターし、{% data variables.product.prodname_dotcom %}で生徒に教えるためのベストプラクティスを学ぶことができます。  詳しい情報については[Campus Advisors](https://education.github.com/teachers/advisors)を参照してください。
 
 {% note %}
 
-**ノート：**インストラクターとして、学生のために{% data variables.product.prodname_dotcom %}のアカウントを作成することはできません。 学生は自分の{% data variables.product.prodname_dotcom %}アカウントを作成しなければなりません。
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 

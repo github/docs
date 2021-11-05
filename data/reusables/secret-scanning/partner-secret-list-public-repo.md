@@ -19,6 +19,7 @@ Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
+Contributed Systems | Contributed Systems Credentials
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
 Discord | Discord Bot Token
@@ -34,6 +35,7 @@ Dynatrace | Dynatrace Internal Token
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
+FullStory| FullStory API Key
 GitHub | GitHub Personal Access Token
 GitHub | GitHub OAuth Access Token
 GitHub | GitHub Refresh Token
@@ -60,7 +62,7 @@ Palantir | Palantir JSON Web Token
 PlanetScale | PlanetScale Database Password
 PlanetScale | PlanetScale OAuth Token
 PlanetScale | PlanetScale Service Token
-Plivo | Plivo Auth Token
+Plivo | Plivo Auth ID and Token
 Postman | Postman API Key
 Proctorio | Proctorio Consumer Key
 Proctorio | Proctorio Linkage Key

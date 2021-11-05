@@ -1,14 +1,23 @@
 ---
 title: パブリックフォークで実行されるワークフローの実行を承認する
-intro: 初めてのコントリビューターがプルリクエストをパブリックリポジトリに送信するとき、書き込みアクセスを持つメンテナはワークフローの実行を承認する必要があります。
-product: '{% data reusables.gated-features.actions %}'
+intro: 'When an outside contributor submits a pull request to a public repository, a maintainer with write access may need to approve any workflow runs.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Approve public fork runs
 ---
 
-パブリックリポジトリのフォークは、リポジトリの {% data variables.product.prodname_actions %} ワークフローへの変更を提案するプルリクエストを送信できます。 フォークからのワークフローはシークレットなどの機密データにアクセスできませんが、悪用目的で変更された場合、メンテナが迷惑を被る可能性があります。 これを防ぐために、プルリクエストのワークフローは、初めてのコントリビューターから受け取った場合は自動的に実行されないため、最初に承認する必要があります。
+## About workflow runs from public forks
 
-リポジトリへの書き込みアクセスを持つメンテナは、次の手順で、初めてのコントリビューターからのプルリクエストのワークフローをレビューおよび実行できます。 コントリビューターが少なくとも 1 つのプルリクエストをプロジェクトのリポジトリにマージした後、そのコントリビューターのフォークからの以降のプルリクエストは自動的にワークフローを実行します。
+{% data reusables.actions.workflow-run-approve-public-fork %}
+
+You can configure workflow approval requirements for a [repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks), [organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#configuring-required-approval-for-workflows-from-public-forks), or [enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise).
+
+Workflow runs that have been awaiting approval for more than 30 days are automatically deleted.
+
+## Approving workflow runs on a pull request from a public fork
+
+Maintainers with write access to a repository can use the following procedure to review and run workflows on pull requests from contributors that require approval.
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}

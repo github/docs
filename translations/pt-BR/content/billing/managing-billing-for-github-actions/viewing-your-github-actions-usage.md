@@ -1,23 +1,24 @@
 ---
 title: Visualizando seu uso do GitHub Actions (Ações do GitHub)
 intro: 'Você pode visualizar detalhes do seu uso de minutos e armazenamento para {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Actions
   - Enterprise
   - Organizations
   - User account
+shortTitle: Visualizar o uso das suas ações
 ---
 
 Você também pode visualizar os minutos de execução do trabalho faturáveis para uma execução de fluxo de trabalho individual. Para obter mais informações, consulte "[Visualizar o tempo de execução do trabalho](/actions/managing-workflow-runs/viewing-job-execution-time)".
 
-### Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta de usuário
+## Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta de usuário
 
 Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_actions %} para sua própria conta de usuário.
 
@@ -27,7 +28,7 @@ Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_acti
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Visualizando o uso de {% data variables.product.prodname_actions %} para a sua organização
+## Visualizando o uso de {% data variables.product.prodname_actions %} para a sua organização
 
 Os proprietários da organização e gerentes de faturamento podem ver o uso do {% data variables.product.prodname_actions %} para uma organização. Para organizações gerenciadas por uma conta corporativa, somente os proprietários da organização podem visualizar o uso do {% data variables.product.prodname_actions %} na página de cobrança da organização.
 
@@ -36,7 +37,7 @@ Os proprietários da organização e gerentes de faturamento podem ver o uso do 
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
 
-### Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta corporativa
+## Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem visualizar o uso de {% data variables.product.prodname_actions %} para uma conta corporativa.
 

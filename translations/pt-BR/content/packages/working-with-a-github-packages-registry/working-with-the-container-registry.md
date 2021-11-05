@@ -8,32 +8,32 @@ redirect_from:
   - /packages/guides/pushing-and-pulling-docker-images
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
   - /packages/managing-container-images-with-github-container-registry
+  - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
+  - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
+  - /packages/guides/container-guides-for-github-packages/enabling-improved-container-support
+  - /packages/guides/enabling-improved-container-support
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: Container registry
 ---
 
-{% data reusables.package_registry.container-registry-beta %}
-
-{% data reusables.package_registry.docker-vs-container-registry %}
-
-### Sobre o suporte de {% data variables.product.prodname_container_registry %}
-
-Para fazer push e pull das imagens do contêiner, um administrador da organização ou o proprietário de uma conta pessoal deve habilitar o {% data variables.product.prodname_container_registry %}. For more information, see "[Enabling improved container support with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)."
-
-Ao instalar ou publicar uma imagem do Docker, o registro do Contêiner suporta camadas externas como, por exemplo, as imagens do Windows.
+## Sobre o suporte de {% data variables.product.prodname_container_registry %}
 
 O {% data variables.product.prodname_container_registry %} é atualmente compatível com os seguintes formatos de imagem do contêiner:
 
 * [Docker Image Manifest V2, Modelo 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Especificações de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec)
 
-### Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
+Ao instalar ou publicar uma imagem Docker, a {% data variables.product.prodname_container_registry %} é compatível com as camadas estrangeiras, como imagens do Windows.
+
+## Efetuar a autenticação no {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-### Fazer push das imagens do contêiner
+## Fazer push das imagens do contêiner
 
 Este exemplo faz push da versão mais recente de `IMAGE-NAME`.
   ```shell
@@ -47,9 +47,9 @@ Este exemplo faz push da versão `2.5` da imagem.
 
 Ao publicar um pacote pela primeira vez a visibilidade-padrão será privada. Para alterar a visibilidade ou definir as permissões de acesso, consulte "[Configurar controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
 
-### Fazer pull das imagens de contêiner
+## Fazer pull das imagens de contêiner
 
-#### Pull por resumo
+### Pull por resumo
 
 Para garantir que você esteja sempre usando a mesma imagem, você pode especificar a versão exata da imagem de contêiner que você deseja fazer pull pelo valor do SHA do `resumo`.
 
@@ -67,13 +67,13 @@ Para garantir que você esteja sempre usando a mesma imagem, você pode especifi
   $ docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-#### Pull por nome
+### Pull por nome
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME
   ```
 
-#### Pull por nome e versão
+### Pull por nome e versão
 
 Exemplo de CLI do Docker mostrando uma imagem extraída pelo seu nome e a tag de versão `1.14.1`:
   ```shell
@@ -87,7 +87,7 @@ Exemplo de CLI do Docker mostrando uma imagem extraída pelo seu nome e a tag de
   > ghcr.io/orgname/image-name/release:1.14.1
   ```
 
-#### Pull por nome e última versão
+### Pull por nome e última versão
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
@@ -97,14 +97,14 @@ Exemplo de CLI do Docker mostrando uma imagem extraída pelo seu nome e a tag de
   > ghcr.io/user/image-name:latest
   ```
 
-### Criar imagens de contêiner
+## Criar imagens de contêiner
 
 Este exemplo cria a imagem `hello_docker`:
   ```shell
   $ docker build -t hello_docker .
   ```
 
-### Marcar imagens de contêiner
+## Marcar imagens de contêiner
 
 1. Encontre o ID da imagem do Docker que você deseja marcar.
   ```shell

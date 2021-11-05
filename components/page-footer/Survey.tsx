@@ -1,5 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
+import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
@@ -13,9 +14,17 @@ enum ViewState {
 }
 
 export const Survey = () => {
+  const { asPath } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    // Always reset the form if navigating to a new page because what
+    // you might have said or started to say belongs exclusively to
+    // to the page you started on.
+    setState(ViewState.START)
+  }, [asPath])
 
   function vote(state: ViewState) {
     return () => {
@@ -36,24 +45,14 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5 js-survey" onSubmit={submit} ref={formRef} data-testid="survey-form">
-      <h2 className="mb-1 f4">
-        {t`able_to_find`}
-
-        <Link
-          className="f6 text-normal ml-3 color-text-link"
-          href="/github/site-policy/github-privacy-statement"
-          target="_blank"
-        >
-          {t`privacy_policy`}
-        </Link>
-      </h2>
+    <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
+      <h2 className="f4 mb-3">{t`able_to_find`}</h2>
 
       {/* Honeypot: token isn't a real field */}
       <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
 
       {state !== ViewState.END && (
-        <p className="radio-group">
+        <div className="radio-group mb-2">
           <input
             id="survey-yes"
             type="radio"
@@ -62,17 +61,13 @@ export const Survey = () => {
             aria-label={t`yes`}
             hidden
             onChange={vote(ViewState.YES)}
-            defaultChecked={state === ViewState.YES}
             checked={state === ViewState.YES}
           />
           <label
-            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-info-inverse')}
+            className={cx('btn mr-1', state === ViewState.YES && 'color-bg-accent-emphasis')}
             htmlFor="survey-yes"
           >
-            <ThumbsupIcon
-              size={24}
-              className={state === ViewState.YES ? 'color-text-primary' : 'color-text-tertiary'}
-            />
+            <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
           </label>
           <input
             id="survey-no"
@@ -82,19 +77,15 @@ export const Survey = () => {
             aria-label={t`no`}
             hidden
             onChange={vote(ViewState.NO)}
-            defaultChecked={state === ViewState.NO}
             checked={state === ViewState.NO}
           />
           <label
-            className={cx('btn', state === ViewState.NO && 'color-bg-danger-inverse')}
+            className={cx('btn', state === ViewState.NO && 'color-bg-danger-emphasis')}
             htmlFor="survey-no"
           >
-            <ThumbsdownIcon
-              size={24}
-              className={state === ViewState.NO ? 'color-text-primary' : 'color-text-tertiary'}
-            />
+            <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
           </label>
-        </p>
+        </div>
       )}
 
       {[ViewState.YES, ViewState.NO].includes(state) && (
@@ -105,9 +96,7 @@ export const Survey = () => {
                 {state === ViewState.YES && t`comment_yes_label`}
                 {state === ViewState.NO && t`comment_no_label`}
               </span>
-              <span className="text-normal color-text-tertiary float-right ml-1">
-                {t`optional`}
-              </span>
+              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
             <textarea
               className="form-control input-sm width-full"
@@ -118,9 +107,7 @@ export const Survey = () => {
           <p>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
-              <span className="text-normal color-text-tertiary float-right ml-1">
-                {t`optional`}
-              </span>
+              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
             <input
               type="email"
@@ -129,7 +116,7 @@ export const Survey = () => {
               id="survey-email"
               placeholder={t`email_placeholder`}
             />
-            <span className="f6 color-text-secondary">{t`not_support`}</span>
+            <span className="f6 color-fg-muted">{t`not_support`}</span>
           </p>
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
@@ -147,8 +134,16 @@ export const Survey = () => {
       )}
 
       {state === ViewState.END && (
-        <p className="color-text-secondary f6" data-testid="survey-end">{t`feedback`}</p>
+        <p className="color-fg-muted f6" data-testid="survey-end">{t`feedback`}</p>
       )}
+
+      <Link
+        className="f6 text-normal color-fg-accent"
+        href="/github/site-policy/github-privacy-statement"
+        target="_blank"
+      >
+        {t`privacy_policy`}
+      </Link>
     </form>
   )
 }

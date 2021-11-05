@@ -1,22 +1,24 @@
 ---
 title: Sobre a divulgação coordenada de vulnerabilidades de segurança
 intro: A divulgação das vulnerabilidades é um esforço coordenado entre os relatores de segurança e os mantenedores de repositório.
-miniTocMaxHeadingLevel: 4
+miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Divulgação coordenada
 ---
 
-### Sobre a divulgação de vulnerabilidades no setor
+## Sobre a divulgação de vulnerabilidades no setor
 
 {% data reusables.security-advisory.disclosing-vulnerabilities %}
 
 O relatório inicial de uma vulnerabilidade é tornado privado, e os detalhes completos só são publicados depois de o mantenedor reconhecer o problema e, idealmente, são disponibilizadas soluções ou atualizações, às vezes com um atraso para dar mais tempo para a instalação das atualizações. Para obter mais informações, consulte a "[Série de Páginas de Referência de OWASP sobre a divulgação de vulnerabilidades](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#commercial-and-open-source-software)" no site da Série de Páginas de Referência de OWASP.
 
-#### Práticas recomendadas para relatores de vulnerabilidade
+### Práticas recomendadas para relatores de vulnerabilidade
 
 É uma prática recomendada relatar de forma privada vulnerabilidades para os mantenedores. Quando possível, como um relator de vulnerabilidades, recomendamos que você evite:
 - Divulgar a vulnerabilidade publicamente sem dar aos mantenedores a oportunidade de remediar.
@@ -28,13 +30,13 @@ O relatório inicial de uma vulnerabilidade é tornado privado, e os detalhes co
 
 Recomendamos que os relatores de vulnerabilidade indiquem claramente os termos da sua política de divulgação como parte do seu processo de relatório. Mesmo que o relator de vulnerabilidade não adira a uma política rigorosa, é bom estabelecer expectativas claras para os mantenedores em termos de cronogramas sobre divulgações de vulnerabilidades intencionais. Para obter um exemplo de política de divulgação, consulte a "[Política de divulgação do Laboratório de Segurança](https://securitylab.github.com/advisories#policy)" no site do GitHub Security Lab.
 
-#### Práticas recomendadas para mantenedores
+### Práticas recomendadas para mantenedores
 
 Como mantenedor, considera-se uma prática recomendada indicar claramente como e onde você deseja receber relatórios de vulnerabilidades. Se essas informações não estiverem claramente disponíveis, os relatores de vulnerabilidade não saberão como entrar em contato com você, e poderão recorrer à extração de endereços de e-mail do desenvolvedor a partir do histórico de commit do git para tentar encontrar um contato de segurança apropriado. Isso pode gerar atritos, relatórios perdidos ou publicação de relatórios não resolvidos.
 
 Os mantenedores devem divulgar as vulnerabilidades em tempo oportuno. Se houver uma vulnerabilidade de segurança no seu repositório, recomendamos que você:
 - Trate a vulnerabilidade como um problema de segurança em vez de um erro simples, tanto na sua resposta quanto na sua divulgação. Por exemplo, você deverá mencionar explicitamente que o problema é uma vulnerabilidade de segurança nas observações da versão.
-- Confirme o recebimento do relatório de vulnerabilidade o mais rapidamente possível, mesmo que não estejam disponíveis recursos imediatos para investigação. Isso envia a mensagem de que você está rapidamente para responder e agir e define um tom positivo para o resto da interação entre você e o relator da vulnerabilidade.
+- Reconhecer o recebimento do relatório de vulnerabilidade o mais rapidamente possível, mesmo que recursos imediatos não estejam disponíveis para investigação. Isso envia a mensagem de que você está rapidamente para responder e agir e define um tom positivo para o resto da interação entre você e o relator da vulnerabilidade.
 - Envolva o relator da vulnerabilidade após verificar o impacto e a veracidade do relatório. É provável que o relator da vulnerabilidade já tenha gasto tempo considerando a vulnerabilidade em uma série de cenários. alguns dos quais você pode não ter se considerado.
 - Remedeie o problema de uma forma que você considere adequada, considerando, de forma ponderada, as preocupações e conselhos fornecidos pelo relator de vulnerabilidade. Muitas vezes, o relator da vulnerabilidade tem conhecimento de certos casos extremos e correções desviadas que são fáceis de perder sem uma pesquisa de segurança em segundo plano.
 - Sempre reconheça o relator da vulnerabilidade quando você der crédito para a descoberta.
@@ -43,7 +45,7 @@ Os mantenedores devem divulgar as vulnerabilidades em tempo oportuno. Se houver 
 
 Publicar os detalhes de uma vulnerabilidade de segurança não faz com que os mantenedores pareçam ruins. As vulnerabilidades de segurança estão presentes em todos os lugares no software, e os usuários confiarão nos mantenedores que têm um processo claro e estabelecido para divulgar as vulnerabilidades de segurança no seu código.
 
-### Sobre relatar e publicar vulnerabilidades em projetos em {% data variables.product.prodname_dotcom %}
+## Sobre relatar e publicar vulnerabilidades em projetos em {% data variables.product.prodname_dotcom %}
 
 O processo de relatório e divulgação de vulnerabilidades para projetos em {% data variables.product.prodname_dotcom_the_website %} é o seguinte:
 
@@ -65,5 +67,3 @@ O processo de relatório e divulgação de vulnerabilidades para projetos em {% 
 
 
  Para começar, consulte "[Criar um aviso de segurança](/github/managing-security-vulnerabilities/creating-a-security-advisory)."
-
-

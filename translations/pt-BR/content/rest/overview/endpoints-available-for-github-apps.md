@@ -5,11 +5,13 @@ redirect_from:
   - /v3/apps/available-endpoints
   - /rest/reference/endpoints-available-for-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+shortTitle: Pontos de extremidade habilitados pelo aplicativo GitHub
 ---
 
 Você deve usar um token de acesso da instalação para acessar os pontos de extremidade usando seu {% data variables.product.prodname_github_app %}. Para obter mais informações, consulte "[Efetuando a autenticação com o {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".

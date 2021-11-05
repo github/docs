@@ -2,15 +2,17 @@
 title: Limitar las interacciones para tu cuenta de usuario
 intro: Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu cuenta de usuario.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
 topics:
   - Community
+shortTitle: Limitar las interacciones en tu cuenta
 ---
 
-### Acerca de los límites de interacción temporales
+## Acerca de los límites de interacción temporales
 
 Limitar las interacciones para tu cuenta de usuario habilita límites de interacción temporales para todos los repositorios públicos que pertenezcan a tu cuenta de usuario. {% data reusables.community.interaction-limits-restrictions %}
 
@@ -22,7 +24,7 @@ Cuando habilitas las limitaciones de actividad en toda la organización, no pued
 
 También puedes bloquear usuarios. Para obtener más información, consulta la sección "[Bloquear a un usuario desde tu cuenta personal](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)".
 
-### Limitar las interacciones para tu cuenta de usuario
+## Limitar las interacciones para tu cuenta de usuario
 
 {% data reusables.user_settings.access_settings %}
 1. En tu barra lateral de configuración de usuario, debajo de "Configuración de moderación", da clic en **Límites de interacción**. ![Pestaña de "límites de interacción" en la barra lateral de la configuración de usuario](/assets/images/help/settings/settings-sidebar-interaction-limits.png)

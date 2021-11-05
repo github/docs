@@ -1,14 +1,15 @@
 ---
 title: 管理仓库中讨论的类别
 intro: 您可以对仓库中的讨论进行分类，以组织社区成员的对话，也可为每个类别选择格式。
-permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
+permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository.
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: 管理类别
 ---
 
-{% data reusables.discussions.beta %}
 
-### 关于讨论类别
+## 关于讨论类别
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
@@ -16,7 +17,7 @@ versions:
 
 每个类别必须具有唯一的名称和表情符号配对，并可以附有说明其用途的详细说明。 类别帮助维护者组织如何提交对话，并可自定义，以帮助区分问答或更多开放式对话的类别。 {% data reusables.discussions.repository-category-limit %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
-### 默认类别
+## 默认类别
 
 | 分类      | 目的                  | 格式    |
 |:------- |:------------------- |:----- |
@@ -26,7 +27,7 @@ versions:
 | 🙏 问答    | 供社区回答的问题，使用问题/回答的形式 | 问题及解答 |
 | 🙌 展示和说明 | 与项目有关的创作、试验或测试      | 开放式讨论 |
 
-### 创建类别
+## 创建类别
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -35,7 +36,7 @@ versions:
 1. 编辑类别的表情符号、标题、说明和讨论格式。 有关讨论格式的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。 ![新类别的表情符号、标题、说明和讨论格式](/assets/images/help/discussions/edit-category-details.png)
 1. 单击 **Create（创建）**。 ![新类别的"创建"按钮](/assets/images/help/discussions/new-category-click-create-button.png)
 
-### 编辑类别
+## 编辑类别
 
 您可以编辑类别以更改类别的表情符号、标题、说明和讨论格式。
 
@@ -46,7 +47,7 @@ versions:
 ![编辑现有类别的表情符号、标题、说明和讨论格式](/assets/images/help/discussions/edit-existing-category-details.png)
 1. 单击 **Save changes（保存更改）**。 ![现有类别的"保存更改"按钮](/assets/images/help/discussions/existing-category-click-save-changes-button.png)
 
-### 删除类别
+## 删除类别
 
 删除类别时，{% data variables.product.product_name %} 会将已删除类别中的所有讨论移到您选择的现有类别。
 

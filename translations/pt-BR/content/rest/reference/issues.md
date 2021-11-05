@@ -1,13 +1,16 @@
 ---
 title: Problemas
+intro: 'A API de Problemas permite que você visualize e gerencie problemas, incluindo responsáveis de problemas, comentários, etiquetas e marcos.'
 redirect_from:
   - /v3/issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### Tipos de mídia personalizados para problemas

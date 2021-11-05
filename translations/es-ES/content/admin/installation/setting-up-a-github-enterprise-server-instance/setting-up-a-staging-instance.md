@@ -5,12 +5,13 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Infrastructure
   - Upgrades
+shortTitle: Configurar una instancia de pruebas
 ---
 
 {% tip %}
@@ -31,8 +32,8 @@ Para probar en profundidad un aparato del {% data variables.product.prodname_ghe
 2. Configura una nueva instancia para que actúe como tu entorno de preparación. Puedes utilizar las mismas guías para aprovisionar e instalar tu instancia de preparación como hiciste para tu instancia de producción. Para obtener más información, consulta "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)."
 3. Restaura tu copia de seguridad a tu instancia de preparación. Para obtener más información, consulta la sección "Restaurar una copia de seguridad" en "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)."
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Leer más
+{% ifversion ghes %}
+## Leer más
 
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

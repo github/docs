@@ -5,13 +5,12 @@ import libLanguages from '../../lib/languages.js'
 import { liquid } from '../../lib/render-content/index.js'
 import patterns from '../../lib/patterns.js'
 import GithubSlugger from 'github-slugger'
-import HtmlEntities from 'html-entities'
+import { decode } from 'html-entities'
 import { chain, difference, pick } from 'lodash-es'
 import checkIfNextVersionOnly from '../../lib/check-if-next-version-only.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
-const entities = new HtmlEntities.XmlEntities()
 
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
@@ -76,7 +75,9 @@ describe('pages module', () => {
 
       const message = `Found ${duplicates.length} duplicate redirect_from ${
         duplicates.length === 1 ? 'path' : 'paths'
-      }.\n
+      }. 
+      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files. 
+      You may also receive this error if you have defined the same children property more than once.\n
   ${duplicates.join('\n')}`
       expect(duplicates.length, message).toBe(0)
     })
@@ -89,7 +90,7 @@ describe('pages module', () => {
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
             !page.allowTitleToDifferFromFilename && // ignore docs with override
-            slugger.slug(entities.decode(page.title)) !== path.basename(page.relativePath, '.md')
+            slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md')
           )
         })
         // make the output easier to read
@@ -150,6 +151,7 @@ describe('pages module', () => {
       expect(liquidErrors.length, failureMessage).toBe(0)
     })
 
+    // Docs PR: 20035
     test.skip('every non-English page has a matching English page', async () => {
       const englishPaths = chain(pages)
         .filter((page) => page.languageCode === 'en')
@@ -176,7 +178,7 @@ describe('pages module', () => {
     test('yields a non-empty object with more unique entries than pages', async () => {
       // Why does it contain MORE unique entries, you ask?
       // TL;DR: The pages array contains one item per Page + language, with a `permalinks` array
-      // property for each product version supported (free-pro-team, enterprise-server@2.22, etc.)
+      // property for each product version supported (free-pro-team, enterprise-server@3.0, etc.)
       // The pageMap, on the other hand, is keyed by unique URLs, so it has 1-N (where N is the
       // number of product versions supported) keys pointing to the same Page + language object
 

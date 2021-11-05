@@ -5,14 +5,15 @@ redirect_from:
   - /articles/about-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Open Source
   - Fundamentals
 ---
 
-### {% data variables.product.prodname_sponsors %} について
+## {% data variables.product.prodname_sponsors %} について
 
 {% data reusables.sponsors.sponsorship-details %}
 
@@ -22,9 +23,9 @@ topics:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %}詳しい情報については、「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
 
-スポンサード開発者またはスポンサード Organization になると、{% data variables.product.prodname_sponsors %}に対する追加条項が適用されます。 詳細は、「[GitHub Sponsors に関する追加条項](/github/site-policy/github-sponsors-additional-terms)」を参照してください。
+スポンサード開発者またはスポンサード Organization になると、{% data variables.product.prodname_sponsors %}に対する追加条項が適用されます。 For more information, see "[GitHub Sponsors Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)."
 
-### {% data variables.product.prodname_matching_fund %} について
+## {% data variables.product.prodname_matching_fund %} について
 
 {% note %}
 
@@ -32,7 +33,7 @@ topics:
 
 {% endnote %}
 
-{% data variables.product.prodname_matching_fund %} は、{% data variables.product.prodname_dotcom %} コミュニティのメンバーが[{% data variables.product.prodname_dotcom %} コミュニティガイドライン](/github/site-policy/github-community-guidelines)を推進するオープンソースソフトウェアを開発するのを支援することを目的としています。 スポンサード Organization に対する支払いと Organization からの支払は {% data variables.product.prodname_matching_fund %} を利用できません。
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). スポンサード Organization に対する支払いと Organization からの支払は {% data variables.product.prodname_matching_fund %} を利用できません。
 
 {% data variables.product.prodname_matching_fund %} の資格を得るには、長期にわたって支えてくれるコミュニティを引き付けるようなプロフィールを作成する必要があります。 強力なプロフィールの作成については、「[{% data variables.product.prodname_sponsors %} のプロフィール詳細を編集する](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)」を参照してください。
 
@@ -40,11 +41,13 @@ topics:
 
 {% data reusables.sponsors.legal-additional-terms %}
 
-### {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
+## {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
 
 {% data reusables.sponsors.feedback %}
 
-### 参考リンク
+## 参考リンク
 - 「[オープンソースコントリビューターをスポンサーする](/sponsors/sponsoring-open-source-contributors)」
 - 「[{% data variables.product.prodname_sponsors %} を通じてスポンサーシップを獲得する](/sponsors/receiving-sponsorships-through-github-sponsors)」
+- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - {% data variables.product.prodname_blog %} の「[{% data variables.product.prodname_sponsors %} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」

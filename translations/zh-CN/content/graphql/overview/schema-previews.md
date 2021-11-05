@@ -4,14 +4,15 @@ intro: '您可以在即将推出的功能和 {% data variables.product.prodname_
 redirect_from:
   - /v4/previews
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于架构预览
+## 关于架构预览
 
 在预览期间，我们可以根据开发者的反馈更改某些功能。 如果我们要执行变更，将在[开发者博客](https://developer.github.com/changes/)上宣布消息，不会事先通知。
 
@@ -24,7 +25,7 @@ topics:
 {% endnote %}
 
 {% for preview in graphql.previewsForCurrentVersion %}
-### {{ preview.title }}
+## {{ preview.title }}
 
 {{ preview.description }}
 

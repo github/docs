@@ -4,7 +4,9 @@ intro: 'You can set policies in {% data variables.product.product_name %} to red
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

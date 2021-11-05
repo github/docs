@@ -1,1 +1,1 @@
-有关提交电子邮件地址的详细信息，{% if currentVersion == "free-pro-team@latest" %} 包括 {% data variables.product.product_name %}-提供的 `noreply` 电子邮件地址，{% endif %} 请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
+For more information on commit email addresses,{% ifversion fpt or ghec %} including your `noreply` email address for {% data variables.product.product_name %},{% endif %} see "[Setting your commit email address](/articles/setting-your-commit-email-address)."

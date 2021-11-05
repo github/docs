@@ -6,11 +6,13 @@ redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
   - /github/managing-your-work-on-github/filtering-issues-and-pull-requests-by-milestone
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 按里程碑过滤
 ---
 
 {% tip %}
@@ -28,10 +30,7 @@ topics:
 3. 选择 **Milestones（里程碑）**以查看仓库的所有可用里程碑列表。 ![里程碑按钮](/assets/images/help/issues/issues_milestone_button.png)
 4. 从列表中选择您感兴趣的里程碑。 您可以从里程碑页面查看该里程碑的相关信息，包括与之关联的所有议题和拉取请求。 更多信息请参阅“[关于里程碑](/articles/about-milestones)”。
 
-### 延伸阅读
+## 延伸阅读
 
-- "[过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)"
-- "[排序议题和拉取请求](/articles/sorting-issues-and-pull-requests)"
-- "[使用搜索过滤议题和拉取请求](/articles/using-search-to-filter-issues-and-pull-requests)"
-- "[共享过滤](/articles/sharing-filters)"
+- "[过滤和搜索议题和拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
 - "[过滤项目板上的卡](/articles/filtering-cards-on-a-project-board)"

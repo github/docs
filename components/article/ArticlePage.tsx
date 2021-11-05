@@ -1,26 +1,28 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
+import { Heading } from '@primer/components'
 
-import { ZapIcon, InfoIcon } from '@primer/octicons-react'
+import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
-import { ArticleTopper } from 'components/article/ArticleTopper'
 import { ArticleTitle } from 'components/article/ArticleTitle'
-import { useArticleContext } from 'components/context/ArticleContext'
+import { MiniTocItem, useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
+import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
+import { VersionPicker } from 'components/VersionPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/guides/building-and-testing-nodejs': {
-    href: '/actions/guides/building-and-testing-nodejs-or-python?langId=nodejs',
+  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
+    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
   },
-  '/actions/guides/building-and-testing-python': {
-    href: '/actions/guides/building-and-testing-nodejs-or-python?langId=python',
+  '/actions/automating-builds-and-tests/building-and-testing-python': {
+    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
   },
 }
 
@@ -29,6 +31,7 @@ export const ArticlePage = () => {
   const {
     title,
     intro,
+    effectiveDate,
     renderedPage,
     contributor,
     permissions,
@@ -41,17 +44,25 @@ export const ArticlePage = () => {
   const { t } = useTranslation('pages')
   const currentPath = router.asPath.split('?')[0]
 
+  const renderTocItem = (item: MiniTocItem) => {
+    return (
+      <li key={item.contents} className={cx(item.platform, 'mb-2 lh-condensed')}>
+        <div className="mb-2 lh-condensed" dangerouslySetInnerHTML={{ __html: item.contents }} />
+        {item.items && item.items.length > 0 ? (
+          <ul className="list-style-none pl-0 f5 mb-0 ml-3">{item.items.map(renderTocItem)}</ul>
+        ) : null}
+      </li>
+    )
+  }
+
   return (
     <DefaultLayout>
-      <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-        <ArticleTopper />
-
+      <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          className="mt-7"
-          head={
+          topper={<ArticleTitle>{title}</ArticleTitle>}
+          topperSidebar={<VersionPicker />}
+          intro={
             <>
-              <ArticleTitle>{title}</ArticleTitle>
-
               {contributor && (
                 <Callout variant="info" className="mb-3">
                   <p>
@@ -63,17 +74,15 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && (
-                <MarkdownContent className="f2 color-text-secondary mb-3" data-testid="lead">
-                  {intro}
-                </MarkdownContent>
-              )}
+              {intro && <Lead data-testid="lead">{intro}</Lead>}
 
               {permissions && (
-                <div
-                  className="permissions-statement"
-                  dangerouslySetInnerHTML={{ __html: permissions }}
-                />
+                <div className="permissions-statement d-table">
+                  <div className="d-table-cell pr-2">
+                    <ShieldLockIcon size={16} />
+                  </div>
+                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
+                </div>
               )}
 
               {includesPlatformSpecificContent && (
@@ -127,25 +136,13 @@ export const ArticlePage = () => {
               )}
               {miniTocItems.length > 1 && (
                 <>
-                  <h2 id="in-this-article" className="f5 mb-2">
+                  <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
                     <a className="Link--primary" href="#in-this-article">
                       {t('miniToc')}
                     </a>
-                  </h2>
+                  </Heading>
                   <ul className="list-style-none pl-0 f5 mb-0">
-                    {miniTocItems.map((item) => {
-                      return (
-                        <li
-                          key={item.contents}
-                          className={cx(
-                            `ml-${item.indentationLevel * 3}`,
-                            item.platform,
-                            'mb-2 lh-condensed'
-                          )}
-                          dangerouslySetInnerHTML={{ __html: item.contents }}
-                        />
-                      )
-                    })}
+                    {miniTocItems.map(renderTocItem)}
                   </ul>
                 </>
               )}
@@ -154,6 +151,14 @@ export const ArticlePage = () => {
         >
           <div id="article-contents">
             <MarkdownContent>{renderedPage}</MarkdownContent>
+            {effectiveDate && (
+              <div className="mt-4" id="effectiveDate">
+                Effective as of:{' '}
+                <time dateTime={new Date(effectiveDate).toISOString()}>
+                  {new Date(effectiveDate).toDateString()}
+                </time>
+              </div>
+            )}
           </div>
         </ArticleGridLayout>
 

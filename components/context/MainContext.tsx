@@ -1,16 +1,23 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-import type { BreadcrumbT } from 'components/Breadcrumbs'
+import type { BreadcrumbT } from 'components/page-header/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 
-type ProductT = {
+export type ProductT = {
   external: boolean
   href: string
   id: string
   name: string
   versions?: Array<string>
+}
+
+export type ProductGroupT = {
+  name: string
+  icon: string
+  octicon: string
+  children: Array<ProductT>
 }
 
 type VersionItem = {
@@ -62,7 +69,8 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   activeProducts: Array<ProductT>
-  community_redirect: {
+  productGroups: Array<ProductGroupT>
+  communityRedirect: {
     name: string
     href: string
   }
@@ -77,9 +85,9 @@ export type MainContextT = {
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
   currentPathWithoutLanguage: string
-  currentLanguage: string
   userLanguage: string
   allVersions: Record<string, VersionItem>
+  currentVersion?: string
   currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
@@ -114,7 +122,8 @@ export const getMainContext = (req: any, res: any): MainContextT => {
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    community_redirect: req.context.page?.community_redirect || {},
+    productGroups: req.context.productGroups,
+    communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
@@ -161,9 +170,9 @@ export const getMainContext = (req: any, res: any): MainContextT => {
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
     allVersions: req.context.allVersions,
+    currentVersion: req.context.currentVersion,
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,

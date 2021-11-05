@@ -24,3 +24,5 @@ sections:
     - ノートブックに非ASCIIのUTF-8文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。
     - Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。
     - Pull Requestをマージした後にブランチを削除すると、ブランチの削除は成功しているにもかかわらずエラーメッセージが表示されます。
+    - High Availability構成でレプリカノードがオフラインの場合でも、{% data variables.product.product_name %}が{% data variables.product.prodname_pages %}リクエストをオフラインのノードにルーティングし続ける場合があり、それによってユーザにとっての{% data variables.product.prodname_pages %}の可用性が下がってしまいます。
+    - pre-receive フックの処理に固有のリソース制限によって、pre-receive フックに失敗するものが生じることがあります。

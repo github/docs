@@ -5,7 +5,8 @@ redirect_from:
   - /articles/managing-your-sponsorship
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Contacting sponsors
@@ -15,7 +16,7 @@ topics:
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### Gerenciar as configurações de privacidade para seu patrocínio
+## Gerenciar as configurações de privacidade para seu patrocínio
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -23,7 +24,7 @@ topics:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Gerenciar atualizações de e-mail para seu patrocínio
+## Gerenciar atualizações de e-mail para seu patrocínio
 
 Você pode escolher se uma conta que você patrocina pode enviar para você atualizações de e-mail sobre o trabalho deles. A conta patrocinada não terá acesso ao seu endereço de e-mail.
 
@@ -35,7 +36,7 @@ Você pode escolher se uma conta que você patrocina pode enviar para você atua
 {% data reusables.sponsors.choose-updates %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Leia mais
+## Leia mais
 
 - "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)"
 - "[Fazer o downgrade de um patrocínio](/articles/downgrading-a-sponsorship)"

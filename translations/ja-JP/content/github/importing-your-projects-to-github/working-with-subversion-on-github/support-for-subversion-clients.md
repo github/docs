@@ -5,15 +5,17 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Subversion クライアントのサポート
 ---
 
 GitHubは、HTTPS プロコトルを介して Subversion クライアントをサポートします。 GitHub に svn コマンドを伝えるには、Subversion ブリッジを使います。
 
-### GitHub 上でサポートされる Subversion の機能
+## GitHub 上でサポートされる Subversion の機能
 
-#### チェックアウト
+### チェックアウト
 
 最初に Subversion チェックアウトを行いましょう。  Git クローンは、ワーキングディレクトリ (ファイルを編集する場所) をリポジトリデータと分けたままにします。そのため、この時点でワーキングディレクトリにはブランチが 1 つしかありません。
 
@@ -44,7 +46,7 @@ Subversion チェックアウトは違います。ワーキングディレクト
   Updated to revision 1.
   ```
 
-#### ブランチを作成する
+### ブランチを作成する
 
 Subversion ブリッジを使って GitHub にブランチを作成することもできます。
 
@@ -76,7 +78,7 @@ $ git fetch
 > * [new branch]    more_awesome -> origin/more_awesome
 ```
 
-#### Subversion にコミットを作成する
+### Subversion にコミットを作成する
 
 いくつかの機能を追加しバグを修正した後は、GitHub にこれらの変更をコミットしましょう。 この手順は、あなたが慣れ親しんだ Subversion と非常に似ています。 ファイルを編集してから、以下のように `svn commit` を使って変更を記録してください:
 
@@ -99,7 +101,7 @@ $ svn commit -m 'Test coverage for problems'
 > Committed revision 4.
 ```
 
-#### ブランチ間の切り替え
+### ブランチ間の切り替え
 
 ブランチをスイッチするには、`trunk` のチェックアウトから始めることをお勧めします。
 
@@ -113,7 +115,7 @@ $ svn co --depth empty https://github.com/<em>user</em>/<em>repo</em>/trunk
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
 ```
 
-### Subversion コミットのために Git コミット SHA を検索する
+## Subversion コミットのために Git コミット SHA を検索する
 
 Github の Subversion サーバーは、Subversion コミットのために Git コミット SHA を開示します。
 
@@ -126,6 +128,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 このコミット SHA によって、たとえば、GitHub 上の関連 Git コミットを検索できます。
 
-### 参考リンク
+## 参考リンク
 
 * [GitHub がサポートする Subversion プロパティ](/articles/subversion-properties-supported-by-github)

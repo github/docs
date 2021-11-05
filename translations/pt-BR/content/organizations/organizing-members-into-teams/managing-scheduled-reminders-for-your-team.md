@@ -5,13 +5,15 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: Lembretes agendados
 ---
 
-### Sobre os lembretes agendados para as equipes
+## Sobre os lembretes agendados para as equipes
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
@@ -19,7 +21,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-### Criar um lembrete agendado para uma equipe
+## Criar um lembrete agendado para uma equipe
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -43,7 +45,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.reminders.required-labels %}
 {% data reusables.reminders.create-reminder %}
 
-### Gerenciar um lembrete agendado para uma equipe
+## Gerenciar um lembrete agendado para uma equipe
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -54,7 +56,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-### Excluir um lembrete agendado para uma equipe
+## Excluir um lembrete agendado para uma equipe
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -63,7 +65,7 @@ Os mantenedores de equipe e os proprietários da organização podem definir lem
 ![Botão de lembretes agendados](/assets/images/help/teams/scheduled-reminders-teams.png)
 {% data reusables.reminders.delete %}
 
-### Leia mais
+## Leia mais
 
 - "[Gerenciar lembretes agendados para a sua organização](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
 - "[Gerenciar seus lembretes agendados](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"

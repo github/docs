@@ -6,24 +6,26 @@ redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
   - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+shortTitle: 连接仓库
 ---
 
 通过将仓库连接到包，包登录页面将显示来自仓库的信息和链接，例如 README。
 
-### 在 {% data variables.product.prodname_dotcom %} 上将仓库连接到用户拥有的包
+## 在 {% data variables.product.prodname_dotcom %} 上将仓库连接到用户拥有的包
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### 在 {% data variables.product.prodname_dotcom %} 上将仓库连接到组织拥有的包
+## 在 {% data variables.product.prodname_dotcom %} 上将仓库连接到组织拥有的包
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### 使用命令行将仓库连接到容器映像
+## 使用命令行将仓库连接到容器映像
 
 1. 在 Dockerfile 中添加此行，将 `OWNER` 和 `REPO` 替换为您的详细信息：
 

@@ -5,15 +5,17 @@ redirect_from:
   - /articles/support-for-subversion-clients
   - /github/importing-your-projects-to-github/support-for-subversion-clients
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Suporte para clientes do Subversion
 ---
 
 O GitHub oferece suporte a clientes do Subversion por meio do protocolo HTTPS. Usamos uma ponte do Subversion para comunicar comandos svn ao GitHub.
 
-### Recursos do Subversion com suporte no GitHub
+## Recursos do Subversion com suporte no GitHub
 
-#### Fazer checkout
+### Fazer checkout
 
 A primeira ação a ser executada é um checkout do Subversion.  Como os clones do Git mantêm o diretório de trabalho (onde você edita os arquivos) separado dos dados do repositório, há apenas um branch no diretório de trabalho de cada vez.
 
@@ -44,7 +46,7 @@ Os checkouts do Subversion são diferentes: eles combinam os dados do repositór
   Updated to revision 1.
   ```
 
-#### Criar branches
+### Criar branches
 
 É possível criar branches usando a ponte do Subversion para o GitHub.
 
@@ -76,7 +78,7 @@ $ git fetch
 > * [novo branch]    more_awesome -> origin/more_awesome
 ```
 
-#### Fazer commits no Subversion
+### Fazer commits no Subversion
 
 Depois que você tiver adicionado alguns recursos e corrigido alguns erros, vai querer fazer commit dessas alterações no GitHub. O procedimento é exatamente igual ao do Subversion, com o qual você já está acostumado. Edite os arquivos e use `svn commit` para registrar as alterações:
 
@@ -99,7 +101,7 @@ $ svn commit -m 'Alcance do teste para problemas'
 > Commit da revisão 4 concluído.
 ```
 
-#### Alternar entre branches
+### Alternar entre branches
 
 Para alternar entre branches, você provavelmente vai querer começar com um checkout de `trunk`:
 
@@ -113,7 +115,7 @@ E depois alternar para outro branch:
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
 ```
 
-### Localizar o SHA do commit do Git para um commit do Subversion
+## Localizar o SHA do commit do Git para um commit do Subversion
 
 O servidor do Subversion do GitHub expõe o SHA do commit do Git referente a cada commit do Subversion.
 
@@ -126,6 +128,6 @@ $ svn propget git-commit --revprop -r HEAD https://github.com/<em>user</em>/<em>
 
 Com esse SHA do commit, é possível, por exemplo, procurar o commit do Git no GitHub.
 
-### Leia mais
+## Leia mais
 
 * "[Propriedades do Subversion com suporte no GitHub](/articles/subversion-properties-supported-by-github)"

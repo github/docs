@@ -6,11 +6,13 @@ redirect_from:
   - /articles/changing-the-base-branch-of-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/changing-the-base-branch-of-a-pull-request
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
+shortTitle: 更改基础分支
 ---
 
 {% warning %}
@@ -31,7 +33,7 @@ topics:
 
 {% endtip %}
 
-### 延伸阅读
+## 延伸阅读
 
 - “[创建拉取请求](/articles/creating-a-pull-request)”
 - "[关于拉取请求](/articles/about-pull-requests)"

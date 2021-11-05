@@ -6,18 +6,20 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
+shortTitle: Crear asesorías
 ---
 
 Cualquier usuario con permisos de administrador puede crear un aviso de seguridad.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
-### Crear una asesoría de seguridad
+## Crear una asesoría de seguridad
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -30,7 +32,7 @@ Cualquier usuario con permisos de administrador puede crear un aviso de segurida
 {% data reusables.repositories.security-advisory-edit-description %}
 11. Haz clic en **Crear un borrador de asesoría de seguridad**. ![Botón para crear asesoría de seguridad](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
-### Pasos siguientes
+## Pasos siguientes
 
 - Comentar en el borrador de asesoría de seguridad para debatir sobre la vulnerabilidad con tu equipo.
 - Añadir colaboradores a la asesoría de seguridad. Para obtener más información, consulta la sección "[Añadir un colaborador a la asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory)".

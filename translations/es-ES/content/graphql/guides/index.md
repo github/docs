@@ -4,9 +4,10 @@ intro: 'Aprende sobre como emepzar con GraphQL, migrarte desde REST hacia GraphQ
 redirect_from:
   - /v4/guides
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 children:

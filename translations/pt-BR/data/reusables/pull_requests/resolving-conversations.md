@@ -12,12 +12,12 @@ Toda a conversa será colapsada e marcada como resolvida, tornando mais fácil e
 
 Se a sugestão em um comentário estiver fora do escopo do seu pull request, você pode abrir um novo problema que rastreia os comentários e relaciona o comentário original. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
-#### Discovering and navigating conversations
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
+#### Descobrindo e navegando por conversas
 
-You can discover and navigate to all the conversations in your pull request using the **Conversations** menu that's shown at the top of the **Files Changed** tab.
+Você pode descobrir e navegar até todas as conversas no seu pull request usando o menu **Conversas** que é exibido na parte superior da aba **Arquivos alterados**.
 
-From this view, you can see which conversations are unresolved, resolved, and outdated. This makes it easy to discover and resolve conversations.
+Nesta visualização, você pode ver quais conversas não foram resolvidas, quais foram resolvidas e desatualizadas. Isso facilita a descoberta e a resolução de conversas.
 
-![Showing the conversations menu](/assets/images/help/pull_requests/conversations-menu.png)
+![Mostrando o menu de conversas](/assets/images/help/pull_requests/conversations-menu.png)
 {% endif %}

@@ -5,12 +5,14 @@ redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+shortTitle: Referências vinculadas automaticamente
 ---
 
-### URLs
+## URLs
 
 O {% data variables.product.product_name %} cria links automaticamente de URLs padrão.
 
@@ -20,7 +22,7 @@ O {% data variables.product.product_name %} cria links automaticamente de URLs p
 
 Para obter mais informações sobre como criar links, consulte "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax/#links)".
 
-### Problemas e pull requests
+## Problemas e pull requests
 
 Nas conversas do {% data variables.product.product_name %}, as referências a problemas e pull request são convertidas automaticamente em links curtos.
 
@@ -38,7 +40,11 @@ Nas conversas do {% data variables.product.product_name %}, as referências a pr
 | `Username/Repository#` e número do problema ou da pull request          | jlord/sheetsee.js#26                           | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Organization_name/Repository#` e número do problema ou da pull request | github/linguist#4039                           | [github/linguist#4039](https://github.com/github/linguist/pull/4039)   |
 
-### SHAs de commit
+{% ifversion fpt or ghec %}
+Se você fizer referência a um problema, pull request ou discussão em uma lista, a referência irá desenrolar-se para mostrar o título e o estado. Para obter mais informações sobre listas de tarefas, consulte "[Sobre listas de tarefas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)".
+{% endif %}
+
+## SHAs de commit
 
 As referências em um hash SHA de commit são convertidas automaticamente em links curtos para o commit no {% data variables.product.product_name %}.
 
@@ -49,10 +55,10 @@ As referências em um hash SHA de commit são convertidas automaticamente em lin
 | User@SHA                  | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                 | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)               |
 | `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e`                                                                                                                   | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-### Links automáticos personalizados para recursos externos
+## Links automáticos personalizados para recursos externos
 
 {% data reusables.repositories.autolink-references %}
 
-### Leia mais
+## Leia mais
 
 - "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"

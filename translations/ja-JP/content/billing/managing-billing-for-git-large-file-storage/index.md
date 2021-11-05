@@ -9,7 +9,8 @@ redirect_from:
   - /articles/managing-storage-and-bandwidth-usage/
   - /articles/managing-billing-for-git-large-file-storage
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /about-billing-for-git-large-file-storage
   - /viewing-your-git-large-file-storage-usage

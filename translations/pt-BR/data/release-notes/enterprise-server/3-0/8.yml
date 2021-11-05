@@ -2,25 +2,27 @@
 date: '2021-05-25'
 sections:
   security_fixes:
-    - '**MEDIUM:** Under certain circumstances, users who were removed from a team or organization could retain write access to branches they had existing pull requests opened for.'
+    - '**MÉDIO:** Em certas circunstâncias, os usuários que foram removidos de uma equipe ou organização poderiam manter acesso de escrita a branches para os quais tinham aberto um pull request.'
     - Os pacotes foram atualizados para as últimas versões de segurança.
   bugs:
-    - On the "Configure Actions and Packages" page of the initial installation process, when an admin clicked the "Test domain settings" button the test did not complete.
-    - Running `ghe-btop` failed with error `cannot find a 'babeld' container`.
-    - Users were experiencing service unavailability after upgrading due to a mismatch of internal and external timeout values.
-    - Normal replication delays in MSSQL generated warnings.
-    - Link for GitHub Enterprise Clustering Guide on management console was incorrect.
-    - An IP address added by an admin using the "Create Whitelist Entry" button could still be locked out.
-    - References to the "Dependency graph" and "Dependabot alerts" features were shown on repositories where they were not enabled.
-    - HTTP POST requests to the `/hooks` endpoint could fail with a 401 response due to the `hookID` being set incorrectly.
-    - The `build-server` process failed to clean up processes leaving them in the `defunct` state.
-    - '`spokesd` created excessive log entries including the phrase "fixing placement skipped".'
+    - Na página "Configurar Ações e Pacotes" do processo inicial de instalação quando um administrador clicou no botão "Configurações do domínio de teste" o teste não foi concluído.
+    - A execução de `ghe-btop` falhou com um erro `cannot find a 'babeld' container`.
+    - Os usuários estavam tendo indisponibilidade de serviço após a atualização devido a uma incompatibilidade de valores de tempo limite interno e externo.
+    - Atraso de replicação normal nos avisos gerados pelo MSSQL.
+    - O link para o GitHub Enterprise Clustering Guide sobre console de gerenciamento estava incorreto.
+    - Um endereço IP adicionado por um administrador usando o botão "Criar Entrada da Lista Branca" ainda poderia ser bloqueado.
+    - Referências às funcionalidades "Gráfico de Dependência" e "Alertas do Dependabot " foram exibidas em repositórios onde não foram habilitadas.
+    - As solicitações do tipo HTTP POST no ponto de extremidade de `/hooks` poderia falhar com uma resposta 401 em razão de `hookID` ter sido configurado incorretamente.
+    - O processo `build-server` falhou ao limpar os processos deixando-os no estado 'defunct'.
+    - '`spokesd` criou entradas de registro excessivas incluindo a frase "fixing placement skipped".'
   changes:
-    - Check annotations older than 4 months will be archived.
+    - Serão arquivadas as anotações com mais de 4 meses de anotações de verificação.
   known_issues:
-    - Access to a repository through the administrative shell using `ghe-repo <owner>/<reponame>` will hang. As a workaround, use `ghe-repo <owner>/<reponame> -c "bash -i"` until a fix is available in the next version.
-    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Demoraremos para ter acesso a um repositório por meio do shell administrativo usando `ghe-repo <owner>/<reponame>`. Como uma alternativa, use `ghe-repo <owner>/<reponame> -c "bash -i"` até que uma correção esteja disponível na próxima versão.
+    - Em uma nova configuração do GitHub Enterprise Server sem nenhum usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras personalizadas de firewall não são mantidas durante uma atualização.
     - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório onde o caminho do arquivo tem mais de 255 caracteres.
     - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Quando um nó de réplica está off-line em uma configuração de alta disponibilidade, {% data variables.product.product_name %} ainda pode encaminhar solicitações de {% data variables.product.prodname_pages %} para o nó off-line, reduzindo a disponibilidade de {% data variables.product.prodname_pages %} para os usuários.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

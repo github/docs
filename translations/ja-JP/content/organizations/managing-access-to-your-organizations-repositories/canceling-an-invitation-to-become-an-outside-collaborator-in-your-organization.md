@@ -5,10 +5,12 @@ permissions: Organization owners can cancel an invitation to become an outside c
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: コラボレータの招待のキャンセル
 ---
 
 Organization が所有しているリポジトリで外部のコラボレーターになる招待を保留にしている人すべてのリストを表示できます。

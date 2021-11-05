@@ -2,11 +2,13 @@
 title: 禁用 GitHub Sponsors 帐户
 intro: '如果您不再愿意参与 {% data variables.product.prodname_sponsors %}，您可以禁用 {% data variables.product.prodname_sponsors %} 帐户。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: 禁用帐户
 ---
 
 如果您收到赞助付款，则需要联系 GitHub Support 才能禁用您的 {% data variables.product.prodname_sponsors %} 帐户。

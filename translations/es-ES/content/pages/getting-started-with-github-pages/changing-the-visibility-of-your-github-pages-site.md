@@ -3,15 +3,21 @@ title: Cambiar la visibilidad de tu sitio de GitHub Pages
 intro: Puedes administrar el control de acceso para tu sitio de proyecto si lo publicas de forma pública o privada.
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+shortTitle: Cambiar la visibilidad del sitio
 ---
 
-### Acerca del control de acceso para los sitios de {% data variables.product.prodname_pages %}
+## Acerca del control de acceso para los sitios de {% data variables.product.prodname_pages %}
 
-Si tu sitio de proyecto se publica desde un repositorio privado o interno que pertenezca a una organización que utiliza {% data variables.product.prodname_ghe_cloud %}, puedes administrar el control de accesos para el sitio. Con el control de acceso puedes elegir publicar el sitio de forma pública para cualquiera en internet o de forma privada para las personas con acceso de lectura en tu repositorio. Un sitio que se publica de forma privada puede utilizarse para compartir tu documentación o base de conocimientos internos con los miembros de tu empresa. No puedes administrar el control de accesos para el sitio de una organización. Para obtener más información sobre los tipos de sitios de {% data variables.product.prodname_pages %}, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+Con control de acceso para {% data variables.product.prodname_pages %}, puedes restringir el acceso a tu sitio de {% data variables.product.prodname_pages %} si lo publicas en privado. Solo las personas con acceso de lectura al repositorio desde el cual se publica el sitio pueden acceder al sitio que se publicó en privado. Puedes utilizar sitios publicados en privado para compartir tu documentación o base de conocimiento interna con los miembros de tu empresa.
+
+Si tu empresa utiliza {% data variables.product.prodname_emus %}, todos los sitios de {% data variables.product.prodname_pages %} se publicarán en privado. Para obtener más información sobre las {% data variables.product.prodname_emus %}, consulta la sección "[Acerca de las {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
+
+Si tu organización utiliza {% data variables.product.prodname_ghe_cloud %} sin {% data variables.product.prodname_emus %}, puedes elegir publicar tus sitios en privado o al público para cualquiera en la internet. El control de accesos se encuentra disponible para los sitios de proyecto que se publican desde un repositorio privado o interno que pertenezca a la organización. No puedes administrar el control de accesos para el sitio de una organización. Para obtener más información sobre los tipos de sitios de {% data variables.product.prodname_pages %}, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
 Los sitios que se publican de forma privada se encuentran disponibles en un subdominio diferente que el de aquellos sitios que se publican de forma pública. Esto garantiza que tu sitio de {% data variables.product.prodname_pages %} es seguro desde el momento en el que se publica:
 
@@ -22,7 +28,7 @@ Puedes ver el subdominio único de tu sitio en la pestaña de páginas de la con
 
 Para utilizar un dominio más corto y memorable para tu sitio privado de {% data variables.product.prodname_pages %}, puedes configurar un dominio personalizado. Para obtener más información, consulta la sección "[Configurar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site)".
 
-### Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}
+## Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

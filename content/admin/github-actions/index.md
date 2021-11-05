@@ -15,6 +15,7 @@ children:
   - /advanced-configuration-and-troubleshooting
 shortTitle: Manage GitHub Actions
 ---
-{% data reusables.actions.ae-beta %}
+
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}

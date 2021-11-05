@@ -4,9 +4,11 @@ intro: '{% data variables.product.prodname_marketplace %}には、無料及び�
 redirect_from:
   - /articles/purchasing-and-installing-apps-in-github-marketplace
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 children:
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
+shortTitle: Install Marketplace apps
 ---
 

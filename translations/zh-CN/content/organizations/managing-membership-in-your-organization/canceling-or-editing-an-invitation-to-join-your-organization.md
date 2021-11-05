@@ -5,10 +5,12 @@ redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
+shortTitle: 取消或编辑邀请
 ---
 
 {% data reusables.profile.access_org %}
@@ -22,9 +24,9 @@ topics:
     - 要编辑用户邀请，请选择不同的角色或团队，然后单击 **Update invitation（更新邀请）**。
     - 要取消加入组织的用户邀请，请单击 **Cancel invitation（取消邀请）**。
 
-### 延伸阅读
+## 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 - “[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)”
 {% endif %}
 - "[向团队添加组织成员](/articles/adding-organization-members-to-a-team)"

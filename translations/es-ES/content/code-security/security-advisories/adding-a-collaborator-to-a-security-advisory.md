@@ -6,17 +6,19 @@ redirect_from:
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
+shortTitle: Agregar a un colaborador a una asesoría
 ---
 
 Las personas con permisos de administrador en una asesoría de seguridad pueden añadir colaboradores a la misma.
 
-### Añadir un colaborador a una asesoría de seguridad
+## Añadir un colaborador a una asesoría de seguridad
 
 Los colaboradores tienen permisos de escritura para el aviso de seguridad. Para obtener más información, consulte la sección "[Niveles de permiso para las asesorías de seguridad](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)".
 
@@ -33,7 +35,7 @@ Los colaboradores tienen permisos de escritura para el aviso de seguridad. Para 
 5. En la parte derecha de la página, debajo de "Colaboradores", teclea el nombre de usuario o equipo que quieras añadir a la asesoría de seguridad.![Campo para escribir el nombre del equipo o el usuario](/assets/images/help/security/add-collaborator-field.png)
 6. Da clic en **Agregar**. ![Botón Add (Agregar)](/assets/images/help/security/security-advisory-add-collaborator-button.png)
 
-### Leer más
+## Leer más
 
 - "[Niveles de permiso para las asesorías de seguridad](/github/managing-security-vulnerabilities/permission-levels-for-security-advisories)"
 - "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"
