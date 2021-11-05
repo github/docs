@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} Para obtener más información, consulta la sección "[Acerca de buscar en GitHub](/articles/about-searching-on-github)".
@@ -64,8 +66,9 @@ Puedes utilizar el calificador `path` (ruta) para buscar el código fuente que a
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) encuentra los archivos JavaScript con la palabra "console" en un directorio <em>app/public</em> o en cualquiera de sus subdirectorios (incluso si se encuentran en <em>app/public/js/form-validators</em>). |
 
 ### Buscar por lenguaje
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-Puedes buscar el código basado en el lenguaje en que está escrito.
+Puedes buscar el código basado en el lenguaje en que está escrito. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier                  | Ejemplo                                                                                                                                                                                                              |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,7 +103,7 @@ El calificador `extension` (extensión) encuentra archivos de código con una de
 | <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) encuentra el código con la palabra "form", debajo de <em>cgi-bin</em>, con la extensión de archivo <em>.pm</em>. |
 |                            | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) busca archivos más grandes de 200 KB que terminan en .css y tienen la palabra "icon".                               |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"
 - "[Buscar en las bifurcaciones](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}

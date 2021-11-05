@@ -6,9 +6,9 @@ redirect_from:
   - /categories/finding-talent-with-github-jobs
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
+children:
+  - /about-github-jobs
 ---
-
-
 ### 目次
-
-{% link_in_list /about-github-jobs %}

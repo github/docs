@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-pre-release-program
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Obrigado por se inscrever para participar de programas de pré-lançamentos do GitHub!  Como um membro confiável de nossa comunidade, seu feedback sobre recursos novos e experimentais é importante para nós.  Para compartilhar esses novos produtos e serviços com você – muitos dos quais ainda são secretos e em desenvolvimento – precisaremos que concorde com um conjunto especial de termos. Bem-vindo ao Contrato do Programa de Pré-Lançamento ("Contrato").

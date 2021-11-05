@@ -4,18 +4,16 @@ intro: 'Você pode definir as políticas em {% data variables.product.product_na
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
+topics:
+  - Enterprise
+children:
+  - /enforcing-policies-for-your-enterprise
+  - /enforcing-policy-with-pre-receive-hooks
+shortTitle: Definir políticas
 ---
 
-
-### Índice
-
-{% topic_link_in_list /enforcing-policies-for-your-enterprise %}
-    {% link_in_list /enforcing-repository-management-policies-in-your-enterprise %}
-{% topic_link_in_list /enforcing-policy-with-pre-receive-hooks %}
-    {% link_in_list /about-pre-receive-hooks %}
-    {% link_in_list /creating-a-pre-receive-hook-environment %}
-    {% link_in_list /creating-a-pre-receive-hook-script %}
-    {% link_in_list /managing-pre-receive-hooks-on-the-github-enterprise-server-appliance %}

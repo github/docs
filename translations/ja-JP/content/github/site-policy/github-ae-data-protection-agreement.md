@@ -328,7 +328,7 @@ Data exporter: Customer is the data exporter.
 
 However, because the data importer provides storage services and does not control the categories of data it stores, the data exporter may choose to transfer special categories of data. Consequently, the data exporter is solely responsible for ensuring that it complies with all obligations imposed by applicable laws and regulations relating to the collection and processing of any special categories of data, including obtaining the explicit consent of the data subject prior to processing sensitive personal data.
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at https://help.github.com/articles/github-privacy-statement/, and the “Data Processing” section of the DPA.
+**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at https://docs.github.com/articles/github-privacy-statement/, and the “Data Processing” section of the DPA.
 
 **Subcontractors:** In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain Customer Personal Data only to deliver the services the data importer has retained them to provide, and they are prohibited from using Customer Personal Data for any other purpose.
 

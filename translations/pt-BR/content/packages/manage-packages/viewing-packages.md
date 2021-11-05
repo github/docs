@@ -11,9 +11,11 @@ permissions: Qualquer pessoa com permissão de leitura em um repositório pode v
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Sobre a visualização de pacotes
 

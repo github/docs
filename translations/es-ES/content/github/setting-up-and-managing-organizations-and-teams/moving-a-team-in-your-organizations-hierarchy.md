@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Los propietarios de la organización pueden cambiar el padre de cualquier equipo. Los mantenedores del equipo pueden cambiar el equipo padre de un equipo si son mantenedores tanto en el equipo hijo como en el equipo padre. Los mantenedores del equipo sin permisos de mantenedor en el equipo hijo puede solicitar agregar un equipo padre o hijo. Para obtener más información, consulta "[Solicitar agregar o cambiar un equipo padre](/articles/requesting-to-add-or-change-a-parent-team)" y "[Solicitar agregar un equipo hijo](/articles/requesting-to-add-a-child-team)."
@@ -33,6 +36,6 @@ Los propietarios de la organización pueden cambiar el padre de cualquier equipo
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm new parent team (Confirmar nuevo equipo padre)**. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"

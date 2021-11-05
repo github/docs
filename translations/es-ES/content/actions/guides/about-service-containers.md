@@ -3,16 +3,21 @@ title: Acerca de los contenedores de servicios
 intro: 'Puedes usar los contenedores de servicios para conectar las bases de datos, los servicios Web, las memorias caché y otras herramientas a tu flujo de trabajo.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/about-Service-containers
+  - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'resumen'
+  github-ae: '*'
+type: overview
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de los contenedores de servicios
 
@@ -47,7 +52,7 @@ Puedes usar la palabra clave `services` para crear contenedores de servicios que
 Este ejemplo crea un servicio llamado `redis` en un trabajo llamado `container-job`. El host de Docker en este ejemplo es el contenedor `node: 10.18-jessie`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -88,7 +93,7 @@ Cuando especificas el puerto del host de Docker pero no el puerto del contenedor
 Este ejemplo asigna el puerto 6379 del contenedor de servicios `redis` al puerto 6379 del host de Docker.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis Service Example
 on: push
 
@@ -110,7 +115,7 @@ Jobs:
 ```
 {% endraw %}
 
-### Further reading
+### Leer más
 
 - "[Crear contenedores de servicios Redis](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
 - "[Crear contenedores de servicios PostgreSQL](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"

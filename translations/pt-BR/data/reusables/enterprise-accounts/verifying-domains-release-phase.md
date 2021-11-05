@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Verifying an enterprise account's domain is currently in beta and subject to change.
+**Observação:** A verificação do domínio da conta corporativa está atualmente na versão beta e sujeita a alterações.
 
 {% endnote %}

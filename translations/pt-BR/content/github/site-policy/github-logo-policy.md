@@ -5,7 +5,10 @@ redirect_from:
   - /articles/using-an-octocat-to-link-to-github-or-your-github-profile/
   - /articles/github-logo-policy
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Você pode adicionar as logos {% data variables.product.prodname_dotcom %} em seu website ou em aplicativos de terceiros em alguns casos. Para mais informações e diretrizes específicas sobre o uso da logomarca, visite a [{% data variables.product.prodname_dotcom %} página de Logos e Usos](https://github.com/logos).

@@ -1,1 +1,1 @@
-1. In the list of assignments, click the assignment you want to view. ![Assignment in list of assignments for an classroom](/assets/images/help/classroom/click-assignment-in-list.png)
+1. 在作业列表中，单击要查看的作业。 ![课堂作业列表中的作业](/assets/images/help/classroom/click-assignment-in-list.png)

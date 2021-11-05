@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Acerca de los comentarios de las solicitudes de extracción
@@ -34,7 +36,7 @@ Para responder un comentario en la línea que ya existe, deberás ir hasta el co
 
 **Tips:**
 - Los comentarios de las solicitudes de extracción soportan el mismo [ formato](/categories/writing-on-github) que los comentarios regulares en {% data variables.product.product_name %}, como @menciones, emojis y referencias.
-- Puedes [agregar reacciones](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) a los comentarios en las solicitudes de extracción en la pestaña **Files changed** (Archivos cambiados).
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 
@@ -52,8 +54,8 @@ Cualquier persona que observe la solicitud de extracción o el repositorio recib
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Further reading
+### Leer más
 
 - [Crear un enlace permanente al fragmento de código](/articles/creating-a-permanent-link-to-a-code-snippet/)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Reportar abuso o spam](/articles/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Reportar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

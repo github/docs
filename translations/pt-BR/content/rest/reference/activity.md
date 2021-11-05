@@ -3,9 +3,13 @@ title: Atividade
 redirect_from:
   - /v3/activity
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
@@ -22,18 +26,16 @@ Os eventos são otimizados para sondagem a com o cabeçalho "ETag". Se nenhum no
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
-
-Os eventos são compatíveis com a paginação. No entanto, a opção `per_page` não é compatível. O tamanho fixo da página é de 30 itens. É possível obter até dez páginas para um total de 300 eventos. Para obter informações, consulte "[Deslocar-se com a paginação](/rest/guides/traversing-with-pagination)".
 
 Apenas eventos criados nos últimos 90 dias serão incluídos nas linhas de tempo. Eventos mais antigos que 90 dias não serão incluídos (mesmo que o número total de eventos na linha do tempo seja inferior a 300).
 
@@ -56,7 +58,7 @@ Para obter um feed no formato Atom você deve especificar o tipo `application/at
 #### Resposta
 
 ```shell
-Status: 200 OK
+HTTP/2 200
 ```
 
 ```xml
@@ -122,14 +124,14 @@ As notificações são otimizadas para sondagem com o cabeçalho `Last-Modified`
 ``` shell
 # Add authentication to your requests
 $ curl -I {% data variables.product.api_url_pre %}/notifications
-HTTP/1.1 200 OK
+HTTP/2 200
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
 
@@ -144,10 +146,11 @@ Aqui está uma lista da potencial `razão` para receber uma notificação:
 | `assign`           | O problema foi atribuído a você.                                                                                                                                                                               |
 | `autor`            | Você criou a corrente.                                                                                                                                                                                         |
 | `comentário`       | Você comentou na corrente.                                                                                                                                                                                     |
+| `ci_activity`      | A execução de um fluxo de trabalho {% data variables.product.prodname_actions %} que você acionou foi concluída.                                                                                               |
 | `convite`          | Você aceitou um convite para contribuir com o repositório.                                                                                                                                                     |
 | `manual`           | Você assinou a corrente (por meio de um problema ou pull request).                                                                                                                                             |
 | `menção`           | Você foi especificamente **@mentioned** no conteúdo.                                                                                                                                                           |
-| `review_requested` | Foi solicitado que você ou uma equipe da qual você é integrante revise um pull request.{% if currentVersion == "free-pro-team@latest" %}
+| `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
 | `security_alert`   | O {% data variables.product.prodname_dotcom %} descobriu uma [vulnerabilidade de segurança](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) no seu repositório.{% endif %}
 | `state_change`     | Você alterou o estado da corrente (por exemplo, fechando um problema ou mesclando um pull request).                                                                                                            |
 | `assinado`         | Você está inspecionando o repositório.                                                                                                                                                                         |

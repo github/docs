@@ -1,9 +1,14 @@
 ---
 title: Interacciones
+intro: 'Con la API de interacciones, las personas con acceso administrativo o de propietario pueden configurar el límite de interacciones para los usuarios en sus organizaciones y repositorios.'
 redirect_from:
   - /v3/interactions
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 Los usuarios interactuan con los repositorios al comentar, abrir informes de problemas y crear solicitudes de extracción. La API de interacciones permite a las personas con acceso de propietario o de administrador restringir la interacción con los repositorios públicos temporalmente a un tipo específico de usuario.
@@ -12,7 +17,7 @@ Los usuarios interactuan con los repositorios al comentar, abrir informes de pro
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## Organization
+## Organización
 
 La API de Interacciones Organizacionales permite a los propietarios el restringir temporalmente qué tipo de usuariopuede comentar, abrir propuestas, o crear solicitudes de cambios en los repositorios públicos de la organización. {% data reusables.interactions.interactions-detail %} Aquí puedes aprender más sobre los tipos de usuario de {% data variables.product.product_name %}:
 

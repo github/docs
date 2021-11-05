@@ -11,6 +11,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -71,7 +77,7 @@ Con las cuentas de empresa, puedes administrar de forma centralizada la polític
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 {% if currentVersion == "free-pro-team@latest" %}- "[Inicia sesión para crear una cuenta nueva de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}

@@ -17,7 +17,7 @@ Para acceder a las notificaciones web en {% data variables.product.product_name 
 
 Si tienes configuradas las notificaciones por correo electrónico, puedes acceder a tus notificaciones a través de tu cliente de correo electrónico. Para obtener más información sobre habilitar las notificaciones por correo electrónico, consulta la sección "[Acerca de las notificaciones por correo electrónico](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)" y "[Elegir el método de entrega para tus notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Listar los repositorios que estás observando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

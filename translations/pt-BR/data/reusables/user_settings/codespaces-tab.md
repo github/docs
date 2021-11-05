@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Codespaces**. ![Codespaces tab in the user settings sidebar](/assets/images/help/settings/codespaces-tab.png)
+1. Na barra lateral esquerda, clique em **Codespaces**. ![Aba de codespaces na barra lateral de configurações do usuário](/assets/images/help/settings/codespaces-tab.png)

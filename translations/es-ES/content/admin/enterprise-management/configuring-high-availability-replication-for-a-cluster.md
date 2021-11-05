@@ -6,11 +6,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+type: how_to
+topics:
+  - Clustering
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### Acerca de la replicación de disponibilidad alta para clústers
 
-Puedes configurar el despliegue de un clúster de {% data variables.product.prodname_ghe_server %} para que tenga disponibilidad alta, mientras que un conjunto idéntico de nodos pasivos se sincroniza con los nodos en tu clúster activo. Si los fallos de hardware o de software afectan el datacenter que tiene tu clúster activo, puedes conmutar por error a los nódos de réplica y continuar procesando las solicitudes de los usuarios sin perder datos.
+Puedes configurar el despliegue de un clúster de {% data variables.product.prodname_ghe_server %} para que tenga disponibilidad alta, mientras que un conjunto idéntico de nodos pasivos se sincroniza con los nodos en tu clúster activo. Si las características de hardware o software afectan el centro de datos que alberga tu clúster activo, puedes hacer una recuperación de fallos manual a los nodos de réplica y seguir procesando las solicitudes de los usuarios, minimizando así el impacto del servicio interrumpido.
 
 En el modo de alta disponibilidad, cada nodo activo se sincroniza regularmente con un nodo pasivo correspondiente. El nodo pasivo se ejecuta en espera y no sirve a las aplicaciones ni procesa solicitudes de usuarios.
 
@@ -20,7 +26,7 @@ Te recomendamos configurar la disponibilidad alta como parte de un plan integral
 
 #### Hardware y software
 
-Para cada nodo existente en tu clúster activo, necesitarás aprovisionar una segunda máquina virtual con recursos de hardware idénticos. Por ejemplo, si tu clúster tiene 11 nodos y cada nodo tiene 12 vCPUs, 96 GB de RAM, y 750 GB de almacenamiento adjunto, deberás aprovisionar 11 máquinas virtuales en donde cada una tenga 12 vCPUs, 64 GB de RAM, y 750GB de almacenamiento adjunto.
+Para cada nodo existente en tu clúster activo, necesitarás aprovisionar una segunda máquina virtual con recursos de hardware idénticos. Por ejemplo, si tu clúster tiene 11 nodos y cada nodo tiene 12 vCPUs, 96 GB de RAM, y 750 GB de almacenamiento adjunto, deberás aprovisionar 11 máquinas virtuales en donde cada una tenga 12 vCPUs, 96 GB de RAM, y 750GB de almacenamiento adjunto.
 
 En cada máquina virtual, instala la misma versión de {% data variables.product.prodname_ghe_server %} que se ejecuta en los nodos en tu clúster activo. No necesitas cargar una licencia ni realizar alguna configuración adicional. Para obtener más información, consulta "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 

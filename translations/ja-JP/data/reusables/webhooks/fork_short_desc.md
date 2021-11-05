@@ -1,1 +1,1 @@
-A user forks a repository. For more information, see the "[forks](/rest/reference/repos#forks)" REST API.
+ユーザがリポジトリをフォークします。 詳しい情報については「[forks](/rest/reference/repos#forks)」 REST APIを参照してください。

@@ -1,0 +1,37 @@
+---
+date: '2021-03-16'
+sections:
+  security_fixes:
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - Systemdのジャーナルログが複数の場所で複製されました。
+    - サイト管理者がプライベートリポジトリから参照されているIssueを見ようとすると、500エラーページが返されることがありました。
+    - GitHub Enterprise Serverから、リポジトリのファイルがないリポジトリアーカイブをインポートすると、エラーで失敗します。
+  known_issues:
+    - 新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。
+    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - |
+      ユーザは、アバターのようなアセットがロードされないことや、コードのプッシュ/プルの失敗を体験するかもしれません。これは、`haproxy-cluster-proxy`サービス内のPIDミスマッチによって生じることがあります。影響されたインスタンスがあるかは、以下のようにして判断します。
+
+      **単一インスタンス**
+
+      1. 以下を[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行してください:
+
+        ```
+        if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi
+        ```
+
+      2. ミスマッチがあると表示されたら、インスタンスを再起動してください。
+
+      **クラスタもしくはHigh Availability構成**
+
+      1. 以下を[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行してください:
+
+        ```
+        ghe-cluster-each -- 'if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi'
+        ```
+
+      2. 1つ以上のノードが影響されていると表示されたら、影響されているノードを再起動してください。

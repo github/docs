@@ -5,6 +5,8 @@ redirect_from:
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Requisitos
@@ -40,25 +42,21 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 
 ### Paso 3: Actualiza la organización para que tenga una suscripción anual paga.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (Puedes agregar más asientos a la organización en el siguiente paso).
 6. En "Actualizar resumen", selecciona **Pago anual** para pagar por la organización de forma anual. ![Botón de selección para la facturación anual](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.add-payment-method %}
-1. En "Pagar con" escribe los datos de tu tarjeta de crédito.![Formulario para ingresar datos de tarjeta de crédito](/assets/images/help/billing/settings_billing_upgrade_with_credit_card.png)
-1. Haz clic en **Actualizar tarjeta de crédito**.
+{% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### Paso 4: Actualiza el número de asientos pagos de la organización.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -89,7 +87,7 @@ Si ya posees una cuenta de usuario de {% data variables.product.prodname_dotcom 
 2. Si deseas que la tarjeta de crédito de tu organización se elimine de la organización para que no vuelvan a hacerse cargos en ella, ponte en contacto con {% data variables.contact.contact_support %}.
 3. Cuando sea el momento de renovar la suscripción paga de tu cliente, consulta "[Renovar la organización paga de tu cliente](/articles/renewing-your-client-s-paid-organization)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las organizaciones para empresas de contratación](/articles/about-organizations-for-procurement-companies)"
 - "[Actualizar o bajar de categoría la organización paga de tu cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"

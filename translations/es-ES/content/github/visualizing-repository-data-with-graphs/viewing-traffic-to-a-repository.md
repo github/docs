@@ -6,6 +6,8 @@ redirect_from:
   - /articles/viewing-traffic-to-a-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 Puedes desplazarte a los sitios de referencia, excluidos los motores de búsqueda y {% data variables.product.product_name %} propiamente dicho, desde los vínculos donde se hizo la referencia a las rutas específicas. El contenido popular vincula al contenido específico que generó tráfico.

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-anonymized-image-urls
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 画像をホストするために、{% data variables.product.product_name %}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 Camo は、画像ごとに匿名の URL プロキシを生成し、ブラウザの詳細と関連情報を他のユーザから見えないようにします。 URL は `https://<subdomain>.githubusercontent.com/` で始まり、画像のアップロード方法に応じて異なるサブドメインがあります。

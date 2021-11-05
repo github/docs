@@ -4,7 +4,10 @@ intro: '{% data variables.product.prodname_dotcom %}と統合されるツール�
 redirect_from:
   - /program
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
 ---
 
 GitHubと統合されるアプリケーションを構築しますか？ 弊社の開発者プログラムに登録してください！ 可能性は無限であり、栄誉を楽しんでください。 [今すぐ登録を](https://github.com/developer/register)
@@ -19,7 +22,7 @@ GitHubと統合されるアプリケーションを構築しますか？ 弊社�
 
 ## エンタープライズへの挑戦
 
-{% data variables.product.prodname_ghe_server %}あるいは{% data variables.product.prodname_ghe_managed %}に対してアプリケーションを構築してテストするために、[開発者ライセンスを取得](http://github.com/contact?form%5Bsubject%5D=Development+licenses)してください。
+[開発者ライセンスを取得](http://github.com/contact?form%5Bsubject%5D=Development+licenses) し、アプリケーションをビルドして{% data variables.product.prodname_ghe_server %}に対してテストしましょう。
 
 
 ## GitHubと連携するインテグレーションがありますか？

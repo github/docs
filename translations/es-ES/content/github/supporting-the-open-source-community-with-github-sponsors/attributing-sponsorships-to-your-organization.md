@@ -1,9 +1,11 @@
 ---
 title: Atribuir los patrocinios a tu organización
-intro: 'Puedes atribuir los patrocinios que paga una de tus organizaciones a otra organización.'
+intro: Puedes atribuir los patrocinios que paga una de tus organizaciones a otra organización.
 versions:
   free-pro-team: '*'
 permissions: Los propietarios que sean dueños de ambas organizaciones, pueden atribuir los patrocinios de una a otra de ellas.
+topics:
+  - sponsors
 ---
 
 1. Navega a la organización cuyo patrocinio quieras atribuir a otra organización.

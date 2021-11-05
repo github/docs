@@ -3,6 +3,8 @@ title: Administrar la configuración de seguridad y análisis para tu cuenta de 
 intro: 'Puedes controlar las características que dan seguridad y analizan tu código en tus proyectos dentro de {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### Acerca de la administración de los parámetros de seguridad y análisis
@@ -25,13 +27,15 @@ Para encontrar un resumen de la seguridad a nivel de repositorio, consulta la se
 6. Opcionalmente, habilita la característica predeterminada para los repositorios nuevos en tu organización. ![Opción de "Habilitar predeterminadamente" para los repositorios nuevos](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png)
 7. Da clic en **Inhabilitar CARACTERÍSTICA** o **Habilitar CARACTERÍSTICA** para inhabilitar o habilitar la característica para todos los repositorios que te pertenezcan. ![Botón para inhabilitar o habilitar la característica](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
 
+{% data reusables.security.displayed-information %}
+
 ### Habilitar o inhabilitar las características para los repositorios nuevos
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security-analysis %}
 3. Debajo de "Configurar las características de seguridad y análisis", a la derecha de la característica, habilítala o inhabilítala para los repositorios nuevos en tu organización. ![Casilla para habilitar o inhabilitar una característica para los repositorios nuevos](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Administrar las vulnerabilidades en las dependencias de tu proyecto](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"

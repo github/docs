@@ -1,1 +1,1 @@
-Each assignment has a title and an optional deadline. You can choose the visibility of repositories that {% data variables.product.prodname_classroom %} creates and choose access permissions. You can also automatically grade assignments and create a dedicated space to discuss the assignment with the student.
+それぞれの課題にはタイトルとオプションの期限があります。 {% data variables.product.prodname_classroom %}が作成するリポジトリの可視性を選択し、アクセス権限を選択できます。 自動的に課題を評価し、課題について学生と議論するための専用のスペースを作成することもできます。

@@ -14,6 +14,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 ### Acerca de las dirección de correo electrónico de confirmación

@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Puedes cancelar cambios pendientes en la suscripción de tu cuenta y cambios pendientes en tus suscripciones a otras funciones y productos pagos.
@@ -17,23 +19,20 @@ Cuando cancelas un cambio pendiente, tu suscripción no cambiará en tu próxima
 ### Ver y administrar cambios pendientes en tu suscripción de cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Ver y administrar cambios pendientes en tu suscripción de organización
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-### Further reading
+### Leer más
 
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"

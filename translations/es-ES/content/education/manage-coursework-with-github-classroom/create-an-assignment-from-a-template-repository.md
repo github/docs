@@ -1,6 +1,6 @@
 ---
 title: Crear una tarea desde un repositorio de plantilla
-intro: Puedes crear una tarea desde un repositorio de plantilla para proporcionar a tus alumnos código inicial, documentación y otros recursos.
+intro: 'Puedes crear una tarea desde un repositorio de plantilla para proporcionar a tus alumnos código inicial, documentación y otros recursos.'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -11,9 +11,7 @@ Puedes utilizar un repositorio de plantilla en {% data variables.product.product
 
 Para utilizar el repositorio de plantilla para tu tarea, éste debe pertenecer a tu organización, o su visibilidad debe ser pública.
 
-{% data reusables.classroom.you-may-want-to-predefine-repository-settings %} Para obtener más información, consulta la sección "[Configurar los ajustes predeterminados para los repositorios de las tareas](/education/manage-coursework-with-github-classroom/configure-default-settings-for-assignment-repositories)".
-
-### Further reading
+### Leer más
 
 - "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"
 - "[Crear una tarea grupal](/education/manage-coursework-with-github-classroom/create-a-group-assignment)"

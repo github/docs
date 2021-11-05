@@ -1,1 +1,0 @@
-Each assignment has a title and an optional deadline. You can choose the visibility of repositories that {% data variables.product.prodname_classroom %} creates and choose access permissions. You can also automatically grade assignments and create a dedicated space to discuss the assignment with the student.

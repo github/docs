@@ -1,1 +1,1 @@
-1. Under "Value", type the value of your secret. !["Value" textbox](/assets/images/help/settings/codespaces-secret-value-field.png)
+1. "Value（値）"の下で、シークレットの値を入力してください。 !["値"テキストボックス](/assets/images/help/settings/codespaces-secret-value-field.png)

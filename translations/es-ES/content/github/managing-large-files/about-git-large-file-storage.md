@@ -50,6 +50,6 @@ Hace un seguimiento de la `version` de {% data variables.large_files.product_nam
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Colaborar con {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage)"

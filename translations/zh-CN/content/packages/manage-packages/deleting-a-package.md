@@ -54,7 +54,7 @@ versions:
 以下是使用个人访问令牌，通过 cURL 命令删除包版本的示例，包版本 ID 为 `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`。
 
 {% if currentVersion == "free-pro-team@latest" %}
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \
@@ -64,7 +64,7 @@ https://api.github.com/graphql
 
 {% else %}
 
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \

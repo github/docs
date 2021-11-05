@@ -1,2 +1,1 @@
-1. In the left sidebar, click **Enterprise{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} overview{% endif %}**.
-  ![Enterprise{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} overview{% endif %} tab in the Site admin settings](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)
+1. Na barra lateral esquerda, clique em **Empresa{% ifversion ghes or ghae %} visão geral{% endif %}**. ![Empresa{% ifversion ghes or ghae %} aba visão geral{% endif %} nas configurações de administrador do Site](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)

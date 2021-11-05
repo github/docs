@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Codespaces**. !["Codespaces" tab in left sidebar](/assets/images/help/organizations/codespaces-sidebar-tab.png)
+1. 左のサイドバーで**Codespaces**をクリックしてください。 ![左のサイドバー内の"Codespaces"タブ](/assets/images/help/organizations/codespaces-sidebar-tab.png)

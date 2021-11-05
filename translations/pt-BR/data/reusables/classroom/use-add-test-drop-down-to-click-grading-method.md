@@ -1,1 +1,1 @@
-Under "Add autograding tests", select the **Add test** drop-down menu, then click the grading method you want to use.
+Em "Adicionar testes de avaliação automática", selecione o menu suspenso **Adicionar teste** e, em seguida, clique no método de avaliação que você deseja usar.

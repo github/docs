@@ -109,7 +109,7 @@ Em algumas situações, os termos de terceiros podem ser aplicados ao uso do ser
 
 #### 2.1.5 Termos do Governo Federal do EUA. Termos do Governo Federal.
 
-Se o cliente é dos EUA. Se o Cliente for uma agência do Governo Federal dos EUA ou que acessa ou usa qualquer parte do Serviço em instalações governamentais, a [Emenda do Governo Federal dos EUA](https://help.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) se aplicará e o cliente concordará com as disposições dela. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
+Se o cliente é dos EUA. Se o Cliente for uma agência do Governo Federal dos EUA ou que acessa ou usa qualquer parte do Serviço em instalações governamentais, a [Emenda do Governo Federal dos EUA](https://docs.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) se aplicará e o cliente concordará com as disposições dela. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
 
 ### 2.2 Cumprimento das leis; Uso aceitável; Privacidade.
 

@@ -1,7 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 {% note %}
+**Observação:** Se você habilitar
 
-**Note:** If you enable {% data variables.product.prodname_GH_advanced_security %}, committers to these repositories will use seats on your {% data variables.product.prodname_GH_advanced_security %} license.
-
+Os committers de {% data variables.product.prodname_GH_advanced_security %} nesses repositórios usarão assentos na sua licença de {% data variables.product.prodname_GH_advanced_security %}. Esta opção está desabilitada se você excedeu a capacidade da sua licença. {% ifversion fpt or ghec %}For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 {% endnote %}
 {% endif %}

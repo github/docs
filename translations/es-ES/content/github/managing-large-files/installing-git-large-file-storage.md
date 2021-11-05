@@ -109,6 +109,6 @@ versions:
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - "[Configurar {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)"

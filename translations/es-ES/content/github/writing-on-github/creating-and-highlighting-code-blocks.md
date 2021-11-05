@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### Resaltado de la sintaxis
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 Puedes agregar un identificador opcional de idioma para habilitar el resaltado de la sintaxis en tu bloque de código cercado.
 
@@ -46,7 +47,7 @@ Por ejemplo, para resaltar la sintaxis del código Ruby:
 
 Usamos [Lingüista](https://github.com/github/linguist) para realizar la detección del idioma y seleccionar [gramáticas independientes](https://github.com/github/linguist/blob/master/vendor/README.md) para el resaltado de la sintaxis. Puedes conocer las palabra clave válidas en [el archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

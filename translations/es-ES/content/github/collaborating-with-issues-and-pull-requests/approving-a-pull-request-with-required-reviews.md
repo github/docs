@@ -7,9 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+Para obtener más información sobre las revisiones requeridas, consulta la sección "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
 Puedes comentar una solicitud de extracción, aprobar los cambios o solicitar mejoras antes de aprobarlas. Para obtener más información, consulta "[Revisar las modificaciones propuestas en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
@@ -32,7 +34,7 @@ Puedes comentar una solicitud de extracción, aprobar los cambios o solicitar me
 
 {% data reusables.repositories.request-changes-tips %}
 
-### Further reading
+### Leer más
 
 - "[Revisar los cambios propuestos en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Comentar sobre una solicitud de extracción](/articles/commenting-on-a-pull-request)"

@@ -122,7 +122,7 @@ Para garantizar que todos los fines de línea en tu repositorio concuerdan con t
   $ git commit -m "Normalize all the line endings"
   ```
 
-### Further reading
+### Leer más
 
 - [Personalizar Git - Atributos de Git](https://git-scm.com/book/en/Customizing-Git-Git-Attributes) en el libro de Pro Git
 - [git-config](https://git-scm.com/docs/git-config) en las páginas man para Git

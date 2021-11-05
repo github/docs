@@ -1,1 +1,1 @@
-You can categorize discussions to help community members begin conversations in the right place, and to help community members find related discussions.
+您可以对讨论进行分类，以帮助社区成员在正确的位置开始对话，并帮助社区成员查找相关的讨论。

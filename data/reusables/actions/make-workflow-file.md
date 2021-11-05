@@ -1,0 +1,1 @@
+In your repository, create a file called `.github/workflows/YOUR_WORKFLOW.yml`, replacing `YOUR_WORKFLOW` with a name of your choice. This is a workflow file. For more information about creating new files on GitHub, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."

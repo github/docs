@@ -1,2 +1,1 @@
-{% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@2. 2" %} 默认情况下，{% data variables.product.product_name %} 会将构建日志和构件存储 90 天，此保留期可以自定义。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% endif %}
-{% if currentVersion == "enterprise-server@2.22" %} {% data variables.product.product_name %} 存储 90 天的完整构建日志和构件。{% endif %}
+By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and this retention period can be customized. 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。

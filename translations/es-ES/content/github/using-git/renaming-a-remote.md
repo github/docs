@@ -54,6 +54,6 @@ $ git remote -v
 
 Este error significa que el nombre del remoto que quieres utilizar ya existe. Para resolverlo, utiliza un nombre de remoto diferente o renombra el remoto original.
 
-### Further reading
+### Leer más
 
 - ["Working with Remotes" (Trabajar con remotos) desde el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

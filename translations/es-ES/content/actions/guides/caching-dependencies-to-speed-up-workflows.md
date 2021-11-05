@@ -9,8 +9,12 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de almacenar en caché las dependencias de flujo de trabajo
 
@@ -18,7 +22,7 @@ Las ejecuciones de flujo de trabajo a menudo reutilizan las mismas salidas o dep
 
 Los trabajos en los ejecutores alojados {% data variables.product.prodname_dotcom %} se inician en un entorno virtual limpio y deben descargar dependencias cada vez, lo que provoca una mayor utilización de la red, un tiempo de ejecución más largo y un mayor costo. Para ayudar a acelerar el tiempo que se tarda en volver a crear estos archivos, {% data variables.product.prodname_dotcom %} puede almacenar en caché las dependencias que utilizas con frecuencia en los flujos de trabajo.
 
-Para almacenar en caché las dependencias de un trabajo, deberás usar la acción de `caché` de {% data variables.product.prodname_dotcom %}. La acción recupera una caché identificada por una clave única. Para más información, consulta [`actions/cache`](https://github.com/actions/cache).
+Para almacenar en caché las dependencias de un trabajo, deberás usar la acción de `caché` de {% data variables.product.prodname_dotcom %}. La acción recupera una caché identificada por una clave única. Para más información, consulta [`actions/cache`](https://github.com/actions/cache). Si estás guardando gemas de Ruby en caché, mejor consider utilizar la acción mantenida de Ruby, la cual puede guardar paquetes de instalación en caché en el inicio. Para obtener más información, consulta la sección [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
 {% warning %}
 
@@ -55,7 +59,16 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
 
 - `key`: **Obligatorio** La clave que se crea cuando se guarda una memoria caché y la clave utilizada para buscar una caché. Puede ser cualquier combinación de variables, valores de contexto, cadenas estáticas y funciones. Las claves tienen una longitud máxima de 512 caracteres y las claves más largas que la longitud máxima provocarán un error en la acción.
 - `path`: **Obligatorio** La ruta del archivo en el ejecutor para almacenar en caché o restaurar. La ruta debe ser absoluta o relativa al directorio de trabajo.
-  - Con la `v2` de la acción `cache`, puedes especificar una ruta única, o rutas múltiples en forma de lista. Las rutas pueden ser tanto directorios o solo archivos, y los patrones estilo glob son compatibles.
+  - Las rutas pueden ser tanto directorios o solo archivos, y los patrones estilo glob son compatibles.
+  - Con la `v2` de la acción `cache`, puedes especificar una ruta sencilla o puedes agregar rutas múltiples en líneas separadas. Por ejemplo:
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - Con la `v1` de la acción `cache`, solo se puede utilizar una ruta única, la cual debe ser un directorio. No puedes almacenar en caché un archivo único.
 - `restore-keys`: **Opcional** Una lista ordenada de claves alternativas que se usan para encontrar la caché si no se ha producido ningún hit de caché para `key`.
 
@@ -68,7 +81,7 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
 Este ejemplo crea una nueva memoria caché cuando los paquetes en el archivo `package-lock.json` cambian o cuando cambia el sistema operativo del ejecutor. La clave de caché usa contextos y expresiones para generar una clave que incluye el sistema operativo del ejecutor y un hash SHA-256 del archivo `package-lock.json`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching with npm
 
 on: push
@@ -78,30 +91,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build
-      run: npm build
+      - name: Build
+        run: npm build
 
-    - name: Test
-      run: npm test
-
+      - name: Test
+        run: npm test
 ```
 {% endraw %}
 
@@ -124,14 +136,14 @@ Una clave de caché puede incluir cualquiera de los contextos, funciones, litera
 Usar expresiones para crear una `key` te permite crear automáticamente una nueva caché cuando las dependencias han cambiado. Por ejemplo, puedes crear una `key` utilizando una expresión que calcule el hash de un archivo `package-lock.json` de npm.
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} evalúa la expresión `hash "package-lock.json"` para obtener la última `key`.
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -144,7 +156,7 @@ Puedes proporcionar una lista de claves de restauración para usar cuando haya u
 #### Ejemplo usando múltiples claves de restauración
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -155,7 +167,7 @@ restore-keys: |
 El ejecutor evalúa las expresiones, que resuelven estas `restore-keys`:
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-

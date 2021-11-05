@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-pre-release-program
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ¡Gracias por registrarte para participar en los programas de prelanzamiento de GitHub!  Como miembro de confianza de nuestra comunidad, tu opinión sobre las características nuevas y experimentales es importante para nosotros.  Con el fin de compartir con ustedes estos nuevos productos y servicios, muchos de los cuales siguen siendo secretos y en desarrollo, necesitaremos que acepten un conjunto especial de términos. Bienvenido al acuerdo del programa de prelanzamiento ("Acuerdo").
@@ -62,7 +65,7 @@ El presente acuerdo es un acuerdo legal entre tú ("tú", "tu") y GitHub, Inc. (
 
   Ninguna parte del presente acuerdo perjudicará nuestro derecho a desarrollar, adquirir, licenciar, comercializar, promocionar o distribuir productos, software o tecnologías que puedan competir con tus productos.
 
-### 11. Privacy
+### 11. Privacidad
 
   Como parte del desarrollo y la evaluación de nuestros programas de evaluación, GitHub necesita recopilar información sobre cómo tu uso de los servicios y los programas y cómo GitHub puede mejorarlos. Al aceptar participar en los programas de prelanzamiento de GitHub, aceptas que has leído y has dado tu consentimiento a nuestra [Política de privacidad completa](/articles/github-privacy-statement/).
 

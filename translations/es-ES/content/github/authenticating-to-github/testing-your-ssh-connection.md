@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Antes de probar tu conexión SSH, debes haber hecho lo siguiente:
@@ -31,7 +33,7 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
   > ¿Estás seguro de que quieres continuar conectado (sí/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+3. Verifica que la huella dactilar en el mensaje que ves empate con % if currentVersion == "free-pro-team@latest" %} [aquella de la llave pública de RSA de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} aquella de la llave pública de tu empresa{% endif %}. Si lo hace, entonces teclea `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

@@ -17,7 +17,7 @@ versions:
 7. Da clic en **Editar**. También puedes hacer clic en **Eliminar**. ![Botón Editar debate de equipo](/assets/images/help/projects/edit-team-discussions-button.png)
 8. Modifica el título y el comentario del debate de equipo según sea necesario, y haz clic en **Actualizar comentario**. ![Botón Actualizar comentario](/assets/images/help/projects/update-comment-button.png)
 
-### Further reading
+### Leer más
 
   - "[Acerca de los debates del equipo](/articles/about-team-discussions)"
   - "[Crear un debate de equipo](/articles/creating-a-team-discussion)"

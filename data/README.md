@@ -26,4 +26,8 @@ Webhook payload JSON files are used in the [`webhook events docs`](../content/de
 
 ## ui.yml
 
-`ui.yml` contains localized strings used in HTML layouts.
+`ui.yml` contains localized strings used in layouts.
+
+## Learning Tracks
+
+Learning tracks are a collection of articles that help you master a particular subject. See [learning-tracks/README.md](learning-tracks/README.md).

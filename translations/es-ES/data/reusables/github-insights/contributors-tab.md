@@ -1,1 +1,1 @@
-1. Under **{% octicon "gear" aria-label="The gear icon" %} Settings**, click **Contributors**. ![Pestaña de colaboradores](/assets/images/help/insights/contributors-tab.png)
+1. Debajo de **Configuración {% octicon "gear" aria-label="The gear icon" %}**, da clic en **Colaboradores**. ![Pestaña de colaboradores](/assets/images/help/insights/contributors-tab.png)

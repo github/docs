@@ -1,1 +1,1 @@
-If an issue turns out to be a question or open-ended conversation instead of a work item to track and prioritize, you can convert the issue to a discussion.
+Se um problema for uma pergunta ou conversa aberta em vez de um item de trabalho para rastrear e priorizar, você poderá converter o problema em uma discussão.

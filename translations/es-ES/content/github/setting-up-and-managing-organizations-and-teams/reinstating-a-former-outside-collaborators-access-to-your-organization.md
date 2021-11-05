@@ -1,6 +1,6 @@
 ---
 title: Reinstalar el acceso de un colaborador externo antiguo a tu organización
-intro: "Puedes reinstaurar los permisos de acceso de un colaborador externo previo para los repositorios, bifurcaciones y configuraciones de la organización."
+intro: 'Puedes reinstaurar los permisos de acceso de un colaborador externo previo para los repositorios, bifurcaciones y configuraciones de la organización.'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Cuando se elimina el acceso de un colaborador externo a los repositorios privados de tu organización, los privilegios de acceso y configuraciones de éste se guardan por tres meses. Puedes restablecer los privilegios del usuario si los vuelves a{% if currentVersion =="free-pro-team@latest" %}invitar{% else %} agregar{% endif %} a la organización dentro de este periodo de tiempo.

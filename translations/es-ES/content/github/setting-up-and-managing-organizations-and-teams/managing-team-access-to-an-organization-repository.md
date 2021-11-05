@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Las personas con acceso de administrador a un repositorio pueden administrar el acceso del equipo a un repositorio. Los mantenedores del equipo pueden eliminar el acceso de un equipo a un repositorio.
@@ -44,6 +47,6 @@ Puedes eliminar el acceso de un equipo a un repositorio si el equipo tiene acces
 6. Encima de la lista de repositorios, utiliza el menú desplegable, y haz clic en **Remove from team (Eliminar del equipo)**. ![Menú desplegable con la opción de eliminar un repositorio de un equipo](/assets/images/help/teams/remove-team-repo-dropdown.png)
 7. Revisa el o los repositorios que serán eliminados del equipo, después haz clic en **Remove repositories (Eliminar repositorios)**. ![Casilla modal con una lista de repositorios a los que el equipo ya no tiene acceso](/assets/images/help/teams/confirm-remove-team-repos.png)
 
-### Further reading
+### Leer más
 
 - "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"

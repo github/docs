@@ -9,7 +9,7 @@ versions:
 2. Haz clic en **Watching** (Ver) para ver la lista de repositorios que estás observando. ![Lista de repositorios observados](/assets/images/help/notifications/notifications-watching-tab.png)
 3. Da clic en **Dejar de Seguir** o en **Dejar de seguir los lanzamientos** junto al repositorio del que ya no quieras recibir notificaciones.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Observar y dejar de observar un repositorio](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"

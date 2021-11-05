@@ -96,7 +96,7 @@ Activa tu ayudante de credenciales de manera que Git guarde tu contraseña en la
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - "[Actualizar credenciales desde la Keychain OSX](/articles/updating-credentials-from-the-osx-keychain/)"
 - "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)"

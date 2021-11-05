@@ -1,7 +1,7 @@
 ---
 title: Integra a GitHub Classroom con un IDE en línea
 shortTitle: Integrar con un IDE en línea
-intro: Puedes preconfigurar un ambiente de desarrollo integrado (IDE) en línea para las tareas que crees en {% data variables.product.prodname_classroom %}.
+intro: 'Puedes preconfigurar un ambiente de desarrollo integrado (IDE) en línea para las tareas que crees en {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -37,6 +37,6 @@ La primera vez que configuras una tarea con un IDE en elínea, debes autorizar l
 
 En todos tus repositorios, otorga acceso de **lectura** a la app para metadatos, administración y código, y acceso de **escritura** para administración y código. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

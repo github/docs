@@ -1,1 +1,7 @@
-You can optionally choose a template repository as starter code for the assignment. The template repository must belong to your organization or be a public repository on {% data variables.product.product_name %}. 
+課題のためのスターターコードとしてテンプレートリポジトリを選択することもできます。 テンプレートリポジトリに関する詳しい情報については、「[テンプレートリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)」を参照してください。
+
+{% note %}
+
+**ノート:** テンプレートリポジトリは、Organizationに属しているか、{% data variables.product.product_name %}上のパブリックリポジトリでなければなりません。
+
+{% endnote %}

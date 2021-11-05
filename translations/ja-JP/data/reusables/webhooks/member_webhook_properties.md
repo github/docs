@@ -1,3 +1,3 @@
 | キー       | 種類       | 説明                                                |
 | -------- | -------- | ------------------------------------------------- |
-| `action` | `string` | 実行されたアクション. 次のいずれかになります。<ul><li> `added` - A user accepts an invitation to a repository.</li><li>`removed` - A user is removed as a collaborator in a repository.</li><li>`edited` - A user's collaborator permissions have changed. </li></ul> |
+| `action` | `string` | 実行されたアクション. 次のいずれかになります。<ul><li> `added` - ユーザがリポジトリへの招待を受け入れた。</li><li>`removed` - ユーザがリポジトリのコラボレータとして削除された。</li><li>`edited` - ユーザのコラボレータ権限が変更された。 </li></ul> |

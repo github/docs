@@ -8,7 +8,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### Crear un repositorio
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -24,7 +31,7 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 
 {% note %}
 
-**Nota:** Puedes crear repositorios públicos para un proyecto de código abierto. Cuando crees un repositorio público, asegúrate de incluir un [archivo de licencia](http://choosealicense.com/) que determine cómo deseas que se comparta tu proyecto con otros usuarios. {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
+**Nota:** Puedes crear repositorios públicos para un proyecto de código abierto. Cuando crees un repositorio público, asegúrate de incluir un [archivo de licencia](https://choosealicense.com/) que determine cómo deseas que se comparta tu proyecto con otros usuarios. {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
 
@@ -57,7 +64,7 @@ Cuando creaste tu nuevo repositorio, lo inicializaste con un archivo *README*. L
 
 Confirmemos un cambio en el archivo *README*.
 
-1. Es la lista de archivos de tu repositorio, haz clic en ***README.md***. ![Archivo Readme en la lista de archivos](/assets/images/help/repository/create-commit-open-readme.png)
+1. Es la lista de archivos de tu repositorio, haz clic en ***README.md***. ![Archivo README en la lista de archivos](/assets/images/help/repository/create-commit-open-readme.png)
 2. En el contenido del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %}.
 3. En la pestaña **Editar archivo**, escribe alguna información sobre ti. ![Nuevo contenido en el archivo](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 En una tarjeta, puedes dar clic en cualquier asignado, hito, o etiqueta para filtrar el tablero de proyecto de acuerdo con ese calificador. Para limpiar la búsqueda, puedes dar clic en el mismo asignado, hito o etiqueta nuevamente.
@@ -34,7 +36,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
 - "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"

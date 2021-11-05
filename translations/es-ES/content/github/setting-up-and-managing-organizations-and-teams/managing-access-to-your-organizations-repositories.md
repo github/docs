@@ -5,10 +5,13 @@ redirect_from:
   - /articles/permission-levels-for-an-organization-repository/
   - /articles/managing-access-to-your-organization-s-repositories
   - /articles/managing-access-to-your-organizations-repositories
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 

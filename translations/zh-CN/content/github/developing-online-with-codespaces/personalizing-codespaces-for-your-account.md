@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -31,8 +33,6 @@ Dotfiles 是类似 Unix 的系统上以 `.` 开头的文件和文件夹，用于
 如果未找到这些文件，则 `dotfiles` 中以 `.` 开头的文件或文件夹通过符号链接到代码空间的 `~` 或 `$HOME` 目录。
 
 对 `dotfile` 仓库所做的任何更改只会应用到每个新的代码空间，而不影响任何现有的代码空间。
-
-更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的[个性化](https://docs.microsoft.com/visualstudio/online/reference/personalizing)。
 
 {% note %}
 

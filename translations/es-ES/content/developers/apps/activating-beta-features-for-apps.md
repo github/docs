@@ -3,6 +3,8 @@ title: Activar las características beta para las apps
 intro: 'Puedes probar nuevas características que se lanzan para el beta público para tus {% data variables.product.prodname_github_apps %} y {% data variables.product.prodname_oauth_app %}s.'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% warning %}

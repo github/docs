@@ -10,7 +10,7 @@ versions:
 
 ### 1. 企業向け利用規約
 
-評価版にアクセスするお客様には、GitHub.comの法人アカウントが必要です。 Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). ただし、[Enterprise Cloudの付属文書](https://help.github.com/articles/github-enterprise-cloud-addendum)に伴う補足条項は、お客様が購入した製品をEnterprise Cloudの有料サブスクリプションにアップグレードするまでは**適用されません**。本評価契約で定義されていない大文字表記の条件は、企業向け利用規約で定義されています。
+評価版にアクセスするお客様には、GitHub.comの法人アカウントが必要です。 Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). ただし、[Enterprise Cloudの付属文書](https://docs.github.com/articles/github-enterprise-cloud-addendum)に伴う補足条項は、お客様が購入した製品をEnterprise Cloudの有料サブスクリプションにアップグレードするまでは**適用されません**。本評価契約で定義されていない大文字表記の条件は、企業向け利用規約で定義されています。
 
 ### 2. 契約期間および解約
 

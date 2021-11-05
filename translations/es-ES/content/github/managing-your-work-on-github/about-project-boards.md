@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
@@ -57,7 +59,7 @@ Para obtener más información, consulta "[Acerca de la automatización para tab
 
 {% data reusables.project-management.copy-project-boards %}
 
-### Further reading
+### Leer más
 
 - "[Crear un tablero de proyecto](/articles/creating-a-project-board)"
 - "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}

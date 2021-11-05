@@ -1,0 +1,1 @@
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} usage beyond the amounts included with your account.

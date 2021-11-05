@@ -2,7 +2,7 @@
 title: Cargar cambios en GitHub
 shortTitle: Cargar cambios
 intro: 'De manera que confirmes cambios localmente en tu proyecto, puedes cargarlos a {% data variables.product.prodname_dotcom %} para que otros puedan acceder a ellos desde el repositorio remoto.'
-permissions: Las personas con permisos de escritura pueden cargar cambios a un repositorio.
+permissions: People with write permissions can push changes to a repository.
 redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
 versions:
@@ -34,6 +34,6 @@ Si configuras a {% data variables.large_files.product_name_long %} para rastrear
 2. Si {% data variables.product.prodname_desktop %} te pide traer las confirmaciones nuevas de la rama remota, da clic en **Recuperar**. ![El botón de recuperar](/assets/images/help/desktop/fetch-newer-commits.png)
 3. Opcionalmente, da clic en **Crear Solicitud de Extracción** para abrir una solicitud de extracción y colaborar en tus cambios. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" ![El botón de crear solicitud de extracción](/assets/images/help/desktop/create-pull-request.png)
 
-### Further reading
+### Leer más
 - "[Cargar](/github/getting-started-with-github/github-glossary/#push)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Confirmar y revisar los cambios hechos a tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)"

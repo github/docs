@@ -15,6 +15,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
+topics:
+  - Git
+  - Enterprise
+  - LFS
+  - Storage
 ---
 
 ### Acerca de {% data variables.large_files.product_name_long %}
@@ -132,6 +138,6 @@ Antes de migrarte a un servidor de {% data variables.large_files.product_name_lo
   ```
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Sitio del proyecto {% data variables.large_files.product_name_long %}](https://git-lfs.github.com/)

@@ -7,7 +7,7 @@ redirect_from:
   - /articles/importing-an-external-git-repo/
   - /articles/importing-your-project-to-github/
   - /articles/importing-source-code-to-github
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -36,12 +36,16 @@ A continuación aparece una lista de algunos de los atajos del teclado disponibl
 | <kbd>g</kbd> <kbd>p</kbd> | Dirige a la pestaña **Pull requests** (Solicitudes de extracción). Para obtener más información, consulta la sección "[Acerca de las solicitudes de cambios](/articles/about-pull-requests)".{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | Ve a la pestaña de **Acciones**. Para obtener más información, consulta la sección "[Acerca de las acciones](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | Dirige a la pestaña **Projects** (Proyectos). Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."                                                                                                                                    |
-| <kbd>g</kbd> <kbd>w</kbd> | Dirige a la pestaña **Wiki**. Para obtener más información, consulta "[Acerca de las wikis](/articles/about-wikis)".                                                                                                                                                                             |
+| <kbd>g</kbd> <kbd>w</kbd> | Dirige a la pestaña **Wiki**. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
+| <kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ### Edición del código fuente
 
 | Atajo del teclado                                                 | Descripción                                                                                                  |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| <kbd>control b</kbd> o <kbd>comando b</kbd>                       | Inserta el formato Markdown para el texto en negrita                                                         |
+| <kbd>control i</kbd> o <kbd>comando i</kbd>                       | Inserta el formato Markdown para el texto en cursiva                                                         |
+| <kbd>control k</kbd> o <kbd>comando k</kbd>                       | Inserta el formato Markdown para crear un enlace                                                             |
 | <kbd>e</kbd>                                                      | Abre el archivo de código fuente en la pestaña **Editar archivo**                                            |
 | <kbd>control f</kbd> o <kbd>comando f</kbd>                       | Comienza la búsqueda en el editor de archivos                                                                |
 | <kbd>control g</kbd> o <kbd>comando g</kbd>                       | Busca el siguiente                                                                                           |
@@ -52,6 +56,7 @@ A continuación aparece una lista de algunos de los atajos del teclado disponibl
 | <kbd>control z</kbd> o <kbd>comando z</kbd>                       | Deshace                                                                                                      |
 | <kbd>control y</kbd> o <kbd>comando y</kbd>                       | Rehace                                                                                                       |
 | <kbd>cmd + shift + p</kbd>                                        | Alterna entre las pestañas **Edit file** (Editar comentario) y **Preview changes** (Vista previa de cambios) |
+| <kbd>control s</kbd> o <kbd>command s</kbd>                       | Escribir un mensaje de confirmación                                                                          |
 
 Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror](https://codemirror.net/doc/manual.html#commands).
 
@@ -64,6 +69,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>w</kbd>      | Cambia a una rama o etiqueta nueva                                                                                                                                                                    |
 | <kbd>y</kbd>      | Expande una URL a su forma canónica. Para obtener más información, consulta "[Obtener enlaces permanentes a los archivos](/articles/getting-permanent-links-to-files)".                               |
 | <kbd>i</kbd>      | Muestra u oculta comentarios en diferencias. Para obtener más información, consulta "[Comentar en la diferencia de una solicitud de extracción](/articles/commenting-on-the-diff-of-a-pull-request)". |
+| <kbd>a</kbd>      | Muestra u oculta las anotaciones en los diffs                                                                                                                                                         |
 | <kbd>b</kbd>      | Abre la visualización del último responsable. Para obtener más información, consulta "[Rastrear las modificaciones de un archivo](/articles/tracing-changes-in-a-file)".                              |
 
 ### Comentarios
@@ -76,7 +82,8 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>control shift p</kbd> o <kbd>comando shift p</kbd>                        | Alterna entre las pestañas de comentarios **Write** (Escribir) y **Preview** (Vista previa)                                                                                                                                                                                                         |
 | <kbd>control enter</kbd>                                                       | Envía un comentario                                                                                                                                                                                                                                                                                 |
 | <kbd>control .</kbd> y luego <kbd>control [número de respuesta guardada]</kbd> | Abre el menú de respuestas guardadas y luego completa automáticamente el campo de comentarios con una respuesta guardada. Para obtener más información, consulta la sección "[Acerca de las respuestas guardadas](/articles/about-saved-replies)".{% if currentVersion == "free-pro-team@latest" %}
-| <kbd>control g</kbd> o <kbd>comando g</kbd>                                    | Inserta una sugerencia. Para obtener más información, consulta "[Revisar las modificaciones propuestas en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+| <kbd>control g</kbd> o <kbd>comando g</kbd>                                    | Inserta una sugerencia. Para obtener más información, consulta "[Revisar las modificaciones propuestas en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)." 
+{% endif %}
 | <kbd>r</kbd>                                                                   | Cita el texto seleccionado en tu respuesta. Para obtener más información, consulta "[Escritura básica y sintaxis de formato](/articles/basic-writing-and-formatting-syntax#quoting-text)".                                                                                                          |
 
 ### Listas de propuestas y solicitudes de extracción
@@ -111,7 +118,8 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>k</kbd>                           | Mueve la selección hacia arriba en la lista                                                                                                                                                                                                                                                                                                                                                     |
 | <kbd>cmd + shift + enter </kbd>        | Agrega un comentario simple en una diferencia de solicitud de extracción                                                                                                                                                                                                                                                                                                                        |
 | <kbd>alt</kbd> y haz clic              | Alterna entre colapsar y expandir todos los comentarios de revisión desactualizados en una solicitud de cambios presionando `alt` y dando clic en **Mostrar desactualizados** U **Ocultar.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} desactualizados**                                        |
-| Da clic, luego <kbd>shift</kbd> y clic | Comenta en líneas múltiples de una solicitud de extracción dando clic en un número de línea, sosteniendo <kbd>shift</kbd>, y luego dando clic en otro número de línea. Para obtener más información, consulta "[Comentar en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
+| Da clic, luego <kbd>shift</kbd> y clic | Comenta en líneas múltiples de una solicitud de extracción dando clic en un número de línea, sosteniendo <kbd>shift</kbd>, y luego dando clic en otro número de línea. Para obtener más información, consulta "[Comentar en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."
+{% endif %}
 
 ### Tableros de proyecto
 
@@ -159,10 +167,10 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | Atajo del teclado                                        | Descripción                                                                                   |
 | -------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | <kbd>command + space </kbd> o <kbd>control + space</kbd> | En el editor del flujo de trabajo, obtén las sugerencias para tu archivo de flujo de trabajo. |
-| <kbd>g</kbd> <kbd>f</kbd>                                | Go to the workflow file                                                                       |
-| <kbd>shift + t</kbd> or <kbd>T</kbd>                     | Toggle timestamps in logs                                                                     |
-| <kbd>shift + f</kbd> or <kbd>F</kbd>                     | Toggle fullscreen logs                                                                        |
-| <kbd>esc</kbd>                                           | Exit fullscreen logs                                                                          |
+| <kbd>g</kbd> <kbd>f</kbd>                                | Ir al archivo de flujo de trabajo                                                             |
+| <kbd>shift + t</kbd> or <kbd>T</kbd>                     | Activa las marcas de tiempo en las bitácoras                                                  |
+| <kbd>shift + f</kbd> or <kbd>F</kbd>                     | Activa las bitácoras de pantalla completa                                                     |
+| <kbd>esc</kbd>                                           | Sal de las bitácoras de pantalla completa                                                     |
 
 {% endif %}
 
@@ -183,7 +191,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>shift + m</kbd>                       | Silencia el hilo |
 {% endif %}
 
-### Network graph
+### Gráfica de Red
 
 | Atajo del teclado                           | Descripción                      |
 | ------------------------------------------- | -------------------------------- |

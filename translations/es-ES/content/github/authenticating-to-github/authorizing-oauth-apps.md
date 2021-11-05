@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Cuando una {% data variables.product.prodname_oauth_app %} quiere identificarte a través de tu cuenta de {% data variables.product.product_name %}, verás una página con la información de contacto del desarrollador de la app y una lista de los datos específicos que se han solicitado.
@@ -78,7 +81,7 @@ Cuando autorizas una {% data variables.product.prodname_oauth_app %} para tu cue
 
 Si perteneces a cualquier organizacion que imponga el inicio de sesión único de SAML, debes tener una sesión activa de SAML para cada organización cada vez que autorices un {% data variables.product.prodname_oauth_app %}.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las restricciones de acceso a {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)"
 - "[Soporte técnico de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-support)"

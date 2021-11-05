@@ -34,7 +34,7 @@ versions:
 5. En la página del equipo, encuentra el debate del que deseas cancelar la suscripción.
 6. En el ángulo superior derecho del debate, haz clic en {% octicon "mute" aria-label="The unsubscribe symbol" %} para cancelar la suscripción al debate. ![Botón para suscribirse a un debate de equipo](/assets/images/help/notifications/team-discussion-unsubscribe-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
 - "[Acerca de los debates en {% data variables.product.product_name %}](/articles/about-conversations-on-github)"

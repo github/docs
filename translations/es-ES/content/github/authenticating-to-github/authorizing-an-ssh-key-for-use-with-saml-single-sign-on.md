@@ -6,6 +6,8 @@ redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - SSO
 ---
 
 Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego autorizarla. Para más información sobre la creación de una nueva clave SSH, consulta "[Generar una nueva clave SSH y agregarla al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
@@ -22,7 +24,7 @@ Puedes autorizar una clave SSH existente, o crear una nueva clave SSH, y luego a
 4. Busca la organización para la que deseas autorizar la clave SSH.
 5. Da clic en **Autorizar**. ![Botón para autorizar el token](/assets/images/help/settings/ssh-sso-authorize.png)
 
-### Further reading
+### Leer más
 
 - "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
 - "[Acerca de la autenticación con inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)"

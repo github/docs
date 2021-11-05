@@ -1,11 +1,18 @@
 ---
 title: Configurar el inicio de sesión único de SAML para tu empresa
 shortTitle: Configurar el SSO de SAML
-intro: Puedes configurar el inicio de sesión único (SSO) de SAML para tu empresa, el cual te permite controlar la autenticación centralmente para {% data variables.product.product_location %} utilizando tu proveedor de identidad (IdP).
+intro: 'Puedes configurar el inicio de sesión único (SSO) de SAML para tu empresa, el cual te permite controlar la autenticación centralmente para {% data variables.product.product_location %} utilizando tu proveedor de identidad (IdP).'
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Los propietarios de las empresas pueden configurar el SSO de SAML para una empresa en {% data variables.product.product_name %}.
+permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### Acerca de SAML SSO

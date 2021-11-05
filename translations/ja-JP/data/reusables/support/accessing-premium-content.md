@@ -1,4 +1,4 @@
 
 ### プレミアムコンテンツにアクセスする
 
-{% data variables.contact.contact_enterprise_portal %}にサインインすることによりプレミアムコンテンツにアクセスできます。
+{% data variables.contact.contact_landing_page_portal %}にサインインすることによりプレミアムコンテンツにアクセスできます。

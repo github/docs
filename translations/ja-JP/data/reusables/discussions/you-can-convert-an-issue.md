@@ -1,1 +1,1 @@
-If an issue turns out to be a question or open-ended conversation instead of a work item to track and prioritize, you can convert the issue to a discussion.
+Issueが追跡して優先順位付けするような作業アイテムというよりは、疑問や自由形式の会話であることが分かった場合には、Issueをディスカッションに変換できます。

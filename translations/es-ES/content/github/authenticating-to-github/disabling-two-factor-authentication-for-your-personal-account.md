@@ -6,6 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 Te recomendamos encarecidamente que uses la autenticación de dos factores para proteger tu cuenta. Si necesitas inhabilitar la autenticación de dos factores, te recomendamos habilitarla nuevamente lo antes posible.
@@ -26,7 +28,7 @@ Para eliminarte a ti mismo de la organización:
 {% data reusables.user_settings.security %}
 3. Da clic en **Inhabilitar**. ![Botón Inhabilitar autenticación de dos factores](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)"
 - [Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)"

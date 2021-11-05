@@ -54,7 +54,7 @@ versions:
 
 {% endwindows %}
 
-### Further reading
+### Leer más
 
 - [Agregar una dirección de correo electrónico a tu cuenta de GitHub](/articles/adding-an-email-address-to-your-github-account/)"
 - "[Establecer tu dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)."

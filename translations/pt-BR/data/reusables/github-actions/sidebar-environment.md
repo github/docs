@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Environments**.
+1. Na barra lateral esquerda, clique em **Ambientes**.

@@ -1,7 +1,11 @@
 ---
 title: Facturación
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 Puedes monitorear tus cargos y uso de {% data variables.product.prodname_actions %} y de {% data variables.product.prodname_registry %} para un usuario y organización a través de la API de Facturación.

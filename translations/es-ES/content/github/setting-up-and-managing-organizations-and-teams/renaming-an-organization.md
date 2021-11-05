@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% tip %}
@@ -23,7 +26,7 @@ Después de cambiar el nombre de tu organización, el nombre antiguo de tu organ
 #### Cambios que ocurren automáticamente
 
 - {% data variables.product.prodname_dotcom %} redirige automáticamente las referencias a tus repositorios.  Los enlaces web a los **repositorios** existentes de tu organización seguirán funcionando. Puede tomar algunos minutos para que se complete luego de que inicies el cambio.
-- Puedes continuar subiendo tus repositorios locales a la URL de seguimiento del remoto antiguo sin actualizarla. Sin embargo, recomendamos que actualices todas las URL de repositorios remotos existentes después de cambiar el nombre de tu organización. Como el nombre antiguo de tu organización queda disponible para que lo utilice cualquier otra persona después de que lo cambies, el propietario de la organización nuevo puede crear repositorios que remplacen las entradas redirigidas a tu repositorio. Para obtener más información, consulta "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url).
+- Puedes continuar subiendo tus repositorios locales a la URL de seguimiento del remoto antiguo sin actualizarla. Sin embargo, recomendamos que actualices todas las URL de repositorios remotos existentes después de cambiar el nombre de tu organización. Como el nombre antiguo de tu organización queda disponible para que lo utilice cualquier otra persona después de que lo cambies, el propietario de la organización nuevo puede crear repositorios que remplacen las entradas redirigidas a tu repositorio. Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 - Las confirmaciones de Git anteriores también se atribuirán según corresponda a los usuarios de tu organización.
 
 #### Cambios que no son automáticos
@@ -40,7 +43,6 @@ Después de cambiar el nombre de tu organización:
 {% data reusables.organizations.org_settings %}
 4. Cerca de la parte de abajo de la página de parámetros, en "Rename organization" (Renombrar organización), haz clic en **Rename Organization** (Renombrar organización). ![Botón Rename organization (Renombrar organización)](/assets/images/help/settings/settings-rename-organization.png)
 
-### Further reading
+### Leer más
 
-* "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url)"
 * "[¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"

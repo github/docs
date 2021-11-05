@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Para que puedas duplicar un repositorio y subirlo a tu nueva copia, o _espejo_ del repositorio, antes debes [crear el nuevo repositorio](/articles/creating-a-new-repository) en {% data variables.product.product_location %}. En estos ejemplos, `exampleuser/new-repository` o `exampleuser/mirrored` son los espejos.
@@ -21,13 +23,13 @@ Para que puedas duplicar un repositorio y subirlo a tu nueva copia, o _espejo_ d
   ```
 3. Sube en espejo al nuevo repositorio.
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Eliminar el repositorio local temporal que creaste previamente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### Replicar un repositorio que contiene objetos de {% data variables.large_files.product_name_long %}
@@ -39,7 +41,7 @@ Para que puedas duplicar un repositorio y subirlo a tu nueva copia, o _espejo_ d
   ```
 3. Dirígete al repositorio que acabas de clonar.
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   ```
 4. Extra los objetos {% data variables.large_files.product_name_long %} del repositorio.
   ```shell
@@ -56,7 +58,7 @@ Para que puedas duplicar un repositorio y subirlo a tu nueva copia, o _espejo_ d
 7. Eliminar el repositorio local temporal que creaste previamente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### Replicar un repositorio en otra ubicación
@@ -70,7 +72,7 @@ Si quieres replicar un repositorio en otra ubicación, incluido obtener actualiz
   ```
 3. Establece la ubicación para subir en tu espejo.
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

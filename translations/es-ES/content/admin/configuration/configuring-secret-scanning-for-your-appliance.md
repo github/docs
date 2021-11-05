@@ -6,6 +6,8 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.secret-scanning.beta %}

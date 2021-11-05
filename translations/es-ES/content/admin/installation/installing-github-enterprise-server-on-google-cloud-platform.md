@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Prerrequisitos
@@ -20,34 +22,11 @@ versions:
 
 ### Determinar el tipo de máquina
 
-Antes de iniciar {% data variables.product.product_location %} en Google Cloud Platform, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización.
-
-#### Tipos de máquinas admitidas
-
-{% data variables.product.prodname_ghe_server %} es compatible en los siguientes tipo de máquinas de Google Compute Engine (GCE). Para obtener más información, consulta el [artículo sobre tipos de máquinas de Google Cloud Platform](https://cloud.google.com/compute/docs/machine-types).
-
-| Memoria alta  |
-| ------------- |
-| n1-highmem-4  |
-| n1-highmem-8  |
-| n1-highmem-16 |
-| n1-highmem-32 |
-| n1-highmem-64 |
-| n1-highmem-96 |
-
-#### Tipos recomendados de máquina
-
-Recomendamos estos tipos de máquina con base en la cantidad de licencias que tengas.
-
-|                 Asientos                 | Tipo recomendado |
-|:----------------------------------------:|:----------------:|
-| Prueba, Demo o 10 usuarios no frecuentes |  n1-standard-4   |
-|                10 - 3000                 |  n1-standard-8   |
-|               3000 - 5000                |   n1-highmem-8   |
-|               5000 - 8000                |  n1-highmem-16   |
-|              8000 - 10000+               |  n1-highmem-32   |
+Antes de iniciar {% data variables.product.product_location %} en Google Cloud Platform, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para revisar los requisitos mínimos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.company_short %} recomienda una máquina de propósitos generales con memoria alta para {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Tipos de máquina](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" en la documentación de Google Compute Engine.
 
 ### Seleccionar la imagen {% data variables.product.prodname_ghe_server %}
 
@@ -111,7 +90,7 @@ Para crear la instancia {% data variables.product.prodname_ghe_server %}, deber�
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
-### Further reading
+### Leer más
 
 - "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

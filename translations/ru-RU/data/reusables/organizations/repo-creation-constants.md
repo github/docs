@@ -1,1 +1,0 @@
-Organization owners can always create any type of repository, and outside collaborators can never create any type of repository. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."

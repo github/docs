@@ -1,18 +1,18 @@
 ---
 title: GitHub AE Data Protection Agreement
 hidden: true
-versions: 
-  free-pro-team: '*'
+versions:
+  fpt: '*'
 redirect_from:
   - /github/site-policy/ghem-data-protection-addendum
   - /github/site-policy/github-ae-data-protection-agreement
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 ## INTRODUCTION
 
-The parties agree that the GitHub AE Data Protection Agreement and Security Exhibit (together, the “**Data Protection Agreement**” or “**DPA**”) set forth obligations with respect to the processing and security of Customer Personal Data in connection with GitHub AE (the “**Online Service**”). GitHub makes the commitments in this DPA to all customers using the Online Service. 
+The parties agree that the GitHub AE Data Protection Agreement and Security Exhibit (together, the “**Data Protection Agreement**” or “**DPA**”) set forth obligations with respect to the processing and security of Customer Personal Data in connection with GitHub AE (the “**Online Service**”). GitHub makes the commitments in this DPA to all customers using the Online Service.
 
 In the event of any conflict or inconsistency between the DPA and any other terms in Customer’s agreements with GitHub (“Agreement”), the DPA shall prevail. For clarity, consistent with Clause 10 of the Standard Contractual Clauses in Attachment 1, the Standard Contractual Clauses prevail over any other terms in the DPA.
 
@@ -90,54 +90,54 @@ e.   *The obligations and rights of Customer* are set out in the Agreement and t
 
 ### 4. Security and Audit Obligations.
 
-#### 4.1 Technical and Organizational Security Measures. 
+#### 4.1 Technical and Organizational Security Measures.
 Taking into account the state of the art, the costs of implementation, and the nature, scope, context and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, GitHub will implement appropriate technical and organizational measures to ensure a level of security appropriate to the risks, such as against accidental or unlawful destruction, or loss, alteration, unauthorized disclosure or access, presented by processing the Protected Data. GitHub will regularly monitor compliance with these measures and will continue to take appropriate safeguards throughout the duration of the Agreement. Please see Section 1.1 of the Security Exhibit (below) regarding GitHub’s responsibilities in relation to security safeguards.
 
-#### 4.2 Incident Response and Breach Notification. 
+#### 4.2 Incident Response and Breach Notification.
 GitHub will comply with the Information Security obligations in the Security Exhibit and the Applicable Data Protection Laws, including Data Breach notification obligations. Please see Section 1.2 of the Security Exhibit regarding GitHub’s responsibilities in relation to Data Breach response and notification.
 
-#### 4.3 GitHub Personnel. 
+#### 4.3 GitHub Personnel.
 GitHub represents and warrants that it will take reasonable steps to ensure that all GitHub personnel processing Protected Data have agreed to keep the Protected Data confidential and have received adequate training on compliance with the DPA and the Applicable Data Protection Laws.
 
-#### 4.4 Records. 
+#### 4.4 Records.
 GitHub will maintain complete, accurate, and up to date written records of all categories of processing activities carried out on behalf of Customer containing the information required under the Applicable Data Protection Laws. To the extent that assistance does not risk the security of GitHub or the privacy rights of individual Data Subjects, GitHub will make these records available to Customer on request as reasonably required, such as to help Customer demonstrate its compliance under the Applicable Data Protection Laws. To learn more about GitHub’s requirements to provide assistance in the event of a security incident, please see Section 1.2 of the Security Exhibit.
 
-#### 4.5 Compliance Reporting. 
+#### 4.5 Compliance Reporting.
 GitHub will provide security compliance reporting in accordance with Section 2.3 of the Security Exhibit. Customer agrees that any information and audit rights granted by the Applicable Data Protection Laws (including, where applicable, Article 28(3)(h) of the GDPR) will be satisfied by these compliance reports, and will only arise to the extent that GitHub’s provision of a compliance report does not provide sufficient information, or to the extent that Customer must respond to a regulatory or Supervisory Authority audit. Section 3.1 of the Security Exhibit describes the Parties’ responsibilities in relation to a regulatory or Supervisory Authority audit.
 
-#### 4.6 Assistance. 
+#### 4.6 Assistance.
 GitHub will provide reasonable assistance to Customer with concerns such as data privacy impact assessments, Data Subject rights requests, consultations with Supervisory Authorities, and other similar matters, in each case solely in relation to the processing of Customer’s Personal Data and taking into account the nature of processing.
 
 ### 5. Use and Disclosure of Protected Data.
-No Use in Marketing and CCPA. GitHub will not use the Protected Data for the purposes of advertising third-party content. If GitHub is processing Customer Personal Data within the scope of the CCPA, GitHub will not retain, use, or disclose that data for any purpose other than for the purposes set out in the DPA and as permitted under the CCPA, including under any “sale” exemption. In no event will GitHub sell any such data. 
+No Use in Marketing and CCPA. GitHub will not use the Protected Data for the purposes of advertising third-party content. If GitHub is processing Customer Personal Data within the scope of the CCPA, GitHub will not retain, use, or disclose that data for any purpose other than for the purposes set out in the DPA and as permitted under the CCPA, including under any “sale” exemption. In no event will GitHub sell any such data.
 
 ### 6. Subprocessing and Onward Transfer.
 
-#### 6.1 Protection of Data. 
+#### 6.1 Protection of Data.
 GitHub is liable for onward transfers of Protected Data to its subprocessors, such as its third-party payment processor. In the event that GitHub does transfer the Protected Data to a third-party subprocessor, or GitHub installs, uses, or enables a third party or third-party services to process the Protected Data on GitHub’s behalf, GitHub will ensure that the third-party subprocessor is bound by written agreement that requires them to provide at least the same level of confidentiality, security, and privacy protection as is required of GitHub by this DPA and the Applicable Data Protection Laws.
 
-#### 6.2 Acceptance of GitHub Subprocessors. 
-Customer authorizes GitHub and its subprocesors to appoint and use subprocessors in accordance with this Section 6 and the Agreement. 
+#### 6.2 Acceptance of GitHub Subprocessors.
+Customer authorizes GitHub and its subprocesors to appoint and use subprocessors in accordance with this Section 6 and the Agreement.
 
-#### 6.3 General Consent for Onward Subprocessing. 
+#### 6.3 General Consent for Onward Subprocessing.
 Customer provides a general consent for GitHub to engage onward subprocessors, conditional on GitHub’s compliance with the following requirements:
 
 a.  Any onward subprocessor must agree in writing to only process data in a country that the European Commission has declared to have an “adequate” level of protection; or to only process data on terms equivalent to the Standard Contractual Clauses, or pursuant to a Binding Corporate Rules approval granted by competent European data protection authorities, or pursuant to compliant and valid EU-US Privacy Shield and Swiss-U.S. Privacy Shield certifications; and
 
 b.  GitHub will restrict the onward subprocessor’s access to Customer Personal Data only to what is strictly necessary to perform its services, and GitHub will prohibit the subprocessor from processing the Customer Personal Data for any other purpose.
 
-#### 6.4 Disclosure of Subprocessor Agreements. 
+#### 6.4 Disclosure of Subprocessor Agreements.
 GitHub maintains a list of onward subprocessors it has engaged to process Customer Personal Data on its website, including the categories of Customer Personal Data processed, a description of the type of processing the subprocessor performs, and the location of its processing. GitHub will, upon Customer’s written request, provide Customer with this list of subprocessors and the terms under which they process the Customer Personal Data. Pursuant to subprocessor confidentiality restrictions, GitHub may remove any confidential or commercially sensitive information before providing the list and the terms to Customer. In the event that GitHub cannot disclose confidential or sensitive information to Customer, the Parties agree that GitHub will provide all information it reasonably can in connection with its subprocessing agreements.
 
-#### 6.5 Objection to Subprocessors. 
+#### 6.5 Objection to Subprocessors.
 GitHub will provide thirty days’ prior written notice of the addition or removal of any subprocessor, including the categories listed in Section 6.4, by announcing changes on its website. If Customer has a reasonable objection to GitHub’s engagement of a new subprocessor, Customer must notify GitHub promptly in writing. Where possible, GitHub will use commercially reasonable efforts to provide an alternative solution to the Online Services to avoid processing of data by the objectionable subprocessor. In the event that GitHub is unable to provide an alternative solution and the Parties cannot resolve the conflict within ninety days, Customer may terminate the Agreement.
 
 ### 7. Termination.
 
-#### 7.1 Suspension. 
+#### 7.1 Suspension.
 In the event that GitHub is in breach of its obligations to maintain an adequate level of security or privacy protection, Customer may temporarily suspend the transfer of all Customer Personal Data or prohibit collection and processing of Customer Personal Data on Customer’s behalf until the breach is repaired or the Agreement is terminated.
 
-#### 7.2 Termination with Cause. 
+#### 7.2 Termination with Cause.
 In addition to any termination rights Customer has under the Agreement, Customer may terminate the Agreement without prejudice to any other claims at law or in equity in the event that:
 
 a.  GitHub notifies Customer that it can no longer meet its privacy obligations;
@@ -150,19 +150,19 @@ d.  GitHub is no longer carrying on business, is dissolved, enters receivership,
 
 e.  Customer objects to a subprocessor pursuant to Section 6.5, and GitHub has not been able to provide an alternative solution within ninety days.
 
-#### 7.3 Breach. 
+#### 7.3 Breach.
 Failure to comply with the material provisions of the DPA is considered a material breach under the Agreement.
 
-#### 7.4 Failure to perform. 
+#### 7.4 Failure to perform.
 In the event that changes in law or regulation render performance of the DPA impossible or commercially unreasonable, the Parties may renegotiate the DPA in good faith. If renegotiation would not cure the impossibility, or if the Parties cannot reach an agreement, the Parties may terminate the Agreement after thirty days.
 
-#### 7.5 Notification. 
+#### 7.5 Notification.
 In the event that GitHub determines that it can no longer meet its privacy obligations under the DPA, GitHub will notify Customer in writing immediately.
 
-#### 7.6 Modifications. 
+#### 7.6 Modifications.
 GitHub may modify the DPA from time to time as required by the Applicable Data Protection Laws, with thirty days’ notice to Customer.
 
-#### 7.7 Termination Requirements. 
+#### 7.7 Termination Requirements.
 Upon Termination, GitHub must:
 
 a.  take reasonable and appropriate steps to stop processing the Customer Personal Data;
@@ -173,7 +173,7 @@ c.  provide Customer with reasonable assurance that GitHub has complied with its
 
 ### 8. Liability for Data Processing.
 
-#### 8.1 Limitations. 
+#### 8.1 Limitations.
 Except as limited by the Applicable Data Protection Laws, any claims brought under the DPA will be subject to the terms of the Agreement regarding Limitations of Liability.
 
 ## Attachment 1 – The Standard Contractual Clauses (Processors)
@@ -194,7 +194,7 @@ For the purposes of Article 46 (2) of the General Data Protection Regulation (EU
 
 (e) 'the applicable data protection law' means the legislation protecting the fundamental rights and freedoms of individuals and, in particular, their right to privacy with respect to the processing of personal data applicable to a data controller in the Member State in which the data exporter is established;
 
-(f) 'technical and organisational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.
+(f) 'technical and organizational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorized disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.
 
 #### Clause 2: Details of the transfer
 The details of the transfer and in particular the special categories of personal data where applicable are specified in Appendix 1 below which forms an integral part of the Clauses.
@@ -215,9 +215,9 @@ The data exporter agrees and warrants:
 
 (b) that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;
 
-(c) that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 below;
+(c) that the data importer will provide sufficient guarantees in respect of the technical and organizational security measures specified in Appendix 2 below;
 
-(d) that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
+(d) that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorized disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
 
 (e) that it will ensure compliance with the security measures;
 
@@ -238,15 +238,15 @@ The data importer agrees and warrants:
 
 (b) that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
 
-(c) that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;
+(c) that it has implemented the technical and organizational security measures specified in Appendix 2 before processing the personal data transferred;
 
 (d) that it will promptly notify the data exporter about:
 
    (i) any legally binding request for disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,
 
-   (ii) any accidental or unauthorised access, and
+   (ii) any accidental or unauthorized access, and
 
-   (iii) any request received directly from the data subjects without responding to that request, unless it has been otherwise authorised to do so;
+   (iii) any request received directly from the data subjects without responding to that request, unless it has been otherwise authorized to do so;
 
 (e) to deal promptly and properly with all inquiries from the data exporter relating to its processing of the personal data subject to the transfer and to abide by the advice of the supervisory authority with regard to the processing of the data transferred;
 
@@ -331,7 +331,7 @@ Data exporter: Customer is the data exporter.
 However, because the data importer provides storage services and does not control the categories of data it stores, the data exporter may choose to transfer special categories of data. Consequently, the data exporter is solely responsible for ensuring that it complies with all obligations imposed by applicable laws and regulations relating to the collection and processing of any special categories of data, including obtaining the explicit consent of the data subject prior to processing sensitive personal data.
 
 **Processing operations:** The personal data transferred will be subject to the following basic processing activities:
-GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at https://help.github.com/articles/github-privacy-statement/, and the “Data Processing” section of the DPA.
+GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at https://docs.github.com/articles/github-privacy-statement/, and the “Data Processing” section of the DPA.
 
 **Subcontractors:** In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain Customer Personal Data only to deliver the services the data importer has retained them to provide, and they are prohibited from using Customer Personal Data for any other purpose.
 
@@ -351,8 +351,8 @@ Signature of GitHub, Inc. appears below.
 
 Signing the Standard Contractual Clauses, Appendix 1 and Appendix 2 on behalf of the data importer
 
-![Screen Shot 2020-10-29 at 10 21 08 AM](https://user-images.githubusercontent.com/42984983/97613325-c93eda00-19d5-11eb-82e8-563267d1d738.png)
-                                                                    	                                	
+![Lynn Hashimoto](/assets/images/lynn_hashimoto.png)
+
 Lynn Hashimoto, Head of Product & Regulatory Legal
 
 GitHub, Inc.
@@ -361,14 +361,14 @@ GitHub, Inc.
 
 ### 1. Information Security Program.
 
-#### 1.1 Security Management. 
+#### 1.1 Security Management.
 GitHub will implement and maintain appropriate technical and organizational measures to protect Customer Content and Protected Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to, personal data transmitted, stored or otherwise processed (“**Security Program**”). Those measures shall be set forth in a GitHub Security Policy. GitHub will provide written descriptions of the security controls and other information reasonably requested by Customer regarding GitHub’s security practices and policies for the Online Service.
 
 a.	Operational Policy. GitHub maintains security documents describing its security measures and the relevant procedures and responsibilities of its personnel who have access to Customer Content and Protected Data.
 
 b.	Security Training. GitHub informs its personnel about relevant security procedures and their respective roles. GitHub also informs its personnel of possible consequences of breaching the security rules and procedures. GitHub will only use anonymous data in training.
 
-#### 1.2 Security Incident Management. 
+#### 1.2 Security Incident Management.
 GitHub will provide a Security incident management program for the Online Service as follows:
 
 a.	Security Availability and Escalation. GitHub will maintain appropriate security contact and escalation processes on a 24-hours-per-day, 7-days-per-week basis to ensure customers and employees can submit issues to the GitHub Security team.
@@ -379,17 +379,17 @@ c.	Notification. Notification(s) of Security Incidents will be delivered to one 
 
 d.	Reasonable Assistance. GitHub will make commercially reasonable efforts to assist Customer in fulfilling Customer's obligation under applicable law or regulation to notify the relevant supervisory authority and data subjects about such Security Incident.
 
-#### 1.3 Due Diligence over Subcontractors and Vendors. 
+#### 1.3 Due Diligence over Subcontractors and Vendors.
 GitHub will maintain appropriate due diligence when utilizing subcontractors and vendors. GitHub will maintain vendor assessment reports and any assessment work for a minimum of three years.
 
-#### 1.4 Physical and Environmental Safeguards. 
+#### 1.4 Physical and Environmental Safeguards.
 a.	Physical Access to Facilities. GitHub limits access to facilities where information systems that process Customer Content and Protected Data are located to identified authorized individuals.
 
 b.	Physical Access to Components. GitHub maintains records of the incoming and outgoing media containing Customer Content and Protected Data, including the kind of media, the authorized sender/recipients, date and time, the number of media and the types of Customer Content and Protected Data they contain.
 
 c.	Protection from Disruptions. GitHub uses industry standard systems to protect against loss of data due to power supply failure or line interference.
 
-#### 2. Requests for Information. 
+#### 2. Requests for Information.
 Upon Customer's written request and no more than once annually, GitHub will respond to one request for information to assess security and compliance risk-related information. The response will be provided in writing within thirty days of receipt of the request, pending needed clarifications of any request.
 
 #### 3. Cooperation with Regulatory Audits.
@@ -404,4 +404,3 @@ c. Any third party auditor must disclose to GitHub any findings and recommended 
 d. In the event of a regulatory audit, access will be permitted only during regular business hours, Pacific time.
 
 e. To the extent permitted by law, Customer must keep confidential any information gathered through any such audit of GitHub that, by its nature, should be confidential.
-

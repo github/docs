@@ -54,7 +54,7 @@ GraphQL APIの`deletePackageVersion`ミューテーションを使ってくだ�
 以下は、個人アクセストークンを使って`MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`というパッケージバージョンIDを持つパッケージのバージョンを削除するcURLコマンドの例です。
 
 {% if currentVersion == "free-pro-team@latest" %}
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \
@@ -64,7 +64,7 @@ https://api.github.com/graphql
 
 {% else %}
 
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \

@@ -1,1 +1,0 @@
-Zulässige IP-Adressen sind bei {% data variables.product.prodname_ghe_cloud %} verfügbar. Weitere Informationen findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products).“

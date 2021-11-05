@@ -78,6 +78,6 @@ Puedes agregar, editar o borrar las pruebas de calificación automática para un
 1. A la derecha de una emisión, da clic en **Ver prueba**. ![Botón de "Ver tarea" para una emisión de una tarea](/assets/images/help/classroom/assignments-click-view-test.png)
 1. Revisa la salida de la prueba. Para obtener más información, consulta la sección "[Utilizar bitácoras de ejecución de flujos de trabajo](/actions/managing-workflow-runs/using-workflow-run-logs)".
 
-### Further reading
+### Leer más
 
 - [Documentación de {% data variables.product.prodname_actions %}](/actions)

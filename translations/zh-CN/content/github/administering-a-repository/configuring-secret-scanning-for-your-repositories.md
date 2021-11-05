@@ -27,13 +27,13 @@ versions:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 4. 如果 "{% data variables.product.prodname_secret_scanning_caps %}" 未显示在页面上，您需要先启用 {% data variables.product.prodname_GH_advanced_security %}。 在“{% data variables.product.prodname_GH_advanced_security %}”右边单击 **Enable（启用）**。 ![为仓库启用 {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/repository/enable-ghas-dotcom.png)
 5. 单击**为此仓库启用 {% data variables.product.prodname_GH_advanced_security %}** 以确认操作。 ![确认为仓库启用 {% data variables.product.prodname_GH_advanced_security %}](/assets/images/help/repository/enable-ghas-confirmation-dotcom.png)
 6. 当您启用
 {% data variables.product.prodname_GH_advanced_security %} 时，可能会自动为仓库启用 {% data variables.product.prodname_secret_scanning %}（这是由组织配置控制的）。 如果 "{% data variables.product.prodname_secret_scanning_caps %}" 显示 **Enable（启用）**按钮，则您仍需通过单击 **Enable（启用）**来启用 {% data variables.product.prodname_secret_scanning %}。 如果您看到 **Disable（禁用）**按钮，则表明 {% data variables.product.prodname_secret_scanning %} 已启用。
-   ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/enable-secret-scanning-dotcom.png){% endif %}
-   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
+   {% else if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@3.0" %}
 4. 在 "
 {% data variables.product.prodname_secret_scanning_caps %}" 的右侧，单击 **Enable（启用）**。
    ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/enable-secret-scanning-ghe.png)

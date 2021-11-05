@@ -44,6 +44,6 @@ updates:
 
 Cuando habilitas las {% data variables.product.prodname_dependabot_version_updates %} para las acciones, debes especificar los valores de `package-ecosystem`, `directory`, y `schedule.interval`. Hay muchas más propiedades opcionales que puedes configurar para personalizar tus actualizaciones de versión aún más. Para obtener más información, consulta la sección "[Opciones de configuración para las actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de GitHub Actions](/actions/getting-started-with-github-actions/about-github-actions)"

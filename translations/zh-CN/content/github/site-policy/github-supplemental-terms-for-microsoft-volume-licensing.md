@@ -109,7 +109,7 @@ GitHub 保证，自首次下载之日起九十 (90) 天内，未经修改的软�
 
 #### 2.1.5 U.S. 联邦政府条款。 5. 美国联邦政府条款.
 
-如果客户是美国 如果客户是美国联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国联邦政府修正](https://help.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。 联邦政府修正</a>适用，并且客户同意其条款。
+如果客户是美国 如果客户是美国联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国联邦政府修正](https://docs.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。 联邦政府修正</a>适用，并且客户同意其条款。
 
 ### 2.2 遵守法律；可接受的使用；隐私。
 

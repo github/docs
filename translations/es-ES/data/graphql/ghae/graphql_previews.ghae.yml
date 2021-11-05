@@ -26,7 +26,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/ecosystem-api'
+    - '@github/c2c-actions-service'
 - 
   title: >-
     MergeInfoPreview - Información más detallada sobre un estado de fusión de una solicitud de extracción.
@@ -86,21 +86,6 @@
     - Mutation.createContentAttachment
   owning_teams:
     - '@github/feature-lifecycle'
-- 
-  title: Vista Previa de Incidentes Fijados
-  description: Esta vista previa agrega soporte para los incidentes fijados.
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
 - 
   title: Vista Previa de Etiquetas
   description: >-

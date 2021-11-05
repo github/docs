@@ -12,6 +12,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
@@ -22,7 +24,7 @@ Aquí te mostramos los lineamientos de los campos que necesitas llenar en la sec
 
 #### Nombre del listado
 
-El nombre de tu app se mostrará en la [página de inicio de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres.
+El nombre de tu listado aparecerá en la [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres y puede ser diferente que aquél de tu app. Tu publicación no puede tener el mismo nombre que un usuario existente de {% data variables.product.product_name %} a menos de que dicho nombre sea el de tu propio usuario u organización.
 
 #### Descripción muy corta
 

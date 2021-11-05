@@ -3,6 +3,9 @@ title: Mantener la continuidad de la propiedad para los repositorios de tu cuent
 intro: Puedes invitar a alguien para administrar los repositorios que pertenezcan a tu usuario si no puedes hacerlo tú mismo.
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 ### Acerca de los sucesores

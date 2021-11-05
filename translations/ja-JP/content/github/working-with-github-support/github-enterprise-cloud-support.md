@@ -6,7 +6,11 @@ redirect_from:
   - /articles/github-enterprise-cloud-support
 intro: '{% data variables.product.prodname_ghe_cloud %} では、優先サポートリクエストは現地時間月～金曜日、目標応答時間 8 時間としています。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Jobs
+shortTitle: GitHub Enterprise Cloud
 ---
 
 {% note %}
@@ -14,6 +18,8 @@ versions:
 **メモ:** {% data variables.product.prodname_ghe_cloud %} のお客様は {% data variables.contact.premium_support %} にサインアップできます。 詳細は「[{% data variables.product.prodname_ghe_cloud %} の {% data variables.contact.premium_support %} について](/articles/about-github-premium-support-for-github-enterprise-cloud)」を参照してください。
 
 {% endnote %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 優先質問は、{% data variables.product.prodname_ghe_cloud %} を購入してある場合か、現在 {% data variables.product.prodname_ghe_cloud %} にサブスクライブしている {% data variables.product.prodname_dotcom %} Organization のメンバー、外部コラボレーターまたは支払いマネージャーである場合にサブミットできます。
 

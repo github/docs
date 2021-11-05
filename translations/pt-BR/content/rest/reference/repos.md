@@ -1,17 +1,40 @@
 ---
 title: Repositórios
+intro: 'A API Repos permite criar, gerenciar e controlar o fluxo de trabalho público e privado dos repositórios de {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - API
+miniTocMaxHeadingLevel: 3
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
+
+{% ifversion fpt or ghec %}
+## Links automáticos
+
+{% tip %}
+
+**Nota:** A API de Links automáticos está na versão beta e pode ser alterada.
+
+{% endtip %}
+
+Para ajudar a agilizar o seu fluxo de trabalho, você pode usar a API para adicionar os links automáticos a recursos externos, como problemas do JIRA e tíquetes do Zendesk. Para obter mais informações, consulte "[Configurar links automáticos para fazer referência a recursos externos](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)".
+
+{% data variables.product.prodname_github_apps %} exige permissões de administração do repositório com acesso de leitura ou gravação para usar a API de links automáticos.
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'autolinks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Branches
 
@@ -50,7 +73,7 @@ A API de Commits do repositório é compatível com a listagem, visualização e
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Comunidade
 
 {% for operation in currentRestOperations %}
@@ -65,7 +88,7 @@ Estes pontos de extremidade da API permitem criar, modificar e excluir conteúdo
 
 ### Tipos de mídia personalizados para conteúdo do repositório
 
-Os [LEIAMEs](/rest/reference/repos#get-a-repository-readme), [arquivos](/rest/reference/repos#get-repository-content) e [links simbólicos](/rest/reference/repos#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
+Os [READMEs](/rest/reference/repos#get-a-repository-readme), [arquivos](/rest/reference/repos#get-repository-content) e [links simbólicos](/rest/reference/repos#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -137,17 +160,28 @@ Abaixo está um diagrama de sequência sobre para como essas interações funcio
 
 Tenha em mente que o GitHub nunca terá acesso aos seus servidores. Cabe à sua integração de terceiros interagir com os eventos de implantação. Vários sistemas podem ouvir eventos de implantação, e cabe a cada um desses sistemas decidir se serão responsáveis por retirar o código dos seus servidores, criar código nativo, etc.
 
-Observe que o `escopo do OAuth` [repo_deployment](/developers/apps/scopes-for-oauth-apps) concede acesso direcionado a implantações e status de implantações **sem** conceder acesso ao código do repositório, enquanto os escopos `public_repo` e `repo` também concedem permissão para o código.
+Observe que o `repo_deployment` [OAuth escopo](/developers/apps/scopes-for-oauth-apps) concede acesso direcionado a implantações e status **sem** conceder acesso ao código do repositório, enquanto os es escopos {% ifversion not ghae %}`public_repo` e{% endif %}`repositório` também concedem permissão para codificar.
+
 
 ### Implantações inativas
 
-Ao definir o estado de uma implantação como `sucesso`, todas as implantações de ambiente de não produção e não transitórias no mesmo repositório irão tornar-se `inativas`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
+Ao definir o estado de uma implantação como `sucesso`, todas as implantações de ambiente de não produção e não transitórios anteriores no mesmo nome do ambiente irão tornar-se `inativas`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
 
 Você pode informar que um ambiente transitório não existe mais definindo seu `estado` como `inativo`.  Definir o `estado` como `inativo` mostra a implantação como `destruída` em {% data variables.product.prodname_dotcom %} e remove o acesso a ela.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+## Ambientes
+
+A API de Ambientes permite que você crie, configure e exclua ambientes. Para obter mais informações sobre ambientes, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". Para gerenciar segredos de ambiente, consulte "[Segredos](/rest/reference/actions#secrets)".
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Bifurcações
 
@@ -169,6 +203,16 @@ Use o ponto de extremidade da API para adicionar um colaborador. Para obter mais
   {% if operation.subcategory == 'invitations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
+
+## Git LFS
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'lfs' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
 ## Mesclar
 
 A API de merge do repositório é compatível com o merge de branches em um repositório. Isso realiza, essencialmente, a mesma coisa que mesclar um branch em outro em um repositório local e, em seguida, fazer push para {% data variables.product.product_name %}. O benefício é que o merge é realizado no lado do servidor e não é necessário um repositório local. Isso o torna mais apropriado para automação e outras ferramentas em que a manutenção de repositórios locais seria pesada e ineficiente.
@@ -181,7 +225,7 @@ O usuário autenticado será o autor de qualquer merge feito por meio deste pont
 
 ## Pages
 
-A API de {% data variables.product.prodname_pages %} recupera informações sobre a sua configuração do {% data variables.product.prodname_pages %} e os status das suas criações. As informações sobre o site e as criações só podem ser acessadas por proprietários autenticados, mesmo que os sites sejam públicos. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)".
+A API de {% data variables.product.prodname_pages %} recupera informações sobre a sua configuração do {% data variables.product.prodname_pages %} e os status das suas criações. Informações sobre o site e as criações só podem ser acessadas pelos proprietários autenticados{% ifversion not ghae %}, mesmo que os sites sejam públicos{% endif %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
 Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} com uma chave de `status` na sua resposta, o valor pode ser:
 * `null`: O site ainda não foi criado.
@@ -193,7 +237,7 @@ Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} 
 Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} que devolvem as informações do site do GitHub Pages, as respostas do JSON incluem esses campos:
 * `html_url`: A URL absoluta (incluindo o esquema) do site de páginas interpretadas. Por exemplo, `https://username.github.io`.
 * `source`: Um objeto que contém o branch de origem e o diretório do site de páginas interpretadas. Isto inclui:
-   - `branch`: O branch do repositório utilizado para publicar os [arquivos de origem do site](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por exemplo, _principal_ ou _gh-pages_.
+   - `branch`: O branch do repositório utilizado para publicar os [arquivos de origem do site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por exemplo, _principal_ ou _gh-pages_.
    - `path`: O diretório do repositório a partir do qual o site é publicado. Será `/` ou `/docs`.
 
 {% for operation in currentRestOperations %}
@@ -252,10 +296,10 @@ Se você está desenvolvendo um aplicativo GitHub e deseja fornecer informaçõe
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% ifversion fpt or ghec %}
 ## Tráfego
 
-Para repositórios aos quais você tem acesso de push, a API de tráfego fornece acesso às informações fornecidas no seu gráfico de repositório. Para obter mais informações, consulte "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Visualizar tráfego para um repositório</a>. "
+Para repositórios aos quais você tem acesso de push, a API de tráfego fornece acesso às informações fornecidas no seu gráfico de repositório. Para obter mais informações, consulte "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Visualizar tráfego para um repositório</a>. "
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
@@ -264,9 +308,11 @@ Para repositórios aos quais você tem acesso de push, a API de tráfego fornece
 
 ## Webhooks
 
-A API de Webhooks do Repositório permite que os administradores do repositório gerenciem os hooks post-receive de um repositório. Os webhooks podem ser gerenciados usando a API de HTTP do JSON ou a API de [SubHubbub](#PubSubHubbub).
+Os webhooks de repositório permitem que você receba cargas de `POST` de HTTP sempre que certos eventos ocorrerem em um repositório. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 Se você deseja configurar um único webhook para receber eventos de todos os repositórios da organização, consulte nossa documentação de API para [Webhooks de organização](/rest/reference/orgs#webhooks).
+
+Além da API REST, {% data variables.product.prodname_dotcom %} também pode servir como um núcleo de [PubSubHubbub](#pubsubhubbub) para repositórios.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
@@ -296,18 +342,11 @@ O formato padrão é o que [os hooks post-receive existentes devem esperar](/pos
     https://github.com/{owner}/{repo}/events/push.json
 
 #### URLs de chamada de retorno
-As URLs de chamada de retorno podem usar o protocolo `http://`.
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
-{% data reusables.apps.deprecating_github_services_ghe %}
-{% endif %}
+As URLs de chamada de retorno podem usar o protocolo `http://`.
 
     # Send updates to postbin.org
     http://postbin.org/123
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-    # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
-{% endif %}
 
 #### Assinar
 
@@ -325,9 +364,9 @@ Solicitações do PubSubHubbub podem ser enviadas várias vezes. Se o hook já e
 
 ##### Parâmetros
 
-| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hub.mode`     | `string` | **Obrigatório**. `Assine` ou `cancele a assinatura`.                                                                                                                                                                                                                                                                                                                                                        |
-| `hub.topic`    | `string` | **Obrigatório**.  A URI do repositório do GitHub a ser assinada.  O caminho deve estar no formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                         |
-| `hub.callback` | `string` | A URI para receber as atualizações do tópico.                                                                                                                                                                                                                                                                                                                                                               |
-| `hub.secret`   | `string` | Uma chave secreta compartilhada que gera um HMAC de SHA1 do conteúdo do texto de saída.  Você pode verificar se um push veio do GitHub, comparando o texto da solicitação sem processamento com o conteúdo do cabeçalho `X-Hub-Signature`. Você pode ver [a documentação do PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obter mais informações. |
+| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hub.mode`     | `string` | **Obrigatório**. `Assine` ou `cancele a assinatura`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `hub.topic`    | `string` | **Obrigatório**.  A URI do repositório do GitHub a ser assinada.  O caminho deve estar no formato `/{owner}/{repo}/events/{event}`.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `hub.callback` | `string` | A URI para receber as atualizações do tópico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `hub.secret`   | `string` | Uma chave de segredo compartilhado que gera uma assinatura de hash do conteúdo de saída do texto.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 2.22 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. Você pode ver [a documentação do PubSubHubbub](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) para obter mais informações. |
