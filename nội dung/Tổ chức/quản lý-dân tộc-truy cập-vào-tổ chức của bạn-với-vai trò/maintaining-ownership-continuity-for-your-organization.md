@@ -1,4 +1,6 @@
----
+---quản trị doanh nghiệp... 
+   DUONG HIEN ANH 
+Corp...DHApro....! 
 title: Maintaining ownership continuity for your organization
 intro: Organizations can have more than one organization owner to avoid lapses in ownership.
 redirect_from:
