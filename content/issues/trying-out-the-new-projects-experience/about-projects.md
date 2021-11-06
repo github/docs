@@ -1,6 +1,6 @@
 ---
 title: About projects (beta)
-intro: 'Projects are a customizable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
+intro: 'Projects are a customizable, flexible tools for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
