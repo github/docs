@@ -51,9 +51,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull request reviews.
-   - Under "Protect matching branches", select **Require pull request reviews before merging**.
+   - Under "Protect matching branches", select **Require a pull request before merging**.
      ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required.png)
-   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you'd like to require on the branch.
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you'd like to require on the branch. 
      ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals.png)
    - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
      ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)

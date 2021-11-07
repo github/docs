@@ -57,4 +57,4 @@ Anyone with write permissions in the repository, can then [merge the changes](/a
 ## Further reading
 
 - "[About pull requests](/articles/about-pull-requests/)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts"
+- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
