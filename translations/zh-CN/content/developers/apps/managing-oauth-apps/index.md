@@ -5,9 +5,10 @@ redirect_from:
   - /apps/building-integrations/managing-oauth-apps/
   - /apps/managing-oauth-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - OAuth Apps
 children:

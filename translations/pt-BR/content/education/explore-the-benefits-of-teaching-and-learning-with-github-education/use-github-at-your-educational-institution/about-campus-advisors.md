@@ -7,13 +7,14 @@ redirect_from:
   - /articles/about-campus-advisors
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors
 versions:
-  free-pro-team: '*'
+  fpt: '*'
 ---
+
 Os mestres, professores e mentores podem usar o treinamento online Consultores de campus para dominar o Git e o {% data variables.product.prodname_dotcom %}, bem como para conhecer as práticas recomendadas de ensino com o {% data variables.product.prodname_dotcom %}.  Para obter mais informações, consulte "[Consultores de campus](https://education.github.com/teachers/advisors)".
 
 {% note %}
 
-**Observação:** como um instrutor, você não pode criar contas do {% data variables.product.prodname_dotcom %} para seus alunos. Os estudantes devem criar as próprias contas do {% data variables.product.prodname_dotcom %}.
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 

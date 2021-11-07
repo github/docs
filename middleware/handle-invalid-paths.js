@@ -1,6 +1,6 @@
-const patterns = require('../lib/patterns')
+import patterns from '../lib/patterns.js'
 
-module.exports = function handleInvalidPaths (req, res, next) {
+export default function handleInvalidPaths(req, res, next) {
   // prevent open redirect vulnerability
   if (req.path.match(patterns.multipleSlashes)) {
     return next(404)
@@ -36,6 +36,21 @@ module.exports = function handleInvalidPaths (req, res, next) {
     }
 
     return res.sendStatus(400)
+  }
+
+  // Prevent some script tag injection attacks
+  if (req.path.match(/<script/i)) {
+    return res.sendStatus(400)
+  }
+
+  // Prevent some injection attacks targeting Fastly
+  if (req.path.match(/<esi:include/i)) {
+    return res.sendStatus(400)
+  }
+
+  // Prevent various malicious injection attacks targeting Next.js
+  if (req.path.match(/^\/_next[^/]/) || req.path === '/_next/data' || req.path === '/_next/data/') {
+    return next(404)
   }
 
   return next()

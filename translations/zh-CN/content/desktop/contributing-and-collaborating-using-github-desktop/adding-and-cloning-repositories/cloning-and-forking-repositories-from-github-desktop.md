@@ -6,9 +6,11 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+shortTitle: 从桌面克隆和复刻
 ---
-### 关于本地仓库
+
+## 关于本地仓库
 {% data variables.product.prodname_dotcom %} 上的仓库是远程仓库。 您可以通过 {% data variables.product.prodname_desktop %} 克隆或复刻仓库以在计算机上创建本地仓库。
 
 您可以通过克隆仓库创建 {% data variables.product.product_name %} 上您可以访问的任何仓库的本地副本。 如果您拥有一个仓库或拥有写入权限，您可以在本地和远程位置之间进行同步。 更多信息请参阅“[同步分支](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)”。
@@ -19,7 +21,7 @@ versions:
 
 也可以直接从 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 克隆仓库。 更多信息请参阅“[将仓库从 {% data variables.product.prodname_dotcom %} 克隆至 {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)。”
 
-### 克隆仓库
+## 克隆仓库
 
 {% data reusables.desktop.choose-clone-repository %}
 {% data reusables.desktop.cloning-location-tab %}
@@ -27,7 +29,7 @@ versions:
 {% data reusables.desktop.choose-local-path %}
 {% data reusables.desktop.click-clone %}
 
-### 复刻仓库
+## 复刻仓库
 如果您克隆一个您没有写入权限的仓库，{% data variables.product.prodname_desktop %} 将创建一个复刻。 在创建或克隆复刻后，{% data variables.product.prodname_desktop %} 会问您打算如何使用该复刻。
 
 {% data reusables.desktop.choose-clone-repository %}
@@ -37,11 +39,19 @@ versions:
 {% data reusables.desktop.click-clone %}
 {% data reusables.desktop.fork-type-prompt %}
 
-### 管理复刻行为
+## 管理复刻行为
 您可以更改复刻对 {% data variables.product.prodname_desktop %} 中上游仓库的行为。
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
 
-### 延伸阅读
+## 为本地仓库创建别名
+您可以为本地仓库创建一个别名，以帮助在 {% data variables.product.prodname_desktop %} 中区分同名的仓库。 创建别名不影响在 {% data variables.product.prodname_dotcom %} 上的仓库名称。 在仓库列表中，别名以斜体显示。
+
+1. 在 {% data variables.product.prodname_desktop %} 左上角当前仓库名称右侧点击 {% octicon "triangle-down" aria-label="The triangle-down icon" %}。
+2. 右键单击要创建别名的仓库，然后单击 **Create Alias（创建别名）**。
+3. 为仓库输入别名。
+4. 单击 **Create Alias（创建别名）**。
+
+## 延伸阅读
 - [关于远程仓库](/github/getting-started-with-github/about-remote-repositories)

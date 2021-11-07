@@ -10,14 +10,16 @@ redirect_from:
   - /admin/user-management/suspending-and-unsuspending-users
 intro: '如果用户离开公司或者调动到公司的其他部门，您应当移除或修改他们访问 {% data variables.product.product_location %} 的能力。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
   - Enterprise
   - Security
   - User account
+shortTitle: 管理用户暂停
 ---
+
 如果员工从公司离职，您可以暂停他们的 {% data variables.product.prodname_ghe_server %} 帐户，打开您的 {% data variables.product.prodname_enterprise %} 许可中的用户许可，同时保存他们创建的议题、评论、仓库、Gist 及其他数据。 被挂起的用户既无法登录您的实例，也无法推送或拉取代码。
 
 在您挂起用户时，变更将立即生效，并且不会通知用户。 如果用户尝试拉取仓库或推送到仓库，他们将收到此错误消息：
@@ -37,7 +39,7 @@ fatal: The remote end hung up unexpectedly
 
 {% endtip %}
 
-### 从用户管理员仪表板挂起用户
+## 从用户管理员仪表板挂起用户
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -47,7 +49,7 @@ fatal: The remote end hung up unexpectedly
 5. 在红色 Danger Zone 框的“Account suspension”下，单击 **Suspend**。 ![Suspend 按钮](/assets/images/enterprise/site-admin-settings/suspend.png)
 6. 提供挂起用户的原因。![挂起原因](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
 
-### 从用户管理员仪表板取消挂起用户
+## 从用户管理员仪表板取消挂起用户
 
 挂起用户后，取消挂起用户的操作将立即可用。 用户将不会收到通知。
 
@@ -59,7 +61,7 @@ fatal: The remote end hung up unexpectedly
 4. 在红色 Danger Zone 框的“Account suspension”下，单击 **Unsuspend**。 ![Unsuspend 按钮](/assets/images/enterprise/site-admin-settings/unsuspend.png)
 5. 提供取消挂起用户的原因。![取消挂起原因](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
 
-### 从命令行挂起用户
+## 从命令行挂起用户
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 使用要挂起的用户名运行 [ghe-user-suspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-suspend)。
@@ -67,7 +69,7 @@ fatal: The remote end hung up unexpectedly
   $ ghe-user-suspend <em>username</em>
   ```
 
-### 为挂起的用户创建自定义消息
+## 为挂起的用户创建自定义消息
 
 您可以创建自定义消息，被挂起的用户会在尝试登录时看到此消息。
 
@@ -80,7 +82,7 @@ fatal: The remote end hung up unexpectedly
 8. 预览呈现的消息。 ![显示的已挂起用户消息](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
-### 从命令行取消挂起用户
+## 从命令行取消挂起用户
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. 使用要取消挂起的用户名运行 [ghe-user-unsuspend](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-user-unsuspend)。
@@ -88,5 +90,5 @@ fatal: The remote end hung up unexpectedly
   $ ghe-user-unsuspend <em>username</em>
   ```
 
-### 延伸阅读
+## 延伸阅读
 - "[暂停用户](/rest/reference/enterprise-admin#suspend-a-user)"

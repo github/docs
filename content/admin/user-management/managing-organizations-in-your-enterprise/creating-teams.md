@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
   - /admin/user-management/creating-teams
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Access management
@@ -13,13 +13,13 @@ topics:
   - Teams
   - User account
 ---
-Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Permission levels for an organization repository](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
+Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 A team can represent a group within your company or include people with certain interests or expertise. For example, a team of accessibility experts on {% data variables.product.product_location %} could comprise of people from several different departments. Teams can represent functional concerns that complement a company's existing divisional hierarchy.
 
 Organizations can create multiple levels of nested teams to reflect a company or group's hierarchy structure. For more information, see "[About teams](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)."
 
-### Creating a team
+## Creating a team
 
 A prudent combination of teams is a powerful way to control repository access. For example, if your organization allows only your release engineering team to push code to the default branch of any repository, you could give only the release engineering team **admin** permissions to your organization's repositories and give all other teams **read** permissions.
 
@@ -32,9 +32,11 @@ A prudent combination of teams is a powerful way to control repository access. F
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
 
-### Creating teams with LDAP Sync enabled
+## Creating teams with LDAP Sync enabled
 
 Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.product.product_location %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+
+You must be a site admin and an organization owner to create a team with LDAP sync enabled.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

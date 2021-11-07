@@ -9,13 +9,15 @@ redirect_from:
   - /enterprise/admin/user-management/managing-projects-using-jira
   - /admin/user-management/managing-projects-using-jira
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
   - Project management
+shortTitle: Project management with Jira
 ---
-### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
+
+## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
 1. http[s]://[hostname]/login で {% data variables.product.prodname_enterprise %}のアカウントにサインインする。 If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
 2. Click on your profile icon under the {% data variables.product.prodname_dotcom %} logo and select the organization you would like to connect with Jira.
@@ -41,7 +43,7 @@ topics:
 7. **Register application** をクリックする。
 8. ページの上部の [**Client ID**] と [**Client Secret**] をメモしてください。 You will need these for configuring your Jira instance.
 
-### Jira instance configuration
+## Jira instance configuration
 
 1. On your Jira instance, log into an account with administrative access.
 2. At the top of the page, click the settings (gear) icon and choose **Applications**.

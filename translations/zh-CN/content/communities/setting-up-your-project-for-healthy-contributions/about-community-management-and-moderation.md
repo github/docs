@@ -2,14 +2,16 @@
 title: 关于社区管理和调解
 intro: '{% data variables.product.prodname_dotcom %} 提供帮助仓库维护员在 {% data variables.product.prodname_dotcom_the_website %} 社区建立和执行行为标准的工具。'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
   - Community
+shortTitle: 管理和调节
 ---
 
-### 关于社区管理和调解
+## 关于社区管理和调解
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
@@ -17,7 +19,7 @@ topics:
 
 在为社区制定行为标准后，可以通过快速、公平地响应破坏性行为来促进营造一个愉快、高效的环境。 有效的调解能在社区中建立信任，让贡献者感受到安全和热情。
 
-### 社区调解工具
+## 社区调解工具
 
 {% data variables.product.prodname_dotcom %} 的工具简化了社区的管理和调解任务，不需要丰富的调解经验。
 
@@ -27,7 +29,7 @@ topics:
 
 参与者始终可以向 {% data variables.contact.github_support %} 报告破坏性内容。 如果您选择报告组织公共仓库中的内容，则参与者还可以直接向存储库维护员报告包含破坏性行为的评论。 更多信息请参阅“[管理组织仓库中报告的内容](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)”。
 
-### 延伸阅读
+## 延伸阅读
 
 - 开源指南中的“[您的行为准则](https://opensource.guide/code-of-conduct/)”
 - 开源指南中的“[创建受欢迎的社区](https://opensource.guide/building-community/)”

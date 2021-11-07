@@ -4,14 +4,15 @@ redirect_from:
   - /v4/object
   - /v4/reference/object
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
 
-### 关于对象
+## 关于对象
 
 GraphQL 中的[对象](https://graphql.github.io/graphql-spec/June2018/#sec-Objects)表示您可以访问的资源。 对象包含经过专门类型化的字段列表。
 

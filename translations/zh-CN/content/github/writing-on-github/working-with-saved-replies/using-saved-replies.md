@@ -5,10 +5,12 @@ redirect_from:
   - /articles/using-saved-replies
   - /github/writing-on-github/using-saved-replies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 2. 单击所需的议题或拉取请求。
@@ -23,7 +25,7 @@ versions:
 
 {% endtip %}
 
-### 延伸阅读
+## 延伸阅读
 
 - "[创建已保存回复](/articles/creating-a-saved-reply)"
 - "[编辑已保存回复](/articles/editing-a-saved-reply)"

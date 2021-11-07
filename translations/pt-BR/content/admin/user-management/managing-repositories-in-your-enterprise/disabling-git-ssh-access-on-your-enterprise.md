@@ -16,16 +16,18 @@ redirect_from:
   - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
 intro: Você pode impedir que as pessoas usem o Git através do SSH para certos ou todos os repositórios da sua empresa.
 versions:
-  enterprise-server: '*'
-  github-ae: '*'
+  ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Security
   - SSH
+shortTitle: Desabilitar SSH para Git
 ---
-### Desabilitar o acesso por SSH do Git a repositórios específicos
+
+## Desabilitar o acesso por SSH do Git a repositórios específicos
 
 {% data reusables.enterprise_site_admin_settings.override-policy %}
 
@@ -37,7 +39,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 1. Em "Git SSH access" (Acesso por SSH do Git), use o menu suspenso e clique em **Disabled** (Desabilitado). ![Menu suspenso de acesso por SSH do Git com a opção Desabilitado](/assets/images/enterprise/site-admin-settings/git-ssh-access-repository-setting.png)
 
-### Desabilitar o acesso por SSH do Git a todos os repositórios pertencentes a um usuário ou organização
+## Desabilitar o acesso por SSH do Git a todos os repositórios pertencentes a um usuário ou organização
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
@@ -47,10 +49,10 @@ topics:
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 7. Em "Git SSH access" (Acesso por SSH do Git), use o menu suspenso e clique em **Disabled** (Desabilitado). Em seguida, selecione **Enforce on all repositories** (Aplicar a todos os repositórios). ![Menu suspenso de acesso por SSH do Git com a opção Desabilitado](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
-### Desabilitar acesso SSH do Git para todos os repositórios da sua empresa
+## Desabilitar acesso SSH do Git para todos os repositórios da sua empresa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

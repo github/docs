@@ -8,7 +8,7 @@ redirect_from:
   - /admin/authentication/using-saml
 intro: 'SAML は認証と認可のための XML ベースの標準です。 {% data variables.product.prodname_ghe_server %} は、内部的な SAML アイデンティティプロバイダ (IdP) とサービスプロバイダ (SP) として動作できます。'
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts
@@ -17,15 +17,16 @@ topics:
   - Identity
   - SSO
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
-### サポートされているSAMLサービス
+## サポートされているSAMLサービス
 
 {% data reusables.saml.saml-supported-idps %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-### SAMLでのユーザ名についての考慮
+## SAMLでのユーザ名についての考慮
 
 各{% data variables.product.prodname_ghe_server %}ユーザ名は、SAMLの応答で次のアサーションのいずれかによって決定され、優先順位で並べられます。
 
@@ -40,7 +41,7 @@ topics:
 
 {% note %}
 
-**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% if currentVersion ver_gt "enterprise-server@2.21" %} ユーザのアクセスを復元するには、ユーザアカウントの `NameID` マッピングを更新する必要があります。 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
+**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% ifversion ghes %} ユーザのアクセスを復元するには、ユーザアカウントの `NameID` マッピングを更新する必要があります。 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -51,13 +52,13 @@ topics:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-### SAMLのメタデータ
+## SAMLのメタデータ
 
 {% data variables.product.prodname_ghe_server %} インスタンスのサービスプロバイダメタデータは、`http(s)://[hostname]/saml/metadata` にあります。
 
 アイデンティティプロバイダを手動で設定するなら、Assertion Consumer Service (ACS) URLは`http(s)://[hostname]/saml/consume`です。 これは`urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`バインディングを利用します。
 
-### SAMLの属性
+## SAMLの属性
 
 以下の属性が利用できます。 `administrator`属性以外の属性の名前は[Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/)で変更できます。
 
@@ -71,7 +72,7 @@ topics:
 | `public_keys`   | 任意 | ユーザの公開 SSH キー。 複数指定することができます。                                                                                               |
 | `gpg_keys`      | 任意 | ユーザの GPG キー。 複数指定することができます。                                                                                                 |
 
-### SAMLの設定
+## SAMLの設定
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -93,9 +94,9 @@ topics:
 9. [**Verification certificate**] の下で、[**Choose File**] をクリックし、IdP からの SAML のレスポンスを検証するための証明書を選択してください。 ![SAML認証](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. 必要に応じてSAMLの属性名はIdPに合わせて修正してください。あるいはデフォルト名をそのまま受け付けてください。 ![SAMLの属性名](/assets/images/enterprise/management-console/saml-attributes.png)
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% ifversion ghes %}
 
-### {{ site.data.variables.product.product_location_enterprise }}へのアクセスの削除
+## {{ site.data.variables.product.product_location_enterprise }}へのアクセスの削除
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. **SAML**を選択してください。 ![サイト管理者設定の "All users" サイドバー項目](/assets/images/enterprise/site-admin-settings/all-users.png)
@@ -107,11 +108,11 @@ topics:
 
 {% endif %}
 
-### {% data variables.product.product_location %}へのアクセスの削除
+## {% data variables.product.product_location %}へのアクセスの削除
 
 アイデンティティプロバイダからユーザを削除したなら、そのユーザを手動でサスペンドもしなければなりません。 そうしなければ、そのユーザはアクセストークンあるいはSSHキーを使って引き続き認証を受けることができてしまいます。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
 
-### レスポンスメッセージについての要求
+## レスポンスメッセージについての要求
 
 レスポンスメッセージは以下の要求を満たさなければなりません。
 
@@ -139,11 +140,11 @@ topics:
 </samlp:Response>
 ```
 
-### SAML認証
+## SAML認証
 
 {% data variables.product.prodname_ghe_server %} は、認証ログの _/var/log/github/auth.log_ で失敗した SAML 認証のエラーメッセージをログに記録します。 SAML レスポンス要件の詳細については、「[レスポンスメッセージの要件](#response-message-requirements)」を参照してください。
 
-#### エラー:「別のユーザがすでにアカウントを所有しています」
+### エラー:「別のユーザがすでにアカウントを所有しています」
 
 ユーザが SAML 認証を使用して初めて {% data variables.product.prodname_ghe_server %} にサインインすると、{% data variables.product.prodname_ghe_server %} はインスタンスにユーザアカウントを作成し、SAML `NameID` をアカウントにマップします。
 
@@ -151,9 +152,9 @@ topics:
 
 > 別のユーザが既にアカウントを所有しています。 管理者に認証ログを確認するようご依頼ください。
 
-このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_ghe_server %} のユーザアカウントの `NameID` マッピングが IdP のユーザの `NameID` とマッチすることを確認します。 詳しい情報については、「[ユーザの SAML `NameID` の更新](#updating-a-users-saml-nameid)」を参照してください。{% else %} `NameID` マッピングの更新については、{% data variables.contact.contact_ent_support %} にお問い合わせください。{% endif %}
+このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} のユーザアカウントの `NameID` マッピングが IdP のユーザの `NameID` とマッチすることを確認します。 詳しい情報については、「[ユーザの SAML `NameID` の更新](#updating-a-users-saml-nameid)」を参照してください。{% else %} `NameID` マッピングの更新については、{% data variables.contact.contact_ent_support %} にお問い合わせください。{% endif %}
 
-#### SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
+### SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
 
 `Recipient`がACS URLと一致しなかった場合、authログに以下のエラーメッセージが残されます。
 
@@ -167,7 +168,7 @@ Recipient in the SAML response was not valid.
 
 IdP の `Recipient` の値を、{% data variables.product.prodname_ghe_server %} インスタンスの完全な ACS URL に設定してください。 例: `https://ghe.corp.example.com/saml/consume`
 
-#### エラー:「SAML レスポンスが署名されていないか、変更されています」
+### エラー:「SAML レスポンスが署名されていないか、変更されています」
 
 IdP が SAML レスポンスに署名しない場合、または署名が内容と一致しない場合、次のエラーメッセージが認証ログに表示されます。
 
@@ -177,7 +178,7 @@ SAML Response is not signed or has been modified.
 
 IdP で {% data variables.product.prodname_ghe_server %} アプリケーションの署名済みアサーションを設定していることを確認してください。
 
-#### エラー:「Audience が無効です」または「アサーションが見つかりません」
+### エラー:「Audience が無効です」または「アサーションが見つかりません」
 
 IdP のレスポンスに `Audience` の値がないか、または正しくない場合、次のエラーメッセージが認証ログに表示されます。
 

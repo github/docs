@@ -2,11 +2,13 @@
 title: コントリビューターが Organization のリポジトリで不正利用を報告する方法を管理する
 intro: コントリビューターが混乱をもたらす振る舞いをリポジトリメンテナに直接報告できるようにすることができます。
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
   - Community
+shortTitle: Organization での不正利用の管理
 ---
 
 リポジトリに対する管理者権限を持つユーザは、コントリビューターがリポジトリ内の不正利用をレポートする方法を管理できます。
@@ -18,7 +20,7 @@ Organization が所有する公開リポジトリのレポートコンテンツ�
 {% data reusables.repositories.sidebar-moderation-reported-content %}
 4. [Reported content] で、[**Accept content reports from collaborators and prior contributors**] を選択または選択解除します。 ![報告されたリポジトリのコンテンツにオプトインまたはオプトアウトするためのチェックボックス](/assets/images/help/repository/reported-content-opt-in-checkbox.png)
 
-### 参考リンク
+## 参考リンク
 
 - 「[Organization のリポジトリ内でレポートされたコンテンツを管理する](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)」
 - [コメントと会話の管理](/communities/moderating-comments-and-conversations)

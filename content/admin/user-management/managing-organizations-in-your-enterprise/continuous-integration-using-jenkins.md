@@ -6,12 +6,13 @@ redirect_from:
   - /enterprise/admin/user-management/continuous-integration-using-jenkins
   - /admin/user-management/continuous-integration-using-jenkins
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - CI
   - Enterprise
+shortTitle: CI using Jenkins
 ---
-### Requirements
+## Requirements
 
 - Follow our white paper "[Practical guide to CI with Jenkins and GitHub](https://resources.github.com/whitepapers/practical-guide-to-CI-with-Jenkins-and-GitHub/)" to get step by step instructions on how you can automatically trigger build jobs on a Jenkins server when pushes are made to a repository in {% data variables.product.product_location %}.

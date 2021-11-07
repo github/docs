@@ -1,4 +1,4 @@
-name: autoupdate branch
+name: Autoupdate branch
 
 # **What it does**: Any pull requests with "autoupdate" label will get main branch updates.
 # **Why we have it**: Our repo-sync automation relies on it.

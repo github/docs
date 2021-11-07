@@ -1,24 +1,26 @@
 ---
-title: Disabling your GitHub Sponsors account
-intro: 'If you no longer want to participate in {% data variables.product.prodname_sponsors %}, you can disable your {% data variables.product.prodname_sponsors %} account.'
+title: Desabilitando sua conta do GitHub Sponsors
+intro: 'Se você não quiser mais participar em {% data variables.product.prodname_sponsors %}, você pode desabilitar a sua conta de {% data variables.product.prodname_sponsors %}.'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
   - Sponsors payments
+shortTitle: Desabilitar a sua conta
 ---
 
-If you are receiving sponsorship payments, you'll need to contact GitHub Support to disable your {% data variables.product.prodname_sponsors %} account.
+Se estiver recebendo pagamentos de patrocínio, você deverá entrar em contato com o suporte do GitHub para desabilitar a sua conta de {% data variables.product.prodname_sponsors %}
 
-If you don't have any sponsors, then you can disable your {% data variables.product.prodname_sponsors %} account on GitHub.
+Se você não tem nenhum patrocinador, você poderá desabilitar a sua conta de {% data variables.product.prodname_sponsors %} no GitHub.
 
-If you decide to create a {% data variables.product.prodname_sponsors %} account again, you'll need to reapply.
+Se você decidir criar uma conta de {% data variables.product.prodname_sponsors %} novamente, deverá candidatar-se novamente.
 
-Alternatively, you can unpublish your sponsors profile and then republish the account without reapplying again. For more information, see "[Unpublishing your {% data variables.product.prodname_sponsors %} profile](/sponsors/receiving-sponsorships-through-github-sponsors/unpublishing-your-github-sponsors-profile)."
+Como alternativa, você pode cancelar a publicação do seu perfil de patrocinadores e, em seguida, publicar a conta sem reaplicar novamente. Para obter mais informações, consulte "[Cancelar a publicação do perfil de {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/unpublishing-your-github-sponsors-profile)".
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
-1. Under "Disable GitHub Sponsors account", click **Disable account**.  
-   !["Disable your account" button](/assets/images/help/sponsors/disable-your-account-button.png)
-2. To confirm, click **Disable GitHub Sponsors account**. !["Disable GitHub Sponsors account" button](/assets/images/help/sponsors/disable-github-sponsors-account-dialog.png)
+1. Em "Desabilitar a conta do GitHub Sponsors", clique em **Desabilitar a conta**.  
+   ![Botão "Desabilitar a sua conta"](/assets/images/help/sponsors/disable-your-account-button.png)
+2. Para confirmar, clique em **Desabilitar a conta de patrocinadores do GitHub**. ![Botão "Desabilitar a conta dos Patrocinadores do GitHub"](/assets/images/help/sponsors/disable-github-sponsors-account-dialog.png)

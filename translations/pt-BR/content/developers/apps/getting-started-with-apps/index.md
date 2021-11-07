@@ -2,9 +2,10 @@
 title: Introdução aos aplicativos
 intro: Aprenda a criar aplicativos e a configurar o seu ambiente de desenvolvimento.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 children:

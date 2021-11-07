@@ -1,1 +1,1 @@
-O controle de acesso para sites de {% data variables.product.prodname_pages %} está disponível em repositórios privados com {% data variables.product.prodname_ghe_cloud %}.
+Access control for {% data variables.product.prodname_pages %} sites is available in private repositories with {% data variables.product.prodname_ghe_cloud %}.{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}

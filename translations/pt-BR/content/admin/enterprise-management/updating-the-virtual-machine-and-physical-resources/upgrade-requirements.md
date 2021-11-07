@@ -7,12 +7,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
   - /admin/enterprise-management/upgrade-requirements
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise
   - Upgrades
 ---
+
 {% note %}
 
 **Notas:**
@@ -23,7 +24,7 @@ topics:
 
 {% endnote %}
 
-### Recomendações
+## Recomendações
 
 - Inclua o mínimo possível de atualizações no seu processo. Por exemplo, em vez de atualizar do {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} para o {{ enterpriseServerReleases.supported[1] }} e depois para o {{ enterpriseServerReleases.latest }}, atualize do {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} para o {{ enterpriseServerReleases.latest }}.
 - Se a sua versão estiver muito defasada, atualize a {% data variables.product.product_location %} para a versão mais atual disponível a cada etapa do processo. Ao usar a versão mais recente em cada atualização, você pode aproveitar as melhorias de desempenho e as correções de erros. Por exemplo, você poderia atualizar do {% data variables.product.prodname_enterprise %} 2.7 para o 2.8 e depois para o 2.10. No entanto, atualizar do {% data variables.product.prodname_enterprise %} 2.7 para o 2.9 e depois para o 2.10 usa uma versão mais recente na segunda etapa.
@@ -31,7 +32,7 @@ topics:
 - Use uma instância de preparo para testar as etapas da atualização. Para obter mais informações, consulte "[Configurar instância de preparo](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)".
 - Ao executar várias atualizações, espere pelo menos 24 horas entre atualizações de recursos para permitir que as migrações de dados e as tarefas de atualização executadas em segundo plano sejam totalmente concluídas.
 
-### Requisitos
+## Requisitos
 
 - Você deve atualizar quando a versão do recurso estiver defasada por **no máximo** duas versões. Por exemplo, ao atualizar para o {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, você deve estar nas versões {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} ou {{ enterpriseServerReleases.supported[2] }}.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
@@ -45,6 +46,6 @@ Use o número para estimar o espaço em disco necessário para os logs de audito
 
 {% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
-### Próximas etapas
+## Próximas etapas
 
 Após ler essas recomendações e requisitos, você poderá atualizar para o {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)".

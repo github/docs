@@ -3,9 +3,10 @@ title: リファレンス
 shortTitle: リファレンス
 intro: GitHub RESTのAPIで使用できるリソースについては、リファレンスドキュメントを参照してください。
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:
@@ -16,6 +17,7 @@ children:
   - /checks
   - /codes-of-conduct
   - /code-scanning
+  - /codespaces
   - /emojis
   - /enterprise-admin
   - /gists
@@ -42,4 +44,4 @@ children:
   - /users
   - /permissions-required-for-github-apps
 ---
-### 目次
+

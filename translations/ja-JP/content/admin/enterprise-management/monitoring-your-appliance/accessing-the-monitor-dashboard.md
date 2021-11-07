@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
-  enterprise-server: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -14,14 +14,16 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
+shortTitle: Access the monitor dashboard
 ---
-### モニターダッシュボードへのアクセス
+
+## モニターダッシュボードへのアクセス
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. ページの上部で**Monitor（モニター）**をクリックしてください。 ![モニターダッシュボードのリンク](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
-### アプライアンスにおける一般的なリソース割り当ての問題のトラブルシューティング
+## アプライアンスにおける一般的なリソース割り当ての問題のトラブルシューティング
 
 {% note %}
 
