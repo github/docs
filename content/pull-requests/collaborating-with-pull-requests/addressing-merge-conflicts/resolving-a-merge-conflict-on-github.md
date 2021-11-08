@@ -16,7 +16,7 @@ topics:
   - Pull requests
 shortTitle: Resolve merge conflicts
 ---
-You can only resolve merge conflicts on {% data variables.product.product_name %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see [resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/).
+You can only resolve merge conflicts on {% data variables.product.product_name %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
 
 {% ifversion ghes or ghae %}
 If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.product_name %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
