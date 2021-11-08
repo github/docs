@@ -9,6 +9,18 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - 'lib/**'
+      - 'components/**'
+      - 'pages/**'
+      - .npmrc
+      - Dockerfile
+      - package.json
+      - package-lock.json
+      - next.config.js
+      - tsconfig.json
+      - next-env.d.ts
+      - .github/workflows/build-docker-image.yml
 
 env:
   CI: true
