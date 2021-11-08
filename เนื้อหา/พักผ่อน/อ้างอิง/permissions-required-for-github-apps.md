@@ -1,5 +1,5 @@
 ---
-title: Permissions required for GitHub Apps
+tiitle: Permissions required for GitHub Apps
 intro: 'You can find the required permissions for each {% data variables.product.prodname_github_app %}-compatible endpoint.'
 redirect_from:
   - /v3/apps/permissions
