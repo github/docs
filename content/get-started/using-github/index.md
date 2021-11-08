@@ -15,7 +15,6 @@ children:
   - /github-cli
   - /github-desktop
   - /github-for-mobile
-  - /accessibility-keyboard-shortcuts
   - /keyboard-shortcuts
   - /github-command-palette
   - /troubleshooting-connectivity-problems
