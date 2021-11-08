@@ -2,6 +2,8 @@
 title: Managing accessibility settings
 intro: 'You can disable character key shortcuts on {% data variables.product.prodname_dotcom %} in your accessibility settings.'
 versions:
+  fpt: '*'
+  ghes: '>=3.4'
   feature: keyboard-shortcut-accessibility-setting
 ---
 
