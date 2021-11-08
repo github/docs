@@ -30,7 +30,7 @@ Commits will appear on your contributions graph if they meet **all** of the foll
 - The email address used for the commits is associated with your account on {% data variables.product.product_location %}.
 - The commits were made in a standalone repository, not a fork.
 - The commits were made:
-  - In the repository's default branch
+  - In the repository's default branch.
   - In the `gh-pages` branch (for repositories with project sites)
 
 For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
