@@ -6,7 +6,7 @@ redirect_from:
   - /articles/saving-notifications-for-later
   - /github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
-versions:
+versions:https://github.com/github/docs/tree/github:main
   fpt: '*'
   ghes: '*'
   ghae: '*'
