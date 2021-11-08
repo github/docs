@@ -10,9 +10,6 @@ on:
       - main
   pull_request:
     paths:
-      - 'lib/**'
-      - 'components/**'
-      - 'pages/**'
       - .npmrc
       - Dockerfile
       - package.json
