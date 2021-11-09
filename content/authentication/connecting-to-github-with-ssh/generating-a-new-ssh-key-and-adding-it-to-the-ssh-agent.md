@@ -153,7 +153,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
   If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
   
-  The -K and -A flags are deprecated and have been replaced by the --apple-use-keychain and --apple-load-keychain flags, respectively.  To suppress this warning, set the environment variable APPLE_SSH_ADD_BEHAVIOR as described in the ssh-add(1) manual page.
+  In MacOS Monterey (12.0), the `-K` and `-A` flags are deprecated and have been replaced by the `--apple-use-keychain` and `--apple-load-keychain` flags, respectively. 
 
   {% endnote %}
 
