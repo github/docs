@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -46,8 +47,22 @@ Los proyectos de {% data variables.product.company_short %} se actualizan autom�
 
 ## Utiliza la automatización
 
-Las tareas de auotmatización te permiten pasar menos tiempo trabajando y más en el proyecto mismo. Entre menos tengas que recordar para hacer manualmente, será más probable que tu proyecto se mantenga actualizado. {% data variables.product.prodname_actions %} y la API de GraphQL te permiten automatizar las tareas de administración rutinarias de un proyecto. Por ejemplo, para hacer un seguimiento de las solicitudes de cambios que están esperando una revisión, puedes crear un flujo de trabajo que agregue una solicitud de cambios a un proyecto y configure el estado en "necesita revisión"; este proceso se puede activar automátiamente cuando una solicitud de cambios se marque como "lista para revisión".
+You can automate tasks to spend less time on busy work and more time on the project itself. Entre menos tengas que recordar para hacer manualmente, será más probable que tu proyecto se mantenga actualizado.
+
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+
+Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. Por ejemplo, para hacer un seguimiento de las solicitudes de cambios que están esperando una revisión, puedes crear un flujo de trabajo que agregue una solicitud de cambios a un proyecto y configure el estado en "necesita revisión"; este proceso se puede activar automátiamente cuando una solicitud de cambios se marque como "lista para revisión."
 
 - Para encontrar un flujo de trabajo de ejemplo, consulta la sección "[Automatizar proyectos](/issues/trying-out-the-new-projects-experience/automating-projects)".
 - Para obtener más información sobre la API, consulta la sección "[Utilizar la API para administrar los proyectos](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)".
 - Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[{% data variables.product.prodname_actions %}](/actions)".
+
+## Use different field types
+
+Take advantage of the various field types to meet your needs.
+
+Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+
+Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+
+For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."

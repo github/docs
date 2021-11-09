@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
+  ghec: '*'
 type: how_to
 topics:
   - Security overview
@@ -24,7 +25,7 @@ shortTitle: About security overview
 
 セキュリティの概要は、Organizationのセキュリティの状況の高レベルでの表示、あるいは介入が必要な問題のあるリポジトリを特定するために利用できます。 Organizationのレベルでは、セキュリティの概要はOrganizationが所有するリポジトリに関する集約されたリポジトリ固有のセキュリティ情報を表示します。 Teamレベルでは、セキュリティの概要はTeamが管理権限を持つリポジトリの固有のセキュリティ情報を表示します。 詳しい情報については「[OrganizationリポジトリへのTeamのアクセス管理](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」を参照してください。
 
-The security overview indicates whether {% ifversion fpt or ghes > 3.1 %}security{% endif %}{% ifversion ghae-next %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
+The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %}security{% endif %}{% ifversion ghae-next %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
 For more information about securing your code at the repository and organization levels, see "[Securing your repository](/code-security/getting-started/securing-your-repository)" and "[Securing your organization](/code-security/getting-started/securing-your-organization)."
 
@@ -102,7 +103,7 @@ The level of risk for a repository is determined by the number and severity of a
 
 ### リポジトリの種類によるフィルタ
 
-| Qualifier | Description | | -------- | -------- |{% ifversion fpt or ghes > 3.1 %} | `is:public` | Display public repositories. |{% endif %} | `is:internal` | Display internal repositories. | | `is:private` | Display private repositories. | | `archived:true` | Display archived repositories. |
+| Qualifier | Description | | -------- | -------- |{% ifversion fpt or ghes > 3.1 or ghec %} | `is:public` | Display public repositories. |{% endif %} | `is:internal` | Display internal repositories. | | `is:private` | Display private repositories. | | `archived:true` | Display archived repositories. |
 
 ### Teamによるフィルタ
 

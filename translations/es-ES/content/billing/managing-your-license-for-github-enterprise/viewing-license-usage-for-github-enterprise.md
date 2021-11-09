@@ -1,9 +1,9 @@
 ---
 title: Ver el uso de licencia para GitHub Enterprise
-intro: 'Puedes ver el uso de licencia de tu empresa en {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'Puedes ver el uso de licencia de tu empresa en {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
 permissions: 'Enterprise owners can view license usage for {% data variables.product.prodname_enterprise %}.'
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
 type: how_to
 topics:
@@ -14,7 +14,7 @@ shortTitle: Ver el uso de licencia
 
 ## Acerca del uso de licencia para {% data variables.product.prodname_enterprise %}
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 
 Puedes ver el uso de licencia de tu cuenta empresarial de {% data variables.product.prodname_ghe_cloud %} en {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -24,13 +24,13 @@ Puedes ver el uso de licencia de tu cuenta empresarial de {% data variables.prod
 
 Puedes ver el uso de licencia de {% data variables.product.prodname_ghe_server %} en {% data variables.product.product_location %}.
 
-{% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %} Para obtener más información sobre cómo se muestra el uso de licencia en {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "<a href="/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise" class="dotcom-only">Ver el uso de licencia para {% data variables.product.prodname_enterprise %}</a>" en la documentación de {% data variables.product.prodname_dotcom_the_website %}.
+{% data reusables.enterprise-licensing.you-can-sync-for-a-combined-view %} Para obtener más información sobre cómo se muestra el uso de licencia en {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Ver el uso de licencia para {% data variables.product.prodname_enterprise %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" en la documentación de {% data variables.product.prodname_ghe_cloud %}.
 
 {% endif %}
 
-## Ver el uso de licencia en {% ifversion fpt %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
+## Ver el uso de licencia en {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}

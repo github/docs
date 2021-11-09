@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: Subversion & Git differences
 ---
 
@@ -49,7 +50,7 @@ Git はディレクトリ構造は同じままですが、SVN とは違い、フ
 
 SVN では、サブプロジェクトは、*SVN external* と呼ばれます。 Git では、*Git サブモジュール*と呼ばれます。 コンセプトは似ていますが、Git サブモジュールは自動では最新状態のままにはなりません。プロジェクトに新しいバージョンを取り込むためには、明示的に要求する必要があります。
 
-詳しい情報については、Pro Git ドキュメントで「[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)」を参照してください。
+For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 
 ## 履歴を保存する
 

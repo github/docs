@@ -4,7 +4,7 @@ intro: Puedes administrar tu cuenta empresarial y las organizaciones que le pert
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -58,12 +58,12 @@ Para encontrar algunas consultas de ejemplo, visita la sección "[Una consulta d
     - `admin:enterprise`
 
   Los alcances específicos para la cuenta empresarial son:
-    - `admin:enterprise`: Proporciona control total de las empresas (incluye a {% ifversion ghes > 3.2 or fpt or ghae %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` y `read:enterprise`)
-    - `manage_billing:enterprise`: Lee y escribe datos de facturación empresarial.{% ifversion ghes > 3.2 or fpt or ghae  %}
+    - `admin:enterprise`: Proporciona control total de las empresas (incluye a {% ifversion ghes > 3.2 or ghae or ghec %}`manage_runners:enterprise`, {% endif %}`manage_billing:enterprise` y `read:enterprise`)
+    - `manage_billing:enterprise`: Lee y escribe datos de facturación empresarial.{% ifversion ghes > 3.2 or ghae  %}
     - `manage_runners:enterprise`: Acceso para administrar los ejecutores y grupos de ejecutores empresariales de GitHub Actions.{% endif %}
     - `read:enterprise`: Lee datos del perfil empresarial.
 
-4. Copia tu token de acceso personal y mantenlo en un lugar seguro hasta que lo agregues a tu cliente de GraphQL.
+3. Copia tu token de acceso personal y mantenlo en un lugar seguro hasta que lo agregues a tu cliente de GraphQL.
 
 ### 2. Elige un cliente de GraphQL
 

@@ -13,6 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Configurar la recuperación de 2FA
@@ -51,7 +52,7 @@ Una vez que usas un código de recuperación para recuperar el acceso a tu cuent
 
 Puedes configurar una clave de seguridad como un método de autenticación de dos factores secundario, y usar la clave de seguridad para recuperar el acceso a tu cuenta. Para obtener más información, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Configurar un número de autenticación de reserva
 

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Visualizar branches
@@ -17,7 +18,7 @@ shortTitle: Visualizar branches
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 3. Use a navegação na parte superior da página para exibir listas específicas de branches:
-    - **Your branches**: In repositories that you have push access to, the **Yours** view shows all branches that you’ve pushed to, excluding the default branch, with the most recent branches first.
+    - **Seus branches**: Em repositórios que você tem acesso push para, a exibição **Seus** mostra todos os branches para os quais você fez push, excluindo o branch padrão, com os branches mais recentes primeiro.
     - **Active branches** (Branches ativos): a exibição **Active** (Ativos) mostra todos os branches em que alguém fez commit nos últimos três meses, ordenados pelos branches com os commits mais recentes primeiro.
     - **Stale branches** (Branches obsoletos): a exibição **Stale** (Obsoletos) mostra todos os branches em que ninguém fez commit nos últimos três meses, ordenados pelos branches com os commits mais antigos primeiro. Use esta lista para determinar [quais branches devem ser excluídos](/articles/creating-and-deleting-branches-within-your-repository).
     - **All branches** (Todos os branches): a exibição **All** (Todos) mostra o branch padrão, seguido por todos os outros branches, ordenados pelos que têm os commits mais recentes primeiro.

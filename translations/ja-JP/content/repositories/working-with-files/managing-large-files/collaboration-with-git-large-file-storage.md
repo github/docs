@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: コラボレーション
 ---
 
@@ -31,7 +32,7 @@ shortTitle: コラボレーション
 
 大きなファイルに加えられた変更を表示するには、プルリクエストをローカルでチェックアウトしてdiffを確認します。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)」を参照してください。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 大容量ファイルをフォークにプッシュする
 

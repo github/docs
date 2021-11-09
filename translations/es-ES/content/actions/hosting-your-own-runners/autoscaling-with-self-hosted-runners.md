@@ -2,55 +2,79 @@
 title: Autoescalar con ejecutores auto-hospedados
 intro: Puedes escalar tus ejecutores auto-hospedados automáticamente en respuesta a eventos de webhook.
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>3.2'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca del autoescalamiento
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label. For example, you can create automation that adds a new self-hosted runner each time you receive a [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook event with the  [`queued`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity, which notifies you that a new job is ready for processing. The webhook payload includes label data, so you can identify the type of runner the job is requesting. Once the job has finished, you can then create automation that removes the runner in response to the `workflow_job` [`completed`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity.
+Puedes incrementar o decrementar la cantidad de ejecutores auto-hospedados en tu ambiente automáticamente como respuesta a los eventos de webhook que recibes con una etiqueta particular. Por ejemplo, puedes crear una automatización que agregue un ejecutor auto-hospedado cada vez que recibes un [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) evento de webhook con la actividad de [`queued`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job), el cual te notifica que hay un job nuevo listo para procesarse. La carga útil de un webhook incluye datos de etiqueta, así que puedes identificar el tipo de ejecutor que está solicitando el job. Una vez que haya terminado un job, puedes crear una automatización que elimine el ejecutor en respuesta a la actividad [`completed`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) del `workflow_job`.
+
+## Recommended autoscaling solutions
+
+{% data variables.product.prodname_dotcom %} recommends and partners closely with two open source projects that you can use for autoscaling your runners. One or both solutions may be suitable, based on your needs.
+
+The following repositories have detailed instructions for setting up these autoscalers:
+
+- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runnners.
+- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
+
+Each solution has certain specifics that may be important to consider:
+
+| **Características**            | **actions-runner-controller**                                                      | **terraform-aws-github-runner**                                       |
+|:------------------------------ |:---------------------------------------------------------------------------------- |:--------------------------------------------------------------------- |
+| Tiempo de ejecución            | Kubernetes                                                                         | Linux and Windows VMs                                                 |
+| Supported Clouds               | Azure, Amazon Web Services, Google Cloud Platform, on-premises                     | Amazon Web Services                                                   |
+| Where runners can be scaled    | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
+| Pull-based autoscaling support | Sí                                                                                 | No                                                                    |
 
 ## Utilizar ejecutores efímeros para autoescalar
 
-{% data variables.product.prodname_dotcom %} recommends implementing autoscaling with ephemeral self-hosted runners; autoscaling with persistent self-hosted runners is not recommended. In certain cases, {% data variables.product.prodname_dotcom %} cannot guarantee that jobs are not assigned to persistent runners while they are shut down. With ephemeral runners, this can be guaranteed because {% data variables.product.prodname_dotcom %} only assigns one job to a runner.
+{% data variables.product.prodname_dotcom %} recomienda implementar el autoescalamiento con ejecutores auto-hospedados efímeros; no se recomienda autoescalar con ejecutores auto-hospedados persistentes. En casos específicos, {% data variables.product.prodname_dotcom %} no puede garantizar que los jobs no se asignen a los ejecutores persistentes mientras están cerrados. Con los ejecutores efímeros, esto puede garantizarse, ya que {% data variables.product.prodname_dotcom %} solo asigna un job a un ejecutor.
 
-This approach allows you to manage your runners as ephemeral systems, since you can use automation to provide a clean environment for each job. This helps limit the exposure of any sensitive resources from previous jobs, and also helps mitigate the risk of a compromised runner receiving new jobs.
+Este acercamiento te permite administrar tus ejecutores como sistemas efímeros, ya que puedes utilizar la automatización para proporcionar un ambiente limpio para cada job. Esto ayuda a limitar la exposición de cualquier recurso sensible de los jobs anteriores y también ayuda a mitigar el riesgo de un ejecutor puesto en riesgo que esté recibiendo jobs nuevos.
 
-To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. Por ejemplo:
+Para agregar un ejecutor efímero a tu ambiente, incluye el parámetro `--ephemeral` cuando registres tu ejecutor utilizando `config.sh`. Por ejemplo:
 
 ```
 $ ./config.sh --url https://github.com/octo-org --token example-token --ephemeral
 ```
 
-The {% data variables.product.prodname_actions %} service will then automatically de-register the runner after it has processed one job. You can then create your own automation that wipes the runner after it has been de-registered.
+El servicio de {% data variables.product.prodname_actions %} entonces quitará el registro del ejecutor automáticamente después de que haya procesado un job. Entonces podrás crear tu propia automatización que elimine el ejecutor después de que se desregistró.
 
 {% note %}
 
-**Note:**  If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
+**Nota:**  Si un job se etiqueta por algún tipo de ejecutor, pero no hay ninguno disponible que empate con este tipo, dicho job no fallará inmediatamente en el momento de ponerse en cola. En vez de esto, el job permanecerá en cola hasta que venza el tiempo límite de 24 horas.
 
 {% endnote %}
 
 ## Utilizar webhooks para autoescalar
 
-You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
+Puedes crear tu propio ambiente de autoescalamiento utilizando cargas útiles que recibas del webhook de [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job). Este webhook está disponible en los niveles de repositorio, organización y empresa y la carga útil de este evento contiene una clave de `action` que corresponde a las etapas del ciclo de vida de un job de un flujo de trabajo; por ejemplo, cuando los jobs se ponen como `queued`, `in_progress`, y `completed`. Entonces debes crear tu propia automatización de escalamiento en respuesta a estas cargas útiles de webhook.
 
 - Para obtener más información sobre el webhook de `workflow_job`, consulta la sección de "[Eventos y cargas útiles de los webhooks](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)".
 - Para aprender cómo trabajar con los webhooks, consulta la sección "[Crear webhooks](/developers/webhooks-and-events/webhooks/creating-webhooks)".
 
 ## Requisitos de autenticación
 
-You can register and delete self-hosted runners using [the API](/rest/reference/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token or a {% data variables.product.prodname_dotcom %} app.
+You can register and delete repository and organization self-hosted runners using [the API](/rest/reference/actions#self-hosted-runners). Para autenticarte en la API, tu implementación de auto-escalamiento puede utilizar un token de acceso o una app de {% data variables.product.prodname_dotcom %}.
 
-Your access token will require the following scope:
+Tu token de acceso necesitará el siguiente alcance:
 
 - Para los repositorios privados, utiliza un token de acceso con el [alcance de `repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 - Para los repositorios públicos, utiliza un token de acceso con el [alcance de `public_repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
-To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
+Para autenticarte utilizando una App de {% data variables.product.prodname_dotcom %}, se le debe asignar los siguientes permisos:
 - Para los repositorios, asigna el permiso de `administration`.
 - Para las organizaciones, asigna el permiso de `organization_self_hosted_runners`.
+
+You can register and delete enterprise self-hosted runners using [the API](/rest/reference/enterprise-admin#github-actions). To authenticate to the API, your autoscaling implementation can use an access token.
+
+Your access token will requite the `manage_runners:enterprise` scope.

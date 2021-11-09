@@ -4,7 +4,7 @@
 // can be added it this list.
 
 export default [
-  'actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f', // v2.3.4
+  'actions/checkout@1e204e9a9253d643386038d443f96446fa156a97', // v2.3.5
   'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d', // v4.0.2
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', // v2.2.0
   'actions/setup-node@270253e841af726300e85d718a5f606959b2903c', // v2.4.1
@@ -12,8 +12,7 @@ export default [
   'actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074', // v2.2.4
   'alex-page/github-project-automation-plus@bb266ff4dde9242060e2d5418e120a133586d488', // v0.8.1
   'andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90', // v1.0.4
-  'crowdin/github-action@d7f217268068f1244883a993379d62d816f84f25', // v1.4.0
-  'crykn/copy_folder_to_another_repo_action@0282e8b9fef06de92ddcae9fe6cb44df6226646c',
+  'crowdin/github-action@d0622816ed4f4744db27d04374b2cef6867f7bed', // v1.4.1
   'cschleiden/actions-linter@caffd707beda4fc6083926a3dff48444bc7c24aa', // uses github-actions-parser v0.23.0
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911', // v3.0.2
   'dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126', // v2.15.0
@@ -33,7 +32,7 @@ export default [
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3', // v2.6
-  'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
+  'someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340', // v1.2.2
   'tjenkinson/gh-action-auto-merge-dependency-updates@c47f6255e06f36e84201ee940466e731ffa6e885', // v1.1.1
   'Bhacaz/checkout-files@c8f01756bfd894ba746d5bf48205e19000b0742b', // v1.0.0
   'EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87',

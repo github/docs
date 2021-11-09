@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Usar executores em um fluxo de trabalho
 ---
@@ -15,6 +16,7 @@ shortTitle: Usar executores em um fluxo de trabalho
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Para obter informações sobre como criar etiquetas-padrão e etiquetas personalizadas, consulte "[Usando etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -69,8 +71,8 @@ Estas etiquetas operam cumulativamente. Portanto, as etiquetas de um executor au
 
 Ao encaminhar um trabalho para um executor auto-hospedado, {% data variables.product.prodname_dotcom %} procura um executor que corresponde às etiquetas `runs-on` do trabalho:
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
-- {% data variables.product.prodname_dotcom %} primeiro pesquisa um executor on-line e inativo no nível do repositório e, em seguida, no nível da organização. {% ifversion fpt %} e se a organização for parte de uma empresa,{% endif %}, irá pesquisar no nível da empresa.
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+- {% data variables.product.prodname_dotcom %} primeiro pesquisa um executor on-line e inativo no nível do repositório e, em seguida, no nível da organização. {% ifversion fpt or ghec %} e se a organização for parte de uma empresa,{% endif %}, irá pesquisar no nível da empresa.
 - Se {% data variables.product.prodname_dotcom %} encontrar um executor on-line e inativo em um determinado nível que corresponde às etiquetas `runs-on` do trabalho, este será atribuído e enviado para o executor.
   - Se o executor não pegar a tarefa atribuída em de 60 segundos, o trabalho entrará na fila de todos os níveis e irá esperar que um executor correspondente de qualquer nível fique on-line e pegue o trabalho.
 - Se {% data variables.product.prodname_dotcom %} não encontrar um executor on-line e inativo em qualquer nível, o trabalho entrará na fila de todos os níveis e irá esperar que um executor correspondente de qualquer nível fique on-line e pegue o trabalho.

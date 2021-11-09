@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Fundamentals
@@ -24,14 +25,14 @@ O fluxo de {% data variables.product.prodname_dotcom %} é um fluxo de trabalho 
 
 ## Pré-requisitos
 
-Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa da conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% ifversion fpt %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
+Para seguir o fluxo de {% data variables.product.prodname_dotcom %}, você precisa da conta de {% data variables.product.prodname_dotcom %} e um repositório. Para obter informações sobre como criar uma conta, consulte "[Inscrevendo-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)". Para obter informações sobre como criar um repositório, consulte "[Crie um repositório](/github/getting-started-with-github/create-a-repo). {% ifversion fpt or ghec %} Para mais informações sobre como encontrar um repositório existente para contribuir, consulte "[Encontrar formas de contribuir para código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ## Seguindo o fluxo de {% data variables.product.prodname_dotcom %}
 
 {% tip %}
 
-{% ifversion fpt %}
-**Dica:** Você pode realizar todas as etapas do fluxo de {% data variables.product.prodname_dotcom %} através da interface web de {% data variables.product.prodname_dotcom %}, linha de comando e [{% data variables.product.prodname_cli %}](https://cli.github.com) ou [{% data variables.product.prodname_desktop %}](/desktop).
+{% ifversion fpt or ghec %}
+**Dica:** Você pode realizar todas as etapas do fluxo de {% data variables.product.prodname_dotcom %} através da interface web de {% data variables.product.prodname_dotcom %}, linha de comando e [{% data variables.product.prodname_cli %}](https://cli.github.com) ou [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop).
 {% else %}
 **Dica:** Você pode realizar todas as etapas de {% data variables.product.prodname_dotcom %} através da interface web de {% data variables.product.prodname_dotcom %} ou através da linha de comando e [{% data variables.product.prodname_cli %}](https://cli.github.com).
 {% endif %}

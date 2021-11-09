@@ -130,14 +130,6 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 
 {% endif %}
 
-{% ifversion ghes < 3.0 %}
-## Check runs and check suites API
-
-Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/rest/reference/checks#runs) and [Check suites](/rest/reference/checks#suites) APIs for more details.
-
-**Custom media type:** `antiope-preview`
-**Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
 
 {% ifversion ghes %}
 

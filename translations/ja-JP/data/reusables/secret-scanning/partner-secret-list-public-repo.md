@@ -35,6 +35,7 @@
 | Finicity                  | Finicity App Key                                    |
 | Frame.io                  | Frame.io JSON Web Token                             |
 | Frame.io                  | Frame.io Developer Token                            |
+| FullStory                 | FullStory API Key                                   |
 | GitHub                    | GitHub Personal Access Token                        |
 | GitHub                    | GitHub OAuthアクセストークン                                |
 | GitHub                    | GitHub Refreshトークン                                  |

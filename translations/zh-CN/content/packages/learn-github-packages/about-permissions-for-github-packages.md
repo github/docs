@@ -6,26 +6,27 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 关于权限
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 包的权限要么是仓库范围，要么是用户/组织范围。
 {% endif %}
 
 ## 仓库作用域包的权限
 
-仓库作用域的包从拥有该包的仓库继承权限和可见性。 通过转到仓库的主页并单击页面右侧的 **Packages（包）**链接，您可以找到作用域为仓库的包。 {% ifversion fpt %}更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。{% endif %}
+仓库作用域的包从拥有该包的仓库继承权限和可见性。 通过转到仓库的主页并单击页面右侧的 **Packages（包）**链接，您可以找到作用域为仓库的包。 {% ifversion fpt or ghec %}更多信息请参阅“[将仓库连接到包](/packages/learn-github-packages/connecting-a-repository-to-a-package)”。{% endif %}
 
 下面的 {% data variables.product.prodname_registry %} 注册表使用仓库作用域的权限：
 
-  {% ifversion not fpt %}- Docker 注册表 (`docker.pkg.github.com`){% endif %}
+  {% ifversion not fpt or ghec %}- Docker 注册表 (`docker.pkg.github.com`){% endif %}
   - npm 注册表
   - RubyGems 注册表
   - Apache Maven 注册表
   - NuGet 注册表
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 用户/组织作用域包的精细权限
 
 具有精细权限的包仅限于个人用户或组织帐户。 您可以从与包相连（或链接）的仓库分别更改包的访问控制和可见性。
@@ -46,20 +47,20 @@ shortTitle: 关于权限
 
 例如：
 -  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须具有读取权限。
-- {% ifversion fpt or ghes > 3.0 %}要在 {% data variables.product.product_name %}上删除软件包，您的令牌至少必须有 `delete:packages` 和 `read:packages` 作用域。 Repo-scoped 软件包也需要 `repo` 作用域。{% elsif ghes < 3.1 %}要在 {% data variables.product.product_name %} 上删除私有软件的指定版本，您的令牌必须具有 `delete:packages` 和 `repo` 作用域。 公共包不能删除。{% elsif ghae %}要在 {% data variables.product.product_name %} 上删除包的指定版本，您必须具有 `delete:packages` 和 `repo` 作用域。{% endif %} 更多信息请参阅“{% ifversion fpt or ghes > 3.0 %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}”。
+- {% ifversion fpt or ghes > 3.0 or ghec %}要在 {% data variables.product.product_name %}上删除软件包，您的令牌至少必须有 `delete:packages` 和 `read:packages` 作用域。 Repo-scoped 软件包也需要 `repo` 作用域。{% elsif ghes < 3.1 %}要在 {% data variables.product.product_name %} 上删除私有软件的指定版本，您的令牌必须具有 `delete:packages` 和 `repo` 作用域。 公共包不能删除。{% elsif ghae %}要在 {% data variables.product.product_name %} 上删除包的指定版本，您必须具有 `delete:packages` 和 `repo` 作用域。{% endif %} 更多信息请参阅“{% ifversion fpt or ghes > 3.0 or ghec %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}”。
 
-| 作用域                                                                                                                                                                                                                                                               | 描述                                                      | 所需权限   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------ |
-| `read:packages`                                                                                                                                                                                                                                                   | 从 {% data variables.product.prodname_registry %} 下载和安装包 | 读取     |
-| `write:packages`                                                                                                                                                                                                                                                  | 将包上传和发布到 {% data variables.product.prodname_registry %} | 写入     |
-| `delete:packages`                                                                                                                                                                                                                                                 |                                                         |        |
-| {% ifversion fpt or ghes > 3.0 %} 从 {% data variables.product.prodname_registry %} 删除包 {% elsif ghes < 3.1 %} 从 {% data variables.product.prodname_registry %} 删除私有包的指定版本{% elsif ghae %} 从 {% data variables.product.prodname_registry %} 删除包的指定版本 {% endif %} |                                                         |        |
-| 管理员                                                                                                                                                                                                                                                               |                                                         |        |
-| `repo`                                                                                                                                                                                                                                                            | 上传和删除包（连同 `write:packages` 或 `delete:packages`）         | 写入或管理员 |
+| 作用域                                                                                                                                                                                                                                                                       | 描述                                                      | 所需权限   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------ |
+| `read:packages`                                                                                                                                                                                                                                                           | 从 {% data variables.product.prodname_registry %} 下载和安装包 | 读取     |
+| `write:packages`                                                                                                                                                                                                                                                          | 将包上传和发布到 {% data variables.product.prodname_registry %} | 写入     |
+| `delete:packages`                                                                                                                                                                                                                                                         |                                                         |        |
+| {% ifversion fpt or ghes > 3.0 or ghec %} 从 {% data variables.product.prodname_registry %} 删除包 {% elsif ghes < 3.1 %} 从 {% data variables.product.prodname_registry %} 删除私有包的指定版本{% elsif ghae %} 从 {% data variables.product.prodname_registry %} 删除包的指定版本 {% endif %} |                                                         |        |
+| 管理员                                                                                                                                                                                                                                                                       |                                                         |        |
+| `repo`                                                                                                                                                                                                                                                                    | 上传和删除包（连同 `write:packages` 或 `delete:packages`）         | 写入或管理员 |
 
 创建 {% data variables.product.prodname_actions %} 工作流程时，您可以使用 `GITHUB_TOKEN` 发布和安装 {% data variables.product.prodname_registry %} 中的包，无需存储和管理个人访问令牌。
 
-更多信息请参阅：{% ifversion fpt %}
+更多信息请参阅：{% ifversion fpt or ghec %}
 - “[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)”{% endif %}
 - “[使用 {% data variables.product.prodname_actions %} 发布和安装包](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)”
 - “[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token/)”。
@@ -78,7 +79,7 @@ shortTitle: 关于权限
 
 有关 {% data variables.product.prodname_actions %} 工作流程中使用的 `GITHUB_TOKEN` 的更多信息，请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### 容器映像的 {% data variables.product.prodname_actions %} 访问权限
 
 要确保工作流程有权访问容器映像，您必须启用 {% data variables.product.prodname_actions %} 访问运行工作流程的仓库。 您可以在包的设置页面上找到此设置。 更多信息请参阅“[确保工作流程访问您的包](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)”。
