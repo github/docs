@@ -96,7 +96,7 @@ You can use the {% data variables.product.prodname_command_palette %} to run com
 - Pull request and issue commands always run on the underlying page.
 - Higher-level commands, for example, repository commands, run in the scope shown in the command palette. 
 
-For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](##github-command-palette-reference)."
+For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
 
 1. Use <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac) to open the command palette in command mode. If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
 
