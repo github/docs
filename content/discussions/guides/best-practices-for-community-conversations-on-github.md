@@ -47,3 +47,4 @@ To continue learning about {% data variables.product.prodname_discussions %} and
 - "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
 - "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"
+- "[GitHub Discussions: An exploratory study of early adoption](https://doi.org/10.1007/s10664-021-10058-6)", *Empirical Software Engineering* (Published: 22 October 2021)
