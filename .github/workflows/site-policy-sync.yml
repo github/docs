@@ -28,10 +28,10 @@ jobs:
       pull-requests: write
     steps:
       - name: checkout docs-internal
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
       - name: checkout public site-policy
-        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           repository: github/site-policy
           token: ${{ secrets.API_TOKEN_SITEPOLICY }}
