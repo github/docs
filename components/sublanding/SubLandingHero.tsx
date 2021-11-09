@@ -1,5 +1,4 @@
 import cx from 'classnames'
-import { Breadcrumbs } from '../Breadcrumbs'
 import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
 import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -17,11 +16,11 @@ export const SubLandingHero = () => {
     <li className="px-2 d-flex flex-shrink-0" key={guide.href} style={{ width: cardWidth }}>
       <Link
         href={`${guide.href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
-        className="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline"
+        className="d-inline-block Box p-5 color-bg-default color-border-default no-underline"
       >
         <div className="d-flex flex-justify-between flex-items-center">
           <div
-            className="color-bg-primary color-text-link border d-inline-flex flex-items-center flex-justify-center circle"
+            className="color-bg-default color-fg-accent border d-inline-flex flex-items-center flex-justify-center circle"
             style={{ width: 40, height: 40 }}
           >
             {featuredTrack.guides && (
@@ -30,12 +29,12 @@ export const SubLandingHero = () => {
               </span>
             )}
           </div>
-          <div className="color-text-tertiary h6 text-uppercase">
+          <div className="color-fg-muted h6 text-uppercase">
             {t('guide_types')[guide.page?.type || '']}
           </div>
         </div>
-        <h3 className="text-semibold my-4 color-text-primary">{guide.title}</h3>
-        <TruncateLines maxLines={8} className="color-text-secondary f5 my-4">
+        <h3 className="text-semibold my-4 color-fg-default">{guide.title}</h3>
+        <TruncateLines maxLines={8} className="color-fg-muted f5 my-4">
           <span dangerouslySetInnerHTML={{ __html: guide.intro }} />
         </TruncateLines>
       </Link>
@@ -46,7 +45,6 @@ export const SubLandingHero = () => {
     <div>
       <header className="d-flex gutter mb-6">
         <div className="col-12">
-          <Breadcrumbs />
           <h1 className="my-3">{title} guides</h1>
           {intro && <Lead>{intro}</Lead>}
         </div>
@@ -58,7 +56,7 @@ export const SubLandingHero = () => {
             className="list-style-none d-flex flex-nowrap overflow-x-scroll px-2"
           >
             <li className="px-2 d-flex flex-shrink-0" style={{ width: cardWidth }}>
-              <div className="d-inline-block Box p-5 color-bg-secondary">
+              <div className="d-inline-block Box p-5 color-bg-subtle">
                 <div
                   className="d-inline-flex flex-items-center flex-justify-center circle border"
                   style={{ width: 40, height: 40, border: '2px white solid' }}

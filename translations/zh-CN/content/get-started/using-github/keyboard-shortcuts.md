@@ -1,6 +1,6 @@
 ---
 title: 键盘快捷键
-intro: '几乎 {% data variables.product.product_name %} 上的每一页都有键盘快捷键，可以更快地执行操作。'
+intro: '几乎 {% data variables.product.prodname_dotcom %} 上的每一页都有键盘快捷键，可以更快地执行操作。'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -12,21 +12,28 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## 关于键盘快捷键
 
-在 {% data variables.product.product_name %} 中输入 <kbd>?</kbd> 可弹出一个对话框，列出可用于该页面的键盘快捷键。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
+Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
 
 下面是一些可用键盘快捷键的列表。
+{% if command-palette %}
+The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## 站点快捷键
 
-| 键盘快捷键                       | 描述                                                                                                                                                                                                                                                    |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。                                                                                             |
-| <kbd>g</kbd> <kbd>n</kbd>   | 转到您的通知。 更多信息请参阅{% ifversion fpt or ghes or ghae %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。 |
-| <kbd>esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                                                                                                                |
+| 键盘快捷键                       | 描述                                                                                                                                                                                                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>s</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。                                                                                                     |
+| <kbd>g</kbd> <kbd>n</kbd>   | 转到您的通知。 更多信息请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。 |
+| <kbd>esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                                                                                                                        |
+
+{% if command-palette %}
+
+<kbd>control</kbd><kbd>k</kbd> or <kbd>command</kbd><kbd>k</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## 仓库
 
@@ -34,31 +41,34 @@ versions:
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | <kbd>g</kbd> <kbd>c</kbd> | 转到 **Code（代码）**选项卡                                                                                                                         |
 | <kbd>g</kbd> <kbd>i</kbd> | 转到 **Issues（议题）**选项卡。 更多信息请参阅“[关于议题](/articles/about-issues)”。                                                                             |
-| <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。{% ifversion fpt or ghes %}
+| <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。{% ifversion fpt or ghes or ghec %}
 | <kbd>g</kbd> <kbd>a</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                  |
-| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion fpt %}
+| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。{% ifversion fpt or ghec %}
 | <kbd>g</kbd> <kbd>g</kbd> | 转到 **Discussions（讨论）**选项卡。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。{% endif %}
 
 ## 源代码编辑
 
-| 键盘快捷键                                                          | 描述                                                                                                                                                                            |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt %}
-| <kbd>.</kbd>                                                   | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
-| <kbd>control b</kbd> 或 <kbd>command b</kbd>                    | 插入 Markdown 格式用于粗体文本                                                                                                                                                          |
-| <kbd>control i</kbd> 或 <kbd>command i</kbd>                    | 插入 Markdown 格式用于斜体文本                                                                                                                                                          |
-| <kbd>control k</kbd> 或 <kbd>command k</kbd>                    | 插入 Markdown 格式用于创建链接                                                                                                                                                          |
-| <kbd>e</kbd>                                                   | 在 **Edit file（编辑文件）**选项卡中打开源代码文件                                                                                                                                              |
-| <kbd>control f</kbd> 或 <kbd>command f</kbd>                    | 开始在文件编辑器中搜索                                                                                                                                                                   |
-| <kbd>control g</kbd> 或 <kbd>command g</kbd>                    | 查找下一个                                                                                                                                                                         |
-| <kbd>shift control g</kbd> 或 <kbd>shift command g</kbd>        | 查找上一个                                                                                                                                                                         |
-| <kbd>shift control f</kbd> 或 <kbd>command option f</kbd>       | 替换                                                                                                                                                                            |
-| <kbd>shift control r</kbd> 或 <kbd>shift command option f</kbd> | 全部替换                                                                                                                                                                          |
-| <kbd>alt g</kbd>                                               | 跳至行                                                                                                                                                                           |
-| <kbd>control z</kbd> 或 <kbd>command z</kbd>                    | 撤消                                                                                                                                                                            |
-| <kbd>control y</kbd> 或 <kbd>command y</kbd>                    | 重做                                                                                                                                                                            |
-| <kbd>cmd + shift + p</kbd>                                     | 在 **Edit file（编辑文件）** 与 **Preview changes（预览更改）**选项卡之间切换                                                                                                                      |
-| <kbd>control s</kbd> 或 <kbd>command s</kbd>                    | 填写提交消息                                                                                                                                                                        |
+| 键盘快捷键                                                           | 描述                                                                                                                                                                            |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
+| <kbd>.</kbd>                                                    | Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
+| <kbd>control b</kbd> 或 <kbd>command b</kbd>                     | 插入 Markdown 格式用于粗体文本                                                                                                                                                          |
+| <kbd>control i</kbd> 或 <kbd>command i</kbd>                     | 插入 Markdown 格式用于斜体文本                                                                                                                                                          |
+| <kbd>control k</kbd> 或 <kbd>command k</kbd>                     | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
+| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd>        | Inserts Markdown formatting for an ordered list                                                                                                                               |
+| <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd>        | Inserts Markdown formatting for an unordered list                                                                                                                             |
+| <kbd>control shift .</kbd> or <kbd>command shift.</kbd>         | Inserts Markdown formatting for a quote{% endif %}
+| <kbd>e</kbd>                                                    | 在 **Edit file（编辑文件）**选项卡中打开源代码文件                                                                                                                                              |
+| <kbd>control f</kbd> 或 <kbd>command f</kbd>                     | 开始在文件编辑器中搜索                                                                                                                                                                   |
+| <kbd>control g</kbd> 或 <kbd>command g</kbd>                     | 查找下一个                                                                                                                                                                         |
+| <kbd>control shift g</kbd> or <kbd>command shift g</kbd>        | 查找上一个                                                                                                                                                                         |
+| <kbd>control shift f</kbd> or <kbd>command option f</kbd>       | 替换                                                                                                                                                                            |
+| <kbd>control shift r</kbd> or <kbd>command shift option f</kbd> | 全部替换                                                                                                                                                                          |
+| <kbd>alt g</kbd>                                                | 跳至行                                                                                                                                                                           |
+| <kbd>control z</kbd> 或 <kbd>command z</kbd>                     | 撤消                                                                                                                                                                            |
+| <kbd>control y</kbd> 或 <kbd>command y</kbd>                     | 重做                                                                                                                                                                            |
+| <kbd>command shift p</kbd>                                      | 在 **Edit file（编辑文件）** 与 **Preview changes（预览更改）**选项卡之间切换                                                                                                                      |
+| <kbd>control s</kbd> 或 <kbd>command s</kbd>                     | 填写提交消息                                                                                                                                                                        |
 
 有关更多键盘快捷键，请参阅 [CodeMirror 文档](https://codemirror.net/doc/manual.html#commands)。
 
@@ -76,21 +86,21 @@ versions:
 
 ## 评论
 
-| 键盘快捷键                                                    | 描述                                                                                                                            |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>control b</kbd> 或 <kbd>command b</kbd>              | 插入 Markdown 格式用于粗体文本                                                                                                          |
-| <kbd>control i</kbd> 或 <kbd>command i</kbd>              | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae-next or ghes > 3.1 %}
+| 键盘快捷键                                                    | 描述                                                                                                                                    |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>control b</kbd> 或 <kbd>command b</kbd>              | 插入 Markdown 格式用于粗体文本                                                                                                                  |
+| <kbd>control i</kbd> 或 <kbd>command i</kbd>              | 插入斜体文本的 Markdown 格式{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 | <kbd>control e</kbd> 或 <kbd>command e</kbd>              | 在行内插入代码或命令的 Markdown 格式{% endif %}
-| <kbd>control k</kbd> 或 <kbd>command k</kbd>              | 插入 Markdown 格式用于创建链接                                                                                                          |
-| <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd>  | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae-next or ghes > 3.2 %}
-| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list                                                                               |
+| <kbd>control k</kbd> 或 <kbd>command k</kbd>              | 插入 Markdown 格式用于创建链接                                                                                                                  |
+| <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd>  | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list                                                                                       |
 | <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list{% endif %}
-| <kbd>control enter</kbd>                                 | 提交评论                                                                                                                          |
-| <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>     | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae-next or ghes > 3.2 %}
-| <kbd>control shift .</kbd> or <kbd>command shift.</kbd>  | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt %}
+| <kbd>control enter</kbd>                                 | 提交评论                                                                                                                                  |
+| <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>     | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
+| <kbd>control shift .</kbd> or <kbd>command shift.</kbd>  | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
 | <kbd>control g</kbd> 或 <kbd>command g</kbd>              | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。 
 {% endif %}
-| <kbd>r</kbd>                                             | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                              |
+| <kbd>r</kbd>                                             | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                      |
 
 ## 议题和拉取请求列表
 
@@ -112,7 +122,7 @@ versions:
 | <kbd>m</kbd>                                                | 设置里程碑。 更多信息请参阅“[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests/)”。                                                                                                                                                            |
 | <kbd>l</kbd>                                                | 应用标签。 更多信息请参阅“[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests/)”。                                                                                                                                                                        |
 | <kbd>a</kbd>                                                | 设置受理人。 更多信息请参阅“[分配议题和拉取请求到其他 {% data variables.product.company_short %} 用户](/articles/assigning-issues-and-pull-requests-to-other-github-users/)”。                                                                                                            |
-| <kbd>cmd + shift + p</kbd> 或 <kbd>control + shift + p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**选项卡之间切换{% ifversion fpt %}
+| <kbd>cmd + shift + p</kbd> 或 <kbd>control + shift + p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**选项卡之间切换{% ifversion fpt or ghec %}
 | <kbd>alt</kbd> 并单击                                          | 从任务列表创建议题时，按住 <kbd>alt</kbd> 并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %} ，在当前选项卡中打开新议题表单。 更多信息请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。                                           |
 | <kbd>shift</kbd> 并点击                                        | 从任务列表创建议题时，按住 <kbd>shift</kbd> 并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %} ，在新选项卡中打开新议题表单。 更多信息请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。                                          |
 | <kbd>command</kbd> 或 <kbd>control + shift</kbd> 并点击         | 从任务列表创建议题时，按住 <kbd>command</kbd> 或 <kbd>control + shift</kbd> 并单击任务右上角的 {% octicon "issue-opened" aria-label="The issue opened icon" %} ，在新窗口中打开新议题表单。 更多信息请参阅“[关于任务列表](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)”。{% endif %}
@@ -126,7 +136,7 @@ versions:
 | <kbd>j</kbd>                    | 将所选内容在列表中向下移动                                                                                                                                                                                               |
 | <kbd>k</kbd>                    | 将所选内容在列表中向上移动                                                                                                                                                                                               |
 | <kbd>cmd + shift + enter </kbd> | 添加一条有关拉取请求差异的评论                                                                                                                                                                                             |
-| <kbd>alt</kbd> 并单击              | 通过按下 `alt` 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。{% ifversion fpt or ghes or ghae %}
+| <kbd>alt</kbd> 并单击              | 通过按下 `alt` 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。{% ifversion fpt or ghes or ghae or ghec %}
 | 单击，然后按住 <kbd>shift</kbd> 并单击    | 单击一个行号，按住 <kbd>shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)。”
 {% endif %}
 
@@ -170,7 +180,7 @@ versions:
 | -------------- | -------- |
 | <kbd>esc</kbd> | 关闭卡片预览窗格 |
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_actions %}
 
 | 键盘快捷键                                                    | 描述                      |
@@ -184,7 +194,7 @@ versions:
 {% endif %}
 
 ## 通知
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 | 键盘快捷键                | 描述    |
 | -------------------- | ----- |
 | <kbd>e</kbd>         | 标记为完成 |

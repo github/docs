@@ -1,1 +1,0 @@
-To download or upgrade {% data variables.product.prodname_cli %}, follow the instructions in the [{% data variables.product.prodname_cli %} README](https://github.com/cli/cli#installation).

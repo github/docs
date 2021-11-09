@@ -7,6 +7,7 @@ redirect_from:
   - /marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 children:

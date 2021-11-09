@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Fazer merge de várias contas de usuário

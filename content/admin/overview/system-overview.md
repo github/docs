@@ -21,6 +21,8 @@ topics:
 
 The root filesystem is included in the distributed machine image. It contains the base operating system and the {% data variables.product.prodname_ghe_server %} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {% data variables.product.prodname_ghe_server %} releases.
 
+The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
+
 The root filesystem contains:
   - Custom certificate authority (CA) certificates (in */usr/local/share/ca-certificates*)
   - Custom networking configurations
@@ -34,8 +36,6 @@ The user filesystem contains user configuration and data, such as:
   - Content published on {% data variables.product.prodname_pages %} sites
   - Large files from {% data variables.large_files.product_name_long %}
   - Pre-receive hook environments
-
-{% data reusables.enterprise_installation.root-disk-partition %}
 
 ## Deployment options
 

@@ -34,19 +34,13 @@ You can also rename the default branch. For more information, see "[Renaming a b
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae-next or ghec %}
-
 {% data reusables.branches.set-default-branch %}
-
-{% endif %}
 
 ## Prerequisites
 
 To change the default branch, your repository must have more than one branch. For more information, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
 ## Changing the default branch
-
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -60,13 +54,3 @@ To change the default branch, your repository must have more than one branch. Fo
 1. Read the warning, then click **I understand, update the default branch.**
    !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repository-branches %}
-1. In the default branch drop-down, choose the new default branch.
-   ![Default branch dropdown selector](/assets/images/help/repository/repository-options-defaultbranch.png)
-1. Click **Update**.
-
-{% endif %}

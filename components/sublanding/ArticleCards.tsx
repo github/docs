@@ -43,7 +43,7 @@ export const ArticleCards = () => {
       <label htmlFor="guide-filter-form">{t('filter_instructions')}</label>
       <form name="guide-filter-form" className="mt-2 mb-5 d-flex d-flex">
         <div>
-          <label htmlFor="type" className="text-uppercase f6 color-text-secondary d-block">
+          <label htmlFor="type" className="text-uppercase f6 color-fg-muted d-block">
             {t('filters.type')}
           </label>
           <select
@@ -65,7 +65,7 @@ export const ArticleCards = () => {
           </select>
         </div>
         <div className="mx-4">
-          <label htmlFor="topic" className="text-uppercase f6 color-text-secondary d-block">
+          <label htmlFor="topic" className="text-uppercase f6 color-fg-muted d-block">
             {t('filters.topic')}
           </label>
           <select
@@ -88,7 +88,7 @@ export const ArticleCards = () => {
         </div>
       </form>
 
-      <div role="status" className="color-text-secondary">
+      <div role="status" className="color-fg-muted">
         {guides.length === 0
           ? t('guides_found.none')
           : guides.length === 1
@@ -104,7 +104,7 @@ export const ArticleCards = () => {
 
       {guides.length > numVisible && (
         <button
-          className="col-12 mt-5 text-center text-bold color-text-link btn-link"
+          className="col-12 mt-5 text-center text-bold color-fg-accent btn-link"
           onClick={() => setNumVisible(numVisible + PAGE_SIZE)}
         >
           {t('load_more')}

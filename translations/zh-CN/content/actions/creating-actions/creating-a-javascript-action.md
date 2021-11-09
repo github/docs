@@ -1,7 +1,6 @@
 ---
 title: 创建 JavaScript 操作
 intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -20,6 +20,7 @@ shortTitle: JavaScript 操作
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -102,7 +103,7 @@ npm install @actions/github
 
 此操作使用工具包获取操作元数据文件中所需的 `who-to-greet` 输入变量，然后在日志的调试消息中打印 "Hello [who-to-greet]"。 接下来，该脚本会获取当前时间并将其设置为作业中稍后运行的操作可以使用的输出变量。
 
-GitHub Actions 提供有关 web 挂钩实践、Git 引用、工作流程、操作和触发工作流程的人员的上下文信息。 要访问上下文信息，您可以使用 `github` 包。 您将编写的操作将打印 web 挂钩事件有效负载日志。
+GitHub 操作提供有关 web 挂钩实践、Git 引用、工作流程、操作和触发工作流程的人员的上下文信息。 要访问上下文信息，您可以使用 `github` 包。 您将编写的操作将打印 web 挂钩事件有效负载日志。
 
 使用以下代码添加名为 `index.js` 的新文件。
 
@@ -127,7 +128,6 @@ try {
 {% endraw %}
 
 如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
-
 
 ## 创建自述文件
 
@@ -173,7 +173,6 @@ with:
 从您的终端，提交 `action.yml`、`index.js`、`node_modules`、`package.json`、`package-lock.json` 和 `README.md` 文件。 如果您添加了列有 `node_modules` 的 `.gitignore` 文件，则需要删除该行才能提交 `node_modules` 目录。
 
 最佳做法是同时为操作版本添加版本标记。 有关对操作进行版本管理的详细信息，请参阅“[关于操作](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)”。
-
 
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -265,11 +264,11 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: アプリケーションのインストールのサスペンド
@@ -19,7 +20,7 @@ GitHub Appを所有・管理するインテグレーター、すなわちGitHub 
 
 GitHub Appをインストールしたユーザ、すなわちインストールオーナーは、アプリケーションのインストール設定からのみGitHub Appをサスペンドまたはサスペンド解除できます。 インストールオーナーは、インストールしたアプリケーションを、APIを使用してサスペンドまたはサスペンド解除することはできません。
 
-If an installation has been suspended by the {% data variables.product.prodname_github_app %} owner, installation owners cannot unsuspend their installations of the {% data variables.product.prodname_github_app %}. However, installation owners can change other settings, such as repository selection, while the app is suspended.
+インストールが{% data variables.product.prodname_github_app %}のオーナーによってサスペンドされた場合、インストールオーナーは{% data variables.product.prodname_github_app %}のインストールをサスペンド解除できません。 ただし、インストールオーナーは、アプリケーションがサスペンドしている間に、リポジトリの選択など他の設定を変更できます。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

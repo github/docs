@@ -1,7 +1,6 @@
 ---
 title: Crear una acción de contenedor de Docker
 intro: Esta guía te muestra los pasos mínimos necesarios para desarrollar una acción de contenedor Docker.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -11,15 +10,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
   - Docker
-shortTitle: Acción del contenedor de Docker
+shortTitle: Docker container action
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Introducción
 
@@ -185,7 +186,7 @@ Ahora estás listo para probar tu acción en un flujo de trabajo. Cuando una acc
 
 ### Ejemplo usando una acción pública
 
-El siguiente código de flujo de trabajo utiliza la acción completa _hello world_ en el repositorio público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copia el siguiente código de ejemplo de flujo de trabajo en un archivo `.github/workflows/main.yml`, pero reemplaza `actions/hello-world-docker-action` con tu nombre de repositorio y acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre. {% ifversion fpt %}Las acciones públicas pueden utilizarse incluso si no se han publicado en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Publicar una acción](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)". {% endif %}
+El siguiente código de flujo de trabajo utiliza la acción completa _hello world_ en el repositorio público [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action). Copia el siguiente código de ejemplo de flujo de trabajo en un archivo `.github/workflows/main.yml`, pero reemplaza `actions/hello-world-docker-action` con tu nombre de repositorio y acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Publicar una acción](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)". {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -210,7 +211,7 @@ jobs:
 
 ### Ejemplo usando una acción privada
 
-Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre. {% ifversion fpt %}Esta acción privada no puede publicarse en {% data variables.product.prodname_marketplace %} y solo puede utilizarse en este repositorio.{% endif %}
+Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre. {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -237,9 +238,9 @@ jobs:
 ```
 {% endraw %}
 
-Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. {% ifversion fpt or ghes > 3.0 or ghae %}Debajo de **Jobs** o en la gráfica de visualización, da clic en **A job to say hello**. {% endif %}Debrás ver la frase "Hello Mona the Octocat" o el nombre que utilizaste para la entrada `who-to-greet` y la marca de tiempo impresa en la bitácora.
+Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}Debrás ver la frase "Hello Mona the Octocat" o el nombre que utilizaste para la entrada `who-to-greet` y la marca de tiempo impresa en la bitácora.
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 {% else %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/docker-action-workflow-run.png)

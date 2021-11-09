@@ -4,6 +4,7 @@ intro: 'Você pode definir sua região padrão na página de configurações do 
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 shortTitle: Definir a região padrão

@@ -13,7 +13,7 @@ redirect_from:
 permissions: 'Enterprise owners who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: 'next'
+  ghae: next
 type: how_to
 topics:
   - Enterprise

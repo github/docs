@@ -1,12 +1,13 @@
 ---
 title: 关于 OAuth App 访问限制
-intro: 'Organizations can choose which {% data variables.product.prodname_oauth_apps %} have access to their repositories and other resources by enabling {% data variables.product.prodname_oauth_app %} access restrictions.'
+intro: '组织可通过启用 {% data variables.product.prodname_oauth_apps %} 访问限制，选择哪些 {% data variables.product.prodname_oauth_app %} 可以访问其仓库及其他资源。'
 redirect_from:
   - /articles/about-third-party-application-restrictions/
   - /articles/about-oauth-app-access-restrictions
   - /github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,7 +16,7 @@ shortTitle: OAuth 应用程序访问
 
 ## 关于 OAuth App 访问限制
 
-当 {% data variables.product.prodname_oauth_app %} 访问限制启用后，组织成员无法授权 {% data variables.product.prodname_oauth_app %} 访问组织资源。 Organization members can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests.
+当 {% data variables.product.prodname_oauth_app %} 访问限制启用后，组织成员无法授权 {% data variables.product.prodname_oauth_app %} 访问组织资源。 组织成员可以申请所有者批准他们想使用的 {% data variables.product.prodname_oauth_apps %}，并且组织所有者会收到待处理申请的通知。
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
@@ -25,18 +26,20 @@ shortTitle: OAuth 应用程序访问
 
 {% endtip %}
 
-To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}
+{% ifversion fpt %}
+为了进一步保护您的组织资源，您可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括安全功能，如 SAML 单点登录。 {% data reusables.enterprise.link-to-ghec-trial %}
+{% endif %}
 
 ## 设置 {% data variables.product.prodname_oauth_app %} 访问限制
 
 当组织所有者第一次设置 {% data variables.product.prodname_oauth_app %} 访问限制时：
 
 - **组织拥有的应用程序**会自动获得对组织资源的访问权限。
-- **{% data variables.product.prodname_oauth_apps %}** immediately lose access to the organization's resources.
+- **{% data variables.product.prodname_oauth_apps %}** 会立即失去对组织资源的访问权限。
 - **2014 年 2 月之前创建的 SSH 密钥**会立即失去对组织资源（包括用户和部署密钥）的访问权限。
-- **SSH keys created by {% data variables.product.prodname_oauth_apps %} during or after February 2014** immediately lose access to the organization's resources.
-- **Hook deliveries from private organization repositories** will no longer be sent to unapproved {% data variables.product.prodname_oauth_apps %}.
-- **API access** to private organization resources is not available for unapproved {% data variables.product.prodname_oauth_apps %}. 此外，也没有在公共资源资源上执行创建、更新或删除操作的权限。
+- **{% data variables.product.prodname_oauth_apps %} 在 2017 年 2 月期间或以后创建的 SSH 密钥**会立即失去对组织资源的访问权限。
+- **来自私有组织仓库的挂钩**不再发送到未批准的 {% data variables.product.prodname_oauth_apps %}。
+- 对私有组织资源的 **API 访问**不适用于未批准的 {% data variables.product.prodname_oauth_apps %}。 此外，也没有在公共资源资源上执行创建、更新或删除操作的权限。
 - **用户创建的挂钩和 2014 年 5 月之前创建的挂钩**不受影响。
 - **组织拥有的仓库的私有复刻**需遵守组织的访问限制。
 
@@ -57,9 +60,9 @@ To further protect your organization's resources, you can upgrade to {% data var
 ## 延伸阅读
 
 - "[为组织启用 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/enabling-oauth-app-access-restrictions-for-your-organization)"
-- "[Approving {% data variables.product.prodname_oauth_apps %} for your organization](/articles/approving-oauth-apps-for-your-organization)"
+- "[为组织审批 {% data variables.product.prodname_oauth_apps %}](/articles/approving-oauth-apps-for-your-organization)"
 - "[审查组织安装的集成](/articles/reviewing-your-organization-s-installed-integrations)"
 - "[拒绝访问以前为组织批准的 {% data variables.product.prodname_oauth_app %}](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
 - "[为组织禁用 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/disabling-oauth-app-access-restrictions-for-your-organization)"
-- "[Requesting organization approval for {% data variables.product.prodname_oauth_apps %}](/articles/requesting-organization-approval-for-oauth-apps)"
+- "[请求组织对 {% data variables.product.prodname_oauth_apps %} 的审批](/articles/requesting-organization-approval-for-oauth-apps)"
 - "[授权 {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"

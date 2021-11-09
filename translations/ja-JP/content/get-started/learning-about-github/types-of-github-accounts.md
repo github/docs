@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの種類
-intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 ユーザアカウントはいくつでも Organization のメンバーになれます。{% ifversion fpt %} Organization は enterprise アカウントに所属できます。{% endif %}'
+intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 Your user account can be a member of any number of organizations.{% ifversion fpt or ghec %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - CLI
@@ -21,7 +22,7 @@ topics:
   - Security
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 各 {% data variables.product.product_name %} 製品の機能の完全なリストについては、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
 {% endif %}
 
@@ -29,7 +30,7 @@ topics:
 
 {% data variables.product.product_location %} を使用するすべての人は、次のような独自のユーザーアカウントを持っています。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 - {% data variables.product.prodname_free_user %} での無制限のパブリックリポジトリおよびプライベートリポジトリ
 - {% data variables.product.prodname_free_user %} での無制限のコラボレータ
@@ -43,7 +44,7 @@ topics:
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 
@@ -64,12 +65,12 @@ topics:
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_emus %}
 
 With {% data variables.product.prodname_emus %}, instead of using your personal account, members of an {% data variables.product.prodname_emu_enterprise %} are provisioned accounts using the enterprise's identity provider (IdP). {% data variables.product.prodname_managed_users_caps %} authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password.
 
-{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+{% data variables.product.prodname_managed_users_caps %} can only interact with users, repositories, and organizations that are part of their enterprise. {% data variables.product.prodname_managed_users_caps %} have read-only access to the rest of {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 {% endif %}
 
 ## Organization アカウント
@@ -78,7 +79,7 @@ Organization は、多くの人がいくつものプロジェクトにわたっ�
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Enterprise アカウント
 
@@ -88,6 +89,6 @@ Enterprise アカウントを使用すると、複数の {% data variables.produ
 
 ## 参考リンク
 
-{% ifversion fpt %}- "[新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)"
+{% ifversion fpt or ghec %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - 「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」{% endif %}
 - 「[新しい Organization アカウントを作成する](/articles/creating-a-new-organization-account)」

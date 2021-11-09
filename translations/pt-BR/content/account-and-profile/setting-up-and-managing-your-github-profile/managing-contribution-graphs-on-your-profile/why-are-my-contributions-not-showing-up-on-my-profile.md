@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Contribuições ausentes
@@ -16,7 +17,7 @@ shortTitle: Contribuições ausentes
 
 ## Sobre o seu gráfico de contribuição
 
-O gráfico de contribuições de perfil é um registro das contribuições que você fez em repositórios do {% data variables.product.product_name %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
+Seu gráfico de contribuições de perfil é um registro de contribuições que você fez para repositórios {% ifversion ghae %}pertencentes a{% else %}em{% endif %} {% data variables.product.product_location %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
 
 ## Contribuições que são contabilizadas
 
@@ -26,7 +27,7 @@ Os problemas, pull requests e discussões aparecerão no gráfico de contribuiç
 
 ### Commits
 Os commits aparecerão no gráfico de contribuições se atenderem a **todas** estas condições:
-- O endereço de e-mail usado para os commits está associado à sua conta do {% data variables.product.product_name %}.
+- O endereço de e-mail usado para os commits está associado à sua conta no {% data variables.product.product_location %}.
 - Os commits foram criados em um repositório autônomo, e não em uma bifurcação.
 - Os commits foram criados:
   - No branch-padrão do repositório
@@ -50,7 +51,7 @@ Depois de fazer um commit que atenda aos requisitos para ser contabilizado como 
 
 ### Seu e-mail de confirmação do Git local não está conectado à sua conta
 
-Os Commits devem ser criados com um endereço de e-mail conectado à sua conta em {% data variables.product.product_name %}{% ifversion fpt %} ou com o endereço de e-mail `noreply` fornecido por {% data variables.product.product_name %} nas suas configurações de e-mail,{% endif %} para aparecer no gráfico de contribuições.{% ifversion fpt %} Para obter mais informações sobre `endereços de e-mail` nem profundamente, consulte "[Configurando seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)"{% endif %}
+Os Commits devem ser feitos com um endereço de e-mail que esteja conectado à sua conta em {% data variables.product.product_location %}{% ifversion fpt or ghec %} ou o endereço de e-mail `noreply` fornecido por {% data variables.product.prodname_dotcom %} enviado para você nas suas configurações de e-mail{% endif %} para aparecer no seu gráfico de contribuições.{% ifversion fpt or ghec %} Para obter mais informações sobre endereços de e-amil `noreply`, consulte "[Definindo o endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)".{% endif %}
 
 Você pode verificar o endereço de e-mail usado para um commit adicionando `.patch` ao final de uma URL de commit; por exemplo, <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -63,11 +64,11 @@ Subject: [PATCH] updated index for better welcome message
 
 O endereço de e-mail no campo `From:` é o que foi definido nas [configurações locais do Git](/articles/set-up-git). Neste exemplo, o endereço de e-mail usado para o commit é `octocat@nowhere.com`.
 
-Se o endereço de e-mail usado para o commit não estiver conectado à sua conta em {% data variables.product.product_name %}, {% ifversion ghae %}altere o endereço de e-mail usado para criar commits no Git. Para obter mais informações, consulte "[Definir o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git).{% else %}você deve [adicionar o endereço de e-mail](/articles/adding-an-email-address-to-your-github-account) à sua conta de {% data variables.product.product_name %}. Seu gráfico de contribuições será reconstruído automaticamente quando você adicionar o novo endereço.{% endif %}
+Se o endereço de e-mail usado para o commit não estiver conectado à sua conta em {% data variables.product.product_location %}, {% ifversion ghae %}altere o endereço de e-mail usado para criar commits no Git. Para obter mais informações, consulte "[Definindo o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git).{% else %}você deve [adicionar o endereço de e-mail](/articles/adding-an-email-address-to-your-github-account) à sua conta em {% data variables.product.product_location %}. Seu gráfico de contribuições será reconstruído automaticamente quando você adicionar o novo endereço.{% endif %}
 
 {% warning %}
 
-Não é possível adicionar endereços de e-mail genéricos, como `jane@computer.local`, a contas do {% data variables.product.product_name %}. Se você usar esse e-mail para os commits, eles não serão vinculados ao seu perfil do {% data variables.product.product_name %} e não serão exibidos no gráfico de contribuições.
+**Aviso**: Endereços de e-mail genéricos, como `jane@computer.local` não podem ser adicionados às contas de {% data variables.product.prodname_dotcom %}. Se você usar esse e-mail para os commits, eles não serão vinculados ao seu perfil do {% data variables.product.prodname_dotcom %} e não serão exibidos no gráfico de contribuições.
 
 {% endwarning %}
 
@@ -81,7 +82,7 @@ Se os commits estiverem em um branch que não seja `gh-pages` ou o padrão e voc
 
 {% warning %}
 
-A alteração do branch padrão do repositório fará com que ele seja modificado para todos os colaboradores do repositório. Faça isso apenas se quiser que o novo branch se torne a base de todos os futuros commits e pull requests a serem criados.
+**Aviso**: A alteração do branch padrão do repositório fará com que ele seja modificado para todos os colaboradores do repositório. Faça isso apenas se quiser que o novo branch se torne a base de todos os futuros commits e pull requests a serem criados.
 
 {% endwarning %}
 
@@ -89,7 +90,7 @@ A alteração do branch padrão do repositório fará com que ele seja modificad
 
 Os commits criados em uma bifurcação não são contabilizados para suas contribuições. Para isso, é preciso que você siga estes procedimentos:
 - [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no repositório principal.
-- Para separar a bifurcação e transformá-la em um repositório autônomo no {% data variables.product.product_name %}, entre em contato com o {% data variables.contact.contact_support %}. Se a bifurcação tiver bifurcações próprias, informe o {% data variables.contact.github_support %} se as bifurcações devem mover-se com o repositório para uma nova rede ou se devem permanecer na rede atual. Para obter mais informações, consulte "[Sobre bifurcações](/articles/about-forks/)".
+- Para separar a bifurcação e transformá-la em um repositório autônomo no {% data variables.product.product_location %}, entre em contato com o {% data variables.contact.contact_support %}. Se a bifurcação tiver bifurcações próprias, informe o {% data variables.contact.contact_support %} se as bifurcações devem mover-se com o repositório para uma nova rede ou se devem permanecer na rede atual. Para obter mais informações, consulte "[Sobre bifurcações](/articles/about-forks/)".
 
 ## Leia mais
 

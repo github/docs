@@ -493,7 +493,7 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -506,7 +506,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```

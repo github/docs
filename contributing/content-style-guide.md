@@ -48,6 +48,19 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
+- If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+  - **Use**:
+
+    ```
+    GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+    ```
+
+  - **Avoid**:
+ 
+    ```
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    ```
+
 
 ### Commands
 
@@ -172,6 +185,30 @@ For accessibility and readability, avoid inline or midsentence links.
 - **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
+
+### Links between versions
+
+Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+
+>You can choose to allow or disallow the publication of GitHub Pages sites.
+>
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+
+To link to a different article in a different version, use this format:
+
+> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+
+To link to the same article in a different version, use this format:
+
+> For more information, see [the VERSION documentation]().
+
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+
+### Links to learning paths
+
+Use this format to link to a learning path.
+
+> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
 
 ### Links to external resources
 

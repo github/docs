@@ -19,6 +19,8 @@ versions:
 Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
 Below is a list of some of the available keyboard shortcuts.
+{% if command-palette %}
+The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Site wide shortcuts
 
@@ -27,6 +29,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 |<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
+{% if command-palette %}|<kbd>control</kbd><kbd>k</kbd> or <kbd>command</kbd><kbd>k</kbd> | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Ctl</kbd><kbd>alt</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
 
 ## Repositories
 
@@ -34,7 +37,7 @@ Below is a list of some of the available keyboard shortcuts.
 |-----------|------------
 |<kbd>g</kbd> <kbd>c</kbd> | Go to the **Code** tab
 |<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
-|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
+|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
 |<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion fpt or ghec %}
@@ -47,17 +50,20 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>.</kbd>| Opens a repository or pull request in the web-based editor. For more information, see "[Web-based editor](/codespaces/developing-in-codespaces/web-based-editor)."{% endif %}
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
-| <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
+| <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae-next or ghes > 3.3 %}
+| <kbd>control shift 7</kbd> or <kbd>command shift 7</kbd> | Inserts Markdown formatting for an ordered list
+| <kbd>control shift 8</kbd> or <kbd>command shift 8</kbd> | Inserts Markdown formatting for an unordered list
+| <kbd>control shift .</kbd> or <kbd>command shift.</kbd> | Inserts Markdown formatting for a quote{% endif %}
 |<kbd>e</kbd> | Open source code file in the **Edit file** tab
 |<kbd>control f</kbd> or <kbd>command f</kbd> | Start searching in file editor
 |<kbd>control g</kbd> or <kbd>command g</kbd> | Find next
-|<kbd>shift control g</kbd> or <kbd>shift command g</kbd> | Find previous
-|<kbd>shift control f</kbd> or <kbd>command option f</kbd> | Replace
-|<kbd>shift control r</kbd> or <kbd>shift command option f</kbd> | Replace all
+|<kbd>control shift g</kbd> or <kbd>command shift g</kbd> | Find previous
+|<kbd>control shift f</kbd> or <kbd>command option f</kbd> | Replace
+|<kbd>control shift r</kbd> or <kbd>command shift option f</kbd> | Replace all
 |<kbd>alt g</kbd> | Jump to line
 |<kbd>control z</kbd> or <kbd>command z</kbd> | Undo
 |<kbd>control y</kbd> or <kbd>command y</kbd> | Redo
-|<kbd>cmd + shift + p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
+|<kbd>command shift p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
 |<kbd>control s</kbd> or <kbd>command s</kbd> | Write a commit message
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
@@ -88,7 +94,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>control enter</kbd> | Submits a comment
 | <kbd>control .</kbd> and then <kbd>control [saved reply number]</kbd> | Opens saved replies menu and then autofills comment field with a saved reply. For more information, see "[About saved replies](/articles/about-saved-replies)."{% ifversion fpt or ghae-next or ghes > 3.2 or ghec %}
 | <kbd>control shift .</kbd> or <kbd>command shift.</kbd> | Inserts Markdown formatting for a quote{% endif %}{% ifversion fpt or ghec %}
-|<kbd>control g</kbd> or <kbd>command g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
+|<kbd>control g</kbd> or <kbd>command g</kbd> | Insert a suggestion. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)." |{% endif %}
 | <kbd>r</kbd> | Quote the selected text in your reply. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax#quoting-text)." |
 
 ## Issue and pull request lists

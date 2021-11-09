@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Dependabot

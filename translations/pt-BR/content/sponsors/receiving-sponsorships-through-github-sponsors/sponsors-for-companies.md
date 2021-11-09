@@ -1,10 +1,11 @@
 ---
-title: Receiving payments from Sponsors for Companies
-shortTitle: Sponsors for Companies
-intro: 'To accept payments from the Sponsors for Companies service, you must accept some additional terms.'
+title: Receber pagamentos de Patrocinadores para Empresas
+shortTitle: Patrocinadores para Empresas
+intro: 'Para aceitar pagamentos do serviço Patrocinador para Empresas, você deverá aceitar alguns termos adicionais.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Sponsors
@@ -13,28 +14,28 @@ topics:
 
 {% data reusables.sponsors.beta-note-sponsors-for-companies %}
 
-## About the Sponsors for Companies service
+## Sobre o serviço do Sponsors para empresas
 
-When you create a sponsors profile, you become eligible for sponsorship payments from individual users and organizations who are billed by credit card. In addition, {% data variables.product.company_short %} now offers a Sponsors for Companies service to enterprise customers who pay by invoice, including companies who use {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}.
+Ao criar um perfil de patrocinador, você torna-se elegível a pagamentos de patrocínio de usuários individuais e organizações que são cobradas por cartão de crédito. Além disso, {% data variables.product.company_short %} agora oferece um serviço de Patrocinadores para empresas clientes corporativos que pagam por fatura, incluindo empresas que usam {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}.
 
- The funds you receive under the Sponsors for Companies service come directly from {% data variables.product.company_short %}, and your participation in this service is subject to separate terms: the "GitHub Maintainer Additional Terms for Optional Data Provision". If you wish to receive funds from {% data variables.product.company_short %} under the Sponsors for Companies service, you'll need to complete the agreement before receiving any of those funds.
+ Os pagementos que você recebe no serviço de Sponsors para empresas vêm diretamente de {% data variables.product.company_short %}, e a sua participação neste serviço está sujeita aos termos separados: "Termos Adicionasi para Provisão Opcional de Dados do Mantenedor do GitHub". Se você deseja receber os pagamentos de {% data variables.product.company_short %} no serviço de Sponsors para empresas, você deverá firmar o contrato antes de receber esses pagamentos.
 
-## About the additional terms
+## Sobre os termos adicionais
 
-The "GitHub Maintainer Additional Terms for Optional Data Provision" agreement is available from your [{% data variables.product.prodname_sponsors %} dashboard](https://github.com/sponsors/accounts) (see steps below). Key points of the agreement include:
+O contrato "Termos adicionais do GitHub para a Provisão de Dados Opcional" está disponível no seu [painel de {% data variables.product.prodname_sponsors %}](https://github.com/sponsors/accounts) (consulte as etapas abaixo). Os principais termos do Contrato incluem:
 
-* Due to the way the service is set up, you'll receive payment from {% data variables.product.company_short %}, not from another company.
-* If taxes are required to be withheld on payment made through this program, {% data variables.product.company_short %} will deduct taxes from the amount owed and pay them to the appropriate taxing authority.
-* We'll share some aggregated data on your project(s) or projects you contribute to with the companies that pay for access to this data on a {% data variables.product.company_short %} dashboard. These data fields are outlined in Section 5 of the agreement.
-* Data will be aggregated and will not include any User Personal Information (as defined in {% data variables.product.company_short %}’s [Privacy Statement](/github/site-policy/github-privacy-statement)), or any information from private repositories.
-* You, as a Maintainer, can terminate the agreement with 14 days notice by contacting us.
+* Devido à forma como o serviço está configurado, você receberá o pagamento de {% data variables.product.company_short %}, e não de outra empresa.
+* Se os impostos são necessários para serem retidos sobre o pagamento feito por meio deste programa, {% data variables.product.company_short %} deduzirá impostos do valor devido e pagará à autoridade tributária competente.
+* Compartilharemos alguns dados agregados no(s) seu(s) projeto(s) ou projetos com os quais você contribui com as empresas que pagam por acesso a esses dados em um painel de {% data variables.product.company_short %}. Estes campos de dados estão delineados na secção 5 do contrato.
+* Os dados serão agregados e não incluirão Informações Pessoais do Usuário (conforme definido na {% data variables.product.company_short %}’s [Declaração de Privacidade](/free-pro-team@latest/github/site-policy/github-privacy-statement)) ou qualquer informação de repositórios privados.
+* Você, como Mantenedor, pode rescindir o contrato com 14 dias de antecedência, entrando em contato conosco.
 
-If you agree to the terms outlined in the "GitHub Maintainer Additional Terms for Optional Data Provision" agreement, you will receive a payment from {% data variables.product.company_short %} each time a company purchases access to the service. The company purchases access to the dashboard from {% data variables.product.company_short %} for a limited amount of time (for example, one month or one year), and {% data variables.product.company_short %} purchases a license to your data to populate the dashboard. Your financial relationship is with {% data variables.product.company_short %}, not the company taking part in the service.
+Se você concordar com os termos descritos no contrato "Termos adicionais para a Provisão Opcional de Dados do Mantenedor do GitHub", você receberá um pagamento de {% data variables.product.company_short %} sempre que uma empresa compra acesso ao serviço. A empresa compra acesso ao painel de {% data variables.product.company_short %} por tempo limitado (por exemplo, um mês ou um ano) e {% data variables.product.company_short %} compra uma licença dos seus dados para preencher o painel. Sua relação financeira é com {% data variables.product.company_short %}, não com a empresa que participa do serviço.
 
-## Accepting the additional terms
+## Aceitando os termos adicionais
 
-You can view and accept the "GitHub Maintainer Additional Terms for Optional Data Provision" agreement from your [{% data variables.product.prodname_sponsors %} dashboard](https://github.com/sponsors/accounts). For information about joining the Sponsors for Companies service, see "[Paying for GitHub Sponsors by invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice)."
+Você pode visualizar e aceitar o contrato "Termos adicionais do GitHub para a Provisão Opcional de Dados" no seu painel de [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors/accounts). Para obter informações sobre como ingressar no serviço de Sponsors da empresa, consulte "[Pagando para o GitHub Sponsors por fatura](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice)".
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-3. On the "Overview" tab, under "Optional steps", click **GitHub Maintainer Additional Terms for Optional Data Provision** to display the agreement.
-4. When you have read the agreement, click **Accept** to accept the terms and join the Sponsors for Companies service. Alternatively, click the {% octicon "x" aria-label="The x octicon" %} in the top right corner of the dialog to close the agreement without accepting.
+3. Na guia "Visão Geral", em "Etapas opcionais", clique em **Termos adicionais do Mantenedor do GitHub para conhecer os Termos Adicionais de Dados** para exibir o contrato.
+4. Ao ler o acordo, clique em **Aceitar** para aceitar os termos e ingressar no serviço de Sponsors para empresas. Como alternativa, clique em {% octicon "x" aria-label="The x octicon" %} no canto superior direito da caixa de diálogo para fechar o contrato sem aceitar.
