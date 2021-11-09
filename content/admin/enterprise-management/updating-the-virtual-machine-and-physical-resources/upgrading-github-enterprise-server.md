@@ -212,11 +212,8 @@ Appliances configured for high-availability and geo-replication use replica inst
 
    {% endnote %}
 
-   If `ghe-repl-status` didn't return `OK`, follow the steps below to manually start the replication.
-
-   1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+   
 6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ## Restoring from a failed upgrade

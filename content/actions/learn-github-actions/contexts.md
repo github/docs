@@ -75,6 +75,11 @@ The `github` context contains information about the workflow run and the event t
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
 | `github.ref` | `string` | The branch or tag ref that triggered the workflow run. For branches this is the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`. |
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+| `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
+| `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} |
+| `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
+{%- endif %}
 | `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
 | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
