@@ -7,8 +7,9 @@ redirect_from:
   - /github/code-security/getting-started/about-securing-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Repositories
@@ -23,7 +24,7 @@ shortTitle: リポジトリの保護
 
 セキュリティの要件はリポジトリに固有のものなので、リポジトリですべての機能を有効化する必要はないかもしれません。 詳しい情報については「[{% data variables.product.prodname_dotcom %}のセキュリティ機能](/code-security/getting-started/github-security-features)」を参照してください。
 
-セキュリティの機能の中には、{% data variables.product.prodname_advanced_security %}ライセンスを持っている{% ifversion fpt %}Organizationが所有するプライベートリポジトリとパブリックリポジトリでのみ{% else %}場合にのみ{% endif %}利用できるものがあります。 {% data reusables.advanced-security.more-info-ghas %}
+Some security features are only available {% ifversion fpt or ghec %}for public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
 
 ## リポジトリへのアクセスの管理
 
@@ -31,10 +32,10 @@ shortTitle: リポジトリの保護
 
 リポジトリのメインページから、**{% octicon "gear" aria-label="The Settings gear" %}Settings（設定）**をクリックし、続いて"Danger Zone（危険区域）"まで下へスクロールしてください。
 
-- リポジトリを見ることができる人を変更するには**Change visibility（可視性を変更）**をクリックしてください。 詳しい情報については「[リポジトリの可視性の設定](/github/administering-a-repository/setting-repository-visibility)」を参照してください。{% ifversion fpt %}
+- リポジトリを見ることができる人を変更するには**Change visibility（可視性を変更）**をクリックしてください。 詳しい情報については「[リポジトリの可視性の設定](/github/administering-a-repository/setting-repository-visibility)」を参照してください。{% ifversion fpt or ghec %}
 - リポジトリにアクセスできる人を変更し、権限を調整するには**Manage access（アクセスの管理）**をクリックしてください。 詳しい情報については「[リポジトリにアクセスできるTeamと人の管理](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)」を参照してください。{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 ## セキュリティポリシーの設定
 
 1. リポジトリのメインページから**{% octicon "shield" aria-label="The shield symbol" %} Security（セキュリティ）**をクリックしてください。
@@ -46,40 +47,51 @@ shortTitle: リポジトリの保護
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## 依存関係グラフの管理
 
-Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for {% ifversion fpt or ghes > 2.22 %} all public repositories, and you can choose to enable it for private repositories.{% else %} all repositories.{% endif %}
+{% ifversion fpt or ghec %}
+Once you have [enabled the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph), it is automatically generated for all public repositories, and you can choose to enable it for private repositories.
 
 1. リポジトリのメインページから、**{% octicon "gear" aria-label="The Settings gear" %} Settings（設定）**をクリックしてください。
 2. **Security & analysis（セキュリティと分析）**をクリックしてください。
 3. 依存関係グラフの隣で**Enable（有効化）**もしくは**Disable（無効化）**をクリックしてください。
+{% endif %}
+
+{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 詳しい情報については、「[リポジトリの依存関係を調べる](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)」を参照してください。
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## {% data variables.product.prodname_dependabot_alerts %}の管理
 
-デフォルトで、{% data variables.product.prodname_dotcom %}はパブリックリポジトリ内の脆弱性を検出し、{% data variables.product.prodname_dependabot_alerts %}を生成します。 {% data variables.product.prodname_dependabot_alerts %}は、プライベートリポジトリでも有効化できます。
+{% ifversion fpt or ghec %}By default, {% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and generates {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.prodname_dependabot_alerts %}は、プライベートリポジトリでも有効化できます。
 
 1. 自分のプロフィール写真をクリックし、続いて** Settings（設定）**をクリックしてください。
 2. **Security & analysis（セキュリティと分析）**をクリックしてください。
 3. {% data variables.product.prodname_dependabot_alerts %}の隣の**Enable all（すべて有効化）**をクリックしてください。
+{% endif %}
 
-詳しい情報については「[脆弱な依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」{% ifversion fpt %}及び「[ユーザアカウントのセキュリティ及び分析設定の管理](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」{% endif %}を参照してください。
+{% data reusables.dependabot.dependabot-alerts-beta %}
+{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+
+詳しい情報については「[脆弱な依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」{% ifversion fpt or ghec %}及び「[ユーザアカウントのセキュリティ及び分析設定の管理](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」{% endif %}を参照してください。
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ## 依存関係レビューの管理
 
-依存関係レビューを使うと、Pull Requestがリポジトリにマージされる前に、Pull Request内での依存関係の変化を可視化できます。 依存関係レビューは、すべてのパブリックリポジトリと、依存関係グラフが有効化された{% data variables.product.prodname_advanced_security %}ライセンスを持つOrganizationが所有するリポジトリで利用できます。 詳しい情報については「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」を参照してください。
+依存関係レビューを使うと、Pull Requestがリポジトリにマージされる前に、Pull Request内での依存関係の変化を可視化できます。
+{%- ifversion fpt %}Dependency review is available in all public repositories. For private and internal repositories you require a license for {% data variables.product.prodname_advanced_security %}. To enable dependency review for a repository, enable the dependency graph and enable {% data variables.product.prodname_advanced_security %}.
+{%- elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the repository (see below).{% endif %}
+詳しい情報については「[依存関係レビューについて](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)」を参照してください。
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## {% data variables.product.prodname_dependabot_security_updates %}の管理
 
@@ -99,15 +111,14 @@ Once you have [enabled the dependency graph](/code-security/supply-chain-securit
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## {% data variables.product.prodname_code_scanning %} を設定する
 
-{% data variables.product.prodname_code_scanning_capc %}は、{% data variables.product.prodname_advanced_security %}ライセンスを持つ{% ifversion fpt %}Organizationが所有するプライベートリポジトリと、すべてのパブリックリポジトリで{% else %}Organizationが所有するリポジトリで{% endif %}利用できます。
+{% data variables.product.prodname_code_scanning_capc %}は、{% data variables.product.prodname_advanced_security %}ライセンスを持つ{% ifversion fpt or ghec %}Organizationが所有するプライベートリポジトリと、すべてのパブリックリポジトリで{% else %}Organizationが所有するリポジトリで{% endif %}利用できます。
 
 {% data variables.product.prodname_codeql_workflow %}もしくはサードパーティのツールを使い、リポジトリ中に保存されたコードの脆弱性やエラーを自動的に特定するよう、{% data variables.product.prodname_code_scanning %}をセットアップできます。 詳しい情報については、「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
 
 ## {% data variables.product.prodname_secret_scanning %}の設定
-{% data variables.product.prodname_secret_scanning_caps %}は、{% data variables.product.prodname_advanced_security %}ライセンスを持つ{% ifversion fpt %}Organizationが所有するプライベートリポジトリと、すべてのパブリックリポジトリで{% else %}Organizationが所有するリポジトリで{% endif %}利用できます。
+{% data variables.product.prodname_secret_scanning_caps %}は、{% data variables.product.prodname_advanced_security %}ライセンスを持つ{% ifversion fpt or ghec %}Organizationが所有するプライベートリポジトリと、すべてのパブリックリポジトリで{% else %}Organizationが所有するリポジトリで{% endif %}利用できます。
 
 {% data variables.product.prodname_secret_scanning_caps %}はOrganizationの設定によって、デフォルトでリポジトリに対して有効にできます。
 
@@ -116,10 +127,8 @@ Once you have [enabled the dependency graph](/code-security/supply-chain-securit
 3. まだ{% data variables.product.prodname_GH_advanced_security %}が有効化されていなければ、**Enable（有効化）**をクリックしてください。
 4. {% data variables.product.prodname_secret_scanning_caps %}の隣で**Enable（有効化）**をクリックしてください。
 
-{% endif %}
-
 ## 次のステップ
-セキュリティの機能からのアラートを表示及び管理して、コード中の依存関係と脆弱性に対処できます。 詳しい情報については{% ifversion fpt or ghes > 2.22 %}「[リポジトリ中の脆弱な依存関係の表示と更新](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)」、{% endif %}{% ifversion fpt %}「[依存関係の更新のためのPull Requestの管理](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)」、{% endif %}「[リポジトリの{% data variables.product.prodname_code_scanning %}の管理](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)」、「[{% data variables.product.prodname_secret_scanning %}からのアラートの管理](/code-security/secret-security/managing-alerts-from-secret-scanning)」を参照してください。
+セキュリティの機能からのアラートを表示及び管理して、コード中の依存関係と脆弱性に対処できます。 For more information, see {% ifversion fpt or ghes or ghec %} "[Viewing and updating vulnerable dependencies in your repository](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
-{% ifversion fpt %}セキュリティの脆弱性があるなら、セキュリティアドバイザリを作成して非公開で議論し、脆弱性を修正できます。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/code-security/security-advisories/about-github-security-advisories)」及び「[セキュリティアドバイザリの作成](/code-security/security-advisories/creating-a-security-advisory)」を参照してください。
+{% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/code-security/security-advisories/about-github-security-advisories)」及び「[セキュリティアドバイザリの作成](/code-security/security-advisories/creating-a-security-advisory)」を参照してください。
 {% endif %}

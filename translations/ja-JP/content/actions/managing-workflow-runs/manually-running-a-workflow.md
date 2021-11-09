@@ -1,11 +1,11 @@
 ---
 title: ワークフローの手動実行
 intro: 'ワークフローが `workflow_dispatch` イベントで実行されるように設定されている場合、{% data variables.product.prodname_dotcom %}、{% data variables.product.prodname_cli %}、または REST API の [Actions] タブを使用してワークフローを実行できます。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Manually run a workflow
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 关于使用 SAML 单点登录进行身份验证
-intro: '您可以通过使用 SAML 单点登录 (SSO) {% endif %}通过身份提供程序 (IdP)验证 {% elsif fpt %}，来访问 {% ifversion ghae %}{% data variables.product.product_location %}{% ifversion ghae %}使用 SAML 单点登录 (SSO) 的组织{% endif %}。{% ifversion fpt %}从 {% data variables.product.product_name %} 使用 IdP 成功验证后，您必须授权要用于访问组织资源的的任何个人访问令牌、SSH 密钥或 {% data variables.product.prodname_oauth_app %}。{% endif %}'
+intro: 'You can access {% ifversion ghae %}{% data variables.product.product_location %}{% elsif fpt %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% ifversion ghae %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% ifversion fpt or ghec %} After you authenticate with the IdP successfully from {% data variables.product.product_name %}, you must authorize any personal access token, SSH key, or {% data variables.product.prodname_oauth_app %} you would like to access the organization''s resources.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: SAML 单点登录
@@ -26,9 +27,12 @@ SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data v
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} 组织所有者可以邀请您在 {% data variables.product.prodname_dotcom %} 上的用户帐户加入其使用 SAML SSO 的组织，这样您可以对该组织做出贡献，并且保留您在 {% data variables.product.prodname_dotcom %} 上的现有身份和贡献。
+
+If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will use a new account that is provisioned for you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
 
 在访问使用 SAML SSO 的组织中的资源时，{% data variables.product.prodname_dotcom %} 会将您重定向到组织的 SAML IdP 进行身份验证。 在 IdP 上成功验证您的帐户后，IdP 会将您重定向回到 {% data variables.product.prodname_dotcom %}，您可以在那里访问组织的资源。
 
@@ -54,5 +58,5 @@ SAML SSO 允许企业所有者从 SAML IdP 集中控制和安全访问 {% data v
 
 ## 延伸阅读
 
-{% ifversion fpt %}- "[关于使用 SAML 单点登录管理身份和访问](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% ifversion fpt or ghec %}- "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% ifversion ghae %}- "[关于企业的身份和访问权限管理](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

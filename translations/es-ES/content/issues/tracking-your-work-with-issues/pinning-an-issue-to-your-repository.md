@@ -1,6 +1,7 @@
 ---
 title: Anclar una propuesta a tu repositorio
 intro: Puedes anclar hasta tres propuestas importantes encima de las propuestas enumeradas en tu repositorio.
+permissions: 'People with write access to a repository can pin issue in the repository. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/pinning-an-issue-to-your-repository
   - /articles/pinning-an-issue-to-your-repository
@@ -10,14 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Fija una propuesta
 ---
 
 ![Propuestas ancladas](/assets/images/help/issues/pinned-issues.png)
-
-Para anclar una propuesta, debes tener permisos de escritura para el repositorio dentro del cual se encuentra la propuesta.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}

@@ -2,11 +2,11 @@
 title: Expressions
 shortTitle: Expressions
 intro: You can evaluate expressions in workflows and actions.
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 ---
 
@@ -286,7 +286,7 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. 作业或步骤在重大故障阻止任务运行时不会运行。 例如，如果获取来源失败。
+导致该步骤总是执行，并返回 `true`，即使取消也一样。 作业或步骤在重大故障阻止任务运行时不会运行。 例如，如果获取来源失败。
 
 #### 示例
 

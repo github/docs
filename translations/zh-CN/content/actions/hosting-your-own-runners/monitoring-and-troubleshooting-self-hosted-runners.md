@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
 shortTitle: 监控和故障排除
@@ -25,7 +26,7 @@ shortTitle: 监控和故障排除
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. 在{% ifversion fpt %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %} 下，您可以查看已注册运行器的列表，包括运行器的名称、标签和状态。
+1. 在{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}“Runners（运行器）”{% else %}“Self-hosted runners（自托管运行器）”{% endif %} 下，您可以查看已注册运行器的列表，包括运行器的名称、标签和状态。
 
     可以是以下状态之一：
 

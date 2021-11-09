@@ -1,8 +1,9 @@
 ---
 title: The github.dev web-based editor
-intro: Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.
+intro: 'Use the github.dev {% data variables.product.prodname_serverless %} from your repository or pull request to create and commit changes.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 miniTocMaxHeadingLevel: 3
 topics:
@@ -32,7 +33,7 @@ The {% data variables.product.prodname_serverless %} runs entirely in your bro
 
 ## Opening the {% data variables.product.prodname_serverless %}
 
-You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} in the following ways:
+You can open any {% data variables.product.prodname_dotcom %} repository in the {% data variables.product.prodname_serverless %} in either of the following ways:
 
 - Press `.` while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
 - Change the URL from "github.com" to "github.dev".
@@ -67,7 +68,7 @@ Because the web-based editor uses the GitHub Repositories extension to power its
 ### Create a new branch
 
 {% data reusables.codespaces.create-or-switch-branch %}
-  Any uncommited changes you have made in your old branch will be available on your new branch.
+  Any uncommitted changes you have made in your old branch will be available on your new branch.
 
 ### Commit your changes
 

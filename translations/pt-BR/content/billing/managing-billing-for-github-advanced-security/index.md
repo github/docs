@@ -1,5 +1,5 @@
 ---
-title: Managing billing for GitHub Advanced Security
+title: Gerenciando a cobrança para o GitHub Advanced Security
 shortTitle: Segurança Avançada GitHub
 intro: 'Você pode visualizar e gerenciar seu uso de estações em uma licença para {% data variables.product.prodname_advanced_security %}.'
 product: '{% data reusables.gated-features.ghas %}'
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 children:
   - /about-billing-for-github-advanced-security
   - /viewing-your-github-advanced-security-usage

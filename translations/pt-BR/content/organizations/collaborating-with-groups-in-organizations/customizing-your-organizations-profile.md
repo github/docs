@@ -1,28 +1,27 @@
 ---
-title: Customizing your organization's profile
-intro: You can share information about your organization by customizing your organization's profile
+title: Personalizando o perfil da sua organização
+intro: Você pode compartilhar informações sobre sua organização personalizando o perfil da sua organização
 versions:
   fpt: '*'
-  ghes: '*'
-  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
-shortTitle: Customize organization profile
+shortTitle: Personalizar perfil da organização
 ---
 
-## About your organization's profile README
+## Sobre o README do perfil da sua organização
 
-You can share information about how to engage with your organization by creating an organization profile README. {% data variables.product.prodname_dotcom %} shows your organization profile README in the "Overview" tab of your organization.
+Você pode compartilhar informações sobre como interagir com a sua organização criando um README do perfil da organização. {% data variables.product.prodname_dotcom %} mostra o README do perfil da sua organização na aba "Visão geral" da sua organização.
 
-You can choose what information to include your organization profile README. Here are some examples of information that may be helpful in your organization's profile README.
+Você pode escolher quais informações incluir no perfil da sua organização. Aqui estão alguns exemplos de informações que podem ser úteis no perfil da sua organização.
 
-- An "About" section that describes your organization
-- Guidance for getting help in the organization
+- Uma seção "Sobre" que descreve sua organização
+- Orientação para obter ajuda na organização
 
-You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. Para obter mais informações, consulte "[Começando a escrever e formatar no {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)".
+Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil da sua organização usando o Markdown enriquecido de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Começando a escrever e formatar no {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)".
 
-## Adding an organization profile README
+## Adicionando um README de perfil da organização
 
-1. If your organization does not already have a public `.github` repository, create a public `.github` repository.
-2. In your organization's `.github` repository, create a `README.md` file in the `profile` folder.
-3. Commit the changes to the `README.md` file. The content of the `README.md` will appear on your organization's profile.
+1. Se sua organização ainda não tiver um repositório público de `.github`, crie um repositório público de `.github`.
+2. No repositório `.github` da sua organização, crie um arquivo `README.md` na pasta `perfil`.
+3. Faça o commit das alterações para o arquivo `README.md`. O conteúdo do `README.md` será exibido no perfil da sua organização.

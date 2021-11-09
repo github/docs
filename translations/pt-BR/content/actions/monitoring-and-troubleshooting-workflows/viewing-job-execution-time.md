@@ -1,11 +1,11 @@
 ---
 title: Visualizar o tempo de execução do trabalho
 intro: 'Você pode visualizar o tempo de execução de um trabalho, incluindo os minutos faturáveis que um trabalho acumulou.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Visualizar tempo de execução do trabalho
 ---
 

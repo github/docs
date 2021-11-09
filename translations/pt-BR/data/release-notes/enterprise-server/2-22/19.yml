@@ -1,9 +1,9 @@
 date: '2021-08-10'
 sections:
   bugs:
-    - 'Audit log entries for changes made to "Repository creation" organization settings were inaccurate.'
+    - 'As entradas de log de auditoria das alterações feitas nas configurações da organização "Criação do repositório" estavam imprecisas.'
   changes:
-    - 'Abuse rate limits are now called Secondary rate limits, since the behavior they limit is not always abusive.'
+    - 'Os limites de taxa de abuso são agora denominados limites de taxa secundária, já que o comportamento que eles limitam nem sempre é abusivo.'
   known_issues:
     - 'Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.'
     - 'As regras de firewall personalizadas são removidas durante o processo de atualização.'

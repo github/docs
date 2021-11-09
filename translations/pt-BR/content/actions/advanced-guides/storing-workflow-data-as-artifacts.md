@@ -2,7 +2,6 @@
 title: Armazenar dados do fluxo de trabalho como artefatos
 shortTitle: Armazenando artefatos do fluxo de trabalho
 intro: Artefatos permitem que você compartilhe dados entre trabalhos em um fluxo e armazene dados quando o fluxo de trabalho estiver concluído.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -13,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -24,7 +24,7 @@ topics:
 
 ## Sobre artefatos de fluxos de trabalho
 
-Os artefatos permitem que você persista com os dados após um trabalho ter sido concluído e compartilhe os dados com outro trabalho no mesmo fluxo de trabalho. Um artefato é um arquivo ou uma coleção de arquivos produzidos durante a execução de um fluxo de trabalho. Por exemplo, você pode usar artefatos para salvar a sua criação e testar a saída após uma conclusão da execução do fluxo de trabalho.
+Os artefatos permitem que você persista com os dados após um trabalho ter sido concluído e compartilhe os dados com outro trabalho no mesmo fluxo de trabalho. Um artefato é um arquivo ou uma coleção de arquivos produzidos durante a execução de um fluxo de trabalho. Por exemplo, você pode usar artefatos para salvar a sua criação e testar a saída após uma conclusão da execução do fluxo de trabalho. {% data reusables.actions.reusable-workflow-artifacts %}
 
 {% data reusables.github-actions.artifact-log-retention-statement %} O período de retenção para um pull request reinicia toda vez que alguém fizer um push de um novo commit para o pull request.
 
@@ -35,7 +35,7 @@ Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 - Arquivos binários ou comprimidos
 - Resultados de teste de estresse e resultados de cobertura do código.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
@@ -47,7 +47,7 @@ Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar arm
 
 Faz-se o upload dos artefatos durante a execução de um fluxo de trabalho e você pode visualizar o nome e o tamanho do artefato na UI. Quando se faz o download de um artefato usando a UI {% data variables.product.product_name %}, todos os arquivos cujo upload foi feito individualmente como parte do get do artefato zipado em um arquivo único. Isso significa que a cobrança é calculada com base no tamanho do artefato subido e não com base no tamanho do arquivo zip.
 
-O {% data variables.product.product_name %} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para mais informações veja o {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artefact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artefact` e `download-artefact` ações em {% data variables.product.product_location %}{% endif %}.
+O {% data variables.product.product_name %} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para mais informações veja o {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artefact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artefact` e `download-artefact` ações em {% data variables.product.product_location %}{% endif %}.
 
 Para compartilhar dados entre trabalhos:
 
@@ -62,7 +62,7 @@ Você pode criar um fluxo de trabalho de integração contínua (CI) para criar 
 
 A saída da compilação e teste de seu código muitas vezes produz arquivos que podem ser usados para depurar falhas em testes e códigos de produção que você pode implantar. É possível configurar um fluxo de trabalho para compilar e testar o código com push no repositório e relatar um status de sucesso ou falha. Você pode fazer upload da saída de compilação e teste para usar em implantações, para depurar falhas e testes com falhas e visualizar a cobertura do conjunto de teste.
 
-Você pode usar a ação `upload-artifact` para fazer o upload dos artefatos. Ao fazer o upload de um artefato, você pode especificar um arquivo ou diretório único, ou vários arquivos ou diretórios. Você também pode excluir certos arquivos ou diretórios e usar padrões coringa. Recomendamos que você forneça um nome para um artefato, mas se nenhum nome for fornecido, `artefato` será usado como nome-padrão. Para mais informações sobre sintaxe, consulte a ação {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) {% else %} `actions/upload-artifact` em {% data variables.product.product_location %}{% endif %}.
+Você pode usar a ação `upload-artifact` para fazer o upload dos artefatos. Ao fazer o upload de um artefato, você pode especificar um arquivo ou diretório único, ou vários arquivos ou diretórios. Você também pode excluir certos arquivos ou diretórios e usar padrões coringa. Recomendamos que você forneça um nome para um artefato, mas se nenhum nome for fornecido, `artefato` será usado como nome-padrão. Para mais informações sobre sintaxe, consulte a ação {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) {% else %} `actions/upload-artifact` em {% data variables.product.product_location %}{% endif %}.
 
 ### Exemplo
 
@@ -114,7 +114,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Configurar um período de retenção do artefato personalizado
 
 Você pode definir um período de retenção personalizado para artefatos individuais criados por um fluxo de trabalho. Ao usar um fluxo de trabalho para criar um novo artefato, você pode usar `retention-days` com a ação `upload-artifact`. Este exemplo demonstra como definir um período de retenção personalizado de 5 dias para o artefato denominado `my-artifact`:
@@ -129,11 +128,10 @@ Você pode definir um período de retenção personalizado para artefatos indivi
 ```
 
 O valor `retention-days` não pode exceder o limite de retenção definido pelo repositório, organização ou empresa.
-{% endif %}
 
 ## Fazer o download ou excluir artefatos
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
+Durante a execução de um fluxo de trabalho, você pode usar a ação [`download-artifact`](https://github.com/actions/download-artifact)para fazer o download de artefatos previamente carregados na mesma execução de fluxo de trabalho.
 
 Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazer o download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Remover artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts)" e "[Artefatos da REST API](/rest/reference/actions#artifacts)".
 
@@ -165,11 +163,11 @@ Você também pode baixar todos os artefatos em uma execução de fluxo de traba
 
 Se você fizer o download de todos os artefatos da execução de um fluxo de trabalho, será criado um diretório para cada artefato usando seu nome.
 
-Para mais informações sobre a sintaxe, consulte a ação {% ifversion fpt %}[actions/download-artifact](https://github.com/actions/download-artifact) {% else %} `actions/download-artifact` em {% data variables.product.product_location %}{% endif %}.
+Para mais informações sobre a sintaxe, consulte a ação {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) {% else %} `actions/download-artifact` em {% data variables.product.product_location %}{% endif %}.
 
 ## Transmitir dados entre trabalhos em um fluxo
 
-Você pode usar as ações `upload-artifact` e `download-artifact` para compartilhar os dados entre os trabalhos em um fluxo de trabalho. Este exemplo de fluxo de trabalho ilustra como transmitir dados entre trabalhos em um mesmo fluxo. Para mais informações veja o {% ifversion fpt %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artefact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artefact` e `download-artefact` ações em {% data variables.product.product_location %}{% endif %}.
+Você pode usar as ações `upload-artifact` e `download-artifact` para compartilhar os dados entre os trabalhos em um fluxo de trabalho. Este exemplo de fluxo de trabalho ilustra como transmitir dados entre trabalhos em um mesmo fluxo. Para mais informações veja o {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) e [download-artefact](https://github.com/actions/download-artifact) ações{% else %} `actions/upload-artefact` e `download-artefact` ações em {% data variables.product.product_location %}{% endif %}.
 
 Os trabalhos que são dependentes de artefatos de um trabalho anterior devem aguardar a finalização do trabalho dependente. Esse fluxo de trabalho usa a palavra-chave `needs` para garantir que `job_1`, `job_2` e `job_3` sejam executados sequencialmente. Por exemplo, `job_2` requer `job_1` usando a sintaxe `needs: job_1`.
 
@@ -243,13 +241,13 @@ jobs:
 ```
 
 A execução do fluxo de trabalho arquivará quaisquer artefatos gerados por ele. Para obter mais informações sobre o download de artefatos arquivados, consulte "[Fazer download dos artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leia mais
 

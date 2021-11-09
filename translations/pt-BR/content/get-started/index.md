@@ -20,6 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 layout: product-landing
 introLinks:
   quickstart: /github/getting-started-with-github/quickstart
@@ -34,6 +35,7 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-ae
   popular:
     - /github/getting-started-with-github/signing-up-for-a-new-github-account
+    - /get-started/quickstart/hello-world
     - /github/getting-started-with-github/set-up-git
     - /github/getting-started-with-github/github-glossary
     - /github/getting-started-with-github/fork-a-repo

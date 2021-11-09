@@ -10,14 +10,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Transferir um problema
 ---
 
-Para transferir um problema aberto para outro repositório, é preciso ter permissões de gravação no repositório em que o problema está e no repositório para onde você está transferindo o problema. Para obter mais informações, consulte "[Níveis de permissão do repositório para organizações](/articles/repository-permission-levels-for-an-organization)".
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. {% ifversion fpt or ghes %}Você não pode transferir um problema de um repositório privado para um repositório público.{% endif %}
+Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. {% ifversion fpt or ghes or ghec %}Você não pode transferir um problema de um repositório privado para um repositório público.{% endif %}
 
 Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas e os marcos do problema não são retidos. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 
@@ -42,7 +43,7 @@ As pessoas ou equipes mencionadas no problema receberão uma notificação infor
 
 {% data reusables.cli.cli-learn-more %}
 
-To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
+Para transferir um problema, use o subcomando `gh issue transfer`. Substitua o parâmetro `problema` pelo número ou URL do problema. Substitua o parâmetro `{% ifversion ghes %}nome do host/{% endif %}proprietário/repositório` pelo {% ifversion ghes %}URL{% else %}nome{% endif %} do repositório para o qual você deseja transferir o problema como, por exemplo, `{% ifversion ghes %}https://ghe. o/{% endif %}octocat/octo-repo`.
 
 ```shell
 gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
@@ -54,4 +55,4 @@ gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}own
 
 - "[Sobre problemas](/articles/about-issues)"
 - "[Revisar o log de segurança](/articles/reviewing-your-security-log)"
-- "[Revisar o log de auditoria da organização](/articles/reviewing-the-audit-log-for-your-organization)"
+- "[Revisar o log de auditoria da organização](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"

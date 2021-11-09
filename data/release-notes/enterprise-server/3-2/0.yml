@@ -173,7 +173,9 @@ sections:
         - The audit log now includes events associated with {% data variables.product.prodname_actions %} workflow runs. This data provides administrators with a greatly expanded data set for security and compliance audits. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#workflows-category-actions)."
 
         # https://github.com/github/releases/issues/1587
-        - Performance improvements have been made to {% data variables.product.prodname_actions %}, which may result in higher maximum job throughput. For more information on job throughput with internally-tested CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+        - '{% data variables.product.prodname_ghe_server %} 3.2 contains performance improvements for job concurrency with {% data variables.product.prodname_actions %}. For more information on the new performance targets on a range of CPU and memory configurations, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."'
+
+        - The [{% data variables.product.prodname_actions %} Runner](https://github.com/actions/runner) application in {% data variables.product.prodname_ghe_server %} 3.2 has been updated to [v2.279.0](https://github.com/actions/runner/releases/tag/v2.279.0).
 
     - heading: 'GitHub Packages changes'
       notes:
@@ -280,7 +282,7 @@ sections:
     - heading: Deprecation of XenServer Hypervisor support
       notes:
         # https://github.com/github/docs-content/issues/4439
-        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window. Please contact [GitHub Support](https://enterprise.githubsupport.com/hc/en-us/signin) with questions or concerns.
+        - Beginning in {% data variables.product.prodname_ghe_server %} 3.1, we will begin discontinuing support for Xen Hypervisor. The complete deprecation is scheduled for {% data variables.product.prodname_ghe_server %} 3.3, following the standard one year deprecation window. Please contact [GitHub Support](https://support.github.com/contact) with questions or concerns.
     - heading: Removal of Legacy GitHub Services
       notes:
         # https://github.com/github/releases/issues/1506

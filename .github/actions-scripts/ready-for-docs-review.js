@@ -99,11 +99,11 @@ async function run() {
     })
 
     // Determine the size
-    if (numFiles < 5 && numChanges < 25) {
+    if (numFiles < 5 && numChanges < 10) {
       sizeType = sizeXS
-    } else if (numFiles < 5 && numChanges < 25) {
+    } else if (numFiles < 10 && numChanges < 50) {
       sizeType = sizeS
-    } else if (numFiles < 5 && numChanges < 25) {
+    } else if (numFiles < 10 && numChanges < 250) {
       sizeType = sizeM
     } else {
       sizeType = sizeL
@@ -149,14 +149,17 @@ async function run() {
         },
       }
     )
-    const prCount =
+    const docsPRData =
       contributorData.user.contributionsCollection.pullRequestContributionsByRepository.filter(
         (item) => item.repository.nameWithOwner === 'github/docs'
-      )[0].contributions.totalCount
-    const issueCount =
+      )[0]
+    const prCount = docsPRData ? docsPRData.contributions.totalCount : 0
+
+    const docsIssueData =
       contributorData.user.contributionsCollection.issueContributionsByRepository.filter(
         (item) => item.repository.nameWithOwner === 'github/docs'
-      )[0].contributions.totalCount
+      )[0]
+    const issueCount = docsIssueData ? docsIssueData.contributions.totalCount : 0
 
     if (prCount + issueCount <= 1) {
       firstTimeContributor = true

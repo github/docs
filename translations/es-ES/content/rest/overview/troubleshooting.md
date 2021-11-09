@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -27,7 +28,7 @@ La mayoría de las llamadas a la API que acceden a una lista de recursos (_por e
 
 Es importante que *no* intentes adivinar el formato de la URL de paginación. No todas las llamadas a la API utilizan la misma estructura. En vez de esto, extrae la información de paginación del [Encabezado de Enlace](/rest#pagination), el cual se envía en cada solicitud.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Errores de autenticación básicos
 
 Desde el 13 de noviembre de 2020, la autenticación con nombre de usuario y contraseña a la API de REST y a la API de Autorizaciones de OAuth se obsoletizaron y ya no funcionan.
@@ -61,6 +62,10 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 ```
 
 Entonces debes cambiar al [flujo de aplicaciones web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para generar tokens de acceso.
+
+## Exceder el tiempo de espera
+
+Si a {% data variables.product.product_name %} le toma más de 10 segundos procesar una solicitud de la API, {% data variables.product.product_name %} terminará la solicitud y recibirás una respuesta de tiempo de espera excedido.
 
 {% endif %}
 

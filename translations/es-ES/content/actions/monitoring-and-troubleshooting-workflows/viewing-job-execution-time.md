@@ -1,11 +1,11 @@
 ---
 title: Visualizar el tiempo de ejecución de un job
 intro: 'Puedes ver el tiempo de ejecución de un job, incluyendo los minutos facturables que este job ha acumulado.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Visualizar el tiempo de ejecución de un job
 ---
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Utilizar ejecutores en un flujo de trabajo
 ---
@@ -70,8 +71,8 @@ Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor a
 
 Cuando enrutas un job hacia un ejecutor auto-hospedado, {% data variables.product.prodname_dotcom %} busca un ejecutor que coincida con las etiquetas `runs-on` del job:
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
-- {% data variables.product.prodname_dotcom %} primero busca un ejecutor inactivo a nivel de repositorio, luego, a nivel organizacional {% ifversion fpt %} y si la organización es parte de una empresa,{% endif %} entonces a nivel empresarial.
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
+- {% data variables.product.prodname_dotcom %} primero busca un ejecutor inactivo a nivel de repositorio, luego, a nivel organizacional {% ifversion fpt or ghec %} y si la organización es parte de una empresa,{% endif %} entonces a nivel empresarial.
 - Si {% data variables.product.prodname_dotcom %} encuentra un ejecutor inactivo en algún nivel que empate con las etiquetas de `runs-on` del job, dicho job se asignará entonces y se enviará al ejecutor.
   - Si el ejecutor no toma el job asignado dentro de 60 segundos, dicho job se pondrá en cola en todos los niveles y esperará que un ejecutor de cualquier nivel que empate se ponga en línea y lo tome.
 - Si {% data variables.product.prodname_dotcom %} no encuentra un ejecutor inactivo y en línea en cualquier nivel, el job se pondrá en cola para todos los niveles y esperará que un ejecutor de cualquier nivel que empate se muestre en línea y lo tome.

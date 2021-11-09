@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -27,7 +28,7 @@ To troubleshoot, ensure [you're authenticating correctly](/guides/getting-starte
 
 ページネーション URL のフォーマットを推測*しない*ことが重要です。 すべての API 呼び出しで同じ構造が使用されるわけではありません。 代わりに、すべてのリクエストで送信される [Link Header](/rest#pagination) からページネーション情報を抽出します。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Basic 認証のエラー
 
 2020 年 11 月 13 日に、 REST API に対するユーザ名およびパスワードによる認証と OAuth 認証 API は非推奨となり、使用できなくなりました。
@@ -61,6 +62,10 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 ```
 
 次に、[Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)に切り替えて、アクセストークンを生成します。
+
+## Timeouts
+
+If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
 
 {% endif %}
 

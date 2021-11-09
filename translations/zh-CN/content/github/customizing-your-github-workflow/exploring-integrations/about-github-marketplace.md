@@ -6,9 +6,10 @@ redirect_from:
   - /github/customizing-your-github-workflow/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
-You can discover, browse, and install free and paid tools, including {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_actions %}, in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
+在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中，您可以发现、浏览和安装免费及付费工具，包括 {% data variables.product.prodname_github_apps %}、{% data variables.product.prodname_oauth_apps %} 和 {% data variables.product.prodname_actions %}。
 
 如果您购买付费工具，将使用支付 {% data variables.product.product_name %} 订阅的帐单信息来支付工具订阅，并且在常规帐单日期会收到一张帐单。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。
 
@@ -16,7 +17,7 @@ You can discover, browse, and install free and paid tools, including {% data var
 
 ## 在 {% data variables.product.prodname_marketplace %} 上查找工具
 
-您可以发现、浏览和安装其他人在 {% data variables.product.prodname_marketplace %} 上创建的 应用程序和操作，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)”。
+您可以发现、浏览和安装其他人在 {% data variables.product.prodname_marketplace %} 上创建的 应用程序和操作，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/search-github/searching-on-github/searching-github-marketplace)”。
 
 {% data reusables.actions.actions-not-verified %}
 

@@ -7,6 +7,7 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_cloud %} incluye un tiempo de respuesta objetivo de ocho horas para las solicitudes de asistencia prioritarias, de lunes a viernes en tu zona horaria local.'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: Nube de GitHub Enterprise
@@ -17,6 +18,8 @@ shortTitle: Nube de GitHub Enterprise
 **Notq:** Los clientes de {% data variables.product.prodname_ghe_cloud %} pueden registrarse para {% data variables.contact.premium_support %}. Para obtener más información, consulta "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)".
 
 {% endnote %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 Puedes enviar preguntas prioritarias si has comprado {% data variables.product.prodname_ghe_cloud %} o si eres miembro, colaborador externo o gerente de facturación de una organización {% data variables.product.prodname_dotcom %} actualmente suscrita en {% data variables.product.prodname_ghe_cloud %}.
 

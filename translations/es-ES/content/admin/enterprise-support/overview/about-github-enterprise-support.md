@@ -33,7 +33,7 @@ Adicionalmente a los beneficios de {% data variables.contact.enterprise_support 
   - Soporte técnico por escrito a través del portal de soporte de 24 horas por día, los 7 días de la semana
   - Soporte técnico telefónico las 24 horas del día, los 7 días de la semana
   - Un Acuerdo de nivel de servicio (SLA) con tiempos de respuesta iniciales garantizados.
-  - Customer Reliability Engineers
+  - Ingenieros de Confianza para el Cliente
   - Acceso a contenido prémium.
   - Revisiones de estado programadas.
   - Horas administrativas administradas
@@ -46,6 +46,11 @@ Para obtener más información, consulta "[Acerca de{% data variables.contact.pr
 {% data reusables.support.scope-of-support %}
 
 ## Ponerte en contacto con {% data variables.contact.enterprise_support %}
+
+{% ifversion ghes %}
+{% data reusables.support.zendesk-deprecation %}
+{% endif %}
+
 
 Puedes contactar a {% data variables.contact.enterprise_support %} a través del {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} del {% data variables.contact.ae_azure_portal %}{% endif %} para reportar los problemas por escrito. Para obtener más información, consulta la sección "[Recibir ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 

@@ -2,7 +2,6 @@
 title: Almacenar en caché las dependencias para agilizar los flujos de trabajo
 shortTitle: Almacenar dependencias en caché
 intro: 'Para hacer que tus flujos de trabajo sean más rápidos y eficientes, puedes crear y usar cachés para las dependencias y otros archivos comúnmente reutilizados.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -10,12 +9,11 @@ redirect_from:
   - /actions/guides/caching-dependencies-to-speed-up-workflows
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
 ---
-
-{% data reusables.actions.ae-beta %}
 
 ## Acerca de almacenar en caché las dependencias de flujo de trabajo
 
@@ -140,7 +138,7 @@ Para almacenar en caché los archivos en más de un directorio, necesitarás un 
 
 ### Usar contextos para crear claves de caché
 
-Una clave de caché puede incluir cualquiera de los contextos, funciones, literales y operadores admitidos por {% data variables.product.prodname_actions %}. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Una clave de caché puede incluir cualquiera de los contextos, funciones, literales y operadores admitidos por {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 Usar expresiones para crear una `key` te permite crear automáticamente una nueva caché cuando las dependencias han cambiado. Por ejemplo, puedes crear una `key` utilizando una expresión que calcule el hash de un archivo `package-lock.json` de npm.
 

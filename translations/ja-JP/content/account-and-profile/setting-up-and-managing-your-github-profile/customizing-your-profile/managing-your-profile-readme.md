@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} プロフィールに READM
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Profiles
 redirect_from:
@@ -14,7 +15,7 @@ shortTitle: Your profile README
 
 ## プロフィール README について
 
-プロフィール README を作成すると、{% data variables.product.prodname_dotcom %} で自分に関する情報をコミュニティと共有できます。 {% data variables.product.prodname_dotcom %} では、プロフィールページの上部にプロフィール README が表示されます。
+プロフィール README を作成すると、{% data variables.product.product_location %} で自分に関する情報をコミュニティと共有できます。 {% data variables.product.prodname_dotcom %} では、プロフィールページの上部にプロフィール README が表示されます。
 
 プロフィール README に含める情報を決めることができるため、{% data variables.product.prodname_dotcom %} で自分に関するどのような情報を表示するかを完全に制御できます。 アクセスしたユーザがあなたのプロフィール README を見て、興味深い、楽しい、役立つと感じる可能性のある情報の例は次のとおりです。
 

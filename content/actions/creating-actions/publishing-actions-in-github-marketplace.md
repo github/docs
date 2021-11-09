@@ -1,18 +1,16 @@
 ---
 title: Publishing actions in GitHub Marketplace
 intro: 'You can publish actions in {% data variables.product.prodname_marketplace %} and share actions you''ve created with the {% data variables.product.prodname_dotcom %} community.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 shortTitle: Publish in GitHub Marketplace
 ---
-
-{% data reusables.actions.ae-beta %}
 
 You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 

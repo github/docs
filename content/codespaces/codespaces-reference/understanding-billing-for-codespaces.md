@@ -3,6 +3,7 @@ title: Understanding billing for Codespaces
 intro: 'Learn how your {% data variables.product.prodname_codespaces %} usage is billed.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces

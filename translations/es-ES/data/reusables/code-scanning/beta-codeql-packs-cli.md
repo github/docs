@@ -1,8 +1,8 @@
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**Note:** The {% data variables.product.prodname_codeql %} package management functionality, including {% data variables.product.prodname_codeql %} packs, is currently in beta and subject to change.
+**Nota:** La funcionalidad de administración de paquetes de {% data variables.product.prodname_codeql %}, incluyendo los paquetes de {% data variables.product.prodname_codeql %}, se encuentra actualmente en beta y está sujeta a cambios.
 
 {% endnote %}
 

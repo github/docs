@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,12 +18,14 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organization と Enterprise アカウント
 
 Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。
 
 enterprise アカウントに属する Organization では、支払いは enterprise アカウントのレベルで管理され、Organization のレベルでは支払い設定は利用できません。 Enterprise のオーナーは、Enterprise アカウントですべての Organization に対するポリシーを設定することも、Organization のオーナーに Organization のレベルでポリシーを設定することを許可することもできます。 Organization のオーナーは、Enterprise アカウントのレベルで Organization に強制された設定を変更することはできません。 Organization のポリシーや設定について質問がある場合は Enterprise アカウントのオーナーに問い合わせてください。
+
+{% data reusables.enterprise-accounts.invite-organization %}
 
 {% data reusables.gated-features.enterprise-accounts %}
 

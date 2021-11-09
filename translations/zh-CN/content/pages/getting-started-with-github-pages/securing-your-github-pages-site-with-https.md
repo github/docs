@@ -7,6 +7,7 @@ redirect_from:
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: 使用 HTTPS 保护站点
@@ -21,6 +22,12 @@ shortTitle: 使用 HTTPS 保护站点
 {% data reusables.pages.no_sensitive_data_pages %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
+
+{% note %}
+
+**注意：** RFC3280 表示通用名称的最大长度应该是 64 个字符。 因此，{% data variables.product.prodname_pages %} 网站的整个域名必须小于 64 个字符，才能成功创建证书。
+
+{% endnote %}
 
 ## 对您的 {% data variables.product.prodname_pages %} 站点强制实施 HTTPS
 

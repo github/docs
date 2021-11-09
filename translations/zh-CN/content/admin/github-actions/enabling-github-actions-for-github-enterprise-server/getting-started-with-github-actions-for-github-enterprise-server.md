@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 
 本文介绍站点管理员如何配置 {% data variables.product.prodname_ghe_server %} 来使用 {% data variables.product.prodname_actions %}。 它涵盖了硬件和软件需求、存储选项以及安全管理策略。
 
@@ -27,30 +27,56 @@ topics:
 
 ## 查看硬件注意事项
 
-{% ifversion ghes = 2.22 or ghes = 3.0 %}
+{% ifversion ghes = 3.0 %}
 
 {% note %}
 
-**注**：{% ifversion ghes = 2.22 %}{% data variables.product.prodname_actions %} 作为有限测试版适用于 {% data variables.product.prodname_ghe_server %} 2.22。 {% endif %}如果您将现有 {% data variables.product.prodname_ghe_server %} 实例升级到 3.0 或更高版本，并且要配置 {% data variables.product.prodname_actions %}，请注意，最低硬件要求有所增加。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)。”
+**Note**: If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)。”
 
 {% endnote %}
 
 {% endif %}
 
+{%- ifversion ghes < 3.2 %}
+
 {% data variables.product.product_location %} 可用的 CPU 和内存资源决定了 {% data variables.product.prodname_actions %} 的最大作业吞吐量。
 
 {% data variables.product.company_short %} 的内部测试展示了具有系列 CPU 和内存配置的 {% data variables.product.prodname_ghe_server %} 实例的以下最大吞吐量。 您可能会看到不同的吞吐量，具体取决于实例的总体活动水平。
 
-| vCPU | 内存 | 最大作业吞吐量 |
-|:---- |:-- |:------- |
-|      |    |         |
-{%- ifversion ghes > 3.1 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 30 jobs | | 16 | 128 GB | 60 jobs | | 32 | 256 GB | 120 jobs | | 64 | 512 GB | 160 jobs |
-{%- else ifversion ghes < 3.2 %}
-| 4 | 32 GB | Demo or light testing | | 8 | 64 GB | 25 jobs | | 16 | 160 GB | 35 jobs | | 32 | 256 GB | 100 jobs |
 {%- endif %}
 
-如果您{% ifversion ghes = 2.22 %}启用了{% else %}计划中的测试版以便为现有实例的用户启用{% endif %} {% data variables.product.prodname_actions %}，请查看用户的活动级别和实例上的自动化，并确保已为用户预配足够的 CPU 和内存。 有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
+{%- ifversion ghes > 3.1 %}
+
+可用于 {% data variables.product.product_location %} 的 CPU 和内存资源可确定可同时运行且不造成绩效损失的工作数量。
+
+在没有性能损失的情况下并行工作的高峰数量取决于作业持续时间限、构件使用、运行操作的仓库数量，以及实例所做的与操作无关的其他工作量等。 GitHub 的内部测试在一系列 CPU 和内存配置中证明了 GitHub Enterprise Server 的以下性能目标：
+
+{% endif %}
+
+{%- ifversion ghes < 3.2 %}
+
+| vCPU | 内存     | 最大作业吞吐量 |
+|:---- |:------ |:------- |
+| 4    | 32 GB  | 演示或轻量测试 |
+| 8    | 64 GB  | 25 个作业  |
+| 16   | 160 GB | 35 个作业  |
+| 32   | 256 GB | 100 个作业 |
+
+{%- endif %}
+
+{%- ifversion ghes > 3.1 %}
+
+| vCPU | 内存     | 最大并行数*   |
+|:---- |:------ |:-------- |
+| 32   | 128 GB | 1500 个作业 |
+| 64   | 256 GB | 1900 个作业 |
+| 96   | 384 GB | 2200 个作业 |
+
+*最大并行数使用多个仓库、约 10 分钟的作业持续时间以及 10 MB 构件上传测得。 您可能会经历不同的性能，具体取决于实例的总体活动水平。
+
+{%- endif %}
+
+If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. 有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
 
 有关 {% data variables.product.product_location %} 的最低硬件要求的更多信息，请参阅实例平台的硬件考虑因素。
 
@@ -82,27 +108,11 @@ topics:
 
 {% endnote %}
 
-{% ifversion ghes = 2.22 %}
+## 网络考虑因素
 
-### Amazon S3 权限
+{% data reusables.actions.proxy-considerations %} 有关使用 {% data variables.product.prodname_ghe_server %} 代理的更多信息，请参阅“[配置出站网络代理服务器](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)”。
 
-{% data reusables.actions.enterprise-s3-permission %}
-
-## 启用 {% data variables.product.prodname_actions %}
-
-{% data variables.product.prodname_ghe_server %} 2.22 上的 {% data variables.product.prodname_actions %} 支持作为有限测试版提供。 要为实例配置 {% data variables.product.prodname_actions %} ，请升级到 {% data variables.product.prodname_ghe_server %} 3.0 或更高版本。 更多信息请参阅 [{% data variables.product.prodname_ghe_server %} 3.0 发行说明](/enterprise-server@3.0/admin/release-notes)和“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)”。
-
-## 延伸阅读
-
-- “[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”中平台的“硬件考量因素”。
-
-{% endif %}
-
-## Networking considerations
-
-{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
-
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 
 ## 使用您的存储提供程序启用 {% data variables.product.prodname_actions %}
 
@@ -134,6 +144,6 @@ topics:
 
 {% endif %}
 
-## Reserved Names
+## 保留名称
 
-When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.
+为企业启用 {% data variables.product.prodname_actions %} 时，将创建两个组织：`github` 和 `actions`。 如果您的企业已经使用 `github` 组织名称，则将改用 `github-org` （如果 `github-org` 也在使用中，则改用 `github-github-org`）。 如果您的企业已经使用 `actions` 组织名称，则将改用 `github-actions`（如果 `github-actions` 也在使用中，则改用 `github-actions-org`）。 启用操作后，您将无法再使用这些名称。

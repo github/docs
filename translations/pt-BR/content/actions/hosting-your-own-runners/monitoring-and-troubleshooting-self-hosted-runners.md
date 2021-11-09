@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
 shortTitle: Monitorar & solucionar problemas
@@ -25,7 +26,7 @@ shortTitle: Monitorar & solucionar problemas
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Em {% ifversion fpt %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, você pode ver uma lista de executores registrados, incluindo nome do executor, etiqueta e status.
+1. Em {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, você pode ver uma lista de executores registrados, incluindo nome do executor, etiqueta e status.
 
     Pode haver os seguintes status:
 

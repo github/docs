@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## About repository archival
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **注：**如果原本有各仓库计费计划，您仍然需要对存档的仓库付费。 如果不想对存档的仓库付费，则必须升级到新产品。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”。
@@ -32,7 +33,7 @@ topics:
 
 当仓库存档后，其议题、拉取请求、代码、标签、重要事件、项目、wiki、版本、提交、标记、分支、反应、代码扫描警报和注解都会变成只读。 要更改存档的仓库，必须先对仓库取消存档。
 
-您可以搜索已存档的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索议题和拉取请求](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)”。
+您可以搜索已存档的仓库。 更多信息请参阅“[搜索仓库](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)”。 更多信息请参阅“[搜索议题和拉取请求](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)”。
 
 ## 存档仓库
 

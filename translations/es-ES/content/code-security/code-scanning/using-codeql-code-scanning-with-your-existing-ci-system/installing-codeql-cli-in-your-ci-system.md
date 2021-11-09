@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -28,7 +29,7 @@ redirect_from:
 
 ## Acerca de utilizar el {% data variables.product.prodname_codeql_cli %} para el {% data variables.product.prodname_code_scanning %}
 
-Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para ejecutar el {% data variables.product.prodname_code_scanning %} en el código que estás procesando en un sistema de integración continua (IC) de terceros. {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para ejecutar el {% data variables.product.prodname_code_scanning %} en el código que estás procesando en un sistema de integración continua (IC) de terceros. {% data reusables.code-scanning.about-code-scanning %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %} con {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)".
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
@@ -53,7 +54,7 @@ Siempre debes utilizar Siempre debes utilizar el paquete de {% data variables.pr
 Necesitas habilitar el contenido integral del paquete de {% data variables.product.prodname_codeql_cli %} para cada servidor de IC en el que quieras ejecutar el análiss del {% data variables.product.prodname_code_scanning %} de CodeQL. Por ejemplo, puedes configurar cada servidor para copiar el paquete desde una ubicación intera y centrar y extraerlo. Como alternativa, puedes utilizar la API de REST para obtener el paquete directamente desde {% data variables.product.prodname_dotcom %} para garantizar que te beneificarás de las últimas mejoras a las consultas. Las actualizaciones del {% data variables.product.prodname_codeql_cli %} se lanzan cada 2 o 3 semanas. Por ejemplo:
 
 ```shell
-$ wget https://{% ifversion fpt %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+$ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
 $ tar -xvzf ../codeql-bundle-linux64.tar.gz
 ```
 

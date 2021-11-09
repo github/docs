@@ -4,6 +4,79 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `DismissReason` was added",
+          "Type `DismissRepositoryVulnerabilityAlertInput` was added",
+          "Type `DismissRepositoryVulnerabilityAlertPayload` was added",
+          "Field `dismissRepositoryVulnerabilityAlert` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AddProjectNextItemInput` was added",
+          "Type `AddProjectNextItemPayload` was added",
+          "Type `DeleteProjectNextItemInput` was added",
+          "Type `DeleteProjectNextItemPayload` was added",
+          "Type `OIDCProvider` was added",
+          "Type `OIDCProviderType` was added",
+          "Type `ProjectNext` was added",
+          "Type `ProjectNextConnection` was added",
+          "Type `ProjectNextEdge` was added",
+          "Type `ProjectNextField` was added",
+          "Type `ProjectNextFieldConnection` was added",
+          "Type `ProjectNextFieldEdge` was added",
+          "Type `ProjectNextItem` was added",
+          "Type `ProjectNextItemConnection` was added",
+          "Type `ProjectNextItemContent` was added",
+          "Type `ProjectNextItemEdge` was added",
+          "Type `ProjectNextItemFieldValue` was added",
+          "Type `ProjectNextItemFieldValueConnection` was added",
+          "Type `ProjectNextItemFieldValueEdge` was added",
+          "Type `ProjectNextOwner` was added",
+          "Type `UpdateProjectNextItemFieldInput` was added",
+          "Type `UpdateProjectNextItemFieldPayload` was added",
+          "Field `oidcProvider` was added to object type `EnterpriseOwnerInfo`",
+          "Field `addProjectNextItem` was added to object type `Mutation`",
+          "Field `deleteProjectNextItem` was added to object type `Mutation`",
+          "Field `updateProjectNextItemField` was added to object type `Mutation`",
+          "`Organization` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `Organization`",
+          "Field `projectsNext` was added to object type `Organization`",
+          "`User` object implements `ProjectNextOwner` interface",
+          "Field `projectNext` was added to object type `User`",
+          "Field `projectsNext` was added to object type `User`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `repositories` was added to object type `Topic`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Enum value `RUST` was added to enum `SecurityAdvisoryEcosystem`"
         ]
       }

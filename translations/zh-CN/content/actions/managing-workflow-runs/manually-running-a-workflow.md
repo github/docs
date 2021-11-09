@@ -1,11 +1,11 @@
 ---
 title: 手动运行工作流程
 intro: '当工作流程配置为在发生 `workflow_dispatch` 事件时运行时，您可以使用 {% data variables.product.prodname_dotcom %}、{% data variables.product.prodname_cli %} 或 REST API 上的 Actions 选项卡运行工作流程。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 手动运行工作流程
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: 新しいリリースへのアップグレードについて
 shortTitle: アップグレードについて
-intro: '{% ifversion ghae %}{% data variables.product.product_name %} Enterprise は、{% data variables.product.company_short %} によって定期的に最新の機能とバグ修正版で更新されます。{% else %}Enterprise を新しくリリースされたバージョンにアップグレードすることで、{% data variables.product.product_name %} の新機能とバグ修正版を利用できます。{% endif %}'
+intro: '{% ifversion ghae %}Your enterprise on {% data variables.product.product_name %} is updated with the latest features and bug fixes on a regular basis by {% data variables.product.company_short %}.{% else %}You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.{% endif %}'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
 type: overview
 topics:
@@ -11,13 +11,13 @@ topics:
   - Upgrades
 ---
 
-{% data variables.product.product_name %} は常に改善されており、メジャーリリースとマイナーリリースで新機能とバグ修正が導入されています。 {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
+{% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through feature and patch releases. {% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
 
-メジャーリリースには、新機能と機能のアップグレードが含まれ、通常、{% ifversion ghae %}数週間または数か月{% else %}四半期ごとに発生します。{% endif %} {% ifversion ghae %}{% data variables.product.company_short %} は、Enterprise を最新のメジャーリリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
+Feature releases include new functionality and feature upgrades and typically occur quarterly. {% ifversion ghae %}{% data variables.product.company_short %} will upgrade your enterprise to the latest feature release. Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
 
 {% ifversion ghes %}
 
-{% data variables.product.prodname_ghe_server %} 3.0 以降、すべてのメジャーリリースは少なくとも 1 つのリリース候補から始まります。 リリース候補は、完全な機能一式を備えたメジャーリリースとして提案されています。 リリース候補には、実際に {% data variables.product.product_name %} を使用している顧客からのフィードバックを通じてのみ見つけることができるバグまたは問題がある可能性があります。
+Starting with {% data variables.product.prodname_ghe_server %} 3.0, all feature releases begin with at least one release candidate. Release candidates are proposed feature releases, with a complete feature set. リリース候補には、実際に {% data variables.product.product_name %} を使用している顧客からのフィードバックを通じてのみ見つけることができるバグまたは問題がある可能性があります。
 
 リリース候補が利用可能になり次第、リリース候補をテストすることで、最新の機能に早期アクセスできます。 サポートされているバージョンからリリース候補にアップグレードでき、リリース時にリリース候補からそれ以降のバージョンにアップグレードできます。 リリースが一般に利用可能になり次第、リリース候補を実行している環境をアップグレードする必要があります。 詳しい情報については、「[アップグレード要件](/admin/enterprise-management/upgrade-requirements)」を参照してください。
 
@@ -29,13 +29,13 @@ topics:
 
 {% warning %}
 
-**Warning**: 新しいメジャーリリースにアップグレードすると、数時間のダウンタイムが発生し、その間、どのユーザも Enterprise を使用できなくなります。 Enterprise 設定または REST API を使用して、グローバルアナウンスバナーを公開することにより、ダウンタイムについてユーザに通知できます。 詳しい情報については、「[インスタンス上でのユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」および「[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)」を参照してください。
+**Warning**: The upgrade to a new feature release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. Enterprise 設定または REST API を使用して、グローバルアナウンスバナーを公開することにより、ダウンタイムについてユーザに通知できます。 詳しい情報については、「[インスタンス上でのユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」および「[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)」を参照してください。
 
 {% endwarning %}
 
 {% ifversion ghes %}
 
-マイナーリリースは、ホットパッチとバグ修正のみで構成されており、より頻繁に発生します。 マイナーリリースは通常、最初のリリース時に利用可能になっています。リリース候補はありません。 マイナーリリースへのアップグレードには、通常 5 分未満のダウンタイムが発生します。
+Patch releases, which consist of hot patches and bug fixes only, happen more frequently. Patch releases are generally available when first released, with no release candidates. Upgrading to a patch release typically requires less than five minutes of downtime.
 
 Enterprise を新しいリリースにアップグレードするには、「[リリースノート](/enterprise-server/admin/release-notes)」および「[{% data variables.product.prodname_ghe_server %} へのアップグレード](/admin/enterprise-management/upgrading-github-enterprise-server)」を参照してください。
 
@@ -43,7 +43,6 @@ Enterprise を新しいリリースにアップグレードするには、「[�
 
 ## 参考リンク
 
-- `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
-{% ifversion ghae %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository{% ifversion ghae %}
 - [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/release-notes)
 {% endif %}

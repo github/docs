@@ -1,6 +1,6 @@
 ---
 title: Searching in forks
-intro: 'By default, [forks](/articles/about-forks) are not shown in search results. You can choose to include them in repository searches, and in code searches if they meet certain criteria.'
+intro: 'By default, [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) are not shown in search results. You can choose to include them in repository searches, and in code searches if they meet certain criteria.'
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub search
 ---
@@ -27,5 +28,5 @@ The `fork:true` qualifier finds all results that match your search query, includ
 
 ## Further reading
 
-- "[About forks](/articles/about-forks)"
+- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

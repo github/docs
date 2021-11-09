@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -33,7 +34,7 @@ Para obtener más información sobre cómo utilizar {% data variables.product.pr
 
 {% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-codespaces-clients)."
+{% data reusables.codespaces.use-chrome %} Para obtener más información, consulta la sección "[Solucionar problemas de los clientes de los Codespaces](/codespaces/troubleshooting/troubleshooting-codespaces-clients)".
 
 ### Personalizar tu codespace
 
@@ -48,13 +49,13 @@ Para obtener más información sobre cómo utilizar {% data variables.product.pr
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Utilizar la paleta de comandos
+### Using the {% data variables.product.prodname_vscode_command_palette %}
 
-La paleta de comandos te permite acceder y administrar muchas características para los {% data variables.product.prodname_codespaces %} y para {% data variables.product.prodname_vscode %}. Para obtener más información, consulta la sección "[Utilizar la paleta de comandos en los {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)".
+The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
 
 ## Navegar a un codespace existente
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 2. Da clic en el nombre del codespace en el cual quieras desarrollar. ![Nombre del codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
-Alternatively, you can see any active codespaces for a repository by navigating to that repository and selecting **{% octicon "code" aria-label="The code icon" %} Code**. The drop-down menu will display all active codespaces for a repository.
+Como alternativa, puedes ver cualquier codespace activo en un repositorio si navegas a dicho repositorio y seleccionnas **{% octicon "code" aria-label="The code icon" %} Código**. El menú desplegable mostrará todos los codespaces activos en un repositorio.

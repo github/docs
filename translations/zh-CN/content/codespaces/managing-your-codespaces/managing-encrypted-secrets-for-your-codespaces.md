@@ -4,6 +4,7 @@ intro: 您可以在代码空间中存储要通过环境变量访问的敏感信�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
@@ -73,3 +74,7 @@ shortTitle: 加密机密
 {% data reusables.user_settings.codespaces-tab %}
 1. 在“Codespaces secrets（代码空间密码）”下您要删除的密码右侧，单击 **Delete（删除）**。 !["删除" 按钮](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. 阅读警告，然后单击 **OK（确定）**。 ![确认删除密码](/assets/images/help/settings/codespaces-secret-delete-warning.png)
+
+## 延伸阅读
+
+- "[管理用于 {% data variables.product.prodname_codespaces %} 的仓库和组织的加密密钥](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces)"

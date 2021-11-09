@@ -3,6 +3,7 @@ title: Organizationのパブリッシャー検証プロセスを申請する
 intro: アプリケーションで有料プランを提供し、掲載アプリケーションにMarketplaceバッジを表示するには、Organizationのパブリッシャー検証プロセスを完了する必要があります。
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 redirect_from:

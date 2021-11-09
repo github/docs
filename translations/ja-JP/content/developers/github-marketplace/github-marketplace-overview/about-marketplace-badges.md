@@ -6,6 +6,7 @@ redirect_from:
   - /developers/github-marketplace/about-marketplace-badges
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 ## GitHub App
@@ -30,7 +31,7 @@ versions:
 
 {% data variables.product.prodname_marketplace %}でアプリケーションをリストするための要件に関する情報については、「[{% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を参照してください。
 
-使用するアプリケーションの探し方に関する情報については、「[{% data variables.product.prodname_marketplace %}の検索](/github/searching-for-information-on-github/searching-github-marketplace)」を参照してください。
+使用するアプリケーションの探し方に関する情報については、「[{% data variables.product.prodname_marketplace %}の検索](/search-github/searching-on-github/searching-github-marketplace)」を参照してください。
 
 ## GitHub Actions
 

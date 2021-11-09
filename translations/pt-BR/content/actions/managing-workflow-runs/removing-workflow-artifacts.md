@@ -1,11 +1,11 @@
 ---
 title: Remover artefatos de fluxo de trabalho
 intro: 'Você pode recuperar o armazenamento de {% data variables.product.prodname_actions %} utilizado, excluindo artefatos antes de expirarem em {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Remover artefatos de fluxo de trabalho
 ---
 
@@ -31,13 +31,12 @@ shortTitle: Remover artefatos de fluxo de trabalho
 {% data reusables.repositories.view-run %}
 1. Em **Artefatos**, clique em
 {% octicon "trash" aria-label="The trash icon" %} ao lado do artefato que você deseja remover.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}
     ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact.png)
     {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Definir o período de retenção para um artefato
 
 Os períodos de retenção para artefatos e registros podem ser configurados no repositório, organização e no nível corporativo. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".
@@ -47,4 +46,3 @@ Você também pode definir um período de retenção personalizado para artefato
 ## Localizar a data de expiração de um artefato
 
 Você pode usar a API para confirmar a data em que um artefato está agendado para ser excluído. Para obter mais informações, consulte o valor `expires_at` valor retornado por "[Listar artefatos para um repositório](/rest/reference/actions#artifacts). "
-{% endif %}

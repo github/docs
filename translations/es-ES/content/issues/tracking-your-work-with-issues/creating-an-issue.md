@@ -1,7 +1,7 @@
 ---
 title: Crear una propuesta
 intro: 'Las propuestas pueden crearse de varias formas, así que puedes elegir el método más conveniente para tu flujo de trabajo.'
-permissions: People with read permissions can create an issue in a repository where issues are enabled.
+permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue
@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Crear un informe de problemas
+type: how_to
 ---
 
 Las propuestas se pueden usar para hacer un seguimiento de los errores, mejoras u otras solicitudes. Para obtener más información, consulta "[Acerca de las propuestas](/issues/tracking-your-work-with-issues/about-issues)".
@@ -43,20 +45,20 @@ Las propuestas se pueden usar para hacer un seguimiento de los errores, mejoras 
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-## Creating an issue with {% data variables.product.prodname_cli %}
+## Crear una propuesta con {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} Para aprender más sobre el {% data variables.product.prodname_cli %}, consulta la sección "[Acerca del {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
-To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
+Para crear una propuesta, utiliza el subcomando `gh issue create`. Para omitir los mensajes interactivos, incluye los marcadores `--body` y `--title`.
 
 ```shell
-gh issue create --title "My new issue" --body "Here are more details."
+gh issue create --title "My new issue" --body "Here are more details".
 ```
 
-You can also specify assignees, labels, milestones, and projects.
+También puedes especificar asignados, etiquetas, hitos y proyectos.
 
 ```shell
-gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
+gh issue create --title "My new issue" --body "Here are more details". --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
 ```
 
 ## Crear una propuesta desde un comentario
@@ -88,17 +90,17 @@ Puedes abrir una nueva propuesta desde una línea específica o líneas de códi
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-## Creating an issue from discussion
+## Crear una propuesta a partir de un debate
 
-People with triage permission to a repository can create an issue from a discussion.
+Las personas con permiso de clasificación en un repositorio pueden crear una propuesta a partir de un debate.
 
-When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+Cuando creas una propuesta a partir de un debate, el contenido de la publicación del debate se incluirá automáticamente en el cuerpo de la propuesta y cualquier etiqueta se retendrá. El crear una propuesta a partir de un debate no convertirá el debate en una propuesta ni borrará el debate existente. Para obtener más información sobre los {% data variables.product.prodname_discussions %}, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**. ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+1. En la barra lateral derecha, haz clic en {% octicon "issue-opened" aria-label="The issues icon" %} **Crear propuesta a partir de un debate**. ![Botón para crear una propuesta a partir de un debate](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes convertir las notas del mismo en informes de problemas. Para obtener más información, consulta la sección "[Acerca de los tableros de proyecto](/github/managing-your-work-on-github/about-project-boards)" y "[Agregar notas a un tablero de proyecto](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Crear una propuesta desde un elemento de lista de tareas
 
@@ -127,7 +129,7 @@ Puedes consultar parámetros para abrir propuestas. Los parámetros de consulta 
 
 {% endtip %}
 
-Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una propuesta para usar el parámetro de consulta `labels`. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
+Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una propuesta para usar el parámetro de consulta `labels`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Si creas una URL inválida utilizando parámetros de consulta o si no tienes los permisos adecuados, la URL devolverá una página de error `404 Not Found`. Si creas una URL que exceda el límite del servidor, esta devolverá una página de error `414 URI Too Long`.
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Import repo locally
 ---
 
@@ -23,7 +24,7 @@ shortTitle: Import repo locally
 - 外部アカウント名 **extuser**
 - 外部 Git ホスト `https://external-host.com`
 - {% data variables.product.product_name %} の個人ユーザ アカウント **ghuser**
-- {% data variables.product.product_name %} のリポジトリ **repo.git**
+- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} named **repo.git**
 
 {% endtip %}
 
@@ -37,7 +38,7 @@ shortTitle: Import repo locally
   ```shell
   $ cd <em>repo.git</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
-  # 新しい {% data variables.product.product_name %} リポジトリにミラーをプッシュ
+  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}
   ```
 4. 一時ローカル リポジトリを削除します。
   ```shell

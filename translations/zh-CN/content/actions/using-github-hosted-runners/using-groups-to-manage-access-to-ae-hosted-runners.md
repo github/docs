@@ -6,7 +6,7 @@ versions:
 shortTitle: 管理 AE 运行器组
 ---
 
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-hosted-runners-beta %}
 
 ## 关于 {% data variables.actions.hosted_runner %} 组
 

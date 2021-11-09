@@ -11,6 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: Access GitHub with 2FA
@@ -19,7 +20,7 @@ With two-factor authentication enabled, you'll need to provide an authentication
 
 ## Providing a 2FA code when signing in to the website
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt %}a text message or{% endif %} your TOTP app.
+After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
 
 {% data variables.product.product_name %} will only ask you to provide your 2FA authentication code again if you've logged out, are using a new device, or your session expires.
 
@@ -29,7 +30,7 @@ If you chose to set up two-factor authentication using a TOTP application on you
 
 If you delete the mobile application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. For more information, see "[Recovering your account if you lose your two-factor authentication credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### Receiving a text message
 

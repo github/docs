@@ -11,10 +11,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Fazer push de commits para um controle remoto
 ---
 
-## About `git push`
+## Sobre `git push`
 O comando `git push` usa dois argumentos:
 
 * Um nome de remote, por exemplo, `origin`
@@ -100,7 +101,7 @@ Para obter mais informações sobre como trabalhar com bifurcações, consulte "
 ## Leia mais
 
 - [Capítulo "Remotes" do livro "Pro Git"](https://git-scm.com/book/ch5-2.html)
-- [Página do manual `git remote`](https://git-scm.com/docs/git-remote.html)
+- [Página principal do `git remote`](https://git-scm.com/docs/git-remote.html)
 - "[Folha de consultas Git](/articles/git-cheatsheet)"
 - "[Fluxos de trabalho Git](/github/getting-started-with-github/git-workflows)"
 - "[Manual do Git](https://guides.github.com/introduction/git-handbook/)"

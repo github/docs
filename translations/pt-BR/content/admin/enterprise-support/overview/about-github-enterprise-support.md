@@ -33,7 +33,7 @@ Além de todos os benefícios de {% data variables.contact.enterprise_support %}
   - Suporte gravado por meio de nosso portal de suporte 24 horas por dias, 7 dias por semana
   - Suporte por telefone 24 horas por dia, 7 dias por semana
   - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
-  - Customer Reliability Engineers
+  - Engenheiros de Confiabilidade do Cliente
   - Acesso a conteúdo premium
   - Verificação de integridade agendadas
   - Horas administrativas gerenciadas
@@ -46,6 +46,11 @@ Para obter mais informações, consulte a seção "[Sobre o {% data variables.co
 {% data reusables.support.scope-of-support %}
 
 ## Entrar em contato com o {% data variables.contact.enterprise_support %}
+
+{% ifversion ghes %}
+{% data reusables.support.zendesk-deprecation %}
+{% endif %}
+
 
 Você pode entrar em contato com {% data variables.contact.enterprise_support %} através de {% ifversion ghes %}{% data variables.contact.contact_enterprise_portal %}{% elsif ghae %} o {% data variables.contact.ae_azure_portal %}{% endif %} para relatar problemas por escrito. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 

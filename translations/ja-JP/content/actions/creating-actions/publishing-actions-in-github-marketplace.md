@@ -1,18 +1,16 @@
 ---
 title: GitHub Marketplaceでのアクションの公開
 intro: '{% data variables.product.prodname_marketplace %}でアクションを公開し、作成したアクションを{% data variables.product.prodname_dotcom %}コミュニティと共有できます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/automating-your-workflow-with-github-actions/publishing-actions-in-github-marketplace
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 shortTitle: Publish in GitHub Marketplace
 ---
-
-{% data reusables.actions.ae-beta %}
 
 {% data variables.product.prodname_marketplace %}でアクションを公開するには、利用規約に同意していなければなりません。
 

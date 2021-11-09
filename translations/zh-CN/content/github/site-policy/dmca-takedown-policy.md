@@ -15,7 +15,7 @@ topics:
 
 欢迎阅读 GitHub 的《千禧年数字版权法案》（通常称为 "DMCA"）指南。 本页面并非该法案的综合入门读物。 但是，如果您收到针对您在 GitHub 上所发布内容的 DMCA 删除通知，或者您是要发出此类通知的权利持有者，此页面将有助于您了解该法案以及我们遵守该法案的政策。
 
-(If you just want to submit a notice, you can skip to "[G. Submitting Notices](#g-submitting-notices).")
+（如果只想提交通知，您可以跳到“[G. 提交通告](#g-submitting-notices)。”）
 
 与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 
@@ -85,7 +85,7 @@ GitHub 将仔细审查规避索赔，包括技术和法律专家提出的索赔�
 
 请注意，我们对规避技术的审查流程不适用于违反我们可接受使用政策限制的内容，禁止共享未经授权的产品许可密钥、生成未经授权的产品许可密钥的软件或绕过产品许可密钥检查的软件。 虽然这些类型的索赔也可能违反 DMCA 关于规避技术的规定，但这些索赔通常很简单，不需要额外的技术和法律审查。 然而，如果索赔并不简单，例如在越狱的情况下，规避技术索赔审查程序将适用。
 
-When GitHub processes a DMCA takedown under our circumvention technology claim review process, we will offer the repository owner a referral to receive independent legal consultation through [GitHub’s Developer Defense Fund](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/) at no cost to them.
+当 GitHub 根据我们的规避技术索赔审查流程处理 DMCA 拆解时，我们将转介仓库所有者通过 [GitHub 的开发人员防御基金](https://github.blog/2021-07-27-github-developer-rights-fellowship-stanford-law-school/)免费获得独立法律咨询。
 
 ## D. 如果我无意中错过了更改时限怎么办？
 

@@ -1,13 +1,13 @@
 ---
 title: Criando e testando aplicativos Xamarin
 intro: É possível criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para construir e testar o seu aplicativo Xamarin.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-xamarin-applications
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI

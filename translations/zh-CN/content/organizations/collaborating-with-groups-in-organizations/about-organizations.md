@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,12 +18,14 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 组织和企业帐户
 
 企业帐户允许所有者集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。
 
 对于属于企业帐户的组织，帐单在企业帐户级别管理，并且帐单设置在组织级别不可用。 企业所有者可以为企业帐户中的所有组织设置策略，或者允许组织所有者在组织级别设置策略。 组织所有者无法更改在企业帐户级对组织执行的设置。 如果对组织的策略或设置有疑问，请联系企业帐户的所有者。
+
+{% data reusables.enterprise-accounts.invite-organization %}
 
 {% data reusables.gated-features.enterprise-accounts %}
 

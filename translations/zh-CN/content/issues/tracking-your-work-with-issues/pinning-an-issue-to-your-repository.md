@@ -1,6 +1,7 @@
 ---
 title: 将议题固定到仓库
 intro: 在仓库中议题列表的上方最多可以固定三个重要议题。
+permissions: 'People with write access to a repository can pin issue in the repository. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/pinning-an-issue-to-your-repository
   - /articles/pinning-an-issue-to-your-repository
@@ -10,14 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 固定议题
 ---
 
 ![固定的议题](/assets/images/help/issues/pinned-issues.png)
-
-要固定某个议题，必须对该议题所在的仓库具有写入权限。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}

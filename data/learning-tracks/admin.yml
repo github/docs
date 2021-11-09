@@ -75,3 +75,15 @@ configure_github_advanced_security:
     - /admin/advanced-security/configuring-code-scanning-for-your-appliance
     - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
     - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
+
+get_started_with_your_enterprise_account:
+  title: 'Get started with your enterprise account'
+  description: 'Get started with your enterprise account to centrally manage multiple organizations on {% data variables.product.product_name %}.'
+  guides:
+    - /admin/overview/about-enterprise-accounts
+    - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
+    - /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+    - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+    - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
+    - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise

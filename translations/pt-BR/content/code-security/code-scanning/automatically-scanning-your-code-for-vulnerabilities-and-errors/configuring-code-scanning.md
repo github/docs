@@ -10,8 +10,9 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -44,7 +45,7 @@ Antes de poder configurar o {% data variables.product.prodname_code_scanning %} 
 
 {% data reusables.code-scanning.edit-workflow %}
 
-A análise de {% data variables.product.prodname_codeql %} é apenas um tipo de {% data variables.product.prodname_code_scanning %} que você pode fazer em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} em  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contém outros fluxos de trabalho de {% data variables.product.prodname_code_scanning %} que você pode usar. {% ifversion fpt %}Você pode encontrar uma seleção destes na página "Comece com {% data variables.product.prodname_code_scanning %}", que você pode acessar na aba **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.{% endif %} Os exemplos específicos fornecidos neste artigo estão relacionados ao arquivo de {% data variables.product.prodname_codeql_workflow %}.
+A análise de {% data variables.product.prodname_codeql %} é apenas um tipo de {% data variables.product.prodname_code_scanning %} que você pode fazer em {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} em  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contém outros fluxos de trabalho de {% data variables.product.prodname_code_scanning %} que você pode usar. {% ifversion fpt or ghec %}Você pode encontrar uma seleção destes na página "Comece com {% data variables.product.prodname_code_scanning %}", que você pode acessar na aba **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.{% endif %} Os exemplos específicos fornecidos neste artigo estão relacionados ao arquivo de {% data variables.product.prodname_codeql_workflow %}.
 
 ## Editing a code scanning workflow
 
@@ -68,30 +69,32 @@ Se você usar o fluxo de trabalho padrão, o {% data variables.product.prodname_
 
 Se você fizer uma varredura no push, os resultados aparecerão na aba **Segurança** do repositório. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository). "
 
-{% note %}
-
-**Observação**: se você deseja que os alertas de {% data variables.product.prodname_code_scanning %} sejam exibidos como verificações de pull request, você deverá usar o evento `pull_request` descrito abaixo.
-
-{% endnote %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
+Além disso, quando uma verificação de `on:push` retorna resultados que podem ser mapeados com um pull request aberto, esses alertas serão automaticamente exibidos no pull request nos mesmos lugares que outros alertas de pull request. Os alertas são identificados comparando a análise existente do cabeçalho do branch com a análise do branch de destino. Para obter mais informações sobre alertas de {% data variables.product.prodname_code_scanning %} em pull requests, consulte "[Triando alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
+{% endif %}
 
 ### Fazer a varredura de pull requests
 
-O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pull_request` para acionar uma verificação de código em pull requests direcionadas ao branch padrão. {% ifversion ghes %}O evento `pull_request` não será acionado se o pull request foi aberto através de uma bifurcação privada.{% else %}Se um pull request for de um fork privado, o evento `pull_request` só será acionado se você tiver selecionado a opção "Executar fluxos de trabalho a partir de pull requests" nas configurações do repositório. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)."{% endif %}
+O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pull_request` para acionar uma verificação de código em pull requests direcionadas ao branch padrão. {% ifversion ghes %}O evento `pull_request` não será acionado se o pull request foi aberto através de uma bifurcação privada.{% else %}Se um pull request for de um fork privado, o evento `pull_request` só será acionado se você tiver selecionado a opção "Executar fluxos de trabalho a partir de pull requests" nas configurações do repositório. Para obter mais informações, consulte "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks)".{% endif %}
 
 Para obter mais informações sobre o evento `pull_request` , consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
 
 Se você realizar uma varredura de pull requests, os resultados aparecerão como alertas em uma verificação de pull request. Para obter mais informações, consulte "[Alertas de varredura de código de triagem em pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)".
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-### Defining the severities causing pull request check failure
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5093 or ghec %}
+ O uso o gatilho `pull_request`, configurado para verificar o commit de merge do pull request, em vez do commit do cabeçalho, produzirá resultados mais eficientes e precisos do que digitalizar o cabeçalho do branch em cada push. No entanto, se você usa um sistema de CI/CD que não pode ser configurado para acionar em pull requests, você ainda poderá usar o gatilho `on:push` e {% data variables.product.prodname_code_scanning %} mapeará os resultados para abrir os pull requests no branch e adicionar os alertas como anotações no pull request. Para obter mais informações, consulte "[Digitalizando ao enviar por push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)".
+{% endif %}
 
-By default, only alerts with the severity level of `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} or security severity level of `Critical` or `High`{% endif %} will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %} and of security severities{% endif %} that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[Managing code scanning alerts for your repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details)."
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+### Definindo as severidades que causam falha na verificação de pull request
+
+Por padrão, apenas os alertas com o nível de  gravidade `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} ou nível de segurança `Critical` ou `High`{% endif %} farão com que ocorra uma falha no pull request e uma verificação será bem-sucedida com alertas de menor gravidade. É possível alterar os níveis de gravide dos alertas{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} e de gravidades de segurança{% endif %} que causarão uma falha de verificação de pull request nas configurações do seu repositório. Para obter mais informações sobre os níveis de gravidade, consulte "[Gerenciar alertas de digitalização de códigos para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Em "Varredura de código", à direita de "Verificar falha", use o menu suspenso para selecionar o nível de gravidade que você gostaria de fazer com que um pull request falhasse.
-{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 %}
+{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}
 ![Verificar falha de configuração](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
 ![Verificar falha de configuração](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
@@ -166,13 +169,13 @@ jobs:
     runs-on: [self-hosted, ubuntu-latest]
 ```
 
-{% ifversion fpt %}Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
+{% ifversion fpt or ghec %}Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
 
 O {% data variables.product.prodname_code_scanning_capc %} é compatível com as versões mais recentes do macOS, Ubuntu, e Windows. Portanto, os valores típicos para essa configuração são `ubuntu-latest`, `windows-latest` e `macos-latest`. Para obter mais informações, consulte {% ifversion ghes %}" %}"[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" e "[Usando rótulos com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
 {% ifversion ghes %}Você deve garantir que o Git esteja na variável do PATH em seus executores auto-hospedados.{% else %}Se você usa um executor auto-hospedado, você deve garantir que o Git esteja na variável de PATH.{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Especificar o local para bancos de dados de {% data variables.product.prodname_codeql %}
 
 Em geral você não precisa se preocupar com o lugar em que {% data variables.product.prodname_codeql_workflow %} coloca bancos de dados de {% data variables.product.prodname_codeql %}, uma vez que as etapas posteriores encontrarão automaticamente bancos de dados criados nas etapas anteriores. No entanto, se estiver escrevendo um fluxo de trabalho personalizado que exige que o banco de dados de {% data variables.product.prodname_codeql %} esteja em um local específico do disco, por exemplo, para fazer o upload do banco de dados como um artefato de fluxo de trabalho você pode especificar essa localização usando o parâmetro `db-location` na ação `init`.
@@ -220,7 +223,7 @@ Se o seu fluxo de trabalho não contiver uma matriz denominada `linguagem`, o {%
   with:
     languages: cpp, csharp, python
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Analisar as dependências do Python
 
 Para executores hospedados no GitHub, que usam apenas Linux, o {% data variables.product.prodname_codeql_workflow %} tentará instalar automaticamente as dependências do Python para dar mais resultados para a análise do CodeQL. Você pode controlar este comportamento especificando o parâmetro `setup-python-dependencies` para a ação chamada pela etapa "Initialize CodeQL". Por padrão, esse parâmetro é definido como `verdadeiro`:
@@ -234,8 +237,7 @@ Alternativamente, você pode instalar as dependências do Python manualmente em 
 ```yaml
 jobs:
   CodeQL-Build:
-
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       security-events: write
       actions: read{% endif %}
@@ -266,7 +268,7 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## Configurar uma categoria para a análise
 
 Use a `categoria` para distinguir entre múltiplas análises para a mesma ferramenta e commit, mas executada em diferentes linguagens ou diferentes partes do código. A categoria especificada no seu fluxo de trabalho será incluída no arquivo de resultados SARIF.
@@ -300,19 +302,19 @@ Sua categoria especificada não substituirá os detalhes do objeto `runAutomatio
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% if codeql-packs %}
-### Using {% data variables.product.prodname_codeql %} query packs
+### Usando pacotes de consulta de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+Para adicionar um ou mais pacotes de consulta (beta) de {% data variables.product.prodname_codeql %}, adicione uma entrada `with: packs` à seção `uses: github/codeql-action/init@v1` do fluxo de trabalho. Dentro de `pacotes` você especifica um ou mais pacotes para usar e, opcionalmente, qual versão baixar. Quando você não especificar uma versão, será feito o download da versão mais recente. Se você quiser usar pacotes que não estão disponíveis publicamente, você precisa definir a variável de ambiente `GITHUB_TOKEN` para um segredo que tenha acesso aos pacotes. Para obter mais informações, consulte "[Autenticação em um fluxo de trabalho](/actions/reference/authentication-in-a-workflow)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
 {% note %}
 
-**Note:** For workflows that generate {% data variables.product.prodname_codeql %} databases for multiple languages, you must instead specify the {% data variables.product.prodname_codeql %} query packs in a configuration file. For more information, see "[Specifying {% data variables.product.prodname_codeql %} query packs](#specifying-codeql-query-packs)" below.
+**Observação:** Para fluxos de trabalho que geram bancos de dados de {% data variables.product.prodname_codeql %} para várias linguagens, você deverá especificar pacotes de consulta de {% data variables.product.prodname_codeql %} em um arquivo de configuração. Para obter mais informações, consulte "[Especificando pacotes de consulta {% data variables.product.prodname_codeql %}](#specifying-codeql-query-packs)" abaixo.
 
 {% endnote %}
 
-In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the three {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run. The latest version of `pack1` is downloaded as no version is specified. Version 1.2.3 of `pack2` is downloaded, as well as the latest version of `pack3` that is compatible with version 1.2.3.
+No exemplo abaixo, `escopo` é toda organização ou conta pessoal que publicou o pacote. Quando o fluxo de trabalho é executado, os três pacotes de consulta de {% data variables.product.prodname_codeql %} são baixados de {% data variables.product.product_name %} e das consultas ou conjunto de consultas padrão para cada execução de pacote. É feito o download da versão mais recente do `pack1`, pois nenhuma versão é especificada. A versão 1.2.3 de `pack2` é baixada, bem como a última versão de `pack3` que é compatível com a versão 1.2.3.
 
 {% raw %}
 ``` yaml
@@ -323,16 +325,16 @@ In the example below, `scope` is the organization or personal account that publi
 ```
 {% endraw %}
 
-### Using queries in QL packs
+### Usando consultas em pacotes QL
 {% endif %}
-Para adicionar uma ou mais consultas, adicione uma entrada `with: queries:` na seção `uses: github/codeql-action/init@v1` do fluxo de trabalho. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+Para adicionar uma ou mais consultas, adicione uma entrada `with: queries:` na seção `uses: github/codeql-action/init@v1` do fluxo de trabalho. Se as consultas estiverem em um repositório privado, use o parâmetro `external-repository-token` para especificar um token que tenha acesso ao check-out do repositório privado.
 
 {% raw %}
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
-    # Optional. Provide a token to access queries stored in private repositories.
+    # Optional. Forneça um token de acesso para consultas armazenadas em repositórios privados.
     external-repository-token: ${{ secrets.ACCESS_TOKEN }}
 ```
 {% endraw %}
@@ -342,12 +344,12 @@ Você também pode executar suítes de consultas adicionais especificando-os em 
 {% data reusables.code-scanning.codeql-query-suites %}
 
 {% if codeql-packs %}
-### Working with custom configuration files
+### Trabalhando com arquivos de configuração personalizados
 {% endif %}
 
-If you also use a configuration file for custom settings, any additional {% if codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% if codeql-packs %}packs or {% endif %}queries, prefix the value of {% if codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. Para obter exemplos de arquivos de configuração, consulte "[Exemplo de arquivos de configuração](#example-configuration-files)".
+Se você também usar um arquivo de configuração para configurações personalizadas, todas os {% if codeql-packs %}pacotes ou {% endif %}consultas especificadas no seu fluxo de trabalho serão usados em vez daqueles especificados no arquivo de configuração. Se você quiser executar o conjunto combinado de {% if codeql-packs %}pacotes adicionais ou {% endif %}consultas, prefixe o valor de {% if codeql-packs %}`pacotes` ou {% endif %}`consultas` no fluxo de trabalho com o símbolo `+`. Para obter exemplos de arquivos de configuração, consulte "[Exemplo de arquivos de configuração](#example-configuration-files)".
 
-In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
+No exemplo a seguir, o símbolo `+` garante que os {% if codeql-packs %}pacotes e {% endif %}consultas especificados sejam usados em conjunto com qualquer um especificado no arquivo de configuração referenciado.
 
 ``` yaml
 - uses: github/codeql-action/init@v1
@@ -361,7 +363,7 @@ In the following example, the `+` symbol ensures that the specified additional {
 
 ## Usar uma ferramenta de varredura de código de terceiros
 
-A custom configuration file is an alternative way to specify additional {% if codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries and to specify which directories to scan during analysis.
+Um arquivo de configuração personalizado é uma forma alternativa de especificar as consultas adicionais de {% if codeql-packs %}e {% endif %}a serem executadas. Você também pode usar o arquivo para desabilitar as consultas padrão e especificar quais diretórios digitalizar durante a análise.
 
 No arquivo de workflow use o parâmetro `config-file` da ação `init` para especificar o caminho para o arquivo de configuração que você deseja usar. Este exemplo carrega o arquivo de configuração _./.github/codeql/codeql-config.yml_.
 
@@ -386,11 +388,11 @@ Se o arquivo de configuração estiver localizado em um repositório privado ext
 As configurações no arquivo de configuração estão escritas no formato YAML.
 
 {% if codeql-packs %}
-### Specifying {% data variables.product.prodname_codeql %} query packs
+### Especificando pacotes de consulta de {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
+Você especificou pacotes de consulta de {% data variables.product.prodname_codeql %} em uma matriz. Observe que o formato é diferente do formato usado pelo arquivo do fluxo de trabalho.
 
 {% raw %}
 ``` yaml
@@ -404,7 +406,7 @@ packs:
 ```
 {% endraw %}
 
-If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
+Se tiver um fluxo de trabalho que gera mais de um banco de dados de {% data variables.product.prodname_codeql %}, você poderá especificar todos os pacotes de consulta de {% data variables.product.prodname_codeql %} para executar em um arquivo de configuração personalizado usando um mapa aninhado de pacotes.
 
 {% raw %}
 ``` yaml
@@ -440,7 +442,7 @@ Se você desejar apenas executar consultas personalizadas, você poderá desabil
 
 ### Especificar diretórios para serem varridos
 
-Para as linguagens interpretadas com as quais {% data variables.product.prodname_codeql %} é compatível (Python e JavaScript/TypeScript), você pode restringir {% data variables.product.prodname_code_scanning %} para arquivos em diretórios específicos adicionando um array de `caminhos` para o arquivo de configuração. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
+For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
 
 ``` yaml
 paths:

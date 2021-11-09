@@ -2,7 +2,6 @@
 title: GitHub Actions 的工作流程语法
 shortTitle: 工作流程语法
 intro: 工作流程是可配置的自动化过程，由一个或多个作业组成。 您必须创建 YAML 文件来定义工作流程配置。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -52,7 +52,7 @@ on:
 
 使用 `push` 和 `pull_request` 事件时，您可以将工作流配置为在特定分支或标记上运行。 对于 `pull_request` 事件，只评估基础上的分支和标签。 如果只定义 `tags` 或只定义 `branches`，则影响未定义 Git ref 的事件不会触发工作流程运行。
 
-The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch or tag name. If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](#filter-pattern-cheat-sheet)."
+`branches`、`branches-ignore`、`tags` 和 `tags-ignore` 关键词接受使用 `*`、`**`、`+`、`?`、`!` 等字符匹配多个分支或标记名称的 glob 模式。 If a name contains any of these characters and you want a literal match, you need to *escape* each of these special characters with `\`. 有关 glob 模式的更多信息，请参阅“[过滤器模式备忘清单](#filter-pattern-cheat-sheet)”。
 
 ### 示例：包括分支和标记
 
@@ -169,7 +169,7 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout, the workflow will always run.
+**注：** 如果您推送超过 1,000 项提交， 或者如果 {% data variables.product.prodname_dotcom %} 因超时未生成差异，工作流程将始终运行。
 
 {% endnote %}
 
@@ -180,13 +180,95 @@ on:
 - **推送到现有分支：** 双点差异可以直接相互比较头部和基础 SHA。
 - **推送到新分支：**根据已推送最深提交的前身父项的两点差异。
 
-Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
+差异限制为 300 个文件。 如果更改的文件与过滤器返回的前 300 个文件不匹配，工作流程将不会运行。 您可能需要创建更多的特定过滤器，以便工作流程自动运行。
 
 更多信息请参阅“[关于比较拉取请求中的分支](/articles/about-comparing-branches-in-pull-requests)”。
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+## `on.workflow_call.inputs`
+
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. Inputs for reusable workflows are specified with the same format as action inputs. For more information about inputs, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)." For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+
+In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+
+If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
+
+Within the called workflow, you can use the `inputs` context to refer to an input.
+
+If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
+
+### 示例
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
+```
+{% endraw %}
+
+For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+## `on.workflow_call.<input_id>.type`
+
+Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+
+## `on.workflow_call.secrets`
+
+A map of the secrets that can be used in the called workflow.
+
+Within the called workflow, you can use the `secrets` context to refer to a secret.
+
+If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
+
+### 示例
+
+{% raw %}
+```yaml
+on:
+  workflow_call:
+    secrets:
+      access-token:
+        description: 'A token passed from the caller workflow'
+        required: false
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+
+    steps:  
+      - name: Pass the received secret to an action
+        uses: ./.github/actions/my-action@v1
+        with:
+          token: ${{ secrets.access-token }}
+```
+{% endraw %}
+
+## `on.workflow_call.secrets.<secret_id>`
+
+A string identifier to associate with the secret.
+
+## `on.workflow_call.secrets.<secret_id>.required`
+
+A boolean specifying whether the secret must be supplied.
+{% endif %}
+
 ## `on.workflow_dispatch.inputs`
 
-When using `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. 工作流程调度输入的格式与操作输入相同。 有关格式的更多信息，请参阅“[GitHub Actions 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)”。
 
 ```yaml
 on: 
@@ -201,7 +283,7 @@ on:
         required: false
 ```
 
-The triggered workflow receives the inputs in the `github.event.inputs` context. 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
+触发的工作流程接收 `github.event.input` 上下文中的输入。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
 
 ## `on.schedule`
 
@@ -209,7 +291,7 @@ The triggered workflow receives the inputs in the `github.event.inputs` context.
 
 有关计划任务语法的更多信息请参阅“[触发工作流程的事件](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## `权限`
 
 您可以修改授予 `GITHUB_TOKEN` 的默认权限，根据需要添加或删除访问权限，以便只授予所需的最低访问权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。
@@ -269,10 +351,8 @@ defaults:
     working-directory: scripts
 ```
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `concurrency`
-
-{% data reusables.actions.concurrency-beta %}
 
 Concurrency 确保只有使用相同并发组的单一作业或工作流程才会同时运行。 并发组可以是任何字符串或表达式。 The expression can only use the [`github` context](/actions/learn-github-actions/contexts#github-context). For more information about expressions, see "[Expressions](/actions/learn-github-actions/expressions)."
 
@@ -289,13 +369,15 @@ Concurrency 确保只有使用相同并发组的单一作业或工作流程才�
 
 在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
-如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/rest/reference/actions#workflow-jobs)”。
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API. 更多信息请参阅“[工作流程作业](/rest/reference/actions#workflow-jobs)”。
 
 ## `jobs.<job_id>`
 
-每项作业必须关联一个 ID。 键值 `job_id` 是一个字符串，其值是作业配置数据的映像。 必须将 `<job_id>` 替换为 `jobs` 对象唯一的字符串。 `<job_id>` 必须以字母或 `_` 开头，并且只能包含字母数字字符、`-` 或 `_`。
+Create an identifier for your job by giving it a unique name. 键值 `job_id` 是一个字符串，其值是作业配置数据的映像。 必须将 `<job_id>` 替换为 `jobs` 对象唯一的字符串。 `<job_id>` 必须以字母或 `_` 开头，并且只能包含字母数字字符、`-` 或 `_`。
 
 ### 示例
+
+In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
 
 ```yaml
 jobs:
@@ -340,7 +422,7 @@ jobs:
   job2:
     needs: job1
   job3:
-    if: always()
+    if: {% raw %}${{ always() }}{% endraw %}
     needs: [job1, job2]
 ```
 
@@ -397,7 +479,7 @@ runs-on: [self-hosted, linux]
 
 更多信息请参阅“[关于自托管的运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)”和“[在工作流程中使用自托管的运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ## `jobs.<job_id>.permissions`
 
 您可以修改授予 `GITHUB_TOKEN` 的默认权限，根据需要添加或删除访问权限，以便只授予所需的最低访问权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。
@@ -425,10 +507,10 @@ jobs:
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
-作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
+作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
 
 您可以将环境仅作为环境 `name`，或作为具有 `name` 和 `url` 的环境变量。 URL 映射到部署 API 中的 `environment_url`。 有关部署 API 的更多信息，请参阅“[部署](/rest/reference/repos#deployments)”。
 
@@ -459,11 +541,8 @@ environment:
 {% endraw %}
 {% endif %}
 
-
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
-
-{% data reusables.actions.concurrency-beta %}
 
 {% note %}
 
@@ -656,7 +735,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-You can specify a branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
+您可以指定公共 {% data variables.product.prodname_dotcom %} 仓库中的分支、引用或 SHA。
 
 ```yaml
 jobs:
@@ -714,7 +793,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 #### 示例：使用 {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
@@ -800,7 +879,7 @@ jobs:
 
 ### 使用指定 shell
 
-您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。 The shell command that is run internally executes a temporary file that contains the commands specifed in the `run` keyword.
+您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | 支持的平台         | `shell` 参数   | 描述                                                                                                                                                                                  | 内部运行命令                                          |
 | ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -874,7 +953,6 @@ steps:
 ```
 
 此示例中使用的命令 `perl` 必须安装在运行器上。
-
 
 {% ifversion ghae %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
 {% else %}
@@ -991,7 +1069,7 @@ steps:
 
 在 {% data variables.product.prodname_dotcom %} 自动取消运行之前可让作业运行的最大分钟数。 默认值：360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#usage-limits)."
+如果超时超过运行器的作业执行时限，作业将在达到执行时限时取消。 有关作业执行时限的更多信息，请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#usage-limits)”。
 
 ## `jobs.<job_id>.strategy`
 
@@ -1194,9 +1272,7 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-要用作运行操作的容器的 Docker 镜像。 值可以是 Docker Hub 映像名称或 {% ifversion ghes < 3.0 %}public{% endif %} 注册表名称。
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
+要用作运行操作的容器的 Docker 镜像。 The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1213,7 +1289,6 @@ container:
      password: ${{ secrets.ghcr_token }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.container.env`
 
@@ -1248,7 +1323,7 @@ volumes:
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**警告**：不支持 `--network` 选项。
 
 {% endwarning %}
 
@@ -1284,9 +1359,7 @@ services:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-要用作运行操作的服务容器的 Docker 镜像。 值可以是 Docker Hub 映像名称或 {% ifversion ghes < 3.0 %}public{% endif %} 注册表名称。
-
-{% ifversion fpt or ghes > 2.22 or ghae %}
+要用作运行操作的服务容器的 Docker 镜像。 The value can be the Docker Hub image name or a  registry name.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1309,7 +1382,6 @@ services:
       password: ${{ secrets.DOCKER_PASSWORD }}
 ```
 {% endraw %}
-{% endif %}
 
 ## `jobs.<job_id>.services.<service_id>.env`
 
@@ -1344,9 +1416,73 @@ volumes:
 
 {% warning %}
 
-**Warning:** The `--network` option is not supported.
+**警告**：不支持 `--network` 选项。
 
 {% endwarning %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+## `jobs.<job_id>.uses`
+
+The location and version of a reusable workflow file to run as a job.
+
+`{owner}/{repo}/{path}/{filename}@{ref}`
+
+`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. 更多信息请参阅“[GitHub Actions 的安全性增强](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)”。
+
+### 示例
+
+{% data reusables.actions.uses-keyword-example %}
+
+For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+
+## `jobs.<job_id>.with`
+
+When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
+
+Any inputs that you pass must match the input specifications defined in the called workflow.
+
+Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+
+### 示例
+
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    with:
+      username: mona
+```
+
+## `jobs.<job_id>.with.<input_id>`
+
+A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) in the called workflow.
+
+Allowed expression contexts: `github`, and `needs`.
+
+## `jobs.<job_id>.secrets`
+
+When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+
+Any secrets that you pass must match the names defined in the called workflow.
+
+### 示例
+
+{% raw %}
+```yaml
+jobs:
+  call-workflow:
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    secrets:
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }} 
+```
+{% endraw %}
+
+## `jobs.<job_id>.secrets.<secret_id>`
+
+A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
+
+Allowed expression contexts: `github`, `needs`, and `secrets`.
+{% endif %}
 
 ## 过滤器模式备忘清单
 

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,12 +18,14 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Organizaciones y cuentas de empresa
 
 Las cuentas de empresa le permiten a los propietarios administrar en forma centralizada las políticas y la facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}.
 
 Para las organizaciones que pertenecen a una cuenta de empresa, la facturación se administra en el nivel de cuenta de empresa y los parámetros de facturación no están disponibles en el nivel de organización. Los propietarios de la empresa pueden establecer políticas para todas las organizaciones en la cuenta de empresa o permitirle a los propietarios de la organización establecer las políticas en el nivel de organización. Los propietarios de la organización no pueden cambiar los parámetros implementados para tu organización en el nivel de cuenta de empresa. Si tienes consultas sobre una política o la configuración para tu organización, comunícate con el propietario de tu cuenta de empresa.
+
+{% data reusables.enterprise-accounts.invite-organization %}
 
 {% data reusables.gated-features.enterprise-accounts %}
 

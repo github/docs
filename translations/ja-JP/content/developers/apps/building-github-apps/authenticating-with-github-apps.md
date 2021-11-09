@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: 認証
@@ -38,14 +39,14 @@ GitHub App の作成後は、1 つ以上の秘密鍵を生成する必要があ�
 {% endnote %}
 
 ## 秘密鍵を検証する
-{% data variables.product.product_name %} は、 {% ifversion ghes < 3.0 %}SHA-1{% else %}SHA-256{% endif %} ハッシュ関数を使用して、秘密鍵と公開鍵との各ペアに対してフィンガープリントを生成します。 秘密鍵のフィンガープリントを生成し、{% data variables.product.product_name %} で表示されているフィンガープリントと比較することにより、秘密鍵が {% data variables.product.product_name %} に保存宇されている公開鍵と適合することを検証できます。
+{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the SHA-256 hash function. 秘密鍵のフィンガープリントを生成し、{% data variables.product.product_name %} で表示されているフィンガープリントと比較することにより、秘密鍵が {% data variables.product.product_name %} に保存宇されている公開鍵と適合することを検証できます。
 
 秘密鍵を検証するには、以下の手順に従います。
 
 1. {% data variables.product.prodname_github_app %} の開発者設定ページにある [Private keys] セクションで、検証する秘密鍵と公開鍵のペアを見つけます。 詳しい情報については、[秘密鍵を生成する](#generating-a-private-key)を参照してください。 ![秘密鍵のフィンガープリント](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. 次のコマンドを使用して、秘密鍵 (PEM) のフィンガープリントをローカルで生成します。
     ```shell
-    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% ifversion ghes < 3.0 %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
 3. ローカルで生成されたフィンガープリントの結果と、{% data variables.product.product_name %} に表示されているフィンガープリントを比較します。
 
@@ -87,7 +88,7 @@ jwt = JWT.encode(payload, private_key, "RS256")
 puts jwt
 ```
 
-`YOUR_PATH_TO_PEM` と `YOUR_APP_ID` の値は置き換えてください。 Make sure to enclose the values in double quotes.
+`YOUR_PATH_TO_PEM` と `YOUR_APP_ID` の値は置き換えてください。 値はダブルクオートで囲んでください。
 
 {% data variables.product.prodname_github_app %} の識別子 (`YOUR_APP_ID`) を、JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (発行者) クレームの値として使用します。 {% data variables.product.prodname_github_app %} 識別子は、[アプリケーションを作成](/apps/building-github-apps/creating-a-github-app/)後の最初の webhook ping から、または GitHub.com UI のアプリケーション設定ページからいつでも取得できます。
 
@@ -116,7 +117,7 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 ## インストールとして認証を行う
 
-インストールとして認証を行うと、そのインストールの API でアクションを実行できます。 インストールとして認証を行う前に、インストールアクセストークンを作成する必要があります。 GitHub Appが少なくとも1つのリポジトリにインストールされていることを確認してください。まったくインストールされていない場合、インストールトークンを作成することは不可能です。 These installation access tokens are used by {% data variables.product.prodname_github_apps %} to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+インストールとして認証を行うと、そのインストールの API でアクションを実行できます。 インストールとして認証を行う前に、インストールアクセストークンを作成する必要があります。 GitHub Appが少なくとも1つのリポジトリにインストールされていることを確認してください。まったくインストールされていない場合、インストールトークンを作成することは不可能です。 インストールアクセストークンは、認証を行うため {% data variables.product.prodname_github_apps %} により使用されます。 詳しい情報については「[GitHub Appのインストール](/developers/apps/managing-github-apps/installing-github-apps)」を参照してください。
 
 デフォルトでは、インストールトークンのスコープは、インストールがアクセスできるすべてのリポジトリにアクセスできるよう設定されています。 `repository_ids` パラメータを使用すると、インストールアクセストークンのスコープを特定のリポジトリに限定できます。 詳細については、[アプリケーション (エンドポイント) に対するアクセストークンの作成](/rest/reference/apps#create-an-installation-access-token-for-an-app)を参照してください。 インストールアクセストークンは {% data variables.product.prodname_github_app %} によって設定された権限を持ち、1 時間後に期限切れになります。
 
@@ -155,7 +156,7 @@ $ curl -i \
 
 ## インストールとして API エンドポイントにアクセスする
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
+インストールアクセストークンを使用して {% data variables.product.prodname_github_apps %} の概要を取得するために利用できる REST API エンドポイントの一覧については、「[利用可能なエンドポイント](/rest/overview/endpoints-available-for-github-apps)」を参照してください。
 
 インストールに関連するエンドポイントの一覧については、「[インストール](/rest/reference/apps#installations)」を参照してください。
 

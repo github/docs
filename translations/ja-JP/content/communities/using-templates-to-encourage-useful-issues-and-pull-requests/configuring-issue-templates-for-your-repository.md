@@ -9,18 +9,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: 設定
 ---
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 
 ## Issue テンプレートを作成する
 
@@ -38,7 +39,7 @@ shortTitle: 設定
 10. コミットメッセージフィールドの下で、テンプレートを直接デフォルトブランチにコミットするか、新しいブランチを作成してプルリクエストを開くか判断します。 プルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。 ![Issue テンプレートの main へのコミットかプルリクエストを開くかの選択](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. **[Commit changes]** をクリックしてください。 変更がデフォルトブランチにマージされると、コントリビューターがリポジトリで新しい Issue を開くときにテンプレートを使用できるようになります。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Issue フォームを作成する
 
@@ -61,7 +62,7 @@ Issueフォームのレンダリングバージョンは次のとおりです。
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghes %}
+{% ifversion fpt or ghae or ghes or ghec %}
 ## テンプレート選択画面を設定する
 
 {% data reusables.repositories.issue-template-config %}

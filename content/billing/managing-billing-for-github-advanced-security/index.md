@@ -9,6 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 children:
   - /about-billing-for-github-advanced-security
   - /viewing-your-github-advanced-security-usage

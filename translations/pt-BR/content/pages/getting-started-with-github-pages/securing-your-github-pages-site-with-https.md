@@ -7,6 +7,7 @@ redirect_from:
   - /github/working-with-github-pages/securing-your-github-pages-site-with-https
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Site seguro com HTTPS
@@ -21,6 +22,12 @@ Todos os sites do {% data variables.product.prodname_pages %}, incluindo os site
 {% data reusables.pages.no_sensitive_data_pages %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
+
+{% note %}
+
+**Observação:** RFC3280 indica que o comprimento máximo do nome comum deve ter 64 caracteres. Portanto, todo o nome de domínio do seu site {% data variables.product.prodname_pages %} deve ter menos de 64 caracteres de comprimento para que um certificado seja criado com sucesso.
+
+{% endnote %}
 
 ## Exigir HTTPS para o site do {% data variables.product.prodname_pages %}
 

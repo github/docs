@@ -1,5 +1,5 @@
 ---
-title: Sharing workflows, secrets, and runners with your organization
+title: 'Sharing workflows, secrets, and runners with your organization'
 shortTitle: Sharing workflows with your organization
 intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, and self-hosted runners.'
 redirect_from:
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 

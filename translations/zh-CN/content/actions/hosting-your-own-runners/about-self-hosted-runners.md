@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
@@ -57,10 +58,10 @@ type: overview
 * 机器有足够的硬件资源来执行您计划运行的工作流程类型。 自托管运行器应用程序本身只需要很少的资源。
 * 如果您想运行使用 Docker 容器操作或服务容器的工作流程，您必须使用 Linux 机器并安装 Docker。
 
-{% ifversion fpt or ghes > 3.2 %}
-## Autoscaling your self-hosted runners
+{% ifversion fpt or ghes > 3.2 or ghec %}
+## 自动缩放自托管运行器
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
+您可以自动增加或减少环境中自托管运行器的数量，以响应您收到的 web 挂钩事件。 更多信息请参阅“[使用自托管运行器自动缩放](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)”。
 
 {% endif %}
 
@@ -119,7 +120,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 ## 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
 
-Some extra configuration might be required to use actions from {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_ghe_server %}, or to use the `actions/setup-LANGUAGE` actions with self-hosted runners that do not have internet access. 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
+可能需要额外配置才可结合使用来自 {% data variables.product.prodname_dotcom_the_website %} 的操作与 {% data variables.product.prodname_ghe_server %}，或者结合使用 `actions/setup-LANGUAGE` 操作与没有互联网连接的自托管运行器。 更多信息请参阅“[自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信](#communication-between-self-hosted-runners-and-github)”。
 
 {% endif %}
 
@@ -136,7 +137,7 @@ Some extra configuration might be required to use actions from {% data variables
 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”。
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 您必须确保机器具有适当的网络访问权限才可与以下列出的 {% data variables.product.prodname_dotcom %} URL 通信。
 
@@ -160,7 +161,7 @@ pkg-containers-az.githubusercontent.com
 *.blob.core.windows.net
 ```
 
-如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)”。
+如果您对 {% data variables.product.prodname_dotcom %} 组织或企业帐户使用 IP 地址允许列表，必须将自托管运行器的 IP 地址添加到允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)”或“[在企业中实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)”。
 
 {% else %}
 
@@ -172,7 +173,9 @@ pkg-containers-az.githubusercontent.com
 
 ## 使用公共仓库的自托管运行器安全性
 
+{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
+{% endif %}
 
 这对 {% data variables.product.prodname_dotcom %} 托管的运行器不是问题，因为每个 {% data variables.product.prodname_dotcom %} 托管的运行器始终是一个干净的独立虚拟机， 在作业执行结束时被销毁。
 

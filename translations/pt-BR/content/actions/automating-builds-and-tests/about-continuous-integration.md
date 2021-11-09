@@ -1,7 +1,6 @@
 ---
 title: Sobre integração contínua
-intro: 'Você pode criar fluxos de trabalho personalizados de integração contínua (CI) e implantação contínua (CD) diretamente no seu repositório de {% data variables.product.prodname_dotcom %} com as {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'Você pode criar fluxos de trabalho de integração contínua (CI) personalizados diretamente no repositório do {% data variables.product.prodname_dotcom %} com o {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,10 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: Integração contínua
 ---
 
@@ -37,7 +36,7 @@ Para compilar e testar seu código, é necessário usar um servidor. Você pode 
 {% else %} CI que usa {% data variables.product.prodname_actions %} oferece fluxos de trabalho que podem criar o código no seu repositório e executar seus testes. Fluxos de trabalho podem ser executados em máquinas virtuais hospedadas em {% data variables.product.prodname_dotcom %} ou em máquinas que você mesmo hospeda. Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" e "[Sobre executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
 {% endif %}
 
-Você pode configurar seu fluxo de trabalho de CI para ser executado quando ocorre um evento de {% data variables.product.product_name %} (por exemplo, quando um novo código é enviado para o repositório), em uma programação definida, ou quando um evento externo ocorre usando o webhook de envio do repositório.
+Você pode configurar a execução do seu fluxo de trabalho de CI para ocorrer diante de um evento do {% data variables.product.prodname_dotcom %} (por exemplo, quando houver push de um novo código para o seu repositório), com base em uma programação definida ou quando houver um evento externo usando o webhook de despacho do repositório.
 
 {% data variables.product.product_name %} executa seus testes de CI e fornece os resultados de cada teste no pull request para que você possa ver se a mudança no seu branch introduz um erro. Quando todos os testes de CI em um fluxo de trabalho forem aprovados, as alterações que passaram por push estarão prontas para a revisão de um integrante da equipe ou para o merge. Se algum teste falhar, uma de suas alterações pode ter causado a falha.
 
@@ -49,47 +48,14 @@ Além de ajudá-lo a configurar fluxos de trabalho de CI para seu projeto, você
 
 Para obter uma definição de termos comuns, consulte "[Conceitos básicos de {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)".
 
-## Linguagens compatíveis
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Modelos de fluxo de trabalho
 
 {% data variables.product.product_name %} oferece modelos de fluxo de trabalho de CI para uma variedade de linguagens e estruturas.
 
-Pesquise a lista completa dos modelos de fluxo de trabalho de CI oferecidos por {% data variables.product.product_name %} no repositório {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) {% else %} e no repositório `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## Ignorar execuções de fluxo de trabalho
-
-Se você deseja impedir temporariamente que um fluxo de trabalho seja acionado, pode adicionar uma instrução para ignorar a mensagem de commit. Os fluxos de trabalho que seriam acionados `on: push` ou `on: pull_request` não serão acionado se você adicionar qualquer uma das strings a seguir para a mensagem de commit em um push, ou o commit HEAD de um pull request:
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-Como alternativa, você pode terminar a mensagem de commit com duas linhas vazias seguidas de `skip-checks: true` ou `skip-checks:true`.
-
-Você não conseguirá fazer o merge do pull request se o repositório estiver configurado para exigir verificações específicas para passar primeiro. Para permitir que o merge do pull request, você pode fazer o push de um novo commit no pull request sem que a instrução seja ignorada na mensagem do commit.
-
-{% note %}
-
-**Observação:** Ignorar instruções só se aplica aos eventos `push` e `pull_request`. Por exemplo, adicionar `[skip ci]` a uma mensagem de commit não impedirá que um fluxo de trabalho que acionou `on : pull_request_target` seja executado.
-
-{% endnote %}
-{% endif %}
-
-## Notificações para execução de fluxo de trabalho
-
-{% data reusables.repositories.workflow-notifications %}
-
-## Selos de status para execução de fluxo de trabalho
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-Para obter mais informações, consulte "[Adicionando um selo de status do fluxo de trabalho](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
+Pesquise a lista completa dos modelos de fluxo de trabalho de CI oferecidos por {% data variables.product.company_short %} no repositório {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) {% else %} e no repositório `actions/starter-workflows` em {% data variables.product.product_location %}{% endif %}.
 
 ## Leia mais
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}
