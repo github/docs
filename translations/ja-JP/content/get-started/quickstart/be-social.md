@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
   - Pull requests
@@ -23,7 +24,7 @@ topics:
 
 ## 人をフォローする
 
-{% data variables.product.product_location %} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
 人をフォローするには、その人のプロフィールページで [**Follow**] をクリックします。
 
@@ -31,7 +32,7 @@ topics:
 
 ## リポジトリを Watch する
 
-リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 詳しい情報については、{% ifversion fpt or ghae or ghes %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」を参照してください。
+リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 リポジトリを Watch するには、リポジトリの上部で [**Watch**] をクリックします。
 

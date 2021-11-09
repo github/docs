@@ -1,7 +1,7 @@
 ---
 title: Enforcing policies for security settings in your enterprise
-intro: "You can enforce policies to manage security settings in your enterprise's organizations, or allow policies to be set in each organization."
-permissions: 'Enterprise owners can enforce policies for security settings in an enterprise.'
+intro: 'You can enforce policies to manage security settings in your enterprise''s organizations, or allow policies to be set in each organization.'
+permissions: Enterprise owners can enforce policies for security settings in an enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -128,7 +128,7 @@ You can also configure allowed IP addresses for an individual organization. For 
 
 ## Managing SSH certificate authorities for your enterprise
 
-You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](http://localhost:4000/en/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 
 ### Adding an SSH certificate authority
 

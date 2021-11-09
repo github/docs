@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -23,7 +24,7 @@ topics:
 
 {% data variables.product.product_name %} proporciona herramientas de comunicación colaborativas que te permiten interactuar de cerca con tu comunidad. Esta guía de inicio rápido te mostrará cómo escoger la herramienta correcta para tus necesidades.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Puedes crear y participar en propuestas, solicitudes de cambios, {% data variables.product.prodname_discussions %} y debates de equipo, dependiendo del tipo de conversación que te gustaría tener.
 {% endif %}
 {% ifversion ghes or ghae %}
@@ -40,7 +41,7 @@ Puedes crear y participar de propuestas, solicitudes de extracción y debates de
 - te permiten comentar directamente en los cambios propuestos que otros sugieren.
 - son específicos para un repositorio.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
 -  son como un foro y son muy útiles para ideas y debates abiertos en donde es importante la colaboración.
 -  pueden abarcar muchos repositorios.
@@ -99,7 +100,7 @@ La pestaña **Archivos que cambiaron** de la solicitud de cambios muestra la sol
 - El usuario crea una solicitud de cambios con la solución.
 - Un mantenedor de repositorio revisa la solicitud de cambios, la comenta y la fusiona.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Casos para los {% data variables.product.prodname_discussions %}
 
 - Tengo una pregunta que no se relaciona necesariamente con los archivos específicos del repositorio.
@@ -116,7 +117,7 @@ Este ejemplo muestra la publicación de bienvenida de {% data variables.product.
 El mantenedor de la comunidad inició un debate para recibir a la comunidad y para pedir a los miembros que se presentaran a sí mismos. Esta publicación fomenta un ambiente acogedor para los visitantes y contribuyentes. Esta publicación también aclara que al equipo le complace ayudar a los contribuyentes del repositorio.
 
 {% endif %}
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ### Casos de debates de equipo
 
 - Tengo una pregunta que no se relaciona necesariamente con los archivos específicos del repositorio.
@@ -124,7 +125,7 @@ El mantenedor de la comunidad inició un debate para recibir a la comunidad y pa
 - Quiero comenzar o participar en una conversación abierta.
 - Quiero anunciar algo a mi equipo.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Como puedes ver, los debates de equipo son muy similares a los {% data variables.product.prodname_discussions %}. Para {% data variables.product.prodname_dotcom_the_website %}, te recomendamos utilizar los {% data variables.product.prodname_discussions %} como inicio de conversaciones. Puedes utilizar los {% data variables.product.prodname_discussions %} para colaborar con cualquier comunidad en {% data variables.product.prodname_dotcom %}. Si eres parte de una organización y te gustaría iniciar conversaciones dentro de tu organización o del equipo que está dentro de ella, debes utilizar los debates de equipo.
 {% endif %}
 
@@ -149,7 +150,7 @@ Para las propuestas, por ejemplo, puedes etiquetarlas con etiquetas para buscarl
 
 Para las solicitudes de cambio, puedes crear borradores de estas si los cambios que propones aún están en curso. Los borradores de solicitudes de cambios no pueden fusionarse hasta que se marquen como listos para revisión. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Para el caso de los {% data variables.product.prodname_discussions %}, puedes configurar un código de conducta y fijar los debates que contengan información importante de tu comunidad. Para obtener más información, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}
 

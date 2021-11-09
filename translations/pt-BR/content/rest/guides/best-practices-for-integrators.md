@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas para integradores
-intro: 'Crie um aplicativo que interage de forma confiável com a API do {% data variables.product.prodname_dotcom %} e fornece a melhor experiência para seus usuários.'
+intro: 'Build an app that reliably interacts with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API and provides the best experience for your users.'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: Práticas recomendadas do integrador
@@ -22,17 +23,17 @@ Interessado em integrar-se à plataforma do GitHub? [Você está em boas mãos](
 
 Há várias etapas que você pode dar para garantir o recebimento de cargas entregues pelo GitHub:
 
-1. Certifique-se de que seu servidor de recebimento tenha uma conexão HTTPS. Por padrão, o GitHub verificará os certificados SSL ao entregar cargas.{% ifversion fpt %}
+1. Certifique-se de que seu servidor de recebimento tenha uma conexão HTTPS. Por padrão, o GitHub verificará os certificados SSL ao entregar cargas.{% ifversion fpt or ghec %}
 1. Você pode adicionar [o endereço IP que usamos ao entregar hooks](/github/authenticating-to-github/about-githubs-ip-addresses) à lista de permissões do seu servidor. Para garantir que você esteja sempre verificando o endereço IP correto, você pode [usar o ponto de extremidade `/meta`](/rest/reference/meta#meta) para encontrar o endereço que utilizamos.{% endif %}
 1. Forneça [um token secreto](/webhooks/securing/) para garantir que as cargas estão definitivamente vindo do GitHub. Ao impor um token secreto, você garantirá que todos os dados recebidos pelo seu servidor estejam absolutamente vindo do GitHub. Idealmente, você deve fornecer um token secreto diferente *por usuário* do seu serviço. Dessa forma, se um token for comprometido, nenhum outro usuário será afetado.
 
 ## Favoreça o trabalho assíncrono em detrimento do trabalho síncrono
 
-O GitHub espera que as integrações respondam dentro de {% ifversion fpt %}10{% else %}30{% endif %} segundos após receber a carga do webhook. Se o seu serviço demorar mais do que isso para ser concluído, o GitHub encerrará a conexão e a carga será perdida.
+O GitHub espera que as integrações respondam dentro de {% ifversion fpt or ghec %}10{% else %}30{% endif %} segundos após receber a carga do webhook. Se o seu serviço demorar mais do que isso para ser concluído, o GitHub encerrará a conexão e a carga será perdida.
 
 Como é impossível prever a rapidez com que o seu serviço será concluído, você deve fazer todo o "trabalho real" em um trabalho que atue em segundo plano. [Resque](https://github.com/resque/resque/) (para Ruby), [RQ](http://python-rq.org/) (para Python) ou [RabbitMQ](http://www.rabbitmq.com/) (para Java) são exemplos de bibliotecas que podem lidar com a fila e o processamento de trabalhos em segundo plano.
 
-Observe que, mesmo com um trabalho em segundo plano, o GitHub ainda espera que seu servidor responda no prazo de {% ifversion fpt %}dez{% else %}trinta{% endif %} segundos. Seu servidor precisa reconhecer que recebeu a carga enviando algum tipo de resposta. É fundamental que o seu serviço realize qualquer validação em uma carga o mais rápido possível para que você possa relatar com precisão se o seu servidor irá continuar com a solicitação ou não.
+Observe que, mesmo com um trabalho em segundo plano, o GitHub ainda espera que seu servidor responda no prazo de {% ifversion fpt or ghec %}dez{% else %}trinta{% endif %} segundos. Seu servidor precisa reconhecer que recebeu a carga enviando algum tipo de resposta. É fundamental que o seu serviço realize qualquer validação em uma carga o mais rápido possível para que você possa relatar com precisão se o seu servidor irá continuar com a solicitação ou não.
 
 ## Use códigos de status de HTTP apropriados ao responder ao GitHub
 
@@ -130,7 +131,7 @@ end
 
 Neste exemplo, a ação `fechada` é verificada antes de chamar o método `process_closed`. Quaisquer ações não identificadas são registradas para referência futura.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Lidar com limites de taxa
 
@@ -140,11 +141,11 @@ Se você atingir um limite de câmbio, espera-se que você recue ao fazer solici
 
 Você sempre poderá [verificar o status do seu limite de taxa](/rest/reference/rate-limit) a qualquer momento. Verificar seu limite de taxa não gera nenhum custo para o mesmo.
 
-## Dealing with secondary rate limits
+## Lidando com limites de taxa secundária
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability. Para evitar atingir este limite, você deverá certificar-se de que o seu aplicativo segue as diretrizes abaixo.
+[Os limites de taxa secundária](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) são outra forma de garantir a disponibilidade da API. Para evitar atingir este limite, você deverá certificar-se de que o seu aplicativo segue as diretrizes abaixo.
 
-* Faça solicitações autenticadas, ou use o ID de cliente e segredo do seu aplicativo. Unauthenticated requests are subject to more aggressive secondary rate limiting.
+* Faça solicitações autenticadas, ou use o ID de cliente e segredo do seu aplicativo. Os pedidos não autenticados estão sujeitos a limites de taxa secundária mais agressivos.
 * Faça solicitações de um único usuário ou ID de cliente em série. Não faça solicitações para um único usuário ou ID de cliente simultaneamente.
 * Se você estiver fazendo um grande número de solicitações `POST`, `PATCH`, `PUT` ou `DELETE` para um único usuário ou ID de cliente, espere pelo menos um segundo entre cada solicitação.
 * Ao receber alguma restrição, use o cabeçalho de resposta `Retry-After` para diminuir a velocidade. O valor do cabeçalho `Retry-After` será sempre um inteiro, que representa o número de segundos que você deve esperar antes de fazer solicitações novamente. Por exemplo, `Retry-After: 30` significa que você deve esperar 30 segundos antes de enviar mais solicitações.

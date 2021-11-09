@@ -89,25 +89,15 @@ describe('server', () => {
       const firstSidebarTitle = sidebarTitles.shift()
       const firstSidebarHref = sidebarHrefs.shift()
 
-      const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, productTitles)
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
 
-      const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, productHrefs)
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
       expect(firstSidebarTitle).toBe('All products')
       expect(firstSidebarHref).toBe('/en')
       expect(
-        titlesInSidebarButNotProducts.length,
-        `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`
-      ).toBe(0)
-      expect(
         titlesInProductsButNotSidebar.length,
         `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
-      ).toBe(0)
-      expect(
-        hrefsInSidebarButNotProducts.length,
-        `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`
       ).toBe(0)
       expect(
         hrefsInProductsButNotSidebar.length,
@@ -631,8 +621,9 @@ describe('server', () => {
 
     test('redirects / to /en', async () => {
       const res = await get('/')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('adds English prefix to old article URLs', async () => {
@@ -740,7 +731,7 @@ describe('GitHub Enterprise URLs', () => {
     ).toBe(1)
     expect(
       $(
-        `section.container-xl a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/github"]`
+        `section.container-xl a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/get-started"]`
       ).length
     ).toBe(1)
   })
@@ -873,8 +864,8 @@ describe('extended Markdown', () => {
   test('renders styled notes within liquid', async () => {
     const $ = await getDOM('/en/articles/removing-a-member-from-your-organization')
     const note = $('.extended-markdown.note').eq(0)
-    expect(note.hasClass('color-border-info')).toBe(true)
-    expect(note.hasClass('color-bg-info')).toBe(true)
+    expect(note.hasClass('color-border-accent-emphasis')).toBe(true)
+    expect(note.hasClass('color-bg-accent')).toBe(true)
   })
 
   test('renders platform-specific content', async () => {

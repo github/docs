@@ -2,7 +2,7 @@
 title: GitHub Actions 的高可用性
 intro: '在高可用性配置中管理 {% data variables.product.prodname_actions %} 有一些特殊注意事项。'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: reference
 topics:
   - Actions

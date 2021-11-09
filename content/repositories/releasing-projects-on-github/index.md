@@ -16,9 +16,11 @@ children:
   - /about-releases
   - /managing-releases-in-a-repository
   - /viewing-your-repositorys-releases-and-tags
+  - /searching-a-repositorys-releases
   - /linking-to-releases
   - /comparing-releases
   - /automatically-generated-release-notes
   - /automation-for-release-forms-with-query-parameters
 shortTitle: Release projects
 ---
+

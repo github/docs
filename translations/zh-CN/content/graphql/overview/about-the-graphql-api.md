@@ -3,6 +3,7 @@ title: 关于 GraphQL API
 intro: '{% data variables.product.prodname_dotcom %} GraphQL API 具有灵活性，而且能够准确定义您要获取的数据。'
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

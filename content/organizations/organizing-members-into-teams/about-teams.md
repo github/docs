@@ -37,6 +37,8 @@ You can also use LDAP Sync to synchronize {% data variables.product.product_loca
 
 {% data reusables.organizations.types-of-team-visibility %}
 
+You can view all the teams you belong to on your personal dashboard. For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#finding-your-top-repositories-and-teams)."
+
 ## Team pages
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.

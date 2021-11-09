@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 
 Este artigo explica como os administradores do site podem configurar {% data variables.product.prodname_ghe_server %} para usar {% data variables.product.prodname_actions %}. Ele abrange os requisitos de hardware e software, apresenta as opções de armazenamento e descreve as políticas de gestão de segurança.
 
@@ -27,11 +27,11 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 ## Revise as considerações de hardware
 
-{% ifversion ghes = 2.22 or ghes = 3.0 %}
+{% ifversion ghes = 3.0 %}
 
 {% note %}
 
-**Observação**: {% ifversion ghes = 2.22 %}{% data variables.product.prodname_actions %} estava disponível para {% data variables.product.prodname_ghe_server %} 2.22 como beta limitada. {% endif %}Se você estiver fazendo a atualização de uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e desejar configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
+**Note**: If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
 
 {% endnote %}
 
@@ -76,8 +76,7 @@ O pico de trabalhos simultâneos rodando sem perda de desempenho depende de fato
 
 {%- endif %}
 
-
-Se você{% ifversion ghes = 2.22 %}habilitou o plano beta de{% else %}plano para habilitar{% endif %} {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garantir que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
+If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
 
 Para obter mais informações sobre os requisitos mínimos de hardware para {% data variables.product.product_location %}, consulte as considerações sobre hardware para a plataforma da sua instância.
 
@@ -109,27 +108,11 @@ O {% data variables.product.prodname_actions %} usa armazenamento do blob para a
 
 {% endnote %}
 
-{% ifversion ghes = 2.22 %}
-
-### Permissões do Amazon S3
-
-{% data reusables.actions.enterprise-s3-permission %}
-
-## Habilitar {% data variables.product.prodname_actions %}
-
-O suporte de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22 estava disponível como uma versão beta limitada. Para configurar {% data variables.product.prodname_actions %} para sua instância, atualize para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior. Para obter mais informações, consulte as observações da versão de [{% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes) e "[Atualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)".
-
-## Leia mais
-
-- "Considerações de hardware" para sua plataforma em "[Configurando uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)"
-
-{% endif %}
-
 ## Considerações de rede
 
 {% data reusables.actions.proxy-considerations %} Para obter mais informações sobre o uso de um proxy com {% data variables.product.prodname_ghe_server %}, consulte "[Configurando um servidor de proxy web de saída](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)".
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 
 ## Habilitar {% data variables.product.prodname_actions %} com o seu provedor de armazenamento
 

@@ -21,6 +21,8 @@ topics:
 
 ルートファイルシステムは、配布されているマシンイメージに含まれています。 ルートファイルシステムにはベースのオペレーティングシステムと {% data variables.product.prodname_ghe_server %} アプリケーション環境が含まれています。 ルートファイルシステムは、一過性のものとして扱われなければなりません。 ルートファイルシステム上にあるデータは、すべて将来の {% data variables.product.prodname_ghe_server %} リリースへのアップグレード時に置き換えられます。
 
+The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a 200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB reserved for the upgrades and rollbacks.
+
 ルートファイルシステムには以下が含まれます:
   - カスタムの認証局 (CA) 証明書 (*/usr/local/share/ca-certificates*)
   - カスタムのネットワーク設定

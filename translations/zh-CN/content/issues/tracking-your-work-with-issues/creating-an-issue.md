@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: 创建议题
+type: how_to
 ---
 
 议题可用于跟踪漏洞、增强功能或其他请求。 更多信息请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。
@@ -88,7 +90,7 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Creating an issue from discussion
 
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 如果使用项目板对工作进行跟踪和排列优先级，您可以将项目板注释转换为议题。 更多信息请参阅“[关于项目板](/github/managing-your-work-on-github/about-project-boards)”和“[向项目板添加备注](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 从任务列表项创建议题
 
@@ -127,7 +129,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% endtip %}
 
-必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)”。
+必须具有适当的权限才可执行使用相关查询参数的操作。 例如，必须具有向议题添加标签的权限才可使用 `labels` 查询参数。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 如果使用查询参数创建无效的 URL，或者没有适当的权限，URL 将返回 `404 未找到`错误页。 如果您创建的 URL 超过服务器限制，URL 将返回 `414 URI 过长`错误页面。
 

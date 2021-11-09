@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +18,7 @@ topics:
 
 {% data reusables.organizations.organizations_include %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 组织和企业帐户
 
 企业帐户允许所有者集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。

@@ -9,6 +9,7 @@ redirect_from:
   - /github/getting-started-with-github/signing-up-for-github/verifying-your-email-address
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: Verificar tu dirección de correo electrónico
@@ -57,11 +58,11 @@ Si no verificas tu dirección de correo electrónico, no podrás hacer lo siguie
 
 El enlace de verificación vence después de 24 horas. Si no verificas tu correo electrónico dentro de las 24 horas, puedes solicitar otro enlace de verificación de correo electrónico. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
 
-Si haces clic en el enlace del correo electrónico de confirmación dentro de las 24 horas, y te dirige a una página de error, debes asegurarte de haberte registrado en la cuenta {% data variables.product.prodname_dotcom %} correcta.
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.product_location %}.
 
-1. {% data variables.product.signout_link %} de tu cuenta personal {% data variables.product.prodname_dotcom %}.
+1. {% data variables.product.signout_link %} of your personal account on {% data variables.product.product_location %}.
 2. Sal y vuelve a iniciar tu navegador.
-3. {% data variables.product.signin_link %} a tu cuenta personal {% data variables.product.prodname_dotcom %}.
+3. {% data variables.product.signin_link %} to your personal account on {% data variables.product.product_location %}.
 4. Haz clic en el enlace de verificación del correo electrónico que te enviamos.
 
 ## Leer más

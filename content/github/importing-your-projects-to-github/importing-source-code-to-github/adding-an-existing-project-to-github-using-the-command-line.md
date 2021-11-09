@@ -15,8 +15,6 @@ shortTitle: Add a project locally
 
 ## About adding existing projects to {% data variables.product.product_name %}
 
-{% data reusables.repositories.migrating-from-codeplex %}
-
 {% tip %}
 
 **Tip:** If you're most comfortable with a point-and-click user interface, try adding your project with {% data variables.product.prodname_desktop %}. For more information, see "[Adding a repository from your local computer to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop)" in the *{% data variables.product.prodname_desktop %} Help*.

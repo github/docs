@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -28,8 +29,8 @@ shortTitle: 向 GitHub 验证
 
 您可以 {% ifversion ghae %}使用 IdP 在浏览器中向 {% data variables.product.product_name %} 验证。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”{% else %}。
 
-- {% ifversion fpt %}
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)". If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion fpt or ghec %}
+- If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
 {% endif %}
 
 - **仅用户名和密码**
@@ -62,23 +63,23 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 即使您在防火墙或代理后面，也可以通过 HTTPS 处理 {% data variables.product.product_name %} 上的所有仓库。
 
-If you authenticate with {% data variables.product.prodname_cli %}, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+如果您使用 {% data variables.product.prodname_cli %} 进行身份验证，您可以使用个人访问令牌或通过 Web 浏览器进行身份验证。 For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a personal access token. {% data reusables.user_settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your credentials to authenticate with {% data variables.product.product_name %}, unless you cache them a [credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+如果您不使用 {% data variables.product.prodname_cli %} 进行身份验证，则必须使用个人访问令牌进行身份验证。 {% data reusables.user_settings.password-authentication-deprecation %}除非您使用[凭据小助手](/github/getting-started-with-github/caching-your-github-credentials-in-git)缓存了凭据，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入凭据以向 {% data variables.product.product_name %} 验证。
 
 ### SSH
 
 您可以通过 SSH 处理 {% data variables.product.product_name %} 上的所有仓库，尽管防火墙和代理可能拒绝允许 SSH 连接。
 
-If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your {% data variables.product.product_name %} account. Then, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+如果您使用 {% data variables.product.prodname_cli %} 进行身份验证，CLI 会在您的机器上找到 SSH 公共密钥，并提示您选择一个用于上传。 If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 然后，您可以使用个人访问令牌进行身份验证，也可以通过 Web 浏览器进行身份验证。 For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your {% data variables.product.product_name %} account. 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。 除非您已[存储密钥](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入 SSH 密钥密码短语。
+If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。 除非您已[存储密钥](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入 SSH 密钥密码短语。
 
-### Authorizing for SAML single sign-on
+### SAML 单点登录授权
 
-{% ifversion fpt %}要使用个人访问令牌或 SSH 密钥访问由使用 SAML 单点登录的组织所拥有的资源，还必须授权个人令牌或 SSH 密钥。 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权 SSH 密钥用于 SAML 单点登录](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}
+{% ifversion fpt or ghec %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权 SSH 密钥用于 SAML 单点登录](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
 ## {% data variables.product.company_short %} 的令牌格式
 

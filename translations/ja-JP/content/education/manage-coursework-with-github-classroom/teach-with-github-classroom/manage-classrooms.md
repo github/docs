@@ -21,7 +21,7 @@ redirect_from:
 
 クラスルームの作成後、{% data variables.product.prodname_classroom %}はクラスルームにティーチングアシスタント (TA) と管理者を招待するよう促します。 各クラスルームには複数の管理者を置くことができます。 管理者には教師、TA、その他{% data variables.product.prodname_classroom %}でクラスルームの管理をさせたいコース管理者がなることができます。
 
-TAおよび管理者をクラスルームに招待するには、{% data variables.product.product_name %}のユーザアカウントを、あなたのOrganizationにOrganizationのオーナーとして招待し、クラスルームのURLを共有します。 Organizationのオーナーは、Organizationの任意のクラスルームを管理できます。 詳しい情報については、「[Organizationの権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)」および「[Organizationに参加するようユーザを招待する](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)」を参照してください
+TAおよび管理者をクラスルームに招待するには、{% data variables.product.product_name %}のユーザアカウントを、あなたのOrganizationにOrganizationのオーナーとして招待し、クラスルームのURLを共有します。 Organizationのオーナーは、Organizationの任意のクラスルームを管理できます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
 
 クラスルームの使用を終えたら、後でクラスルーム、名簿、課題を参照するためにクラスルームをアーカイブできます。また、クラスルームが今後不要な場合は、クラスルームを削除できます。
 
