@@ -41,6 +41,7 @@ Contexts are a way to access information about workflow runs, runner environment
 | `strategy` | `object` | Enables access to the configured strategy parameters and information about the current job. Strategy parameters include `fail-fast`, `job-index`, `job-total`, and `max-parallel`. |
 | `matrix` | `object` | Enables access to the matrix parameters you configured for the current job. For example, if you configure a matrix build with the `os` and `node` versions, the `matrix` context object includes the `os` and `node` versions of the current job. |
 | `needs` | `object` | Enables access to the outputs of all jobs that are defined as a dependency of the current job. For more information, see [`needs` context](#needs-context). |
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}| `inputs` | `object` | Enables access to the inputs of reusable workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
 
 As part of an expression, you may access context information using one of two syntaxes.
 - Index syntax: `github['sha']`
@@ -147,6 +148,19 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 | `needs.<job id>.outputs` | `object` | The set of outputs of a job that the current job depends on. |
 | `needs.<job id>.outputs.<output name>` | `string` | The value of a specific output for a job that the current job depends on. |
 | `needs.<job id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
+### `inputs` context
+
+The `inputs` context contains information about the inputs of reusable workflow. The inputs are defined in [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events). These inputs are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow.
+
+For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
+
+| Property name | Type | Description |
+|---------------|------|-------------|
+| `inputs` | `object` | This context is only available when it is [a reusable workflow](/actions/learn-github-actions/reusing-workflows). |
+| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow. |
+{% endif %}
 
 #### Example printing context information to the log file
 

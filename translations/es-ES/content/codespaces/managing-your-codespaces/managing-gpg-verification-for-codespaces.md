@@ -4,6 +4,7 @@ intro: 'Puedes permitir que {% data variables.product.company_short %} utilice a
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -29,6 +30,6 @@ Una vez que habilitas la verificación de GPG, esta tomará efecto inmediatament
 
 {% note %}
 
-**Note:** Once you have enabled GPG verification for {% data variables.product.prodname_codespaces %}, you also must append `-S` to each commit in order for it to be signed. Para hacerlo en {% data variables.product.prodname_vscode %}, asegúrate de que esté habilitada la opción "Git: Habilitar la Firma de Confirmante" desde los ajustes.
+**Nota:** Una vez que habilitas la verificación de GPG para {% data variables.product.prodname_codespaces %}, también debes anexar `-S` a cada confirmación para que se firme. Para hacerlo en {% data variables.product.prodname_vscode %}, asegúrate de que esté habilitada la opción "Git: Habilitar la Firma de Confirmante" desde los ajustes.
 
 {% endnote %}

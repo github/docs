@@ -16,6 +16,6 @@ children:
   - /github-desktop
   - /github-for-mobile
   - /keyboard-shortcuts
+  - /github-command-palette
   - /troubleshooting-connectivity-problems
 ---
-

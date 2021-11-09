@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: Ambiente de desenvolvimento
@@ -17,7 +18,7 @@ shortTitle: Ambiente de desenvolvimento
 
 Este guia irá analisar os passos necessários para configurar um aplicativo GitHub e executá-lo em um servidor. Os aplicativos GitHub exigem algumas etapas de configuração para gerenciar eventos do webhook e conectar o registro do aplicativo no GitHub ao seu código. O aplicativo neste guia serve como base que você pode usar para estender e criar novos aplicativos no GitHub.
 
-Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% ifversion fpt %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
+Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% ifversion fpt or ghec %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
 
 Após concluir este projeto, você entenderá como efetuar a autenticação como um aplicativo GitHub e uma instalação, bem como e como esses métodos de autenticação são diferentes.
 

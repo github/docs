@@ -14,7 +14,7 @@ topics:
   - User account
 ---
 
-团队是 {% data variables.product.prodname_dotcom %} 许多协作功能的中心，例如团队 @提及，此功能可以通知相关方您想要请求他们的输入或注意。 更多信息请参阅“[组织仓库的权限级别](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)”。
+团队是 {% data variables.product.prodname_dotcom %} 许多协作功能的中心，例如团队 @提及，此功能可以通知相关方您想要请求他们的输入或注意。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 一个团队可以代表您的公司内的一个组，或者包含具有特定兴趣或专业知识的人。 例如，{% data variables.product.product_location %} 上的可访问性专家团队可能包括来自多个不同部门的人。 团队可以体现职能关注，对公司现有的部门层次结构进行补充。
 

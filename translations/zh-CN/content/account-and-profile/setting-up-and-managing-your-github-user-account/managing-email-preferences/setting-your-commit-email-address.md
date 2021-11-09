@@ -1,6 +1,6 @@
 ---
 title: 设置提交电子邮件地址
-intro: '您可以设置用于在 {% data variables.product.product_name %} 和计算机上创作提交的电子邮件地址。'
+intro: '您可以设置用于在 {% data variables.product.product_location %} 和计算机上创作提交的电子邮件地址。'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -16,6 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Accounts
   - Notifications
@@ -24,13 +25,13 @@ shortTitle: 设置提交电子邮件地址
 
 ## 关于提交电子邮件地址
 
-{% data variables.product.product_name %} 使用您的提交电子邮件地址将提交与您的 {% data variables.product.product_name %} 帐户关联。 您可以选择要与从命令行以及基于 web 的 Git 操作推送的提交相关联的电子邮件地址。
+{% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.product.product_location %}. 您可以选择要与从命令行以及基于 web 的 Git 操作推送的提交相关联的电子邮件地址。
 
-对于基于 web 的 Git 操作，您可以在 {% data variables.product.product_name %} 上设置提交电子邮件地址。 对于从命令行推送的提交，您可以在 Git 中设置提交电子邮件地址。
+For web-based Git operations, you can set your commit email address on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 对于从命令行推送的提交，您可以在 Git 中设置提交电子邮件地址。
 
-{% ifversion fpt %}在更改提交电子邮件地址之前进行的提交仍与之前的电子邮件地址关联。{% else %}在 {% data variables.product.product_name %} 上更改提交电子邮件地址之后，新电子邮件地址默认在所有未来基于 web 的 Git 操作中可见。 在更改提交电子邮件地址之前进行的任何提交仍与之前的电子邮件地址关联。{% endif %}
+{% ifversion fpt or ghec %}在更改提交电子邮件地址之前进行的提交仍与之前的电子邮件地址关联。{% else %}在 {% data variables.product.product_name %} 上更改提交电子邮件地址之后，新电子邮件地址默认在所有未来基于 web 的 Git 操作中可见。 在更改提交电子邮件地址之前进行的任何提交仍与之前的电子邮件地址关联。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -40,21 +41,21 @@ shortTitle: 设置提交电子邮件地址
 
 {% endif %}
 
-{% ifversion fpt %}如果要对个人电子邮件地址保密，可以使用 {% data variables.product.product_name %}-provided `no-reply` 电子邮件地址作为提交电子邮件地址。 要将 `noreply` 电子邮件地址用于从命令行推送的提交，请在 Git 中设置提交电子邮件地址时使用该电子邮件地址。 要将 `noreply` 地址用于基于 web 的 Git 操作，请在 GitHub 上设置提交电子邮件地址并选择**对我的电子邮件地址保密**。
+{% ifversion fpt or ghec %}If you'd like to keep your personal email address private, you can use a `no-reply` email address from {% data variables.product.product_name %} as your commit email address. 要将 `noreply` 电子邮件地址用于从命令行推送的提交，请在 Git 中设置提交电子邮件地址时使用该电子邮件地址。 要将 `noreply` 地址用于基于 web 的 Git 操作，请在 GitHub 上设置提交电子邮件地址并选择**对我的电子邮件地址保密**。
 
 您也可以选择阻止从命令行推送的提交显示您的个人电子邮件地址。 更多信息请参阅“[阻止推送的命令行显示您的个人电子邮件地址](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)”。{% endif %}
 
-为确保提交归因于您并且出现在您的贡献图表中，请使用已连接到 {% data variables.product.product_name %} 帐户的电子邮件地址{% ifversion fpt %}，或者在电子邮件设置中提供给您的 `noreply` 电子邮件地址{% endif %}。 {% ifversion not ghae %}更多信息请参阅“[添加电子邮件地址到 {% data variables.product.prodname_dotcom %} 帐户](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)”。{% endif %}
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.product.product_location %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% ifversion not ghae %}更多信息请参阅“[添加电子邮件地址到 {% data variables.product.prodname_dotcom %} 帐户](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)”。{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**注：**如果您的 {% data variables.product.product_name %} 帐户创建于 2017 年 7 月 18 日_之后_，则 {% data variables.product.product_name %}-provided `no-reply` 电子邮件地址是一个七位数的 ID 号，用户名形式为 <code><em>ID+username</em>@users.noreply.github.com</code>。 如果您的 {% data variables.product.product_name %} 帐户创建于 2017 年 7 月 18 日_之前_，则 {% data variables.product.product_name %}-provided `no-reply` 电子邮件地址是 <code><em>username</em>@users.noreply.github.com</code> 形式的用户名。 在电子邮件设置中选择（或者取消选择并重新选择）**对我的电子邮件保密**，便可获取基于 ID 的 {% data variables.product.product_name %}-provided `no-reply` 电子邮件地址。
+**Note:** If you created your account on {% data variables.product.product_location %} _after_ July 18, 2017, your `no-reply` email address for {% data variables.product.product_name %} is a seven-digit ID number and your username in the form of <code><em>ID+username</em>@users.noreply.github.com</code>. If you created your account on {% data variables.product.product_location %} _prior to_ July 18, 2017, your `no-reply` email address from {% data variables.product.product_name %} is <code><em>username</em>@users.noreply.github.com</code>. You can get an ID-based `no-reply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
 
 {% endnote %}
 
-如果使用 {% data variables.product.product_name %}-provided `noreply` 电子邮件地址进行提交，然后[更改您的用户名](/articles/changing-your-github-username)，这些提交不会与您的 {% data variables.product.product_name %} 帐户关联。 如果您使用基于 ID 的 {% data variables.product.product_name %}-provided `noreply` 地址，此原则不适用。 更多信息请参阅“[更改 {% data variables.product.prodname_dotcom %} 用户名](/articles/changing-your-github-username)”。{% endif %}
+If you use your `noreply` email address for {% data variables.product.product_name %} to make commits and then [change your username](/articles/changing-your-github-username), those commits will not be associated with your account on {% data variables.product.product_location %}. This does not apply if you're using the ID-based `noreply` address from {% data variables.product.product_name %}. 更多信息请参阅“[更改 {% data variables.product.prodname_dotcom %} 用户名](/articles/changing-your-github-username)”。{% endif %}
 
 ## 在 {% data variables.product.prodname_dotcom %} 上设置提交电子邮件地址
 
@@ -63,12 +64,12 @@ shortTitle: 设置提交电子邮件地址
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
 {% data reusables.user_settings.add_and_verify_email %}
-{% data reusables.user_settings.select_primary_email %}{% ifversion fpt %}
+{% data reusables.user_settings.select_primary_email %}{% ifversion fpt or ghec %}
 {% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
 
 ## 在 Git 中设置您的提交电子邮件地址
 
-您可以使用 `git config` 命令更改与 Git 提交关联的电子邮件地址。 您设置的新电子邮件地址将在从命令行推送到 {% data variables.product.product_name %} 的任何未来提交中显示。 在您更改提交电子邮件地址之前进行的任何提交仍与之前的电子邮件地址关联。
+您可以使用 `git config` 命令更改与 Git 提交关联的电子邮件地址。 您设置的新电子邮件地址将在从命令行推送到 {% data variables.product.product_location %} 的任何未来提交中显示。 在您更改提交电子邮件地址之前进行的任何提交仍与之前的电子邮件地址关联。
 
 ### 为计算机上的每个仓库设置电子邮件地址
 
@@ -86,7 +87,7 @@ shortTitle: 设置提交电子邮件地址
 
 ### 为一个仓库设置电子邮件地址
 
-{% data variables.product.product_name %} 使用在您的本地 Git 配置中设置的电子邮件地址将从命令行推送的提交与您的 {% data variables.product.product_name %} 帐户相关联。
+{% data variables.product.product_name %} uses the email address set in your local Git configuration to associate commits pushed from the command line with your account on {% data variables.product.product_location %}.
 
 您可以更改与您在一个仓库中所进行的提交关联的电子邮件地址。 此操作将覆盖这一个仓库中的全局 Git 配置设置，但不会影响任何其他仓库。
 

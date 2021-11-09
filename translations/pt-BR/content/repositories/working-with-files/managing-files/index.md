@@ -1,6 +1,6 @@
 ---
 title: Gerenciar arquivos
-intro: 'You can create, edit, move, and delete files in a repository, directly on {% data variables.product.product_name %} or on the command line.'
+intro: 'É possível criar, editar, transferir e excluir arquivos em um repositório, diretamente em {% data variables.product.product_name %} ou na linha de comando.'
 redirect_from:
   - /articles/managing-files-on-github
   - /github/managing-files-in-a-repository/managing-files-on-github
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:

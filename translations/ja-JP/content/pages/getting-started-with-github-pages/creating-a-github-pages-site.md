@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub Pagesのサイトの作成
@@ -41,9 +42,15 @@ shortTitle: GitHub Pagesのサイトの作成
 {% data reusables.pages.decide-publishing-source %}
 3. 選択した公開元が既に存在する場合、公開元に移動します。 選択した公開元がまだ存在しない場合は、公開元を作成します。
 4. 公開元のルートに、サイトのメインページに表示したいコンテンツを含んだ、`index.md` という名前の新しいファイルを作成します。
+
+  {% tip %}
+
+  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+
+  {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}{% ifversion fpt %}
+{% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
@@ -51,9 +58,9 @@ shortTitle: GitHub Pagesのサイトの作成
 
 ## 次のステップ
 
-新しいファイルを追加で作成することにより、ページを追加できます。 各ファイルは、公開元と同じディレクトリ構造で、サイト上に表示されます。 たとえば、プロジェクトサイトの公開元が `gh-pages` ブランチで、新しいファイル `/about/contact-us.md` を `gh-pages` ブランチに作成した場合、ファイルは {% ifversion fpt %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` で表示されます。
+新しいファイルを追加で作成することにより、ページを追加できます。 各ファイルは、公開元と同じディレクトリ構造で、サイト上に表示されます。 たとえば、プロジェクトサイトの公開元が `gh-pages` ブランチで、新しいファイル `/about/contact-us.md` を `gh-pages` ブランチに作成した場合、ファイルは {% ifversion fpt or ghec %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.html` で表示されます。
 
-また、サイトの見た目をカスタマイズするため、テーマを追加できます。 詳しい情報については、{% ifversion fpt %}「[テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}「[Jekyll テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}」を参照してください。
+また、サイトの見た目をカスタマイズするため、テーマを追加できます。 詳しい情報については、{% ifversion fpt or ghec %}「[テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}「[Jekyll テーマ選択画面で {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}」を参照してください。
 
 サイトを更にカスタマイズするには、Jekyll を使用できます。Jekyll は、{% data variables.product.prodname_pages %} に組み込まれている静的サイトジェネレータです。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll](/articles/about-github-pages-and-jekyll)」を参照してください。
 

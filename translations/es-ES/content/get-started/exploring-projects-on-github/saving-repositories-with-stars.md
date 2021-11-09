@@ -1,6 +1,6 @@
 ---
 title: Guardar repositorios con estrellas
-intro: 'Puedes marcar los repositorios y temas como favoritos para llevar el seguimiento de los proyectos que te parezcan interesantes{% ifversion fpt %} y descubrir el contenido relacionado en tu sección de noticias{% endif %}.'
+intro: 'Puedes marcar los repositorios y temas como favoritos para llevar el seguimiento de los proyectos que te parezcan interesantes{% ifversion fpt or ghec %} y descubrir el contenido relacionado en tu sección de noticias{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Guardar repositorios marcados como favoritos
@@ -24,7 +25,7 @@ Puedes buscar, clasificar y filtrar tus repositorios y temas marcados con estrel
 
 Marcar con estrellas tus repositorios y temas favoritos te facilitará encontrarlos posteriormente. Puedes ver todos los repositorios y temas que has marcado con estrellas visitando tu {% data variables.explore.your_stars_page %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Puedes seleccionar los repositorios y temas como favoritos para descubrir proyectos similares en {% data variables.product.product_name %}. Cuando marcas repositorios o temas con estrellas, {% data variables.product.product_name %} puede recomendar contenido relacionado en la vista de tus noticias. Para obtener más información, consulta "[Encontrar formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".
 {% endif %}
 

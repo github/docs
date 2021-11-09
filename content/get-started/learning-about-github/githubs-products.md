@@ -93,8 +93,8 @@ In addition to the features available with {% data variables.product.prodname_te
 - Additional security, compliance, and deployment controls
 - Authentication with SAML single sign-on
 - Access provisioning with SAML or SCIM
-- {% data variables.product.prodname_github_connect %}{% ifversion fpt or ghae or ghes > 2.22 or ghec %}
-- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}
+- {% data variables.product.prodname_github_connect %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
 {% data variables.product.prodname_ghe_cloud %} also includes:
 - {% data variables.contact.enterprise_support %}. For more information, see "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} support</a>" and "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Addendum</a>."

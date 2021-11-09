@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**ノート：**インストラクターとして、学生のために{% data variables.product.prodname_dotcom %}のアカウントを作成することはできません。 学生は自分の{% data variables.product.prodname_dotcom %}アカウントを作成しなければなりません。
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 

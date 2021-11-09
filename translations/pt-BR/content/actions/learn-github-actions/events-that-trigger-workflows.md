@@ -1,7 +1,6 @@
 ---
 title: Eventos que acionam fluxos de trabalho
 intro: 'É possível configurar a execução de seus fluxos de trabalho quando uma atividade específica acontece no {% data variables.product.product_name %} em um período agendado ou quando ocorre um evento externo do {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.actions %}'
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -12,11 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Eventos que acionam fluxos de trabalho
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Configurar eventos de fluxo de trabalho
 
@@ -57,12 +58,12 @@ O evento `agenda` permite que você acione um fluxo de trabalho em um horário a
 A sintaxe cron tem cinco campos separados por um espaço, e cada campo representa uma unidade de tempo.
 
 ```
-┌───────────── minuto (0 - 59)
-│ ┌───────────── hora (0 - 23)
-│ │ ┌───────────── dia do mês (1 - 31)
-│ │ │ ┌───────────── mês (1 - 12 ou JAN-DEZ)
-│ │ │ │ ┌───────────── dia da semana (0 - 6 ou DOM-SAB)
-│ │ │ │ │                                   
+┌───────────── minute (0 - 59)
+│ ┌───────────── hour (0 - 23)
+│ │ ┌───────────── day of the month (1 - 31)
+│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+│ │ │ │ │
 │ │ │ │ │
 │ │ │ │ │
 * * * * *
@@ -99,11 +100,11 @@ Você pode acionar as execuções de fluxo de trabalho manualmente. Para acionar
 
 É possível configurar as propriedades de entrada definidas por personalização, os valores-padrão de entrada e as entradas obrigatórias para o evento diretamente no seu fluxo de trabalho. Quando o fluxo de trabalho é executado, você pode acessar os valores de entrada no `github.event.inputs` contexto. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
-Você pode acionar manualmente uma execução de fluxo de trabalho usando a API do {% data variables.product.product_name %} e do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Executando um fluxo de trabalho manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)."
+Você pode acionar uma execução de fluxo de trabalho manualmente usando a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} e de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Executando um fluxo de trabalho manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
  Ao ativar o evento em {% data variables.product.prodname_dotcom %}, você poderá fornecer a `ref` e quaisquer `entradas` diretamente no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Usar entradas e saídas com uma ação](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)".
 
- Para acionar o evento do webhook `workflow_dispatch` usando a API REST, você deve enviar uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.prodname_dotcom %} e fornecer o `ref` e qualquer `entrada` necessária. Para obter mais informações, consulte o ponto de extremidade da API REST "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".
+ Para acionar o evento webhook personalizado `workflow_dispatch` usando a API REST, você deve enviar uma solicitação de `POST` para um ponto de extremidade da API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} e fornecer o </code>ref`e quaisquer <code>entradas` necessárias. Para obter mais informações, consulte o ponto de extremidade da API REST "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".
 
 #### Exemplo
 
@@ -150,9 +151,9 @@ jobs:
 
 {% data reusables.github-actions.branch-requirement %}
 
-Você pode usar a API do {% data variables.product.product_name %} para acionar um evento do webhook denominado [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) quando quiser acionar um fluxo de trabalho para uma atividade que ocorre fora do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Criar um evento de envio do repositório](/rest/reference/repos#create-a-repository-dispatch-event)".
+Você pode usar a API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} para acionar um evento de webhook denominado [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) quando você quiser acionar um fluxo de trabalho para a atividade que ocorre fora de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Criar um evento de envio do repositório](/rest/reference/repos#create-a-repository-dispatch-event)".
 
-Para acionar o evento webhook `repository_dispatch` personalizado, envie uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.product_name %} e forneça um nome de `event_type` para descrever o tipo de atividade. Para acionar a execução de um fluxo de trabalho, configure também o fluxo de trabalho para usar o evento `repository_dispatch`.
+Para acionar o evento de webhook `repository_dispatch` personalizado, você deve enviar uma solicitação `POST` para um ponto de extremidade da API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} e fornecer um nome de `event_type` para descrever o tipo de atividade. Para acionar a execução de um fluxo de trabalho, configure também o fluxo de trabalho para usar o evento `repository_dispatch`.
 
 #### Exemplo
 
@@ -164,7 +165,7 @@ em:
     tipos: [opened, deleted]
 ```
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 %}
+{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Eventos de reutilização do fluxo de trabalho
 
 `workflow_call` é uma palavra-chave usada como o valor de `on` em um fluxo de trabalho, da mesma forma que um evento. Ele indica que um fluxo de trabalho pode ser chamado a prtir de outro fluxo de trabalho. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
@@ -189,6 +190,28 @@ on: workflow_call
 Você pode configurar seu fluxo de trabalho para executar quando eventos de webhook forem gerados em {% data variables.product.product_name %}. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks).
 
 Nem todos os eventos de webhook acionam fluxos de trabalho. Para obter a lista completa de eventos de webhook disponíveis e suas cargas, consulte "[Eventos e cargas de webhook](/developers/webhooks-and-events/webhook-events-and-payloads)".
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4968  %}
+### `branch_protection_rule`
+
+Runs your workflow anytime the `branch_protection_rule` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the GraphQL API, see "[BranchProtectionRule]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#branchprotectionrule)."
+
+{% data reusables.github-actions.branch-requirement %}
+
+| Carga de evento webhook                                                      | Tipos de atividade                                     | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------ | ------------- |
+| [`branch_protection_rule`](/webhooks/event-payloads/#branch_protection_rule) | - `created`<br/>- `edited`<br/>- `deleted` | Último commit no branch padrão | Branch padrão |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
+
+For example, you can run a workflow when a branch protection rule has been `created` or `deleted`.
+
+```yaml
+on:
+  branch_protection_rule:
+    types: [created, deleted]
+```
+{% endif %}
 
 ### `check_run`
 
@@ -304,10 +327,10 @@ on:
 
 {% endnote %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### `discussão`
 
-Executa o fluxo de trabalho sempre que o evento `discussion` ocorrer. {% data reusables.developer-site.multiple_activity_types %} Para informações sobre a API do GraphQL, consulte "[Discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
+Executa o fluxo de trabalho sempre que o evento `discussion` ocorrer. {% data reusables.developer-site.multiple_activity_types %} Para informações sobre a API do GraphQL, consulte "[Discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -327,7 +350,7 @@ on:
 
 ### `discussion_comment`
 
-Executa o fluxo de trabalho sempre que o evento `discussion_comment` ocorrer. {% data reusables.developer-site.multiple_activity_types %} Para informações sobre a API do GraphQL, consulte "[Discussões](/graphql/guides/using-the-graphql-api-for-discussions)".
+Executa o fluxo de trabalho sempre que o evento `discussion_comment` ocorrer. {% data reusables.developer-site.multiple_activity_types %} Para informações sobre a API do GraphQL, consulte "[Discussões]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-the-graphql-api-for-discussions)".
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -595,9 +618,9 @@ Executa o fluxo de trabalho sempre que o evento `pull_request` ocorre. {% data r
 
 {% endnote %}
 
-| Carga de evento webhook                                  | Tipos de atividade                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `GITHUB_SHA`                                  | `GITHUB_REF`                                      |
-| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------- |
-| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Último commit de merge no branch `GITHUB_REF` | Branch de merge da PR `refs/pull/:prNumber/merge` |
+| Carga de evento webhook                                  | Tipos de atividade                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                  | `GITHUB_REF`                                      |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------- |
+| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Último commit de merge no branch `GITHUB_REF` | Branch de merge da PR `refs/pull/:prNumber/merge` |
 
 É possível estender ou limitar os tipos de atividade padrão usando a palavra-chave `types`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
@@ -651,8 +674,6 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 ### `pull_request_target`
 
 Este evento é executado no contexto da base do pull request, em vez de no commit de merge como o evento `pull_request` faz.  Isso impede a execução de código de fluxo de trabalho inseguro do cabeçalho do pull request que poderia alterar seu repositório ou roubar quaisquer segredos que você usa no fluxo de trabalho. Este evento permite que você faça coisas como criar fluxos de trabalho que etiquetam e comentam em pull requests com base no conteúdo da carga do evento.
@@ -663,9 +684,9 @@ Este evento é executado no contexto da base do pull request, em vez de no commi
 
 {% endwarning %}
 
-| Carga de evento webhook                                         | Tipos de atividade                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `GITHUB_SHA`                          | `GITHUB_REF`                |
-| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------- |
-| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Último commit no branch de base do PR | Branch-base do pull request |
+| Carga de evento webhook                                         | Tipos de atividade                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                          | `GITHUB_REF`                |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------- |
+| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Último commit no branch de base do PR | Branch-base do pull request |
 
 Por padrão, um fluxo de trabalho só é executado quando o tipo de atividade de `pull_request_target`é `aberto,`, `sincronizado` ou `reaberto`. Para acionar fluxos de trabalho para mais tipos de atividade, use a palavra-chave `types`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
@@ -676,8 +697,6 @@ on:
   pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
-
-{% endif %}
 
 ### `push`
 
@@ -785,8 +804,6 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 ### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
@@ -808,12 +825,10 @@ on:
   workflow_run:
     workflows: ["Run Tests"]
     branches: [main]
-    types: 
+    types:
       - completed
       - requested
 ```
-
-{% endif %}
 
 Para executar um trabalho de fluxo de trabalho condicionalmente baseado no resultado da execução do fluxo de trabalho anterior, você pode usar a condicional [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) ou [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) combinada com com a conclusão `` da execução anterior. Por exemplo:
 

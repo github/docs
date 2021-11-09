@@ -3,8 +3,12 @@ title: 使用 AWS 启用 GitHub Packages
 intro: '以 AWS 作为外部存储设置 {% data variables.product.prodname_registry %} 。'
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Packages
+  - Packages
 shortTitle: 使用 AWS 启用包
 ---
 
@@ -36,14 +40,8 @@ shortTitle: 使用 AWS 启用包
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% ifversion ghes = 2.22 %}
-1. 在“AWS Service URL（AWS 服务 URL）”下，请为存储桶的区域键入S3 端点 URL。 ![AWS 服务 URL 字段](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. 在“AWS S3 Bucket（AWS S3 存储桶）”下，键入您想要用来存储软件包工件的 S3 存储桶。 ![AWS S3 存储桶字段](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. 在“AWS S3 Access Key（AWS S3 访问密钥）”下，键入 S3 的访问密钥。 ![AWS S3 访问密钥字段](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. 在“AWS S3 Secret Key（AWS S3 密码密钥”下，请输入 S3 的密码密钥。 ![AWS S3 密码密钥字段](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. 在“AWS S3 Region（AWS S3 区域）”下，键入 S3 的区域。 ![AWS S3 区域字段](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
-{% endif %}
-{% ifversion ghes > 2.22 %}
+
+{% ifversion ghes %}
 1. 在“Packages Storage（包存储）”下，选择 **Amazon S3** 并输入您的存储桶详细信息：
     - **AWS 服务 URL：**存储桶的服务 URL。 例如，如果您的 S3 存储桶是在 `us-west-2 region` 中创建的，则此值应为 `https://s3.us-west-2.amazonaws.com`。
 

@@ -1,22 +1,23 @@
 ---
 title: デバッグロギングの有効化
 intro: ワークフロージョブあるいはステップが期待どおりに動作しない理由を診断する上で、十分な詳細がワークフローのログになかった場合、追加のデバッグロギングを有効化できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 これらの追加ログは、ワークフローを含むリポジトリにシークレットを設定することで有効になるため、同じ権限要件が適用されます。
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data reusables.github-actions.permissions-statement-secrets-environment %}
 {% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}

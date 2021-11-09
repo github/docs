@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma nova chave SSH à sua conta do GitHub
-intro: 'Para configurar sua conta do {% data variables.product.product_name %} para usar a chave SSH nova (ou a existente), você também precisará adicioná-la à sua conta do {% data variables.product.product_name %}.'
+intro: 'Para configurar sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para usar sua chave SSH nova (ou existente) chave SSH, você também deverá adicionar a chave à sua conta.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
@@ -9,16 +9,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Adicionar uma nova chave SSH
 ---
 
-Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:
+Antes de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você deverá ter:
 * [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
 * [Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
+Depois de adicionar uma nova chave SSH à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá reconfigurar quaisquer repositórios locais para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
 
 {% data reusables.ssh.key-type-support %}
 
@@ -32,8 +33,8 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
   Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
   ```
 
   {% tip %}
@@ -65,8 +66,8 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
   Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
   ```
 
   {% tip %}
@@ -97,8 +98,8 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
   Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ cat ~/.ssh/id_ed25519.pub
-  # Then select and copy the contents of the id_ed25519.pub file
+  $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+  # Then select and copy the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file
   # displayed in the terminal to your clipboard
   ```
 
@@ -138,7 +139,7 @@ gh ssh-key add <em>key-file</em> --title "personal laptop"
 
 {% endcli %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leia mais
 
 - "[Autorizar uma chave SSH para uso com logon único de SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"

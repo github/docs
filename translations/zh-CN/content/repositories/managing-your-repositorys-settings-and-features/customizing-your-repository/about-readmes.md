@@ -11,15 +11,16 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
 ## 关于自述文件
 
-您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 %}, citation file{% endif %}{% ifversion fpt %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 A README, along with a repository license{% ifversion fpt or ghes > 3.2 or ghae-issue-4651 or ghec %}, citation file{% endif %}{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
 
-有关为项目提供指南的更多信息，请参阅 {% ifversion fpt %}“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
+有关为项目提供指南的更多信息，请参阅 {% ifversion fpt or ghec %}“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
 自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
 - 项目做什么
@@ -32,7 +33,7 @@ topics:
 
 ![Github/scientist 仓库的主页面及其自述文件](/assets/images/help/repository/repo-with-readme.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -40,7 +41,7 @@ topics:
 
 ![用户名/用户名仓库上的自述文件](/assets/images/help/repository/username-repo-with-readme.png)
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 ## 为 README 文件自动生成的目录
 
@@ -63,6 +64,10 @@ topics:
 ## 自述文件中的相对链接和图像路径
 
 {% data reusables.repositories.relative-links %}
+
+## Wikis
+
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。
 
 ## 延伸阅读
 

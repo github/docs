@@ -1,11 +1,12 @@
 ---
 title: Administrar flujos de trabajo complejos
 shortTitle: Administrar flujos de trabajo complejos
-intro: 'Esta guía te muestra cómo utilizar las características avanzadas de {% data variables.product.prodname_actions %} con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación,{% ifversion fpt or ghes > 3.0 or ghae %} ambientes,{% endif %}y etiquetas.'
+intro: 'Esta guía te muestra cómo utilizar las características avanzadas de {% data variables.product.prodname_actions %} con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación,{% ifversion fpt or ghes > 3.0 or ghae or ghec %} ambientes,{% endif %}y etiquetas.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Workflows
@@ -13,6 +14,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Resumen
 
@@ -87,7 +89,7 @@ jobs:
 
 Para obtener más información, consulta la parte de [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Almacenar dependencias en caché
 
 Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se inician como ambientes nuevos para cada job, así que, si tus jobs utilizan dependencias a menudo, puedes considerar almacenar estos archivos en caché para ayudarles a mejorar el rendimiento. Una vez que se crea el caché, estará disponible para todos los flujos de trabajo en el mismo repositorio.
@@ -171,7 +173,7 @@ las etiquetas de los ejecutores hospedados en {% data variables.product.prodname
 
 {% data reusables.actions.reusable-workflows %}
 
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
+{% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 
 ## Utilizar ambientes
 

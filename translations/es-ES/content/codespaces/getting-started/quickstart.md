@@ -4,7 +4,8 @@ intro: 'Intenta {% data variables.product.prodname_codespaces %} en 5 minutos.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces

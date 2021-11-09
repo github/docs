@@ -30,10 +30,10 @@ toc:
   guides: 指南
   whats_new: 新增内容
 pages:
-  article_version: 'Article version'
+  article_version: '文章版本'
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
-  all_enterprise_releases: All Enterprise releases
+  all_enterprise_releases: 所有企业版本
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -158,15 +158,15 @@ product_sublanding:
   more_guides: 更多指南
   load_more: 加载更多指南
   all_guides: '所有 {{ productMap[currentProduct].name }} 指南'
-  filter_instructions: Filter the guide list using these controls
+  filter_instructions: 使用这些控件过滤指南列表
   filters:
     type: 类型
     topic: 主题
     all: 所有
   guides_found:
-    multiple: '{n} guides found'
-    one: 1 guide found
-    none: No guides found
+    multiple: '找到 {n} 个指南'
+    one: 找到 1 个指南
+    none: 找不到指南
   guide_types:
     overview: 概览
     quick_start: 快速入门
