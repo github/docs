@@ -1,1 +1,0 @@
-Lege in Git eine E-Mail-Adresse fest. Du kannst {% ifversion fpt or ghec %}Deine von [{% data variables.product.product_name %} zur Verfügung gestellte `no-reply` E-Mail-Adresse](/articles/setting-your-commit-email-address) oder {% endif %}eine beliebige E-Mail-Adresse verwenden.

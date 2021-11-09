@@ -1,3 +1,13 @@
 .breadcrumbs {
   clip-path: inset(-5px -5px -5px 0px);
 }
+
+@media only screen and (max-width: 1750px) {
+  .collapsebreadcrumbs a:not(:first-child):not(:last-child) {
+    display: none;
+  }
+}
+
+.header {
+  display: unset;
+}

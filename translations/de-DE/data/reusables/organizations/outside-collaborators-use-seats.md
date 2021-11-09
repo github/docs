@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}Das Hinzufügen eines externen Mitarbeiters zu einem privaten Repository wird eine der kostenpflichtigen Lizenzen Ihrer Organisation verwenden. Weitere Informationen findest Du unter „[Informationen zur benutzerabhängigen Preisgestaltung](/articles/about-per-user-pricing/)“.{% endif %}
