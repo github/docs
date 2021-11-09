@@ -153,7 +153,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a *team maintainer* | **X** | **X** | **X**  |
 | Transfer repositories | **X** | |  |
 | Manage security and analysis settings (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" for details) | **X** | | **X** |{% ifversion ghes > 3.1 %}
-| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | **X** |{% endif %}
+| View the security overview for the organization (see "[About the security overview](/code-security/security-overview/about-the-security-overview)" for details) | **X** | | **X** |{% endif %}{% ifversion ghes > 3.2 %}
+| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | **X** |{% endif %}
 | Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)" for details) | **X** | **X** | **X** |
 | View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)" for details) | **X** | **X** | **X**  |
