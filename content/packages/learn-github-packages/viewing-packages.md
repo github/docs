@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -22,18 +23,18 @@ versions:
 
 Your ability to view a package depends on several factors. By default, you can view all packages you have published. 
 
-Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below use this type of permissions:{% ifversion not fpt %}
+Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below use this type of permissions:{% ifversion not fpt or ghec %}
 - Docker registry (`docker.pkg.github.com`){% endif %}
 - npm registry
 - RubyGems registry
 - Apache Maven registry
 - NuGet registry
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 The Container registry offers you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit it's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 {% endif %}
 
-For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
+For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages){% ifversion fpt or ghec %}" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility){% endif %}."
 
 {% data reusables.package_registry.package-page-info %}
 

@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt %}.com{% endif %} 帮助文档'
+title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} 帮助文档'
 featuredLinks:
   gettingStarted:
     - /github/getting-started-with-github/set-up-git
@@ -39,6 +39,57 @@ children:
   - education
   - desktop
   - early-access
+childGroups:
+  - name: Get started
+    octicon: RocketIcon
+    children:
+      - get-started
+      - account-and-profile
+      - authentication
+      - billing
+  - name: Collaborative coding
+    octicon: CommentDiscussionIcon
+    children:
+      - codespaces
+      - repositories
+      - discussions
+  - name: CI/CD and DevOps
+    octicon: GearIcon
+    children:
+      - actions
+      - packages
+      - pages
+  - name: Security
+    octicon: ShieldLockIcon
+    children:
+      - code-security
+  - name: Client apps
+    octicon: DeviceMobileIcon
+    children:
+      - github-cli
+      - desktop
+  - name: Project management
+    octicon: ProjectIcon
+    children:
+      - issues
+      - search-github
+  - name: Developers
+    octicon: MarkGithubIcon
+    children:
+      - developers
+      - rest
+      - graphql
+  - name: Enterprise and Teams
+    octicon: OrganizationIcon
+    children:
+      - organizations
+      - admin
+  - name: Community
+    octicon: GlobeIcon
+    children:
+      - communities
+      - sponsors
+      - education
 externalProducts:
   atom:
     id: atom
@@ -54,6 +105,11 @@ externalProducts:
     id: codeql
     name: CodeQL
     href: 'https://codeql.github.com/docs'
+    external: true
+  npm:
+    id: npm
+    name: npm
+    href: 'https://docs.npmjs.com/'
     external: true
 ---
 

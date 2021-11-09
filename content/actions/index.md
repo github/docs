@@ -43,6 +43,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /quickstart
   - /learn-github-actions
@@ -61,3 +62,4 @@ children:
   - /migrating-to-github-actions
   - /guides
 ---
+

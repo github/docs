@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -112,7 +113,7 @@ _Search_
 - [`GET /search/topics`](/rest/reference/search#search-topics)
 - [`GET /search/users`](/rest/reference/search#search-users)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### Permission on "actions"
 
 - [`GET /repos/:owner/:repo/actions/artifacts`](/rest/reference/actions#list-artifacts-for-a-repository) (:read)
@@ -237,7 +238,7 @@ _Teams_
 - [`PUT /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#add-or-update-team-repository-permissions) (:write)
 - [`DELETE /teams/:team_id/repos/:owner/:repo`](/rest/reference/teams#remove-a-repository-from-a-team) (:write)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 _Traffic_
 - [`GET /repos/:owner/:repo/traffic/clones`](/rest/reference/repos#get-repository-clones) (:read)
 - [`GET /repos/:owner/:repo/traffic/popular/paths`](/rest/reference/repos#get-top-referral-paths) (:read)
@@ -245,7 +246,7 @@ _Traffic_
 - [`GET /repos/:owner/:repo/traffic/views`](/rest/reference/repos#get-page-views) (:read)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Permission on "blocking"
 
 - [`GET /user/blocks`](/rest/reference/users#list-users-blocked-by-the-authenticated-user) (:read)
@@ -386,7 +387,7 @@ _Git_
 - [`POST /repos/:owner/:repo/git/trees`](/rest/reference/git#create-a-tree) (:write)
 - [`GET /repos/:owner/:repo/git/trees/:sha`](/rest/reference/git#get-a-tree) (:read)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 _Import_
 - [`GET /repos/:owner/:repo/import`](/rest/reference/migrations#get-an-import-status) (:read)
 - [`PUT /repos/:owner/:repo/import`](/rest/reference/migrations#start-an-import) (:write)
@@ -439,7 +440,7 @@ _Releases_
 - [`POST /repos/:owner/:repo/deployments/:deployment_id/statuses`](/rest/reference/repos#create-a-deployment-status) (:write)
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id`](/rest/reference/repos#get-a-deployment-status) (:read)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### Permission on "emails"
 
 {% ifversion fpt -%}
@@ -466,7 +467,7 @@ _Releases_
 - [`GET /user/gpg_keys/:gpg_key_id`](/rest/reference/users#get-a-gpg-key-for-the-authenticated-user) (:read)
 - [`DELETE /user/gpg_keys/:gpg_key_id`](/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user) (:write)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Permission on "interaction limits"
 
 - [`GET /user/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-your-public-repositories) (:read)
@@ -585,7 +586,7 @@ _Keys_
 - [`DELETE /scim/v2/orgs/:org/Users/:external_identity_guid`](/rest/reference/scim#delete-a-scim-user-from-an-organization) (:write)
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 _Invitations_
 - [`GET /orgs/:org/invitations`](/rest/reference/orgs#list-pending-organization-invitations) (:read)
 - [`POST /orgs/:org/invitations`](/rest/reference/orgs#create-an-organization-invitation) (:write)
@@ -686,7 +687,7 @@ _Teams_
 - [`DELETE /projects/columns/cards/:card_id`](/rest/reference/projects#delete-a-project-card) (:write)
 - [`POST /projects/columns/cards/:card_id/moves`](/rest/reference/projects#move-a-project-card) (:write)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Permission on "organization user blocking"
 
 - [`GET /orgs/:org/blocks`](/rest/reference/orgs#list-users-blocked-by-an-organization) (:read)
@@ -847,7 +848,7 @@ _Reviews_
 _Teams_
 - [`DELETE /teams/:team_id/projects/:project_id`](/rest/reference/teams#remove-a-project-from-a-team) (:read)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Permission on "secrets"
 
 - [`GET /repos/:owner/:repo/actions/secrets/public-key`](/rest/reference/actions#get-a-repository-public-key) (:read)
@@ -866,7 +867,7 @@ _Teams_
 - [`DELETE /orgs/:org/actions/secrets/:secret_name`](/rest/reference/actions#delete-an-organization-secret) (:write)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 ### Permission on "secret scanning alerts"
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
@@ -894,7 +895,7 @@ _Teams_
 - [`GET /repos/:owner/:repo/code-scanning/sarifs/:sarif_id`](/rest/reference/code-scanning#get-information-about-a-sarif-upload) (:read)
 {% endif -%}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ### Permission on "self-hosted runners"
 - [`GET /orgs/:org/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-an-organization) (:read)
 - [`POST /orgs/:org/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-an-organization) (:write)

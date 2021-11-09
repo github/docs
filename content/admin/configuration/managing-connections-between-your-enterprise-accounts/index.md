@@ -11,7 +11,8 @@ redirect_from:
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
 versions:
   ghes: '*'
-  ghae: 'next'
+  ghae: next
+type: how_to
 topics:
   - Enterprise
 children:

@@ -1,7 +1,6 @@
 ---
 title: Automatic token authentication
 intro: '{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -11,11 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Automatic token authentication
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## `GITHUB_TOKEN`シークレットについて
 
@@ -29,9 +30,9 @@ At the start of each workflow run, {% data variables.product.prodname_dotcom %} 
 
 ## ワークフロー内での`GITHUB_TOKEN`の利用
 
-シークレットを参照するための標準構文 {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} を使用して、`GITHUB_TOKEN` を使用できます。 `GITHUB_TOKEN` の使用例には、トークンをアクションへの入力として渡すことや、トークンを使用して認証済みの {% data variables.product.prodname_dotcom %} APIリクエストを作成することが含まれます。
+シークレットを参照するための標準構文 {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} を使用して、`GITHUB_TOKEN` を使用できます。 Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API request.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% note %}
 
 **重要:** ワークフローが `GITHUB_TOKEN` をアクションに明示的に渡さない場合でも、アクションは `github.token` コンテキストを介して `GITHUB_TOKEN` にアクセスできます。 セキュリティを強化するには、`GITHUB_TOKEN` に付与されるアクセス許可を制限することにより、アクションに必要な最小限のアクセスのみが含まれるようにする必要があります。 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
@@ -50,7 +51,7 @@ name: Pull request labeler
 
 on: [ pull_request_target ]
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}permissions:
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}permissions:
   contents: read
   pull-requests: write
 
@@ -75,7 +76,7 @@ on: [ push ]
 
 jobs:
   create_commit:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       issues: write {% endif %}
     steps:
@@ -96,8 +97,8 @@ jobs:
 
 {% data variables.product.prodname_github_apps %} が各権限でアクセスできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-次の表は、デフォルトで `GITHUB_TOKEN` に付与される権限を示しています。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository,{% endif %} see {% ifversion not ghes %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)," {% endif %}"[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+次の表は、デフォルトで `GITHUB_TOKEN` に付与される権限を示しています。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
 | スコープ                | デフォルトアクセス<br>(許可) | デフォルトアクセス<br>(制限付き) | フォークされたリポジトリ<br>による最大アクセス |
 | ------------------- | ----------------------- | ------------------------- | ------------------------------- |
@@ -105,6 +106,7 @@ jobs:
 | checks              | 読み取り/書き込み               | なし                        | 読み取り                            |
 | contents            | 読み取り/書き込み               | 読み取り                      | 読み取り                            |
 | deployments         | 読み取り/書き込み               | なし                        | 読み取り                            |
+| id_token            | 読み取り/書き込み               | なし                        | 読み取り                            |
 | issues              | 読み取り/書き込み               | なし                        | 読み取り                            |
 | メタデータ               | 読み取り                    | 読み取り                      | 読み取り                            |
 | パッケージ               | 読み取り/書き込み               | なし                        | 読み取り                            |
@@ -129,7 +131,7 @@ jobs:
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### `GITHUB_TOKEN` の権限を変更する
 
 個々のワークフローファイルの `GITHUB_TOKEN` の権限を変更できます。 `GITHUB_TOKEN` のデフォルトの権限が制限付きの場合は、一部のアクションとコマンドを正常に実行できるように、権限を昇格させる必要がある場合があります。 デフォルトの権限が許可の場合は、ワークフローファイルを編集して、`GITHUB_TOKEN` から一部の権限を削除できます。 セキュリティを強化するには、`GITHUB_TOKEN` に必要最小限のアクセスを許可する必要があります。

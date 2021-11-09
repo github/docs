@@ -7,11 +7,15 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/restoring-a-deleted-repository
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Repositories
 shortTitle: Restaurar repositório excluído
 ---
 
+{% ifversion fpt or ghec %}
 Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta de usuário. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
 
 ## Sobre a restauração do repositório
@@ -44,3 +48,7 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 ## Leia mais
 
 - "[Excluir um repositório](/articles/deleting-a-repository)"
+
+{% else %}
+Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+{% endif %}

@@ -4,7 +4,8 @@ intro: 'Examples of how you can use {% data variables.product.prodname_actions %
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Actions
@@ -69,7 +70,7 @@ You can replace `pull_request` with `pull_request_target`, which is used for pul
 name: Dependabot Workflow
 on:
   pull_request_target
-  
+
 permissions:
   # Downscope as necessary, since you now have a read-write token
 
@@ -119,7 +120,7 @@ name: Dependabot Trusted Workflow
 on:
   workflow_run:
     workflows: ["Dependabot Untrusted Workflow"]
-    types: 
+    types:
       - completed
 
 permissions:
@@ -243,7 +244,7 @@ jobs:
 
 ### Enable auto-merge on a pull request
 
-If you want to auto-merge your pull requests, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when all required tests and approvals are successfully met. For more information on auto-merge, see "[Automatically merging a pull request"](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+If you want to auto-merge your pull requests, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when all required tests and approvals are successfully met. For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
 
 Here is an example of enabling auto-merge for all patch updates to `my-dependency`:
 

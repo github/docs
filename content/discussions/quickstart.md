@@ -4,6 +4,7 @@ intro: 'Enable {% data variables.product.prodname_discussions %} on an existing 
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Quickstart
 ---
 

@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
@@ -31,7 +32,7 @@ Team のページのパブリックなディスカッションに誰かがポス
 
 {% tip %}
 
-**ヒント:** 通知の設定によって、更新はメール、{% data variables.product.product_name %}上の Web 通知、あるいはその両方で受け取ることになります。 詳しい情報については、{% ifversion fpt or ghae or ghes %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」および「[Web 通知について](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}」を参照してください。
+**ヒント:** 通知の設定によって、更新はメール、{% data variables.product.product_name %}上の Web 通知、あるいはその両方で受け取ることになります。 詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」および「[Web 通知について](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}」を参照してください。
 
 {% endtip %}
 
@@ -39,7 +40,7 @@ Team のページのパブリックなディスカッションに誰かがポス
 
 Team のディスカッションに対する通知をオフにするには、特定のディスカッションのポストのサブスクライブを解除するか、Watch の解除あるいは特定の Team のディスカッションを完全に無視するよう通知設定を変更できます。 Team のディスカッションの Watch を解除している場合でも、特定のディスカッションのポストについての通知をサブスクライブすることはできます。
 
-詳しい情報については、{% ifversion fpt or ghae or ghes %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[通知のサブスクライブとサブスクライブ解除](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}」および「[入れ子チーム](/articles/about-teams/#nested-teams)」を参照してください。
+詳しい情報については、{% ifversion fpt or ghae or ghes or ghec %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[通知のサブスクライブとサブスクライブ解除](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}」および「[入れ子チーム](/articles/about-teams/#nested-teams)」を参照してください。
 
 ## 参考リンク
 

@@ -13,7 +13,7 @@ Professors, teachers and mentors can use the Campus Advisors online training to 
 
 {% note %}
 
-**Note:** As an instructor, you can't create {% data variables.product.prodname_dotcom %} accounts for your students. Students must create their own {% data variables.product.prodname_dotcom %} accounts.
+**Note:** As an instructor, you can't create accounts on {% data variables.product.product_location %} for your students. Students must create their own accounts on {% data variables.product.product_location %}.
 
 {% endnote %}
 

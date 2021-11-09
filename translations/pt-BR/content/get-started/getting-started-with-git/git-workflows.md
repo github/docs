@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 Você pode adotar o método de fluxo {% data variables.product.prodname_dotcom %} para padronizar o funcionamento e a colaboração da sua equipe no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[fluxo de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/github-flow)".

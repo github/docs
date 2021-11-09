@@ -1,6 +1,6 @@
 ---
 title: アプリケーションのオプション機能を有効化する
-intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.'
+intro: 'リリースされた新しいアプリケーションの機能を、{% data variables.product.prodname_github_apps %} および {% data variables.product.prodname_oauth_apps %} でテストできます。'
 redirect_from:
   - /developers/apps/activating-beta-features-for-apps
   - /developers/apps/activating-optional-features-for-apps
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghae: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: オプション機能の有効化

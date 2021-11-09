@@ -4,6 +4,7 @@ intro: '创建代码空间，以便在专用云环境中开始开发您的项目
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Codespaces
 children:
@@ -15,5 +16,6 @@ children:
   - /forwarding-ports-in-your-codespace
   - /changing-the-machine-type-for-your-codespace
   - /using-codespaces-in-visual-studio-code
+  - /using-codespaces-with-github-cli
 ---
 

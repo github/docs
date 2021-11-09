@@ -1,6 +1,6 @@
 ---
 title: Acerca de la facturación para Github Advanced Security
-intro: 'Si quieres utilizar las características de la {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt %} en un repositorio interno o privado{% endif %}, necesitas una licencia.{% ifversion fpt %} Estas características están disponibles gratuitamente para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
+intro: 'Si quieres utilizar las características de la {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} en un repositorio interno o privado{% endif %}, necesitas una licencia.{% ifversion fpt or ghec %} Estas características están disponibles gratuitamente para los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 type: overview
 topics:
   - Advanced Security
@@ -20,7 +21,7 @@ shortTitle: Facturación de Advanced Security
 
 ## Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Si quieres utilizar las características de {% data variables.product.prodname_GH_advanced_security %} en cualquier repositorio aparte de uno público en {% data variables.product.prodname_dotcom_the_website %}, necesitarás una licencia. Para obtener más información acerca de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)".
 
@@ -30,7 +31,7 @@ Puedes poner a disposición de los usuarios algunas características adicionales
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.advanced-security.license-overview %}
 
@@ -42,15 +43,15 @@ Para debatir sobre el licenciamiento de {% data variables.product.prodname_GH_ad
 
 {% data reusables.advanced-security.about-committer-numbers-ghec-ghes %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.advanced-security.managing-license-usage-ghec-ghes %}
 
 {% endif %}
 
-Puedes requerir políticas para permitir o dejar de permitir que las organizaciones que pertenecen a tu cuenta empresarial utilicen la {% data variables.product.prodname_advanced_security %}. Para obtener más información, consulta la sección "{% ifversion ghes %}[Requerir políticas para la {% data variables.product.prodname_advanced_security %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% elsif fpt or ghae %}[Requerir políticas para la {% data variables.product.prodname_advanced_security %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account){% endif %}".
+Puedes requerir políticas para permitir o dejar de permitir que las organizaciones que pertenecen a tu cuenta empresarial utilicen la {% data variables.product.prodname_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 Para obtener más información sobre cómo ver el uso de licencias, consulta la sección "[Ver tu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 

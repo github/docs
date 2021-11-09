@@ -9,6 +9,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-the-github-enterprise-server-appliance
   - /enterprise/admin/configuration/configuring-your-enterprise
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

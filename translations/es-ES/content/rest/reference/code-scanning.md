@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 topics:
   - API
@@ -20,7 +21,7 @@ miniTocMaxHeadingLevel: 3
 
 La API del {% data variables.product.prodname_code_scanning %} te permite recuperar y actualizar las alertas del {% data variables.product.prodname_code_scanning %} desde un repositorio. Puedes utilizar las terminales para crear reportes automatizados para las alertas del {% data variables.product.prodname_code_scanning %} en una organización o cargar resutlados de análisis que se hayan generado utilizando con herramientas fuera de línea del {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta la sección "[Encontrar vulnerabilidades de seguridad y errores en tu código](/github/finding-security-vulnerabilities-and-errors-in-your-code)".
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### Tipos de medios personalizados para el {% data variables.product.prodname_code_scanning %}
 
 Hay un tipo de medios personalizado compatible para la API de REST del {% data variables.product.prodname_code_scanning %}. 
