@@ -92,17 +92,17 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 1. Optionally, use the free text search box or the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
-  ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
-1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore.
+   ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+{% data reusables.code-scanning.explore-alert %}
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-  ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
+   ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
-  ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+   ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
-  ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
+   ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
-  ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
+   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% note %}
@@ -168,6 +168,15 @@ You can search the list of alerts. This is useful if there is a large number of 
 1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box.
   ![The free text search box](/assets/images/help/repository/code-scanning-search-alerts.png)
 2. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
+
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
+
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+{% data reusables.code-scanning.github-issues-integration %}
+{% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}
 
