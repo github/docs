@@ -11,7 +11,7 @@ versions:
 
 {% data variables.product.product_name %} includes a variety of keyboard shortcuts so that you can perform actions across the site without using your mouse to navigate. While shortcuts are useful to save time, they can sometimes make {% data variables.product.prodname_dotcom %} harder to use and less accessible.
 
-All keyboard shortcuts are enabled by default on {% data variables.product.product_name %}, but you can choose to disable character key shortcuts in your accessibility settings. This setting does not affect keyboard shortcuts provided by your web browser or shortcuts that use a modifier key such as `control` or `command`.
+All keyboard shortcuts are enabled by default on {% data variables.product.product_name %}, but you can choose to disable character key shortcuts in your accessibility settings. This setting does not affect keyboard shortcuts provided by your web browser or {% data variables.product.prodname_dotcom %} shortcuts that use a modifier key such as `control` or `command`.
 
 ## Managing character key shortcuts
 
