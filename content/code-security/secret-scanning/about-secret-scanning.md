@@ -73,7 +73,10 @@ Repository administrators and organization owners can grant users and teams acce
 {% ifversion fpt or ghes > 3.0 or ghec %}
 To monitor results from {% data variables.product.prodname_secret_scanning %} across your private repositories or your organization, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
 
-## List of supported secrets
+{% ifversion ghes or ghae %}
+## List of supported secrets{% else %}
+### List of supported secrets
+{% endif %}
 
 {% data variables.product.prodname_dotcom %}  currently scans{% ifversion fpt or ghec %} private{% endif %} repositories for secrets issued by the following service providers.
 
