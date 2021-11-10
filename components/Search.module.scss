@@ -11,6 +11,10 @@
   border-bottom: 1px solid currentColor;
 }
 
+.searchResultContent {
+  max-height: 4rem;
+}
+
 .searchResultContent mark {
   text-decoration: none;
   border-bottom: 1px dotted currentColor;
