@@ -272,12 +272,32 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 {% warning %}
 
-**Warning:** PowerShell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
 ```yaml
-steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: powershell
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
+
+Or switch to PowerShell Core, which defaults to UTF-8: 
+
+```yaml
+jobs:
+  modern-pwsh-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
+```
+
+More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
+
+> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
+> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - **defaults to *BOM-less UTF-8***, in line with Unix-like platforms.  
 
 {% endwarning %}
 
