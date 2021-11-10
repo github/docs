@@ -9,7 +9,7 @@ import { useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
-  variant?: 'inline'
+  variant?: 'inline' | 'compact'
 }
 export const VersionPicker = ({ variant }: Props) => {
   const router = useRouter()

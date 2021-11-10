@@ -72,7 +72,11 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <Lead data-testid="lead">{intro}</Lead>}
+              {intro && (
+                <Lead data-testid="lead" data-search="lead">
+                  {intro}
+                </Lead>
+              )}
 
               {permissions && (
                 <div className="permissions-statement d-table">

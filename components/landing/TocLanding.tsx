@@ -29,7 +29,7 @@ export const TocLanding = () => {
         <ArticleGridLayout>
           <ArticleTitle>{title}</ArticleTitle>
 
-          {introPlainText && <Lead>{introPlainText}</Lead>}
+          {introPlainText && <Lead data-search="lead">{introPlainText}</Lead>}
 
           {productCallout && (
             <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />

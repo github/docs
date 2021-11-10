@@ -147,7 +147,6 @@
     "http-status-code": "^2.1.0",
     "husky": "^7.0.4",
     "image-size": "^1.0.0",
-    "is-url": "^1.2.4",
     "japanese-characters": "^1.1.0",
     "javascript-stringify": "^2.1.0",
     "jest": "^27.3.1",
@@ -216,7 +215,7 @@
     "rest-dev": "script/rest/update-files.js && npm run dev",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.mjs",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.mjs",
-    "sync-search": "start-server-and-test sync-search-server 4002 sync-search-indices",
+    "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "script/sync-search-indices.js",
     "sync-search-server": "cross-env NODE_ENV=production WEB_CONCURRENCY=1 PORT=4002 node server.mjs",
@@ -224,7 +223,8 @@
     "translation-check-server": "cross-env NODE_ENV=test PORT=4002 node server.mjs",
     "translation-check-test": "script/i18n/test-html-pages.js",
     "test": "cross-env NODE_OPTIONS='--max_old_space_size=8192 --experimental-vm-modules' jest",
-    "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage"
+    "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
+    "tsc": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
