@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { Dropdown, Heading, Details, Box, Text, useDetails } from '@primer/components'
+import { Dropdown, Details, Box, Text, useDetails } from '@primer/components'
 import { ArrowRightIcon, ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
@@ -9,11 +9,9 @@ import { useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
-  hideLabel?: boolean
-  variant?: 'default' | 'compact' | 'inline'
-  popoverVariant?: 'inline' | 'dropdown'
+  variant?: 'inline'
 }
-export const VersionPicker = ({ variant = 'default', popoverVariant, hideLabel }: Props) => {
+export const VersionPicker = ({ variant }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
@@ -26,11 +24,6 @@ export const VersionPicker = ({ variant = 'default', popoverVariant, hideLabel }
 
   return (
     <>
-      {!hideLabel && (
-        <Heading as="span" fontSize={1} className="d-none d-xl-inline-block mb-1">
-          {t('article_version')}
-        </Heading>
-      )}
       <div>
         <Details
           {...getDetailsProps()}
@@ -40,34 +33,24 @@ export const VersionPicker = ({ variant = 'default', popoverVariant, hideLabel }
           )}
           data-testid="article-version-picker"
         >
-          {(variant === 'compact' || variant === 'inline') && (
-            <summary
-              className="d-block btn btn-invisible color-fg-default"
-              aria-haspopup="true"
-              aria-label="Toggle version list"
-            >
-              {variant === 'inline' ? (
-                <div className="d-flex flex-items-center flex-justify-between">
-                  <Text>{allVersions[currentVersion].versionTitle}</Text>
-                  <ChevronDownIcon size={24} className="arrow ml-md-1" />
-                </div>
-              ) : (
-                <>
-                  <Text>{allVersions[currentVersion].versionTitle}</Text>
-                  <Dropdown.Caret />
-                </>
-              )}
-            </summary>
-          )}
-
-          {variant === 'default' && (
-            <summary aria-haspopup="true" className="btn btn-sm">
-              <Text>{allVersions[currentVersion].versionTitle}</Text>
-              <Dropdown.Caret />
-            </summary>
-          )}
-
-          {popoverVariant === 'inline' ? (
+          <summary
+            className="d-block btn btn-invisible color-fg-default"
+            aria-haspopup="true"
+            aria-label="Toggle version list"
+          >
+            {variant === 'inline' ? (
+              <div className="d-flex flex-items-center flex-justify-between">
+                <Text>{allVersions[currentVersion].versionTitle}</Text>
+                <ChevronDownIcon size={24} className="arrow ml-md-1" />
+              </div>
+            ) : (
+              <>
+                <Text>{allVersions[currentVersion].versionTitle}</Text>
+                <Dropdown.Caret />
+              </>
+            )}
+          </summary>
+          {variant === 'inline' ? (
             <Box py="2">
               {(page.permalinks || []).map((permalink) => {
                 return (

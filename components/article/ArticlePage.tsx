@@ -14,7 +14,6 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
-import { VersionPicker } from 'components/VersionPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -60,7 +59,6 @@ export const ArticlePage = () => {
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
-          topperSidebar={<VersionPicker />}
           intro={
             <>
               {contributor && (
