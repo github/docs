@@ -28,7 +28,7 @@ shortTitle: Convert organization to user
 4. [Transfer each organization repository](/articles/how-to-transfer-a-repository) to the new user account.
 5. [Rename the organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to make the current username available.
 6. [Rename the user](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to the organization's name.
-6. [Delete the organization](/organizations/managing-organization-settings/deleting-an-organization-account).
+7. [Delete the organization](/organizations/managing-organization-settings/deleting-an-organization-account).
 
 
 {% else %}
