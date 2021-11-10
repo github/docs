@@ -181,7 +181,7 @@ jobs:
       - run: yarn
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
 
