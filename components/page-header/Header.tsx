@@ -58,7 +58,7 @@ export const Header = () => {
           </div>
 
           <div className="mr-2">
-            <VersionPicker hideLabel={true} variant="compact" />
+            <VersionPicker variant="compact" />
           </div>
 
           <LanguagePicker />

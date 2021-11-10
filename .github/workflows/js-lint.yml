@@ -29,3 +29,6 @@ jobs:
 
       - name: Run linter
         run: npm run lint
+
+      - name: Run TypeScript
+        run: npm run tsc

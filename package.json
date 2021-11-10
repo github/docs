@@ -224,7 +224,8 @@
     "translation-check-server": "cross-env NODE_ENV=test PORT=4002 node server.mjs",
     "translation-check-test": "script/i18n/test-html-pages.js",
     "test": "cross-env NODE_OPTIONS='--max_old_space_size=8192 --experimental-vm-modules' jest",
-    "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage"
+    "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
+    "tsc": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
