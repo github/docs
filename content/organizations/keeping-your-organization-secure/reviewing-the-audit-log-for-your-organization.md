@@ -18,7 +18,7 @@ shortTitle: Review audit log
 
 ## Accessing the audit log
 
-The audit log lists events triggered by activities that affect your organization within the last 90 days. Only owners can access an organization's audit log.
+The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -102,7 +102,12 @@ For example:
   * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
   * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-The audit log contains data for the past 90 days, but you can use the `created` qualifier to search for events earlier than that.
+
+{% note %}
+
+**Note**: The audit log contains data for the current month and every day of the previous six months.
+
+{% endnote %}
 
 ### Search based on location
 
