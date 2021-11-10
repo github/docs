@@ -16,11 +16,11 @@ shortTitle: Convert organization to user
 
 {% ifversion fpt or ghec %}
 
-{% warning %}
+{% note %}
 
-**Warning**: After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
+**Note**: After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
 
- {% endwarning %}
+ {% endnote %}
 
 1. [Sign up](/articles/signing-up-for-a-new-github-account) for a new GitHub user account.
 2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).
