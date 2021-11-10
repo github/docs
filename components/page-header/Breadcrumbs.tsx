@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { useMainContext } from '../context/MainContext'
 import { Link } from 'components/Link'
-import styles from './Header.module.scss'
+import styles from './Breadcrumbs.module.scss'
 
 export type BreadcrumbT = {
   title: string
@@ -24,7 +24,7 @@ export const Breadcrumbs = () => {
     */
     <nav
       data-testid="breadcrumbs"
-      className={cx('f5 breadcrumbs', styles.collapsebreadcrumbs)}
+      className={cx('f5 breadcrumbs', styles.breadcrumbs)}
       aria-label="Breadcrumb"
     >
       {Object.values(breadcrumbs).map((breadcrumb, i, arr) => {
@@ -43,7 +43,12 @@ export const Breadcrumbs = () => {
               data-testid="breadcrumb-link"
               href={breadcrumb.href}
               title={title}
-              className={cx('pr-3', pathWithLocale === breadcrumb.href && 'color-fg-muted')}
+              className={cx(
+                'pr-3',
+                // Always show first and last, show middle on XL size
+                i === 0 || i === arr.length - 1 ? 'd-inline-block' : 'd-none d-xl-inline-block',
+                pathWithLocale === breadcrumb.href && 'color-fg-muted'
+              )}
             >
               {breadcrumb.title}
               {i !== arr.length - 1 ? (
