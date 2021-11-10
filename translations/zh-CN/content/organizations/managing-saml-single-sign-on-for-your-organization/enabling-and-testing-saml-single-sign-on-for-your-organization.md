@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 启用和测试 SAML SSO
 ---
 
-## About SAML single sign-on
+## 关于 SAML 单点登录
 
 无需所有成员使用 SAML SSO，即可在组织中将其启用。 在组织中启用但不实施 SAML SSO 可帮助组织顺利采用 SAML SSO。 一旦组织内的大多数成员使用 SAML SSO，即可在组织内将其实施。
 
@@ -23,11 +24,11 @@ shortTitle: 启用和测试 SAML SSO
 
 ## 启用和测试组织的 SAML 单点登录
 
-{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
+{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
+在组织中实施 SAML SSO 之前，请确保您已准备好组织。 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
 
-For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+有关 {% data variables.product.company_short %} 支持 SAML SSO 的身份提供商 (IDP) 的更多信息，请参阅“[将身份提供商连接到组织](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

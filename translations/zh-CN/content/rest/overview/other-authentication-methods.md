@@ -7,13 +7,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 shortTitle: 其他身份验证方法
 ---
 
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 虽然 API 提供多种身份验证方法，但我们强烈建议对生产应用程序使用 [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)。 提供的其他方法旨在用于脚本或测试（即没有必要使用完整 OAuth 方法的情况）。 依赖
 {% data variables.product.product_name %} 进行身份验证的第三方应用程序不应要求或收集 {% data variables.product.product_name %} 凭据。
 它们应该使用 [OAuth web 工作流程](/apps/building-oauth-apps/authorizing-oauth-apps/)。
@@ -28,7 +29,7 @@ shortTitle: 其他身份验证方法
 
 ## 基本身份验证
 
-API 支持在 [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) 中定义的基本身份验证，但有一些细微区别。 主要区别在于 RFC 要求使用 `401 Unauthorized` 响应来回复未经验证的请求。 在很多情况下这会暴露用户数据的存在。 对于此类请求，{% data variables.product.product_name %} API 的响应是 `404 Not Found`。 这可能导致 HTTP 库假定返回 `401 Unauthorized` 的问题。 解决方案是手动创建 `Authorization` 标头。
+API 支持在 [RFC2617](http://www.ietf.org/rfc/rfc2617.txt) 中定义的基本身份验证，但有一些细微区别。 主要区别在于 RFC 要求使用 `401 Unauthorized` 响应来回复未经验证的请求。 在很多情况下这会暴露用户数据的存在。 相反，{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 会以 `404 Not Found` 响应。 这可能导致 HTTP 库假定返回 `401 Unauthorized` 的问题。 解决方案是手动创建 `Authorization` 标头。
 
 ### 通过 OAuth 和个人访问令牌
 
@@ -42,11 +43,11 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 ### 通过用户名和密码
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
-**注意：**自 2020 年 11 月 13 日开始，对于所有 {% data variables.product.prodname_dotcom_the_website %} 帐户（包括 {% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 计划上的帐户），{% data variables.product.prodname_dotcom %} 已停止对 API 的密码验证。 现在，您必须使用 API 令牌（如 OAuth 访问令牌、GitHub 应用程序安装访问令牌或个人访问令牌，具体取决于您需要使用令牌执行的操作）向 {% data variables.product.prodname_dotcom %} API 验证。 更多信息请参阅“[疑难排解](/rest/overview/troubleshooting#basic-authentication-errors)”。
+**注意：**自 2020 年 11 月 13 日开始，对于所有 {% data variables.product.prodname_dotcom_the_website %} 帐户（包括 {% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 计划上的帐户），{% data variables.product.prodname_dotcom %} 已停止对 API 的密码验证。 现在，您必须使用 API 令牌（如 OAuth 访问令牌、GitHub 应用程序安装访问令牌或个人访问令牌，具体取决于您需要使用令牌执行的操作）向 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 验证。 更多信息请参阅“[疑难排解](/rest/overview/troubleshooting#basic-authentication-errors)”。
 
 {% endnote %}
 
@@ -54,7 +55,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 {% ifversion ghes %}
 要将基本身份验证用于
-{% data variables.product.product_name %} API，只需发送帐户相关的用户名和
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API，只需发送用户名和
 密码。
 
 例如，如果您通过 [cURL][curl] 访问 API，则将 `<username>` 替换为您的 {% data variables.product.product_name %} 用户名后，以下命令将对您进行身份验证。 （cURL 将提示您输入密码。）
@@ -66,7 +67,7 @@ $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### SAML SSO 身份验证
 
 {% note %}
@@ -98,12 +99,12 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 `organizations` 的值是需要您授权个人访问令牌的组织列表，用逗号分隔。
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 ## 使用双重身份验证
 
 启用双重身份验证后，REST API 中_大多数_端点的[基本身份验证](#basic-authentication)均要求您使用个人访问令牌{% ifversion ghes %} 或 OAuth 令牌，而不是用户名和密码{% endif %}。
 
-您可以使用 [{% data variables.product.product_name %}开发者设置{% endif %}{% ifversion ghes %}来生成新的个人访问令牌，{% ifversion fpt %}或者使用 OAuth 授权 API 中的“\[创建新授权\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]”](https://github.com/settings/tokens/new)端点来生成新的 OAuth 令牌{% endif %}。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。 然后，您将使用这些令牌以通过 {% data variables.product.prodname_dotcom %} API [使用 OAuth 令牌进行身份验证][oauth-auth]。{% ifversion ghes %} 仅当您创建 OAuth 令牌或使用 OAuth 授权 API 时才需要通过用户名和密码进行身份验证。{% endif %}
+您可以使用 [{% data variables.product.product_name %}开发者设置{% endif %}{% ifversion ghes %}来生成新的个人访问令牌，{% ifversion fpt or ghec %}或者使用 OAuth 授权 API 中的“\[创建新授权\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]”](https://github.com/settings/tokens/new)端点来生成新的 OAuth 令牌{% endif %}。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。 然后，您将使用这些令牌以通过 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API [使用 OAuth 令牌进行身份验证][oauth-auth]。{% ifversion ghes %} 仅当您创建 OAuth 令牌或使用 OAuth 授权 API 时才需要通过用户名和密码进行身份验证。{% endif %}
 
 {% endif %}
 

@@ -75,5 +75,5 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
 7. 单击 **Request TLS certificate**。 ![Request TLS Certificate 按钮](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+8. 等待“状态”从“开始”更改为“完成”。 ![Let's Encrypt 状态](/assets/images/enterprise/management-console/lets-encrypt-status.png)
 9. 单击 **Save configuration**。

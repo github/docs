@@ -1,6 +1,6 @@
 ---
 title: 升级 GitHub 订阅
-intro: '您可以随时升级任何类型 {% data variables.product.product_name %} 帐户的订阅。'
+intro: 'You can upgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /articles/upgrading-your-personal-account-s-billing-plan/
@@ -21,6 +21,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -63,7 +64,7 @@ shortTitle: 升级订阅
 
 如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization)”。
 
-如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 更多信息请参阅“[关于企业帐户](/articles/about-enterprise-accounts)”。
+如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ## 将席位添加到您的组织
 

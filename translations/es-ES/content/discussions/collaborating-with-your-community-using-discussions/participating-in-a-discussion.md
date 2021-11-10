@@ -4,6 +4,7 @@ intro: 'Puedes conversar con la comunidad y con los mantenedores en un foro dent
 permissions: 'People with read access to a repository can participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Participa en un debate
 ---
 

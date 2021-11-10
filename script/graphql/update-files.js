@@ -159,6 +159,7 @@ async function setBranchAsRef(options, graphqlVersion, branch = false) {
 
   const branches = {
     dotcom: defaultBranch,
+    ghec: defaultBranch,
     ghes: `enterprise-${graphqlVersion.replace('ghes-', '')}-release`,
     // TODO confirm the below is accurate after the release branch is created
     ghae: 'github-ae-release',

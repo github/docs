@@ -6,14 +6,16 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 ---
 
+{% data reusables.actions.ae-beta %}
 
 ## 关于工作流程中所需的审查
 
 引用配置了所需审查者的环境的作业将等待审批后再开始。 当作业正在等待批准时，其状态为“等待”。 如果作业在 30 天内未获得批准，工作流程运行将自动取消。
 
-For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."{% ifversion fpt or ghae-next or ghes > 3.1 %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
+有关环境和必需批准的更多信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} 有关如何使用 REST API 审查部署的信息，请参阅“[工作流程运行](/rest/reference/actions#workflow-runs)”。{% endif %}
 
 ## 批准或拒绝作业
 

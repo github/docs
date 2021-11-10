@@ -10,6 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '>=3.1'
+  ghec: '*'
 shortTitle: パッケージの削除と復元
 ---
 
@@ -37,13 +38,13 @@ shortTitle: パッケージの削除と復元
 
 ## パッケージAPIのサポート
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 REST APIを使用してパッケージを管理できます。 詳しい情報については、「[{% data variables.product.prodname_registry %} API](/rest/reference/packages)」を参照してください。
 
 {% endif %}
 
-リポジトリから権限とアクセス権を継承するパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。{% ifversion fpt %}{% data variables.product.prodname_registry %} GraphQL APIは、パッケージ名前空間に`https://ghcr.io/OWNER/PACKAGE-NAME`を使用するコンテナやDockerイメージをサポートしていません。 GraphQLのサポートに関する詳しい情報については、「[GraphQLでリポジトリのスコープが付いたパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
+リポジトリから権限とアクセス権を継承するパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。{% ifversion fpt or ghec %}{% data variables.product.prodname_registry %} GraphQL APIは、パッケージ名前空間に`https://ghcr.io/OWNER/PACKAGE-NAME`を使用するコンテナやDockerイメージをサポートしていません。 GraphQLのサポートに関する詳しい情報については、「[GraphQLでリポジトリのスコープが付いたパッケージのバージョンを削除する](#deleting-a-version-of-a-repository-scoped-package-with-graphql)」を参照してください。
 
 {% endif %}
 
@@ -57,9 +58,9 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 - maven
 - Gradle
 - NuGet
-{% ifversion not fpt %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
+{% ifversion not fpt or ghec %}-`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`にあるDockerイメージ{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 `https://ghcr.io/OWNER/PACKAGE-NAME`に保存されたコンテナイメージなど、リポジトリとは別に詳細な権限を持つパッケージを削除する場合は、そのパッケージに対するアクセス権限が必要です。
  <!--PLACEHOLDER - once packages restructuring is done this is a good place to link to the access control and visibility article.-->
@@ -83,7 +84,7 @@ REST APIを使用してパッケージを管理できます。 詳しい情報�
 
 リポジトリから権限とアクセスを継承しているパッケージの場合、GraphQLを使用して特定のパッケージバージョンを削除できます。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 GraphQLは、`ghcr.io`にあるコンテナやDockerイメージではサポートされていません。
 {% endif %}<!--PLACEHOLDER for when API link is live:  For full support, use the REST API. For more information, see the "\[{% data variables.product.prodname_registry %} API\](/rest/reference/packages)." -->GraphQL APIの`deletePackageVersion`ミューテーションを使ってください。 `read:packages`、`delete:packages`、`repo`スコープを持つトークンを使わなければなりません。 トークンに関する詳しい情報については「[{% data variables.product.prodname_registry %}について](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。
 
@@ -97,13 +98,13 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-パッケージのバージョンIDと併せて{% data variables.product.prodname_registry %}に公開したすべてプライベートパッケージを見つけるには、`registryPackagesForQuery`コネクションが利用できます。 `read:packages`及び`repo`のスコープを持つトークンが必要です。 For more information, see "[`registryPackagesForQuery`](/v4/object/registrypackageconnection/)."
+パッケージのバージョンIDと併せて{% data variables.product.prodname_registry %}に公開したすべてプライベートパッケージを見つけるには、`registryPackagesForQuery`コネクションが利用できます。 `read:packages`及び`repo`のスコープを持つトークンが必要です。 For more information, see the [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) connection or the [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) interface.
 
-`deletePackageVersion`ミューテーションの詳しい情報については、「[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)」を参照してください。
+`deletePackageVersion`ミューテーションの詳しい情報については、「[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)」を参照してください。
 
 GraphQLを使用してパッケージ全体を直接削除することはできませんが、パッケージのすべてのバージョンを削除すれば、パッケージは{% data variables.product.product_name %}上に表示されなくなります。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージのバージョンを削除する
 
 `ghcr.io`にあるDockerイメージなどで、 {% data variables.product.prodname_dotcom %}上のユーザのスコープが付いたパッケージの、特定のバージョンを削除するには、以下のステップに従ってください。 パッケージ全体を削除するには、「[{% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージ全体を削除する](#deleting-an-entire-user-scoped-package-on-github)」を参照してください。
@@ -141,7 +142,7 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 4. [Danger Zone] の下にある [**Delete this package**] をクリックします。
 5. 確認メッセージを読み、パッケージ名を入力してから、[**I understand, delete this package.**] をクリックします。 ![パッケージの削除の確認ボタン](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_dotcom %}上でユーザのスコープが付いたパッケージ全体を削除する
 
 パッケージを削除できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
@@ -172,7 +173,7 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 たとえば、リポジトリ`octo-repo-owner/octo-repo`のスコープが付いていた、`octo-package`という名前のrubygemパッケージを削除した場合、パッケージ名前空間`rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` がまだ使用可能で、かつ30日間が経過していない場合にのみ、そのパッケージを復元できます。
 
 また、次の権限要件のいずれかを満たす必要もあります。
-  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt %}
+  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt or ghec %}
   - ユーザアカウントのスコープが付いたパッケージ: ユーザアカウントが削除したパッケージを所有している。
   - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
 
@@ -182,7 +183,7 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 
 ### Organization内のパッケージを復元する
 
-You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories{% ifversion fpt %} or had granular permissions and was scoped to your organization account{% endif %}.
+You can restore a deleted package through your organization account settings, as long as the package was in one of your repositories{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
 
 Organizationでパッケージを復元できるユーザを確認するには、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
@@ -192,7 +193,7 @@ Organizationでパッケージを復元できるユーザを確認するには�
 4. [Deleted Packages] の、復元するパッケージの隣にある [**Restore**] をクリックします。 ![リストアボタン](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. 確認のため、パッケージ名を入力して [**I understand the consequences, restore this package**] をクリックします。 ![パッケージ復元の確認ボタン](/assets/images/help/package-registry/type-package-name-and-restore-button.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ### ユーザアカウントのスコープが付いたパッケージを復元する
 

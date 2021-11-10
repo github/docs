@@ -5,7 +5,7 @@ intro: 'You can analyze your code with {% data variables.product.prodname_codeql
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:

@@ -54,8 +54,8 @@ topics:
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae-next %}
 | `business.advanced_security_policy_update`              | 站点管理员创建、更新或删除 {% data variables.product.prodname_GH_advanced_security %} 策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。{% endif %}
 | `business.clear_members_can_create_repos`               | 站点管理员取消了对在企业中的组织中创建仓库的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% ifversion ghes > 3.1 %}
-| `business.referrer_override_enable`                     | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."             |
-| `business.referrer_override_disable`                    | A site admin disables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."{% endif %}
+| `business.referrer_override_enable`                     | 站点管理员可以改写推荐策略。 更多信息请参阅“[配置企业的推荐策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。                                                                                                              |
+| `business.referrer_override_disable`                    | 站点管理员可以禁用推荐策略。 更多信息请参阅“[配置企业的推荐策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。{% endif %}
 | `business.update_member_repository_creation_permission` | 站点管理员限制在企业中的组织中创建仓库。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% ifversion ghes %}
 | `enterprise.config.lock_anonymous_git_access`           | 站点管理员锁定匿名 Git 读取权限，以防止仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。                                                        |
 | `enterprise.config.unlock_anonymous_git_access`         | 站点管理员解锁匿名 Git 读取权限，以允许仓库管理员更改该企业中仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)”。{% endif %}
@@ -84,7 +84,6 @@ topics:
 | `issue_comment.update` | 已更改问题的正文文本（初始注释）。                                                                   |
 | `issue.destroy`        | 已从仓库中删除问题。 更多信息请参阅“[删除议题](/github/managing-your-work-on-github/deleting-an-issue)”。 |
 
-
 ## 组织
 
 | 操作                 | 描述                                                                                                                                           |
@@ -95,7 +94,7 @@ topics:
 
 ## 拉取请求
 
-| Action | Description | | :- | :- |{% ifversion ghes > 3.1 or ghae-next %} | `pull_request.create` | A pull request was created. 更多信息请参阅“[创建拉取请求](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。 | | `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." | | `pull_request.reopen` | A pull request was reopened after previously being closed. | | `pull_request.merge` | A pull request was merged. 更多信息请参阅“[合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。 | | `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. | | `pull_request.ready_for_review` | A pull request was marked as ready for review. 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。 | | `pull_request.converted_to_draft` | A pull request was converted to a draft. 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)”。 | | `pull_request.create_review_request` | A review was requested on a pull request. 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request.remove_review_request` | A review request was removed from a pull request. 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.submit` | A review was submitted for a pull request. 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.dismiss` | A review on a pull request was dismissed. 更多信息请参阅“[忽略拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 | | `pull_request_review.delete` | A review on a pull request was deleted. | | `pull_request_review_comment.create` | A review comment was added to a pull request. 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %} | `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
+| 操作 | 描述n | | :- | :- |{% ifversion ghes > 3.1 or ghae-next %} | `pull_request.create` | 创建了拉取请求。 更多信息请参阅“[创建拉取请求](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)”。 | | `pull_request.close` | 关闭了拉取请求而未合并。 更多信息请参阅“[关闭拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)”。 | | `pull_request.reopen` | 重新打开了之前关闭的拉取请求。 | | `pull_request.merge` | 合并了拉取请求。 更多信息请参阅“[合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。 | | `pull_request.indirect_merge` | 考虑合并拉取请求，因为拉取请求的提交已合并到目标分支。 | | `pull_request.ready_for_review` | 拉取请求标记为可供审查。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。 | | `pull_request.converted_to_draft` | 拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)”。 | | `pull_request.create_review_request` | 请求对拉取请求的审查。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request.remove_review_request` | 从拉取请求删除审查请求。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.submit` | 为拉取请求提交审查。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review.discute` | 撤销对拉取请求的审查。 更多信息请参阅“[忽略拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 | | `pull_request_review.delete` | 删除对拉取请求的审查。 | | `pull_request_review_comment.create` | 审查评论添加到拉取请求。 更多信息请参阅“[关于拉取请求审查](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 | | `pull_request_review_comment.update` | 更改拉取请求上的审查评论。 |{% endif %} | `pull_request_review_comment.delete` | 删除了拉取请求上的审查评论。 |
 
 ## 受保护分支
 
@@ -144,12 +143,12 @@ topics:
 
 ## 团队
 
-| 操作                        | 描述                                                   |
-| ------------------------- | ---------------------------------------------------- |
-| `team.create`             | 已向团队添加用户帐户或仓库。                                       |
-| `team.delete`             | 从团队中删除了一个用户帐户或仓库。{% ifversion ghes > 2.22 or ghae %}
+| 操作                        | 描述                                                                                |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| `team.create`             | 已向团队添加用户帐户或仓库。                                                                    |
+| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | 用户从团队维护员降级为团队成员。{% endif %}
-| `team.destroy`            | 团队被删除。{% ifversion ghes > 2.22 or ghae %}
+| `team.destroy`            | 团队被删除。{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | 用户从团队成员晋升为团队维护员。{% endif %}
 
 ## 用户
@@ -165,7 +164,7 @@ topics:
 | `user.destroy`                  | 用户已删除其帐户，触发 `user.async_delete`。{% ifversion ghes %}
 | `user.failed_login`             | 用户尝试登录时使用的用户名、密码或双重身份验证码不正确。                                                                                  |
 | `user.forgot_password`          | 用户通过登录页面请求了密码重置。{% endif %}
-| `user.login`                    | 用户已登录。{% ifversion ghes > 2.22 or ghae %}
+| `user.login`                    | 用户已登录。{% ifversion ghes or ghae %}
 | `user.mandatory_message_viewed` | 用户查看必读消息（详情请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)”）| {% endif %}
 | `user.promote`                  | 已将普通用户帐户升级为站点管理员。                                                                                             |
 | `user.remove_email`             | 已从用户帐户中移除电子邮件地址。                                                                                              |

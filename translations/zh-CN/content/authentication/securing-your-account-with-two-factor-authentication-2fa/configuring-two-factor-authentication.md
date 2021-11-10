@@ -11,24 +11,25 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - 2FA
 shortTitle: 配置 2FA
 ---
 
-您可以使用移动应用程序{% ifversion fpt %} 或通过短信{% endif %}配置双重身份验证。 您也可以添加安全密钥。
+您可以使用移动应用程序{% ifversion fpt or ghec %} 或通过短信{% endif %}配置双重身份验证。 您也可以添加安全密钥。
 
-我们强力建议使用基于时间的一次性密码 (TOTP) 应用程序来配置 2FA。{% ifversion fpt %} TOTP 应用程序比 SMS 更可靠，特别是对于美国以外的地区。{% endif %} TOTP 应用程序支持在云中安全备份您的验证码，在无法访问设备的情况下也可以进行恢复。
+我们强力建议使用基于时间的一次性密码 (TOTP) 应用程序来配置 2FA。{% ifversion fpt or ghec %} TOTP 应用程序比 SMS 更可靠，特别是对于美国以外的地区。{% endif %} TOTP 应用程序支持在云中安全备份您的验证码，在无法访问设备的情况下也可以进行恢复。
 
 {% warning %}
 
 **警告：**
-- 如果您是要求双重身份验证的组织中的成员{% ifversion fpt %}、帐单管理员{% endif %}或其私有仓库的外部协作者，则必须离开该组织后才能在 {% data variables.product.product_location %} 上禁用 2FA。
+- 如果您是要求双重身份验证的组织中的成员{% ifversion fpt or ghec %}、帐单管理员{% endif %}或其私有仓库的外部协作者，则必须离开该组织后才能在 {% data variables.product.product_location %} 上禁用 2FA。
 - 如果禁用 2FA，您将自动失去对该组织以及您在该组织私有仓库中所拥有的任何私有复刻的访问权限。 要恢复对该组织和复刻的访问权限，请重新启用双重身份验证并联系组织所有者。
 
 {% endwarning %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.product.prodname_managed_user %} account. 2FA should be configured through your identity provider.
 
@@ -57,7 +58,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 6. 在“Authentication verification（身份验证）”下，执行以下操作之一：
     - 使用移动设备的应用程序扫描 QR 码。 扫描完成后，应用程序会显示六位数代码，您可以在 {% data variables.product.product_name %} 输入该代码。
     - 如果无法扫描 QR 码，请单击 **enter this text code（输入此文本代码）**以查看可复制的代码，然后在 TOTP app 上手动输入。 ![单击输入此代码](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-7. TOTP 移动应用程序将保存您的 {% data variables.product.product_name %} 帐户并每隔几秒生成新的验证码。 在 {% data variables.product.product_name %} 上，请在“Enter the six-digit code from the application（从应用程序输入六位数代码）”下的字段中输入代码。 如果您的恢复代码未自动显示，请单击 **Continue（继续）**。 ![TOTP 输入代码字段](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
+7. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. 在 {% data variables.product.product_name %} 上，请在“Enter the six-digit code from the application（从应用程序输入六位数代码）”下的字段中输入代码。 如果您的恢复代码未自动显示，请单击 **Continue（继续）**。 ![TOTP 输入代码字段](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {%- else %}
 5. 在双重身份验证页面上，单击 **Set up using an app（使用应用程序设置）**。
@@ -69,11 +70,11 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 8. 在双重身份验证页面上，执行以下操作之一：
     - 使用移动设备的应用程序扫描 QR 码。 扫描完成后，应用程序会显示六位数代码，您可以在 {% data variables.product.product_name %} 输入该代码。
     - 如果无法扫描 QR 码，请单击 **enter this text code（输入此文本代码）**以查看可复制的代码，然后在 {% data variables.product.product_name %} 上手动输入。 ![单击输入此代码](/assets/images/help/2fa/totp-click-enter-code.png)
-9. TOTP 移动应用程序将保存您的 {% data variables.product.product_name %} 帐户并每隔几秒生成新的验证码。 在 {% data variables.product.product_name %} 中的 2FA 页面上，键入代码并单击 **Enable（启用）**。 ![TOTP 启用字段](/assets/images/help/2fa/totp-enter-code.png)
+9. The TOTP mobile application saves your account on {% data variables.product.product_location %} and generates a new authentication code every few seconds. 在 {% data variables.product.product_name %} 中的 2FA 页面上，键入代码并单击 **Enable（启用）**。 ![TOTP 启用字段](/assets/images/help/2fa/totp-enter-code.png)
 {%- endif %}
 {% data reusables.two_fa.test_2fa_immediately %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 使用短信配置双重身份验证
 
@@ -109,9 +110,9 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 在大多数设备和浏览器上，您可以通过 USB 或 NFC 使用物理安全密钥。 某些浏览器可以使用设备上的指纹读取器、面部识别或密码/PIN 作为安全密钥。
 
-安全密钥验证是 TOTP 应用程序{% ifversion fpt %} 或短信{% endif %}验证的*备用*选择。 如果您丢失了安全密钥，仍可以使用手机的代码进行登录。
+安全密钥验证是 TOTP 应用程序{% ifversion fpt or ghec %} 或短信{% endif %}验证的*备用*选择。 如果您丢失了安全密钥，仍可以使用手机的代码进行登录。
 
-1. 必须已通过 TOTP 移动应用程序{% ifversion fpt %} 或通过 SMS{% endif %} 配置了 2FA。
+1. 必须已通过 TOTP 移动应用程序{% ifversion fpt or ghec %} 或通过 SMS{% endif %} 配置了 2FA。
 2. 确保您的计算机中已插入 WebAuthn 兼容安全密钥。
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}

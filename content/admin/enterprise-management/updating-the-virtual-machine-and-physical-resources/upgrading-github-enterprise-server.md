@@ -59,8 +59,8 @@ There are two types of snapshots:
 | Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
 | Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
 | Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
-| VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>
-| XenServer | VM | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>
+| VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>{% ifversion ghes < 3.3 %}
+| XenServer | VM | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
 ## Upgrading with a hotpatch
 
@@ -68,9 +68,9 @@ There are two types of snapshots:
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}Notes{% else %}Note{% endif %}**:
+**{% ifversion ghes %}Notes{% else %}Note{% endif %}**:
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
 
 - {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
@@ -212,11 +212,8 @@ Appliances configured for high-availability and geo-replication use replica inst
 
    {% endnote %}
 
-   If `ghe-repl-status` didn't return `OK`, follow the steps below to manually start the replication.
-
-   1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
+   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+   
 6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ## Restoring from a failed upgrade
@@ -233,7 +230,7 @@ For more information, see "[Command-line utilities](/enterprise/{{ currentVersio
 
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Further reading
 
 - "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"

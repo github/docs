@@ -29,7 +29,7 @@ Os dados do caminho de aprendizagem para um produto são definidos em dois lugar
 
 ## Controle de Versão
 
-O versionamento para faixas de aprendizagem é processado na página tempo de interpretação. O código encontra-se em [`lib/learning-tracks.js`](lib/learning-tracks.js), que é chamado por `page.render()`. The processed learning tracks are then rendered by `components/sublanding`.
+O versionamento para faixas de aprendizagem é processado na página tempo de interpretação. O código encontra-se em [`lib/learning-tracks.js`](lib/learning-tracks.js), que é chamado por `page.render()`. As faixas de aprendizagem processadas são então interpretadas por `components/sublanding`.
 
 Condicionais líquidas **não** tem que ser usadas para versionamento no arquivo YAML para guias. Apenas os guias do caminho de aprendizagem que se aplicam à versão atual serão processados automaticamente. Se não houver nenhuma faixa com guias que pertençam à versão atual, a seção de faixas de aprendizado não será interpretada.
 

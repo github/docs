@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: next
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: Enviar contribuciones empresariales
@@ -18,7 +19,7 @@ shortTitle: Enviar contribuciones empresariales
 
 ## Acerca de las contribuciones empresariales en tu perfil de {% data variables.product.prodname_dotcom_the_website %}
 
-Tu perfil de {% data variables.product.prodname_dotcom_the_website %} muestra {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Eliminar la condición por completo al activar el marcador de característica -->o conteos de contribución de {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} de los 90 días anteriores. Los recuentos de contribuciones de {% data reusables.github-connect.sync-frequency %} de {% data variables.product.prodname_enterprise %} se consideran contribuciones privadas. Los detalles de confirmación solo mostrarán los conteos de contribuciones y que estas se hicieron en un ambiente de {% data variables.product.prodname_enterprise %} fuera de {% data variables.product.prodname_dotcom_the_website %}.
+Your {% data variables.product.prodname_dotcom_the_website %} profile shows {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} contribution counts from the past 90 days. Los recuentos de contribuciones de {% data reusables.github-connect.sync-frequency %} de {% data variables.product.prodname_enterprise %} se consideran contribuciones privadas. Los detalles de confirmación solo mostrarán los conteos de contribuciones y que estas se hicieron en un ambiente de {% data variables.product.prodname_enterprise %} fuera de {% data variables.product.prodname_dotcom_the_website %}.
 
 Puedes decidir si quieres que se muestren los conteos de las contribuciones privadas en tu perfil. Para obtener más información, consulta "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile/)."
 
@@ -29,15 +30,15 @@ Para obtener más información acerca de cómo se calculan las contribuciones, c
 **Notas:**
 - La conexión entre tus cuentas está regulada por la <a href="/articles/github-privacy-statement/" class="dotcom-only">Declaración de privacidad de GitHub</a>, y los usuarios que habilitan la conexión aceptan los Términos de servicio de GitHub<a href="/articles/github-terms-of-service/" class="dotcom-only"></a>.
 
-- Antes de que puedas conectar tu perfil de {% ifversion fpt %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Eliminar la condición por completo al habilitar el marcador de característica -->o de {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, tu propietario de empresa debe habilitar {% data variables.product.prodname_github_connect %} y también la capacidad de compartir contribuciones entre los ambientes. Para obtener más información, contacta a tu propietario de empresa.
+- Before you can connect your {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %}<!-- Remove condition entirely when toggling feature flag --> or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} profile to your {% data variables.product.prodname_dotcom_the_website %} profile, your enterprise owner must enable {% data variables.product.prodname_github_connect %} and enable contribution sharing between the environments. Para obtener más información, contacta a tu propietario de empresa.
 
 {% endnote %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## Enviar las contribuciones de tu empresa a tu perfil de {% data variables.product.prodname_dotcom_the_website %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 - Para enviar contribuciones empresariales desde {% data variables.product.prodname_ghe_server %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/enterprise-server/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" en la documentación de {% data variables.product.prodname_ghe_server %}.{% ifversion ghae-next %}<!-- Condition is within an fpt block; remove condition entirely when toggling feature flag -->
 - Para enviar contribuciones empresariales desde {% data variables.product.prodname_ghe_managed %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, consulta la sección "[Enviar contribuciones empresariales a tu perfil de {% data variables.product.prodname_dotcom_the_website %}](/github-ae@latest/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)" en la documentación de {% data variables.product.prodname_ghe_managed %}.{% endif %}

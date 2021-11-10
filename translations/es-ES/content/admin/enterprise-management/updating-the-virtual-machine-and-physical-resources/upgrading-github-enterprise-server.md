@@ -69,9 +69,9 @@ Hay dos tipos de instantáneas:
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}Notas{% else %}Nota{% endif %}**:
+**{% ifversion ghes %}Notas{% else %}Nota{% endif %}**:
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - Si {% data variables.product.product_location %} está ejecutando una compilación candidata a lanzamiento, no puedes actualizarla con un hotpatch.
 
 - {% endif %}No hay disponibilidad para instalar un parche utilizando la {% data variables.enterprise.management_console %} en los ambientes de clúster. Para instalar un parche en un entorno de agrupación, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
@@ -232,7 +232,7 @@ Para obtener más información, consulta "[Herramientas de línea de comando](/e
 
 Para revertir un lanzamiento de característica, restaura desde una instantánea de VM para garantizar que las particiones raíz y de datos estén en un estado consistente. Para obtener más información, consulta "[Tomar una instantánea](#taking-a-snapshot)."
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Leer más
 
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"

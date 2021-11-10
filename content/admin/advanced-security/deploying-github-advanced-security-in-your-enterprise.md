@@ -4,7 +4,7 @@ intro: 'Learn how to plan, prepare, and implement a phased approach for rolling 
 product: '{% data reusables.gated-features.advanced-security %}'
 miniTocMaxHeadingLevel: 3
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -104,7 +104,7 @@ If you’re working with {% data variables.product.prodname_professional_service
 If you’re working independently, this section outlines some things to ensure are included in your plan as you prepare to move forward.
 
 Plans for process changes (if needed) and training for team members as needed:
-  - Documented team assignments for roles and responsibilities. For more information on the permissions required for each feature, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)."
+  - Documented team assignments for roles and responsibilities. For more information on the permissions required for each feature, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
   - Documented plan of tasks and timelines/timeframes where possible. This should include infrastructure changes, process changes/training, and all subsequent phases of enablement of GHAS, allowing for timeframes for remediations and configuration adjustments as needed. For more information, see "[Phase 1: Pilot projects(s)](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise#--phase-1-pilot-projects)" below.
   - Prioritized plan for which projects/teams will have GHAS enabled first, and subsequent
 plans for which projects/teams will come in following phases
@@ -290,15 +290,11 @@ GitHub helps you avoid using third-party software that contains known vulnerabil
 |----|----|
 | Dependabot Alerts | You can track your repository's dependencies and receive Dependabot alerts when your enterprise detects vulnerable dependencies. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)." |
 | Dependency Graph | The dependency graph is a summary of the manifest and lock files stored in a repository. It shows you the ecosystems and packages your codebase depends on (its dependencies) and the repositories and packages that depend on your project (its dependents). For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." |{% ifversion ghes > 3.1 or ghec %}
-| Dependency Review | If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" or  "[Reviewing Dependency Changes in a Pull Request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)." | {% endif %} {% ifversion ghec %}
+| Dependency Review | If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" or  "[Reviewing Dependency Changes in a Pull Request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)." | {% endif %} {% ifversion ghec or ghes > 3.2 %}
 | Dependabot Security Updates | Dependabot can fix vulnerable dependencies for you by raising pull requests with security updates. For more information, see "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)." |
 | Dependabot Version Updates | Dependabot can be used to keep the packages you use updated to the latest versions. For more information, see "[About Dependabot version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)." | {% endif %}
 
-{% note %}
-
-**Note:** Dependabot security updates and version updates are currently only available for {% data variables.product.prodname_ghe_cloud %} and will be available for {% data variables.product.prodname_ghe_server %} as outlined in our [public roadmap](https://github.com/github/roadmap).
-
-{% endnote %}
+{% data reusables.dependabot.beta-security-and-version-updates-onboarding %}
 
 ### Step 8: Establish a remediation process
 

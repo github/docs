@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Issues
@@ -19,7 +20,7 @@ Este guia demonstra como usar {% data variables.product.prodname_github_issues %
 
 ## Pré-requisitos
 
-Para criar um problema, você precisa de um repositório. Você pode usar um repositório existente ao qual você tem acesso de gravação ou criar um novo repositório. {% data reusables.enterprise-accounts.emu-permission-repo %} The repository must have issues enabled. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)". Para obter mais informações sobre problemas de habilitação se eles estiverem desabilitados no seu repositório, consulte "[Desabilitar problemas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
+Para criar um problema, você precisa de um repositório. Você pode usar um repositório existente ao qual você tem acesso de gravação ou criar um novo repositório. {% data reusables.enterprise-accounts.emu-permission-repo %} O repositório deve ter problemas habilitados. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)". Para obter mais informações sobre problemas de habilitação se eles estiverem desabilitados no seu repositório, consulte "[Desabilitar problemas](/github/administering-a-repository/managing-repository-settings/disabling-issues)".
 
 ## Abrir um problema em branco
 
@@ -28,7 +29,7 @@ Primeiro, crie um problema. Existem várias maneiras de criar um problema. Você
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. Neste exemplo, começaremos com um problema em branco. Seu repositório pode usar os modelos de problema{% ifversion fpt %} e formulários de problema{% endif %} para incentivar os colaboradores a fornecer informações específicas. Se seu repositório usa modelos de problema, {% ifversion fpt or ghes %}clique em **Abrir um problema em branco**{% else %}clique em **Abrir um problema regular.**{% endif %}.
+1. Neste exemplo, começaremos com um problema em branco. Seu repositório pode usar os modelos de problema{% ifversion fpt or ghec %} e formulários de problema{% endif %} para incentivar os colaboradores a fornecer informações específicas. Se seu repositório usa modelos de problema, {% ifversion fpt or ghes or ghec %}clique em **Abrir um problema em branco**{% else %}clique em **Abrir um problema regular.**{% endif %}.
 
 ![problema em branco](/assets/images/help/issues/blank-issue.png)
 
@@ -70,7 +71,7 @@ Para comunicar-se responsabilidade, você pode atribuir o problema a um integran
 
 ## Adicionando a problema a um projeto
 
-Você pode adicionar um problema a um projeto existente. {% ifversion fpt %}Se você usar projetos (beta), você também poderá preencher os metadados do projeto. {% endif %} Para mais informações sobre projetos, consulte {% ifversion fpt %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)e {% endif %}"[Organizar o seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
+Você pode adicionar um problema a um projeto existente. {% ifversion fpt or ghec %}Se você usar projetos (beta), você também poderá preencher os metadados do projeto. {% endif %} Para mais informações sobre projetos, consulte {% ifversion fpt or ghec %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)e {% endif %}"[Organizar o seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
 
 ![problema com projetos](/assets/images/help/issues/issue-project.png)
 
@@ -96,5 +97,5 @@ Você pode usar problemas para uma grande variedade de finalidades. Por exemplo:
 Aqui estão alguns recursos úteis para dar seus próximos passos com {% data variables.product.prodname_github_issues %}:
 
 - Para saber mais sobre problemas, consulte "[Sobre problemas](/issues/tracking-your-work-with-issues/about-issues)".
-- Para saber mais sobre como os projetos podem ajudar você no planejamento e acompanhamento, consulte {% ifversion fpt %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)ou {% endif %}"[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
-- Para aprender mais sobre o uso dos modelos de problemas{% ifversion fpt %} e formulários de problemas{% endif %} para incentivar os contribuidores a fornecer informações específicas, consulte "[Usar modelos para incentivar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".
+- Para saber mais sobre como os projetos podem ajudar você no planejamento e acompanhamento, consulte {% ifversion fpt or ghec %}"[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)ou {% endif %}"[Organizar seu trabalho com quadros de projeto](/issues/organizing-your-work-with-project-boards)".
+- Para aprender mais sobre o uso dos modelos de problemas{% ifversion fpt or ghec %} e formulários de problemas{% endif %} para incentivar os contribuidores a fornecer informações específicas, consulte "[Usar modelos para incentivar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".

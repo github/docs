@@ -31,11 +31,11 @@ topics:
 
 You can receive notifications for activity on {% data variables.product.product_location %} in the following locations.
 
-  - The notifications inbox in the {% data variables.product.product_location %} web interface{% ifversion fpt or ghes > 2.22 or ghec %}
+  - The notifications inbox in the {% data variables.product.product_location %} web interface{% ifversion fpt or ghes or ghec %}
   - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_location %}{% endif %}
-  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes > 2.22 or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
+  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 {% endif %}
 
@@ -43,7 +43,7 @@ You can receive notifications for activity on {% data variables.product.product_
 
 ### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes > 2.22 or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
+The notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
   - Triage multiple notifications at once.
   - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
   - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
@@ -53,7 +53,7 @@ The notifications inbox on {% data variables.product.product_location %}{% ifver
   - Create custom filters to focus on different notifications when you want.
   - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub for mobile](#managing-your-notification-settings-with-github-for-mobile)" or "[GitHub for mobile](/github/getting-started-with-github/github-for-mobile)."
 {% endif %}
 
@@ -85,7 +85,7 @@ You can customize notifications for a repository. For example, you can choose to
 ### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes > 2.22 or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}.
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}.
 
 ![Participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -93,7 +93,7 @@ For example:
   - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
   - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
 
-If you do not enable watching or participating notifications for web{% ifversion fpt or ghes > 2.22 or ghec %} and mobile{% endif %}, then your notifications inbox will not have any updates.
+If you do not enable watching or participating notifications for web{% ifversion fpt or ghes or ghec %} and mobile{% endif %}, then your notifications inbox will not have any updates.
 
 ## Customizing your email notifications
 
@@ -218,7 +218,7 @@ Choose how you want to receive workflow run updates for repositories that you ar
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 
 When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
