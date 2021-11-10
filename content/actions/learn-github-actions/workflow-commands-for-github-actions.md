@@ -272,7 +272,7 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 {% warning %}
 
-**Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+**Warning:** PowerShell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
 ```yaml
 steps:
