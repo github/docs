@@ -55,13 +55,18 @@ If you add a task list to the body of an issue, the list has added functionality
 
 You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
 
-![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+{% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
+
+{% ifversion fpt %}
 
 ## Navigating tracked issues
 
 Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
 
 ![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
+
+{% endif %}
 
 ## Further reading
 
