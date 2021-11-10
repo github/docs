@@ -36,7 +36,7 @@ If your project communicates with an external service, you might use a token or 
 
 When {% data variables.product.prodname_secret_scanning %} detects a set of credentials, we notify the service provider who issued the secret. The service provider validates the credential and then decides whether they should revoke the secret, issue a new secret, or reach out to you directly, which will depend on the associated risks to you or the service provider. For an overview of how we work with token-issuing partners, see "[Secret scanning partner program](/developers/overview/secret-scanning-partner-program)."
 
-### List of supported secrets
+### List of supported secrets for public repositories
 
 {% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers.
 
@@ -75,7 +75,7 @@ To monitor results from {% data variables.product.prodname_secret_scanning %} ac
 
 {% ifversion ghes or ghae %}
 ## List of supported secrets{% else %}
-### List of supported secrets
+### List of supported secrets for private repositories
 {% endif %}
 
 {% data variables.product.prodname_dotcom %}  currently scans{% ifversion fpt or ghec %} private{% endif %} repositories for secrets issued by the following service providers.
