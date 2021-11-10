@@ -18,7 +18,7 @@ shortTitle: Convert organization to user
 
 {% warning %}
 
-**Warning:** After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
+**Warning**: After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
 
  {% endwarning %}
 
