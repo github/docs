@@ -20,10 +20,10 @@ describe('breadcrumbs', () => {
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(8)
-      expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
-      expect($breadcrumbs[3].attribs.title).toBe('article: Add an email address')
+      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
+      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
+      expect($breadcrumbs[3].attribs.title).toBe('Add an email address')
     })
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
@@ -33,9 +33,9 @@ describe('breadcrumbs', () => {
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
       expect($breadcrumbs).toHaveLength(6)
-      expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('category: User accounts')
-      expect($breadcrumbs[2].attribs.title).toBe('mapTopic: Manage email preferences')
+      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
+      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
       expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
     })
 
@@ -45,7 +45,7 @@ describe('breadcrumbs', () => {
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(8)
-      expect($breadcrumbs[0].attribs.title).toBe('product: Account and profile')
+      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
     })
 
     test('works for ghec billing page', async () => {
@@ -54,7 +54,7 @@ describe('breadcrumbs', () => {
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(6)
-      expect($breadcrumbs[0].attribs.title).toBe('product: Billing and payments')
+      expect($breadcrumbs[0].attribs.title).toBe('Billing and payments')
     })
 
     test('works for pages that have overlapping product names', async () => {
@@ -64,16 +64,16 @@ describe('breadcrumbs', () => {
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(6)
-      expect($breadcrumbs[0].attribs.title).toBe('product: GitHub CLI')
-      expect($breadcrumbs[1].attribs.title).toBe('category: GitHub CLI')
-      expect($breadcrumbs[2].attribs.title).toBe('article: About GitHub CLI')
+      expect($breadcrumbs[0].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbs[1].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbs[2].attribs.title).toBe('About GitHub CLI')
     })
 
     test('parses Liquid variables inside titles', async () => {
       const $ = await getDOM('/en/enterprise/admin/enterprise-support')
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[1].attribs.title).toBe('category: Working with support')
+      expect($breadcrumbs[1].attribs.title).toBe('Working with support')
     })
 
     test('English breadcrumbs link to English pages', async () => {
@@ -107,9 +107,9 @@ describe('breadcrumbs', () => {
       expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
       expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
-        'category: Enforcing best practices with GitHub Policies'
+        'Enforcing best practices with GitHub Policies'
       )
-      expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
+      expect($breadcrumbLinks[1].attribs.title).toBe('About GitHub Policies')
       expect($breadcrumbLinks[1].attribs.class.includes('color-fg-muted')).toBe(true)
     })
   })
