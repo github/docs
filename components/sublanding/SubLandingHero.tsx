@@ -46,7 +46,7 @@ export const SubLandingHero = () => {
       <header className="d-flex gutter mb-6">
         <div className="col-12">
           <h1 className="my-3">{title} guides</h1>
-          {intro && <Lead>{intro}</Lead>}
+          {intro && <Lead data-search="lead">{intro}</Lead>}
         </div>
       </header>
       {featuredTrack && (

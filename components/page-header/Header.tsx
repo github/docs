@@ -53,12 +53,15 @@ export const Header = () => {
           className="d-none d-lg-flex flex-justify-end flex-items-center flex-wrap flex-xl-nowrap"
           data-testid="desktop-header"
         >
-          <div className={cx('mr-auto width-full width-xl-auto', scroll && styles.breadcrumbs)}>
+          <div
+            className={cx('mr-auto width-full width-xl-auto', scroll && styles.breadcrumbs)}
+            data-search="breadcrumbs"
+          >
             <Breadcrumbs />
           </div>
 
           <div className="mr-2">
-            <VersionPicker hideLabel={true} variant="compact" />
+            <VersionPicker variant="compact" />
           </div>
 
           <LanguagePicker />
