@@ -68,6 +68,11 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
 | `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
 | `GITHUB_REF` | The branch or tag ref that triggered the workflow. For example, `refs/heads/feature-branch-1`. If neither a branch or tag is available for the event type, the variable will not exist. |
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
+| `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
+| `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
+{%- endif %}
 | `GITHUB_HEAD_REF` | Only set for pull request events. The name of the head branch.
 | `GITHUB_BASE_REF` | Only set for pull request events. The name of the base branch.
 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
