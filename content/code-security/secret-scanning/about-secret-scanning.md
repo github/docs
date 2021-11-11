@@ -73,7 +73,7 @@ Repository administrators and organization owners can grant users and teams acce
 
 {% ifversion fpt or ghes > 3.0 or ghec %}
 To monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories
-{% ifversion ghes >= 3.2 %} or your organization{% endif %}, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
+{% ifversion ghes > 3.1 %} or your organization{% endif %}, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
 
 {% ifversion ghes or ghae %}
 ## List of supported secrets{% else %}
