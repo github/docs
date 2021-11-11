@@ -3,6 +3,7 @@ title: Reverting a pull request
 intro: You can revert a pull request after it's been merged to the upstream branch.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request
+  - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request
   - /articles/reverting-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request
 versions:
