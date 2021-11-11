@@ -100,7 +100,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -201,12 +201,12 @@ jobs:
                     })
                     console.log(updateBranch.data.message)
                   } catch (error) {
-                    // Only retry once. We'll rely on the update branch workflow to update 
+                    // Only retry once. We'll rely on the update branch workflow to update
                     // this PR in the case of a second failure.
                     console.log(`Retried updating the branch, but an error occurred: ${error}`)
                   }
                 } else {
-                  // A failed branch update shouldn't fail this worklow. 
+                  // A failed branch update shouldn't fail this worklow.
                   console.log(`An error occurred when updating the branch: ${error}`)
                 }
               }
