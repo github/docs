@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Desabilitar quadro de projetos
@@ -18,7 +19,7 @@ Após a desabilitação dos quadros de projeto em toda a organização, não é 
 
 Após a desabilitação dos quadros de projeto de repositório em uma organização, não é mais possível criar quadros de projeto em repositórios da organização nem acessar os quadros de projeto já existentes em repositórios da organização pelas URLs anteriores. Os quadros de projeto no nível da organização não são afetados.
 
-Quando você desabilita quadros de projeto, deixa de ver informações relacionadas a eles em linhas do tempo ou [logs de auditoria](/articles/reviewing-the-audit-log-for-your-organization/).
+Quando você desabilita quadros de projeto, deixa de ver informações relacionadas a eles em linhas do tempo ou [logs de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
 
 
 {% data reusables.profile.access_org %}

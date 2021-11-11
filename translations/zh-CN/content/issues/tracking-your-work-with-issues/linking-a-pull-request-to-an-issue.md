@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: 将 PR 链接到议题
@@ -26,7 +27,7 @@ shortTitle: 将 PR 链接到议题
 
 ## 关于链接的议题和拉取请求
 
-您可以{% ifversion fpt or ghes or ghae %}手动或{% endif %}使用拉取请求说明中支持的关键词将议题链接到拉取请求。
+您可以{% ifversion fpt or ghes or ghae or ghec %}手动或{% endif %}使用拉取请求说明中支持的关键词将议题链接到拉取请求。
 
 当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
 
@@ -54,12 +55,12 @@ shortTitle: 将 PR 链接到议题
 | 不同仓库中的议题 | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | 多个议题     | 对每个议题使用完整语法                                   | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% ifversion fpt or ghes or ghae %}只有手动链接的拉取请求才能手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
+{% ifversion fpt or ghes or ghae or ghec %}只有手动链接的拉取请求才能手动取消链接。 要取消链接您使用关键词链接的议题，必须编辑拉取请求说明以删除该关键词。{% endif %}
 
 您也可以在提交消息中使用关闭关键词。 议题将在提交合并到默认分支时关闭，但包含提交的拉取请求不会列为链接的拉取请求。
 
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ## 手动将拉取请求链接到议题
 
 对仓库有写入权限的任何人都可以手动将拉取请求链接到议题。

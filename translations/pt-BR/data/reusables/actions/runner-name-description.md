@@ -1,1 +1,1 @@
-The name of the runner executing the job.
+O nome do executor que executa a tarefa.

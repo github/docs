@@ -14,8 +14,6 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
-import { VersionPicker } from 'components/VersionPicker'
-import { Breadcrumbs } from 'components/Breadcrumbs'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -32,6 +30,7 @@ export const ArticlePage = () => {
   const {
     title,
     intro,
+    effectiveDate,
     renderedPage,
     contributor,
     permissions,
@@ -59,12 +58,9 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          topper={<Breadcrumbs />}
-          topperSidebar={<VersionPicker />}
+          topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              <ArticleTitle>{title}</ArticleTitle>
-
               {contributor && (
                 <Callout variant="info" className="mb-3">
                   <p>
@@ -76,7 +72,11 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <Lead data-testid="lead">{intro}</Lead>}
+              {intro && (
+                <Lead data-testid="lead" data-search="lead">
+                  {intro}
+                </Lead>
+              )}
 
               {permissions && (
                 <div className="permissions-statement d-table">
@@ -153,6 +153,14 @@ export const ArticlePage = () => {
         >
           <div id="article-contents">
             <MarkdownContent>{renderedPage}</MarkdownContent>
+            {effectiveDate && (
+              <div className="mt-4" id="effectiveDate">
+                Effective as of:{' '}
+                <time dateTime={new Date(effectiveDate).toISOString()}>
+                  {new Date(effectiveDate).toDateString()}
+                </time>
+              </div>
+            )}
           </div>
         </ArticleGridLayout>
 

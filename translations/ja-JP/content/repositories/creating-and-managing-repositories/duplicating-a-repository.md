@@ -10,11 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -94,7 +95,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 $ git fetch -p origin
 $ git push --mirror
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 参考リンク
 
 * "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"

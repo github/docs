@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: Generar una llave SSH nueva
@@ -20,7 +21,7 @@ shortTitle: Generar una llave SSH nueva
 
 Si todavía no tienes una llave SSH, debes generar una nueva para utilizarla para autenticación. Si no estás seguro si ya tienes una llave SSH, puedes verificar si hay llaves existentes. Para obtener más información, consulta la sección "[Verificar si hay llaves SSH existentes](/github/authenticating-to-github/checking-for-existing-ssh-keys)".
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 
 Si quieres utilizar una llave de seguridad de hardware para autenticarte en {% data variables.product.product_name %}, debes generar una llave SSH nueva para esta. Debes conectar tu llave de seguridad de hardware a tu computadora cuando te autentiques con el par de llaves. Para obtener más información, consulta las[notas de lanzamiento de OpenSSH 8.2](https://www.openssh.com/txt/release-8.2).
 
@@ -188,7 +189,7 @@ Antes de agregar una llave SSH nueva al ssh-agent para que administre tus llaves
 
 {% endlinux %}
 
-{% ifversion fpt or ghae-next or ghes > 3.1 %}
+{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}
 ## Generar una llave SSH nueva para una llave de seguridad de hardware
 
 Si estás utilizando macOS o Linux, puede que necesites actualizar tu cliente SSH o instalar un cliente SSH nuevo antes de generar una llave SSH nueva. Para obtener más información, consulta el "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)"

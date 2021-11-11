@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 从远程获取更改
 ---
 
@@ -77,5 +78,5 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 ## 延伸阅读
 
-- _Pro Git_ 手册中的[“使用远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% ifversion fpt %}
+- _Pro Git_ 手册中的[“使用远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% ifversion fpt or ghec %}
 - “[连接问题故障排除](/articles/troubleshooting-connectivity-problems)”{% endif %}

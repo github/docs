@@ -1,13 +1,13 @@
 ---
 title: 构建和测试 PowerShell
 intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 PowerShell 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - potatoqualitee
 type: tutorial
@@ -19,6 +19,7 @@ shortTitle: 构建和测试 PowerShell
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -72,7 +73,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
 * `Should -Be $true` - 使用 Pester 定义预期结果。 如果结果是非预期的，则 {% data variables.product.prodname_actions %} 会将此标记为失败的测试。 例如：
 
-  {% ifversion fpt or ghes > 3.0 or ghae %}
+  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test-updated.png)
   {% else %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test.png)

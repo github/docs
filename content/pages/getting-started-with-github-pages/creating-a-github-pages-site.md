@@ -42,6 +42,12 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.pages.decide-publishing-source %}
 3. If your chosen publishing source already exists, navigate to the publishing source. If your chosen publishing source doesn't exist, create the publishing source.
 4. In the root of the publishing source, create a new file called `index.md` that contains the content you want to display on the main page of your site.
+
+  {% tip %}
+
+  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+
+  {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}

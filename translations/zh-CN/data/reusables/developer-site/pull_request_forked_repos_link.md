@@ -1,4 +1,4 @@
-### 复刻的仓库的拉取请求事件
+#### 复刻的仓库的拉取请求事件
 
 {% note %}
 
@@ -10,7 +10,7 @@
 
 默认情况下，工作流程不在复刻仓库上运行。 您必须在复刻仓库的 **Actions（操作）**选项卡中启用 GitHub Actions。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 当贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者可能需要批准拉取请求上运行的工作流程。 更多信息请参阅“[批准公共复刻中的工作流程运行](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)”。
 {% endif %}
 

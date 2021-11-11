@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 ## リモートリポジトリについて
@@ -64,15 +65,15 @@ For information on setting or changing your remote URL, see "[Managing remote re
 
 {% endtip %}
 
- {% ifversion fpt %}SSH を使用したくてもポート 22 で接続できない場合は、HTTPS ポートを介する SSH を使用できる場合があります。 詳細は、「[HTTPS ポートを介して SSH を使用する](/github/authenticating-to-github/using-ssh-over-the-https-port)」を参照してください。{% endif %}
+ {% ifversion fpt or ghec %}SSH を使用したくてもポート 22 で接続できない場合は、HTTPS ポートを介する SSH を使用できる場合があります。 詳細は、「[HTTPS ポートを介して SSH を使用する](/github/authenticating-to-github/using-ssh-over-the-https-port)」を参照してください。{% endif %}
 
 ## SSH URL を使ってクローンする
 
-SSH URL は、SSH (安全なプロトコル) を介した Git リポジトリへのアクセスを提供します。 これらの URL を使用するには、コンピュータで SSH キーペアを生成し、**公開**鍵を {% data variables.product.product_name %} アカウントに追加する必要があります。 詳しい情報については「[{% data variables.product.prodname_dotcom %} に SSH で接続する](/github/authenticating-to-github/connecting-to-github-with-ssh)」を参照してください。
+SSH URL は、SSH (安全なプロトコル) を介した Git リポジトリへのアクセスを提供します。 To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. 詳しい情報については「[{% data variables.product.prodname_dotcom %} に SSH で接続する](/github/authenticating-to-github/connecting-to-github-with-ssh)」を参照してください。
 
 SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git push` をリモートリポジトリに実行すると、パスワードの入力を求められ、SSH キーパスフレーズを入力する必要があります。 詳しい情報については[SSH キーのパスフレーズを使う](/github/authenticating-to-github/working-with-ssh-key-passphrases)を参照してください。
 
-{% ifversion fpt %}SAML シングルサインオン (SSO) を使っている Organization にアクセスしている場合は、認証を受ける前に、Organization にアクセスする SSHキーを認可する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」および「[SAML シングルサインオンで使うためにSSHキーを認可する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}SAML シングルサインオン (SSO) を使っている Organization にアクセスしている場合は、認証を受ける前に、Organization にアクセスする SSHキーを認可する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」および「[SAML シングルサインオンで使うためにSSHキーを認可する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
 
 {% tip %}
 
@@ -80,7 +81,7 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% endtip %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 
 ## {% data variables.product.prodname_cli %} を使ってクローンを作成する
 

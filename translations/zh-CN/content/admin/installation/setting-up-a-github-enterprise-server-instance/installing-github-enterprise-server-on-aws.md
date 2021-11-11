@@ -7,8 +7,12 @@ redirect_from:
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: 在 AWS 上安装
 ---
 
@@ -27,7 +31,7 @@ shortTitle: 在 AWS 上安装
  - [EC2 和 Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html)（如果计划启动到 Virtual Private Cloud）
  - [AWS 定价](https://aws.amazon.com/pricing/)（用于计算和管理成本）
 
-For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
+有关架构概述，请参阅“[用于部署 GitHub Enterprise Server 的 AWS 架构图](/assets/images/installing-github-enterprise-server-on-aws.png)”。
 
 本指南建议在 AWS 上设置 {% data variables.product.product_location %} 时使用最小权限原则。 更多信息请参阅 [AWS 身份和访问管理 (IAM) 文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)。
 
@@ -133,5 +137,5 @@ aws ec2 run-instances \
 
 ## 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

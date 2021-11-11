@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Automação para quadros de projeto
@@ -43,5 +44,5 @@ Você pode acompanhar o progresso no seu quadro de projeto. Cartões nas colunas
 Para obter mais informações, consulte "[Acompanhamento do progresso no quadro de projeto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
 
 ## Leia mais
-- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt %}
+- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}

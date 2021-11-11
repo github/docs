@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Nota:** Las listas de tareas mejoradas se encuentran actualmente en beta y están sujetas a cambios.
@@ -27,9 +28,9 @@ topics:
 
 Una lista de tareas es un conjunto de tareas que se interpretan independientemente en una lína separada con una casilla de verificación seleccionable. Puedes seleccionar o deseleccionar estas casillas de verificación para marcar las tareas como completas o incompletas.
 
-Puedes utilizar el lenguaje de marcado para crear una lista de tareas en cualquier comentario en {% data variables.product.product_name %}. {% ifversion fpt %}Si referencias una propuesta, solicitud de cambios o debate en una lista de tareas, la referencia se desplegará para mostrar le título y el estado.{% endif %}
+Puedes utilizar el lenguaje de marcado para crear una lista de tareas en cualquier comentario en {% data variables.product.product_name %}. {% ifversion fpt or ghec %}Si referencias una propuesta, solicitud de cambios o debate en una lista de tareas, la referencia se desplegará para mostrar le título y el estado.{% endif %}
 
-{% ifversion not fpt %}
+{% ifversion not fpt or ghec %}
 Puedes ver la información del resúmen de la lista de tareas en las listas de una propuesta y una solicitud de extracción, cuando la lista de tareas está en el comentario inicial.
 {% else %}
 

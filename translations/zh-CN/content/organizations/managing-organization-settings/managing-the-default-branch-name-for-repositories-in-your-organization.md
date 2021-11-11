@@ -6,8 +6,9 @@ redirect_from:
 permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,7 @@ shortTitle: 管理默认分支名称
 
 {% data reusables.branches.set-default-branch %}
 
-如果企业所有者为您的企业强制实施了默认分支名称策略，您将无法为组织设置默认分支名称。 但是，您可以更改单个仓库的默认分支。 更多信息请参阅{% ifversion fpt %}“[在企业中实施仓库管理策略](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)”{% else %}“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)”{% endif %} 和“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
+如果企业所有者为您的企业强制实施了默认分支名称策略，您将无法为组织设置默认分支名称。 但是，您可以更改单个仓库的默认分支。 更多信息请参阅 {% ifversion fpt %}“[在企业中实施仓库管理策略](/enterprise-cloud@latest/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)”{% else %}“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-default-branch-name)”{% endif %} 和“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
 
 ## 设置默认分支名称
 

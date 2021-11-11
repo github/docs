@@ -13,7 +13,7 @@ redirect_from:
 permissions: 'Enterprise owners who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
   ghes: '*'
-  ghae: 'next'
+  ghae: next
 type: how_to
 topics:
   - Enterprise
