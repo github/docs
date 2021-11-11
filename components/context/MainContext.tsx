@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-import type { BreadcrumbT } from 'components/Breadcrumbs'
+import type { BreadcrumbT } from 'components/page-header/Breadcrumbs'
 import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
 

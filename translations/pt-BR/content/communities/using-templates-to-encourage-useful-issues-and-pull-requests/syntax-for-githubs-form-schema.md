@@ -3,6 +3,7 @@ title: Sintaxe para o esquema de formulário do GitHub
 intro: 'Você pode usar o esquema de formulário de {% data variables.product.company_short %} para configurar formulários para funcionalidades compatíveis.'
 versions:
   fpt: '*'
+  ghec: '*'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community

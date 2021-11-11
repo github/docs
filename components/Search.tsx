@@ -14,9 +14,10 @@ import styles from './Search.module.scss'
 type SearchResult = {
   url: string
   breadcrumbs: string
-  heading: string
   title: string
   content: string
+  score: number
+  popularity: number
 }
 
 type Props = {
@@ -55,6 +56,10 @@ export function Search({
       /* await */ fetchSearchResults((router.query.query as string).trim())
     }
   }, [])
+
+  useEffect(() => {
+    closeSearch()
+  }, [currentVersion, language])
 
   // Search with your keyboard
   useEffect(() => {
@@ -191,6 +196,7 @@ export function Search({
           activeHit={activeHit}
           setActiveHit={setActiveHit}
           onGotoResult={onGotoResult}
+          debug={'debug' in router.query}
         />
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
@@ -219,7 +225,7 @@ export function Search({
             )}
             style={{
               background:
-                'var(--color-bg-primary) url("/assets/images/octicons/search.svg") no-repeat 6px',
+                'var(--color-canvas-default) url("/assets/images/octicons/search.svg") no-repeat 6px',
             }}
             type="search"
             placeholder={t`placeholder`}
@@ -260,6 +266,7 @@ function ShowSearchResults({
   activeHit,
   setActiveHit,
   onGotoResult,
+  debug,
 }: {
   isOverlay: boolean
   isLoading: boolean
@@ -267,6 +274,7 @@ function ShowSearchResults({
   activeHit: number
   setActiveHit: (index: number) => void
   onGotoResult: (url: string, index: number) => void
+  debug: boolean
 }) {
   const { t } = useTranslation('search')
 
@@ -290,21 +298,21 @@ function ShowSearchResults({
     // When there are search results, it doesn't matter if this is overlay or not.
     return (
       <ol data-testid="search-results" className="d-block mt-4">
-        {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
+        {results.map(({ url, breadcrumbs, title, content, score, popularity }, index) => {
           const isActive = index === activeHit
           return (
             <li
               key={url}
               data-testid="search-result"
               className={cx(
-                'list-style-none overflow-hidden rounded-3 color-text-primary border',
-                isActive ? 'color-bg-tertiary' : 'color-border-transparent'
+                'list-style-none overflow-hidden rounded-3 color-fg-default border',
+                isActive ? 'color-bg-subtle' : 'color-border-transparent'
               )}
               onMouseEnter={() => setActiveHit(index)}
             >
-              <div className={cx('py-3 px-3', isActive && 'color-border-secondary')}>
+              <div className={cx('py-3 px-3', isActive && 'color-border-muted')}>
                 <a
-                  className="no-underline color-text-primary"
+                  className="no-underline color-fg-default"
                   href={url}
                   onClick={(event) => {
                     event.preventDefault()
@@ -316,17 +324,27 @@ function ShowSearchResults({
                     className={'d-block opacity-60 text-small pb-1'}
                     dangerouslySetInnerHTML={{ __html: breadcrumbs }}
                   />
+                  {debug && (
+                    <small className="float-right">
+                      score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
+                    </small>
+                  )}
                   <div
                     className={cx(styles.searchResultTitle, 'd-block f4 text-semibold')}
                     dangerouslySetInnerHTML={{
-                      __html: heading ? `${title}: ${heading}` : title,
+                      __html: title,
                     }}
                   />
-                  <div
-                    className={cx(styles.searchResultContent, 'd-block overflow-hidden')}
-                    style={{ maxHeight: '4rem' }}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                  />
+                  {content ? (
+                    <div
+                      className={cx(styles.searchResultContent, 'd-block overflow-hidden')}
+                      dangerouslySetInnerHTML={{ __html: content }}
+                    />
+                  ) : (
+                    <div className={cx(styles.searchResultContent, 'd-block overflow-hidden')}>
+                      <i>{t('no_content')}</i>
+                    </div>
+                  )}
                 </a>
               </div>
             </li>

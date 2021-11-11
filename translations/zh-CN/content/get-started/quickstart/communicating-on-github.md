@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -23,7 +24,7 @@ topics:
 
 {% data variables.product.product_name %} 提供内置的协作通信工具，使您能够与社区进行密切互动。 此快速入门指南将指导您如何根据您的需求选择合适的工具。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 根据您想参加的对话类型，您可以创建和参加议题、{% data variables.product.prodname_discussions %} 和团队讨论。
 {% endif %}
 {% ifversion ghes or ghae %}
@@ -37,10 +38,10 @@ topics:
 
 ### 拉取请求
 - 允许您提出具体的更改。
-- 允许您直接评论其他人建议的更改。
+- allow you to comment directly on proposed changes suggested by others.
 - 是特定于仓库的。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
 -  就像一个论坛，最好用来进行合作很重要的开放式想法和讨论。
 -  可能跨越许多仓库。
@@ -87,7 +88,7 @@ topics:
 
 此示例说明了 {% data variables.product.prodname_dotcom %} 用户如何在我们的文档开源仓库中创建拉取请求以修复拼写错误。
 
-在拉取请求的 **Conversation（对话）**选项卡中，作者解释了他们创建拉取请求的原因。
+In the **Conversation** tab of the pull request, the author explains why they created the pull request.
 
 ![拉取请求示例 - 对话选项卡](/assets/images/help/pull_requests/pr-conversation-example.png)
 
@@ -99,7 +100,7 @@ topics:
 - 用户创建包含修复方法的拉取请求。
 - 仓库维护员审查拉取请求、发表评论并合并它。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %} 的场景
 
 - 我有一个不一定与仓库中的特定文件相关的问题。
@@ -116,7 +117,7 @@ topics:
 这位社区维护员发起讨论以欢迎社区成员，并请成员自我介绍。 这个帖子营造了欢迎访客和参与者的氛围。 这个帖子还阐明，团队乐于帮助用户参与仓库。
 
 {% endif %}
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ### 团队讨论场景
 
 - 我有一个不一定与仓库中的特定文件相关的问题。
@@ -124,7 +125,7 @@ topics:
 - 我想发起或参与开放式对话。
 - 我想向团队发布公告。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 您可以看到，团队讨论与 {% data variables.product.prodname_discussions %} 非常相似。 对于 {% data variables.product.prodname_dotcom_the_website %}，我们建议使用 {% data variables.product.prodname_discussions %} 作为对话的起点。 您可以使用 {% data variables.product.prodname_discussions %} 与任何社区在 {% data variables.product.prodname_dotcom %} 上进行协作。 如果您是组织成员，希望在您的组织或组织的团队中发起对话，您应该使用团队讨论。
 {% endif %}
 
@@ -136,7 +137,7 @@ topics:
 
 `octocat` 团队成员发布了团队讨论，向团队通报了各种情况：
 - 一个叫 Mona 的团队成员开始了远程游戏活动。
-- 有一篇博文描述了团队如何使用 {% data variables.product.prodname_actions %} 来生成文档。
+- There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
 - 有关 April All Hands 的材料现在可供所有团队成员查看。
 
 {% endif %}
@@ -149,7 +150,7 @@ topics:
 
 对于拉取请求，如果您提议的更改仍在进行中，您可以创建拉取请求草稿。 草稿拉取请求在标记为可供审查之前无法合并。 更多信息请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)”。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 对于 {% data variables.product.prodname_discussions %}，您可以设置行为准则并将包含社区重要信息的讨论置顶。 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 {% endif %}
 

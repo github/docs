@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -25,7 +26,7 @@ Organization のオーナーは、Organization に対する許可 IP アドレ�
 
 許可リストをセットアップした場合は、Organizationにインストールした{% data variables.product.prodname_github_apps %}に設定されたIPアドレスを自動的に許可リストに追加するかを選択することもできます。 {% data variables.product.prodname_github_app %}の作者は、自分のアプリケーションのための許可リストを、アプリケーションが実行されるIPアドレスを指定して設定できます。 それらの許可リストを継承すれば、アプリケーションからの接続リクエストが拒否されるのを避けられます。 詳しい情報については「[{% data variables.product.prodname_github_apps %}によるアクセスの許可](#allowing-access-by-github-apps)」を参照してください。
 
-Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳しい情報については、{% ifversion ghae %}「[Enterprise へのネットワークトラフィックを制限する](/admin/configuration/restricting-network-traffic-to-your-enterprise)」を参照してください。 {% else %}「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)」を参照してください。{% endif %}
+Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳しい情報については、「[Enterprise にセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)」以下を参照してください。
 
 ## 許可 IP アドレスを追加する
 

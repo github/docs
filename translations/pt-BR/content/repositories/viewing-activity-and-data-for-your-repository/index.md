@@ -1,6 +1,6 @@
 ---
-title: Viewing activity and data for your repository
-intro: Gain insight into your repository by viewing activity and data.
+title: Visualizando dados e atividades do seu repositório
+intro: Obtenha informações sobre seu repositório visualizando atividades e dados.
 redirect_from:
   - /categories/44/articles
   - /categories/graphs-and-contributions
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:
@@ -21,6 +22,6 @@ children:
   - /viewing-a-projects-contributors
   - /analyzing-changes-to-a-repositorys-content
   - /understanding-connections-between-repositories
-shortTitle: View activity and data
+shortTitle: Visualizar atividade e dados
 ---
 

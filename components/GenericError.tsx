@@ -49,7 +49,7 @@ export function GenericError() {
 export const SimpleHeader = () => {
   const router = useRouter()
   return (
-    <div className="border-bottom color-border-secondary no-print">
+    <div className="border-bottom color-border-muted no-print">
       <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
         <div
           className="d-flex flex-items-center"
@@ -60,13 +60,13 @@ export const SimpleHeader = () => {
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a aria-hidden="true" tabIndex={-1}>
-              <MarkGithubIcon size={32} className="color-icon-primary" />
+              <MarkGithubIcon size={32} className="color-fg-default" />
             </a>
           </Link>
 
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="h4 color-text-primary no-underline no-wrap pl-2">GitHub Docs</a>
+            <a className="h4 color-fg-default no-underline no-wrap pl-2">GitHub Docs</a>
           </Link>
         </div>
       </header>
@@ -79,7 +79,7 @@ export const SimpleFooter = () => {
     <footer className="py-6 text-small">
       <div className="container-xl d-flex px-3 px-md-6 flex-justify-center">
         <ul className="d-flex list-style-none flex-wrap flex-justify-center">
-          <li className="d-flex mr-xl-3 color-text-secondary">
+          <li className="d-flex mr-xl-3 color-fg-muted">
             <MarkGithubIcon className="mr-2 mr-xl-3" size={20} />
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>

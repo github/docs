@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Adicionar executores auto-hospedados
 ---
@@ -15,6 +16,7 @@ shortTitle: Adicionar executores auto-hospedados
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Você pode adicionar um executor auto-hospedado a {{ site.data.variables.product.prodname_actions }}.
 
@@ -34,9 +36,9 @@ Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/
 
 ## Adicionar um executor auto-hospedado a um repositório
 
-Você pode adicionar executores auto-hospedados a um único repositório. Para adicionar um executor auto-hospedado a um repositório de usuário, você deve ser o proprietário do repositório. Para um repositório da organização, você deve ser um proprietário da organização ou ter acesso de administrador ao repositório.
+Você pode adicionar executores auto-hospedados a um único repositório. Para adicionar um executor auto-hospedado a um repositório de usuário, você deve ser o proprietário do repositório. Para um repositório da organização, você deve ser um proprietário da organização ou ter acesso de administrador ao repositório. Para obter informações sobre como adicionar um executor auto-hospedado com a API REST, consulte "[Executores auto-hospedados](/rest/reference/actions#self-hosted-runners)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
@@ -49,16 +51,16 @@ Você pode adicionar executores auto-hospedados a um único repositório. Para a
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. Abaixo
-{% ifversion fpt or ghes > 3.1 or ghae %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, clique **Adicionar executor**.
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, clique **Adicionar executor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
 ## Adicionar um executor auto-hospedado a uma organização
 
-Você pode adicionar executores auto-hospedados no nível da organização, onde podem ser usados para processar trabalhos para múltiplos repositórios em uma organização. Para adicionar um executor auto-hospedado a uma organização, você deve ser proprietário da organização.
+Você pode adicionar executores auto-hospedados no nível da organização, onde podem ser usados para processar trabalhos para múltiplos repositórios em uma organização. Para adicionar um executor auto-hospedado a uma organização, você deve ser proprietário da organização. Para obter informações sobre como adicionar um executor auto-hospedado com a API REST, consulte "[Executores auto-hospedados](/rest/reference/actions#self-hosted-runners)."
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions %}
@@ -71,7 +73,7 @@ Você pode adicionar executores auto-hospedados no nível da organização, onde
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
 1. Abaixo
-{% ifversion fpt or ghes > 3.1 or ghae %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, clique **Adicionar executor**.
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Executores"{% else %}"Executores auto-hospedados"{% endif %}, clique **Adicionar executor**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% endif %}
 
@@ -85,8 +87,8 @@ Você pode adicionar executores auto-hospedados a uma empresa, onde podem ser at
 
 Novos runners são atribuídos ao grupo padrão. Você pode modificar o grupo do executor depois de registrar o runner (executor). Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)".
 
-{% ifversion fpt %}
-Para adicionar um executor auto-hospedado a uma conta corporativa, você deve ser proprietário da organização.
+{% ifversion fpt or ghec %}
+Para adicionar um executor auto-hospedado a uma conta corporativa, você deve ser proprietário da organização. Para obter informações sobre como adicionar um executor auto-hospedado com a API REST, consulte [as APIs do GitHub Actions da administração da empresa](/rest/reference/enterprise-admin#github-actions).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

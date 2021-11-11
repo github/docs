@@ -1,9 +1,10 @@
 ---
 title: 主持讨论
-intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your community''s code of conduct.'
+intro: 您可以通过将评论标记为答案、锁定或解锁讨论、将议题转换为讨论，以及编辑或删除评论、讨论和不符合社区行为准则的类别，以促进健康的协作。
 permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
@@ -17,7 +18,7 @@ versions:
 
 ## 锁定讨论
 
-当整个对话没有建设性或者违反社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区指导方针](/github/site-policy/github-community-guidelines)时，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 锁定对话时，对仓库具有写入权限的人仍然可以对讨论发表评论。
+当整个对话没有建设性或者违反社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)时，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 锁定对话时，对仓库具有写入权限的人仍然可以对讨论发表评论。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

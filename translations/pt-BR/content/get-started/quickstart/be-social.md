@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profile
   - Pull requests
@@ -23,7 +24,7 @@ Para saber mais sobre como acessar o painel pessoal, consulte "[Sobre seu painel
 
 ## Seguir pessoas
 
-Quando você segue alguém no {% data variables.product.product_location %}, as notificações sobre as atividades dessa pessoa são recebidas no seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
+When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 
 Clique em **Follow** (Seguir) na página do perfil de uma pessoa para segui-la.
 
@@ -31,7 +32,7 @@ Clique em **Follow** (Seguir) na página do perfil de uma pessoa para segui-la.
 
 ## Inspecionar um repositório
 
-Você pode inspecionar um repositório para receber notificações de novos problemas e pull requests. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. Para obter mais informações, consulte {% ifversion fpt or ghae or ghes %}"[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Assistindo e desassistindo repositórios](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Você pode inspecionar um repositório para receber notificações de novos problemas e pull requests. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo.
 

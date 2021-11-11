@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -34,7 +35,7 @@ Exerça um maior controle sobre as [implantações](/rest/reference/repos#deploy
 
 Gerencie as [reações](/rest/reference/reactions) de commits, problemas e comentários.
 
-**Custom media type:** `squirrel-girl-preview` **Announced:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **Update:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
+**Tipo de mídia personalizado:** `squirrel-girl-preview` **Anunciado en:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **Atualizado em:** [2016-06-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)
 
 {% endif %}
 
@@ -61,21 +62,24 @@ Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
 Gerencie [projetos](/rest/reference/projects).
 
-**Custom media type:** `inertia-preview` **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Update:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
+**Tipo de mídia personalizado:** `inertia-preview` **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Atualizado em:** [2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Pesquisa de commit
 
 [Pesquisa commits](/rest/reference/search).
 
 **Tipo de mídia personalizada:** `cloak-preview` **Anunciado em:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
+{% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Tópicos do repositório
 
 Ver uma lista dos [tópicos do repositório](/articles/about-topics/) em [chamadas](/rest/reference/repos) que retornam resultados do repositório.
 
 **Tipo de mídia personalizada:** `mercy-preview` **Anunciado em:** [2017-01-31](https://github.com/blog/2309-introducing-topics)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Códigos de conduta
@@ -96,13 +100,14 @@ Habilita [webhooks globais](/rest/reference/enterprise-admin#global-webhooks/) p
 
 {% endif %}
 
+{% ifversion ghes < 3.3 %}
 
 ## Exigir commits assinados
 
 Agora você pode usar a API para gerenciar a configuração para [exigir commits assinados em branches protegidos](/rest/reference/repos#branches).
 
 **Tipo de mídia personalizada:** `zzzax-preview` **Anunciado em:** [2018-02-22](https://developer.github.com/changes/2018-02-22-protected-branches-required-signatures)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Exigir múltiplas revisões de aprovação
@@ -113,13 +118,6 @@ Agora você pode [exigir múltiplas revisões de aprovação](/rest/reference/re
 
 {% endif %}
 
-{% ifversion ghes < 3.0 %}
-## Verificar execuções e a API de conjuntos de verificações
-
-Permite que um aplicativo GitHub execute verificações externas no código de um repositório. Veja as [execuções de verificação](/rest/reference/checks#runs) e [Conjuntos de verificação](/rest/reference/checks#suites) das APIs para obter mais informações.
-
-**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -139,7 +137,7 @@ As respostas da API REST para [eventos de problemas](/rest/reference/issues#even
 **Tipo de mídia personalizada:** `starfox-preview` **Anunciado:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
 
 {% endif %}
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Manifestoes do aplicativo GitHub
 
@@ -204,13 +202,14 @@ Você pode usar um novo ponto de extremidade para [atualizar um branch de pull r
 **Tipos de mídia personalizada:** `lidian-preview` **Anunciado:** [2019-05-29](https://developer.github.com/changes/2019-05-29-update-branch-api/)
 
 {% endif %}
+{% ifversion ghes < 3.3 %}
 
 ## Criar e usar modelos de repositório
 
 Você pode usar um novo ponto de extremidade para [Criar um repositório usando um modelo](/rest/reference/repos#create-a-repository-using-a-template) e [Criar um repositório para o usuário autenticado](/rest/reference/repos#create-a-repository-for-the-authenticated-user) que é um repositório de modelo, definindo o parâmetro `is_template` como `verdadeiro`. [Obter um repositório](/rest/reference/repos#get-a-repository) para verificar se ele é definido como um repositório de modelo usando a chave `is_template`.
 
 **Tipos de mídia personalizada:** `baptiste-preview` **Anunciado:** [2019-07-05](https://developer.github.com/changes/2019-07-16-repository-templates-api/)
-
+{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Novo parâmetro de visibilidade para a API de repositórios

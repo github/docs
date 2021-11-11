@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Projects
@@ -33,7 +34,7 @@ Use as visualizações do projeto para ver o seu projeto de ângulos diferentes.
 Por exemplo:
 
 - Filtrar por status para visualizar todos os itens não iniciados
-- Group by a custom priority field to monitor the volume of high priority items
+- Agrupar por um campo personalizado de prioridade para monitorar o volume de itens de alta prioridade
 - Ordenar por um campo de data personalizado para exibir os itens com a data de envio mais recente
 
 Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
@@ -46,8 +47,22 @@ Os projetos de {% data variables.product.company_short %} ficam automaticamente 
 
 ## Usar automação
 
-Automatizar tarefas permite que você gaste menos tempo em trabalho ocupado e mais tempo no próprio projeto. Quanto menos você precisar se lembrar de fazer manualmente, mais provável será que o seu projeto fique atualizado. {% data variables.product.prodname_actions %} e a API do GraphQL permitem que você automatize tarefas de gerenciamento de projetos rotineiros. Por exemplo, para manter o controle de pull requests que estão aguardando revisão, você pode criar um fluxo de trabalho que adiciona um pull request a um projeto e define o status para "precisa de revisão"; este processo pode ser acionado automaticamente quando um pull request é marcado como "pronto para revisão".
+You can automate tasks to spend less time on busy work and more time on the project itself. Quanto menos você precisar se lembrar de fazer manualmente, mais provável será que o seu projeto fique atualizado.
+
+Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done."
+
+Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. Por exemplo, para manter o controle de pull requests que estão aguardando revisão, você pode criar um fluxo de trabalho que adiciona um pull request a um projeto e define o status para "precisa de revisão"; este processo pode ser acionado automaticamente quando um pull request é marcado como "pronto para revisão."
 
 - Para obter um exemplo de fluxo de trabalho, consulte "[Automatizando projetos](/issues/trying-out-the-new-projects-experience/automating-projects)".
 - Para obter mais informações sobre a API, consulte "[Usando a API para gerenciar projetos](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)".
 - Para obter mais informações sobre {% data variables.product.prodname_actions %}, consulte ["{% data variables.product.prodname_actions %}](/actions)".
+
+## Use different field types
+
+Take advantage of the various field types to meet your needs.
+
+Use an iteration field to schedule work or create a timeline. You can group by iteration to see if items are balanced between iterations, or you can filter to focus on a single iteration. Iteration fields also let you view work that you completed in past iterations, which can help with velocity planning and reflecting on your team's accomplishments.
+
+Use a single select field to track information about a task based on a preset list of values. For example, track priority or project phase. Since the values are selected from a preset list, you can easily group or filter to focus on items with a specific value.
+
+For more information about the different field types, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-custom-fields)."

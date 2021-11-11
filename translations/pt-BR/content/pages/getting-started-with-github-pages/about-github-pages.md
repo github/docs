@@ -1,6 +1,6 @@
 ---
 title: Sobre o GitHub Pages
-intro: 'Você pode usar o {% data variables.product.prodname_pages %} para hospedar um site sobre si mesmo, sua organização ou seu projeto diretamente de um repositório do {% data variables.product.product_name %}.'
+intro: 'You can use {% data variables.product.prodname_pages %} to host a website about yourself, your organization, or your project directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /articles/what-are-github-pages/
   - /articles/what-is-github-pages/
@@ -15,6 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 ---
@@ -23,33 +24,33 @@ topics:
 
 O {% data variables.product.prodname_pages %} é um serviço de hospedagem de site estático que usa arquivos HTML, CSS e JavaScript diretamente de um repositório no {% data variables.product.product_name %} e, como opção, executa os arquivos por meio de um processo e publica um site. Você pode ver exemplos de sites do {% data variables.product.prodname_pages %} na [coleção de exemplos do {% data variables.product.prodname_pages %}](https://github.com/collections/github-pages-examples).
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 É possível hospedar seu site no domínio `github.io` do {% data variables.product.prodname_dotcom %} ou no seu próprio domínio personalizado. Para obter mais informações, consulte "[Usar um domínio personalizado com o {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)".
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.pages.about-private-publishing %} Para obter mais informações, consulte "[Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
 {% endif %}
 
 Para começar, consulte "[Criar um site do {% data variables.product.prodname_pages %}](/articles/creating-a-github-pages-site)".
 
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 Os proprietários da organização podem desabilitar a publicação de sites do {% data variables.product.prodname_pages %} nos repositórios da organização. Para obter mais informações, consulte "[Gerenciar a publicação de sites de {% data variables.product.prodname_pages %} para a sua organização](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".
 {% endif %}
 
 ## Tipos de site do {% data variables.product.prodname_pages %}
 
-Há três tipos de site do {% data variables.product.prodname_pages %}: projeto, usuário e organização. Os sites de projeto são conectados a um projeto específico hospedado no {% data variables.product.product_name %}, como uma biblioteca do JavaScript ou um conjunto de receitas. Os sites de usuário e organização são conectados a uma conta específica do {% data variables.product.product_name %}.
+Há três tipos de site do {% data variables.product.prodname_pages %}: projeto, usuário e organização. Os sites de projeto são conectados a um projeto específico hospedado no {% data variables.product.product_name %}, como uma biblioteca do JavaScript ou um conjunto de receitas. User and organization sites are connected to a specific account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
-Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta de usuário denominada {% ifversion fpt %}`<username>. ithub.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar um site de organização, você deve criar um repositório pertencente a uma organização que se chama {% ifversion fpt %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt %}A menos que você esteja usando um domínio personalizado, os sites de usuário e organização estarão disponíveis em `http(s)://<username>.github.io` ou `http(s)://<organization>.github.io`.{% elsif ghae %}Sites de usuário e organização estão disponíveis em `http(s)://pages.<hostname>/<username>` ou `http(s)://pages.<hostname>/<organization>`.{% endif %}
+Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta de usuário denominada {% ifversion fpt or ghec %}`<username>. ithub.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar um site de organização, você deve criar um repositório pertencente a uma organização que se chama {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}A menos que você esteja usando um domínio personalizado, os sites de usuário e organização estarão disponíveis em `http(s)://<username>.github.io` ou `http(s)://<organization>.github.io`.{% elsif ghae %}Sites de usuário e organização estão disponíveis em `http(s)://pages.<hostname>/<username>` ou `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% ifversion fpt %}A menos que você esteja usando um domínio personalizado, os sites de projeto estão disponíveis em `http(s)://<username>.github.io/<repository>` ou `http(s)://<organization>.github.io/<repository>`.{% elsif ghae %}Os sites de projeto estão disponíveis em `http(s)://pages.<hostname>/<username>/<repository>/` ou `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
+Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% ifversion fpt or ghec %}A menos que você esteja usando um domínio personalizado, os sites de projeto estão disponíveis em `http(s)://<username>.github.io/<repository>` ou `http(s)://<organization>.github.io/<repository>`.{% elsif ghae %}Os sites de projeto estão disponíveis em `http(s)://pages.<hostname>/<username>/<repository>/` ou `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Se você publicar seu site em particularmente, a URL do seu site será diferente. Para obter mais informações, consulte "[Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Para obter mais informações sobre como os domínios personalizados afetam o URL do seu site, consulte "[Sobre domínios personalizados e {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)".
 {% endif %}
 
@@ -74,27 +75,12 @@ A fonte de publicação do seu site de {% data variables.product.prodname_pages 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
-
 Se existir uma fonte de publicação padrão no repositório, o {% data variables.product.prodname_pages %} publicará automaticamente um site a partir dessa fonte. A fonte de publicação padrão para sites de usuário e organização é a raiz do branch-padrão do repositório. A fonte de publicação padrão para sites de projeto é a raiz do branch `gh-pages`.
 
 Se você desejar manter os arquivos de origem do seu site em outro local, você poderá alterar a fonte de publicação do seu site. É possível publicar o site a partir de qualquer branch no repositório, a partir da raiz do repositório nesse branch, `/` ou a partir da pasta `/docs` nesse branch. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
 
-Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
+Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt or ghec %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt or ghec %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
 
-{% else %}
-
-A fonte de publicação padrão para sites de usuário e organização é o branch `master`. Se o repositório para o site de usuário ou organização tiver um branch `master`, seu site será publicado automaticamente a partir desse branch. Não é possível escolher uma fonte de publicação diferente para sites de usuário ou organização.
-
-A fonte de publicação padrão para um site de projeto é o branch `gh-pages`. Se o repositório para seu site de projeto tiver um branch `gh-pages`, seu site será publicado automaticamente a partir desse branch.
-
-Os sites de projeto também podem ser publicados do branch `master` ou de uma pasta `/docs` no branch `master`. Para publicar o site de uma dessas fontes, é preciso configurar uma fonte de publicação diferente. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
-
-Se você escolher a pasta `/docs` no branch `master` como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
-
-Você não pode publicar seu site de projeto de qualquer outro branch, mesmo que o branch padrão não seja `master` ou `gh-pages`.
-
-{% endif %}
 
 ## Geradores de site estáticos
 
@@ -106,18 +92,18 @@ O {% data variables.product.prodname_pages %} não aceita linguagens de servidor
 
 ## Diretrizes para usar o {% data variables.product.prodname_pages %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - Os sites do {% data variables.product.prodname_pages %} criados após 15 de junho e que usam domínios do `github.io` são disponibilizados por HTTPS. Se você criou seu site ante de 15 de junho de 2016, é possível habilitar o suporte ao HTTPS para tráfego no seu site. Para obter mais informações, consulte "[Proteger seu {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
 - {% data reusables.pages.no_sensitive_data_pages %}
-- O uso que você faz do {% data variables.product.prodname_pages %} está sujeito aos [Termos de serviço do GitHub](/articles/github-terms-of-service/), inclusive a proibição de revenda.
+- O uso que você faz do {% data variables.product.prodname_pages %} está sujeito aos [Termos de serviço do GitHub](/free-pro-team@latest/github/site-policy/github-terms-of-service/), inclusive a proibição de revenda.
 
 ### Limites de uso
 {% endif %}
 Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao seguintes limites de uso:
 
-  - Os repositórios de origem do {% data variables.product.prodname_pages %} têm um limite recomendado de 1 GB.{% ifversion fpt %} Para obter mais informações, consulte "[Qual é a minha cota de disco?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
+  - Os repositórios de origem do {% data variables.product.prodname_pages %} têm um limite recomendado de 1 GB.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Qual é a minha cota de disco?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
   - Os sites do {% data variables.product.prodname_pages %} publicados não podem ter mais de 1 GB.
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   - Sites de {% data variables.product.prodname_pages %} têm um limite de banda larga *flexível* de 100 GB por mês.
   - Os sites do {% data variables.product.prodname_pages %} têm um limite *flexível* de 10 compilações por hora.
 
@@ -127,7 +113,7 @@ Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou 
 
 O {% data variables.product.prodname_pages %} não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS).
 
-Além disso, {% data variables.product.prodname_dotcom %} não permite que {% data variables.product.prodname_pages %} seja usado para certos propósitos ou atividades. Para uma lista de usos proibidos, consulte "[Termos Adicionais do Produto de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)".
+Além disso, {% data variables.product.prodname_dotcom %} não permite que {% data variables.product.prodname_pages %} seja usado para certos propósitos ou atividades. Para uma lista de usos proibidos, consulte "[Termos Adicionais do Produto de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_pages %}](/free-pro-team@latest/github/site-policy/github-terms-for-additional-products-and-features#pages)".
 {% endif %}
 
 ## Tipos de MIME no {% data variables.product.prodname_pages %}
