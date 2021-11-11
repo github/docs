@@ -74,8 +74,8 @@ The Migrations API is currently in a preview period, which means that the endpoi
     * Your access token for authentication.
     * The unique `id` of the migration:
       ```shell
-      curl -H "Accept: application/vnd.github.wyandotte-preview+json" \
-      -u <em>GITHUB_USERNAME</em>:<em>GITHUB_ACCESS_TOKEN</em> \
+      curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" \
+      -H "Accept: application/vnd.github.wyandotte-preview+json" \
       -L -o migration_archive.tar.gz \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
