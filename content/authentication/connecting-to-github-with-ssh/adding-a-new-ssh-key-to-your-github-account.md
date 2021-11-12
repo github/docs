@@ -147,7 +147,7 @@ To include a title for the new key, use the `-t` or `--title` flag.
 gh ssh-key add <em>key-file</em> --title "personal laptop"
 ```
 
-For example if you followed the previous section for [Generating a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) you would write
+If you generated your SSH key by following the instructions in "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
 
 ```shell
 gh ssh-key add ~/.ssh/id_ed25519.pub
