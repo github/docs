@@ -136,6 +136,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 {% data reusables.cli.cli-learn-more %}
 
 Before you can use the {% data variables.product.prodname_cli %} to add an SSH key to your account, you must authenticate to the {% data variables.product.prodname_cli %}. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login) in the {% data variables.product.prodname_cli %} documentation.
+
 To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
 
 ```shell
