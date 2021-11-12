@@ -26,6 +26,7 @@ includeGuides:
   - /code-security/secret-security/about-secret-scanning
   - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-security/managing-alerts-from-secret-scanning
+  - /code-security/code-scanning//automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages

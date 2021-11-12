@@ -63,7 +63,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies

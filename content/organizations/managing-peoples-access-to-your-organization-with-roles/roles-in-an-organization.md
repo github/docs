@@ -185,7 +185,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Reinstate former members to the organization | **X** | | |
 | Add and remove people from **all teams** | **X** |  |  
 | Promote organization members to *team maintainer* | **X** |  |
-| Configure code review assignments (see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)") | **X** |  |
+| Configure code review assignments (see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)")) | **X** |  |
 | Add collaborators to **all repositories** | **X** |  |
 | Access the organization audit log | **X** |  |
 | Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)" for details) | **X** |  |  |{% ifversion ghes > 3.1 %}
