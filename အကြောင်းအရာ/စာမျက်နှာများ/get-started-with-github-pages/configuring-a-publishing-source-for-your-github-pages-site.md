@@ -1,4 +1,4 @@
----
+[github.com](arakanteam) ---
 title: Configuring a publishing source for your GitHub Pages site
 intro: 'If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.'
 redirect_from:
