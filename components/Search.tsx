@@ -265,74 +265,72 @@ function ShowSearchResults({
           >
             <div data-testid="search-results" className="mt-n2 mb-n2">
               <ActionList
-                items={results
-                  .slice(0, results.length - 1)
-                  .map(({ url, breadcrumbs, title, content, score, popularity }) => {
-                    return {
-                      key: url,
-                      text: title,
-                      renderItem: () => (
-                        <ActionList.Item as="div">
-                          <Link href={url} className="no-underline color-fg-default">
-                            <li
-                              key={url}
-                              data-testid="search-result"
-                              className={cx('list-style-none')}
-                            >
-                              <div className={cx('py-2 px-3')}>
-                                {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
-                                <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
-                                  {breadcrumbs.length === 0
-                                    ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
-                                    : breadcrumbs
-                                        .split(' / ')
-                                        .slice(0, 1)
-                                        .join(' ')
-                                        .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
-                                </Label>
-                                {debug && (
-                                  <small className="float-right">
-                                    score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
-                                  </small>
+                items={results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+                  return {
+                    key: url,
+                    text: title,
+                    renderItem: () => (
+                      <ActionList.Item as="div">
+                        <Link href={url} className="no-underline color-fg-default">
+                          <li
+                            key={url}
+                            data-testid="search-result"
+                            className={cx('list-style-none')}
+                          >
+                            <div className={cx('py-2 px-3')}>
+                              {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
+                              <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
+                                {breadcrumbs.length === 0
+                                  ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
+                                  : breadcrumbs
+                                      .split(' / ')
+                                      .slice(0, 1)
+                                      .join(' ')
+                                      .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                              </Label>
+                              {debug && (
+                                <small className="float-right">
+                                  score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
+                                </small>
+                              )}
+                              <div
+                                className={cx(
+                                  styles.searchResultTitle,
+                                  'mt-2 d-block f4 text-semibold'
                                 )}
-                                <div
-                                  className={cx(
-                                    styles.searchResultTitle,
-                                    'mt-2 d-block f4 text-semibold'
-                                  )}
-                                  dangerouslySetInnerHTML={{
-                                    __html: title,
-                                  }}
-                                />
-                                <div
-                                  className={cx(
-                                    styles.searchResultContent,
-                                    'mt-1 d-block overflow-hidden'
-                                  )}
-                                  style={{ maxHeight: '2.5rem' }}
-                                  dangerouslySetInnerHTML={{ __html: content }}
-                                />
-                                <div
-                                  className={'d-block mt-2 opacity-60 text-small'}
-                                  dangerouslySetInnerHTML={
-                                    breadcrumbs.length === 0
-                                      ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
-                                      : {
-                                          __html: breadcrumbs
-                                            .split(' / ')
-                                            .slice(0, breadcrumbs.length - 1)
-                                            .join(' / ')
-                                            .replace(/<\/?[^>]+(>|$)/g, ''),
-                                        }
-                                  }
-                                />
-                              </div>
-                            </li>
-                          </Link>
-                        </ActionList.Item>
-                      ),
-                    }
-                  })}
+                                dangerouslySetInnerHTML={{
+                                  __html: title,
+                                }}
+                              />
+                              <div
+                                className={cx(
+                                  styles.searchResultContent,
+                                  'mt-1 d-block overflow-hidden'
+                                )}
+                                style={{ maxHeight: '2.5rem' }}
+                                dangerouslySetInnerHTML={{ __html: content }}
+                              />
+                              <div
+                                className={'d-block mt-2 opacity-60 text-small'}
+                                dangerouslySetInnerHTML={
+                                  breadcrumbs.length === 0
+                                    ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
+                                    : {
+                                        __html: breadcrumbs
+                                          .split(' / ')
+                                          .slice(0, breadcrumbs.length - 1)
+                                          .join(' / ')
+                                          .replace(/<\/?[^>]+(>|$)/g, ''),
+                                      }
+                                }
+                              />
+                            </div>
+                          </li>
+                        </Link>
+                      </ActionList.Item>
+                    ),
+                  }
+                })}
               />
             </div>
           </Overlay>
