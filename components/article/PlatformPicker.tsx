@@ -56,7 +56,11 @@ export const PlatformPicker = ({ variant = 'subnav' }: Props) => {
       userAgent = 'mac'
     }
 
-    setCurrentPlatform(defaultPlatform || Cookies.get('osPreferred') || userAgent || 'linux')
+    const platform = defaultPlatform || Cookies.get('osPreferred') || userAgent || 'linux'
+    setCurrentPlatform(platform)
+
+    // always trigger this on initial render. if the default doesn't change the other useEffect won't fire
+    showPlatformSpecificContent(platform)
   }, [])
 
   // Make sure we've always selected a platform that exists in the article
