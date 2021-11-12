@@ -43,6 +43,7 @@ export function Search({
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
   const { languages } = useLanguages()
+  const initialRender = useRef(true)
 
   // Figure out language and version for index
   const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
@@ -60,6 +61,18 @@ export function Search({
       /* await */ fetchSearchResults((router.query.query as string).trim())
     }
   }, [])
+
+  // If the version changed from the dropdown version or language picker
+  // close the search pane and clear the query
+  // If the version changed from the search result window, keep the query
+  // and results but reset the versionFromSearchPane value
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false
+    } else {
+      closeSearch()
+    }
+  }, [currentVersion, language])
 
   // When the user finishes typing, update the results
   async function onSearch(e: React.ChangeEvent<HTMLInputElement>) {
@@ -116,6 +129,9 @@ export function Search({
   function closeSearch() {
     setQuery('')
     setResults(null)
+    if (inputRef.current) {
+      inputRef.current.value = ''
+    }
   }
 
   // Prevent the page from refreshing when you "submit" the form
@@ -143,6 +159,7 @@ export function Search({
           results={results}
           closeSearch={closeSearch}
           debug={'debug' in router.query}
+          query={query}
         />
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
@@ -212,6 +229,7 @@ function ShowSearchResults({
   results,
   closeSearch,
   debug,
+  query,
 }: {
   anchorRef: RefObject<HTMLElement>
   isHeaderSearch: boolean
@@ -219,8 +237,26 @@ function ShowSearchResults({
   results: SearchResult[] | null
   closeSearch: () => void
   debug: boolean
+  query: string | string[]
 }) {
   const { t } = useTranslation('search')
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+  const searchVersion = allVersions[currentVersion].versionTitle
+  const latestVersions = new Set(
+    Object.keys(allVersions)
+      .map((version) => allVersions[version].latestVersion)
+      .filter((version) => version !== currentVersion)
+  )
+
+  const versions = Array.from(latestVersions).map((version) => {
+    return {
+      title: allVersions[version].versionTitle,
+      version: version,
+    }
+  })
+  const redirectQuery = query ? `?query=${query}` : ''
 
   if (results !== null) {
     if (results.length === 0) {
@@ -263,7 +299,21 @@ function ShowSearchResults({
               }
             }
           >
-            <div data-testid="search-results" className="mt-n2 mb-n2">
+            <div data-testid="search-results">
+              <div className="my-4">
+                <p className="ml-4">
+                  You're searching the <span className="color-fg-attention">{searchVersion}</span>{' '}
+                  version. Didn't find what you're looking for? Click a different version to try
+                  again.
+                </p>
+                {versions.map(({ title, version }) => {
+                  return (
+                    <button key={version} className="btn mr-2 mt-4 ml-4" type="button">
+                      <a href={`/${router.locale}/${version}${redirectQuery}`}>{title}</a>
+                    </button>
+                  )
+                })}
+              </div>
               <ActionList
                 items={results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
                   return {
