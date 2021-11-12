@@ -8,7 +8,6 @@
 //
 // [end-readme]
 
-import { fileURLToPath } from 'url'
 import path from 'path'
 import { execSync } from 'child_process'
 import { get, set } from 'lodash-es'
@@ -20,7 +19,6 @@ import chalk from 'chalk'
 import yaml from 'js-yaml'
 import ghesReleaseNotesSchema from '../../tests/helpers/schemas/ghes-release-notes-schema.js'
 import revalidator from 'revalidator'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 main()
 
@@ -64,11 +62,10 @@ async function main() {
     // Skip READMEs
     if (!relPath || relPath.endsWith('README.md')) continue
 
-    const localisedAbsPath = path.join(__dirname, '..', relPath)
     // find the corresponding english file by removing the first 2 path segments: /translation/<language code>
-    const engAbsPath = path.join(__dirname, '..', relPath.split(path.sep).slice(2).join(path.sep))
+    const engAbsPath = relPath.split(path.sep).slice(2).join(path.sep)
 
-    const localisedResult = await loadAndValidateContent(localisedAbsPath, ghesReleaseNotesSchema)
+    const localisedResult = await loadAndValidateContent(relPath, ghesReleaseNotesSchema)
     if (!localisedResult) continue
     const { data, errors, content } = localisedResult
 
@@ -103,6 +100,6 @@ async function main() {
       toWrite = yaml.dump(newData, { lineWidth: 10000, forceQuotes: true })
     }
 
-    fs.writeFileSync(localisedAbsPath, toWrite)
+    fs.writeFileSync(relPath, toWrite)
   }
 }
