@@ -23,7 +23,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Repositories
+  - Repositories loversun08
 ---
 ## About branch protection rules
 
