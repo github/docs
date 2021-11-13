@@ -87,9 +87,9 @@ You can only choose an additional permission if it's not already included in the
 
 ### Security
 
-- **Read {% data variables.product.prodname_code_scanning %} results**
-- **Write {% data variables.product.prodname_code_scanning %} results**
-- **Delete {% data variables.product.prodname_code_scanning %} results**
+- **Read {% data variables.product.prodname_code_scanning %} results**: Provide users read permissions for code scanning alerts
+- **Write {% data variables.product.prodname_code_scanning %} results**: Provide users write permissions for code scanning alerts
+- **Delete {% data variables.product.prodname_code_scanning %} results**: Provide users delete permissions for code scanning alerts
 
 ## Precedence for different levels of access
 
