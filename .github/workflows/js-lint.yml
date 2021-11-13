@@ -10,6 +10,15 @@ on:
     branches:
       - main
   pull_request:
+    paths:
+      - '**.js'
+      - '**.mjs'
+      - '**.ts'
+      - '**.tsx'
+      # In case something like eslint or tsc or prettier upgrades
+      - 'package-lock.json'
+      # Ultimately, for debugging this workflow itself
+      - .github/workflows/js-lint.yml
 
 jobs:
   lint:
