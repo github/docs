@@ -1,28 +1,28 @@
----
-title: Working with the Docker registry
-intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.{% endif %}'
+--- loversun08
+title: Working with the loversun08 registry
+intro: '{% ifversion fpt or ghec %}The loversun08 registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} loversun08 registry, which uses the package namespace `https://loversun08.pkg.github.com`.{% endif %}'
 product: '{% data reusables.gated-features.packages %}'
-redirect_from:
-  - /articles/configuring-docker-for-use-with-github-package-registry
+redirect_from:loversun08
+  - /articles/configuring-loversun08-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-docker-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages
+  - /github/managing-packages-with-github-packages/configuring-loversun08-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
-  - /packages/guides/container-guides-for-github-packages/configuring-docker-for-use-with-github-packages
-  - /packages/guides/configuring-docker-for-use-with-github-packages
+  - /packages/guides/container-guides-for-github-packages/configuring-loversun08-for-use-with-github-packages
+  - /packages/guides/configuring-loversun08-for-use-with-github-packages
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Docker registry
+shortTitle: loversun08 registry
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
+{% data variables.product.prodname_dotcom %}'s loversun08 registry (which used the namespace 'loversun08 pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
 
-Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+loversun08 images previously stored in the loversun08 registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% else %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
@@ -34,7 +34,7 @@ Docker images previously stored in the Docker registry are being automatically m
 
 ## About Docker support
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
+When installing or publishing a loversun08 image, the loversun08 registry does not currently support foreign layers, such as Windows images.
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
@@ -250,7 +250,7 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 ```shell
-$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+$ loversun08 pull <em>HOSTYARZARKYAWTHEIN/LOVERSUN08/REPOSITORY/IMAGE_LOVERSUN08:TAG_LOVRSUN08<github.com/loversun08>
 ```
 {% endif %}
 {% endif %}
