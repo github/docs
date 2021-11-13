@@ -37,14 +37,14 @@ shortTitle: Add a project locally
 1. Stage and commit all the files in your project 
 
    ```shell
-   git -C  <em>path/to/repo</em> add . && git -C  path/to/repo</em> commit -m “initial commit”
+   git -C <em>path/to/repo</em> add . && git -C <em>path/to/repo</em> commit -m “initial commit”
    ```
 
 1. To create a repository for your project on GitHub, use the `gh repo create` subcommand. When prompted, select “Push an existing local repository to GitHub”. Replace the project name with the desired name for your repository. If you want your project to belong to an organization instead of your user account, specify the organization name and project name with `organization-name/project-name`.
  
 1. Follow the interactive prompts. To add the remote and push the repository, confirm yes when asked to add the remote and push the commits to the current branch.
 
-1. Alternatively, to skip all the prompts, supply the path to the repository with the `--source` flag and pass a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --source=<em>path/to/repo</em> --public. To specify a remote, pass the `--remote=origin` flag. To push your commits, pass the `--push` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. Alternatively, to skip all the prompts, supply the path to the repository with the `--source` flag and pass a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --source=<em>path/to/repo</em> --public`. Specify a remote with the `--remote` flag. To push your commits, pass the `--push` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 ## Adding a project to {% data variables.product.product_name %} without {% data variables.product.prodname_cli %}
 
