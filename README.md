@@ -62,3 +62,261 @@ When you are using the GitHub logos, be sure to follow the [GitHub logo guidelin
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you being part of our :sparkles: community :sparkles: !
+compiler.cpp:1:11: error: stray '#' in program
+    1 | ow;12;34;5#;b3.....
+      |           ^
+compiler.cpp:2:27: error: too many decimal points in number
+    2 |               45;6g;i6;54;32.....
+      |                           ^~~~~~~
+compiler.cpp:6:17: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                 ^
+compiler.cpp:6:18: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                  ^
+compiler.cpp:6:21: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                     ^
+compiler.cpp:6:22: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                      ^
+compiler.cpp:6:25: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                         ^
+compiler.cpp:6:26: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                          ^
+compiler.cpp:6:29: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                             ^
+compiler.cpp:6:30: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                              ^
+compiler.cpp:6:33: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                 ^
+compiler.cpp:6:34: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                  ^
+compiler.cpp:6:35: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                   ^
+compiler.cpp:6:36: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                    ^
+compiler.cpp:6:37: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                     ^
+compiler.cpp:6:38: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                      ^
+compiler.cpp:6:39: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                       ^
+compiler.cpp:6:40: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                        ^
+compiler.cpp:6:41: error: stray '\302' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                         ^
+compiler.cpp:6:42: error: stray '\277' in program
+    6 |               dc¿yh¿ml¿cp¿tu¿¿¿¿¿
+      |                                          ^
+compiler.cpp:7:17: warning: multi-character character constant [-Wmultichar]
+    7 |               vw'.76'.54'.32'.10'.'.'.'.'.
+      |                 ^~~~~
+compiler.cpp:7:25: warning: multi-character character constant [-Wmultichar]
+    7 |               vw'.76'.54'.32'.10'.'.'.'.'.
+      |                         ^~~~~
+compiler.cpp:7:41: warning: missing terminating ' character
+    7 |               vw'.76'.54'.32'.10'.'.'.'.'.
+      |                                         ^
+compiler.cpp:7:41: error: missing terminating ' character
+    7 |               vw'.76'.54'.32'.10'.'.'.'.'.
+      |                                         ^~
+compiler.cpp:10:27: warning: missing terminating " character
+   10 |   """'c        76"18"32"54"76
+      |                           ^
+compiler.cpp:10:27: error: missing terminating " character
+   10 |   """'c        76"18"32"54"76
+      |                           ^~~
+compiler.cpp:15:17: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                 ^
+compiler.cpp:15:18: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                  ^
+compiler.cpp:15:19: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                   ^
+compiler.cpp:15:22: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                      ^
+compiler.cpp:15:23: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                       ^
+compiler.cpp:15:24: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                        ^
+compiler.cpp:15:27: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                           ^
+compiler.cpp:15:28: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                            ^
+compiler.cpp:15:29: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                             ^
+compiler.cpp:15:32: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                ^
+compiler.cpp:15:33: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                 ^
+compiler.cpp:15:34: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                  ^
+compiler.cpp:15:37: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                     ^
+compiler.cpp:15:38: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                      ^
+compiler.cpp:15:39: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                       ^
+compiler.cpp:15:40: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                        ^
+compiler.cpp:15:41: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                         ^
+compiler.cpp:15:42: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                          ^
+compiler.cpp:15:43: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                           ^
+compiler.cpp:15:44: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                            ^
+compiler.cpp:15:45: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                             ^
+compiler.cpp:15:46: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                              ^
+compiler.cpp:15:47: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                               ^
+compiler.cpp:15:48: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                                ^
+compiler.cpp:15:49: error: stray '\342' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                                 ^
+compiler.cpp:15:50: error: stray '\200' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                                  ^
+compiler.cpp:15:51: error: stray '\242' in program
+   15 |               qr•st•uv•wo•01•••••
+      |                                                   ^
+compiler.cpp:16:17: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                 ^
+compiler.cpp:16:18: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                  ^
+compiler.cpp:16:21: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                     ^
+compiler.cpp:16:22: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                      ^
+compiler.cpp:16:25: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                         ^
+compiler.cpp:16:26: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                          ^
+compiler.cpp:16:29: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                             ^
+compiler.cpp:16:30: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                              ^
+compiler.cpp:16:33: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                 ^
+compiler.cpp:16:34: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                  ^
+compiler.cpp:16:35: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                   ^
+compiler.cpp:16:36: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                    ^
+compiler.cpp:16:37: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                     ^
+compiler.cpp:16:38: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                      ^
+compiler.cpp:16:39: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                       ^
+compiler.cpp:16:40: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                        ^
+compiler.cpp:16:41: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                         ^
+compiler.cpp:16:42: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                          ^
+compiler.cpp:16:43: error: stray '\302' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                           ^
+compiler.cpp:16:44: error: stray '\260' in program
+   16 |               23°45°67°71°00°°°°°°
+      |                                            ^
+compiler.cpp:1:1: error: 'ow' does not name a type
+    1 | ow;12;34;5#;b3.....
+      | ^~
+compiler.cpp:1:4: error: expected unqualified-id before numeric constant
+    1 | ow;12;34;5#;b3.....
+      |    ^~
+compiler.cpp:1:7: error: expected unqualified-id before numeric constant
+    1 | ow;12;34;5#;b3.....
+      |       ^~
+compiler.cpp:1:10: error: expected unqualified-id before numeric constant
+    1 | ow;12;34;5#;b3.....
+      |          ^
+compiler.cpp:1:13: error: 'b3' does not name a type
+    1 | ow;12;34;5#;b3.....
+      |             ^~
+compiler.cpp:2:18: error: expected unqualified-id before numeric constant
+    2 |               45;6g;i6;54;32.....
+      |                  ^~
+compiler.cpp:2:21: error: 'i6' does not name a type
+    2 |               45;6g;i6;54;32.....
+      |                     ^~
+compiler.cpp:2:24: error: expected unqualified-id before numeric constant
+    2 |               45;6g;i6;54;32.....
+      |                        ^~
+compiler.cpp:2:27: error: expected unqualified-id before numeric constant
+    2 |               45;6g;i6;54;32.....
+      |                           ^~~~~~~
+compiler.cpp:3:18: error: expected unqualified-id before numeric constant
+    3 |               1p;23;54;6v;x1.....
+      |                  ^~
+compiler.cpp:3:21: error: expected unqualified-id before numeric constant
+    3 |               1p;23;54;6v;x1.....
+      |                     ^~
+compiler.cpp:3:24: error: expected unqualified-id before numeric constant
+    3 |               1p;23;54;6v;x1.....
+      |                        ^~
+compiler.cpp:3:27: error: 'x1' does not name a type
+    3 |               1p;23;54;6v;x1.....
+      |                           ^~
