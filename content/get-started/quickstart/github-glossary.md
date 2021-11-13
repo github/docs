@@ -1,4 +1,4 @@
----
+Allow---
 title: GitHub glossary
 intro: 'This glossary introduces common Git and {% data variables.product.prodname_dotcom %} terminology.'
 redirect_from:
