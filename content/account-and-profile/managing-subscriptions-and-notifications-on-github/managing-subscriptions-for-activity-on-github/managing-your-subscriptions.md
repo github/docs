@@ -1,4 +1,4 @@
----
+Allow---
 title: Managing your subscriptions
 intro: 'To help you manage your notifications efficiently, there are several ways to unsubscribe.'
 versions:
