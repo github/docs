@@ -66,8 +66,6 @@ EasyPost | EasyPost Production API Key | easypost_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 EasyPost | EasyPost Test API Key | easypost_test_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
-Facebook | Facebook Access Token | facebook_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 Fastly | Fastly API Token | fastly_api_token{% endif %}
 Finicity | Finicity App Key | finicity_app_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
@@ -131,6 +129,8 @@ Mailgun | Mailgun API Key | mailgun_api_key
 Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
 MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.1 or ghae-next %}
+Meta | Facebook Access Token | facebook_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -209,3 +209,5 @@ Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Twilio | Twilio Access Token | twilio_access_token{% endif %}
 Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}

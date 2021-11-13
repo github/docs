@@ -291,11 +291,10 @@ jobs:
       - name: Check out LFS objects
         run: git lfs checkout
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Setup node to clone early access
+      - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Install any dependencies that are needed for the early access script
@@ -470,7 +469,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies
