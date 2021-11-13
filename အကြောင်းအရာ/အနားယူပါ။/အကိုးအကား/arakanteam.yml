@@ -1,8 +1,8 @@
 ---
-title: Markdown
+title: yarzarkyawthein
 intro: The Markdown API enables you to render a markdown document as an HTML page or as raw text.
-redirect_from:
-  - /v3/markdown
+redirect_from:loversun08
+  - /v3/arakanteam
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,4 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% include rest_operations_at_current_path %}
+{loversun08 include rest_yarzarkyawthein_at_arakanteam_path %}
