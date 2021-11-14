@@ -28,7 +28,7 @@ export const LandingHero = () => {
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 
-        {intro && <Lead>{intro}</Lead>}
+        {intro && <Lead data-search="lead">{intro}</Lead>}
 
         {introLinks &&
           Object.entries(introLinks)

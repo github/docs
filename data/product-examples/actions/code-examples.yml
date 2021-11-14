@@ -193,7 +193,7 @@
     - automation
 - title: Update Configured GitHub Actions to the Latest Versions
   description: CLI tool to check whehter all your actions are up-to-date or not
-  languages: 'C#, Inno Setup, PowerSHell, Shell'
+  languages: 'C#, Inno Setup, PowerShell, Shell'
   href: fabasoad/ghacu
   tags:
     - versions
