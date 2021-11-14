@@ -3,7 +3,7 @@ title: Fazer backup e restaurar o GitHub Enterprise Server com o GitHub Actions 
 shortTitle: Backup e restauração
 intro: 'Os dados de {% data variables.product.prodname_actions %} no seu provedor de armazenamento externo não estão incluídos em backups regulares de {% data variables.product.prodname_ghe_server %} e precisam ser salvos separadamente.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
 type: how_to
 topics:
   - Actions

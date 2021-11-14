@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -20,7 +21,8 @@ O feed de notícias de uma organização mostra a atividade de outras pessoas no
 
 ## Acessar o feed de notícias da sua organização
 
-1. {% data variables.product.signin_link %} na sua conta do {% data variables.product.product_name %}.
+1. {% data variables.product.signin_link %} to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 2. Abra o seu {% data reusables.user_settings.personal_dashboard %}.
 3. Clique no alternador de contexto da conta no canto superior esquerdo da página. ![Botão do alternador de contexto no Enterprise](/assets/images/help/organizations/account_context_switcher.png)
-4. Selecione uma organização no menu suspenso.{% ifversion fpt %}![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}
+4. Select an organization from the drop-down menu.{% ifversion fpt or ghec %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
+![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

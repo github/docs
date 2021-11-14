@@ -11,7 +11,7 @@ redirect_from:
   - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to

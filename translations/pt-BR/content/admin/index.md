@@ -1,8 +1,10 @@
 ---
 title: Documentação do administrador da empresa
 shortTitle: Administradores da empresa
-intro: 'Documentação e guias para administradores da empresa, administradores de sistema e especialistas em segurança que {% ifversion ghes %}implementam, {% endif %}configuram{% ifversion ghes %},{% endif %} e gerenciam {% data variables.product.product_name %}.'
+intro: 'Documentação e guias para administradores da empresa{% ifversion ghes %}, administradores de sistema,{% endif %} e especialistas em segurança que {% ifversion ghes %}implantam, {% endif %}configuram{% ifversion ghes %},{% endif %} e gerenciam {% data variables.product.product_name %}.'
 redirect_from:
+  - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise
   - /github/installing-and-configuring-github-insights/exploring-your-usage-of-github-enterprise
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
@@ -64,7 +66,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
-  overview: '{% ifversion ghes %}/admin/overview/system-overview{% elsif ghae %}/admin/overview/about-github-ae{% endif %}'
+  overview: '{% ifversion ghes %}/admin/overview/system-overview{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-enterprise-accounts{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
@@ -75,6 +77,9 @@ featuredLinks:
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
     - '{% ifversion ghes %}/admin/enterprise-management/creating-a-high-availability-replica{% endif %}'
     - '{% ifversion ghes %}/admin/enterprise-management/upgrading-github-enterprise-server{% endif %}'
+    - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
   guideCards:
     - '{% ifversion ghes > 2.22 %} /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server {% elsif ghes < 3.0 %} /admin/enterprise-management/upgrading-github-enterprise-server {% endif %}'
     - '{% ifversion ghes > 2.22 %} /admin/packages/getting-started-with-github-packages-for-your-enterprise {% elsif ghes < 3.0 %} /admin/user-management/customizing-user-messages-for-your-enterprise {% endif %}'
@@ -82,6 +87,9 @@ featuredLinks:
     - '{% ifversion ghae %}/admin/configuration/initializing-github-ae{% endif %}'
     - '{% ifversion ghae %}/admin/user-management/customizing-user-messages-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/github-actions/getting-started-with-github-actions-for-github-ae{% endif %}'
+    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
   popular:
     - '{% ifversion ghae %}/admin/release-notes{% endif %}'
     - '{% ifversion ghes %}/github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
@@ -90,9 +98,13 @@ featuredLinks:
     - '{% ifversion ghae %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/command-line-utilities{% endif %}'
+    - '{% ifversion ghec %}/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/user-management/monitoring-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
     - /admin/enterprise-support/about-github-enterprise-support
 layout: product-landing
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 children:

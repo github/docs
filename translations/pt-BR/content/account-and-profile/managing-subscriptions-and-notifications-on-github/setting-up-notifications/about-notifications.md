@@ -1,6 +1,6 @@
 ---
 title: Sobre notificações
-intro: 'Notificações fornecem atualizações sobre a atividade no {% data variables.product.product_name %} que você assinou. Você pode usar a caixa de entrada de notificações para personalizar, fazer triagem e gerenciar suas atualizações.'
+intro: 'As notificações fornecem atualizações sobre a atividade no {% data variables.product.product_location %} que você assinou. Você pode usar a caixa de entrada de notificações para personalizar, fazer triagem e gerenciar suas atualizações.'
 redirect_from:
   - /articles/notifications/
   - /articles/about-notifications
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 ---
@@ -21,14 +22,14 @@ topics:
 
 ## Notificações e assinaturas
 
-Você pode optar por receber atualizações em curso sobre a atividade específica no {% data variables.product.product_name %} por meio de uma assinatura. As notificações são atualizações que você recebe para atividades específicas que você assinou.
+Você pode optar por receber atualizações em curso sobre a atividade específica no {% data variables.product.product_location %} por meio de uma assinatura. As notificações são atualizações que você recebe para atividades específicas que você assinou.
 
 ### Opções de assinaturas
 
 Você pode optar por assinar notificações para:
 - Uma conversa em um problema específico, pull request ou gist.
 - Todas as atividades em um repositório ou em uma discussão em equipe.
-- Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next %}
+- Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
 - Repositório {% data reusables.notifications-v2.custom-notification-types %} (se habilitado).{% else %}
 - Versões em um repositório.{% endif %}
 
@@ -50,11 +51,11 @@ Em geral, você é automaticamente inscrito em conversas por padrão quando voc�
 
 Por padrão, você também inspeciona automaticamente todos os repositórios que você cria e são pertencentes à sua conta de usuário.
 
-Para cancelar a inscrição de conversas que você se inscreveu automaticamente, você pode alterar suas configurações de notificação ou cancelar diretamente a inscrição ou desmarcar a atividade em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Gerenciando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+Para cancelar a inscrição de conversas que você se inscreveu automaticamente, você pode alterar suas configurações de notificação ou cancelar diretamente a inscrição ou desmarcar a atividade em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Gerenciando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
 ## Personalizando notificações e assinaturas
 
-Você pode optar por visualizar suas notificações através da caixa de entrada de notificações em [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes > 2.22 %} e no aplicativo {% data variables.product.prodname_mobile %}{% endif %}, através do seu e-mail ou de alguma combinação destas opções.
+Você pode optar por visualizar suas notificações através da caixa de entrada de notificações em [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} e no aplicativo {% data variables.product.prodname_mobile %}{% endif %}, através do seu e-mail ou de alguma combinação destas opções.
 
 Para personalizar os tipos de atualizações que você gostaria de receber e para onde enviar essas atualizações, configure suas configurações de notificação. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
 
@@ -62,7 +63,7 @@ Para manter suas assinaturas gerenciáveis, revise suas assinaturas e os reposit
 
 Para personalizar como você gostaria de receber atualizações de pull requests ou problemas específicos, é possível configurar suas preferências dentro do problema ou da pull request. Para obter mais informações, consulte “[Fazendo triagem de uma só notificação](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
-{% ifversion fpt or ghes > 2.22 %}
+{% ifversion fpt or ghes or ghec %}
 Você pode personalizar e programar notificações de push no aplicativo de {% data variables.product.prodname_mobile %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
 {% endif %}
 
@@ -92,7 +93,7 @@ Em sua caixa de entrada, você também pode fazer triagem de várias notificaç�
 
 ## Personalizando sua caixa de entrada de notificações
 
-Para focar em um grupo de notificações na sua caixa de entrada em {% data variables.product.product_name %}{% ifversion fpt or ghes > 2.22 %} ou {% data variables.product.prodname_mobile %}{% endif %}, você pode criar filtros personalizados. Por exemplo, você pode criar um filtro personalizado para um projeto de código aberto para o qual contribui e somente visualizar notificações para esse repositório em que você é mencionado. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para mais exemplos de como personalizar a triagem de seu fluxo de trabalho, consulte "[Personalizando um fluxo de trabalho para triagem de suas notificações.](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)
+Para focar em um grupo de notificações na sua caixa de entrada em {% data variables.product.product_location %}{% ifversion fpt or ghes or ghec %} ou {% data variables.product.prodname_mobile %}{% endif %}, você pode criar filtros personalizados. Por exemplo, você pode criar um filtro personalizado para um projeto de código aberto para o qual contribui e somente visualizar notificações para esse repositório em que você é mencionado. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para mais exemplos de como personalizar a triagem de seu fluxo de trabalho, consulte "[Personalizando um fluxo de trabalho para triagem de suas notificações.](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)
 
 ## Política de retenção de notificações
 

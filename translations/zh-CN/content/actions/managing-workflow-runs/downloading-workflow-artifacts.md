@@ -1,19 +1,19 @@
 ---
 title: 下载工作流程构件
 intro: 您可以在存档的构件自动过期之前下载它们。
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 下载工作流程构件
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %} 默认情况下，{% data variables.product.product_name %} 存储 90 天内的构建日志和构件，并且您可以根据仓库类型自定义此保留期。 For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)."{% endif %}
-{% ifversion ghes = 2.22 %} {% data variables.product.product_name %} 存储 90 天的完整构建日志和构件。{% endif %}
+By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and you can customize this retention period, depending on the type of repository. 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)”。
 
 {% data reusables.repositories.permissions-statement-read %}
 
@@ -26,7 +26,7 @@ shortTitle: 下载工作流程构件
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. 在**构件**下，单击您想要下载的构件。
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down-updated.png)
     {% else %}
     ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)

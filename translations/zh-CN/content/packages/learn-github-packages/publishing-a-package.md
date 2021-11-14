@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -21,14 +22,14 @@ versions:
 
 {% data reusables.package_registry.public-or-private-packages %} 一个仓库可连接到多个包。 为避免混淆，请确保使用自述文件和说明清楚地阐明每个包的相关信息。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 如果软件包的新版本修复了安全漏洞，您应该在仓库中发布安全通告。
 {% data variables.product.prodname_dotcom %} 审查每个发布的安全通告，并且可能使用它向受影响的仓库发送 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于 GitHub 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 {% endif %}
 
 ## 发布包
 
-您可以按照一般准则，使用任何{% ifversion fpt or ghae %}支持的包客户端{% else %}为您的实例启用的包类型{% endif %}将包发布到 {% data variables.product.prodname_registry %}。
+您可以按照一般准则，使用任何{% ifversion fpt or ghae or ghec %}支持的包客户端{% else %}为您的实例启用的包类型{% endif %}将包发布到 {% data variables.product.prodname_registry %}。
 
 1. 针对要完成的任务，创建具有适当作用域的访问令牌或使用现有的此类令牌。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的权限](/packages/learn-github-packages/about-permissions-for-github-packages)”。
 2. 按照包客户端的说明，使用访问令牌向 {% data variables.product.prodname_registry %} 验证。

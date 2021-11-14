@@ -3,7 +3,7 @@ title: GitHub for mobile
 intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghec: '*'
 topics:
   - Mobile

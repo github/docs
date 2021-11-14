@@ -91,7 +91,6 @@ Action                               | Description
 `issue_comment.update`               | A comment on an issue (other than the initial one) changed.
 `issue.destroy`                      | An issue was deleted from the repository. For more information, see "[Deleting an issue](/github/managing-your-work-on-github/deleting-an-issue)."
 
-
 ## Organizations
 
 Action             | Description
@@ -104,19 +103,19 @@ Action             | Description
 
 | Action | Description |
 | :- | :- |{% ifversion ghes > 3.1 or ghae-next %}
-| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
-| `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
+| `pull_request.create` | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)." |
+| `pull_request.close` | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)." |
 | `pull_request.reopen` | A pull request was reopened after previously being closed. |
-| `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)." |
+| `pull_request.merge` | A pull request was merged. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)." |
 | `pull_request.indirect_merge` | A pull request was considered merged because the pull request's commits were merged into the target branch. |
 | `pull_request.ready_for_review` | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
 | `pull_request.converted_to_draft` | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)." |
+| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request_review.submit` | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request_review.dismiss` | A review on a pull request was dismissed. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)." |
 | `pull_request_review.delete` | A review on a pull request was deleted. |
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
+| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
 | `pull_request_review_comment.update` | A review comment on a pull request was changed. |{% endif %}
 | `pull_request_review_comment.delete` | A review comment on a pull request was deleted. |
 
@@ -160,8 +159,9 @@ Action                | Description
 Action                        | Description
 ----------------------------- | -----------------------------------------------
 `staff.disable_repo`          | A site admin disabled access to a repository and all of its forks.
-`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.
-`staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.
+`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
+`staff.exit_fake_login`       | A site admin ended an impersonation session on {% data variables.product.product_name %}.
+`staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
 `staff.repo_unlock`           | A site admin unlocked (temporarily gained full access to) one of a user's private repositories.
 `staff.unlock`                | A site admin unlocked (temporarily gained full access to) all of a user's private repositories.
 
@@ -170,9 +170,9 @@ Action                        | Description
 Action                            | Description
 --------------------------------- | -------------------------------------------
 `team.create`                     | A user account or repository was added to a team.
-`team.delete`                     | A user account or repository was removed from a team.{% ifversion ghes > 2.22 or ghae %}
+`team.delete`                     | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
 `team.demote_maintainer`          | A user was demoted from a team maintainer to a team member.{% endif %}
-`team.destroy`                    | A team was deleted.{% ifversion ghes > 2.22 or ghae %}
+`team.destroy`                    | A team was deleted.{% ifversion ghes or ghae %}
 `team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
 
 ## Users
@@ -188,7 +188,7 @@ Action                            | Description
 `user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`.{% ifversion ghes %}
 `user.failed_login`               | A user tried to sign in with an incorrect username, password, or two-factor authentication code.
 `user.forgot_password`            | A user requested a password reset via the sign-in page.{% endif %}
-`user.login`                      | A user signed in.{% ifversion ghes > 2.22 or ghae %}
+`user.login`                      | A user signed in.{% ifversion ghes or ghae %}
 `user.mandatory_message_viewed`   | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
 `user.promote`                    | An ordinary user account was promoted to a site admin.
 `user.remove_email`               | An email address was removed from a user account.

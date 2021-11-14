@@ -36,7 +36,6 @@ shortTitle: Remove workflow artifacts
     ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
     {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## Setting the retention period for an artifact
 
 Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."
@@ -46,4 +45,3 @@ You can also define a custom retention period for individual artifacts using the
 ## Finding the expiration date of an artifact
 
 You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by "[List artifacts for a repository](/rest/reference/actions#artifacts)."
-{% endif %}

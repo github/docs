@@ -1,12 +1,13 @@
 ---
 title: Repositórios
-intro: Learn to use and manage the repositories that allow you to store and collaborate on your project's code.
+intro: Aprenda a usar e gerenciar repositórios que permitem que você armazene e colabore no código do seu projeto.
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 children:

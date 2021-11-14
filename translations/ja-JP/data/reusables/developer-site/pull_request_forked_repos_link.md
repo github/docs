@@ -1,4 +1,4 @@
-### フォークしたリポジトリのPull Requestイベント
+#### フォークしたリポジトリのPull Requestイベント
 
 {% note %}
 
@@ -10,7 +10,7 @@
 
 デフォルトでは、フォークされたリポジトリではワークフローは実行されません。 フォークされたリポジトリの** Actions**タブでGitHub Actionsを有効化しなければなりません。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 初めてのコントリビューターがパブリックリポジトリにPull Requestをサブミットした場合、書き込み権限を持つメンテナがそのPull Requestに対するワークフローの実行を承認しなければならないことがあります。 詳しい情報については「[パブリックなフォークからのワークフローの実行の承認](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)」を参照してください。
 {% endif %}
 

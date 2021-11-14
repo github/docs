@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 defaultPlatform: linux
 shortTitle: Executar o executor ao iniciar
@@ -15,6 +16,7 @@ shortTitle: Executar o executor ao iniciar
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% capture service_first_step %}1. Pare o aplicativo do executor auto-hospedado se estiver em execução no momento.{% endcapture %}
 {% capture service_non_windows_intro_shell %}Na máquina, abra um shell no diretório onde você instalou o aplicativo do executor auto-hospedado. Use os comandos abaixo para instalar e gerenciar o serviço do executor auto-hospedado.{% endcapture %}

@@ -36,30 +36,6 @@ describe('hydro', () => {
     })
   })
 
-  describe('#publishMany', () => {
-    it('publishes multiple events to Hydro', async () => {
-      await hydro.publishMany([
-        { schema: 'event-name', value: { pizza: true } },
-        { schema: 'other-name', value: { salad: false } },
-      ])
-
-      expect(params).toEqual({
-        events: [
-          {
-            schema: 'event-name',
-            value: JSON.stringify({ pizza: true }),
-            cluster: 'potomac',
-          },
-          {
-            schema: 'other-name',
-            value: JSON.stringify({ salad: false }),
-            cluster: 'potomac',
-          },
-        ],
-      })
-    })
-  })
-
   describe('#generatePayloadHmac', () => {
     it('returns a SHA256 HMAC string', () => {
       const body = JSON.stringify({ pizza: true })

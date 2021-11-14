@@ -7,6 +7,7 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_cloud %} 在您当地时区的周一至周五为优先支持请求提供八小时响应服务。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub Enterprise Cloud
@@ -17,6 +18,8 @@ shortTitle: GitHub Enterprise Cloud
 **注：**{% data variables.product.prodname_ghe_cloud %} 客户可以注册 {% data variables.contact.premium_support %}。 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.contact.premium_support %}](/articles/about-github-premium-support-for-github-enterprise-cloud)”。
 
 {% endnote %}
+
+{% data reusables.support.zendesk-deprecation %}
 
 如果您购买了 {% data variables.product.prodname_ghe_cloud %}，或者您是当前订阅了 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_dotcom %} 组织的成员、外部协作者或帐单管理员，则可以提交优先问题。
 

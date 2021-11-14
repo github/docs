@@ -2,7 +2,6 @@
 title: Comandos de flujo de trabajo para Acciones de GitHub
 shortTitle: Comandos de flujo de trabajo
 intro: Puedes usar comandos de flujo de trabajo cuando ejecutas comandos de Shell en un flujo de trabajo o en el código de una acción.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,20 +13,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de los comandos de flujo
 
 Las acciones pueden comunicarse con la máquina del ejecutor para establecer variables de entorno, valores de salida utilizados por otras acciones, agregar mensajes de depuración a los registros de salida y otras tareas.
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 La mayoría de los comandos de los flujos de trabajo utilizan el comando `echo` en un formato específico, mientras que otras se invocan si escribes a un archivo. Para obtener más información, consulta la sección ["Archivos de ambiente".](#environment-files)
-{% else %}
-Los comandos de flujo de trabajo usan el comando `echo` en un formato específico.
-{% endif %}
 
 ``` bash
 echo ":: Workflow-Command Parameter1 ={data}, parameter2 ={data}::{command value}"
@@ -67,44 +64,24 @@ Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar e
 
 La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles dentro de un flujo de trabajo:
 
-| Funcion del Toolkit                                                                                                                  | Comando equivalente del flujo de trabajo                      |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| `core.addPath`                                                                                                                       |                                                               |
-| {% ifversion fpt or ghes > 2.22 or ghae %}Accesible utilizando el archivo de ambiente `GITHUB_PATH`{% else %} `add-path` {% endif %} |                                                               |
-|                                                                                                                                      |                                                               |
-| `core.debug`                                                                                                                         | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
-| `core.notice`                                                                                                                        | `notice` 
+| Funcion del Toolkit   | Comando equivalente del flujo de trabajo                              |
+| --------------------- | --------------------------------------------------------------------- |
+| `core.addPath`        | Accessible using environment file `GITHUB_PATH`                       |
+| `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| `core.notice`         | `notice` 
 {% endif %}
-| `core.error`                                                                                                                         | `error`                                                       |
-| `core.endGroup`                                                                                                                      | `endgroup`                                                    |
-| `core.exportVariable`                                                                                                                |                                                               |
-| {% ifversion fpt or ghes > 2.22 or ghae %}Accesible utilizando el archivo de ambiente`GITHUB_ENV`{% else %} `set-env` {% endif %}    |                                                               |
-|                                                                                                                                      |                                                               |
-| `core.getInput`                                                                                                                      | Accesible utilizando la variable de ambiente `INPUT_{NAME}`   |
-| `core.getState`                                                                                                                      | Accesible utilizando la variable de ambiente`STATE_{NAME}`    |
-| `core.isDebug`                                                                                                                       | Accesible utilizando la variable de ambiente `RUNNER_DEBUG`   |
-| `core.saveState`                                                                                                                     | `save-state`                                                  |
-| `core.setFailed`                                                                                                                     | Utilizada como un atajo para `::error` y `exit 1`             |
-| `core.setOutput`                                                                                                                     | `set-output`                                                  |
-| `core.setSecret`                                                                                                                     | `add-mask`                                                    |
-| `core.startGroup`                                                                                                                    | `grupo`                                                       |
-| `core.warning`                                                                                                                       | `advertencia`                                                 |
-
-{% ifversion ghes < 3.0 %}
-## Configurar una variable de ambiente
-
-```
-::set-env name={name}::{value}
-```
-
-Crea o actualiza una variable de ambiente para cualquier paso que sea el siguiente en ejecutarse en un job. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Las variables de entorno distinguen mayúsculas de minúsculas y puedes incluir puntuación.
-
-### Ejemplo
-
-``` bash
-echo "::set-env name=action_state::yellow"
-```
-{% endif %}
+| `core.error`          | `error`                                                               |
+| `core.endGroup`       | `endgroup`                                                            |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`                        |
+| `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}`           |
+| `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`            |
+| `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG`           |
+| `core.saveState`      | `save-state`                                                          |
+| `core.setFailed`      | Utilizada como un atajo para `::error` y `exit 1`                     |
+| `core.setOutput`      | `set-output`                                                          |
+| `core.setSecret`      | `add-mask`                                                            |
+| `core.startGroup`     | `grupo`                                                               |
+| `core.warning`        | `advertencia`                                                         |
 
 ## Configurar un parámetro de salida
 
@@ -122,22 +99,6 @@ Opcionalmente, también puedes declarar parámetros de salida en el archivo de m
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-{% ifversion ghes < 3.0 %}
-## Agregar una ruta de sistema
-
-```
-::add-path::{path}
-```
-
-Anexa un directorio a la variable de `RUTA` del sistema para todas las acciones subsiguientes en el puesto actual. La acción que se ejecuta actualmente no puede acceder a la nueva variable de ruta.
-
-### Ejemplo
-
-``` bash
-echo "::add-path::/path/to/dir"
-```
-{% endif %}
-
 ## Agregar un mensaje de depuración
 
 ```
@@ -152,7 +113,7 @@ Imprime un mensaje de depuración para el registro. Debes crear un archivo `ACTI
 echo "::debug::Set the Octocat variable"
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
 ## Configurar un mensaje de aviso
 
@@ -306,7 +267,6 @@ La variable `STATE_processID` se encontrará entonces exclusivamente disponible 
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Archivos de ambiente
 
 Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos temporales que pueden utilizarse para llevar a cabo ciertas acciones. La ruta a estos archivos se expone a través de variables de ambiente. Necesitarás utilizar codificación UTF-8 cuando escribas en estos archivos para garantizar el procesamiento adecuado de los comandos. Se pueden escribir varios comandos en el mismo archivo, separados por líneas nuevas.
@@ -390,4 +350,3 @@ Este ejemplo demuestra cómo agregar el directorio `$HOME/.local/bin` del usuari
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
-{% endif %}

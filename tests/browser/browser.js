@@ -62,13 +62,13 @@ describe('browser search', () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
+    await newPage.goto('http://localhost:4001/ja/enterprise-server@3.0/admin/installation')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('2.22')
+        expect(searchParams.get('version')).toBe('3.0')
         expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()
@@ -181,7 +181,7 @@ describe('csrf meta', () => {
   })
 })
 
-describe('platform specific content', () => {
+describe('platform picker', () => {
   // from tests/javascripts/user-agent.js
   const userAgents = [
     {
@@ -201,27 +201,27 @@ describe('platform specific content', () => {
     },
   ]
   const linuxUserAgent = userAgents[2]
-  const pageWithSwitcher =
+  const pageWithPlatformPicker =
     'http://localhost:4001/en/github/using-git/configuring-git-to-handle-line-endings'
-  const pageWithoutSwitcher = 'http://localhost:4001/en/github/using-git'
+  const pageWithoutPlatformPicker = 'http://localhost:4001/en/github/using-git'
   const pageWithDefaultPlatform =
     'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
 
-  it('should have a platform switcher', async () => {
-    await page.goto(pageWithSwitcher)
-    const nav = await page.$$('nav.UnderlineNav')
-    const switches = await page.$$('a.platform-switcher')
-    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+  it('should have a platform picker', async () => {
+    await page.goto(pageWithPlatformPicker)
+    const nav = await page.$$('[data-testid=platform-picker]')
+    const switches = await page.$$('[data-testid=platform-picker] button')
+    const selectedSwitch = await page.$$('[data-testid=platform-picker] .selected')
     expect(nav).toHaveLength(1)
     expect(switches.length).toBeGreaterThan(1)
     expect(selectedSwitch).toHaveLength(1)
   })
 
-  it('should NOT have a platform switcher', async () => {
-    await page.goto(pageWithoutSwitcher)
-    const nav = await page.$$('nav.UnderlineNav')
-    const switches = await page.$$('a.platform-switcher')
-    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+  it('should NOT have a platform picker', async () => {
+    await page.goto(pageWithoutPlatformPicker)
+    const nav = await page.$$('[data-testid=platform-picker]')
+    const switches = await page.$$('[data-testid=platform-picker] button')
+    const selectedSwitch = await page.$$('[data-testid=platform-picker] .selected')
     expect(nav).toHaveLength(0)
     expect(switches).toHaveLength(0)
     expect(selectedSwitch).toHaveLength(0)
@@ -230,10 +230,15 @@ describe('platform specific content', () => {
   it('should detect platform from user agent', async () => {
     for (const agent of userAgents) {
       await page.setUserAgent(agent.ua)
-      await page.goto(pageWithSwitcher)
-      const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
-      expect(selectedPlatform).toBe(agent.name)
+      await page.goto(pageWithPlatformPicker)
+      const selectedPlatformElement = await page.waitForSelector(
+        '[data-testid=platform-picker] .selected'
+      )
+      const selectedPlatform = await page.evaluate(
+        (el) => el.dataset.platform,
+        selectedPlatformElement
+      )
+      expect(selectedPlatform).toBe(agent.name.toLowerCase())
     }
   })
 
@@ -245,7 +250,9 @@ describe('platform specific content', () => {
         '[data-default-platform]',
         (el) => el.dataset.defaultPlatform
       )
-      const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
+      const selectedPlatformElement = await page.waitForSelector(
+        '[data-testid=platform-picker] .selected'
+      )
       const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
       expect(defaultPlatform).toBe(linuxUserAgent.id)
       expect(selectedPlatform).toBe(linuxUserAgent.name)
@@ -253,17 +260,17 @@ describe('platform specific content', () => {
   })
 
   it('should show the content for the selected platform only', async () => {
-    await page.goto(pageWithSwitcher)
+    await page.goto(pageWithPlatformPicker)
 
     const platforms = ['mac', 'windows', 'linux']
     for (const platform of platforms) {
-      await page.click(`.platform-switcher[data-platform="${platform}"]`)
+      await page.click(`[data-testid=platform-picker] [data-platform=${platform}]`)
 
       // content for selected platform is expected to become visible
       await page.waitForSelector(`.extended-markdown.${platform}`, { visible: true, timeout: 3000 })
 
       // only a single tab should be selected
-      const selectedSwitch = await page.$$('a.platform-switcher.selected')
+      const selectedSwitch = await page.$$('[data-testid=platform-picker] .selected')
       expect(selectedSwitch).toHaveLength(1)
 
       // content for NOT selected platforms is expected to become hidden

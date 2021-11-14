@@ -4,6 +4,7 @@ intro: 'Solução de problemas de ajuda para conectar-se a {% data variables.pro
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces

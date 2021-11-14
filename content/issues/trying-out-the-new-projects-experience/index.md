@@ -15,6 +15,8 @@ children:
   - /customizing-your-project-views
   - /using-the-api-to-manage-projects
   - /automating-projects
+  - /managing-the-visibility-of-your-projects
+  - /managing-access-to-projects
   - /best-practices-for-managing-projects
 ---
 

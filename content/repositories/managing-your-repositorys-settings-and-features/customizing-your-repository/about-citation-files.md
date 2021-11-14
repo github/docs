@@ -13,7 +13,7 @@ topics:
 ---
 ## About CITATION files
 
-You can add a `CITATION.cff` file to the root of a repository to let others know how you would like them to cite your work. The citation file format is plain text with human- and machine-readable citation information. 
+You can add a `CITATION.cff` file to the root of a repository to let others know how you would like them to cite your work. The citation file format is plain text with human- and machine-readable citation information.
 
 Example `CITATION.cff` file:
 
@@ -34,7 +34,7 @@ date-released: 2017-12-18
 url: "https://github.com/github/linguist"
 ```
 
-The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats: 
+The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
 
 **APA**
 
@@ -58,7 +58,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`). 
+Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
 
 For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
 
@@ -70,11 +70,21 @@ When you add a `CITATION.cff` file to the default branch of your repository, it 
 
 If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
-Resource | Type
---------- | -----
-Research article | `article`
-Conference paper | `conference-paper`
-Book | `book`
+| Resource | CFF type | BibTeX type | APA annotation |
+|----------|----------|-------------|----------------|
+| Journal article/paper | `article` | `@article` | |
+| Book | `book` | `@book` | |
+| Booklet (bound but not published) | `pamphlet` | `@booklet` | |
+| Conference article/paper | `conference-paper` | `@inproceedings` | [Conference paper] |
+| Conference proceedings | `conference`, `proceedings` | `@proceedings` | |
+| Data set | `data`, `database` | `@misc` | [Data set] |
+| Magazine article | `magazine-article` | `@article` | |
+| Manual | `manual` | `@manual` | |
+| Misc/generic/other | `generic`, any other CFF type | `@misc` | |
+| Newspaper article | `newspaper-article` | `@article` | |
+| Software |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [Computer software] |
+| Report/technical report | `report` | `@techreport` | |
+| Unpublished | `unpublished` | `@unpublished` | |
 
 Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
@@ -113,7 +123,7 @@ preferred-citation:
   year: 2021
 ```
 
-The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt: 
+The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt:
 
 **APA**
 
@@ -141,11 +151,11 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 
 ## Citing a dataset
 
-If your repository contains a dataset, you can set `type: dataset` in your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
 
 ## Other citation files
 
-The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited. 
+The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
 
 GitHub will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
 
@@ -158,7 +168,7 @@ CITATIONS.bib
 CITATION.md
 CITATIONS.md
 
-# CITATION files for R packages are typically found at inst/CITATION 
+# CITATION files for R packages are typically found at inst/CITATION
 inst/CITATION
 ```
 

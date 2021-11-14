@@ -6,6 +6,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Actions
@@ -17,6 +18,9 @@ topics:
   - Pull requests
 shortTitle: Use Dependabot with actions
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
 
@@ -32,6 +36,16 @@ For workflows initiated by {% data variables.product.prodname_dependabot %} (`gi
 - Secrets are inaccessible.
 
 For more information, see ["Keeping your GitHub Actions and workflows secure: Preventing pwn requests"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
+
+{% ifversion ghes > 3.2 %}
+{% note %}
+
+**Note:** Your site administrator can override these restrictions for {% data variables.product.product_location %}. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
+
+If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to any secrets that are normally available. In addition, workflows triggered by {% data variables.product.prodname_dependabot %} can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access.
+
+{% endnote %}
+{% endif %}
 
 ### Handling `pull_request` events
 
@@ -70,7 +84,7 @@ You can replace `pull_request` with `pull_request_target`, which is used for pul
 name: Dependabot Workflow
 on:
   pull_request_target
-  
+
 permissions:
   # Downscope as necessary, since you now have a read-write token
 
@@ -120,7 +134,7 @@ name: Dependabot Trusted Workflow
 on:
   workflow_run:
     workflows: ["Dependabot Untrusted Workflow"]
-    types: 
+    types:
       - completed
 
 permissions:
@@ -244,7 +258,7 @@ jobs:
 
 ### Enable auto-merge on a pull request
 
-If you want to auto-merge your pull requests, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when all required tests and approvals are successfully met. For more information on auto-merge, see "[Automatically merging a pull request"](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+If you want to auto-merge your pull requests, you can use {% data variables.product.prodname_dotcom %}'s auto-merge functionality. This enables the pull request to be merged when all required tests and approvals are successfully met. For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
 
 Here is an example of enabling auto-merge for all patch updates to `my-dependency`:
 

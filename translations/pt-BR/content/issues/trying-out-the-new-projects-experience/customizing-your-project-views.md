@@ -4,6 +4,7 @@ intro: 'Exibe as informações de que você precisa alterando o layout, agrupame
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Projects
@@ -11,9 +12,9 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Paleta de comando
+## Project command palette
 
-Use a paleta de comandos para alterar rapidamente as configurações e executar comandos no seu projeto.
+Use the project command palette to quickly change settings and run commands in your project.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar qualquer parte de um comando ou navegue pela janela da paleta de comandos para encontrar um comando. Veja as próximas seções para mais exemplos de comandos.
@@ -29,13 +30,21 @@ Você pode visualizar o seu projeto como uma tabela ou como um quadro.
 
 ## Exibir ou ocultar campos
 
-No layout da tabela, você pode exibir ou ocultar um campo específico.
+You can show or hide a specific field.
+
+In table layout:
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar a ação que deseja realizar ("mostrar" ou "ocultar") ou o nome do campo.
 3. Selecione o comando desejado (por exemplo: "Exibir: Marco").
 4. Como alternativa, clique em {% octicon "plus" aria-label="the plus icon" %} à direita da tabela. No menu suspenso que aparece, indique quais campos mostrar ou ocultar. Um {% octicon "check" aria-label="check icon" %} indica quais campos serão exibidos.
 5. Como alternativa, selecione o menu suspenso ao lado do nome do campo e clique em **Ocultar o campo**.
+
+In board layout:
+
+1. Selecione o menu suspenso ao lado do nome da visualização.
+2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
+3. In the menu that appears, select fields to add them and deselect fields to remove them from the view.
 
 ## Reordenar campos
 
@@ -75,11 +84,11 @@ Siga passos semelhantes para remover uma ordenação.
 
 ## Grupo
 
-In the table layout, you can group items by a custom field value. Quando os itens são agrupados, se você arrastar um item para um novo grupo, será aplicado o valor desse grupo. Por exemplo, se você agrupar por `Status` e, em seguida, arrastar um item com um status de `Em andamento` para o grupo `Concluído` o status do item mudará para `Concluído`.
+No layout da tabela, você pode agrupar os itens por um valor de campo personalizado. Quando os itens são agrupados, se você arrastar um item para um novo grupo, será aplicado o valor desse grupo. Por exemplo, se você agrupar por `Status` e, em seguida, arrastar um item com um status de `Em andamento` para o grupo `Concluído` o status do item mudará para `Concluído`.
 
 {% note %}
 
-**Note:** Currently, you cannot group by title, assignees, repository or labels.
+**Observação:** Atualmente, você não pode agrupar por título, responsáveis, repositório ou etiquetas.
 
 {% endnote %}
 
@@ -97,22 +106,22 @@ Siga as etapas semelhantes para remover um agrupamento.
 
 ## Filtrar
 
-No layout da tabela, você pode filtrar por valores de campo.
+Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. À medida que você digita, serão exibidos os possíveis valores.
+
+- Para filtrar vários valores, separe os valores por uma vírgula. Por exemplo, `label:"good first issue",bug` irá listar todos os problemas com uma etiqueta `good first issue` ou `erro`.
+- Para filtrar pela ausência de um valor específico, insira `-` antes do seu filtro. Por exemplo, `-label:"bug"` mostrará apenas os itens que não têm a etiqueta `erro`.
+- Para filtrar pela ausência de todos os valores, digite `no:` seguido pelo nome do campo. Por exemplo, `no:assignee` irá mostrar apenas os itens que não têm um responsável.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- Separe vários filtros com um espaço. Por exemplo, `status:"In progress" -label:"bug" no:assignee` irá mostrar somente os itens que têm um status de `In progress`, não têm a etiqueta `erro` e não têm um responsável.
+
+Alternatively, use the command palette.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar "Filtrar por" ou o nome do campo que você deseja filtrar.
 3. Selecione o comando desejado (p. ex.: "Filtrar por status").
-4. Insira o valor que você deseja filtrar (por exemplo: "Em andamento"). You can also filter for the absence of specific values (for example: "Exclude status") or the absence of all values (for example: "No status").
-5. Como alternativa, clique em {% octicon "search" aria-label="the search icon" %} na parte superior da tabela para mostrar a barra "Filtrar por palavra-chave ou campo". Insira o nome do campo e valor pelo qual você deseja filtrar. À medida que você digita, serão exibidos os possíveis valores.
+4. Insira o valor que você deseja filtrar (por exemplo: "Em andamento"). Você também pode filtrar pela ausência de valores específicos (por exemplo: "Excluir status") ou pela ausência de todos os valores (por exemplo: "Sem status").
 
-   To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-
-   To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-
-   To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-
-   Separe vários filtros com um espaço. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-6. Alternatively, select the drop-down menu next to the view name and click the menu item that indicates the desired filter.
+In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
 ## Salvar visualizações
 
@@ -147,5 +156,5 @@ Para excluir uma visualização:
 
 ## Leia mais
 
-- "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)
-- "[Criando um projeto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)
+- "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[Criando um projeto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"

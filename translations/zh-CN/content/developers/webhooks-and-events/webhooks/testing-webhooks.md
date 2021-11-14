@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -18,7 +19,7 @@ topics:
 
 每个 web 挂钩都有自己的“最近交付”部分，它一目了然地列出了交付是成功（绿色钩号）还是失败（红色 x）。 您还可以确定每个交付的尝试时间。
 
-{% data variables.product.product_name %} 保留每个 web 挂钩交付的日志 {% ifversion fpt %} 30 {% else %} 8 {% endif %} 天。
+{% data variables.product.product_name %} 保留每个 web 挂钩交付的日志 {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} 天。
 
 ![最近交付视图](/assets/images/webhooks_recent_deliveries.png)
 
