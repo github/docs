@@ -1,4 +1,4 @@
----
+--- 
 title: Customizing your organization's profile
 intro: You can share information about your organization by customizing your organization's profile
 versions:
