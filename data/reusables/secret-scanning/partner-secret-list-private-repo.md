@@ -209,3 +209,5 @@ Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Twilio | Twilio Access Token | twilio_access_token{% endif %}
 Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
