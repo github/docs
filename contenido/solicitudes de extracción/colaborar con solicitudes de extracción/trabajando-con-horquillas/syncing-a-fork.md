@@ -1,4 +1,4 @@
----
+---gmalex952@gmail.com 
 title: Syncing a fork
 intro: Sync a fork of a repository to keep it up-to-date with the upstream repository.
 redirect_from:
