@@ -37,7 +37,7 @@ shortTitle: Add a project locally
 1. Stage and commit all the files in your project 
 
    ```shell
-   git add . && git commit -m “initial commit”
+   git add . && git commit -m "initial commit"
    ```
 
 1. To create a repository for your project on GitHub, use the `gh repo create` subcommand. When prompted, select **Push an existing local repository to GitHub** and enter the desired name for your repository. If you want your project to belong to an organization instead of your user account, specify the organization name and project name with `organization-name/project-name`.
