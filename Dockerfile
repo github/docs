@@ -50,8 +50,6 @@ COPY next.config.js ./next.config.js
 COPY tsconfig.json ./tsconfig.json
 COPY next-env.d.ts ./next-env.d.ts
 
-RUN npx tsc --noEmit
-
 RUN npm run build
 
 # --------------------------------------------------------------------------------
@@ -94,9 +92,10 @@ COPY --chown=node:node package*.json ./
 COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node next.config.js ./
 
-EXPOSE 80
-EXPOSE 443
-EXPOSE 4000
+# This makes sure server.mjs always picks up the preferred port
+ENV PORT=4000
+EXPOSE $PORT
+
 CMD ["node", "server.mjs"]
 
 
