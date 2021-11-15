@@ -211,3 +211,9 @@ Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
