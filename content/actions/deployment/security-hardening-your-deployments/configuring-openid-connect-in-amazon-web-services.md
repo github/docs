@@ -72,7 +72,7 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 
 - `<example-bucket-name>`: Add the name of your S3 bucket here.
 - `<role-to-assume>`: Replace the example with your AWS role.
-- `<example-aws-region>`: Add the name of your AWs region here.
+- `<example-aws-region>`: Add the name of your AWS region here.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
