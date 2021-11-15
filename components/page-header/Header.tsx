@@ -69,7 +69,7 @@ export const Header = () => {
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
             <div className="d-inline-block ml-3">
-              <Search updateSearchParams={updateSearchParams} isOverlay={true} />
+              <Search iconSize={16} updateSearchParams={updateSearchParams} isHeaderSearch={true} />
             </div>
           )}
         </div>
@@ -126,7 +126,7 @@ export const Header = () => {
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
                 <div className="my-2 pt-3 mx-3">
-                  <Search updateSearchParams={updateSearchParams} />
+                  <Search iconSize={16} updateSearchParams={updateSearchParams} />
                 </div>
               )}
             </div>
