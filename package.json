@@ -160,7 +160,7 @@
     "mock-express-response": "^0.3.0",
     "mockdate": "^3.0.5",
     "nock": "^13.2.1",
-    "nodemon": "^2.0.14",
+    "nodemon": "^2.0.15",
     "npm-merge-driver-install": "^2.0.1",
     "object-hash": "^2.2.0",
     "postcss": "^8.3.11",
