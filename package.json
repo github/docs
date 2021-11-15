@@ -185,7 +185,7 @@
   "name": "docs.github.com",
   "optionalDependencies": {
     "esm": "^3.2.25",
-    "jest-puppeteer": "^5.0.4",
+    "jest-puppeteer": "^6.0.0",
     "jimp": "^0.16.1",
     "pa11y-ci": "^2.4.2",
     "puppeteer": "^9.1.1",
