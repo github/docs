@@ -319,7 +319,10 @@ function ShowSearchResults({
     }
 
     const ActionListResults = (
-      <div data-testid="search-results">
+      <div
+        data-testid="search-results"
+        className={cx('mt-3', isHeaderSearch && styles.headerSearchResults)}
+      >
         <div className="my-4">
           <p className="mx-4">
             You're searching the <span className="color-fg-attention">{searchVersion}</span>{' '}
