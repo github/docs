@@ -18,11 +18,10 @@ export const Header = () => {
   const router = useRouter()
   const { relativePath, error } = useMainContext()
   const { t } = useTranslation(['header', 'homepage'])
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(
+    router.pathname !== '/' && router.query.query && true
+  )
   const [scroll, setScroll] = useState(false)
-
-  // the graphiql explorer utilizes `?query=` in the url and we don't want our search bar to mess that up
-  const updateSearchParams = router.asPath !== 'graphql/overview/explorer'
 
   useEffect(() => {
     function onScroll() {
@@ -61,7 +60,7 @@ export const Header = () => {
           </div>
 
           <div className="mr-2">
-            <VersionPicker variant="compact" />
+            <VersionPicker />
           </div>
 
           <LanguagePicker />
@@ -69,7 +68,7 @@ export const Header = () => {
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
             <div className="d-inline-block ml-3">
-              <Search iconSize={16} updateSearchParams={updateSearchParams} isHeaderSearch={true} />
+              <Search iconSize={16} isHeaderSearch={true} />
             </div>
           )}
         </div>
@@ -107,26 +106,22 @@ export const Header = () => {
             <div
               className={cx('width-full position-sticky top-0', isMenuOpen ? 'd-block' : 'd-none')}
             >
-              <div className="mt-3 mb-2">
-                <div className="pt-3 mb-4 ml-2">
-                  <Breadcrumbs />
-                </div>
-                <h4 className="f5 text-normal color-fg-muted ml-3">{t('explore_by_product')}</h4>
-
-                <ProductPicker />
+              <div className="my-4">
+                <Breadcrumbs />
               </div>
 
-              <div className="border-top my-2 mx-3" />
+              <ProductPicker />
+
+              <div className="border-top my-2" />
               <VersionPicker variant="inline" />
 
-              {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
-              <div className="border-top my-2 mx-3" />
+              <div className="border-top my-2" />
               <LanguagePicker variant="inline" />
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
-                <div className="my-2 pt-3 mx-3">
-                  <Search iconSize={16} updateSearchParams={updateSearchParams} />
+                <div className="my-2 pt-3">
+                  <Search iconSize={16} isMobileSearch={true} />
                 </div>
               )}
             </div>
