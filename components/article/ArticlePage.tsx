@@ -14,7 +14,7 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
-import { VersionPicker } from 'components/VersionPicker'
+import { PlatformPicker } from 'components/article/PlatformPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -36,7 +36,6 @@ export const ArticlePage = () => {
     contributor,
     permissions,
     includesPlatformSpecificContent,
-    defaultPlatform,
     product,
     miniTocItems,
     currentLearningTrack,
@@ -60,7 +59,6 @@ export const ArticlePage = () => {
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
-          topperSidebar={<VersionPicker />}
           intro={
             <>
               {contributor && (
@@ -74,7 +72,11 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <Lead data-testid="lead">{intro}</Lead>}
+              {intro && (
+                <Lead data-testid="lead" data-search="lead">
+                  {intro}
+                </Lead>
+              )}
 
               {permissions && (
                 <div className="permissions-statement d-table">
@@ -85,35 +87,7 @@ export const ArticlePage = () => {
                 </div>
               )}
 
-              {includesPlatformSpecificContent && (
-                <nav
-                  className="UnderlineNav my-3"
-                  data-default-platform={defaultPlatform || undefined}
-                >
-                  <div className="UnderlineNav-body">
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" className="UnderlineNav-item platform-switcher" data-platform="mac">
-                      Mac
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                      href="#"
-                      className="UnderlineNav-item platform-switcher"
-                      data-platform="windows"
-                    >
-                      Windows
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                      href="#"
-                      className="UnderlineNav-item platform-switcher"
-                      data-platform="linux"
-                    >
-                      Linux
-                    </a>
-                  </div>
-                </nav>
-              )}
+              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
 
               {product && (
                 <Callout

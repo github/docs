@@ -134,5 +134,6 @@ includeGuides:
   - /admin/user-management/removing-users-from-teams-and-organizations
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/suspending-and-unsuspending-users
+  - /admin/overview/creating-an-enterprise-account
 ---
 
