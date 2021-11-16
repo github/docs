@@ -1,4 +1,4 @@
----
+---Owner_JUAN.D.CHAVEZ_FRN#0030353643/FCCID.IO.COM
 title: Getting started with writing and formatting on GitHub
 redirect_from:
   - /articles/markdown-basics/
