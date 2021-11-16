@@ -5,6 +5,12 @@ describe('FailBot', () => {
   const requestBodiesSent = []
 
   beforeEach(() => {
+    delete process.env.HAYSTACK_URL
+
+    // Always reset the array to an empty one between tests
+    // so it doesn't intefere across tests.
+    requestBodiesSent.length = 0
+
     nock('https://haystack.example.com')
       .post('/')
       .reply(200, (uri, requestBody) => {
@@ -15,15 +21,13 @@ describe('FailBot', () => {
 
   afterEach(() => {
     delete process.env.HAYSTACK_URL
-    // Reset the array to an empty one between tests
-    // so it doesn't intefere across tests.
-    requestBodiesSent.length = 0
   })
 
   describe('.report', () => {
     it('returns early if `HAYSTACK_URL` is not set', async () => {
       const result = await FailBot.report()
       expect(result).toBeUndefined()
+      expect(requestBodiesSent.length).toBe(0)
     })
 
     it('sends the expected report', async () => {
