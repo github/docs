@@ -27,8 +27,13 @@ jobs:
       - name: Remove unwanted git hooks
         run: rm .git/hooks/post-checkout
 
+      - name: Remove all translations
+        run: |
+          git rm -rf --quiet translations/*/content
+          git rm -rf --quiet translations/*/data
+
       - name: Sync
-        uses: crowdin/github-action@d7f217268068f1244883a993379d62d816f84f25
+        uses: crowdin/github-action@d0622816ed4f4744db27d04374b2cef6867f7bed
         with:
           # This option enables the transfer of existing translations in this project to Crowdin.
           # We explicitly set this to `false` since we only want to use the downloaded translations managed by Crowdin.

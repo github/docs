@@ -40,11 +40,13 @@ To configure the role and trust in IAM, see the AWS documentation for ["Assuming
 
 By default, the validation only includes the audience (`aud`) condition, so you must manually add a subject (`sub`) condition. Edit the trust relationship to add the `sub` field to the validation conditions. For example:
 
-```yaml{:copy}
+```json{:copy}
 "Condition": {
   "StringEquals": {
     "token.actions.githubusercontent.com:aud": "https://github.com/octo-org",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+  }
+}
 ```
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
@@ -70,7 +72,7 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 
 - `<example-bucket-name>`: Add the name of your S3 bucket here.
 - `<role-to-assume>`: Replace the example with your AWS role.
-- `<example-aws-region>`: Add the name of your AWs region here.
+- `<example-aws-region>`: Add the name of your AWS region here.
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
