@@ -14,6 +14,7 @@ redirect_from:
   - /packages/guides/enabling-improved-container-support
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Registro de contenedores
 ---
 

@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 使用非代码文件
@@ -46,7 +47,7 @@ shortTitle: 使用非代码文件
 
 ### 查看图像
 
-您可以在 {% data variables.product.product_name %} 仓库中直接浏览和查看图像：
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![内联图像](/assets/images/help/images/view.png)
 
@@ -135,7 +136,7 @@ GitHub 支持以 *.csv*（逗号分隔）和 .*tsv*（制表符分隔）文件�
 
 ![呈现的 CSV 示例](/assets/images/help/repository/rendered_csv.png)
 
-查看时，提交到 {% data variables.product.product_name %} 仓库的任何 _.csv_ 或 _.tsv_ 文件都会自动呈现为交互式表格，包括标题和行编号。 默认情况下，我们始终假设第一行是标题行。
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. 默认情况下，我们始终假设第一行是标题行。
 
 您可以通过单击行号链接到特定行，或通过按住 Shift 键选择多行。 只需复制 URL 并将其发送给好友即可。
 
@@ -188,9 +189,9 @@ GitHub 支持呈现 PDF 文档。
 
 ![呈现的散文更改](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
-### Disabling Markdown rendering
+### 禁用 Markdown 渲染
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 

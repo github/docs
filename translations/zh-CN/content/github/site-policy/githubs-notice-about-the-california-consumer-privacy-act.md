@@ -21,7 +21,7 @@ GitHub _不_出售个人信息，包括 16 岁以下任何人的个人信息。 
 
 ## 您在 CCPA 下的权利
 
-CCPA 为加州居民提供关于其个人信息的某些权利。 To submit a request based on these rights, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).
+CCPA 为加州居民提供关于其个人信息的某些权利。 要提交基于这些权利的申请，请通过我们的[联系表](https://support.github.com/contact?tags=docs-policy)联系我们。
 
 我们收到请求后，将核实提出请求的个人是否为其个人信息适用于此类请求的居民。 加州居民可亲自行使权利，也可以通过授权代理人提出请求，要求披露某些有关其个人信息处理的信息，或者替他们删除个人信息。 如果您通过授权代理人提交请求，我们可能要求您提供额外信息，以证明该代理人在代表您行事。
 
@@ -73,4 +73,4 @@ CCPA 规定，直至（包括）2020 年 12 月 31 日，可豁免与过去 12 �
 
   反映 GitHub 与自然人之间的书面或口头交流或交易的个人信息，其中自然人作为公司、合伙企业、独资企业、非营利组织或政府机构的雇员、所有者、董事、管理人员或承包商，并且其与 GitHub 的交流或交易仅发生在 GitHub 针对此类公司、合伙企业、独资企业、非营利组织或政府机构进行尽职调查或与之进行产品或服务交易的范围内。
 
-If you have any questions about this page, please contact us via our [contact form](https://support.github.com/contact?tags=docs-policy).
+如果对此页面有任何疑问，请通过我们的[联系表](https://support.github.com/contact?tags=docs-policy)联系我们。

@@ -6,6 +6,7 @@ redirect_from:
   - /graphql/guides/intro-to-graphql
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -119,7 +120,7 @@ GraphQL 是一种[内省](https://graphql.github.io/learn/introspection/)语言�
 
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+  **注**：如果您收到回复 `"message": "Bad credentials"` 或 `401 Unauthorized`，请检查您是否使用了有效令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
   {% endnote %}
 

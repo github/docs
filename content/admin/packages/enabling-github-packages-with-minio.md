@@ -19,7 +19,9 @@ shortTitle: Enable Packages with MinIO
 - Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
 {% endwarning %}
+
 ## Prerequisites
+
 Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your MinIO storage bucket. To help you quickly set up a MinIO bucket and navigate MinIO's customization options, see the "[Quickstart for configuring your MinIO storage bucket for {% data variables.product.prodname_registry %}](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)."
 
 Ensure your MinIO external storage access key ID and secret have these permissions:

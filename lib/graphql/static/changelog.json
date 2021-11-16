@@ -4,6 +4,37 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `UpdatePullRequestBranchInput` was added",
+          "Type `UpdatePullRequestBranchPayload` was added",
+          "Field `updatePullRequestBranch` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-11-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `DismissReason` was added",
+          "Type `DismissRepositoryVulnerabilityAlertInput` was added",
+          "Type `DismissRepositoryVulnerabilityAlertPayload` was added",
+          "Field `dismissRepositoryVulnerabilityAlert` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-10-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `AddProjectNextItemInput` was added",
           "Type `AddProjectNextItemPayload` was added",
           "Type `DeleteProjectNextItemInput` was added",

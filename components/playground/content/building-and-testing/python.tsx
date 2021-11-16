@@ -213,7 +213,7 @@ const article: PlaygroundArticleT = {
   codeBlocks: {
     '0': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
       name: Python package
 
@@ -251,7 +251,7 @@ const article: PlaygroundArticleT = {
     },
     '1': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
       name: Python package
 
@@ -280,7 +280,7 @@ const article: PlaygroundArticleT = {
     },
     '2': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
       name: Python package
 
@@ -307,7 +307,7 @@ const article: PlaygroundArticleT = {
     },
     '3': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
       name: Python package
 
@@ -330,7 +330,7 @@ const article: PlaygroundArticleT = {
     },
     '4': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -352,7 +352,7 @@ const article: PlaygroundArticleT = {
     },
     '5': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -376,7 +376,7 @@ const article: PlaygroundArticleT = {
     },
     '6': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -408,7 +408,7 @@ const article: PlaygroundArticleT = {
     },
     '7': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -437,7 +437,7 @@ const article: PlaygroundArticleT = {
     },
     '8': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -465,7 +465,7 @@ const article: PlaygroundArticleT = {
     },
     '9': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -494,7 +494,7 @@ const article: PlaygroundArticleT = {
     },
     '10': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         name: Python package
 
@@ -532,7 +532,7 @@ const article: PlaygroundArticleT = {
     },
     '11': {
       language: 'yaml',
-      fileName: '.github/workflow/example.yml',
+      fileName: '.github/workflows/example.yml',
       code: dedent`
         # This workflow uses actions that are not certified by GitHub.
         # They are provided by a third-party and are governed by

@@ -1,6 +1,6 @@
 ---
 title: SSH キーをレビューする
-intro: '認証情報を安全に保つには、SSH キーを定期的に監査し、キーをデプロイし、自分の {% data variables.product.product_name %} アカウントにアクセスする許可されたアプリケーションをレビューしてください。'
+intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe/
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -34,24 +35,13 @@ topics:
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. 自分の公開鍵のフィンガープリントを見つけてメモします。 {% ifversion ghes < 3.0 %}OpenSSH 6.7 以前を使用している場合:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  OpenSSH 6.8 以降を使用している場合:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+6. 自分の公開鍵のフィンガープリントを見つけてメモします。
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致していなければなりません 。
+7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致して*いなければなりません* 。
 
 {% endmac %}
 
@@ -59,12 +49,11 @@ topics:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[Delete] をクリックします。 残しておきたい有効な SSH キーがある場合は、[Approve] をクリックします。
-    ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注釈:** Git 操作が失敗したために SSH キーを監査している場合は、[SSH キー監査エラー] (/articles/error-we-re-doing-an-ssh-key-audit) の原因となった未検証のキーが SSH キーのリストで強調表示されます。
+     **メモ:** Git 操作が失敗したために SSH キーを監査している場合は、 [SSH キー監査エラー](/articles/error-we-re-doing-an-ssh-key-audit)の原因となった未検証のキーが SSH キーのリストで強調表示されます。
 
   {% endtip %}
 
@@ -74,24 +63,13 @@ topics:
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. 自分の公開鍵のフィンガープリントを見つけてメモします。 {% ifversion ghes < 3.0 %}OpenSSH 6.7以前を使用している場合:
-  ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-
-  OpenSSH 6.8 以降を使用している場合:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
+6. 自分の公開鍵のフィンガープリントを見つけてメモします。
   ```shell
   $ ssh-add -l -E sha256
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```{% endif %}
+  ```
 
-7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致していなければなりません 。
+7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致して*いなければなりません* 。
 
 {% endwindows %}
 
@@ -99,12 +77,11 @@ topics:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[Delete] をクリックします。 残しておきたい有効な SSH キーがある場合は、[Approve] をクリックします。
-    ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **注釈:** Git 操作が失敗したために SSH キーを監査している場合は、[SSH キー監査エラー] (/articles/error-we-re-doing-an-ssh-key-audit) の原因となった未検証のキーが SSH キーのリストで強調表示されます。
+     **メモ:** Git 操作が失敗したために SSH キーを監査している場合は、 [SSH キー監査エラー](/articles/error-we-re-doing-an-ssh-key-audit)の原因となった未検証のキーが SSH キーのリストで強調表示されます。
 
   {% endtip %}
 
@@ -112,20 +89,11 @@ topics:
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. 自分の公開鍵のフィンガープリントを見つけてメモします。 {% ifversion ghes < 3.0 %}OpenSSH 6.7以前を使用している場合:
+6. 自分の公開鍵のフィンガープリントを見つけてメモします。
   ```shell
-  $ ssh-add -l
-  > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
-
-  OpenSSH 6.8 以降を使用している場合:
-  ```shell
-  $ ssh-add -l -E md5
-  > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
-  {% else %}
-```shell $ ssh-add -l -E sha256
-> 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA) ```{% endif %}
 
 7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致して*いなければなりません* 。
 

@@ -11,8 +11,9 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Dependabot
@@ -24,7 +25,7 @@ topics:
 shortTitle: 安全和分析
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 为公共仓库启用或禁用安全和分析功能
 
 您可以管理公共仓库的一部分安全和分析功能。 其他功能是永久启用的，包括依赖项图和密码扫描。
@@ -35,21 +36,21 @@ shortTitle: 安全和分析
 4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 ![公共仓库中"Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
 {% endif %}
 
-## 为私有仓库启用或禁用安全和分析功能{% ifversion fpt %}{% endif %}
+## 为私有仓库启用或禁用安全和分析功能{% ifversion fpt or ghec %}{% endif %}
 
-您可以管理{% ifversion fpt %}私有或内部 {% endif %}仓库的安全性和分析功能。{% ifversion fpt or ghes > 2.22 %} 如果您的组织属于拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的企业，则额外选项可用。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion fpt or ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% ifversion fpt or ghes > 3.0 %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 如果您的企业没有 {% data variables.product.prodname_advanced_security %} 许可，“{% data variables.product.prodname_GH_advanced_security %}”的控制将禁用。{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion fpt or ghec %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
 
-  **注意：**如果您禁用 {% data variables.product.prodname_GH_advanced_security %}、{% ifversion fpt %}依赖项审核、{% endif %}{% data variables.product.prodname_secret_scanning %} 和 {% data variables.product.prodname_code_scanning %} 都会禁用。 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
+  **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion fpt or ghec %}dependency review, {% endif %}{% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_code_scanning %} are disabled. 任何工作流程、SARIF上传或 {% data variables.product.prodname_code_scanning %} 的 API 调用都将失败。
   {% endnote %}
   {% endif %}
   {% ifversion ghes = 3.0 %}
@@ -73,10 +74,10 @@ shortTitle: 安全和分析
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. 在“Access to alerts（访问警报）”下，在搜索字段中开始键入您要查找的个人或团队的名称，然后单击匹配列表中的名称。
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![用于授予人员或团队访问安全警报的搜索字段](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    ![用于授予人员或团队访问安全警报的搜索字段](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search-ghe.png)
    {% endif %}
    {% ifversion ghae %}
@@ -84,7 +85,7 @@ shortTitle: 安全和分析
    {% endif %}
 
 5. 单击 **Save changes（保存更改）**。
-   {% ifversion fpt or ghes > 2.22 %}
+   {% ifversion fpt or ghes or ghec %}
    ![用于更改安全警报设置的"Save changes（保存更改）"按钮](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
    {% endif %}
     {% ifversion ghae %}
@@ -97,10 +98,10 @@ shortTitle: 安全和分析
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. 在“Access to alerts（访问警报）”下，在要删除其访问权限的个人或团队的右侧，单击 {% octicon "x" aria-label="X symbol" %}。
-   {% ifversion fpt %}
+   {% ifversion fpt or ghec %}
    ![用于删除某人对您仓库的安全警报访问权限的 "x" 按钮](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
    {% endif %}
-   {% ifversion ghes > 2.22 %}
+   {% ifversion ghes %}
    ![用于删除某人对您仓库的安全警报访问权限的 "x" 按钮](/assets/images/help/repository/security-and-analysis-security-alerts-username-x-ghe.png)
    {% endif %}
    {% ifversion ghae %}

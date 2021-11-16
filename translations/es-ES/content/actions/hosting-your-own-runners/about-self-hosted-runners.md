@@ -8,12 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Acerca de los ejecutores autoalojados
 
@@ -56,7 +58,7 @@ Puedes usar cualquier máquina como ejecutor autoalojado, siempre que cumpla con
 * La máquina tiene suficientes recursos de hardware para el tipo de flujos de trabajo que planeas ejecutar. La propia aplicación del ejecutor autoalojado solo requiere unos recursos mínimos.
 * Si quieres ejecutar flujos de trabajo que usan acciones del contenedor Docker o contenedores de servicio, debes usar una máquina Linux y Docker debe estar instalado.
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Autoescalar tus ejecutores auto-hospedados
 
 Puedes aumentar o disminuir la cantidad de ejecutores auto-hospedados automáticamente en tu ambiente como respuesta a los eventos de webhook que recibes. Para obtener más información, consulta la sección "[Autoescalar con ejecutores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
@@ -79,7 +81,7 @@ Hay algunos límites para el uso de las {% data variables.product.prodname_actio
 
 ## Sistemas operativos y arquitecturas compatibles para los ejecutores auto-hospedados
 
-Los siguientes sistemas operativos son compatibles con la aplicación del ejecutor autoalojado.
+Los siguientes sistemas operativos son compatibles con la aplicación del ejecutor auto-hospedado.
 
 ### Linux
 
@@ -135,7 +137,7 @@ Si utilizas una lista blanca para las direcciones IP para tu
 cuenta empresarial u organizacional de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-.hospedado a dicha lista. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Debes asegurarte de que la máquina tiene el acceso a la red adecuado para comunicarte con las URL de {% data variables.product.prodname_dotcom %} listadas a continuación.
 
@@ -159,7 +161,7 @@ pkg-containers-az.githubusercontent.com
 *.blob.core.windows.net
 ```
 
-Si utilizas un listado de direcciones IP permitidas para tu cuenta organizacional o empresarial de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-hospedado a dicha lista. Para obtener más información, consulta "[Administrar las direcciones IP permitidas para tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" o "[Hacer cumplir los parámetros de seguridad en tu cuenta de empresa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Si utilizas un listado de direcciones IP permitidas para tu cuenta organizacional o empresarial de {% data variables.product.prodname_dotcom %}, debes agregar la dirección IP de tu ejecutor auto-hospedado a dicha lista. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
 
 {% else %}
 
@@ -167,7 +169,7 @@ Debes asegurarte de que la máquina tenga el acceso a la red adecuado para comun
 
 {% endif %}
 
-También puedes utilizar los ejecutores auto-hospedados con un servidor proxy. Para obtener más información, consulta la sección "[Utilizar un servidor proxy con ejecutores auto-hospedados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)".
+También puedes usar ejecutores autoalojados con un servidor proxy. Para obtener más información, consulta "[Usar un servidor proxy con ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
 ## Seguridad de ejecutores autoalojdados con repositorios públicos
 
@@ -175,7 +177,7 @@ También puedes utilizar los ejecutores auto-hospedados con un servidor proxy. P
 {% data reusables.github-actions.self-hosted-runner-security %}
 {% endif %}
 
-Esto no es un problema con los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, porque cada ejecutor hospedado en {% data variables.product.prodname_dotcom %} siempre es una máquina virtual aislada y limpia y se destruye al final de la ejecución del trabajo.
+Este no es un problema con los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, ya que cada uno de estos ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre constituye una máquina virtual limpia y aislada, la cual se destruya al final de la ejecución del job.
 
 Los flujos de trabajo que no son de confianza y se ejecutan en tu ejecutor autoalojado plantean riesgos de seguridad considerables para tu máquina y entorno de red, en especial si tu máquina se mantiene en su entorno entre trabajos. Algunos de los riesgos incluyen:
 

@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -19,11 +20,11 @@ shortTitle: 提交签名验证
 
 ## 关于提交签名验证
 
-您可以在本地签署提交和标签，让其他人对您所做更改的源充满信心。 如果提交或标签具有可加密验证的 GPG 或 S/MIME 签名，GitHub 会对提交或标签标记 {% ifversion fpt %}“已验证”或“部分验证”{% else %}“已验证”{% endif %}
+您可以在本地签署提交和标签，让其他人对您所做更改的源充满信心。 如果提交或标签具有可加密验证的 GPG 或 S/MIME 签名，GitHub 会对提交或标签标记 {% ifversion fpt or ghec %}“已验证”或“部分验证”{% else %}“已验证”{% endif %}
 
 ![验证的提交](/assets/images/help/commits/verified-commit.png)
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 提交和标签具有以下验证状态，具体取决于您是否启用了警戒模式。 默认情况下未启用警戒模式。 有关如何启用警戒模式的更多信息，请参阅“[显示所有提交的验证状态](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)”。
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
@@ -48,7 +49,7 @@ shortTitle: 提交签名验证
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data variables.product.product_name %} 将自动使用 GPG 通过 {% data variables.product.product_name %} web 界面对您创建的提交进行签名，当您压缩且合并您不是其作者的拉取请求时除外。 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 钥匙的完整指纹是 `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。
 {% endif %}
 
@@ -56,7 +57,7 @@ shortTitle: 提交签名验证
 
 您可以使用 GPG 通过自己生成的 GPG 密钥对验证签名。
 
-{% data variables.product.product_name %} 使用 OpenPGP 库确认您本地签名的提交和标记，是否根据您添加到 {% data variables.product.product_name %} 帐户的公钥进行加密验证。
+{% data variables.product.product_name %} uses OpenPGP libraries to confirm that your locally signed commits and tags are cryptographically verifiable against a public key you have added to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 要使用 GPG 对提交签名并在 {% data variables.product.product_name %} 上验证这些提交，请执行以下步骤：
 
@@ -83,10 +84,10 @@ shortTitle: 提交签名验证
 
 无需将公钥上传到 {% data variables.product.product_name %}。
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## 自动程序的签名验证
 
-Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. 如果提交或标记具有密码可验证的自动程序签名，则 {% data variables.product.product_name %} 会将提交或标记标示为已验证。
+需要提交签名的组织和 {% data variables.product.prodname_github_apps %} 可使用自动程序对提交签名。 如果提交或标记具有密码可验证的自动程序签名，则 {% data variables.product.product_name %} 会将提交或标记标示为已验证。
 
 自动程序的签名验证仅在请求被验证为 {% data variables.product.prodname_github_app %} 或自动程序并且不含自定义作者信息、自定义提交者信息、自定义签名信息（如提交 API）时才有效。
 {% endif %}

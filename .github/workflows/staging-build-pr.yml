@@ -30,7 +30,7 @@ jobs:
 
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -77,7 +77,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Required for `npm pkg ...` command support
@@ -101,11 +101,12 @@ jobs:
 
       - name: Delete heavy things we won't need deployed
         run: |
-          # Non-WIP translations we don't support yet.
-          rm -fr translations/de* translations/ru* translations/ko* translations/ru*
-
           # Not needed to run after having been built.
           rm -fr .next/cache
+
+          # The dereferenced file is not used in runtime once the
+          # decorated file has been created from it.
+          rm -fr lib/rest/static/dereferenced
 
       - name: Create an archive
         run: |
@@ -127,10 +128,6 @@ jobs:
             app.json \
             Procfile
 
-          ls -lh app.tar
-          zstd -q app.tar -o app.tar.zst
-          ls -lh app.tar.zst
-
       # Upload only the files needed to run this application.
       # We are not willing to trust the rest (e.g. script/) for the remainder
       # of the deployment process.
@@ -138,4 +135,4 @@ jobs:
         uses: actions/upload-artifact@27121b0bdffd731efa15d66772be8dc71245d074
         with:
           name: pr_build
-          path: app.tar.zst
+          path: app.tar

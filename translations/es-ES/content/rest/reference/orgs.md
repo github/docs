@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -17,7 +18,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Bloquear usuarios
 
 El token que se utiliza para autenticar la llamada debe tener el alcance de `admin:org` para poder hacer cualquier llamada de bloqueo para una organización. De lo contrario, la respuesta devolverá un `HTTP 404`.
@@ -39,6 +40,14 @@ El token que se utiliza para autenticar la llamada debe tener el alcance de `adm
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'outside-collaborators' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% ifversion fpt or ghes > 3.4  %}
+## Custom repository roles
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'custom_roles' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Webhooks
 

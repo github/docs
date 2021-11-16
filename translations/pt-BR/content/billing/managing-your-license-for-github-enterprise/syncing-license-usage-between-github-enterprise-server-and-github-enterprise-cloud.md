@@ -3,6 +3,7 @@ title: Sincronizando o uso da licença entre o GitHub Enterprise Server e o GitH
 intro: 'Você pode sincronizar o uso da licença de {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_ghe_cloud %} para ver todas as licenças usadas por toda a sua empresa em um só lugar e garantir que as pessoas com contas em ambos os ambientes consomem apenas uma licença de usuário.'
 permissions: 'Enterprise owners can sync license usage between enterprise accounts on {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.'
 versions:
+  ghec: '*'
   ghes: '*'
 type: how_to
 topics:
@@ -15,13 +16,13 @@ shortTitle: Sincronizar uso da licença
 
 {% data reusables.enterprise-licensing.about-license-sync %}
 
-Se você permitir que {% data variables.product.product_location %} se conecte a {% data variables.product.prodname_dotcom_the_website %}, você poderá sincronizar automaticamente o uso da licença entre suas contas corporativas. A sincronização automática garante que você veja as informações atualizadas da licença em {% data variables.product.prodname_dotcom_the_website %}. Se você não deseja permitir que {% data variables.product.product_location %} conecte-se a {% data variables.product.prodname_dotcom_the_website %}, você poderá sincronizar manualmente o uso de licença, fazendo o upload de um arquivo de {% data variables.product.product_location %} para {% data variables.product.prodname_dotcom_the_website %}.
+Se você permitir que {% data variables.product.product_location_enterprise %} se conecte à sua conta corporativa em {% data variables.product.prodname_dotcom_the_website %}, você poderá sincronizar o uso da licença entre os ambientes automaticamente. A sincronização automática garante que você veja as informações atualizadas da licença em {% data variables.product.prodname_dotcom_the_website %}. Se você não deseja permitir que {% data variables.product.product_location %} conecte-se a {% data variables.product.prodname_dotcom_the_website %}, você poderá sincronizar manualmente o uso de licença, fazendo o upload de um arquivo de {% data variables.product.product_location %} para {% data variables.product.prodname_dotcom_the_website %}.
 
 Para obter mais informações sobre licenças e uso para {% data variables.product.prodname_ghe_server %}, consulte "[Sobre licenças para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)".
 
 ## Sincronizar automaticamente o uso da licença
 
-É possível usar o {% data variables.product.prodname_github_connect %} para sincronizar automaticamente o uso e a contagem da licença de usuários entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitar a sincronização de licenças de usuário entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}](/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud)".
+É possível usar o {% data variables.product.prodname_github_connect %} para sincronizar automaticamente o uso e a contagem da licença de usuários entre o {% data variables.product.prodname_ghe_server %} e o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitando sincronização automática de licença de usuário entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud){% ifversion ghec %}" na documentação {% data variables.product.prodname_ghe_server %} .{% elsif ghes %}".{% endif %}
 
 ## Uso da licença sincronizado manualmente
 

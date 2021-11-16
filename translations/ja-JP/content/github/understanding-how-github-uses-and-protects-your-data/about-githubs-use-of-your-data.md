@@ -6,6 +6,7 @@ redirect_from:
 intro: '{% data variables.product.product_name %}はユーザのリポジトリのデータを使い、ユーザを関連するツール、人々、プロジェクト、情報につなげます。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Policy
   - Legal
@@ -20,7 +21,7 @@ shortTitle: GitHub's use of your data
 
 {% data reusables.user_settings.export-data %}詳細は「[個人アカウントのデータのアーカイブをリクエストする](/articles/requesting-an-archive-of-your-personal-account-s-data)」を参照してください。
 
-プライベートリポジトリのデータの利用をオプトインした場合でも、プライベートデータ、ソースコード、企業秘密は引き続き弊社の[利用規約](/articles/github-terms-of-service/)の下で機密事項として扱われます。 弊社が知る情報は、集約されたデータからのみです。 詳しい情報については、「[プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)」を参照してください。
+プライベートリポジトリのデータの利用をオプトインした場合でも、プライベートデータ、ソースコード、企業秘密は引き続き弊社の[利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service)の下で機密事項として扱われます。 弊社が知る情報は、集約されたデータからのみです。 詳しい情報については、「[プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)」を参照してください。
 
 メタデータあるいは集約されたデータを使う大きな新機能は、[{% data variables.product.prodname_dotcom %}blog](https://github.com/blog)でアナウンスします。
 
@@ -34,6 +35,6 @@ shortTitle: GitHub's use of your data
 
 ## プライバシーとデータ共有
 
-プライベートリポジトリのデータはマシンによってスキャンされ、{% data variables.product.product_name %}のスタッフが読むことは決してありません。 弊社の[利用規約](/articles/github-terms-of-service/#3-access)に記載されている場合を除き、人の眼はプライベートリポジトリの内容を見ることはありません。
+プライベートリポジトリのデータはマシンによってスキャンされ、{% data variables.product.product_name %}のスタッフが読むことは決してありません。 弊社の[利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access)に記載されている場合を除き、人の眼はプライベートリポジトリの内容を見ることはありません。
 
 あなたの個人データあるいはリポジトリデータがサードパーティと共有されることはありません。 弊社は、分析から得られた集約データをパートナーと共有することがあります。

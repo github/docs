@@ -19,10 +19,6 @@ shortTitle: Configure package ecosystems
 
 新しいパッケージがアップロードされないようにするには、以前に有効にしたエコシステムを**読み取り専用**に設定し、既存のパッケージをダウンロードできるようにします。
 
-{% ifversion ghes = 2.22 %}
-ー
-Dockerで {% data variables.product.prodname_registry %} を使用するには、インスタンスで Subdomain Isolation を有効にする必要があります。 詳しい情報については、「[Subdomain Isolation の有効化](/enterprise/admin/configuration/enabling-subdomain-isolation)」を参照してください。
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
