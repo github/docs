@@ -256,7 +256,7 @@ jobs:
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-Command echoing is disabled by default. However, a workflow command is echoed if there are any error occurs processing the command.
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
 
 The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
 
