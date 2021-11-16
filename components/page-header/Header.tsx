@@ -18,11 +18,10 @@ export const Header = () => {
   const router = useRouter()
   const { relativePath, error } = useMainContext()
   const { t } = useTranslation(['header', 'homepage'])
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(
+    router.pathname !== '/' && router.query.query && true
+  )
   const [scroll, setScroll] = useState(false)
-
-  // the graphiql explorer utilizes `?query=` in the url and we don't want our search bar to mess that up
-  const updateSearchParams = router.asPath !== 'graphql/overview/explorer'
 
   useEffect(() => {
     function onScroll() {
@@ -69,7 +68,7 @@ export const Header = () => {
           {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
           {relativePath !== 'index.md' && error !== '404' && (
             <div className="d-inline-block ml-3">
-              <Search iconSize={16} updateSearchParams={updateSearchParams} isHeaderSearch={true} />
+              <Search iconSize={16} isHeaderSearch={true} />
             </div>
           )}
         </div>
@@ -125,8 +124,8 @@ export const Header = () => {
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
-                <div className="my-2 pt-3 mx-3">
-                  <Search iconSize={16} updateSearchParams={updateSearchParams} />
+                <div className="pt-3 mx-3">
+                  <Search iconSize={16} isMobileSearch={true} />
                 </div>
               )}
             </div>
