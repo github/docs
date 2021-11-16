@@ -58,7 +58,8 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
-# review when someone opens a pull request.
+# review when someone opens a pull request. But an approval
+# from either @global-owner1 or @global-owner2 is sufficient.
 *       @global-owner1 @global-owner2
 
 # Order is important; the last matching pattern takes the most
