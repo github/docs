@@ -10,7 +10,7 @@ redirect_from:
 intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '''
   ghae: '*'
   ghec: '*'
 topics:
@@ -40,7 +40,7 @@ If an enterprise uses {% data variables.product.prodname_emus %}, members are pr
 
 {% data reusables.gated-features.enterprise-accounts %}
 
-{% endif %}
+{% end if %}
 
 ## Further reading
 
