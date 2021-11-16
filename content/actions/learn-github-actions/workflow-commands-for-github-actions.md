@@ -254,13 +254,13 @@ jobs:
 ::echo::off
 ```
 
-The `echo` command lets you enable or disable echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run log does not show the command itself. If you enable command echoing, then the log shows the command output, like `::set-output name={name}::{value}`.
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-Command echoing is disabled by default. A workflow command is echoed if any error occurs processing the command, however.
+Command echoing is disabled by default. However, a workflow command is echoed if there are any error occurs processing the command.
 
-You can enable command echoing globally by turning on step debug logging (`ACTIONS_STEP_DEBUG` secret). For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` command lets you enable command echoing more granular.
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
 
-The commands `debug`, `notice`, `warning`, and `error` do not support echoing because they print messages to the log anyway.
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
 
 ### Example toggling command echoing
 
@@ -278,12 +278,14 @@ jobs:
           echo '::set-output name=action_echo::disabled'
 ```
 
-Turns command echoing on and off and sets an output parameter in both states. Only the second `set-output` and `echo` commands will show in the log because command echoing is enabled when they are run. Command echoing is disabled when all other commands are run and they are thus not printed. The output parameter is set in all cases.
+The step above prints the following lines to the log:
 
 ```
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
+
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
 
 ## Sending values to the pre and post actions
 
