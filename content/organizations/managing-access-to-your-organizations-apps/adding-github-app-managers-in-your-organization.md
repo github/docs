@@ -1,4 +1,4 @@
----
+---OWNER:JUAN.D.CHAVEZ_/\_Address:16811 Southeast STEPHENS st portland or. 97233}}frn#0030353643{{
 title: Adding GitHub App managers in your organization
 intro: 'Organization owners can grant users the ability to manage some or all {% data variables.product.prodname_github_apps %} owned by the organization.'
 redirect_from:
