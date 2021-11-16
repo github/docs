@@ -34,12 +34,15 @@ topics:
 
 リポジトリのコードのセキュリティの脆弱性について、非公開で議論して修正します。 その後、セキュリティアドバイザリを公開して、コミュニティに脆弱性を警告し、アップグレードするようコミュニティメンバーに促すことができます。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
+{% endif %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
+
 ### {% data variables.product.prodname_dependabot_alerts %} およびセキュリティアップデート
 
 セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、プルリクエストを自動的に生成してこれらの依存関係を更新するかどうかを選択します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 {% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes < 3.3 or ghae-issue-4864 %}
 ### {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
@@ -47,7 +50,7 @@ topics:
 セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、それらのアラートを管理します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 ### {% data variables.product.prodname_dependabot %} バージョンアップデート
 
 {% data variables.product.prodname_dependabot %}を使って、依存関係を最新に保つためのPull Requestを自動的に発行してください。 これは、依存関係の古いバージョンの公開を減らすために役立ちます。 新しいバージョンを使用すると、セキュリティの脆弱性が発見された場合にパッチの適用が容易になり、さらに脆弱性のある依存関係を更新するため {% data variables.product.prodname_dependabot_security_updates %} がプルリクエストを発行することも容易になります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.2'
 type: how_to
 topics:
   - Repositories
@@ -18,11 +19,15 @@ topics:
 shortTitle: Dependabot PRの管理
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## {% data variables.product.prodname_dependabot %} のPull Requestについて
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-{% data variables.product.prodname_dependabot %} がPull Requestを発行すると、リポジトリに対して選択した方法で通知されます。 各Pull Requestには、パッケージマネージャーから取得した、提案された変更に関する詳細情報が含まれています。 これらのPull Requestは、リポジトリで定義されている通常のチェックとテストに従います。 また、十分な情報がある場合は、互換性スコアが表示されます。 これは、変更をマージするかどうかを決める際にも役立ちます。 このスコアについての詳しい情報は、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
+{% data variables.product.prodname_dependabot %} がプルリクエストを発行すると、リポジトリに対して選択した方法で通知されます。 各プルリクエストには、パッケージマネージャーから取得した、提案された変更に関する詳細情報が含まれています。 これらのプルリクエストは、リポジトリで定義されている通常のチェックとテストに従います。
+{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. これは、変更をマージするかどうかを決める際にも役立ちます。 For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."{% endif %}
 
 管理する依存関係が多数ある場合は、各パッケージマネージャーの設定をカスタマイズして、プルリクエストに特定のレビュー担当者、アサインされた人、ラベルを付けることができます。 詳しい情報については、「[依存関係の更新をカスタマイズする](/github/administering-a-repository/customizing-dependency-updates)」をご覧ください。
 
@@ -30,17 +35,17 @@ shortTitle: Dependabot PRの管理
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. セキュリティおよびバージョン更新のPull Requestは、簡単に特定できます。
-    - 作者は [dependabot](https://github.com/dependabot) で、{% data variables.product.prodname_dependabot %} で使用されるボットアカウントです。
+1. Any pull requests for security or version updates are easy to identify.
+    - The author is {% ifversion fpt or ghec %}[dependabot](https://github.com/dependabot){% else %}dependabot{% endif %}, the bot account used by {% data variables.product.prodname_dependabot %}.
     - デフォルトでは、`dependencies` ラベルが付いています。
 
 ## {% data variables.product.prodname_dependabot %} Pull Requestのリベース戦略を変更する
 
-デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にPull Requestをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy) 」を参照してください。
+デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にプルリクエストをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy) 」を参照してください。
 
 ## {% data variables.product.prodname_dependabot %} Pull Requestをコメントコマンドで管理する
 
-{% data variables.product.prodname_dependabot %} はコメント内の単純なコマンドに応答します。 それぞれのPull Requestには、"{% data variables.product.prodname_dependabot %} commands and options"セクションの下に、そのPull Requestを処理するのに使えるコマンド（たとえばPull Requestのマージ、squash、再オープン、クローズ、リベース）の詳細があります。 これらの自動生成されたPull Requestをできるだけ簡単にトリアージできるようにすることが目的です。
+{% data variables.product.prodname_dependabot %} はコメント内の単純なコマンドに応答します。 それぞれのPull Requestには、"{% data variables.product.prodname_dependabot %} commands and options"セクションの下に、そのPull Requestを処理するのに使えるコマンド（たとえばPull Requestのマージ、squash、再オープン、クローズ、リベース）の詳細があります。 これらの自動生成されたプルリクエストをできるだけ簡単にトリアージできるようにすることが目的です。
 
 {% data variables.product.prodname_dependabot %} Pull Requestでは、以下のいずれのコマンドを使うこともできます。
 

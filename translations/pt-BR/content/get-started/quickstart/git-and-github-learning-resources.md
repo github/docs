@@ -35,7 +35,7 @@ Conheça melhor o {% data variables.product.product_name %} por meio dos nossos 
 
 ### Branches, bifurcações e pull requests
 
-Saiba como [criar branches no Git ](http://learngitbranching.js.org/) com uma ferramenta interativa. Leia sobre [bifurcações](/articles/about-forks) e [pull requests](/articles/using-pull-requests) e também sobre [como usamos pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) em {% data variables.product.prodname_dotcom %}. Acesse as referências sobre como usar {% data variables.product.prodname_dotcom %} na [linha de comando](https://cli.github.com/).
+Saiba como [criar branches no Git ](http://learngitbranching.js.org/) com uma ferramenta interativa. Leia sobre [bifurcações](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) e [pull requests](/articles/using-pull-requests) e também sobre [como usamos pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) em {% data variables.product.prodname_dotcom %}. Acesse as referências sobre como usar {% data variables.product.prodname_dotcom %} na [linha de comando](https://cli.github.com/).
 
 ### Fique antenado
 

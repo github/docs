@@ -182,14 +182,14 @@ O {% data variables.product.prodname_dotcom %} gera a lista de arquivos alterado
 
 Os diffs limitam-se a 300 arquivos. Se houver arquivos alterados que não correspondam aos primeiros 300 arquivos retornados pelo filtro, o fluxo de trabalho não será executado. Talvez seja necessário criar filtros mais específicos para que o fluxo de trabalho seja executado automaticamente.
 
-Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/articles/about-comparing-branches-in-pull-requests)".
+Para obter mais informações, consulte "[Sobre comparação de branches em pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)".
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
 Ao usar a palavra-chave `workflow_call`, você poderá, opcionalmente, especificar entradas que são passadas para o fluxo de trabalho chamado no fluxo de trabalho de chamada. As entradas para fluxos de trabalho reutilizáveis são especificadas com o mesmo formato que entradas de ações. Para obter mais informações sobre as entradas, consulte "[Sintaxe de metadados para o GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)". Para obter mais informações sobre a palavra-chave `workflow_call`, consulte "[Eventos que acionam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
-Além dos parâmetros de entrada padrão que estão disponíveis, `on.workflow_call.inputs` exige um parâmetro `tipo`. Para obter mais informações, consulte [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype).
+Além dos parâmetros de entrada padrão que estão disponíveis, `on.workflow_call.inputs` exige um parâmetro `tipo`. Para obter mais informações, consulte [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
 Se um parâmetro `padrão` não fordefinido, o valor padrão da entrada será `falso` para um booleano, `0` para um número e `""` para uma string.
 
@@ -222,7 +222,7 @@ jobs:
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 
-## `on.workflow_call.<input_id>.type`
+## `on.workflow_call.inputs.<input_id>.type`
 
 Necessário se a entrada for definida para a palavra-chave `on.workflow_call`. O valor deste parâmetro é uma string que especifica o tipo de dados da entrada. Este deve ser um dos valores a seguir: `booleano`, `número` ou `string`.
 
@@ -849,7 +849,7 @@ jobs:
 
 Executa programas de linha de comando usando o shell do sistema operacional. Se você não informar um `name`, o nome da etapa será configurado por padrão como o texto indicado no comando `run`.
 
-Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte "[Usar um shell específico](#using-a-specific-shell)".
+Por padrão, os comandos run usam shells de não login. Você pode escolher um shell diferente e personalizar o shell usado para executar comandos. Para obter mais informações, consulte [`trabalhos.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
 Cada palavra-chave `run` representa um novo processo e shell no ambiente do executor. Quando você fornece comandos de várias linhas, cada linha será executada no mesmo shell. Por exemplo:
 
@@ -877,7 +877,7 @@ Com a palavra-chave `working-directory` (diretório de trabalho), é possível e
   working-directory: ./temp
 ```
 
-### Usar um shell específico
+## `jobs.<job_id>.steps[*].shell`
 
 Você pode anular as configurações padrão de shell no sistema operacional do executor usando a palavra-chave `shell`. É possível usar palavras-chave integradas a `shell` ou definir um conjunto personalizado de opções de shell. O comando do shell que é executado internamente executa um arquivo temporário que contém os comandos especificados na palavra-chave `executar`.
 
@@ -1272,7 +1272,7 @@ jobs:
 
 ## `jobs.<job_id>.container.image`
 
-Imagem Docker a ser usada como contêiner para executar a ação. The value can be the Docker Hub image name or a  registry name.
+Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro.
 
 ## `jobs.<job_id>.container.credentials`
 
@@ -1359,7 +1359,7 @@ serviços:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. The value can be the Docker Hub image name or a  registry name.
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro.
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1455,7 +1455,7 @@ jobs:
 
 ## `jobs.<job_id>.with.<input_id>`
 
-Um par composto de um identificador de string para a entrada e o valor da entrada. O identificador deve corresponder ao nome de uma entrada definida por [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) no fluxo de trabalho chamado. O tipo de dado do valor deve corresponder ao tipo definido por [`on.workflow_call.<input_id>.type`](#onworkflow_callinput_idtype) no fluxo de trabalho chamado.
+Um par composto de um identificador de string para a entrada e o valor da entrada. O identificador deve corresponder ao nome de uma entrada definida por [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) no fluxo de trabalho chamado. O tipo de dado do valor deve corresponder ao tipo definido por [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) no fluxo de trabalho chamado.
 
 Contextos de expressão permitidos: `github` e `needs`.
 

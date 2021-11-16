@@ -8,6 +8,7 @@ versions:
 topics:
   - Codespaces
 children:
+  - /codespaces-lifecycle
   - /creating-a-codespace
   - /developing-in-a-codespace
   - /using-source-control-in-your-codespace

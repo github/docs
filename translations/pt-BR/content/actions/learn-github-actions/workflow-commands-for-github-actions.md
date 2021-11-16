@@ -66,13 +66,13 @@ A tabela a seguir mostra quais funções do conjunto de ferramentas estão dispo
 
 | Função do kit de ferramentas | Comando equivalente do fluxo de trabalho                              |
 | ---------------------------- | --------------------------------------------------------------------- |
-| `core.addPath`               | Accessible using environment file `GITHUB_PATH`                       |
+| `core.addPath`               | Acessível usando o arquivo de ambiente `GITHUB_PATH`                  |
 | `core.debug`                 | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 | `core.notice`                | `notice` 
 {% endif %}
 | `core.error`                 | `erro`                                                                |
 | `core.endGroup`              | `endgroup`                                                            |
-| `core.exportVariable`        | Accessible using environment file `GITHUB_ENV`                        |
+| `core.exportVariable`        | Acessível usando o arquivo de ambiente `GITHUB_ENV`                   |
 | `core.getInput`              | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}`      |
 | `core.getState`              | Acessível por meio do uso da variável de ambiente `STATE_{NAME}`      |
 | `core.isDebug`               | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG`      |
@@ -273,12 +273,33 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 {% warning %}
 
-**Aviso:** O Powershell não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
+**Aviso:** no Windows, o PowerShell de legado (`shell: powershell`) não usa UTF-8 por padrão. Certifique-se de escrever os arquivos usando a codificação correta. Por exemplo, você deve definir a codificação UTF-8 ao definir o caminho:
 
 ```yaml
-steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: powershell
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
+
+Ou mude para PowerShell Core, cujo padrão é UTF-8:
+
+```yaml
+jobs:
+  modern-pwsh-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
+```
+
+More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
+
+> ### Leitura opcional: A perspectiva entre plataformas: PowerShell _Core_:
+> 
+> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
 
 {% endwarning %}
 

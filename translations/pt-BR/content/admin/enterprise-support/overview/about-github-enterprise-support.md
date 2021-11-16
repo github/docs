@@ -48,7 +48,7 @@ Para obter mais informações, consulte a seção "[Sobre o {% data variables.co
 ## Entrar em contato com o {% data variables.contact.enterprise_support %}
 
 {% ifversion ghes %}
-{% data reusables.support.zendesk-deprecation %}
+{% data reusables.support.zendesk-old-tickets %}
 {% endif %}
 
 

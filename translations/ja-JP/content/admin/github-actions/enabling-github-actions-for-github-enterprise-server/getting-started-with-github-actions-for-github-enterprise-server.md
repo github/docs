@@ -85,8 +85,8 @@ If you plan to enable {% data variables.product.prodname_actions %} for the user
 - [Google Cloud Plafform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
 - [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
 - [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
-- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
-- [XenServer](/admin/installation/installing-github-enterprise-server-on-xenserver#hardware-considerations)
+- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations){% ifversion ghes < 3.3 %}
+- [XenServer](/admin/installation/installing-github-enterprise-server-on-xenserver#hardware-considerations){% endif %}
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
