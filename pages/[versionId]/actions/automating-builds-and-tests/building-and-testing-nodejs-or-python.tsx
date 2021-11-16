@@ -63,7 +63,7 @@ function PageInner() {
         </article>
 
         <div className="col-6">
-          <div className="fix position-sticky top-0 mt-3">
+          <div className="fix position-sticky mt-3" style={{ top: '6.5em' }}>
             <div className="d-flex flex-justify-between flex-items-center mb-3">
               <CodeLanguagePicker variant="tabs" />
               <div className="flash">

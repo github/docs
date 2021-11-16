@@ -543,7 +543,7 @@ describe('server', () => {
       )
       expect(
         $(
-          `[data-testid=article-version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
+          `[data-testid="mobile-header"] [data-testid=article-version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
         ).length
       ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
@@ -864,8 +864,8 @@ describe('extended Markdown', () => {
   test('renders styled notes within liquid', async () => {
     const $ = await getDOM('/en/articles/removing-a-member-from-your-organization')
     const note = $('.extended-markdown.note').eq(0)
-    expect(note.hasClass('color-border-info')).toBe(true)
-    expect(note.hasClass('color-bg-info')).toBe(true)
+    expect(note.hasClass('color-border-accent-emphasis')).toBe(true)
+    expect(note.hasClass('color-bg-accent')).toBe(true)
   })
 
   test('renders platform-specific content', async () => {

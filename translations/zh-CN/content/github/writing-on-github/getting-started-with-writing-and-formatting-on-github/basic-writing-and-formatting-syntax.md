@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 基本格式语法
 ---
 
@@ -55,7 +56,7 @@ Text that is not a quote
 
 ## 引用代码
 
-使用单反引号可标注句子中的代码或命令。 倒引号中的文本不会被格式化。{% ifversion fpt or ghae-next or ghes > 3.1 %} 您也可以按 `command` 或 `Ctrl` + `e` 键盘快捷键将代码块的倒引号插入到 Markdown 一行中。{% endif %}
+使用单反引号可标注句子中的代码或命令。 倒引号中的文本不会被格式化。{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} 您也可以按 `command` 或 `Ctrl` + `e` 键盘快捷键将代码块的倒引号插入到 Markdown 一行中。{% endif %}
 
 ```markdown
 使用 `git status` 列出尚未提交的所有新文件或已修改文件。
@@ -80,7 +81,7 @@ git commit
 
 ## 链接
 
-通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae-next or ghes > 3.1 %}您也可以使用键盘快捷键 `command + k` 创建链接。{% endif %}
+通过将链接文本包含在方括号 `[ ]` 内，然后将 URL 包含在括号 `( )` 内，可创建内联链接。 {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}您也可以使用键盘快捷键 `command + k` 创建链接。{% endif %}
 
 `本站点是使用 [GitHub Pages](https://pages.github.com/) 构建的。`
 
@@ -100,39 +101,39 @@ git commit
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## 图像
 
-You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+您可以通过添加 `!` 并在`[ ]`中包装 alt 文本来显示图像。 然后将图像链接包装在括号 `()` 中。
 
 `![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![渲染的图像](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} 支持将图像嵌入到您的议题、拉取请求{% ifversion fpt or ghec %}、讨论{% endif %}、评论和 `.md` 文件中。 您可以从仓库显示图像、添加在线图像链接或上传图像。 更多信息请参阅“[上传资产](#uploading-assets)”。
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+**提示：**想要显示仓库中的图像时，应该使用相对链接而不是绝对链接。
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+下面是一些使用相对链接显示图像的示例。
 
-| 上下文                                                         | Relative Link                                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
-| In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
-| In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
-| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
-| In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| 上下文                | 相对链接                                                                   |
+| ------------------ | ---------------------------------------------------------------------- |
+| 在同一个分支上的 `.md` 文件中 | `/assets/images/electrocat.png`                                        |
+| 在另一个分支的 `.md` 文件中  | `/../main/assets/images/electrocat.png`                                |
+| 在仓库的议题、拉取请求和评论中    | `../blob/main/assets/images/electrocat.png`                            |
+| 在另一个仓库的 `.md` 文件中  | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| 在另一个仓库的议题、拉取请求和评论中 | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**注意**：上表中的最后两个相对链接只有在查看者至少能够读取包含这些图像的私有仓库时，才可用于私有仓库中的图像。
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+更多信息请参阅“[相对链接](#relative-links)”。
 
 
 ## 列表
@@ -184,7 +185,7 @@ For more information, see "[Relative Links](#relative-links)."
 
 ![含一个嵌套列表项的列表](/assets/images/help/writing/nested-list-example-3.png)
 
-您可以使用相同的方法创建多层级嵌套列表。 For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+您可以使用相同的方法创建多层级嵌套列表。 例如，由于在第一个嵌套列表项中，嵌套列表项内容`第一个嵌套列表项`之前有七个字符 (`␣␣␣␣␣-␣`)，因此需要将第二个嵌套列表项缩进七个空格。
 
 ```markdown
 100. 第一个列表项
@@ -208,7 +209,7 @@ For more information, see "[Relative Links](#relative-links)."
 
 ## 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% ifversion fpt or ghes or ghae or ghec %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
 `@github/support 您如何看待这些更新？`
 
@@ -232,11 +233,11 @@ For more information, see "[Relative Links](#relative-links)."
 
 ## 内容附件
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
+有些 {% data variables.product.prodname_github_apps %} 在 {% data variables.product.product_name %} 中提供链接到其注册域名的 URL 信息。 {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
 
 ![内容附件](/assets/images/github-apps/content_reference_attachment.png)
 
-要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% ifversion fpt %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
+要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% ifversion fpt or ghec %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
 
 内容附件不会显示在属于 markdown 链接的 URL 中。
 
@@ -262,25 +263,40 @@ Some {% data variables.product.prodname_github_apps %} provide information in {%
 
 通过在文本行之间留一个空白行，可创建新段落。
 
-{% ifversion fpt or ghae-next or ghes > 3.3 %}
+{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
 ## 脚注
 
-You can add footnotes to your content by using this bracket syntax:
+您可以使用此括号语法为您的内容添加脚注：
 
 ```
 Here is a simple footnote[^1].
 
+A footnote can also have multiple lines[^2].  
+
+You can also use words, to fit your writing style more closely[^note].
+
 [^1]: My reference.
+[^2]: Every new line should be prefixed with 2 spaces.  
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
 ```
 
-The footnote will render like this:
+脚注将呈现如下：
 
-![Rendered footnote](/assets/images/site/rendered-footnote.png)
+![渲染的脚注](/assets/images/site/rendered-footnote.png)
+
+{% tip %}
+
+**注意**：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
+
+{% endtip %}
 {% endif %}
 
-## Hiding content with comments
+## 隐藏有评论的内容
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+您可以通过在 HTML 评论中加入内容来指示 {% data variables.product.product_name %} 隐藏渲染的 Markdown 中的内容。
 
 <pre>
 &lt;!-- This content will not appear in the rendered Markdown --&gt;
@@ -296,9 +312,9 @@ You can tell {% data variables.product.product_name %} to hide content from the 
 
 更多信息请参阅 Daring Fireball 的“[Markdown 语法](https://daringfireball.net/projects/markdown/syntax#backslash)”。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
-## Disabling Markdown rendering
+## 禁用 Markdown 渲染
 
 {% data reusables.repositories.disabling-markdown-rendering %}
 

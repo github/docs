@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '>=3.2'
   ghae: next
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -23,9 +24,9 @@ topics:
 
 ## 关于 {% data variables.product.prodname_secret_scanning %} 的自定义模式
 
-{% data variables.product.company_short %} 在 {% ifversion fpt %}公共和私有{% endif %} 仓库中执行performs {% data variables.product.prodname_secret_scanning %}，以用于 {% data variables.product.company_short %} 和 {% data variables.product.company_short %} 模式提供的密钥模式。 有关 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划的更多信息，请参阅“<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">密码扫描合作伙伴计划</a>”。
+{% data variables.product.company_short %} 在 {% ifversion fpt or ghec %}公共和私有{% endif %} 仓库中执行performs {% data variables.product.prodname_secret_scanning %}，以用于 {% data variables.product.company_short %} 和 {% data variables.product.company_short %} 模式提供的密钥模式。 有关 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划的更多信息，请参阅“<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">密码扫描合作伙伴计划</a>”。
 
-但是，在某些情况下，您需要扫描 {% ifversion fpt %}私有{% endif %} 仓库中的其他密钥模式。 例如，您可能有一个属于您组织内部的密钥模式。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt %}private{% endif %} repository.
+但是，在某些情况下，您需要扫描 {% ifversion fpt or ghec %}私有{% endif %} 仓库中的其他密钥模式。 例如，您可能有一个属于您组织内部的密钥模式。 For these situations, you can define custom {% data variables.product.prodname_secret_scanning %} patterns in your enterprise, organization, or {% ifversion fpt or ghec %}private{% endif %} repository on {% data variables.product.product_name %}. You can define up to 100 custom patterns for each organization or enterprise account, and up to 20 custom patterns per {% ifversion fpt or ghec %}private{% endif %} repository.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
@@ -58,7 +59,7 @@ topics:
 
 ## 定义组织的自定义模式
 
-在定义自定义模式之前，您必须确保在组织中为要扫描的 {% ifversion fpt %}私有{% endif %} 仓库启用 {% data variables.product.prodname_secret_scanning %}。 要在您的组织中启用 {% data variables.product.prodname_secret_scanning %} 所有 {% ifversion fpt %}私有{% endif %} 仓库，请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
+在定义自定义模式之前，您必须确保在组织中为要扫描的 {% ifversion fpt or ghec %}私有{% endif %} 仓库启用 {% data variables.product.prodname_secret_scanning %}。 要在您的组织中启用 {% data variables.product.prodname_secret_scanning %} 所有 {% ifversion fpt or ghec %}私有{% endif %} 仓库，请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
 
 {% note %}
 
@@ -73,11 +74,11 @@ topics:
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
-创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描组织中的{% ifversion fpt %}私有{% endif %} 仓库中的任何密钥，包括其所有分支的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
+创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描组织中的{% ifversion fpt or ghec %}私有{% endif %} 仓库中的任何密钥，包括其所有分支的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
 ## Defining a custom pattern for an enterprise account
 
-Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
 
 {% note %}
 
@@ -89,12 +90,12 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
-1. Under "Secret scanning custom patterns", click {% ifversion fpt or ghes > 3.2 or ghae-next %}**New pattern**{% elsif ghes = 3.2 %}**New custom pattern**{% endif %}.
+1. Under "Secret scanning custom patterns", click {% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}**New pattern**{% elsif ghes = 3.2 %}**New custom pattern**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt %}private{% endif %} repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in {% ifversion fpt or ghec %}private{% endif %} repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Editing a custom pattern
 
 When you save a change to a custom pattern, this closes all the {% data variables.product.prodname_secret_scanning %} alerts that were created using the previous version of the pattern.

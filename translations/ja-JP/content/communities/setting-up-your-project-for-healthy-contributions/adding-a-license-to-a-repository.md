@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: リポジトリへのライセンスの追加
@@ -21,7 +22,7 @@ shortTitle: リポジトリへのライセンスの追加
 ## リポジトリにオープンソースライセンスを含める
 
 <!--Dotcom version uses the license tool-->
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. ファイル名フィールドで、*LICENSE* あるいは *LICENSE.md* (すべて大文字) と入力します。

@@ -7,6 +7,7 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/referencing-and-citing-content
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Referenciar & citar contenido
@@ -14,7 +15,7 @@ shortTitle: Referenciar & citar contenido
 
 ## Emitir un identificador persistente para tu repositorio con Zenodo
 
-Para hacer que sea más sencillo referenciar tus repositorios en la literatura académica, puedes crear identificadores persistentes, también conocidos como Identificadores de Objetos Digitales (DOI). Puedes utilizar la herramienta de archivo de datos [Zenodo](https://zenodo.org/about) para archivar un repositorio {% data variables.product.product_name %} y emitir un DOI para el archivo.
+Para hacer que sea más sencillo referenciar tus repositorios en la literatura académica, puedes crear identificadores persistentes, también conocidos como Identificadores de Objetos Digitales (DOI). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and issue a DOI for the archive.
 
 {% tip %}
 

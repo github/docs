@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces

@@ -1,16 +1,17 @@
 ---
 title: Eliminar artefactos de flujo de trabajo
 intro: 'Puedes reclamar el almacenamiento de {% data variables.product.prodname_actions %} que se haya utilizado si borras los artefactos antes de que venzan en {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Eliminar los artefactos de un flujo de trabajo
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Borrar un artefacto
 
@@ -30,13 +31,12 @@ shortTitle: Eliminar los artefactos de un flujo de trabajo
 {% data reusables.repositories.view-run %}
 1. Debajo de **Artefactos**, da clic en
 el {% octicon "trash" aria-label="The trash icon" %} junto al artefacto que quieras eliminar.
-    {% ifversion fpt or ghes > 3.0 or ghae %}
+    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
     ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}
     ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact.png)
     {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Configurar el periodo de retención para un artefacto
 
 Los periodos de retención para los artefactos y las bitácoras pueden configurarse a nivel de repositorio, organización y empresa. Para obtener más información, consulta la sección "[Límites de uso y administración](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".
@@ -46,4 +46,3 @@ También puedes definir un periodo de retención personalizado para los artefact
 ## Encontrar la fecha de vencimiento de un artefacto
 
 Puedes utilizar la API para confirmar la fecha de programación para el borrado de un artefacto. Para obtener más información, consulta el valor de `expires_at` que devuelve la acción "[Listar artefactos para un repositorio](/rest/reference/actions#artifacts)".
-{% endif %}

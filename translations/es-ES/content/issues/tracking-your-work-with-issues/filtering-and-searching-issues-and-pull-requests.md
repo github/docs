@@ -37,10 +37,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Issues
   - Pull requests
 shortTitle: Filtrar y buscar
+type: how_to
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -102,7 +104,7 @@ Puedes filtrar la lista de solicitudes de extracción de un repositorio para bus
 - Solicitudes de extracción que [requieren una revisión](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) antes de que puedan fusionarse
 - Solicitudes de extracción que ha aprobado un revisor
 - Solicitudes de extracción en las que un revisor ha pedido cambios
-- Solicitudes de cambios que revisaste{% ifversion fpt or ghae or ghes > 3.2 %}
+- Solicitudes de cambios que revisaste{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Solicitudes de cambios que alguien te pidió que revisaras directamente{% endif %}
 - Solicitudes de extracción que [alguien te ha pedido a ti que revises o a un equipo del que eres miembro](/articles/requesting-a-pull-request-review)
 
@@ -163,7 +165,7 @@ Con los términos de búsqueda de propuestas y solicitudes de extracción, puede
 - Filtrar propuestas y solicitudes de extracción por etiqueta: `state:open type:issue label:"bug"`
 - Filtra los términos de búsqueda utilizando `-` antes del término: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 {% tip %}
 
 **Tip:** Puedes filtrar propuestas y solicitudes de cambio por etiqueta utilizando el componente lógico OR o el AND.
@@ -173,7 +175,7 @@ Con los términos de búsqueda de propuestas y solicitudes de extracción, puede
 {% endtip %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 Para el caso de informes de problemas, también puedes utilizar la búsqueda para:
 
 - Filtrar los informes de problemas enlazados a una solicitud de extracción mediante una referencia de cierre: `linked:pr`
@@ -186,9 +188,9 @@ Para las solicitudes de cambios, también puedes utilizar la búsqueda para:
 - Filtrar solicitudes de extracción que haya aprobado un revisor: `state:open type:pr review:approved`
 - Filtrar solicitudes de extracción en las que un revisor haya solicitado cambios: `state:open type:pr review:changes_requested`
 - Filtrar solicitudes de extracción por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filtrar solicitudes de cambios por usuario específico [al que se le solicitó la revisión](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 %}
+- Filtrar solicitudes de cambios por usuario específico [al que se le solicitó la revisión](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 - Filtrar solicitudes de cambio que alguien te pidió revisar directamente: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filtrar solicitudes de extracción por el equipo que se solicita para revisión: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae %}
+- Filtrar solicitudes de extracción por el equipo que se solicita para revisión: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - Filtrar por las solicitudes de extracción enlazadas con un informe de problemas que se pudiera cerrar con dicha solicitud: `linked:issue`{% endif %}
 
 ## Clasificar propuestas y solicitudes de extracción

@@ -4,6 +4,7 @@ intro: 您可以通过公开或私下发布站点来管理项目站点的访问�
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
@@ -12,11 +13,11 @@ shortTitle: 更改站点可见性
 
 ## 关于 {% data variables.product.prodname_pages %} 站点的访问控制
 
-With access control for {% data variables.product.prodname_pages %}, you can restrict access to your {% data variables.product.prodname_pages %} site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+如果对 {% data variables.product.prodname_pages %} 具有访问控制权限，您便可以通过私密发布站点来限制访问您的 {% data variables.product.prodname_pages %} 站点。 只有对发布站点的仓库具有读取权限的人才可访问私密发布的站点。 您可以使用私密发布的站点与企业成员分享您的内部文档或知识库。
 
-If your enterprise uses {% data variables.product.prodname_emus %}, all {% data variables.product.prodname_pages %} sites are privately published. For more information about {% data variables.product.prodname_emus %}, see "[About  {% data variables.product.prodname_emus %}](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+如果您的企业使用 {% data variables.product.prodname_emus %}，则所有 {% data variables.product.prodname_pages %} 站点都是私密发布的。 有关 {% data variables.product.prodname_emus %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your sites privately or publicly to anyone on the internet. Access control is available for project sites that are published from a private or internal repository that are owned by the organization. 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+如果您的组织使用 {% data variables.product.prodname_ghe_cloud %} 而没有 {% data variables.product.prodname_emus %}，您可以选择在互联网上私下或公开地向任何人发布您的站点。 从组织拥有的私人或内部仓库发布的项目站点可使用访问控制。 您无法管理组织站点的访问控制。 有关 {% data variables.product.prodname_pages %} 站点类型的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 私下发布的站点与公开发布的站点位于不同的子域中。 这可确保您的 {% data variables.product.prodname_pages %} 站点从发布之日起是安全的：
 

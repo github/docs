@@ -1,7 +1,6 @@
 ---
 title: 构建和测试 Python
 intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 Python 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 hidden: true
 topics:
@@ -21,6 +21,7 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -252,7 +253,7 @@ steps:
 
 ### 要求文件
 
-在更新 `pip` 后，下一步通常是从 *requires.txt* 安装依赖项。 For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+在更新 `pip` 后，下一步通常是从 *requires.txt* 安装依赖项。 更多信息请参阅 [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file)。
 
 {% raw %}
 
@@ -380,7 +381,7 @@ steps:
 
 {% endraw %}
 
-The linting step has `continue-on-error: true` set. This will keep the workflow from failing if the linting step doesn't succeed. Once you've addressed all of the linting errors, you can remove this option so the workflow will catch new issues.
+嵌入步骤设置了 `continue-on-error: true`。 这可防止在嵌入步骤不成功时工作流程失败。 解决所有嵌入错误后，您可以删除此选项，以便工作流程捕获新问题。
 
 
 

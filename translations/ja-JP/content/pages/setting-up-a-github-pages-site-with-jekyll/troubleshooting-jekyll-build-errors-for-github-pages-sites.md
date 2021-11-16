@@ -30,6 +30,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Jekyllエラーのトラブルシューティング
@@ -40,7 +41,7 @@ shortTitle: Jekyllエラーのトラブルシューティング
 {% data variables.product.prodname_pages %} サイトをローカルで、または {% data variables.product.product_name %} 上でビルドしているときに Jekyll でエラーが発生した場合、そのエラーメッセージをトラブルシューティングに利用できます。 エラーメッセージとその見方に関する詳しい情報は、「[{% data variables.product.prodname_pages %} サイトのJekyllビルドエラーについて](/articles/about-jekyll-build-errors-for-github-pages-sites)」を参照してください。
 
 一般的なエラーメッセージが表示された場合は、よくある問題をチェックします。
-- サポートされていないプラグインを使用している。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。{% ifversion fpt %}
+- サポートされていないプラグインを使用している。 詳しい情報については、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。{% ifversion fpt or ghec %}
 - リポジトリがリポジトリサイズの制限を超えている。 詳しい情報については「[私のディスク容量はいくつですか？](/articles/what-is-my-disk-quota)」を参照してください。{% endif %}
 - *_config.yml* ファイルで `source` の設定を変更した。 ビルドプロセス中に、この設定は {% data variables.product.prodname_pages %} によってオーバーライドされます。
 - 公開ソースにあるファイル名にコロン (`:`) が含まれている。コロンは使用できません。
@@ -163,7 +164,7 @@ Jekyll データファイルの詳細は、Jekyll のドキュメンテーショ
 
 このエラーは、サイトの公開ソースに存在しないシンボリックリンク (symlink) がサイトに含まれていることを意味します。 シンボリックリンクの詳細は、Wikipedia で「[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)」を参照してください。
 
-トラブルシューティングするには、エラーメッセージで示されているファイルがサイトのビルドに使われているかどうかを確認します。 使われていない場合、またはファイルをシンボリックリンクにしたくない場合は、ファイルを削除します。 サイトのビルドにシンボリックファイルが必要な場合は、そのシンボリックリンクで参照されているファイルまたはディレクトリが、サイトの公開ソースにあることを確認してください。 外部アセットを除外するには、{% ifversion fpt %}`git submodule` または{% endif %}サードパーティのパッケージマネージャー、たとえば [Bower](https://bower.io/) などの使用を検討します。{% ifversion fpt %}詳細は「[{% data variables.product.prodname_pages %} でサブモジュールを使う ](/articles/using-submodules-with-github-pages)」を参照してください。{% endif %}
+トラブルシューティングするには、エラーメッセージで示されているファイルがサイトのビルドに使われているかどうかを確認します。 使われていない場合、またはファイルをシンボリックリンクにしたくない場合は、ファイルを削除します。 サイトのビルドにシンボリックファイルが必要な場合は、そのシンボリックリンクで参照されているファイルまたはディレクトリが、サイトの公開ソースにあることを確認してください。 外部アセットを除外するには、{% ifversion fpt or ghec %}`git submodule` または{% endif %}サードパーティのパッケージマネージャー、たとえば [Bower](https://bower.io/) などの使用を検討します。{% ifversion fpt or ghec %}詳細は「[{% data variables.product.prodname_pages %} でサブモジュールを使う ](/articles/using-submodules-with-github-pages)」を参照してください。{% endif %}
 
 ## Syntax error in 'for' loop
 

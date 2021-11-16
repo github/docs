@@ -11,7 +11,7 @@ export type LeadPropsT = {
 export function Lead({ children, className, as: Component = 'div', ...restProps }: LeadPropsT) {
   return (
     <Component
-      className={cx('f2 color-text-secondary mb-3', styles.container, className)}
+      className={cx('f2 color-fg-muted mb-3', styles.container, className)}
       {...restProps}
       {...(typeof children === 'string'
         ? { dangerouslySetInnerHTML: { __html: children } }
