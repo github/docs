@@ -18,7 +18,7 @@ miniTocMaxHeadingLevel: 3
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4742 %}
 ## 自动链接
 
 {% tip %}
@@ -177,6 +177,8 @@ miniTocMaxHeadingLevel: 3
 ## 环境
 
 环境 API 允许您创建、配置和删除环境。 有关环境的更多信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
+
+{% data reusables.gated-features.environments %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}

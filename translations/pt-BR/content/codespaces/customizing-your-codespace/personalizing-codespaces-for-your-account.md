@@ -14,7 +14,7 @@ topics:
   - Set up
   - Fundamentals
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: Personalize sua conta
+shortTitle: Personalize seus codespaces
 ---
 
 

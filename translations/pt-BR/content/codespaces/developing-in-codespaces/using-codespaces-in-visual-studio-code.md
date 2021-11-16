@@ -18,10 +18,17 @@ shortTitle: Visual Studio Code
 ---
 
  
+## Sobre {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}
+
+Você pode usar sua instalação local de {% data variables.product.prodname_vscode %} para criar, gerenciar, trabalhar e excluir codespaces. Para usar {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}, você deverá instalar a extensão de {% data variables.product.prodname_github_codespaces %}. Para obter mais informações sobre a configuração de codespaces em {% data variables.product.prodname_vscode %}, consulte "[pré-requisitos](#prerequisites)".
+
+Por padrão, se você criar um novo codespace em {% data variables.product.prodname_dotcom_the_website %}, ele será aberto no navegador. Se você preferir abrir qualquer codespace novo em {% data variables.product.prodname_vscode %} automaticamente, você pode definir seu editor padrão como {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)".
+
+Se você preferir trabalhar no navegador, mas deseja continuar usando suas extensões de {% data variables.product.prodname_vscode %} temas e atalhos existentes, você poderá ativar as Configurações Sincronizadas. Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para sua conta](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)".
 
 ## Pré-requisitos
 
-Para desenvolver em um código diretamente em {% data variables.product.prodname_vscode %}, você deve inscrever-se na extensão de {% data variables.product.prodname_github_codespaces %}. A extensão de {% data variables.product.prodname_github_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode %}.
+Para desenvolver-se em uma plataforma de codespace diretamente em {% data variables.product.prodname_vscode %}, você deverá instalar e efetuar o login na extensão {% data variables.product.prodname_github_codespaces %} com as suas credenciais de {% data variables.product.product_name %}. A extensão de {% data variables.product.prodname_github_codespaces %} exige a versão de outubro de 2020 1.51 ou posterior de {% data variables.product.prodname_vscode %}.
 
 Use o {% data variables.product.prodname_vs %} Marketplace para instalar a extensão [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces). Para obter mais informações, consulte [Extensão do Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) na documentação do {% data variables.product.prodname_vscode %}.
 
@@ -88,3 +95,13 @@ Se o codespace estiver sendo executado, será exibida uma mensagem perguntando s
 ## Excluir um codespace em {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
+
+## Switching to the Insiders build of {% data variables.product.prodname_vscode %}
+
+You can use the [Insiders Build of Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_codespaces %}.
+
+1. Na parte inferior esquerda da sua janela {% data variables.product.prodname_codespaces %}, selecione **Configurações de {% octicon "gear" aria-label="The settings icon" %}**.
+2. Na lista, selecione "Alternar para Versão de Insiders".
+
+   ![Clicking on "Insiders Build" in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
+3. Once selected, {% data variables.product.prodname_codespaces %} will continue to open in Insiders Version.

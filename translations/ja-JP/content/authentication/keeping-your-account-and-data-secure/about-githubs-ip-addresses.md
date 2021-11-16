@@ -27,6 +27,8 @@ shortTitle: GitHub's IP addresses
 
 {% endnote %}
 
+These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
+
 これらの範囲は[CIDR表記](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)になっています。 [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php)のようなツールを使って、CIDR表記をIPアドレスの範囲に変換できます。
 
 We make changes to our IP addresses from time to time. IP アドレスによる許可はお勧めしませんが、これらの IP 範囲を使用する場合は、API を定期的にモニタリングすることを強くお勧めします。

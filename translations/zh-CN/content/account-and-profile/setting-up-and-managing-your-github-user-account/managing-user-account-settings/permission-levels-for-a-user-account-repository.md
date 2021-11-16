@@ -73,19 +73,19 @@ shortTitle: 权限用户仓库
 
 | 操作                          | 更多信息                                                                                                                                                                       |
 |:--------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 复刻仓库                        | "[关于复刻](/github/collaborating-with-issues-and-pull-requests/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+| 复刻仓库                        | "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)" |{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 | 重命名除默认分支以外的分支               | "[重命名分支](/github/administering-a-repository/renaming-a-branch)" 
 {% endif %}
-| 在仓库中创建、编辑和删除关于提交、拉取请求和议题的评论 | <ul><li>"[关于议题](/github/managing-your-work-on-github/about-issues)"</li><li>"[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)"</li><li>"[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul>                                                                                                                                                  |
+| 在仓库中创建、编辑和删除关于提交、拉取请求和议题的评论 | <ul><li>"[关于议题](/github/managing-your-work-on-github/about-issues)"</li><li>"[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"</li><li>"[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"</li></ul>                                                                                                                                                  |
 | 在仓库中创建、分配、关闭和重新打开议题         | "[使用议题管理工作](/github/managing-your-work-on-github/managing-your-work-with-issues)"                                                                                          |
 | 在仓库中管理议题和拉取请求的标签            | "[标记议题和拉取请求](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)"                                                                                      |
 | 在仓库中管理议题和拉取请求的里程碑           | "[创建和编辑议题及拉取请求的里程碑](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)"                                                    |
 | 将仓库中的议题或拉取请求标记为重复项          | "[关于重复的议题和拉取请求](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)"                                                                            |
 | 在仓库中创建、合并和关闭拉取请求            | "[通过拉取请求提议工作更改](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-| 启用或禁用自动合并拉取请求               | "[自动合并拉取请求](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)"{% endif %}
-| 将建议的更改应用于仓库中的拉取请求           | "[在拉取请求中加入反馈](/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request)"                                                            |
+| 启用或禁用自动合并拉取请求               | "[自动合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)"{% endif %}
+| 将建议的更改应用于仓库中的拉取请求           | "[在拉取请求中加入反馈](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)"                             |
 | 从仓库的复刻创建拉取请求                | "[从复刻创建拉取请求](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)"                                                                     |
-| 提交影响拉取请求可合并性的拉取请求审查         | "[审查拉取请求中提议的更改](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"                                                         |
+| 提交影响拉取请求可合并性的拉取请求审查         | "[审查拉取请求中提议的更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"                          |
 | 为仓库创建和编辑 wiki               | "[关于 wikis](/communities/documenting-your-project-with-wikis/about-wikis)"                                                                                                 |
 | 为仓库创建和编辑发行版                 | “[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”                                                                                        |
 | 作为仓库的代码所有者                  | "[关于代码所有者](/articles/about-code-owners)" |{% ifversion fpt or ghae or ghec %}

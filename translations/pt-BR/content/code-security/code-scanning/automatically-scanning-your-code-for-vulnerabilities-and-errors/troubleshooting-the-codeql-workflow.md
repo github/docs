@@ -77,7 +77,7 @@ Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto dura
     fail-fast: false
     matrix:
       # Override automatic language detection by changing the list below.
-      # Supported options are listed in a comment in the default workflow.
+      # As opções compatíveis estão listadas em um comentário no fluxo de trabalho padrão.
       language: ['go', 'javascript']
 `</pre>
 
@@ -184,7 +184,7 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
 {% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 

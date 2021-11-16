@@ -81,7 +81,7 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 
 ## Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}Você também pode usar o atalho do teclado `command + k` para criar um link.{% endif %}
+Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}You can also use the keyboard shortcut `command + k` to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
@@ -263,7 +263,7 @@ Para obter uma lista completa dos emojis e códigos disponíveis, confira [a lis
 
 Você pode criar um parágrafo deixando uma linha em branco entre as linhas de texto.
 
-{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghae-issue-5180 or ghes > 3.2 or ghec %}
 ## Notas de rodapé
 
 Você pode adicionar notas de rodapé ao seu conteúdo usando esta sintaxe entre colchetes:

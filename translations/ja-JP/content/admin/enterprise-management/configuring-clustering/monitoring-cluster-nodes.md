@@ -1,12 +1,13 @@
 ---
-title: クラスタノードのモニタリング
-intro: '{% data variables.product.prodname_ghe_server %} クラスタは、2 つ以上のノードに分散された冗長サービスで構成されています。 もしも個々のサービスまたは1つのノード全体に障害があっても、それがクラスタのユーザに即座に見えることはありません。 ただし、パフォーマンスと冗長性が影響を受けるため、{% data variables.product.prodname_ghe_server %} クラスタの健全性を監視することが重要です。'
+title: Monitoring cluster nodes
+intro: 'A {% data variables.product.prodname_ghe_server %} cluster is comprised of redundant services that are distributed across two or more nodes. If an individual service or an entire node were to fail, it should not be immediately apparent to users of the cluster. However since performance and redundancy are affected, it is important to monitor the health of a {% data variables.product.prodname_ghe_server %} cluster.'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
   - /admin/enterprise-management/monitoring-cluster-nodes
 versions:
-  enterprise-server: '*'
+  ghes: '*'
+type: how_to
 topics:
   - Clustering
   - Enterprise
@@ -15,9 +16,9 @@ topics:
   - Monitoring
   - Performance
 ---
-### クラスタのステータスの手動でのチェック
+## Manually checking cluster status
 
-{% data variables.product.prodname_ghe_server %} には、クラスタの健全性をモニタリングするためのコマンドラインユーティリティが組み込まれています。 管理シェルから`ghe-cluster-status`コマンドを実行すると、接続性やサービスステータスの検証を含む一連のヘルスチェックが各ノード上で実行されます。 結果出力には、すべてのテスト結果にtext `ok`もしくは`error`が含まれます。 たとえば失敗したテストだけを表示するには以下のようにしてください。
+{% data variables.product.prodname_ghe_server %} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -26,20 +27,20 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 ```
 {% note %}
 
-**メモ:** すべてのテストにパスした場合、このコマンドは何も出力しません。 これはクラスタが健全であることを意味します。
+**Note:** If there are no failing tests, this command produces no output. This indicates the cluster is healthy.
 
 {% endnote %}
 
-### Nagiosでのクラスタステータスのモニタリング
+## Monitoring cluster status with Nagios
 
-{% data variables.product.prodname_ghe_server %} をモニタリングするよう、[Nagios](https://www.nagios.org/) を設定できます。 各クラスタノードの基本的な接続性のモニタリングに加えて、`ghe-cluster-status -n`コマンドを使うようNagiosを設定してクラスタステータスをチェックできます。 これは、Nagiosが理解できるフォーマットの出力を返します。
+You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables.product.prodname_ghe_server %}. In addition to monitoring basic connectivity to each of the cluster nodes, you can check the cluster status by configuring Nagios to use the `ghe-cluster-status -n` command. This returns output in a format that Nagios understands.
 
-#### 必要な環境
-* Nagiosを動作させるLinuxのホスト。
-* {% data variables.product.prodname_ghe_server %}クラスターへのネットワークアクセス。
+### Prerequisites
+* Linux host running Nagios.
+* Network access to the {% data variables.product.prodname_ghe_server %} cluster.
 
-#### Nagiosホストの設定
-1. 空のパスフレーズで SSH キーを生成してください。 Nagios はこれを使用して {% data variables.product.prodname_ghe_server %} クラスタへの認証を行います。
+### Configuring the Nagios host
+1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>
   > Generating public/private ed25519 key pair.
@@ -51,7 +52,7 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
   {% danger %}
 
- **セキュリティの警告:** パスフレーズを持たない SSH キーは、ホストへの完全なアクセスを承認されていた場合、セキュリティリスクになることがあります。 このキーの承認は、単一の読み取りのみのコマンドに限定してください。
+  **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
 
   {% enddanger %}
   {% note %}
@@ -68,9 +69,9 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
   ```
 
-3. `ghe-cluster-status -n` コマンド*のみ*を実行するために公開鍵を認証するには、`/data/user/common/authorized_keys` ファイル中で `command=` プレフィックスを使ってください。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+3. To authorize the public key to run *only* the `ghe-cluster-status -n` command, use a `command=` prefix in the `/data/user/common/authorized_keys` file. From the administrative shell on any node, modify this file to add the public key generated in step 1. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
-4. `/data/user/common/authorized_keys` ファイルを変更したノード上で `ghe-cluster-config-apply` を実行し、設定を検証してクラスタ内の各ノードにコピーしてください。
+4. Validate and copy the configuration to each node in the cluster by running `ghe-cluster-config-apply` on the node where you modified the `/data/user/common/authorized_keys` file.
 
   ```shell
   admin@ghe-data-node-0:~$ <em>ghe-cluster-config-apply</em>
@@ -79,15 +80,14 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   > Finished cluster configuration
   ```
 
-5. Nagios プラグインがこのコマンドの実行をうまく行えることをテストするには、このコマンドを Nagios のホストからインタラクティブに実行してください。
+5. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
   ```shell
   nagiosuser@nagios:~$ /usr/lib/nagios/plugins/check_by_ssh -l admin -p 122 -H <em>hostname</em> -C "ghe-cluster-status -n" -t 30
   > OK - No errors detected
   ```
 
-6. Nagios の設定中にコマンド定義を作成してください。
-
-  ###### 定義の例
+6. Create a command definition in your Nagios configuration.
+  ###### Example definition
 
   ```
   define command {
@@ -95,10 +95,9 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
-7. このコマンドを {% data variables.product.prodname_ghe_server %} クラスタ内のノードのサービス定義に追加します。
+7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
 
-
-  ###### 定義の例
+  ###### Example definition
 
   ```
   define host{
@@ -116,6 +115,6 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
           }
   ```
 
-Nagios に定義を追加すると、設定に従ってサービスチェックが実行されます。 Nagios の Web インターフェースで新しく設定されたサービスを確認することができます。
+Once you add the definition to Nagios, the service check executes according to your configuration. You should be able to see the newly configured service in the Nagios web interface.
 
-![Nagios の例](/assets/images/enterprise/cluster/nagios-example.png)
+![Nagios Example](/assets/images/enterprise/cluster/nagios-example.png)
