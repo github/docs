@@ -26,7 +26,7 @@ topics:
 
 {% data variables.product.company_short %} executa {% data variables.product.prodname_secret_scanning %} nos repositórios {% ifversion fpt or ghec %}públicos e privados{% endif %} para padrões de segredo fornecidos por parceiros de {% data variables.product.company_short %} e {% data variables.product.company_short %}. Para obter mais informações sobre o programa de parceria de {% data variables.product.prodname_secret_scanning %}, consulte "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Programa de varredura de segredo de parceiros</a>".
 
-No entanto, pode haver situações em que você deverá pesquisar outros padrões secretos nos seus repositórios {% ifversion fpt or ghec %}privados{% endif %}. Por exemplo, você pode ter um padrão de segredo que é interno da sua organização. Para esses casos, você pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} na sua empresa, organização ou {% ifversion fpt or ghec %}repositório{% endif %} privado em {% data variables.product.product_name %}. É possível definir até 100 padrões personalizados para cada conta da organização ou empresa e até 20 padrões personalizados por repositório {% ifversion fpt or ghec %}privado{% endif %}.
+No entanto, pode haver situações em que você deverá pesquisar outros padrões secretos nos seus repositórios {% ifversion fpt or ghec %}privados{% endif %}. Por exemplo, você pode ter um padrão de segredo que é interno da sua organização. Para esses casos, você pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} na sua empresa, organização ou {% ifversion fpt or ghec %}repositório{% endif %} privado em {% data variables.product.product_name %}. É possível definir até 500 padrões personalizados para cada conta da organização ou empresa e até 100 padrões personalizados por repositório {% ifversion fpt or ghec %}privado{% endif %}.
 
 {% ifversion ghes < 3.3 or ghae %}
 {% note %}
@@ -78,7 +78,11 @@ Depois que o padrão for criado, {% data variables.product.prodname_secret_scann
 
 ## Definir um padrão personalizado para uma conta corporativa
 
+{% ifversion fpt or ghec or ghes %}
+
 Antes de definir um padrão personalizado, você deverá garantir que você habilite a digitalização de segredo para a sua conta corporativa. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+
+{% endif %}
 
 {% note %}
 

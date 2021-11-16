@@ -57,7 +57,7 @@ topics:
 
   {% endtip %}
 
-4. Git Bash を開きます。 {% data variables.product.prodname_desktop %} に収納されている Git Shell を使用している場合は、Git Shell を開き、ステップ 6 に進みます。
+4. Git Bash を開きます。
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
