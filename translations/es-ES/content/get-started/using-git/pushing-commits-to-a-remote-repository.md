@@ -11,10 +11,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Subir confirmaciones a un remoto
 ---
 
-## About `git push`
+## Acerca de `git push`
 El comando `git push` toma dos argumentos:
 
 * Un nombre remoto, por ejemplo, `origin`
@@ -100,7 +101,7 @@ Para obtener más información sobre cómo trabajar con bifurcaciones, consulta 
 ## Leer más
 
 - [El capítulo "Remotos" del libro "Pro Git"](https://git-scm.com/book/ch5-2.html)
-- [Documentación en línea sobre `git remote`](https://git-scm.com/docs/git-remote.html)
+- [Página principal de `git remote`](https://git-scm.com/docs/git-remote.html)
 - "[Git cheatsheet](/articles/git-cheatsheet)" (Hoja introductoria de Git)
 - "[Flujos de trabajo de Git](/github/getting-started-with-github/git-workflows)"
 - "[Manual de Git](https://guides.github.com/introduction/git-handbook/)"

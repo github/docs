@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: next
+  ghec: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -30,7 +31,7 @@ CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli
 
 結果を生成して{% data variables.product.product_name %}にアップロードするには、3つの異なるコマンドを使います。
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 <!--Option to analyze multiple languages with one call-->
 1. `database create`で、リポジトリ中のサポートされている各プログラミング言語の階層構造を表す{% data variables.product.prodname_codeql %}データベースを作成してください。
 2. `database analyze`でクエリを実行し、各{% data variables.product.prodname_codeql %}データベースを分析し、結果をSARIFファイルにまとめてください。
@@ -50,16 +51,16 @@ CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli
 
 1. 分析したいコードをチェックアウトしてください:
     - ブランチの場合は、分析したいブランチのheadをチェックアウトしてください。
-    - Pull Requestの場合は、Pull Requestのheadコミットをチェックアウトするか、{% data variables.product.product_name %}が生成したPull Requestのマージコミットをチェックアウトしてください。
+    - Pull Requestの場合は、Pull Requestのheadコミットをチェックアウトするか、{% data variables.product.prodname_dotcom %}が生成したPull Requestのマージコミットをチェックアウトしてください。
 2. コードベースの環境をセットアップし、すべての依存関係が利用できるようにしてください。 詳しい情報については、{% data variables.product.prodname_codeql_cli %}のドキュメンテーション中の[非コンパイル言語のデータベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-non-compiled-languages)及び[コンパイル言語のデータベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#creating-databases-for-compiled-languages)を参照してください。
 3. コードベースのビルドコマンドがあれば、それを見つけてください。 通常これはCIシステムの設定ファイルにあります。
 4. リポジトリのチェックアウトのルートから`codeql database create`を実行し、コードベースをビルドしてください。
-  {% ifversion fpt or ghes > 3.1 or ghae-next %}
+  {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ```shell
-  # 単一のサポートされている言語 - 1つのCodeQLデータベースを作成
+  # Single supported language - create one CodeQL databsae
   codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt; 
 
-  # 複数のサポートされている言語 - 言語ごとにCodeQLデータベースを作成
+  # Multiple supported languages - create one CodeQL database per language
   codeql database create &lt;database&gt; --command&lt;build&gt; \
         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt; 
   ```
@@ -119,7 +120,7 @@ CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli
   
   <tr>
     <td>
-      {% ifversion fpt or ghes > 3.1 or ghae-next %} <nobr>`--db-cluster`とともに使われると、</nobr>このオプションはカンマ区切りのリストを取るか、複数回指定できます。{% endif %}
+      {% ifversion fpt or ghes > 3.1 or ghae or ghec %} <nobr>`--db-cluster`とともに使われると、</nobr>このオプションはカンマ区切りのリストを取るか、複数回指定できます。{% endif %}
     </td>
     
     <td align="center">
@@ -144,7 +145,7 @@ CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli
   
   <tr>
     <td>
-      {% ifversion fpt or ghes > 3.1 or ghae-next %}
+      {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     </td>
     
     <td align="center">
@@ -208,7 +209,7 @@ CIシステム内のサーバーで{% data variables.product.prodname_codeql_cli
 
 詳しい情報については{% data variables.product.prodname_codeql_cli %}のドキュメンテーション中の[{% data variables.product.prodname_codeql %}データベースの作成](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/)を参照してください。
 
-### {% ifversion fpt or ghes > 3.1 or ghae-next %}単一言語の例{% else %}基本の例{% endif %}
+### {% ifversion fpt or ghes > 3.1 or ghae or ghec %}単一言語の例{% else %}基本の例{% endif %}
 
 この例は、`/checkouts/example-repo`にチェックアウトされたリポジトリの{% data variables.product.prodname_codeql %}データベースを作成します。 これはJavaScript extractorを使い、リポジトリ中のJavaScriptとTypeScriptコードの階層表現を作成します。 結果のデータベースは`/codeql-dbs/example-repo`に保存されます。
 
@@ -226,7 +227,7 @@ $ codeql database create /codeql-dbs/example-repo --language=javascript \
 > Successfully created database at /codeql-dbs/example-repo.
 ```
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ### 複数言語の例
 
 この例は、`/checkouts/example-repo-multi`にチェックアウトされたリポジトリの2つの{% data variables.product.prodname_codeql %}データベースを作成します。 これは以下を使用します。
@@ -273,7 +274,7 @@ $
       --output=&lt;output&gt;  {% if codeql-packs %}&lt;packs,queries&gt;{% else %} &lt;queries&gt;{% endif %} 
   ```
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
 
 **ノート:** 1つのコミットに対して複数の{% data variables.product.prodname_codeql %}データベースを分析する場合、このコマンドが生成するそれぞれの結果セットに対してSARIFカテゴリを指定しなければなりません。 結果を{% data variables.product.product_name %}にアップロードする際には、{% data variables.product.prodname_code_scanning %}はこのカテゴリを使ってそれぞれの言語に対する結果を別々に保存します。 これを忘れると、それぞれのアップロードが以前の結果を上書きしてしまいます。
@@ -317,15 +318,14 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
   
   <tr>
     <td>
-      <code>&lt;queries&gt;</code>
+      <code>&lt;packs,queries&gt;</code>
     </td>
     
     <td align="center">
-      {% octicon "check-circle-fill" aria-label="Required" %}
     </td>
     
     <td>
-      実行するクエリを指定します。 {% data variables.product.prodname_code_scanning %}で使われる標準のクエリを実行するには、<code>&lt;language&gt;-code-scanning.qls</code>を使ってください。ここで<code>&lt;language&gt;</code>はデータベースの言語の短いコードです。 {% data variables.product.prodname_codeql_cli %}バンドル内に含まれている他のクエリスイートを見るには、<code>/&lt;extraction-root&gt;/codeql/qlpacks/codeql-&lt;language&gt;/codeql-suites</code>を見てください。 独自のクエリスイートの作成に関する情報については、{% data variables.product.prodname_codeql_cli %}のドキュメンテーション中の<a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">CodeQLクエリスイートの作成</a>を参照してください。
+      Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. {% data variables.product.prodname_codeql_cli %}バンドル内に含まれている他のクエリスイートを見るには、<code>/&lt;extraction-root&gt;/codeql/qlpacks/codeql-&lt;language&gt;/codeql-suites</code>を見てください。 独自のクエリスイートの作成に関する情報については、{% data variables.product.prodname_codeql_cli %}のドキュメンテーション中の<a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">CodeQLクエリスイートの作成</a>を参照してください。
     </td>
   </tr>
   
@@ -339,7 +339,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      コマンドが生成する結果ファイルのフォーマットを指定します。 {% data variables.product.company_short %}へアップロードする場合、これは{% ifversion fpt or ghae %}<code>sarif-latest</code>{% else %}<code>sarifv2.1.0</code>{% endif %}とすべきです。 詳しい情報については「<a href="/code-security/secure-coding/sarif-support-for-code-scanning">{% data variables.product.prodname_code_scanning %}の SARIF サポート</a>」を参照してください。
+      コマンドが生成する結果ファイルのフォーマットを指定します。 {% data variables.product.company_short %}へアップロードする場合、これは{% ifversion fpt or ghae or ghec %}<code>sarif-latest</code>{% else %}<code>sarifv2.1.0</code>{% endif %}とすべきです。 詳しい情報については「<a href="/code-security/secure-coding/sarif-support-for-code-scanning">{% data variables.product.prodname_code_scanning %}の SARIF サポート</a>」を参照してください。
     </td>
   </tr>
   
@@ -353,7 +353,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      SARIF結果ファイルを保存する場所を指定します。{% ifversion fpt or ghes > 3.1 or ghae-next %}
+      SARIF結果ファイルを保存する場所を指定します。{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     </td>
   </tr>
   
@@ -406,7 +406,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      オプション。 分析のプロセス{% ifversion fpt or ghes > 3.1 or ghae-next %}とデータベース作成プロセスからの診断データ{% endif %}に関する詳細な情報を得るために使用します。
+      オプション。 分析のプロセス{% ifversion fpt or ghes > 3.1 or ghae or ghec %}とデータベース作成プロセスからの診断データ{% endif %}に関する詳細な情報を得るために使用します。
     </td>
   </tr>
 </table>
@@ -415,12 +415,12 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
 
 ### 基本的な例
 
-この例は`/codeql-dbs/example-repo`に保存された{% data variables.product.prodname_codeql %}データベースを分析し、結果を`/temp/example-repo-js.sarif`というSARIFファイルに保存します。 {% ifversion fpt or ghes > 3.1 or ghae-next %}ここでは`--sarif-category`を使って結果をJavaScriptとして識別する追加情報をSARIFファイルに含めます。 これは、リポジトリ中の単一のコミットに対して分析する{% data variables.product.prodname_codeql %}データベースが複数ある場合に不可欠です。{% endif %}
+この例は`/codeql-dbs/example-repo`に保存された{% data variables.product.prodname_codeql %}データベースを分析し、結果を`/temp/example-repo-js.sarif`というSARIFファイルに保存します。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}ここでは`--sarif-category`を使って結果をJavaScriptとして識別する追加情報をSARIFファイルに含めます。 これは、リポジトリ中の単一のコミットに対して分析する{% data variables.product.prodname_codeql %}データベースが複数ある場合に不可欠です。{% endif %}
 
 ```
 $ codeql database analyze /codeql-dbs/example-repo  \
-    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae-next %}--sarif-category=javascript{% endif %}
-    --format={% ifversion fpt or ghae %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
+    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae or ghec %}--sarif-category=javascript{% endif %}
+    --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
 > Compiling query plan for /codeql-home/codeql/qlpacks/
@@ -444,7 +444,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
   ```shell
   echo "$UPLOAD_TOKEN" | codeql github upload-results --repository=&lt;repository-name&gt; \
       --ref=&lt;ref&gt; --commit=&lt;commit&gt; --sarif=&lt;file&gt; \
-      {% ifversion ghes > 3.0 or ghae-next %}--github-url=&lt;URL&gt; {% endif %}--github-auth-stdin
+      {% ifversion ghes > 3.0 or ghae %}--github-url=&lt;URL&gt; {% endif %}--github-auth-stdin
   ```
 
 <table spaces-before="0">
@@ -472,7 +472,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
     </td>
     
     <td>
-      データをアップロードするリポジトリの<em x-id="3">OWNER/NAME</em>を指定します。 {% ifversion fpt %}リポジトリがパブリックでなければ、{% endif %}オーナーは{% data variables.product.prodname_GH_advanced_security %}のライセンスを持つEnterprise内のOrganizationでなければならず、{% data variables.product.prodname_GH_advanced_security %}はリポジトリで有効化されていなければなりません。 詳しい情報については「<a href="/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository">リポジトリのセキュリティ及び分析の設定の管理</a>」を参照してください。
+      データをアップロードするリポジトリの<em x-id="3">OWNER/NAME</em>を指定します。 {% ifversion fpt or ghec %}リポジトリがパブリックでなければ、{% endif %}オーナーは{% data variables.product.prodname_GH_advanced_security %}のライセンスを持つEnterprise内のOrganizationでなければならず、{% data variables.product.prodname_GH_advanced_security %}はリポジトリで有効化されていなければなりません。 詳しい情報については「<a href="/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository">リポジトリのセキュリティ及び分析の設定の管理</a>」を参照してください。
     </td>
   </tr>
   
@@ -486,7 +486,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
     </td>
     
     <td>
-      チェックアウトして分析した<code>ref</code>の名前を指定して、結果が正しいコードとマッチできるようにします。 ブランチでは<code>refs/heads/BRANCH-NAME</code>を、Pull Requestのheadコミットでは<code>refs/pulls/NUMBER/head</code>を、Pull Requestに対して{% data variables.product.product_name %}が生成したマージコミットでは<code>refs/pulls/NUMBER/merge</code>を使ってください。
+      チェックアウトして分析した<code>ref</code>の名前を指定して、結果が正しいコードとマッチできるようにします。 ブランチでは<code>refs/heads/BRANCH-NAME</code>を、Pull Requestのheadコミットでは<code>refs/pulls/NUMBER/head</code>を、Pull Requestに対して{% data variables.product.prodname_dotcom %}が生成したマージコミットでは<code>refs/pulls/NUMBER/merge</code>を使ってください。
     </td>
   </tr>
   
@@ -514,7 +514,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
     </td>
     
     <td>
-      ロードするSARIFファイルを指定してください。{% ifversion ghes > 3.0 or ghae-next %}
+      ロードするSARIFファイルを指定してください。{% ifversion ghes > 3.0 or ghae %}
     </td>
   </tr>
   
@@ -555,7 +555,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
 ```
 $ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
-    --sarif=/temp/example-repo-js.sarif {% ifversion ghes > 3.0 or ghae-next %}--github-url={% data variables.command_line.git_url_example %} \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes > 3.0 or ghae %}--github-url={% data variables.command_line.git_url_example %} \
     {% endif %}--github-auth-stdin
 ```
 
@@ -640,7 +640,8 @@ $ codeql database analyze /codeql-dbs/example-repo  octo-org/security-queries \
 ```
 {% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+
 ## {% data variables.product.prodname_codeql %}分析のためのCIの設定例
 
 これは、2つのサポートされている言語を持つコードベースを分析し、結果を{% data variables.product.product_name %}にアップロードするために使うことができる一連のコマンドの例です。
@@ -692,7 +693,7 @@ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-re
 
 ### CIシステムが{% data variables.product.prodname_codeql_cli %}をトリガーできない場合の代替方法
 
-{% ifversion fpt or ghes > 3.2 or ghae-next %}
+{% ifversion fpt or ghes > 3.2 or ghae-next or ghec %}
 
 If your CI system cannot trigger the {% data variables.product.prodname_codeql_cli %} autobuild and you cannot specify a command line for the build, you can use indirect build tracing to create {% data variables.product.prodname_codeql %} databases for compiled languages. For more information, see [Using indirect build tracing](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 

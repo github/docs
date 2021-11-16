@@ -1,13 +1,13 @@
 ---
 title: Fechar problemas inativos
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para comentar ou fechar problemas que ficaram inativos por um determinado período de tempo.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/closing-inactive-issues
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -17,7 +17,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introdução
 
@@ -39,7 +38,7 @@ No tutorial, primeiro você vai fazer um arquivo de fluxo de trabalho que usa a 
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
         permissions:
           issues: write
           pull-requests: write{% endif %}
@@ -73,7 +72,7 @@ Baseado no parâmetro `agendar` (por exemplo, todos os dias à 1:30 UTC), seu fl
 
 Você pode visualizar o histórico de execução do fluxo de trabalho para ver a execução deste fluxo de trabalho periodicamente. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
-This workflow will only label and/or close 30 issues at a time in order to avoid exceeding a rate limit. Você pode definir isso com a configuração de `operations-por-run`. Para obter mais informações, consulte a documentação da ação [`ação/estale`](https://github.com/marketplace/actions/close-stale-issues).
+Este fluxo de trabalho só irá etiquetar e/ou fechar 30 problemas de cada vez para evitar exceder um limite de taxa. Você pode definir isso com a configuração de `operations-por-run`. Para obter mais informações, consulte a documentação da ação [`ação/estale`](https://github.com/marketplace/actions/close-stale-issues).
 
 ## Próximas etapas
 

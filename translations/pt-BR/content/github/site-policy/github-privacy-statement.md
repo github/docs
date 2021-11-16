@@ -216,9 +216,9 @@ Você também pode adicionar aplicativos do GitHub, como nosso aplicativo Deskto
 
 ## Como você pode acessar e controlar as informações obtidas
 
-If you're already a GitHub user, you may access, update, alter, or delete your basic user profile information by [editing your user profile](https://github.com/settings/profile) or contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy). You can control the information we collect about you by limiting what information is in your profile, by keeping your information current, or by contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+Se você já é um usuário do GitHub, você poderá acessar, atualizar, alterar, ou excluir as suas informações básicas de perfil de usuário, [editando seu perfil de usuário](https://github.com/settings/profile) ou entrando em contato com o [Suporte do GitHub](https://support.github.com/contact?tags=docs-policy). Você pode controlar as informações que coletamos sobre você limitando quais informações estão no seu perfil, mantendo sua informação atualizada ou entrando em contato com o [Suporte do GitHub](https://support.github.com/contact?tags=docs-policy).
 
-If GitHub processes information about you, such as information [GitHub receives from third parties](#information-we-collect-from-third-parties), and you do not have an account, then you may, subject to applicable law, access, update, alter, delete, or object to the processing of your personal information by contacting [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+Se o GitHub processar informações sobre você como, por exemplo, informações que o [GitHub recebe de terceiros](#information-we-collect-from-third-parties), e você não tiver uma conta, você poderá, sujeito à lei, acessar, atualizar, alterar, excluir ou contestar o processamento das suas informações pessoais entrando em contato com o [Suporte do GitHub](https://support.github.com/contact?tags=docs-policy).
 
 ### Portabilidade de dados
 
@@ -228,7 +228,7 @@ Como usuário do GitHub, você sempre pode levar seus dados com você. Por exemp
 
 Em geral, o GitHub retém as Informações Pessoais de Usuário enquanto a sua conta está ativa ou sempre que for necessário para prestar serviços a você.
 
-Para cancelar sua conta ou excluir suas Informações Pessoais de Usuário, acesse o seu [perfil de usuário](https://github.com/settings/admin). Vamos reter e usar suas informações conforme o necessário para cumprir nossas obrigações legais, resolver conflitos e fazer valer nossos acordos; salvo em casos de requisitos legais, apagaremos seu perfil por completo (se razoável) dentro de 90 dias. You may contact [GitHub Support](https://support.github.com/contact?tags=docs-policy) to request the erasure of the data we process on the basis of consent within 30 days.
+Para cancelar sua conta ou excluir suas Informações Pessoais de Usuário, acesse o seu [perfil de usuário](https://github.com/settings/admin). Vamos reter e usar suas informações conforme o necessário para cumprir nossas obrigações legais, resolver conflitos e fazer valer nossos acordos; salvo em casos de requisitos legais, apagaremos seu perfil por completo (se razoável) dentro de 90 dias. Você pode entrar em contato com o [Suporte do GitHub](https://support.github.com/contact?tags=docs-policy) para solicitar a eliminação dos dados que processamos com base no consentimento dentro de 30 dias.
 
 Alguns dados permanecerão após a exclusão de uma conta, como contribuições em repositórios de outros Usuários e comentários em problemas de outrem. Todavia, vamos excluir ou remover a identificação das suas Informações Pessoais de Usuário (inclusive nome de usuário e endereço de e-mail) do campo de autoria de problemas, pull requests e comentários, que serão associados a um [usuário fantasma](https://github.com/ghost).
 

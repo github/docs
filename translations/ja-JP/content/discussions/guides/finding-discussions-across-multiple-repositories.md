@@ -3,6 +3,7 @@ title: 複数のリポジトリにわたってディスカッションを検索�
 intro: 複数のリポジトリ間で作成または参加したすべてのディスカッションに簡単にアクセスできます。
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Find discussions
 ---
 
@@ -15,6 +16,6 @@ shortTitle: Find discussions
 
 ## 参考リンク
 
-- 「[ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」
+- 「[ディスカッションを検索する](/search-github/searching-on-github/searching-discussions)」
 - 「[Discussions について](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」
 - 「[コミュニティの Discussions を管理する](/discussions/managing-discussions-for-your-community)」

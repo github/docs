@@ -5,16 +5,20 @@ import {
   MainContext,
   getMainContext,
   useMainContext,
+  ProductT,
+  ProductGroupT,
 } from 'components/context/MainContext'
 
+import React from 'react'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
-import { LinkExternalIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import { OctocatHeader } from 'components/landing/OctocatHeader'
 import { ArticleList } from 'components/landing/ArticleList'
 import { Search } from 'components/Search'
+import { Link } from 'components/Link'
+import * as Octicons from '@primer/octicons-react'
 
 type FeaturedLink = {
   href: string
@@ -44,18 +48,55 @@ type LandingPageProps = {
 function LandingPage(props: LandingPageProps) {
   const router = useRouter()
   const { gettingStartedLinks, popularLinks } = props
-  const { activeProducts, isFPT } = useMainContext()
+  const { productGroups, isFPT } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['homepage', 'search', 'toc'])
+
+  function showProduct(product: ProductT) {
+    return isFPT || product.versions?.includes(currentVersion) || product.external
+  }
+
+  function href(product: ProductT) {
+    return `${!product.external ? `/${router.locale}` : ''}${
+      product.versions?.includes(currentVersion) && !isFPT
+        ? `/${currentVersion}/${product.id}`
+        : product.href
+    }`
+  }
+
+  const groupIcon = {
+    height: '22px',
+  }
+
+  function icon(group: ProductGroupT) {
+    if (group.icon) {
+      return (
+        <div className="pr-3">
+          <img src={group.icon} alt={group.name} style={groupIcon}></img>
+        </div>
+      )
+    } else if (group.octicon) {
+      const octicon: React.FunctionComponent = (
+        Octicons as { [name: string]: React.FunctionComponent }
+      )[group.octicon] as React.FunctionComponent
+
+      return (
+        <div className="pr-3">
+          {React.createElement(octicon, groupIcon as React.Attributes, null)}
+        </div>
+      )
+    }
+  }
+
   return (
     <div>
       {/* <!-- Hero --> */}
-      <section id="landing" className="color-bg-tertiary">
+      <section id="landing" className="color-bg-subtle">
         {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-        <Search autoFocus={true} variant="expanded" isOverlay={false}>
+        <Search iconSize={24} variant="expanded">
           {({ SearchInput, SearchResults }) => {
             return (
-              <div className="container-xl px-3 px-md-6 pb-6 pb-lg-9">
+              <div className="container-xl px-3 px-md-6 pb-6 pb-lg-0">
                 <div className="gutter gutter-xl-spacious pt-6 pt-lg-0 d-lg-flex flex-row-reverse flex-items-center">
                   <div className="col-lg-7">
                     <OctocatHeader />
@@ -73,37 +114,43 @@ function LandingPage(props: LandingPageProps) {
         </Search>
       </section>
 
-      {/* <!-- Explore by product --> */}
-      <section className="container-xl pb-lg-4 my-8 px-3 px-md-6">
+      {/* <!-- Show all the child groups --> */}
+      <section className="container-xl pb-lg-4 mt-6 px-3 px-md-6" data-testid="product">
         <div className="">
-          <h2 className="f5 text-normal color-text-secondary text-md-center mb-4">
-            {t('explore_by_product')}
-          </h2>
           <div className="d-flex flex-wrap gutter gutter-xl-spacious">
-            {activeProducts.map((product) => {
-              if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
-                return null
-              }
-
-              const href = `${!product.external ? `/${router.locale}` : ''}${
-                product.versions?.includes(currentVersion) && !isFPT
-                  ? `/${currentVersion}/${product.id}`
-                  : product.href
-              }`
+            {productGroups.map((group) => {
               return (
-                <div className="d-flex flex-column col-12 col-sm-6 col-lg-3 pb-4" key={product.id}>
-                  <a
-                    className="f4 flex-auto d-flex flex-items-center ws-normal btn btn-outline py-3"
-                    href={href}
-                    target={product.external ? '_blank' : undefined}
-                  >
-                    {product.name}
-                    {product.external && (
-                      <span className="ml-1">
-                        <LinkExternalIcon />
-                      </span>
-                    )}
-                  </a>
+                <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 pb-4" key={group.name}>
+                  <div className="flex-auto ws-normal">
+                    <div className="d-flex flex-items-center">
+                      {icon(group)}
+
+                      <div>
+                        <h3>{group.name}</h3>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 mb-4 text-normal">
+                      <ul className="list-style-none">
+                        {group.children.map((product) => {
+                          if (!showProduct(product)) {
+                            return null
+                          }
+
+                          return (
+                            <li key={product.name} className="pt-2">
+                              <Link
+                                href={href(product)}
+                                target={product.external ? '_blank' : undefined}
+                              >
+                                {product.name}
+                              </Link>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               )
             })}
@@ -111,7 +158,7 @@ function LandingPage(props: LandingPageProps) {
         </div>
       </section>
 
-      <div className="px-3 px-md-6 container-xl">
+      <div className="mt-6 px-3 px-md-6 container-xl">
         <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
             <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">

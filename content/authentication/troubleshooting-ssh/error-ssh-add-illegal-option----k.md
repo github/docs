@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: 'ssh-add: illegal option -- K'
@@ -21,7 +22,7 @@ The `-K` option is in Apple's standard version of `ssh-add`, which stores the pa
 To add your SSH private key to the ssh-agent, you can specify the path to the Apple version of `ssh-add`:
 
 ```shell
-  $ /usr/bin/ssh-add -K ~/.ssh/id_rsa
+  $ /usr/bin/ssh-add -K ~/.ssh/id_ed25519
 ```
 
 {% note %}

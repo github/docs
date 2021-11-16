@@ -1,13 +1,13 @@
 ---
 title: 使用可视化图表
 intro: 每个工作流程运行都会生成一个实时图表，说明运行进度。 您可以使用此图表来监控和调试工作流程。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
 versions:
   fpt: '*'
   ghes: '>=3.1'
   ghae: '*'
+  ghec: '*'
 shortTitle: 使用可视化图表
 ---
 

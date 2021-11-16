@@ -7,6 +7,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Open Source
@@ -30,6 +31,7 @@ shortTitle: Gerenciar camadas de pagamento
 1. Opcionalmente, para editar uma camada no rascunho, encontre a camada no rascunho e clique em **Editar**. ![Botão editar ao lado da camada no rascunho](/assets/images/help/sponsors/draft-tier-edit.png)
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
+{% data reusables.sponsors.add-welcome-message %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 

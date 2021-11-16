@@ -48,6 +48,7 @@ describe('browser search', () => {
     await page.setViewport(initialViewport)
   })
   // 404 page is statically generated with next, so search is not available, but may possibly be brought back
+  // Docs Engineering issue: 961
   it.skip('works on 404 error page', async () => {
     await page.goto('http://localhost:4001/en/404')
     await page.click('[data-testid=search] input[type="search"]')
@@ -61,13 +62,13 @@ describe('browser search', () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
+    await newPage.goto('http://localhost:4001/ja/enterprise-server@3.0/admin/installation')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('2.22')
+        expect(searchParams.get('version')).toBe('3.0')
         expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()
@@ -79,6 +80,31 @@ describe('browser search', () => {
     )
     await searchInput.click()
     await searchInput.type('code')
+    await newPage.waitForSelector('[data-testid=search-result]')
+  })
+
+  it('sends the correct data to search for GHEC', async () => {
+    expect.assertions(2)
+
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4001/en/enterprise-cloud@latest/admin/overview')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', (interceptedRequest) => {
+      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('ghec')
+        expect(searchParams.get('language')).toBe('en')
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$(
+      '[data-testid=mobile-header] [data-testid=site-search-input]'
+    )
+    await searchInput.click()
+    await searchInput.type('test')
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 
@@ -155,7 +181,7 @@ describe('csrf meta', () => {
   })
 })
 
-describe('platform specific content', () => {
+describe('platform picker', () => {
   // from tests/javascripts/user-agent.js
   const userAgents = [
     {
@@ -175,27 +201,27 @@ describe('platform specific content', () => {
     },
   ]
   const linuxUserAgent = userAgents[2]
-  const pageWithSwitcher =
+  const pageWithPlatformPicker =
     'http://localhost:4001/en/github/using-git/configuring-git-to-handle-line-endings'
-  const pageWithoutSwitcher = 'http://localhost:4001/en/github/using-git'
+  const pageWithoutPlatformPicker = 'http://localhost:4001/en/github/using-git'
   const pageWithDefaultPlatform =
     'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
 
-  it('should have a platform switcher', async () => {
-    await page.goto(pageWithSwitcher)
-    const nav = await page.$$('nav.UnderlineNav')
-    const switches = await page.$$('a.platform-switcher')
-    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+  it('should have a platform picker', async () => {
+    await page.goto(pageWithPlatformPicker)
+    const nav = await page.$$('[data-testid=platform-picker]')
+    const switches = await page.$$('[data-testid=platform-picker] button')
+    const selectedSwitch = await page.$$('[data-testid=platform-picker] .selected')
     expect(nav).toHaveLength(1)
     expect(switches.length).toBeGreaterThan(1)
     expect(selectedSwitch).toHaveLength(1)
   })
 
-  it('should NOT have a platform switcher', async () => {
-    await page.goto(pageWithoutSwitcher)
-    const nav = await page.$$('nav.UnderlineNav')
-    const switches = await page.$$('a.platform-switcher')
-    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+  it('should NOT have a platform picker', async () => {
+    await page.goto(pageWithoutPlatformPicker)
+    const nav = await page.$$('[data-testid=platform-picker]')
+    const switches = await page.$$('[data-testid=platform-picker] button')
+    const selectedSwitch = await page.$$('[data-testid=platform-picker] .selected')
     expect(nav).toHaveLength(0)
     expect(switches).toHaveLength(0)
     expect(selectedSwitch).toHaveLength(0)
@@ -204,10 +230,15 @@ describe('platform specific content', () => {
   it('should detect platform from user agent', async () => {
     for (const agent of userAgents) {
       await page.setUserAgent(agent.ua)
-      await page.goto(pageWithSwitcher)
-      const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
-      expect(selectedPlatform).toBe(agent.name)
+      await page.goto(pageWithPlatformPicker)
+      const selectedPlatformElement = await page.waitForSelector(
+        '[data-testid=platform-picker] .selected'
+      )
+      const selectedPlatform = await page.evaluate(
+        (el) => el.dataset.platform,
+        selectedPlatformElement
+      )
+      expect(selectedPlatform).toBe(agent.name.toLowerCase())
     }
   })
 
@@ -219,7 +250,9 @@ describe('platform specific content', () => {
         '[data-default-platform]',
         (el) => el.dataset.defaultPlatform
       )
-      const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
+      const selectedPlatformElement = await page.waitForSelector(
+        '[data-testid=platform-picker] .selected'
+      )
       const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
       expect(defaultPlatform).toBe(linuxUserAgent.id)
       expect(selectedPlatform).toBe(linuxUserAgent.name)
@@ -227,17 +260,17 @@ describe('platform specific content', () => {
   })
 
   it('should show the content for the selected platform only', async () => {
-    await page.goto(pageWithSwitcher)
+    await page.goto(pageWithPlatformPicker)
 
     const platforms = ['mac', 'windows', 'linux']
     for (const platform of platforms) {
-      await page.click(`.platform-switcher[data-platform="${platform}"]`)
+      await page.click(`[data-testid=platform-picker] [data-platform=${platform}]`)
 
       // content for selected platform is expected to become visible
       await page.waitForSelector(`.extended-markdown.${platform}`, { visible: true, timeout: 3000 })
 
       // only a single tab should be selected
-      const selectedSwitch = await page.$$('a.platform-switcher.selected')
+      const selectedSwitch = await page.$$('[data-testid=platform-picker] .selected')
       expect(selectedSwitch).toHaveLength(1)
 
       // content for NOT selected platforms is expected to become hidden
@@ -298,7 +331,7 @@ describe('tool specific content', () => {
     await page.goto(pageWithSingleSwitcher)
     const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
     const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub.com')
+    expect(selectedTool).toBe('Web browser')
   })
 
   it('should use the recorded user selection', async () => {
@@ -306,7 +339,7 @@ describe('tool specific content', () => {
     await page.goto(pageWithSingleSwitcher)
     let selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
     let selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub.com')
+    expect(selectedTool).toBe('Web browser')
 
     await page.click(`.tool-switcher[data-tool="cli"]`)
 
@@ -438,6 +471,7 @@ describe('language banner', () => {
 })
 
 // Skipping because next/links are disabled by default for now
+// Docs Engineering issue: 962
 describe.skip('next/link client-side navigation', () => {
   jest.setTimeout(60 * 1000)
 

@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma nova chave GPG à sua conta do GitHub
-intro: 'Para configurar sua conta do {% data variables.product.product_name %} para usar a chave GPG nova (ou a existente), você também precisará adicioná-la à sua conta do {% data variables.product.product_name %}.'
+intro: 'Para configurar a sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} para usar sua chave GPG nova (ou existente), você também precisará da chave para a sua conta.'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -9,13 +9,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: Adicionar uma nova chave GPG
 ---
 
-Antes de adicionar uma nova chave GPG à suas conta do {% data variables.product.product_name %}, você deve ter:
+Antes de adicionar uma nova chave GPG à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você deverá ter:
 - [Verificado a existência de chaves GPG](/articles/checking-for-existing-gpg-keys)
 - [Gerado e copiado uma nova chave GPG](/articles/generating-a-new-gpg-key)
 

@@ -1,9 +1,10 @@
 ---
 title: Moderar discussões
-intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your community''s code of conduct.'
+intro: 'Você pode promover uma colaboração saudável marcando comentários como respostas, bloqueando ou desbloqueando discussões, convertendo problemas para discussões, bem como e editar ou excluir comentários, discussões e categorias que não estão alinhadas com o código de conduta da sua comunidade.'
 permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
@@ -17,7 +18,7 @@ versions:
 
 ## Bloquear discussões
 
-É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou quando viola o código de conduta da sua comunidade ou as [Diretrizes da Comunidade](/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Você também pode bloquear uma conversa para evitar comentários em uma discussão que você deseja usar como um anúncio para a comunidade. Ao bloquear uma conversa, as pessoas com acesso de gravação ao repositório ainda poderão comentar na discussão.
+É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou quando viola o código de conduta da sua comunidade ou as [Diretrizes da Comunidade](/free-pro-team@latest/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Você também pode bloquear uma conversa para evitar comentários em uma discussão que você deseja usar como um anúncio para a comunidade. Ao bloquear uma conversa, as pessoas com acesso de gravação ao repositório ainda poderão comentar na discussão.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

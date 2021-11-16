@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Track comment changes
@@ -34,5 +35,5 @@ When you delete sensitive information from the comment's edit history, the perso
 
 ## Further reading
 
-{% ifversion fpt %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
+{% ifversion fpt or ghec %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"{% endif %}
 - "[Editing a comment](/articles/editing-a-comment)"

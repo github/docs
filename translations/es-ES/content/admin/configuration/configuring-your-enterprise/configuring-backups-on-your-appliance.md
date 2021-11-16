@@ -68,7 +68,7 @@ Es posible que se requieran más recursos según su uso, como la actividad del u
 
   {% note %}
 
-  **Note:** If your {% data variables.product.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.product.product_location %}.
+  **Nota:** Si tu {% data variables.product.product_location %} se despliega como un clúster o en una configuración de disponibilidad alta utilizando un balanceador de carga, el `GHE_HOSTNAME` puede ser el nombre de host del balanceador de carga siempre y cuando permita acceso por SSH a {% data variables.product.product_location %} (por el puerto 122).
 
   {% endnote %}
 
@@ -95,7 +95,7 @@ Si los intentos de copias de seguridad se superponen, el comando `ghe-backup` se
 
 En el caso de una interrupción de red prolongada o de un evento catastrófico en el sitio principal, puedes restablecer {% data variables.product.product_location %} proporcionando otro aparato para {% data variables.product.prodname_enterprise %} y haciendo un restablecimiento desde el host de copias de seguridad. Debes agregar la clave SSH del host de copias de seguridad en el aparato objetivo {% data variables.product.prodname_enterprise %} como una clave SSH autorizada antes de restablecer un aparato.
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 {% note %}
 
 **Nota:** Si {% data variables.product.product_location %} tiene habilitadas las {% data variables.product.prodname_actions %}, primero deberás configurar el proveedor de almacenamiento externo de {% data variables.product.prodname_actions %} en el aplicativo de repuesto antes de ejecutar el comando `ghe-restore`. Para obtener más información, consulta la sección "[Respaldar y restablecer a {% data variables.product.prodname_ghe_server %} con las {% data variables.product.prodname_actions %} habilitadas](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)".
@@ -105,9 +105,9 @@ En el caso de una interrupción de red prolongada o de un evento catastrófico e
 
 {% note %}
 
-**Note:** When performing backup restores to {% data variables.product.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+**Nota:** Cuando realizas restauraciones de respaldo hacia {% data variables.product.product_location %} aplicarán las mismas reglas de compatibilidad de versión. Solo puedes restablecer datos de por lo mucho dos lanzamientos de características anteriores.
 
-For example, if you take a backup from GHES 3.0.x, you can restore it into a GHES 3.2.x instance. But, you cannot restore data from a backup of GHES 2.22.x onto 3.2.x, because that would be three jumps between versions (2.22 > 3.0 > 3.1 > 3.2). You would first need to restore onto a 3.1.x instance, and then upgrade to 3.2.x.
+Por ejemplo, si tomas un respaldo de GHES 3.0.x, puedes restablecerlo a la instancia GHES 3.2.x. Pero no puedes restablecer datos desde un respaldo de GHES 2.22.x hacia 3.2.x, ya que esto sería tres saltos entre versiones (2.22 > 3.0 > 3.1 > 3.2). Primero necesitarías restablecer a una instancia 3.1.x y luego mejorar a una 3.2.x.
 
 {% endnote %}
 

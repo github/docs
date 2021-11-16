@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /about-custom-actions
   - /creating-a-docker-container-action
@@ -20,6 +21,8 @@ children:
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
+  - /releasing-and-maintaining-actions
+  - /developing-a-third-party-cli-action
 ---
 
 {% data reusables.actions.enterprise-beta %}

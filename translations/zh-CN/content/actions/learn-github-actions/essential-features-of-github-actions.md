@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -62,7 +63,7 @@ jobs:
 
 ## 在作业之间共享数据
 
-如果作业生成您要与同一工作流程中的另一个作业共享的文件，或者您要保存这些文件供以后参考，可以将它们作为_构件_存储在 {% data variables.product.prodname_dotcom %} 中。 构件是创建并测试代码时所创建的文件。 例如，构件可能包含二进制或包文件、测试结果、屏幕截图或日志文件。 构件与其创建时所在的工作流程运行相关，可被另一个作业使用。
+如果作业生成您要与同一工作流程中的另一个作业共享的文件，或者您要保存这些文件供以后参考，可以将它们作为_构件_存储在 {% data variables.product.prodname_dotcom %} 中。 构件是创建并测试代码时所创建的文件。 例如，构件可能包含二进制或包文件、测试结果、屏幕截图或日志文件。 构件与其创建时所在的工作流程运行相关，可被另一个作业使用。 {% data reusables.actions.reusable-workflow-artifacts %}
 
 例如，您可以创建一个文件，然后将其作为构件上传。
 
@@ -92,6 +93,8 @@ jobs:
         with:
           name: output-log-file
 ```
+
+要从同一工作流程运行中下载构件，下载作业应指定 `needs: upload-job-name`，使其在上传作业完成之前不会开始。
 
 有关构件的更多信息，请参阅“[使用构件持久化工作流程](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)”。
 

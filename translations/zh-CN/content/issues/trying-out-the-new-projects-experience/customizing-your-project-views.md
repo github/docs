@@ -4,6 +4,7 @@ intro: 通过更改项目中的布局、分组、排序和筛选器来显示您�
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Projects
@@ -11,9 +12,9 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## 命令面板
+## Project command palette
 
-使用命令面板快速更改项目中的设置并运行命令。
+Use the project command palette to quickly change settings and run commands in your project.
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入命令的任何部分或浏览命令面板窗口以查找命令。 更多命令示例请参阅下面的章节。
@@ -29,13 +30,21 @@ topics:
 
 ## 显示或隐藏字段
 
-在表布局中，您可以显示或隐藏特定字段。
+You can show or hide a specific field.
+
+In table layout:
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入要执行的操作（"show" 或 "hide"）或字段名称。
 3. 选择所需的命令（例如："Show: Milestone"）。
 4. 或者，单击表格右侧的 {% octicon "plus" aria-label="the plus icon" %}。 在显示的下拉菜单中，指示要显示或隐藏哪些字段。 {% octicon "check" aria-label="check icon" %} 指示显示哪些字段。
 5. 或者，选择字段名称旁边的下拉菜单，然后点击 **Hide field（隐藏字段）**。
+
+In board layout:
+
+1. 选择视图名称旁边的下拉菜单。
+2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
+3. In the menu that appears, select fields to add them and deselect fields to remove them from the view.
 
 ## 重新排序字段
 
@@ -97,22 +106,22 @@ In the table layout, you can group items by a custom field value. 对项分组�
 
 ## 过滤，过滤器
 
-在表布局中，您可以按字段值筛选。
+Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. 当您输入时，可能的值将会出现。
+
+- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- 多个过滤条件之间用逗号分隔。 For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+
+Alternatively, use the command palette.
 
 1. {% data reusables.projects.open-command-palette %}
 2. 开始键入 "Filter by" 或您想要筛选的字段的名称。
 3. 选择所需的命令（例如 "Filter by Status"）。
 4. 输入您想要筛选的值（例如："In progress"）。 You can also filter for the absence of specific values (for example: "Exclude status") or the absence of all values (for example: "No status").
-5. 或者，点击表格顶部的 {% octicon "search" aria-label="the search icon" %} 显示“按关键字或字段过滤”列。 输入要过滤的字段名称和值。 当您输入时，可能的值将会出现。
 
-   To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-
-   To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-
-   To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-
-   多个过滤条件之间用逗号分隔。 For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-6. Alternatively, select the drop-down menu next to the view name and click the menu item that indicates the desired filter.
+In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
 ## 保存视图
 
@@ -147,5 +156,5 @@ In the table layout, you can group items by a custom field value. 对项分组�
 
 ## 延伸阅读
 
-- "[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)
-- "[创建项目（测试版）](/issues/trying-out-the-new-projects-experience/creating-a-project)
+- "[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[创建项目（测试版）](/issues/trying-out-the-new-projects-experience/creating-a-project)"

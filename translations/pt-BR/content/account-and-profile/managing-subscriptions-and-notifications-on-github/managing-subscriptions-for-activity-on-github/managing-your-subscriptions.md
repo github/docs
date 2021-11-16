@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 redirect_from:
@@ -17,7 +18,7 @@ Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assi
 
 {% note %}
 
-**Observação:** Em vez de cancelar a assinatura, você tem a opção de ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% ifversion fpt %}Se você estiver passando por abuso e deseja ignorar um repositório, entre em contato com {% data variables.contact.contact_support %} para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
+**Observação:** Em vez de cancelar a assinatura, você tem a opção de ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% ifversion fpt or ghec %}Se você estiver passando por abuso e deseja ignorar um repositório, entre em contato com {% data variables.contact.contact_support %} para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -45,7 +46,7 @@ Ao cancelar a assinatura de notificações em sua caixa de entrada, elas desapar
 
 {% data reusables.notifications.access_notifications %}
 1. Na caixa de entrada de notificações, selecione as notificações das quais você deseja cancelar sua assinatura.
-2. Use o menu suspenso **selecionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para clicar em **Cancelar inscrição.** ![Cancele a assinatura na caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Clique em **Cancelar assinatura.** ![Cancele a assinatura na caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## Cancelar assinatura de notificações na página de assinaturas
 
@@ -61,13 +62,12 @@ Quando você deixa de inspecionar um repositório, você cancela sua assinatura 
 {% data reusables.notifications.access_notifications %}
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Inspecionar repositórios**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
-  {% ifversion ghae or ghes < 3.1 %}
-    - Deixar de inspecionar um repositório
-    - Apenas inspecione versões para um repositório
-    - Ignorar todas as notificações de um repositório
-  {% endif %}
-  {% ifversion fpt or ghes > 3.0 or ghae-next %}
+  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
     - Deixar de inspecionar um repositório
     - Ignorar todas as notificações de um repositório
     - Personalize os tipos de eventos que você recebe notificações para ({% data reusables.notifications-v2.custom-notification-types %}, se habilitado)
+  {% else %}
+    - Deixar de inspecionar um repositório
+    - Apenas inspecione versões para um repositório
+    - Ignorar todas as notificações de um repositório
   {% endif %}

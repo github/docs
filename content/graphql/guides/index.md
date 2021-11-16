@@ -5,6 +5,7 @@ redirect_from:
   - /v4/guides
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

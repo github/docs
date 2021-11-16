@@ -13,6 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Editores de texto associados
 ---
 
@@ -61,6 +62,7 @@ shortTitle: Editores de texto associados
 ## Usar o Atom como seu editor
 
 1. Instale o [Atom](https://atom.io/). Para obter mais informações, consulte "[Instalar o Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" na documentação do Atom.
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "atom --wait"

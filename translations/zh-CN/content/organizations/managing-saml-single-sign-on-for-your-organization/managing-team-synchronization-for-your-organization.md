@@ -11,11 +11,14 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 管理团队同步
 ---
+
+{% data reusables.enterprise-accounts.emu-scim-note %}
 
 {% data reusables.gated-features.okta-team-sync %}
 
@@ -29,7 +32,9 @@ shortTitle: 管理团队同步
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)”。
+您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[管理企业中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
+
+{% data reusables.enterprise-accounts.team-sync-override %}
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 

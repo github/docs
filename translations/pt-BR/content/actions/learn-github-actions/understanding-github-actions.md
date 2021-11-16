@@ -1,7 +1,7 @@
 ---
-title: Understanding GitHub Actions
-shortTitle: Understanding GitHub Actions
-intro: 'Learn the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.'
+title: Entendendo o GitHub Actions
+shortTitle: Entendendo o GitHub Actions
+intro: 'Aprenda o básico de {% data variables.product.prodname_actions %}, incluindo conceitos fundamentais e terminologia essencial.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - Fundamentals
@@ -36,7 +37,7 @@ Abaixo está uma lista dos múltiplos componentes de {% data variables.product.p
 
 ### Fluxos de trabalho
 
-O fluxo de trabalho é um procedimento automatizado que você adiciona ao seu repositório. Os fluxos de trabalho são constituídos por um ou mais trabalhos e podem ser programados ou ativados por um evento. O fluxo de trabalho pode ser usado para criar, testar, empacotar, publicar ou implantar um projeto em {% data variables.product.prodname_dotcom %}.
+O fluxo de trabalho é um procedimento automatizado que você adiciona ao seu repositório. Os fluxos de trabalho são constituídos por um ou mais trabalhos e podem ser programados ou ativados por um evento. O fluxo de trabalho pode ser usado para criar, testar, empacotar, publicar ou implantar um projeto em {% data variables.product.prodname_dotcom %}. {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Você pode consultar um fluxo de trabalho dentro de outro fluxo de trabalho. Consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)"{% endif %}
 
 ### Eventos
 
@@ -179,7 +180,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-  This step uses the <code>actions/setup-node@v2</code> action to install the specified version of the <code>node</code> software package on the runner, which gives you access to the <code>npm</code> command.
+  Esta etapa usa a ação <code>actions/setup-node@v2</code> para instalar a versão especificada do pacote de software do <code>nó</code> no executor, que fornece a você acesso ao comando <code>npm</code>.
 </td>
 </tr>
 <tr>
@@ -212,21 +213,20 @@ Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de cria
 
 ![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-event.png)
 
-
 ## Visualizar a atividade do trabalho
 
-Assim que o seu trabalho começar a ser executado, você poderá {% ifversion fpt or ghes > 3.0 or ghae %}ver um gráfico de visualização do progresso da execução e {% endif %}visualizar a atividade de cada etapa em {% data variables.product.prodname_dotcom %}.
+Assim que o seu trabalho começar a ser executado, você poderá {% ifversion fpt or ghes > 3.0 or ghae or ghec %}ver um gráfico de visualização do progresso da execução e {% endif %}visualizar a atividade de cada etapa em {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. No nome do seu repositório, clique em **Ações**. ![Acesse o repositório](/assets/images/help/images/learn-github-actions-repository.png)
 1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja ver. ![Captura de tela dos resultados do fluxo de trabalho](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Em "Execuções do fluxo de trabalho", clique no nome da execução que você deseja ver. ![Captura de tela das execuções do fluxo de trabalho](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho que você deseja ver. ![Selecionar trabalho](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Visualizar os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result.png)
@@ -236,7 +236,7 @@ Assim que o seu trabalho começar a ser executado, você poderá {% ifversion fp
 
 Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
 
-To understand how billing works for {% data variables.product.prodname_actions %}, see "[About billing for {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
+Para entender como a cobrança funciona para {% data variables.product.prodname_actions %}, consulte "[Sobre cobrança para {% data variables.product.prodname_actions %}](/actions/reference/usage-limits-billing-and-administration#about-billing-for-github-actions)".
 
 ## Entrar em contato com o suporte
 

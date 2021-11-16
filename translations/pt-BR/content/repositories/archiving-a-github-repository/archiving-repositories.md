@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-## About repository archival
+## Sobre o arquivamento do repositório
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Observação:** se você tiver um plano de cobrança por repositório herdado, será feita a cobrança pelo seu repositório arquivado. Se não desejar ser cobrado por um repositório arquivado, será preciso atualizar para um novo produto. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
@@ -32,7 +33,7 @@ Depois que um repositório é arquivado, não é possível adicionar nem remover
 
 Quando um repositório é arquivado, seus problemas, pull requests, código, etiquetas, marcos, projetos, wiki, versões, commits, tags, branches, reações, alertas de varredura de código e comentários tornam-se somente leitura. Para fazer alterações em um repositório arquivado, você deve desarquivar o repositório primeiro.
 
-É possível pesquisar repositórios arquivados. Para obter mais informações, consulte "[Pesquisar repositórios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obter mais informações, consulte "[Pesquisa de repositórios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obter mais informações, consulte "[Pesquisa de problemas e pull requests](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
+É possível pesquisar repositórios arquivados. Para obter mais informações, consulte "[Pesquisar repositórios](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obter mais informações, consulte "[Pesquisa de repositórios](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)". Para obter mais informações, consulte "[Pesquisa de problemas e pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)".
 
 ## Arquivar um repositório
 

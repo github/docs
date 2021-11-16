@@ -10,12 +10,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
-{% ifversion fpt %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
+{% ifversion fpt or ghec %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Note:** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -37,7 +38,7 @@ topics:
 ![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
 1. In "Homepage URL", type the full URL to your app's website.
 ![Field for the homepage URL of your GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes > 3.0 or ghec %}
 1. In "Callback URL", type the full URL to redirect to after a user authorizes the installation. This URL is used if your app needs to identify and authorize user-to-server requests.
 
   You can use **Add callback URL** to provide additional callback URLs, up to a maximum of 10.

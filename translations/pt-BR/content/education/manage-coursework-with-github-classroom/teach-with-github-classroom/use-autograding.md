@@ -71,15 +71,15 @@ Você pode adicionar, editar ou excluir testes de avaliação automática para u
     - Para excluir um teste, à direita do nome do teste, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Ícone da lixeira para excluir um teste de avaliação automática](/assets/images/help/classroom/autograding-click-trash.png)
 1. Na parte inferior da página, clique em **Atualizar atividade**. ![Botão "Atualizar a atividade" na parte inferior da página](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
-## Viewing and downloading results from autograding tests
+## Visualizar e fazer o download de resultados de testes de autoavaliação
 
-### Download autograding results
+### Fazer o download dos resultados da auto-avaliação
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+Você também pode fazer o download do CSV da pontuação da autoavaliação dos seus alunos por meio do botão "Download". Isso irá gerar e fazer o download de um CSV que contém um link para o repositório do aluno, seu gerenciador de {% data variables.product.prodname_dotcom %}, identificador da lista de participantes, registro de hora de envio e pontuação de da autoavaliação.
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
+![O botão "Download" selecionado que mostra "Fazer o download de notas destacadas" e uma opção adicional para "Fazer o download dos repositórios"](/assets/images/help/classroom/download-grades.png)
 
-### View individual logs
+### Ver registros individuais
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}

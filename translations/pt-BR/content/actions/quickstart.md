@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Fundamentals
@@ -26,8 +27,8 @@ O exemplo a seguir mostra como os trabalhos de {% data variables.product.prodnam
 
 ## Criar o seu primeiro fluxo de trabalho
 
-1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
-2. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
+1. Crie um diretório `.github/workflows` no repositório {% data variables.product.prodname_dotcom %} se este diretório não existir.
+2. No diretório `.github/workflows`, crie um arquivo denominado `github-actions-demo.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
 3. Copie o conteúdo de YAML a seguir para o arquivo `github-actions-demo.yml`:
     {% raw %}
     ```yaml{:copy}

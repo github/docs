@@ -1,7 +1,7 @@
 ---
 title: Criar um problema
 intro: 'Os problemas podem ser criados de várias maneiras. Portanto, você pode escolher o método mais conveniente para seu fluxo de trabalho.'
-permissions: People with read permissions can create an issue in a repository where issues are enabled.
+permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue
@@ -22,11 +22,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
   - Project management
 shortTitle: Cria um problema
+type: how_to
 ---
 
 Os problemas podem ser usados para acompanhar erros, aprimoramentos ou outras solicitações. Para obter mais informações, consulte "[Sobre problemas](/issues/tracking-your-work-with-issues/about-issues)".
@@ -43,17 +45,17 @@ Os problemas podem ser usados para acompanhar erros, aprimoramentos ou outras so
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-## Creating an issue with {% data variables.product.prodname_cli %}
+## Criando um problema com {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} Para saber mais sobre {% data variables.product.prodname_cli %}, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
-To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
+Para criar um problema, use o subcomando `gh issue create`. Para ignorar as instruções interativas, inclua os sinalizadores `--body` e `--title`.
 
 ```shell
 gh issue create --title "My new issue" --body "Here are more details."
 ```
 
-You can also specify assignees, labels, milestones, and projects.
+Você também pode especificar responsáveis, etiquetas, marcos e projetos.
 
 ```shell
 gh issue create --title "My new issue" --body "Here are more details." --assignee @me,monalisa --label "bug,help wanted" --project onboarding --milestone "learning codebase"
@@ -88,17 +90,17 @@ Você pode abrir um novo problema a partir de um comentário em um problema ou p
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-## Creating an issue from discussion
+## Criando um problema da discussão
 
-People with triage permission to a repository can create an issue from a discussion.
+As pessoas com permissão de triagem para um repositório podem criar um problema a partir de uma discussão.
 
-When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+Ao criar um problema a partir de uma discussão, o conteúdo da postagem na discussão será automaticamente incluído no texto do problema e todas as etiquetas serão mantidas. A criação de um problema a partir de uma discussão não converte a discussão em um problema ou exclui a discussão existente. Para obter mais informações sobre {% data variables.product.prodname_discussions %}, consulte "[Sobre discussões "](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**. ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+1. Na barra lateral direita, clique em {% octicon "issue-opened" aria-label="The issues icon" %} **Criar problema a partir da discussão**. ![Botão para criar um problema da discussão](/assets/images/help/discussions/create-issue-from-discussion.jpg)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -109,7 +111,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 Se estiver usando um quadro de projeto para rastrear e priorizar seu trabalho, você poderá converter observações do quadro de projeto em problemas. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)" e "[Adicionando observações a um quadro de projeto](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Criando uma problema a partir de um item da lista de tarefas
 
@@ -127,7 +129,7 @@ Você pode usar parâmetros de consulta para abrir problemas. Os parâmetros de 
 
 {% endtip %}
 
-Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`. Para obter mais informações, consulte "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
+Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 Se você criar uma URL inválida usando parâmetros de consulta, ou se você não tiver as permissões adequadas, a URL retornará uma página de erro `404 Not Found`. Se você criar uma URL que excede o limite do servidor, a URL retornará uma página de erro de `414 URI Too Long`.
 

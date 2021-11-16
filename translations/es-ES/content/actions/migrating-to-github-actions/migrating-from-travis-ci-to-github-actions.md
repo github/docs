@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Travis CI
@@ -188,7 +189,7 @@ Cuando te migres de Travis CI, consider las siguientes características clave en
 
 ### Almacenar secretos
 
-{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% ifversion fpt or ghes > 3.0 or ghae %}Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
 ### Compartir archivos entre jobs y flujos de trabajo
 
@@ -205,7 +206,7 @@ Los jobs simultáneos y los tiempos de ejecución de los flujos de trabajo en {%
 ### Utilizar lenguajes diferentes en {% data variables.product.prodname_actions %}
 
 Cuando trabajas con lenguajes diferentes en {% data variables.product.prodname_actions %}, pueeds crear un paso en tu job para configurar tus dependencias de lenguaje. Para obtener más información acerca de cómo trabajar con un lenguaje en particular, consulta la guía específica:
-  - [Building and testing Node.js or Python](/actions/guides/building-and-testing-nodejs-or-python)
+  - [Crear y probar Node.js o Python](/actions/guides/building-and-testing-nodejs-or-python)
   - [Compilar y probar PowerShell](/actions/guides/building-and-testing-powershell)
   - [Construir y probar Java con Maven](/actions/guides/building-and-testing-java-with-maven)
   - [Construir y probar Java con Gradle](/actions/guides/building-and-testing-java-with-gradle)
@@ -238,7 +239,7 @@ Cuando te migras a {% data variables.product.prodname_actions %}, hay varios ace
 
 ## Sintaxis de migración para condicionales y expresiones
 
-Para ejecutar jobs bajo expresiones condicionales, Travis CI y {% data variables.product.prodname_actions %} comparten una sintaxis condicional de tipo `if` similar. {% data variables.product.prodname_actions %} te permite utilizar la condicional `if` para prevenir que un paso o un job se ejecuten a menos de que se cumpla con la condición. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para ejecutar jobs bajo expresiones condicionales, Travis CI y {% data variables.product.prodname_actions %} comparten una sintaxis condicional de tipo `if` similar. {% data variables.product.prodname_actions %} te permite utilizar la condicional `if` para prevenir que un paso o un job se ejecuten a menos de que se cumpla con la condición. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 Este ejemplo demuestra cómo una condicional de tipo `if` puede controlar si un paso se ejecuta o no:
 
@@ -334,7 +335,7 @@ cache: npm
 </tr>
 </table>
 
-El almacenamiento en caché de {% data variables.product.prodname_actions %} solo aplica a los ejecutores hospedados en {% data variables.product.prodname_dotcom %}.  Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
 ## Ejemplos de tareas comunes
 

@@ -7,8 +7,12 @@ redirect_from:
 versions:
   ghes: '*'
   ghae: next
+type: tutorial
 topics:
+  - Actions
   - Enterprise
+  - Networking
+  - Storage
 shortTitle: Cache de ferramentas para executores off-line
 ---
 

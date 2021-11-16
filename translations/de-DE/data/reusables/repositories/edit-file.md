@@ -1,1 +1,0 @@
-1. Klicken Sie in der oberen rechten Ecke der Dateiansicht auf {% octicon "pencil" aria-label="The edit icon" %}, um den Datei-Editor zu öffnen. ![Schaltfläche „Edit file" (Datei bearbeiten)](/assets/images/help/repository/edit-file-edit-button.png)

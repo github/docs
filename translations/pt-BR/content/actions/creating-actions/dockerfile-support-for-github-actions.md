@@ -1,14 +1,14 @@
 ---
 title: Suporte do arquivo Docker para GitHub Actions
-shortTitle: Dockerfile support
+shortTitle: Suporte ao Dockerfile
 intro: 'Ao criar um "arquivo Docker" para uma ação do contêiner Docker, você deverá ter em mente como algumas instruções do Docker interagem com o GitHub Actions e com um arquivo de metadados da ação.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 

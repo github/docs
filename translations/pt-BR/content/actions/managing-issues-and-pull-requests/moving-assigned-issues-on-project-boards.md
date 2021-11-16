@@ -1,13 +1,13 @@
 ---
 title: Transferir problemas atribuídos em quadros de projeto
 intro: 'Você pode usar {% data variables.product.prodname_actions %} para transferir automaticamente um problema para uma coluna específica no quadro de um projeto quando o problema for atribuído.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Workflows
@@ -18,7 +18,6 @@ shortTitle: Mover problemas atribuídos
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ## Introdução
 

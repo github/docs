@@ -6,6 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /github-cli
 introLinks:
@@ -13,10 +14,11 @@ introLinks:
   quickstart: /github-cli/github-cli/quickstart
   reference: /github-cli/github-cli/github-cli-reference
 featuredLinks:
-  guides: 
+  guides:
     - /github-cli/github-cli/creating-github-cli-extensions
     - /github-cli/github-cli/using-github-cli-extensions
     - /actions/guides/using-github-cli-in-workflows
+    - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
   popular:
     - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
     - /issues/tracking-your-work-with-issues/creating-an-issue
@@ -32,3 +34,4 @@ changelog:
 layout: product-landing
 beta_product: false
 ---
+

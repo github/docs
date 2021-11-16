@@ -1,6 +1,6 @@
 ---
 title: Renomear um arquivo
-intro: 'You can rename any file in your repository directly in {% data variables.product.product_name %} or by using the command line.'
+intro: 'Você pode renomear qualquer arquivo no repositório diretamente em {% data variables.product.product_name %} ou usando a linha de comando.'
 redirect_from:
   - /articles/renaming-a-file
   - /github/managing-files-in-a-repository/renaming-a-file
@@ -12,13 +12,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-## Renaming a file on {% data variables.product.product_name %}
+## Renomeando um arquivo em {% data variables.product.product_name %}
 
-Renaming a file also gives you the opportunity to [move the file to a new location](/articles/moving-a-file-to-a-new-location)
+Renomear um arquivo também dá a oportunidade de [transferir o arquivo para um novo local](/articles/moving-a-file-to-a-new-location)
 
 {% tip %}
 

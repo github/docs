@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Registro de Apache maven
 ---
 
@@ -64,7 +65,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
         </repository>
         <repository>
           <id>github</id>
-          <url>https://{% ifversion fpt %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
+          <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -106,7 +107,7 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
         </repository>
         <repository>
           <id>github</id>
-          <url>HOSTNAME/_registry/maven/OWNER/*</url>
+          <url>HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -142,7 +143,7 @@ Para obtener más información acerca de cómo crear un paquete, consulta la [do
      <repository>
        <id>github</id>
        <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://{% ifversion fpt %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+       <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
   ```{% ifversion ghes %}
@@ -190,4 +191,4 @@ Para instalar un paquete de Apache Maven desde {% data variables.product.prodnam
 ## Leer más
 
 - "[Trabajar con el registro de Gradle](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "{% ifversion fpt or ghes > 3.0 %}[Borrar y restaurar un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

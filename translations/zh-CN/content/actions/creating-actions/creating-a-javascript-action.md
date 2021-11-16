@@ -1,7 +1,6 @@
 ---
 title: 创建 JavaScript 操作
 intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -11,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Action development
@@ -129,7 +129,6 @@ try {
 
 如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
 
-
 ## 创建自述文件
 
 要让人们了解如何使用您的操作，您可以创建自述文件。 自述文件在您计划公开分享操作时最有用，但也是提醒您或您的团队如何使用该操作的绝佳方式。
@@ -174,7 +173,6 @@ with:
 从您的终端，提交 `action.yml`、`index.js`、`node_modules`、`package.json`、`package-lock.json` 和 `README.md` 文件。 如果您添加了列有 `node_modules` 的 `.gitignore` 文件，则需要删除该行才能提交 `node_modules` 目录。
 
 最佳做法是同时为操作版本添加版本标记。 有关对操作进行版本管理的详细信息，请参阅“[关于操作](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)”。
-
 
 ```shell
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -266,11 +264,11 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae %}
+{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes > 2.22 %}
+{% elsif ghes %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)

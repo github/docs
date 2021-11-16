@@ -2,6 +2,7 @@
 title: 支払い
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

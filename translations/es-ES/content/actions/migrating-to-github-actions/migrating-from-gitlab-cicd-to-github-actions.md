@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - GitLab
@@ -133,7 +134,7 @@ Para obtener más información, consulta la sección "[Sintaxis de flujo de trab
 
 ## Imágenes de Docker
 
-Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} son compatibles con la ejecución de jobs en una imagen de Docker. In GitLab CI/CD, Docker images are defined with an `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
+Tanto la IC/EC de GitLab como las {% data variables.product.prodname_actions %} son compatibles con la ejecución de jobs en una imagen de Docker. En la IC/EC de GitLab, las imágenes de Docker se definen con una clave de `image`, mientras que en las {% data variables.product.prodname_actions %} se hace con la clave `container`.
 
 Puedes encontrar un ejemplo de la sintaxis para cada sistema:
 
@@ -212,7 +213,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 ## Dependencias entre los Jobs
 
@@ -359,7 +360,7 @@ jobs:
 </tr>
 </table>
 
-El almacenamiento en caché de {% data variables.product.prodname_actions %} solo aplica a los ejecutores hospedados en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+El almacenamiento en caché de las {% data variables.product.prodname_actions %} solo se aplica a los repositorios que se hospedan en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
 ## Artefactos
 

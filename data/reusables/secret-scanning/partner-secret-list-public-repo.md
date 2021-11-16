@@ -35,6 +35,7 @@ Dynatrace | Dynatrace Internal Token
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
+FullStory| FullStory API Key
 GitHub | GitHub Personal Access Token
 GitHub | GitHub OAuth Access Token
 GitHub | GitHub Refresh Token
@@ -54,6 +55,7 @@ Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
 Mailgun | Mailgun API Key
 MessageBird | MessageBird API Key
+Meta | Facebook Access Token
 npm | npm Access Token
 NuGet | NuGet API Key
 OpenAI | OpenAI API Key

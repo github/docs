@@ -35,7 +35,7 @@
 
 製品のサンプルデータは、`middleware/contextualizers/product-examples.js`中の`context`オブジェクトに追加されます。
 
-The data is then rendered by `components/landing`.
+そしてこのデータは、`components/landing`によってレンダリングされます。
 
 ## スキーマの適用
 

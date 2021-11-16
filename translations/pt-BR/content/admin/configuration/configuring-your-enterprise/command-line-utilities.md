@@ -44,14 +44,14 @@ $ ghe-announce -u
 
 Este utilitário exibe informações sobre trabalhos em segundo plano, ativos e em fila. Ele fornece os mesmos números de contagem de trabalhos que a barra de estatísticas de administração, na parte superior de todas as páginas.
 
-This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
+Este utilitário pode ajudar a identificar se o servidor de Aqueduct está tendo problemas no processamento de trabalhos em segundo plano. Qualquer dos seguintes cenários pode indicar um problema com o Aqueduct:
 
 * O número de trabalhos em segundo plano está aumentando, e os trabalhos ativos continuam iguais.
 * Os feeds de evento não estão sendo atualizados.
 * Webhooks não estão sendo acionados.
 * A interface web não atualiza após um push do Git.
 
-If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+Se você suspeitar que o Aqueduct tem uma falha, entre em contato com {% data variables.contact.contact_ent_support %} para obter ajuda.
 
 Com este comando, também é possível pausar ou retomar trabalhos na fila.
 
@@ -351,18 +351,6 @@ stop/waiting
   - ghe-replica-mode
 ```
 
-{% tip %}
-
-Os nomes de serviço retornados deste comando podem ser usados com comandos "[`systemctl`](https://www.freedesktop.org/software/systemd/man/systemctl.html)" para interromper, iniciar ou reiniciar esses serviços manualmente, se necessário. Por exemplo:
-
-```shell
-$ sudo systemctl restart github-resqued
-```
-
-A interrupção dos serviços causará tempo de inatividade na instalação. Portanto, é recomendável entrar em contato com o {% data variables.contact.contact_ent_support %} antes de parar ou reiniciar qualquer serviço.
-
-{% endtip %}
-
 ### ghe-set-password
 
 Com `ghe-set-password`, você pode definir uma nova senha para autenticação no [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console).
@@ -506,7 +494,7 @@ ghe-webhook-logs
 ```
 
 Para exibir todas as entregas de hook falhas do último dia:
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
@@ -519,7 +507,7 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 Para exibir a carga útil total do hook, o resultado e quaisquer exceções para a entrega:
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em>
 ```
@@ -635,6 +623,31 @@ Interface do tipo `top` para as operações atuais do Git.
 
 ```shell
 ghe-btop [ <port number> | --help | --usage ]
+```
+
+#### ghe-governor
+
+Este utilitário ajuda a analisar o tráfego do Git. Ela consulta arquivos de dados do _Governador_, localizados em `/data/user/gitmon`. {% data variables.product.company_short %} mantém uma hora de dados por arquivo, retidos por duas semanas. Para obter mais informações, consulte [Analisando tráfego do Git que usa o Governador](https://github.community/t/analyzing-git-traffic-using-governor/13516) em {% data variables.product.prodname_gcf %}.
+
+```bash
+ghe-governor <subcommand> <column> [options]
+```
+
+```
+ghe-governor -h
+Usage: ghe-governor [-h] <subcommand> args
+
+OPTIONS:
+  -h | --help        Show this message.
+
+Os subcomandos válidos são:
+  aggregate              Find the top (n) groups of queries for a grouping function and metric
+  health                 Summarize all recent activity on one or more servers
+  top                    Find the top (n) queries for a given metric
+  dump                   Dump individual operations
+  test-quotas            Check quota information
+
+Try ghe-governor <subcommand> --help for more information on the arguments each subcommand takes.
 ```
 
 ### ghe-repo
@@ -808,7 +821,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 ### ghe-license-usage
 
-Este utilitário exporta uma lista de usuários da instalação em formato JSON. Se sua instância estiver conectada ao {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} usa essa informação para reportar informações de licenciamento ao {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Conctando {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)".
+Este utilitário exporta uma lista de usuários da instalação em formato JSON. Se sua instância estiver conectada ao {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} usa essa informação para reportar informações de licenciamento ao {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Conectando a sua conta corporativa a {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".
 
 Por padrão, a lista de usuários no arquivo JSON resultante é criptografada. Use o sinalizador `-h` para ver mais opções.
 

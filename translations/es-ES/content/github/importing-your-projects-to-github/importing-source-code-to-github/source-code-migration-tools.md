@@ -9,10 +9,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Herramientas de migración de código
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 Te recomendamos utilizar el [Importador de GitHub](/articles/about-github-importer) para importar proyectos de Subversion, Mercurial, Team Foundation Version Control (TFVC) u otro repositorio de Git. También puedes utilizar estas herramientas externas para convertir tus proyectos a Git.
 
@@ -38,7 +39,7 @@ Recomendamos [hg-fast-export](https://github.com/frej/fast-export) para converti
 
 Te recomendamos utilizar [git-tfs](https://github.com/git-tfs/git-tfs) para mover los cambios entre TFVC y Git.
 
-For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
+Para obtener más información acerca de migrarse de TFVC (un sistema de control de versiones centralizado) a Git, consulta la sección "[Planea tu migración a Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" del sitio de documentos de Microsoft.
 
 {% tip %}
 
@@ -46,7 +47,7 @@ For more information about moving from TFVC (a centralized version control syste
 
 {% endtip %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## Leer más
 

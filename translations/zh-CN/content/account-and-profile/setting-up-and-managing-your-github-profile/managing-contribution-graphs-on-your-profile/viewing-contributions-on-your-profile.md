@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中查看贡献
-intro: '您的 {% data variables.product.product_name %} 个人资料突出显示{% ifversion fpt or ghes %}您置顶的仓库以及{% endif %}过去一年的仓库贡献图。'
+intro: '您的 {% data variables.product.product_name %} 个人资料突出显示{% ifversion fpt or ghes or ghec %}您置顶的仓库以及{% endif %}过去一年的仓库贡献图。'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,12 +11,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Profiles
 shortTitle: 查看贡献
 ---
 
-{% ifversion fpt or ghes %}您的贡献图显示公共仓库的活动。 {% endif %}您可以选择显示{% ifversion fpt or ghes %}公共和{% endif %}私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
+{% ifversion fpt or ghes or ghec %}您的贡献图显示公共仓库的活动。 {% endif %}您可以选择显示{% ifversion fpt or ghes or ghec %}公共和{% endif %}私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
 
@@ -40,11 +41,11 @@ shortTitle: 查看贡献
 
 ## 受欢迎的仓库
 
-此部分显示具有最多查看者的仓库。 {% ifversion fpt or ghes %}一旦您[在个人资料置顶仓库](/articles/pinning-repositories-to-your-profile)，此部分将更改为“置顶的仓库”。{% endif %}
+此部分显示具有最多查看者的仓库。 {% ifversion fpt or ghes or ghec %}一旦您[在个人资料置顶仓库](/articles/pinning-repositories-to-your-profile)，此部分将更改为“置顶的仓库”。{% endif %}
 
 ![受欢迎的仓库](/assets/images/help/profile/profile_popular_repositories.png)
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 ## 固定的仓库
 
@@ -91,15 +92,14 @@ shortTitle: 查看贡献
 
 ![贡献活动时间过滤器](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-{% ifversion not ghae %}
-## 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.product_location_enterprise %}的贡献
+{% ifversion fpt or ghes or ghae-next or ghec %}
 
-如果您的站点管理员已启用{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到 {% data variables.product.prodname_dotcom_the_website %} 配置文件。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+## 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.prodname_enterprise %}的贡献
+
+如果您使用 {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae-next %} 或 {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} 并且您的企业所有者启用 {% data variables.product.prodname_unified_contributions %}， 您可以从您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料发送企业贡献计数。 更多信息请参阅“[将企业贡献发送到 {% data variables.product.prodname_dotcom_the_website %} 个人资料](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)”。
+
 {% endif %}
 
 ## 延伸阅读
 
 - "[在个人资料页面中查看贡献](/articles/viewing-contributions-on-your-profile-page)"
-- “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”
-- "[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- “[在个人资料中显示活动概览](/articles/showing-an-overview-of-your-activity-on-your-profile)”

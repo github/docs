@@ -1,9 +1,10 @@
 ---
 title: Exporting changes to a branch
-intro: 'This article provides steps for exporting your codespace changes to a branch.'
+intro: This article provides steps for exporting your codespace changes to a branch.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: reference
 topics:
   - Codespaces
@@ -12,7 +13,7 @@ shortTitle: Exporting changes
 
 ## Exporting changes to a branch
 
-While using {% data variables.product.prodname_codespaces %}, you may want to export your changes to a branch without launching a your codespace.
+While using {% data variables.product.prodname_codespaces %}, you may want to export your changes to a branch without launching your codespace.
 
 This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) or have a general issue accessing your codespace.
 

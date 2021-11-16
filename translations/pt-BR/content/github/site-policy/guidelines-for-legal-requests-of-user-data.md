@@ -104,7 +104,7 @@ Aqui está uma lista não exaustiva dos tipos de dados que mantemos a respeito d
 
 ## Notificaremos qualquer proprietário de conta afetado
 
-É nossa política notificar os usuários sobre quaisquer pedidos pendentes relativos a suas contas ou seus repositórios, a não ser que sejamos proibidos por lei ou por decisão judicial. Antes de divulgar informações do usuário, faremos um esforço razoável para notificar qualquer proprietário da conta afetada enviando uma mensagem para seu endereço de e-mail verificado, fornecendo a ele uma cópia da intimação, da ordem judicial, ou do mandado, para que possa ter a oportunidade de contestar o processo judicial, se assim o desejar. In (rare) exigent circumstances, we may delay notification if we determine delay is necessary to prevent death or serious harm or due to an ongoing investigation.
+É nossa política notificar os usuários sobre quaisquer pedidos pendentes relativos a suas contas ou seus repositórios, a não ser que sejamos proibidos por lei ou por decisão judicial. Antes de divulgar informações do usuário, faremos um esforço razoável para notificar qualquer proprietário da conta afetada enviando uma mensagem para seu endereço de e-mail verificado, fornecendo a ele uma cópia da intimação, da ordem judicial, ou do mandado, para que possa ter a oportunidade de contestar o processo judicial, se assim o desejar. Em (raras) circunstâncias exigentes, podemos atrasar a notificação, se determinarmos que os atrasos são necessários para evitar a morte ou danos graves ou devido a uma investigação em curso.
 
 ## Compartilhamento de informações não públicas
 

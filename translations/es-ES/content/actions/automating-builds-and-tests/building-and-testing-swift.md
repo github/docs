@@ -1,13 +1,13 @@
 ---
 title: Compilar y probar Swift
 intro: Puedes crear un flujo de trabajo de integración continua (CI) para crear y probar tu proyecto de Swift.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-swift
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -23,7 +23,7 @@ shortTitle: Compilar & probar en Swift
 
 Esta guía te muestra cómo crear y probar un paquete de Swift.
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the necessary Swift dependencies. Para obtener las instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tenga instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% ifversion ghae %} Para compilar y probar tu proyecto de Swift en {% data variables.product.prodname_ghe_managed %}, necesitarás crear una imagen de sistema operativo personalizada que incluya las dependencias necesarias de Swift. Para obtener las instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tenga instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
 {% else %}Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software preinstalado y los ejecutores de Ubuntu y macOS incluyen las dependencias para crear paquetes de Swift. Para encontrar una lista completa de software actualizado y las versiones preinstaladas de Swift y Xcode, consulta la sección "[Acerca de los ejecutores hospedados en GitHub](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".{% endif %}
 
 ## Prerrequisitos

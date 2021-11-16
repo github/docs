@@ -8,12 +8,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About self-hosted runners
 
@@ -56,7 +58,7 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
-{% ifversion fpt or ghes > 3.2 %}
+{% ifversion fpt or ghes > 3.2 or ghec %}
 ## Autoscaling your self-hosted runners
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
@@ -127,15 +129,77 @@ Some extra configuration might be required to use actions from {% data variables
 The self-hosted runner polls {% data variables.product.product_name %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
 {% ifversion ghae %}
-You must ensure that the self-hosted runner has appropriate network access to communicate with the {% data variables.product.prodname_ghe_managed %} URL.
-For example, if your instance name is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.github.com`.
+You must ensure that the self-hosted runner has appropriate network access to communicate with the {% data variables.product.prodname_ghe_managed %} URL and its subdomains.
+For example, if your instance name is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
 
 If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
+Since the self-hosted runner opens a connection to {% data variables.product.prodname_dotcom %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
+
+You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+
+{% note %}
+
+**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
+
+{% endnote %}
+
+**Needed for essential operations:**
+
+```
+github.com
+api.github.com
+```
+
+**Needed for downloading actions:**
+
+```
+codeload.github.com
+```
+
+**Needed for runner version updates:**
+
+```
+objects.githubusercontent.com
+objects-origin.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+```
+
+**Needed for uploading/downloading caches and workflow artifacts:**    
+
+```
+*.blob.core.windows.net
+```
+
+**Needed for retrieving OIDC tokens:**
+
+```
+*.actions.githubusercontent.com
+```
+
+In addition, your workflow may require access to other network resources. For example, if your workflow installs packages or publishes containers to {% data variables.product.prodname_dotcom %} Packages, then the runner will also require access to those network endpoints.
+
+If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
+
+{% else %}
+
+You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.
+
+{% endif %}
+
+You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+
+{% ifversion ghes %}
+
+## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
+
+Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have [enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
+
+If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions.  You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
 {% note %}
 
@@ -146,32 +210,16 @@ You must ensure that the machine has the appropriate network access to communica
 ```
 github.com
 api.github.com
-*.actions.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
 codeload.github.com
-*.pkg.github.com
-pkg-cache.githubusercontent.com
-pkg-containers.githubusercontent.com
-pkg-containers-az.githubusercontent.com
-*.blob.core.windows.net
 ```
-
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
-
-{% else %}
-
-You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.
 
 {% endif %}
 
-You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+{% ifversion fpt or ghec %}
 
 ## Self-hosted runner security with public repositories
 
-{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
-{% endif %}
 
 This is not an issue with {% data variables.product.prodname_dotcom %}-hosted runners because each {% data variables.product.prodname_dotcom %}-hosted runner is always a clean isolated virtual machine, and it is destroyed at the end of the job execution.
 
@@ -181,3 +229,5 @@ Untrusted workflows running on your self-hosted runner pose significant security
 * Escaping the machine's runner sandbox.
 * Exposing access to the machine's network environment.
 * Persisting unwanted or dangerous data on the machine.
+
+{% endif %}

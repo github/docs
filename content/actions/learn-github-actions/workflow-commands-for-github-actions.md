@@ -2,7 +2,6 @@
 title: Workflow commands for GitHub Actions
 shortTitle: Workflow commands
 intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,20 +13,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## About workflow commands
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
-{% else %}
-Workflow commands use the `echo` command in a specific format.
-{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -69,37 +66,22 @@ The following table shows which toolkit functions are available within a workflo
 
 | Toolkit function | Equivalent workflow command |
 | ----------------- |  ------------- |
-| `core.addPath`    | {% ifversion fpt or ghes > 2.22 or ghae %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |
-| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
-| `core.notice`    | `notice` |{% endif %}
+| `core.addPath`    | Accessible using environment file `GITHUB_PATH` |
+| `core.debug`      | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
+| `core.notice`     | `notice` |{% endif %}
 | `core.error`      | `error` |
 | `core.endGroup`   | `endgroup` |
-| `core.exportVariable` | {% ifversion fpt or ghes > 2.22 or ghae %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %} |
+| `core.exportVariable` | Accessible using environment file `GITHUB_ENV` |
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
 | `core.saveState`  | `save-state` |
+| `core.setCommandEcho` | `echo` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
 | `core.setOutput`  | `set-output` |
 | `core.setSecret`  | `add-mask` |
 | `core.startGroup` | `group` |
 | `core.warning`    | `warning` |
-
-{% ifversion ghes < 3.0 %}
-## Setting an environment variable
-
-```
-::set-env name={name}::{value}
-```
-
-Creates or updates an environment variable for any steps running next in a job. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. Environment variables are case-sensitive and you can include punctuation.
-
-### Example
-
-``` bash
-echo "::set-env name=action_state::yellow"
-```
-{% endif %}
 
 ## Setting an output parameter
 
@@ -117,22 +99,6 @@ Optionally, you can also declare output parameters in an action's metadata file.
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-{% ifversion ghes < 3.0 %}
-## Adding a system path
-
-```
-::add-path::{path}
-```
-
-Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
-
-### Example
-
-``` bash
-echo "::add-path::/path/to/dir"
-```
-{% endif %}
-
 ## Setting a debug message
 
 ```
@@ -147,7 +113,7 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 echo "::debug::Set the Octocat variable"
 ```
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
 ## Setting a notice message
 
@@ -281,6 +247,46 @@ jobs:
 
 {% endraw %}
 
+## Echoing command outputs
+
+```
+::echo::on
+::echo::off
+```
+
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+
+Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
+
+The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+
+### Example toggling command echoing
+
+```yaml
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+The step above prints the following lines to the log:
+
+```
+::set-output name=action_echo::enabled
+::echo::off
+```
+
+Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+
 ## Sending values to the pre and post actions
 
 You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
@@ -301,19 +307,38 @@ The `STATE_processID` variable is then exclusively available to the cleanup scri
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
 ## Environment Files
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
 {% warning %}
 
-**Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
 ```yaml
-steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+jobs:
+  legacy-powershell-example:
+    uses: windows-2019
+    steps:
+      - shell: powershell
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
+
+Or switch to PowerShell Core, which defaults to UTF-8: 
+
+```yaml
+jobs:
+  modern-pwsh-example:
+    uses: windows-2019
+    steps:
+      - shell: pwsh
+        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
+```
+
+More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
+
+> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
+> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - **defaults to *BOM-less UTF-8***, in line with Unix-like platforms.  
 
 {% endwarning %}
 
@@ -385,4 +410,3 @@ This example demonstrates how to add the user `$HOME/.local/bin` directory to `P
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
-{% endif %}

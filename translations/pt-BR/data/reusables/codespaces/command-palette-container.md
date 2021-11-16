@@ -1,3 +1,3 @@
-1. Acessar a Paleta de Comando (`Shift + Comando + P` / `Ctrl + Shift + P`) e, em seguida, comece a digitar "dev container". Selecione **Codespaces: Adicionar arquivos de configuração de Contêiner do Desenvolvimento...**.
+1. Access the {% data variables.product.prodname_vscode_command_palette %} (`Shift + Command + P` / `Ctrl + Shift + P`), then start typing "dev container". Selecione **Codespaces: Adicionar arquivos de configuração de Contêiner do Desenvolvimento...**.
 
-   !["Codespaces: Adicionar arquivos de configuração de Contêiner de Desenvolvimento..." na paleta de comandos](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+   !["Codespaces: Add Development Container Configuration Files..." in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/add-prebuilt-container-command.png)

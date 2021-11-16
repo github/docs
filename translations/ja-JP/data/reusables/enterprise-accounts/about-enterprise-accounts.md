@@ -14,7 +14,7 @@ Organizations are shared accounts where enterprise members can collaborate acros
 
 {% ifversion fpt %}
 
-Enterprise owners can create organizations and link the organizations to the enterprise. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. 特定の強制の選択肢は、設定によって異なります。概して、Enterprise アカウント内のすべての Organization に単一のポリシーを強制するか、Organization レベルでオーナーがポリシーを設定することを許可するかを選択できます。 For more information, see "[Setting policies for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."
+Enterprise owners can create organizations and link the organizations to the enterprise. Alternatively, you can invite an existing organization to join your enterprise. After you add organizations to your enterprise account, you can manage and enforce policies for the organizations. 特定の強制の選択肢は、設定によって異なります。概して、Enterprise アカウント内のすべての Organization に単一のポリシーを強制するか、Organization レベルでオーナーがポリシーを設定することを許可するかを選択できます。 For more information, see "[Setting policies for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account)."
 
 {% elsif ghes or ghae %}
 
@@ -55,6 +55,14 @@ If you use both {% data variables.product.prodname_ghe_cloud %} and {% data vari
 You can also connect the enterprise account on {% data variables.product.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion fpt %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについては、「[{% data variables.product.prodname_dotcom %} の製品](/get-started/learning-about-github/githubs-products)」を参照してください。 {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
+
+{% endif %}
+
+{% ifversion fpt %}
+
+## {% data variables.product.prodname_emus %}について
+
+{% data reusables.enterprise-accounts.emu-short-summary %}
 
 {% endif %}
 

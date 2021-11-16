@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 redirect_from:
@@ -17,7 +18,7 @@ shortTitle: Manage your subscriptions
 
 {% note %}
 
-**注釈:** サブスクライブ解除する代わりに、リポジトリを無視するオプションがあります。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% ifversion fpt %}不正使用の発生により、リポジトリを無視する場合は、{% data variables.contact.contact_support %} 問い合わせてサポートを受けてください。 {% data reusables.policies.abuse %}{% endif %}
+**注釈:** サブスクライブ解除する代わりに、リポジトリを無視するオプションがあります。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% ifversion fpt or ghec %}不正使用の発生により、リポジトリを無視する場合は、{% data variables.contact.contact_support %} 問い合わせてサポートを受けてください。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -45,7 +46,7 @@ shortTitle: Manage your subscriptions
 
 {% data reusables.notifications.access_notifications %}
 1. 通知インボックスから、サブスクライブ解除する通知を選択します。
-2. **選択した** {% octicon "triangle-down" aria-label="The down triangle icon" %} ドロップダウンを使用して、[**Unsubscribe**] をクリックします。 ![メインインボックスの [Unsubcribe] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Click **Unsubscribe.** ![メインインボックスの [Unsubcribe] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## サブスクリプションページで通知をサブスクライブ解除する
 
@@ -61,13 +62,12 @@ shortTitle: Manage your subscriptions
 {% data reusables.notifications.access_notifications %}
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Watch しているリポジトリのページで、Watchしているリポジトリを評価した後、次のいずれかを選択します。
-  {% ifversion ghae or ghes < 3.1 %}
-    - リポジトリの Watch 解除
-    - Only watch releases for a repository
-    - Ignore all notifications for a repository
-  {% endif %}
-  {% ifversion fpt or ghes > 3.0 or ghae-next %}
+  {% ifversion fpt or ghes > 3.0 or ghae-next or ghec %}
     - リポジトリの Watch 解除
     - Ignore all notifications for a repository
     - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% else %}
+    - リポジトリの Watch 解除
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
   {% endif %}

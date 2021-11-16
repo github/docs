@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -50,7 +51,7 @@ end
 ```
 
 クライアント ID とクライアントシークレットは、[アプリケーションの設定ページ][app settings]から取得されます。
-{% ifversion fpt %}これらの値は**いかなる場合も_決して_**
+{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
 {% data variables.product.product_name %} や、それに限らず公開の場に保存しないでください。{% endif %}これらは
 [環境変数][about env vars]として保存することをお勧めします。この例でも、そのようにしています。
 
@@ -132,7 +133,7 @@ end
 
 リクエストを行う前にのみスコープを確認するだけでは不十分です。確認時と実際のリクエスト時の間に、ユーザがスコープを変更する可能性があります。 このような場合には、成功すると思っていたAPIの呼び出しが`404`または`401`ステータスになって失敗したり、情報の別のサブセットを返したりします。
 
-この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 それに加えて、OAuthアプリケーションAPIは、{% ifversion fpt or ghes %}[トークンの有効性のチェック](/rest/reference/apps#check-a-token){% else %}[トークンの有効性のチェック](/rest/reference/apps#check-an-authorization){% endif %}のためのエンドポイントを提供します。 この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
+この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %} [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}. この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
 
 ### 認証リクエストの実施
 
@@ -264,7 +265,7 @@ get '/callback' do
 end
 ```
 
-コードの大部分は見慣れたもののはずです。 たとえば、ここでも{% data variables.product.product_name %} APIを呼び出すために`RestClient.get`を使用し、 またERBテンプレート (この例では`advanced.erb`) に結果をレンダリングするため結果を渡しています。
+コードの大部分は見慣れたもののはずです。 For example, we're still using `RestClient.get` to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered in an ERB template (this time, it's called `advanced.erb`).
 
 また、ここでは`authenticated?`メソッドを使い、ユーザがすでに認証されているかを確認しています。 認証されていない場合は、`authenticate!`メソッドが呼び出され、OAuthのフローを実行して、付与されたトークンとスコープでセッションを更新します。
 

@@ -8,11 +8,14 @@ redirect_from:
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - SSO
 shortTitle: SSH Key with SAML
 ---
 You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+
+{% data reusables.saml.authorized-creds-info %}
 
 {% note %}
 

@@ -11,6 +11,7 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -31,7 +32,7 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-You can also enable team synchronization for organizations owned by an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)."
+You can also enable team synchronization for organizations owned by an enterprise account. For more information, see "[Managing team synchronization for organizations in your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 
@@ -47,7 +48,7 @@ The steps to enable team synchronization depend on the IdP you want to use. Ther
 
 You must enable SAML single sign-on for your organization and your supported IdP. For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
 
-You must authenticate to your organization using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
 
 ### Enabling team synchronization for Azure AD
 

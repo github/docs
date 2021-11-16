@@ -4,14 +4,18 @@ intro: 'You can update the actions that are bundled with your enterprise, or use
 versions:
   ghes: '*'
   ghae: next
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - GitHub Connect
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
 ---
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Your enterprise instance includes a number of built-in actions that you can use in your workflows. For more information about the bundled actions, see "[Official actions bundled with your enterprise instance](/admin/github-actions/about-using-actions-in-your-enterprise#official-actions-bundled-with-your-enterprise-instance)."
 
@@ -43,3 +47,11 @@ Once {% data variables.product.prodname_github_connect %} is configured, you can
   ![View code link](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. Configure your workflow's YAML to use `actions/checkout@v2`.
 1. Each time your workflow runs, the runner will use the `v2` version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.
+
+   {% ifversion ghes > 3.2 or ghae-issue-4815 %}
+   {% note %}
+
+   **Note:** The first time the `checkout` action is used from {% data variables.product.prodname_dotcom_the_website %}, the `actions/checkout` namespace is automatically retired on {% data variables.product.product_location %}. If you ever want to revert to using a local copy of the action, you first need to remove the namespace from retirement. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+
+   {% endnote %}
+   {% endif %}

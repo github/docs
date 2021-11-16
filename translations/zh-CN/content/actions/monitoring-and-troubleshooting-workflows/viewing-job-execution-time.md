@@ -1,11 +1,11 @@
 ---
 title: 查看作业执行时间
 intro: 您可以查看作业的执行时间，包括某个作业累积的可计费分钟数。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: 查看作业执行时间
 ---
 

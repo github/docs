@@ -7,8 +7,12 @@ redirect_from:
   - /admin/installation/installing-github-enterprise-server-on-aws
 versions:
   ghes: '*'
+type: tutorial
 topics:
+  - Administrator
   - Enterprise
+  - Infrastructure
+  - Set up
 shortTitle: Instalar en AWS
 ---
 
@@ -27,7 +31,7 @@ Esta guía supone que estás familiarizado con los siguientes conceptos de AWS:
  - [EC2 y Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (si planeas iniciar dentro de Virtual Private Cloud)
  - [Precios de AWS](https://aws.amazon.com/pricing/) (Para calcular y administrar los costos)
 
-For an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
+Para ver un resumen arquitectónico, consulta el [Diagrama de Arquitectura de AWS para Desplegar a GitHub Enterprise Server](/assets/images/installing-github-enterprise-server-on-aws.png)".
 
 Esta guía te recomienda utilizar el principio del menor privilegio necesario cuando configures {% data variables.product.product_location %} en AWS. Para obtener más información, refiérete a la [Documentación sobre la Administración de Accesos e Identidad (IAM) de AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
@@ -133,5 +137,5 @@ Tanto en la instancia principal y en la de réplica deberían asignarse EIP sepa
 
 ## Leer más
 
-- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes > 2.22 %}
+- "[Resumen del sistema](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
 - "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

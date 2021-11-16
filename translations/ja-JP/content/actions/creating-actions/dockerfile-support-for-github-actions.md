@@ -2,13 +2,13 @@
 title: GitHub ActionsのためのDockerfileサポート
 shortTitle: Dockerfile support
 intro: Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
@@ -22,7 +22,7 @@ type: reference
 
 ## Dockerfileの命令とオーバーライド
 
-Dockerの命令の中にはGitHub Actionと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
+Dockerの命令の中にはGitHub Actionsと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
 
 ### USER
 
@@ -77,7 +77,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 #### *entrypoint.sh*ファイルの例
 
-上のDockerfileを使って、{% data variables.product.product_name %}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 `#!/bin/sh`[シバン](https://ja.wikipedia.org/wiki/シバン_(Unix))を`entrypoint.sh`ファイルの先頭に追加し、システムの[POSIX](https://ja.wikipedia.org/wiki/POSIX)準拠のシェルを明示的に使ってください。
+上のDockerfileを使って、{% data variables.product.product_name %}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
 
 ``` sh
 #!/bin/sh

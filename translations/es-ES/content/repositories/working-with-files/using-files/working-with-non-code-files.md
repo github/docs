@@ -1,6 +1,6 @@
 ---
 title: Trabajar con archivos sin código
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+intro: '{% data variables.product.product_name %} es compatible con interpretar y diferenciar varios formatos de archivo que no son de código.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Trabajar con archivos sin código
@@ -46,7 +47,7 @@ shortTitle: Trabajar con archivos sin código
 
 ### Ver imágenes
 
-Puedes navegar y ver imágenes directamente en tu {% data variables.product.product_name %} repositorio:
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![imagen alineada](/assets/images/help/images/view.png)
 
@@ -135,7 +136,7 @@ GitHub admite la representación de datos tabulares en la forma de archivos *.cs
 
 ![Muestra de CSV representado](/assets/images/help/repository/rendered_csv.png)
 
-Cuando se visualiza, cualquier archivo _.csv_ o _.tsv_ confirmado en un repositorio de {% data variables.product.product_name %} se representa automáticamente como una tabla interactiva, completa con encabezados y numeración de filas. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
 
 Puedes generar un enlace a una fila particular haciendo clic en el número de fila o seleccionar varias filas manteniendo presionada la tecla shift. Tan solo copia la URL y envíasela a un amigo.
 
@@ -188,6 +189,14 @@ Puedes hacer clic en {% octicon "file" aria-label="The paper icon" %} para ver l
 
 ![Cambios en prosa representados](/assets/images/help/repository/rendered_prose_changes.png)
 
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+
+### Inhabilitar la representación del lenguaje de marcado
+
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
+
 ### Ver los cambios del atributo
 
 Proporcionamos una información de herramienta que describe los cambios en los atributos que, a diferencia de las palabras, no serían visibles en el documento representado. Por ejemplo, si la URL de un enlace cambia de un sitio web a otro, mostraríamos una información de herramienta como la siguiente:
@@ -216,7 +225,7 @@ No admitimos directamente vistas representadas de confirmaciones en documentos H
 
 En general, las vistas representadas de los cambios en un documento que contiene HTML insertados mostrarán los cambios en los elementos que se admiten en la vista del documento de {% data variables.product.product_name %}. Los cambios en los documentos que contienen HTML insertados siempre se deben verificar en las vistas de origen y representada para corroborar que estén todos.
 
-## Mapping geoJSON files on {% data variables.product.prodname_dotcom %}
+## Mapear archivos de geoJSON en {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} admite representar archivos de mapa geoJSON y topoJSON dentro de repositorios {% data variables.product.product_name %}. Simplemente confirma el archivo como lo harías normalmente utilizando una extensión `.geojson` o `.topojson`. También se admiten archivos con una extensión `.json`, pero únicamente si `type` están configurados para `FeatureCollection`, `GeometryCollection`, o `topology`. Después, navega hasta la ruta del archivo geoJSON en GitHub.com.
 
@@ -289,9 +298,9 @@ Todavía se podrían representar los datos al convertir el archivo `.geojson` a 
 * [Documentación de estilización de marcador MapBox](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## Trabajar con arhivos de Jupyter Notebook en {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.product.product_location %}, they will render as static HTML files in your repository.
+Cuando agregas archivos de Jupyter Notebook o IPython Notebook con una extensión *.ipynb* en {% data variables.product.product_location %}, estas se interpretarán como archivos HTML estáticos en tu repositorio.
 
 Las funciones interactivas de notebook, como los gráficos JavaScript personalizados, no funcionarán en tu repositorio en {% data variables.product.product_location %}. Para obtener un ejemplo, consulta [*Enlaces e interacciones.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 

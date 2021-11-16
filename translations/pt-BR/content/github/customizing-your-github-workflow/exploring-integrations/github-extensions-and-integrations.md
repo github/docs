@@ -7,6 +7,7 @@ redirect_from:
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
 versions:
   fpt: '*'
+  ghec: '*'
 shortTitle: Extensões & integrações
 ---
 
@@ -32,7 +33,7 @@ A extensão {% data variables.product.product_name %} para Visual Studio, permit
 
 ## Ferramentas de gerenciamento de projetos
 
-Você pode integrar sua conta pessoal de {% data variables.product.product_name %} ou organização com ferramentas de gerenciamento de projetos de terceiros, como o Jira.
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party project management tools, such as Jira.
 
 ### Integração Jira Cloud e {% data variables.product.product_name %}.com
 
@@ -40,12 +41,12 @@ Você pode integrar sua conta pessoal de {% data variables.product.product_name 
 
 ## Ferramentas de comunicação de equipe
 
-Você pode integrar sua conta pessoal de {% data variables.product.product_name %} ou a organização com ferramentas de comunicação de equipes de terceiros, como o Slack ou o Microsoft Teams.
+You can integrate your personal or organization account on {% data variables.product.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Integração com Slack e {% data variables.product.product_name %}
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, releases, deployment reviews and deployment statuses. You can also perform activities like close or open issues, and provide rich references to issues and pull requests without leaving Slack. Para obter mais informações, visite o [aplicativo de integração do Slack](https://github.com/marketplace/slack-github) no Marketplace.
+Você pode assinar os seus repositórios ou organizações e receber atualizações em tempo real sobre problemas, pull requests, commits, versões, análises de implantação e status da implantação. Você também pode realizar atividades como problemas fechados ou abertos e fornecer referências enriquecidas para problemas e pull requests sem sair do Slack. Para obter mais informações, visite o [aplicativo de integração do Slack](https://github.com/marketplace/slack-github) no Marketplace.
 
 ### Integração com o Microsoft Teams e {% data variables.product.product_name %}
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, deployment reviews and deployment statuses. You can also perform activities like close or open issues, comment on your issues and pull requests, and provide rich references to issues and pull requests without leaving Microsoft Teams. Para obter mais informações, acesse o [aplicativo de integração do Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) no Microsoft AppSource.
+Você pode assinar os seus repositórios ou organizações e receber atualizações em tempo real sobre problemas, pull requests, commits, análises de implantação e status da implantação. Você também pode realizar atividades como fechar ou abrir problemas, comentar nos seus problemas e fornecer referências enriquecidas para problemas e pull requests sem sair do Microsoft Teams. Para obter mais informações, acesse o [aplicativo de integração do Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) no Microsoft AppSource.

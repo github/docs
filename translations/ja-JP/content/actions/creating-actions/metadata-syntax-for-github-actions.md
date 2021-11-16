@@ -2,7 +2,6 @@
 title: GitHub Actionsのメタデータ構文
 shortTitle: メタデータ構文
 intro: リポジトリでタスクを実行するアクションを作成できます。 アクションには、YAML構文を使うメタデータファイルが必要です。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -12,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
@@ -27,19 +27,19 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 ## `name`
 
-**必須**アクションの名前。 {% data variables.product.prodname_dotcom %}は`name`を**Actions**タブに表示して、それぞれのジョブのアクションを見て区別しやすくします。
+**Required** The name of your action. {% data variables.product.prodname_dotcom %} displays the `name` in the **Actions** tab to help visually identify actions in each job.
 
 ## `作者`
 
-**オプション** アクションの作者の名前。
+**Optional** The name of the action's author.
 
 ## `説明`
 
-**必須** アクションの短い説明。
+**Required** A short description of the action.
 
 ## `inputs`
 
-**オプション** inputsパラメーターを使うと、アクションが実行時に使うデータを指定できます。 {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
 
 ### サンプル
 
@@ -66,19 +66,19 @@ To access the environment variable in a Docker container action, you must pass t
 
 ### `inputs.<input_id>`
 
-**必須** `文字列型`の識別子で、入力と結びつけられます。 `<input_id>`の値は、入力のメタデータのマップです。 `<input_id>`は、`inputs`オブジェクト内でユニークな識別子でなければなりません。 `<input_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
+**Required** A `string` identifier to associate with the input. `<input_id>`の値は、入力のメタデータのマップです。 `<input_id>`は、`inputs`オブジェクト内でユニークな識別子でなければなりません。 `<input_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
 
 ### `inputs.<input_id>.description`
 
-**必須** 入力パラメーターの`文字列`での説明。
+**Required** A `string` description of the input parameter.
 
 ### `inputs.<input_id>.required`
 
-**必須** この入力パラメーターがアクションに必須かどうかを示す`論理値`。 パラメーターが必須の場合は`true`に設定してください。
+**Required** A `boolean` to indicate whether the action requires the input parameter. パラメーターが必須の場合は`true`に設定してください。
 
 ### `inputs.<input_id>.default`
 
-**オプション** デフォルト値を示す`文字列`。 デフォルト値は、入力パラメーターがワークフローファイルで指定されなかった場合に使われます。
+**Optional** A `string` representing the default value. デフォルト値は、入力パラメーターがワークフローファイルで指定されなかった場合に使われます。
 
 ### `inputs.<input_id>.deprecationMessage`
 
@@ -100,11 +100,11 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**必須** `文字列型`の識別子で、出力と結びつけられます。 `<output_id>`の値は、出力のメタデータのマップです。 `<output_id>`は、`outputs`オブジェクト内でユニークな識別子でなければなりません。 `<output_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
+**Required** A `string` identifier to associate with the output. `<output_id>`の値は、出力のメタデータのマップです。 `<output_id>`は、`outputs`オブジェクト内でユニークな識別子でなければなりません。 `<output_id>`は、文字あるいは`_`で始める必要があり、英数字、`-`、`_`しか使用できません。
 
 ### `outputs.<output_id>.description`
 
-**必須** 出力パラメーターの`文字列`での説明。
+**Required** A `string` description of the output parameter.
 
 ## `outputs` for composite actions
 
@@ -155,7 +155,7 @@ runs:
 
 ### `pre`
 
-**オプション** `main:`アクションが開始される前の、ジョブの開始時点でスクリプトを実行できるようにします。 たとえば、`pre:`を使って必要なセットアップスクリプトを実行できます。 [`using`](#runsusing)構文を使って指定されたアプリケーションがこのファイルを実行します。 `pre:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
+**オプション** `main:`アクションが開始される前の、ジョブの開始時点でスクリプトを実行できるようにします。 たとえば、`pre:`を使って必要なセットアップスクリプトを実行できます。 The application specified with the [`using`](#runsusing) syntax will execute this file. `pre:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
 
 この例では、`pre:`アクションは`setup.js`というスクリプトを実行します。
 
@@ -180,7 +180,7 @@ runs:
 
 ### `post`
 
-**オプション** `main:`アクションの終了後、ジョブの終わりにスクリプトを実行できるようにします。 たとえば、`post:`を使って特定のプロセスを終了させたり、不要なファイルを削除したりできます。 [`using`](#runsusing)構文を使って指定されたアプリケーションがこのファイルを実行します。
+**オプション** `main:`アクションの終了後、ジョブの終わりにスクリプトを実行できるようにします。 たとえば、`post:`を使って特定のプロセスを終了させたり、不要なファイルを削除したりできます。 The application specified with the [`using`](#runsusing) syntax will execute this file.
 
 この例では、`post:`アクションは`cleanup.js`というスクリプトを実行します。
 
@@ -214,7 +214,7 @@ runs:
 
 ### `runs.steps`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Required** The steps that you plan to run in this action. These can be either `run` steps or `uses` steps.
 {% else %}
 **Required** The steps that you plan to run in this action.
@@ -222,7 +222,7 @@ runs:
 
 #### `runs.steps[*].run`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** The command you want to run. これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
 {% else %}
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
@@ -252,7 +252,7 @@ runs:
 
 #### `runs.steps[*].shell`
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 **Optional** The shell where you want to run the command. [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
 {% else %}
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
@@ -268,13 +268,13 @@ runs:
 
 #### `runs.steps[*].env`
 
-**オプション**  そのステップのみの環境変数の `map` を設定します。 If you want to modify the environment variable stored in the workflow, use {% ifversion fpt or ghes > 2.22 or ghae %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite step.
+**オプション**  そのステップのみの環境変数の `map` を設定します。 If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 #### `runs.steps[*].working-directory`
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
 #### `runs.steps[*].uses`
 
 **Optional**  Selects an action to run as part of a step in your job. アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
@@ -284,7 +284,7 @@ Git ref、SHA、またはDockerタグ番号を指定して、使用している�
 - 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
 - アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
 
-入力が必要なアクションもあり、入力を[`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
+Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
 ```yaml
 runs:
@@ -353,7 +353,7 @@ runs:
 
 **オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {% data variables.product.prodname_actions %}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 `pre-entrypoint:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
 
-[`using`](#runsusing)構文を使って指定されたアプリケーションがこのファイルを実行します。
+The application specified with the [`using`](#runsusing) syntax will execute this file.
 
 この例では、`pre-entrypoint:`アクションは`setup.sh`というスクリプトを実行します。
 

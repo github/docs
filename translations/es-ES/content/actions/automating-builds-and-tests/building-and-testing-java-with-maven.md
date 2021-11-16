@@ -1,7 +1,6 @@
 ---
 title: Construir y probar Java con Maven
 intro: Puedes crear un flujo de trabajo de integración continua (CI) en acciones de GitHub para construir y probar tu proyecto Java con Maven.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-maven
@@ -9,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI

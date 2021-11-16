@@ -30,18 +30,18 @@ Puedes eximir a una lista de usuarios para que no tomen los límites de tasa de 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**. ![Casilla para habilitar la limitación de tasa de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
+2. Debajo de "Límite de tasa", selecciona **Habilitar los límites de tasa de la API HTTP**. ![Casilla para habilitar la limitación de tasa de API](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Escribe los límites para las solicitudes autenticadas y no autenticadas para cada API o acepta los límites predeterminados que aparecen completados.
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Enabling secondary rate limits
+## Habilitar los límites de tasa secundarios
 
-Setting secondary rate limits protects the overall level of service on {% data variables.product.product_location %}.
+El configurar los límites de tasa secundarios protegen el nivel general de servicio en {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% ifversion ghes > 3.1 %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**. ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
+2. Debajo de "Limitación de tasa", selecciona **Habilitar la limitación de tasa secundaria**. ![Casilla para habilitar la limitación de tasa secundaria](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
 {% else %}
 2. En "Limitación de tasa", selecciona **Enable Abuse Rate Limiting** (Habilitar limitación de tasa de abuso). ![Casilla para habilitar la limitación de tasa de abuso](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
 {% endif %}

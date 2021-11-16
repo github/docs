@@ -19,7 +19,6 @@ shortTitle: Usar GitHub Connect para ações
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.enterprise-github-connect-warning %}
-{% data reusables.actions.ae-beta %}
 
 Por padrão, os fluxos de trabalho {% data variables.product.prodname_actions %} em {% data variables.product.product_name %} não podem usar ações diretamente de {% data variables.product.prodname_dotcom_the_website %} ou [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
@@ -27,8 +26,16 @@ Para tornar todas as ações de {% data variables.product.prodname_dotcom_the_we
 
 ## Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 
-Antes de habilitar o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} na sua instância corporativa, você deve conectar sua empresa a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)".
+Antes de habilitar o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} na sua instância corporativa, você deve conectar sua empresa a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Conectando sua empresa a {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".
 
-{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{%- ifversion ghes < 3.1 %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{%- endif %}
+{% data reusables.enterprise-accounts.github-connect-tab %}
+{%- ifversion ghes > 3.0 or ghae %}
+1. Em "Os usuários podem usar as ações do GitHub.com em execuções do fluxo de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
+{%- else %}
 1. Em "Servidor pode usar ações do GitHub.com em execuções de fluxos de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
+{%- endif %}
 1. {% data reusables.actions.enterprise-limit-actions-use %}

@@ -3,6 +3,7 @@ title: ユーザアカウントのセキュリティと分析設定を管理す�
 intro: '{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードをセキュリティ保護し分析する機能を管理できます。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 redirect_from:
@@ -43,4 +44,4 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
 - [プロジェクトの依存関係にある脆弱性を管理する](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)
-{% ifversion fpt %}- 「[依存関係を自動的に更新する](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)」{% endif %}
+{% ifversion fpt or ghec %}- 「[依存関係を自動的に更新する](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)」{% endif %}

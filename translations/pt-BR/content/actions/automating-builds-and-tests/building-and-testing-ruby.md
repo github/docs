@@ -1,18 +1,18 @@
 ---
 title: Criar e testar o Ruby
 intro: É possível criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu projeto do Ruby.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-ruby
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
   - Ruby
-shortTitle: Build & test Ruby
+shortTitle: Criar & testar Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -98,7 +98,7 @@ strategy:
 ```
 {% endraw %}
 
-Cada versão do Ruby especificada no array `ruby-version` cria um trabalho que executa as mesmas etapas. O contexto {% raw %}`${{ matrix.ruby-version }}`{% endraw %} é usado para acessar a versão atual do trabalho. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Cada versão do Ruby especificada no array `ruby-version` cria um trabalho que executa as mesmas etapas. O contexto {% raw %}`${{ matrix.ruby-version }}`{% endraw %} é usado para acessar a versão atual do trabalho. Para obter mais informações sobre estratégias e contextos de matriz, consulte "[Sintaxe do Fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" e "[Contextos](/actions/learn-github-actions/contexts)".
 
 O fluxo de trabalho totalmente atualizado com uma estratégia de matriz pode parecer com isto:
 
@@ -284,7 +284,7 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       packages: write
       contents: read{% endif %}

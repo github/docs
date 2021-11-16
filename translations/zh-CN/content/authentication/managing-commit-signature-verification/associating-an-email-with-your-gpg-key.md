@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -17,7 +18,7 @@ shortTitle: 将电子邮件与 GPG 密钥关联
 
 {% note %}
 
-如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
+If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ shortTitle: 将电子邮件与 GPG 密钥关联
   ```shell
   $ gpg> adduid
   ```
-6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% ifversion fpt %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
+6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

@@ -7,13 +7,14 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Habilitar & probar el SSO de SAML
 ---
 
-## About SAML single sign-on
+## Acerca del inicio de sesión único de SAML
 
 Puedes habilitar SAML SSO (inicio de sesión único) en tu organización sin requerir que todos los miembros lo usen. Habilitar pero no exigir SAML SSO en tu organización puede facilitar la adopción de SAML SSO por parte de la organización. Una vez que la mayoría de los miembros usen SAML SSO, podrás exigirlo en toda la organización.
 
@@ -23,11 +24,11 @@ Si habilitas pero no exiges SAML SSO, los miembros de la organización que elija
 
 ## Habilitar y probar el inicio de sesión único SAML para tu organización
 
-{% data reusables.saml.saml-requires-ghec %} {% data reusables.enterprise.link-to-ghec-trial %}
+{% data reusables.saml.saml-requires-ghec %}{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
+Antes de requerir el SSO de SAML en tu organización, asegúrate de que la hayas preparado. Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
 
-For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+Para obtener más información sobre los proveedores de identidad (IdP) que son compatibles con {% data variables.product.company_short %} para el SSO de SAML, consulta la sección "[Conectar tu proveedor de identidad a tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

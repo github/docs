@@ -14,13 +14,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Acessar configurações da organização
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% tip %}
 

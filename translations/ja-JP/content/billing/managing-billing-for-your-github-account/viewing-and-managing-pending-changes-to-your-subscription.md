@@ -10,6 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations

@@ -1,7 +1,6 @@
 ---
 title: 关于持续集成
-intro: '您可以直接在 {% data variables.product.prodname_dotcom %} 仓库中通过 {% data variables.product.prodname_actions %} 创建自定义持续集成 (CI) 和持续部署 (CD) 工作流程。'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,10 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: 持续集成
 ---
 
@@ -37,7 +36,7 @@ shortTitle: 持续集成
 {% else %}使用 {% data variables.product.prodname_actions %} 的 CI 提供可以在仓库中构建代码并运行测试的工作流程。 工作流程可在 {% data variables.product.prodname_dotcom %} 托管的虚拟机或您自行托管的机器上运行。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”和“[关于自托管运行器](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)”。
 {% endif %}
 
-您可以配置 CI 工作流程在 {% data variables.product.product_name %} 事件发生时运行（例如，当新代码推送到您的仓库时）、按设定的时间表运行，或者在使用仓库分发 web 挂钩的外部事件发生时运行。
+您可以配置 CI 工作流程在 {% data variables.product.prodname_dotcom %} 事件发生时运行（例如，当新代码推送到您的仓库时）、按设定的时间表运行，或者在使用仓库分发 web 挂钩的外部事件发生时运行。
 
 {% data variables.product.product_name %} 运行 CI 测试并在拉取请求中提供每次测试的结果，因此您可以查看分支中的更改是否引入错误。 如果工作流程中的所有 CI 测试通过，您推送的更改可供团队成员审查或合并 如果测试失败，则是其中某项更改导致了失败。
 
@@ -49,47 +48,14 @@ shortTitle: 持续集成
 
 有关常用术语的定义，请参阅“[{% data variables.product.prodname_actions %} 的核心概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)”。
 
-## 支持的语言
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Workflow templates
 
 {% data variables.product.product_name %} 提供各种不同语言和框架的 CI 工作流程模板。
 
-在 {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) 仓库{% else %}{% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览 {% data variables.product.product_name %} 提供的 CI 工作流程模板的完整列表。
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## 跳过工作流程运行
-
-如果您想暂时阻止触发工作流程，可以对提交消息添加跳过指令。 本来会触发 `on: push` 或 `on: pull_request` 的工作流程，如果您将以下任何字符串添加到推送中的提交消息或者拉取请求的 HEAD 提交，则不会触发：
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-或者，您也可以使用两个空行后接 `skip-checks: true` 或 `skip-checks:true` 来结束提交消息。
-
-如果您的仓库配置为需要先通过特定检查，则无法合并拉取请求。 要允许合并拉取请求，您可以将新提交推送到拉取请求，而无需提交消息中的跳过指令。
-
-{% note %}
-
-**注意：**跳过指令仅适用于 `push` 和 `pull_request` 事件。 例如，将 `[skip ci]` 添加到提交消息不会停止触发 `on: pull_request_target` 的工作流程运行。
-
-{% endnote %}
-{% endif %}
-
-## 工作流程运行通知
-
-{% data reusables.repositories.workflow-notifications %}
-
-## 工作流程运行的状态徽章
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-更多信息请参阅“[添加工作流程状态徽章](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
+在 {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) 仓库{% else %}{% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览 {% data variables.product.company_short %} 提供的 CI 工作流程模板的完整列表。
 
 ## 延伸阅读
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"
 {% endif %}

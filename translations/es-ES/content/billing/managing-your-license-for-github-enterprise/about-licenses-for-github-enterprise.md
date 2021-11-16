@@ -1,31 +1,33 @@
 ---
-title: About licenses for GitHub Enterprise
-intro: '{% ifversion fpt %}If you purchase {% data variables.product.prodname_enterprise %} and use {% data variables.product.prodname_ghe_server %}, each{% elsif ghes %}Each{% endif %} {% data variables.product.prodname_ghe_server %} instance requires a license file to validate and unlock the application.'
+title: Acerca de las licencias para GitHub Enterprise
+intro: '{% ifversion ghec %}If you deploy {% data variables.product.prodname_ghe_server %} in addition to using {% data variables.product.prodname_ghe_cloud %}, each{% elsif ghes %}Each{% endif %} {% data variables.product.prodname_ghe_server %} instance requires a license file to validate and unlock the application.'
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
 type: overview
 topics:
   - Enterprise
   - Licensing
-shortTitle: About licenses
+shortTitle: Acerca de las licencias
 ---
 
-## About license files for {% data variables.product.prodname_enterprise %}
+## Acerca de los archivos de licencia para {% data variables.product.prodname_enterprise %}
 
-{% ifversion fpt %}
+{% ifversion ghec %}
 
 {% data reusables.enterprise.about-deployment-methods %}
 
 {% endif %}
 
-When you purchase or renew {% data variables.product.prodname_enterprise %}, {% data variables.product.company_short %} provides a license file {% ifversion fpt %}for your deployments of {% data variables.product.prodname_ghe_server %}{% elsif ghes %}for {% data variables.product.product_location_enterprise %}{% endif %}. A license file has an expiration date and controls the number of people who can use {% data variables.product.product_location_enterprise %}. After you download and install {% data variables.product.prodname_ghe_server %}, you must upload the license file to unlock the application for you to use.
+Cuando compras o renuevas tu suscripción de {% data variables.product.prodname_enterprise %}, {% data variables.product.company_short %} te proporciona un archivo de licencia {% ifversion ghec %}para tus despliegues de {% data variables.product.prodname_ghe_server %}{% elsif ghes %} para {% data variables.product.product_location_enterprise %}{% endif %}. Un archivo de licencia tiene una fecha de vencimiento y controla la cantidad de personas que pueden utilizar {% data variables.product.product_location_enterprise %}. Después de que descargas e instalas {% data variables.product.prodname_ghe_server %}, debes cargar un archivo de licencia para desbloquear la aplicación para tu uso.
 
-For more information about downloading your license file, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)." For more information about uploading your license file, see {% ifversion fpt %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% endif %}
+Para obtener más información sobre cómo descargar tu archivo de licencia, consulta la sección "[Descargar tu licencia para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)". For more information about uploading your license file, see {% ifversion ghec %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% endif %}
 
-If your license expires, you won't be able to access {% data variables.product.prodname_ghe_server %} via a web browser or Git. Si es necesario, podrás usar herramientas de línea de comando para hacer un respaldo de seguridad de todos tus datos. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)" Si tienes cualquier duda sobre el renovamiento de tu licencia, contacta a {% data variables.contact.contact_enterprise_sales %}.
+Si tu licencia vence, no podrás acceder a {% data variables.product.prodname_ghe_server %} a través del buscador web o de Git. Si es necesario, podrás usar herramientas de línea de comando para hacer un respaldo de seguridad de todos tus datos. For more information, see {% ifversion ghec %}"[Configuring backups on your appliance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/guides/installation/configuring-backups-on-your-appliance)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Configuring backups on your appliance](/admin/guides/installation/configuring-backups-on-your-appliance)." {% endif %}
 
-## About synchronization of license usage for {% data variables.product.prodname_enterprise %}
+Si tienes cualquier duda sobre el renovamiento de tu licencia, contacta a {% data variables.contact.contact_enterprise_sales %}.
+
+## Acerca de la sincronización de uso de licencias para {% data variables.product.prodname_enterprise %}
 
 {% ifversion ghes %}
 
@@ -33,10 +35,10 @@ If your license expires, you won't be able to access {% data variables.product.p
 
 {% endif %}
 
-{% data reusables.enterprise-licensing.about-license-sync %} Para obtener más información, consulta la sección {% ifversion fpt %}"[Sincronizar el uso de licencias entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" en la documentación de {% data variables.product.prodname_ghe_server %}.{% elsif ghes %}"[Sincronizar el uso de licencias entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)".{% endif %}
+{% data reusables.enterprise-licensing.about-license-sync %} For more information, see {% ifversion ghec %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Syncing license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
 ## Leer más
 
-- "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
-- [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website
-- "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)"
+- "[Acerca de la facturación para tu empresa](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Sitio web de [Lanzamientos de {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/releases/)
+- "[Setting up a {% data variables.product.prodname_ghe_server %} instance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)"

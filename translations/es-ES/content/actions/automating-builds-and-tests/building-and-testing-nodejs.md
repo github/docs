@@ -1,7 +1,6 @@
 ---
 title: Crear y probar en Node.js
 intro: Puedes crear un flujo de trabajo de integración continua (CI) para construir y probar tu proyecto Node.js.
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 hidden: true
 topics:
@@ -84,7 +84,7 @@ La acción `setup-node` toma una versión de Node.js como una entrada y configur
 
 La plantilla incluye una estrategia de matriz que crea y prueba tu código con cuatro versiones de Node.js: 10.x, 12.x, 14.x, y 15.x. La 'x' es un carácter comodín que coincide con el último lanzamiento menor y de parche disponible para una versión. Cada versión de Node.js especificada en la matriz `node-version` crea un trabajo que ejecuta los mismos pasos.
 
-Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta las secciones "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" y "[Contextos](/actions/learn-github-actions/contexts)".
 
 {% raw %}
 ```yaml{:copy}

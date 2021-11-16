@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Sintaxe de formatação básica
 ---
 
@@ -40,9 +41,9 @@ Você pode indicar ênfase com texto em negrito, itálico ou riscado em campos d
 Você pode citar texto com um `>`.
 
 ```markdown
-Nas palavras de Abraham Lincoln:
+Texto que não é uma citação
 
-> Pardon my French
+> Texto que é uma citação
 ```
 
 ![Texto citado renderizado](/assets/images/help/writing/quoted-text-rendered.png)
@@ -55,7 +56,7 @@ Nas palavras de Abraham Lincoln:
 
 ## Citar código
 
-Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre aspas simples não será formatado.{% ifversion fpt or ghae-next or ghes > 3.1 %} Você também pode pressionar o comando `` ou `Ctrl` + `e` o atalho do teclado para inserir as aspas simples para um bloco de código dentro de uma linha de Markdown.{% endif %}
+Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre aspas simples não será formatado.{% ifversion fpt or ghae-next or ghes > 3.1 or ghec %} Você também pode pressionar o comando `` ou `Ctrl` + `e` o atalho do teclado para inserir as aspas simples para um bloco de código dentro de uma linha de Markdown.{% endif %}
 
 ```markdown
 Use 'git status' para listar todos os arquivos novos ou modificados que ainda não receberam commit.
@@ -80,7 +81,7 @@ Para obter mais informações, consulte "[Criar e destacar blocos de código](/a
 
 ## Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 %}Você também pode usar o atalho do teclado `command + k` para criar um link.{% endif %}
+Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. {% ifversion fpt or ghae-next or ghes > 3.1 or ghec %}Você também pode usar o atalho do teclado `command + k` para criar um link.{% endif %}
 
 `Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
 
@@ -100,39 +101,39 @@ Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` 
 
 {% data reusables.repositories.relative-links %}
 
-## Images
+## Imagens
 
-You can display an image by adding `!` and wrapping the alt text in`[ ]`. Then wrap the link for the image in parentheses `()`.
+Você pode exibir uma imagem adicionando `!` e por o texto alternativo em`[ ]`. Em seguida, coloque o link da imagem entre parênteses `()`.
 
-`![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)`
+`![Isso é uma imagem](https://myoctocat.com/assets/images/base-octocat.svg)`
 
-![Rendered Image](/assets/images/help/writing/image-rendered.png)
+![Imagem interpretada](/assets/images/help/writing/image-rendered.png)
 
-{% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
+{% data variables.product.product_name %} é compatível com a incorporação de imagens nos seus problemas, pull requests{% ifversion fpt or ghec %}, discussões{% endif %}, comentários e arquivos `.md`. Você pode exibir uma imagem do seu repositório, adicionar um link para uma imagem on-line ou fazer o upload de uma imagem. Para obter mais informações, consulte[Fazer o upload de ativos](#uploading-assets)".
 
 {% tip %}
 
-**Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
+**Dica:** quando você quiser exibir uma imagem que está no seu repositório, você deverá usar links relativos em vez de links absolutos.
 
 {% endtip %}
 
-Here are some examples for using relative links to display an image.
+Aqui estão alguns exemplos para usar links relativos para exibir uma imagem.
 
-| Contexto                                                    | Relative Link                                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
-| In a `.md` file on the same branch                          | `/assets/images/electrocat.png`                                        |
-| In a `.md` file on another branch                           | `/../main/assets/images/electrocat.png`                                |
-| In issues, pull requests and comments of the repository     | `../blob/main/assets/images/electrocat.png`                            |
-| In a `.md` file in another repository                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
-| In issues, pull requests and comments of another repository | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
+| Contexto                                                       | Link relativo                                                          |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Em um arquivo `.md` no mesmo branch                            | `/assets/images/electrocat.png`                                        |
+| Em um arquivo `.md` em outro branch                            | `/../main/assets/images/electrocat.png`                                |
+| Em problemas, pull requests e comentários do repositório       | `../blob/main/assets/images/electrocat.png`                            |
+| Em um arquivo `.md` em outro repositório                       | `/../../../../github/docs/blob/main/assets/images/electrocat.png`      |
+| Em problemas, pull requests e comentários de outro repositório | `../../../github/docs/blob/main/assets/images/electrocat.png?raw=true` |
 
 {% note %}
 
-**Note**: The last two relative links in the table above will work for images in a private repository only if the viewer has at least read access to the private repository which contains these images.
+**Observação**: Os dois últimos links relativos na tabela acima funcionarão para imagens em um repositório privado somente se o visualizador tiver pelo menos acesso de leitura ao repositório privado que contém essas imagens.
 
 {% endnote %}
 
-For more information, see "[Relative Links](#relative-links)."
+Para obter mais informações, consulte[Links relativos,](#relative-links)."
 
 
 ## Listas
@@ -184,7 +185,7 @@ Neste exemplo, você pode adicionar um item de lista aninhada abaixo do item de 
 
 ![Lista com um item de lista aninhada](/assets/images/help/writing/nested-list-example-3.png)
 
-Você pode criar vários níveis de listas aninhadas usando o mesmo método. Por exemplo, como o primeiro item da lista aninhada tem sete espaços (`␣␣␣␣␣-␣`) antes do conteúdo da lista aninhada `Primeiro item da lista aninhada`, você precisaria recuar o segundo item da lista aninhada com sete espaços.
+Você pode criar vários níveis de listas aninhadas usando o mesmo método. Por exemplo, como o primeiro item da lista aninhada tem sete caracteres (`␣␣␣␣␣-␣`) antes do conteúdo da lista aninhada `Primeiro item da lista aninhada`, você precisaria recuar o segundo item da lista aninhada com sete espaços.
 
 ```markdown
 100. Primeiro item da lista
@@ -208,7 +209,7 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 
 ## Mencionar pessoas e equipes
 
-Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% ifversion fpt or ghes or ghae %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% ifversion fpt or ghes or ghae or ghec %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
 
 `@github/suporte O que você acha dessas atualizações?`
 
@@ -232,11 +233,11 @@ Para obter mais informações, consulte "[Referências e URLs vinculados automat
 
 ## Anexos de conteúdo
 
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. O {% data variables.product.product_name %} renderiza as informações fornecidas pelo app sob o URL no texto ou comentário de um problema ou uma pull request.
+Alguns {% data variables.product.prodname_github_apps %} fornecem informações em {% data variables.product.product_name %} para URLs vinculadas aos seus domínios registrados. O {% data variables.product.product_name %} renderiza as informações fornecidas pelo app sob o URL no texto ou comentário de um problema ou uma pull request.
 
 ![Anexo de conteúdo](/assets/images/github-apps/content_reference_attachment.png)
 
-Para visualizar anexos de conteúdo, você deverá ter um {% data variables.product.prodname_github_app %} que use a API de Anexos de Conteúdo instalada no repositório.{% ifversion fpt %} Para obter mais informações, consulte "[Instalar um aplicativo na sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um aplicativo na sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
+Para visualizar anexos de conteúdo, você deverá ter um {% data variables.product.prodname_github_app %} que use a API de Anexos de Conteúdo instalada no repositório.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Instalar um aplicativo na sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um aplicativo na sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Os anexos de conteúdo não serão exibidos para URLs que fazem parte de um link markdown.
 
@@ -262,6 +263,45 @@ Para obter uma lista completa dos emojis e códigos disponíveis, confira [a lis
 
 Você pode criar um parágrafo deixando uma linha em branco entre as linhas de texto.
 
+{% ifversion fpt or ghae-next or ghes > 3.3 or ghec %}
+## Notas de rodapé
+
+Você pode adicionar notas de rodapé ao seu conteúdo usando esta sintaxe entre colchetes:
+
+```
+Essa é uma simples nota de rodapé[^1].
+
+A footnote can also have multiple lines[^2].  
+
+You can also use words, to fit your writing style more closely[^note].
+
+[^1]: Minha referência.
+[^2]: Every new line should be prefixed with 2 spaces.  
+  This allows you to have a footnote with multiple lines.
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
+```
+
+A nota de rodapé será interpretada da seguinte forma:
+
+![Nota de rodapé interpretada](/assets/images/site/rendered-footnote.png)
+
+{% tip %}
+
+**Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+{% endtip %}
+{% endif %}
+
+## Ocultando o conteúdo com comentários
+
+Você pode dizer a {% data variables.product.product_name %} para ocultar o conteúdo do markdown interpretado, colocando o conteúdo em um comentário HTML.
+
+<pre>
+&lt;!-- This content will not appear in the rendered Markdown --&gt;
+</pre>
+
 ## Ignorar formatação markdown
 
 Você pode informar o {% data variables.product.product_name %} para ignorar (ou usar escape) a formatação markdown usando `\` antes do caractere markdown.
@@ -272,13 +312,13 @@ Você pode informar o {% data variables.product.product_name %} para ignorar (ou
 
 Para obter mais informações, consulte "[Sintaxe markdown](https://daringfireball.net/projects/markdown/syntax#backslash)" de Daring Fireball.
 
-## Hiding content with comments
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
-You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
+## Desabilitando a interpretação do Markdown
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+{% data reusables.repositories.disabling-markdown-rendering %}
+
+{% endif %}
 
 ## Leia mais
 

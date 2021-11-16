@@ -1,7 +1,6 @@
 ---
 title: 継続的インテグレーションについて
-intro: '{% data variables.product.prodname_actions %} で {% data variables.product.prodname_dotcom %} リポジトリにカスタム継続的インテグレーション（CI）ワークフローと継続的デプロイメント（CD）ワークフローを直接作成できます。'
-product: '{% data reusables.gated-features.actions %}'
+intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
   - /github/automating-your-workflow-with-github-actions/about-continuous-integration
@@ -12,10 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: overview
 topics:
   - CI
-  - CD
 shortTitle: 継続的インテグレーション
 ---
 
@@ -37,7 +36,7 @@ shortTitle: 継続的インテグレーション
 {% else %}{% data variables.product.prodname_actions %} を利用した CI では、リポジトリ中のコードをビルドしてテストを実行できるワークフローが利用できます。 ワークフローは、{% data variables.product.prodname_dotcom %} でホストされている仮想マシン、または自分がホストしているマシンで実行できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」および「[セルフホストランナーについて](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)」を参照してください。
 {% endif %}
 
-CI ワークフローは、{% data variables.product.product_name %} イベントが発生したとき（たとえば、新しいコードがリポジトリにプッシュされたとき）や、設定されたスケジュール、またはリポジトリディスパッチ webhook を使用して外部イベントが発生したときに実行するように設定できます。
+CIワークフローは、{% data variables.product.prodname_dotcom %}イベントが発生する (たとえば、新しいコードがリポジトリにプッシュされ) とき、または設定したスケジュールに応じて、あるいはリポジトリディスパッチwebhookを使用して外部イベントが発生するときに実行されるように設定することができます。
 
 {% data variables.product.product_name %} は CI テストを実行して、プルリクエストで各テストの結果を提供するため、ブランチの変更によってエラーが発生したかどうかを確認できます。 ワークフローのテストがすべて成功すると、プッシュした変更をチームメンバーがレビューできるように、またはマージできるようになります。 テストが失敗した場合は、いずれかの変更がその原因になっている可能性があります。
 
@@ -49,47 +48,14 @@ CI ワークフローは、{% data variables.product.product_name %} イベン�
 
 一般的な用語の定義については「[{% data variables.product.prodname_actions %} の中核的概念](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
-## サポートされている言語
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+## Workflow templates
 
 {% data variables.product.product_name %} では、各種言語およびフレームワークに応じて CI ワークフローテンプレートが提供されます。
 
-{% data variables.product.product_location %} 上の {% ifversion fpt %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ{% else %} `actions/starter-workflows` リポジトリで {% data variables.product.product_name %} が提供する CI ワークフローテンプレートの完全なリストを参照します。{% endif %}
-
-{% ifversion fpt or ghes > 3.0 or ghae-next %}
-## ワークフロー実行をスキップする
-
-ワークフローがトリガーされないようにする場合は、コミットメッセージにスキップ命令を追加できます。 `on: push` または `on: pull_request` でトリガーされるワークフローは、プッシュまたはプルリクエストの HEAD コミットで、次の文字列型のいずれかをコミットメッセージに追加した場合トリガーされません。
-
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
-
-または、コミットメッセージを 2 行の空行で終了し、その後に `skip-checks: true` または `skip-checks:true` のいずれかを続けることもできます。
-
-最初にリポジトリがパスするための特定のチェックを受けるように設定されている場合、プルリクエストをマージすることはできません。 プルリクエストをマージできるようにするには、コミットメッセージのスキップ命令なしでプルリクエストに新しいコミットをプッシュできます。
-
-{% note %}
-
-**注釈:** スキップ命令は、`push` および `pull_request` イベントにのみ適用されます。 たとえば、コミットメッセージに `[skip ci]` を追加しても、`on: pull_request_target` でトリガーされたワークフロー実行は停止されません。
-
-{% endnote %}
-{% endif %}
-
-## ワークフロー実行の通知
-
-{% data reusables.repositories.workflow-notifications %}
-
-## ワークフロー実行のためのステータスバッジ
-
-{% data reusables.repositories.actions-workflow-status-badge-intro %}
-
-For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
+{% data variables.product.product_location %} 上の {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) リポジトリ{% else %} `actions/starter-workflows` リポジトリで {% data variables.product.company_short %} が提供する CI ワークフローテンプレートの完全なリストを参照します。{% endif %}
 
 ## 参考リンク
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 - 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
 {% endif %}

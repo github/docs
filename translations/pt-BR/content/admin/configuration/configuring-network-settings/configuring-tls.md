@@ -75,5 +75,5 @@ Você também pode usar o utilitário de linha de comando `ghe-ssl-acme` na {% d
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
 7. Clique em **Request TLS certificate** (Solicitar certificado TSL). ![Botão Request TLS certificate (Solicitar certificado TSL)](/assets/images/enterprise/management-console/request-tls-button.png)
-8. Wait for the "Status" to change from "STARTED" to "DONE". ![Let's Encrypt status](/assets/images/enterprise/management-console/lets-encrypt-status.png)
+8. Espere o "Status" mudar de "INICIADO" para "Concluído". ![Status Let's Encrypt](/assets/images/enterprise/management-console/lets-encrypt-status.png)
 9. Clique em **Save configuration** (Salvar configuração).

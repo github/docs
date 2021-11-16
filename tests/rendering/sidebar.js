@@ -34,6 +34,7 @@ describe('sidebar', () => {
     expect(
       $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
     ).toHaveLength(1)
+    expect($homePage('[data-testid=sidebar] a[href="https://docs.npmjs.com/"]')).toHaveLength(1)
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {

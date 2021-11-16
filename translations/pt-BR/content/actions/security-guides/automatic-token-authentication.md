@@ -1,7 +1,6 @@
 ---
-title: Automatic token authentication
+title: Autenticação automática de token
 intro: '{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -11,7 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-shortTitle: Automatic token authentication
+  ghec: '*'
+shortTitle: Autenticação automática de token
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +20,7 @@ shortTitle: Automatic token authentication
 
 ## Sobre o segredo `GITHUB_TOKEN`
 
-At the start of each workflow run, {% data variables.product.prodname_dotcom %} automatically creates a unique `GITHUB_TOKEN` secret to use in your workflow. Você pode usar o `GITHUB_TOKEN` para autenticar em uma execução de fluxo de trabalho.
+No início da execução de cada fluxo de trabalho, {% data variables.product.prodname_dotcom %} cria automaticamente um segredo exclusivo de `GITHUB_TOKEN` para usar no seu fluxo de trabalho. Você pode usar o `GITHUB_TOKEN` para autenticar em uma execução de fluxo de trabalho.
 
 Ao habilitar {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} instala um {% data variables.product.prodname_github_app %} no seu repositório. O segredo `GITHUB_TOKEN` é um token de acesso de instalação {% data variables.product.prodname_github_app %}. Você pode usar o token de acesso de instalação para autenticar em nome do {% data variables.product.prodname_github_app %} instalado no seu repositório. As permissões do token são restritas ao repositório do fluxo de trabalho. Para obter mais informações, consulte "[Permissões para o `GITHUB_TOKEN`](#permissions-for-the-github_token)".
 
@@ -30,9 +30,9 @@ O token também está disponível no contexto `github.token`. Para obter mais in
 
 ## Usar o `GITHUB_TOKEN` em um fluxo de trabalho
 
-Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referência a segredos: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Exemplos de uso do `GITHUB_TOKEN` incluem passar o token como uma entrada para uma ação ou usá-lo para fazer uma solicitação da API de {% data variables.product.prodname_dotcom %} autenticada.
+Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referência a segredos: {%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}. Exemplos de uso do `GITHUB_TOKEN` incluem passar o token como uma entrada para uma ação ou usá-lo para fazer uma solicitação da API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} autenticada.
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 {% note %}
 
 **Importante:** Uma ação pode acessar o `GITHUB_TOKEN` por meio do contexto `github.token`, mesmo que o fluxo de trabalho não passe explicitamente o `GITHUB_TOKEN` para a ação. Como uma boa prática de segurança, você deve sempre certificar-se de que as ações só têm o acesso mínimo necessário limitando as permissões concedidas ao `GITHUB_TOKEN`. Para obter mais informações, consulte "[Permissões para o `GITHUB_TOKEN`](#permissions-for-the-github_token)".
@@ -51,7 +51,7 @@ name: Pull request labeler
 
 on: [ pull_request_target ]
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}permissions:
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}permissions:
   contents: read
   pull-requests: write
 
@@ -76,7 +76,7 @@ on: [ push ]
 
 jobs:
   create_commit:
-    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next %}
+    runs-on: ubuntu-latest {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
     permissions:
       issues: write {% endif %}
     steps:
@@ -97,8 +97,8 @@ jobs:
 
 Para obter informações sobre quais os pontos de extremidade da API de {% data variables.product.prodname_github_apps %} podem acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/rest/reference/permissions-required-for-github-apps)."
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
-A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository,{% endif %} see {% ifversion not ghes %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account#setting-the-permissions-of-the-github_token-for-your-enterprise)," {% endif %}"[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
+A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão. As pessoas com permissões de administrador para uma empresa, organização ou repositório de {% ifversion not ghes %}{% else %}organização ou repositório{% endif %} pode definir as permissões padrão como permissivas ou restritas. Para informações sobre como definir as permissões padrão para o `GITHUB_TOKEN` para a sua empresa, organização ou repositório, consulte "[Aplicando políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise), "[Desabilitando ou limitando {% data variables.product.prodname_actions %} para sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization), ou "[Gerenciando configurações do {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
 | Escopo                  | Acesso padrão<br>(permissivo) | Acesso padrão<br>(restrito) | Acesso máximo<br>por repositórios bifurcados |
 | ----------------------- | ----------------------------------- | --------------------------------- | -------------------------------------------------- |
@@ -106,6 +106,7 @@ A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão
 | Verificações            | leitura/gravação                    | nenhum                            | leitura                                            |
 | Conteúdo                | leitura/gravação                    | leitura                           | leitura                                            |
 | Implantações            | leitura/gravação                    | nenhum                            | leitura                                            |
+| id_token                | leitura/gravação                    | nenhum                            | leitura                                            |
 | Problemas               | leitura/gravação                    | nenhum                            | leitura                                            |
 | metadados               | leitura                             | leitura                           | leitura                                            |
 | pacotes                 | leitura/gravação                    | nenhum                            | leitura                                            |
@@ -130,7 +131,7 @@ A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-next %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Modificar as permissões para o `GITHUB_TOKEN`
 
 Você pode modificar as permissões para o `GITHUB_TOKEN` nos arquivos de fluxo de trabalho individuais. Se as permissões padrão para o `GITHUB_TOKEN` forem restritivas, você poderá ter que elevar as permissões para permitir que algumas ações e comandos sejam executados com sucesso. Se as permissões padrão forem permissivas, você poderá editar o arquivo do fluxo de trabalho para remover algumas permissões do `GITHUB_TOKEN`. Como uma boa prática de segurança, você deve conceder ao `GITHUB_TOKEN` o acesso menos necessário.

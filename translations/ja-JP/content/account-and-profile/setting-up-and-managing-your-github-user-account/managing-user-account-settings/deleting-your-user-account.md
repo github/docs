@@ -9,14 +9,15 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: ユーザアカウントを削除
 ---
 
-自分のユーザアカウントを削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、また自分のアカウントが所有しているページもすべて削除されます。 {% ifversion fpt %} 他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはなく、代わりに [ゴーストユーザ](https://github.com/ghost)に関連付けられます。{% else %}他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはありません。{% endif %}
+自分のユーザアカウントを削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、また自分のアカウントが所有しているページもすべて削除されます。 {% ifversion fpt or ghec %} 他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはなく、代わりに [ゴーストユーザ](https://github.com/ghost)に関連付けられます。{% else %}他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはありません。{% endif %}
 
-{% ifversion fpt %} アカウント名も新しいアカウントで誰でも使用できるようになり、請求も停止します。 アカウントに関連付けられていたメールアドレスは別の {% data variables.product.product_name %} アカウントで使用できるようになります。 {% endif %}
+{% ifversion fpt or ghec %} When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
 
 あなたが Organization のただ一人のオーナーの場合は、ユーザアカウントを削除する前に、所有権を他の人に移譲するか、Organization を削除する必要があります。 Organization に別のオーナーがいる場合は、自分のユーザアカウントを削除する前に、Organization から自分を削除する必要があります。
 
@@ -43,7 +44,7 @@ shortTitle: ユーザアカウントを削除
     - 自分が Organization で唯一のオーナーの場合、Organization を削除する前に所有権を別の人に移譲する必要があります。
     - Organization に別のオーナーがいる場合は、自分自身を Organization から削除する必要があります。 ![アカウント削除ボタン](/assets/images/help/settings/settings-account-delete.png)
 4. [Make sure you want to do this] ダイアログボックスで、アカウントを削除すると何が起こるか理解したことを確認する手順を完了させます: ![アカウント削除の確認ダイアログ](/assets/images/help/settings/settings-account-deleteconfirm.png)
-  {% ifversion fpt %}- リポジトリ、プライベートリポジトリのフォーク、wiki、Issue、プルリクエスト、自分のアカウントが所有しているページがすべて削除されること、支払いが終了すること、ユーザ名が {% data variables.product.product_name %} 上で誰でも使用できるようになることを再確認します。
+  {% ifversion fpt or ghec %}- リポジトリ、プライベートリポジトリのフォーク、wiki、Issue、プルリクエスト、自分のアカウントが所有しているページがすべて削除されること、支払いが終了すること、ユーザ名が {% data variables.product.product_name %} 上で誰でも使用できるようになることを再確認します。
   {% else %}- リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、そして自分のアカウントが所有しているページが、すべて削除されること、ユーザ名が {% data variables.product.product_name %} 上で誰でも使用できるようになることを再確認します。
   {% endif %}- 最初のフィールドに、自分の {% data variables.product.product_name %}ユーザ名またはメールアドレスを入力してください。
     - 2 番目のフィールドに、指示されたとおりのフレーズを入力してください。

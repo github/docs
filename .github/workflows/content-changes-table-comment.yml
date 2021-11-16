@@ -38,12 +38,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check out repo content
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
 
       - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install temporary dependencies
@@ -102,7 +102,7 @@ jobs:
             core.setOutput('changesTable', markdownTable)
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@0da1f4fc1f20cd898368bd56089d391df418f52f
+        uses: peter-evans/find-comment@d2dae40ed151c634e4189471272b57e76ec19ba8
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -116,7 +116,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
-            ## Automatically generated comment ℹ️ 
+            ## Automatically generated comment ℹ️
             **This comment is automatically generated and will be overwritten every time changes are committed to this branch.**
 
             The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the staging site. Please note that changes to the `data` directory will not show up in this table.

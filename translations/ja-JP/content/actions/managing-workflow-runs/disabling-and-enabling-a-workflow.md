@@ -1,11 +1,11 @@
 ---
 title: ワークフローの無効化と有効化
 intro: '{% data variables.product.prodname_dotcom %} UI、REST API、または {% data variables.product.prodname_cli %} を使用して、ワークフローを無効化したり再度有効化したりすることができます。'
-product: '{% data reusables.gated-features.actions %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Disable & enable a workflow
 ---
 

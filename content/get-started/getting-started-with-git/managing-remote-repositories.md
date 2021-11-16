@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Manage remote repositories
 ---
 ## Adding a remote repository
@@ -171,7 +172,7 @@ $ git remote -v
 
 ### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
 
-This error means that the remote you tried the old remote name you typed doesn't exist.
+This error means that the old remote name you typed doesn't exist.
 
 You can check which remotes currently exist with the `git remote -v` command:
 
