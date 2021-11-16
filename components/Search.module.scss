@@ -64,3 +64,8 @@
   left: 0;
   display: block;
 }
+
+.headerSearchResults {
+  overflow-y: auto;
+  max-height: 80vh;
+}
