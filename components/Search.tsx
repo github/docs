@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
-import debounce from 'lodash/debounce'
+import useSWR from 'swr'
 import cx from 'classnames'
 
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -23,120 +23,147 @@ type SearchResult = {
 
 type Props = {
   isHeaderSearch?: boolean
+  isMobileSearch?: boolean
   variant?: 'compact' | 'expanded'
-  updateSearchParams?: boolean
   iconSize: number
   children?: (props: { SearchInput: ReactNode; SearchResults: ReactNode }) => ReactNode
 }
 export function Search({
   isHeaderSearch = false,
-  updateSearchParams = true,
+  isMobileSearch = false,
   variant = 'compact',
   iconSize = 24,
   children,
 }: Props) {
   const router = useRouter()
-  const [query, setQuery] = useState(router.query.query || '')
-  const [results, setResults] = useState<Array<SearchResult> | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const query =
+    router.query.query && Array.isArray(router.query.query)
+      ? router.query.query[0]
+      : router.query.query || ''
+  const [localQuery, setLocalQuery] = useState(query)
+  const [debouncedQuery, setDebouncedQuery] = useDebounce<string>(localQuery, 300)
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
   const { languages } = useLanguages()
-  const initialRender = useRef(true)
 
   // Figure out language and version for index
   const { searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
   const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
-  const isHomePage = !('productId' in router.query)
 
-  // If the user shows up with a query in the URL, go ahead and search for it
-  useEffect(() => {
-    if (
-      (!isHeaderSearch && isHomePage && router.query.query) ||
-      (isHeaderSearch && updateSearchParams && router.query.query)
-    ) {
-      /* await */ fetchSearchResults((router.query.query as string).trim())
-    }
-  }, [])
+  const fetchURL = query
+    ? `/search?${new URLSearchParams({
+        language,
+        version,
+        query,
+      })}`
+    : null
 
-  // If the version changed from the dropdown version or language picker
-  // close the search pane and clear the query
-  // If the version changed from the search result window, keep the query
-  // and results but reset the versionFromSearchPane value
-  useEffect(() => {
-    if (initialRender.current) {
-      initialRender.current = false
-    } else {
-      closeSearch()
+  const { data: results, error: searchError } = useSWR<SearchResult[], Error>(
+    fetchURL,
+    async (url: string) => {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`${response.status} on ${url}`)
+      }
+      return await response.json()
+    },
+    {
+      onSuccess: () => {
+        sendEvent({
+          type: EventType.search,
+          search_query: query,
+          // search_context
+        })
+      },
+      // Because the backend never changes between fetches, we can treat
+      // it as an immutable resource and disable these revalidation
+      // checks.
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
     }
-  }, [currentVersion, language])
+  )
+
+  const [previousResults, setPreviousResults] = useState<SearchResult[] | undefined>()
+  useEffect(() => {
+    if (results) {
+      setPreviousResults(results)
+    } else if (!query) {
+      setPreviousResults(undefined)
+    }
+  }, [results, query])
+
+  // The `isLoading` boolean will become false every time the useSWR hook
+  // fires off a new XHR. So it toggles from false/true often.
+  // But we don't want to display "Loading..." every time a new XHR query
+  // begins, immediately, because the XHR requests are usually very fast
+  // so that you just see it flicker by. That's why we introduce a
+  // debounced version of that same boolean value.
+  // The problem is that the debounce is *trailing*. Meaning, it will
+  // always yield the last thing you sent to it, but with a delay.
+  // The problem is that, by the time the debounce finally fires,
+  // it might say 'true' when in fact the XHR has finished! That would
+  // mean saying "Loading..." is a lie!
+  // That's why we combine them into a final one. We're basically doing
+  // this to favor *NOT* saying "Loading...".
+  const isLoadingRaw = Boolean(query && !results && !searchError)
+  const [isLoadingDebounced] = useDebounce<boolean>(isLoadingRaw, 500)
+  const isLoading = isLoadingRaw && isLoadingDebounced
+
+  useEffect(() => {
+    if ((router.query.query || '') !== debouncedQuery) {
+      const [asPathRoot, asPathQuery = ''] = router.asPath.split('?')
+      const params = new URLSearchParams(asPathQuery)
+      if (debouncedQuery) {
+        params.set('query', debouncedQuery)
+      } else {
+        params.delete('query')
+      }
+      let asPath = `/${router.locale}${asPathRoot}`
+      if (params.toString()) {
+        asPath += `?${params.toString()}`
+      }
+      // Workaround a next.js routing behavior that
+      // will cause the default locale path of the index page
+      // "/en" to change to just "/".
+      if (router.pathname === '/') {
+        // Don't include router.locale so next doesn't attempt a
+        // request to `/_next/static/chunks/pages/en.js`
+        router.replace(`/?${params.toString()}`, asPath)
+      } else {
+        router.replace(asPath)
+      }
+    }
+  }, [debouncedQuery])
 
   // When the user finishes typing, update the results
-  async function onSearch(e: React.ChangeEvent<HTMLInputElement>) {
-    const xquery = e.target?.value?.trim()
-    setQuery(xquery)
-
-    // Update the URL with the search parameters in the query string
-    if (updateSearchParams) {
-      const pushUrl = new URL(location.toString())
-      pushUrl.searchParams.set('query', xquery)
-      history.pushState({}, '', pushUrl.toString())
-    }
-    return await fetchSearchResults(xquery)
+  function onSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setLocalQuery(e.target.value)
   }
-
-  // If there's a query, call the endpoint
-  // Otherwise, there's no results by default
-  async function fetchSearchResults(xquery: string) {
-    setIsLoading(true)
-    try {
-      if (xquery) {
-        const endpointUrl = new URL(location.origin)
-        endpointUrl.pathname = '/search'
-        const endpointParams: Record<string, string> = {
-          language,
-          version,
-          query: xquery,
-        }
-        endpointUrl.search = new URLSearchParams(endpointParams).toString()
-
-        const response = await fetch(endpointUrl.toString(), {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        })
-        setResults(response.ok ? await response.json() : [])
-      } else {
-        setResults(null)
+  useEffect(() => {
+    if (localQuery.trim()) {
+      if (localQuery.endsWith(' ')) {
+        setDebouncedQuery(localQuery.trim())
       }
-    } finally {
-      setIsLoading(false)
+    } else {
+      setDebouncedQuery('')
     }
-
-    // Analytics tracking
-    if (xquery) {
-      sendEvent({
-        type: EventType.search,
-        search_query: xquery,
-        // search_context
-      })
-    }
-  }
+  }, [localQuery])
 
   // Close panel if overlay is clicked
   function closeSearch() {
-    setQuery('')
-    setResults(null)
-    if (inputRef.current) {
-      inputRef.current.value = ''
-    }
+    setLocalQuery('')
   }
 
   // Prevent the page from refreshing when you "submit" the form
-  function preventRefresh(evt: React.FormEvent) {
+  function onFormSubmit(evt: React.FormEvent) {
     evt.preventDefault()
+    if (localQuery.trim()) {
+      setDebouncedQuery(localQuery.trim())
+    }
   }
 
   const SearchResults = (
@@ -151,12 +178,12 @@ export function Search({
           query && styles.resultsContainerOpen
         )}
       >
-        <div id="__primerPortalRoot__" />
         <ShowSearchResults
           anchorRef={inputRef}
           isHeaderSearch={isHeaderSearch}
+          isMobileSearch={isMobileSearch}
           isLoading={isLoading}
-          results={results}
+          results={previousResults}
           closeSearch={closeSearch}
           debug={'debug' in router.query}
           query={query}
@@ -173,7 +200,7 @@ export function Search({
   const SearchInput = (
     <div data-testid="search" aria-hidden="true">
       <div className="position-relative z-2">
-        <form role="search" className="width-full d-flex" noValidate onSubmit={preventRefresh}>
+        <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
           <input
             data-testid="site-search-input"
             ref={inputRef}
@@ -199,8 +226,8 @@ export function Search({
             autoCapitalize="off"
             spellCheck="false"
             maxLength={512}
-            onChange={debounce(onSearch, 200)}
-            defaultValue={query}
+            onChange={onSearch}
+            value={localQuery}
           />
           <button className="d-none" type="submit" title="Submit the search query." hidden />
         </form>
@@ -222,9 +249,23 @@ export function Search({
   )
 }
 
+function useDebounce<T>(value: T, delay?: number): [T, (value: T) => void] {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay || 500)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [value, delay])
+
+  return [debouncedValue, setDebouncedValue]
+}
+
 function ShowSearchResults({
   anchorRef,
   isHeaderSearch,
+  isMobileSearch,
   isLoading,
   results,
   closeSearch,
@@ -233,8 +274,9 @@ function ShowSearchResults({
 }: {
   anchorRef: RefObject<HTMLElement>
   isHeaderSearch: boolean
+  isMobileSearch: boolean
   isLoading: boolean
-  results: SearchResult[] | null
+  results: SearchResult[] | undefined
   closeSearch: () => void
   debug: boolean
   query: string | string[]
@@ -258,7 +300,7 @@ function ShowSearchResults({
   })
   const redirectQuery = query ? `?query=${query}` : ''
 
-  if (results !== null) {
+  if (results) {
     if (results.length === 0) {
       // When there results, but exactly 0, it matters if this is the overlay or not.
       if (isHeaderSearch) {
@@ -275,116 +317,122 @@ function ShowSearchResults({
         )
       }
     }
+
+    const ActionListResults = (
+      <div data-testid="search-results">
+        <div className="my-4">
+          <p className="mx-4">
+            You're searching the <span className="color-fg-attention">{searchVersion}</span>{' '}
+            version. Didn't find what you're looking for? Click a different version to try again.
+          </p>
+          {versions.map(({ title, version }) => {
+            return (
+              <button key={version} className="btn mr-2 mt-4 ml-4" type="button">
+                <a href={`/${router.locale}/${version}${redirectQuery}`}>{title}</a>
+              </button>
+            )
+          })}
+        </div>
+        {/* We might have results AND isLoading. For example, the user typed
+        a first word, and is now typing more. */}
+        <p className="d-block mt-4">
+          {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
+        </p>
+
+        <ActionList
+          items={results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+            return {
+              key: url,
+              text: title,
+              renderItem: () => (
+                <ActionList.Item as="div">
+                  <Link href={url} className="no-underline color-fg-default">
+                    <li key={url} data-testid="search-result" className={cx('list-style-none')}>
+                      <div className={cx('py-2 px-3')}>
+                        {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
+                        <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
+                          {breadcrumbs.length === 0
+                            ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
+                            : breadcrumbs
+                                .split(' / ')
+                                .slice(0, 1)
+                                .join(' ')
+                                .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                        </Label>
+                        {debug && (
+                          <small className="float-right">
+                            score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
+                          </small>
+                        )}
+                        <div
+                          className={cx(styles.searchResultTitle, 'mt-2 d-block f4 text-semibold')}
+                          dangerouslySetInnerHTML={{
+                            __html: title,
+                          }}
+                        />
+                        <div
+                          className={cx(styles.searchResultContent, 'mt-1 d-block overflow-hidden')}
+                          style={{ maxHeight: '2.5rem' }}
+                          dangerouslySetInnerHTML={{ __html: content }}
+                        />
+                        <div
+                          className={'d-block mt-2 opacity-60 text-small'}
+                          dangerouslySetInnerHTML={
+                            breadcrumbs.length === 0
+                              ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
+                              : {
+                                  __html: breadcrumbs
+                                    .split(' / ')
+                                    .slice(0, breadcrumbs.length - 1)
+                                    .join(' / ')
+                                    .replace(/<\/?[^>]+(>|$)/g, ''),
+                                }
+                          }
+                        />
+                      </div>
+                    </li>
+                  </Link>
+                </ActionList.Item>
+              ),
+            }
+          })}
+        />
+      </div>
+    )
     // When there are search results, it doesn't matter if this is overlay or not.
     return (
       <div>
-        {
-          <Overlay
-            initialFocusRef={anchorRef}
-            returnFocusRef={anchorRef}
-            ignoreClickRefs={[anchorRef]}
-            onEscape={() => closeSearch()}
-            onClickOutside={() => closeSearch()}
-            aria-labelledby="title"
-            sx={
-              isHeaderSearch && {
-                background: 'none',
-                boxShadow: 'none',
-                position: 'static',
-                overflowY: 'auto',
-                maxHeight: '80vh',
-                maxWidth: '96%',
-                margin: '1.5em 2em 0 0.5em',
-                scrollbarWidth: 'none',
+        {!isHeaderSearch && !isMobileSearch ? (
+          <>
+            {/* Only if you're going to use an <Overlay> do you need
+          to specify a portal div tag. */}
+            <div id="__primerPortalRoot__" />
+            <Overlay
+              initialFocusRef={anchorRef}
+              returnFocusRef={anchorRef}
+              ignoreClickRefs={[anchorRef]}
+              onEscape={() => closeSearch()}
+              onClickOutside={() => closeSearch()}
+              aria-labelledby="title"
+              sx={
+                isHeaderSearch && {
+                  background: 'none',
+                  boxShadow: 'none',
+                  position: 'static',
+                  overflowY: 'auto',
+                  maxHeight: '80vh',
+                  maxWidth: '96%',
+                  margin: '1.5em 2em 0 0.5em',
+                  scrollbarWidth: 'none',
+                }
               }
-            }
-          >
-            <div data-testid="search-results">
-              <div className="my-4">
-                <p className="ml-4">
-                  You're searching the <span className="color-fg-attention">{searchVersion}</span>{' '}
-                  version. Didn't find what you're looking for? Click a different version to try
-                  again.
-                </p>
-                {versions.map(({ title, version }) => {
-                  return (
-                    <button key={version} className="btn mr-2 mt-4 ml-4" type="button">
-                      <a href={`/${router.locale}/${version}${redirectQuery}`}>{title}</a>
-                    </button>
-                  )
-                })}
-              </div>
-              <ActionList
-                items={results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
-                  return {
-                    key: url,
-                    text: title,
-                    renderItem: () => (
-                      <ActionList.Item as="div">
-                        <Link href={url} className="no-underline color-fg-default">
-                          <li
-                            key={url}
-                            data-testid="search-result"
-                            className={cx('list-style-none')}
-                          >
-                            <div className={cx('py-2 px-3')}>
-                              {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
-                              <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
-                                {breadcrumbs.length === 0
-                                  ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
-                                  : breadcrumbs
-                                      .split(' / ')
-                                      .slice(0, 1)
-                                      .join(' ')
-                                      .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
-                              </Label>
-                              {debug && (
-                                <small className="float-right">
-                                  score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
-                                </small>
-                              )}
-                              <div
-                                className={cx(
-                                  styles.searchResultTitle,
-                                  'mt-2 d-block f4 text-semibold'
-                                )}
-                                dangerouslySetInnerHTML={{
-                                  __html: title,
-                                }}
-                              />
-                              <div
-                                className={cx(
-                                  styles.searchResultContent,
-                                  'mt-1 d-block overflow-hidden'
-                                )}
-                                style={{ maxHeight: '2.5rem' }}
-                                dangerouslySetInnerHTML={{ __html: content }}
-                              />
-                              <div
-                                className={'d-block mt-2 opacity-60 text-small'}
-                                dangerouslySetInnerHTML={
-                                  breadcrumbs.length === 0
-                                    ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
-                                    : {
-                                        __html: breadcrumbs
-                                          .split(' / ')
-                                          .slice(0, breadcrumbs.length - 1)
-                                          .join(' / ')
-                                          .replace(/<\/?[^>]+(>|$)/g, ''),
-                                      }
-                                }
-                              />
-                            </div>
-                          </li>
-                        </Link>
-                      </ActionList.Item>
-                    ),
-                  }
-                })}
-              />
-            </div>
-          </Overlay>
-        }
+            >
+              {ActionListResults}
+            </Overlay>
+          </>
+        ) : (
+          ActionListResults
+        )}
       </div>
     )
   }
