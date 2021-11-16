@@ -16,6 +16,8 @@ shortTitle: Chave SSH com SAML
 
 Você pode autorizar uma chave SSH existente ou criar uma e autorizá-la. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
+{% data reusables.saml.authorized-creds-info %}
+
 {% note %}
 
 **Observação:** se a autorização da sua chave SSH foi revogada por uma organização, você não poderá reautorizar a mesma chave. Será preciso criar outra chave SSH e autorizá-la. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."

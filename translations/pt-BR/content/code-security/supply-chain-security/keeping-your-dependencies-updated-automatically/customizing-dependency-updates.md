@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -20,6 +21,9 @@ topics:
 shortTitle: Personalizar atualizações
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## Sobre a personalização de atualizações de dependências
 
 Depois que você habilitou as atualizações de versão, você pode personalizar a forma como o {% data variables.product.prodname_dependabot %} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:
@@ -30,9 +34,9 @@ Depois que você habilitou as atualizações de versão, você pode personalizar
 - Alterar o número máximo de pull requests abertos para atualizações de versão a partir do padrão de 5: `open-pull-requests-limit`
 - Abrir pull requests para atualizações de versão para atingir um branch específico, em vez do branch padrão: `target-branch`
 
-Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates)".
+Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para atualizações de dependências](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".
 
-Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{% data variables.product.prodname_dependabot %}**. Isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
+Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{% data variables.product.prodname_dependabot %}**. Isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)".
 
 ## Impacto das alterações de configuração nas atualizações de segurança
 
@@ -136,4 +140,4 @@ updates:
 
 ## Mais exemplos
 
-Para obter mais exemplos, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates)".
+Para obter mais exemplos, consulte "[Opções de configuração para atualizações de dependências](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)".

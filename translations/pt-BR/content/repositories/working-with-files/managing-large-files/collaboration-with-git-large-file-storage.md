@@ -30,7 +30,7 @@ O {% data variables.product.product_name %} não renderiza objetos do {% data va
 
 Para obter mais informações sobre arquivos de ponteiro, consulte "[Sobre o {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)".
 
-Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)".
+Para ver as alterações feitas em arquivos grandes, confira o pull request localmente para revisar a diferença. Para obter mais informações, consulte "[Fazer checkout de pull requests localmente](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)".
 
 {% ifversion fpt or ghec %}
 

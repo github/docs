@@ -27,6 +27,8 @@ Você pode recuperar uma lista de endereços IP do {% data variables.product.pro
 
 {% endnote %}
 
+Esses endereços IP são usados por {% data variables.product.prodname_dotcom %} para fornecer nosso conteúdo, webhooks e executar compilações de {% data variables.product.prodname_actions %} hospedadas.
+
 Esses intervalos estão na [notação CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation). É possível usar uma ferramenta de conversão online, como essa [Calculadora Supernet CIDR/VLSM](http://www.subnet-calculator.com/cidr.php), para fazer a conversão de notação CIDR em intervalos de endereços IP.
 
 Nós alteramos nossos endereços IP de vez em quando. Não recomendamos permitir por endereço IP. No entanto, se você usar esses intervalos de IP, é altamente recomendável o monitoramento regular da nossa API.

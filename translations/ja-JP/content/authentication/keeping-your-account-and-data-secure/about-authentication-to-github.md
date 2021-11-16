@@ -30,7 +30,7 @@ shortTitle: Authentication to GitHub
 IdP を使用して、ブラウザ {% ifversion ghae %} で {% data variables.product.product_name %} に認証できます。 詳しい情報については、いくつかの方法で{% else %}「[SAML シングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」を参照してください。
 
 {% ifversion fpt or ghec %}
-- If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user)){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
+- If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[Authenticating as a managed user](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %} If you're not a member of an {% data variables.product.prodname_emu_enterprise %}, you will authenticate using your browser on {% data variables.product.prodname_dotcom_the_website %}.
 {% endif %}
 
 - **ユーザ名とパスワードのみ**
@@ -77,7 +77,7 @@ If you authenticate without {% data variables.product.prodname_cli %}, you will 
 
 ### Authorizing for SAML single sign-on
 
-{% ifversion fpt or ghec %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. 詳しい情報については、[SAML シングルサインオンで利用するために個人アクセストークンを認証する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングルサインオンで使用するために SSH キーを認証する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% ifversion fpt or ghec %}個人アクセストークンまたは SSH キーを使用して、SAML シングルサインオンを使用する Organization が所有するリソースにアクセスするには、個人トークンまたは SSH キーも認証する必要があります。 詳しい情報については、[SAML シングルサインオンで利用するために個人アクセストークンを認証する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングルサインオンで使用するために SSH キーを認証する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 
