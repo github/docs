@@ -543,13 +543,12 @@ describe('server', () => {
       )
       expect(
         $(
-          `[data-testid="mobile-header"] [data-testid=article-version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
+          `[data-testid="mobile-header"] [data-testid=version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
         ).length
       ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
-        $(`[data-testid=article-version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`)
-          .length
+        $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
       ).toBe(0)
     })
 
