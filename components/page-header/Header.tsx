@@ -60,7 +60,7 @@ export const Header = () => {
           </div>
 
           <div className="mr-2">
-            <VersionPicker variant="compact" />
+            <VersionPicker />
           </div>
 
           <LanguagePicker />
@@ -106,25 +106,21 @@ export const Header = () => {
             <div
               className={cx('width-full position-sticky top-0', isMenuOpen ? 'd-block' : 'd-none')}
             >
-              <div className="mt-3 mb-2">
-                <div className="pt-3 mb-4 ml-2">
-                  <Breadcrumbs />
-                </div>
-                <h4 className="f5 text-normal color-fg-muted ml-3">{t('explore_by_product')}</h4>
-
-                <ProductPicker />
+              <div className="my-4">
+                <Breadcrumbs />
               </div>
 
-              <div className="border-top my-2 mx-3" />
+              <ProductPicker />
+
+              <div className="border-top my-2" />
               <VersionPicker variant="inline" />
 
-              {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
-              <div className="border-top my-2 mx-3" />
+              <div className="border-top my-2" />
               <LanguagePicker variant="inline" />
 
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {relativePath !== 'index.md' && error !== '404' && (
-                <div className="pt-3 mx-3">
+                <div className="my-2 pt-3">
                   <Search iconSize={16} isMobileSearch={true} />
                 </div>
               )}

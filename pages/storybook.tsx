@@ -9,6 +9,7 @@ import {
 } from 'components/ui/MarkdownContent/MarkdownContent'
 import { ScrollButton, ScrollButtonPropsT } from 'components/ui/ScrollButton/ScrollButton'
 import { TruncateLines, TruncateLinesPropsT } from 'components/ui/TruncateLines/TruncateLines'
+import { Picker, PickerPropsT } from 'components/ui/Picker/Picker'
 
 const markdownExample = (
   <>
@@ -130,6 +131,29 @@ const stories = [
     name: 'MarkdownContent',
     component: MarkdownContent,
     variants: [{ children: markdownExample } as MarkdownContentPropsT],
+  },
+  {
+    name: 'Picker',
+    component: Picker,
+    variants: [
+      {
+        defaultText: 'Choose color',
+        options: [
+          { text: 'Red', item: <span>Red</span> },
+          { text: 'Green', item: <span>Green</span> },
+          { text: 'Blue', item: <span>Blue</span> },
+        ],
+      } as PickerPropsT,
+      {
+        defaultText: 'Choose color',
+        variant: 'inline',
+        options: [
+          { text: 'Red', item: <span>Red</span> },
+          { text: 'Green', item: <span>Green</span> },
+          { text: 'Blue', item: <span>Blue</span> },
+        ],
+      } as PickerPropsT,
+    ],
   },
   {
     name: 'ScrollButton',
