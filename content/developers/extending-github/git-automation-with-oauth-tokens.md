@@ -4,6 +4,7 @@ redirect_from:
   - /articles/git-over-https-using-oauth-token/
   - /articles/git-over-http-using-oauth-token/
   - /articles/git-automation-with-oauth-tokens
+  - /github/extending-github/git-automation-with-oauth-tokens
 intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
 versions:
   fpt: '*'

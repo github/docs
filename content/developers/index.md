@@ -12,5 +12,5 @@ children:
   - /apps
   - /github-marketplace
   - /customizing-your-github-workflow
+  - /extending-github
 ---
-

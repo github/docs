@@ -2,6 +2,7 @@
 title: Getting started with the API
 redirect_from:
   - /articles/getting-started-with-the-api
+  - /github/extending-github/getting-started-with-the-api
 versions:
   fpt: '*'
   ghes: '*'
