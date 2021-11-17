@@ -277,7 +277,7 @@ function ShowSearchResults({
   results: SearchResult[] | undefined
   closeSearch: () => void
   debug: boolean
-  query: string | string[]
+  query: string
 }) {
   const { t } = useTranslation('search')
   const router = useRouter()
@@ -296,7 +296,13 @@ function ShowSearchResults({
       version: version,
     }
   })
-  const redirectQuery = query ? `?query=${query}` : ''
+
+  const redirectParams: {
+    query: string
+    debug?: string
+  } = { query }
+  if (debug) redirectParams.debug = JSON.stringify(debug)
+  const redirectQuery = `?${new URLSearchParams(redirectParams).toString()}`
 
   if (results) {
     if (results.length === 0) {
@@ -348,7 +354,7 @@ function ShowSearchResults({
               renderItem: () => (
                 <ActionList.Item as="div">
                   <Link href={url} className="no-underline color-fg-default">
-                    <li key={url} data-testid="search-result" className={cx('list-style-none')}>
+                    <li data-testid="search-result" className={cx('list-style-none')}>
                       <div className={cx('py-2 px-3')}>
                         {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
                         <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
