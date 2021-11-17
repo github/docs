@@ -46,7 +46,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 {% data variables.product.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.product.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community.
 
 * {% data variables.product.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
-* {% data variables.product.prodname_managed_users_caps %} cannot push code to repositories outside of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} can view the code in public repositories on broader github.com, but cannot push code to repositories outside of the enterprise.
 * {% data variables.product.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
 * {% data variables.product.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.product.prodname_managed_users_caps %} cannot create gists or comment on gists.
