@@ -165,7 +165,11 @@ describe('pages module', () => {
         .value()
 
       const diff = difference(nonEnglishPaths, englishPaths)
-      const failureMessage = `Unmatched non-English pages ${diff.length}:\n - ${diff.join('\n - ')}`
+      const failureMessage = `
+Found ${diff.length} non-English pages without a matching English page:\n - ${diff.join('\n - ')}
+
+Remove them with script/i18n/prune-stale-files.js and commit your changes using "git commit --no-verify".
+`
       expect(diff.length, failureMessage).toBe(0)
     })
   })
