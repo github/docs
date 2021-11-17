@@ -86,7 +86,7 @@ This procedure demonstrates how to create a workflow template and metadata file.
    ```
    * `name` - **Required.** The name of the workflow template. This is displayed in the list of available templates.
    * `description` - **Required.** The description of the workflow template. This is displayed in the list of available templates.
-   * `iconName` - **Required.** Defines an icon for the workflow's entry in the template list. The `iconName` must be an SVG icon of the same name, and must be stored in the `workflow-templates` directory. For example, a SVG file named `example-icon.svg` is referenced as `example-icon`.
+   * `iconName` - **Optional.** Defines an icon for the workflow's entry in the template list. The `iconName` must be an SVG icon of the same name, and must be stored in the `workflow-templates` directory. For example, a SVG file named `example-icon.svg` is referenced as `example-icon`.
    * `categories` - **Optional.** Defines the language category of the workflow. When a user views the available templates, those templates that match the same language will feature more prominently. For information on the available language categories, see https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.
    * `filePatterns` - **Optional.** Allows the template to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
