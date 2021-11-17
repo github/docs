@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -20,6 +21,8 @@ topics:
 ## Sobre o desenvolvimento com {% data variables.product.prodname_codespaces %}
 
 {% data variables.product.prodname_codespaces %} fornece a você a experiência completa de desenvolvimento de {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
+
+{% data reusables.codespaces.links-to-get-started %}
 
 ![Visão geral do codespace com anotações](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
@@ -48,9 +51,9 @@ Para obter mais informações sobre como usar {% data variables.product.prodname
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
-### Usando a Paleta de Comando
+### Usando o {% data variables.product.prodname_vscode_command_palette %}
 
-A Paleta de Comando permite acessar e gerenciar muitas funcionalidades para {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte "[Usando a Paleta de Comando em {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)".
+O {% data variables.product.prodname_vscode_command_palette %} permite que você acesse e gerencie muitas funcionalidades para {% data variables.product.prodname_codespaces %} e {% data variables.product.prodname_vscode %}. Para obter mais informações, consulte "[Usando o {% data variables.product.prodname_vscode_command_palette %} em {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)".
 
 ## Acessar um codespace existente
 

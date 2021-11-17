@@ -8,6 +8,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Codespaces
@@ -21,7 +22,9 @@ shortTitle: Configure o seu projeto
 
 ## Sobre contêineres de desenvolvimento
 
-Um contêiner de desenvolvimento, ou dev container, é o ambiente que {% data variables.product.prodname_codespaces %} usa para fornecer as ferramentas e tempos de execução de que seu projeto precisa para desenvolvimento. Ao trabalhar com um contêiner de desenvolvimento em {% data variables.product.prodname_codespaces %} você pode [usar a configuração padrão](#using-the-default-configuration), [usar uma configuração predefinida](#using-a-predefined-container-configuration) ou [criar sua própria configuração](#creating-a-custom-codespace-configuration). A opção escolhida depende das ferramentas, tempo de execução, dependências e fluxos de trabalho que um usuário pode precisar para ter sucesso com seu projeto.
+Um contêiner de desenvolvimento, ou dev container, é o ambiente que {% data variables.product.prodname_codespaces %} usa para fornecer as ferramentas e tempos de execução de que seu projeto precisa para desenvolvimento. Se o seu projeto não tiver um contêiner de desenvolvimento definido, {% data variables.product.prodname_codespaces %} usará a configuração padrão, que contém muitas das ferramentas comuns que sua equipe pode precisar para desenvolver o seu projeto. Para obter mais informações, consulte "[Usando a configuração padrão](#using-the-default-configuration). "
+
+Se você deseja que todos os usuários de seu projeto tenham um ambiente consistente que seja adaptado ao seu projeto, você poderá adicionar um contêiner de desenvolvimento ao seu repositório. Você pode usar uma configuração predefinida para selecionar uma configuração comum para vários tipos de projeto com a opção para personalizar ainda mais seu projeto ou você pode criar sua própria configuração personalizada. Para obter mais informações, consulte "[Usando uma configuração de contêiner predefinida](#using-a-predefined-container-configuration)" e "[Criando uma configuração personalizada de codespace](#creating-a-custom-codespace-configuration)". A opção escolhida depende das ferramentas, tempo de execução, dependências e fluxos de trabalho que um usuário pode precisar para ter sucesso com seu projeto.
 
 {% data variables.product.prodname_codespaces %} permite a personalização em uma base por projeto e por branch com um arquivo `devcontainer.json`. Este arquivo de configuração determina o ambiente de cada novo codespace que alguém criar para o repositório, definindo um contêiner de desenvolvimento que pode incluir estruturas, ferramentas, extensões e encaminhamento de porta. Um arquivo Docker também pode ser usado ao lado do arquivo `devcontainer.json` na pasta `devcontainer` para definir tudo o que é necessário para criar uma imagem de contêiner.
 
@@ -82,8 +85,27 @@ Usar uma configuração predefinida é uma ótima ideia se você precisa de uma 
 
 {% data reusables.codespaces.command-palette-container %}
 1. Clique na definição que você deseja usar. ![Lista de definições de contêiner predefinidas](/assets/images/help/codespaces/predefined-container-definitions-list.png)
-1. Siga as instruções para personalizar sua definição.
+1. Siga as instruções para personalizar sua definição. Para obter mais informações sobre as opções para personalizar sua definição, consulte "[Adicionando funcionalidades adicionais ao seu arquivo `devcontainer.json`](#adding-additional-features-to-your-devcontainerjson-file)".
 1. Clique em **OK**. ![Botão OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
+1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-changes-to-your-configuration)". !["Códigos: Recriar contêiner" em {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
+
+### Adicionando funcionalidades adicionais ao arquivo `devcontainer.json`
+
+{% note %}
+
+**Observação:** Este recurso está na versão beta e sujeito a alterações.
+
+{% endnote %}
+
+Você pode adicionar recursos à configuração de contêiner predefinida para personalizar quais ferramentas estão disponíveis e ampliar a funcionalidade de seu espaço de trabalho sem criar uma configuração personalizada do codespace. Por exemplo, você poderia usar uma configuração de contêiner predefinida e adicionar o {% data variables.product.prodname_cli %} também. Você pode criar essas funcionalidades para o seu projeto adicionando as funcionalidades ao seu arquivo `devcontainer.json` ao definir a configuração do seu contêiner.
+
+Você pode adicionar algumas das características mais comuns selecionando-as na configuração do contêiner predefinido. Para obter mais informações sobre as funcionalidades disponíveis, consulte a biblioteca de script [](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library#scripts) no repositório `vscode-dev-containers`.
+
+![O menu de seleção de funcionalidades adicionais durante a configuração do contêiner.](/assets/images/help/codespaces/select-additional-features.png)
+
+Você também pode adicionar ou remover funcionalidades fora do fluxo de trabalho **Adicionar arquivos de configuração do contêiner de desenvolvimento**.
+1. Acessar a Paleta de Comando (`Shift + Comando + P` / `Ctrl + Shift + P`) e, em seguida, comece a digitar "configurar". Selecione **Codespaces: Configure as Funcionalidades do contêiner de desenvolvimento**. ![O comando Configurar Funcionalidades do Devcontainer na paleta de comandos](/assets/images/help/codespaces/codespaces-configure-features.png)
+2. Atualize as seleções das suas funcioanlidades e clique em **OK**. ![O menu de seleção de funcionalidades adicionais durante a configuração do contêiner.](/assets/images/help/codespaces/select-additional-features.png)
 1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-changes-to-your-configuration)". !["Codespaces: Reconstruir contêiner" na paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 
 

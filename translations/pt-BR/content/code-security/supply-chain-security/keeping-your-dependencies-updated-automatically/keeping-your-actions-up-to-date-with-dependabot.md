@@ -7,6 +7,8 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
@@ -15,6 +17,10 @@ topics:
   - Actions
 shortTitle: Atualização automática de ações
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## Sobre {% data variables.product.prodname_dependabot_version_updates %} para ações
 
@@ -30,7 +36,7 @@ Ações são frequentemente atualizadas com correções de bugs e novos recursos
 1. Defina um `schedule.interval` para especificar quantas vezes procurar por novas versões.
 {% data reusables.dependabot.check-in-dependabot-yml %} Se você tiver editado um arquivo existente, salve suas alterações.
 
-Você também pode habilitar o {% data variables.product.prodname_dependabot_version_updates %} em bifurcações. Para obter mais informações, consulte "[Habilitando e desabilitando atualizações de versão](/github/administering-a-repository/enabling-and-disabling-version-updates#enabling-version-updates-on-forks)."
+Você também pode habilitar o {% data variables.product.prodname_dependabot_version_updates %} em bifurcações. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)".
 
 ### Exemplo de arquivo *dependabot.yml* para {% data variables.product.prodname_actions %}
 

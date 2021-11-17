@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - SSH
 shortTitle: 'ssh-add: illegal option -- K'
@@ -22,7 +23,7 @@ A opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazen
 Para adicionar sua chave SSH privada ao ssh-agent, especifique o caminho para a versão da Apple do `ssh-add`:
 
 ```shell
-  $ /usr/bin/ssh-add -K ~/.ssh/id_rsa
+  $ /usr/bin/ssh-add -K ~/.ssh/id_ed25519
 ```
 
 {% note %}

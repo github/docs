@@ -4,7 +4,9 @@ intro: '如何使用 {% data variables.product.prodname_actions %} 来自动执�
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Actions
@@ -16,6 +18,9 @@ topics:
   - Pull requests
 shortTitle: Use Dependabot with actions
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## 关于 {% data variables.product.prodname_dependabot %} 与 {% data variables.product.prodname_actions %}
 
@@ -31,6 +36,16 @@ shortTitle: Use Dependabot with actions
 - 密码不可访问。
 
 更多信息请参阅“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)”。
+
+{% ifversion ghes > 3.2 %}
+{% note %}
+
+**Note:** Your site administrator can override these restrictions for {% data variables.product.product_location %}. For more information, see "[Troubleshooting {% data variables.product.prodname_actions %} for your enterprise](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
+
+If the restrictions are removed, when a workflow is triggered by {% data variables.product.prodname_dependabot %} it will have access to any secrets that are normally available. In addition, workflows triggered by {% data variables.product.prodname_dependabot %} can use the `permissions` term to increase the default scope of the `GITHUB_TOKEN` from read-only access.
+
+{% endnote %}
+{% endif %}
 
 ### 处理 `pull_request` 事件
 
@@ -119,7 +134,7 @@ name: Dependabot Trusted Workflow
 on:
   workflow_run:
     workflows: ["Dependabot Untrusted Workflow"]
-    types: 
+    types:
       - completed
 
 permissions:
@@ -243,7 +258,7 @@ jobs:
 
 ### 在拉取请求上启用自动合并
 
-如果您要自动合并拉取请求，可以使用 {% data variables.product.prodname_dotcom %} 的自动合并功能。 这样，当所有所需的测试和批准都成功满足时，拉取请求即可合并。 有关自动合并的更多信息，请参阅“[自动合并拉取请求](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)”。
+如果您要自动合并拉取请求，可以使用 {% data variables.product.prodname_dotcom %} 的自动合并功能。 这样，当所有所需的测试和批准都成功满足时，拉取请求即可合并。 For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
 
 这是为所有补丁更新启用自动合并到 `my-dependency` 的示例：
 

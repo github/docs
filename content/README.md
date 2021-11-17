@@ -102,7 +102,7 @@ redirect_from:
   - /articles/getting-started-with-github-for-windows/
 ```
 
-See [`contributing/redirects`](contributing/redirects.md) for more info.
+See [`contributing/redirects`](../contributing/redirects.md) for more info.
 
 ### `title`
 

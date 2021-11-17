@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Accounts
 shortTitle: 合并多个用户帐户
@@ -23,6 +24,7 @@ shortTitle: 合并多个用户帐户
 1. 从您要删除的帐户[转让任何仓库](/articles/how-to-transfer-a-repository)到要保留的帐户。 议题、拉取请求和 wiki 也会转让。 确认要保留的帐户中存在仓库。
 2. [更新远程 URL](/github/getting-started-with-github/managing-remote-repositories)（在移动的仓库的任何本地克隆中）。
 3. [删除帐户](/articles/deleting-your-user-account)（不再使用的）。
+4. To attribute past commits to the new account, add the email address you used to author the commits to the account you're keeping. 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)”
 
 ## 延伸阅读
 

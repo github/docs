@@ -3,9 +3,12 @@ title: 企业 GitHub Actions 故障排除
 intro: '在 {% data variables.product.prodname_ghe_server %} 上使用 {% data variables.product.prodname_actions %} 时的常见问题疑难解答。'
 permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
-  ghes: '>=3.0'
+  ghes: '*'
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - Troubleshooting
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
 shortTitle: GitHub Actions 故障排除
@@ -146,3 +149,33 @@ NODE_EXTRA_CA_CERTS=/usr/share/ca-certificates/extra/mycertfile.crt
 
     运行 `ghe-config-apply` 时，如果你看到类似于 `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'` 的输出，则更改可能分配过多的 CPU 或内存资源。 如果发生这种情况，请再次编辑配置文件并降低分配的 CPU 或内存，然后重新运行 `ghe-config-apply`。
 1. 在应用配置后，运行 `ghe-actions-check` 来验证 {% data variables.product.prodname_actions %} 服务是否正常运行。
+
+{% ifversion fpt or ghec or ghes > 3.2 %}
+## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.product.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
+
+By default, {% data variables.product.prodname_actions %} workflow runs that are triggered by {% data variables.product.prodname_dependabot %} from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events are treated as if they were opened from a repository fork. Unlike workflows triggered by other actors, this means they receive a read-only `GITHUB_TOKEN` and do not have access to any secrets that are normally available. This will cause any workflows that attempt to write to the repository to fail when they are triggered by {% data variables.product.prodname_dependabot %}.
+
+There are three ways to resolve this problem:
+
+1. You can update your workflows so that they are no longer triggered by {% data variables.product.prodname_dependabot %} using an expression like: `if: github.actor != 'dependabot[bot]'`. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+2. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[Automating {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#responding-to-events)."
+3. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+
+### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
+
+1. 使用 SSH 登录到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)。”
+1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.product.product_location %}, use the following command.
+    ``` shell
+    $ ghe-config app.actions.disable-dependabot-enforcement true
+    ```
+1. 应用配置。
+    ```shell
+    $ ghe-config-apply
+    ```
+1. 返回到 {% data variables.product.prodname_ghe_server %}。
+
+{% endif %}

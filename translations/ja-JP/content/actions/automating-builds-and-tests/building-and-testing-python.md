@@ -1,7 +1,6 @@
 ---
 title: Python のビルドとテスト
 intro: Pythonプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
@@ -10,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 hidden: true
 topics:
@@ -21,6 +21,7 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## はじめに
 
@@ -59,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -118,7 +119,7 @@ jobs:
       # python-version内のPyPyのバージョンが利用できる。
       # For example, pypy2 and pypy3
       matrix:
-        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+        python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -181,12 +182,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
+        python-version: ["3.6", "3.7", "3.8", "3.9", pypy2, pypy3]
         exclude:
           - os: macos-latest
-            python-version: 3.6
+            python-version: "3.6"
           - os: windows-latest
-            python-version: 3.6
+            python-version: "3.6"
 ```
 {% endraw %}
 
@@ -343,7 +344,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9]
+        python: ["3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2
@@ -377,7 +378,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
 
     steps:
       - uses: actions/checkout@v2

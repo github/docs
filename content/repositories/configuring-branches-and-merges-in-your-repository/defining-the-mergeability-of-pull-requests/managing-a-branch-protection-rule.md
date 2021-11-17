@@ -38,7 +38,7 @@ If a repository has multiple protected branch rules that affect the same branche
 
 Protected branch rules that mention a special character, such as `*`, `?`, or `]`, are applied in the order they were created, so older rules with these characters have a higher priority.
 
-To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name. 
+To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
 For more information about each of each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
@@ -50,24 +50,32 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
+{% ifversion fpt or ghec %}
+1. Optionally, enable required pull requests.
+   - Under "Protect matching branches", select **Require a pull request before merging**.
+     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch.
+     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+{% else %}
 1. Optionally, enable required pull request reviews.
    - Under "Protect matching branches", select **Require pull request reviews before merging**.
      ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required.png)
-   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you'd like to require on the branch.
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. 
      ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals.png)
+{% endif %}
    - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
      ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
      ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/github/collaborating-with-issues-and-pull-requests/dismissing-a-pull-request-review)."
+   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
      ![Restrict who can dismiss pull request reviews checkbox](/assets/images/help/repository/PR-review-required-dismissals.png)
-1. Optionally, enable required status checks.
+1. Optionally, enable required status checks. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
    - Select **Require status checks to pass before merging**.
      ![Required status checks option](/assets/images/help/repository/required-status-checks.png)
    - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
      ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - From the list of available status checks, select the checks you want to require.
-     ![List of available status checks](/assets/images/help/repository/required-statuses-list.png)
+   - Search for status checks, selecting the checks you want to require.
+     ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
 {%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
 1. Optionally, select **Require conversation resolution before merging**.
   ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
@@ -76,6 +84,15 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
 1. Optionally, select **Require linear history**.
   ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
+  ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
+
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+
+  {% endtip %}
+{%- endif %}
 1. Optionally, select **Include administrators**.
 ![Include administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.

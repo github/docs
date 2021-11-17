@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -24,7 +25,7 @@ Renaming a file also gives you the opportunity to [move the file to a new locati
 
 **ヒント**:
 
-- アクセスのないリポジトリにあるファイルの名前を変更しようとした場合は、変更をコミットした後に、プロジェクトがユーザアカウントへフォークされ、[プルリクエスト](/articles/about-pull-requests)を元のリポジトリへ送信できるようになります。
+- アクセスのないリポジトリにあるファイルの名前を変更しようとした場合は、変更をコミットした後に、プロジェクトがユーザアカウントへフォークされ、[プルリクエスト](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を元のリポジトリへ送信できるようになります。
 - Web インターフェイスを介して作成されるファイル名では英数字とハイフン (`-`) しか使用できません。 それ以外の文字を使用するには、ファイルをローカルで作成してコミットしてから、リポジトリへプッシュします。
 - 一部のファイル (画像など) は、コマンドラインで名前を変更することが要求されます。 詳細は「[コマンドラインを使用してファイルの名前を変更する](/articles/renaming-a-file-using-the-command-line)」を参照してください。
 

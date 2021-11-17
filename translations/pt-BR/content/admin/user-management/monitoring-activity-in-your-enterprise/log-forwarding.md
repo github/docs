@@ -18,7 +18,11 @@ topics:
   - Security
 ---
 
+## About log forwarding
+
 Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog é compatível (por exemplo, [Logstash](http://logstash.net/) e [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
+
+When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
 
 ## Habilitar o encaminhamento de logs
 
@@ -27,8 +31,8 @@ Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog
 1. Selecione **Enable log forwarding** (Habilitar encaminhamento de logs).
 1. No campo **Server address** (Endereço do servidor), digite o endereço do servidor para o qual você pretende encaminhar os logs. É possível especificar vários endereços em uma lista separada por vírgulas.
 1. No menu suspenso Protocol (Protocolo), selecione o protocolo a ser usado para comunicação com o servidor de logs. O protocolo será aplicado a todos os destinos de log especificados.
-1. Selecione **Enable TLS** (Habilitar TLS).
-1. Clique em **Choose File** (Escolher arquivo) e escolha um certificado CA para criptografar a comunicação entre os pontos de extremidade do syslog. Toda a cadeia de certificados será validada e deverá terminar em um certificado raiz. Para obter mais informações, consulte [as opções de TLS na documentação syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
+1. Optionally, select **Enable TLS**. We recommend enabling TLS according to your local security policies, especially if there are untrusted networks between the appliance and any remote log servers.
+1. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. Toda a cadeia de certificados será validada e deverá terminar em um certificado raiz. Para obter mais informações, consulte [as opções de TLS na documentação syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

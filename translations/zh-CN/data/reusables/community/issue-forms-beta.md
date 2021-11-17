@@ -1,5 +1,5 @@
 {% note %}
 
-**注意：**议题表单目前处于测试阶段，可能会更改。
+**Note:** Issue forms are currently in beta for public repositories on {% data variables.product.prodname_dotcom_the_website %} only.
 
 {% endnote %}

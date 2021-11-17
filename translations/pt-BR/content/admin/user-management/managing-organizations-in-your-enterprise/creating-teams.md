@@ -14,7 +14,7 @@ topics:
   - User account
 ---
 
-As equipes são essenciais para vários recursos de colaboração do {% data variables.product.prodname_dotcom %}, como as @menções, que chamam a atenção dos integrantes envolvidos em alguma questão específica. Para obter mais informações sobre como configurar equipes e permissões de equipe, consulte "[Níveis de permissão nos repositórios da organização](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
+As equipes são essenciais para vários recursos de colaboração do {% data variables.product.prodname_dotcom %}, como as @menções, que chamam a atenção dos integrantes envolvidos em alguma questão específica. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 Uma equipe pode representar um grupo dentro da empresa ou incluir pessoas com determinados interesses ou experiências. Por exemplo, uma equipe de especialistas em acessibilidade da {% data variables.product.product_location %} pode envolver pessoas de vários departamentos. As equipes podem representar interesses funcionais que complementam a hierarquia das divisões de uma empresa.
 
@@ -36,6 +36,8 @@ Fazer uma combinação prudente de equipes é uma forma poderosa de controlar o 
 ## Criar equipes com a Sincronização LDAP habilitada
 
 Instâncias que usam o LDAP para fazer autenticação de usuários podem usar a Sincronização LDAP para gerenciar os integrantes de uma equipe. Configurar o **Distinguished Name (DN)** (nome diferenciado) no campo **LDAP group** (grupo LDAP) mapeará uma equipe a um grupo LDAP ou servidor LDAP. Se você usar a Sincronização LDAP para gerenciar os integrantes de uma equipe, não será possível gerenciar a sua equipe na {% data variables.product.product_location %}. Quando a Sincronização LDAP estiver habilitada, a equipe mapeada sincronizará seus integrantes em segundo plano e periodicamente no intervalo configurado. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+
+Você deve ser um administrador do site e um proprietário da organização para criar uma equipe com a sincronização LDAP habilitada.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

@@ -1,43 +1,45 @@
-import { useState, useEffect, useRef, ReactNode } from 'react'
+import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
-import debounce from 'lodash/debounce'
+import useSWR from 'swr'
 import cx from 'classnames'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
+import { useQuery } from 'components/hooks/useQuery'
 import { useLanguages } from './context/LanguagesContext'
 
 import styles from './Search.module.scss'
+import { ActionList, Label, Link, Overlay } from '@primer/components'
 
 type SearchResult = {
   url: string
   breadcrumbs: string
-  heading: string
   title: string
   content: string
+  score: number
+  popularity: number
 }
 
 type Props = {
-  isOverlay?: boolean
+  isHeaderSearch?: boolean
+  isMobileSearch?: boolean
   variant?: 'compact' | 'expanded'
-  autoFocus?: boolean
-  updateSearchParams?: boolean
+  iconSize: number
   children?: (props: { SearchInput: ReactNode; SearchResults: ReactNode }) => ReactNode
 }
 export function Search({
-  autoFocus = false,
-  isOverlay = false,
-  updateSearchParams = true,
+  isHeaderSearch = false,
+  isMobileSearch = false,
   variant = 'compact',
+  iconSize = 24,
   children,
 }: Props) {
   const router = useRouter()
-  const [query, setQuery] = useState(router.query.query || '')
-  const [results, setResults] = useState<Array<SearchResult> | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
-  const [activeHit, setActiveHit] = useState(-1)
+  const { query, debug } = useQuery()
+  const [localQuery, setLocalQuery] = useState(query)
+  const [debouncedQuery, setDebouncedQuery] = useDebounce<string>(localQuery, 300)
   const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
@@ -49,128 +51,117 @@ export function Search({
   const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
   const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
 
-  // If the user shows up with a query in the URL, go ahead and search for it
-  useEffect(() => {
-    if (updateSearchParams && router.query.query) {
-      /* await */ fetchSearchResults((router.query.query as string).trim())
-    }
-  }, [])
+  const fetchURL = query
+    ? `/search?${new URLSearchParams({
+        language,
+        version,
+        query,
+      })}`
+    : null
 
-  // Search with your keyboard
-  useEffect(() => {
-    document.addEventListener('keydown', searchWithYourKeyboard)
-    return () => document.removeEventListener('keydown', searchWithYourKeyboard)
-  }, [results, activeHit])
-
-  function searchWithYourKeyboard(event: KeyboardEvent) {
-    switch (event.key) {
-      case '/':
-        // when an input is focused, `/` should have no special behavior
-        if (['INPUT', 'TEXTAREA', 'SEARCH'].includes(document?.activeElement?.tagName || '')) break
-        event.preventDefault() // prevent slash from being typed into input
-        inputRef.current?.focus()
-        break
-      case 'Escape':
-        closeSearch()
-        break
-      case 'ArrowDown':
-        if (results === null || !results.length) break
-        event.preventDefault() // prevent window scrolling
-        if (activeHit >= results.length) break
-        setActiveHit(activeHit + 1)
-        break
-      case 'ArrowUp':
-        if (results === null || !results.length) break
-        event.preventDefault() // prevent window scrolling
-        if (activeHit === 0) break
-        setActiveHit(activeHit - 1)
-        break
-      case 'Enter':
-        // look for a link in the given hit, then visit it
-        if (results === null || activeHit === 0 || !results.length) break
-        onGotoResult(results[activeHit - 1]?.url, activeHit)
-        break
+  const { data: results, error: searchError } = useSWR<SearchResult[], Error>(
+    fetchURL,
+    async (url: string) => {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`${response.status} on ${url}`)
+      }
+      return await response.json()
+    },
+    {
+      onSuccess: () => {
+        sendEvent({
+          type: EventType.search,
+          search_query: query,
+          // search_context
+        })
+      },
+      // Because the backend never changes between fetches, we can treat
+      // it as an immutable resource and disable these revalidation
+      // checks.
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
     }
-  }
+  )
+
+  const [previousResults, setPreviousResults] = useState<SearchResult[] | undefined>()
+  useEffect(() => {
+    if (results) {
+      setPreviousResults(results)
+    } else if (!query) {
+      setPreviousResults(undefined)
+    }
+  }, [results, query])
+
+  // The `isLoading` boolean will become false every time the useSWR hook
+  // fires off a new XHR. So it toggles from false/true often.
+  // But we don't want to display "Loading..." every time a new XHR query
+  // begins, immediately, because the XHR requests are usually very fast
+  // so that you just see it flicker by. That's why we introduce a
+  // debounced version of that same boolean value.
+  // The problem is that the debounce is *trailing*. Meaning, it will
+  // always yield the last thing you sent to it, but with a delay.
+  // The problem is that, by the time the debounce finally fires,
+  // it might say 'true' when in fact the XHR has finished! That would
+  // mean saying "Loading..." is a lie!
+  // That's why we combine them into a final one. We're basically doing
+  // this to favor *NOT* saying "Loading...".
+  const isLoadingRaw = Boolean(query && !results && !searchError)
+  const [isLoadingDebounced] = useDebounce<boolean>(isLoadingRaw, 500)
+  const isLoading = isLoadingRaw && isLoadingDebounced
+
+  useEffect(() => {
+    if ((router.query.query || '') !== debouncedQuery) {
+      const [asPathRoot, asPathQuery = ''] = router.asPath.split('?')
+      const params = new URLSearchParams(asPathQuery)
+      if (debouncedQuery) {
+        params.set('query', debouncedQuery)
+      } else {
+        params.delete('query')
+      }
+      let asPath = `/${router.locale}${asPathRoot}`
+      if (params.toString()) {
+        asPath += `?${params.toString()}`
+      }
+      // Workaround a next.js routing behavior that
+      // will cause the default locale path of the index page
+      // "/en" to change to just "/".
+      if (router.pathname === '/') {
+        // Don't include router.locale so next doesn't attempt a
+        // request to `/_next/static/chunks/pages/en.js`
+        router.replace(`/?${params.toString()}`, asPath)
+      } else {
+        router.replace(asPath)
+      }
+    }
+  }, [debouncedQuery])
 
   // When the user finishes typing, update the results
-  async function onSearch(e: React.ChangeEvent<HTMLInputElement>) {
-    const xquery = e.target?.value?.trim()
-    setQuery(xquery)
-
-    // Update the URL with the search parameters in the query string
-    if (updateSearchParams) {
-      const pushUrl = new URL(location.toString())
-      pushUrl.searchParams.set('query', xquery)
-      history.pushState({}, '', pushUrl.toString())
-    }
-
-    // deactivate any active hit when typing in search box
-    setActiveHit(0)
-
-    return await fetchSearchResults(xquery)
+  function onSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setLocalQuery(e.target.value)
   }
-
-  // If there's a query, call the endpoint
-  // Otherwise, there's no results by default
-  async function fetchSearchResults(xquery: string) {
-    setIsLoading(true)
-    try {
-      if (xquery) {
-        const endpointUrl = new URL(location.origin)
-        endpointUrl.pathname = '/search'
-        const endpointParams: Record<string, string> = {
-          language,
-          version,
-          query: xquery,
-        }
-        endpointUrl.search = new URLSearchParams(endpointParams).toString()
-
-        const response = await fetch(endpointUrl.toString(), {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        })
-        setResults(response.ok ? await response.json() : [])
-      } else {
-        setResults(null)
+  useEffect(() => {
+    if (localQuery.trim()) {
+      if (localQuery.endsWith(' ')) {
+        setDebouncedQuery(localQuery.trim())
       }
-    } finally {
-      setIsLoading(false)
+    } else {
+      setDebouncedQuery('')
     }
-
-    // Analytics tracking
-    if (xquery) {
-      sendEvent({
-        type: EventType.search,
-        search_query: xquery,
-        // search_context
-      })
-    }
-  }
+  }, [localQuery])
 
   // Close panel if overlay is clicked
   function closeSearch() {
-    setQuery('')
-    setResults(null)
+    setLocalQuery('')
   }
 
   // Prevent the page from refreshing when you "submit" the form
-  function preventRefresh(evt: React.FormEvent) {
+  function onFormSubmit(evt: React.FormEvent) {
     evt.preventDefault()
-  }
-
-  function onGotoResult(url: string, index: number) {
-    if (results) {
-      sendEvent({
-        type: EventType.searchResult,
-        search_result_query: Array.isArray(query) ? query[0] : query,
-        search_result_index: index,
-        search_result_total: results.length,
-        search_result_rank: (results.length - index) / results.length,
-        search_result_url: url,
-      })
+    if (localQuery.trim()) {
+      setDebouncedQuery(localQuery.trim())
     }
-    document.location.href = url
   }
 
   const SearchResults = (
@@ -178,24 +169,27 @@ export function Search({
       <div
         id="search-results-container"
         className={cx(
-          'z-1 pb-4 px-3',
+          'z-1 pb-5 px-3',
+          isHeaderSearch && 'pt-9',
           styles.resultsContainer,
-          isOverlay && styles.resultsContainerOverlay,
+          isHeaderSearch && styles.resultsContainerHeader,
           query && styles.resultsContainerOpen
         )}
       >
         <ShowSearchResults
-          isOverlay={isOverlay}
+          anchorRef={inputRef}
+          isHeaderSearch={isHeaderSearch}
+          isMobileSearch={isMobileSearch}
           isLoading={isLoading}
-          results={results}
-          activeHit={activeHit}
-          setActiveHit={setActiveHit}
-          onGotoResult={onGotoResult}
+          results={previousResults}
+          closeSearch={closeSearch}
+          debug={debug}
+          query={query}
         />
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={cx('-z-1', isOverlay && query ? styles.searchOverlayOpen : 'd-none')}
+        className={cx('-z-1', isHeaderSearch && query ? styles.headerSearchOpen : 'd-none')}
         onClick={closeSearch}
       />
     </>
@@ -204,34 +198,34 @@ export function Search({
   const SearchInput = (
     <div data-testid="search" aria-hidden="true">
       <div className="position-relative z-2">
-        <form role="search" className="width-full d-flex" noValidate onSubmit={preventRefresh}>
+        <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
           <input
             data-testid="site-search-input"
             ref={inputRef}
             className={cx(
               styles.searchInput,
-              'form-control px-5 f4',
+              iconSize === 24 && 'form-control px-6 f4',
+              iconSize === 16 && 'form-control px-5 f4',
               variant === 'compact' && 'py-2',
               variant === 'expanded' && 'py-3',
-              isOverlay && styles.searchInputOverlay,
-              !isOverlay && 'width-full',
-              isOverlay && query && styles.searchInputExpanded
+              isHeaderSearch && styles.searchInputHeader,
+              !isHeaderSearch && 'width-full',
+              isHeaderSearch && query && styles.searchInputExpanded
             )}
             style={{
-              background:
-                'var(--color-bg-primary) url("/assets/images/octicons/search.svg") no-repeat 6px',
+              background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
+                iconSize === 24 ? '12px' : '6px'
+              }`,
             }}
             type="search"
             placeholder={t`placeholder`}
-            /* eslint-disable-next-line jsx-a11y/no-autofocus */
-            autoFocus={autoFocus}
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck="false"
             maxLength={512}
-            onChange={debounce(onSearch, 200)}
-            defaultValue={query}
+            onChange={onSearch}
+            value={localQuery}
           />
           <button className="d-none" type="submit" title="Submit the search query." hidden />
         </form>
@@ -253,29 +247,63 @@ export function Search({
   )
 }
 
+function useDebounce<T>(value: T, delay?: number): [T, (value: T) => void] {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay || 500)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [value, delay])
+
+  return [debouncedValue, setDebouncedValue]
+}
+
 function ShowSearchResults({
-  isOverlay,
+  anchorRef,
+  isHeaderSearch,
+  isMobileSearch,
   isLoading,
   results,
-  activeHit,
-  setActiveHit,
-  onGotoResult,
+  closeSearch,
+  debug,
+  query,
 }: {
-  isOverlay: boolean
+  anchorRef: RefObject<HTMLElement>
+  isHeaderSearch: boolean
+  isMobileSearch: boolean
   isLoading: boolean
-  results: SearchResult[] | null
-  activeHit: number
-  setActiveHit: (index: number) => void
-  onGotoResult: (url: string, index: number) => void
+  results: SearchResult[] | undefined
+  closeSearch: () => void
+  debug: boolean
+  query: string | string[]
 }) {
   const { t } = useTranslation('search')
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+  const searchVersion = allVersions[currentVersion].versionTitle
+  const latestVersions = new Set(
+    Object.keys(allVersions)
+      .map((version) => allVersions[version].latestVersion)
+      .filter((version) => version !== currentVersion)
+  )
 
-  if (results !== null) {
+  const versions = Array.from(latestVersions).map((version) => {
+    return {
+      title: allVersions[version].versionTitle,
+      version: version,
+    }
+  })
+  const redirectQuery = query ? `?query=${query}` : ''
+
+  if (results) {
     if (results.length === 0) {
       // When there results, but exactly 0, it matters if this is the overlay or not.
-      if (isOverlay) {
+      if (isHeaderSearch) {
         return (
-          <div className="mt-2 px-6">
+          <div className="mt-5 px-6">
             {isLoading ? <span>{t('loading')}...</span> : <span>{t('no_results')}.</span>}
           </div>
         )
@@ -287,59 +315,133 @@ function ShowSearchResults({
         )
       }
     }
+
+    const ActionListResults = (
+      <div
+        data-testid="search-results"
+        className={cx('mt-3', isHeaderSearch && styles.headerSearchResults)}
+      >
+        <div className="my-4">
+          <p className="mx-4">
+            You're searching the <span className="color-fg-attention">{searchVersion}</span>{' '}
+            version. Didn't find what you're looking for? Click a different version to try again.
+          </p>
+          {versions.map(({ title, version }) => {
+            return (
+              <button key={version} className="btn mr-2 mt-4 ml-4" type="button">
+                <a href={`/${router.locale}/${version}${redirectQuery}`}>{title}</a>
+              </button>
+            )
+          })}
+        </div>
+        {/* We might have results AND isLoading. For example, the user typed
+        a first word, and is now typing more. */}
+        <p className="d-block mt-4">
+          {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
+        </p>
+
+        <ActionList
+          items={results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+            return {
+              key: url,
+              text: title,
+              renderItem: () => (
+                <ActionList.Item as="div">
+                  <Link href={url} className="no-underline color-fg-default">
+                    <li key={url} data-testid="search-result" className={cx('list-style-none')}>
+                      <div className={cx('py-2 px-3')}>
+                        {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
+                        <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
+                          {breadcrumbs.length === 0
+                            ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
+                            : breadcrumbs
+                                .split(' / ')
+                                .slice(0, 1)
+                                .join(' ')
+                                .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                        </Label>
+                        {debug && (
+                          <small className="float-right">
+                            score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
+                          </small>
+                        )}
+                        <div
+                          className={cx(styles.searchResultTitle, 'mt-2 d-block f4 text-semibold')}
+                          dangerouslySetInnerHTML={{
+                            __html: title,
+                          }}
+                        />
+                        <div
+                          className={cx(styles.searchResultContent, 'mt-1 d-block overflow-hidden')}
+                          style={{ maxHeight: '2.5rem' }}
+                          dangerouslySetInnerHTML={{ __html: content }}
+                        />
+                        <div
+                          className={'d-block mt-2 opacity-60 text-small'}
+                          dangerouslySetInnerHTML={
+                            breadcrumbs.length === 0
+                              ? { __html: `${title}`.replace(/<\/?[^>]+(>|$)|(\/)/g, '') }
+                              : {
+                                  __html: breadcrumbs
+                                    .split(' / ')
+                                    .slice(0, breadcrumbs.length - 1)
+                                    .join(' / ')
+                                    .replace(/<\/?[^>]+(>|$)/g, ''),
+                                }
+                          }
+                        />
+                      </div>
+                    </li>
+                  </Link>
+                </ActionList.Item>
+              ),
+            }
+          })}
+        />
+      </div>
+    )
     // When there are search results, it doesn't matter if this is overlay or not.
     return (
-      <ol data-testid="search-results" className="d-block mt-4">
-        {results.map(({ url, breadcrumbs, heading, title, content }, index) => {
-          const isActive = index === activeHit
-          return (
-            <li
-              key={url}
-              data-testid="search-result"
-              className={cx(
-                'list-style-none overflow-hidden rounded-3 color-text-primary border',
-                isActive ? 'color-bg-tertiary' : 'color-border-transparent'
-              )}
-              onMouseEnter={() => setActiveHit(index)}
+      <div>
+        {!isHeaderSearch && !isMobileSearch ? (
+          <>
+            {/* Only if you're going to use an <Overlay> do you need
+          to specify a portal div tag. */}
+            <div id="__primerPortalRoot__" />
+            <Overlay
+              initialFocusRef={anchorRef}
+              returnFocusRef={anchorRef}
+              ignoreClickRefs={[anchorRef]}
+              onEscape={() => closeSearch()}
+              onClickOutside={() => closeSearch()}
+              aria-labelledby="title"
+              sx={
+                isHeaderSearch && {
+                  background: 'none',
+                  boxShadow: 'none',
+                  position: 'static',
+                  overflowY: 'auto',
+                  maxHeight: '80vh',
+                  maxWidth: '96%',
+                  margin: '1.5em 2em 0 0.5em',
+                  scrollbarWidth: 'none',
+                }
+              }
             >
-              <div className={cx('py-3 px-3', isActive && 'color-border-secondary')}>
-                <a
-                  className="no-underline color-text-primary"
-                  href={url}
-                  onClick={(event) => {
-                    event.preventDefault()
-                    onGotoResult(url, index)
-                  }}
-                >
-                  {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
-                  <div
-                    className={'d-block opacity-60 text-small pb-1'}
-                    dangerouslySetInnerHTML={{ __html: breadcrumbs }}
-                  />
-                  <div
-                    className={cx(styles.searchResultTitle, 'd-block f4 text-semibold')}
-                    dangerouslySetInnerHTML={{
-                      __html: heading ? `${title}: ${heading}` : title,
-                    }}
-                  />
-                  <div
-                    className={cx(styles.searchResultContent, 'd-block overflow-hidden')}
-                    style={{ maxHeight: '4rem' }}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                  />
-                </a>
-              </div>
-            </li>
-          )
-        })}
-      </ol>
+              {ActionListResults}
+            </Overlay>
+          </>
+        ) : (
+          ActionListResults
+        )}
+      </div>
     )
   }
 
   // We have no results at all, but perhaps we're waiting.
-  if (isOverlay) {
+  if (isHeaderSearch) {
     return (
-      <div className="mt-2 px-6">
+      <div className="mt-2 px-6 pt-3">
         {isLoading ? <span>{t('loading')}...</span> : <span>&nbsp;</span>}
       </div>
     )

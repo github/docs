@@ -7,6 +7,7 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_cloud %} では、優先サポートリクエストは現地時間月～金曜日、目標応答時間 8 時間としています。'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Jobs
 shortTitle: GitHub Enterprise Cloud
@@ -18,6 +19,8 @@ shortTitle: GitHub Enterprise Cloud
 
 {% endnote %}
 
+{% data reusables.support.zendesk-old-tickets %}
+
 優先質問は、{% data variables.product.prodname_ghe_cloud %} を購入してある場合か、現在 {% data variables.product.prodname_ghe_cloud %} にサブスクライブしている {% data variables.product.prodname_dotcom %} Organization のメンバー、外部コラボレーターまたは支払いマネージャーである場合にサブミットできます。
 
 次のような質問が、優先回答の対象となります:
@@ -27,7 +30,7 @@ shortTitle: GitHub Enterprise Cloud
 - Organization が現在使用している {% data variables.product.prodname_ghe_cloud %} の質問のみを含む
 
 優先回答を受ける対象となるには、次のようにする必要があります:
-- 現在 {% data variables.product.prodname_ghe_cloud %} を使用している Organization に関連付けられている認証済みメールアドレスから [{% data variables.contact.enterprise_support %}](https://enterprise.githubsupport.com/hc/en-us/requests/new?github_product=cloud) へ質問をサブミットする
+- 現在 {% data variables.product.prodname_ghe_cloud %} を使用している Organization に関連付けられている認証済みメールアドレスから [{% data variables.contact.enterprise_support %}](https://support.github.com/contact?tags=docs-generic) へ質問をサブミットする
 - 個々の優先状況ごとに新規でサポートチケットをサブミットする
 - 現地時間月～金曜日に質問をサブミットする
 - 優先質問への応答をメールで受信することを把握しておく

@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 ---
@@ -83,7 +84,7 @@ Para testar esta prova de conceito, faça algumas alterações em um branch no r
 
 Já que configuramos o nosso servidor, estamos prontos para iniciar nosso primeiro requisito, que é configurar (e atualizar) os status de CI. Observe que a sempre que você atualizar o seu servidor, você poderá clicar em **Entregar novamente** para enviar a mesma carga. Não há necessidade de fazer um novo pull request toda vez que você fizer uma alteração!
 
-Uma vez que estamos interagindo com a API de {% data variables.product.product_name %} , usaremos [Octokit.rb][octokit.rb] para gerenciar nossas interações. Vamos configurar esse cliente com
+Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. Vamos configurar esse cliente com
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!

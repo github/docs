@@ -1,7 +1,6 @@
 ---
 title: 環境変数
 intro: '{% data variables.product.prodname_dotcom %}はそれぞれの{% data variables.product.prodname_actions %}ワークフローの実行に対してデフォルトの環境変数を設定します。 ワークフローファイル中でカスタムの環境変数を設定することもできます。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -11,10 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 環境変数について
 
@@ -44,7 +45,7 @@ jobs:
 
 ワークフローファイルの`run`キーを使って環境変数をランナーのオペレーティングシステム内から読む場合（上の例のように）、ジョブがランナーに送られた後に変数はランナーのオペレーティングシステム内で置き換えられます。 ワークフローファイルの他の部分では、環境変数を読むために`env`コンテキストを使わなければなりません。これは、ワークフローのキー（`if`など）で、ワークフローがランナーに送られる前に変数が置き換えられなければならないためです。
 
-You can also use the {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a job can use. The {% ifversion fpt or ghes > 2.22 or ghae %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
+You can also use the `GITHUB_ENV` environment file to set an environment variable that the following steps in a job can use. The environment file can be used directly by an action or as a shell command in a workflow file using the `run` keyword. 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)」を参照してください。
 
 ## デフォルトの環境変数
 
@@ -67,14 +68,10 @@ You can also use the {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` envi
 | `GITHUB_WORKSPACE`   | The {% data variables.product.prodname_dotcom %} workspace directory path, initially empty. たとえば、`/home/runner/work/my-repo-name/my-repo-name`となります。 The [actions/checkout](https://github.com/actions/checkout) action will check out files, by default a copy of your repository, within this directory. |
 | `GITHUB_SHA`         | ワークフローをトリガーしたコミットSHA。 たとえば、`ffac537e6cbbf934b08745a378932722df287a53`です。                                                                                                                                                                                                                                   |
 | `GITHUB_REF`         | ワークフローをトリガーしたブランチまたはタグref。 たとえば、`refs/heads/feature-branch-1`です。 イベントタイプのブランチもタグも利用できない場合、変数は存在しません。                                                                                                                                                                                                       |
-| `GITHUB_HEAD_REF`    | Pull Requestのイベントに対してのみ設定されます。 headブランチの名前です。                                                                                                                                                                                                                                                              |
-| `GITHUB_BASE_REF`    | Pull Requestのイベントに対してのみ設定されます。 ベースブランチの名前です。                                                                                                                                                                                                                                                               |
-| `GITHUB_SERVER_URL`  | {% data variables.product.product_name %} サーバーの URL を返します。 For example: `https://{% data variables.product.product_url %}`.                                                                                                                                                                                |
-| `GITHUB_API_URL`     | API URL を返します。 For example: `{% data variables.product.api_url_code %}`.                                                                                                                                                                                                                                   |
-| `GITHUB_GRAPHQL_URL` | グラフ QL API の URL を返します。 For example: `{% data variables.product.graphql_url_code %}`.                                                                                                                                                                                                                      |
-| `RUNNER_NAME`        | {% data reusables.actions.runner-name-description %}
-| `RUNNER_OS`          | {% data reusables.actions.runner-os-description %}
-| `RUNNER_TEMP`        | {% data reusables.actions.runner-temp-directory-description %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
+{%- endif %}
+| `GITHUB_HEAD_REF` | Only set for pull request events. headブランチの名前です。 | `GITHUB_BASE_REF` | Only set for pull request events. ベースブランチの名前です。 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}

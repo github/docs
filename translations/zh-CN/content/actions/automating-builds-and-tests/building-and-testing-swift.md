@@ -1,13 +1,13 @@
 ---
 title: 构建和测试 Swift
 intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的 Swift 项目。
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/guides/building-and-testing-swift
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - CI
@@ -17,12 +17,13 @@ shortTitle: 构建和测试 Swift
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
 本指南介绍如何构建和测试 Swift 包。
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, you will need to create a custom operating system image that includes the necessary Swift dependencies. 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% ifversion ghae %} 要构建和测试您在 {% data variables.product.prodname_ghe_managed %} 上的 Swift 项目，则需要创建包含必要 Swift 依赖项的自定义操作系统映像。 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
 {% else %}{% data variables.product.prodname_dotcom %} 托管的运行器带有预装软件的工具缓存，Ubuntu 和 macOS 运行器包括用于构建 Swift 包的依赖项。 有关最新版软件以及 Swift 和 Xcode 预安装版本的完整列表，请参阅“[关于 GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)”。{% endif %}
 
 ## 基本要求

@@ -29,6 +29,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: 非コードファイルでの作業
@@ -46,7 +47,7 @@ shortTitle: 非コードファイルでの作業
 
 ### 画像を表示する
 
-{% data variables.product.product_name %} リポジトリにある画像は、直接アクセスして表示することができます。
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
 
 ![インライン画像](/assets/images/help/images/view.png)
 
@@ -135,7 +136,7 @@ GitHub では、*.csv* (カンマ区切り) 形式および *.tsv* (タブ区切
 
 ![レンダリングされた CSV のサンプル](/assets/images/help/repository/rendered_csv.png)
 
-{% data variables.product.product_name %}リポジトリにコミットされた _.csv_ ファイルや _.tsv_ ファイルを開くと、自動的にレンダリングされ、ヘッダや行番号を備えたインタラクティブな表として表示されます。 デフォルトでは、常に 1 番目の行がヘッダ行であるとみなされます。
+When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. デフォルトでは、常に 1 番目の行がヘッダ行であるとみなされます。
 
 行番号をクリックして特定の行にリンクすることも、Shift キーを押して複数行を選択することもできます。 あとは URL をコピーして送るだけです。
 
@@ -188,7 +189,7 @@ GitHub では PDF ドキュメントのレンダリングをサポートして�
 
 ![レンダリング済み文章変更](/assets/images/help/repository/rendered_prose_changes.png)
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 %}
+{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
 
 ### Disabling Markdown rendering
 

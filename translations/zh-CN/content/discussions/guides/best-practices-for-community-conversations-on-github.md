@@ -1,9 +1,10 @@
 ---
 title: GitHub 上社区对话的最佳实践
 shortTitle: 社区对话的最佳实践
-intro: 'You can use discussions to brainstorm with your team, and eventually move the conversation to an issue when you are ready to scope out the work.'
+intro: 您可以使用讨论与团队进行头脑风暴，并在准备好确定工作范围时最终将对话移动到议题中。
 versions:
   fpt: '*'
+  ghec: '*'
 ---
 
 
@@ -21,12 +22,12 @@ versions:
 
 您可以创建和参与讨论、议题及拉取请求，具体取决于您希望进行的对话类型。
 
-您可以使用 {% data variables.product.prodname_discussions %} 讨论大局想法、集思广益，并在将项目提交到议题之前，先找出项目的具体细节，然后可以确定议题的范围。 {% data variables.product.prodname_discussions %} is useful for teams if:
+您可以使用 {% data variables.product.prodname_discussions %} 讨论大局想法、集思广益，并在将项目提交到议题之前，先找出项目的具体细节，然后可以确定议题的范围。 {% data variables.product.prodname_discussions %} 在以下情况下对团队有用：
 - 您处于项目的发现阶段，仍在了解您的团队希望由哪个主管领导
 - 您希望从更广泛的社区收集有关项目的反馈
 - 您希望将漏洞修复、功能请求和常规对话分开
 
-议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”和“[评论拉取请求](/articles/commenting-on-a-pull-request)”。
+议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”和“[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)”。
 
 {% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 

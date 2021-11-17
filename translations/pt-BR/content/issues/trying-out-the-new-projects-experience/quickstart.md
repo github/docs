@@ -5,6 +5,7 @@ allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Projects
@@ -18,15 +19,21 @@ Este guia demonstra como usar projetos (beta) para planejar e acompanhar o traba
 
 ## Pré-requisitos
 
-Para criar um projeto, você precisa de uma organização de {% data variables.product.prodname_dotcom %} que faz parte do beta de projetos. Para obter mais informações sobre a criação de uma organização, consulte "[Criar uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)". Para obter mais informações sobre a versão beta, consulte "[Sobre projetos (beta)](/issues/trying-out-the-new-projects-experience/about-projects). ".
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. Para obter mais informações sobre a criação de uma organização, consulte "[Criar uma nova organização a partir do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-Neste guia, você adicionará problemas existentes dos repositórios na sua organização ao seu novo projeto. Para obter mais informações sobre a criação de problemas, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. Para obter mais informações sobre a criação de problemas, consulte "[Criar um problema](/issues/tracking-your-work-with-issues/creating-an-issue)".
 
 ## Criando um projeto
 
-Primeiro, crie um projeto a partir da página do projeto da sua organização.
+First, create an organization project or a user project.
+
+### Creating an organization project
 
 {% data reusables.projects.create-project %}
+
+### Creating a user project
+
+{% data reusables.projects.create-user-project %}
 
 ## Adicionando problemas ao seu projeto
 
@@ -89,11 +96,11 @@ Você pode compartilhar a URL com seu time para manter todos alinhados com as pr
 
 Quando a visualização é salva, qualquer pessoa que abrir o projeto verá a visualização salva. Aqui, você agrupou por prioridade, mas você também pode adicionar outros modificadores como ordenação, filtro ou layout. Em seguida, você criará uma nova exibição com o layout modificado.
 
-## Adicionando um quadro de visualização
+## Adding a board layout
 
 Para ver o progresso dos problemas do seu projeto, você pode alternar para o layout do quadro.
 
-A visualização do quadro é baseada no campo de status. Portanto, especifique um status para cada problema no seu projeto.
+The board layout is based on the status field, so specify a status for each issue in your project.
 
 ![Status do exemplo](/assets/images/help/projects/status_example.png)
 
@@ -118,6 +125,16 @@ Para indicar o propósito da visão, dê um nome descritivo.
 2. Substitua o texto existente pelo novo nome, `Progresso`.
 
 ![Prioridades de exemplo](/assets/images/help/projects/project-view-switch.gif)
+
+## Configure built-in automation
+
+Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+
+1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+2. Under **Default workflows**, click **Item added to project**.
+3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
+4. Next to **Set**, select **Status:Todo**.
+5. Click the **Disabled** toggle to enable the workflow.
 
 ## Próximas etapas
 

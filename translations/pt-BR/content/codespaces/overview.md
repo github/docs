@@ -11,7 +11,8 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/about-codespaces
   - /codespaces/about-codespaces
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Codespaces
@@ -27,7 +28,7 @@ Um codespace é um ambiente de desenvolvimento hospedado na nuvem. Você pode pe
 
 ## Usando codespaces
 
-Você pode criar um codespace a partir de qualquer branch ou commit no seu repositório e começar a desenvolver usando recursos de computação baseados na nuvem.
+Você pode criar um codespace a partir de qualquer branch ou commit no seu repositório e começar a desenvolver usando recursos de computação baseados na nuvem. {% data reusables.codespaces.links-to-get-started %}
 
 Para personalizar os tempos de execução e ferramentas no seu codespace, você pode criar uma configuração personalizada para definir um ambiente (ou _contêiner dev_) que seja específico para o seu repositório. Usar um contêiner dev permite que você especifique um ambiente Docker para desenvolvimento com uma ferramenta bem definida de ferramenta e tempo de execução que pode fazer referência a uma imagem, arquivo Docker ou docker-compose. Isso significa que qualquer pessoa que estiver usando o repositório terá as mesmas ferramentas disponíveis ao criar o codespace.
 
@@ -37,6 +38,6 @@ Você também pode personalizar aspectos do ambiente do seu codespace usando um 
 
 ## Sobre a cobrança do {% data variables.product.prodname_codespaces %}
 
-Para informações sobre faturamento para {% data variables.product.prodname_codespaces %}, consulte "[Gerenciar cobrança para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)".
+Para informações sobre os preços, o armazenamento e o uso para {% data variables.product.prodname_codespaces %}, consulte "[Gerenciando a cobrança para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)".
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} Para informações sobre como as organizações proprietários e gerentes de cobrança podem gerenciar o limite de gastos de {% data variables.product.prodname_codespaces %} para uma organização, consulte "[Gerenciar o seu limite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".

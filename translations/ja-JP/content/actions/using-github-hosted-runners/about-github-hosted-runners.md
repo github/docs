@@ -1,7 +1,6 @@
 ---
 title: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %}は、ワークフローを実行するためのホストされた仮想マシンを提供します。 仮想マシンには、{% data variables.product.prodname_actions %}で使用できるツール、パッケージ、および設定の環境が含まれています。'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -13,12 +12,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
+  ghec: '*'
 shortTitle: GitHub-hosted runners
 ---
 
 {% data reusables.actions.ae-hosted-runners-beta %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## {% data variables.product.prodname_dotcom %}ホストランナーについて
 
@@ -27,6 +28,8 @@ shortTitle: GitHub-hosted runners
 {% data variables.product.prodname_dotcom %}ホストランナーを使用すると、マシンのメンテナンスとアップグレードが自動的に行われます。 ワークフローは、仮想マシンで直接実行することも、Dockerコンテナで実行することもできます。
 
 ワークフローのジョブごとにランナーの種類を指定できます。 ワークフローの各ジョブは、仮想マシンの新しいインスタンスで実行されます。 ジョブ実行のステップはすべて、仮想マシンの同じインスタンスで実行されるため、そのジョブのアクションはファイルシステムを使用して情報を共有できます。
+
+{% ifversion not ghes %}
 
 {% data reusables.github-actions.runner-app-open-source %}
 
@@ -103,9 +106,11 @@ You can install additional software on {% data variables.product.prodname_dotcom
 
 {% endnote %}
 
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. 詳しい情報については「[GitHubメタ情報の取得](/rest/reference/meta#get-github-meta-information)」エンドポイントのレスポンス中の`actions`キーを参照してください。
+
 Windows及びUbuntuのランナーはAzureでホストされており、そのためAzureのデータセンターと同じIPアドレスの範囲を持ちます。 macOSランナーは{% data variables.product.prodname_dotcom %}独自のmacOSクラウドでホストされます。
 
-{% data variables.product.prodname_dotcom %}ホストランナーに{% data variables.product.prodname_actions %}が使うIPアドレスの範囲のリストを取得するには、{% data variables.product.prodname_dotcom %}のREST APIが利用できます。 詳しい情報については「[GitHubメタ情報の取得](/rest/reference/meta#get-github-meta-information)」エンドポイントのレスポンス中の`actions`キーを参照してください。 内部リソースへの未認可のアクセスを防ぐために許可リストが必要な場合には、このIPアドレスのリストを利用できます。
+Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allow-lists for your internal resources.
 
 このAPIが返す{% data variables.product.prodname_actions %}のIPアドレスのリストは、週に1回更新されます。
 
@@ -131,9 +136,11 @@ Dockerコンテナで実行されるアクションには、 `/github`パスの�
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 ## 参考リンク
 - 「[{% data variables.product.prodname_actions %} の支払いを管理する](/billing/managing-billing-for-github-actions)」
+
+{% endif %}
 
 {% endif %}

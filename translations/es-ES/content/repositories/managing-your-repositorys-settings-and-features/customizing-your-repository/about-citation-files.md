@@ -7,6 +7,7 @@ versions:
   fpt: '*'
   ghes: '>=3.3'
   ghae: issue-4651
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -58,7 +59,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
+Toma en cuenta que el ejemplo anterior producirá una cita de _software_ (es decir, un tipo de `@software` en BibTeX en vez de un `@article`).
 
 Para obtener más información, consulta el sitio web de [Formatos de Archivos de Citas](https://citation-file-format.github.io/).
 
@@ -68,15 +69,15 @@ Cuando agregas un archivo de `CITATION.cff` a la rama predeterminada de tu repos
 
 ## Citar algo que no sea software
 
-If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
+Si prefieres que la información de cita de {% data variables.product.prodname_dotcom %} enlace a otro recurso tal como un artículo de investigación, entonces puedes utilizar la anulación de `preferred-citation` en CFF con los siguientes tipos.
 
-| Resource         | Type               |
-| ---------------- | ------------------ |
-| Research article | `article`          |
-| Conference paper | `conference-paper` |
-| Book             | `book`             |
+| Recurso                   | Type               |
+| ------------------------- | ------------------ |
+| Artículo de investigación | `article`          |
+| Escrito de conferencia    | `conference-paper` |
+| Libro                     | `book`             |
 
-Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
+Archivo de CITATION.cff extendido que describe el software, pero vincula a un artículo de investigación como la cita preferida:
 
 ```
 cff-version: 1.2.0
@@ -139,9 +140,9 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 ```
 {% endraw %}
 
-## Citing a dataset
+## Citar un conjunto de datos
 
-If your repository contains a dataset, you can set `type: dataset` in your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+Si tu repositorio contiene un conjunto de datos, puedes configurar `type: dataset` en tu archivo `CITATION.cff` para producir una salida de secuencia de cita de datos en el mensaje de cita de {% data variables.product.prodname_dotcom %}.
 
 ## Otros archivos de cita
 

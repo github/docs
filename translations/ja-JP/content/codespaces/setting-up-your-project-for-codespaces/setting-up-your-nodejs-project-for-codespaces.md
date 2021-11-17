@@ -5,6 +5,7 @@ intro: 'カスタム開発コンテナを作成して、{% data variables.produc
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
 type: tutorial
@@ -104,7 +105,7 @@ Node.js 開発コンテナテンプレートを追加すると、次のファイ
   - **Terminal.integrated.shell.linux** - ここでは bash がデフォルトですが、これを変更することで他のターミナルシェルを使用できます。
 - **機能拡張** - これらはデフォルト設定で含まれている機能拡張です。
   - **Dbaeumer.vscode-eslint** - ES lint は lint の優れた機能拡張ですが、JavaScript の場合は、Marketplace の優れた機能拡張も多数含めることができます。
-- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。
+- **forwardPorts** - ここにリストされているポートはすべて自動的に転送されます。 For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 - **postCreateCommand** - Dockerfileで定義されていない codespace への到達後に何らかの操作を実行する場合は、ここで実行できます。
 - **remoteUser** - デフォルト設定では、vscode ユーザとして実行していますが、オプションでこれを root に設定できます。
 

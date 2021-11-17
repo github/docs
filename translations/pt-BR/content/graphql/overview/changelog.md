@@ -5,6 +5,7 @@ redirect_from:
   - /v4/changelog
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:

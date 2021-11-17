@@ -1,6 +1,6 @@
 ---
 title: GitHub Copilot
-intro: 'Você pode usar o Copilot do {% data variables.product.prodname_dotcom %} para ajudar com a sua programação no Visual Studio Code.'
+intro: 'You can use {% data variables.product.prodname_dotcom %} Copilot to assist with your programming in your editor'
 versions:
   fpt: '*'
 children:

@@ -25,8 +25,6 @@ Code owners are automatically requested for review when someone opens a pull req
 
 When someone with admin or owner permissions has enabled required reviews, they also can optionally require approval from a code owner before the author can merge a pull request in the repository. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-{% ifversion fpt or ghae or ghes or ghec %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. For more information, see "[Managing code review assignment for your team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
-
 If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![Code owner for a file in a repository](/assets/images/help/repository/code-owner-for-a-file.png)
@@ -42,7 +40,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## CODEOWNERS file size
 
-CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information not to be shown and the appropriate code owners will not be requested to review changes in a pull request.
+CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
 To reduce the size of your CODEOWNERS file, consider using wildcard patterns to consolidate multiple entries into a single entry. 
 {% endif %}
@@ -140,4 +138,4 @@ Repository owners can add branch protection rules to ensure that changed code is
 - "[Inviting collaborators to a personal repository](/articles/inviting-collaborators-to-a-personal-repository)"
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
-- "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
+- "[Viewing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

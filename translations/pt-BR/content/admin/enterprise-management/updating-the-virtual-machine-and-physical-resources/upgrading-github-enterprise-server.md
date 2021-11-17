@@ -54,14 +54,14 @@ Há dois tipos de instantâneo:
 
   {% endnote %}
 
-| Plataforma            | Método de instantâneo | URL de documentação de instantâneo                                                                                                                                                                     |
-| --------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon AWS            | Disco                 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM                    | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
-| Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
-| Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
-| VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
+| Plataforma            | Método de instantâneo | URL de documentação de instantâneo                                                                                                                                                                                               |
+| --------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon AWS            | Disco                 | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                                                 |
+| Azure                 | VM                    | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                                                        |
+| Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                                               |
+| Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                                                   |
+| VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html){% ifversion ghes < 3.3 %}
+| XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>{% endif %}
 
 ## Atualizar com hotpatch
 
@@ -69,9 +69,9 @@ Há dois tipos de instantâneo:
 
 {% note %}
 
-**{% ifversion ghes > 2.22 %}Observações{% else %}Observação{% endif %}**:
+**{% ifversion ghes %}Observações{% else %}Observação{% endif %}**:
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 - Se {% data variables.product.product_location %} estiver executando a compilação de um candidato à versão, você não poderá atualizar com um hotpatch.
 
 - {% endif %}Instalando um hotpatch usando o {% data variables.enterprise.management_console %} não está disponível em ambientes com cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
@@ -211,11 +211,8 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 
    {% endnote %}
 
-   Se `ghe-repl-status` não retornar `OK`, siga estas etapas para iniciar a replicação manualmente.
+   Se `ghe-repl-status` não retornou `OK`, entre em contato com {% data variables.contact.enterprise_support %}. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
-   1. Na instância de réplica, execute `ghe-repl-setup <primary-instance-ip>` mais uma vez.
-   {% data reusables.enterprise_installation.start-replication %}
-   {% data reusables.enterprise_installation.replication-status %}
 6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location %}.
 
 ## Restaurar após uma atualização com falha
@@ -232,7 +229,7 @@ Para obter mais informações, consulte "[Utilitários de linha de comando](/ent
 
 Para voltar a partir de uma versão de recurso, faça a restauração partindo de um instantâneo da VM para garantir o estado consistente das partições raiz e de dados. Para obter mais informações, consulte "[Obter um instantâneo](#taking-a-snapshot)".
 
-{% ifversion ghes > 2.22 %}
+{% ifversion ghes %}
 ## Leia mais
 
 - "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"
