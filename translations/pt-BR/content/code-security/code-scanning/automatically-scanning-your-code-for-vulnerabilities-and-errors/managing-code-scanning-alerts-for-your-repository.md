@@ -38,7 +38,7 @@ Por padrão, {% data variables.product.prodname_code_scanning %} analisa seu có
 
 ## Sobre detalhes de alertas
 
-Cada alerta destaca um problema com o código e o nome da ferramenta que o identificou. Você pode ver a linha de código que acionou o alerta, bem como as propriedades do alerta, como, por exemplo, a gravidade{% ifversion fpt or ghes > 3.1 or ghae-issue-4697 or ghec %}, gravidade da segurança,{% endif %} e a natureza do problema. Os alertas também informam quando o problema foi introduzido pela primeira vez. Para os alertas identificados pela análise do {% data variables.product.prodname_codeql %} , você também verá informações sobre como corrigir o problema.
+Cada alerta destaca um problema com o código e o nome da ferramenta que o identificou. Você pode ver a linha de código que acionou o alerta, bem como as propriedades do alerta, como, por exemplo, a gravidade{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}, gravidade da segurança,{% endif %} e a natureza do problema. Os alertas também informam quando o problema foi introduzido pela primeira vez. Para os alertas identificados pela análise do {% data variables.product.prodname_codeql %} , você também verá informações sobre como corrigir o problema.
 
 ![Exemplo de alerta de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
 
@@ -50,9 +50,9 @@ Quando {% data variables.product.prodname_code_scanning %} relata alertas de flu
 
 Níveis de gravidade do alerta podem ser `Error`, `Warning` ou `Note`.
 
-Por padrão, qualquer resultado de digitalização de código com uma gravidade de `error` irá gerar uma falha de verificação. {% ifversion fpt or ghes > 3.1 or ghae-issue-4697 or ghec %}Você pode especificar o nível de gravidade no qual os pull requests que habilitam alertas de verificação de código devem falhar. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
+Por padrão, qualquer resultado de digitalização de código com uma gravidade de `error` irá gerar uma falha de verificação. {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}Você pode especificar o nível de gravidade no qual os pull requests que habilitam alertas de verificação de código devem falhar. Para obter mais informações, consulte[Definir as gravidades causadoras da falha de verificação de pull request](/code-security/secure-coding/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4697 or ghec %}
+{% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Sobre níveis de gravidade de segurança
 
 {% data variables.product.prodname_code_scanning_capc %} exibe níveis de gravidade de segurança para alertas gerados por consultas de segurança. Níveis de severidade de segurança podem ser `graves`, `altos`, `médios` ou `baixos`.
@@ -93,11 +93,11 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 1. Opcionalmente, use a caixa de pesquisa de texto livre ou os menus suspensos para filtrar alertas. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
-1. Em "{% data variables.product.prodname_code_scanning_capc %}", clique no alerta que você gostaria de explorar.
+{% data reusables.code-scanning.explore-alert %}
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
-  ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
+   ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
-  ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+   ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado. ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
@@ -163,6 +163,15 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. À direita dos menus suspensos de **Filtros**, digite as palavras-chave a serem pesquisadas na caixa de pesquisa de texto livre. ![A caixa de pesquisa de texto livre](/assets/images/help/repository/code-scanning-search-alerts.png)
 2. Pressione <kbd>retornar</kbd>. O anúncio do alerta conterá os alertas {% data variables.product.prodname_code_scanning %} alertas abertos correspondentes aos seus critérios de busca.
+
+{% endif %}
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
+
+{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
+{% data reusables.code-scanning.github-issues-integration %}
+{% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}
 

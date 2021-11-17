@@ -21461,6 +21461,11 @@ type Organization implements Actor & MemberStatusable & Node & ProfileOwner & Pr
   """
   repository(
     """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
+    """
     Name of Repository to find.
     """
     name: String!
@@ -26690,6 +26695,11 @@ type Query {
   Lookup a given repository by the owner and repository name.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     The name of the repository
     """
@@ -32798,6 +32808,11 @@ interface RepositoryOwner {
   Find Repository.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     Name of Repository to find.
     """
@@ -40580,6 +40595,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   Find Repository.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     Name of Repository to find.
     """

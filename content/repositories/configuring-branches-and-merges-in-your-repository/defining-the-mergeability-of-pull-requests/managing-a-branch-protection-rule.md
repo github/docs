@@ -69,13 +69,13 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
    - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
      ![Restrict who can dismiss pull request reviews checkbox](/assets/images/help/repository/PR-review-required-dismissals.png)
-1. Optionally, enable required status checks.
+1. Optionally, enable required status checks. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
    - Select **Require status checks to pass before merging**.
      ![Required status checks option](/assets/images/help/repository/required-status-checks.png)
    - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
      ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - From the list of available status checks, select the checks you want to require.
-     ![List of available status checks](/assets/images/help/repository/required-statuses-list.png)
+   - Search for status checks, selecting the checks you want to require.
+     ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
 {%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
 1. Optionally, select **Require conversation resolution before merging**.
   ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)

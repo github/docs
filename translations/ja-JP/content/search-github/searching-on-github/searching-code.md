@@ -28,7 +28,7 @@ topics:
 
 {% ifversion fpt or ghes or ghec %}
 - {% data reusables.search.required_login %}{% endif %}
-- [フォーク](/articles/about-forks)のコードは、親リポジトリより Star が多い場合に限って検索可能です。 親リポジトリより Star が少ないフォークは、コード検索ではインデックス**されません。** 親リポジトリより Star が多いフォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/search-github/searching-on-github/searching-in-forks)」を参照してください。
+- [フォーク](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)のコードは、親リポジトリより Star が多い場合に限って検索可能です。 親リポジトリより Star が少ないフォークは、コード検索ではインデックス**されません。** 親リポジトリより Star が多いフォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/search-github/searching-on-github/searching-in-forks)」を参照してください。
 - コード検索では、_デフォルトブランチ_のみインデックスされます。{% ifversion fpt or ghec %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
 - 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
