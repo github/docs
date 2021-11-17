@@ -2,6 +2,7 @@
 title: Customizing your GitHub workflow
 redirect_from:
   - /categories/customizing-your-github-workflow
+  - /github/customizing-your-github-workflow
 versions:
   fpt: '*'
   ghec: '*'
