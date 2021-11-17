@@ -179,7 +179,7 @@ function displayProps(props: Object) {
   const xprops = Object.fromEntries(
     Object.entries(props).map(([key, value]) => [
       key,
-      key === 'children' ? ReactDomServer.renderToString(value) : value,
+      React.isValidElement(value) ? ReactDomServer.renderToString(value) : value,
     ])
   )
   return JSON.stringify(xprops, null, 2)
@@ -193,7 +193,7 @@ export default function Storybook() {
       <div className="my-4 d-lg-flex flex-items-start">
         <nav className="menu col-12 col-lg-3 mr-4 color-bg-subtle position-lg-sticky top-0">
           {stories.map(({ name }) => (
-            <a className="menu-item" href={`#${name}`}>
+            <a key={name} className="menu-item" href={`#${name}`}>
               {name}
             </a>
           ))}
