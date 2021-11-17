@@ -24,8 +24,8 @@ topics:
 **Warnings**:
 
 - Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
-- Deleting a private or internal repository will delete all forks of the repository.
- 
+- Deleting a private{% ifversion not fpt %} or internal{% endif %} repository will delete all forks of the repository.
+
 {% endwarning %}
 
 Some deleted repositories can be restored within 90 days of deletion. {% ifversion ghes or ghae %}Your site administrator may be able to restore a deleted repository for you. For more information, see "[Restoring a deleted repository](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)." {% else %}For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %}

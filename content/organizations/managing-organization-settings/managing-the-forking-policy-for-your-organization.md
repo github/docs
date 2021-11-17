@@ -23,9 +23,11 @@ If you allow forking of private{% ifversion ghes or ghae or ghec %} and internal
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Under "Repository forking", select **Allow forking of private repositories** or **Allow forking of private and internal repositories**.
-  ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
+{% data reusables.organizations.member-privileges %}{% ifversion ghes or ghae or ghec %}
+5. Under "Repository forking", select **Allow forking of private and internal repositories**.
+  ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png){% endif %}{% ifversion fpt %}
+5. Under "Repository forking", select **Allow forking of private repositories**.
+  ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-fpt.png){% endif %}
 6. Click **Save**.
 
 ## Further reading
