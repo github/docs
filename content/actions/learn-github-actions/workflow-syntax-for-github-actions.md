@@ -1051,7 +1051,8 @@ Public actions may specify expected environment variables in the README file. If
 steps:
   - name: My first action
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # note: github secrets may not begin with `GITHUB_`
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
       FIRST_NAME: Mona
       LAST_NAME: Octocat
 ```
