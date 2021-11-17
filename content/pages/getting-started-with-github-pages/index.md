@@ -1,29 +1,37 @@
----
-title: Getting started with GitHub Pages
-intro: 'You can set up a basic {% data variables.product.prodname_pages %} site for yourself, your organization, or your project.'
-redirect_from:
-  - /categories/github-pages-basics
-  - /articles/additional-customizations-for-github-pages/
-  - /articles/getting-started-with-github-pages
-  - /github/working-with-github-pages/getting-started-with-github-pages
-product: '{% data reusables.gated-features.pages %}'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
-  - Pages
-children:
-  - /about-github-pages
-  - /creating-a-github-pages-site
-  - /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
-  - /configuring-a-publishing-source-for-your-github-pages-site
-  - /changing-the-visibility-of-your-github-pages-site
-  - /creating-a-custom-404-page-for-your-github-pages-site
-  - /securing-your-github-pages-site-with-https
-  - /using-submodules-with-github-pages
-  - /unpublishing-a-github-pages-site
-shortTitle: Get started
----
+## Welcome to Maraya github page
 
+You can use the [run on replit](https://replit.com/@yasasdileepa/MARAYA-1?v=1) you can scan this QR code and get your own code.
+
+You wont this bot deploy to heroku [deploy to heroku](https://heroku.com/deploy?template=https://github.com/yasasdileepa/maraya) you wont deploy and turn on swich and look view log and wait to {plugins installed ✅} and you can use the bot
+
+### yasas dileepa
+
+Yasasdileepa  is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+```yasasdileepa
+Syntax highlighted code block
+
+# Header 1
+## Header 2
+### Header 3
+
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
+
+For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yasasdileepa/Maraya/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [my github bot page](https://github.com/yasasdileepa/Maraya) or [contact support](https://wa.me/message/2IDMTUDDSQQKD1) and we’ll help you sort it out.
