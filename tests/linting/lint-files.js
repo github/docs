@@ -356,6 +356,63 @@ function getContent(content) {
   return null
 }
 
+// Filter out entries from an array like this:
+//
+//    [
+//      [relativePath, absolutePath],
+//      ...
+// so it's only the files mentioned in the DIFF_FILES environment
+// variable, but only if it's set and present.
+
+// Setting an environment varible called `DIFF_FILES` is optional.
+// But if and only if it's set, we will respect it.
+// And if it set, turn it into a cleaned up Set so it's made available
+// every time we use it.
+if (process.env.DIFF_FILES) {
+  // Parse and turn that environment variable string into a set.
+  // It's faster to do this once and then re-use over and over in the
+  // .filter() later on.
+  const only = new Set(
+    // If the environment variable encodes all the names
+    // with quotation marks, strip them.
+    // E.g. Turn `"foo" "bar"` into ['foo', 'bar']
+    // Note, this assumes no possible file contains a space.
+    process.env.DIFF_FILES.split(/\s+/g).map((name) => {
+      if (/^['"]/.test(name) && /['"]$/.test(name)) {
+        return name.slice(1, -1)
+      }
+      return name
+    })
+  )
+  const filterFiles = (tuples) =>
+    tuples.filter(
+      ([relativePath, absolutePath]) => only.has(relativePath) || only.has(absolutePath)
+    )
+  mdToLint = filterFiles(mdToLint)
+  ymlToLint = filterFiles(ymlToLint)
+  ghesReleaseNotesToLint = filterFiles(ghesReleaseNotesToLint)
+  ghaeReleaseNotesToLint = filterFiles(ghaeReleaseNotesToLint)
+  learningTracksToLint = filterFiles(learningTracksToLint)
+  featureVersionsToLint = filterFiles(featureVersionsToLint)
+}
+
+if (
+  mdToLint.length +
+    ymlToLint.length +
+    ghesReleaseNotesToLint.length +
+    ghaeReleaseNotesToLint.length +
+    learningTracksToLint.length +
+    featureVersionsToLint.length <
+  1
+) {
+  // With this in place, at least one `test()` is called and you don't
+  // get the `Your test suite must contain at least one test.` error
+  // from `jest`.
+  describe('deliberately do nothing', () => {
+    test('void', () => {})
+  })
+}
+
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
   describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
