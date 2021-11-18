@@ -6,9 +6,9 @@ const github = getOctokit(token)
 
 main()
 async function main() {
-  const pull = await github.rest.pulls.get(
-    org,
-    repo,
+  const pull = await github.rest.pulls.get({
+    owner: org,
+    repo: repo,
     pull_number: parseInt(prNumber),
   })
 
