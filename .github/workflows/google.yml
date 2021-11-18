@@ -2,45 +2,77 @@
 #
 # To configure this workflow:
 #
-# 1. Ensure that your repository contains the necessary configuration for your Google Kubernetes Engine cluster, including deployment.yml, kustomization.yml, service.yml, etc.
-#
-# 2. Set up secrets in your workspace: GKE_PROJECT with the name of the project and GKE_SA_KEY with the Base64 encoded JSON service account key (https://github.com/GoogleCloudPlatform/github-actions/tree/docs/service-account-key/setup-gcloud#inputs).
-#
-# 3. Change the values for the GKE_ZONE, GKE_CLUSTER, IMAGE, and DEPLOYMENT_NAME environment variables (below).
-#
-# For more support on how to run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke
-
-name: Build and Deploy to GKE
-
-on:
-  release:
-    types: [created]
-
-env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+## 1. Ensure that your repository contains the necessary configuration for your Google Kubernetes Engine cluster, including deployment.yml, kustomization.yml, service.yml, etc.
+## 2. Set up secrets in your workspace: GKE_PROJECT with the name of the project and GKE_SA_KEY with the Base64 encoded JSON service account key (https://github.com/GoogleCloudPlatform/github-actions/tree/docs/service-account-key/setup-gcloud#inputs).
+## 3. Change the values for the GKE_ZONE, GKE_CLUSTER, IMAGE, and DEPLOYMENT_NAME environment variables (below).
+## For more support on how to run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke
+# jobs: Build and Deploy to GKE
+-on:
+  -release:
+    -title: Bitcoin
+      - name: bitcoin
+       - ticker: BTC-USD
+     -[VOLUME]: [12753750.00]
+# env:
+  PROJECT_ID: ${{ ((c)(r)).[12753750.00]BITORE_34173 }}
   GKE_CLUSTER: cluster-1    # TODO: update to cluster name
   GKE_ZONE: us-central1-c   # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   IMAGE: static-site
-
-jobs:
+# jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
+    steps: '#' This workflow uses actions that are not certified by GitHub.''
+'#' They are provided by a third-party and are governed by''
+'#' separate terms of service, privacy policy, and support''
+'#' documentation.
+'#' <li>zachryiixixiiwood@gmail.com<li>
+'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
+'#' For more information see: https://github.com/denolib/setup-deno''
+# 'name:' Deno''
+'on:''
+  'push:''
+    'branches: '[mainbranch']''
+  'pull_request:''
+    'branches: '[trunk']''
+'jobs:''
+  'test:''
+    'runs-on:' Python.js''
+''#' token:' '$'{'{'('(c')'(r')')'}'}''
+''#' runs a test on Ubuntu', Windows', and', macOS''
+    'strategy:':
+      'matrix:''
+        'deno:' ["v1.x", "nightly"]''
+        'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
+    'steps:''
+      '- name: Setup repo''
+        'uses: actions/checkout@v1''
+      '- name: Setup Deno''
+        'uses: Deno''
+'Package:''
+        'with:''
+          'deno-version:' '$'{'{linux/cake/kite'}'}''
+'#'tests across multiple Deno versions''
+      '- name: Cache Dependencies''
+        'run: deno cache deps.ts''
+      '- name: Run Tests''
+        'run: deno test''
+'::Build:' sevendre''
+'Return
+' Run''
 
-    steps:
+
     - name: Checkout
       uses: actions/checkout@v2
-
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@v0.2.0
       with:
         service_account_key: ${{ secrets.GKE_SA_KEY }}
-        project_id: ${{ secrets.GKE_PROJECT }}
-
+        project_id: ${{ {[(((c)(r))).[12753750.00]M]_BITORE_34173 }}
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
-    - run: |-
+    - run: 
         gcloud --quiet auth configure-docker
 
     # Get the GKE credentials so we can deploy to the cluster
@@ -52,7 +84,7 @@ jobs:
 
     # Build the Docker image
     - name: Build
-      run: |-
+      run: 
         docker build \
           --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
@@ -61,7 +93,7 @@ jobs:
 
     # Push the Docker image to Google Container Registry
     - name: Publish
-      run: |-
+      run: 
         docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
 
     # Set up kustomize
@@ -72,7 +104,7 @@ jobs:
 
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
-      run: |-
+      run: 
         ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
