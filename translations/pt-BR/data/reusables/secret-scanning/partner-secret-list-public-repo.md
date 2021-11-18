@@ -55,6 +55,7 @@
 | Mailchimp                 | Chave da API de Mandrill                                  |
 | Mailgun                   | Chave da API de Mailgun                                   |
 | MessageBird               | Chave da API de MessageBird                               |
+| Meta                      | Facebook Access Token                                     |
 | npm                       | Token de acesso de npm                                    |
 | NuGet                     | Chave de API de NuGet                                     |
 | OpenAI                    | OpenAI API Key                                            |

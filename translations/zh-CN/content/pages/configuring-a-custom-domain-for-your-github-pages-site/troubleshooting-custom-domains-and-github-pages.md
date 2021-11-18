@@ -55,7 +55,7 @@ shortTitle: 排除自定义域的故障
 
 ## HTTPS 错误
 
-通过 _CNAME_、`ALIAS`、`ANAME` 或 `A` DNS 记录正确配置的使用自定义域的 {% data variables.product.prodname_pages %} 站点可通过 HTTPS 进行访问。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。
+通过 `CNAME`、`ALIAS`、`ANAME` 或 `A` DNS 记录正确配置的使用自定义域的 {% data variables.product.prodname_pages %} 站点可通过 HTTPS 进行访问。 更多信息请参阅“[使用 HTTPS 保护 {% data variables.product.prodname_pages %} 站点](/articles/securing-your-github-pages-site-with-https)”。
 
 配置自定义域后，您的站点可能需要最多一个小时才能通过 HTTPS 访问。 更新现有 DNS 设置后，您可能需要删除自定义域并将其重新添加到站点仓库，以触发启用 HTTPS 的进程。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 

@@ -449,6 +449,15 @@
         "description": "<p>Lookup a given repository by the owner and repository name.</p>",
         "args": [
           {
+            "name": "followRenames",
+            "defaultValue": true,
+            "type": "Boolean",
+            "id": "boolean",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#boolean",
+            "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
+          },
+          {
             "name": "name",
             "type": "String!",
             "id": "string",
@@ -30931,6 +30940,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -54733,6 +54753,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -58023,6 +58054,17 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "arguments": [
+            {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",

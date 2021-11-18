@@ -42,3 +42,11 @@ shortTitle: 使用最新的捆绑操作
 1. 删除 `actions` 组织中的 `checkout` 仓库。 有关如何删除仓库的信息，请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。 ![查看代码链接](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. 配置您的工作流程的 YAML 以使用 `actions/checkout@v2`。
 1. 每次您的工作流程运行时，运行器将从 {% data variables.product.prodname_dotcom_the_website %} 中使用 `v2` 版本的 `actions/checkout`。
+
+   {% ifversion ghes > 3.2 or ghae-issue-4815 %}
+   {% note %}
+
+   **Note:** The first time the `checkout` action is used from {% data variables.product.prodname_dotcom_the_website %}, the `actions/checkout` namespace is automatically retired on {% data variables.product.product_location %}. If you ever want to revert to using a local copy of the action, you first need to remove the namespace from retirement. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+
+   {% endnote %}
+   {% endif %}

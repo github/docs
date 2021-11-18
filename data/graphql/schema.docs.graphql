@@ -23304,6 +23304,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   """
   repository(
     """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
+    """
     Name of Repository to find.
     """
     name: String!
@@ -26181,7 +26186,7 @@ type ProjectEdge {
 }
 
 """
-New projects that manage issues, pull requests and drafts with tables and.
+New projects that manage issues, pull requests and drafts using tables and boards.
 """
 type ProjectNext implements Closable & Node & Updatable {
   """
@@ -26418,7 +26423,7 @@ type ProjectNextFieldEdge {
 }
 
 """
-An item in a Memex project.
+An item within a new Project.
 """
 type ProjectNextItem implements Node {
   """
@@ -26529,7 +26534,7 @@ type ProjectNextItemEdge {
 }
 
 """
-An value of a field in an item of Memex project.
+An value of a field in an item of a new Project.
 """
 type ProjectNextItemFieldValue implements Node {
   """
@@ -29873,6 +29878,11 @@ type Query {
   Lookup a given repository by the owner and repository name.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     The name of the repository
     """
@@ -36384,6 +36394,11 @@ interface RepositoryOwner {
   Find Repository.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     Name of Repository to find.
     """
@@ -45888,6 +45903,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   Find Repository.
   """
   repository(
+    """
+    Follow repository renames. If disabled, a repository referenced by its old name will return an error.
+    """
+    followRenames: Boolean = true
+
     """
     Name of Repository to find.
     """

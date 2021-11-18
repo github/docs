@@ -26,8 +26,6 @@ Solicita-se automaticamente que os proprietários do código revisem quando algu
 
 Quando alguém com permissões de administrador ou proprietário tiver habilitado revisões obrigatórias, se desejar, ele também poderá exigir aprovação de um proprietário do código para que o autor possa fazer merge de uma pull request no repositório. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".
 
-{% ifversion fpt or ghae or ghes or ghec %}Se uma equipe tiver habilitado as tarefas de revisão de código, as aprovações individuais não satisfarão o requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
-
 Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre o {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![Proprietário do código para um arquivo em um repositório](/assets/images/help/repository/code-owner-for-a-file.png)
@@ -43,7 +41,7 @@ Para que os proprietários do código recebam solicitações de revisão, o arqu
 {% ifversion fpt or ghae or ghes > 3.2 or ghec %}
 ## Tamanho do arquivo CODEOWNERS
 
-Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.
+Os arquivos CODEOWNERS devem ter menos de 3 MB. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
 
 Para reduzir o tamanho do seu arquivo CODEOWNERS, considere o uso de padrões curinga para consolidar múltiplas entradas em uma única entrada.
 {% endif %}
@@ -141,4 +139,4 @@ Os proprietários do repositório podem adicionar regras de proteção de branch
 - "[Convidar colaboradores para um repositório pessoal](/articles/inviting-collaborators-to-a-personal-repository)"
 - "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Gerenciar o acesso da equipe a um repositório da organização](/articles/managing-team-access-to-an-organization-repository)"
-- "[Exibir uma revisão de pull request](/articles/viewing-a-pull-request-review)"
+- "[Exibir uma revisão de pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

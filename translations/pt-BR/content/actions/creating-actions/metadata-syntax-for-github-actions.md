@@ -268,7 +268,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 #### `runs.steps[*].env`
 
-**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você deseja modificar a variável de ambiente armazenada no fluxo de trabalho, use `eco "{name}={value}" >> $GITHUB_ENV` em uma etapa composta.
 
 #### `runs.steps[*].working-directory`
 
