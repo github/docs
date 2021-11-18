@@ -1,12 +1,12 @@
 name: Autoupdate branch
 
-# **What it does**: Any pull requests with "autoupdate" label will get main branch updates.
-# **Why we have it**: Our repo-sync automation relies on it.
-# **Who does it impact**: Our ability to support the open-source repository.
+# **What it does**: Any pull requests with automerge will get main branch updates.
+# **Why we have it**: So we don't have to watch pull requests and click update branch 100x.
+# **Who does it impact**: Our health.
 
 #
 # This workflow checks all open PRs targeting `main` as their base branch and
-# will attempt to update them if they have the `autoupdate` label applied.
+# will attempt to update them if they have automerge.
 # It is triggered when a `push` event occurs ON the `main` branch (e.g. a PR
 # was merged or a force-push was done).
 #
@@ -31,6 +31,5 @@ jobs:
       - uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          PR_FILTER: labelled
-          PR_LABELS: autoupdate
+          PR_FILTER: auto_merge
           MERGE_MSG: "Branch was updated using the 'autoupdate branch' Actions workflow."
