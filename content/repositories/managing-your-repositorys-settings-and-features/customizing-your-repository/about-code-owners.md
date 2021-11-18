@@ -124,10 +124,6 @@ Repository owners can add branch protection rules to ensure that changed code is
 
 # In this example, any change inside the `/apps` directory
 # will require approval from a member of the @example-org/content team.
-# If a member of @example-org/content opens a pull request 
-# with a change inside the `/apps` directory, their approval is implicit.
-# The team is still added as a reviewer but not a required reviewer.
-# Anyone can approve the changes.
 /apps/ @example-org/content-team
 ```
 
