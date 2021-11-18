@@ -1,12 +1,14 @@
 import { getOctokit } from '@actions/github'
 const token = process.env.GITHUB_TOKEN
 const prNumber = process.env.AUTOMERGE_PR_NUMBER
+const [org, repo] = process.env.GITHUB_REPOSITORY.split('/')
 const github = getOctokit(token)
 
 main()
 async function main() {
-  const pull = await github.pulls.get({
-    ...context.repo,
+  const pull = await github.rest.pulls.get({
+    owner: org,
+    repo: repo,
     pull_number: parseInt(prNumber),
   })
 
