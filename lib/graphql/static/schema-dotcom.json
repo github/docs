@@ -710,6 +710,15 @@
         "description": "<p>Lookup a given repository by the owner and repository name.</p>",
         "args": [
           {
+            "name": "followRenames",
+            "defaultValue": true,
+            "type": "Boolean",
+            "id": "boolean",
+            "kind": "scalars",
+            "href": "/graphql/reference/scalars#boolean",
+            "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>"
+          },
+          {
             "name": "name",
             "type": "String!",
             "id": "string",
@@ -33957,6 +33966,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -37801,7 +37821,7 @@
       "kind": "objects",
       "id": "projectnext",
       "href": "/graphql/reference/objects#projectnext",
-      "description": "<p>New projects that manage issues, pull requests and drafts with tables and.</p>",
+      "description": "<p>New projects that manage issues, pull requests and drafts using tables and boards.</p>",
       "implements": [
         {
           "name": "Closable",
@@ -38220,7 +38240,7 @@
       "kind": "objects",
       "id": "projectnextitem",
       "href": "/graphql/reference/objects#projectnextitem",
-      "description": "<p>An item in a Memex project.</p>",
+      "description": "<p>An item within a new Project.</p>",
       "implements": [
         {
           "name": "Node",
@@ -38408,7 +38428,7 @@
       "kind": "objects",
       "id": "projectnextitemfieldvalue",
       "href": "/graphql/reference/objects#projectnextitemfieldvalue",
-      "description": "<p>An value of a field in an item of Memex project.</p>",
+      "description": "<p>An value of a field in an item of a new Project.</p>",
       "implements": [
         {
           "name": "Node",
@@ -61086,6 +61106,17 @@
           "href": "/graphql/reference/objects#repository",
           "arguments": [
             {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",
               "type": {
@@ -65164,6 +65195,17 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "arguments": [
+            {
+              "name": "followRenames",
+              "defaultValue": true,
+              "description": "<p>Follow repository renames. If disabled, a repository referenced by its old name will return an error.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "name",
               "description": "<p>Name of Repository to find.</p>",

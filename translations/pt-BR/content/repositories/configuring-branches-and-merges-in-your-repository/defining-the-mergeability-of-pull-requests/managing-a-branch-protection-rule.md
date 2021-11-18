@@ -51,91 +51,55 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
+{% ifversion fpt or ghec %}
+1. Optionally, enable required pull requests.
+   - Under "Protect matching branches", select **Require a pull request before merging**. ![Caixa de seleção Pull request review restriction (Restrição de revisão de pull request)](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![Menu suspenso para selecionar o número de revisões de aprovação obrigatórias](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+{% else %}
 1. Opcionalmente, habilite as revisões obrigatórias de de pull request.
    - Em "Proteger os branches correspondentes", selecione **Exigir revisões de pull request antes do merge**. ![Caixa de seleção Pull request review restriction (Restrição de revisão de pull request)](/assets/images/help/repository/PR-reviews-required.png)
-   - Clique no menu suspenso **Revisões obrigatórias de aprovação** e, em seguida, selecione o número de revisões que deseja exigir no branch. ![Menu suspenso para selecionar o número de revisões de aprovação obrigatórias](/assets/images/help/repository/number-of-required-review-approvals.png)
+   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![Menu suspenso para selecionar o número de revisões de aprovação obrigatórias](/assets/images/help/repository/number-of-required-review-approvals.png)
+{% endif %}
    - Opcionalmente, para ignorar uma revisão de aprovação de pull request quando um commit de modificação de código for enviado por push para o branch, selecione **Ignorar aprovações obsoletas de pull request quando novos commits forem enviados por push**. ![Caixa de seleção Dismiss stale pull request approvals when new commits are pushed (Ignorar aprovações de pull requests obsoletas ao fazer push de novos commits)](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Opcionalmente, para exigir a revisão de um proprietário do código quando o pull request afeta o código que tem um proprietário designado, selecione **Exigir revisão de Proprietários do Código**. Para obter mais informações, consulte "[Sobre proprietários do código](/github/creating-cloning-and-archiving-repositories/about-code-owners)". ![Require review from code owners (Exigir revisão de proprietários de código)](/assets/images/help/repository/PR-review-required-code-owner.png)
-   - Opcionalmente, se o repositório fizer parte de uma organização, selecione **Restringir quem pode ignorar as revisões de pull request**. Em seguida, procure e selecione as pessoas ou equipes que têm permissão para ignorar as revisões de pull request. Para obter mais informações, consulte "
-Ignorar uma revisão de pull request". ![Caixa de seleção Restrict who can dismiss pull request reviews (Restringir quem pode ignorar revisões de pull request)](/assets/images/help/repository/PR-review-required-dismissals.png)</p></li> </ul> 
-     
-     1. Opcionalmente, habilite as verificações de status obrigatórias. 
-      - Selecione **Require status checks to pass before merging** (Exigir verificações de status para aprovação antes de fazer merge). ![Opção Required status checks (Verificações de status obrigatórias)](/assets/images/help/repository/required-status-checks.png)
-
+   - Opcionalmente, se o repositório fizer parte de uma organização, selecione **Restringir quem pode ignorar as revisões de pull request**. Em seguida, procure e selecione as pessoas ou equipes que têm permissão para ignorar as revisões de pull request. Para obter mais informações, consulte "[Ignorar uma revisão de pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)". ![Caixa de seleção Restrict who can dismiss pull request reviews (Restringir quem pode ignorar revisões de pull request)](/assets/images/help/repository/PR-review-required-dismissals.png)
+1. Opcionalmente, habilite as verificações de status obrigatórias.
+   - Selecione **Require status checks to pass before merging** (Exigir verificações de status para aprovação antes de fazer merge). ![Opção Required status checks (Verificações de status obrigatórias)](/assets/images/help/repository/required-status-checks.png)
    - Opcionalmente, para garantir que os pull requests sejam testados com o código mais recente no branch protegido, selecione **Exigir que os branches estejam atualizados antes do merge**. ![Caixa de seleção Status obrigatório rígido ou flexível](/assets/images/help/repository/protecting-branch-loose-status.png)
-
-   - Na lista de verificações de status disponíveis, selecione as verificações que você deseja tornar obrigatórias.![Lista de verificações de status disponíveis](/assets/images/help/repository/required-statuses-list.png) 
-     
-     {%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
-
-1. Opcionalmente, selecione **Exige resolução de conversas antes de fazer merge**. ![Exigir resolução de conversas antes de fazer o merge](/assets/images/help/repository/require-conversation-resolution.png) 
-   
-   {%- endif %}
-
+   - Na lista de verificações de status disponíveis, selecione as verificações que você deseja tornar obrigatórias.![Lista de verificações de status disponíveis](/assets/images/help/repository/required-statuses-list.png)
+{%- ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+1. Opcionalmente, selecione **Exige resolução de conversas antes de fazer merge**. ![Exigir resolução de conversas antes de fazer o merge](/assets/images/help/repository/require-conversation-resolution.png)
+{%- endif %}
 1. Opcionalmente, selecione **Exigir commits assinados**. ![Opção Require signed commits (Exigir commits assinados)](/assets/images/help/repository/require-signed-commits.png)
+1. Opcionalmente, selecione **Exigir histórico linear**. ![Opção de histórico linear necessária](/assets/images/help/repository/required-linear-history.png)
+{%- ifversion fpt or ghec %}
+1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %} ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+  {% tip %}
 
-1. Opcionalmente, selecione **Exigir histórico linear**. ![Opção de histórico linear necessária](/assets/images/help/repository/required-linear-history.png) 
-   
-   {%- ifversion fpt or ghec %}
+  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
 
-1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %} ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png) 
-   
-   {% tip %}
-   
-   **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
-   
-   {% endtip %}
-   
-   
-   
-   {%- endif %}
-
+  {% endtip %}
+{%- endif %}
 1. Outra opção é selecionar **Include administrators** (Incluir administradores). ![Caixa de seleção Include administrators (Incluir administradores)](/assets/images/help/repository/include-admins-protected-branches.png)
-
 1. Opcionalmente, {% ifversion fpt or ghec %} se o repositório pertencer a uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %},{% endif %} habilitar as restrições de branches.
-   
-      - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)
-
+   - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)
    - Procurar e selecionar pessoas, equipes ou aplicativos que tenham permissão para fazer push para o branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
-
 1. Opcionalmente, em "Regras aplicadas a todos incluindo administradores", selecione **Permitir pushes forçados**. ![Permitir opção push forçado](/assets/images/help/repository/allow-force-pushes.png)
-
 1. Opcionalmente, selecione **Permitir exclusões**. ![Permitir a opção de exclusão de branch](/assets/images/help/repository/allow-branch-deletions.png)
-
 1. Clique em **Criar**.
-
-
 
 ## Editar uma regra de proteção de branch
 
 {% data reusables.repositories.navigate-to-repo %}
-
-
-
 {% data reusables.repositories.sidebar-settings %}
-
-
-
 {% data reusables.repositories.repository-branches %}
-
 1. À direita da regra de proteção de branch que você deseja editar, clique em **Editar**. ![Botão editar](/assets/images/help/repository/edit-branch-protection-rule.png)
-
 1. Faça as alterações desejadas na regra de proteção do branch.
-
 1. Clique em **Save changes** (Salvar alterações). ![Botão Edit message (Editar mensagem)](/assets/images/help/repository/save-branch-protection-rule.png)
-
-
 
 ## Excluir as regras de proteção do branch
 
 {% data reusables.repositories.navigate-to-repo %}
-
-
-
 {% data reusables.repositories.sidebar-settings %}
-
-
-
 {% data reusables.repositories.repository-branches %}
-
 1. À direita da regra de proteção do branch que você deseja excluir, clique em **Excluir**. ![Botão excluir](/assets/images/help/repository/delete-branch-protection-rule.png)

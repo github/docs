@@ -18,6 +18,7 @@ export default [
   'dawidd6/action-download-artifact@af92a8455a59214b7b932932f2662fdefbd78126', // v2.15.0
   'docker://chinthakagodawita/autoupdate-action:v1',
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58',
+  'trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b', // v1.2.4
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
   'juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8',
