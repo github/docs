@@ -216,38 +216,9 @@ jobs:
 
       - name: Enable GitHub auto-merge
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
-        with:
-          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          script: |
-            const pull = await github.pulls.get({
-              ...context.repo,
-              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
-            })
-
-            const pullNodeId = pull.data.node_id
-            console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
-
-            const mutation = `mutation ($id: ID!) {
-              enablePullRequestAutoMerge(input: {
-                pullRequestId: $id,
-                mergeMethod: MERGE
-              }) {
-                clientMutationId
-              }
-            }`
-            const variables = {
-              id: pullNodeId
-            }
-
-            const graph = await github.graphql(mutation, variables)
-            console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
-
-            if (graph.errors && graph.errors.length > 0) {
-              console.error('ERROR! Failed to enable auto-merge:\n - ' + graph.errors.map(error => error.message).join('\n - '))
-            } else {
-              console.log('Auto-merge enabled!')
-            }
+        env:
+          AUTOMERGE_PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+        run: node .github/actions-scripts/enable-automerge.js
 
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
