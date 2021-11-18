@@ -46,7 +46,7 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 要快速开始，您可以在创建新工作流程时选择预配置的 Maven 模板。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
-您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
+您也可以通过在仓库的 `.github/workflows` 目录中创建新文件来手动添加此工作流程。
 
 {% raw %}
 ```yaml{:copy}
