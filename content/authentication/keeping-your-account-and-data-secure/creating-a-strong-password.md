@@ -1,4 +1,4 @@
----
+2---
 title: Creating a strong password
 intro: 'Secure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} with a strong and unique password using a password manager.'
 redirect_from:
