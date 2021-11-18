@@ -1,5 +1,6 @@
 ---
 title: Customizing your GitHub workflow
+intro: Learn how you can customize your {% data variables.product.prodname_dotcom %} workflow with extensions, integrations, and {% data variables.product.prodname_marketplace %}.
 redirect_from:
   - /categories/customizing-your-github-workflow
   - /github/customizing-your-github-workflow
