@@ -57,7 +57,7 @@ $ git rebase --interactive HEAD~7
 <dt><code>edit</code></dt>
 <dd>如果选择 <code>edit</code> 提交，您将有机会修订提交，也就是说，可以完全添加或更改提交。 您也可以创建更多提交后再继续变基。 这样您可以将大提交拆分为小提交，或者删除在提交中执行错误更改。 </dd>
 
-<dt><code>压缩</code></dt>
+<dt><code>squash</code></dt>
 <dd>此命令可用于将两个或以上的提交合并为一个。 下面的提交压缩到其上面的提交。 Git 让您有机会编写描述两次更改的新提交消息。</dd>
 
 <dt><code>fixup</code></dt>
