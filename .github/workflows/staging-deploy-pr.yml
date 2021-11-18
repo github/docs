@@ -43,6 +43,13 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
   pr-metadata:
+    # This is needed because the workflow we depend on
+    # (see on.workflow_run.workflows) might be running from pushes on
+    # main. That's because it needs to do that to popular the cache.
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' }}
+
     runs-on: ubuntu-latest
     outputs:
       number: ${{ steps.pr.outputs.number }}
