@@ -53,10 +53,9 @@ function lintAndResetFiles(checkType) {
 
   // Lint the files based on the check type and output the errors to a log file.
   try {
-    execSync(cmd[checkType])
+    execSync(cmd)
   } catch (error) {
-    console.log(`There were new ${checkType} errors!`)
-    return
+    console.log(`There were new ${checkType} errors! Check ${log} for more details.`)
   }
 
   // Reset the files
