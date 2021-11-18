@@ -64,6 +64,7 @@ jobs:
       - name: Enable GitHub auto-merge
         if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
         run: node .github/actions-scripts/enable-automerge.js
 

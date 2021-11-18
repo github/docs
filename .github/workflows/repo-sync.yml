@@ -217,6 +217,7 @@ jobs:
       - name: Enable GitHub auto-merge
         if: ${{ steps.find-pull-request.outputs.number }}
         env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           AUTOMERGE_PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
         run: node .github/actions-scripts/enable-automerge.js
 
