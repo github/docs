@@ -32,4 +32,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           PR_FILTER: auto_merge
-          MERGE_MSG: "Branch was updated using the 'autoupdate branch' Actions workflow."
+          MERGE_MSG: 'Autoupdate branch'
