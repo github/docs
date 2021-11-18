@@ -87,11 +87,7 @@ Before you can enable required status checks, you must configure the repository 
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
-{% note %}
-
-**Note:** Any person or integration with write permissions to a repository can set the state of any status check in the repository. {% data variables.product.company_short %} does not verify that the author of a check is authorized to create a check with a certain name or modify an existing status. Before merging a pull request, you should verify that the author of each status, listed in the merge box, is expected.
-
-{% endnote %}
+Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app that has recently set this check as the expected source of status updates. If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
 You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
 
