@@ -4,6 +4,7 @@
 // can be added it this list.
 
 export default [
+  'actions/cache@c64c572235d810460d0d6876e9c705ad5002b353', // v2.1.6
   'actions/checkout@1e204e9a9253d643386038d443f96446fa156a97', // v2.3.5
   'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d', // v4.0.2
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', // v2.2.0
@@ -25,7 +26,6 @@ export default [
   'juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51', // v1.5.0
   'juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512',
   'lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb',
-  'pascalgn/automerge-action@c9bd1823770819dc8fb8a5db2d11a3a95fbe9b07', // v0.12.0
   'peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e',
   'peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd',
   'peter-evans/create-pull-request@7380612b49221684fefa025244f2ef4008ae50ad', // v3.10.1
