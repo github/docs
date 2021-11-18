@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { Heading } from '@primer/components'
+import { ActionList, Heading } from '@primer/components'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -45,12 +45,19 @@ export const ArticlePage = () => {
 
   const renderTocItem = (item: MiniTocItem) => {
     return (
-      <li key={item.contents} className={cx(item.platform, 'mb-2 lh-condensed')}>
-        <div className="mb-2 lh-condensed" dangerouslySetInnerHTML={{ __html: item.contents }} />
-        {item.items && item.items.length > 0 ? (
-          <ul className="list-style-none pl-0 f5 mb-0 ml-3">{item.items.map(renderTocItem)}</ul>
-        ) : null}
-      </li>
+      <ActionList.Item
+        as="a"
+        href={item.link}
+        key={item.title}
+        sx={{ listStyle: 'none', padding: '2px', fontSize: '14px' }}
+      >
+        <div className={cx(item.platform)}>
+          {item.title}
+          {item.items && item.items.length > 0 ? (
+            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
+          ) : null}
+        </div>
+      </ActionList.Item>
     )
   }
 
@@ -111,13 +118,18 @@ export const ArticlePage = () => {
               {miniTocItems.length > 1 && (
                 <>
                   <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
-                    <a className="Link--primary" href="#in-this-article">
-                      {t('miniToc')}
-                    </a>
+                    <Link href="#in-this-article">{t('miniToc')}</Link>
                   </Heading>
-                  <ul className="list-style-none pl-0 f5 mb-0">
-                    {miniTocItems.map(renderTocItem)}
-                  </ul>
+
+                  <ActionList
+                    items={miniTocItems.map((items) => {
+                      return {
+                        key: title,
+                        text: title,
+                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
+                      }
+                    })}
+                  />
                 </>
               )}
             </>
