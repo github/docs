@@ -43,16 +43,20 @@ export const ArticlePage = () => {
   const { t } = useTranslation('pages')
   const currentPath = router.asPath.split('?')[0]
 
+  const RenderHTML = (props: { html: any }) => (
+    <div dangerouslySetInnerHTML={{ __html: props.html }}></div>
+  )
+
   const renderTocItem = (item: MiniTocItem) => {
     return (
       <ActionList.Item
         as="a"
         href={item.link}
         key={item.title}
-        sx={{ listStyle: 'none', padding: '2px', fontSize: '14px' }}
+        sx={{ listStyle: 'none', padding: '2px' }}
       >
-        <div className={cx(item.platform)}>
-          {item.title}
+        <div className={cx('lh-condensed', item.platform)}>
+          <RenderHTML html={item.title} />
           {item.items && item.items.length > 0 ? (
             <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
           ) : null}
