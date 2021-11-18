@@ -7,6 +7,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
+import { useQuery } from 'components/hooks/useQuery'
 import { useLanguages } from './context/LanguagesContext'
 
 import styles from './Search.module.scss'
@@ -36,10 +37,7 @@ export function Search({
   children,
 }: Props) {
   const router = useRouter()
-  const query =
-    router.query.query && Array.isArray(router.query.query)
-      ? router.query.query[0]
-      : router.query.query || ''
+  const { query, debug } = useQuery()
   const [localQuery, setLocalQuery] = useState(query)
   const [debouncedQuery, setDebouncedQuery] = useDebounce<string>(localQuery, 300)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -185,7 +183,7 @@ export function Search({
           isLoading={isLoading}
           results={previousResults}
           closeSearch={closeSearch}
-          debug={'debug' in router.query}
+          debug={debug}
           query={query}
         />
       </div>
@@ -279,7 +277,7 @@ function ShowSearchResults({
   results: SearchResult[] | undefined
   closeSearch: () => void
   debug: boolean
-  query: string | string[]
+  query: string
 }) {
   const { t } = useTranslation('search')
   const router = useRouter()
@@ -298,7 +296,13 @@ function ShowSearchResults({
       version: version,
     }
   })
-  const redirectQuery = query ? `?query=${query}` : ''
+
+  const redirectParams: {
+    query: string
+    debug?: string
+  } = { query }
+  if (debug) redirectParams.debug = JSON.stringify(debug)
+  const redirectQuery = `?${new URLSearchParams(redirectParams).toString()}`
 
   if (results) {
     if (results.length === 0) {
@@ -350,7 +354,7 @@ function ShowSearchResults({
               renderItem: () => (
                 <ActionList.Item as="div">
                   <Link href={url} className="no-underline color-fg-default">
-                    <li key={url} data-testid="search-result" className={cx('list-style-none')}>
+                    <li data-testid="search-result" className={cx('list-style-none')}>
                       <div className={cx('py-2 px-3')}>
                         {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
                         <Label variant="small" sx={{ bg: 'accent.emphasis' }}>
