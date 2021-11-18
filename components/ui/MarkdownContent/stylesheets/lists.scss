@@ -13,22 +13,19 @@
       margin-bottom: 5px;
 
       &:before {
-        top: 2px;
-        font-size: 16px;
+        width: 22px;
+        height: 22px;
+        font-size: 14px;
+        margin: 1px 0 0 8px;
         content: counter(li);
         counter-increment: li;
         position: absolute;
         left: 0;
-        height: 100%;
-        padding: 0 10px 0 0;
-        color: var(--color-fg-subtle);
-        font-weight: bold;
-        line-height: 35px;
-        text-align: right;
+        color: var(--color-canvas-default);
+        font-weight: 500;
+        text-align: center;
         border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        background-color: var(--color-canvas-default);
+        background-color: var(--color-fg-default);
       }
 
       &:after {
