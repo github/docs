@@ -46,7 +46,7 @@ export const ArticlePage = () => {
   const renderTocItem = (item: MiniTocItem) => {
     return (
       <ActionList.Item
-        as="div"
+        as="li"
         key={item.contents}
         className={item.platform}
         sx={{ listStyle: 'none', padding: '2px' }}
