@@ -33,6 +33,9 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 .hljs-section,
 .hljs-selector-id {
   color: var(--color-prettylights-syntax-markup-heading);
+}
+
+.hljs-section {
   font-weight: bold;
 }
 
