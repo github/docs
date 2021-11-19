@@ -42,7 +42,8 @@ By default, the validation only includes the audience (`aud`) condition, so you 
 
 ```json{:copy}
 "Condition": {
-  "StringEquals": {
+  "ForAllValues:StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
