@@ -1,0 +1,21 @@
+name: Close as a support issue
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Close Issue
+      uses: peter-evans/close-issue@v1
+      if: contains(github.event.issue.labels.*.name, 'support')
+      with:
+        comment: |
+          Sorry, but we'd like to keep issues related to code in this repository. Thank you 🙇 
+          
+          If you have questions about writing workflows or action files, then please [visit the GitHub Community Forum's Actions Board](https://github.community/t5/GitHub-Actions/bd-p/actions)
+          
+          If you are having an issue or question about GitHub Actions then please [contact customer support](https://help.github.com/en/articles/about-github-actions#contacting-support)

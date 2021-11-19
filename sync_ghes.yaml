@@ -1,0 +1,34 @@
+name: Sync workflows for GHES
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  sync:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        git config user.email "cschleiden@github.com"
+        git config user.name "GitHub Actions"
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '12'
+    - name: Check starter workflows for GHES compat
+      run: |
+        npm ci
+        npx ts-node-script ./index.ts
+      working-directory: ./script/sync-ghes
+    - run: |
+        git add -A
+        if [ -z "$(git status --porcelain)" ]; then
+          echo "No changes to commit"
+        else
+          git commit -m "Updating GHES workflows"
+        fi
+    - run: git push
