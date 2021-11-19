@@ -130,8 +130,8 @@ As enquetes dos executores auto-hospedados {% data variables.product.product_nam
 
 {% ifversion ghae %}
 Você deve garantir que o executor auto-hospedado tenha acesso à rede para comunicar-se com a
-URL de {% data variables.product.prodname_ghe_managed %}.
-Por exemplo, se o nome da sua instância for `octoghae`, você precisará permitir que o executor auto-hospedado acesse `octoghae.github.com`.
+URL de {% data variables.product.prodname_ghe_managed %} e seus subdomínios.
+Por exemplo, se o o nome da sua instância for `octoghae`, você deverá permitir que o executor auto-hospedado acesse `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com` e `codeload.octoghae.githubenterprise.com`.
 Se você usa uma lista de endereços IP para a
 
 conta da sua organização ou empresa de {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do seu executor auto-hospedado à lista de permissão. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)".
@@ -139,7 +139,69 @@ conta da sua organização ou empresa de {% data variables.product.prodname_dotc
 
 {% ifversion fpt or ghec %}
 
-Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.prodname_dotcom %} URLs listadas abaixo.
+Como o runner auto-hospedado abre uma conexão em {% data variables.product.prodname_dotcom %}, você não precisa permitir que {% data variables.product.prodname_dotcom %} faça conexões de entrada com seu executor auto-hospedado.
+
+Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com os hosts de {% data variables.product.prodname_dotcom %} listados abaixo. Alguns hosts são necessários para operações essenciais de executores, enquanto outros hosts só são necessários para certas funcionalidades.
+
+{% note %}
+
+**Observação:** Alguns dos domínios listados abaixo estão configurados usando os registros `CNAME`. Alguns firewalls podem exigir que você adicione regras recursivamente para todos os registros `CNAME`. Observe que os registros `CNAME` podem mudar no futuro, e que apenas os domínios listados abaixo permanecerão constantes.
+
+{% endnote %}
+
+**Necessário para operações essenciais:**
+
+```
+github.com
+api.github.com
+```
+
+**Necessário para fazer o download das ações:**
+
+```
+codeload.github.com
+```
+
+**Necessário para atualizações de versão do executor:**
+
+```
+objects.githubusercontent.com
+objects-origin.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+```
+
+**Necessário para upload/download de caches e artefatos de fluxo de trabalho:**
+
+```
+*.blob.core.windows.net
+```
+
+**Necessário para recuperar tokens do OIDC:**
+
+```
+*.actions.githubusercontent.com
+```
+
+Além disso, seu fluxo de trabalho pode exigir acesso a outros recursos de rede. Por exemplo, se o seu fluxo de trabalho instala pacotes ou publica contêineres em pacotes de {% data variables.product.prodname_dotcom %}, o runner também precisará de acesso a esses pontos de extremidades de rede.
+
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar política para as configurações de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
+
+{% else %}
+
+Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as URLs de {% data variables.product.product_location %} listadas abaixo.
+
+{% endif %}
+
+Você também pode usar executores auto-hospedados com um servidor proxy. Para obter mais informações, consulte "[Usar um servidor proxy com executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+
+{% ifversion ghes %}
+
+## Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom_the_website %}
+
+Os executores auto-hospedados não precisam conectar-se a {% data variables.product.prodname_dotcom_the_website %}, a menos que você tenha [habilitado acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %}, usando {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
+
+Se você permitiu o acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}, o executor auto-hospedado irá conectar-se diretamente a {% data variables.product.prodname_dotcom_the_website %} para fazer o downloa das ações.  Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.prodname_dotcom %} URLs listadas abaixo.
 
 {% note %}
 
@@ -150,32 +212,16 @@ Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-
 ```
 github.com
 api.github.com
-*.actions.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
 codeload.github.com
-*.pkg.github.com
-pkg-cache.githubusercontent.com
-pkg-containers.githubusercontent.com
-pkg-containers-az.githubusercontent.com
-*.blob.core.windows.net
 ```
-
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar política para as configurações de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
-
-{% else %}
-
-Você deve garantir que a máquina tenha acesso adequado à rede para comunicar-se com as {% data variables.product.product_location %}.
 
 {% endif %}
 
-Você também pode usar executores auto-hospedados com um servidor proxy. Para obter mais informações, consulte "[Usar um servidor proxy com executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
+{% ifversion fpt or ghec %}
 
 ## Segurança dos executores auto-hospedados com repositórios públicos
 
-{% ifversion not ghae %}
 {% data reusables.github-actions.self-hosted-runner-security %}
-{% endif %}
 
 Este não é um problema com executores hospedados no {% data variables.product.prodname_dotcom %}, pois cada executor hospedado no {% data variables.product.prodname_dotcom %} é sempre uma máquina virtual limpa e isolada, que é destruída no final da execução do trabalho.
 
@@ -185,3 +231,5 @@ Os fluxos de trabalho não confiáveis no seu executor auto-hospedado representa
 * Sair do sandbox do executor da máquina.
 * Expor acesso ao ambiente de rede da máquina.
 * Dados persistentes, indesejados ou perigosos na máquina.
+
+{% endif %}

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Repositories
@@ -16,15 +17,18 @@ topics:
 shortTitle: Listar dependências configuradas
 ---
 
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
+
 ## Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
 
-Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."
+Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-5. Opcionalmente, para visualizar os arquivos monitorados para um gerenciador de pacotes, clique no {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} associado. ![Arquivos de dependências monitorados](/assets/images/help/dependabot/monitored-dependency-files.png)
+1. Opcionalmente, para visualizar os arquivos monitorados para um gerenciador de pacotes, clique no {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} associado. ![Arquivos de dependências monitorados](/assets/images/help/dependabot/monitored-dependency-files.png)
 
 Se quaisquer dependências estiverem faltando, verifique os arquivos de log em busca de erros. Se algum gerenciador de pacotes faltar, revise o arquivo de configuração.
 
