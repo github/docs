@@ -7,12 +7,11 @@
 }
 
 .markdown-body .procedural-image-wrapper img {
-  border-radius: 5px;
-  border: 2px solid var(--color-border-subtle);
   width: auto;
   height: auto;
   max-height: 500px;
   padding: 0;
+  box-shadow: var(--color-shadow-medium);
 }
 
 // make sure images that contain emoji render at the expected size
