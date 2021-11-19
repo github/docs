@@ -187,7 +187,7 @@ For more information, see "[About comparing branches in pull requests](/pull-req
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. Inputs for reusable workflows are specified with the same format as action inputs. For more information about inputs, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)." For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
 In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
@@ -268,7 +268,7 @@ A boolean specifying whether the secret must be supplied.
 
 ## `on.workflow_dispatch.inputs`
 
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow. Workflow dispatch inputs are specified with the same format as action inputs. For more information about the format see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#inputs)."
+When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
 
 ```yaml
 on: 
@@ -277,10 +277,20 @@ on:
       logLevel:
         description: 'Log level'     
         required: true
-        default: 'warning'
+        default: 'warning' {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: choice
+        options:
+        - info
+        - warning
+        - debug {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: false
+        required: false {% ifversion ghec or ghes > 3.3 or ghae-issue-5511 %}
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true {% endif %}
 ```
 
 The triggered workflow receives the inputs in the `github.event.inputs` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
