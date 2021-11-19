@@ -18,5 +18,6 @@ children:
   - /managing-the-visibility-of-your-projects
   - /managing-access-to-projects
   - /best-practices-for-managing-projects
+  - /best-practice-for-beginners
 ---
 
