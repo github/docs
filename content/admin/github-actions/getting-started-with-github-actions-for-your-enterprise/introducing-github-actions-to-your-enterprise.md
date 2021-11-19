@@ -86,7 +86,7 @@ You should plan for how you'll manage the resources required to use {% data vari
 
 You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)" and "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 
-{% ifversion ghec or ghes %}
+{% ifversion ghec or ghes > 3.2 %}
 You should consider using autoscaling to automatically increase or decrease the number of available self-hosted runners. For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)."
 {% endif %}
 
