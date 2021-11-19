@@ -20,10 +20,14 @@ const github = getOctokit(token)
 main()
 
 async function main() {
+  const [org, repo] = process.env.GITHUB_REPOSITORY.split('/')
+  if (!org || !repo) {
+    throw new Error('GITHUB_REPOSITORY environment variable not set')
+  }
   // Get a list of open PRs and order them from oldest to newest
-  const query = `query ($first: Int, $after: String, $firstLabels: Int) {
-    organization(login: "github") {
-      repository(name: "docs-internal") {
+  const query = `query ($first: Int, $after: String, $firstLabels: Int, $repo: String!, $org: String!) {
+    organization(login: $org) {
+      repository(name: $repo) {
         pullRequests(first: $first, after: $after, states: OPEN, orderBy: {field: UPDATED_AT, direction: ASC}) {
           edges{
             node {
@@ -55,6 +59,8 @@ async function main() {
   }`
 
   const queryVariables = {
+    repo,
+    org,
     first: 100,
     after: null, // when pagination in null it will get first page
     firstLabels: 100,
@@ -105,20 +111,25 @@ async function main() {
 
   // Get the list of prs with the skip label so they can
   // be put at the beginning of the list
-  const prioritizedPrList = autoMergeEnabledPRs
-    .filter((pr) => pr.labels.includes('skip-to-front-of-merge-queue'))
-    .concat(autoMergeEnabledPRs.filter((pr) => !pr.labels.includes('skip-to-front-of-merge-queue')))
+  const prioritizedPrList = autoMergeEnabledPRs.sort(
+    (a, b) =>
+      Number(b.labels.includes('skip-to-front-of-merge-queue')) -
+      Number(a.labels.includes('skip-to-front-of-merge-queue'))
+  )
 
-  const nextInQueue = prioritizedPrList.shift()
-  // Update the branch for the next PR in the merge queue
-  github.rest.pulls.updateBranch({
-    owner: 'github',
-    repo: 'docs-internal',
-    pull_number: parseInt(nextInQueue.number),
-  })
+  if (prioritizedPrList.length) {
+    const nextInQueue = prioritizedPrList.shift()
+    // Update the branch for the next PR in the merge queue
+    github.rest.pulls.updateBranch({
+      owner: org,
+      repo,
+      pull_number: nextInQueue.number,
+    })
+    console.log(`⏱ Total PRs in the merge queue: ${prioritizedPrList.length + 1}`)
+    console.log(`🚂 Updated branch for PR #${JSON.stringify(nextInQueue, null, 2)}`)
+  }
 
-  console.log(`⏱ Total PRs in the merge queue: ${prioritizedPrList.length + 1}`)
-  console.log(`🚂 Updated branch for PR #${JSON.stringify(nextInQueue, null, 2)}`)
-  console.log(`🚏 Next up in the queue: `)
-  console.log(JSON.stringify(prioritizedPrList, null, 2))
+  prioritizedPrList.length
+    ? console.log(`🚏 Next up in the queue: \n ${JSON.stringify(prioritizedPrList, null, 2)}`)
+    : console.log(`⚡ The merge queue is empty`)
 }
