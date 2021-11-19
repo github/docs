@@ -157,7 +157,7 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The new translation batch for ${{ matrix.language }} was cancelled. Please try running the workflow manually; see $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          text: 'The new translation batch for ${{ matrix.language }} was cancelled.'
 
       # Emit a notification for the first responder to triage if the workflow failed.
       - name: Send Slack notification if workflow failed
@@ -167,4 +167,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The new translation batch for ${{ matrix.language }} failed. See $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          text: 'The new translation batch for ${{ matrix.language }} failed.'
