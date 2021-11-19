@@ -35,7 +35,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
 ## Git Credential Manager Core
 
-[Git Credential Manager Core](https://github.com/microsoft/Git-Credential-Manager-Core) (GCM Core) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM Core, you don't have to manually [create and store a PAT](/github/authenticating-to-github/creating-a-personal-access-token), as GCM Core manages authentication on your behalf, including 2FA (two-factor authentication).
+[Git Credential Manager Core](https://github.com/GitCredentialManager/git-credential-manager) (GCM Core) is another way to store your credentials securely and connect to GitHub over HTTPS. With GCM Core, you don't have to manually [create and store a PAT](/github/authenticating-to-github/creating-a-personal-access-token), as GCM Core manages authentication on your behalf, including 2FA (two-factor authentication).
 
 {% mac %}
 
@@ -89,7 +89,7 @@ For Linux, install Git and GCM Core, then configure Git to use GCM Core.
 
 1. Install Git from your distro's packaging system. Instructions will vary depending on the flavor of Linux you run.
 
-2. Install GCM Core. See the [instructions in the GCM Core repo](https://github.com/microsoft/Git-Credential-Manager-Core#linux-install-instructions), as they'll vary depending on the flavor of Linux you run.
+2. Install GCM Core. See the [instructions in the GCM Core repo](https://github.com/GitCredentialManager/git-credential-manager#linux-install-instructions), as they'll vary depending on the flavor of Linux you run.
 
 3. Configure Git to use GCM Core. There are several backing stores that you may choose from, so see the GCM Core docs to complete your setup. For more information, see "[GCM Core Linux](https://aka.ms/gcmcore-linuxcredstores)."
 
@@ -103,4 +103,4 @@ For more options for storing your credentials on Linux, see [Credential Storage]
 
 <br>
 
-For more information or to report issues with GCM Core, see the official GCM Core docs at "[Git Credential Manager Core](https://github.com/microsoft/Git-Credential-Manager-Core)."
+For more information or to report issues with GCM Core, see the official GCM Core docs at "[Git Credential Manager Core](https://github.com/GitCredentialManager/git-credential-manager)."
