@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ git-branch--m-main-<BRANCH>-git-fetch-origin-git-branch--u-origin/<BRANCH>-<BRANCH>-git-remote-set-head-origin--a ]
+  pull_request:
+    branches: [ git-branch--m-main-<BRANCH>-git-fetch-origin-git-branch--u-origin/<BRANCH>-<BRANCH>-git-remote-set-head-origin--a ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
