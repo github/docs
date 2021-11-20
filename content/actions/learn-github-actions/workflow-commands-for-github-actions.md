@@ -1,4 +1,4 @@
----
+github:main ---
 title: Workflow commands for GitHub Actions
 shortTitle: Workflow commands
 intro: You can use workflow commands when running shell commands in a workflow or in an action's code.
@@ -410,3 +410,10 @@ This example demonstrates how to add the user `$HOME/.local/bin` directory to `P
 ``` bash
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
+steps:
+      - shell: pwsh
+        run: |
+          echo 'action_state=$yellow' >> $GITHUB_ENV
+      - shell: pwsh
+         run: |
+           echo  IT IS '${{ env.action_state }}'
