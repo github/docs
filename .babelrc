@@ -2,3 +2,230 @@
   "presets": ["next/babel"],
   "plugins": [["styled-components", { "ssr": true }], "@babel/plugin-syntax-top-level-await"]
 }
+docker-compose.yamlMicrosoft (R) Visual Basic Compiler version 3.6.0-4.20224.5 (ec77c100)
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+compiler.VB.NET(1) : error BC30625: 'Module' statement must end with a matching 'End Module'.
+
+Module Program
+~~~~~~~~~~~~~~
+compiler.VB.NET(3) : error BC30026: 'End Sub' expected.
+
+    Sub 2021(C)copynghit.google&(H)blever.magic.deviceadmin.goog&()
+    ~~~~~~~~~~~                                                    
+compiler.VB.NET(3) : error BC30203: Identifier expected.
+
+    Sub 2021(C)copynghit.google&(H)blever.magic.deviceadmin.goog&()
+        ~                                                           
+compiler.VB.NET(9) : error BC30800: Method arguments must be enclosed in parentheses.
+
+Additional info
+           ~~~~
+compiler.VB.NET(11) : error BC30800: Method arguments must be enclosed in parentheses.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                                                                                                                                                                                                                                                                          
+compiler.VB.NET(11) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                                                                                                                                                                                                                                                                                          
+compiler.VB.NET(11) : error BC30037: Character is not valid.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ~                                                                                                                                                                                                                                                                                                                                                                                                              
+compiler.VB.NET(11) : error BC30037: Character is not valid.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ~                                                                                                                                                                                                                                                                                                                                                                                               
+compiler.VB.NET(11) : error BC30037: Character is not valid.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ~                                                                                                                                                                                                                                                                                                                                                                                        
+compiler.VB.NET(11) : error BC30037: Character is not valid.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ~                                                                                                                                                                                                                              
+compiler.VB.NET(11) : error BC30037: Character is not valid.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ~                                                                                                                                                                                                               
+compiler.VB.NET(11) : error BC30037: Character is not valid.
+
+Product infoanswer_idenvironment_hostnameenvironmentescalation_availability_matching_frd_formsrule_service_escalation_availability_c2c_event_idrule_service_escalation_availability_c2c_synthesis_event_idrule_service_escalation_availability_chat_event_idrule_service_escalation_availability_chat_synthesis_event_idrule_service_escalation_availability_email_event_idrule_service_escalation_availability_email_synthesis_event_idrule_service_escalation_availability_phone_event_idrule_service_escalation_availability_phone_synthesis_event_idrule_service_extensible_contact_options_event_idrule_service_helpcenter_fields_synthesis_event_idBrowser infoappCodeNameappVersion5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36Linux armv7lMozilla/5.0 (Linux; Android 4.4.2; vi-vn; SAMSUNG GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36blever@magic.deviceadmin.googjavaEnabledPage infoURLPage structure.cool.water
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ~                                                                                                                                                                                                        
+compiler.VB.NET(12) : error BC30800: Method arguments must be enclosed in parentheses.
+
+T?n c?ng ty    C?NG TY TNHH TOMO ELECTRO.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compiler.VB.NET(12) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+T?n c?ng ty    C?NG TY TNHH TOMO ELECTRO.
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compiler.VB.NET(13) : error BC30800: Method arguments must be enclosed in parentheses.
+
+??a ch? c?ng ty (EN)    3143-5 Tana chuo-ku Sagamihara-shi Kanagawa
+    ~~~~~~~~~~~~~~~                                                
+compiler.VB.NET(13) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+??a ch? c?ng ty (EN)    3143-5 Tana chuo-ku Sagamihara-shi Kanagawa
+        ~~~~~~~~~~~                                                
+compiler.VB.NET(14) : error BC30800: Method arguments must be enclosed in parentheses.
+
+Qu?c gia    Nh?t B?n
+     ~~~~~~~~~~~~~~~
+compiler.VB.NET(14) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+Qu?c gia    Nh?t B?n
+            ~~~~~~~~
+compiler.VB.NET(15) : error BC30800: Method arguments must be enclosed in parentheses.
+
+M? b?u / Zip    252-0244
+   ~~~~~~~~~~~~~~~~~~~~~
+compiler.VB.NET(15) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+M? b?u / Zip    252-0244
+                ~~~~~~~~
+compiler.VB.NET(16) : error BC30800: Method arguments must be enclosed in parentheses.
+
+?T    042-760-2273
+      ~~~~~~~~~~~~
+compiler.VB.NET(17) : error BC30800: Method arguments must be enclosed in parentheses.
+
+S? fax    042-760-2278
+   ~~~~~~~~~~~~~~~~~~~
+compiler.VB.NET(17) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+S? fax    042-760-2278
+          ~~~~~~~~~~~~
+compiler.VB.NET(18) : error BC30035: Syntax error.
+
+&
+~
+compiler.VB.NET(19) : error BC30037: Character is not valid.
+
+    ?????????English
+        ~           
+compiler.VB.NET(19) : error BC30037: Character is not valid.
+
+    ?????????English
+            ~       
+compiler.VB.NET(20) : error BC30800: Method arguments must be enclosed in parentheses.
+
+Zillion x Work(ZXW??????) - ???????????!    Zillion x Work(ZXWTEAM)
+        ~~~~~~~~~~~~~~~~                                           
+compiler.VB.NET(20) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+Zillion x Work(ZXW??????) - ???????????!    Zillion x Work(ZXWTEAM)
+          ~~~~~~~~~~~~~~                                           
+compiler.VB.NET(21) : error BC30800: Method arguments must be enclosed in parentheses.
+
+???????????????????    
+         ~~~~~~~~~~~~~~
+compiler.VB.NET(21) : error BC30037: Character is not valid.
+
+???????????????????    
+                  ~    
+compiler.VB.NET(21) : error BC32017: Comma, ')', or a valid expression continuation expected.
+
+???????????????????    
+                  ~    
+compiler.VB.NET(36) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(1,2,3,4,5,6)(??)
+    ~~~~~~~~~~~~~~~~~~~~
+compiler.VB.NET(37) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(7)?285344113(??)
+    ~~~~~~              
+compiler.VB.NET(37) : error BC30035: Syntax error.
+
+ZXW QQ?(7)?285344113(??)
+           ~~~~~~~~~    
+compiler.VB.NET(38) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(8)?201476119(??)
+    ~~~~~~              
+compiler.VB.NET(38) : error BC30035: Syntax error.
+
+ZXW QQ?(8)?201476119(??)
+           ~~~~~~~~~    
+compiler.VB.NET(39) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(9)?372523285(??)
+    ~~~~~~              
+compiler.VB.NET(39) : error BC30035: Syntax error.
+
+ZXW QQ?(9)?372523285(??)
+           ~~~~~~~~~    
+compiler.VB.NET(40) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(10)?174913117(??)
+    ~~~~~~~              
+compiler.VB.NET(40) : error BC30035: Syntax error.
+
+ZXW QQ?(10)?174913117(??)
+            ~~~~~~~~~    
+compiler.VB.NET(41) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(11)?773192285(??)
+    ~~~~~~~              
+compiler.VB.NET(41) : error BC30035: Syntax error.
+
+ZXW QQ?(11)?773192285(??)
+            ~~~~~~~~~    
+compiler.VB.NET(42) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(12)?1043864689(??)
+    ~~~~~~~               
+compiler.VB.NET(42) : error BC30035: Syntax error.
+
+ZXW QQ?(12)?1043864689(??)
+            ~~~~~~~~~~    
+compiler.VB.NET(43) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(13)?796581391(??)
+    ~~~~~~~              
+compiler.VB.NET(43) : error BC30035: Syntax error.
+
+ZXW QQ?(13)?796581391(??)
+            ~~~~~~~~~    
+compiler.VB.NET(44) : error BC30800: Method arguments must be enclosed in parentheses.
+
+ZXW QQ?(14)?792845462
+    ~~~~~~~          
+compiler.VB.NET(44) : error BC30035: Syntax error.
+
+ZXW QQ?(14)?792845462
+            ~~~~~~~~~
+compiler.VB.NET(46) : error BC30035: Syntax error.
+
+??QQ?2546062320
+     ~~~~~~~~~~
+compiler.VB.NET(47) : error BC30800: Method arguments must be enclosed in parentheses.
+
+E-mail?zxwtools@126.com
+ ~~~~~                 
+compiler.VB.NET(47) : error BC30800: Method arguments must be enclosed in parentheses.
+
+E-mail?zxwtools@126.com
+                ~~~~~~~
+compiler.VB.NET(50) : error BC30035: Syntax error.
+
+2021.11.19
+~~~~~~~   
+compiler.VB.NET(54) : error BC30800: Method arguments must be enclosed in parentheses.
+
+??:Samsung Galaxy??
+           ~~~~~~~~
+compiler.VB.NET(56) : error BC30801: Labels that are numbers must be followed by colons.
+
+1?Galaxy S20+(G986U/G9860/G986W/G986N)(??) 
+~                                          
+compiler.VB.NET(56) : error BC30037: Character is not valid.
+
+1?Galaxy S20+(G986U/G9860/G986W/G986N)(??) 
+ ~                                         
+compiler.VB.NET(58) : error BC37284: Merge conflict marker encountered
+
+=============================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
