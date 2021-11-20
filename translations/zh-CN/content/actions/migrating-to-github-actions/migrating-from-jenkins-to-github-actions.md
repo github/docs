@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Jenkins
@@ -19,6 +20,7 @@ shortTitle: 从 Jenkins 迁移
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## 简介
 
@@ -42,7 +44,7 @@ Jenkins 和 {% data variables.product.prodname_actions %} 都允许您创建能�
 
 Jenkins 可让您发送版本到单个构建代理，或者您可以在多个代理之间进行分发。 您也可以根据不同的属性（例如操作系统类型）对这些代理进行分类。
 
-同样， {% data variables.product.prodname_actions %} 可以向 {% data variables.product.prodname_dotcom %} 托管或自托管的运行器发送作业，您可以根据不同的属性使用标签对运行器分类。 For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)" and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+同样， {% data variables.product.prodname_actions %} 可以向 {% data variables.product.prodname_dotcom %} 托管或自托管的运行器发送作业，您可以根据不同的属性使用标签对运行器分类。 更多信息请参阅“[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions#runners)”和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
 
 ### 使用区段组织管道
 

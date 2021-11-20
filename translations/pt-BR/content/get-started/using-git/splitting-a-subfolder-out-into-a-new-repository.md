@@ -11,6 +11,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Dividindo uma subpasta
 ---
 
@@ -48,7 +49,7 @@ Se você criar um clone do repositório, não perderá nenhuma alteração ou hi
   Agora o repositório deve conter apenas os arquivos que estava(m) na(s) subpasta(s).
 
 6. [Crie um repositório](/articles/creating-a-new-repository/) no {% data variables.product.product_name %}.
-7. No topo da página Quick Setup (Configuração rápida) do novo repositório do {% data variables.product.product_name %}, clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar a URL do repositório remote. ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Campo Copy remote repository URL (Copiar URL do repositório remote)](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 

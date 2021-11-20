@@ -22,6 +22,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: 管理远程仓库
 ---
 
@@ -172,7 +173,7 @@ $ git remote -v
 
 ### 故障排除：无法将配置部分 'remote.[old name]' 重命名为 'remote.[new name]'
 
-此错误表示您输入旧远程名称尝试的远程不存在。
+This error means that the old remote name you typed doesn't exist.
 
 您可以使用 `git remote -v` 命令检查当前存在哪些远程：
 

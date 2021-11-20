@@ -15,8 +15,8 @@
     code {
       font-size: 85%;
       padding: 0.2em 0.4em;
-      background-color: var(--color-markdown-code-bg);
-      border-radius: 6px;
+      background-color: var(--color-canvas-subtle);
+      border-radius: 6px; // primer rounded-2
     }
 
     pre > code {
@@ -35,10 +35,10 @@
       vertical-align: top;
       z-index: 1;
       top: 0;
-      background: var(--color-bg-primary);
-      box-shadow: 0 3px 0 0 var(--color-auto-gray-4);
-      padding: 12px 8px;
-      border: 0px;
+      background: var(--color-canvas-default);
+      box-shadow: 0 3px 0 0 var(--color-canvas-subtle);
+      padding: 0.75rem 0.5rem;
+      border: 0;
     }
 
     th[align="center"] {
@@ -55,8 +55,8 @@
     }
 
     td {
-      padding: 10px 8px;
-      border: 0px;
+      padding: 0.75rem 0.5rem;
+      border: 0;
       vertical-align: top;
     }
 

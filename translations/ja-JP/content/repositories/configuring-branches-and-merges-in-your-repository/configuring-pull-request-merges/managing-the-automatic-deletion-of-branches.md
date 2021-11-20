@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Automatic branch deletion
@@ -21,5 +22,5 @@ shortTitle: Automatic branch deletion
 3. [Merge button] の下で [**Automatically delete head branches**] を選択または選択解除します。 ![ブランチの自動的削除を有効化または無効化するチェックボックス](/assets/images/help/repository/automatically-delete-branches.png)
 
 ## 参考リンク
-- [プルリクエストのマージ](/articles/merging-a-pull-request)
+- [プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)
 - [リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository)

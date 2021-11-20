@@ -10,11 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% note %}
 
@@ -94,7 +95,7 @@ Al igual que sucede con un clon básico, un clon replicado incluye todas las ram
 $ git fetch -p origin
 $ git push --mirror
 ```
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Leer más
 
 * "[Subir cambios a GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"

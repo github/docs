@@ -9,6 +9,7 @@ redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-anonymized-urls
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Identity
   - Access management
@@ -28,7 +29,7 @@ Anyone who receives your anonymized URL, directly or indirectly, may view your i
 
 {% tip %}
 
-Windowsユーザは、Git Powershell（これは[{% data variables.product.prodname_desktop %}](https://desktop.github.com/)と共にインストールされます）を使うか、[curl for Windows](http://curl.haxx.se/download.html)をダウンロードする必要があります。
+Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 

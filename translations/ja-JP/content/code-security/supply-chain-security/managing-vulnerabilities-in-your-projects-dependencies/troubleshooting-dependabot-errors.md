@@ -8,6 +8,8 @@ redirect_from:
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
 versions:
   fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -19,6 +21,10 @@ topics:
   - Errors
   - Dependencies
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## {% data variables.product.prodname_dependabot %} エラーについて
 
@@ -46,11 +52,21 @@ topics:
 
 {% data variables.product.prodname_dependabot %} がエコシステムの依存関係を更新するためのプルリクエストの作成をブロックされると、マニフェストファイルにエラーアイコンを投稿します。 {% data variables.product.prodname_dependabot %} によって管理されるマニフェストファイルは、[{% data variables.product.prodname_dependabot %}] タブに一覧表示されます。 このタブにアクセスするには、リポジトリの [**Insights**] タブで [**Dependency graph**] をクリックし、[**{% data variables.product.prodname_dependabot %}**] タブをクリックします。
 
-![エラーを示す {% data variables.product.prodname_dependabot %} ビュー](/assets/images/help/dependabot/dependabot-tab-view-error-beta.png)
+![エラーを示す {% data variables.product.prodname_dependabot %} ビュー](/assets/images/help/dependabot/dependabot-tab-view-error.png)
+
+{% ifversion fpt or ghec %}
 
 マニフェストファイルのログファイルを表示するには、[**Last checked TIME ago**] リンクをクリックします。 エラー記号（上のスクリーンショットの Maven など）で示されているマニフェストのログファイルを表示すると、エラーも表示されます。
 
-![{% data variables.product.prodname_dependabot %} バージョン更新エラーとログ ](/assets/images/help/dependabot/dependabot-version-update-error-beta.png)
+![{% data variables.product.prodname_dependabot %} バージョン更新エラーとログ ](/assets/images/help/dependabot/dependabot-version-update-error.png)
+
+{% else %}
+
+To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
+
+![{% data variables.product.prodname_dependabot %} バージョン更新エラーとログ ](/assets/images/enterprise/3.3/dependabot/dependabot-version-update-error.png)
+
+{% endif %}
 
 ## {% data variables.product.prodname_dependabot %} エラーを理解する
 
@@ -62,7 +78,7 @@ topics:
 
 依存関係を含むすべてのアプリケーションには、依存関係グラフ、つまり、アプリケーションが直接または間接的に依存するすべてのパッケージバージョンの有向非巡回グラフがあります。 依存関係が更新されるたびに、このグラフを解決する必要があります。解決しない場合、アプリケーションがビルドされません。 npm や RubyGems のように、エコシステムに深く複雑な依存関係グラフがある場合、エコシステム全体をアップグレードせずに単一の依存関係をアップグレードすることは不可能な場合があります。
 
-この問題を回避する最善策としては、たとえばバージョン更新を有効化するなどして、最新のリリースバージョンで最新の状態に保つことです。 これにより、依存関係グラフを壊さない単純なアップグレードで 1 つの依存関係の脆弱性を解決できる可能性が高くなります。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
+この問題を回避する最善策としては、たとえばバージョン更新を有効化するなどして、最新のリリースバージョンで最新の状態に保つことです。 これにより、依存関係グラフを壊さない単純なアップグレードで 1 つの依存関係の脆弱性を解決できる可能性が高くなります。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 ### 最新バージョンのオープンプルリクエストがすでに存在するため、{% data variables.product.prodname_dependabot %} を必要なバージョンに更新できない
 
@@ -76,7 +92,7 @@ topics:
 
 これは対処が難しいエラーです。 バージョン更新がタイムアウトした場合は、`allow` パラメーターを使用して更新する最も重要な依存関係を指定するか、または、`ignore` パラメーターを使用して更新から一部の依存関係を除外できます。 設定を更新すると、{% data variables.product.prodname_dependabot %} がバージョンの更新を確認し、利用可能な時間内にプルリクエストを生成できます。
 
-セキュリティアップデートがタイムアウトする場合、たとえばバージョン更新を有効にするなどして依存関係を最新に保つことで、タイムアウトが発生する可能性を減らすことができます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
+セキュリティアップデートがタイムアウトする場合、たとえばバージョン更新を有効にするなどして依存関係を最新に保つことで、タイムアウトが発生する可能性を減らすことができます。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 ### {% data variables.product.prodname_dependabot %} で追加のプルリクエストをオープンできない
 

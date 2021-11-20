@@ -1,6 +1,6 @@
 ---
 title: Códigos de conduta
-intro: The Codes of Conduct API lets you to retreive the information about a particular respository's code of conduct.
+intro: O código de conduta da API permite que você recupere as informações sobre o código de conduta de um repositório em particular.
 redirect_from:
   - /v3/codes_of_conduct
   - /v3/codes-of-conduct
@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

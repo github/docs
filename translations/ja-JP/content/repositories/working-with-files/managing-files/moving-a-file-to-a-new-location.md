@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Move a file
@@ -28,7 +29,7 @@ shortTitle: Move a file
 
 **ヒント**:
 
-- アクセス権のないリポジトリのファイルを移動しようとした場合は、プロジェクトがあなたのユーザー アカウントにフォークされ、変更のコミット後には元のリポジトリに[プル リクエスト](/articles/about-pull-requests)を送信できます。
+- アクセス権のないリポジトリのファイルを移動しようとした場合は、プロジェクトがあなたのユーザー アカウントにフォークされ、変更のコミット後には元のリポジトリに[プル リクエスト](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)を送信できます。
 - 画像など、ファイルによってはコマンドラインから移動しなければならない場合があります。 詳細は「[コマンドラインを使用してファイルを新しい場所へ移動する](/articles/moving-a-file-to-a-new-location-using-the-command-line)」を参照してください。
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

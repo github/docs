@@ -11,6 +11,7 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -31,7 +32,7 @@ shortTitle: 管理团队同步
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)”。
+您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[管理企业中组织的团队同步](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
 
 {% data reusables.enterprise-accounts.team-sync-override %}
 
@@ -47,7 +48,7 @@ shortTitle: 管理团队同步
 
 您必须为您的组织和支持的 IdP 启用 SAML 单点登录。 更多信息请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
-您必须使用 SAML SSO 和支持的 IdP 向组织验证。 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
+You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
 ### 为 Azure AD 启用团队同步
 

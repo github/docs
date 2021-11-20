@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues
@@ -23,7 +24,7 @@ topics:
 
 {% data variables.product.product_name %} fornece ferramentas de comunicação colaborativa embutidas que permitem que você interaja de perto com sua comunidade. Este guia de início rápido irá mostrar como escolher a ferramenta certa para suas necessidades.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Você pode criar e participar de problemas, pull requests, {% data variables.product.prodname_discussions %} e discussões com a equipe, dependendo do tipo de conversa que você gostaria de ter.
 {% endif %}
 {% ifversion ghes or ghae %}
@@ -37,10 +38,10 @@ Você pode criar e participar de problemas, pull requests e discussões de equip
 
 ### Pull requests
 - permite que você proponha alterações específicas.
-- permitem que você comente diretamente as alterações propostas por outros.
+- permite que comente diretamente as alterações propostas por outros.
 - são específicos para um repositório.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
 -  são como um fórum e são mais utilizados para ideias de forma aberta e discussões em que a colaboração é importante.
 -  poderá incluir muitos repositórios.
@@ -87,7 +88,7 @@ Este exemplo ilustra como um usuário do {% data variables.product.prodname_dotc
 
 Este exemplo ilustra como um usuário do {% data variables.product.prodname_dotcom %} criou um pull request na nossa documentação do repositório de código aberto para corrigir um erro de digitação.
 
-Na aba **Conversa** do pull request, o autor explica por que criou a pull request.
+Na aba **Conversa** do pull request, o autor explica por que criou o pull request.
 
 ![Exemplo de pull request - aba Conversa](/assets/images/help/pull_requests/pr-conversation-example.png)
 
@@ -99,7 +100,7 @@ A aba**Arquivos alterados** do pull request mostra a correção implementada.
 - O usuário cria um pull request com a correção.
 - Um mantenedor do repositório revisa o pull request, comenta e faz merge nela.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ### Cenários para {% data variables.product.prodname_discussions %}
 
 - Tenho uma pergunta que não é necessariamente relacionada a arquivos específicos no repositório.
@@ -116,7 +117,7 @@ Este exemplo mostra a postagem de boas-vindas de {% data variables.product.prodn
 Este mantenedor da comunidade iniciou uma discussão para dar as boas-vindas à comunidade e pedir aos integrantes que se apresentem. Esta postagem promove uma atmosfera de acolhedora para visitantes e contribuidores. A postagem também esclarece que a equipe tem o prazer em ajudar com as contribuições para o repositório.
 
 {% endif %}
-{% ifversion fpt or ghes or ghae %}
+{% ifversion fpt or ghes or ghae or ghec %}
 ### Cenários para discussões em equipe
 
 - Tenho uma pergunta que não é necessariamente relacionada a arquivos específicos no repositório.
@@ -124,7 +125,7 @@ Este mantenedor da comunidade iniciou uma discussão para dar as boas-vindas à 
 - Eu quero começar ou participar de uma conversa aberta.
 - Eu quero fazer um anúncio à minha equipe.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Como você pode ver, as discussões da equipe são muito parecidas com {% data variables.product.prodname_discussions %}. Para {% data variables.product.prodname_dotcom_the_website %}, recomendamos usar {% data variables.product.prodname_discussions %} como ponto de partida para conversas. Você pode usar {% data variables.product.prodname_discussions %} para colaborar com qualquer comunidade em {% data variables.product.prodname_dotcom %}. Se você faz parte de uma organização e gostaria de iniciar conversas dentro da sua organização ou equipe dentro dessa organização, você deverá usar discussões de equipe.
 {% endif %}
 
@@ -149,7 +150,7 @@ Para problemas, por exemplo, você pode marcar problemas com etiquetas para uma 
 
 Para pull requests, você pode criar pull requests de rascunho se as suas alterações propostas ainda forem um trabalho em andamento. Não é possível fazer o merge dos pull requests de rascunho até que estejam prontos para revisão. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)".
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Para {% data variables.product.prodname_discussions %}, você pode definir um código de conduta e fixar discussões que contenham informações importantes para sua comunidade. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 {% endif %}
 

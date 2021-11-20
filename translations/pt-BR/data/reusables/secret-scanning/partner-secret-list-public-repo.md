@@ -35,6 +35,7 @@
 | Finicity                  | Chave do aplicativo de Finicity                           |
 | Frame.io                  | Token web do JSON de Frame.io                             |
 | Frame.io                  | Token do desenvolvedor de Frame.io                        |
+| FullStory                 | FullStory API Key                                         |
 | GitHub                    | Token de acesso pessoal do GitHub                         |
 | GitHub                    | GitHub OAuth Access Token                                 |
 | GitHub                    | GitHub Refresh Token                                      |
@@ -54,6 +55,7 @@
 | Mailchimp                 | Chave da API de Mandrill                                  |
 | Mailgun                   | Chave da API de Mailgun                                   |
 | MessageBird               | Chave da API de MessageBird                               |
+| Meta                      | Facebook Access Token                                     |
 | npm                       | Token de acesso de npm                                    |
 | NuGet                     | Chave de API de NuGet                                     |
 | OpenAI                    | OpenAI API Key                                            |

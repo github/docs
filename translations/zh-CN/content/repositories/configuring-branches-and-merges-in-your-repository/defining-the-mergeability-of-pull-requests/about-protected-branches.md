@@ -21,6 +21,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 ---
@@ -42,10 +43,13 @@ topics:
 对于每个分支保护规则，您可以选择启用或禁用以下设置。
 - [合并前必需拉取请求审查](#require-pull-request-reviews-before-merging)
 - [合并前必需状态检查](#require-status-checks-before-merging)
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 - [Require conversation resolution before merging（在合并前需要对话解决）](#require-conversation-resolution-before-merging){% endif %}
 - [要求签名提交](#require-signed-commits)
 - [需要线性历史记录](#require-linear-history)
+{% ifversion fpt or ghec %}
+- [Require merge queue](#require-merge-queue)
+{% endif %}
 - [包括管理员](#include-administrators)
 - [限制谁可以推送到匹配的分支](#restrict-who-can-push-to-matching-branches)
 - [允许强制推送](#allow-force-pushes)
@@ -70,9 +74,9 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基础分支的信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。
+（可选）您可以选择在推送提交时忽略旧拉取请求批准。 如果有人将修改代码的提交推送到已批准的拉取请求，则该批准将被忽略，拉取请求无法合并。 这不适用于协作者推送不修改代码的提交，例如将基础分值合并到拉取请求的分支。 有关基础分支的信息，请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 
-（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 更多信息请参阅“[忽略拉取请求审查](/articles/dismissing-a-pull-request-review)”。
+（可选）您可以限制特定人员或团队忽略拉取请求审查的权限。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。
 
 （可选）您可以选择要求代码所有者进行审查。 如果这样做，则任何影响代码的拉取请求都必须得到代码所有者的批准，才能合并到受保护分支。
 
@@ -100,7 +104,7 @@ remote: error: Changes have been requested.
 
 有关故障排除信息，请参阅“[必需状态检查故障排除](/github/administering-a-repository/troubleshooting-required-status-checks)”。
 
-{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 %}
+{% ifversion fpt or ghes > 3.1 or ghae-issue-4382 or ghec %}
 ### 合并前需要对话解决
 
 在合并到受保护的分支之前，所有对拉取请求的评论都需要解决。 这确保所有评论在合并前都得到解决或确认。
@@ -108,11 +112,11 @@ remote: error: Changes have been requested.
 
 ### 要求签名提交
 
-在分支上启用必需提交签名时，贡献者{% ifversion fpt %}和自动程序{% endif %}只能将已经签名并验证的提交推送到分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”。
+在分支上启用必需提交签名时，贡献者{% ifversion fpt or ghec %}和自动程序{% endif %}只能将已经签名并验证的提交推送到分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”。
 
 {% note %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **注意：**
 
 * 如果您已经启用了警戒模式，这表明您的提交总是会签名，允许在需要签名提交的分支上提交 {% data variables.product.prodname_dotcom %} 识别为“部分验证”的任何提交。 有关警戒模式的更多信息，请参阅“[显示所有提交的验证状态](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)”。
@@ -124,9 +128,9 @@ remote: error: Changes have been requested.
 
 {% endnote %}
 
-如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)”。
+如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% ifversion fpt or ghec %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地{% ifversion fpt or ghec %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[在本地检出拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
 
-{% ifversion fpt %} 有关合并方法的更多信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的合并方法](/github/administering-a-repository/about-merge-methods-on-github)”。{% endif %}
+{% ifversion fpt or ghec %} 有关合并方法的更多信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的合并方法](/github/administering-a-repository/about-merge-methods-on-github)”。{% endif %}
 
 ### 需要线性历史记录
 
@@ -134,13 +138,21 @@ remote: error: Changes have been requested.
 
 在需要线性提交历史记录之前，仓库必须允许压缩合并或变基合并。 更多信息请参阅“[配置拉取请求合并](/github/administering-a-repository/configuring-pull-request-merges)”。
 
+{% ifversion fpt or ghec %}
+### Require merge queue
+
+{% data reusables.pull_requests.merge-queue-beta %}
+{% data reusables.pull_requests.merge-queue-overview %}
+{% data reusables.pull_requests.merge-queue-references %}
+
+{% endif %}
 ### 包括管理员
 
 默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 您可以启用此设置将管理员纳入受保护分支规则。
 
 ### 限制谁可以推送到匹配的分支
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 如果您的仓库为使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 的组织所拥有，您可以启用分支限制。
 {% endif %}
 

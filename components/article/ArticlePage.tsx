@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { Heading } from '@primer/components'
+import { ActionList, Heading } from '@primer/components'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -14,8 +14,7 @@ import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
-import { VersionPicker } from 'components/VersionPicker'
-import { Breadcrumbs } from 'components/Breadcrumbs'
+import { PlatformPicker } from 'components/article/PlatformPicker'
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -37,7 +36,6 @@ export const ArticlePage = () => {
     contributor,
     permissions,
     includesPlatformSpecificContent,
-    defaultPlatform,
     product,
     miniTocItems,
     currentLearningTrack,
@@ -47,12 +45,19 @@ export const ArticlePage = () => {
 
   const renderTocItem = (item: MiniTocItem) => {
     return (
-      <li key={item.contents} className={cx(item.platform, 'mb-2 lh-condensed')}>
-        <div className="mb-2 lh-condensed" dangerouslySetInnerHTML={{ __html: item.contents }} />
-        {item.items && item.items.length > 0 ? (
-          <ul className="list-style-none pl-0 f5 mb-0 ml-3">{item.items.map(renderTocItem)}</ul>
-        ) : null}
-      </li>
+      <ActionList.Item
+        as="li"
+        key={item.contents}
+        className={item.platform}
+        sx={{ listStyle: 'none', padding: '2px' }}
+      >
+        <div className={cx('lh-condensed')}>
+          <div dangerouslySetInnerHTML={{ __html: item.contents }} />
+          {item.items && item.items.length > 0 ? (
+            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
+          ) : null}
+        </div>
+      </ActionList.Item>
     )
   }
 
@@ -60,12 +65,9 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          topper={<Breadcrumbs />}
-          topperSidebar={<VersionPicker />}
+          topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              <ArticleTitle>{title}</ArticleTitle>
-
               {contributor && (
                 <Callout variant="info" className="mb-3">
                   <p>
@@ -77,7 +79,11 @@ export const ArticlePage = () => {
                 </Callout>
               )}
 
-              {intro && <Lead data-testid="lead">{intro}</Lead>}
+              {intro && (
+                <Lead data-testid="lead" data-search="lead">
+                  {intro}
+                </Lead>
+              )}
 
               {permissions && (
                 <div className="permissions-statement d-table">
@@ -88,35 +94,7 @@ export const ArticlePage = () => {
                 </div>
               )}
 
-              {includesPlatformSpecificContent && (
-                <nav
-                  className="UnderlineNav my-3"
-                  data-default-platform={defaultPlatform || undefined}
-                >
-                  <div className="UnderlineNav-body">
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" className="UnderlineNav-item platform-switcher" data-platform="mac">
-                      Mac
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                      href="#"
-                      className="UnderlineNav-item platform-switcher"
-                      data-platform="windows"
-                    >
-                      Windows
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                      href="#"
-                      className="UnderlineNav-item platform-switcher"
-                      data-platform="linux"
-                    >
-                      Linux
-                    </a>
-                  </div>
-                </nav>
-              )}
+              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
 
               {product && (
                 <Callout
@@ -140,13 +118,19 @@ export const ArticlePage = () => {
               {miniTocItems.length > 1 && (
                 <>
                   <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
-                    <a className="Link--primary" href="#in-this-article">
-                      {t('miniToc')}
-                    </a>
+                    <Link href="#in-this-article">{t('miniToc')}</Link>
                   </Heading>
-                  <ul className="list-style-none pl-0 f5 mb-0">
-                    {miniTocItems.map(renderTocItem)}
-                  </ul>
+
+                  <ActionList
+                    key={title}
+                    items={miniTocItems.map((items, i) => {
+                      return {
+                        key: title + i,
+                        text: title,
+                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
+                      }
+                    })}
+                  />
                 </>
               )}
             </>

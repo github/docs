@@ -43,6 +43,13 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
   pr-metadata:
+    # This is needed because the workflow we depend on
+    # (see on.workflow_run.workflows) might be running from pushes on
+    # main. That's because it needs to do that to popular the cache.
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' }}
+
     runs-on: ubuntu-latest
     outputs:
       number: ${{ steps.pr.outputs.number }}
@@ -251,7 +258,7 @@ jobs:
   prepare-for-deploy:
     needs: [pr-metadata, check-pr-before-prepare]
     if: ${{ needs.check-pr-before-prepare.outputs.pull_request_state == 'open' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 5
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -291,11 +298,10 @@ jobs:
       - name: Check out LFS objects
         run: git lfs checkout
 
-      - if: ${{ github.repository == 'github/docs-internal' }}
-        name: Setup node to clone early access
+      - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       # Install any dependencies that are needed for the early access script
@@ -323,14 +329,17 @@ jobs:
           name: pr_build
           path: ${{ runner.temp }}
 
-      - name: Extract user-changes to temp directory
+      # For security reasons, only extract the tar from docs-internal
+      # This allows us to add search indexes and early access content to the build
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Extract user-changes to temp directory
         run: |
-          zstd -d -q $RUNNER_TEMP/app.tar.zst -o $RUNNER_TEMP/app.tar
           mkdir $RUNNER_TEMP/app
           tar -x --file=$RUNNER_TEMP/app.tar -C "$RUNNER_TEMP/app/"
 
       # Move the LFS content into the temp directory in chunks (destructively)
-      - name: Move the LFS objects
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Move the LFS objects
         run: |
           git lfs ls-files --name-only | xargs -n 1 -I {} sh -c 'mkdir -p "$RUNNER_TEMP/app/$(dirname {})"; mv {} "$RUNNER_TEMP/app/$(dirname {})/"'
 
@@ -342,8 +351,14 @@ jobs:
           mv content/early-access "$RUNNER_TEMP/app/content/"
           mv data/early-access "$RUNNER_TEMP/app/data/"
 
-      - name: Create a gzipped archive
+      - if: ${{ github.repository == 'github/docs-internal' }}
+        name: Create a gzipped archive (docs-internal)
         run: tar -cz --file app.tar.gz "$RUNNER_TEMP/app/"
+
+      # gzip the app.tar from github/docs so we're working with the same format
+      - if: ${{ github.repository == 'github/docs' }}
+        name: Create a gzipped archive (docs)
+        run: gzip -9 < "$RUNNER_TEMP/app.tar" > app.tar.gz
 
       - name: Create a Heroku build source
         id: build-source
@@ -447,7 +462,7 @@ jobs:
   deploy:
     needs: [pr-metadata, prepare-for-deploy, check-pr-before-deploy]
     if: ${{ needs.check-pr-before-deploy.outputs.pull_request_state == 'open' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 10
     # This interrupts Build, Deploy, and pre-write Undeploy workflow runs in
     # progress for this PR branch.
@@ -461,7 +476,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
-          node-version: 16.8.x
+          node-version: 16.13.x
           cache: npm
 
       - name: Install dependencies

@@ -4,7 +4,9 @@ intro: 'Exemplos de como você pode usar {% data variables.product.prodname_acti
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_actions %} to respond to {% data variables.product.prodname_dependabot %}-created pull requests.'
 miniTocMaxHeadingLevel: 3
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.2'
 type: how_to
 topics:
   - Actions
@@ -16,6 +18,9 @@ topics:
   - Pull requests
 shortTitle: Usar o Dependabot com ações
 ---
+
+{% data reusables.dependabot.beta-security-and-version-updates %}
+{% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## Sobre {% data variables.product.prodname_dependabot %} e {% data variables.product.prodname_actions %}
 
@@ -31,6 +36,16 @@ Para fluxos de trabalho iniciados por eventos de {% data variables.product.prodn
 - Os segredos não podem ser acessados.
 
 Para obter mais informações, consulte ["Manter seus GitHub Actions e fluxos de trabalho seguro: Evitando solicitações de pwn"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
+
+{% ifversion ghes > 3.2 %}
+{% note %}
+
+**Observação:** O administrador do seu site pode substituir essas restrições para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Solucionar problemas de {% data variables.product.prodname_actions %} para a sua empresa](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#troubleshooting-failures-when-dependabot-triggers-existing-workflows)."
+
+Se as restrições forem removidas, quando um fluxo de trabalho for acionado por {% data variables.product.prodname_dependabot %}, ele terá acesso a todos os segredos que estão normalmente disponíveis. Além disso fluxos de trabalho acionados por {% data variables.product.prodname_dependabot %} podem usar as o termo `permissões` para aumentar o escopo padrão do `GITHUB_TOKEN` de acesso somente leitura.
+
+{% endnote %}
+{% endif %}
 
 ### Manipulando eventos de `pull_request`
 
@@ -119,7 +134,7 @@ name: Dependabot Trusted Workflow
 on:
   workflow_run:
     workflows: ["Dependabot Untrusted Workflow"]
-    types: 
+    types:
       - completed
 
 permissions:
@@ -243,7 +258,7 @@ jobs:
 
 ### Habilitar o merge automático em um pull request
 
-Se você quiser fazer merge automático dos seus pull requests, você poderá usar a funcionalidade de merge automático de {% data variables.product.prodname_dotcom %}. Isto permite que o pull request seja mesclado quando todos os testes e aprovações forem cumpridos com sucesso. Para obter mais informações sobre merge automático, consulte "[Fazer merge automático de um pull request"](/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
+Se você quiser fazer merge automático dos seus pull requests, você poderá usar a funcionalidade de merge automático de {% data variables.product.prodname_dotcom %}. Isto permite que o pull request seja mesclado quando todos os testes e aprovações forem cumpridos com sucesso. Para obter mais informações sobre merge automático, consulte "[Fazer merge automático de um pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
 
 Aqui está um exemplo de como habilitar o merge automático para todas as atualizações de patch para `my-dependency`:
 

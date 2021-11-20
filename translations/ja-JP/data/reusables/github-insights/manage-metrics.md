@@ -1,1 +1,0 @@
-{% data variables.product.prodname_insights %}への管理権限を持っている人は、表示されるメトリクスを管理できます。 詳しい情報については「[利用できるメトリクスとレポートの管理](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)」を参照してください。

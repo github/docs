@@ -1,7 +1,6 @@
 ---
 title: Variáveis de ambiente
 intro: '{% data variables.product.prodname_dotcom %} define as variáveis do ambiente para cada execução do fluxo de trabalho {% data variables.product.prodname_actions %}. Você também pode definir variáveis de ambiente personalizadas no seu arquivo do fluxo de trabalho.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -11,10 +10,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ## Sobre as variáveis de ambiente
 
@@ -44,7 +45,7 @@ Para usar o valor de uma variável de ambiente em um arquivo do fluxo de trabalh
 
 Se você usar a chave `executar` do arquivo de fluxo de trabalho para ler variáveis de ambiente de dentro do sistema operacional do executor (como mostrado no exemplo acima), a variável será substituída no sistema operacional do executor depois que a tarefa for enviada para o executor. Para outras partes de um arquivo de fluxo de trabalho, você deve usar o contexto `env` para ler variáveis de ambiente. Isso ocorre porque as chaves do fluxo de trabalho (como `se`) exigem que a variável seja substituída durante o processamento do fluxo de trabalho antes de ser enviada para o executor.
 
-Você também pode usar o {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV` environment file{% else %} `set-env` fluxo de trabalho{% endif %} para definir uma variável de ambiente que as seguintes etapas em um trabalho podem usar. O comando do {% ifversion fpt or ghes > 2.22 or ghae %}arquivo de ambiente{% else %} `set-env` {% endif %} pode ser usado diretamente por uma ação ou como um comando do shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
+Você também pode usar o arquivo de ambiente `GITHUB_ENV` para definir uma variável de ambiente que as etapas a seguir podem usar em um trabalho. O arquivo de ambiente pode ser usado diretamente por uma ação ou como um comando shell em um arquivo de fluxo de trabalho usando a palavra-chave `executar`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)".
 
 ## Variáveis padrão de ambiente
 
@@ -67,14 +68,10 @@ Você também pode usar o {% ifversion fpt or ghes > 2.22 or ghae %}`GITHUB_ENV`
 | `GITHUB_WORKSPACE`   | O caminho do diretório do espaço de trabalho de {% data variables.product.prodname_dotcom %} está inicialmente vazio. Por exemplo, `/home/runner/work/my-repo-name/my-repo-name`. A ação [actions/checkout](https://github.com/actions/checkout) irá fazer o check-out dos arquivos, por padrão uma cópia do seu repositório, neste diretório. |
 | `GITHUB_SHA`         | Commit SHA que acionou o fluxo de trabalho. Por exemplo, `ffac537e6cbbf934b08745a378932722df287a53`.                                                                                                                                                                                                                                           |
 | `GITHUB_REF`         | Branch ou ref tag que acionou o fluxo de trabalho. Por exemplo, `refs/heads/feature-branch-1`. Se não houver branch ou tag disponível para o tipo de evento, a variável não existirá.                                                                                                                                                          |
-| `GITHUB_HEAD_REF`    | Definir somente para eventos de pull request. O nome do branch principal.                                                                                                                                                                                                                                                                      |
-| `GITHUB_BASE_REF`    | Definir somente para eventos de pull request. O nome do branch de base.                                                                                                                                                                                                                                                                        |
-| `GITHUB_SERVER_URL`  | Retorna a URL do servidor {% data variables.product.product_name %}. Por exemplo: `https://{% data variables.product.product_url %}`.                                                                                                                                                                                                          |
-| `GITHUB_API_URL`     | Retorna a URL da API. Por exemplo: `{% data variables.product.api_url_code %}`.                                                                                                                                                                                                                                                                |
-| `GITHUB_GRAPHQL_URL` | Retorna a URL API do GraphQL. Por exemplo: `{% data variables.product.graphql_url_code %}`.                                                                                                                                                                                                                                                    |
-| `RUNNER_NAME`        | {% data reusables.actions.runner-name-description %}
-| `RUNNER_OS`          | {% data reusables.actions.runner-os-description %}
-| `RUNNER_TEMP`        | {% data reusables.actions.runner-temp-directory-description %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
+| `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} | | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} | | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %}
+{%- endif %}
+| `GITHUB_HEAD_REF` | Definido apenas para eventos de pull request. O nome do branch principal. | `GITHUB_BASE_REF` | Definido apenas para eventos de pull request. O nome do branch de base. | `GITHUB_SERVER_URL`| Retorna a URL do servidor de {% data variables.product.product_name %}. Por exemplo: `https://{% data variables.product.product_url %}`. | `GITHUB_API_URL` | Retorna a URL da API. Por exemplo: `{% data variables.product.api_url_code %}`. | `GITHUB_GRAPHQL_URL` | Retorna a URL da API do GraphQL. Por exemplo: `{% data variables.product.graphql_url_code %}`. | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %}
 {% ifversion not ghae %}| `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %}{% endif %}
 
 {% tip %}

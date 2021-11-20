@@ -8,11 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
-当整个对话没有建设性或者违反社区的行为准则{% ifversion fpt %}或 GitHub 的[社区指导方针](/articles/github-community-guidelines){% endif %}时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。
+当整个对话没有建设性或者违反社区的行为准则{% ifversion fpt or ghec %} 或 GitHub 的[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %} 时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。
 
 锁定对话会创建对仓库具有读取权限的所有人可见的时间表事件。 但对话锁定者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
 
@@ -32,7 +33,7 @@ topics:
 
 - "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt %}
+- "[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
 - “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/communities/maintaining-your-safety-on-github)”
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 - “[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”

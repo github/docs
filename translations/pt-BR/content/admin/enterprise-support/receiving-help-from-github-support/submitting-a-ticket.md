@@ -28,20 +28,14 @@ Depois de enviar sua solicitação de suporte e as informações opcionais de di
 
 ## Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
-1. Navegue até o {% data variables.contact.contact_enterprise_portal %}.
-5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
+{% data reusables.support.zendesk-old-tickets %}
 
-## Enviando um tíquete usando sua conta corporativa
+Para enviar um tíquete sobre {% data variables.product.product_location_enterprise %}, você deve ser um proprietário, gerente de cobrança ou integrante com direito ao suporte. Para obter mais informações, consulte "[Gerenciar direitos de suporte para a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Em "Ajuda {% data variables.product.prodname_enterprise %}", clique em Portal **{% data variables.contact.enterprise_support %}**. ![Link para navegar para o site de Suporte do Enterprise](/assets/images/enterprise/support/enterprise-support-link.png)
-5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
+Se você não puder efetuar o login na sua conta em {% data variables.product.prodname_dotcom_the_website %} ou não tiver direito de suporte, você ainda poderá enviar um tíquete fornecendo sua licença ou um arquivo de diagnóstico a partir do seu servidor.
+
+1. Navegue até o {% data variables.contact.contact_support_portal %}.
+{% data reusables.support.submit-a-ticket %}
 
 ## Enviar um tíquete usando o {% data variables.product.product_name %} {% data variables.enterprise.management_console %}
 
@@ -50,12 +44,8 @@ Depois de enviar sua solicitação de suporte e as informações opcionais de di
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
 5. Se você quiser incluir diagnósticos no seu ticket de suporte, em "Diagnostics" (Diagnósticos), clique em **Download diagnostic info** (Baixar informações de diagnóstico) e salve o arquivo no local. Esse arquivo será anexado ao seu tíquete de suporte. ![Botão para baixar informações de diagnóstico](/assets/images/enterprise/support/download-diagnostics-info-button.png)
-6. Em "Open Support Request" (Abrir solicitação de suporte), clique em **New support request** (Nova solicitação de suporte). ![Botão para abrir solicitação de suporte](/assets/images/enterprise/management-console/open-support-request.png)
-5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
-14. Para incluir o diagnóstico no tíquete de suporte, clique em **Add file** (Adicionar arquivo) e anexe o arquivo de diagnóstico que você baixou. ![Botão Add file (Adicionar arquivo)](/assets/images/enterprise/support/support-ticket-add-file.png)
-{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
-7. Clique em **Enviar**.
+6. Para completar o seu ticket e exibir o {% data variables.contact.enterprise_portal %}, em "Abrir pedido de suporte", clique em **Nova solicitação de suporte**. ![Botão para abrir solicitação de suporte](/assets/images/enterprise/management-console/open-support-request.png)
+{% data reusables.support.submit-a-ticket %}
 
 {% endif %}
 

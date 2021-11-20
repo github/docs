@@ -1,17 +1,17 @@
 ---
 title: アプリ
+intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
 redirect_from:
   - /v3/apps
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
-
-GitHub Apps API を使用すると、GitHub App に関する大まかな情報と、アプリケーションのインストールに関する具体的な情報を取得できます。 GitHub App の詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -29,7 +29,7 @@ REST API v3 エンドポイントのサブセットでは、GitHub App のイン
 
 ## OAuth アプリケーション API
 
-この API を使用して、OAuth アプリケーションがユーザの {% data variables.product.prodname_dotcom %} アカウントにアクセスする際に使用する OAuth トークンを管理できます。
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -45,7 +45,7 @@ Organization のすべての GitHub App インストレーションを一覧表�
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 ## Marketplace
 
 {% data variables.product.prodname_marketplace %} の詳細については、「[GitHub Marketplace](/marketplace/)」を参照してください。
@@ -66,7 +66,7 @@ Organization のすべての GitHub App インストレーションを一覧表�
 
 {% endif %}
 
-{% ifversion fpt or ghes > 2.22 or ghae %}
+{% ifversion fpt or ghes > 2.22 or ghae or ghec %}
 ## webhook
 
 A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}

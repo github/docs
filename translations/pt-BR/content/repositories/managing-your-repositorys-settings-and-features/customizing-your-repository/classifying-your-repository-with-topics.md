@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Repositories
 shortTitle: Classificar com tópicos
@@ -17,15 +18,15 @@ shortTitle: Classificar com tópicos
 
 ## Sobre tópicos
 
-Com tópicos, você pode explorar repositórios em uma área de assunto específica, encontrar projetos com os quais contribuir e descobrir novas soluções para um problema específico. Os tópicos aparecem na página principal de um repositório. É possível clicar no nome de um tópico para {% ifversion fpt %}ver tópicos relacionados e uma lista de outros repositórios classificados com esse tópico{% else %}pesquisar outros repositórios com esse tópico{% endif %}.
+Com tópicos, você pode explorar repositórios em uma área de assunto específica, encontrar projetos com os quais contribuir e descobrir novas soluções para um problema específico. Os tópicos aparecem na página principal de um repositório. É possível clicar no nome de um tópico para {% ifversion fpt or ghec %}ver tópicos relacionados e uma lista de outros repositórios classificados com esse tópico{% else %}pesquisar outros repositórios com esse tópico{% endif %}.
 
 ![Página principal do repositório de teste mostrando tópicos](/assets/images/help/repository/os-repo-with-topics.png)
 
 Para procurar os tópicos mais usados, vá para https://github.com/topics/.
 
-{% ifversion fpt %}Você pode contribuir com o conjunto de tópicos apresentados do {% data variables.product.product_name %} no repositório [github/explore](https://github.com/github/explore). {% endif %}
+{% ifversion fpt or ghec %}Você pode contribuir com o conjunto de tópicos apresentados do {% data variables.product.product_name %} no repositório [github/explore](https://github.com/github/explore). {% endif %}
 
-Os administradores de repositório podem adicionar qualquer tópico que desejarem a um repositório. Os tópicos úteis para classificar um repositório incluem a finalidade pretendida do repositório, área de assunto, comunidade ou linguagem.{% ifversion fpt %}Além disso, o {% data variables.product.product_name %} analisa o conteúdo do repositório público e gera tópicos sugeridos que os administradores de repositório podem aceitar ou rejeitar. O conteúdo do repositório privado não é analisado e não recebe sugestões de tópico.{% endif %}
+Os administradores de repositório podem adicionar qualquer tópico que desejarem a um repositório. Os tópicos úteis para classificar um repositório incluem a finalidade pretendida do repositório, área de assunto, comunidade ou linguagem.{% ifversion fpt or ghec %}Além disso, o {% data variables.product.product_name %} analisa o conteúdo do repositório público e gera tópicos sugeridos que os administradores de repositório podem aceitar ou rejeitar. O conteúdo do repositório privado não é analisado e não recebe sugestões de tópico.{% endif %}
 
 {% ifversion ghae %}Interno {% else %}Público, interna, {% endif %}e repositórios privados podem ter tópicos, embora você veja apenas repositórios privados aos quais você tem acesso nos resultados de pesquisa de tópicos.
 

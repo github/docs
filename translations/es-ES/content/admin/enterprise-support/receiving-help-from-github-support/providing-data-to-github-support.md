@@ -65,9 +65,6 @@ Después de que emites tu solicitud de soporte, podríamos pedirte que compartas
 - `configuration-logs/ghe-config.log`: registros de configuración {% data variables.product.prodname_ghe_server %}
 - `collectd/logs/collectd.log`: registros Collectd
 - `mail-logs/mail.log`: registros de entrega por correo electrónico SMTP
-{% ifversion ghes < 3.0 %}
-- `hookshot-logs/exceptions.log`: errores de entrea de Webhook
-{% endif %}
 
 Para obtener más información, consulta "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging) (Registro de auditoría".
 
