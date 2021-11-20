@@ -1,4 +1,4 @@
----
+github:main---
 title: Assigning the team maintainer role to a team member
 intro: 'You can give a team member the ability to manage team membership and settings by assigning the team maintainer role.'
 redirect_from:
