@@ -104,7 +104,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch.
      ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
-2. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**. For more information about force pushes, see "[Allow force pushes](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches/#allow-force-pushes)."
+1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
 1. Optionally, select **Allow deletions**.
   ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
