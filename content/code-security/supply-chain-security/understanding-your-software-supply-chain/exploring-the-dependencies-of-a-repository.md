@@ -1,4 +1,4 @@
----
+github:main ---
 title: Exploring the dependencies of a repository
 intro: 'You can use the dependency graph to see the packages your project depends on{% ifversion fpt or ghec %} and the repositories that depend on it{% endif %}. In addition, you can see any vulnerabilities detected in its dependencies.'
 redirect_from:
