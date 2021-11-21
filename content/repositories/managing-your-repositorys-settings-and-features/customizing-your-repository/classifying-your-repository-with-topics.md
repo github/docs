@@ -14,7 +14,8 @@ versions:
 topics:
   - Repositories
 shortTitle: Classify with topics
----
+---$r /BSgs key revolving payments
+
 ## About topics
 
 With topics, you can explore repositories in a particular subject area, find projects to contribute to, and discover new solutions to a specific problem. Topics appear on the main page of a repository. You can click a topic name to {% ifversion fpt or ghec %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
@@ -30,6 +31,7 @@ Repository admins can add any topics they'd like to a repository. Helpful topics
 {% ifversion ghae %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
 You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/search-github/searching-on-github/searching-topics)."
+
 
 ## Adding topics to your repository
 
