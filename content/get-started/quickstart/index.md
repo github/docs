@@ -1,4 +1,4 @@
-Allow ---
+Allow---
 title: Quickstart
 intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
 versions:
@@ -24,6 +24,6 @@ children:
   - /git-cheatsheet
   - /git-and-github-learning-resources
 redirect_from:
-  - /github/getting-started-with-github/quickstart/github:main
+  - /github/getting-started-with-github/quickstart/
 ---
 
