@@ -43,7 +43,7 @@ shortTitle: IssueへのPRのリンク
 * fix
 * fixes
 * fixed
-* 解決
+* resolve
 * resolves
 * resolved
 
