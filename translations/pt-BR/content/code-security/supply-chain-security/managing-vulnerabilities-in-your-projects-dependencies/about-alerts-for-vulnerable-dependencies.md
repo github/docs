@@ -59,14 +59,14 @@ Para obter uma lista dos ecossistemas para os quais o {% data variables.product.
 
 Você também pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} para todos os repositórios pertencentes à sua conta de usuário ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
-For information about access requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
+Para obter informações sobre os requisitos de acesso para ações relacionadas a {% data variables.product.prodname_dependabot_alerts %}, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)".
 
 {% data variables.product.product_name %} começa a gerar o gráfico de dependências imediatamente e gera alertas para quaisquer dependências vulneráveis assim que forem identificadas. O gráfico geralmente é preenchido em minutos, mas isso pode levar mais tempo para repositórios com muitas dependências. Para obter mais informações, consulte "[Gerenciando configurações do uso de dados de seu repositório privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)".
 {% endif %}
 
 Quando {% data variables.product.product_name %} identifica uma dependência vulnerável, geramos um alerta de {% data variables.product.prodname_dependabot %} e o exibimos {% ifversion fpt or ghec or ghes > 3.0 %} na aba Segurança do repositório e{% endif %} no gráfico de dependências do repositório. O alerta inclui {% ifversion fpt or ghec or ghes > 3.0 %} um link para o arquivo afetado no projeto, e {% endif %}informações sobre uma versão fixa. {% data variables.product.product_name %} também pode notificar os mantenedores dos repositórios afetados sobre o novo alerta de acordo com as suas preferências de notificação. Para obter mais informações, consulte "[Configurar notificações para dependências vulneráveis](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)".
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 Para repositórios em que {% data variables.product.prodname_dependabot_security_updates %} estão habilitados, o alerta também pode conter um link para um pull request para atualizar o manifesto ou arquivo de bloqueio para a versão mínima que resolve a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 {% endif %}
 
@@ -88,9 +88,9 @@ Por padrão, notificamos as pessoas com permissões de administrador nos reposit
 
 Você também pode ver todos os {% data variables.product.prodname_dependabot_alerts %} que correspondem a uma vulnerabilidade particular em {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.2 %}
 ## Leia mais
 
 - "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
-- "[Exibir e atualizar dependências vulneráveis no repositório](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Entender como o {% data variables.product.prodname_dotcom %} usa e protege seus dados](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}
+- "[Exibir e atualizar dependências vulneráveis no repositório](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}
+{% ifversion fpt or ghec %}- "[Entendendo como {% data variables.product.prodname_dotcom %} usa e protege seus dados](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}

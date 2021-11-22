@@ -30,7 +30,7 @@ shortTitle: コラボレーション
 
 ポインタファイルに関する詳しい情報については、「[{% data variables.large_files.product_name_long %}について](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)」を参照してください。
 
-大きなファイルに加えられた変更を表示するには、プルリクエストをローカルでチェックアウトしてdiffを確認します。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)」を参照してください。
+大きなファイルに加えられた変更を表示するには、プルリクエストをローカルでチェックアウトしてdiffを確認します。 詳しい情報については、「[プルリクエストをローカルでチェック アウトする](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)」を参照してください。
 
 {% ifversion fpt or ghec %}
 

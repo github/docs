@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
 ![リリースの概要](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% elsif ghes > 3.2 or ghae-issue-4972 %}
+{% elsif ghes > 3.3 or ghae-issue-4972 %}
 ![リリースの概要](/assets/images/help/releases/releases-overview-with-contributors.png)
 {% else %}
 ![リリースの概要](/assets/images/help/releases/releases-overview.png)

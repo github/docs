@@ -111,7 +111,7 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
   - **Terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
 - **Extensões** - Estas são extensões incluídas por padrão.
   - **Vscjava.vscode-java-pack** - O pacote de extensão Java fornece extensões populares para o desenvolvimento do Java para você começar.
-- **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente.
+- **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
 - **postCreateCommand** - Se você quiser executar qualquer coisa depois de chegar ao seu codespace que não está definido no arquivo Docker, você poderá fazer isso aqui.
 - **remoteUser** - Por padrão, você está executando como usuário do `vscode`, mas, opcionalmente, você pode definir isso como `root`.
 

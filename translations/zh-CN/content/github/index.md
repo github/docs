@@ -13,8 +13,6 @@ versions:
 children:
   - /copilot
   - /writing-on-github
-  - /committing-changes-to-your-project
-  - /collaborating-with-pull-requests
   - /importing-your-projects-to-github
   - /customizing-your-github-workflow
   - /extending-github

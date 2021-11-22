@@ -30,7 +30,7 @@ shortTitle: 协作
 
 有关指针文件的更多信息，请参阅“[关于 {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)”。
 
-要查看对大型文件所做的更改，请在本地检出拉取请求以查看差异。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)”。
+要查看对大型文件所做的更改，请在本地检出拉取请求以查看差异。 更多信息请参阅“[在本地检出拉取请求](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)”。
 
 {% ifversion fpt or ghec %}
 

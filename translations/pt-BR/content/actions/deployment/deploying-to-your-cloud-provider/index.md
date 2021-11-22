@@ -1,10 +1,10 @@
 ---
-title: Deploying to your cloud provider
-shortTitle: Deploying to your cloud provider
-intro: 'You can deploy to various cloud providers, such as AWS, Azure, and GKE.'
+title: Fazendo a implantação no seu provedor de nuvem
+shortTitle: Fazendo a implantação no seu provedor de nuvem
+intro: 'Você pode fazer a implantação em vários provedores de nuvem como, por exemplo, AWS, Azure e GKE.'
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 children:
   - /deploying-to-amazon-elastic-container-service

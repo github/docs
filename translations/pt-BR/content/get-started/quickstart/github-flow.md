@@ -89,7 +89,7 @@ Você pode continuar a fazer commit e push das alterações em resposta às revi
 
 ### Fazer merge do seu pull request
 
-Depois que seu pull request for aprovado, faça merge do seu pull request. Isso fará o merge automático do seu branch para que suas alterações apareçam no branch padrão. {% data variables.product.prodname_dotcom %} mantém o histórico de comentários e commits no pull request para ajudar futuros contribuidores a entender suas alterações. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
+Depois que seu pull request for aprovado, faça merge do seu pull request. Isso fará o merge automático do seu branch para que suas alterações apareçam no branch padrão. {% data variables.product.prodname_dotcom %} mantém o histórico de comentários e commits no pull request para ajudar futuros contribuidores a entender suas alterações. Para obter mais informações, consulte "[Fazer merge de uma pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)".
 
 {% data variables.product.prodname_dotcom %} dirá se o seu pull request possui conflitos que precisam ser resolvidos antes do merge. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."
 

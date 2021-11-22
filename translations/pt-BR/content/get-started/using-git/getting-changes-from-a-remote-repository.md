@@ -74,7 +74,7 @@ $ git pull <em>remotename</em> <em>branchname</em>
 # Captura atualizações online e faz merge delas em seu trabalho local
 ```
 
-Você deve garantir que fez commit de seu trabalho local antes de executar o comando `pull`, pois `pull` faz um merge nas alterações recuperadas. Caso se depare com [um conflito de merge](/articles/resolving-a-merge-conflict-using-the-command-line) que não consegue resolver, ou se decidir interromper o merge, é possível usar `git merge --abort` para o branch voltar onde estava antes de você fazer o pull.
+Você deve garantir que fez commit de seu trabalho local antes de executar o comando `pull`, pois `pull` faz um merge nas alterações recuperadas. If you run into \[a merge conflict\](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line you cannot resolve, or if you decide to quit the merge, you can use `git merge --abort` to take the branch back to where it was in before you pulled.
 
 ## Leia mais
 
