@@ -35,7 +35,7 @@ topics:
 
 企业所有者可以完全控制企业，并可以采取所有操作，包括：
 - 管理管理员
-- {% ifversion ghec %}添加和删除{% elsif ghae or ghes %}管理{% endif %}{% elsif ghae or ghes %}{% endif %}企业中的组织{% ifversion ghec %}。
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise
 - 管理企业设置
 - 在组织范围内强制实施政策
 {% ifversion ghec %}- 管理帐单设置{% endif %}

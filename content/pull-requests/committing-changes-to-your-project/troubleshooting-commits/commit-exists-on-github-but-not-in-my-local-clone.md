@@ -84,7 +84,7 @@ $ git fetch upstream recover-B
 
 ## Avoid force pushes
 
-Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository.
+Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository. If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
 
 ## Further reading
 

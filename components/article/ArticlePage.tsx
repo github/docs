@@ -46,7 +46,7 @@ export const ArticlePage = () => {
   const renderTocItem = (item: MiniTocItem) => {
     return (
       <ActionList.Item
-        as="div"
+        as="li"
         key={item.contents}
         className={item.platform}
         sx={{ listStyle: 'none', padding: '2px' }}
@@ -123,9 +123,9 @@ export const ArticlePage = () => {
 
                   <ActionList
                     key={title}
-                    items={miniTocItems.map((items) => {
+                    items={miniTocItems.map((items, i) => {
                       return {
-                        key: title,
+                        key: title + i,
                         text: title,
                         renderItem: () => <ul>{renderTocItem(items)}</ul>,
                       }

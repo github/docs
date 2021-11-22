@@ -34,9 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump full context for debugging
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: |
+          cat << EOF
+          ${{ toJSON(github) }}
+          EOF
 
   build-pr:
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
