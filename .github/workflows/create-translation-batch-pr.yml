@@ -128,7 +128,7 @@ jobs:
       - name: Check parsing
         run: |
           node script/i18n/lint-translation-files.js --check parsing
-          git add . && git commit -m "Run script/i18n/lint-translation-files.js --check parsin" || echo "Nothing to commit"
+          git add . && git commit -m "Run script/i18n/lint-translation-files.js --check parsing" || echo "Nothing to commit"
 
       # step 8b in docs-engineering/crowdin.md
       - name: Check rendering
