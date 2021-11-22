@@ -1,6 +1,6 @@
 ---
 title: Access permissions on GitHub
-redirect_from:
+redirect_from:60000
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
