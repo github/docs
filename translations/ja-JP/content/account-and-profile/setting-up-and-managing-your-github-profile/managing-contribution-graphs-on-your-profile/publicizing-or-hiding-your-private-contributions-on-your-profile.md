@@ -1,6 +1,6 @@
 ---
 title: プライベートコントリビューションをプロフィールで公開または非公開にする
-intro: '{% data variables.product.product_name %} プロフィールには、過去 1 年間のリポジトリコントリビューションのグラフが表示されます。 パブリックリポジトリ{% endif %}からのアクティビティに加えて、{% ifversion fpt or ghes or ghec %}プライベートおよび内部{% else %}プライベート{% endif %}リポジトリ{% ifversion fpt or ghes or ghec %}からの匿名化されたアクティビティを表示するように選択できます。'
+intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from {% ifversion fpt or ghes or ghec %}private and internal{% else %}private{% endif %} repositories{% ifversion fpt or ghes or ghec %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
   - /github/setting-up-and-managing-your-github-profile/publicizing-or-hiding-your-private-contributions-on-your-profile
