@@ -13,7 +13,7 @@ authors:
 type: tutorial
 topics:
   - CI
-  - Powershell
+  - PowerShell
 shortTitle: 构建和测试 PowerShell
 ---
 

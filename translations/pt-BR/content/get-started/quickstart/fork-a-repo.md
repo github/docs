@@ -169,7 +169,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
   > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
-Agora é possível manter a bifurcação sincronizada com o repositório upstream usando apenas alguns comandos Git. Para obter mais informações, consulte "[Sincronizar uma bifurcação](/articles/syncing-a-fork)".
+Agora é possível manter a bifurcação sincronizada com o repositório upstream usando apenas alguns comandos Git. Para obter mais informações, consulte "[Sincronizar uma bifurcação](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
 {% endwebui %}
 
@@ -196,7 +196,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 Você pode fazer alterações em uma bifurcação, incluindo:
 
 - **Criar branches: ** os [* branches*](/articles/creating-and-deleting-branches-within-your-repository/) permitem desenvolver novos recursos ou testar novas ideias sem colocar o projeto atual em risco.
-- **Abrir pull requests:** caso queira fazer contribuições no repositório original, ao enviar uma [pull request](/articles/about-pull-requests), você pode solicitar que o autor do repositório original faça pull de sua bifurcação no repositório dele.
+- **Abrir pull requests:** caso queira fazer contribuições no repositório original, ao enviar uma [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests), você pode solicitar que o autor do repositório original faça pull de sua bifurcação no repositório dele.
 
 ## Localize outro repositório para bifurcar
 Bifurque um repositório para começar a contribuir com um projeto. {% data reusables.repositories.you-can-fork %}

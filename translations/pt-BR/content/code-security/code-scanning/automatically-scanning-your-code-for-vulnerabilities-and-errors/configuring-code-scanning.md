@@ -88,13 +88,13 @@ Se você realizar uma varredura de pull requests, os resultados aparecerão como
 {% ifversion fpt or ghes > 3.1 or ghae-next or ghec %}
 ### Definindo as severidades que causam falha na verificação de pull request
 
-Por padrão, apenas os alertas com o nível de  gravidade `Error`{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} ou nível de segurança `Critical` ou `High`{% endif %} farão com que ocorra uma falha no pull request e uma verificação será bem-sucedida com alertas de menor gravidade. É possível alterar os níveis de gravide dos alertas{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %} e de gravidades de segurança{% endif %} que causarão uma falha de verificação de pull request nas configurações do seu repositório. Para obter mais informações sobre os níveis de gravidade, consulte "[Gerenciar alertas de digitalização de códigos para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details).
+Por padrão, apenas os alertas com o nível de  gravidade `Error`{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %} ou nível de segurança `Critical` ou `High`{% endif %} farão com que ocorra uma falha no pull request e uma verificação será bem-sucedida com alertas de menor gravidade. É possível alterar os níveis de gravide dos alertas{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %} e de gravidades de segurança{% endif %} que causarão uma falha de verificação de pull request nas configurações do seu repositório. Para obter mais informações sobre os níveis de gravidade, consulte "[Gerenciar alertas de digitalização de códigos para o seu repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#about-alerts-details).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Em "Varredura de código", à direita de "Verificar falha", use o menu suspenso para selecionar o nível de gravidade que você gostaria de fazer com que um pull request falhasse.
-{% ifversion fpt or ghes > 3.1  or ghae-issue-4697 or ghec %}
+{% ifversion fpt or ghes > 3.1  or ghae-next or ghec %}
 ![Verificar falha de configuração](/assets/images/help/repository/code-scanning-check-failure-setting.png)
 {% else %}
 ![Verificar falha de configuração](/assets/images/help/repository/code-scanning-check-failure-setting-ghae.png)
@@ -188,7 +188,7 @@ Em geral você não precisa se preocupar com o lugar em que {% data variables.pr
 ```
 {% endraw %}
 
-O {% data variables.product.prodname_codeql_workflow %} esperará que o caminho fornecido no `db-location` tenha permissão de gravação, e não exista ou seja um diretório vazio. Ao usar este parâmetro em um trabalho em execução em um executor auto-hospedado ou usando um contêiner Docker, é responsabilidade do usuário garantir que o diretório escolhido seja limpo entre execuções, ou que os bancos de dados sejam removidos depois de deixarem de ser necessários. Isto não é necessário para trabalhos em execução em executores auto-hospedados {% data variables.product.prodname_dotcom %}, que obtêm uma instância nova e um sistema de arquivos limpo toda vez que forem executados. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+O {% data variables.product.prodname_codeql_workflow %} esperará que o caminho fornecido no `db-location` tenha permissão de gravação, e não exista ou seja um diretório vazio. Ao usar este parâmetro em um trabalho em execução em um executor auto-hospedado ou usando um contêiner Docker, é responsabilidade do usuário garantir que o diretório escolhido seja limpo entre execuções, ou que os bancos de dados sejam removidos depois de deixarem de ser necessários. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
 Se este parâmetro não for usado, o {% data variables.product.prodname_codeql_workflow %} criará bancos de dados em um local temporário da sua própria escolha.
 {% endif %}
@@ -442,7 +442,7 @@ Se você desejar apenas executar consultas personalizadas, você poderá desabil
 
 ### Especificar diretórios para serem varridos
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
+Para as linguagens interpretadas com as quais {% data variables.product.prodname_codeql %} é compatível (Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}, Ruby{% endif %} e JavaScript/TypeScript), você pode restringir {% data variables.product.prodname_code_scanning %} para arquivos em diretórios específicos adicionando uma matriz `caminhos` matriz ao arquivo de configuração. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
 
 ``` yaml
 paths:

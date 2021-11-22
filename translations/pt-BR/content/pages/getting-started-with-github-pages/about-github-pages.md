@@ -90,15 +90,18 @@ O {% data variables.product.prodname_pages %} usará o Jekyll para criar seu sit
 
 O {% data variables.product.prodname_pages %} não aceita linguagens de servidor como PHP, Ruby ou Python.
 
-## Diretrizes para usar o {% data variables.product.prodname_pages %}
+## Limits on use of {% data variables.product.prodname_pages %}
 
 {% ifversion fpt or ghec %}
-- Os sites do {% data variables.product.prodname_pages %} criados após 15 de junho e que usam domínios do `github.io` são disponibilizados por HTTPS. Se você criou seu site ante de 15 de junho de 2016, é possível habilitar o suporte ao HTTPS para tráfego no seu site. Para obter mais informações, consulte "[Proteger seu {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
-- {% data reusables.pages.no_sensitive_data_pages %}
-- O uso que você faz do {% data variables.product.prodname_pages %} está sujeito aos [Termos de serviço do GitHub](/free-pro-team@latest/github/site-policy/github-terms-of-service/), inclusive a proibição de revenda.
+Os sites do {% data variables.product.prodname_pages %} criados após 15 de junho e que usam domínios do `github.io` são disponibilizados por HTTPS. Se você criou seu site ante de 15 de junho de 2016, é possível habilitar o suporte ao HTTPS para tráfego no seu site. Para obter mais informações, consulte "[Proteger seu {% data variables.product.prodname_pages %} com HTTPS](/articles/securing-your-github-pages-site-with-https)".
+
+### Usos proibidos
+{% endif %}
+O {% data variables.product.prodname_pages %} não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS). {% data reusables.pages.no_sensitive_data_pages %}
+
+In addition, your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/), including the restrictions on get rich quick schemes, sexually obscene content, and violent or threatening content or activity.
 
 ### Limites de uso
-{% endif %}
 Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao seguintes limites de uso:
 
   - Os repositórios de origem do {% data variables.product.prodname_pages %} têm um limite recomendado de 1 GB.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Qual é a minha cota de disco?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
@@ -109,11 +112,6 @@ Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao segui
 
 Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou você receba um e-mail formal do {% data variables.contact.contact_support %} sugerindo estratégias para reduzir o impacto do site em nossos servidores, como colocar uma rede de distribuição de conteúdo (CDN, Content Distribution Network) de terceiros na frente do site, usar outros recursos do {% data variables.product.prodname_dotcom %}, como versões, ou migrar para outro serviço de hospedagem que possa atender melhor às suas necessidades.
 
-### Usos proibidos
-
-O {% data variables.product.prodname_pages %} não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS).
-
-Além disso, {% data variables.product.prodname_dotcom %} não permite que {% data variables.product.prodname_pages %} seja usado para certos propósitos ou atividades. Para uma lista de usos proibidos, consulte "[Termos Adicionais do Produto de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_pages %}](/free-pro-team@latest/github/site-policy/github-terms-for-additional-products-and-features#pages)".
 {% endif %}
 
 ## Tipos de MIME no {% data variables.product.prodname_pages %}

@@ -58,8 +58,14 @@ jobs:
             syncs up the GraphQL data in this repo.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
             If CI does not pass or other problems arise, contact #docs-engineering on slack."
-          labels: automerge,autoupdate
           branch: graphql-schema-update
+
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: node .github/actions-scripts/enable-automerge.js
 
       - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Delete remote branch (if previous steps failed)
@@ -75,7 +81,7 @@ jobs:
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
-        if: failure()
+        if: ${{ failure() && env.FREEZE != 'true' }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,6 +1,5 @@
 ---
-#TODO: Replace with support.github.com once portal is deprecated.
-contact_ent_support: '[Suporte do GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us) ou [Suporte do GitHub Premium](https://premium.githubsupport.com)'
+contact_ent_support: '[GitHub Enterprise Support](https://support.github.com/contact?tags=docs-generic)'
 contact_support: >-
   {% ifversion fpt or ghec %}[GitHub Support](https://support.github.com/contact?tags=docs-generic){% elsif ghes %}your site administrator{% elsif ghae %}your enterprise owner{% endif %}
 report_abuse: >-
@@ -19,9 +18,9 @@ enterprise_support: 'Suporte do GitHub Enterprise'
 github_support: 'Suporte do GitHub'
 #The team that provides Premium Support
 premium_support: 'Suporte do GitHub Premium'
-#Enterprise Support portal
-enterprise_portal: 'Portal de suporte do Enterprise GitHub'
-contact_enterprise_portal: '[Portal de suporte do Enterprise GitHub](https://enterprise.githubsupport.com/hc/en-us)'
+#Enterprise Support portal (previously the Zendesk portal at enterprise.githubsupport.com)
+enterprise_portal: 'Portal de suporte do GitHub'
+contact_enterprise_portal: '[Portal de suporte do GitHub](https://support.github.com/contact?tags=docs-generic)'
 #Azure support (GitHub AE) portal
 ae_azure_portal: 'Portal de suporte do Azure'
 contact_ae_portal: '[Portal de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'

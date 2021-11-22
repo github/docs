@@ -4,6 +4,39 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `RequiredStatusCheckDescription` was added",
+          "Type `RequiredStatusCheckInput` was added",
+          "Field `requiredStatusChecks` was added to object type `BranchProtectionRule`",
+          "Input field `requiredStatusChecks` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Input field `requiredStatusChecks` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Argument `followRenames: Boolean` added to field `Organization.repository`",
+          "Argument `followRenames: Boolean` added to field `Query.repository`",
+          "Argument `followRenames: Boolean` added to field `RepositoryOwner.repository`",
+          "Argument `followRenames: Boolean` added to field `User.repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-11-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `UpdatePullRequestBranchInput` was added",
           "Type `UpdatePullRequestBranchPayload` was added",
           "Field `updatePullRequestBranch` was added to object type `Mutation`"
