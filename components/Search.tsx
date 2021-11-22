@@ -2,16 +2,17 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
+import { ActionList, Label, Overlay } from '@primer/components'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
+import { Link } from 'components/Link'
 import { useLanguages } from './context/LanguagesContext'
 
 import styles from './Search.module.scss'
-import { ActionList, Label, Link, Overlay } from '@primer/components'
 
 type SearchResult = {
   url: string
@@ -170,9 +171,11 @@ export function Search({
         id="search-results-container"
         className={cx(
           'z-1 pb-5 px-3',
-          isHeaderSearch && 'pt-9',
+          isHeaderSearch &&
+            'pt-9 color-bg-default color-shadow-medium position-absolute top-0 right-0',
           styles.resultsContainer,
           isHeaderSearch && styles.resultsContainerHeader,
+          query ? 'd-block' : 'd-none',
           query && styles.resultsContainerOpen
         )}
       >
@@ -189,7 +192,13 @@ export function Search({
       </div>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={cx('-z-1', isHeaderSearch && query ? styles.headerSearchOpen : 'd-none')}
+        className={cx(
+          '-z-1',
+          isHeaderSearch && query
+            ? 'position-fixed top-0 right-0 bottom-0 left-0 d-block'
+            : 'd-none',
+          isHeaderSearch && query && styles.headerSearchOpen
+        )}
         onClick={closeSearch}
       />
     </>
@@ -210,7 +219,8 @@ export function Search({
               variant === 'expanded' && 'py-3',
               isHeaderSearch && styles.searchInputHeader,
               !isHeaderSearch && 'width-full',
-              isHeaderSearch && query && styles.searchInputExpanded
+              isHeaderSearch && query && styles.searchInputExpanded,
+              isHeaderSearch && query && 'position-absolute top-0 right-0'
             )}
             style={{
               background: `var(--color-canvas-default) url("/assets/images/octicons/search-${iconSize}.svg") no-repeat ${
@@ -325,7 +335,11 @@ function ShowSearchResults({
     const ActionListResults = (
       <div
         data-testid="search-results"
-        className={cx('mt-3', isHeaderSearch && styles.headerSearchResults)}
+        className={cx(
+          'mt-3',
+          isHeaderSearch && styles.headerSearchResults,
+          isHeaderSearch && 'overflow-auto'
+        )}
       >
         <div className="my-4">
           <p className="mx-4">
@@ -372,7 +386,7 @@ function ShowSearchResults({
                           </small>
                         )}
                         <div
-                          className={cx(styles.searchResultTitle, 'mt-2 d-block f4 text-semibold')}
+                          className={cx('mt-2 d-block f4 text-semibold')}
                           dangerouslySetInnerHTML={{
                             __html: title,
                           }}

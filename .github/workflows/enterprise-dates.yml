@@ -64,13 +64,13 @@ jobs:
             "Hello! The GitHub Enterprise Server release dates have changed.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
             If CI does not pass or other problems arise, contact #docs-engineering on slack.\n\nThis PR was 🤖-crafted by `.github/workflows/enterprise-dates.yml`. 🧶"
-          labels: autoupdate
           branch: enterprise-server-dates-update
           delete-branch: true
 
       - name: Enable GitHub auto-merge
         if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         env:
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
         run: node .github/actions-scripts/enable-automerge.js
 

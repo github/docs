@@ -1,12 +1,23 @@
 import { getOctokit } from '@actions/github'
-const token = process.env.GITHUB_TOKEN
-const prNumber = process.env.AUTOMERGE_PR_NUMBER
-const github = getOctokit(token)
 
 main()
 async function main() {
-  const pull = await github.pulls.get({
-    ...context.repo,
+  const [org, repo] = process.env.GITHUB_REPOSITORY.split('/')
+  if (!org || !repo) {
+    throw new Error('GITHUB_REPOSITORY environment variable not set')
+  }
+  const prNumber = process.env.AUTOMERGE_PR_NUMBER
+  if (!prNumber) {
+    throw new Error(`AUTOMERGE_PR_NUMBER environment variable not set`)
+  }
+  const token = process.env.GITHUB_TOKEN
+  if (!token) {
+    throw new Error(`GITHUB_TOKEN environment variable not set`)
+  }
+  const github = getOctokit(token)
+  const pull = await github.rest.pulls.get({
+    owner: org,
+    repo: repo,
     pull_number: parseInt(prNumber),
   })
 
