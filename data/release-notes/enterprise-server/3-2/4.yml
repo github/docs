@@ -5,7 +5,7 @@ sections:
   bugs:
     - Running `ghe-repl-start` or `ghe-repl-status` would sometimes return errors connecting to the database when GitHub Actions was enabled.
     - Pre-receive hooks would fail due to undefined `PATH`.
-    - Running `ghe-repl-setup` would return an error like `cannot create directory ‘/data/user/elasticsearch’: File exists` if the instance had previously been configured as a replica.
+    - Running `ghe-repl-setup` would return an error like "cannot create directory `/data/user/elasticsearch`:File exists" if the instance had previously been configured as a replica.
     - Running `ghe-support-bundle` returned an error like `integer expression expected`.
     - After setting up a high availability replica, `ghe-repl-status` included an error in the output like `unexpected unclosed action in command`.
     - In large GHES Cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
