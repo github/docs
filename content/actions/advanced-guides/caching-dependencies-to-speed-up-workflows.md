@@ -23,11 +23,34 @@ Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a c
 
 To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
 
-If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
+If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
 
-To cache and restore dependencies for npm, Yarn, or pnpm, you can use the [`actions/setup-node` action](https://github.com/actions/setup-node).
-
-Gradle and Maven caching is available with [`actions/setup-java` action](https://github.com/actions/setup-java).
+<table>
+<thead>
+  <tr>
+    <th>Package managers</th>
+    <th>setup-* action for caching</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>npm, yarn, pnpm</td>
+    <td><a href="https://github.com/actions/setup-node">setup-node</a></td>
+  </tr>
+  <tr>
+    <td>pip, pipenv</td>
+    <td><a href="https://github.com/actions/setup-python">setup-python</a></td>
+  </tr>
+  <tr>
+    <td>gradle, maven</td>
+    <td><a href="https://github.com/actions/setup-java">setup-java</a></td>
+  </tr>
+  <tr>
+    <td>ruby gems</td>
+    <td><a href="https://github.com/ruby/setup-ruby">setup-ruby</a></td>
+  </tr>
+</tbody>
+</table>
 
 {% warning %}
 
