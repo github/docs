@@ -57,7 +57,7 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
@@ -118,7 +118,7 @@ The default permissions can also be configured in the organization settings. If 
 
 {% endnote %}
 
-Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)." 
+Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
 
 To configure whether workflows in an internal repository can be accessed from outside the repository:
 
@@ -128,8 +128,8 @@ To configure whether workflows in an internal repository can be accessed from ou
 1. Under **Access**, choose one of the access settings:
    ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
    * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
-   * **Accessible by any repository in the organization** - Workflows in other repositories can use workflows in this repository as long as they are part of the same organization.
-   * **Accessible by any repository in the enterprise** - Workflows in other repositories can use workflows in this repository as long as they are part of the same enterprise.
+   * **Repositories in the &lt;organization name&gt; organization can access** - Workflows in other repositories can use workflows in this repository if they belong to the same organization and their visibility is private or internal.
+   * **Repositories in any organization belong to the &lt;enterprise name&gt; enterprise can access** - Workflows in other repositories can use workflows in this repository if they belong to the same enterprise and their visibility is private or internal.
 1. Click **Save** to apply the settings.
 {% endif %}
 
