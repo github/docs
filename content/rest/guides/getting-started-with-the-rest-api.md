@@ -65,7 +65,7 @@ Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/2 200 
+> HTTP/2 200
 > server: GitHub.com
 > date: Thu, 08 Jul 2021 07:04:08 GMT
 > content-type: application/json; charset=utf-8
@@ -250,7 +250,7 @@ The information returned from these calls will depend on which scopes our token 
 
 {% ifversion not ghae %}
 * A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on github.com.{% endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% else %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% endif %}{% ifversion ghec or ghes %}, {% endif %}{% ifversion ghec or ghes or ghae %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
 
 As the [docs][repos-api] indicate, these methods take a `type` parameter that
 can filter the repositories returned based on what type of access the user has
