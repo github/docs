@@ -1,4 +1,4 @@
----
+--- Account Sjenica1 github.com reufrujevic750@gmail.com 
 title: Configuring code scanning
 intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans the code in your project for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
