@@ -1,28 +1,28 @@
-date: 2021-11-23
+date: '2021-11-23'
 sections:
   security_fixes:
-    - Packages have been updated to the latest security versions.
+    - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/27499, https://github.com/github/enterprise2/pull/27446 {% endcomment %}'
   bugs:
-    - Running `ghe-repl-start` or `ghe-repl-status` would sometimes return errors connecting to the database when GitHub Actions was enabled.
-    - Pre-receive hooks would fail due to undefined `PATH`.
-    - Running `ghe-repl-setup` would return an error "cannot create directory /data/user/elasticsearch: File exists" if the instance had previously been configured as a replica.
-    - Running `ghe-support-bundle` returned an error `integer expression expected`.
-    - After setting up a high availability replica, `ghe-repl-status` included an error in the output `unexpected unclosed action in command`.
-    - In large GHES Cluster environments, the authentication backend could be unavailable on a subset of frontend nodes.
-    - Some critical services may not have been available on backend nodes in GHES Cluster.
-    - The repository permissions to the user returned by the `/repos` API would not return the full list.
-    - The `childTeams` connection on the `Team` object in the GraphQL schema produced incorrect results under some circumstances.
-    - In a high availability configuration, repository maintenance always showed up as failed in stafftools, even when it succeeded.
-    - User defined patterns would not detect secrets in files like `package.json` or `yarn.lock`.
+    - 'Running `ghe-repl-start` or `ghe-repl-status` would sometimes return errors connecting to the database when GitHub Actions was enabled. {% comment %} https://github.com/github/enterprise2/pull/27451, https://github.com/github/enterprise2/pull/27439 {% endcomment %}'
+    - 'Pre-receive hooks would fail due to undefined `PATH`. {% comment %} https://github.com/github/enterprise2/pull/27479, https://github.com/github/enterprise2/pull/27418 {% endcomment %}'
+    - 'Running `ghe-repl-setup` would return an error: `cannot create directory ‘/data/user/elasticsearch’: File exists` if the instance had previously been configured as a replica. {% comment %} https://github.com/github/enterprise2/pull/27483, https://github.com/github/enterprise2/pull/27475 {% endcomment %}'
+    - '`ghe-support-bundle` returned an error: `integer expression expected`. {% comment %} https://github.com/github/enterprise2/pull/27532, https://github.com/github/enterprise2/pull/27456 {% endcomment %}'
+    - 'After setting up a high availability replica, `ghe-repl-status` included an error in the output: `unexpected unclosed action in command`. {% comment %} https://github.com/github/enterprise2/pull/27539, https://github.com/github/enterprise2/pull/27526 {% endcomment %}'
+    - 'In large GHES Cluster environments, the authentication backend could be unavailable on a subset of frontend nodes. {% comment %} https://github.com/github/enterprise2/pull/27543, https://github.com/github/enterprise2/pull/27459 {% endcomment %}'
+    - 'Some critical services may not have been available on backend nodes in GHES Cluster. {% comment %} https://github.com/github/enterprise2/pull/27560, https://github.com/github/enterprise2/pull/27485 {% endcomment %}'
+    - 'The repository permissions to the user returned by the `/repos` API would not return the full list. {% comment %} https://github.com/github/github/pull/199756, https://github.com/github/github/pull/197915 {% endcomment %}'
+    - 'The `childTeams` connection on the `Team` object in the GraphQL schema produced incorrect results under some circumstances. {% comment %} https://github.com/github/github/pull/200877 {% endcomment %}'
+    - 'In a high availability configuration, repository maintenance always showed up as failed in stafftools, even when it succeeded. {% comment %} https://github.com/github/github/pull/200912, https://github.com/github/github/pull/200880 {% endcomment %}'
+    - 'User defined patterns would not detect secrets in files like `package.json` or `yarn.lock`. {% comment %} https://github.com/github/token-scanning-service/pull/1236, https://github.com/github/token-scanning-service/pull/1234 {% endcomment %}'
   changes:
-    - An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option.
-    - Upgrade collectd to latest version 5.12.0.
-    - We have added extra text to the admin console to remind users about the mobile apps data collection for experience improvement purposes.
+    - 'An additional outer layer of `gzip` compression when creating a cluster support bundle with `ghe-cluster-suport-bundle` is now turned off by default. This outer compression can optionally be applied with the `ghe-cluster-suport-bundle -c` command line option. {% comment %} https://github.com/github/enterprise2/pull/27472, https://github.com/github/enterprise2/pull/27440 {% endcomment %}'
+    - 'Upgrade collectd to latest version 5.12.0. {% comment %} https://github.com/github/enterprise2/pull/27505, https://github.com/github/enterprise2/pull/27492, https://github.com/github/brew2deb/pull/2167 {% endcomment %}'
+    - 'We have added extra text to the admin console to remind users about the mobile apps'' data collection for experience improvement purposes. {% comment %} https://github.com/github/enterprise2/pull/27536, https://github.com/github/enterprise2/pull/27493 {% endcomment %}'
   known_issues:
-    - On a freshly set up  without any users, an attacker could create the first admin user.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blobs file path is longer than 255 characters.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
-    - The  npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
