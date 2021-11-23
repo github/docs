@@ -679,16 +679,28 @@ describe('lint yaml content', () => {
   if (ymlToLint.length < 1) return
   describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary, isEarlyAccess, ifversionConditionals, ifConditionals
+    // This variable is used to determine if the file was parsed successfully.
+    // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
+    // `false` is intentionally chosen since `null` and `undefined` are valid return values.
+    let dictionaryError = false
 
     beforeAll(async () => {
       const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-      dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      try {
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      } catch (error) {
+        dictionaryError = error
+      }
 
       isEarlyAccess = yamlRelPath.split('/').includes('early-access')
 
       ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
 
       ifConditionals = getLiquidConditionals(fileContents, 'if')
+    })
+
+    test('it can be parsed as a single yaml document', () => {
+      expect(dictionaryError).toBe(false)
     })
 
     test('ifversion conditionals are valid in yaml', async () => {
@@ -907,10 +919,19 @@ describe('lint GHES release notes', () => {
   if (ghesReleaseNotesToLint.length < 1) return
   describe.each(ghesReleaseNotesToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary
+    let dictionaryError = false
 
     beforeAll(async () => {
       const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-      dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      try {
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      } catch (error) {
+        dictionaryError = error
+      }
+    })
+
+    it('can be parsed as a single yaml document', () => {
+      expect(dictionaryError).toBe(false)
     })
 
     it('matches the schema', () => {
@@ -954,10 +975,19 @@ describe('lint GHAE release notes', () => {
   const currentWeeksFound = []
   describe.each(ghaeReleaseNotesToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary
+    let dictionaryError = false
 
     beforeAll(async () => {
       const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-      dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      try {
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      } catch (error) {
+        dictionaryError = error
+      }
+    })
+
+    it('can be parsed as a single yaml document', () => {
+      expect(dictionaryError).toBe(false)
     })
 
     it('matches the schema', () => {
@@ -1008,10 +1038,19 @@ describe('lint learning tracks', () => {
   if (learningTracksToLint.length < 1) return
   describe.each(learningTracksToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary
+    let dictionaryError = false
 
     beforeAll(async () => {
       const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-      dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      try {
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      } catch (error) {
+        dictionaryError = error
+      }
+    })
+
+    it('can be parsed as a single yaml document', () => {
+      expect(dictionaryError).toBe(false)
     })
 
     it('matches the schema', () => {
@@ -1083,10 +1122,19 @@ describe('lint feature versions', () => {
   if (featureVersionsToLint.length < 1) return
   describe.each(featureVersionsToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary
+    let dictionaryError = false
 
     beforeAll(async () => {
       const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-      dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      try {
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      } catch (error) {
+        dictionaryError = error
+      }
+    })
+
+    it('can be parsed as a single yaml document', () => {
+      expect(dictionaryError).toBe(false)
     })
 
     it('matches the schema', () => {
