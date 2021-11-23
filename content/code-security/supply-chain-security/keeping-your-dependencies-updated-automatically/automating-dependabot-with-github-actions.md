@@ -179,14 +179,14 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
-        id: metadata
+        id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.1.1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       # The following properties are now available:
-      #  - steps.metadata.outputs.dependency-names
-      #  - steps.metadata.outputs.dependency-type
-      #  - steps.metadata.outputs.update-type      
+      #  - steps.dependabot-metadata.outputs.dependency-names
+      #  - steps.dependabot-metadata.outputs.dependency-type
+      #  - steps.dependabot-metadata.outputs.update-type      
 ```
 {% endraw %}
 
@@ -214,12 +214,12 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
-        id: metadata
+        id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.1.1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Add a label for all production dependencies
-        if: ${{ steps.metadata.outputs.dependency-type == 'direct:production' }}
+        if: ${{ steps.dependabot-metadata.outputs.dependency-type == 'direct:production' }}
         run: gh pr edit "$PR_URL" --add-label "production"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
@@ -244,7 +244,7 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
-        id: metadata
+        id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.1.1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
@@ -277,12 +277,12 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
-        id: metadata
+        id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.1.1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs
-        if: ${{contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        if: ${{contains(steps.dependabot-metadata.outputs.dependency-names, 'my-dependency') && steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch'}}
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
