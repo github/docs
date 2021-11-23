@@ -128,6 +128,8 @@ Some extra configuration might be required to use actions from {% data variables
 
 The self-hosted runner polls {% data variables.product.product_name %} to retrieve application updates and to check if any jobs are queued for processing. The self-hosted runner uses a HTTPS _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
+{% data reusables.actions.self-hosted-runner-ports-protocols %}
+
 {% ifversion ghae %}
 You must ensure that the self-hosted runner has appropriate network access to communicate with the {% data variables.product.prodname_ghe_managed %} URL and its subdomains.
 For example, if your instance name is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
@@ -187,7 +189,7 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 {% else %}
 
-You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.
+You must ensure that the machine has the appropriate network access to communicate with {% data variables.product.product_location %}.{% ifversion ghes %} Self-hosted runners connect directly to {% data variables.product.product_location %} and do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.product.product_location %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.product.product_location %}, with no need for traffic to traverse a public network.{% endif %}
 
 {% endif %}
 
