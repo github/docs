@@ -12,7 +12,7 @@ import program from 'commander'
 
 // Set up supported linting check types and their corresponding commands.
 const CHECK_COMMANDS = {
-  parsing: 'TEST_TRANSLATION=true npx jest linting/lint-files',
+  parsing: 'npm run lint-translation',
   rendering: 'script/i18n/test-render-translation.js',
 }
 const SUPPORTED_CHECK_TYPES = Object.keys(CHECK_COMMANDS)
