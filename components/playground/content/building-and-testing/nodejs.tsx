@@ -180,7 +180,11 @@ const article: PlaygroundArticleT = {
       type: 'sub-section',
       title: 'Example caching dependencies',
       content: dedent`
-        When using GitHub-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the \`cache\` action. For more information, see [Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows) and the [\`cache\` action](https://github.com/marketplace/actions/cache).
+
+        When using GitHub-hosted runners, you can cache and restore the dependencies using the [\`setup-node\` action](https://github.com/actions/setup-node). To cache dependencies with the \`setup-node\` action, you must have a \`package-lock.json\`, \`yarn.lock\`, or \`pnpm-lock.yaml\` file in the root of the repository.
+          
+        If you have a custom requirement or need finer controls for caching, you can use the [\`cache\` action](https://github.com/marketplace/actions/cache). For more information, see [Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows) and the [\`cache\` action](https://github.com/marketplace/actions/cache).
+        
         `,
     },
     {
@@ -493,15 +497,7 @@ const article: PlaygroundArticleT = {
               uses: actions/setup-node@v1
               with:
                 node-version: '12.x'
-            - name: Cache Node.js modules
-              uses: actions/cache@v2
-              with:
-                # npm cache files are stored in \`~/.npm\` on Linux/macOS
-                path: ~/.npm
-                key: \${{ runner.OS }}-node-\${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                  \${{ runner.OS }}-node-
-                  \${{ runner.OS }}-
+                cache: 'npm'
             - name: Install dependencies
               run: npm ci
       `,
