@@ -9,7 +9,6 @@
     ".next/cache"
   ],
   "dependencies": {
-    "@alex_neo/jest-expect-message": "^1.0.5",
     "@github/failbot": "0.7.0",
     "@hapi/accept": "^5.0.2",
     "@primer/components": "^31.1.0",
@@ -100,6 +99,7 @@
   "devDependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
+    "@alex_neo/jest-expect-message": "^1.0.5",
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.3",
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
