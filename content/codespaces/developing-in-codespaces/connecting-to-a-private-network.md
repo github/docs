@@ -1,8 +1,8 @@
 ---
 title: Connecting to a private network
-intro: You can connect Codespaces to resources.
+intro: 'You can connect Codespaces to resources on a private network, including package regitries, license servers, and on-premises databases.'
+shortTitle: Connecting Codespaces to resources on a private network.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: '{% data reusables.codespaces.availability %}'
 versions:
   fpt: '*'
   ghec: '*'
