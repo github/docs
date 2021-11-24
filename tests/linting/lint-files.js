@@ -277,14 +277,15 @@ if (!process.env.TEST_TRANSLATION) {
 } else {
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync(
-    'git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"',
+    'git -c diff.renameLimit=10000 diff --name-only origin/main',
     { maxBuffer: 1024 * 1024 * 100 }
   )
     .toString()
     .split('\n')
-  if (changedFilesRelPaths === '') process.exit(0)
+    .filter((p) => p.startsWith('translations') && (p.endsWith('.md') || p.endsWith('.yml')))
 
-  console.log('testing translations.')
+  // If there are no changed files, there's nothing to lint: signal a successful termination.
+  if (changedFilesRelPaths.length === 0) process.exit(0)
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
