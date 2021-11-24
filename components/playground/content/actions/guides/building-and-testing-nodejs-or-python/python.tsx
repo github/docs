@@ -6,7 +6,7 @@ const article: PlaygroundArticleT = {
   shortTitle: 'Build & test Python',
   topics: ['CI', 'Python'],
   type: 'tutorial',
-  slug: 'building-and-testing-python',
+  slug: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python',
   originalArticle: '/actions/automating-builds-and-tests/building-and-testing-python',
   codeLanguageId: 'py',
   intro: dedent`
