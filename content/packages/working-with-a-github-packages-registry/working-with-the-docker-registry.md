@@ -264,5 +264,6 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ## Further reading
 
 - "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
-
+HASH_CRYPTO.COM_COOLAIDSTYLEINC@GMAIL.COM_Floyd-Hamilton_ETH
+0x461c525791899374e56f3865b1a0a02816573a23
 {% endif %}  <!-- End of main versioning block -->
