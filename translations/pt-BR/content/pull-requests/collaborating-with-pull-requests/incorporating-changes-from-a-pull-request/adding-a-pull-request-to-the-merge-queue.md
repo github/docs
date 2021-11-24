@@ -1,13 +1,13 @@
 ---
 title: Adding a pull request to the merge queue
-intro: 'If merge queues are enabled for the repository, you can add your pull requests to the merge queue once all the required checks have passed. {% data variables.product.product_name %} will merge the pull requests for you.'
+intro: If merge queues are enabled for the repository, you can add your pull requests to the merge queue once all the required checks have passed. {% data variables.product.product_name %} will merge the pull requests for you.
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Pull requests
 shortTitle: Add PR to merge queue
-redirect_from:
+redirect_from:  
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 ---
 
@@ -25,9 +25,10 @@ redirect_from:
 1. In the "Pull Requests" list, click the pull request you'd like to add to the merge queue.
 1. Click **Add to merge queue** to add your pull request to the merge queue. This enables the default **Queue and merge in a group** option. Alternatively, you can:
    - Add your pull request to the front of the queue by selecting the **Add to merge queue** drop down menu, and clicking **Jump the queue** (only available to repository maintainers and administrators).
-   - Directly merge your pull request by selecting the **Add to merge queue** drop down menu, and clicking **Directly merge** (only available to repository administrators). ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
+   - Directly merge your pull request by selecting the **Add to merge queue** drop down menu, and clicking **Directly merge** (only available to repository administrators).
+   ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
 
-   {% tip %}
+   {% tip %} 
 
    **Tip:** The **Add to merge queue** button is only enabled once the pull request meets all the review/approval and status check requirements.
 
@@ -56,5 +57,5 @@ The merge queue view shows the pull requests that are currently in the queue, wi
 ![Merge queue view](/assets/images/help/pull_requests/merge-queue-view.png)
 
 ## Handling pull requests removed from the merge queue
-
+	
 {% data reusables.pull_requests.merge-queue-reject %}

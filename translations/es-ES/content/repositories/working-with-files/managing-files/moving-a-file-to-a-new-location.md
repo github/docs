@@ -1,6 +1,6 @@
 ---
-title: Mover un archivo a una nueva ubicación
-intro: 'Puedes mover un archivo a un directorio diferente desde {% data variables.product.product_name %} o utilizando la línea de comandos.'
+title: Moving a file to a new location
+intro: 'You can move a file to a different directory on {% data variables.product.product_name %} or by using the command line.'
 redirect_from:
   - /articles/moving-a-file-to-a-new-location
   - /github/managing-files-in-a-repository/moving-a-file-to-a-new-location
@@ -15,43 +15,44 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Mover un archivo
+shortTitle: Move a file
 ---
+In addition to changing the file location, you can also [update the contents of your file](/articles/editing-files-in-your-repository), or [give it a new name](/articles/renaming-a-file) in the same commit.
 
-Además de cambiar la ubicación del archivo, también puedes [actualizar los contenidos de tu archivo](/articles/editing-files-in-your-repository), o [darle un nuevo nombre](/articles/renaming-a-file) en la misma confirmación.
-
-## Migrar un archivo a una ubicación nueva en {% data variables.product.product_name %}
+## Moving a file to a new location on {% data variables.product.product_name %}
 
 {% tip %}
 
 **Tips**:
 
-- Si tratas de mover un archivo en un repositorio al cual no tienes acceso, bifurcaremos el proyecto a tu cuenta de usuario y te ayudaremos a enviar [una solicitud de extracción](/articles/about-pull-requests) al repositorio original después de confirmar tu cambio.
-- Algunos archivos, como imágenes, necesitan que los muevas desde la línea de comando. Para obtener más información, consulta "[Mover un archivo a una nueva ubicación utilizando la línea de comando](/articles/moving-a-file-to-a-new-location-using-the-command-line)".
+- If you try to move a file in a repository that you don’t have access to, we'll fork the project to your user account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
+- Some files, such as images, require that you move them from the command line. For more information, see "[Moving a file to a new location using the command line](/articles/moving-a-file-to-a-new-location-using-the-command-line)".
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
-1. En tu repositorio, navega hasta el archivo que deseas mover.
-2. En la esquina superior derecha de la vista del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %} para abrir el editor de archivos. ![Icono Edit file (Editar archivo)](/assets/images/help/repository/move-file-edit-file-icon.png)
-3. En el campo de nombre de archivo, cambia el nombre del archivo utilizando estos lineamientos: ![Editar el nombre del archivo](/assets/images/help/repository/moving_files.gif)
-    - Para mover el archivo **dentro de una subcarpeta**, escribe el nombre de la carpeta que deseas, seguido de `/`. El nombre de tu nueva carpeta se convierte en el nuevo elemento en la ruta de navegación.
-    - Para mover el archivo dentro de un directorio **encima de la ubicación actual del archivo**, coloca tu cursor al comienzo del campo de nombre de archivo, después escribe `../` para subir un nivel completo de directorio, o presiona la tecla de `retroceso` para editar el nombre de la carpeta padre.
+1. In your repository, browse to the file you want to move.
+2. In the upper right corner of the file view, click {% octicon "pencil" aria-label="The edit icon" %} to open the file editor.
+![Edit file icon](/assets/images/help/repository/move-file-edit-file-icon.png)
+3. In the filename field, change the name of the file using these guidelines:
+  ![Editing a file name](/assets/images/help/repository/moving_files.gif)
+    - To move the file **into a subfolder**, type the name of the folder you want, followed by `/`. Your new folder name becomes a new item in the navigation breadcrumbs.
+    - To move the file into a directory **above the file's current location**, place your cursor at the beginning of the filename field, then either type `../` to jump up one full directory level, or type the `backspace` key to edit the parent folder's name.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-## Mover un archivo a una nueva ubicación utilizando la línea de comando
+## Moving a file to a new location using the command line 
 
-Puedes utilizar la línea de comando para mover archivos dentro de un repositorio al eliminar el archivo de la ubicación anterior y después agregarlo en la nueva ubicación.
+You can use the command line to move files within a repository by removing the file from the old location and then adding it in the new location.
 
-Muchos archivos pueden [moverse directamente en {% data variables.product.product_name %}](/articles/moving-a-file-to-a-new-location), pero algunos archivos, como imágenes, necesitan que los muevas desde la línea de comando.
+Many files can be [moved directly on {% data variables.product.product_name %}](/articles/moving-a-file-to-a-new-location), but some files, such as images, require that you move them from the command line.
 
 {% data reusables.command_line.manipulating_file_prereqs %}
 
-1. En la computadora, mueve el archivo a una nueva ubicación dentro del directorio que fue creado localmente en tu computadora cuando clonaste el repositorio.
+1. On your computer, move the file to a new location within the directory that was created locally on your computer when you cloned the repository.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Utiliza `git status` para verificar la nueva ubicación y la ubicación anterior del archivo.
+3. Use `git status` to check the old and new file locations.
   ```shell
   $ git status
   > # On branch <em>your-branch</em>
@@ -68,13 +69,13 @@ Muchos archivos pueden [moverse directamente en {% data variables.product.produc
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-{% data reusables.git.stage_for_commit %} Esto eliminará, o `git rm`, el archivo de la ubicación antigua y agregará, o `git add`, el archivo en la nueva ubicación.
+{% data reusables.git.stage_for_commit %} This will delete, or `git rm`, the file from the old location and add, or `git add`, the file to the new location.
   ```shell
   $ git add .
-  # Agrega el archivo a tu repositorio local y lo presenta para la confirmación.
+  # Adds the file to your local repository and stages it for commit.
   # {% data reusables.git.unstage-codeblock %}
   ```
-5. Utiliza `git status` para verificar los cambios preparados para confirmar.
+5. Use `git status` to check the changes staged for commit.
   ```shell
   $ git status
   > # On branch <em>your-branch</em>
