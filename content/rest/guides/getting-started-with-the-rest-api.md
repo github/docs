@@ -250,7 +250,7 @@ The information returned from these calls will depend on which scopes our token 
 
 {% ifversion not ghae %}
 * A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on github.com.{% endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% endif %}{% ifversion ghec or ghes %}, {% endif %}{% ifversion ghec or ghes or ghae %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
+* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion not ghae %}public{% endif %}{% ifversion ghec or ghes %}, {% endif %}{% ifversion internal-repositories %}internal{% endif %} and private repositories we have access to see on {% data variables.product.product_location %}.
 
 As the [docs][repos-api] indicate, these methods take a `type` parameter that
 can filter the repositories returned based on what type of access the user has

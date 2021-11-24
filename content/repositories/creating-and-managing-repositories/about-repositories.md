@@ -61,7 +61,7 @@ Organization owners always have access to every repository created in an organiz
 
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
-{% ifversion ghae or ghes or ghec %}
+{% ifversion internal-repositories %}
 ## About internal repositories
 
 {% note %}

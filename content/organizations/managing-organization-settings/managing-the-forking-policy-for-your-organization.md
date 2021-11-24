@@ -17,13 +17,13 @@ topics:
 shortTitle: Manage forking policy
 ---
 
-By default, new organizations are configured to disallow the forking of private{% ifversion ghes or ghae or ghec %} and internal{% endif %} repositories.
+By default, new organizations are configured to disallow the forking of private{% ifversion internal-repositories %} and internal{% endif %} repositories.
 
-If you allow forking of private{% ifversion ghes or ghae or ghec %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion ghes or ghae or ghec %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+If you allow forking of private{% ifversion internal-repositories %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion internal-repositories %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}{% ifversion ghes or ghae or ghec %}
+{% data reusables.organizations.member-privileges %}{% ifversion internal-repositories %}
 5. Under "Repository forking", select **Allow forking of private and internal repositories**.
   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png){% endif %}{% ifversion fpt %}
 5. Under "Repository forking", select **Allow forking of private repositories**.
