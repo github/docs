@@ -15,7 +15,7 @@ children:
   - /using-codespaces-for-pull-requests
   - /deleting-a-codespace
   - /forwarding-ports-in-your-codespace
-  - /connecting-to-a-network
+  - /connecting-to-a-private-network
   - /changing-the-machine-type-for-your-codespace
   - /using-codespaces-in-visual-studio-code
   - /using-codespaces-with-github-cli
