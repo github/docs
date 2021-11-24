@@ -23,7 +23,7 @@ Organization owners can restrict the ability to change repository visibility to 
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, your repositories owned by your user account can only be private, and repositories in your enterprise's organizations can only be private or internal.
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal.{% ifversion fpt %} For more information, see "[About Enterprise Managed Users](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% endif %}
 

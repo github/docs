@@ -15,11 +15,11 @@ topics:
 shortTitle: Restrict repository creation
 ---
 
-You can choose whether members can create repositories in your organization. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt or ghec %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can choose whether members can create repositories in your organization. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt or ghec %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repositories](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 Organization owners can always create any type of repository.
 
-{% ifversion fpt or ghec %}Enterprise owners{% else %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy. For more information, see "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
+{% ifversion fpt or ghec %}Enterprise owners{% else %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy. For more information, see{% ifversion fpt %} "[Restricting repository creation in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."{% endif %}{% ifversion ghec or ghes or ghae %} "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
 
 {% warning %}
 

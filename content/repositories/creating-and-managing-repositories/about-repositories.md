@@ -44,7 +44,7 @@ You can use repositories to manage your work and collaborate with others.
 
 ## About repository visibility
 
-You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion fpt or ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
 
 {% ifversion ghae %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% ifversion ghes or ghec %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} can also be created with internal visibility. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {% endif %}
@@ -63,12 +63,6 @@ People with admin permissions for a repository can change an existing repository
 
 {% ifversion internal-repositories %}
 ## About internal repositories
-
-{% note %}
-
-**Note:** {% data reusables.gated-features.internal-repos %}
-
-{% endnote %}
 
 {% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
