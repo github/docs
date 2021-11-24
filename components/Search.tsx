@@ -2,16 +2,17 @@ import React, { useState, useEffect, useRef, ReactNode, RefObject } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import cx from 'classnames'
+import { ActionList, Label, Overlay } from '@primer/components'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useMainContext } from './context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
+import { Link } from 'components/Link'
 import { useLanguages } from './context/LanguagesContext'
 
 import styles from './Search.module.scss'
-import { ActionList, Label, Link, Overlay } from '@primer/components'
 
 type SearchResult = {
   url: string

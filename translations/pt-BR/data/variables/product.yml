@@ -151,7 +151,7 @@ prodname_arctic_vault: 'Cofre de Código do Ártico'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 #Command Palette
-prodname_command_palette: 'GitHub Command Palette'
+prodname_command_palette: 'Paleta de comando do GitHub'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}

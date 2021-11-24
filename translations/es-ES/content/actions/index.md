@@ -1,7 +1,7 @@
 ---
-title: Documentación de GitHub Actions
+title: GitHub Actions Documentation
 shortTitle: GitHub Actions
-intro: 'Automatiza, personaliza y ejecuta tus flujos de trabajo de desarrollo de software directamente en tu repositorio con {% data variables.product.prodname_actions %}. Puedes descubrir, crear y compartir acciones para realizar cualquier trabajo que quieras, incluido CI/CD, y combinar acciones en un flujo de trabajo completamente personalizado.'
+intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
@@ -47,19 +47,19 @@ versions:
 children:
   - /quickstart
   - /learn-github-actions
-  - /creating-actions
-  - /security-guides
+  - /managing-workflow-runs
   - /automating-builds-and-tests
   - /deployment
-  - /managing-issues-and-pull-requests
-  - /publishing-packages
   - /using-containerized-services
-  - /advanced-guides
-  - /managing-workflow-runs
+  - /publishing-packages
+  - /managing-issues-and-pull-requests
+  - /migrating-to-github-actions
   - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
-  - /migrating-to-github-actions
+  - /security-guides
+  - /advanced-guides
+  - /creating-actions
   - /guides
 ---
 
