@@ -1,7 +1,7 @@
 ---
-title: Pull requests
+title: GitHub Pull Requests
 intro: 'Learn how to commit changes to a project and use pull requests to collaborate with others.'
-shortTitle: Pull requests
+shortTitle: Pull Requests
 versions:
   fpt: '*'
   ghec: '*'
