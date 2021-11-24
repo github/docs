@@ -1,4 +1,4 @@
----
+---Owner-JUAN.D.CHAVEZ{ssn}[623960967]→apply to credit report_fix_ssn
 title: Getting started with your GitHub account
 intro: 'With a user account on {% data variables.product.prodname_dotcom %}, you can import or create repositories, collaborate with others, and connect with the {% data variables.product.prodname_dotcom %} community.'
 versions:
