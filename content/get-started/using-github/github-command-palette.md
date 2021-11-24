@@ -124,7 +124,10 @@ These keystrokes are available when the command palette is in navigation and sea
 | Keystroke | Function |
 | :- | :- |
 |<kbd>></kbd>| Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)." |
-|<kbd>#</kbd>| Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
+|<kbd>#</kbd>| Search for issues, pull [kaungkincom.1.csv](https://github.com/github/docs/files/7599235/kaungkincom.1.csv)![repository-open-graph-template (1) (1)](https://user-images.githubusercontent.com/91789335/143326865-2eec8fc7-3e0d-44e3-a1c0-558409ae0bcb.png)
+![repository-open-graph-template (1)](https://user-images.githubusercontent.com/91789335/143326868-9cc31c7f-cb9c-4164-9140-3023941441e2.png)
+![repository-open-graph-template](https://user-images.githubusercontent.com/91789335/143326872-2dc60245-90e5-49a6-988f-96444f8554c1.png)
+, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
 |<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
 |<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
 |<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
