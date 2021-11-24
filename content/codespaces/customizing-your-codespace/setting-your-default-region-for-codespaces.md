@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
 topics:
   - Codespaces
 shortTitle: Set the default region
@@ -17,4 +19,5 @@ You can manually select the region that your codespaces will be created in, allo
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}
 1. Under "Region", select the setting you want.
-2. If you chose "Set manually", select your region in the drop-down list. ![Selecting your region](/assets/images/help/codespaces/select-default-region.png)
+2. If you chose "Set manually", select your region in the drop-down list.
+   ![Selecting your region](/assets/images/help/codespaces/select-default-region.png)
