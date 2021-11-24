@@ -94,6 +94,6 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud'
       run: |-
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+        gcloud auth login --brief --cred-file="{% raw %}${{ steps.auth.outputs.credentials_file_path }}{% endraw %}"
         gcloud config list
 ```
