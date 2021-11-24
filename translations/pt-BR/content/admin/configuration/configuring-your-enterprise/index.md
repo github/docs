@@ -1,6 +1,6 @@
 ---
-title: Configurar a sua empresa
-intro: 'Depois que {% data variables.product.product_name %} estiver pronto e funcionando, você poderá configurar a sua empresa para atender às necessidades da sua organização.'
+title: Configuring your enterprise
+intro: 'After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization''s needs.'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -34,6 +34,7 @@ children:
   - /restricting-network-traffic-to-your-enterprise
   - /configuring-github-pages-for-your-enterprise
   - /configuring-the-referrer-policy-for-your-enterprise
-shortTitle: Configure sua empresa
+  - /configuring-custom-footers
+shortTitle: Configure your enterprise
 ---
 

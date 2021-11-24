@@ -57,7 +57,7 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes %}
+   {%- ifversion ghes > 3.0 %}
    ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
@@ -122,8 +122,8 @@ To configure whether workflows in an internal repository can be accessed from ou
 1. Under **Access**, choose one of the access settings:
    ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
    * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
-   * **Accessible by any repository in the organization** - Workflows in other repositories can use workflows in this repository as long as they are part of the same organization.
-   * **Accessible by any repository in the enterprise** - Workflows in other repositories can use workflows in this repository as long as they are part of the same enterprise.
+   * **Accessible from repositories in the '&lt;organization name&gt;' organization** - Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.
+   * **Accessible from repositories in the '&lt;enterprise name&gt;' enterprise** - Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.
 1. Click **Save** to apply the settings.
 {% endif %}
 

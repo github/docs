@@ -187,6 +187,10 @@ Shopify | Shopify Private App Password | shopify_private_app_password
 Slack | Slack API Token | slack_api_token
 Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url
 Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Production Application Secret | square_production_application_secret{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 %}
+Square | Square Sandbox Application Secret | square_sandbox_application_secret{% endif %}
 SSLMate | SSLMate API Key | sslmate_api_key
 SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret
 Stripe | Stripe API Key | stripe_api_key
