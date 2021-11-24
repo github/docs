@@ -30,6 +30,18 @@ jobs:
     name: autoupdate
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo content
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97
+
+      - name: Setup Node
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
+        with:
+          node-version: 16.13.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Update next PR in queue
         env:
           GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
