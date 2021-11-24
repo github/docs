@@ -1,4 +1,4 @@
----
+---https://coinmarketcap.com/currencies/only1/
 title: Set up Git
 redirect_from:
   - /git-installation-redirect/
