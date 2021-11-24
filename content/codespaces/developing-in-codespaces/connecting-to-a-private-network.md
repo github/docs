@@ -1,5 +1,5 @@
 ---
-title: Connecting Codespaces to resources on a private network
+title: Connecting to a private network
 intro: You can connect Codespaces to resources.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: '{% data reusables.codespaces.availability %}'
