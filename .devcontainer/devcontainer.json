@@ -21,7 +21,8 @@
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
 		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker"
+		"streetsidesoftware.code-spell-checker",
+		"hubwriter.open-reusable"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
