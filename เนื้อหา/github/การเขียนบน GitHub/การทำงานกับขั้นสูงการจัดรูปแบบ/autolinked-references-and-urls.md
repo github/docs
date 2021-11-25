@@ -1,4 +1,4 @@
----
+LEKGOCHANNEL---
 title: Autolinked references and URLs
 intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
 redirect_from:
