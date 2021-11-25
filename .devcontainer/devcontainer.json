@@ -29,11 +29,8 @@
 	"forwardPorts": [4000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	 "postCreateCommand": "npm ci && npm run build",
+	"postCreateCommand": "'code --install-extension .vscode/open-reusable-1.3.0.vsix' && npm ci && npm run build",
 		 
-	// Use 'postCreateCommand' to install the Open Reusables extension.
-	 "postCreateCommand": "code --install-extension .vscode/open-reusable-1.3.0.vsix",
-
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
 }
