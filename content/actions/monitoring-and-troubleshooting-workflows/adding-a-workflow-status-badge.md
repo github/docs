@@ -38,10 +38,10 @@ This Markdown example adds a status badge for a branch with the name `feature-1`
 ![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=feature-1)
 ```
 
-## Using the `event` parameter
+## Using the `on` parameter
 
 This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
 
 ```markdown
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=pull_request)
+![example on parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?on=pull_request)
 ```
