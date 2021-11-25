@@ -1,11 +1,13 @@
 ---
 title: Changing the machine type for your codespace
-shortTitle: Changing the machine type
+shortTitle: Change the machine type
 intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for work you''re doing.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace
 topics:
   - Codespaces
 ---
