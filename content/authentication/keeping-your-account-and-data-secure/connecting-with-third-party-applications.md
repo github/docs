@@ -67,7 +67,7 @@ There are several types of data that applications can request.
 | Notifications | Notification access allows applications to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories. |
 | Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
-| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Applications can request access for either {% ifversion fpt or ghes or ghec %}public{% endif %}{% ifversion ghec or ghes %}, {% endif %}{% if internal-repositories %}internal{% endif %} or private repositories on a user-wide level. |
+| Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Applications can request access for either {% ifversion fpt or ghes or ghec %}public{% endif %}{% ifversion ghec or ghes %}, {% endif %}{% ifversion ghes or ghec or ghae %}internal{% endif %} or private repositories on a user-wide level. |
 | Repository delete | Applications can request to delete repositories that you administer, but they won't have access to your code. |
 
 ## Requesting updated permissions

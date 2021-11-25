@@ -106,7 +106,7 @@ The level of risk for a repository is determined by the number and severity of a
 
 | Qualifier | Description |
 | -------- | -------- |{% ifversion fpt or ghes > 3.1 or ghec %}
-| `is:public` | Display public repositories. |{% endif %}{% if internal-repositories %}
+| `is:public` | Display public repositories. |{% endif %}{% ifversion ghes or ghec or ghae %}
 | `is:internal` | Display internal repositories. |{% endif %}
 | `is:private` | Display private repositories. |
 | `archived:true` | Display archived repositories. |

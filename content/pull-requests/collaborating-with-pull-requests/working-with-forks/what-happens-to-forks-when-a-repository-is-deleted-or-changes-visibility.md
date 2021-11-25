@@ -60,7 +60,7 @@ If a private repository is made public and then deleted, its private forks will 
 
 {% endif %}
 
-{% if internal-repositories %}
+{% ifversion ghes or ghec or ghae %}
 
 ## Changing the visibility of an internal repository
 
