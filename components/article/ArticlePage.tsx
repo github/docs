@@ -24,6 +24,22 @@ const interactiveAlternatives: Record<string, { href: string }> = {
   '/actions/automating-builds-and-tests/building-and-testing-python': {
     href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
   },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
+    },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=dotnet',
+    },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java',
+    },
+  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces':
+    {
+      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
+    },
 }
 
 export const ArticlePage = () => {

@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
 topics:
   - Codespaces
 shortTitle: Set the default editor
